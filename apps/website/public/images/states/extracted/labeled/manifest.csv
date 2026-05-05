@@ -1,0 +1,40 @@
+state_code,state_name,file,source_file,distance
+WA,Washington,wa-washington.png,state-01.png,10.2
+ME,Maine,me-maine.png,state-02.png,10.3
+MT,Montana,mt-montana.png,state-03.png,12.8
+ND,North Dakota,nd-north-dakota.png,state-04.png,7.4
+ID,Idaho,id-idaho.png,state-05.png,64.3
+OR,Oregon,or-oregon.png,state-06.png,9.2
+MN,Minnesota,mn-minnesota.png,state-07.png,32.7
+NY,New York,ny-new-york.png,state-08.png,48.6
+WI,Wisconsin,wi-wisconsin.png,state-09.png,8.3
+SD,South Dakota,sd-south-dakota.png,state-10.png,19.2
+MI,Michigan,mi-michigan.png,state-11.png,60.8
+WY,Wyoming,wy-wyoming.png,state-12.png,10.1
+PA,Pennsylvania,pa-pennsylvania.png,state-13.png,5.6
+IA,Iowa,ia-iowa.png,state-14.png,10.7
+NE,Nebraska,ne-nebraska.png,state-15.png,7.4
+OH,Ohio,oh-ohio.png,state-16.png,4.6
+UT,Utah,ut-utah.png,state-17.png,9.7
+NV,Nevada,nv-nevada.png,state-18.png,44.0
+IN,Indiana,in-indiana.png,state-19.png,8.8
+IL,Illinois,il-illinois.png,state-20.png,21.5
+CA,California,ca-california.png,state-21.png,28.3
+CO,Colorado,co-colorado.png,state-22.png,2.6
+VA,Virginia,va-virginia.png,state-23.png,32.0
+KS,Kansas,ks-kansas.png,state-24.png,5.6
+MO,Missouri,mo-missouri.png,state-25.png,12.1
+KY,Kentucky,ky-kentucky.png,state-26.png,17.8
+NC,North Carolina,nc-north-carolina.png,state-27.png,24.8
+TN,Tennessee,tn-tennessee.png,state-28.png,33.1
+OK,Oklahoma,ok-oklahoma.png,state-29.png,56.8
+AZ,Arizona,az-arizona.png,state-30.png,9.7
+NM,New Mexico,nm-new-mexico.png,state-31.png,5.7
+AR,Arkansas,ar-arkansas.png,state-32.png,22.9
+SC,South Carolina,sc-south-carolina.png,state-33.png,11.9
+GA,Georgia,ga-georgia.png,state-34.png,33.3
+AL,Alabama,al-alabama.png,state-35.png,26.9
+MS,Mississippi,ms-mississippi.png,state-36.png,4.8
+TX,Texas,tx-texas.png,state-37.png,29.5
+LA,Louisiana,la-louisiana.png,state-38.png,46.3
+FL,Florida,fl-florida.png,state-39.png,52.6

@@ -1,0 +1,180 @@
+-- ============================================================================
+-- D1 MIGRATIONS - COPY/PASTE EACH SECTION INTO CLOUDFLARE CONSOLE
+-- ============================================================================
+-- Instructions:
+-- 1. Go to: https://dash.cloudflare.com/60ac45cad5eead847d2ae20dab3661da/workers/d1
+-- 2. Click on "mh-construction-db" 
+-- 3. Click the "Console" tab
+-- 4. Copy SECTION 1 below, paste into console, click "Execute"
+-- 5. Repeat for SECTION 2, 3, 4, 5, 6, and 7
+-- ============================================================================
+
+-- ============================================================================
+-- SECTION 1: CONSULTATIONS TABLE
+-- Copy everything between the dashed lines and paste into D1 Console
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS consultations (
+  id TEXT PRIMARY KEY,
+  client_name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT,
+  project_type TEXT NOT NULL,
+  project_description TEXT,
+  location TEXT,
+  budget TEXT,
+  selected_date TEXT NOT NULL,
+  selected_time TEXT NOT NULL,
+  additional_notes TEXT,
+  status TEXT DEFAULT 'new',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  metadata TEXT
+);
+
+CREATE INDEX idx_consultations_status ON consultations(status);
+CREATE INDEX idx_consultations_date ON consultations(selected_date);
+CREATE INDEX idx_consultations_email ON consultations(email);
+
+-- ============================================================================
+-- SECTION 2: JOB APPLICATIONS TABLE
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS job_applications (
+  id TEXT PRIMARY KEY,
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  address TEXT,
+  city TEXT,
+  state TEXT,
+  zip_code TEXT,
+  position TEXT NOT NULL,
+  experience TEXT NOT NULL,
+  availability TEXT,
+  cover_letter TEXT,
+  resume_url TEXT, -- Cloudflare R2 URL
+  veteran_status TEXT,
+  referral_source TEXT,
+  status TEXT DEFAULT 'new',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  metadata TEXT -- JSON field for additional data
+);
+
+CREATE INDEX idx_applications_status ON job_applications(status);
+CREATE INDEX idx_applications_position ON job_applications(position);
+CREATE INDEX idx_applications_email ON job_applications(email);
+
+-- ============================================================================
+-- SECTION 3: CONTACT SUBMISSIONS TABLE
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS contact_submissions (
+  id TEXT PRIMARY KEY,
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT,
+  project_type TEXT,
+  project_location TEXT,
+  budget TEXT,
+  timeline TEXT,
+  message TEXT NOT NULL,
+  urgency TEXT DEFAULT 'medium',
+  preferred_contact TEXT DEFAULT 'either',
+  status TEXT DEFAULT 'new',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  metadata TEXT -- JSON field for additional data
+);
+
+CREATE INDEX idx_contacts_status ON contact_submissions(status);
+CREATE INDEX idx_contacts_urgency ON contact_submissions(urgency);
+CREATE INDEX idx_contacts_email ON contact_submissions(email);
+
+-- ============================================================================
+-- SECTION 4: USERS TABLE
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS users (
+  id TEXT PRIMARY KEY,
+  email TEXT UNIQUE NOT NULL,
+  password_hash TEXT NOT NULL,
+  role TEXT NOT NULL DEFAULT 'user', -- user, admin, manager
+  first_name TEXT,
+  last_name TEXT,
+  phone TEXT,
+  veteran_status TEXT,
+  is_active INTEGER DEFAULT 1,
+  email_verified INTEGER DEFAULT 0,
+  last_login TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  metadata TEXT -- JSON field for additional data
+);
+
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_users_role ON users(role);
+
+-- ============================================================================
+-- SECTION 5: SESSIONS TABLE
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS sessions (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  token_hash TEXT NOT NULL,
+  expires_at TIMESTAMP NOT NULL,
+  ip_address TEXT,
+  user_agent TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE INDEX idx_sessions_user_id ON sessions(user_id);
+CREATE INDEX idx_sessions_expires_at ON sessions(expires_at);
+
+-- ============================================================================
+-- SECTION 6: NEWSLETTER SUBSCRIBERS TABLE
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS newsletter_subscribers (
+  id           TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(16)))),
+  email        TEXT NOT NULL UNIQUE,
+  name         TEXT,
+  unsubscribe_token TEXT NOT NULL UNIQUE,
+  subscribed   INTEGER NOT NULL DEFAULT 1,  -- 1 = active, 0 = unsubscribed
+  created_at   TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at   TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE INDEX IF NOT EXISTS idx_newsletter_email
+  ON newsletter_subscribers (email);
+
+CREATE INDEX IF NOT EXISTS idx_newsletter_token
+  ON newsletter_subscribers (unsubscribe_token);
+
+-- ============================================================================
+-- SECTION 7: CREATED_AT INDEXES FOR ADMIN QUERIES
+-- ============================================================================
+
+CREATE INDEX IF NOT EXISTS idx_contact_submissions_created_at
+  ON contact_submissions (created_at);
+
+CREATE INDEX IF NOT EXISTS idx_consultations_created_at
+  ON consultations (created_at);
+
+CREATE INDEX IF NOT EXISTS idx_job_applications_created_at
+  ON job_applications (created_at);
+
+-- ============================================================================
+-- VERIFICATION QUERY - Run this last to confirm all tables exist
+-- ============================================================================
+
+SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;
+
+-- You should see 6 tables:
+-- consultations, contact_submissions, job_applications,
+-- newsletter_subscribers, sessions, users

@@ -1,0 +1,60 @@
+{
+  "name": "Brooks Morris",
+  "role": "Finance and Operations Manager",
+  "department": "Logistics Command",
+  "cardNumber": 88,
+  "position": "Finance and Operations Manager",
+  "nickname": "Finance Operations Lead",
+  "yearsWithCompany": 10,
+  "hometown": "Washington",
+  "education": "Accounting & Finance",
+  "currentYearStats": {
+    "projectsCompleted": 60,
+    "clientSatisfaction": 99,
+    "safetyRecord": "N/A",
+    "teamCollaborations": 50
+  },
+  "careerStats": {
+    "totalProjects": 450,
+    "yearsExperience": 12,
+    "specialtyAreas": 4,
+    "mentorships": 12
+  },
+  "awards": "Financial Excellence Award, Transparency Leadership Recognition",
+  "bio": "Brooks leads finance and operations with data-backed discipline, translating complex numbers into clear decisions that improve performance and control risk. His systems mindset strengthens forecasting, accountability, and cross-functional execution so teams can deliver with confidence.",
+  "careerHighlights": [
+    "Leads finance and operations with measurable, data-backed discipline.",
+    "Improves forecasting and controls to support confident leadership decisions.",
+    "Builds cross-functional accountability through process clarity and reporting.",
+    "Connects financial insight to operational execution in real time."
+  ],
+  "funFact": "Brooks enjoys turning complex financial data into decisions teams can act on immediately.",
+  "certifications": "Six Sigma Master Black Belt, Six Sigma Black Belt, Procore Certified Admin",
+  "hobbies": "Finance, Reading",
+  "specialInterests": "Cost Analysis and Operational Accountability",
+  "specialties": [
+    "Financial Operations",
+    "Process Improvement",
+    "Forecasting and Controls",
+    "Cross-Functional Alignment",
+    "Performance Analytics"
+  ],
+  "avatar": "/images/team/brooks-morris.webp",
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "brooks-morris",
+  "email": "brooks@mhc-gc.com",
+  "skills": {
+    "leadership": 82,
+    "technical": 94,
+    "communication": 88,
+    "safety": 58,
+    "problemSolving": 92,
+    "teamwork": 84,
+    "organization": 98,
+    "innovation": 88,
+    "passion": 90,
+    "continuingEducation": 86
+  },
+  "qrCode": "/images/qr-codes/team/qr-team-brooks-morris-color.png"
+}

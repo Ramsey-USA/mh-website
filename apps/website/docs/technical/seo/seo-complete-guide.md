@@ -1,0 +1,1212 @@
+# Complete SEO & Search Optimization Guide
+
+**Category:** Technical - SEO  
+**Version:** 3.2.0  
+**Last Updated:** April 15, 2026  
+**Status:** ✅ Active & Comprehensive
+
+> **Canonical Reference:** For exact brand values, see [Brand Constants](../../branding/brand-constants.md).
+
+> **Consolidation Note:** This document consolidates and supersedes:
+>
+> - `ultimate-seo-guide.md` (456 lines)
+> - `advanced-seo-optimization.md` (2,267 lines)
+> - `seo-enhancement-guide.md` (232 lines)
+> - `search-accessibility-guide.md` (208 lines)
+> - `seo-section-order-optimization.md` (319 lines)
+
+---
+
+## 📋 Table of Contents
+
+1. [Quick Start](#quick-start)
+2. [SEO System Overview](#seo-system-overview)
+3. [Content Structure & Section Ordering](#content-structure--section-ordering)
+4. [Technical Implementation](#technical-implementation)
+5. [Search & Accessibility](#search--accessibility)
+6. [Schema Markup & Structured Data](#schema-markup--structured-data)
+7. [Page-Specific SEO](#page-specific-seo)
+8. [Monitoring & Auditing](#monitoring--auditing)
+9. [Advanced Optimization](#advanced-optimization)
+10. [Troubleshooting](#troubleshooting)
+
+---
+
+## 🚀 Quick Start
+
+### Adding a New Page
+
+**Step 1:** Create your page file
+
+```bash
+mkdir -p src/app/new-page
+touch src/app/new-page/page.tsx
+```
+
+**Step 2:** Add to sitemap (`src/app/sitemap.ts`)
+
+```typescript
+const ACTIVE_PAGES = [
+  // ... existing pages
+  { path: "/new-page", priority: 0.8, changeFreq: "monthly" as const },
+];
+```
+
+**Step 3 (Optional):** Add custom SEO in `src/lib/seo/page-seo-utils.ts`
+
+```typescript
+export function getNewPageSEO(): Metadata & { schemas: object[] } {
+  return generateEnhancedMetadata({
+    title: "Your Title | MH Construction",
+    description: "Optimized description (120-160 characters).",
+    keywords: ["keyword1", "veteran-owned construction", "Pacific Northwest"],
+    canonicalUrl: `${enhancedSEO.siteUrl}/new-page`,
+    schemas: [
+      /* your schemas */
+    ],
+  });
+}
+```
+
+**Step 4:** Run audit
+
+```bash
+node scripts/seo-audit.js
+```
+
+---
+
+## 🎯 SEO System Overview
+
+### Key Features
+
+#### 1. Auto-Adaptive Sitemap
+
+- Automatically updates when you add new pages
+- Simple configuration via ACTIVE_PAGES array
+- Smart prioritization based on page type
+- Change frequency detection for optimal crawling
+
+#### 2. Smart SEO Scoring
+
+- Real-time scoring for all pages (0-100 scale)
+- Actionable recommendations for improvements
+- Best practice enforcement built-in
+- Validation checks prevent SEO mistakes
+
+#### 3. Automated Auditing
+
+- Run `node scripts/seo-audit.js` to check all pages
+- Automated reports in JSON and text format
+- CI/CD integration ready
+- Score tracking over time
+
+#### 4. Page Type Detection
+
+- Auto-categorizes pages (homepage, services, projects, etc.)
+- Smart defaults for each page type
+- Schema suggestions per category
+- Priority settings based on importance
+
+### SEO Scoring System
+
+| Score  | Grade | Status       | Action              |
+| ------ | ----- | ------------ | ------------------- |
+| 90-100 | A+    | 🟢 Excellent | Maintain            |
+| 80-89  | A     | 🟢 Good      | Minor tweaks        |
+| 70-79  | B     | 🟡 Fair      | Improvements needed |
+| 60-69  | C     | 🟠 Poor      | Action required     |
+| 0-59   | F     | 🔴 Critical  | Immediate fix       |
+
+**Score Factors:**
+
+- Title Score (25%): Length, structure, keywords
+- Description Score (25%): Length, clarity, CTA
+- Keywords Score (20%): Count, relevance, diversity
+- Schema Score (20%): Structured data presence
+- Image Score (10%): OG images, alt text
+
+---
+
+## 🏗️ Content Structure & Section Ordering
+
+### Why Section Order Matters
+
+Search engines prioritize content that appears earlier in HTML structure. Proper section ordering can improve
+rankings by **15-25%** without changing any content.
+
+### General Ordering Principles
+
+All lead-path pages follow the **Universal Page Flow Standard** — **Discover → Trust → Proof → Action**:
+
+| Phase        | Position | Content                                                            |
+| ------------ | -------- | ------------------------------------------------------------------ |
+| **Discover** | 0–25%    | Hero (H1 + primary CTA), primary offerings/content                 |
+| **Trust**    | 25–50%   | Values, capabilities, expertise, why-choose-us                     |
+| **Proof**    | 50–75%   | Testimonials, stats, awards, accreditations — **CRITICAL for SEO** |
+| **Action**   | 75–100%  | Process summary, final CTAs, NextStepsSection                      |
+
+> **Full Standard:** [Universal Page Flow Standard](../../development/standards/universal-page-flow-standard.md)
+
+### Why Proof After Trust?
+
+✅ Users are primed to accept social proof _after_ understanding what the company does  
+✅ Google's algorithms favor trust signals backed by contextual authority  
+✅ Increases time-on-page and engagement metrics  
+✅ Reduces bounce rate by providing validation at the right moment in the scroll journey
+
+### Anti-Patterns to Avoid
+
+❌ Large hero images blocking H1 and intro text  
+❌ Testimonials buried below "Why Us" explanations  
+❌ Primary CTAs hidden in footers  
+❌ Critical content in collapsed accordions/tabs  
+❌ Heavy JavaScript delaying content rendering  
+❌ Cookie banners hiding main content
+
+---
+
+## 🏠 Page-Specific Section Ordering
+
+### Homepage (Already Optimized) ✅
+
+#### Current Structure - SEO Validation Required
+
+**Full Documentation:** [Homepage Documentation](../homepage.md)
+
+1. Hero Section (0-10%) - Primary value proposition with dual-label navigation ✅
+2. PWA Install Banner (conditional) - App install prompt ✅
+3. Core Values (10-20%) - Four foundational principles (Honesty, Integrity, Professionalism, Thoroughness) ✅
+4. Why Partner (20-30%) - Partnership philosophy and differentiation ✅
+5. Services Showcase (30-40%) - Primary construction service offerings ✅
+6. Strategic CTA Banner (40-45%) - Mid-page conversion (App + Pitch Deck + Contact) ✅
+7. **Testimonials (45-55%)** - Social proof at optimal depth (25-30% in user scroll) ✅
+8. Company Stats (55-65%) - Battle-tested excellence and credibility metrics ✅
+9. Our Process Timeline (65-80%) - Five-step transparent project workflow ✅
+10. Next Steps (80-100%) - Final conversion guidance ✅
+
+**Implementation Details:**
+
+- **File:** `/src/app/page.tsx` (361 lines)
+- **Performance:** Lazy-loaded below-fold sections (Testimonials, CompanyStats, NextSteps)
+- **SEO Schemas:** Organization, FAQ, LocalBusiness structured data
+- **Analytics:** Page tracking and scroll depth monitoring
+- **No changes needed** - testimonials perfectly positioned at 25-30% scroll depth
+
+---
+
+## 🏠 Page-Specific Section Ordering
+
+> All lead-path pages follow the **Universal Page Flow Standard** (Discover → Trust → Proof → Action).
+> Structures below reflect the **current implemented state** as of April 2026.
+> See [Universal Page Flow Standard](../../development/standards/universal-page-flow-standard.md) for the canonical reference.
+
+### Homepage ✅
+
+1. Hero + ServiceShowcase _(Discover)_
+2. CoreValuesSection _(Discover/Trust)_
+3. WhyPartnerSection _(Trust)_
+4. CompanyStats _(Trust)_
+5. TestimonialsSection _(Proof)_
+6. Timeline _(Proof)_
+7. StrategicCTABanner _(Action)_
+8. NextStepsSection _(Action)_
+
+---
+
+### Services Page ✅
+
+1. Hero _(Discover)_
+2. CoreServicesSection _(Discover)_
+3. SpecialtyServicesSection _(Discover)_
+4. GovernmentProjectsSection _(Discover)_
+5. ServiceAreasSection _(Discover)_
+6. ConstructionExpertiseSection _(Trust)_
+7. WhyChooseUs _(Trust)_
+8. TestimonialsSection _(Proof)_
+9. ConstructionProcessSection _(Action)_
+10. Partnership section + final CTAs _(Action)_
+11. NextStepsSection _(Action)_
+
+---
+
+### Projects Page ✅
+
+1. Hero _(Discover)_
+2. ProjectsFilterSection _(Discover)_
+3. ProjectsGridSection _(Discover)_
+4. CapabilitiesSection _(Trust)_
+5. VeteranBenefitsBanner _(Trust)_
+6. ProjectsStatsSection _(Proof)_
+7. WhyChooseSection _(Proof)_
+
+---
+
+### About Page ✅
+
+1. Hero _(Discover)_
+2. PartnershipPhilosophy _(Discover)_
+3. LeadershipTeam _(Trust)_
+4. ValuesShowcase _(Trust)_
+5. Timeline / company-evolution _(Trust)_
+6. CompanyStats _(Proof)_
+7. AwardsSection _(Proof)_
+8. Accreditations _(Proof)_
+9. SafetySection _(Proof)_
+10. TestimonialsSection _(Proof)_
+11. News section _(Proof)_
+12. NextStepsSection _(Action)_
+
+---
+
+### Team Page ✅
+
+1. Hero _(Discover)_
+2. Intro + Upper Brass _(Discover)_
+3. Mission Commanders _(Discover)_
+4. Employee Testimonials _(Proof)_
+5. Field Officers / Special Ops / Logistics _(Trust)_
+6. Company Culture _(Trust)_
+7. Career Growth / NextStepsSection _(Action)_
+
+---
+
+### Allies Page ✅
+
+1. Hero _(Discover)_
+2. Vendor Partners + cards _(Discover)_
+3. Partnership philosophy / Why MHC _(Trust)_
+4. Accreditations _(Proof)_
+5. Apply / Become an Ally CTA _(Action)_
+
+---
+
+### Contact Page ✅
+
+1. Hero _(Discover)_
+2. Quick Contact form _(Action — primary goal)_
+3. Two Pathways / partnership-pathways _(Discover)_
+4. Office Locations / map _(Trust)_
+5. Partnership Options CTAs _(Action)_
+6. Service Areas _(Trust)_
+
+---
+
+### FAQ Page ✅
+
+1. Hero + Stats _(Discover)_
+2. Category sections: General → Process → Safety → Communication → Veterans → Technical → Partnership → Financial _(Discover → Trust → Proof)_
+3. Still Have Questions CTA _(Action)_
+4. NextStepsSection _(Action)_
+
+---
+
+### Location Pages ✅ _(shared template)_
+
+1. Hero _(Discover)_
+2. Services _(Discover)_
+3. Why Choose / local expertise _(Trust)_
+4. Recent Projects _(Proof)_
+5. Accreditations _(Proof)_
+6. Contact CTA _(Action)_
+
+---
+
+### Other Pages
+
+**Careers:** Standard flow; not a lead-path conversion page — validate separately  
+**Public Sector / Veterans:** Different structural intent; exempt from standard flow
+
+---
+
+## 🎨 SEO Best Practices
+
+### Title Optimization
+
+✅ **Optimal Length:** 50 characters  
+⚠️ **Minimum:** 30 characters  
+❌ **Maximum:** 60 characters (hard limit)
+
+**Formula:** `[Page Name] | MH Construction`
+
+**Examples:**
+
+- ✅ "Services | MH Construction" (30 chars)
+- ✅ "About Us | MH Construction" (28 chars)
+- ❌ "Construction Services Including Residential, Commercial, and Government | MH Construction" (91 chars - TOO LONG)
+
+### Description Optimization
+
+✅ **Optimal Length:** 150 characters  
+⚠️ **Minimum:** 120 characters  
+❌ **Maximum:** 160 characters (hard limit)
+
+**Tips:**
+
+- Include primary keyword in first 120 characters
+- Add call-to-action
+- Mention location (Pacific Northwest, Tri-State licensed footprint, Tri-Cities HQ)
+- Highlight veteran-owned status
+
+**Example (154 characters - PERFECT!):**
+
+```text
+Professional construction services from MH Construction. Veteran-owned excellence serving the Pacific Northwest
+with transparent pricing. Schedule your free consultation today.
+```
+
+### Keywords Strategy
+
+✅ **Optimal Count:** 7 keywords  
+⚠️ **Minimum:** 3 keywords  
+❌ **Maximum:** 15 keywords
+
+**Keyword Priority:**
+
+1. **Primary:** Page-specific term (e.g., "construction services")
+2. **Brand:** "MH Construction"
+3. **Identity:** "veteran-owned construction"
+4. **Location:** "Pacific Northwest", "Tri-State licensed (WA, OR, ID)", "Tri-Cities HQ"
+5. **Services:** Related service terms
+6. **USP:** "transparent pricing", "military precision"
+7. **Secondary:** Additional relevant terms
+
+**Current Primary Keywords (Root Layout):**
+
+1. veteran-owned contractor
+2. Pacific Northwest construction
+3. military precision construction
+4. Pacific Northwest builder
+5. General MH military construction
+6. veteran benefits construction
+7. Tri-State licensed contractor
+8. transparent construction partnerships
+9. military-style project management
+10. Washington Oregon Idaho contractor
+11. sustainable construction technology
+12. community-focused building
+
+---
+
+## 🔧 Technical Implementation
+
+### Page Type Categories
+
+| Category     | Patterns                    | Priority | Change Freq | Schemas                                   |
+| ------------ | --------------------------- | -------- | ----------- | ----------------------------------------- |
+| Homepage     | `/`                         | 1.0      | monthly     | Organization, Website, LocalBusiness, FAQ |
+| Services     | `/services`, `/service/`    | 0.9      | monthly     | Service, Offer                            |
+| Projects     | `/projects`, `/portfolio`   | 0.8      | weekly      | CreativeWork                              |
+| Team         | `/team`, `/about`           | 0.7      | monthly     | Person, Organization                      |
+| Contact      | `/contact`                  | 0.9      | monthly     | ContactPage, LocalBusiness                |
+| Careers      | `/careers`, `/jobs`         | 0.7      | weekly      | JobPosting                                |
+| Partnerships | `/allies`, `/public-sector` | 0.75     | monthly     | Service, Organization                     |
+
+### Sitemap Configuration
+
+**File:** `src/app/sitemap.ts`
+
+```typescript
+const ACTIVE_PAGES = [
+  { path: "/", priority: 1.0, changeFreq: "monthly" as const },
+  { path: "/services", priority: 0.9, changeFreq: "monthly" as const },
+  { path: "/projects", priority: 0.8, changeFreq: "weekly" as const },
+  { path: "/about", priority: 0.7, changeFreq: "monthly" as const },
+  { path: "/team", priority: 0.7, changeFreq: "monthly" as const },
+  { path: "/contact", priority: 0.9, changeFreq: "monthly" as const },
+  { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
+  { path: "/public-sector", priority: 0.8, changeFreq: "monthly" as const },
+  { path: "/allies", priority: 0.75, changeFreq: "monthly" as const },
+];
+```
+
+### Root Metadata Configuration
+
+**File:** `src/app/layout.tsx`
+
+**Enhanced Title:** "MH Construction - Veteran-Owned Construction | Traditional Values, Modern Tools"
+
+**Enhanced Description:** Highlights veteran-owned business status, traditional partnership approach, Pacific
+Northwest community focus, with modern tools supporting personal service.
+
+### Dynamic Metadata for Client Components
+
+For pages using `"use client"`, create a wrapper:
+
+```typescript
+// app/your-page/page.tsx (Server Component)
+import { getYourPageSEO } from '@/lib/seo/page-seo-utils';
+import YourPageClient from './page-client';
+
+export const metadata = getYourPageSEO();
+
+export default function YourPage() {
+  return <YourPageClient />;
+}
+
+// app/your-page/page-client.tsx (Client Component)
+"use client";
+// Your client component code
+```
+
+### Robots.txt Configuration
+
+**File:** `src/app/robots.ts`
+
+**Improved Bot Management:**
+
+- General crawl permissions with security exclusions
+- Googlebot optimization for core pages
+- Bingbot optimization for search presence
+- Protection of sensitive directories (admin, api, private)
+- Exclusion of development/test content
+
+---
+
+## ♿ Search & Accessibility
+
+### WCAG 2.1 Compliance
+
+#### Level A Requirements ✅
+
+- **1.1.1 Non-text Content**: All search icons have proper alt text
+- **1.3.1 Info and Relationships**: Semantic HTML structure maintained
+- **1.4.1 Use of Color**: Not relying solely on color for information
+- **2.1.1 Keyboard**: All functionality available via keyboard
+- **2.1.2 No Keyboard Trap**: Users can navigate away from search
+- **2.4.3 Focus Order**: Logical tab order maintained
+- **3.2.2 On Input**: Search doesn't cause unexpected context changes
+- **4.1.2 Name, Role, Value**: All controls have accessible names
+
+#### Level AA Requirements ✅
+
+- **1.4.3 Contrast**: Text meets 4.5:1 contrast ratio minimum
+- **1.4.11 Non-text Contrast**: UI elements meet 3:1 contrast ratio
+- **2.4.7 Focus Visible**: Clear focus indicators on all elements
+- **3.2.4 Consistent Identification**: Search controls identified consistently
+
+#### Level AAA Enhancements ✅
+
+- **1.4.6 Contrast Enhanced**: Text exceeds 7:1 contrast where possible
+- **2.2.3 No Timing**: No time limits on search interactions
+- **2.4.8 Location**: Search context clearly indicated
+- **3.3.5 Help**: Placeholder text provides usage hints
+
+### Search Accessibility Features
+
+#### Keyboard Navigation
+
+- **Search Input Focus**: `Ctrl+K` or `Cmd+K` to focus search input from anywhere
+- **Escape Key**: Clears search when focused on search input
+- **Tab Navigation**: All interactive elements are keyboard accessible
+- **Enter/Space**: Activates search result items and buttons
+
+#### ARIA Labels and Semantics
+
+```tsx
+<input
+  type="text"
+  value={searchQuery}
+  onChange={(e) => setSearchQuery(e.target.value)}
+  placeholder={`${placeholder} (Ctrl+K to focus)`}
+  className="..." // High contrast, focus-visible
+  aria-label="Search items"
+/>
+```
+
+#### Accessible Search Results
+
+```tsx
+<div
+  onClick={() => handleItemClick(item)}
+  role="button"
+  tabIndex={0}
+  onKeyDown={(e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      handleItemClick(item);
+      e.preventDefault();
+    }
+  }}
+  aria-label={`View ${item.title}`}
+>
+```
+
+#### Screen Reader Support
+
+- Search results count announced: "X results found"
+- Category filter changes announced through state updates
+- Clear search actions provide appropriate feedback
+- Loading indicators with animation for search status
+
+#### Keyboard Shortcuts
+
+| Shortcut           | Action             | Context                   |
+| ------------------ | ------------------ | ------------------------- |
+| `Ctrl+K` / `Cmd+K` | Focus search input | Global                    |
+| `Escape`           | Clear search       | When search input focused |
+| `Enter`            | Submit search      | Search forms              |
+| `Space` / `Enter`  | Activate result    | Search result items       |
+| `Tab`              | Navigate elements  | Standard tab order        |
+
+### Accessibility Testing
+
+#### Manual Testing Checklist
+
+- [ ] Navigate entire search interface using only keyboard
+- [ ] Test with screen reader (NVDA, JAWS, VoiceOver)
+- [ ] Verify high contrast mode compatibility
+- [ ] Test with browser zoom up to 200%
+- [ ] Validate focus management and visual indicators
+- [ ] Test search functionality with various input methods
+
+#### Automated Testing
+
+- Uses axe-core for accessibility testing
+- ESLint jsx-a11y rules enforced
+- Lighthouse accessibility audits in CI/CD
+
+#### Screen Readers Tested
+
+- **NVDA** (Windows)
+- **JAWS** (Windows)
+- **VoiceOver** (macOS/iOS)
+- **TalkBack** (Android)
+
+### Mobile Accessibility
+
+- Touch targets meet minimum 44px requirement
+- Proper tap highlight removal where appropriate
+- Voice input compatibility maintained
+- Gesture navigation support
+
+### Dark Mode Support
+
+- All accessibility features work in both light and dark modes
+- Focus indicators remain visible in all themes
+- Contrast ratios maintained across theme changes
+
+---
+
+## 📦 Schema Markup & Structured Data
+
+### Organization Schema (All Pages)
+
+**File:** `src/components/seo/enhanced-seo.tsx`
+
+```typescript
+{
+  "@context": "https://schema.org",
+  "@type": ["GeneralContractor", "VeteranOwnedBusiness"],
+  "name": "MH Construction",
+  "alternateName": "MH Construction & Consulting",
+  "description": "Veteran-owned construction company...",
+  "certification": "U.S. Small Business Administration - VOSB",
+  "areaServed": ["Washington", "Oregon", "Idaho"],
+  "foundingDate": "2020",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Pasco",
+    "addressRegion": "WA",
+    "postalCode": "99301",
+    "addressCountry": "US"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-509-551-5511",
+    "contactType": "client partner support",
+    "areaServed": ["WA", "OR", "ID"],
+    "availableLanguage": ["English"]
+  }
+}
+```
+
+### Service Schemas
+
+**Generate service schemas for specific offerings:**
+
+```typescript
+generateServiceSchema({
+  name: "Residential Construction",
+  description: "Custom home building and renovation services",
+  category: "Construction Services",
+  provider: "MH Construction",
+  areaServed: ["Washington", "Oregon", "Idaho"],
+});
+  },
+  "featureList": [
+    "24/7 instant cost estimates",
+    "Veteran discount integration",
+    "Regional intelligence"
+  ]
+}
+```
+
+### Location Page Schema (`LocalBusiness` + `hasOfferCatalog`)
+
+**File:** `src/components/locations/LocationPageContent.tsx`  
+**Data source:** `src/lib/data/locations.ts` → `recentProjects[]`
+
+Every location page emits a `LocalBusiness` node. When the city has `recentProjects` defined,
+an `hasOfferCatalog` block is automatically appended, surfacing verified completed
+projects as structured `Offer → Service` items. This creates a direct semantic link between
+MH Construction and specific named projects in that city for search engines.
+
+```typescript
+// Automatically generated — do NOT hand-edit in the component
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "MH Construction - Kennewick",
+  // ... address, geo, telephone ...
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Recent Projects — Kennewick, WA",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "position": 1,
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Tri-Cities Cancer Center Expansion",
+          "serviceType": "Healthcare",
+          "description": "Specialized medical facility expansion..."
+        }
+      }
+      // ... one entry per recentProjects item
+    ]
+  }
+}
+```
+
+**To add projects to a city schema**, edit only `src/lib/data/locations.ts`:
+
+```typescript
+kennewick: {
+  // ...
+  recentProjects: [
+    {
+      name: "Project Name",          // required
+      category: "Healthcare",         // required — becomes serviceType in schema
+      year: 2025,                     // optional badge
+      description: "One sentence.",   // optional — shown in card + schema
+      coreValue: "Thoroughness",      // optional — badge on project card
+    },
+  ],
+  publicSectorHighlight: true,        // optional — adds /public-sector callout
+}
+```
+
+**Rules:**
+
+- `category` is the only field mapped to schema `serviceType`; keep it concise (1–4 words)
+- Set `coreValue` only on projects where one value is clearly dominant
+- Set `publicSectorHighlight: true` only for cities with verified government / public-safety work
+
+---
+
+### IRL Consultation Schema
+
+```typescript
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "In-Person Construction Consultation",
+  "provider": { "@id": "#organization" },
+  "areaServed": ["Washington", "Oregon", "Idaho"],
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceType": "In-person consultation"
+  }
+}
+```
+
+### FAQ Schema (Homepage)
+
+```typescript
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What makes MH Construction different?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Veteran-owned with traditional values..."
+      }
+    }
+    // ... 8 comprehensive FAQs
+  ]
+}
+```
+
+---
+
+## 📄 Page-Specific SEO Utilities
+
+**File:** `src/lib/seo/page-seo-utils.ts`
+
+### Available Functions
+
+```typescript
+// Homepage with FAQ + LocalBusiness schemas
+getHomepageSEO();
+
+// Service pages
+getServicesSEO();
+
+// Company pages
+getAboutSEO();
+getTeamSEO();
+getContactSEO();
+
+// Partnership pages
+getGovernmentSEO();
+getAlliesSEO();
+
+// Other pages
+getCareersSEO();
+getProjectsSEO();
+```
+
+### Usage Example
+
+```typescript
+// In your page.tsx (Server Component)
+import { getServicesSEO } from '@/lib/seo/page-seo-utils';
+import { StructuredData } from '@/components/seo/enhanced-seo';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seoData = getServicesSEO();
+  const { schemas, ...metadata } = seoData;
+  return metadata;
+}
+
+export default function ServicesPage() {
+  const seoData = getServicesSEO();
+
+  return (
+    <>
+      <StructuredData data={seoData.schemas} />
+      {/* Page content */}
+    </>
+  );
+}
+```
+
+---
+
+## 📊 Monitoring & Auditing
+
+### Available NPM Scripts
+
+```bash
+# Run full SEO audit
+node scripts/seo-audit.js
+
+# Build and check SEO
+npm run build && node scripts/seo-audit.js
+```
+
+### SEO Utility Functions
+
+```typescript
+import {
+  autoGenerateSEO,
+  calculateSEOScore,
+  validateSEO,
+  detectPageType,
+} from "@/lib/seo/auto-seo-manager";
+
+// Auto-generate SEO for new page
+const seoConfig = autoGenerateSEO("/new-page");
+
+// Calculate score
+const score = calculateSEOScore(seoConfig);
+
+// Validate configuration
+const validation = validateSEO(seoConfig);
+```
+
+### Current SEO Status
+
+| Metric              | Value      | Status |
+| ------------------- | ---------- | ------ |
+| **Total Pages**     | 13         | ✅     |
+| **Average Score**   | 85+        | ✅     |
+| **Passing Pages**   | 13/13      | ✅     |
+| **Sitemap Updated** | Auto       | ✅     |
+| **Robots.txt**      | Configured | ✅     |
+| **Schema Markup**   | Active     | ✅     |
+
+### Monitoring Schedule
+
+**Daily:** No action needed - system is self-monitoring
+
+**When Adding New Pages:**
+
+1. Add to `ACTIVE_PAGES` in sitemap.ts
+2. Run `node scripts/seo-audit.js`
+3. Fix any issues reported
+4. Commit changes
+
+**Weekly Reviews:**
+
+```bash
+node scripts/seo-audit.js
+# Address any scores below 80
+```
+
+**Monthly Audits:**
+
+```bash
+node scripts/seo-audit.js > monthly-seo-report.txt
+# Review trends and update as needed
+```
+
+### Pre-Deployment Checklist
+
+Before deploying changes:
+
+- [ ] Run `npm run build` (must succeed)
+- [ ] Run `node scripts/seo-audit.js` (all pages >70 score)
+- [ ] Check sitemap includes all new pages
+- [ ] Verify metadata on new pages
+- [ ] Test important pages in browser
+- [ ] Check robots.txt is correct
+- [ ] Verify canonical URLs
+- [ ] Test Open Graph images
+
+---
+
+## 🚀 Advanced Optimization
+
+### Complete Implementation Checklist
+
+#### Phase 0: Content Structure & Section Ordering (Days 1-3)
+
+**Priority: CRITICAL** | **Time: 2-3 days** | **Impact: 15-25% ranking improvement** 🏗️
+
+✅ **Homepage** - Already optimized; verify score in current external audits  
+⚠️ **Services Page** - Move testimonials to 25-30% position  
+⚠️ **About Page** - Restructure: testimonials earlier, leadership before awards  
+⚠️ **Careers Page** - Move employee testimonials to 25-30%
+
+**Implementation:**
+
+```tsx
+// Simply reorder JSX elements in the component
+export default function ServicesPage() {
+  return (
+    <>
+      <ServicesHero />
+      <Section variant="default">Construction Expertise</Section>
+      <Section id="core-services">Core Services</Section>
+      <Section variant="default">Specialty Services</Section>
+
+      {/* ✅ TESTIMONIALS - MOVED HERE FOR SEO */}
+      <TestimonialGrid />
+
+      <Section variant="gray">Government Projects</Section>
+      {/* Rest of sections... */}
+    </>
+  );
+}
+```
+
+#### Phase 1: Enhanced Metadata Integration
+
+1. **Integrate Page-Specific Metadata**
+   - Consider server/client split for key pages
+   - Integrate existing SEO utils from `page-seo-utils.ts`
+   - Priority pages: `/contact`, `/services`
+
+2. **Add Missing Schemas**
+   - Service schema on `/services` page
+   - Consultation schema on `/contact`
+
+#### Phase 2: Local SEO Enhancement
+
+- Verify Google Business Profile integration
+- Add local service area schema
+- Include city/region targeting in content
+- Create location-specific pages (if expanding)
+
+#### Phase 3: Performance Monitoring
+
+- Set up Core Web Vitals tracking
+- Monitor Lighthouse scores
+- Track Google Search Console metrics
+- Analyze ranking improvements
+
+### Expected SEO Benefits
+
+#### 1. Search Visibility Improvements
+
+- Traditional Business Terms: Enhanced visibility for relationship-focused construction
+- Veteran-Owned Queries: Enhanced visibility for veteran business searches
+- Pacific Northwest Local: Improved regional construction search ranking
+- Service-Specific: Better ranking for specific construction services
+
+#### 2. Rich Results Opportunities
+
+- FAQ Rich Snippets: Common questions directly in search results
+- Business Information: Enhanced Google Business Profile integration
+- Service Listings: Structured service information for search engines
+- Local Business: Improved local search presence
+
+#### 3. User Experience Enhancement
+
+- Instant Answers: FAQ schema provides quick information access
+- Service Clarity: Clear distinction between planning tools and personal consultation
+- Veteran Focus: Dedicated content for veteran community
+- Local Relevance: Pacific Northwest regional optimization
+
+### Content Enhancement Strategy
+
+**Service Page Enhancement:**
+
+```tsx
+const services = [
+  {
+    name: "Partnership-Driven Construction Management",
+    description: "Traditional values with modern planning tools",
+    category: "Construction Services",
+  },
+  // ... more services
+];
+
+const serviceSchemas = services.map((service) =>
+  generateServiceSchema(service),
+);
+```
+
+**Dynamic Content Updates:**
+
+```tsx
+// Client component with dynamic updates
+useEffect(() => {
+  document.title = "Custom Page Title";
+  // Update meta tags dynamically
+}, []);
+```
+
+---
+
+## 🚨 Troubleshooting
+
+### Low SEO Score
+
+**Check:**
+
+1. Title length (30-60 chars)
+2. Description length (120-160 chars)
+3. Keywords count (3-15)
+4. Schema presence
+5. OG image exists
+
+**Solution:**
+
+```typescript
+// Verify your SEO configuration
+const validation = validateSEO(yourSEOConfig);
+console.log(validation.errors);
+```
+
+### Page Not in Sitemap
+
+**Problem:** New page not appearing in `/sitemap.xml`
+
+**Solution:** Add to `ACTIVE_PAGES` in `src/app/sitemap.ts`
+
+```typescript
+const ACTIVE_PAGES = [
+  // ... existing pages
+  { path: "/your-new-page", priority: 0.8, changeFreq: "monthly" as const },
+];
+```
+
+### Metadata Not Showing
+
+**Check:**
+
+1. Is it a client component? (needs wrapper approach)
+2. Is metadata exported correctly?
+3. Clear `.next` cache and rebuild
+
+**Solution for Client Components:**
+
+```typescript
+// page.tsx (Server Component Wrapper)
+import { getYourPageSEO } from '@/lib/seo/page-seo-utils';
+import YourPageClient from './page-client';
+
+export const metadata = getYourPageSEO();
+
+export default function YourPage() {
+  return <YourPageClient />;
+}
+```
+
+### SEO Audit Fails
+
+**Debug:**
+
+```bash
+# Verbose output
+DEBUG=true node scripts/seo-audit.js
+
+# Check specific page
+node scripts/seo-audit.js /your-page
+```
+
+### Schema Validation Errors
+
+**Tools:**
+
+- [Google Rich Results Test](https://search.google.com/test/rich-results)
+- [Schema.org Validator](https://validator.schema.org/)
+- Google Search Console
+
+**Common Issues:**
+
+- Missing required properties
+- Invalid property values
+- Incorrect nesting structure
+
+### Performance Issues
+
+**Optimization Checklist:**
+
+- [ ] Debounced search prevents excessive updates
+- [ ] Virtual scrolling for large result sets
+- [ ] Lazy loading of images with proper alt text
+- [ ] Bundle size reasonable (target: <250KB shared JS)
+- [ ] Core Web Vitals passing (LCP <2.5s, FID <100ms, CLS <0.1)
+
+---
+
+## 🎯 Goals & KPIs
+
+### Current Performance Metrics
+
+- **Build Time:** ~33s
+- **Lighthouse SEO:** Validate via external audit reports
+- **Total Routes:** 35 static pages + API routes
+- **Bundle Size:** 211 kB shared JS
+- **TypeScript Coverage:** 100%
+
+### SEO Performance Goals
+
+- **Organic Traffic:** +50% year-over-year
+- **Top 3 Rankings:** 10+ keywords
+- **Average CTR:** >5%
+- **Bounce Rate:** <40%
+- **Page Speed:** >85 mobile
+
+### Key Performance Indicators
+
+**Traffic Metrics:**
+
+- Monthly organic sessions
+- Pages per session
+- Average session duration
+- New vs returning visitors
+
+**Engagement Metrics:**
+
+- Time on page
+- Scroll depth
+- CTA click-through rate
+- Form submission rate
+
+**Technical Metrics:**
+
+- Core Web Vitals scores
+- Mobile usability
+- Index coverage
+- Crawl budget utilization
+
+---
+
+## 📚 Resources & References
+
+### Internal Documentation
+
+- [Analytics Tracking Guide](../analytics-tracking-guide.md) - Implementation details
+
+### External Resources
+
+**SEO Tools:**
+
+- [Google Search Console](https://search.google.com/search-console)
+- [PageSpeed Insights](https://pagespeed.web.dev/)
+- [Google Rich Results Test](https://search.google.com/test/rich-results)
+- [Schema.org Documentation](https://schema.org)
+
+**Accessibility Tools:**
+
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+- [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/)
+- [WebAIM Screen Reader Testing](https://webaim.org/articles/screenreader_testing/)
+- [axe DevTools](https://www.deque.com/axe/devtools/)
+
+**Development Resources:**
+
+- [Next.js Metadata API](https://nextjs.org/docs/app/api-reference/functions/generate-metadata)
+- [Next.js Sitemap](https://nextjs.org/docs/app/api-reference/functions/generate-sitemap)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+
+### Team Contacts
+
+- **SEO Lead:** Development Team
+- **Content:** Marketing Team
+- **Technical:** Engineering Team
+- **Accessibility:** UX/Design Team
+
+---
+
+## ✅ Validation Checklist
+
+After implementing SEO changes, verify:
+
+- [ ] H1 tags remain in hero sections
+- [ ] Testimonials appear at 25-30% page depth on key pages
+- [ ] All anchor links and navigation still work
+- [ ] Internal section links remain functional
+- [ ] Mobile responsiveness maintained
+- [ ] Page load performance not degraded
+- [ ] All CTAs remain accessible
+- [ ] Conversion paths remain clear
+- [ ] Schema markup validates
+- [ ] Accessibility standards maintained (WCAG 2.1 AA)
+- [ ] Search functionality works across all devices
+- [ ] Keyboard navigation functions properly
+
+---
+
+## 🎉 Summary
+
+This comprehensive SEO system provides:
+
+✅ **Auto-adaptive optimization** - Adapts automatically to new pages  
+✅ **Best practice enforcement** - Validation through scoring system  
+✅ **Complete accessibility** - WCAG 2.1 Level AA compliance  
+✅ **Structured data** - Rich snippets and enhanced search results  
+✅ **Content optimization** - Optimal section ordering for rankings  
+✅ **Automated auditing** - Built-in monitoring and reporting  
+✅ **Minimal maintenance** - Self-managing with monthly reviews  
+✅ **Scalable architecture** - Grows with your site
+
+**Quick Actions:**
+
+- **Add new page:** One line in sitemap array
+- **Check SEO:** Run `node scripts/seo-audit.js`
+- **Monitor performance:** Monthly report reviews
+- **Optimize content:** Follow section ordering guide
+- **Ensure accessibility:** Built-in WCAG compliance
+
+---
+
+_This complete guide serves as the single source of truth for all SEO, search functionality, and accessibility
+optimization for the MH Construction website._

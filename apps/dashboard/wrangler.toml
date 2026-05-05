@@ -1,0 +1,52 @@
+name = "mhc-v2-dashboard"
+main = ".open-next/worker.js"
+compatibility_date = "2026-03-25"
+compatibility_flags = ["nodejs_compat"]
+
+# ========================================================================
+# Route Ownership
+# ========================================================================
+# This Worker handles the following routes on www.mhc-gc.com:
+#   /dashboard*          — admin dashboard
+#   /hub*                — operations hub
+#   /api/auth/*          — authentication
+#   /api/safety/*        — safety forms and SSSP management
+#   /api/drivers/*       — driver management
+#   /api/leads/*         — leads CRM
+#   /api/analytics/dashboard* — dashboard analytics
+#   /api/testimonials/*  — testimonial publishing
+#   /api/team-profile/*  — team profile management
+#   /api/functions/*     — AI/automation functions
+#   /api/security/*      — security audit events
+#
+# The website Worker (mhc-v2-website) handles www.mhc-gc.com/* for all
+# other public pages and public API routes (contact, newsletter, etc.).
+# Cloudflare routes the more-specific dashboard paths to this Worker first.
+# ========================================================================
+
+# KV Namespaces (shared with website worker — same zone, same data)
+[[kv_namespaces]]
+binding = "CACHE"
+id = "b6ecda1ca7a7463db0f8a3b5d9681131"
+
+[[kv_namespaces]]
+binding = "NEXT_CACHE_WORKERS_KV"
+id = "REPLACE_WITH_DASHBOARD_KV_ID"
+
+[[kv_namespaces]]
+binding = "ANALYTICS"
+id = "969e74f0815b47ce9e75ae5acfe2a70d"
+
+# R2 buckets (shared with website worker where applicable)
+[[r2_buckets]]
+binding = "SAFETY_INTAKE"
+bucket_name = "mh-construction-safety-intake"
+
+# D1 Database (shared with website worker — same database)
+[[d1_databases]]
+binding = "DB"
+database_id = "98ad144a-cfe2-4f19-a55c-c43140279840"
+
+# Cron Triggers — daily driver license monitoring alerts at 7:00 AM Pacific (14:00 UTC)
+[triggers]
+crons = ["0 14 * * *"]

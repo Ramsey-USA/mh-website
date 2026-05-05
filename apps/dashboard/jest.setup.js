@@ -1,0 +1,56 @@
+// Learn more: https://github.com/testing-library/jest-dom
+import "@testing-library/jest-dom";
+
+// Mock Next.js router
+jest.mock("next/navigation", () => ({
+  useRouter() {
+    return {
+      push: jest.fn(),
+      replace: jest.fn(),
+      prefetch: jest.fn(),
+      back: jest.fn(),
+      pathname: "/",
+      query: {},
+      asPath: "/",
+    };
+  },
+  usePathname() {
+    return "/";
+  },
+  useSearchParams() {
+    return new URLSearchParams();
+  },
+}));
+
+// Mock Next.js Image component
+jest.mock("next/image", () => ({
+  __esModule: true,
+  default: ({ fill: _fill, priority: _priority, ...props }) => {
+    // eslint-disable-next-line jsx-a11y/alt-text
+    return <img {...props} />;
+  },
+}));
+
+// Mock OpenNext Cloudflare runtime helpers for Jest (avoids ESM-only package parsing)
+jest.mock("@opennextjs/cloudflare", () => ({
+  getCloudflareContext: jest.fn(() => ({ env: {} })),
+}));
+
+// Mock environment variables
+process.env.NEXT_PUBLIC_SITE_URL = "http://localhost:3000";
+
+if (typeof globalThis.matchMedia !== "function") {
+  Object.defineProperty(globalThis, "matchMedia", {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+    })),
+  });
+}

@@ -1,0 +1,273 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { ExportCsvButton } from "@/components/dashboard/ExportCsvButton";
+import { useAdminTabData } from "@/hooks/useAdminTabData";
+import {
+  ACCESS_LOG_CSV_HEADERS,
+  accessLogCsvRows,
+  buildAccessLogQuery,
+  EVENT_LABELS,
+  formatAccessTimestamp,
+  formatEventLabel,
+  ROLE_BADGE_CLASSES,
+  summarizeUserAgent,
+  type AccessLogEntry,
+  type AccessLogResponse,
+} from "@/lib/dashboard/access-log";
+
+interface AccessLogTabProps {
+  readonly token: string;
+}
+
+const REFRESH_INTERVAL_MS = 30_000;
+const SKELETON_KEYS = [
+  "skeleton-1",
+  "skeleton-2",
+  "skeleton-3",
+  "skeleton-4",
+  "skeleton-5",
+];
+
+export function AccessLogTab({ token }: AccessLogTabProps) {
+  const [roleFilter, setRoleFilter] = useState("");
+  const [eventTypeFilter, setEventTypeFilter] = useState("");
+  const [fromDate, setFromDate] = useState("");
+  const [toDate, setToDate] = useState("");
+
+  const url = useMemo(() => {
+    const qs = buildAccessLogQuery({
+      role: roleFilter,
+      eventType: eventTypeFilter,
+      fromDate,
+      toDate,
+    });
+    return `/api/safety/access-log?${qs}`;
+  }, [roleFilter, eventTypeFilter, fromDate, toDate]);
+
+  const { data, status, error, isFetching, refetch } =
+    useAdminTabData<AccessLogResponse>(token, url);
+
+  useEffect(() => {
+    if (!token) return;
+    const id = window.setInterval(() => void refetch(), REFRESH_INTERVAL_MS);
+    return () => window.clearInterval(id);
+  }, [token, refetch]);
+
+  const entries: ReadonlyArray<AccessLogEntry> = data?.data ?? [];
+  const total = data?.total ?? 0;
+  const isLoading = status === "loading";
+
+  const csvRows = useMemo(() => accessLogCsvRows(entries), [entries]);
+
+  return (
+    <div className="space-y-6">
+      <section
+        data-print-section="true"
+        className="rounded-xl border border-gray-700 bg-gray-800/80 p-5"
+      >
+        <div className="flex items-center justify-between gap-4 flex-wrap mb-4">
+          <div>
+            <h2 className="text-2xl font-black text-white uppercase tracking-wide flex items-center gap-3">
+              <MaterialIcon
+                icon="verified_user"
+                size="lg"
+                className="text-brand-secondary"
+              />
+              Access Log
+            </h2>
+            <p className="text-sm text-gray-400 mt-1">
+              Authenticated hub activity across login, downloads, forms, and
+              compliance events.
+            </p>
+          </div>
+          <div data-print-hide="true" className="flex items-center gap-2">
+            <ExportCsvButton
+              filename={`mh-access-log-${new Date().toISOString().slice(0, 10)}.csv`}
+              headers={ACCESS_LOG_CSV_HEADERS}
+              rows={csvRows}
+            />
+            <button
+              type="button"
+              onClick={() => void refetch()}
+              disabled={isFetching}
+              className="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-4 py-2 text-sm font-black uppercase tracking-wide text-gray-200 hover:border-brand-secondary hover:text-white disabled:opacity-50 transition-colors"
+            >
+              <MaterialIcon
+                icon={isFetching ? "hourglass_empty" : "refresh"}
+                size="sm"
+              />
+              Refresh
+            </button>
+          </div>
+        </div>
+
+        <div
+          data-print-hide="true"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3"
+        >
+          <label className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            Role
+            <select
+              value={roleFilter}
+              onChange={(event) => setRoleFilter(event.target.value)}
+              className="mt-1 w-full rounded-lg border border-gray-600 bg-gray-900 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
+            >
+              <option value="">All Roles</option>
+              <option value="admin">Admin</option>
+              <option value="superintendent">Superintendent</option>
+              <option value="worker">Worker</option>
+              <option value="traveler">Traveler</option>
+            </select>
+          </label>
+
+          <label className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            Event Type
+            <select
+              value={eventTypeFilter}
+              onChange={(event) => setEventTypeFilter(event.target.value)}
+              className="mt-1 w-full rounded-lg border border-gray-600 bg-gray-900 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
+            >
+              <option value="">All Events</option>
+              {Object.keys(EVENT_LABELS).map((eventType) => (
+                <option key={eventType} value={eventType}>
+                  {formatEventLabel(eventType)}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            From
+            <input
+              type="date"
+              value={fromDate}
+              onChange={(event) => setFromDate(event.target.value)}
+              className="mt-1 w-full rounded-lg border border-gray-600 bg-gray-900 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
+            />
+          </label>
+
+          <label className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            To
+            <input
+              type="date"
+              value={toDate}
+              onChange={(event) => setToDate(event.target.value)}
+              className="mt-1 w-full rounded-lg border border-gray-600 bg-gray-900 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
+            />
+          </label>
+        </div>
+      </section>
+
+      {error ? (
+        <div className="rounded-xl border border-red-700 bg-red-900/30 p-4 text-red-200">
+          <div className="flex items-start gap-3">
+            <MaterialIcon icon="warning" size="sm" className="mt-0.5" />
+            <div>
+              <p className="font-black uppercase tracking-wide text-sm">
+                Access Log Unavailable
+              </p>
+              <p className="text-sm mt-1">{error}</p>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      {isLoading ? (
+        <div className="space-y-3">
+          {SKELETON_KEYS.map((key) => (
+            <div
+              key={key}
+              className="h-14 rounded-lg border border-gray-700 bg-gray-800/60 animate-pulse"
+            />
+          ))}
+        </div>
+      ) : entries.length === 0 ? (
+        <div className="rounded-xl border border-gray-700 bg-gray-800/60 p-10 text-center text-gray-400">
+          <MaterialIcon
+            icon="history_toggle_off"
+            size="xl"
+            className="mx-auto mb-3 text-gray-500"
+          />
+          <p className="text-sm font-semibold">No access events yet</p>
+        </div>
+      ) : (
+        <section
+          data-print-section="true"
+          className="rounded-xl border border-gray-700 bg-gray-800/80 overflow-hidden"
+        >
+          <div className="px-4 py-3 border-b border-gray-700 text-xs uppercase tracking-wider text-gray-400 font-bold">
+            {total} event{total === 1 ? "" : "s"}
+          </div>
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-sm">
+              <thead className="bg-gray-900/80 text-gray-400 uppercase tracking-wider text-xs">
+                <tr>
+                  <th scope="col" className="px-4 py-3 text-left">
+                    Time
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left">
+                    Name
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left">
+                    Role
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left">
+                    Event
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left">
+                    Resource
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left">
+                    IP Address
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left">
+                    Device / Browser
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-700">
+                {entries.map((entry) => (
+                  <tr
+                    key={entry.id}
+                    className="hover:bg-gray-700/30 transition-colors text-gray-200"
+                  >
+                    <td className="px-4 py-3 whitespace-nowrap">
+                      {formatAccessTimestamp(entry.accessed_at)}
+                    </td>
+                    <td className="px-4 py-3 font-semibold">
+                      {entry.user_name}
+                    </td>
+                    <td className="px-4 py-3">
+                      <span
+                        className={`inline-flex rounded-full px-2.5 py-1 text-xs font-black uppercase tracking-wide ${
+                          ROLE_BADGE_CLASSES[entry.role] ??
+                          "bg-gray-600 text-white"
+                        }`}
+                      >
+                        {entry.role}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3">
+                      {formatEventLabel(entry.event_type)}
+                    </td>
+                    <td className="px-4 py-3 text-gray-300">
+                      {entry.resource_title ?? entry.resource_key ?? "-"}
+                    </td>
+                    <td className="px-4 py-3 font-mono text-xs text-gray-300">
+                      {entry.ip_address ?? "-"}
+                    </td>
+                    <td className="px-4 py-3 text-gray-300">
+                      {summarizeUserAgent(entry.user_agent)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+    </div>
+  );
+}

@@ -1,0 +1,3983 @@
+{
+  "brand": "mhc",
+  "generatedAt": "2026-05-03",
+  "notes": "Form metadata used by generate.mjs renderFormCovers(). Edit titles, manualSection, owner here; do not edit cover PDFs directly.",
+  "forms": [
+    {
+      "id": "FORM 01-A",
+      "slug": "form-01-a_employment-offer-letter",
+      "title": "Employment Offer Letter",
+      "category": "MHC-cat1-onboarding",
+      "categoryLabel": "Onboarding & New Hire",
+      "categoryIcon": "👤",
+      "manualSection": null,
+      "docxPath": "MHC-cat1-onboarding/FORM-01-A_Employment-Offer-Letter.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 01-B",
+      "slug": "form-01-b_new-hire-checklist",
+      "title": "New Hire Checklist",
+      "category": "MHC-cat1-onboarding",
+      "categoryLabel": "Onboarding & New Hire",
+      "categoryIcon": "👤",
+      "manualSection": null,
+      "docxPath": "MHC-cat1-onboarding/FORM-01-B_New-Hire-Checklist.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 01-C",
+      "slug": "form-01-c_employee-information-sheet",
+      "title": "Employee Information Sheet",
+      "category": "MHC-cat1-onboarding",
+      "categoryLabel": "Onboarding & New Hire",
+      "categoryIcon": "👤",
+      "manualSection": null,
+      "docxPath": "MHC-cat1-onboarding/FORM-01-C_Employee-Information-Sheet.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 01-D",
+      "slug": "form-01-d_direct-deposit-authorization",
+      "title": "Direct Deposit Authorization",
+      "category": "MHC-cat1-onboarding",
+      "categoryLabel": "Onboarding & New Hire",
+      "categoryIcon": "👤",
+      "manualSection": null,
+      "docxPath": "MHC-cat1-onboarding/FORM-01-D_Direct-Deposit-Authorization.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 01-E",
+      "slug": "form-01-e_emergency-contact-form",
+      "title": "Emergency Contact Form",
+      "category": "MHC-cat1-onboarding",
+      "categoryLabel": "Onboarding & New Hire",
+      "categoryIcon": "👤",
+      "manualSection": null,
+      "docxPath": "MHC-cat1-onboarding/FORM-01-E_Emergency-Contact-Form.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 01-F",
+      "slug": "form-01-f_employee-handbook-acknowledgment",
+      "title": "Employee Handbook Acknowledgment",
+      "category": "MHC-cat1-onboarding",
+      "categoryLabel": "Onboarding & New Hire",
+      "categoryIcon": "👤",
+      "manualSection": null,
+      "docxPath": "MHC-cat1-onboarding/FORM-01-F_Employee-Handbook-Acknowledgment.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 01-G",
+      "slug": "form-01-g_wa-new-hire-reporting",
+      "title": "WA New Hire Reporting",
+      "category": "MHC-cat1-onboarding",
+      "categoryLabel": "Onboarding & New Hire",
+      "categoryIcon": "👤",
+      "manualSection": null,
+      "docxPath": "MHC-cat1-onboarding/FORM-01-G_WA-New-Hire-Reporting.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 01-H",
+      "slug": "form-01-h_wa-pfml-wacares-notice",
+      "title": "WA PFML WA-Cares Notice",
+      "category": "MHC-cat1-onboarding",
+      "categoryLabel": "Onboarding & New Hire",
+      "categoryIcon": "👤",
+      "manualSection": null,
+      "docxPath": "MHC-cat1-onboarding/FORM-01-H_WA-PFML-WACares-Notice.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 02-A",
+      "slug": "form-02-a_toolbox-talk-sign-in-log",
+      "title": "Toolbox Talk Sign In Log",
+      "category": "MHC-cat2-safety",
+      "categoryLabel": "Safety & Incident",
+      "categoryIcon": "🛡",
+      "manualSection": ["MISH 04", "MISH 06"],
+      "docxPath": "MHC-cat2-safety/FORM-02-A_Toolbox-Talk-Sign-In-Log.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form02a",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Document each pre-shift toolbox talk. Record attendance for every worker present. Filed with the project safety binder; copy to Safety Director within <strong>48 hours</strong>. Reference: OSHA 29 CFR 1926.21 &middot; MISH 04 &middot; MISH 06"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Meeting Information",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Location / Area"
+                  },
+                  {
+                    "name": "presenter",
+                    "label": "Presenter"
+                  },
+                  {
+                    "name": "startTime",
+                    "label": "Start Time"
+                  },
+                  {
+                    "name": "duration",
+                    "label": "Duration (min)"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Topic",
+                "columns": 1,
+                "items": [
+                  {
+                    "name": "topic",
+                    "label": "Toolbox Talk Topic"
+                  }
+                ]
+              },
+              {
+                "type": "narrative",
+                "title": "Key Points Discussed",
+                "name": "keyPoints",
+                "height": "1.55in"
+              },
+              {
+                "type": "dataTable",
+                "title": "Attendance Roster",
+                "name": "roster",
+                "columns": [
+                  {
+                    "header": "Print Name",
+                    "width": "35%"
+                  },
+                  {
+                    "header": "Trade / Role",
+                    "width": "25%"
+                  },
+                  {
+                    "header": "Company",
+                    "width": "20%"
+                  },
+                  {
+                    "header": "Signature",
+                    "width": "20%"
+                  }
+                ],
+                "rows": 8
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Toolbox Talk Sign In (continued)",
+            "pageLabel": "Page 2",
+            "sections": [
+              {
+                "type": "dataTable",
+                "title": "Attendance Roster (continued)",
+                "name": "roster2",
+                "columns": [
+                  {
+                    "header": "Print Name",
+                    "width": "35%"
+                  },
+                  {
+                    "header": "Trade / Role",
+                    "width": "25%"
+                  },
+                  {
+                    "header": "Company",
+                    "width": "20%"
+                  },
+                  {
+                    "header": "Signature",
+                    "width": "20%"
+                  }
+                ],
+                "rows": 12
+              },
+              {
+                "type": "signatures",
+                "title": "Verification",
+                "blocks": [
+                  {
+                    "role": "Presenter",
+                    "name": "presenterSig"
+                  },
+                  {
+                    "role": "Site Supervisor",
+                    "name": "supSig"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 02-B",
+      "slug": "form-02-b_job-hazard-analysis",
+      "title": "Job Hazard Analysis",
+      "category": "MHC-cat2-safety",
+      "categoryLabel": "Safety & Incident",
+      "categoryIcon": "🛡",
+      "manualSection": ["MISH 05"],
+      "docxPath": "MHC-cat2-safety/FORM-02-B_Job-Hazard-Analysis.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form02b",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Complete a JHA before <strong>any new task or critical activity</strong>. Walk the work area, identify each step, list the hazards, and document the controls. References: OSHA 29 CFR 1926.21 &middot; ANSI/AIHA Z10 &middot; MISH 05"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Project & Task",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Work Area"
+                  },
+                  {
+                    "name": "taskName",
+                    "label": "Task Name"
+                  },
+                  {
+                    "name": "crewLead",
+                    "label": "Crew Lead"
+                  },
+                  {
+                    "name": "crewSize",
+                    "label": "Crew Size"
+                  }
+                ]
+              },
+              {
+                "type": "narrative",
+                "title": "Task Description",
+                "name": "taskDesc",
+                "height": "1.0in"
+              },
+              {
+                "type": "checkGrid",
+                "title": "Required PPE",
+                "subtitle": "Check all that apply for this task",
+                "columns": 4,
+                "items": [
+                  {
+                    "name": "hardHat",
+                    "label": "Hard Hat"
+                  },
+                  {
+                    "name": "safetyGlasses",
+                    "label": "Safety Glasses"
+                  },
+                  {
+                    "name": "hearing",
+                    "label": "Hearing Protection"
+                  },
+                  {
+                    "name": "hiVis",
+                    "label": "Hi-Vis Vest"
+                  },
+                  {
+                    "name": "gloves",
+                    "label": "Cut/Chem Gloves"
+                  },
+                  {
+                    "name": "footwear",
+                    "label": "Safety Footwear"
+                  },
+                  {
+                    "name": "respirator",
+                    "label": "Respirator"
+                  },
+                  {
+                    "name": "fallPro",
+                    "label": "Fall Protection"
+                  }
+                ]
+              },
+              {
+                "type": "dataTable",
+                "title": "Job Steps, Hazards & Controls",
+                "name": "steps",
+                "columns": [
+                  {
+                    "header": "#",
+                    "width": "6%"
+                  },
+                  {
+                    "header": "Job Step",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Potential Hazard",
+                    "width": "32%"
+                  },
+                  {
+                    "header": "Control / Mitigation",
+                    "width": "32%"
+                  }
+                ],
+                "rows": 6
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Job Hazard Analysis (continued)",
+            "pageLabel": "Page 2",
+            "sections": [
+              {
+                "type": "dataTable",
+                "title": "Job Steps, Hazards & Controls (continued)",
+                "name": "steps2",
+                "columns": [
+                  {
+                    "header": "#",
+                    "width": "6%"
+                  },
+                  {
+                    "header": "Job Step",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Potential Hazard",
+                    "width": "32%"
+                  },
+                  {
+                    "header": "Control / Mitigation",
+                    "width": "32%"
+                  }
+                ],
+                "rows": 8
+              },
+              {
+                "type": "narrative",
+                "title": "Emergency Procedures",
+                "name": "emergency",
+                "height": "1.0in"
+              },
+              {
+                "type": "signatures",
+                "title": "Crew Acknowledgment",
+                "refNote": "By signing, crew members acknowledge they have reviewed this JHA and understand the hazards and controls.",
+                "blocks": [
+                  {
+                    "role": "Crew Lead",
+                    "name": "leadSig"
+                  },
+                  {
+                    "role": "Site Supervisor",
+                    "name": "supSig"
+                  },
+                  {
+                    "role": "Safety Officer",
+                    "name": "soSig",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 02-C",
+      "slug": "form-02-c_incident-accident-report",
+      "title": "Incident / Accident Report",
+      "category": "MHC-cat2-safety",
+      "categoryLabel": "Safety & Incident",
+      "categoryIcon": "🛡",
+      "manualSection": ["MISH 15", "MISH 16", "MISH 17"],
+      "docxPath": "MHC-cat2-safety/FORM-02-C_Incident-Accident-Report.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form02c",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Complete this form within <strong>24 hours</strong> of any incident, accident, near miss, or property damage. WA L&amp;I Report of Accident (ROA Form F242-130-000) must also be filed for any work-related injury. References: OSHA 29 CFR 1904 &middot; WAC 296-155-110 &middot; RCW 51"
+              },
+              {
+                "type": "checkGrid",
+                "title": "Incident Classification",
+                "subtitle": "Check all that apply",
+                "columns": 4,
+                "items": [
+                  {
+                    "name": "firstAid",
+                    "label": "First Aid Only"
+                  },
+                  {
+                    "name": "medical",
+                    "label": "Medical Treatment"
+                  },
+                  {
+                    "name": "lostTime",
+                    "label": "Lost Time Injury"
+                  },
+                  {
+                    "name": "nearMiss",
+                    "label": "Near Miss"
+                  },
+                  {
+                    "name": "propertyDamage",
+                    "label": "Property Damage"
+                  },
+                  {
+                    "name": "vehicleAcc",
+                    "label": "Vehicle Accident"
+                  },
+                  {
+                    "name": "envRelease",
+                    "label": "Environmental Release"
+                  },
+                  {
+                    "name": "fatality",
+                    "label": "Fatality"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Incident Details",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "date",
+                    "label": "Date of Incident"
+                  },
+                  {
+                    "name": "time",
+                    "label": "Time of Incident"
+                  },
+                  {
+                    "name": "projectName",
+                    "label": "Project Name / #"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Location (Address / Area)"
+                  },
+                  {
+                    "name": "supervisor",
+                    "label": "Supervisor on Duty"
+                  },
+                  {
+                    "name": "reportedTo",
+                    "label": "Reported To"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Injured / Involved Party",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "fullName",
+                    "label": "Full Name"
+                  },
+                  {
+                    "name": "jobTitle",
+                    "label": "Job Title"
+                  },
+                  {
+                    "name": "dateOfHire",
+                    "label": "Date of Hire"
+                  },
+                  {
+                    "name": "yearsExp",
+                    "label": "Years of Experience"
+                  },
+                  {
+                    "name": "ppeUsed",
+                    "label": "PPE Being Used? (Y/N)"
+                  },
+                  {
+                    "name": "ppeType",
+                    "label": "PPE Type"
+                  }
+                ]
+              },
+              {
+                "type": "narrative",
+                "title": "Incident Description",
+                "subtitle": "Who, what, when, where, how",
+                "name": "description",
+                "height": "1.55in"
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Incident / Accident Report (continued)",
+            "pageLabel": "Page 2",
+            "sections": [
+              {
+                "type": "fieldGrid",
+                "title": "Injury / Damage Details",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "bodyPartInjured",
+                    "label": "Body Part Injured"
+                  },
+                  {
+                    "name": "natureOfInjury",
+                    "label": "Nature of Injury"
+                  },
+                  {
+                    "name": "propertyDamaged",
+                    "label": "Property / Equipment Damaged"
+                  },
+                  {
+                    "name": "estCost",
+                    "label": "Estimated Cost of Damage"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Immediate Actions Taken",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "firstAidBy",
+                    "label": "First Aid Provided By"
+                  },
+                  {
+                    "name": "medTreatment",
+                    "label": "Medical Treatment Required? (Y/N)"
+                  },
+                  {
+                    "name": "hospitalName",
+                    "label": "Hospital / Clinic Name"
+                  },
+                  {
+                    "name": "authorities",
+                    "label": "Authorities Notified (911 / Police / Fire)"
+                  },
+                  {
+                    "name": "dateReportedLI",
+                    "label": "Date Reported to L&I (ROA)"
+                  },
+                  {
+                    "name": "dateReportedTravelers",
+                    "label": "Date Reported to Travelers Insurance"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Root Cause",
+                "subtitle": "Preliminary — check all that apply",
+                "columns": 4,
+                "items": [
+                  {
+                    "name": "rcUnsafeAct",
+                    "label": "Unsafe Act"
+                  },
+                  {
+                    "name": "rcUnsafeCond",
+                    "label": "Unsafe Condition"
+                  },
+                  {
+                    "name": "rcEquipFail",
+                    "label": "Equipment Failure"
+                  },
+                  {
+                    "name": "rcProcNotFollowed",
+                    "label": "Procedure Not Followed"
+                  },
+                  {
+                    "name": "rcTraining",
+                    "label": "Training Deficiency"
+                  },
+                  {
+                    "name": "rcEnv",
+                    "label": "Environmental Factor"
+                  }
+                ]
+              },
+              {
+                "type": "dataTable",
+                "title": "Corrective Actions",
+                "name": "ca",
+                "columns": [
+                  {
+                    "header": "Action Item",
+                    "width": "42%"
+                  },
+                  {
+                    "header": "Responsible Party",
+                    "width": "24%"
+                  },
+                  {
+                    "header": "Due Date",
+                    "width": "17%"
+                  },
+                  {
+                    "header": "Completed Date",
+                    "width": "17%"
+                  }
+                ],
+                "rows": 4
+              },
+              {
+                "type": "regTable",
+                "title": "Regulatory Reporting Requirements",
+                "name": "reg",
+                "columns": [
+                  {
+                    "header": "Requirement",
+                    "width": "38%"
+                  },
+                  {
+                    "header": "Threshold",
+                    "width": "32%"
+                  },
+                  {
+                    "header": "Deadline",
+                    "width": "18%"
+                  },
+                  {
+                    "header": "Done?",
+                    "width": "12%"
+                  }
+                ],
+                "rows": [
+                  {
+                    "cells": [
+                      "OSHA 300 Log Entry",
+                      "Recordable injury/illness",
+                      "Within 7 days"
+                    ],
+                    "check": "r1"
+                  },
+                  {
+                    "cells": [
+                      "OSHA 301 Incident Report",
+                      "Recordable injury/illness",
+                      "Within 7 days"
+                    ],
+                    "check": "r2"
+                  },
+                  {
+                    "cells": [
+                      "OSHA Fatality / Hospitalization",
+                      "Death or in-patient hospitalization",
+                      "Within 8 hours"
+                    ],
+                    "check": "r3"
+                  },
+                  {
+                    "cells": [
+                      "WA L&I Report of Accident (ROA)",
+                      "Any work-related injury",
+                      "Within 5 days"
+                    ],
+                    "check": "r4"
+                  },
+                  {
+                    "cells": [
+                      "Travelers Insurance Notification",
+                      "Any incident",
+                      "Within 24 hours"
+                    ],
+                    "check": "r5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Signatures & Authorization",
+            "pageLabel": "Page 3",
+            "sections": [
+              {
+                "type": "signatures",
+                "title": "Signatures & Authorization",
+                "refNote": "DocuSign Note: Each signature field below corresponds to a DocuSign recipient role. Assign roles before sending. Original signatures, when printed, must be retained with the incident file per <strong>WAC 296-27-031</strong>.",
+                "blocks": [
+                  {
+                    "role": "Supervisor",
+                    "name": "sup"
+                  },
+                  {
+                    "role": "Safety Officer — Matt Ramsey",
+                    "name": "so"
+                  },
+                  {
+                    "role": "President — Jeremy Thamert",
+                    "name": "pres",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 02-D",
+      "slug": "form-02-d_near-miss-report",
+      "title": "Near Miss Report",
+      "category": "MHC-cat2-safety",
+      "categoryLabel": "Safety & Incident",
+      "categoryIcon": "🛡",
+      "manualSection": ["MISH 15", "MISH 16"],
+      "docxPath": "MHC-cat2-safety/FORM-02-D_Near-Miss-Report.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form02d",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Report any <strong>near miss</strong> (an unplanned event that did not result in injury or damage but had the potential to do so) within <strong>24 hours</strong>. Near-miss reporting is non-disciplinary and is critical to identifying hazards before they cause harm. References: OSHA 29 CFR 1904 &middot; ANSI Z10 &middot; WAC 296-155-110"
+              },
+              {
+                "type": "checkGrid",
+                "title": "Near Miss Classification",
+                "subtitle": "Check all that apply",
+                "columns": 4,
+                "items": [
+                  {
+                    "name": "struckBy",
+                    "label": "Struck By / Against"
+                  },
+                  {
+                    "name": "caughtIn",
+                    "label": "Caught In / Between"
+                  },
+                  {
+                    "name": "fall",
+                    "label": "Fall (Same / Lower Level)"
+                  },
+                  {
+                    "name": "electrical",
+                    "label": "Electrical"
+                  },
+                  {
+                    "name": "chemical",
+                    "label": "Chemical Exposure"
+                  },
+                  {
+                    "name": "fire",
+                    "label": "Fire / Explosion"
+                  },
+                  {
+                    "name": "vehicle",
+                    "label": "Vehicle / Equipment"
+                  },
+                  {
+                    "name": "other",
+                    "label": "Other"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Event Details",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "date",
+                    "label": "Date of Event"
+                  },
+                  {
+                    "name": "time",
+                    "label": "Time of Event"
+                  },
+                  {
+                    "name": "projectName",
+                    "label": "Project Name / #"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Location (Address / Area)"
+                  },
+                  {
+                    "name": "supervisor",
+                    "label": "Supervisor on Duty"
+                  },
+                  {
+                    "name": "weather",
+                    "label": "Weather / Conditions"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Reporting Party",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "reporterName",
+                    "label": "Reporter Name (optional)"
+                  },
+                  {
+                    "name": "reporterRole",
+                    "label": "Role / Trade"
+                  },
+                  {
+                    "name": "witnesses",
+                    "label": "Witnesses"
+                  }
+                ]
+              },
+              {
+                "type": "narrative",
+                "title": "What Happened",
+                "subtitle": "Describe the event, what could have happened, and why it didn't",
+                "name": "description",
+                "height": "1.55in"
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Near Miss Report (continued)",
+            "pageLabel": "Page 2",
+            "sections": [
+              {
+                "type": "checkGrid",
+                "title": "Contributing Factors",
+                "subtitle": "Preliminary — check all that apply",
+                "columns": 4,
+                "items": [
+                  {
+                    "name": "cfUnsafeAct",
+                    "label": "Unsafe Act"
+                  },
+                  {
+                    "name": "cfUnsafeCond",
+                    "label": "Unsafe Condition"
+                  },
+                  {
+                    "name": "cfEquipFail",
+                    "label": "Equipment Failure"
+                  },
+                  {
+                    "name": "cfProcGap",
+                    "label": "Procedure Gap"
+                  },
+                  {
+                    "name": "cfTraining",
+                    "label": "Training Deficiency"
+                  },
+                  {
+                    "name": "cfCommunication",
+                    "label": "Communication Breakdown"
+                  },
+                  {
+                    "name": "cfEnv",
+                    "label": "Environmental Factor"
+                  },
+                  {
+                    "name": "cfHousekeeping",
+                    "label": "Housekeeping"
+                  }
+                ]
+              },
+              {
+                "type": "narrative",
+                "title": "Immediate Action Taken",
+                "subtitle": "Steps taken at the time to remove the hazard",
+                "name": "immediateAction",
+                "height": "1.10in"
+              },
+              {
+                "type": "dataTable",
+                "title": "Corrective Actions",
+                "name": "ca",
+                "columns": [
+                  {
+                    "header": "Action Item",
+                    "width": "42%"
+                  },
+                  {
+                    "header": "Responsible Party",
+                    "width": "24%"
+                  },
+                  {
+                    "header": "Due Date",
+                    "width": "17%"
+                  },
+                  {
+                    "header": "Completed Date",
+                    "width": "17%"
+                  }
+                ],
+                "rows": 4
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Lesson Learned / Toolbox Talk",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "toolboxDate",
+                    "label": "Toolbox Talk Date"
+                  },
+                  {
+                    "name": "toolboxLed",
+                    "label": "Led By"
+                  }
+                ]
+              },
+              {
+                "type": "signatures",
+                "title": "Signatures & Authorization",
+                "refNote": "Near-miss reports are reviewed by the Safety Director within 5 business days. Trends are shared anonymously in the next monthly safety meeting per <strong>WAC 296-27-031</strong>.",
+                "blocks": [
+                  {
+                    "role": "Supervisor",
+                    "name": "sup"
+                  },
+                  {
+                    "role": "Safety Officer — Matt Ramsey",
+                    "name": "so",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 02-E",
+      "slug": "form-02-e_daily-site-safety-inspection",
+      "title": "Daily Site Safety Inspection",
+      "category": "MHC-cat2-safety",
+      "categoryLabel": "Safety & Incident",
+      "categoryIcon": "🛡",
+      "manualSection": ["MISH 09"],
+      "docxPath": "MHC-cat2-safety/FORM-02-E_Daily-Site-Safety-Inspection.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form02e",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Complete a documented site safety walk <strong>each work day</strong>. Mark each item as Pass / Fail / N/A. Log every Fail in the Corrective Actions table with assignment and target date. Reference: OSHA 29 CFR 1926.20(b)(2) &middot; MISH 09"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Inspection Information",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "weather",
+                    "label": "Weather / Temp"
+                  },
+                  {
+                    "name": "inspector",
+                    "label": "Inspector"
+                  },
+                  {
+                    "name": "shift",
+                    "label": "Shift"
+                  },
+                  {
+                    "name": "crewCount",
+                    "label": "Crew On-Site"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Site Conditions",
+                "subtitle": "Check items observed compliant",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "housekeeping",
+                    "label": "Housekeeping / Clear Paths"
+                  },
+                  {
+                    "name": "signage",
+                    "label": "Signage & Barricades"
+                  },
+                  {
+                    "name": "firstAid",
+                    "label": "First-Aid Stations Stocked"
+                  },
+                  {
+                    "name": "fireExt",
+                    "label": "Fire Extinguishers Accessible"
+                  },
+                  {
+                    "name": "ppeWorn",
+                    "label": "PPE Worn Correctly"
+                  },
+                  {
+                    "name": "trafficCtrl",
+                    "label": "Traffic Control"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Equipment & Tools",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "toolsCondition",
+                    "label": "Hand & Power Tools OK"
+                  },
+                  {
+                    "name": "guardsInPlace",
+                    "label": "Guards / Shields In Place"
+                  },
+                  {
+                    "name": "ladders",
+                    "label": "Ladders Inspected"
+                  },
+                  {
+                    "name": "scaffold",
+                    "label": "Scaffold Tagged Green"
+                  },
+                  {
+                    "name": "cordsHoses",
+                    "label": "Cords / Hoses Protected"
+                  },
+                  {
+                    "name": "gfci",
+                    "label": "GFCI in Use"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "High-Hazard Activities",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "fallProActive",
+                    "label": "Fall Protection Active"
+                  },
+                  {
+                    "name": "excavation",
+                    "label": "Excavation Protections OK"
+                  },
+                  {
+                    "name": "hotWork",
+                    "label": "Hot Work Permitted"
+                  },
+                  {
+                    "name": "confSpace",
+                    "label": "Confined Space Permitted"
+                  },
+                  {
+                    "name": "loto",
+                    "label": "LOTO Verified"
+                  },
+                  {
+                    "name": "crane",
+                    "label": "Crane / Rigging OK"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Daily Site Safety Inspection (continued)",
+            "pageLabel": "Page 2",
+            "sections": [
+              {
+                "type": "dataTable",
+                "title": "Corrective Actions",
+                "name": "ca",
+                "columns": [
+                  {
+                    "header": "Item / Hazard",
+                    "width": "34%"
+                  },
+                  {
+                    "header": "Action Taken / Required",
+                    "width": "34%"
+                  },
+                  {
+                    "header": "Assigned To",
+                    "width": "18%"
+                  },
+                  {
+                    "header": "Target Date",
+                    "width": "14%"
+                  }
+                ],
+                "rows": 6
+              },
+              {
+                "type": "narrative",
+                "title": "Notes / Observations",
+                "name": "notes",
+                "height": "1.4in"
+              },
+              {
+                "type": "signatures",
+                "title": "Verification",
+                "blocks": [
+                  {
+                    "role": "Inspector",
+                    "name": "inspectorSig"
+                  },
+                  {
+                    "role": "Site Supervisor",
+                    "name": "supSig",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 02-F",
+      "slug": "form-02-f_safety-orientation-sign-off",
+      "title": "Safety Orientation Sign Off",
+      "category": "MHC-cat2-safety",
+      "categoryLabel": "Safety & Incident",
+      "categoryIcon": "🛡",
+      "manualSection": ["MISH 04"],
+      "docxPath": "MHC-cat2-safety/FORM-02-F_Safety-Orientation-Sign-Off.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form02f",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Required onboarding acknowledgment for every worker before performing work on an MH Construction site. Retain in the project safety binder; copy to Safety Director within <strong>24 hours</strong>. Reference: OSHA 29 CFR 1926.21(b)(2) &middot; MISH 04"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Orientation Information",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "orientator",
+                    "label": "Orientator"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Location"
+                  },
+                  {
+                    "name": "duration",
+                    "label": "Duration (min)"
+                  },
+                  {
+                    "name": "language",
+                    "label": "Language"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Topics Covered",
+                "subtitle": "Check all that apply",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "siteRules",
+                    "label": "Site Rules & Conduct"
+                  },
+                  {
+                    "name": "ppe",
+                    "label": "PPE Requirements"
+                  },
+                  {
+                    "name": "hazcom",
+                    "label": "HazCom / SDS Access"
+                  },
+                  {
+                    "name": "emergency",
+                    "label": "Emergency Procedures"
+                  },
+                  {
+                    "name": "evacuation",
+                    "label": "Evacuation Routes"
+                  },
+                  {
+                    "name": "firstAid",
+                    "label": "First Aid / Reporting"
+                  },
+                  {
+                    "name": "incidentReport",
+                    "label": "Incident Reporting"
+                  },
+                  {
+                    "name": "fallPro",
+                    "label": "Fall Protection"
+                  },
+                  {
+                    "name": "loto",
+                    "label": "Lockout / Tagout"
+                  }
+                ]
+              },
+              {
+                "type": "narrative",
+                "title": "Site-Specific Hazards Reviewed",
+                "name": "hazardsReviewed",
+                "height": "1.0in"
+              },
+              {
+                "type": "dataTable",
+                "title": "Attendee Acknowledgment",
+                "name": "attendees",
+                "columns": [
+                  {
+                    "header": "Print Name",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Company / Trade",
+                    "width": "25%"
+                  },
+                  {
+                    "header": "Signature",
+                    "width": "25%"
+                  },
+                  {
+                    "header": "Date",
+                    "width": "20%"
+                  }
+                ],
+                "rows": 8
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Safety Orientation Sign Off (continued)",
+            "pageLabel": "Page 2",
+            "sections": [
+              {
+                "type": "dataTable",
+                "title": "Attendee Acknowledgment (continued)",
+                "name": "attendees2",
+                "columns": [
+                  {
+                    "header": "Print Name",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Company / Trade",
+                    "width": "25%"
+                  },
+                  {
+                    "header": "Signature",
+                    "width": "25%"
+                  },
+                  {
+                    "header": "Date",
+                    "width": "20%"
+                  }
+                ],
+                "rows": 12
+              },
+              {
+                "type": "signatures",
+                "title": "Verification",
+                "blocks": [
+                  {
+                    "role": "Orientator",
+                    "name": "orientatorSig"
+                  },
+                  {
+                    "role": "Site Supervisor",
+                    "name": "supSig",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 02-G",
+      "slug": "form-02-g_osha-300-log-cover-sheet",
+      "title": "OSHA 300 Log Cover Sheet",
+      "category": "MHC-cat2-safety",
+      "categoryLabel": "Safety & Incident",
+      "categoryIcon": "🛡",
+      "manualSection": ["MISH 17"],
+      "docxPath": "MHC-cat2-safety/FORM-02-G_OSHA-300-Log-Cover-Sheet.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form02g",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Cover sheet for the annual OSHA Form 300 / 300A / 301 packet. Posted from <strong>February 1 – April 30</strong> in a conspicuous location at each establishment per OSHA recordkeeping rule. Reference: OSHA 29 CFR 1904 &middot; MISH 17"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Establishment Information",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "establishment",
+                    "label": "Establishment Name"
+                  },
+                  {
+                    "name": "calendarYear",
+                    "label": "Calendar Year"
+                  },
+                  {
+                    "name": "streetAddr",
+                    "label": "Street Address"
+                  },
+                  {
+                    "name": "cityStateZip",
+                    "label": "City / State / ZIP"
+                  },
+                  {
+                    "name": "naics",
+                    "label": "NAICS Code"
+                  },
+                  {
+                    "name": "siczip",
+                    "label": "SIC Code (if used)"
+                  },
+                  {
+                    "name": "avgEmployees",
+                    "label": "Annual Avg. # Employees"
+                  },
+                  {
+                    "name": "hoursWorked",
+                    "label": "Total Hours Worked"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Annual Summary Totals (Form 300A)",
+                "columns": 4,
+                "items": [
+                  {
+                    "name": "deaths",
+                    "label": "Deaths (G)"
+                  },
+                  {
+                    "name": "daysAway",
+                    "label": "Days Away (H)"
+                  },
+                  {
+                    "name": "jobTransfer",
+                    "label": "Job Transfer (I)"
+                  },
+                  {
+                    "name": "otherCases",
+                    "label": "Other Cases (J)"
+                  },
+                  {
+                    "name": "daysAwayDays",
+                    "label": "Days Away Days (K)"
+                  },
+                  {
+                    "name": "restrictDays",
+                    "label": "Restricted Days (L)"
+                  },
+                  {
+                    "name": "injuriesM1",
+                    "label": "Injuries (M1)"
+                  },
+                  {
+                    "name": "skinM2",
+                    "label": "Skin Disorders (M2)"
+                  },
+                  {
+                    "name": "respM3",
+                    "label": "Respiratory (M3)"
+                  },
+                  {
+                    "name": "poisonM4",
+                    "label": "Poisonings (M4)"
+                  },
+                  {
+                    "name": "hearingM5",
+                    "label": "Hearing Loss (M5)"
+                  },
+                  {
+                    "name": "otherM6",
+                    "label": "All Other (M6)"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Packet Contents Verified",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "form300",
+                    "label": "Form 300 Log"
+                  },
+                  {
+                    "name": "form300a",
+                    "label": "Form 300A Summary"
+                  },
+                  {
+                    "name": "form301",
+                    "label": "Form 301 Incident Reports"
+                  },
+                  {
+                    "name": "posted",
+                    "label": "Summary Posted Feb 1–Apr 30"
+                  },
+                  {
+                    "name": "electronic",
+                    "label": "Electronic Filing Submitted"
+                  },
+                  {
+                    "name": "retention",
+                    "label": "5-Year Retention Filed"
+                  }
+                ]
+              },
+              {
+                "type": "signatures",
+                "title": "Certification",
+                "refNote": "By signing, the company executive certifies that the information is true, accurate, and complete (29 CFR 1904.32).",
+                "blocks": [
+                  {
+                    "role": "Safety Director",
+                    "name": "sdSig"
+                  },
+                  {
+                    "role": "Company Executive",
+                    "name": "execSig",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 02-H",
+      "slug": "form-02-h_wa-li-roa-cover-sheet",
+      "title": "WA L&I ROA Cover Sheet",
+      "category": "MHC-cat2-safety",
+      "categoryLabel": "Safety & Incident",
+      "categoryIcon": "🛡",
+      "manualSection": ["MISH 17"],
+      "docxPath": "MHC-cat2-safety/FORM-02-H_WA-LI-ROA-Cover-Sheet.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form02h",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Cover sheet for the Washington L&I Report of Accident (ROA) packet supplied to the worker, treating provider, and L&I claim file. Reference: RCW 51.28 &middot; WAC 296-14 &middot; MISH 17"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Claim Information",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "claimNumber",
+                    "label": "L&I Claim Number"
+                  },
+                  {
+                    "name": "dateOfInjury",
+                    "label": "Date of Injury"
+                  },
+                  {
+                    "name": "workerName",
+                    "label": "Worker Name"
+                  },
+                  {
+                    "name": "workerSSN",
+                    "label": "Worker SSN (last 4)"
+                  },
+                  {
+                    "name": "jobTitle",
+                    "label": "Job Title"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "employer",
+                    "label": "Employer of Record"
+                  },
+                  {
+                    "name": "uboi",
+                    "label": "UBI / Account #"
+                  }
+                ]
+              },
+              {
+                "type": "narrative",
+                "title": "Brief Description of Injury / Illness",
+                "name": "injuryDesc",
+                "height": "1.4in"
+              },
+              {
+                "type": "checkGrid",
+                "title": "Packet Contents Verified",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "roaWorker",
+                    "label": "ROA – Worker Section Complete"
+                  },
+                  {
+                    "name": "roaProvider",
+                    "label": "ROA – Provider Section Complete"
+                  },
+                  {
+                    "name": "witnessStmts",
+                    "label": "Witness Statements Attached"
+                  },
+                  {
+                    "name": "siteIncident",
+                    "label": "FORM 02-C Incident Report Attached"
+                  },
+                  {
+                    "name": "medicalAuth",
+                    "label": "Medical Authorization Signed"
+                  },
+                  {
+                    "name": "rtwForm",
+                    "label": "Return-to-Work Plan Attached"
+                  }
+                ]
+              },
+              {
+                "type": "signatures",
+                "title": "Submission",
+                "blocks": [
+                  {
+                    "role": "Safety Director",
+                    "name": "sdSig"
+                  },
+                  {
+                    "role": "HR Coordinator",
+                    "name": "hrSig",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 02-I",
+      "slug": "form-02-i_employee-safety-training-record",
+      "title": "Employee Safety Training Record",
+      "category": "MHC-cat2-safety",
+      "categoryLabel": "Safety & Incident",
+      "categoryIcon": "🛡",
+      "manualSection": ["MISH 04", "MISH 06"],
+      "docxPath": "MHC-cat2-safety/FORM-02-I_Employee-Safety-Training-Record.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form02i",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Per-employee training transcript. Records must be retained for the <strong>duration of employment plus 3 years</strong> (or longer where regulation specifies). Reference: OSHA 29 CFR 1910 / 1926 training subparts &middot; MISH 04 &middot; MISH 06"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Employee Information",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "name",
+                    "label": "Employee Name"
+                  },
+                  {
+                    "name": "empId",
+                    "label": "Employee ID"
+                  },
+                  {
+                    "name": "hireDate",
+                    "label": "Hire Date"
+                  },
+                  {
+                    "name": "jobTitle",
+                    "label": "Job Title / Trade"
+                  },
+                  {
+                    "name": "supervisor",
+                    "label": "Supervisor"
+                  },
+                  {
+                    "name": "crew",
+                    "label": "Crew / Department"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Required Certifications",
+                "subtitle": "Check current/in-date certifications",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "osha10",
+                    "label": "OSHA 10"
+                  },
+                  {
+                    "name": "osha30",
+                    "label": "OSHA 30"
+                  },
+                  {
+                    "name": "firstAidCpr",
+                    "label": "First Aid / CPR"
+                  },
+                  {
+                    "name": "fallPro",
+                    "label": "Fall Protection"
+                  },
+                  {
+                    "name": "forklift",
+                    "label": "Forklift / PIT"
+                  },
+                  {
+                    "name": "confSpace",
+                    "label": "Confined Space"
+                  },
+                  {
+                    "name": "loto",
+                    "label": "LOTO"
+                  },
+                  {
+                    "name": "silica",
+                    "label": "Silica Awareness"
+                  },
+                  {
+                    "name": "hazcom",
+                    "label": "HazCom / GHS"
+                  }
+                ]
+              },
+              {
+                "type": "dataTable",
+                "title": "Training History",
+                "name": "history",
+                "columns": [
+                  {
+                    "header": "Date",
+                    "width": "14%"
+                  },
+                  {
+                    "header": "Course / Topic",
+                    "width": "32%"
+                  },
+                  {
+                    "header": "Hours",
+                    "width": "8%"
+                  },
+                  {
+                    "header": "Provider / Instructor",
+                    "width": "24%"
+                  },
+                  {
+                    "header": "Cert / Expires",
+                    "width": "22%"
+                  }
+                ],
+                "rows": 7
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Employee Training Record (continued)",
+            "pageLabel": "Page 2",
+            "sections": [
+              {
+                "type": "dataTable",
+                "title": "Training History (continued)",
+                "name": "history2",
+                "columns": [
+                  {
+                    "header": "Date",
+                    "width": "14%"
+                  },
+                  {
+                    "header": "Course / Topic",
+                    "width": "32%"
+                  },
+                  {
+                    "header": "Hours",
+                    "width": "8%"
+                  },
+                  {
+                    "header": "Provider / Instructor",
+                    "width": "24%"
+                  },
+                  {
+                    "header": "Cert / Expires",
+                    "width": "22%"
+                  }
+                ],
+                "rows": 10
+              },
+              {
+                "type": "narrative",
+                "title": "Notes / Competency Verification",
+                "name": "notes",
+                "height": "1.2in"
+              },
+              {
+                "type": "signatures",
+                "title": "Verification",
+                "refNote": "Employee signature acknowledges accuracy of training history.",
+                "blocks": [
+                  {
+                    "role": "Employee",
+                    "name": "empSig"
+                  },
+                  {
+                    "role": "Safety Director",
+                    "name": "sdSig",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 02-J",
+      "slug": "form-02-j_pre-task-safety-plan",
+      "title": "Pre-Task Safety Plan",
+      "category": "MHC-cat2-safety",
+      "categoryLabel": "Safety & Incident",
+      "categoryIcon": "🛡",
+      "manualSection": ["MISH 09", "MISH 10"],
+      "docxPath": "MHC-cat2-safety/FORM-02-J_Pre-Task-Safety-Plan.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form02j",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Complete this Pre-Task Safety Plan (PTSP / JHA) <strong>before starting work</strong> on any task with new or changed hazards. All crew members must review and sign before lifting a tool. References: OSHA 29 CFR 1926 Subpart C &middot; WAC 296-155-100 &middot; ANSI/ASSP Z590.3"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Job Information",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "projectName",
+                    "label": "Project Name / #"
+                  },
+                  {
+                    "name": "shift",
+                    "label": "Shift Start / End"
+                  },
+                  {
+                    "name": "taskDescription",
+                    "label": "Task Description"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Work Location / Area"
+                  },
+                  {
+                    "name": "competentPerson",
+                    "label": "Competent Person on Site"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Required PPE",
+                "subtitle": "Check all that apply for this task",
+                "columns": 4,
+                "items": [
+                  {
+                    "name": "ppeHardHat",
+                    "label": "Hard Hat"
+                  },
+                  {
+                    "name": "ppeEyes",
+                    "label": "Safety Glasses / Goggles"
+                  },
+                  {
+                    "name": "ppeHiVis",
+                    "label": "Hi-Vis Vest"
+                  },
+                  {
+                    "name": "ppeGloves",
+                    "label": "Gloves (Type Below)"
+                  },
+                  {
+                    "name": "ppeBoots",
+                    "label": "Steel-Toe Boots"
+                  },
+                  {
+                    "name": "ppeHearing",
+                    "label": "Hearing Protection"
+                  },
+                  {
+                    "name": "ppeRespirator",
+                    "label": "Respirator"
+                  },
+                  {
+                    "name": "ppeFallArrest",
+                    "label": "Fall Arrest Harness"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Hazard Categories Present",
+                "subtitle": "Check all that apply",
+                "columns": 4,
+                "items": [
+                  {
+                    "name": "hzFall",
+                    "label": "Fall > 6 ft"
+                  },
+                  {
+                    "name": "hzExcavation",
+                    "label": "Excavation / Trench"
+                  },
+                  {
+                    "name": "hzConfined",
+                    "label": "Confined Space"
+                  },
+                  {
+                    "name": "hzElectrical",
+                    "label": "Electrical / LOTO"
+                  },
+                  {
+                    "name": "hzHotWork",
+                    "label": "Hot Work"
+                  },
+                  {
+                    "name": "hzCrane",
+                    "label": "Crane / Rigging"
+                  },
+                  {
+                    "name": "hzChemical",
+                    "label": "Chemical / Silica"
+                  },
+                  {
+                    "name": "hzHeat",
+                    "label": "Heat / Cold Stress"
+                  }
+                ]
+              },
+              {
+                "type": "narrative",
+                "title": "Permits / Special Procedures Required",
+                "subtitle": "List any hot-work, confined-space, excavation, or LOTO permits in effect",
+                "name": "permits",
+                "height": "1.00in"
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Pre-Task Safety Plan (continued)",
+            "pageLabel": "Page 2",
+            "sections": [
+              {
+                "type": "dataTable",
+                "title": "Job Hazard Analysis (JHA)",
+                "name": "jha",
+                "columns": [
+                  {
+                    "header": "Job Step",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Potential Hazard",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Control / Mitigation",
+                    "width": "40%"
+                  }
+                ],
+                "rows": 6
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Emergency Information",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "musterPoint",
+                    "label": "Muster Point Location"
+                  },
+                  {
+                    "name": "nearestHospital",
+                    "label": "Nearest Hospital"
+                  },
+                  {
+                    "name": "firstAidLoc",
+                    "label": "First Aid Kit Location"
+                  },
+                  {
+                    "name": "emergencyContact",
+                    "label": "Site Emergency Contact"
+                  }
+                ]
+              },
+              {
+                "type": "dataTable",
+                "title": "Crew Acknowledgment",
+                "subtitle": "All crew members acknowledge they have reviewed this PTSP and understand the hazards and controls.",
+                "name": "crew",
+                "columns": [
+                  {
+                    "header": "Print Name",
+                    "width": "35%"
+                  },
+                  {
+                    "header": "Trade / Role",
+                    "width": "25%"
+                  },
+                  {
+                    "header": "Signature",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Time",
+                    "width": "10%"
+                  }
+                ],
+                "rows": 6
+              },
+              {
+                "type": "signatures",
+                "title": "Plan Approval",
+                "refNote": "This PTSP must be re-evaluated whenever conditions, scope, or crew changes. Retain with the daily site safety inspection per <strong>WAC 296-155-110</strong>.",
+                "blocks": [
+                  {
+                    "role": "Foreman / Lead",
+                    "name": "foreman"
+                  },
+                  {
+                    "role": "Safety Officer — Matt Ramsey",
+                    "name": "so",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 03-A",
+      "slug": "form-03-a_pre-employment-drug-screen-consent",
+      "title": "Pre Employment Drug Screen Consent",
+      "category": "MHC-cat3-drug-alcohol",
+      "categoryLabel": "Drug & Alcohol Compliance",
+      "categoryIcon": "💊",
+      "manualSection": ["MISH 06"],
+      "docxPath": "MHC-cat3-drug-alcohol/FORM-03-A_Pre-Employment-Drug-Screen-Consent.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form03a",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Required pre-employment consent and authorization for substance testing. Test results are protected health information and shared only with HR and the MRO. Reference: 49 CFR Part 40 (where DOT-applicable) &middot; WAC 296-823 &middot; MISH 06"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Applicant Information",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "name",
+                    "label": "Full Legal Name"
+                  },
+                  {
+                    "name": "dob",
+                    "label": "Date of Birth"
+                  },
+                  {
+                    "name": "ssn",
+                    "label": "SSN (last 4)"
+                  },
+                  {
+                    "name": "phone",
+                    "label": "Phone"
+                  },
+                  {
+                    "name": "address",
+                    "label": "Street Address"
+                  },
+                  {
+                    "name": "cityStateZip",
+                    "label": "City / State / ZIP"
+                  },
+                  {
+                    "name": "position",
+                    "label": "Position Applied For"
+                  },
+                  {
+                    "name": "hireDate",
+                    "label": "Conditional Hire Date"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Test Panel",
+                "subtitle": "Check all required panels",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "panel5",
+                    "label": "5-Panel"
+                  },
+                  {
+                    "name": "panel10",
+                    "label": "10-Panel"
+                  },
+                  {
+                    "name": "thc",
+                    "label": "THC"
+                  },
+                  {
+                    "name": "alcohol",
+                    "label": "Alcohol (BAT)"
+                  },
+                  {
+                    "name": "dotCdl",
+                    "label": "DOT / CDL"
+                  },
+                  {
+                    "name": "observed",
+                    "label": "Observed Collection"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Collection Site",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "clinicName",
+                    "label": "Clinic / Lab Name"
+                  },
+                  {
+                    "name": "clinicAddr",
+                    "label": "Clinic Address"
+                  },
+                  {
+                    "name": "collectionDate",
+                    "label": "Collection Date"
+                  },
+                  {
+                    "name": "collectionTime",
+                    "label": "Collection Time"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "sections": [
+              {
+                "type": "narrative",
+                "title": "Disclosure of Current Medications",
+                "subtitle": "List prescription / OTC medications taken in the last 30 days",
+                "name": "medications",
+                "height": "1.4in"
+              },
+              {
+                "type": "signatures",
+                "title": "Consent & Authorization",
+                "refNote": "By signing, applicant consents to substance testing as a condition of employment and authorizes release of results to MH Construction HR.",
+                "blocks": [
+                  {
+                    "role": "Applicant",
+                    "name": "applicantSig"
+                  },
+                  {
+                    "role": "Witness (HR)",
+                    "name": "witnessSig",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 03-B",
+      "slug": "form-03-b_random-drug-test-log",
+      "title": "Random Drug Test Log",
+      "category": "MHC-cat3-drug-alcohol",
+      "categoryLabel": "Drug & Alcohol Compliance",
+      "categoryIcon": "💊",
+      "manualSection": "MISH 06",
+      "docxPath": "MHC-cat3-drug-alcohol/FORM-03-B_Random-Drug-Test-Log.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 03-C",
+      "slug": "form-03-c_post-accident-test-authorization",
+      "title": "Post Accident Test Authorization",
+      "category": "MHC-cat3-drug-alcohol",
+      "categoryLabel": "Drug & Alcohol Compliance",
+      "categoryIcon": "💊",
+      "manualSection": ["MISH 06", "MISH 17"],
+      "docxPath": "MHC-cat3-drug-alcohol/FORM-03-C_Post-Accident-Test-Authorization.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form03c",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Authorization for substance testing following a recordable workplace accident or near-miss. Sample collection should occur within <strong>2 hours</strong> of the incident (8 hours max for drug, 32 hours for alcohol). Reference: 49 CFR Part 40 &middot; OSHA 29 CFR 1904.35(b)(1)(iv) &middot; MISH 06 &middot; MISH 17"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Incident Information",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "incidentDate",
+                    "label": "Incident Date"
+                  },
+                  {
+                    "name": "incidentTime",
+                    "label": "Incident Time"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Incident Location"
+                  },
+                  {
+                    "name": "supervisor",
+                    "label": "Supervisor On-Scene"
+                  },
+                  {
+                    "name": "incidentRef",
+                    "label": "FORM 02-C Reference #"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Trigger Criteria (Reasonable Cause)",
+                "subtitle": "Check all that apply",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "fatality",
+                    "label": "Fatality"
+                  },
+                  {
+                    "name": "medAttention",
+                    "label": "Medical Attention Beyond First Aid"
+                  },
+                  {
+                    "name": "vehicleCitation",
+                    "label": "Vehicle Damage / Citation"
+                  },
+                  {
+                    "name": "propertyDamage",
+                    "label": "Property Damage > $500"
+                  },
+                  {
+                    "name": "oshaRecordable",
+                    "label": "OSHA Recordable Event"
+                  },
+                  {
+                    "name": "reasonableSusp",
+                    "label": "Reasonable Suspicion (FORM 03-D filed)"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Employee Tested",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "empName",
+                    "label": "Employee Name"
+                  },
+                  {
+                    "name": "empId",
+                    "label": "Employee ID"
+                  },
+                  {
+                    "name": "jobTitle",
+                    "label": "Job Title"
+                  },
+                  {
+                    "name": "crew",
+                    "label": "Crew"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "sections": [
+              {
+                "type": "fieldGrid",
+                "title": "Collection Site & Time",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "clinic",
+                    "label": "Clinic / Lab"
+                  },
+                  {
+                    "name": "clinicAddr",
+                    "label": "Clinic Address"
+                  },
+                  {
+                    "name": "collectionDate",
+                    "label": "Collection Date"
+                  },
+                  {
+                    "name": "collectionTime",
+                    "label": "Collection Time"
+                  }
+                ]
+              },
+              {
+                "type": "signatures",
+                "title": "Authorization",
+                "refNote": "By signing, the employee consents to post-accident testing per the MH Construction substance abuse policy. Refusal is grounds for termination per policy.",
+                "blocks": [
+                  {
+                    "role": "Employee",
+                    "name": "empSig"
+                  },
+                  {
+                    "role": "Site Supervisor",
+                    "name": "supSig"
+                  },
+                  {
+                    "role": "Safety Director",
+                    "name": "sdSig",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 03-D",
+      "slug": "form-03-d_reasonable-suspicion-checklist",
+      "title": "Reasonable Suspicion Checklist",
+      "category": "MHC-cat3-drug-alcohol",
+      "categoryLabel": "Drug & Alcohol Compliance",
+      "categoryIcon": "💊",
+      "manualSection": ["MISH 06"],
+      "docxPath": "MHC-cat3-drug-alcohol/FORM-03-D_Reasonable-Suspicion-Checklist.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form03d",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Documentation by trained supervisor of <strong>specific, articulable</strong> physical and behavioral observations supporting reasonable suspicion. Required before referring an employee for for-cause testing. Reference: 49 CFR § 382.307 / Part 40 &middot; MISH 06"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Observation Information",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "time",
+                    "label": "Time"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Location"
+                  },
+                  {
+                    "name": "empName",
+                    "label": "Employee Name"
+                  },
+                  {
+                    "name": "empId",
+                    "label": "Employee ID"
+                  },
+                  {
+                    "name": "observer",
+                    "label": "Observing Supervisor"
+                  },
+                  {
+                    "name": "observerTitle",
+                    "label": "Title"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Appearance",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "eyesBloodshot",
+                    "label": "Bloodshot / Glassy Eyes"
+                  },
+                  {
+                    "name": "pupilsDilated",
+                    "label": "Pupils Dilated / Pinpoint"
+                  },
+                  {
+                    "name": "flushed",
+                    "label": "Flushed / Pale"
+                  },
+                  {
+                    "name": "sweating",
+                    "label": "Sweating Excessively"
+                  },
+                  {
+                    "name": "unkempt",
+                    "label": "Disheveled / Unkempt"
+                  },
+                  {
+                    "name": "tremors",
+                    "label": "Hand / Body Tremors"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Behavior & Speech",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "slurred",
+                    "label": "Slurred / Rapid Speech"
+                  },
+                  {
+                    "name": "incoherent",
+                    "label": "Incoherent"
+                  },
+                  {
+                    "name": "agitated",
+                    "label": "Agitated / Aggressive"
+                  },
+                  {
+                    "name": "euphoric",
+                    "label": "Euphoric / Lethargic"
+                  },
+                  {
+                    "name": "paranoid",
+                    "label": "Paranoid / Suspicious"
+                  },
+                  {
+                    "name": "disoriented",
+                    "label": "Disoriented / Confused"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Performance & Coordination",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "unsteady",
+                    "label": "Unsteady Walking / Standing"
+                  },
+                  {
+                    "name": "poorBalance",
+                    "label": "Poor Balance"
+                  },
+                  {
+                    "name": "droppingTools",
+                    "label": "Fumbling / Dropping Tools"
+                  },
+                  {
+                    "name": "slowReact",
+                    "label": "Slow Reaction Time"
+                  },
+                  {
+                    "name": "sleeping",
+                    "label": "Sleeping On Job"
+                  },
+                  {
+                    "name": "odorAlcohol",
+                    "label": "Odor of Alcohol / Cannabis"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "sections": [
+              {
+                "type": "narrative",
+                "title": "Specific Articulable Facts",
+                "subtitle": "Describe what you saw, heard, smelled — facts only",
+                "name": "facts",
+                "height": "1.6in"
+              },
+              {
+                "type": "signatures",
+                "title": "Verification",
+                "refNote": "Two trained supervisors should concur where practical.",
+                "blocks": [
+                  {
+                    "role": "Observing Supervisor",
+                    "name": "sup1Sig"
+                  },
+                  {
+                    "role": "Concurring Supervisor",
+                    "name": "sup2Sig"
+                  },
+                  {
+                    "role": "Safety Director",
+                    "name": "sdSig",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 03-E",
+      "slug": "form-03-e_return-to-work-agreement-drug",
+      "title": "Return To Work Agreement Drug",
+      "category": "MHC-cat3-drug-alcohol",
+      "categoryLabel": "Drug & Alcohol Compliance",
+      "categoryIcon": "💊",
+      "manualSection": "MISH 06",
+      "docxPath": "MHC-cat3-drug-alcohol/FORM-03-E_Return-to-Work-Agreement-Drug.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 04-A",
+      "slug": "form-04-a_driver-authorization-mvr-request",
+      "title": "Driver Authorization MVR Request",
+      "category": "MHC-cat4-vehicle-equipment",
+      "categoryLabel": "Vehicle & Equipment",
+      "categoryIcon": "🚛",
+      "manualSection": ["MISH 18"],
+      "docxPath": "MHC-cat4-vehicle-equipment/FORM-04-A_Driver-Authorization-MVR-Request.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form04a",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Authorization for MH Construction to obtain Motor Vehicle Records and add the employee to the company driver list. MVR review repeats <strong>annually</strong>. Reference: FCRA 15 U.S.C. §1681 &middot; WA RCW 46.52 &middot; MISH 18"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Driver Information",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "name",
+                    "label": "Full Legal Name"
+                  },
+                  {
+                    "name": "dob",
+                    "label": "Date of Birth"
+                  },
+                  {
+                    "name": "licenseNumber",
+                    "label": "License Number"
+                  },
+                  {
+                    "name": "licenseState",
+                    "label": "Issuing State"
+                  },
+                  {
+                    "name": "licenseClass",
+                    "label": "Class"
+                  },
+                  {
+                    "name": "expiration",
+                    "label": "Expiration"
+                  },
+                  {
+                    "name": "empId",
+                    "label": "Employee ID"
+                  },
+                  {
+                    "name": "position",
+                    "label": "Position"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Vehicle Categories Authorized",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "lightTruck",
+                    "label": "Light Truck / Pickup"
+                  },
+                  {
+                    "name": "medTruck",
+                    "label": "Medium Truck"
+                  },
+                  {
+                    "name": "cdlClass",
+                    "label": "CDL Class A / B"
+                  },
+                  {
+                    "name": "trailer",
+                    "label": "Trailer Towing"
+                  },
+                  {
+                    "name": "forklift",
+                    "label": "Forklift / PIT"
+                  },
+                  {
+                    "name": "heavyEquip",
+                    "label": "Heavy Equipment"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Required Endorsements / Certifications",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "medCert",
+                    "label": "DOT Medical Card"
+                  },
+                  {
+                    "name": "hazmat",
+                    "label": "Hazmat (H)"
+                  },
+                  {
+                    "name": "tanker",
+                    "label": "Tanker (N)"
+                  },
+                  {
+                    "name": "airBrakes",
+                    "label": "Air Brakes"
+                  },
+                  {
+                    "name": "defensiveDriving",
+                    "label": "Defensive Driving Course"
+                  },
+                  {
+                    "name": "distractedAck",
+                    "label": "Distracted Driving Ack (FORM 04-E)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "sections": [
+              {
+                "type": "narrative",
+                "title": "Self-Disclosed Driving History (last 3 years)",
+                "subtitle": "Accidents, moving violations, suspensions, DUI/DWI",
+                "name": "history",
+                "height": "1.4in"
+              },
+              {
+                "type": "signatures",
+                "title": "Authorization & Disclosure",
+                "refNote": "Driver authorizes MH Construction (and its agents) to obtain MVRs annually and acknowledges company driving policies.",
+                "blocks": [
+                  {
+                    "role": "Driver",
+                    "name": "driverSig"
+                  },
+                  {
+                    "role": "Fleet Manager",
+                    "name": "fmSig",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 04-B",
+      "slug": "form-04-b_vehicle-pre-trip-inspection",
+      "title": "Vehicle Pre Trip Inspection",
+      "category": "MHC-cat4-vehicle-equipment",
+      "categoryLabel": "Vehicle & Equipment",
+      "categoryIcon": "🚛",
+      "manualSection": ["MISH 18"],
+      "docxPath": "MHC-cat4-vehicle-equipment/FORM-04-B_Vehicle-Pre-Trip-Inspection.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form04b",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Pre-trip inspection required <strong>before each shift</strong> for company vehicles and CDL-class trucks. Tag out and report any safety-critical defect to the Fleet Manager. Reference: 49 CFR § 392.7 / 396.11 (CDL) &middot; MISH 18"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Vehicle Information",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "driver",
+                    "label": "Driver"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "unitNumber",
+                    "label": "Unit / Asset #"
+                  },
+                  {
+                    "name": "plate",
+                    "label": "Plate / VIN (last 4)"
+                  },
+                  {
+                    "name": "odometer",
+                    "label": "Odometer"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Exterior",
+                "subtitle": "Check items observed satisfactory",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "tires",
+                    "label": "Tires (tread / pressure)"
+                  },
+                  {
+                    "name": "wheels",
+                    "label": "Wheels / Lugs"
+                  },
+                  {
+                    "name": "lights",
+                    "label": "Headlights / Tail / Brake"
+                  },
+                  {
+                    "name": "signals",
+                    "label": "Turn Signals / Hazards"
+                  },
+                  {
+                    "name": "mirrors",
+                    "label": "Mirrors"
+                  },
+                  {
+                    "name": "glass",
+                    "label": "Windshield / Glass"
+                  },
+                  {
+                    "name": "wipers",
+                    "label": "Wipers / Washer"
+                  },
+                  {
+                    "name": "plates",
+                    "label": "License Plates Visible"
+                  },
+                  {
+                    "name": "bodyCondition",
+                    "label": "Body / No New Damage"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Mechanical & Fluids",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "oil",
+                    "label": "Oil Level"
+                  },
+                  {
+                    "name": "coolant",
+                    "label": "Coolant"
+                  },
+                  {
+                    "name": "washerFluid",
+                    "label": "Washer Fluid"
+                  },
+                  {
+                    "name": "brakes",
+                    "label": "Brakes (Service & Park)"
+                  },
+                  {
+                    "name": "steering",
+                    "label": "Steering / Play"
+                  },
+                  {
+                    "name": "belts",
+                    "label": "Belts / Hoses"
+                  },
+                  {
+                    "name": "battery",
+                    "label": "Battery / Cables"
+                  },
+                  {
+                    "name": "airBrake",
+                    "label": "Air Brake System (CDL)"
+                  },
+                  {
+                    "name": "trailer",
+                    "label": "Trailer / Coupling"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "sections": [
+              {
+                "type": "checkGrid",
+                "title": "Cab & Safety Items",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "seatBelt",
+                    "label": "Seat Belt"
+                  },
+                  {
+                    "name": "horn",
+                    "label": "Horn"
+                  },
+                  {
+                    "name": "backup",
+                    "label": "Backup Alarm (if equipped)"
+                  },
+                  {
+                    "name": "firstAid",
+                    "label": "First-Aid Kit"
+                  },
+                  {
+                    "name": "fireExt",
+                    "label": "Fire Extinguisher"
+                  },
+                  {
+                    "name": "triangles",
+                    "label": "Reflective Triangles / Flares"
+                  },
+                  {
+                    "name": "registration",
+                    "label": "Registration / Insurance Card"
+                  },
+                  {
+                    "name": "mvrLog",
+                    "label": "Driver Log / DVIR"
+                  },
+                  {
+                    "name": "cargoSecure",
+                    "label": "Cargo Secured"
+                  }
+                ]
+              },
+              {
+                "type": "narrative",
+                "title": "Defects Noted / Out-of-Service",
+                "name": "defects",
+                "height": "1.0in"
+              },
+              {
+                "type": "signatures",
+                "title": "Driver Certification",
+                "blocks": [
+                  {
+                    "role": "Driver",
+                    "name": "driverSig"
+                  },
+                  {
+                    "role": "Fleet Manager (defects only)",
+                    "name": "fmSig",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 04-C",
+      "slug": "form-04-c_vehicle-accident-report",
+      "title": "Vehicle Accident Report",
+      "category": "MHC-cat4-vehicle-equipment",
+      "categoryLabel": "Vehicle & Equipment",
+      "categoryIcon": "🚛",
+      "manualSection": ["MISH 17", "MISH 18"],
+      "docxPath": "MHC-cat4-vehicle-equipment/FORM-04-C_Vehicle-Accident-Report.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form04c",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Complete this report within <strong>24 hours</strong> of any motor vehicle accident involving an MH Construction vehicle, rented vehicle, or personal vehicle being used for company business. Notify Travelers Insurance and law enforcement as appropriate. References: WA RCW 46.52 &middot; FMCSA 49 CFR 390 &middot; WAC 296-155"
+              },
+              {
+                "type": "checkGrid",
+                "title": "Accident Classification",
+                "subtitle": "Check all that apply",
+                "columns": 4,
+                "items": [
+                  {
+                    "name": "propOnly",
+                    "label": "Property Damage Only"
+                  },
+                  {
+                    "name": "injury",
+                    "label": "Personal Injury"
+                  },
+                  {
+                    "name": "fatality",
+                    "label": "Fatality"
+                  },
+                  {
+                    "name": "hitAndRun",
+                    "label": "Hit & Run"
+                  },
+                  {
+                    "name": "singleVeh",
+                    "label": "Single Vehicle"
+                  },
+                  {
+                    "name": "multiVeh",
+                    "label": "Multi Vehicle"
+                  },
+                  {
+                    "name": "backing",
+                    "label": "Backing"
+                  },
+                  {
+                    "name": "parked",
+                    "label": "Parked Vehicle"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Accident Details",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "date",
+                    "label": "Date of Accident"
+                  },
+                  {
+                    "name": "time",
+                    "label": "Time of Accident"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Location (Street / City)"
+                  },
+                  {
+                    "name": "weather",
+                    "label": "Weather / Road Conditions"
+                  },
+                  {
+                    "name": "speedLimit",
+                    "label": "Posted Speed Limit"
+                  },
+                  {
+                    "name": "travelSpeed",
+                    "label": "Estimated Travel Speed"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "MH Driver & Vehicle",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "driverName",
+                    "label": "Driver Full Name"
+                  },
+                  {
+                    "name": "driverLicense",
+                    "label": "Driver License #"
+                  },
+                  {
+                    "name": "driverDob",
+                    "label": "Date of Birth"
+                  },
+                  {
+                    "name": "vehUnit",
+                    "label": "Vehicle Unit / Plate #"
+                  },
+                  {
+                    "name": "vehMake",
+                    "label": "Make / Model / Year"
+                  },
+                  {
+                    "name": "vehVin",
+                    "label": "VIN"
+                  }
+                ]
+              },
+              {
+                "type": "narrative",
+                "title": "Description of Accident",
+                "subtitle": "Who, what, when, where, how — driver's narrative",
+                "name": "description",
+                "height": "1.40in"
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Vehicle Accident Report (continued)",
+            "pageLabel": "Page 2",
+            "sections": [
+              {
+                "type": "fieldGrid",
+                "title": "Other Party / Vehicle",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "otherName",
+                    "label": "Driver Name"
+                  },
+                  {
+                    "name": "otherPhone",
+                    "label": "Phone"
+                  },
+                  {
+                    "name": "otherLicense",
+                    "label": "Driver License #"
+                  },
+                  {
+                    "name": "otherInsCo",
+                    "label": "Insurance Company"
+                  },
+                  {
+                    "name": "otherPolicy",
+                    "label": "Policy #"
+                  },
+                  {
+                    "name": "otherPlate",
+                    "label": "Vehicle Plate / Make / Model"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Authorities & Reporting",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "policeAgency",
+                    "label": "Police Agency Responding"
+                  },
+                  {
+                    "name": "policeReportNo",
+                    "label": "Police Report #"
+                  },
+                  {
+                    "name": "officerName",
+                    "label": "Officer Name / Badge"
+                  },
+                  {
+                    "name": "citationsIssued",
+                    "label": "Citations Issued? (Y/N)"
+                  },
+                  {
+                    "name": "travelersClaim",
+                    "label": "Travelers Claim #"
+                  },
+                  {
+                    "name": "travelersDate",
+                    "label": "Date Reported to Travelers"
+                  }
+                ]
+              },
+              {
+                "type": "dataTable",
+                "title": "Witnesses",
+                "name": "witnesses",
+                "columns": [
+                  {
+                    "header": "Name",
+                    "width": "35%"
+                  },
+                  {
+                    "header": "Phone",
+                    "width": "22%"
+                  },
+                  {
+                    "header": "Address",
+                    "width": "43%"
+                  }
+                ],
+                "rows": 3
+              },
+              {
+                "type": "checkGrid",
+                "title": "Post-Accident Testing",
+                "subtitle": "Required per FORM 03-C — check all that apply",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "testDrug",
+                    "label": "Drug Test Ordered"
+                  },
+                  {
+                    "name": "testAlcohol",
+                    "label": "Alcohol Test Ordered"
+                  },
+                  {
+                    "name": "testCompleted",
+                    "label": "Test Completed"
+                  }
+                ]
+              },
+              {
+                "type": "narrative",
+                "title": "Damage Description",
+                "subtitle": "Describe damage to MH vehicle, other vehicles, and property",
+                "name": "damage",
+                "height": "1.10in"
+              },
+              {
+                "type": "signatures",
+                "title": "Signatures & Authorization",
+                "refNote": "Attach photos, police report, and other-party insurance card to this form. Forward immediately to the Safety Director per <strong>WAC 296-27-031</strong>.",
+                "blocks": [
+                  {
+                    "role": "Driver",
+                    "name": "driver"
+                  },
+                  {
+                    "role": "Supervisor",
+                    "name": "sup"
+                  },
+                  {
+                    "role": "Safety Officer — Matt Ramsey",
+                    "name": "so",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 04-D",
+      "slug": "form-04-d_heavy-equipment-inspection-log",
+      "title": "Heavy Equipment Inspection Log",
+      "category": "MHC-cat4-vehicle-equipment",
+      "categoryLabel": "Vehicle & Equipment",
+      "categoryIcon": "🚛",
+      "manualSection": ["MISH 19", "MISH 20", "MISH 42"],
+      "docxPath": "MHC-cat4-vehicle-equipment/FORM-04-D_Heavy-Equipment-Inspection-Log.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form04d",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Pre-shift inspection required before each operating period. Tag out and remove from service any equipment with safety-critical defects. Reference: OSHA 29 CFR 1926.601 / 1926.602 &middot; ANSI/SAE &middot; MISH 19 &middot; MISH 20 &middot; MISH 42"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Equipment Information",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "operator",
+                    "label": "Operator"
+                  },
+                  {
+                    "name": "equipType",
+                    "label": "Equipment Type"
+                  },
+                  {
+                    "name": "unitNumber",
+                    "label": "Unit / Asset #"
+                  },
+                  {
+                    "name": "hourMeter",
+                    "label": "Hour Meter"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Walk-Around Inspection",
+                "subtitle": "Check items observed satisfactory",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "tires",
+                    "label": "Tires / Tracks"
+                  },
+                  {
+                    "name": "leaks",
+                    "label": "No Fluid Leaks"
+                  },
+                  {
+                    "name": "fluids",
+                    "label": "Fluid Levels OK"
+                  },
+                  {
+                    "name": "lights",
+                    "label": "Lights / Beacon"
+                  },
+                  {
+                    "name": "horn",
+                    "label": "Horn / Backup Alarm"
+                  },
+                  {
+                    "name": "mirrors",
+                    "label": "Mirrors / Visibility"
+                  },
+                  {
+                    "name": "glass",
+                    "label": "Glass / Windows"
+                  },
+                  {
+                    "name": "fireExt",
+                    "label": "Fire Extinguisher"
+                  },
+                  {
+                    "name": "firstAid",
+                    "label": "First-Aid Kit"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Safety Systems",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "seatBelt",
+                    "label": "Seat Belt"
+                  },
+                  {
+                    "name": "rops",
+                    "label": "ROPS / FOPS Intact"
+                  },
+                  {
+                    "name": "guards",
+                    "label": "Guards In Place"
+                  },
+                  {
+                    "name": "controls",
+                    "label": "Controls Function"
+                  },
+                  {
+                    "name": "brakes",
+                    "label": "Service & Park Brake"
+                  },
+                  {
+                    "name": "steering",
+                    "label": "Steering"
+                  },
+                  {
+                    "name": "hydraulics",
+                    "label": "Hydraulics"
+                  },
+                  {
+                    "name": "attachments",
+                    "label": "Attachments Secure"
+                  },
+                  {
+                    "name": "decals",
+                    "label": "Safety Decals Legible"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Heavy Equipment Inspection Log (continued)",
+            "pageLabel": "Page 2",
+            "sections": [
+              {
+                "type": "narrative",
+                "title": "Defects / Items Needing Attention",
+                "subtitle": "Tag out equipment with safety-critical defects",
+                "name": "defects",
+                "height": "1.4in"
+              },
+              {
+                "type": "dataTable",
+                "title": "Corrective Actions",
+                "name": "ca",
+                "columns": [
+                  {
+                    "header": "Item",
+                    "width": "34%"
+                  },
+                  {
+                    "header": "Action Required",
+                    "width": "34%"
+                  },
+                  {
+                    "header": "Assigned To",
+                    "width": "18%"
+                  },
+                  {
+                    "header": "Target Date",
+                    "width": "14%"
+                  }
+                ],
+                "rows": 5
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Service Status",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "outOfService",
+                    "label": "Out-of-Service Tag # (if applied)"
+                  },
+                  {
+                    "name": "returnedDate",
+                    "label": "Returned to Service Date"
+                  }
+                ]
+              },
+              {
+                "type": "signatures",
+                "title": "Verification",
+                "blocks": [
+                  {
+                    "role": "Operator",
+                    "name": "operatorSig"
+                  },
+                  {
+                    "role": "Site Supervisor",
+                    "name": "supSig",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 04-E",
+      "slug": "form-04-e_distracted-driving-acknowledgment",
+      "title": "Distracted Driving Acknowledgment",
+      "category": "MHC-cat4-vehicle-equipment",
+      "categoryLabel": "Vehicle & Equipment",
+      "categoryIcon": "🚛",
+      "manualSection": null,
+      "docxPath": "MHC-cat4-vehicle-equipment/FORM-04-E_Distracted-Driving-Acknowledgment.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 04-F",
+      "slug": "form-04-f_annual-mvr-review-log",
+      "title": "Annual MVR Review Log",
+      "category": "MHC-cat4-vehicle-equipment",
+      "categoryLabel": "Vehicle & Equipment",
+      "categoryIcon": "🚛",
+      "manualSection": null,
+      "docxPath": "MHC-cat4-vehicle-equipment/FORM-04-F_Annual-MVR-Review-Log.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 05-A",
+      "slug": "form-05-a_subcontractor-pre-qualification",
+      "title": "Subcontractor Pre Qualification",
+      "category": "MHC-cat5-subcontractor",
+      "categoryLabel": "Subcontractor Management",
+      "categoryIcon": "🤝",
+      "manualSection": ["MISH 46"],
+      "docxPath": "MHC-cat5-subcontractor/FORM-05-A_Subcontractor-Pre-Qualification.docx",
+      "revision": "1.0",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director",
+      "fillable": {
+        "namespace": "form05a",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Required vetting form for any subcontractor performing work on an MH Construction project. Submit to MH Procurement <strong>before contract award</strong>. References: AGC CSEA &middot; ISN/Avetta equivalents &middot; MISH 46"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Subcontractor Information",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "company",
+                    "label": "Company / DBA"
+                  },
+                  {
+                    "name": "feiNumber",
+                    "label": "FEIN / Tax ID"
+                  },
+                  {
+                    "name": "streetAddr",
+                    "label": "Street Address"
+                  },
+                  {
+                    "name": "cityStateZip",
+                    "label": "City / State / ZIP"
+                  },
+                  {
+                    "name": "contact",
+                    "label": "Primary Contact"
+                  },
+                  {
+                    "name": "contactPhone",
+                    "label": "Phone"
+                  },
+                  {
+                    "name": "contactEmail",
+                    "label": "Email"
+                  },
+                  {
+                    "name": "yearsBusiness",
+                    "label": "Years In Business"
+                  },
+                  {
+                    "name": "trade",
+                    "label": "Trade / Scope"
+                  },
+                  {
+                    "name": "licenseNumber",
+                    "label": "Contractor License #"
+                  },
+                  {
+                    "name": "licenseStates",
+                    "label": "Licensed States"
+                  },
+                  {
+                    "name": "avgEmployees",
+                    "label": "Avg. # Employees"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Insurance & Bonding",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "glLimit",
+                    "label": "GL Per-Occurrence Limit"
+                  },
+                  {
+                    "name": "glAggregate",
+                    "label": "GL Aggregate Limit"
+                  },
+                  {
+                    "name": "autoLimit",
+                    "label": "Auto Liability Limit"
+                  },
+                  {
+                    "name": "umbrella",
+                    "label": "Umbrella / Excess Limit"
+                  },
+                  {
+                    "name": "wcCarrier",
+                    "label": "Workers' Comp Carrier"
+                  },
+                  {
+                    "name": "emr3yr",
+                    "label": "3-Year EMR"
+                  },
+                  {
+                    "name": "bondingCap",
+                    "label": "Bonding Capacity (Single)"
+                  },
+                  {
+                    "name": "bondingAgg",
+                    "label": "Bonding Capacity (Agg.)"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Safety Performance (3-Year Average)",
+                "columns": 4,
+                "items": [
+                  {
+                    "name": "trir",
+                    "label": "TRIR"
+                  },
+                  {
+                    "name": "dart",
+                    "label": "DART Rate"
+                  },
+                  {
+                    "name": "lwd",
+                    "label": "LWD Rate"
+                  },
+                  {
+                    "name": "fatalities",
+                    "label": "Fatalities (3yr)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Subcontractor Pre-Qualification (continued)",
+            "pageLabel": "Page 2",
+            "sections": [
+              {
+                "type": "checkGrid",
+                "title": "Safety Program Confirmation",
+                "subtitle": "Provide written program for each item checked",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "writtenProgram",
+                    "label": "Written Safety Program"
+                  },
+                  {
+                    "name": "newHireOrient",
+                    "label": "New-Hire Orientation"
+                  },
+                  {
+                    "name": "trainingPlan",
+                    "label": "Annual Training Plan"
+                  },
+                  {
+                    "name": "toolboxTalks",
+                    "label": "Documented Toolbox Talks"
+                  },
+                  {
+                    "name": "jhaProgram",
+                    "label": "JHA / Pre-Task Program"
+                  },
+                  {
+                    "name": "drugFree",
+                    "label": "Drug-Free Workplace"
+                  },
+                  {
+                    "name": "isnAvetta",
+                    "label": "ISN / Avetta / Veriforce"
+                  },
+                  {
+                    "name": "oshaCitations",
+                    "label": "No OSHA Serious Citations (3yr)"
+                  },
+                  {
+                    "name": "competentPerson",
+                    "label": "Designated Competent Person"
+                  }
+                ]
+              },
+              {
+                "type": "dataTable",
+                "title": "Recent Project References",
+                "name": "refs",
+                "columns": [
+                  {
+                    "header": "Project",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Owner / GC",
+                    "width": "24%"
+                  },
+                  {
+                    "header": "Contract $",
+                    "width": "14%"
+                  },
+                  {
+                    "header": "Contact",
+                    "width": "20%"
+                  },
+                  {
+                    "header": "Year",
+                    "width": "12%"
+                  }
+                ],
+                "rows": 4
+              },
+              {
+                "type": "narrative",
+                "title": "Disclosures (litigation, defaults, debarments)",
+                "name": "disclosures",
+                "height": "1.0in"
+              },
+              {
+                "type": "signatures",
+                "title": "Authorized Officer Certification",
+                "refNote": "By signing, the authorized officer certifies the information is true, accurate, and complete.",
+                "blocks": [
+                  {
+                    "role": "Authorized Officer (Sub)",
+                    "name": "subSig"
+                  },
+                  {
+                    "role": "MH Procurement",
+                    "name": "mhSig",
+                    "wide": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 05-B",
+      "slug": "form-05-b_subcontractor-insurance-verification",
+      "title": "Subcontractor Insurance Verification",
+      "category": "MHC-cat5-subcontractor",
+      "categoryLabel": "Subcontractor Management",
+      "categoryIcon": "🤝",
+      "manualSection": "MISH 46",
+      "docxPath": "MHC-cat5-subcontractor/FORM-05-B_Subcontractor-Insurance-Verification.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 05-C",
+      "slug": "form-05-c_subcontractor-safety-acknowledgment",
+      "title": "Subcontractor Safety Acknowledgment",
+      "category": "MHC-cat5-subcontractor",
+      "categoryLabel": "Subcontractor Management",
+      "categoryIcon": "🤝",
+      "manualSection": "MISH 46",
+      "docxPath": "MHC-cat5-subcontractor/FORM-05-C_Subcontractor-Safety-Acknowledgment.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 05-D",
+      "slug": "form-05-d_conditional-lien-waiver",
+      "title": "Conditional Lien Waiver",
+      "category": "MHC-cat5-subcontractor",
+      "categoryLabel": "Subcontractor Management",
+      "categoryIcon": "🤝",
+      "manualSection": "MISH 46",
+      "docxPath": "MHC-cat5-subcontractor/FORM-05-D_Conditional-Lien-Waiver.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 05-E",
+      "slug": "form-05-e_subcontractor-daily-work-log",
+      "title": "Subcontractor Daily Work Log",
+      "category": "MHC-cat5-subcontractor",
+      "categoryLabel": "Subcontractor Management",
+      "categoryIcon": "🤝",
+      "manualSection": "MISH 46",
+      "docxPath": "MHC-cat5-subcontractor/FORM-05-E_Subcontractor-Daily-Work-Log.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 05-F",
+      "slug": "form-05-f_subcontractor-closeout-checklist",
+      "title": "Subcontractor Closeout Checklist",
+      "category": "MHC-cat5-subcontractor",
+      "categoryLabel": "Subcontractor Management",
+      "categoryIcon": "🤝",
+      "manualSection": "MISH 46",
+      "docxPath": "MHC-cat5-subcontractor/FORM-05-F_Subcontractor-Closeout-Checklist.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 06-A",
+      "slug": "form-06-a_daily-construction-report",
+      "title": "Daily Construction Report",
+      "category": "MHC-cat6-project-admin",
+      "categoryLabel": "Project Administration",
+      "categoryIcon": "📋",
+      "manualSection": null,
+      "docxPath": "MHC-cat6-project-admin/FORM-06-A_Daily-Construction-Report.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 06-B",
+      "slug": "form-06-b_request-for-information-rfi",
+      "title": "Request For Information RFI",
+      "category": "MHC-cat6-project-admin",
+      "categoryLabel": "Project Administration",
+      "categoryIcon": "📋",
+      "manualSection": null,
+      "docxPath": "MHC-cat6-project-admin/FORM-06-B_Request-for-Information-RFI.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 06-C",
+      "slug": "form-06-c_change-order-request",
+      "title": "Change Order Request",
+      "category": "MHC-cat6-project-admin",
+      "categoryLabel": "Project Administration",
+      "categoryIcon": "📋",
+      "manualSection": null,
+      "docxPath": "MHC-cat6-project-admin/FORM-06-C_Change-Order-Request.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 06-D",
+      "slug": "form-06-d_project-punch-list",
+      "title": "Project Punch List",
+      "category": "MHC-cat6-project-admin",
+      "categoryLabel": "Project Administration",
+      "categoryIcon": "📋",
+      "manualSection": null,
+      "docxPath": "MHC-cat6-project-admin/FORM-06-D_Project-Punch-List.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 06-E",
+      "slug": "form-06-e_project-closeout-checklist",
+      "title": "Project Closeout Checklist",
+      "category": "MHC-cat6-project-admin",
+      "categoryLabel": "Project Administration",
+      "categoryIcon": "📋",
+      "manualSection": null,
+      "docxPath": "MHC-cat6-project-admin/FORM-06-E_Project-Closeout-Checklist.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 06-F",
+      "slug": "form-06-f_meeting-minutes",
+      "title": "Meeting Minutes",
+      "category": "MHC-cat6-project-admin",
+      "categoryLabel": "Project Administration",
+      "categoryIcon": "📋",
+      "manualSection": null,
+      "docxPath": "MHC-cat6-project-admin/FORM-06-F_Meeting-Minutes.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 06-G",
+      "slug": "form-06-g_material-submittal-log",
+      "title": "Material Submittal Log",
+      "category": "MHC-cat6-project-admin",
+      "categoryLabel": "Project Administration",
+      "categoryIcon": "📋",
+      "manualSection": null,
+      "docxPath": "MHC-cat6-project-admin/FORM-06-G_Material-Submittal-Log.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 06-H",
+      "slug": "form-06-h_pay-application-cover-sheet",
+      "title": "Pay Application Cover Sheet",
+      "category": "MHC-cat6-project-admin",
+      "categoryLabel": "Project Administration",
+      "categoryIcon": "📋",
+      "manualSection": null,
+      "docxPath": "MHC-cat6-project-admin/FORM-06-H_Pay-Application-Cover-Sheet.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 07-A",
+      "slug": "form-07-a_employee-performance-review",
+      "title": "Employee Performance Review",
+      "category": "MHC-cat7-hr-disciplinary",
+      "categoryLabel": "HR & Disciplinary",
+      "categoryIcon": "📑",
+      "manualSection": null,
+      "docxPath": "MHC-cat7-hr-disciplinary/FORM-07-A_Employee-Performance-Review.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 07-B",
+      "slug": "form-07-b_written-warning-disciplinary-notice",
+      "title": "Written Warning Disciplinary Notice",
+      "category": "MHC-cat7-hr-disciplinary",
+      "categoryLabel": "HR & Disciplinary",
+      "categoryIcon": "📑",
+      "manualSection": null,
+      "docxPath": "MHC-cat7-hr-disciplinary/FORM-07-B_Written-Warning-Disciplinary-Notice.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 07-C",
+      "slug": "form-07-c_employee-termination-checklist",
+      "title": "Employee Termination Checklist",
+      "category": "MHC-cat7-hr-disciplinary",
+      "categoryLabel": "HR & Disciplinary",
+      "categoryIcon": "📑",
+      "manualSection": null,
+      "docxPath": "MHC-cat7-hr-disciplinary/FORM-07-C_Employee-Termination-Checklist.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    },
+    {
+      "id": "FORM 07-D",
+      "slug": "form-07-d_return-to-work-medical-clearance",
+      "title": "Return To Work Medical Clearance",
+      "category": "MHC-cat7-hr-disciplinary",
+      "categoryLabel": "HR & Disciplinary",
+      "categoryIcon": "📑",
+      "manualSection": null,
+      "docxPath": "MHC-cat7-hr-disciplinary/FORM-07-D_Return-to-Work-Medical-Clearance.docx",
+      "revision": "2026-01",
+      "effectiveDate": "April 2026",
+      "owner": "Safety Director"
+    }
+  ]
+}

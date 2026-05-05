@@ -1,0 +1,1358 @@
+"use client";
+
+import Image from "next/image";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { SkillsRadarChart } from "./SkillsRadarChart";
+import { Modal } from "@/components/ui/modals/Modal";
+import { type VintageTeamMember } from "@/lib/data/vintage-team";
+import { buildCertificationShowcase } from "@/lib/safety/certification-showcase";
+import { useState } from "react";
+import { useTheme } from "@/contexts/theme-context";
+function getSkillLevel(score: number): {
+  level: string;
+  color: string;
+  icon: string;
+} {
+  if (score >= 95) {
+    return {
+      level: "Master",
+      color: "text-bronze-badge dark:text-bronze-badge-light",
+      icon: "workspace_premium",
+    };
+  }
+  if (score >= 85) {
+    return {
+      level: "Expert",
+      color: "text-brand-primary dark:text-brand-primary-light",
+      icon: "verified",
+    };
+  }
+  if (score >= 75) {
+    return {
+      level: "Proficient",
+      color: "text-green-700 dark:text-green-600",
+      icon: "check_circle",
+    };
+  }
+  if (score >= 65) {
+    return {
+      level: "Competent",
+      color: "text-brand-secondary dark:text-brand-secondary-light",
+      icon: "task_alt",
+    };
+  }
+  return {
+    level: "Developing",
+    color: "text-gray-600 dark:text-gray-300",
+    icon: "trending_up",
+  };
+}
+
+function getRoleIcon(role: string): string {
+  if (role.toLowerCase().includes("project")) return "engineering";
+  if (role.toLowerCase().includes("estimat")) return "calculate";
+  if (role.toLowerCase().includes("superintend")) return "construction";
+  if (role.toLowerCase().includes("foreman")) return "build";
+  if (role.toLowerCase().includes("safety")) return "security";
+  if (
+    role.toLowerCase().includes("ceo") ||
+    role.toLowerCase().includes("president") ||
+    role.toLowerCase().includes("owner")
+  ) {
+    return "business";
+  }
+  if (role.toLowerCase().includes("admin")) return "admin_panel_settings";
+  if (role.toLowerCase().includes("vice")) return "badge";
+  return "person";
+}
+
+function formatExperienceYears(
+  years: number,
+  mode: "long" | "short" = "long",
+): string {
+  if (years < 1) {
+    return mode === "short" ? "Under 1 yr" : "Under 1 year";
+  }
+
+  const wholeYears = Number.isInteger(years);
+  const displayValue = wholeYears ? years.toString() : years.toFixed(1);
+
+  if (mode === "short") {
+    return `${displayValue} ${years === 1 ? "yr" : "yrs"}`;
+  }
+
+  return `${displayValue} ${years === 1 ? "year" : "years"}`;
+}
+
+function formatProjectTotal(totalProjects: number): string {
+  if (totalProjects < 10) {
+    return totalProjects.toString();
+  }
+
+  return `${totalProjects}+`;
+}
+
+function getBioPreview(bio: string): string {
+  if (bio.length <= 220) {
+    return bio;
+  }
+
+  return `${bio.slice(0, 220).trimEnd()}...`;
+}
+
+type SkillKey = keyof VintageTeamMember["skills"];
+
+const SKILL_KEYS: SkillKey[] = [
+  "leadership",
+  "technical",
+  "communication",
+  "safety",
+  "problemSolving",
+  "teamwork",
+  "organization",
+  "innovation",
+  "passion",
+  "continuingEducation",
+];
+
+type SkillWeightProfile = Partial<Record<SkillKey, number>>;
+
+const ROLE_SKILL_WEIGHTS: Record<string, SkillWeightProfile> = {
+  executive: {
+    leadership: 1.2,
+    communication: 1.12,
+    problemSolving: 1.08,
+    organization: 1.1,
+    safety: 1.05,
+    technical: 0.96,
+  },
+  operations: {
+    safety: 1.2,
+    technical: 1.12,
+    teamwork: 1.1,
+    organization: 1.08,
+    problemSolving: 1.08,
+    innovation: 0.94,
+  },
+  estimator: {
+    technical: 1.2,
+    problemSolving: 1.12,
+    organization: 1.08,
+    innovation: 1.06,
+    communication: 0.98,
+    teamwork: 0.96,
+  },
+  financeAdmin: {
+    organization: 1.2,
+    communication: 1.1,
+    problemSolving: 1.08,
+    technical: 1.05,
+    safety: 0.9,
+    innovation: 0.95,
+  },
+  marketing: {
+    communication: 1.2,
+    innovation: 1.15,
+    technical: 1.08,
+    passion: 1.08,
+    safety: 0.95,
+    teamwork: 0.98,
+  },
+  hr: {
+    communication: 1.2,
+    leadership: 1.12,
+    teamwork: 1.1,
+    organization: 1.08,
+    passion: 1.06,
+    technical: 0.9,
+  },
+};
+
+const TEAM_PROFILE_SECTION_THEME = {
+  credentials:
+    "bg-gradient-to-br from-brand-secondary/15 via-bronze-100/60 to-brand-secondary/10 dark:from-brand-secondary/25 dark:via-bronze-800/30 dark:to-brand-secondary/20 border-2 border-brand-secondary/30 dark:border-brand-secondary/40 shadow-sm",
+  bio: "bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 dark:from-brand-primary/20 dark:to-brand-primary/10 border-2 border-brand-primary/25 dark:border-brand-primary/35 shadow-sm",
+  careerHighlights:
+    "bg-gradient-to-br from-bronze-50 to-brand-secondary/10 dark:from-bronze-900/25 dark:to-brand-secondary/15 border-2 border-bronze-200 dark:border-bronze-700 shadow-sm",
+  specialties:
+    "bg-gradient-to-br from-brand-primary/8 via-brand-primary/5 to-brand-secondary/8 dark:from-brand-primary/15 dark:via-brand-primary/10 dark:to-brand-secondary/12 border-2 border-brand-primary/25 dark:border-brand-primary/35 shadow-sm",
+  achievements:
+    "bg-gradient-to-br from-bronze-50/80 to-white dark:from-bronze-900/20 dark:to-gray-900/70 border-2 border-bronze-200 dark:border-bronze-700 shadow-sm",
+  skillsPanel:
+    "bg-gradient-to-br from-brand-primary/10 via-brand-primary/5 to-brand-secondary/8 dark:from-brand-primary/20 dark:via-brand-primary/10 dark:to-brand-secondary/12 border-2 border-brand-primary/20 dark:border-brand-primary/30",
+  currentStats:
+    "bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 dark:from-brand-primary/20 dark:to-brand-primary/10 border-2 border-brand-primary/20 dark:border-brand-primary/30",
+  careerStats:
+    "bg-gradient-to-br from-brand-secondary/12 via-bronze-100/50 to-brand-secondary/8 dark:from-brand-secondary/20 dark:via-bronze-900/25 dark:to-brand-secondary/12 border-2 border-brand-secondary/25 dark:border-brand-secondary/35",
+  personalDetails:
+    "bg-gradient-to-br from-gray-50 to-brand-primary/6 dark:from-gray-900 dark:to-brand-primary/10 border-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-sm",
+  personalInsights:
+    "bg-gradient-to-br from-brand-secondary/10 via-bronze-50 to-brand-primary/6 dark:from-brand-secondary/20 dark:via-bronze-900/20 dark:to-brand-primary/10 border-2 border-brand-secondary/20 dark:border-brand-secondary/30",
+  contactButton:
+    "inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary-light dark:hover:bg-brand-primary text-white px-6 py-3 rounded-lg border border-brand-secondary/40 dark:border-brand-secondary/50 font-bold text-sm shadow-md hover:shadow-lg transition-all duration-300",
+} as const;
+
+interface AchievementBadge {
+  icon: string;
+  label: string;
+  color: string;
+  textColor: string;
+  special?: boolean;
+  description?: string;
+}
+
+function pushVeteranBadges(
+  member: VintageTeamMember,
+  badges: AchievementBadge[],
+) {
+  if (member.veteranStatus?.toLowerCase().includes("navy")) {
+    badges.push({
+      icon: "military_tech",
+      label: "Navy Veteran",
+      color: "bg-bronze-badge dark:bg-bronze-badge",
+      textColor: "text-white",
+      special: true,
+      description: member.awards || "Honorable Service",
+    });
+  }
+
+  if (member.veteranStatus?.toLowerCase().includes("army")) {
+    badges.push({
+      icon: "military_tech",
+      label: "Army Veteran",
+      color: "bg-bronze-badge dark:bg-bronze-badge",
+      textColor: "text-white",
+      special: true,
+      description: "15 Years Aviation Service",
+    });
+  }
+}
+
+function pushEducationBadges(
+  member: VintageTeamMember,
+  badges: AchievementBadge[],
+) {
+  if (!member.education) {
+    return;
+  }
+
+  const edu = member.education.toLowerCase();
+  if (
+    edu.includes("bas") ||
+    edu.includes("bachelor") ||
+    edu.includes("b.s") ||
+    edu.includes("b.a")
+  ) {
+    badges.push({
+      icon: "school",
+      label: "Bachelor's Degree",
+      color: "bg-brand-primary dark:bg-brand-primary-light",
+      textColor: "text-white",
+      description: member.education,
+    });
+    return;
+  }
+
+  if (
+    edu.includes("master") ||
+    edu.includes("m.s") ||
+    edu.includes("m.a") ||
+    edu.includes("mba")
+  ) {
+    badges.push({
+      icon: "school",
+      label: "Master's Degree",
+      color: "bg-bronze-badge dark:bg-bronze-badge",
+      textColor: "text-white",
+      description: member.education,
+    });
+    return;
+  }
+
+  if (
+    edu.includes("management") ||
+    edu.includes("engineering") ||
+    edu.includes("technology") ||
+    edu.includes("administration") ||
+    edu.includes("operations") ||
+    edu.includes("aas")
+  ) {
+    badges.push({
+      icon: "school",
+      label: "College Graduate",
+      color: "bg-brand-secondary dark:bg-brand-secondary-light",
+      textColor: "text-white",
+      description: member.education,
+    });
+  }
+}
+
+function pushPerformanceBadges(
+  member: VintageTeamMember,
+  badges: AchievementBadge[],
+) {
+  if (member.role.toLowerCase().includes("founder")) {
+    badges.push({
+      icon: "foundation",
+      label: "Company Founder",
+      color: "bg-brand-secondary dark:bg-brand-secondary-light",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.currentYearStats.safetyRecord === "PERFECT") {
+    badges.push({
+      icon: "verified_user",
+      label: "Perfect Safety",
+      color: "bg-green-600 dark:bg-green-500",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.careerStats.yearsExperience >= 20) {
+    badges.push({
+      icon: "workspace_premium",
+      label: `${member.careerStats.yearsExperience}+ Years`,
+      color: "bg-brand-primary dark:bg-brand-primary-light",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.careerStats.totalProjects >= 500) {
+    badges.push({
+      icon: "star",
+      label: "Elite Performer",
+      color: "bg-brand-secondary dark:bg-brand-secondary-light",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.currentYearStats.clientSatisfaction >= 99) {
+    badges.push({
+      icon: "sentiment_very_satisfied",
+      label: "Client Champion",
+      color: "bg-brand-primary dark:bg-brand-primary-light",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.certifications?.includes("Six Sigma")) {
+    badges.push({
+      icon: "analytics",
+      label: "Six Sigma",
+      color: "bg-gray-700 dark:bg-gray-600",
+      textColor: "text-white",
+    });
+  }
+}
+
+function pushSkillBadges(
+  member: VintageTeamMember,
+  badges: AchievementBadge[],
+) {
+  if (member.skills.leadership >= 88) {
+    badges.push({
+      icon: "military_tech",
+      label: "Leadership Excellence",
+      color: "bg-brand-primary dark:bg-brand-primary-light",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.skills.technical >= 88) {
+    badges.push({
+      icon: "engineering",
+      label: "Technical Master",
+      color: "bg-gray-700 dark:bg-gray-600",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.skills.communication >= 88) {
+    badges.push({
+      icon: "forum",
+      label: "Communication Expert",
+      color: "bg-brand-secondary dark:bg-brand-secondary-light",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.skills.safety >= 88) {
+    badges.push({
+      icon: "shield",
+      label: "Safety Champion",
+      color: "bg-red-600 dark:bg-red-500",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.skills.problemSolving >= 88) {
+    badges.push({
+      icon: "psychology",
+      label: "Problem-Solving Pro",
+      color: "bg-green-600 dark:bg-green-500",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.skills.teamwork >= 88) {
+    badges.push({
+      icon: "groups",
+      label: "Team Builder",
+      color: "bg-brand-primary dark:bg-brand-primary-light",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.skills.organization >= 88) {
+    badges.push({
+      icon: "precision_manufacturing",
+      label: "Precision Expert",
+      color: "bg-gray-700 dark:bg-gray-600",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.skills.innovation >= 88) {
+    badges.push({
+      icon: "lightbulb",
+      label: "Innovation Leader",
+      color: "bg-orange-600 dark:bg-orange-500",
+      textColor: "text-white",
+    });
+  }
+}
+
+function buildAchievementBadges(member: VintageTeamMember): AchievementBadge[] {
+  const badges: AchievementBadge[] = [];
+  pushVeteranBadges(member, badges);
+  pushEducationBadges(member, badges);
+  pushPerformanceBadges(member, badges);
+  pushSkillBadges(member, badges);
+  return badges;
+}
+
+function clampSkill(value: number): number {
+  return Math.max(45, Math.min(99, Math.round(value)));
+}
+
+function resolveRoleProfile(member: VintageTeamMember): SkillWeightProfile {
+  const role = member.role.toLowerCase();
+
+  if (
+    role.includes("owner") ||
+    role.includes("president") ||
+    role.includes("vice") ||
+    role.includes("founder")
+  ) {
+    return ROLE_SKILL_WEIGHTS["executive"] ?? {};
+  }
+
+  if (
+    role.includes("superintendent") ||
+    role.includes("field") ||
+    role.includes("safety")
+  ) {
+    return ROLE_SKILL_WEIGHTS["operations"] ?? {};
+  }
+
+  if (role.includes("estimator")) {
+    return ROLE_SKILL_WEIGHTS["estimator"] ?? {};
+  }
+
+  if (role.includes("finance") || role.includes("admin")) {
+    return ROLE_SKILL_WEIGHTS["financeAdmin"] ?? {};
+  }
+
+  if (role.includes("marketing")) {
+    return ROLE_SKILL_WEIGHTS["marketing"] ?? {};
+  }
+
+  if (role.includes("hr") || role.includes("human resources")) {
+    return ROLE_SKILL_WEIGHTS["hr"] ?? {};
+  }
+
+  return {};
+}
+
+function buildRoleCalibratedSkills(
+  member: VintageTeamMember,
+): VintageTeamMember["skills"] {
+  const weights = resolveRoleProfile(member);
+  const adjusted = { ...member.skills };
+
+  for (const key of SKILL_KEYS) {
+    const base = member.skills[key];
+    const weight = weights[key] ?? 1;
+    const stretched = 70 + (base - 70) * 1.18;
+    const roleOffset = (weight - 1) * 12;
+    adjusted[key] = clampSkill(stretched + roleOffset);
+  }
+
+  return adjusted;
+}
+
+function TeamAvatar({ member }: Readonly<{ member: VintageTeamMember }>) {
+  const [hasError, setHasError] = useState(false);
+
+  if (!member.avatar || hasError) {
+    return (
+      <div className="w-full h-full rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark flex items-center justify-center shadow-lg">
+        <MaterialIcon
+          icon={getRoleIcon(member.role)}
+          size="4xl"
+          className="text-white"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <Image
+      src={member.avatar}
+      alt={member.name}
+      fill
+      loading="lazy"
+      priority={false}
+      className="rounded-lg md:rounded-xl object-cover border-2 sm:border-3 md:border-4 border-brand-primary dark:border-brand-secondary shadow-lg"
+      sizes="(max-width: 640px) 96px, (max-width: 768px) 112px, 128px"
+      onError={() => setHasError(true)}
+    />
+  );
+}
+
+interface TeamProfileSectionProps {
+  member: VintageTeamMember;
+  index: number;
+}
+
+export function TeamProfileSection({
+  member,
+  index,
+}: Readonly<TeamProfileSectionProps>) {
+  // Use ThemeContext instead of a MutationObserver on document.documentElement.
+  // The context already tracks isDarkMode reactively — no DOM watcher needed.
+  const { isDarkMode: isDark } = useTheme();
+  const [showPersonal, setShowPersonal] = useState(false);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+
+  const achievementBadges = buildAchievementBadges(member);
+  const calibratedSkills = buildRoleCalibratedSkills(member);
+
+  // Calculate top 3 skills for highlighting
+  const getTopSkills = () => {
+    const skillsArray = [
+      {
+        name: "Partnership Leadership",
+        value: calibratedSkills.leadership,
+        key: "leadership",
+      },
+      {
+        name: "Technical Excellence",
+        value: calibratedSkills.technical,
+        key: "technical",
+      },
+      {
+        name: "Transparent Communication",
+        value: calibratedSkills.communication,
+        key: "communication",
+      },
+      {
+        name: "Safety Excellence",
+        value: calibratedSkills.safety,
+        key: "safety",
+      },
+      {
+        name: "Strategic Thinking",
+        value: calibratedSkills.problemSolving,
+        key: "problemSolving",
+      },
+      {
+        name: "Partnership Unity",
+        value: calibratedSkills.teamwork,
+        key: "teamwork",
+      },
+      {
+        name: "Thoroughness",
+        value: calibratedSkills.organization,
+        key: "organization",
+      },
+      {
+        name: "Client-Focused Excellence",
+        value: calibratedSkills.innovation,
+        key: "innovation",
+      },
+      {
+        name: "Passionate Drive",
+        value: calibratedSkills.passion,
+        key: "passion",
+      },
+      {
+        name: "Growth Mindset",
+        value: calibratedSkills.continuingEducation,
+        key: "continuingEducation",
+      },
+    ];
+    const sorted = skillsArray.toSorted((a, b) => b.value - a.value);
+    return sorted.slice(0, 3);
+  };
+
+  const topSkills = getTopSkills();
+  const certificationShowcase = buildCertificationShowcase(
+    member.certifications,
+  );
+  const featuredCertifications = certificationShowcase.slice(0, 8);
+  const hiddenCertificationCount = Math.max(
+    0,
+    certificationShowcase.length - 8,
+  );
+  const educationTokens = member.education
+    ? member.education
+        .split(",")
+        .map((token) => token.trim())
+        .filter(Boolean)
+    : [];
+
+  // Prepare radar chart data
+  const radarData = [
+    {
+      skill: "Partnership\nLeadership",
+      value: calibratedSkills.leadership,
+      fullMark: 100,
+    },
+    {
+      skill: "Technical\nExcellence",
+      value: calibratedSkills.technical,
+      fullMark: 100,
+    },
+    {
+      skill: "Transparent\nCommunication",
+      value: calibratedSkills.communication,
+      fullMark: 100,
+    },
+    {
+      skill: "Safety\nExcellence",
+      value: calibratedSkills.safety,
+      fullMark: 100,
+    },
+    {
+      skill: "Strategic\nThinking",
+      value: calibratedSkills.problemSolving,
+      fullMark: 100,
+    },
+    {
+      skill: "Partnership\nUnity",
+      value: calibratedSkills.teamwork,
+      fullMark: 100,
+    },
+    {
+      skill: "Thoroughness",
+      value: calibratedSkills.organization,
+      fullMark: 100,
+    },
+    {
+      skill: "Client-Focused\nExcellence",
+      value: calibratedSkills.innovation,
+      fullMark: 100,
+    },
+    {
+      skill: "Passionate\nDrive",
+      value: calibratedSkills.passion,
+      fullMark: 100,
+    },
+    {
+      skill: "Growth\nMindset",
+      value: calibratedSkills.continuingEducation,
+      fullMark: 100,
+    },
+  ];
+
+  // Alternate layout direction
+  const isReversed = index % 2 === 1;
+
+  return (
+    <div
+      id={member.slug}
+      className={`bg-white dark:bg-gray-800 shadow-xl rounded-xl md:rounded-2xl overflow-hidden border-2 border-brand-primary/20 dark:border-brand-primary/30 hover:border-brand-primary/40 dark:hover:border-brand-primary/50 transition-all duration-300 scroll-mt-24 ${
+        isReversed
+          ? "lg:border-r-4 lg:border-r-brand-secondary/60"
+          : "lg:border-l-4 lg:border-l-brand-secondary/60"
+      }`}
+    >
+      {" "}
+      <div
+        className={`grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 md:gap-8 p-4 sm:p-6 md:p-8 ${
+          isReversed ? "lg:translate-x-1" : "lg:-translate-x-1"
+        }`}
+      >
+        {/* Left Column: Photo, Bio, Highlights */}
+        <div
+          className={`space-y-4 sm:space-y-5 md:space-y-6 ${isReversed ? "lg:order-2" : "lg:order-1"}`}
+        >
+          {/* Header with Photo */}
+          <div className="flex items-start gap-4 sm:gap-5 md:gap-6">
+            {/* Photo */}
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 flex-shrink-0">
+              <TeamAvatar member={member} />
+              {/* Veteran Badge - Using Bronze per branding guidelines */}
+              {member.veteranStatus &&
+                member.veteranStatus.toLowerCase().includes("veteran") && (
+                  <div className="absolute -top-2 -right-2 bg-bronze-badge text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg border-2 border-white dark:border-gray-800">
+                    VET
+                  </div>
+                )}
+            </div>
+
+            {/* Name and Title */}
+            <div className="flex-1 min-w-0">
+              <h3 className="text-2xl sm:text-2xl md:text-3xl font-black text-gray-900 dark:text-white leading-tight tracking-tight">
+                {member.name}
+              </h3>
+              {member.nickname && (
+                <p className="text-base sm:text-lg text-brand-secondary-dark dark:text-brand-secondary-light italic mb-1 font-medium">
+                  &ldquo;{member.nickname}&rdquo;
+                </p>
+              )}
+              <p className="text-lg sm:text-xl text-brand-primary dark:text-brand-secondary font-bold tracking-tight">
+                {member.role}
+              </p>
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1 font-medium">
+                {member.department}
+              </p>
+
+              {/* Quick Stats */}
+              <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mt-2 sm:mt-3">
+                <div className="flex items-center gap-2 text-sm">
+                  <MaterialIcon
+                    icon="work_history"
+                    size="sm"
+                    className="text-brand-primary dark:text-brand-secondary"
+                  />
+                  <span className="text-gray-700 dark:text-gray-300 font-medium">
+                    {formatExperienceYears(member.careerStats.yearsExperience)}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <MaterialIcon
+                    icon="task_alt"
+                    size="sm"
+                    className="text-brand-primary dark:text-brand-secondary"
+                  />
+                  <span className="text-gray-700 dark:text-gray-300 font-medium">
+                    {formatProjectTotal(member.careerStats.totalProjects)}{" "}
+                    projects
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Credentials Snapshot */}
+          <div
+            className={`${TEAM_PROFILE_SECTION_THEME.credentials} p-3 sm:p-4 rounded-lg flex flex-col lg:min-h-[14rem]`}
+          >
+            <h4 className="text-base sm:text-lg font-bold text-brand-secondary dark:text-brand-secondary-light mb-3 flex items-center gap-2 tracking-tight">
+              <MaterialIcon
+                icon="workspace_premium"
+                size="sm"
+                className="text-brand-secondary dark:text-brand-secondary-light"
+              />
+              Credentials & Education
+            </h4>
+
+            {educationTokens.length > 0 && (
+              <div className="mb-3">
+                <p className="text-xs uppercase tracking-wide text-brand-secondary-text dark:text-gray-300 font-semibold mb-1.5">
+                  Education
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {educationTokens.map((token) => (
+                    <span
+                      key={`${member.slug}-${token}`}
+                      className="inline-flex items-center rounded-full border border-brand-secondary/30 bg-white/80 dark:bg-gray-900/70 px-2 py-0.5 text-xs font-semibold text-gray-800 dark:text-gray-100"
+                    >
+                      {token}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {featuredCertifications.length > 0 && (
+              <div>
+                <p className="text-xs uppercase tracking-wide text-brand-secondary-text dark:text-gray-300 font-semibold mb-1.5">
+                  Certifications
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {featuredCertifications.map((certification) => (
+                    <span
+                      key={`${member.slug}-featured-${certification.label}`}
+                      className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-semibold ${
+                        certification.inferred
+                          ? "border-brand-secondary/40 bg-brand-secondary/10 text-brand-secondary-dark dark:text-brand-secondary-light"
+                          : "border-brand-primary/30 bg-brand-primary/10 text-brand-primary"
+                      }`}
+                    >
+                      {certification.label}
+                    </span>
+                  ))}
+                  {hiddenCertificationCount > 0 && (
+                    <span className="inline-flex items-center rounded-full border border-brand-primary/20 dark:border-brand-primary/40 bg-white/80 dark:bg-gray-900/70 px-2 py-0.5 text-xs font-semibold text-brand-primary dark:text-brand-secondary-light">
+                      +{hiddenCertificationCount} more
+                    </span>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Bio Snapshot */}
+          <div
+            className={`${TEAM_PROFILE_SECTION_THEME.bio} p-3 sm:p-4 rounded-lg`}
+          >
+            <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-2 flex items-center gap-2 tracking-tight">
+              <MaterialIcon
+                icon="info"
+                size="sm"
+                className="text-brand-primary dark:text-brand-secondary"
+              />
+              Profile Snapshot
+            </h4>
+            <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed font-normal">
+              {getBioPreview(member.bio)}
+            </p>
+            <button
+              type="button"
+              onClick={() => setIsProfileModalOpen(true)}
+              className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary hover:text-brand-primary-dark dark:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors"
+            >
+              <MaterialIcon icon="open_in_new" size="sm" className="" />
+              View Full Profile
+            </button>
+          </div>
+
+          {/* Career Highlights */}
+          {member.careerHighlights && member.careerHighlights.length > 0 && (
+            <div
+              className={`${TEAM_PROFILE_SECTION_THEME.careerHighlights} p-3 sm:p-4 rounded-lg`}
+            >
+              <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-2 tracking-tight">
+                <MaterialIcon
+                  icon="stars"
+                  size="sm"
+                  className="text-brand-primary dark:text-brand-secondary"
+                />
+                Career Highlights
+              </h4>
+              <ul className="space-y-2">
+                {member.careerHighlights.map((highlight) => (
+                  <li
+                    key={highlight}
+                    className="flex items-start gap-3 text-gray-700 dark:text-gray-300"
+                  >
+                    <MaterialIcon
+                      icon="check_circle"
+                      size="sm"
+                      className="text-brand-secondary dark:text-brand-secondary-light flex-shrink-0 mt-0.5"
+                    />
+                    <span className="leading-relaxed font-normal">
+                      {highlight}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Specialties */}
+          {member.specialties && member.specialties.length > 0 && (
+            <div
+              className={`${TEAM_PROFILE_SECTION_THEME.specialties} p-3 sm:p-4 rounded-lg`}
+            >
+              <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-2 tracking-tight">
+                <MaterialIcon
+                  icon="psychology"
+                  size="sm"
+                  className="text-brand-primary dark:text-brand-secondary"
+                />
+                Specialties
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {member.specialties.map((specialty) => (
+                  <span
+                    key={specialty}
+                    className="px-3 py-1.5 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-brand-secondary text-sm rounded-full font-semibold border border-brand-primary/20 dark:border-brand-primary/30"
+                  >
+                    {specialty}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Achievement Badges */}
+          {achievementBadges.some((b) => !b.special) && (
+            <div
+              className={`${TEAM_PROFILE_SECTION_THEME.achievements} p-3 sm:p-4 rounded-lg`}
+            >
+              <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-2 tracking-tight">
+                <MaterialIcon
+                  icon="emoji_events"
+                  size="sm"
+                  className="text-brand-primary dark:text-brand-secondary"
+                />
+                Achievements & Recognition
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {achievementBadges
+                  .filter((b) => !b.special)
+                  .map((badge) => (
+                    <div
+                      key={`${badge.icon}-${badge.label}`}
+                      className={`${badge.color} ${badge.textColor} px-3 py-1.5 rounded-lg font-semibold text-sm flex items-center gap-2 shadow-md hover:shadow-lg transition-all duration-200`}
+                      title={badge.description || badge.label}
+                    >
+                      <MaterialIcon
+                        icon={badge.icon}
+                        size="md"
+                        className={badge.textColor}
+                      />
+                      <span className="whitespace-nowrap">{badge.label}</span>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Right Column: Radar Chart, Stats, Details */}
+        <div
+          className={`space-y-4 sm:space-y-5 md:space-y-6 ${isReversed ? "lg:order-1" : "lg:order-2"}`}
+        >
+          {/* Radar Chart */}
+          <div
+            className={`${TEAM_PROFILE_SECTION_THEME.skillsPanel} p-4 sm:p-5 md:p-6 rounded-lg md:rounded-xl`}
+          >
+            <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 sm:mb-4 text-center tracking-tight">
+              Professional Skills Profile
+            </h4>
+
+            {/* Veteran Badge - Center of Radar */}
+            {achievementBadges.some((b) => b.special) && (
+              <div className="flex flex-col items-center justify-center mb-3">
+                {achievementBadges
+                  .filter((b) => b.special)
+                  .map((badge) => (
+                    <div
+                      key={`${badge.icon}-${badge.label}-special`}
+                      className="flex flex-col items-center gap-2"
+                    >
+                      <div
+                        className={`${badge.color} ${badge.textColor} px-4 py-2 rounded-lg font-bold text-sm flex items-center gap-2 shadow-xl ring-4 ring-bronze-badge/30 dark:ring-bronze-badge-light/30`}
+                        title={badge.description || badge.label}
+                      >
+                        <MaterialIcon
+                          icon={badge.icon}
+                          size="lg"
+                          className={badge.textColor}
+                        />
+                        <span>{badge.label}</span>
+                        <MaterialIcon
+                          icon="stars"
+                          size="lg"
+                          className="text-yellow-300 dark:text-yellow-200"
+                        />
+                      </div>
+                      <p className="text-xs text-gray-600 dark:text-gray-300 italic flex items-center gap-1">
+                        <MaterialIcon
+                          icon="flag"
+                          size="sm"
+                          className="text-red-600 dark:text-red-500"
+                        />
+                        Thank you for your service to our country
+                      </p>
+                    </div>
+                  ))}
+              </div>
+            )}
+
+            {/* Lazy-loaded Skills Radar Chart */}
+            <SkillsRadarChart
+              data={radarData.map((d) => ({
+                subject: d.skill.replace("\n", " "),
+                value: d.value,
+                fullMark: d.fullMark,
+              }))}
+              isDark={isDark}
+            />
+
+            {/* Top 3 Skills Display */}
+            <div className="mt-4 flex flex-wrap gap-2 justify-center">
+              {topSkills.map((skill, idx) => {
+                const skillLevel = getSkillLevel(skill.value);
+                const getMedalIcon = (index: number): string => {
+                  if (index === 0) return "workspace_premium";
+                  if (index === 1) return "verified";
+                  return "stars";
+                };
+                const getMedalColor = (index: number): string => {
+                  if (index === 0) return "text-bronze-badge";
+                  if (index === 1) return "text-gray-400";
+                  return "text-brand-secondary-dark dark:text-brand-secondary-light";
+                };
+                const medalIcon = getMedalIcon(idx);
+                const medalColor = getMedalColor(idx);
+                return (
+                  <div
+                    key={skill.key}
+                    className="flex items-center gap-2 bg-white dark:bg-gray-800 px-3 py-1.5 rounded-full border-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-sm"
+                  >
+                    <MaterialIcon
+                      icon={medalIcon}
+                      size="sm"
+                      className={medalColor}
+                    />
+                    <MaterialIcon
+                      icon={skillLevel.icon}
+                      size="sm"
+                      className={skillLevel.color}
+                    />
+                    <span className="text-xs font-semibold text-gray-900 dark:text-white">
+                      {skill.name}
+                    </span>
+                    <span className={`text-xs font-bold ${skillLevel.color}`}>
+                      {skill.value}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Performance Stats */}
+          <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4">
+            {/* 2025 Performance */}
+            <div
+              className={`${TEAM_PROFILE_SECTION_THEME.currentStats} p-3 sm:p-4 rounded-lg`}
+            >
+              <h5 className="text-xs sm:text-sm font-bold text-brand-primary dark:text-brand-secondary mb-2 sm:mb-3 flex items-center gap-1 tracking-tight">
+                <MaterialIcon
+                  icon="trending_up"
+                  size="sm"
+                  className="text-brand-primary dark:text-brand-secondary"
+                />
+                2025 Stats
+              </h5>
+              <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
+                    Projects
+                  </span>
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    {member.currentYearStats.projectsCompleted}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
+                    Satisfaction
+                  </span>
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    {member.currentYearStats.clientSatisfaction}%
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
+                    Safety
+                  </span>
+                  <span className="font-bold text-green-600 dark:text-green-400">
+                    {member.currentYearStats.safetyRecord}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
+                    Collabs
+                  </span>
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    {member.currentYearStats.teamCollaborations}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Career Totals */}
+            <div
+              className={`${TEAM_PROFILE_SECTION_THEME.careerStats} p-3 sm:p-4 rounded-lg`}
+            >
+              <h5 className="text-xs sm:text-sm font-bold text-brand-secondary dark:text-brand-secondary-light mb-2 sm:mb-3 flex items-center gap-1 tracking-tight">
+                <MaterialIcon
+                  icon="workspace_premium"
+                  size="sm"
+                  className="text-brand-secondary dark:text-brand-secondary-light"
+                />
+                Career
+              </h5>
+              <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
+                    Total Projects
+                  </span>
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    {formatProjectTotal(member.careerStats.totalProjects)}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
+                    Experience
+                  </span>
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    {formatExperienceYears(
+                      member.careerStats.yearsExperience,
+                      "short",
+                    )}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
+                    Specialties
+                  </span>
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    {member.careerStats.specialtyAreas}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
+                    Mentorships
+                  </span>
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    {member.careerStats.mentorships}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Details */}
+          <div
+            className={`${TEAM_PROFILE_SECTION_THEME.personalDetails} p-3 sm:p-4 rounded-lg space-y-2 sm:space-y-3`}
+          >
+            <h5 className="text-xs sm:text-sm font-bold text-brand-primary dark:text-brand-secondary flex items-center gap-1 tracking-tight">
+              <MaterialIcon
+                icon="person"
+                size="sm"
+                className="text-brand-primary dark:text-brand-secondary"
+              />
+              Personal Details
+            </h5>
+            <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
+              {member.hometown && (
+                <div className="flex items-start gap-2">
+                  <MaterialIcon
+                    icon="home"
+                    size="sm"
+                    className="text-gray-500 dark:text-gray-300 flex-shrink-0 mt-0.5"
+                  />
+                  <div>
+                    <span className="text-brand-secondary-text dark:text-gray-300 font-medium">
+                      Hometown:{" "}
+                    </span>
+                    <span className="text-gray-900 dark:text-white font-semibold">
+                      {member.hometown}
+                    </span>
+                  </div>
+                </div>
+              )}
+              {member.awards && (
+                <div className="flex items-start gap-2">
+                  <MaterialIcon
+                    icon="emoji_events"
+                    size="sm"
+                    className="text-bronze-badge flex-shrink-0 mt-0.5"
+                  />
+                  <div>
+                    <span className="text-brand-secondary-text dark:text-gray-300 font-medium">
+                      Awards:{" "}
+                    </span>
+                    <span className="text-gray-900 dark:text-white font-semibold">
+                      {member.awards}
+                    </span>
+                  </div>
+                </div>
+              )}
+              <div className="flex items-start gap-2">
+                <MaterialIcon
+                  icon="business_center"
+                  size="sm"
+                  className="text-gray-500 dark:text-gray-300 flex-shrink-0 mt-0.5"
+                />
+                <div>
+                  <span className="text-brand-secondary-text dark:text-gray-300 font-medium">
+                    Years at MH:{" "}
+                  </span>
+                  <span className="text-gray-900 dark:text-white font-semibold">
+                    {formatExperienceYears(member.yearsWithCompany)}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Personal Insights - Expandable */}
+          {(member.funFact || member.hobbies || member.specialInterests) && (
+            <div
+              className={`${TEAM_PROFILE_SECTION_THEME.personalInsights} p-3 sm:p-4 rounded-lg`}
+            >
+              <button
+                onClick={() => setShowPersonal(!showPersonal)}
+                className="w-full flex items-center justify-between text-xs sm:text-sm font-bold text-brand-secondary-dark dark:text-brand-secondary-light tracking-tight hover:text-brand-secondary dark:hover:text-brand-secondary transition-colors"
+              >
+                <div className="flex items-center gap-1">
+                  <MaterialIcon
+                    icon="favorite"
+                    size="sm"
+                    className="text-brand-secondary dark:text-brand-secondary-light"
+                  />
+                  Personal Insights
+                </div>
+                <MaterialIcon
+                  icon={showPersonal ? "expand_less" : "expand_more"}
+                  size="sm"
+                  className="text-brand-secondary dark:text-brand-secondary-light"
+                />
+              </button>
+
+              {showPersonal && (
+                <div className="mt-3 space-y-2 sm:space-y-3 text-xs sm:text-sm animate-in fade-in duration-300">
+                  {member.funFact && (
+                    <div className="flex items-start gap-2">
+                      <MaterialIcon
+                        icon="lightbulb"
+                        size="sm"
+                        className="text-bronze-badge dark:text-bronze-badge-light flex-shrink-0 mt-0.5"
+                      />
+                      <div>
+                        <span className="text-gray-600 dark:text-gray-300 font-medium">
+                          Fun Fact:{" "}
+                        </span>
+                        <span className="text-gray-900 dark:text-white">
+                          {member.funFact}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  {member.hobbies && (
+                    <div className="flex items-start gap-2">
+                      <MaterialIcon
+                        icon="sports_esports"
+                        size="sm"
+                        className="text-brand-primary dark:text-brand-primary-light flex-shrink-0 mt-0.5"
+                      />
+                      <div>
+                        <span className="text-gray-600 dark:text-gray-300 font-medium">
+                          Hobbies:{" "}
+                        </span>
+                        <span className="text-gray-900 dark:text-white">
+                          {member.hobbies}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  {member.specialInterests && (
+                    <div className="flex items-start gap-2">
+                      <MaterialIcon
+                        icon="interests"
+                        size="sm"
+                        className="text-brand-secondary dark:text-brand-secondary-light flex-shrink-0 mt-0.5"
+                      />
+                      <div>
+                        <span className="text-gray-600 dark:text-gray-300 font-medium">
+                          Special Interests:{" "}
+                        </span>
+                        <span className="text-gray-900 dark:text-white">
+                          {member.specialInterests}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Contact Button */}
+          <div className="flex justify-center">
+            <a
+              href={`mailto:${member.email || "office@mhc-gc.com"}?subject=Connect%20with%20${encodeURIComponent(member.name)}`}
+              className={TEAM_PROFILE_SECTION_THEME.contactButton}
+            >
+              <MaterialIcon icon="mail" size="sm" className="text-white" />
+              Contact Team Member
+            </a>
+          </div>
+        </div>
+      </div>
+      <Modal
+        isOpen={isProfileModalOpen}
+        onClose={() => setIsProfileModalOpen(false)}
+        title={`${member.name} - Full Profile`}
+        size="lg"
+        showVeteranBadge={false}
+        backdropAriaLabel={`Close full profile modal for ${member.name}`}
+      >
+        <div className="space-y-4">
+          <p className="text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-200">
+            {member.bio}
+          </p>
+          {member.careerHighlights.length > 0 && (
+            <div>
+              <h4 className="text-sm font-bold text-brand-primary dark:text-brand-secondary mb-2">
+                Career Highlights
+              </h4>
+              <ul className="space-y-1.5">
+                {member.careerHighlights.map((highlight) => (
+                  <li
+                    key={`${member.slug}-modal-${highlight}`}
+                    className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-200"
+                  >
+                    <MaterialIcon
+                      icon="check_circle"
+                      size="sm"
+                      className="text-brand-secondary dark:text-brand-secondary-light mt-0.5"
+                    />
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {member.qrCode && (
+            <div className="flex flex-col items-center gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <h4 className="text-sm font-bold text-brand-primary dark:text-brand-secondary flex items-center gap-2">
+                <MaterialIcon
+                  icon="qr_code_2"
+                  size="sm"
+                  className="text-brand-primary dark:text-brand-secondary"
+                />
+                Digital Business Card
+              </h4>
+              <div className="relative w-40 h-40 border-2 border-brand-primary/20 dark:border-brand-primary/30 rounded-xl overflow-hidden shadow-md bg-white dark:bg-white">
+                <Image
+                  src={member.qrCode}
+                  alt={`QR code for ${member.name} — scan to connect`}
+                  fill
+                  className="object-contain p-2"
+                  sizes="160px"
+                />
+              </div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+                Scan to connect with{" "}
+                <span className="font-semibold text-gray-700 dark:text-gray-200">
+                  {member.name.split(" ")[0]}
+                </span>
+              </p>
+            </div>
+          )}
+        </div>
+      </Modal>
+    </div>
+  );
+}

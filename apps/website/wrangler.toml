@@ -1,0 +1,222 @@
+name = "mhc-v2-website"
+main = ".open-next/worker.js"
+compatibility_date = "2026-03-25"
+compatibility_flags = ["nodejs_compat"]
+
+# Workers AI binding — powers the Partnership Guide chatbot.
+# No provisioning needed; the AI binding is available to all Workers plans.
+# Free tier: 10,000 neurons/day. Paid plan: $0.011 per 1,000 neurons.
+# Model: @cf/meta/llama-3.1-8b-instruct (fast, good for structured Q&A).
+# If the binding is absent, the chatbot falls back to keyword-based responses.
+[ai]
+binding = "AI"
+remote = true
+
+# ========================================================================
+# Cloudflare Dashboard Settings (not configurable via wrangler.toml)
+# ========================================================================
+#
+# PLAN: Cloudflare Pro (activated April 14, 2026)
+
+
+# --- FREE TIER SETTINGS (already configured) ---
+#
+# Speed → Optimization → Content Optimization:
+#   Early Hints ................. ON  — sends 103 with Link: preload headers
+#                                       (font + hero image defined in _headers)
+#   Auto Minify JS/CSS/HTML ..... OFF — Next.js already minifies; double-minify
+#                                       can corrupt JSX output
+#   Rocket Loader ............... OFF — breaks Next.js hydration
+#
+# Speed → Optimization → Protocol Optimization:
+#   HTTP/2 ...................... ON  (default for proxied zones)
+#   HTTP/3 with QUIC ........... ON  — better mobile perf on lossy networks
+#   0-RTT Connection Resumption . ON  — returning visitors skip TLS handshake
+#
+# SSL/TLS:
+#   Mode ........................ Full (strict)
+#   Always Use HTTPS ........... ON
+#   Minimum TLS Version ........ 1.2
+#   HSTS ....................... Enable (managed via _headers in code;
+#                                       dashboard toggle provides defence-in-depth)
+#
+# Caching → Tiered Cache:
+#   Smart Tiered Cache ......... ON  (free) — reduces origin hits by routing
+#                                       through regional upper-tier caches
+#
+# --- PRO TIER SETTINGS (configure in dashboard) ---
+#
+# Speed → Optimization → Image Optimization:
+#   Polish ..................... Lossy — auto-compress images at edge (30-50% smaller)
+#   Mirage ..................... ON    — lazy-load + responsive images for mobile
+#
+# Speed → Optimization → Image Resizing:
+#   Image Resizing ............. ON    — enables cdn-cgi/image/ URLs
+#
+# Rules → Redirect Rules (Pro: 50 rules):
+#   "apex-to-www" rule ......... hostname = mhc-gc.com → 301 to www.mhc-gc.com
+#                                After creating, remove redirect from middleware.ts
+#
+# Security → WAF → Custom Rules (Pro: 5 rules):
+#   "block-empty-ua" ........... Block API requests with empty User-Agent
+#   "rate-limit-forms" ......... Rate limit POST to /api/contact, /api/consultations
+#
+# Caching → Cache Analytics:
+#   Monitor cache hit ratio .... Target >90% for static assets
+#
+# ========================================================================
+
+# Workers Assets — serves the static output from opennextjs-cloudflare
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+# Build-time / runtime environment variables
+# These are committed to version control — DO NOT put secrets here.
+# NEXT_PUBLIC_SITE_URL is baked into the Next.js client bundle at build time.
+# next.config.js falls back to this value if the dashboard var is missing, so
+# the dashboard setting is redundant but still recommended for clarity.
+[vars]
+NEXT_PUBLIC_SITE_URL = "https://www.mhc-gc.com"
+# Google Analytics measurement ID — replace with the real G-XXXXXXXXXX value.
+# NEXT_PUBLIC_* vars are baked into the client bundle at build time; they must be
+# present here (or in the CF dashboard) before running `wrangler deploy`.
+# NEXT_PUBLIC_GA_MEASUREMENT_ID = "G-XXXXXXXXXX"
+
+# NOTE: This is a Cloudflare Workers project (NOT Pages).
+# Deployment: `wrangler deploy` (not `wrangler pages deploy`).
+# Preview URL:  *-mhc-v2-website.twelthmann.workers.dev
+# Workers URL:  mhc-v2-website.twelthmann.workers.dev
+# Do NOT create a wrangler.jsonc file — wrangler reads .jsonc before .toml,
+# and a malformed .jsonc silently overrides all config.
+
+# Custom domain routes — keep in sync with the CF dashboard to prevent
+# wrangler deploy from overriding (and removing) the dashboard bindings.
+[[routes]]
+pattern = "mhc-gc.com"
+zone_name = "mhc-gc.com"
+custom_domain = true
+
+[[routes]]
+pattern = "www.mhc-gc.com"
+zone_name = "mhc-gc.com"
+custom_domain = true
+
+# Runtime secrets — set via `wrangler secret put <NAME>` or the Cloudflare Workers
+# dashboard (Workers & Pages → mhc-v2-website → Settings → Variables & Secrets).
+# Missing secrets cause silent failures (email/SMS won't send) or hard errors
+# (JWT_SECRET, ADMIN_*_PASSWORD throw at request time in production).
+#
+# Required secrets:
+#   JWT_SECRET               — HMAC key for session tokens (min 32 chars)
+#   ADMIN_MATT_PASSWORD      — Login password for Matt
+#   ADMIN_JEREMY_PASSWORD    — Login password for Jeremy
+#   FIELD_STAFF_PASSWORD     — Login password for field staff portal
+#   RESEND_API_KEY           — Resend API key (re_xxxx) for outbound email
+#   EMAIL_FROM               — Sender address (e.g. office@mhc-gc.com)
+#   TWILIO_ACCOUNT_SID       — Twilio account SID for SMS notifications
+#   TWILIO_AUTH_TOKEN        — Twilio auth token for SMS notifications
+#   TWILIO_FROM_NUMBER       — Twilio phone number (+18556839792)
+#   N8N_WEBHOOK_URL          — n8n automation webhook endpoint
+#   TURNSTILE_SECRET_KEY     — Cloudflare Turnstile secret for form bot protection
+#   SENTRY_DSN               — Sentry DSN for server-side error tracking
+#   NEXT_PUBLIC_SENTRY_DSN   — Sentry DSN baked into the client bundle at build time
+
+# Observability — Workers Logs & Traces (available on all plans)
+# Captures invocation logs and traces in the Cloudflare dashboard under
+# Workers & Pages → mhc-v2-website → Observability.
+[observability]
+enabled = false
+head_sampling_rate = 1
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+persist = true
+invocation_logs = true
+
+[observability.traces]
+enabled = true
+persist = true
+head_sampling_rate = 1
+
+# Deployment is triggered by `wrangler deploy` after `opennextjs-cloudflare build`.
+# The CI pipeline (.github/workflows/ci-cd.yml) is a quality gate only —
+# it does not run `wrangler deploy`.
+#
+# Bindings below (D1, R2) are read by Cloudflare Workers at deploy time.
+# KV namespaces are reserved for future use but not yet bound in the dashboard.
+# To activate KV, create the namespaces in the CF dashboard, then replace the
+# placeholder IDs below with real namespace IDs.
+
+# KV Namespaces
+#
+# CACHE — required for fleet-wide rate limiting (security + DoS protection).
+# Without CACHE, src/lib/security/rate-limiter.ts silently falls back to a
+# per-isolate Map, meaning rate limits are NOT shared across the Worker fleet.
+#
+# To provision:
+#   1. wrangler kv namespace create CACHE
+#      → copy the returned `id` value below
+#   2. wrangler kv namespace create CACHE --preview
+#      → copy the returned `id` value as `preview_id`
+#   3. Uncomment the [[kv_namespaces]] block and paste both IDs.
+#   4. Run `wrangler deploy` — no code changes needed; rate-limiter.ts auto-detects.
+#
+[[kv_namespaces]]
+binding = "CACHE"
+id = "b6ecda1ca7a7463db0f8a3b5d9681131"
+# preview_id — run `wrangler kv namespace create CACHE --preview` to get this value,
+# then set it here. Required for local `wrangler dev` sessions; not needed for production.
+#
+# NEXT_CACHE_WORKERS_KV — required for ISR (Incremental Static Regeneration).
+# 13 pages declare `export const revalidate = 86400` (location pages, team,
+# testimonials). Without this binding, those pages are built once at deploy time
+# and never re-rendered — `revalidate` has no effect.
+#
+[[kv_namespaces]]
+binding = "NEXT_CACHE_WORKERS_KV"
+id = "c7473e6da0dc44d5874f3bd58032b43d"
+#
+# ANALYTICS — server-side analytics aggregation (pageviews, conversions, clicks).
+# Provision with:
+#   1. wrangler kv namespace create ANALYTICS
+#      → copy the returned `id` value below
+#   2. wrangler kv namespace create ANALYTICS --preview
+#      → copy the returned `id` value as `preview_id`
+#
+# Without ANALYTICS, the /api/analytics/collect endpoint falls back to a no-op
+# and the dashboard shows zeros for cross-visitor metrics.
+#
+# TO ENABLE: Run these two commands, then uncomment the block below and fill in the IDs:
+#   wrangler kv namespace create ANALYTICS
+#   wrangler kv namespace create ANALYTICS --preview
+#
+[[kv_namespaces]]
+binding = "ANALYTICS"
+id = "969e74f0815b47ce9e75ae5acfe2a70d"
+
+# R2 buckets for file storage
+[[r2_buckets]]
+binding = "FILE_ASSETS"
+bucket_name = "mh-construction-assets"
+
+[[r2_buckets]]
+binding = "SAFETY_INTAKE"
+bucket_name = "mh-construction-safety-intake"
+
+[[r2_buckets]]
+binding = "RESUMES"
+bucket_name = "mh-construction-resumes"
+
+# D1 Database
+[[d1_databases]]
+binding = "DB"
+database_id = "98ad144a-cfe2-4f19-a55c-c43140279840"
+# preview_database_id is intentionally omitted — Cloudflare's Build system uses it
+# over database_id, routing live traffic to the wrong database. Local dev can use
+# wrangler dev --local (no remote D1 needed) or set it in .dev.vars instead.
+
+# Cron Triggers — daily driver license monitoring alerts at 7:00 AM Pacific (14:00 UTC)
+[triggers]
+crons = ["0 14 * * *"]

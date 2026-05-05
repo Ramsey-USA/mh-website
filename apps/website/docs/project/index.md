@@ -1,0 +1,36 @@
+# Project Documentation
+
+**Category:** Project - Overview  
+**Last Updated:** May 4, 2026
+
+## Overview
+
+High-level project architecture, audit history, and the cross-surface congruency plan that aligns
+the website, PWA, and operational documents.
+
+## Available Resources
+
+### Architecture
+
+- **[Architecture Documentation](./architecture.md)** — System architecture, tech stack, and module
+  boundaries.
+
+### Operational Planning
+
+- **[Operational Hub Congruent Plan](./operational-hub-congruent-plan.md)** — Source of truth for
+  website ↔ PWA ↔ document alignment and roadmap sequencing.
+
+### Audits
+
+- **[Audit Index](./audit-index.md)** — Master index of project audits and their outcomes.
+
+## Quick Links
+
+- [← Documentation Index](../index.md)
+- [← Back to Main README](../../README.md)
+- [Deployment Documentation](../deployment/index.md)
+- [Technical Documentation](../technical/index.md)
+
+---
+
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025

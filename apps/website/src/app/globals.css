@@ -1,0 +1,964 @@
+/* ============================================
+   MH BRAND FONTS
+   Heading / Subheading: Mendl Sans Dusk
+   Body: DIN 2014
+   Served via Adobe Fonts (Typekit) kit jqs8bjh
+   Loaded via <link rel="stylesheet"> in layout.tsx so the browser
+   fetches it in parallel with this file instead of sequentially
+   via a render-blocking @import chain.
+   ============================================ */
+
+/* Import CSS variables for cohesive design system */
+@import "../styles/variables.css";
+
+/* Import 3D card flip utilities */
+@import "../styles/card-flip.css";
+
+/* Tailwind CSS v4 — point to legacy JS config for theme/plugins */
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+/* Material Icons font setup */
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "liga";
+}
+
+/* Hide breadcrumb navigation globally */
+nav[aria-label="Breadcrumb navigation"],
+nav[aria-label="Navegacion de ruta"] {
+  display: none;
+}
+
+/* ============================================
+   TAILWIND LAYER EXTENSIONS
+   Clean utility classes in proper layers
+   ============================================ */
+
+@layer utilities {
+  /* Mobile viewport fixes */
+  .hero-section {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* Hide scrollbar for horizontal scroll areas */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
+  /* Icon performance utilities */
+  .icon-container {
+    @apply flex items-center justify-center;
+  }
+
+  /* Focus styling for accessibility - WCAG AAA compliant */
+  .focus-brand {
+    @apply focus-visible:outline-2 focus-visible:outline-brand-primary focus-visible:outline-offset-2;
+  }
+
+  /* Enhanced focus for all interactive elements */
+  *:focus-visible {
+    outline: 3px solid var(--color-brand-primary);
+    outline-offset: 2px;
+    transition: outline-offset 0.15s ease;
+  }
+
+  /* Touch targets for mobile accessibility */
+  .touch-target-min {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .touch-target-sm {
+    min-width: 36px;
+    min-height: 36px;
+  }
+
+  /* Brand glow effect */
+  .btn-glow:hover {
+    box-shadow:
+      0 10px 25px -5px
+        color-mix(in srgb, var(--color-brand-primary) 40%, transparent),
+      0 10px 10px -5px
+        color-mix(in srgb, var(--color-brand-primary) 4%, transparent);
+  }
+
+  /* Architectural Bronze CTA border — use on any call-to-action outline element */
+  .cta-border {
+    border-color: var(--color-brand-bronze);
+  }
+  .cta-border:hover {
+    border-color: var(--color-brand-bronze-dark);
+  }
+
+  /* Mobile-specific text utilities */
+  .text-readable-min {
+    font-size: max(9px, 0.75rem);
+  }
+
+  /* Hardware acceleration for smooth mobile animations */
+  .mobile-smooth {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* Custom animation utilities */
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Dark mode gradient utilities - Per branding guidelines */
+  .gradient-hero-dark {
+    @apply dark:from-brand-primary-dark dark:via-gray-900 dark:to-brand-secondary-dark;
+  }
+
+  .gradient-section-dark {
+    @apply dark:from-gray-800 dark:via-gray-900 dark:to-gray-800;
+  }
+
+  .gradient-text-three-color {
+    @apply bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent;
+  }
+
+  .gradient-text-bronze {
+    @apply bg-gradient-to-r from-brand-primary via-bronze-600 to-brand-secondary bg-clip-text text-transparent;
+  }
+
+  /* Dark mode opacity adjustments for patterns */
+  .pattern-opacity {
+    @apply opacity-[0.03] dark:opacity-[0.05];
+  }
+
+  .blob-opacity-primary {
+    @apply from-brand-primary/10 dark:from-brand-primary/20;
+  }
+
+  .blob-opacity-secondary {
+    @apply from-brand-secondary/10 dark:from-brand-secondary/20;
+  }
+
+  /* Extra small mobile utilities */
+  @media (max-width: 374px) {
+    .mobile-sm\:text-micro {
+      font-size: 8px;
+      line-height: 10px;
+    }
+
+    .mobile-sm\:gap-micro {
+      gap: 2px;
+    }
+
+    .mobile-sm\:p-micro {
+      padding: 2px;
+    }
+  }
+}
+/* ============================================
+   BASE LAYER - Global Performance Optimizations
+   ============================================ */
+
+@layer base {
+  html {
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    @apply transition-colors duration-300;
+    @apply bg-white text-gray-900;
+    @apply dark:bg-gray-900 dark:text-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+
+  /* Optimize rendering performance */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Dark mode color scheme for native browser elements */
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+}
+
+/* ============================================
+   COMPONENT LAYER - Reusable Component Styles
+   ============================================ */
+
+@layer components {
+  /* MH Construction Button System Enhancements */
+  .mh-button-glow {
+    box-shadow: var(--shadow-brand);
+  }
+
+  .mh-button-glow-secondary {
+    box-shadow: var(--shadow-brand-secondary);
+  }
+
+  /* Enhanced button interactions */
+  .button-lift {
+    transition: transform var(--duration-300) var(--ease-bounce);
+  }
+
+  .button-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .button-lift:active {
+    transform: translateY(0);
+  }
+
+  /* Consistent button base styles */
+  .btn-base {
+    @apply inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    padding: var(--button-padding-y) var(--button-padding-x);
+    border-radius: var(--button-radius);
+    transition: var(--button-transition);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply bg-brand-primary text-white hover:bg-brand-secondary focus:ring-brand-primary;
+    @apply dark:bg-brand-primary-light dark:hover:bg-brand-secondary-light;
+    padding: var(--button-padding-y) var(--button-padding-x);
+    border-radius: var(--button-radius);
+    transition: var(--button-transition);
+    box-shadow: var(--shadow-brand);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply border border-brand-primary text-brand-primary bg-transparent hover:bg-brand-primary hover:text-white focus:ring-brand-primary;
+    @apply dark:border-brand-primary-light dark:text-brand-primary-light dark:hover:bg-brand-primary-light;
+    padding: var(--button-padding-y) var(--button-padding-x);
+    border-radius: var(--button-radius);
+    transition: var(--button-transition);
+  }
+
+  /* Card components */
+  .card-base {
+    @apply bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden;
+    @apply dark:bg-gray-800 dark:border-gray-700;
+    padding: var(--card-padding);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+  }
+
+  /* Input components */
+  .input-base {
+    @apply block w-full border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary;
+    @apply dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:placeholder-gray-500;
+    padding: var(--input-padding-y) var(--input-padding-x);
+    border-radius: var(--input-radius);
+    border-width: var(--input-border-width);
+  }
+
+  /* Ensure inline-block cards render properly */
+  .inline-block {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  /* Group hover effects for card flips */
+  .group:hover .group-hover\:rotate-y-180 {
+    @apply rotate-y-180;
+  }
+
+  /* Enhanced modal animations */
+  .animate-modal-backdrop {
+    animation: modal-backdrop-in var(--duration-300) var(--ease-out);
+  }
+
+  .animate-modal-slide {
+    animation: modal-slide-in 0.4s var(--ease-bounce);
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+
+  /* Dark mode text utilities */
+  .text-primary {
+    @apply text-gray-900 dark:text-white;
+  }
+
+  .text-secondary {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+
+  .text-muted {
+    @apply text-gray-600 dark:text-gray-400;
+  }
+
+  /* Dark mode background utilities */
+  .bg-primary {
+    @apply bg-white dark:bg-gray-900;
+  }
+
+  .bg-secondary {
+    @apply bg-gray-50 dark:bg-gray-800;
+  }
+
+  .bg-surface {
+    @apply bg-gray-100 dark:bg-gray-700;
+  }
+
+  /* Dark mode border utilities */
+  .border-primary {
+    @apply border-gray-300 dark:border-gray-600;
+  }
+
+  .border-secondary {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+}
+
+/* ============================================
+   CUSTOM ANIMATIONS & KEYFRAMES
+   ============================================ */
+
+@keyframes modal-backdrop-in {
+  from {
+    opacity: 0;
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+}
+
+@keyframes modal-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0
+      color-mix(in srgb, var(--color-brand-primary) 40%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 20px transparent;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out;
+}
+
+.animate-slide-down {
+  animation: slide-down 0.4s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN IMPROVEMENTS
+   ============================================ */
+
+/* Prevent horizontal scrolling on the root viewport only. Keep sections free to
+   manage their own horizontal overflow so they won't capture pointer/scroll
+   events (avoid creating scroll containers at section-level). */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Ensure main and container sizing remain full-width but do NOT force
+   overflow-x hidden here — sections/components should opt-in when they
+   intentionally need to hide overflow (e.g. carousels or 3D effects). */
+main {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 100%;
+  /* NOTE: intentionally do NOT set overflow-x here to avoid creating
+     scroll-capturing containers. Use utility classes where necessary
+     on the specific components that require overflow control. */
+}
+
+/* Improve mobile touch interactions */
+@media (max-width: 768px) {
+  /* Ensure cards and content don't exceed screen width */
+  .feature-card,
+  .service-card,
+  .team-card {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Fix card flip on mobile - disable 3D transform for better UX */
+  .feature-card .group-hover\:rotate-y-180 {
+    transition: none;
+  }
+
+  .feature-card:active .group-hover\:rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  /* Improve touch targets for mobile */
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better spacing on mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Mobile-specific typography adjustments */
+  .text-responsive {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+    line-height: 1.5;
+  }
+
+  /* Ensure better readability on small screens */
+  p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+    line-height: 1.4;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Adjust grid gaps for better spacing */
+  .grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Prevent text overflow and improve readability */
+.text-responsive {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Global word-wrap utilities for all text content */
+* {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Enhanced scrollbar styling for card overflow */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.dark .scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.scrollbar-thumb-white\/20::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.scrollbar-thumb-gray-300::-webkit-scrollbar-thumb {
+  background: rgb(209, 213, 219);
+}
+
+.dark .scrollbar-thumb-gray-600::-webkit-scrollbar-thumb {
+  background: rgb(75, 85, 99);
+}
+
+.scrollbar-track-transparent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Fix for fixed height cards on mobile */
+@media (max-width: 640px) {
+  .feature-card {
+    height: auto !important;
+    min-height: 360px !important;
+  }
+
+  .feature-card .relative {
+    min-height: 280px !important;
+    height: 100% !important;
+  }
+
+  .value-card .relative {
+    min-height: 280px !important;
+    height: auto !important;
+  }
+
+  .testimonial-card .relative {
+    min-height: 280px !important;
+    height: auto !important;
+  }
+}
+
+/* Enhanced mobile utilities */
+@media (max-width: 640px) {
+  /* Improve button interactions on mobile */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Ensure proper icon sizing on mobile */
+  .material-icons {
+    font-size: inherit;
+    width: 1em;
+    height: 1em;
+  }
+
+  /* Ensure cards don't overflow container */
+  .card-container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+/* Responsive container padding for all screen sizes */
+@media (max-width: 375px) {
+  .container,
+  .max-w-7xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Improve touch targets on mobile */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ============================================
+   3D FLIP CARD ANIMATIONS
+   ============================================ */
+
+/* Perspective container for 3D effect */
+.perspective {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+}
+
+/* Preserve 3D transforms for children */
+.preserve-3d {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+/* Hide backface of flipped elements */
+.backface-hidden {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Rotate Y axis for flip effect */
+.rotate-y-180 {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/* Smooth transition for flip animation */
+.group:hover .group-hover\:rotate-y-180 {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/* Touch device support - tap to flip */
+@media (hover: none) and (pointer: coarse) {
+  .perspective {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* On touch devices, use active state instead of hover */
+  .group:active .group-hover\:rotate-y-180 {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+}
+
+/* Activity Feed slide-in animation */
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   AWARD-WINNING ENHANCEMENTS
+   Accessibility + Micro-interactions
+   ============================================ */
+
+/* Skip to main content link - WCAG AAA */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-brand-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 0.25rem 0;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Smooth animations with reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scroll-triggered animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Alias used by .scroll-reveal CSS-only path (must match slideUp) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-in-delay-1 {
+  animation: slideUp 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-in-delay-2 {
+  animation: slideUp 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-in-delay-3 {
+  animation: slideUp 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* Button hover enhancements - GPU accelerated */
+@layer utilities {
+  .btn-lift {
+    transition:
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .btn-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-lift:active {
+    transform: translateY(0);
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    will-change: transform;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.15),
+      0 10px 10px -5px rgba(0, 0, 0, 0.08);
+  }
+
+  .card-hover:hover img {
+    transform: scale(1.05);
+  }
+
+  .card-hover img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Ensure card 3D transforms work properly */
+  .feature-card .preserve-3d,
+  .value-card .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .feature-card .backface-hidden,
+  .value-card .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Image zoom on hover */
+  .image-zoom {
+    overflow: hidden;
+  }
+
+  .image-zoom img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .image-zoom:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Gradient shine effect on hover */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-shine::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .btn-shine:hover::before {
+    transform: translateX(0);
+  }
+
+  /* Scroll progress indicator */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      var(--color-brand-primary),
+      var(--color-brand-secondary)
+    );
+    z-index: 100;
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 0.15s ease-out;
+    will-change: transform;
+  }
+}
+
+/* Skeleton loading animations */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .skeleton {
+  background: linear-gradient(90deg, #1f2937 25%, #374151 50%, #1f2937 75%);
+  background-size: 200% 100%;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.4s ease-out forwards;
+}
+
+/* === SCROLL REVEAL ANIMATIONS === */
+/* Hybrid approach: works with or without JavaScript ScrollReveal component */
+
+/* Default behavior: CSS-only animation (for pages without ScrollReveal component) */
+.scroll-reveal {
+  opacity: 1;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.25, 0, 1) both;
+  /* Uses --delay CSS custom property when set via inline style; falls back to 0s */
+  animation-delay: var(--delay, 0s);
+}
+
+/* When ScrollReveal JS component is present, use JS-controlled reveal */
+.scroll-reveal.js-controlled {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: none;
+  transition:
+    opacity 0.6s cubic-bezier(0.25, 0.25, 0, 1),
+    transform 0.6s cubic-bezier(0.25, 0.25, 0, 1);
+}
+
+.scroll-reveal.js-controlled.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger fallbacks for CSS-only animation (when no --delay prop is set inline) */
+.scroll-reveal:not(.js-controlled):nth-child(1) {
+  animation-delay: var(--delay, 0s);
+}
+.scroll-reveal:not(.js-controlled):nth-child(2) {
+  animation-delay: var(--delay, 0.1s);
+}
+.scroll-reveal:not(.js-controlled):nth-child(3) {
+  animation-delay: var(--delay, 0.2s);
+}
+.scroll-reveal:not(.js-controlled):nth-child(4) {
+  animation-delay: var(--delay, 0.3s);
+}
+.scroll-reveal:not(.js-controlled):nth-child(5) {
+  animation-delay: var(--delay, 0.4s);
+}
+.scroll-reveal:not(.js-controlled):nth-child(6) {
+  animation-delay: var(--delay, 0.5s);
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal.js-controlled,
+  .scroll-reveal.js-controlled.revealed {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
