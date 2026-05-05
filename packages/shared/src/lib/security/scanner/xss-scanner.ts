@@ -194,7 +194,7 @@ export class XSSScanner {
     responseBody: string,
   ): SeverityLevel {
     // Check if payload is in a script context (most dangerous)
-    if (/<script[^>]*>[\s\S]*?<\/script>/gi.test(responseBody)) {
+    if (/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi.test(responseBody)) {
       return "critical" as SeverityLevel;
     }
 
