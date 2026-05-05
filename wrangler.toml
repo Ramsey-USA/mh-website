@@ -1,5 +1,5 @@
 name = "mhc-v2-website"
-main = ".open-next/worker.js"
+main = "apps/website/.open-next/worker.js"
 compatibility_date = "2026-03-25"
 compatibility_flags = ["nodejs_compat"]
 
@@ -68,7 +68,7 @@ remote = true
 
 # Workers Assets — serves the static output from opennextjs-cloudflare
 [assets]
-directory = ".open-next/assets"
+directory = "apps/website/.open-next/assets"
 binding = "ASSETS"
 
 # Build-time / runtime environment variables
