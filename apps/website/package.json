@@ -118,8 +118,7 @@
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.4",
     "toucan-js": "^4.1.1",
-    "web-vitals": "^5.1.0",
-    "sanitize-html": "^2.17.3"
+    "web-vitals": "^5.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
