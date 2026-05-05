@@ -31,7 +31,7 @@
 
 import puppeteer from "puppeteer";
 import QRCode from "qrcode";
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import { PDFDocument, StandardFonts, rgb, TextAlignment } from "pdf-lib";
 import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
 import { readFileSync, existsSync, unlinkSync } from "node:fs";
 import { join, resolve, dirname, extname } from "node:path";
@@ -925,17 +925,17 @@ async function addFillableFieldsToLetterhead(pdfPath) {
   };
 
   // Table geometry — derived directly from HTML table layout:
-  //   body-area top: 2.55in from page top
+  //   body-area top: 2.25in from page top
   //   left margin:   1.15in from page left
   //   6 columns × 1.05in = 6.30in wide, zero cell padding
-  //   Row heights: date/to/addr/from/subject = 0.42in, body = 4.35in
-  //   Label height offset (6.6pt + 2pt margin ≈ 0.16in)
+  //   Row heights: date/to/addr/from/subject = 0.32in, body = 5.05in
+  //   Label height offset (label margin-top 2pt + label height ~8pt ≈ 0.13in)
 
-  const bTop = 2.55; // body-area top (in)
-  const rH = 0.42; // standard row height
-  const bH = 4.35; // body row height (fills page down to footer)
-  const fH = 0.24; // single-line field height
-  const lOff = 0.16; // label offset (label margin-top 4pt + label height ~8pt)
+  const bTop = 2.25; // body-area top (in)
+  const rH = 0.32; // standard row height (condensed label rows)
+  const bH = 5.05; // body row height (preserves page-2 cont-body 2.10in bottom clearance)
+  const fH = 0.2; // single-line field height
+  const lOff = 0.13; // label offset (label margin-top 2pt + label height ~8pt)
 
   const rowDate = bTop;
   const rowTo = bTop + rH;
@@ -950,14 +950,16 @@ async function addFillableFieldsToLetterhead(pdfPath) {
   const colW2 = 3 * 1.05; // half width  = 3.15
   const dateX = 1.15 + 4 * 1.05; // date x      = 5.35
 
-  addField("lh.date", dateX, rowDate + lOff, 2.1, fH);
+  addField("lh.date", dateX, rowDate + lOff, 2.1, fH).setAlignment(
+    TextAlignment.Right,
+  );
   addField("lh.toName", colL, rowTo + lOff, colW2, fH);
   addField("lh.toOrg", colR, rowTo + lOff, colW2, fH);
   addField("lh.toAddress", colL, rowAddr + lOff, colW2, fH);
   addField("lh.toCityStateZip", colR, rowAddr + lOff, colW2, fH);
-  addField("lh.from", colL, rowFrom + lOff, 6.3, fH);
-  addField("lh.subject", colL, rowSubject + lOff, colW2, fH);
-  addField("lh.jobBid", colR, rowSubject + lOff, colW2, fH);
+  addField("lh.from", colL, rowFrom + lOff, colW2, fH);
+  addField("lh.jobBid", colR, rowFrom + lOff, colW2, fH);
+  addField("lh.subject", colL, rowSubject + lOff, 6.3, fH);
   addField("lh.body", colL, rowBody + 0.04, 6.3, bH - 0.08, {
     multiline: true,
   });
