@@ -1,0 +1,1608 @@
+export const revalidate = 3600; // 1 h ISR — allows DB profile updates to surface within an hour
+
+import { PageTrackingClient } from "@/components/analytics";
+import Image from "next/image";
+import Link from "next/link";
+import dynamic from "next/dynamic";
+import { Button, IconContainer, GlowEffect } from "@/components/ui";
+import {
+  DiagonalStripePattern,
+  BrandColorBlobs,
+} from "@/components/ui/backgrounds";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import ScrollReveal from "@/components/animations/ScrollReveal";
+
+// TeamProfileSection contains ~1 000 lines of client-side JS and dynamically
+// imports recharts. Making it dynamic with ssr:true keeps server-rendered HTML
+// but splits its JS so it loads after the critical above-fold content.
+const TeamProfileSection = dynamic(
+  () =>
+    import("@/components/team/TeamProfileSection").then((mod) => ({
+      default: mod.TeamProfileSection,
+    })),
+  { ssr: true },
+);
+import {
+  vintageTeamMembers,
+  applyProfileOverride,
+  type VintageTeamMember,
+  type TeamProfileOverride,
+} from "@/lib/data/vintage-team";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { getEmployeeTestimonials } from "@/lib/data/testimonials";
+import { StructuredData } from "@/components/seo/SeoMeta";
+import {
+  generateBreadcrumbSchema,
+  breadcrumbPatterns,
+} from "@/lib/seo/breadcrumb-schema";
+import { getD1DatabaseAsync } from "@/lib/db/env";
+import { createDbClient } from "@/lib/db/client";
+import { logger } from "@/lib/utils/logger";
+
+// Lazy load below-the-fold heavy components for better mobile performance
+const TestimonialGrid = dynamic(() =>
+  import("@/components/testimonials").then((mod) => ({
+    default: mod.TestimonialGrid,
+  })),
+);
+const StrategicCTABanner = dynamic(() =>
+  import("@/components/ui/cta").then((mod) => ({
+    default: mod.StrategicCTABanner,
+  })),
+);
+
+const NextStepsSection = dynamic(
+  () =>
+    import("@/components/shared-sections").then((mod) => ({
+      default: mod.NextStepsSection,
+    })),
+  { ssr: true },
+);
+
+// Group team members by department
+function groupByDepartment(members: VintageTeamMember[]) {
+  return members.reduce(
+    (acc, member) => {
+      const dept = member.department;
+      acc[dept] ??= [];
+      acc[dept].push(member);
+      return acc;
+    },
+    {} as Record<string, VintageTeamMember[]>,
+  );
+}
+
+// DB row shape returned from team_profiles
+interface TeamProfileRow {
+  slug: string;
+  bio: string | null;
+  fun_fact: string | null;
+  certifications: string | null;
+  hobbies: string | null;
+  special_interests: string | null;
+  career_highlights: string | null;
+  specialties: string | null;
+  skills: string | null;
+  current_year_stats: string | null;
+  career_stats: string | null;
+  years_with_company: number | null;
+  hometown: string | null;
+  education: string | null;
+  nickname: string | null;
+  status: "pending_approval" | "approved" | "rejected" | null;
+}
+
+function safeParseJson<T>(value: string | null): T | undefined {
+  if (!value) return undefined;
+  try {
+    return JSON.parse(value) as T;
+  } catch {
+    return undefined;
+  }
+}
+
+function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
+  const override: TeamProfileOverride = { slug: row.slug };
+
+  if (row.bio != null) override.bio = row.bio;
+  if (row.fun_fact != null) override.funFact = row.fun_fact;
+  if (row.certifications != null) override.certifications = row.certifications;
+  if (row.hobbies != null) override.hobbies = row.hobbies;
+  if (row.special_interests != null) {
+    override.specialInterests = row.special_interests;
+  }
+  if (row.career_highlights != null) {
+    const parsed = safeParseJson<string[]>(row.career_highlights);
+    if (parsed !== undefined) override.careerHighlights = parsed;
+  }
+  if (row.specialties != null) {
+    const parsed = safeParseJson<string[]>(row.specialties);
+    if (parsed !== undefined) override.specialties = parsed;
+  }
+  if (row.skills != null) {
+    const parsed = safeParseJson<VintageTeamMember["skills"]>(row.skills);
+    if (parsed !== undefined) override.skills = parsed;
+  }
+  if (row.current_year_stats != null) {
+    const parsed = safeParseJson<VintageTeamMember["currentYearStats"]>(
+      row.current_year_stats,
+    );
+    if (parsed !== undefined) override.currentYearStats = parsed;
+  }
+  if (row.career_stats != null) {
+    const parsed = safeParseJson<VintageTeamMember["careerStats"]>(
+      row.career_stats,
+    );
+    if (parsed !== undefined) override.careerStats = parsed;
+  }
+  if (row.years_with_company != null) {
+    override.yearsWithCompany = row.years_with_company;
+  }
+  if (row.hometown != null) override.hometown = row.hometown;
+  if (row.education != null) override.education = row.education;
+  if (row.nickname != null) override.nickname = row.nickname;
+
+  return override;
+}
+
+/**
+ * Fetch all team profile overrides from D1.
+ * Returns an empty map if the DB is unavailable (static data is used as fallback).
+ */
+async function fetchProfileOverrides(): Promise<
+  Map<string, TeamProfileOverride>
+> {
+  const overrides = new Map<string, TeamProfileOverride>();
+
+  // During production build there is no live CF request context; skip D1 lookup
+  // and fall back to static team data to keep prerender deterministic.
+  if (process.env["NEXT_PHASE"] === "phase-production-build") return overrides;
+
+  const DB = await getD1DatabaseAsync();
+  if (!DB) return overrides;
+
+  try {
+    const db = createDbClient({ DB });
+    const rows = await db.query<TeamProfileRow>(
+      "SELECT * FROM team_profiles WHERE status = 'approved'",
+    );
+    for (const row of rows) {
+      overrides.set(row.slug, rowToOverride(row));
+    }
+  } catch (err) {
+    logger.warn("team/page: failed to fetch profile overrides from D1", {
+      err,
+    });
+  }
+
+  return overrides;
+}
+
+function getDepartmentHeadingParts(department: string) {
+  if (department.startsWith("The ")) {
+    return {
+      subtitle: "The",
+      title: department.slice(4),
+    };
+  }
+
+  const parts = department.split(" ");
+  return {
+    subtitle: parts.slice(0, -1).join(" "),
+    title: parts.at(-1) ?? department,
+  };
+}
+
+const departmentConfig: Record<
+  string,
+  { icon: string; description: string; id: string }
+> = {
+  "The Upper Brass": {
+    icon: "workspace_premium",
+    description:
+      "Command leadership setting strategic direction and maintaining disciplined, dependable standards across all operations.",
+    id: "upper-brass",
+  },
+  "Mission Commanders": {
+    icon: "engineering",
+    description:
+      "Mission planning and execution—precision estimating, strategic scheduling, and tactical project coordination.",
+    id: "mission-commanders",
+  },
+  "Special Operations": {
+    icon: "military_tech",
+    description:
+      "Specialized operations in marketing, safety, and strategic initiatives driving competitive advantage.",
+    id: "special-operations",
+  },
+  "Logistics Command": {
+    icon: "support_agent",
+    description:
+      "Base operations providing critical logistics, communications, and administrative support for mission success.",
+    id: "logistics-command",
+  },
+  "Field Officers": {
+    icon: "construction",
+    description:
+      "Frontline operations delivering quality craftsmanship with disciplined execution and safety excellence.",
+    id: "field-officers",
+  },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What makes MH Construction's leadership team unique?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "MH Construction's Chain of Command brings together 150+ years combined military-grade expertise from all service branches (Army, Navy, Air Force, Marines, Coast Guard, Space Force). Our leadership team has been Veteran-Owned Since January 2025 and combines military discipline with proven construction excellence.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Who leads MH Construction?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "MH Construction is led by Owner & President Jeremy Thamert (35+ years construction experience, 15 years Army aviation), Vice President Arnold Garcia (40+ years construction experience), and Founder Mike Holstein who founded the company in 2010.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is MH Construction's Chain of Command structure?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Our Chain of Command includes: The Upper Brass (executive leadership), Mission Commanders (project management and estimating), Special Operations (marketing and safety), Logistics Command (administration and support), and Field Officers (superintendents).",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is MH Construction Veteran-Owned?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, MH Construction became Veteran-Owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our team honors all service branches with disciplined execution, direct communication, and service-earned values.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does MH Construction hire veterans?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, MH Construction actively recruits veterans across all branches. We value military experience and offer veteran hiring initiatives, mentorship programs, and career development opportunities. Visit our careers page to learn more.",
+      },
+    },
+  ],
+};
+
+export default async function TeamPage() {
+  // Fetch profile overrides from D1; gracefully falls back to static JSON if unavailable
+  const overrides = await fetchProfileOverrides();
+
+  // Merge overrides with static team members
+  const mergedMembers = vintageTeamMembers.map((member) =>
+    applyProfileOverride(member, overrides.get(member.slug) ?? null),
+  );
+
+  const membersByDepartment = groupByDepartment(mergedMembers);
+  const founderTributeMember = mergedMembers.find(
+    (member) => member.slug === "mike-holstein",
+  );
+
+  // Define department order matching the Chain of Command structure
+  const departmentOrder = [
+    "The Upper Brass",
+    "Mission Commanders",
+    "Field Officers",
+    "Special Operations",
+    "Logistics Command",
+  ];
+
+  return (
+    <>
+      <PageTrackingClient pageName="Team" />
+      <StructuredData
+        data={generateBreadcrumbSchema(breadcrumbPatterns.team)}
+      />
+      <StructuredData data={faqSchema} />
+
+      {/* Initialize scroll reveal animations */}
+      <ScrollReveal />
+
+      <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+        {/* Hero Section */}
+        <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
+          {/* Background - Ready for photo or video */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
+            <Image
+              src="/images/team/mh-construction-team-group-2025.webp"
+              alt="MH Construction team group photo, 2025"
+              fill
+              className="object-cover opacity-35"
+              priority
+            />
+            {/* Overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
+          </div>
+
+          {/* Header Text - Bottom Right */}
+          <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+            {/* Mission Icon */}
+            <div className="flex justify-end mb-4">
+              <div className="relative p-4 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
+                <MaterialIcon
+                  icon="groups"
+                  size="4xl"
+                  className="text-white drop-shadow-lg"
+                  ariaLabel="Chain of Command - Elite construction team"
+                />
+              </div>
+            </div>
+            <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
+              <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+                Chain of Command → Our Team
+              </span>
+              <span className="block text-brand-secondary">
+                All-Branch Veteran Leadership You Can Trust
+              </span>
+              <span className="block text-brand-primary">
+                150+ Years Combined Military-Grade Expertise
+              </span>
+              <span className="block text-white/90">
+                Building projects for the Client,{" "}
+                <span className="font-black italic text-bronze-300">NOT</span>{" "}
+                the Dollar
+              </span>
+            </h1>
+          </div>
+
+          {/* Page-Specific Navigation Bar */}
+          <PageNavigation
+            items={navigationConfigs.team}
+            className="absolute bottom-0 left-0 right-0"
+          />
+        </section>
+
+        {/* Breadcrumb Navigation */}
+        <Breadcrumb
+          items={[{ label: "Home", href: "/" }, { label: "Chain of Command" }]}
+        />
+
+        <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+          <DiagonalStripePattern />
+          <BrandColorBlobs />
+
+          <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="groups"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Meet Our
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  Elite Team
+                </span>
+              </h2>
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                Meet our{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  All-Branch veteran leadership team
+                </span>{" "}
+                honoring Army, Navy, Air Force, Marines, Coast Guard, and Space
+                Force service.{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  Award-winning professionals
+                </span>{" "}
+                you can trust, bringing 150+ years combined military-grade
+                expertise and precision to every{" "}
+                <Link
+                  href="/projects"
+                  className="text-brand-primary hover:text-brand-primary-dark underline"
+                >
+                  Pacific Northwest construction mission
+                </Link>
+                . From{" "}
+                <Link
+                  href="/services"
+                  className="text-brand-primary hover:text-brand-primary-dark underline"
+                >
+                  commercial and industrial construction
+                </Link>{" "}
+                to{" "}
+                <Link
+                  href="/public-sector"
+                  className="text-brand-primary hover:text-brand-primary-dark underline"
+                >
+                  government projects
+                </Link>
+                , our Chain of Command delivers{" "}
+                <Link
+                  href="/about"
+                  className="text-brand-primary hover:text-brand-primary-dark underline"
+                >
+                  service-earned values
+                </Link>{" "}
+                on every project.
+              </p>
+            </div>
+
+            {/* Team Members by Department - First Two Departments */}
+            <div className="space-y-16 sm:space-y-24 md:space-y-32">
+              {departmentOrder.slice(0, 2).map((department) => {
+                const members = (membersByDepartment[department] ?? []).filter(
+                  (member) => member.slug !== "mike-holstein",
+                );
+                const config = departmentConfig[department] ?? {
+                  icon: "groups",
+                  description: "",
+                  id: "team",
+                };
+                const heading = getDepartmentHeadingParts(department);
+                const hasMembers = members.length > 0;
+
+                return (
+                  <div
+                    key={department}
+                    id={config.id}
+                    className="relative scroll-mt-20"
+                  >
+                    {/* Department header - Military Construction Standard */}
+                    <div className="mb-12 sm:mb-14 md:mb-16 text-center">
+                      {/* Icon with decorative lines */}
+                      <div className="flex items-center justify-center mb-8 gap-4">
+                        <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                        <div className="relative">
+                          <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                          <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                            <MaterialIcon
+                              icon={config.icon}
+                              size="2xl"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                      </div>
+
+                      <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                        <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                          {heading.subtitle}
+                        </span>
+                        <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                          {heading.title}
+                        </span>
+                      </h3>
+
+                      {/* Description with better styling */}
+                      {config.description && (
+                        <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                          {config.description}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Team member profiles */}
+                    <div className="space-y-8 sm:space-y-10 md:space-y-12">
+                      {hasMembers ? (
+                        members.map((member, index) => (
+                          <div key={member.slug} className="scroll-reveal">
+                            <TeamProfileSection member={member} index={index} />
+                          </div>
+                        ))
+                      ) : (
+                        <div className="scroll-reveal rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 bg-white/80 dark:bg-gray-800/80 p-6 sm:p-8 text-center shadow-sm">
+                          <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+                            Personnel roster update in progress.
+                          </p>
+                          <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
+                            This command section will populate as deployment
+                            assignments are finalized.
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Employee Testimonials Section - Positioned at 25-30% for SEO */}
+        <section
+          id="employee-testimonials"
+          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+        >
+          <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="forum"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  What Our Team Members
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  Say About Us
+                </span>
+              </h2>
+
+              {/* Description with colored keywords */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                Hear directly from the professionals who bring our partnership
+                philosophy to life every day—veteran and civilian voices united
+                in{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  dependable execution
+                </span>{" "}
+                and{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  service-earned values.
+                </span>
+              </p>
+            </div>
+
+            <TestimonialGrid
+              testimonials={getEmployeeTestimonials()}
+              variant="employee"
+              columns={3}
+              className="!py-0"
+            />
+          </div>
+        </section>
+
+        {/* Remaining Departments - Field Officers and Logistics Command */}
+        <section className="relative bg-gray-50 dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+          <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            {/* Remaining Team Members by Department */}
+            <div className="space-y-16 sm:space-y-24 md:space-y-32">
+              {departmentOrder.slice(2).map((department) => {
+                const members = (membersByDepartment[department] ?? []).filter(
+                  (member) => member.slug !== "mike-holstein",
+                );
+                const config = departmentConfig[department] ?? {
+                  icon: "groups",
+                  description: "",
+                  id: "team",
+                };
+                const heading = getDepartmentHeadingParts(department);
+                const hasMembers = members.length > 0;
+
+                return (
+                  <div
+                    key={department}
+                    id={config.id}
+                    className="relative scroll-mt-20"
+                  >
+                    {/* Department header - Military Construction Standard */}
+                    <div className="mb-12 sm:mb-14 md:mb-16 text-center">
+                      {/* Icon with decorative lines */}
+                      <div className="flex items-center justify-center mb-8 gap-4">
+                        <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                        <div className="relative">
+                          <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                          <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                            <MaterialIcon
+                              icon={config.icon}
+                              size="2xl"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                      </div>
+
+                      <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                        <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                          {heading.subtitle}
+                        </span>
+                        <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                          {heading.title}
+                        </span>
+                      </h3>
+
+                      {/* Description with better styling */}
+                      {config.description && (
+                        <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                          {config.description}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Team member profiles */}
+                    <div className="space-y-8 sm:space-y-10 md:space-y-12">
+                      {hasMembers ? (
+                        members.map((member, index) => (
+                          <div key={member.slug} className="scroll-reveal">
+                            <TeamProfileSection member={member} index={index} />
+                          </div>
+                        ))
+                      ) : (
+                        <div className="scroll-reveal rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 bg-white/80 dark:bg-gray-800/80 p-6 sm:p-8 text-center shadow-sm">
+                          <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+                            Personnel roster update in progress.
+                          </p>
+                          <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
+                            This command section will populate as deployment
+                            assignments are finalized.
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Company Culture Section */}
+            <div
+              id="company-culture"
+              className="mt-12 sm:mt-16 md:mt-20 lg:mt-24"
+            >
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="diversity_3"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Our Partnership
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Company Culture
+                  </span>
+                </h2>
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    &ldquo;All for one, one for all&rdquo;
+                  </span>{" "}
+                  isn't just a motto—it's how we partner, grow, and succeed
+                  together. Our{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    people-centered culture
+                  </span>{" "}
+                  starts with leadership committed to serving both Client
+                  Partners and communities, maintaining the highest standards of
+                  safety (.64 EMR award-winning), quality craftsmanship, and
+                  transparent communication that defines every partnership.
+                </p>
+              </div>
+
+              <div className="gap-6 sm:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-12">
+                {/* Team Unity */}
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <GlowEffect
+                            gradient="primary-dark"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="primary">
+                            <MaterialIcon
+                              icon="groups"
+                              size="lg"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </IconContainer>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Team Unity
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          From veterans to civilians, office to field—we&apos;re
+                          one team with shared values forged through military
+                          discipline and construction excellence. Every Client
+                          Partner success belongs to all of us, every safety
+                          milestone reflects our collective commitment, and
+                          every project showcases our unified dedication to
+                          quality.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mutual Support */}
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <GlowEffect gradient="bronze" />
+
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <GlowEffect
+                            gradient="bronze"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="secondary">
+                            <MaterialIcon
+                              icon="volunteer_activism"
+                              size="lg"
+                              theme="tactical"
+                              ariaLabel="Mutual support"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </IconContainer>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Mutual Support
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          We lift each other up through mentorship programs,
+                          share 150+ years of combined knowledge freely, and
+                          ensure no one faces challenges alone. Your growth is
+                          our growth—from apprentice to master craftsman, from
+                          entry-level to leadership, we invest in continuous
+                          professional development and cross-training
+                          excellence.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Shared Success */}
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <GlowEffect gradient="primary-dark" />
+
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <GlowEffect
+                            gradient="primary-dark"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="primary">
+                            <MaterialIcon
+                              icon="military_tech"
+                              size="lg"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </IconContainer>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Shared Success
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          When our Client Partners win, we all win—from AGC-WA
+                          Top EMR Awards to 3+ years without time-loss injuries.
+                          Celebrating achievements together (70% referral
+                          business), learning from setbacks as a unified team,
+                          and building lasting relationships that extend well
+                          beyond project completion. THE ROI IS THE
+                          RELATIONSHIP.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Culture Highlights - Enhanced */}
+              <div className="relative bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-800/95 dark:to-gray-800 shadow-2xl p-8 sm:p-10 md:p-12 rounded-2xl border-2 border-brand-secondary/10 dark:border-brand-secondary/20 overflow-hidden">
+                {/* Decorative background elements */}
+                <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-brand-secondary/5 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-brand-primary/5 to-transparent rounded-full blur-3xl"></div>
+
+                <div className="relative z-10">
+                  {/* Enhanced heading */}
+                  <div className="flex flex-col items-center mb-10">
+                    <div className="mb-6 p-4 bg-gradient-to-br from-brand-secondary to-bronze-700 rounded-2xl shadow-lg">
+                      <MaterialIcon
+                        icon="diversity_3"
+                        size="xl"
+                        className="text-white"
+                        ariaLabel="Culture diversity"
+                      />
+                    </div>
+                    <h3 className="font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tight text-center">
+                      <span className="block mb-2 text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl font-semibold">
+                        What Makes Our
+                      </span>
+                      <span className="block bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-secondary bg-clip-text text-transparent">
+                        Team Culture Special
+                      </span>
+                    </h3>
+                  </div>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+                    <div className="space-y-6">
+                      <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-primary to-brand-primary-dark group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                          <MaterialIcon
+                            icon="military_tech"
+                            size="sm"
+                            className="text-white"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
+                            Veteran-Owned Discipline
+                          </h4>
+                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Veteran-Owned under Army veteran leadership since
+                            January 2025. Structured military processes and
+                            unwavering attention to detail meet creative
+                            civilian problem-solving—discipline, leadership,
+                            service, and accountability integrated into every
+                            project phase with clear, dependable results.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-primary to-brand-primary-dark group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                          <MaterialIcon
+                            icon="forum"
+                            size="sm"
+                            className="text-white"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
+                            Open Communication & Transparency
+                          </h4>
+                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Every voice matters, from apprentice to owner, field
+                            crew to executive leadership. Regular project
+                            updates with photo documentation, immediate
+                            notification of changes, and open-book pricing
+                            ensure collaborative problem-solving and zero
+                            surprises.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-primary to-brand-primary-dark group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                          <MaterialIcon
+                            icon="verified_user"
+                            size="sm"
+                            className="text-white"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
+                            Award-Winning Safety First
+                          </h4>
+                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Presidential leadership focused on safety management
+                            drives our .64 EMR award-winning record—40% better
+                            than industry average. Multiple AGC-WA Top EMR
+                            Awards, OSHA VPP Star designation, and 3+
+                            consecutive years without time-loss injuries.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-6">
+                      <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-secondary to-bronze-700 group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                          <MaterialIcon
+                            icon="location_city"
+                            size="sm"
+                            className="text-white"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-secondary dark:group-hover:text-brand-secondary-light transition-colors duration-300">
+                            Community Focused & Regional Roots
+                          </h4>
+                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Building stronger communities through quality
+                            craftsmanship, lasting relationships, and local
+                            hiring preferences. Team members are deeply rooted
+                            in the Tri-Cities (Pasco, Richland, Kennewick) and
+                            surrounding regions, with personal investment in
+                            community success across our Tri-State licensed
+                            market.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-secondary to-bronze-700 group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                          <MaterialIcon
+                            icon="balance"
+                            size="sm"
+                            className="text-white"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-secondary dark:group-hover:text-brand-secondary-light transition-colors duration-300">
+                            Work-Life Balance
+                          </h4>
+                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Supporting families and personal well-being while
+                            maintaining project excellence. Flexible scheduling
+                            when possible, predictable work hours, and respect
+                            for time away from work.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
+                        <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-secondary to-bronze-700 group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                          <MaterialIcon
+                            icon="handshake"
+                            size="sm"
+                            className="text-white"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-secondary dark:group-hover:text-brand-secondary-light transition-colors duration-300">
+                            Long-Term Relationship Mindset
+                          </h4>
+                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Building lasting relationships that extend well
+                            beyond project completion, with 70% referral
+                            business proving the strength of our commitment to
+                            Client Partner success and future growth together.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quote Section */}
+              <div className="mt-8 sm:mt-10 md:mt-12 text-center px-2">
+                <blockquote className="mb-4 font-medium text-brand-primary text-lg sm:text-xl md:text-2xl italic">
+                  &ldquo;When you join MH Construction, you&apos;re not just
+                  getting a job—you&apos;re joining a Veteran-Owned team that
+                  values integrity, transparency, and building relationships
+                  that last beyond project completion.&rdquo;
+                </blockquote>
+                <cite className="font-semibold text-brand-secondary">
+                  — Jeremy Thamert, Owner & President
+                </cite>
+              </div>
+            </div>
+
+            {/* Career Growth Section */}
+            <div
+              id="career-growth"
+              className="mt-12 sm:mt-16 md:mt-20 lg:mt-24"
+            >
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="school"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Professional Development &
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Career Growth
+                  </span>
+                </h2>
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  We invest in your growth from day one. With{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    structured training programs, mentorship opportunities, and
+                    clear advancement paths
+                  </span>
+                  {", your "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    career trajectory is limited only by your ambition and
+                    dedication.
+                  </span>
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
+                {/* Continuous Training */}
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <GlowEffect gradient="primary-dark" />
+
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <GlowEffect
+                            gradient="primary-dark"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="primary">
+                            <MaterialIcon
+                              icon="school"
+                              size="lg"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </IconContainer>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Continuous Training
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          Regular training on new techniques, evolving safety
+                          standards (OSHA 30, VPP Star), and emerging technology
+                          integration. Stay at the forefront of construction
+                          excellence with ongoing certification maintenance and
+                          skills development.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Cross-Training */}
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <GlowEffect gradient="primary-dark" />
+
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <GlowEffect
+                            gradient="primary-dark"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="primary">
+                            <MaterialIcon
+                              icon="sync_alt"
+                              size="lg"
+                              ariaLabel="Cross-training"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </IconContainer>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Cross-Training Programs
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          Expand your skillset across multiple specialties and
+                          construction disciplines. Learn from experienced
+                          professionals in different trades, increasing your
+                          versatility and value within the organization.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mentorship */}
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <GlowEffect gradient="bronze" />
+
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <GlowEffect
+                            gradient="bronze"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="bronze">
+                            <MaterialIcon
+                              icon="supervisor_account"
+                              size="lg"
+                              ariaLabel="Mentorship"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </IconContainer>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Structured Mentorship
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          Paired with experienced professionals who share 150+
+                          years of combined knowledge freely. From apprentice to
+                          master craftsman, from entry-level to leadership—your
+                          mentor guides your journey every step of the way.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Career Paths */}
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <GlowEffect gradient="primary-dark" />
+
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <GlowEffect
+                            gradient="primary-dark"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="primary">
+                            <MaterialIcon
+                              icon="trending_up"
+                              size="lg"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </IconContainer>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Clear Advancement Paths
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          Transparent career progression from apprentice →
+                          journeyman → foreman → superintendent → project
+                          manager. Your advancement is based on merit, skills,
+                          and demonstrated leadership—not politics or tenure.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Leadership Development */}
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <GlowEffect gradient="primary-dark" />
+
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <GlowEffect
+                            gradient="primary-dark"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="primary">
+                            <MaterialIcon
+                              icon="badge"
+                              size="lg"
+                              ariaLabel="Leadership development"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </IconContainer>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Leadership Development
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          Emerging leaders receive specialized training in
+                          project management, team leadership, Client Partner
+                          relationships, and business development. We build
+                          tomorrow&apos;s construction leaders today.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Industry Involvement */}
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <GlowEffect gradient="bronze" />
+
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <GlowEffect
+                            gradient="bronze"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="bronze">
+                            <MaterialIcon
+                              icon="connect_without_contact"
+                              size="lg"
+                              ariaLabel="Industry involvement"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </IconContainer>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Industry Involvement
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          Active participation in AGC, NAIOP, and other
+                          professional organizations. Network with industry
+                          leaders, stay current on regulations and best
+                          practices, and represent MH Construction in the
+                          broader community.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Investment in Your Success - Enhanced Stats */}
+              <div className="relative bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-800/95 dark:to-gray-800 shadow-2xl p-8 sm:p-10 md:p-12 rounded-2xl border-2 border-brand-primary/10 dark:border-brand-primary/20 overflow-hidden">
+                {/* Decorative background elements */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-brand-primary/5 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-brand-secondary/5 to-transparent rounded-full blur-3xl"></div>
+
+                <div className="relative z-10">
+                  {/* Icon and heading */}
+                  <div className="flex flex-col items-center mb-10">
+                    <div className="mb-6 p-4 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-2xl shadow-lg">
+                      <MaterialIcon
+                        icon="trending_up"
+                        size="xl"
+                        className="text-white"
+                        ariaLabel="Investment growth"
+                      />
+                    </div>
+                    <h3 className="font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tight text-center">
+                      <span className="block mb-2 text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl font-semibold">
+                        Our Commitment
+                      </span>
+                      <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent">
+                        Investment in Your Success
+                      </span>
+                    </h3>
+                  </div>
+
+                  {/* Stats Grid */}
+                  <div className="gap-6 sm:gap-8 grid grid-cols-2 lg:grid-cols-4">
+                    {/* Stat 1 */}
+                    <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
+                      <div className="mb-3 flex justify-center">
+                        <div className="p-3 bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 rounded-lg group-hover:from-brand-primary/20 group-hover:to-brand-primary/10 transition-colors duration-300">
+                          <MaterialIcon
+                            icon="military_tech"
+                            size="lg"
+                            className="text-brand-primary"
+                          />
+                        </div>
+                      </div>
+                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-gradient-to-br from-brand-primary to-brand-primary-dark bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                        150+
+                      </p>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
+                        Years Combined
+                        <br />
+                        Experience
+                      </p>
+                    </div>
+
+                    {/* Stat 2 */}
+                    <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
+                      <div className="mb-3 flex justify-center">
+                        <div className="p-3 bg-gradient-to-br from-brand-secondary/10 to-brand-secondary/5 rounded-lg group-hover:from-brand-secondary/20 group-hover:to-brand-secondary/10 transition-colors duration-300">
+                          <MaterialIcon
+                            icon="paid"
+                            size="lg"
+                            className="text-brand-secondary"
+                          />
+                        </div>
+                      </div>
+                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-gradient-to-br from-brand-secondary to-bronze-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                        100%
+                      </p>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
+                        Training
+                        <br />
+                        Funding
+                      </p>
+                    </div>
+
+                    {/* Stat 3 - AGC Awards */}
+                    <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
+                      <div className="mb-3 flex justify-center">
+                        <div className="p-3 bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 rounded-lg group-hover:from-brand-primary/20 group-hover:to-brand-primary/10 transition-colors duration-300">
+                          <MaterialIcon
+                            icon="emoji_events"
+                            size="lg"
+                            className="text-brand-primary"
+                          />
+                        </div>
+                      </div>
+                      <p className="font-black text-2xl sm:text-3xl md:text-4xl bg-gradient-to-br from-brand-primary to-brand-primary-dark bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                        AGC-WA
+                      </p>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
+                        Top EMR Awards
+                        <br />
+                        (Multiple Years)
+                      </p>
+                    </div>
+
+                    {/* Stat 4 - Years in Business */}
+                    <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
+                      <div className="mb-3 flex justify-center">
+                        <div className="p-3 bg-gradient-to-br from-brand-secondary/10 to-brand-secondary/5 rounded-lg group-hover:from-brand-secondary/20 group-hover:to-brand-secondary/10 transition-colors duration-300">
+                          <MaterialIcon
+                            icon="business"
+                            size="lg"
+                            className="text-brand-secondary"
+                          />
+                        </div>
+                      </div>
+                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-gradient-to-br from-brand-secondary to-bronze-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                        15+
+                      </p>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
+                        Years in Business
+                        <br />
+                        Since 2010
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Strategic CTA Banner - Conversion Optimization */}
+            <div className="-mx-4 sm:-mx-6 lg:-mx-8">
+              <StrategicCTABanner variant="combo" className="my-0" />
+            </div>
+
+            {/* Call to Action - Careers Link */}
+            <div className="mt-12 sm:mt-16 md:mt-20 text-center">
+              <div className="bg-white dark:bg-gray-800 shadow-xl mx-auto p-6 sm:p-7 md:p-8 border border-brand-secondary rounded-lg max-w-2xl">
+                {/* Section Header - v4.0.2 Clean Standards */}
+                <h3 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tight">
+                  <span className="block mb-2 text-gray-700 dark:text-gray-300">
+                    Interested in Joining
+                  </span>
+                  <span className="block text-brand-primary">
+                    Chain of Command?
+                  </span>
+                </h3>
+                <p className="mb-6 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                  Explore career opportunities and learn more about what makes
+                  MH Construction a great place to work—from award-winning
+                  safety culture (.64 EMR) to veteran hiring initiatives,
+                  continuous professional development to competitive benefits.
+                  View our current openings and discover the benefits of joining
+                  our Veteran-Owned team where your growth is our mission and
+                  every team member's success matters.
+                </p>
+                <Link href="/careers">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="transition-all duration-300 w-full sm:w-auto sm:min-w-[280px]"
+                  >
+                    <MaterialIcon icon="work" size="lg" className="mr-3" />
+                    <span className="font-medium">
+                      View Career Opportunities
+                    </span>
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {founderTributeMember && (
+          <section
+            id="founder-tribute"
+            className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+          >
+            <DiagonalStripePattern />
+            <BrandColorBlobs />
+
+            <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+              <div className="mb-12 sm:mb-14 md:mb-16 text-center">
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="foundation"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Founder
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Tribute
+                  </span>
+                </h3>
+
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  Honoring the legacy and leadership foundation that launched MH
+                  Construction and shaped the partnership-first standards we
+                  carry forward today.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-bronze-50/90 via-white to-brand-secondary/10 dark:from-bronze-900/20 dark:via-gray-900 dark:to-brand-secondary/15 rounded-2xl border-2 border-bronze-200 dark:border-bronze-700 shadow-xl p-6 sm:p-8 md:p-10">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 items-start">
+                  <div className="lg:col-span-1">
+                    <div className="relative w-full max-w-sm mx-auto aspect-[4/5] rounded-xl overflow-hidden border-2 border-brand-secondary/30 dark:border-brand-secondary/40 shadow-lg bg-gray-100 dark:bg-gray-800">
+                      <Image
+                        src={
+                          founderTributeMember.avatar ??
+                          "/images/team/placeholder-team.webp"
+                        }
+                        alt={founderTributeMember.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 320px, 360px"
+                      />
+                    </div>
+                    <div className="mt-4 text-center">
+                      <h4 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white tracking-tight">
+                        {founderTributeMember.name}
+                      </h4>
+                      <p className="text-brand-secondary-dark dark:text-brand-secondary-light font-semibold text-lg sm:text-xl">
+                        Founder
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="lg:col-span-2 space-y-6">
+                    <div className="bg-white/80 dark:bg-gray-800/70 rounded-xl border border-brand-primary/20 dark:border-brand-primary/30 p-5 sm:p-6">
+                      <h5 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-2 tracking-tight">
+                        <MaterialIcon
+                          icon="military_tech"
+                          size="sm"
+                          className="text-brand-primary dark:text-brand-secondary"
+                        />
+                        Tribute Statement
+                      </h5>
+                      <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Mike Holstein founded MH Construction in 2010 and set
+                        the company&apos;s original standard for integrity,
+                        discipline, and client-first execution. His leadership
+                        established the cultural and operational foundation that
+                        continues to guide every mission today.
+                      </p>
+                    </div>
+
+                    <div className="bg-white/80 dark:bg-gray-800/70 rounded-xl border border-brand-secondary/25 dark:border-brand-secondary/35 p-5 sm:p-6">
+                      <h5 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-2 tracking-tight">
+                        <MaterialIcon
+                          icon="stars"
+                          size="sm"
+                          className="text-brand-primary dark:text-brand-secondary"
+                        />
+                        Notable Projects & Legacy Milestones
+                      </h5>
+                      <ul className="space-y-2">
+                        {founderTributeMember.careerHighlights.map(
+                          (highlight) => (
+                            <li
+                              key={`founder-tribute-${highlight}`}
+                              className="flex items-start gap-3 text-gray-700 dark:text-gray-300"
+                            >
+                              <MaterialIcon
+                                icon="check_circle"
+                                size="sm"
+                                className="text-brand-secondary dark:text-brand-secondary-light flex-shrink-0 mt-0.5"
+                              />
+                              <span className="leading-relaxed font-normal">
+                                {highlight}
+                              </span>
+                            </li>
+                          ),
+                        )}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Next Steps Section - Standardized Final CTA */}
+        <NextStepsSection />
+      </div>
+    </>
+  );
+}

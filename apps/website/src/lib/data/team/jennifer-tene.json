@@ -1,0 +1,58 @@
+{
+  "name": "Jennifer Tene",
+  "role": "Project Engineer / Admin Assistant",
+  "department": "Mission Commanders",
+  "cardNumber": 14,
+  "position": "Project Engineer / Admin Assistant",
+  "nickname": "Operations Coordinator",
+  "yearsWithCompany": 0.8,
+  "hometown": "Washington",
+  "education": "Business Administration",
+  "currentYearStats": {
+    "projectsCompleted": 3,
+    "clientSatisfaction": 99,
+    "safetyRecord": "N/A",
+    "teamCollaborations": 60
+  },
+  "careerStats": {
+    "totalProjects": 3,
+    "yearsExperience": 0.8,
+    "specialtyAreas": 4,
+    "mentorships": 8
+  },
+  "awards": "Administrative Excellence Award, Communication Coordination Recognition",
+  "bio": "Jennifer drives day-to-day coordination between project engineering and administrative workflows, ensuring information moves clearly and decisions happen on time. Her structure-first approach supports reliable execution, smooth handoffs, and strong communication with both internal teams and clients.",
+  "careerHighlights": [
+    "Coordinates engineering and admin workflows to keep projects moving cleanly.",
+    "Maintains communication continuity across departments and client channels.",
+    "Improves handoff quality through organized documentation and tracking.",
+    "Supports mission execution with dependable follow-up and clarity."
+  ],
+  "funFact": "Jennifer thrives on coordinating moving parts so every team has what it needs on time.",
+  "specialties": [
+    "Project Engineering Support",
+    "Administrative Coordination",
+    "Workflow Management",
+    "Documentation Control"
+  ],
+  "avatar": "/images/team/jennifer-tene.jpg",
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "jennifer-tene",
+  "email": "jennifer@mhc-gc.com",
+  "skills": {
+    "leadership": 72,
+    "technical": 74,
+    "communication": 84,
+    "safety": 52,
+    "problemSolving": 78,
+    "teamwork": 80,
+    "organization": 90,
+    "innovation": 72,
+    "passion": 78,
+    "continuingEducation": 70
+  },
+  "qrCode": "/images/qr-codes/team/qr-team-jennifer-tene-color.png",
+  "certifications": "Procore Certified",
+  "specialInterests": "Cross-Team Coordination and Workflow Reliability"
+}

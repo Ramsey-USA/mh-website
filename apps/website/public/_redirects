@@ -1,0 +1,8 @@
+# Cloudflare Workers Redirects
+# Routing is handled by the OpenNext worker.js.
+# Only true 301 redirects belong here (mirrors next.config.js for CDN-level resolution).
+
+/partners /allies 301
+/trade-partners /allies 301
+/government /public-sector 301
+/book /contact 301

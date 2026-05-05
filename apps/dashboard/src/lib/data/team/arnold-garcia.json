@@ -1,0 +1,60 @@
+{
+  "name": "Arnold Garcia",
+  "role": "Vice President",
+  "department": "The Upper Brass",
+  "cardNumber": 3,
+  "position": "Vice President",
+  "nickname": "Strategic Executive Officer",
+  "yearsWithCompany": 15,
+  "hometown": "Washington State",
+  "education": "Business Operations",
+  "currentYearStats": {
+    "projectsCompleted": 38,
+    "clientSatisfaction": 97,
+    "safetyRecord": "EXCELLENT",
+    "teamCollaborations": 22
+  },
+  "careerStats": {
+    "totalProjects": 425,
+    "yearsExperience": 40,
+    "specialtyAreas": 6,
+    "mentorships": 18
+  },
+  "awards": "Excellence in Client Relations Award, Outstanding VP Achievement",
+  "bio": "Arnold provides senior operational command across MH Construction, guiding teams from preconstruction through closeout with steady judgment and proven field expertise. His leadership style is practical and mentorship-driven, reinforcing a culture where safety, craftsmanship, and client relationships stay aligned from day one.",
+  "careerHighlights": [
+    "Directs operational execution across field teams and project leadership.",
+    "Provides senior mentorship that strengthens superintendent and PM performance.",
+    "Maintains safety, quality, and schedule discipline across active missions.",
+    "Reinforces relationship-first delivery with consistent client follow-through."
+  ],
+  "funFact": "Arnold believes the standard you leave behind matters more than the title you carry.",
+  "certifications": "CDL, State Certified Spanish/English Interpreter, Forklifts, Aerial Platforms/Scissor Lifts, CPR/First Aid, Powder Actuated Tools, Procore Certified Admin",
+  "hobbies": "Baseball, Cooking",
+  "specialInterests": "Client Relations and Team Mentorship",
+  "specialties": [
+    "Operations Leadership",
+    "Field Mentorship",
+    "Construction Management",
+    "Schedule Discipline",
+    "Client Coordination"
+  ],
+  "avatar": "/images/team/arnold-garcia.webp",
+  "veteranStatus": "Civilian Leadership",
+  "active": true,
+  "slug": "arnold-garcia",
+  "email": "arnold@mhc-gc.com",
+  "skills": {
+    "leadership": 92,
+    "technical": 90,
+    "communication": 90,
+    "safety": 82,
+    "problemSolving": 88,
+    "teamwork": 90,
+    "organization": 90,
+    "innovation": 86,
+    "passion": 90,
+    "continuingEducation": 86
+  },
+  "qrCode": "/images/qr-codes/team/qr-team-arnold-garcia-color.png"
+}

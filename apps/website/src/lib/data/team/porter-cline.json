@@ -1,0 +1,59 @@
+{
+  "name": "Porter Cline",
+  "role": "Superintendent",
+  "department": "Field Officers",
+  "cardNumber": 23,
+  "position": "Industrial Superintendent",
+  "nickname": "Field Execution Specialist",
+  "yearsWithCompany": 5,
+  "hometown": "Idaho",
+  "education": "Industrial Technology",
+  "currentYearStats": {
+    "projectsCompleted": 18,
+    "clientSatisfaction": 97,
+    "safetyRecord": "EXCELLENT",
+    "teamCollaborations": 25
+  },
+  "careerStats": {
+    "totalProjects": 95,
+    "yearsExperience": 9,
+    "specialtyAreas": 4,
+    "mentorships": 8
+  },
+  "awards": "Industrial Excellence Award, Heavy Equipment Mastery Recognition",
+  "bio": "Porter brings high-adaptability field leadership to demanding jobsite conditions, guiding crews through changing scopes while protecting schedule and quality. He is known for decisive problem-solving and clear communication that keeps teams focused and clients informed.",
+  "careerHighlights": [
+    "Manages high-variation jobsites with calm, decisive field leadership.",
+    "Keeps crews focused on scope priorities during shifting conditions.",
+    "Drives schedule reliability through practical problem-solving in real time.",
+    "Maintains strong client coordination across demanding project phases."
+  ],
+  "funFact": "Porter enjoys high-tempo jobs where clear leadership keeps teams on mission.",
+  "certifications": "Forklift, CPR & First Aid, Procore Certified",
+  "hobbies": "Team Leadership, Problem-solving",
+  "specialInterests": "Field Problem-Solving and Team Guidance",
+  "specialties": [
+    "Adaptive Field Execution",
+    "Crew Leadership",
+    "Schedule Recovery",
+    "Client Coordination"
+  ],
+  "avatar": "/images/team/porter-cline.webp",
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "porter-cline",
+  "email": "porter@mhc-gc.com",
+  "skills": {
+    "leadership": 82,
+    "technical": 87,
+    "communication": 80,
+    "safety": 88,
+    "problemSolving": 85,
+    "teamwork": 82,
+    "organization": 82,
+    "innovation": 78,
+    "passion": 82,
+    "continuingEducation": 84
+  },
+  "qrCode": "/images/qr-codes/team/qr-team-porter-cline-color.png"
+}

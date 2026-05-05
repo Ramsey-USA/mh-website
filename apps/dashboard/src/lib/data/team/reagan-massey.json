@@ -1,0 +1,59 @@
+{
+  "name": "Reagan Massey",
+  "role": "Superintendent",
+  "department": "Field Officers",
+  "cardNumber": 80,
+  "position": "Superintendent",
+  "nickname": "Site Strategy Advisor",
+  "yearsWithCompany": 12,
+  "hometown": "Pacific Northwest",
+  "education": "Construction Management",
+  "currentYearStats": {
+    "projectsCompleted": 35,
+    "clientSatisfaction": 96,
+    "safetyRecord": "EXCELLENT",
+    "teamCollaborations": 40
+  },
+  "careerStats": {
+    "totalProjects": 290,
+    "yearsExperience": 19,
+    "specialtyAreas": 5,
+    "mentorships": 18
+  },
+  "awards": "Proactive Leadership Award, Quality Assurance Excellence",
+  "bio": "Reagan oversees site execution with a builder's perspective shaped by real-world framing and superintendent experience. He keeps scheduling, material flow, and trade coordination synchronized while maintaining strong client communication and mentoring developing field talent.",
+  "careerHighlights": [
+    "Oversees daily field operations with disciplined superintendent planning.",
+    "Synchronizes trades, materials, and sequencing to sustain project momentum.",
+    "Builds trust through clear jobsite communication with clients and crews.",
+    "Mentors emerging field talent to strengthen long-term team capability."
+  ],
+  "funFact": "Reagan is motivated by delivering quality work that earns repeat client trust.",
+  "certifications": "Forklift, Scissor Lift, Snake Lift, CPR, Procore Certified",
+  "hobbies": "Blueprints, Mentoring",
+  "specialInterests": "Quality Control and Field Coordination",
+  "specialties": [
+    "Superintendent Operations",
+    "Trade Coordination",
+    "Material Planning",
+    "Client Communication"
+  ],
+  "avatar": "/images/team/reagan-massey.webp",
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "reagan-massey",
+  "email": "reagan@mhc-gc.com",
+  "skills": {
+    "leadership": 88,
+    "technical": 84,
+    "communication": 92,
+    "safety": 88,
+    "problemSolving": 87,
+    "teamwork": 88,
+    "organization": 90,
+    "innovation": 79,
+    "passion": 88,
+    "continuingEducation": 86
+  },
+  "qrCode": "/images/qr-codes/team/qr-team-reagan-massey-color.png"
+}

@@ -13,6 +13,7 @@
   "globs": [
     "**/*.md",
     "!node_modules/**",
+    "!**/node_modules/**",
     "!.next/**",
     "!.open-next/**",
     "!.github/agents/**",

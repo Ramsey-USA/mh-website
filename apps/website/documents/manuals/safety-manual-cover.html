@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MH Construction Safety Manual - Cover</title>
+    <style>
+      :root {
+        --brand-primary: {{BRAND_COLOR_PRIMARY}};
+        --brand-primary-dark: {{BRAND_COLOR_PRIMARY_DARK}};
+        --brand-primary-darker: {{BRAND_COLOR_PRIMARY_DARKER}};
+        --brand-secondary: {{BRAND_COLOR_SECONDARY}};
+        --brand-secondary-light: {{BRAND_COLOR_SECONDARY_LIGHT}};
+        --brand-secondary-text: {{BRAND_COLOR_SECONDARY_TEXT}};
+        --ink: #12231b;
+        --paper: #ffffff;
+        --muted: #f6f8f7;
+        /* MH brand fonts */
+        --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Helvetica Neue", Arial, sans-serif;
+        --font-body: "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans",
+          sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      @page {
+        size: letter portrait;
+        margin: 0;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 8.5in;
+        height: 11in;
+        font-family: var(--font-body);
+        background: var(--paper);
+      }
+
+      .cover {
+        position: relative;
+        width: 8.5in;
+        height: 11in;
+        overflow: hidden;
+        color: var(--ink);
+        background: var(--paper);
+      }
+
+      .cover::before {
+        content: "";
+        position: absolute;
+        inset: 0.22in;
+        border: 1.2pt solid var(--brand-primary-dark);
+      }
+
+      .cover::after {
+        content: "";
+        position: absolute;
+        inset: 0.33in;
+        border: 0.6pt solid var(--brand-secondary);
+      }
+
+      .left-ribbon {
+        position: absolute;
+        top: 0.45in;
+        bottom: 0.45in;
+        left: 0.45in;
+        width: 0.28in;
+        background: linear-gradient(
+          180deg,
+          var(--brand-primary-dark) 0%,
+          var(--brand-primary) 68%,
+          var(--brand-secondary) 100%
+        );
+      }
+
+      .identity {
+        position: absolute;
+        top: 0.62in;
+        left: 0.92in;
+        right: 0.9in;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 7.2pt;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: var(--brand-primary-dark);
+      }
+
+      .identity .dot {
+        color: var(--brand-secondary);
+        margin: 0 7pt;
+      }
+
+      .hero {
+        position: absolute;
+        top: 1.35in;
+        left: 1.02in;
+        right: 1.02in;
+      }
+
+      .logo {
+        width: 2.85in;
+        height: auto;
+        display: block;
+        margin: 0 auto 0.28in;
+      }
+
+      .program-chip {
+        width: fit-content;
+        margin: 0 auto 0.18in;
+        background: var(--muted);
+        border: 0.8pt solid var(--brand-secondary-light);
+        color: var(--brand-secondary-text);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 8pt;
+        font-weight: 800;
+        padding: 5pt 14pt;
+      }
+
+      .title {
+        margin: 0;
+        text-align: center;
+        text-transform: uppercase;
+        color: var(--brand-primary-dark);
+        font-size: 48pt;
+        line-height: 0.9;
+        letter-spacing: 0.01em;
+        font-weight: 900;
+      }
+
+      .subtitle {
+        margin: 0.16in 0 0;
+        text-align: center;
+        color: var(--brand-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 10pt;
+        font-weight: 700;
+      }
+
+      .summary-card {
+        position: absolute;
+        left: 1.02in;
+        right: 2.95in;
+        bottom: 2.35in;
+        background: #ffffff;
+        border: 1pt solid #d7e3dc;
+        padding: 11pt 13pt 10pt;
+      }
+
+      .summary-head {
+        font-size: 7.2pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--brand-secondary-text);
+        font-weight: 800;
+        margin-bottom: 6pt;
+      }
+
+      .summary-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 9pt;
+        line-height: 1.45;
+        color: var(--brand-primary-darker);
+      }
+
+      .summary-list li {
+        margin: 0 0 3pt;
+      }
+
+      .summary-list li:last-child {
+        margin-bottom: 0;
+      }
+
+      .summary-list strong {
+        color: var(--brand-primary-dark);
+        font-weight: 800;
+      }
+
+      .qr-card {
+        position: absolute;
+        right: 1.02in;
+        bottom: 2.35in;
+        width: 1.75in;
+        border: 1pt solid var(--brand-secondary);
+        background: #fff;
+        padding: 8pt;
+        text-align: center;
+      }
+
+      .qr-head {
+        margin: 0 0 5pt;
+        font-size: 6.8pt;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.17em;
+        color: var(--brand-primary-dark);
+      }
+
+      .qr-img {
+        width: 1.36in;
+        height: 1.36in;
+        display: block;
+        margin: 0 auto;
+        border: 0.6pt solid #d6d6d6;
+      }
+
+      .qr-label {
+        margin-top: 6pt;
+        font-size: 6.6pt;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--brand-secondary-text);
+        font-weight: 800;
+      }
+
+      .bottom {
+        position: absolute;
+        left: 1.02in;
+        right: 1.02in;
+        bottom: 0.67in;
+        border-top: 0.7pt solid var(--brand-secondary-light);
+        padding-top: 8pt;
+        display: grid;
+        grid-template-columns: 1.35fr 1fr;
+        gap: 0.22in;
+        align-items: end;
+      }
+
+      .contact {
+        font-size: 8pt;
+        line-height: 1.42;
+        color: var(--brand-primary-darker);
+      }
+
+      .contact .name {
+        font-size: 8.4pt;
+        font-weight: 800;
+        color: var(--brand-primary-dark);
+      }
+
+      .contact .meta {
+        color: var(--brand-secondary-text);
+        font-size: 7pt;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 4pt;
+      }
+
+      .licenses {
+        margin-top: 5pt;
+        font-size: 7.5pt;
+      }
+
+      .trust {
+        text-align: right;
+      }
+
+      .trust .meta {
+        color: var(--brand-secondary-text);
+        font-size: 7pt;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 5pt;
+      }
+
+      .logos {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 9pt;
+      }
+
+      .logos img {
+        display: block;
+        width: auto;
+      }
+
+      .logo-agc {
+        height: 0.38in;
+      }
+
+      .logo-bbb {
+        height: 0.41in;
+      }
+
+      .logo-vob {
+        height: 0.55in;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cover">
+      <div class="left-ribbon"></div>
+
+      <div class="identity">
+        <div>
+          {{BRAND_COMPANY_SHORT}}<span class="dot">•</span
+          >{{BRAND_ADDRESS_CITYSTATEZIP}}
+        </div>
+        <div>{{BRAND_VETERAN}}</div>
+      </div>
+
+      <section class="hero">
+        <img
+          class="logo"
+          src="{{BRAND_LOGO_COLOR}}"
+          alt="MH Construction logo"
+        />
+        <div class="program-chip">MHC-APP</div>
+        <h1 class="title">Accident<br />Prevention<br />Program</h1>
+        <p class="subtitle">MHC Industrial Safety and Health Program (MISH)</p>
+      </section>
+
+      <aside class="summary-card" aria-label="manual scope overview">
+        <div class="summary-head">Field Use Overview</div>
+        <ul class="summary-list">
+          <li>
+            <strong>Purpose:</strong> Site-ready safety requirements for all
+            active projects.
+          </li>
+          <li>
+            <strong>Audience:</strong> Supervisors, crew leads, employees, and
+            subcontractors.
+          </li>
+          <li>
+            <strong>Structure:</strong> 8 operational chapters and 50 MISH
+            sections.
+          </li>
+          <li>
+            <strong>Standards:</strong> OSHA 29 CFR 1926, WAC 296-155, AGC, and
+            Travelers risk control.
+          </li>
+          <li><strong>Revision:</strong> {{BRAND_REVISION_YEAR}}</li>
+        </ul>
+      </aside>
+
+      <aside class="qr-card" aria-label="digital manual access">
+        <p class="qr-head">Digital Access</p>
+        <img
+          class="qr-img"
+          src="{{QR_DIGITAL_MANUAL}}"
+          alt="QR code to digital safety manual"
+        />
+        <div class="qr-label">Scan for latest edition</div>
+      </aside>
+
+      <footer class="bottom">
+        <div class="contact">
+          <div class="meta">Company Contact</div>
+          <div class="name">{{BRAND_COMPANY_NAME}}</div>
+          {{BRAND_ADDRESS_STREET}}<br />
+          {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
+          {{BRAND_PHONE}} · {{BRAND_WEBSITE}}
+          <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
+        </div>
+
+        <div class="trust">
+          <div class="meta">Accreditation and Trust</div>
+          <div class="logos">
+            <img
+              class="logo-agc"
+              src="{{BRAND_AGC_HORIZONTAL}}"
+              alt="AGC membership"
+            />
+            <img
+              class="logo-bbb"
+              src="{{BRAND_BBB_SEAL}}"
+              alt="BBB accredited business"
+            />
+            <img
+              class="logo-vob"
+              src="{{BRAND_WA_VOB_LOGO}}"
+              alt="Washington certified veteran owned business"
+            />
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

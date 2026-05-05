@@ -1,0 +1,32 @@
+{
+  "config": {
+    "default": true,
+    "MD013": false,
+    "MD024": false,
+    "MD028": false,
+    "MD031": { "list_items": false },
+    "MD040": false,
+    "MD033": false,
+    "MD041": false,
+    "MD051": false,
+  },
+  "globs": [
+    "**/*.md",
+    "!node_modules/**",
+    "!.next/**",
+    "!.open-next/**",
+    "!.github/agents/**",
+  ],
+  // Per-file overrides for exceptionally long documentation reports
+  "overrides": [
+    {
+      "files": [
+        "docs/business/branding/COLOR-SCHEME-CORRECTION-NOV-2025.md",
+        "docs/business/branding/CSS-CONFIG-UPDATE-NOV-2025.md",
+      ],
+      "rules": {
+        "MD013": false,
+      },
+    },
+  ],
+}

@@ -1,0 +1,60 @@
+{
+  "name": "Derek Parks",
+  "role": "Superintendent",
+  "department": "Field Officers",
+  "cardNumber": 24,
+  "position": "Superintendent",
+  "nickname": "Field Squad Lead",
+  "yearsWithCompany": 10,
+  "hometown": "Washington State",
+  "education": "Construction Technology",
+  "currentYearStats": {
+    "projectsCompleted": 28,
+    "clientSatisfaction": 96,
+    "safetyRecord": "EXCELLENT",
+    "teamCollaborations": 32
+  },
+  "careerStats": {
+    "totalProjects": 245,
+    "yearsExperience": 12,
+    "specialtyAreas": 5,
+    "mentorships": 14
+  },
+  "awards": "Project Organization Excellence Award, Team Leadership Recognition",
+  "bio": "Derek leads field operations with a craftsmanship mindset built on decades of hands-on experience across complex builds. He combines practical leadership, safety discipline, and quality control to keep crews aligned and projects progressing from groundbreaking through turnover.",
+  "careerHighlights": [
+    "Leads field production with craftsmanship-first quality expectations.",
+    "Guides crews through complex phases while protecting safety and schedule.",
+    "Maintains execution discipline from site startup through final punch.",
+    "Supports strong client confidence with practical, transparent communication."
+  ],
+  "funFact": "Derek finds the most satisfaction in watching skilled crews turn plans into lasting work.",
+  "certifications": "Forklift Operator, Scissor Lift Operator, Snake Lift Operator, CPR Certified, Procore Certified",
+  "hobbies": "Organization, Fishing",
+  "specialInterests": "Workflow Optimization and Craftsmanship Standards",
+  "specialties": [
+    "Field Leadership",
+    "Craftsmanship Quality",
+    "Jobsite Safety",
+    "Production Planning",
+    "Crew Coordination"
+  ],
+  "avatar": "/images/team/derek-parks.webp",
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "derek-parks",
+  "email": "derek@mhc-gc.com",
+  "skills": {
+    "leadership": 75,
+    "technical": 84,
+    "communication": 76,
+    "safety": 88,
+    "problemSolving": 74,
+    "teamwork": 76,
+    "organization": 86,
+    "innovation": 68,
+    "passion": 78,
+    "continuingEducation": 75
+  },
+  "qrCode": "/images/qr-codes/team/qr-team-derek-parks-color.png"
+}

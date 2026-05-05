@@ -1,0 +1,61 @@
+{
+  "name": "Steve McClary",
+  "role": "Senior Superintendent",
+  "department": "Field Officers",
+  "cardNumber": 69,
+  "position": "Senior Superintendent",
+  "nickname": "Senior Field Commander",
+  "yearsWithCompany": 20,
+  "hometown": "Washington",
+  "education": "Construction Technology",
+  "currentYearStats": {
+    "projectsCompleted": 22,
+    "clientSatisfaction": 97,
+    "safetyRecord": "PERFECT",
+    "teamCollaborations": 30
+  },
+  "careerStats": {
+    "totalProjects": 400,
+    "yearsExperience": 39,
+    "specialtyAreas": 7,
+    "mentorships": 25
+  },
+  "awards": "Perfect Safety Record Award, Field Leadership Excellence",
+  "bio": "Steve provides senior field command across active projects, setting the pace for safe, efficient, and quality-driven execution. His trade depth and mentorship mindset help crews solve problems quickly, protect standards, and maintain dependable project momentum.",
+  "careerHighlights": [
+    "Provides senior field command across concurrent active projects.",
+    "Leads crews with safety-first standards and high execution tempo.",
+    "Transfers trade knowledge through mentorship and on-site coaching.",
+    "Protects quality outcomes by solving field issues before they escalate."
+  ],
+  "funFact": "Steve takes pride in safe, code-compliant execution that keeps crews and clients confident.",
+  "certifications": "CDL, Forklift Operation, Aerial/Scissor Lift Operation, Adult First Aid, Certified Locksmith, Procore Certified",
+  "hobbies": "Safety Training, Hiking",
+  "specialInterests": "Safety Innovation and Jobsite Mentorship",
+  "specialties": [
+    "Senior Superintendent Leadership",
+    "Field Safety",
+    "Trade Mentorship",
+    "Quality Control",
+    "Resource Coordination",
+    "Problem Resolution"
+  ],
+  "avatar": "/images/team/steve-mcclary.webp",
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "steve-mcclary",
+  "email": "steve@mhc-gc.com",
+  "skills": {
+    "leadership": 90,
+    "technical": 86,
+    "communication": 88,
+    "safety": 95,
+    "problemSolving": 87,
+    "teamwork": 90,
+    "organization": 90,
+    "innovation": 78,
+    "passion": 92,
+    "continuingEducation": 84
+  },
+  "qrCode": "/images/qr-codes/team/qr-team-steve-mcclary-color.png"
+}

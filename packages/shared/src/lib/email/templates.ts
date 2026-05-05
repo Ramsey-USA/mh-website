@@ -1,0 +1,858 @@
+/**
+ * Email Templates for Automated Responses
+ * Following MH Construction brand messaging guidelines
+ */
+
+import { COMPANY_INFO } from "@/lib/constants/company";
+
+export interface ApplicantEmailData {
+  firstName: string;
+  lastName: string;
+  position: string;
+  email: string;
+}
+
+export interface ConsultationEmailData {
+  name: string;
+  projectType: string;
+  email: string;
+  selectedDate?: string;
+  selectedTime?: string;
+}
+
+export interface ContactEmailData {
+  name: string;
+  email: string;
+  type?: string;
+}
+
+/**
+ * Generate HTML email for job application acknowledgment
+ * Messaging: Professional, encouraging, partnership-focused
+ */
+export function generateJobApplicationAcknowledgment(
+  data: ApplicantEmailData,
+): { subject: string; html: string; text: string } {
+  const subject = `Application Received - ${data.position} Position | MH Construction, Inc.`;
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${subject}</title>
+</head>
+<body style="font-family: 'DIN 2014', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #212121; margin: 0; padding: 0; background-color: #f5f5f5;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <!-- Header -->
+    <tr>
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
+        <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Veteran-Owned. Relationship-first.</p>
+      </td>
+    </tr>
+    
+    <!-- Content -->
+    <tr>
+      <td style="padding: 40px 30px;">
+        <h2 style="color: #386851; margin: 0 0 20px 0; font-size: 20px;">🌟 Welcome to Your Future!</h2>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          Dear ${data.firstName} ${data.lastName},
+        </p>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          We're <em>excited</em> to have received your application for the <strong style="color: #386851;">${data.position}</strong> position! Thank you for considering MH Construction as the place to build your career and future. We're thrilled you want to join our Veteran-Owned family.
+        </p>
+        
+        <div style="background-color: #f0f7f4; border-left: 4px solid #386851; padding: 15px; margin: 20px 0;">
+          <p style="margin: 0; font-size: 15px; color: #1E392C; line-height: 1.6;">
+            <strong>🚀 What happens next?</strong><br>
+            Our team is looking forward to reviewing your application and learning more about YOUR unique talents and aspirations! We're committed to finding the perfect fit for both you and our growing company, so we take time to thoughtfully consider each candidate and the opportunities we can offer.
+          </p>
+        </div>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          You can expect to hear from us within <strong>3-5 business days</strong>. If your qualifications align with our current needs, we'll reach out to schedule an interview.
+        </p>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          At MH Construction, we believe <em>"Your Growth Is Our Mission."</em> We're not just looking for employees—we're seeking future partners, leaders, and family members who will grow with us. We invest in your success because when you thrive, we all thrive together.
+        </p>
+        
+        <div style="background-color: #fff9f0; border: 1px solid #d4af37; padding: 15px; margin: 20px 0; border-radius: 6px;">
+          <p style="margin: 0; font-size: 14px; color: #666; line-height: 1.6;">
+            <strong style="color: #BD9264;">🎖️ A Special Welcome to Our Veterans!</strong><br>
+            As a Veteran-Owned company, we're honored by your service and genuinely excited about the unique strengths you bring. Military discipline, precision, and teamwork translate beautifully into construction careers—and we're here to help you transition and thrive. You have priority consideration, and we can't wait to learn about your journey!
+          </p>
+        </div>
+        
+        <p style="margin: 20px 0 0 0; font-size: 16px; line-height: 1.6;">
+          Thank you for taking this exciting first step toward your future with MH Construction. We're genuinely looking forward to getting to know you, your talents, and your dreams. This could be the beginning of something great!
+        </p>
+        
+        <p style="margin: 20px 0 0 0; font-size: 16px; line-height: 1.6;">
+          With enthusiasm and anticipation,<br>
+          <strong style="color: #386851;">Your Future Team at MH Construction</strong>
+        </p>
+      </td>
+    </tr>
+    
+    <!-- Footer -->
+    <tr>
+      <td style="background-color: #f5f5f5; padding: 20px; text-align: center; border-top: 1px solid #e5e5e5;">
+        <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">
+          <strong>MH Construction, Inc.</strong><br>
+          ${COMPANY_INFO.address.full}<br>
+          Phone: <a href="tel:${COMPANY_INFO.phone.tel}" style="color: #386851; text-decoration: none;">${COMPANY_INFO.phone.display}</a><br>
+          Email: <a href="mailto:${COMPANY_INFO.email.main}" style="color: #386851; text-decoration: none;">${COMPANY_INFO.email.main}</a>
+        </p>
+        <p style="margin: 0; font-size: 12px; color: #999;">
+          Licensed in WA, OR, ID | Veteran-Owned & Operated
+        </p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `.trim();
+
+  const text = `
+🌟 MH Construction, Inc. - Welcome to Your Future!
+
+Dear ${data.firstName} ${data.lastName},
+
+We're EXCITED to have received your application for the ${data.position} position! Thank you for considering MH Construction as the place to build your career and future. We're thrilled you want to join our Veteran-Owned family.
+
+🚀 WHAT HAPPENS NEXT?
+Our team is looking forward to reviewing your application and learning more about YOUR unique talents and aspirations! We're committed to finding the perfect fit for both you and our growing company, so we take time to thoughtfully consider each candidate and the opportunities we can offer.
+
+You can expect to hear from us within 3-5 business days. If your qualifications align with our current needs, we'll reach out to schedule an interview.
+
+At MH Construction, we believe "Your Growth Is Our Mission." We're not just looking for employees—we're seeking future partners, leaders, and family members who will grow with us. We invest in your success because when you thrive, we all thrive together.
+
+🎖️ A SPECIAL WELCOME TO OUR VETERANS!
+As a Veteran-Owned company, we're honored by your service and genuinely excited about the unique strengths you bring. Military discipline, precision, and teamwork translate beautifully into construction careers—and we're here to help you transition and thrive. You have priority consideration, and we can't wait to learn about your journey!
+
+Thank you for taking this exciting first step toward your future with MH Construction. We're genuinely looking forward to getting to know you, your talents, and your dreams. This could be the beginning of something great!
+
+With enthusiasm and anticipation,
+Your Future Team at MH Construction
+
+---
+
+MH Construction, Inc.
+${COMPANY_INFO.address.full}
+Phone: ${COMPANY_INFO.phone.display}
+Email: ${COMPANY_INFO.email.main}
+
+Licensed in WA, OR, ID | Veteran-Owned & Operated
+  `.trim();
+
+  return { subject, html, text };
+}
+
+/**
+ * Generate HTML email for consultation request acknowledgment
+ * Messaging: Partnership-focused, professional, reassuring
+ */
+export function generateConsultationAcknowledgment(
+  data: ConsultationEmailData,
+): { subject: string; html: string; text: string } {
+  const subject = `Consultation Request Received - ${data.projectType} | MH Construction, Inc.`;
+
+  const appointmentInfo =
+    data.selectedDate && data.selectedTime
+      ? `
+        <div style="background-color: #f0f7f4; border: 1px solid #386851; padding: 20px; margin: 20px 0; border-radius: 6px; text-align: center;">
+          <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">
+            <strong style="color: #386851; font-size: 16px;">Your Consultation is Scheduled</strong>
+          </p>
+          <p style="margin: 0; font-size: 18px; color: #386851; font-weight: 600;">
+            📅 ${new Date(data.selectedDate).toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}<br>
+            🕐 ${data.selectedTime}
+          </p>
+        </div>
+    `
+      : "";
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${subject}</title>
+</head>
+<body style="font-family: 'DIN 2014', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #212121; margin: 0; padding: 0; background-color: #f5f5f5;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <!-- Header -->
+    <tr>
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
+        <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600; font-style: italic;">Building projects for the Client, <em>NOT</em> the Dollar</p>
+      </td>
+    </tr>
+    
+    <!-- Content -->
+    <tr>
+      <td style="padding: 40px 30px;">
+        <h2 style="color: #386851; margin: 0 0 20px 0; font-size: 20px;">Let's Build Something Great Together</h2>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          Dear ${data.name},
+        </p>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          Thank you for reaching out to MH Construction about your <strong style="color: #386851;">${data.projectType}</strong> project. We've received your consultation request and are excited about the possibility of partnering with you.
+        </p>
+        
+        ${appointmentInfo}
+        
+        <div style="background-color: #f0f7f4; border-left: 4px solid #386851; padding: 15px; margin: 20px 0;">
+          <p style="margin: 0; font-size: 15px; color: #1E392C; line-height: 1.6;">
+            <strong>What to Expect:</strong><br>
+            We'll review your project details and reach out within <strong>24 hours</strong> to discuss your vision, timeline, and budget. Our partnership-driven approach means we work WITH you to bring your project to life.
+          </p>
+        </div>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          At MH Construction, we believe <em>"THE ROI IS THE RELATIONSHIP."</em> We're not just building structures - we're building lasting partnerships based on trust, transparency, and disciplined execution.
+        </p>
+        
+        <div style="background-color: #fff; border: 2px solid #386851; padding: 20px; margin: 20px 0; border-radius: 6px;">
+          <p style="margin: 0 0 10px 0; font-size: 15px; color: #386851; font-weight: 600;">
+            🤝 Our Partnership Promise:
+          </p>
+          <ul style="margin: 0; padding-left: 20px; font-size: 14px; color: #666; line-height: 1.8;">
+            <li>Open-book pricing with no surprises</li>
+            <li>Regular progress updates and transparent communication</li>
+            <li>Disciplined execution with a relationship-first approach</li>
+            <li>Your vision guides every decision we make</li>
+          </ul>
+        </div>
+        
+        <p style="margin: 20px 0 0 0; font-size: 16px; line-height: 1.6;">
+          If you have any immediate questions or need to reach us, feel free to call <strong style="color: #386851;">${COMPANY_INFO.phone.display}</strong> or reply to this email.
+        </p>
+        
+        <p style="margin: 20px 0 0 0; font-size: 16px; line-height: 1.6;">
+          Looking forward to building more than just structures with you,<br>
+          <strong style="color: #386851;">The MH Construction Team</strong>
+        </p>
+      </td>
+    </tr>
+    
+    <!-- Footer -->
+    <tr>
+      <td style="background-color: #f5f5f5; padding: 20px; text-align: center; border-top: 1px solid #e5e5e5;">
+        <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">
+          <strong>MH Construction, Inc.</strong><br>
+          ${COMPANY_INFO.address.full}<br>
+          Phone: <a href="tel:${COMPANY_INFO.phone.tel}" style="color: #386851; text-decoration: none;">${COMPANY_INFO.phone.display}</a><br>
+          Email: <a href="mailto:${COMPANY_INFO.email.main}" style="color: #386851; text-decoration: none;">${COMPANY_INFO.email.main}</a>
+        </p>
+        <p style="margin: 0; font-size: 12px; color: #999;">
+          Licensed in WA, OR, ID | Veteran-Owned & Operated
+        </p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `.trim();
+
+  const text = `
+MH Construction, Inc. - Consultation Request Received
+
+Dear ${data.name},
+
+Thank you for reaching out to MH Construction about your ${data.projectType} project. We've received your consultation request and are excited about the possibility of partnering with you.
+
+${
+  data.selectedDate && data.selectedTime
+    ? `
+YOUR CONSULTATION IS SCHEDULED:
+📅 ${new Date(data.selectedDate).toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
+🕐 ${data.selectedTime}
+`
+    : ""
+}
+
+WHAT TO EXPECT:
+We'll review your project details and reach out within 24 hours to discuss your vision, timeline, and budget. Our partnership-driven approach means we work WITH you to bring your project to life.
+
+At MH Construction, we believe "THE ROI IS THE RELATIONSHIP." We're not just building structures — we're building lasting partnerships based on trust, transparency, and disciplined execution.
+
+🤝 OUR PARTNERSHIP PROMISE:
+- Open-book pricing with no surprises
+- Regular progress updates and transparent communication
+- Disciplined execution with a relationship-first approach
+- Your vision guides every decision we make
+
+If you have any immediate questions or need to reach us, feel free to call ${COMPANY_INFO.phone.display} or reply to this email.
+
+Looking forward to building more than just structures with you,
+The MH Construction Team
+
+---
+
+MH Construction, Inc.
+${COMPANY_INFO.address.full}
+Phone: ${COMPANY_INFO.phone.display}
+Email: ${COMPANY_INFO.email.main}
+
+Licensed in WA, OR, ID | Veteran-Owned & Operated
+  `.trim();
+
+  return { subject, html, text };
+}
+
+/**
+ * Generate HTML email for general contact form acknowledgment
+ * Messaging: Professional, responsive, partnership-focused
+ */
+export function generateContactAcknowledgment(data: ContactEmailData): {
+  subject: string;
+  html: string;
+  text: string;
+} {
+  const subject = `Message Received - We'll Be in Touch Soon | MH Construction, Inc.`;
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${subject}</title>
+</head>
+<body style="font-family: 'DIN 2014', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #212121; margin: 0; padding: 0; background-color: #f5f5f5;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <!-- Header -->
+    <tr>
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
+        <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Your Partner in Building Tomorrow</p>
+      </td>
+    </tr>
+    
+    <!-- Content -->
+    <tr>
+      <td style="padding: 40px 30px;">
+        <h2 style="color: #386851; margin: 0 0 20px 0; font-size: 20px;">Thank You for Reaching Out</h2>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          Dear ${data.name},
+        </p>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          We've received your message and appreciate you taking the time to contact MH Construction. Your inquiry is important to us.
+        </p>
+        
+        <div style="background-color: #f0f7f4; border-left: 4px solid #386851; padding: 15px; margin: 20px 0;">
+          <p style="margin: 0; font-size: 15px; color: #1E392C; line-height: 1.6;">
+            <strong>Next Steps:</strong><br>
+            A member of our team will review your message and respond within <strong>24 hours</strong> during business hours. For urgent matters, please call us directly at <strong>(509) 308-6489</strong>.
+          </p>
+        </div>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          At MH Construction, we're committed to clear communication and building lasting relationships with our clients and community. Whether you're planning a new project, have questions about our services, or need support, we're here to help.
+        </p>
+        
+        <p style="margin: 20px 0 0 0; font-size: 16px; line-height: 1.6;">
+          Thank you for considering MH Construction,<br>
+          <strong style="color: #386851;">The MH Construction Team</strong>
+        </p>
+      </td>
+    </tr>
+    
+    <!-- Footer -->
+    <tr>
+      <td style="background-color: #f5f5f5; padding: 20px; text-align: center; border-top: 1px solid #e5e5e5;">
+        <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">
+          <strong>MH Construction, Inc.</strong><br>
+          ${COMPANY_INFO.address.full}<br>
+          Phone: <a href="tel:${COMPANY_INFO.phone.tel}" style="color: #386851; text-decoration: none;">${COMPANY_INFO.phone.display}</a><br>
+          Email: <a href="mailto:${COMPANY_INFO.email.main}" style="color: #386851; text-decoration: none;">${COMPANY_INFO.email.main}</a>
+        </p>
+        <p style="margin: 0; font-size: 12px; color: #999;">
+          Licensed in WA, OR, ID | Veteran-Owned & Operated
+        </p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `.trim();
+
+  const text = `
+MH Construction, Inc. - Message Received
+
+Dear ${data.name},
+
+We've received your message and appreciate you taking the time to contact MH Construction. Your inquiry is important to us.
+
+NEXT STEPS:
+A member of our team will review your message and respond within 24 hours during business hours. For urgent matters, please call us directly at (509) 308-6489.
+
+At MH Construction, we're committed to clear communication and building lasting relationships with our clients and community. Whether you're planning a new project, have questions about our services, or need support, we're here to help.
+
+Thank you for considering MH Construction,
+The MH Construction Team
+
+---
+
+MH Construction, Inc.
+3111 N Capitol Ave, Pasco, WA 99301
+Phone: (509) 308-6489
+Email: office@mhc-gc.com
+
+Licensed in WA, OR, ID | Veteran-Owned & Operated
+  `.trim();
+
+  return { subject, html, text };
+}
+
+export interface NewsletterEmailData {
+  email: string;
+  name?: string;
+}
+
+/**
+ * Generate HTML email for newsletter signup acknowledgment
+ */
+export function generateNewsletterAcknowledgment(data: NewsletterEmailData): {
+  subject: string;
+  html: string;
+  text: string;
+} {
+  const subject = `Welcome to MH Construction Newsletter!`;
+  const displayName = data.name || "Friend";
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${subject}</title>
+</head>
+<body style="font-family: 'DIN 2014', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #212121; margin: 0; padding: 0; background-color: #f5f5f5;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <!-- Header with Logo -->
+    <tr>
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 40px 30px; text-align: center;">
+        <img src="https://www.mhc-gc.com/images/logo/mh-logo.png" alt="MH Construction Logo" style="max-width: 240px; height: auto; margin-bottom: 20px;" />
+        <h1 style="color: #ffffff; margin: 0; font-size: 26px; font-weight: 700;">Welcome to Our Community!</h1>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Building Excellence Together</p>
+      </td>
+    </tr>
+    
+    <!-- Content -->
+    <tr>
+      <td style="padding: 40px 30px;">
+        <h2 style="color: #386851; margin: 0 0 20px 0; font-size: 20px;">🎉 Thank You for Joining Us!</h2>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          Dear ${displayName},
+        </p>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          Thank you for subscribing to the <strong style="color: #386851;">MH Construction Newsletter</strong>! We're excited to have you join our community of partners, clients, and friends.
+        </p>
+        
+        <div style="background-color: #f0f7f4; border-left: 4px solid #386851; padding: 20px; margin: 25px 0; border-radius: 4px;">
+          <h3 style="color: #386851; margin: 0 0 15px 0; font-size: 18px;">📬 What to Expect</h3>
+          <ul style="margin: 0; padding-left: 20px; color: #1E392C;">
+            <li style="margin-bottom: 10px;"><strong>Project Showcases:</strong> See our latest completed projects and construction updates</li>
+            <li style="margin-bottom: 10px;"><strong>Industry Insights:</strong> Expert tips and construction best practices</li>
+            <li style="margin-bottom: 10px;"><strong>Company News:</strong> Updates from our Veteran-Owned family business</li>
+            <li style="margin-bottom: 10px;"><strong>Exclusive Content:</strong> Special offers and partnership opportunities</li>
+          </ul>
+        </div>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          At MH Construction, we believe in <em>"Building projects for the Client, NOT the Dollar."</em> This philosophy extends to everything we do, including the content we share with you.
+        </p>
+        
+        <div style="background-color: #fff9f0; border: 1px solid #d4af37; padding: 20px; margin: 25px 0; border-radius: 6px; text-align: center;">
+          <p style="margin: 0 0 15px 0; font-size: 16px; color: #666;">
+            <strong style="color: #BD9264;">🎖️ Veteran-Owned. Relationship-first.</strong>
+          </p>
+          <p style="margin: 0; font-size: 14px; color: #666; line-height: 1.6;">
+            As a Veteran-Owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to be headquartered in the Tri-Cities (Pasco, Richland, Kennewick) and to serve our Tri-State licensed footprint across the Pacific Northwest with the same dedication we showed in service to our country.
+          </p>
+        </div>
+        
+        <div style="background-color: #386851; padding: 25px; margin: 25px 0; border-radius: 8px; text-align: center;">
+          <h3 style="color: #ffffff; margin: 0 0 15px 0; font-size: 18px;">Ready to Start Your Project?</h3>
+          <a href="https://www.mhc-gc.com/contact" style="display: inline-block; background-color: #d4af37; color: #212121; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 16px; margin-top: 10px;">Get Your Free Consultation</a>
+        </div>
+        
+        <p style="margin: 25px 0 0 0; font-size: 16px; line-height: 1.6;">
+          Questions or need assistance? Our team is always here to help. Reply to this email or call us at <strong style="color: #386851;">(509) 308-6489</strong>.
+        </p>
+        
+        <p style="margin: 25px 0 0 0; font-size: 16px; line-height: 1.6;">
+          Thank you for trusting MH Construction!<br>
+          <strong style="color: #386851;">The MH Construction Team</strong>
+        </p>
+      </td>
+    </tr>
+    
+    <!-- Footer -->
+    <tr>
+      <td style="background-color: #212121; padding: 30px; text-align: center; color: #ffffff;">
+        <div style="margin-bottom: 20px;">
+          <a href="https://www.facebook.com/profile.php?id=61575511773974" style="display: inline-block; margin: 0 8px; color: #ffffff; text-decoration: none;">Facebook</a>
+          <span style="color: #666;">•</span>
+          <a href="https://www.instagram.com/mh_construction_inc/reels/" style="display: inline-block; margin: 0 8px; color: #ffffff; text-decoration: none;">Instagram</a>
+          <span style="color: #666;">•</span>
+          <a href="https://www.linkedin.com/company/mh-construction-general-contractor/posts/" style="display: inline-block; margin: 0 8px; color: #ffffff; text-decoration: none;">LinkedIn</a>
+          <span style="color: #666;">•</span>
+          <a href="https://youtube.com/@mhc-gc" style="display: inline-block; margin: 0 8px; color: #ffffff; text-decoration: none;">YouTube</a>
+        </div>
+        
+        <p style="margin: 0 0 10px 0; font-size: 14px; color: #999;">
+          <strong style="color: #d4af37;">MH Construction, Inc.</strong><br>
+          3111 N Capitol Ave, Pasco, WA 99301<br>
+          Phone: (509) 308-6489 | Email: office@mhc-gc.com
+        </p>
+        
+        <p style="margin: 15px 0 0 0; font-size: 12px; color: #666;">
+          Licensed in WA, OR, ID | Veteran-Owned & Operated<br>
+          <a href="https://www.mhc-gc.com" style="color: #d4af37; text-decoration: none;">www.mhc-gc.com</a>
+        </p>
+        
+        <p style="margin: 15px 0 0 0; font-size: 11px; color: #666;">
+          You're receiving this email because you subscribed to our newsletter at mhc-gc.com.<br>
+          To unsubscribe, reply to this email with "Unsubscribe" in the subject line.
+        </p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `.trim();
+
+  const text = `
+MH Construction Newsletter - Welcome!
+
+Dear ${displayName},
+
+Thank you for subscribing to the MH Construction Newsletter! We're excited to have you join our community of partners, clients, and friends.
+
+WHAT TO EXPECT:
+• Project Showcases: See our latest completed projects and construction updates
+• Industry Insights: Expert tips and construction best practices
+• Company News: Updates from our Veteran-Owned family business
+• Exclusive Content: Special offers and partnership opportunities
+
+At MH Construction, we believe in "Building projects for the Client, NOT the Dollar." This philosophy extends to everything we do, including the content we share with you.
+
+VETERAN-OWNED. RELATIONSHIP-FIRST.
+As a Veteran-Owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to be headquartered in the Tri-Cities (Pasco, Richland, Kennewick) and to serve our Tri-State licensed footprint across the Pacific Northwest with the same dedication we showed in service to our country.
+
+READY TO START YOUR PROJECT?
+Get your free consultation: https://www.mhc-gc.com/contact
+
+Questions or need assistance? Our team is always here to help. Reply to this email or call us at (509) 308-6489.
+
+Thank you for trusting MH Construction!
+The MH Construction Team
+
+---
+
+MH Construction, Inc.
+3111 N Capitol Ave, Pasco, WA 99301
+Phone: (509) 308-6489
+Email: office@mhc-gc.com
+Website: www.mhc-gc.com
+
+Licensed in WA, OR, ID | Veteran-Owned & Operated
+
+You're receiving this email because you subscribed to our newsletter at mhc-gc.com.
+To unsubscribe, reply to this email with "Unsubscribe" in the subject line.
+  `.trim();
+
+  return { subject, html, text };
+}
+
+// ─── Driver Alert Email Templates ─────────────────────────────────────────────
+
+export interface DriverAlertEmailData {
+  employee_name: string;
+  license_number: string;
+  license_state: string;
+  license_class?: string | undefined;
+  license_expiration_date: string;
+}
+
+/**
+ * Generate HTML email for license expiration alert
+ * Sent to admins at 90, 60, 30, 14, 7 days before expiration
+ */
+export function generateLicenseExpiringAlert(
+  driver: DriverAlertEmailData,
+  daysUntilExpiry: number,
+): { subject: string; html: string; text: string } {
+  const urgency =
+    daysUntilExpiry <= 7
+      ? "URGENT"
+      : daysUntilExpiry <= 30
+        ? "WARNING"
+        : "NOTICE";
+  const subject = `[${urgency}] Driver License Expiring in ${daysUntilExpiry} Days - ${driver.employee_name} | MH Construction`;
+
+  const urgencyColor =
+    daysUntilExpiry <= 7
+      ? "#dc2626"
+      : daysUntilExpiry <= 30
+        ? "#d97706"
+        : "#2563eb";
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${subject}</title>
+</head>
+<body style="font-family: 'DIN 2014', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #212121; margin: 0; padding: 0; background-color: #f5f5f5;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <tr>
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
+        <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Driver License Monitoring Alert</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 40px 30px;">
+        <div style="background-color: ${urgencyColor}; color: #ffffff; padding: 12px 20px; border-radius: 6px; margin-bottom: 20px; text-align: center;">
+          <strong style="font-size: 16px;">${urgency}: License Expires in ${daysUntilExpiry} Day${daysUntilExpiry !== 1 ? "s" : ""}</strong>
+        </div>
+
+        <table width="100%" cellpadding="8" cellspacing="0" style="background-color: #f9fafb; border-radius: 6px; margin-bottom: 20px;">
+          <tr><td style="font-weight: 600; color: #6b7280; width: 160px;">Employee:</td><td style="color: #111827; font-weight: 700;">${driver.employee_name}</td></tr>
+          <tr><td style="font-weight: 600; color: #6b7280;">License Number:</td><td style="color: #111827;">${driver.license_number}</td></tr>
+          <tr><td style="font-weight: 600; color: #6b7280;">State:</td><td style="color: #111827;">${driver.license_state}</td></tr>
+          ${driver.license_class ? `<tr><td style="font-weight: 600; color: #6b7280;">License Class:</td><td style="color: #111827;">${driver.license_class}</td></tr>` : ""}
+          <tr><td style="font-weight: 600; color: #6b7280;">Expiration Date:</td><td style="color: ${urgencyColor}; font-weight: 700;">${driver.license_expiration_date}</td></tr>
+        </table>
+
+        <p style="margin: 0 0 15px 0; font-size: 14px; color: #4b5563;">
+          <strong>Required Action:</strong> Verify that the employee has renewed or is in the process of renewing their driver's license. Update the driver record in the MH Construction dashboard once renewal is confirmed.
+        </p>
+
+        <p style="margin: 0; font-size: 12px; color: #9ca3af;">
+          Per MISH 18 Motor Vehicle Safety Program, all authorized drivers must maintain a valid driver's license.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: #f3f4f6; padding: 20px 30px; text-align: center;">
+        <p style="margin: 0; font-size: 12px; color: #6b7280;">MH Construction, Inc. | ${COMPANY_INFO.phone.display} | ${COMPANY_INFO.email.main}</p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+  const text = `[${urgency}] Driver License Expiring in ${daysUntilExpiry} Days
+
+Employee: ${driver.employee_name}
+License: ${driver.license_number} (${driver.license_state})
+${driver.license_class ? `Class: ${driver.license_class}\n` : ""}Expiration: ${driver.license_expiration_date}
+
+Required Action: Verify license renewal status and update the driver record.
+
+Per MISH 18 Motor Vehicle Safety Program, all authorized drivers must maintain a valid driver's license.
+
+MH Construction, Inc. | ${COMPANY_INFO.phone.display}`;
+
+  return { subject, html, text };
+}
+
+/**
+ * Generate HTML email for MVR review due alert
+ */
+export function generateMvrReviewDueAlert(
+  driver: DriverAlertEmailData & { next_mvr_check_date: string },
+): { subject: string; html: string; text: string } {
+  const subject = `MVR Review Due - ${driver.employee_name} | MH Construction`;
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${subject}</title>
+</head>
+<body style="font-family: 'DIN 2014', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #212121; margin: 0; padding: 0; background-color: #f5f5f5;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <tr>
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
+        <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">MVR Review Reminder</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 40px 30px;">
+        <div style="background-color: #d97706; color: #ffffff; padding: 12px 20px; border-radius: 6px; margin-bottom: 20px; text-align: center;">
+          <strong style="font-size: 16px;">Motor Vehicle Record Review Due</strong>
+        </div>
+
+        <table width="100%" cellpadding="8" cellspacing="0" style="background-color: #f9fafb; border-radius: 6px; margin-bottom: 20px;">
+          <tr><td style="font-weight: 600; color: #6b7280; width: 160px;">Employee:</td><td style="color: #111827; font-weight: 700;">${driver.employee_name}</td></tr>
+          <tr><td style="font-weight: 600; color: #6b7280;">License Number:</td><td style="color: #111827;">${driver.license_number}</td></tr>
+          <tr><td style="font-weight: 600; color: #6b7280;">State:</td><td style="color: #111827;">${driver.license_state}</td></tr>
+          <tr><td style="font-weight: 600; color: #6b7280;">MVR Check Due:</td><td style="color: #d97706; font-weight: 700;">${driver.next_mvr_check_date}</td></tr>
+        </table>
+
+        <p style="margin: 0 0 15px 0; font-size: 14px; color: #4b5563;">
+          <strong>Required Action:</strong> Pull the employee's Motor Vehicle Record through your MVR monitoring vendor and update the driver record in the dashboard with the results.
+        </p>
+
+        <p style="margin: 0; font-size: 12px; color: #9ca3af;">
+          Per MISH 18, MVR checks should be conducted at least quarterly (every 90 days) for all authorized drivers.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: #f3f4f6; padding: 20px 30px; text-align: center;">
+        <p style="margin: 0; font-size: 12px; color: #6b7280;">MH Construction, Inc. | ${COMPANY_INFO.phone.display} | ${COMPANY_INFO.email.main}</p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+  const text = `MVR Review Due - ${driver.employee_name}
+
+Employee: ${driver.employee_name}
+License: ${driver.license_number} (${driver.license_state})
+MVR Check Due: ${driver.next_mvr_check_date}
+
+Required Action: Pull the employee's Motor Vehicle Record and update the dashboard.
+
+Per MISH 18, MVR checks should be conducted at least quarterly (every 90 days).
+
+MH Construction, Inc. | ${COMPANY_INFO.phone.display}`;
+
+  return { subject, html, text };
+}
+
+/**
+ * Generate daily summary email of all driver alerts
+ */
+export function generateDriverAlertSummary(alerts: {
+  expiringLicenses: Array<DriverAlertEmailData & { days_until: number }>;
+  overdueMvr: Array<DriverAlertEmailData & { next_mvr_check_date: string }>;
+  pendingCount: number;
+  missingConsentCount: number;
+}): { subject: string; html: string; text: string } {
+  const totalIssues =
+    alerts.expiringLicenses.length +
+    alerts.overdueMvr.length +
+    alerts.pendingCount +
+    alerts.missingConsentCount;
+
+  const subject = `Driver Monitoring Daily Report - ${totalIssues} Item${totalIssues !== 1 ? "s" : ""} Need Attention | MH Construction`;
+
+  const expiringRows = alerts.expiringLicenses
+    .map(
+      (d) =>
+        `<tr><td style="padding: 6px 12px; border-bottom: 1px solid #e5e7eb;">${d.employee_name}</td><td style="padding: 6px 12px; border-bottom: 1px solid #e5e7eb;">${d.license_expiration_date}</td><td style="padding: 6px 12px; border-bottom: 1px solid #e5e7eb; color: ${d.days_until <= 7 ? "#dc2626" : d.days_until <= 30 ? "#d97706" : "#2563eb"}; font-weight: 700;">${d.days_until} days</td></tr>`,
+    )
+    .join("");
+
+  const mvrRows = alerts.overdueMvr
+    .map(
+      (d) =>
+        `<tr><td style="padding: 6px 12px; border-bottom: 1px solid #e5e7eb;">${d.employee_name}</td><td style="padding: 6px 12px; border-bottom: 1px solid #e5e7eb;">${d.next_mvr_check_date}</td></tr>`,
+    )
+    .join("");
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${subject}</title>
+</head>
+<body style="font-family: 'DIN 2014', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #212121; margin: 0; padding: 0; background-color: #f5f5f5;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <tr>
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
+        <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Daily Driver Monitoring Report</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 40px 30px;">
+        <h2 style="color: #386851; margin: 0 0 20px 0; font-size: 18px;">Summary: ${totalIssues} Item${totalIssues !== 1 ? "s" : ""} Need Attention</h2>
+
+        ${
+          alerts.expiringLicenses.length > 0
+            ? `
+        <h3 style="color: #d97706; margin: 20px 0 10px 0; font-size: 15px;">&#9888;&#65039; Expiring Licenses (${alerts.expiringLicenses.length})</h3>
+        <table width="100%" cellpadding="0" cellspacing="0" style="border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; margin-bottom: 20px; font-size: 13px;">
+          <tr style="background-color: #f3f4f6;"><th style="padding: 8px 12px; text-align: left;">Employee</th><th style="padding: 8px 12px; text-align: left;">Expires</th><th style="padding: 8px 12px; text-align: left;">Days Left</th></tr>
+          ${expiringRows}
+        </table>`
+            : ""
+        }
+
+        ${
+          alerts.overdueMvr.length > 0
+            ? `
+        <h3 style="color: #d97706; margin: 20px 0 10px 0; font-size: 15px;">&#128203; Overdue MVR Checks (${alerts.overdueMvr.length})</h3>
+        <table width="100%" cellpadding="0" cellspacing="0" style="border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; margin-bottom: 20px; font-size: 13px;">
+          <tr style="background-color: #f3f4f6;"><th style="padding: 8px 12px; text-align: left;">Employee</th><th style="padding: 8px 12px; text-align: left;">MVR Due Date</th></tr>
+          ${mvrRows}
+        </table>`
+            : ""
+        }
+
+        ${alerts.pendingCount > 0 ? `<p style="margin: 0 0 10px 0; font-size: 14px; color: #4b5563;">&#128260; <strong>${alerts.pendingCount}</strong> driver(s) with pending authorization</p>` : ""}
+        ${alerts.missingConsentCount > 0 ? `<p style="margin: 0 0 10px 0; font-size: 14px; color: #4b5563;">&#128221; <strong>${alerts.missingConsentCount}</strong> driver(s) missing consent on file</p>` : ""}
+
+        <p style="margin: 20px 0 0 0; font-size: 12px; color: #9ca3af;">
+          Log in to the MH Construction dashboard to take action on these items.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: #f3f4f6; padding: 20px 30px; text-align: center;">
+        <p style="margin: 0; font-size: 12px; color: #6b7280;">MH Construction, Inc. | ${COMPANY_INFO.phone.display} | ${COMPANY_INFO.email.main}</p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+  const expiringText = alerts.expiringLicenses
+    .map(
+      (d) =>
+        `  - ${d.employee_name}: expires ${d.license_expiration_date} (${d.days_until} days)`,
+    )
+    .join("\n");
+  const mvrText = alerts.overdueMvr
+    .map((d) => `  - ${d.employee_name}: due ${d.next_mvr_check_date}`)
+    .join("\n");
+
+  const text = `Driver Monitoring Daily Report - ${totalIssues} Items Need Attention
+
+${alerts.expiringLicenses.length > 0 ? `EXPIRING LICENSES (${alerts.expiringLicenses.length}):\n${expiringText}\n\n` : ""}${alerts.overdueMvr.length > 0 ? `OVERDUE MVR CHECKS (${alerts.overdueMvr.length}):\n${mvrText}\n\n` : ""}${alerts.pendingCount > 0 ? `PENDING AUTHORIZATIONS: ${alerts.pendingCount}\n` : ""}${alerts.missingConsentCount > 0 ? `MISSING CONSENT: ${alerts.missingConsentCount}\n` : ""}
+Log in to the MH Construction dashboard to take action.
+
+MH Construction, Inc. | ${COMPANY_INFO.phone.display}`;
+
+  return { subject, html, text };
+}

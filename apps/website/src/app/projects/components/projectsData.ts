@@ -1,0 +1,171 @@
+/**
+ * Projects Page Data & Configuration
+ * Static data and configuration for the projects page
+ */
+
+// Category definitions
+export const categories = [
+  { id: "all", label: "All Projects", icon: "grid_view" },
+  { id: "residential", label: "Residential", icon: "home" },
+  { id: "commercial", label: "Commercial", icon: "business" },
+  { id: "industrial", label: "Industrial", icon: "factory" },
+  { id: "renovation", label: "Renovations", icon: "construction" },
+];
+
+// Project statistics - Updated with 6 Differences Key Metrics
+export const projectStats = [
+  {
+    icon: "health_and_safety",
+    value: 0.64,
+    suffix: " EMR",
+    decimals: 2,
+    label: "Award-Winning Safety",
+    animated: true,
+  },
+  {
+    icon: "workspace_premium",
+    value: 150,
+    suffix: "+",
+    label: "Years Combined Experience",
+    animated: true,
+  },
+  {
+    icon: "military_tech",
+    value: 650,
+    suffix: "+",
+    label: "Successful Projects",
+    animated: true,
+  },
+  {
+    icon: "verified",
+    value: 3,
+    label: "States Licensed",
+    animated: false,
+  },
+];
+
+// Service capabilities - Enhanced with detailed descriptions
+export const capabilities = [
+  {
+    icon: "church",
+    title: "Religious Facilities",
+    description:
+      "Partnering with congregations to create churches, chapels, and community centers with thoughtful design, careful budgeting, and deep respect for the community they serve. We understand that these sacred spaces require reverence and attention—managing every detail to ensure your facility serves your congregation for generations to come.",
+  },
+  {
+    icon: "store",
+    title: "Commercial Buildings",
+    description:
+      "Collaborating on office buildings, retail centers, and government facilities that strengthen community infrastructure. From boutique shops to large automotive dealerships, we construct spaces where your business can thrive using top-grade materials and partnering with the best architects in the Pacific Northwest.",
+  },
+  {
+    icon: "medical_services",
+    title: "Medical Facilities",
+    description:
+      "Working with healthcare providers to build medical centers, clinics, and healthcare facilities with specialized compliance expertise. We understand the critical nature of healthcare construction, precision planning for healthcare environments, and the importance of creating spaces that support community wellness.",
+  },
+  {
+    icon: "wine_bar",
+    title: "Wineries & Vineyards",
+    description:
+      "Partnering with vintners to create specialized processing facilities, tasting rooms, and production spaces that celebrate Pacific Northwest wine heritage. With expert craftsmanship and agricultural facility knowledge, we build structures that honor the winemaking tradition while supporting modern production needs.",
+  },
+  {
+    icon: "precision_manufacturing",
+    title: "Light Industrial Construction",
+    description:
+      "Collaborating on warehouses, processing plants, and manufacturing facilities that support regional economic growth. With 16+ years of proven experience, we create safe, functional, and code-compliant buildings built to your precise specifications with durability, accessibility, and reliability as top priorities.",
+  },
+  {
+    icon: "domain",
+    title: "Tenant Improvements",
+    description:
+      "Working with businesses to transform commercial spaces through professional renovation and build-out services. With decades of experience helping property owners across WA, OR, and ID, we create functional, modern workspaces quickly and efficiently with expert craftsmanship and minimal disruption to your operations.",
+  },
+];
+
+export type Category = (typeof categories)[number];
+export type ProjectStat = (typeof projectStats)[number];
+export type Capability = (typeof capabilities)[number];
+
+// Why Choose MH reasons - Enhanced with award-winning achievements
+export const whyChooseReasons = [
+  {
+    iconName: "health_and_safety",
+    title: ".64 EMR - Award-Winning Safety",
+    description:
+      "Multiple AGC-WA Top EMR Awards (2019-2021, 2025 Most Improved). Our Experience Modification Rate of .64 is 40% better than industry average, demonstrating our unwavering commitment to worker safety and zero-incident workplace culture. Over 3 consecutive years without time-loss injuries and OSHA VPP Star designation.",
+  },
+  {
+    iconName: "workspace_premium",
+    title: "150+ Years of 'Combined' Experience",
+    description:
+      "Our team brings over 150 years of combined expertise across all construction disciplines—from foundation to finish. This experience has been refined through decades of successful projects across commercial, industrial, medical, and specialty facilities throughout the Pacific Northwest. We leverage proven methods refined through generations of construction excellence.",
+  },
+  {
+    iconName: "fact_check",
+    title: "Transparent Honesty",
+    description:
+      "Open-book pricing where you see everything—detailed cost breakdowns, regular updates, and honest assessments. We believe in doing business the right way: total transparency, clear communication, and keeping our promises. You control it, we manage it—full visibility into every decision. Your trust is earned through action, not just words.",
+  },
+  {
+    iconName: "diversity_3",
+    title: "Partnership-Driven Trust",
+    description:
+      "We're not just contractors—we're community partners invested in the long-term success of the Pacific Northwest region. Excellence through experience—we build lasting partnerships that extend well beyond project completion. Building projects for the Client, NOT the Dollar is more than a slogan—it's our proven commitment to you.",
+  },
+  {
+    iconName: "military_tech",
+    title: "650+ Successful Projects - Reliability",
+    description:
+      "Over 650 successfully completed projects demonstrate our veteran-trained reliability. Founded 2010, Veteran-Owned Since January 2025 when Army veteran Jeremy Thamert purchased the company. We apply disciplined execution, attention to detail, and steady follow-through to every construction project, ensuring reliable delivery and dependable results. Our veteran-fueled reliability means staying calm and precise under pressure-delivering results when it matters most.",
+  },
+  {
+    iconName: "verified",
+    title: "3 State - Licensed & Insured",
+    description:
+      "Fully licensed for commercial construction across Washington, Oregon, and Idaho with comprehensive insurance coverage for your complete protection. Our multi-state licensing demonstrates our commitment to professional standards and our ability to serve Client Partners throughout the entire Pacific Northwest region.",
+  },
+];
+
+// Partnership process steps - Enhanced with detailed descriptions
+export const partnershipProcess = [
+  {
+    step: 1,
+    title: "Pre-Construction Planning",
+    description:
+      "Comprehensive planning to understand your vision, site requirements, and project goals. We work WITH you to establish clear objectives and realistic timelines from day one. Master planning prevents last-minute changes and ensures zero gaps in scope coverage.",
+    icon: "gps_fixed",
+  },
+  {
+    step: 2,
+    title: "Budget Transparency",
+    description:
+      "Detailed, open-book pricing with no surprises or hidden costs. Honest assessments and complete cost breakdowns mean you're never left wondering about project finances. You control it, we manage it—full visibility into every decision.",
+    icon: "calculate",
+  },
+  {
+    step: 3,
+    title: "Proactive Communication",
+    description:
+      "Regular updates with photo documentation and immediate notification of any project changes or delays. Transparent communication keeps you informed every step of the way. Multiple communication channels ensure you always know your project status.",
+    icon: "campaign",
+  },
+  {
+    step: 4,
+    title: "Quality Execution",
+    description:
+      "Disciplined execution combined with experienced craftsmen ensures exceptional workmanship. Quality control checkpoints at every phase deliver structures built to last for generations. We use proven methods refined over decades and select materials based on longevity.",
+    icon: "task_alt",
+  },
+  {
+    step: 5,
+    title: "Seamless Close-Out",
+    description:
+      "Comprehensive completion with ongoing support and availability for questions long after final payment. We're your partners beyond project completion. Following up to ensure satisfaction and being available creates lasting relationships built on proven excellence and decades of trust.",
+    icon: "diversity_3",
+  },
+];
+
+export type WhyChooseReason = (typeof whyChooseReasons)[number];
+export type PartnershipStep = (typeof partnershipProcess)[number];

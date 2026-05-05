@@ -1,0 +1,11 @@
+/* MH Construction Dashboard - Global Styles */
+
+/* Import CSS variables for cohesive design system */
+@import "../styles/variables.css";
+
+/* Tailwind CSS */
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+/* Material Icons */
+@import "../styles/material-icons.css";

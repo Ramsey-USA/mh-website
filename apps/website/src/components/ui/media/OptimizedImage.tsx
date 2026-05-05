@@ -1,0 +1,234 @@
+"use client";
+
+import { useState, useCallback, type CSSProperties } from "react";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+
+interface OptimizedImageProps {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  fill?: boolean;
+  className?: string;
+  sizes?: string;
+  priority?: boolean;
+  quality?: number;
+  placeholder?: "blur" | "empty";
+  onLoad?: () => void;
+  onError?: () => void;
+  enableAnimation?: boolean;
+  blurDataURL?: string;
+}
+
+// Generate a simple blur data URL for placeholder
+// Static base64 blur placeholder — avoids canvas/DOM dependency and SSR/hydration mismatch
+const BLUR_DATA_URL =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAMElEQVQI12NgYGBg+P//P8P/GQwMDAwMDP/////MYGBgYGBg+M/AwMDAwMDAsAEAVxQGiWvBl5AAAAAASUVORK5CYII=";
+
+export function OptimizedImage({
+  src,
+  alt,
+  width,
+  height,
+  fill = false,
+  className = "",
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
+  priority = false,
+  quality = 85,
+  placeholder = "blur",
+  onLoad,
+  onError,
+  enableAnimation = true,
+  blurDataURL,
+}: OptimizedImageProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  const handleLoad = useCallback((): void => {
+    setIsLoaded(true);
+    onLoad?.();
+  }, [onLoad]);
+
+  const handleError = useCallback((): void => {
+    setHasError(true);
+    onError?.();
+  }, [onError]);
+
+  const imageProps = {
+    src: hasError ? "/images/placeholder.webp" : src,
+    alt: alt || "Image",
+    onLoad: handleLoad,
+    onError: handleError,
+    quality,
+    placeholder,
+    blurDataURL: blurDataURL || BLUR_DATA_URL,
+    sizes,
+    priority,
+    className: cn(
+      "transition-opacity duration-500",
+      isLoaded ? "opacity-100" : "opacity-0",
+      className,
+    ),
+    ...(fill ? { fill: true } : { width: width || 800, height: height || 600 }),
+  };
+
+  const animStyle: CSSProperties = enableAnimation
+    ? {
+        opacity: 1,
+        scale: 1,
+        transition: "opacity 0.6s ease-out, scale 0.6s ease-out",
+      }
+    : {};
+
+  if (enableAnimation) {
+    return (
+      <div className="relative overflow-hidden" style={animStyle}>
+        <Image {...imageProps} alt={imageProps.alt} />
+        {!isLoaded && !hasError && (
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative">
+      <Image {...imageProps} alt={imageProps.alt} />
+      {!isLoaded && !hasError && (
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
+      )}
+    </div>
+  );
+}
+
+// Specialized component for hero images
+interface HeroImageProps extends Omit<
+  OptimizedImageProps,
+  "priority" | "sizes"
+> {
+  overlay?: boolean;
+  overlayClassName?: string;
+}
+
+export function HeroImage({
+  overlay = false,
+  overlayClassName = "bg-black/30",
+  ...props
+}: HeroImageProps) {
+  return (
+    <div className="relative">
+      <OptimizedImage
+        {...props}
+        priority={true}
+        sizes="100vw"
+        className={cn("object-cover", props.className)}
+      />
+      {overlay && (
+        <div
+          className={cn("absolute inset-0", overlayClassName)}
+          aria-hidden="true"
+        />
+      )}
+    </div>
+  );
+}
+
+// Specialized component for portfolio gallery
+interface GalleryImageProps extends OptimizedImageProps {
+  caption?: string;
+  category?: string;
+}
+
+export function GalleryImage({
+  caption,
+  category,
+  ...props
+}: GalleryImageProps) {
+  return (
+    <div className="group relative rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105">
+      <OptimizedImage
+        {...props}
+        className={cn(
+          "object-cover transition-transform duration-300 group-hover:scale-110",
+          props.className,
+        )}
+      />
+
+      {/* Overlay with caption */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="bottom-4 left-4 absolute text-white">
+          {category && (
+            <span className="inline-block bg-brand-primary mb-2 px-2 py-1 rounded font-semibold text-xs">
+              {category}
+            </span>
+          )}
+          {caption && <p className="font-medium text-sm">{caption}</p>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Avatar component with fallback
+interface AvatarImageProps {
+  src?: string;
+  alt: string;
+  size?: "sm" | "md" | "lg" | "xl";
+  fallback?: string;
+  className?: string;
+}
+
+export function AvatarImage({
+  src,
+  alt,
+  size = "md",
+  fallback,
+  className = "",
+}: AvatarImageProps) {
+  const [hasError, setHasError] = useState(false);
+
+  const sizeClasses = {
+    sm: "w-8 h-8",
+    md: "w-12 h-12",
+    lg: "w-16 h-16",
+    xl: "w-24 h-24",
+  };
+
+  const handleError = () => setHasError(true);
+
+  if (!src || hasError) {
+    return (
+      <div
+        className={cn(
+          sizeClasses[size],
+          "bg-brand-primary/20 rounded-full flex items-center justify-center",
+          className,
+        )}
+      >
+        <span className="font-semibold text-brand-primary text-sm">
+          {fallback || alt.charAt(0).toUpperCase()}
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={cn(
+        sizeClasses[size],
+        "relative rounded-full overflow-hidden",
+        className,
+      )}
+    >
+      <OptimizedImage
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover"
+        sizes="(max-width: 768px) 100px, 200px"
+        onError={handleError}
+      />
+    </div>
+  );
+}

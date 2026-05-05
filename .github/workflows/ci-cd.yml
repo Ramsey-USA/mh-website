@@ -22,7 +22,9 @@ env:
   NEXT_PUBLIC_SITE_URL: https://www.mhc-gc.com
 
 jobs:
-  # Quality Checks + Test Gate
+  # ──────────────────────────────────────────────────────────────
+  # Workspace-level quality checks (run once for whole monorepo)
+  # ──────────────────────────────────────────────────────────────
   quality-checks:
     name: Quality Checks
     runs-on: ubuntu-latest
@@ -44,7 +46,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: "pnpm"
 
-      - name: Install dependencies
+      - name: Install dependencies (workspace root)
         run: pnpm install --frozen-lockfile
 
       - name: Detect Lighthouse artifact changes
@@ -69,12 +71,23 @@ jobs:
 
       - name: Validate Lighthouse summary artifact (strict)
         if: steps.perf_changes.outputs.changed == 'true'
+        working-directory: apps/website
         run: npm run perf:gate
 
-      - name: Run TypeScript type check
+      - name: Run TypeScript type check — website
+        working-directory: apps/website
         run: npm run type-check
 
-      - name: Run ESLint
+      - name: Run TypeScript type check — dashboard
+        working-directory: apps/dashboard
+        run: npm run type-check
+
+      - name: Run ESLint — website
+        working-directory: apps/website
+        run: npm run lint
+
+      - name: Run ESLint — dashboard
+        working-directory: apps/dashboard
         run: npm run lint
 
       - name: Restore Prettier cache
@@ -95,13 +108,20 @@ jobs:
           BRAND_LINT_BASE_SHA: ${{ github.event.pull_request.base.sha || '' }}
         run: npm run lint:brand
 
-      - name: Run tests
+      - name: Run tests — website
+        working-directory: apps/website
+        run: npm run test:ci
+
+      - name: Run tests — dashboard
+        working-directory: apps/dashboard
         run: npm run test:ci
 
       - name: Check public asset budgets
+        working-directory: apps/website
         run: npm run check:asset-budgets
 
-      - name: Check for unused dependencies
+      - name: Check for unused dependencies — website
+        working-directory: apps/website
         run: npm run deps:check
 
   # Security Audit
@@ -131,9 +151,9 @@ jobs:
       - name: Run internal dependency security check
         run: npm run security:check:prod
 
-  # Build Verification
-  build:
-    name: Build Next.js
+  # Build Verification — Website
+  build-website:
+    name: Build Next.js (Website)
     runs-on: ubuntu-latest
     needs: [quality-checks]
 
@@ -152,21 +172,61 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: "pnpm"
 
-      - name: Restore Next.js build cache
+      - name: Restore Next.js build cache (website)
         uses: actions/cache@v4
         with:
-          path: .next/cache
-          key: nextjs-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{
-            hashFiles('src/**') }}
+          path: apps/website/.next/cache
+          key: nextjs-website-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{
+            hashFiles('apps/website/src/**', 'packages/shared/src/**') }}
           restore-keys: |
-            nextjs-cache-${{ hashFiles('pnpm-lock.yaml') }}-
-            nextjs-cache-
+            nextjs-website-cache-${{ hashFiles('pnpm-lock.yaml') }}-
+            nextjs-website-cache-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build application
+      - name: Build website
+        working-directory: apps/website
         run: npm run build
 
       - name: Check bundle size
+        working-directory: apps/website
         run: npm run bundle:report
+
+  # Build Verification — Dashboard
+  build-dashboard:
+    name: Build Next.js (Dashboard)
+    runs-on: ubuntu-latest
+    needs: [quality-checks]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "pnpm"
+
+      - name: Restore Next.js build cache (dashboard)
+        uses: actions/cache@v4
+        with:
+          path: apps/dashboard/.next/cache
+          key: nextjs-dashboard-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{
+            hashFiles('apps/dashboard/src/**', 'packages/shared/src/**') }}
+          restore-keys: |
+            nextjs-dashboard-cache-${{ hashFiles('pnpm-lock.yaml') }}-
+            nextjs-dashboard-cache-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build dashboard
+        working-directory: apps/dashboard
+        run: npm run build

@@ -1,0 +1,59 @@
+{
+  "name": "Jeremy Thamert",
+  "role": "Owner & President",
+  "department": "The Upper Brass",
+  "cardNumber": 1,
+  "position": "Owner & President",
+  "nickname": "Mission Commander",
+  "yearsWithCompany": 4,
+  "hometown": "Tri-Cities, WA",
+  "education": "Business Management",
+  "currentYearStats": {
+    "projectsCompleted": 45,
+    "clientSatisfaction": 98,
+    "safetyRecord": "EXCELLENT",
+    "teamCollaborations": 25
+  },
+  "careerStats": {
+    "totalProjects": 500,
+    "yearsExperience": 35,
+    "specialtyAreas": 4,
+    "mentorships": 8
+  },
+  "awards": "Presidential Leadership Excellence",
+  "bio": "Jeremy leads MH Construction with mission-level discipline, relationship-first leadership, and more than three decades of construction experience. A U.S. Army aviation veteran and seasoned operator, he aligns field execution, client communication, and long-term strategy so every project is delivered with accountability, precision, and trust.",
+  "careerHighlights": [
+    "Leads company-wide mission alignment from client kickoff through final closeout.",
+    "Built and scaled multiple businesses with disciplined operational systems.",
+    "Guides strategic growth while protecting MH relationship-first standards.",
+    "Mentors leaders to strengthen accountability, communication, and execution."
+  ],
+  "funFact": "Jeremy is most energized when aligning people, safety, and execution around one clear mission.",
+  "certifications": "Leadership Development, Safety Management, Procore Certified Admin",
+  "hobbies": "Team Building, Strategy",
+  "specialInterests": "People-First Leadership and Safety Culture",
+  "specialties": [
+    "Executive Leadership",
+    "Strategic Operations",
+    "Client Partnership",
+    "Veteran Leadership"
+  ],
+  "avatar": "/images/team/jeremy-thamert.webp",
+  "veteranStatus": "Army Veteran",
+  "active": true,
+  "slug": "jeremy-thamert",
+  "email": "jeremy@mhc-gc.com",
+  "skills": {
+    "leadership": 100,
+    "technical": 70,
+    "communication": 100,
+    "safety": 100,
+    "problemSolving": 100,
+    "teamwork": 100,
+    "organization": 100,
+    "innovation": 100,
+    "passion": 100,
+    "continuingEducation": 100
+  },
+  "qrCode": "/images/qr-codes/team/qr-team-jeremy-thamert-color.png"
+}

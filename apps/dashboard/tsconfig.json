@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    // === Strict Type Checking ===
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "useUnknownInCatchVariables": true,
+    "exactOptionalPropertyTypes": true,
+    // === Additional Checks ===
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    // === Library & Environment ===
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2020",
+    // === Module Resolution (Next.js 16) ===
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    // === JavaScript Support ===
+    "allowJs": true,
+    "checkJs": false,
+    // === Emit Configuration ===
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    // === React/JSX ===
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    // === Next.js Specific ===
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    // === Path Mapping ===
+    // Shared lib modules resolve from packages/shared (single source of truth).
+    // Dashboard-specific code still uses @/ → ./src/*.
+    "paths": {
+      "@/lib/db": ["../../packages/shared/src/lib/db"],
+      "@/lib/db/*": ["../../packages/shared/src/lib/db/*"],
+      "@/lib/auth/jwt": ["../../packages/shared/src/lib/auth/jwt"],
+      "@/lib/auth/middleware": [
+        "../../packages/shared/src/lib/auth/middleware"
+      ],
+      "@/lib/auth/*": ["../../packages/shared/src/lib/auth/*"],
+      "@/lib/security": ["../../packages/shared/src/lib/security"],
+      "@/lib/security/*": ["../../packages/shared/src/lib/security/*"],
+      "@/lib/utils": ["../../packages/shared/src/lib/utils"],
+      "@/lib/utils/*": ["../../packages/shared/src/lib/utils/*"],
+      "@/lib/constants/company": [
+        "../../packages/shared/src/lib/constants/company"
+      ],
+      "@/lib/constants/limits": [
+        "../../packages/shared/src/lib/constants/limits"
+      ],
+      "@/lib/constants/drivers": [
+        "../../packages/shared/src/lib/constants/drivers"
+      ],
+      "@/lib/constants/navigation-icons": [
+        "../../packages/shared/src/lib/constants/navigation-icons"
+      ],
+      "@/lib/constants/timing": [
+        "../../packages/shared/src/lib/constants/timing"
+      ],
+      "@/lib/constants": ["../../packages/shared/src/lib/constants"],
+      "@/lib/constants/*": ["../../packages/shared/src/lib/constants/*"],
+      "@/lib/types": ["../../packages/shared/src/lib/types"],
+      "@/lib/types/*": ["../../packages/shared/src/lib/types/*"],
+      "@/lib/cloudflare/r2": ["../../packages/shared/src/lib/cloudflare/r2"],
+      "@/lib/cloudflare/*": ["../../packages/shared/src/lib/cloudflare/*"],
+      "@/lib/api": ["../../packages/shared/src/lib/api"],
+      "@/lib/api/*": ["../../packages/shared/src/lib/api/*"],
+      "@/lib/email": ["../../packages/shared/src/lib/email"],
+      "@/lib/email/*": ["../../packages/shared/src/lib/email/*"],
+      "@/lib/notifications": ["../../packages/shared/src/lib/notifications"],
+      "@/lib/notifications/*": [
+        "../../packages/shared/src/lib/notifications/*"
+      ],
+      "@/lib/analytics": ["../../packages/shared/src/lib/analytics"],
+      "@/lib/analytics/*": ["../../packages/shared/src/lib/analytics/*"],
+      "@/lib/monitoring": ["../../packages/shared/src/lib/monitoring"],
+      "@/lib/monitoring/*": ["../../packages/shared/src/lib/monitoring/*"],
+      "@/lib/safety/log-access-event": [
+        "../../packages/shared/src/lib/safety/log-access-event"
+      ],
+      "@/lib/safety/certification-showcase": [
+        "../../packages/shared/src/lib/safety/certification-showcase"
+      ],
+      "@/lib/safety/*": ["../../packages/shared/src/lib/safety/*"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": ["node_modules", ".next", "out", "build", "dist", "coverage"]
+}
