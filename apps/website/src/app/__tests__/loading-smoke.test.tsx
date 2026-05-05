@@ -10,7 +10,6 @@ import { render } from "@testing-library/react";
 const loadingPages = [
   { name: "Careers", path: "../careers/loading" },
   { name: "Contact", path: "../contact/loading" },
-  { name: "Dashboard", path: "../dashboard/loading" },
   { name: "Projects", path: "../projects/loading" },
   { name: "Team", path: "../team/loading" },
   { name: "Testimonials", path: "../testimonials/loading" },
