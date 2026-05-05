@@ -97,3 +97,4 @@ eng.traineddata
 # pnpm-lock.yaml
 package-lock.json
 # yarn.lock
+apps/website/documents/output/

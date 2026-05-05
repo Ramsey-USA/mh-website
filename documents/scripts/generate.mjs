@@ -34,7 +34,7 @@ import QRCode from "qrcode";
 import { PDFDocument, StandardFonts, rgb, TextAlignment } from "pdf-lib";
 import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
 import { readFileSync, existsSync, unlinkSync } from "node:fs";
-import { join, resolve, dirname, extname } from "node:path";
+import { join, resolve, dirname, extname, relative } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const SITE_URL = "https://www.mhc-gc.com";
@@ -908,12 +908,19 @@ async function addFillableFieldsToLetterhead(pdfPath) {
     const targetPage = opts.page || page;
     const field = form.createTextField(name);
     if (opts.multiline) field.enableMultiline();
-    // Lock the field to its visible box: no scrolling, no auto-grow.
-    // Users typing past the bottom of lh.body must continue on lh.body2.
-    field.disableScrolling();
-    const widgetH = opts.multiline
-      ? hIn
-      : Math.max(0.12, hIn - singleLineInsetBottom);
+    // Single-line widgets get DoNotScroll so the value doesn't shift left
+    // when it overflows. Multiline body fields keep scrolling enabled —
+    // setting DoNotScroll there causes viewers to beep/reject Enter once
+    // a newline would push past the visible area. The widget rect is
+    // already fixed-size, so the box itself cannot grow.
+    if (!opts.multiline) field.disableScrolling();
+    // Header form fields use a small bottom inset so the visual underline
+    // comes from the HTML template, not the PDF annotation. Body "ruled
+    // paper" lines have no underline to clear, so they use full height.
+    const useInset = !opts.multiline && !opts.bodyLine;
+    const widgetH = useInset
+      ? Math.max(0.12, hIn - singleLineInsetBottom)
+      : hIn;
     field.addToPage(targetPage, {
       ...(opts.multiline ? bodyStyle : lineStyle),
       x: inch(xIn),
@@ -964,18 +971,41 @@ async function addFillableFieldsToLetterhead(pdfPath) {
   addField("lh.from", colL, rowFrom + lOff, colW2, fH);
   addField("lh.jobBid", colR, rowFrom + lOff, colW2, fH);
   addField("lh.subject", colL, rowSubject + lOff, 6.3, fH);
-  addField("lh.body", colL, rowBody + 0.04, 6.3, bH - 0.08, {
-    multiline: true,
-  });
 
-  // Continuation page body field — sized to the .cont-body region in
-  // safety-manual-letterhead.html (top: 1.10in, left: 1.15in,
-  // right: 1.05in (→ width 6.30in), bottom: 2.10in → height 7.80in).
-  if (page2) {
-    addField("lh.body2", 1.15, 1.1, 6.3, 7.8, {
-      multiline: true,
-      page: page2,
+  // Body — grid of single-line "ruled paper" fields. Each line is its own
+  // AcroForm widget, exactly one line tall, so it physically cannot scroll
+  // and Tab moves down to the next line. Matches the .body-grid in HTML
+  // (data-lines="18", data-prefix="lh-body"). Line stride = 12pt × 1.4 =
+  // 16.8pt = 0.2333in; field height = 14pt = 0.1944in (slight breathing
+  // room inside the line stride).
+  const bodyLineStride = 16.8 / 72; // 0.2333in
+  const bodyLineH = 14 / 72; // 0.1944in
+  const bodyTopY = rowBody + 22 / 72; // matches HTML .row-body padding-top: 22pt
+  const padNum = (i) => (i < 10 ? "0" + i : "" + i);
+  for (let i = 1; i <= 18; i++) {
+    const y = bodyTopY + (i - 1) * bodyLineStride;
+    addField("lh.body.l" + padNum(i), colL, y, 6.3, bodyLineH, {
+      bodyLine: true,
+      fontSize: 12,
     });
+  }
+
+  // Continuation page (page 2) body grid — 33 single-line widgets aligned
+  // to the .cont-body region in HTML (top: 1.10in, height: 7.80in).
+  // Continuation lines render at 11pt; line stride 11pt × 1.4 = 15.4pt =
+  // 0.2139in; field height = 13pt = 0.1806in. 33 × 0.2139 = 7.06in, fits.
+  if (page2) {
+    const contLineStride = 15.4 / 72; // 0.2139in
+    const contLineH = 13 / 72; // 0.1806in
+    const contTopY = 1.1;
+    for (let i = 1; i <= 33; i++) {
+      const y = contTopY + (i - 1) * contLineStride;
+      addField("lh.body2.l" + padNum(i), 1.15, y, 6.3, contLineH, {
+        page: page2,
+        bodyLine: true,
+        fontSize: 11,
+      });
+    }
   }
 
   form.updateFieldAppearances(font);
@@ -1626,6 +1656,30 @@ async function generateLetterhead() {
     "manuals/_tmp_letterhead.html",
   );
   await addFillableFieldsToLetterhead(pdfPath);
+
+  // Also emit the Word (.docx) version. Word's layout engine auto-paginates
+  // body text onto page 2/3/N — something AcroForm fields cannot do — so the
+  // .docx is the recommended deliverable for any letter longer than a few
+  // paragraphs. The PDF stays as a quick-fill option for short notes.
+  const docxPath = join(OUTPUT_DIR, "safety-manual-letterhead.docx");
+  const { generateLetterheadDocx } =
+    await import("./generate-letterhead-docx.mjs");
+  // Build the QR PNG buffer (matches the PDF's QR panel — same target URL,
+  // same hunter-green/white color scheme).
+  const qrPngBuffer = await QRCode.toBuffer(websiteUrl, {
+    type: "png",
+    width: 300,
+    margin: 1,
+    color: { dark: BRAND.colors.primary, light: "#ffffff" },
+    errorCorrectionLevel: "M",
+  });
+  await generateLetterheadDocx({
+    outPath: docxPath,
+    brand: BRAND,
+    docsDir: DOCS_DIR,
+    qrPngBuffer,
+  });
+  console.log(`  ✓  ${relative(ROOT, docxPath)}`);
 }
 
 // ── Template: Spine ───────────────────────────────────────────────────────────

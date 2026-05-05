@@ -541,12 +541,33 @@
          top; footer starts ~8.90in from page top → body height ≈ 4.55in. */
       .form-table .row-body    { height: 4.55in; max-height: 4.55in; overflow: hidden; }
       .form-table .row-body td.field-cell { vertical-align: top; padding-top: 22pt; height: 4.55in; }
-      /* Body textarea: fixed height (no 100% against table cell, which would
-         let the cell grow with content). overflow:hidden clips the rest. */
-      .form-table .row-body .field-area {
-        height: 4.10in;
-        max-height: 4.10in;
-        min-height: 0;
+      /* Body grid: 18 stacked single-line inputs that act as ruled paper.
+         Each row is exactly one line tall so the field cannot scroll;
+         Tab moves to the next line. Lines are visually invisible but the
+         entire region is clickable (the inputs fill it). */
+      .body-grid {
+        display: block;
+        width: 100%;
+      }
+      .body-grid .body-line {
+        display: block;
+        width: 100%;
+        height: 16.8pt;          /* 12pt × 1.4 */
+        line-height: 16.8pt;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        font-family: var(--font-body);
+        font-size: 12pt;
+        font-weight: 700;
+        color: var(--brand-primary-dark);
+        padding: 0 2pt;
+        margin: 0;
+      }
+      .sheet--cont .body-grid .body-line {
+        font-size: 11pt;
+        font-weight: 400;
+        color: var(--ink);
       }
       .form-table .field-label { margin-top: 2pt; margin-bottom: 0pt; }
 
@@ -824,20 +845,20 @@
             </td>
           </tr>
 
-          <!-- Body — contenteditable div (auto-grows, no internal scroll;
-               long content paginates and continues onto the next page). -->
+          <!-- Body — grid of single-line inputs ("ruled paper").
+               Each line is its own AcroForm text field; the user presses
+               Tab to move down. Cannot scroll; cannot grow. -->
           <tr class="row-body">
             <td colspan="6" class="field-cell">
-              <label class="field-label sr-only" for="lh-body"
+              <label class="field-label sr-only" for="lh-body-l01"
                 >Letter body</label
               >
-              <textarea
-                id="lh-body"
-                name="lh-body"
-                class="field-area"
-                rows="1"
-                placeholder="Type your letter here. The field will grow as you type — no scrolling, and long letters continue onto the next page when printed."
-              ></textarea>
+              <div
+                id="lh-body-grid"
+                class="body-grid"
+                data-lines="18"
+                data-prefix="lh-body"
+              ></div>
             </td>
           </tr>
         </table>
@@ -911,13 +932,12 @@
       </header>
 
       <main class="cont-body" aria-label="letter body continued">
-        <textarea
-          id="lh-body2"
-          name="lh-body2"
-          class="field-area"
-          rows="1"
-          placeholder="Continue your letter here. This page mirrors page 1’s brand chrome so the letter remains on letterhead from start to finish."
-        ></textarea>
+        <div
+          id="lh-body-grid2"
+          class="body-grid"
+          data-lines="33"
+          data-prefix="lh-body2"
+        ></div>
       </main>
 
       <footer class="footer">
@@ -978,7 +998,6 @@
       // suppressed automatically by the @media print rule).
       (function () {
         var doc = globalThis.document;
-        var body = doc.getElementById("lh-body");
 
         function val(id) {
           var el = doc.getElementById(id);
@@ -1023,20 +1042,59 @@
           var date = val("lh-date");
           if (date) lines.push(date, "");
           buildAddressBlock(lines);
-          var bodyText = body ? (body.value || "").trim() : "";
-          if (bodyText) lines.push(bodyText, "");
+          var bodyLines = collectBodyLines("lh-body-grid").concat(
+            collectBodyLines("lh-body-grid2"),
+          );
+          if (bodyLines.length) lines.push(bodyLines.join("\n"), "");
           buildSignatureBlock(lines);
           return lines.join("\n");
         }
 
+        function collectBodyLines(gridId) {
+          var grid = doc.getElementById(gridId);
+          if (!grid) return [];
+          var inputs = grid.querySelectorAll(".body-line");
+          var out = [];
+          Array.prototype.forEach.call(inputs, function (el) {
+            out.push(el.value || "");
+          });
+          // trim trailing empty lines
+          while (out.length && !out[out.length - 1].trim()) out.pop();
+          return out;
+        }
+
         function clearAllFields() {
-          var nodes = doc.querySelectorAll(".field-line, #lh-body, #lh-body2");
+          var nodes = doc.querySelectorAll(".field-line, .body-line");
           Array.prototype.forEach.call(nodes, function (el) {
             el.value = "";
           });
           var first = doc.getElementById("lh-date");
           if (first) first.focus();
         }
+
+        // Build the body grids: one single-line input per row.
+        // Tab moves down naturally; the inputs are physically one
+        // line tall so they cannot scroll vertically.
+        function buildBodyGrid(gridId) {
+          var grid = doc.getElementById(gridId);
+          if (!grid) return;
+          var n = parseInt(grid.getAttribute("data-lines") || "0", 10);
+          var prefix = grid.getAttribute("data-prefix") || gridId;
+          var frag = doc.createDocumentFragment();
+          for (var i = 1; i <= n; i++) {
+            var pad = i < 10 ? "0" + i : "" + i;
+            var input = doc.createElement("input");
+            input.type = "text";
+            input.className = "body-line";
+            input.id = prefix + "-l" + pad;
+            input.name = prefix + "-l" + pad;
+            input.autocomplete = "off";
+            frag.appendChild(input);
+          }
+          grid.appendChild(frag);
+        }
+        buildBodyGrid("lh-body-grid");
+        buildBodyGrid("lh-body-grid2");
 
         var btnPrint = doc.getElementById("lh-print");
         var btnEmail = doc.getElementById("lh-email");
