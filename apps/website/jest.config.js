@@ -22,16 +22,30 @@ const createJestConfig = nextJest({
 // Each `@/lib/<module>` import resolves to packages/shared/src/lib/<module>.
 const sharedRoot = path.resolve(__dirname, "../../packages/shared/src/lib");
 const sharedLibs = [
-  "db", "auth", "security", "utils", "constants",
-  "types", "cloudflare", "api", "email", "notifications",
-  "analytics", "monitoring", "safety",
+  "db",
+  "auth",
+  "security",
+  "utils",
+  "constants",
+  "types",
+  "cloudflare",
+  "api",
+  "email",
+  "notifications",
+  "analytics",
+  "monitoring",
+  "safety",
 ];
-const sharedModuleMap = Object.fromEntries(
-  sharedLibs.map((lib) => [
-    `^@/lib/${lib}(/(.*))?$`,
-    `${sharedRoot}/${lib}$2`,
-  ])
-);
+// Two patterns per lib: bare import (@/lib/X) and sub-path import (@/lib/X/foo).
+// Using a plain object with unique keys (bare first, sub-path second so Jest
+// tries the more-specific sub-path pattern first due to its ordering strategy).
+const sharedModuleMap = {};
+sharedLibs.forEach((lib) => {
+  // Sub-path: @/lib/constants/company → packages/shared/src/lib/constants/company
+  sharedModuleMap[`^@/lib/${lib}/(.*)$`] = `${sharedRoot}/${lib}/$1`;
+  // Bare: @/lib/constants → packages/shared/src/lib/constants
+  sharedModuleMap[`^@/lib/${lib}$`] = `${sharedRoot}/${lib}`;
+});
 
 // Custom Jest configuration
 const customJestConfig = {

@@ -1,5 +1,8 @@
 /**
  * @jest-environment jsdom
+ *
+ * Safety incident-report page integration tests — website app
+ * (Hub page routing tests live in apps/dashboard/src/app/__tests__/hub-routing.test.tsx)
  */
 
 import { render, screen, waitFor } from "@testing-library/react";
@@ -29,38 +32,10 @@ jest.mock("@/components/analytics", () => ({
   PageTrackingClient: () => null,
 }));
 
-describe("Operations Hub workflows", () => {
+describe("Safety incident-report page", () => {
   beforeEach(() => {
     jest.clearAllMocks();
     globalThis.localStorage.clear();
-  });
-
-  it("keeps Incident Reporting card mapped to direct incident entry route", () => {
-    const { default: HubPage } = require("../hub/page") as {
-      default: React.ComponentType;
-    };
-
-    render(<HubPage />);
-
-    const incidentCard = screen.getByRole("link", {
-      name: /Incident Reporting/i,
-    });
-
-    expect(incidentCard).toHaveAttribute("href", "/safety/incident-report");
-  });
-
-  it("keeps Employee Handbook card mapped to placeholder route", () => {
-    const { default: HubPage } = require("../hub/page") as {
-      default: React.ComponentType;
-    };
-
-    render(<HubPage />);
-
-    const handbookCard = screen.getByRole("link", {
-      name: /Employee Handbook/i,
-    });
-
-    expect(handbookCard).toHaveAttribute("href", "/employee-handbook");
   });
 
   it("shows Team Access Required when incident route has no auth token", () => {

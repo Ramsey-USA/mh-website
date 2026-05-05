@@ -121,9 +121,6 @@
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.5.2",
-    "@commitlint/config-conventional": "^20.5.0",
-    "@cspell/dict-es-es": "^3.0.8",
     "@eslint/eslintrc": "^3.3.5",
     "@next/bundle-analyzer": "16.2.4",
     "@next/eslint-plugin-next": "^16.2.4",
@@ -145,7 +142,6 @@
     "@typescript-eslint/eslint-plugin": "^8.59.1",
     "@typescript-eslint/parser": "^8.59.1",
     "autoprefixer": "^10.4.27",
-    "chalk": "^5.6.2",
     "cross-env": "^10.1.0",
     "depcheck": "^1.4.7",
     "esbuild": "^0.25.0",
@@ -154,11 +150,8 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
-    "husky": "^9.1.7",
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.3.0",
-    "lint-staged": "^16.3.3",
-    "markdownlint-cli2": "^0.22.1",
     "prettier": "^3.8.1",
     "typescript": "^6.0.3",
     "wrangler": "^4.86.0"
@@ -177,40 +170,5 @@
     "qrcode": "^1.5.4",
     "sharp": "^0.34.5",
     "tesseract.js": "^7.0.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "fast-xml-parser": "^5.7.0",
-      "uuid": "^14.0.0",
-      "postcss": ">=8.5.10"
-    },
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "@react-email/render"
-      ]
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,md,css,scss}": [
-      "prettier --write"
-    ]
-  },
-  "overrides": {
-    "tar": "7.5.11",
-    "cookie": "0.7.2",
-    "flatted": ">=3.4.2",
-    "undici": ">=7.24.0",
-    "yauzl": ">=3.2.1",
-    "glob": ">=11.0.0",
-    "picomatch": ">=4.0.4",
-    "yaml": ">=2.8.3",
-    "fast-xml-parser": "^5.7.0",
-    "uuid": "^14.0.0",
-    "basic-ftp": ">=5.2.2",
-    "postcss": ">=8.5.10"
   }
 }

@@ -11,17 +11,27 @@ const createJestConfig = nextJest({
 
 const sharedRoot = path.resolve(__dirname, "../../packages/shared/src/lib");
 const sharedLibs = [
-  "db", "auth", "security", "utils", "constants",
-  "types", "cloudflare", "api", "email", "notifications",
-  "analytics", "monitoring", "safety",
+  "db",
+  "auth",
+  "security",
+  "utils",
+  "constants",
+  "types",
+  "cloudflare",
+  "api",
+  "email",
+  "notifications",
+  "analytics",
+  "monitoring",
+  "safety",
 ];
 
-const sharedModuleMap = Object.fromEntries(
-  sharedLibs.map((lib) => [
-    `^@/lib/${lib}(/(.*))?$`,
-    `${sharedRoot}/${lib}$2`,
-  ])
-);
+// Two patterns per lib: bare import (@/lib/X) and sub-path import (@/lib/X/foo).
+const sharedModuleMap = {};
+sharedLibs.forEach((lib) => {
+  sharedModuleMap[`^@/lib/${lib}/(.*)$`] = `${sharedRoot}/${lib}/$1`;
+  sharedModuleMap[`^@/lib/${lib}$`] = `${sharedRoot}/${lib}`;
+});
 
 const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
@@ -53,6 +63,8 @@ const customJestConfig = {
     "/.open-next/",
     "/.wrangler/",
     "/coverage/",
+    // Test utility helpers — not test suites themselves
+    "/__tests__/helpers/",
   ],
 
   modulePathIgnorePatterns: [

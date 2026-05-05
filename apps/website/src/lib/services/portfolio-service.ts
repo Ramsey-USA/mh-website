@@ -1,5 +1,5 @@
 // Portfolio service for managing project data
-import { type ProjectPortfolio, type ProjectFilter } from "../types";
+import { type ProjectPortfolio, type ProjectFilter } from "@/lib/types";
 
 function normalizeSearchValue(value: string): string {
   return value.trim().toLowerCase();

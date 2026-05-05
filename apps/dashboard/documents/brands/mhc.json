@@ -1,0 +1,61 @@
+{
+  "id": "mhc",
+  "companyName": "MH Construction, Inc.",
+  "companyShort": "MH Construction",
+  "tagline": "Founded 2010, Veteran-Owned Since January 2025",
+  "veteranOwned": true,
+  "address": "3111 N Capitol Ave., Pasco, WA 99301",
+  "addressStreet": "3111 N Capitol Ave.",
+  "addressCityStateZip": "Pasco, WA 99301",
+  "phone": "(509) 308-6489",
+  "website": "www.mhc-gc.com",
+  "email": "office@mhc-gc.com",
+  "revisionYear": "2026",
+  "revisionNumber": "3",
+  "revisionDate": "04/07/2026",
+  "safetyProgramTitle": "MISH — Safety & Health Program",
+  "safetyProgramSubtitle": "MH Construction Industrial Safety & Health Program",
+  "safetyProgramTotalSections": 50,
+  "licenses": {
+    "WA": "MHCONCI907R7",
+    "OR": "194331",
+    "ID": "RCE-49250"
+  },
+  "colors": {
+    "primary": "#386851",
+    "primaryDark": "#1E392C",
+    "primaryDarker": "#12231b",
+    "primaryLight": "#628F79",
+    "secondary": "#BD9264",
+    "secondaryLight": "#D9BD93",
+    "secondaryText": "#8A6B49",
+    "bronze": "#A87948",
+    "bronzeLight": "#CD9B6D",
+    "bronzeDark": "#6B4E2E"
+  },
+  "logo": {
+    "white": "../assets/logo-white.png",
+    "color": "../assets/logo-color.png",
+    "darkBg": "../assets/logo-dark-bg.png"
+  },
+  "partnerLogos": {
+    "agcHorizontal": "../assets/AGC-seal-v1.webp",
+    "agcStacked": "../assets/nwagc-logo-stacked.png",
+    "bbbHorizontal": "../assets/bbb/bbb-logo-horizontal.png",
+    "bbbVertical": "../assets/bbb/bbb-accredited-seal-vertical.png",
+    "bbbSeal": "../assets/bbb/bbb-accredited-seal.png"
+  },
+  "certificationLogos": {
+    "waVob": "../../public/images/logo/veteran-owned-business.jpg"
+  },
+  "chamberLogos": {
+    "pasco": "../../public/images/credentials/Pasco-Chamber-logo-color-transparent.png",
+    "richland": "../../public/images/credentials/Richland-Chamber-logo-full-color.png",
+    "kennewick": "../../public/images/credentials/Kennewick-TriCity-Regional-Chamber-logo-horizontal.png"
+  },
+  "qrCodes": {
+    "dashboard": "https://www.mhc-gc.com/safety/hub",
+    "digitalManual": "https://www.mhc-gc.com/docs/safety/safety-manual-digital.pdf",
+    "tableOfContents": "https://www.mhc-gc.com/resources/safety-manual/contents"
+  }
+}
