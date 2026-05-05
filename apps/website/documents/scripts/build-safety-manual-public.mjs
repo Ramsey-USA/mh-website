@@ -58,6 +58,16 @@ function wordCount(html) {
   return (html.replace(/<[^>]+>/g, " ").match(WORD_RE) || []).length;
 }
 
+function stripAttrsFully(html) {
+  let prev;
+  let cur = html;
+  do {
+    prev = cur;
+    cur = cur.replace(STRIP_ATTRS, "");
+  } while (cur !== prev);
+  return cur;
+}
+
 function extractPreviewHtml(body, maxWords = 250) {
   if (!body || typeof body !== "string") return "";
   const safe = sanitizeHtml(body, {
@@ -105,7 +115,7 @@ function extractPreviewHtml(body, maxWords = 250) {
     if (!ALLOWED_HEADINGS.some((re) => re.test(cur.text))) continue;
     const nextStart =
       i + 1 < matches.length ? matches[i + 1].start : safe.length;
-    const chunk = safe.slice(cur.start, nextStart).replace(STRIP_ATTRS, "");
+    const chunk = stripAttrsFully(safe.slice(cur.start, nextStart));
     blocks.push(chunk);
     totalWords += wordCount(chunk);
     if (totalWords >= maxWords) break;
