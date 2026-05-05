@@ -878,18 +878,19 @@ async function addFillableFieldsToLetterhead(pdfPath) {
   const page = pages[0];
   const page2 = pages[1]; // continuation page
   const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
   const pageHeight = page.getHeight();
   const inch = (n) => n * 72;
   const yFromTop = (topIn, heightIn) =>
     pageHeight - inch(topIn) - inch(heightIn);
 
-  // Single-line fields: transparent overlay
+  // Single-line fields: hunter-green bold typed text
   const lineStyle = {
     borderColor: rgb(1, 1, 1),
     borderWidth: 0,
-    textColor: rgb(0.07, 0.14, 0.11),
-    font,
+    textColor: rgb(0.118, 0.224, 0.173),
+    font: fontBold,
   };
   // Body textarea: fully transparent overlay too
   const bodyStyle = {
@@ -920,7 +921,7 @@ async function addFillableFieldsToLetterhead(pdfPath) {
     // Lock font size so fields don't auto-scale to fit the box (which
     // otherwise renders body text huge until the field is filled).
     // Must run AFTER addToPage so the /DA entry exists.
-    field.setFontSize(opts.fontSize ?? (opts.multiline ? 11 : 10));
+    field.setFontSize(opts.fontSize ?? (opts.multiline ? 11 : 12));
     return field;
   };
 
@@ -928,13 +929,13 @@ async function addFillableFieldsToLetterhead(pdfPath) {
   //   body-area top: 2.25in from page top
   //   left margin:   1.15in from page left
   //   6 columns × 1.05in = 6.30in wide, zero cell padding
-  //   Row heights: date/to/addr/from/subject = 0.32in, body = 5.05in
+  //   Row heights: date/to/addr/from/subject = 0.42in, body = 4.55in
   //   Label height offset (label margin-top 2pt + label height ~8pt ≈ 0.13in)
 
   const bTop = 2.25; // body-area top (in)
-  const rH = 0.32; // standard row height (condensed label rows)
-  const bH = 5.05; // body row height (preserves page-2 cont-body 2.10in bottom clearance)
-  const fH = 0.2; // single-line field height
+  const rH = 0.42; // standard row height (fits 12pt bold typed text)
+  const bH = 4.55; // body row height (preserves page-2 cont-body 2.10in bottom clearance)
+  const fH = 0.26; // single-line field height (fits 12pt bold)
   const lOff = 0.13; // label offset (label margin-top 2pt + label height ~8pt)
 
   const rowDate = bTop;

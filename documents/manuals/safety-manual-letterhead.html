@@ -195,42 +195,41 @@
         color: var(--ink);
       }
 
-      /* shared field label — watermark style so it fades when printed */
+      /* shared field label — official darker tan, prints clearly */
       .field-label {
         font-size: 6.4pt;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.16em;
         color: var(--brand-secondary-text);
-        opacity: 0.32;
+        opacity: 1;
         margin-bottom: 2pt;
         display: block;
       }
 
-      /* single-line field — NO border (cell bottom border is the line) */
+      /* single-line field — typed value reads as bold hunter-green ink */
       .field-line {
         display: block;
         width: 100%;
         border: none;
         background: transparent;
         font-family: var(--font-body);
-        font-size: 9.5pt;
-        color: var(--ink);
+        font-size: 12pt;
+        font-weight: 700;
+        color: var(--brand-primary-dark);
         padding: 1pt 2pt 2pt;
         outline: none;
       }
 
-      /* multiline body — NO border (cell bottom is the line).
-         Implemented as a <textarea> with `field-sizing: content`
-         (Chromium 123+) so it grows with content instead of showing
-         an internal scrollbar. A small JS fallback auto-resizes on
-         older engines. The signature row pushes to the next printed
-         page when the body grows past the page-1 area. */
+      /* multiline body — LOCKED to its cell.
+         The textarea fills its row with a fixed height so the
+         user runs out of space and must manually move to page 2;
+         it never auto-grows or scrolls. */
       .field-area {
         display: block;
         width: 100%;
-        min-height: 1.6em;
-        height: auto;
+        height: 100%;
+        min-height: 0;
         border: none;
         background: transparent;
         font-family: var(--font-body);
@@ -241,12 +240,11 @@
         line-height: 1.6;
         white-space: pre-wrap;
         word-break: break-word;
-        overflow: hidden; /* never show an inner scrollbar */
+        overflow: hidden; /* hard stop — no scrollbar, no overflow */
         overflow-wrap: anywhere;
         resize: none;
         appearance: none;
         -webkit-appearance: none;
-        field-sizing: content; /* native auto-grow in Chromium */
       }
 
       /* body field grows naturally as content is entered */
@@ -531,13 +529,13 @@
       .form-table .row-to,
       .form-table .row-addr,
       .form-table .row-from,
-      .form-table .row-subject { height: 0.32in; }
+      .form-table .row-subject { height: 0.42in; }
       /* Body row: fills the page from after the subject row down to the
-         footer area. Subject row ends at 2.25 + 5×0.32 = 3.85in from page
-         top; footer starts ~8.90in from page top → body height ≈ 5.05in. */
-      .form-table .row-body    { height: 5.05in; }
-      .form-table .row-body td.field-cell { vertical-align: top; padding-top: 6pt; }
-      .form-table .row-body .field-area { min-height: 4.90in; }
+         footer area. Subject row ends at 2.25 + 5×0.42 = 4.35in from page
+         top; footer starts ~8.90in from page top → body height ≈ 4.55in. */
+      .form-table .row-body    { height: 4.55in; }
+      .form-table .row-body td.field-cell { vertical-align: top; padding-top: 22pt; }
+      .form-table .row-body .field-area { min-height: 4.40in; }
       .form-table .field-label { margin-top: 2pt; margin-bottom: 0pt; }
 
       /* visually-hidden label for the body textarea (screen readers only) */
@@ -1020,11 +1018,10 @@
         }
 
         function clearAllFields() {
-          var nodes = doc.querySelectorAll(".field-line, #lh-body");
+          var nodes = doc.querySelectorAll(".field-line, #lh-body, #lh-body2");
           Array.prototype.forEach.call(nodes, function (el) {
             el.value = "";
           });
-          if (body && !supportsFieldSizing) autosize(body);
           var first = doc.getElementById("lh-date");
           if (first) first.focus();
         }
@@ -1033,22 +1030,9 @@
         var btnEmail = doc.getElementById("lh-email");
         var btnReset = doc.getElementById("lh-reset");
 
-        // Auto-resize fallback for browsers without CSS `field-sizing`.
-        function autosize(el) {
-          if (!el) return;
-          el.style.height = "auto";
-          el.style.height = el.scrollHeight + "px";
-        }
-        var supportsFieldSizing =
-          globalThis.CSS &&
-          globalThis.CSS.supports &&
-          globalThis.CSS.supports("field-sizing", "content");
-        if (body && !supportsFieldSizing) {
-          body.addEventListener("input", function () {
-            autosize(body);
-          });
-          autosize(body);
-        }
+        // Body textareas are intentionally fixed-size: when the user
+        // runs out of room on page 1 they must continue on page 2
+        // manually. No auto-resize, no field-sizing, no scrollbar.
 
         if (btnPrint) {
           btnPrint.addEventListener("click", function () {
