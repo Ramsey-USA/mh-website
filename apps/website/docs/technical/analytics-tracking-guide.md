@@ -543,7 +543,7 @@ For questions, contact the development team.
 
 ### Components Created
 
-1. **AdminSignInModal Component** (`src/components/ui/modals/AdminSignInModal.tsx`)
+1. **AdminSignInModal Component** (`apps/website/src/components/ui/modals/AdminSignInModal.tsx`)
    - Secure authentication modal
    - Form validation
    - Error handling

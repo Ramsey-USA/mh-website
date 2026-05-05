@@ -34,7 +34,7 @@ This document provides a centralized index of all API endpoints in the MH Constr
   }
   ```
 - **Response:** `{ success: true, accessToken, refreshToken, user, expiresIn }`
-- **Implementation:** [src/app/api/auth/admin-login/route.ts](../../src/app/api/auth/admin-login/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/auth/admin-login/route.ts](../../apps/dashboard/src/app/api/auth/admin-login/route.ts)
 
 ### Logout
 
@@ -42,7 +42,7 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `POST`
 - **Purpose:** Invalidate user session
 - **Response:** `{ success: true }`
-- **Implementation:** [src/app/api/auth/logout/route.ts](../../src/app/api/auth/logout/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/auth/logout/route.ts](../../apps/dashboard/src/app/api/auth/logout/route.ts)
 
 ### Refresh Token
 
@@ -51,21 +51,21 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Purpose:** Refresh expired access token using refresh token
 - **Request Body:** `{ refreshToken: "token_here" }`
 - **Response:** `{ accessToken, expiresIn }`
-- **Implementation:** [src/app/api/auth/refresh/route.ts](../../src/app/api/auth/refresh/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/auth/refresh/route.ts](../../apps/dashboard/src/app/api/auth/refresh/route.ts)
 
 ### Field Login
 
 - **Path:** `/auth/field-login`
 - **Method:** `POST`
 - **Purpose:** Authenticate field staff
-- **Implementation:** [src/app/api/auth/field-login/route.ts](../../src/app/api/auth/field-login/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/auth/field-login/route.ts](../../apps/dashboard/src/app/api/auth/field-login/route.ts)
 
 ### Hub Login
 
 - **Path:** `/auth/hub-login`
 - **Method:** `POST`
 - **Purpose:** Authenticate hub/admin staff
-- **Implementation:** [src/app/api/auth/hub-login/route.ts](../../src/app/api/auth/hub-login/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/auth/hub-login/route.ts](../../apps/dashboard/src/app/api/auth/hub-login/route.ts)
 
 ---
 
@@ -128,7 +128,7 @@ This document provides a centralized index of all API endpoints in the MH Constr
   }
   ```
 - **Response:** `{ success: true, submissionId, message }`
-- **Implementation:** [src/app/api/contact/route.ts](../../src/app/api/contact/route.ts)
+- **Implementation:** [apps/website/src/app/api/contact/route.ts](../../apps/website/src/app/api/contact/route.ts)
 
 ### Consultations
 
@@ -147,7 +147,7 @@ This document provides a centralized index of all API endpoints in the MH Constr
     "selectedTime": "10:00"
   }
   ```
-- **Implementation:** [src/app/api/consultations/route.ts](../../src/app/api/consultations/route.ts)
+- **Implementation:** [apps/website/src/app/api/consultations/route.ts](../../apps/website/src/app/api/consultations/route.ts)
 
 ### Get Consultation by ID
 
@@ -155,7 +155,7 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `GET`
 - **Purpose:** Retrieve specific consultation details
 - **Authorization:** Required (admin)
-- **Implementation:** [src/app/api/consultations/[id]/route.ts](../../src/app/api/consultations/[id]/route.ts)
+- **Implementation:** [apps/website/src/app/api/consultations/[id]/route.ts](../../apps/website/src/app/api/consultations/[id]/route.ts)
 
 ### Job Applications
 
@@ -174,7 +174,7 @@ This document provides a centralized index of all API endpoints in the MH Constr
     "availability": "2 weeks"
   }
   ```
-- **Implementation:** [src/app/api/job-applications/route.ts](../../src/app/api/job-applications/route.ts)
+- **Implementation:** [apps/website/src/app/api/job-applications/route.ts](../../apps/website/src/app/api/job-applications/route.ts)
 
 ### Newsletter Subscription
 
@@ -183,7 +183,7 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Purpose:** Subscribe to newsletter
 - **Request Body:** `{ email: "user@example.com" }`
 - **Response:** `{ success: true, message }`
-- **Implementation:** [src/app/api/newsletter/route.ts](../../src/app/api/newsletter/route.ts)
+- **Implementation:** [apps/website/src/app/api/newsletter/route.ts](../../apps/website/src/app/api/newsletter/route.ts)
 
 ---
 
@@ -195,14 +195,14 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `GET` (list), `POST` (create)
 - **Purpose:** Manage safety incident reports
 - **Authorization:** Required
-- **Implementation:** [src/app/api/safety/forms/route.ts](../../src/app/api/safety/forms/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/safety/forms/route.ts](../../apps/dashboard/src/app/api/safety/forms/route.ts)
 
 ### Get Safety Form by ID
 
 - **Path:** `/safety/forms/[id]`
 - **Method:** `GET`, `PUT`
 - **Purpose:** Retrieve or update specific safety form
-- **Implementation:** [src/app/api/safety/forms/[id]/route.ts](../../src/app/api/safety/forms/[id]/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/safety/forms/[id]/route.ts](../../apps/dashboard/src/app/api/safety/forms/[id]/route.ts)
 
 ### Safety Intake
 
@@ -210,28 +210,28 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `GET` (list), `POST` (create)
 - **Purpose:** Manage safety intake submissions
 - **Authorization:** Required
-- **Implementation:** [src/app/api/safety/intake/route.ts](../../src/app/api/safety/intake/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/safety/intake/route.ts](../../apps/dashboard/src/app/api/safety/intake/route.ts)
 
 ### Get Safety Intake by ID
 
 - **Path:** `/safety/intake/[id]`
 - **Method:** `GET`, `PUT`
 - **Purpose:** Retrieve or update specific intake record
-- **Implementation:** [src/app/api/safety/intake/[id]/route.ts](../../src/app/api/safety/intake/[id]/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/safety/intake/[id]/route.ts](../../apps/dashboard/src/app/api/safety/intake/[id]/route.ts)
 
 ### Upload Safety Intake File
 
 - **Path:** `/safety/intake/[id]/file`
 - **Method:** `POST`
 - **Purpose:** Upload document for safety intake
-- **Implementation:** [src/app/api/safety/intake/[id]/file/route.ts](../../src/app/api/safety/intake/[id]/file/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/safety/intake/[id]/file/route.ts](../../apps/dashboard/src/app/api/safety/intake/[id]/file/route.ts)
 
 ### Safety Download Log
 
 - **Path:** `/safety/downloads`
 - **Method:** `GET`, `POST`
 - **Purpose:** Track safety document downloads
-- **Implementation:** [src/app/api/safety/downloads/route.ts](../../src/app/api/safety/downloads/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/safety/downloads/route.ts](../../apps/dashboard/src/app/api/safety/downloads/route.ts)
 
 ### Safety Access Log
 
@@ -239,21 +239,21 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `GET`
 - **Purpose:** Retrieve access logs for safety resources
 - **Authorization:** Required
-- **Implementation:** [src/app/api/safety/access-log/route.ts](../../src/app/api/safety/access-log/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/safety/access-log/route.ts](../../apps/dashboard/src/app/api/safety/access-log/route.ts)
 
 ### Safety Jobs
 
 - **Path:** `/safety/jobs`
 - **Method:** `GET` (list), `POST` (create)
 - **Purpose:** Manage safety job records
-- **Implementation:** [src/app/api/safety/jobs/route.ts](../../src/app/api/safety/jobs/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/safety/jobs/route.ts](../../apps/dashboard/src/app/api/safety/jobs/route.ts)
 
 ### Get Safety Job by ID
 
 - **Path:** `/safety/jobs/[id]`
 - **Method:** `GET`, `PUT`
 - **Purpose:** Retrieve or update specific job safety info
-- **Implementation:** [src/app/api/safety/jobs/[id]/route.ts](../../src/app/api/safety/jobs/[id]/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/safety/jobs/[id]/route.ts](../../apps/dashboard/src/app/api/safety/jobs/[id]/route.ts)
 
 ---
 
@@ -265,14 +265,14 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `GET` (list), `POST` (create)
 - **Purpose:** Manage authorized drivers database
 - **Authorization:** Required
-- **Implementation:** [src/app/api/drivers/route.ts](../../src/app/api/drivers/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/drivers/route.ts](../../apps/dashboard/src/app/api/drivers/route.ts)
 
 ### Get Driver by ID
 
 - **Path:** `/drivers/[id]`
 - **Method:** `GET`, `PUT`
 - **Purpose:** Retrieve or update driver information
-- **Implementation:** [src/app/api/drivers/[id]/route.ts](../../src/app/api/drivers/[id]/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/drivers/[id]/route.ts](../../apps/dashboard/src/app/api/drivers/[id]/route.ts)
 
 ### Driver Alerts
 
@@ -280,7 +280,7 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `GET`
 - **Purpose:** Retrieve driver safety alerts
 - **Authorization:** Required
-- **Implementation:** [src/app/api/drivers/alerts/route.ts](../../src/app/api/drivers/alerts/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/drivers/alerts/route.ts](../../apps/dashboard/src/app/api/drivers/alerts/route.ts)
 
 ### Check Driver Alerts
 
@@ -288,7 +288,7 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `POST`
 - **Purpose:** Check for active driver alerts
 - **Request Body:** `{ driverId: "uuid" }`
-- **Implementation:** [src/app/api/drivers/check-alerts/route.ts](../../src/app/api/drivers/check-alerts/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/drivers/check-alerts/route.ts](../../apps/dashboard/src/app/api/drivers/check-alerts/route.ts)
 
 ---
 
@@ -300,7 +300,7 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `GET`
 - **Purpose:** Get current security status
 - **Response:** `{ status: "healthy|warning|critical", incidents: [...] }`
-- **Implementation:** [src/app/api/security/status/route.ts](../../src/app/api/security/status/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/security/status/route.ts](../../apps/dashboard/src/app/api/security/status/route.ts)
 
 ### Security Events
 
@@ -308,7 +308,7 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `GET`, `POST`
 - **Purpose:** Log and retrieve security events
 - **Authorization:** Required
-- **Implementation:** [src/app/api/security/events/route.ts](../../src/app/api/security/events/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/security/events/route.ts](../../apps/dashboard/src/app/api/security/events/route.ts)
 
 ### Cloudflare Security
 
@@ -316,7 +316,7 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `GET`
 - **Purpose:** Retrieve Cloudflare security metrics
 - **Authorization:** Required
-- **Implementation:** [src/app/api/security/cloudflare/route.ts](../../src/app/api/security/cloudflare/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/security/cloudflare/route.ts](../../apps/dashboard/src/app/api/security/cloudflare/route.ts)
 
 ---
 
@@ -328,14 +328,14 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `GET`
 - **Purpose:** Verify API and database connectivity
 - **Response:** `{ status: "ok", timestamp, uptime }`
-- **Implementation:** [src/app/api/health/route.ts](../../src/app/api/health/route.ts)
+- **Implementation:** [apps/website/src/app/api/health/route.ts](../../apps/website/src/app/api/health/route.ts)
 
 ### Chat AI
 
 - **Path:** `/chat`
 - **Method:** `POST`
 - **Purpose:** Send message to AI chat assistant
-- **Implementation:** [src/app/api/chat/route.ts](../../src/app/api/chat/route.ts)
+- **Implementation:** [apps/website/src/app/api/chat/route.ts](../../apps/website/src/app/api/chat/route.ts)
 
 ### Upload Resume
 
@@ -344,14 +344,14 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Purpose:** Upload resume file for job application
 - **Content-Type:** `multipart/form-data`
 - **Form Fields:** `{ file, email }`
-- **Implementation:** [src/app/api/upload/resume/route.ts](../../src/app/api/upload/resume/route.ts)
+- **Implementation:** [apps/website/src/app/api/upload/resume/route.ts](../../apps/website/src/app/api/upload/resume/route.ts)
 
 ### Track Phone Call
 
 - **Path:** `/track-phone-call`
 - **Method:** `POST`
 - **Purpose:** Track incoming phone calls for analytics
-- **Implementation:** [src/app/api/track-phone-call/route.ts](../../src/app/api/track-phone-call/route.ts)
+- **Implementation:** [apps/website/src/app/api/track-phone-call/route.ts](../../apps/website/src/app/api/track-phone-call/route.ts)
 
 ### Dynamic Functions
 
@@ -359,14 +359,14 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `POST`
 - **Purpose:** Execute dynamic server functions
 - **Authorization:** Required
-- **Implementation:** [src/app/api/functions/[functionName]/route.ts](../../src/app/api/functions/[functionName]/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/functions/[functionName]/route.ts](../../apps/dashboard/src/app/api/functions/[functionName]/route.ts)
 
 ### Testimonials Publish
 
 - **Path:** `/testimonials/publish`
 - **Method:** `POST`
 - **Purpose:** Publish new testimonials
-- **Implementation:** [src/app/api/testimonials/publish/route.ts](../../src/app/api/testimonials/publish/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/testimonials/publish/route.ts](../../apps/dashboard/src/app/api/testimonials/publish/route.ts)
 
 ### Leads Management
 
@@ -374,7 +374,7 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `GET`, `POST`
 - **Purpose:** Manage CRM leads
 - **Authorization:** Required
-- **Implementation:** [src/app/api/leads/route.ts](../../src/app/api/leads/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/leads/route.ts](../../apps/dashboard/src/app/api/leads/route.ts)
 
 ### Sync Leads
 
@@ -382,35 +382,7 @@ This document provides a centralized index of all API endpoints in the MH Constr
 - **Method:** `POST`
 - **Purpose:** Sync leads with external CRM system
 - **Authorization:** Required
-- **Implementation:** [src/app/api/leads/sync/route.ts](../../src/app/api/leads/sync/route.ts)
-
-### Protocol Handler
-
-- **Path:** `/protocol-handler`
-- **Method:** `GET`
-- **Purpose:** Handle custom protocol URLs
-- **Implementation:** [src/app/api/protocol-handler/route.ts](../../src/app/api/protocol-handler/route.ts)
-
-### File Handler
-
-- **Path:** `/file-handler`
-- **Method:** `GET`, `POST`
-- **Purpose:** Handle file operations
-- **Implementation:** [src/app/api/file-handler/route.ts](../../src/app/api/file-handler/route.ts)
-
-### Resources - Safety Manual
-
-- **Path:** `/resources/safety-manual`
-- **Method:** `GET`
-- **Purpose:** Retrieve safety manual resources
-- **Implementation:** [src/app/api/resources/safety-manual/route.ts](../../src/app/api/resources/safety-manual/route.ts)
-
-### Resources - Safety Program
-
-- **Path:** `/resources/safety-program`
-- **Method:** `GET`
-- **Purpose:** Retrieve safety program information
-- **Implementation:** [src/app/api/resources/safety-program/route.ts](../../src/app/api/resources/safety-program/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/leads/sync/route.ts](../../apps/dashboard/src/app/api/leads/sync/route.ts)
 
 ---
 
