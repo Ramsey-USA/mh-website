@@ -229,14 +229,14 @@ src/
 
 **Custom Analytics System:**
 
-- **Admin Dashboard**: Private keyboard shortcut access for Matt & Jeremy only (`Ctrl/Cmd + Shift + A`)
+- **Admin Dashboard**: Navigate directly to `/dashboard` (preferred) — admin role required; keyboard shortcut `Ctrl/Cmd + Shift + A` remains as an alternate entry point from any page
 - **Comprehensive Tracking**: Page views, clicks, forms, scrolls, time-on-page
 - **Enhanced Metadata**: Device, browser, OS, screen resolution, viewport
 - **Geographic Data**: Timezone, language, country/region inference
 - **Network Metrics**: Connection type, speed, latency, data saver mode
 - **Traffic Analysis**: Source, medium, campaign, referrer tracking
 - **Session Intelligence**: New/returning visitors, session count
-- **Privacy-First**: localStorage only, no PII, user-deletable
+- **Privacy-First**: No PII — server-side Cloudflare KV aggregation (cross-visitor data) + client localStorage cache (user-deletable)
 - **Easy Integration**: `usePageTracking('Page Name')` - one line setup
 - **Tracked Components**: Drop-in replacements for buttons, links, forms
 

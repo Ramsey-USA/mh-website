@@ -75,32 +75,37 @@ This document provides a centralized index of all API endpoints in the MH Constr
 
 - **Path:** `/analytics/collect`
 - **Method:** `POST`
-- **Purpose:** Track page views and custom events
+- **Purpose:** Track page views, clicks, conversions, and session events (batched via `sendBeacon`)
 - **Request Body:**
   ```json
   {
-    "page": "/",
-    "event": "page_view",
-    "properties": { "referrer": "..." }
+    "events": [
+      {
+        "type": "pageview",
+        "page": "/services",
+        "deviceType": "mobile",
+        "country": "US",
+        "state": "WA"
+      }
+    ]
   }
   ```
-- **Implementation:** [src/app/api/analytics/collect/route.ts](../../src/app/api/analytics/collect/route.ts)
+- **Implementation:** [apps/website/src/app/api/analytics/collect/route.ts](../../apps/website/src/app/api/analytics/collect/route.ts)
 
 ### Analytics Dashboard
 
 - **Path:** `/analytics/dashboard`
 - **Method:** `GET`
-- **Purpose:** Retrieve analytics dashboard data
-- **Query Params:** `?start=2026-01-01&end=2026-12-31`
+- **Purpose:** Retrieve aggregated analytics data from Cloudflare KV (pageviews, conversions, clicks, sessions, top pages); cached 30 s
 - **Authorization:** Required (admin)
-- **Implementation:** [src/app/api/analytics/dashboard/route.ts](../../src/app/api/analytics/dashboard/route.ts)
+- **Implementation:** [apps/dashboard/src/app/api/analytics/dashboard/route.ts](../../apps/dashboard/src/app/api/analytics/dashboard/route.ts)
 
 ### Geolocation Analytics
 
 - **Path:** `/analytics/geolocation`
 - **Method:** `POST`
-- **Purpose:** Track visitor geolocation data
-- **Implementation:** [src/app/api/analytics/geolocation/route.ts](../../src/app/api/analytics/geolocation/route.ts)
+- **Purpose:** Enrich analytics events with Cloudflare-provided country/state/city data
+- **Implementation:** [apps/website/src/app/api/analytics/geolocation/route.ts](../../apps/website/src/app/api/analytics/geolocation/route.ts)
 
 ---
 

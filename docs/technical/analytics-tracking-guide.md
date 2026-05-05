@@ -359,11 +359,9 @@ Local cache keys:
 
 ### View Data in Dashboard
 
-1. Press `Ctrl + Shift + A` on Windows/Linux or `Cmd + Shift + A` on macOS
-2. Sign in with admin credentials:
-   - **Matt:** <matt@mhc-gc.com> / admin123
-   - **Jeremy:** <jeremy@mhc-gc.com> / admin123
-3. View comprehensive analytics at `/dashboard`
+1. Navigate directly to `/dashboard` on the MH Construction website (preferred method)
+2. Sign in with admin credentials when prompted
+3. View comprehensive analytics — alternatively, from any page press `Ctrl + Shift + A` (Win/Linux) or `Cmd + Shift + A` (macOS) to open the sign-in modal
 
 ### Access Data Programmatically
 
@@ -477,11 +475,9 @@ For questions, contact the development team.
 
 ### How to Access the Dashboard
 
-1. **Navigate to any page** on the MH Construction website
-2. **Press** `Ctrl + Shift + A` on Windows/Linux or `Cmd + Shift + A` on macOS
-3. **Admin Sign-In Modal** will appear
-4. **Enter credentials** (see below)
-5. **Access the Analytics Dashboard**
+1. **Navigate to `/dashboard`** on the MH Construction website (preferred method)
+2. **Sign in** with admin credentials when prompted
+3. **Access the Analytics Dashboard** — alternatively, from any page press `Ctrl + Shift + A` (Win/Linux) or `Cmd + Shift + A` (macOS) to trigger the sign-in modal
 
 ### Default Credentials
 
@@ -553,25 +549,25 @@ For questions, contact the development team.
    - Error handling
    - JWT token management
 
-2. **Dashboard Page** (`src/app/dashboard/page.tsx`)
+2. **Dashboard Page** (`apps/dashboard/src/app/dashboard/page.tsx`)
    - Comprehensive analytics visualization
    - Real-time data updates
    - Protected route with authentication check
    - Responsive design for mobile/desktop
 
-3. **Admin Login API** (`src/app/api/auth/admin-login/route.ts`)
+3. **Admin Login API** (`apps/dashboard/src/app/api/auth/admin-login/route.ts`)
    - JWT token generation
    - Credential verification
    - Security logging
    - Rate limiting via middleware
 
-4. **Analytics Dashboard API** (`src/app/api/analytics/dashboard/route.ts`)
-   - Data aggregation
+4. **Analytics Dashboard API** (`apps/dashboard/src/app/api/analytics/dashboard/route.ts`)
+   - Data aggregation from Cloudflare KV
    - Role-based access control
-   - Real-time metrics
-   - Fallback to sample data
+   - 30-second Worker Cache for repeated admin refreshes
+   - Falls back gracefully when KV unavailable
 
-5. **Enhanced Analytics Engine** (`src/lib/analytics/analytics-engine.ts`)
+5. **Enhanced Analytics Engine** (`packages/shared/src/lib/analytics/analytics-engine.ts`)
    - Browser performance metrics
    - LocalStorage data persistence
    - Real-time data collection
@@ -590,8 +586,8 @@ For questions, contact the development team.
 
 Analytics data is stored in:
 
-- **LocalStorage**: Browser-based metrics for each visitor
-- **Server-side**: Aggregated data (future enhancement)
+- **LocalStorage**: Browser-based cache for each visitor (client-side, user-deletable)
+- **Server-side**: Cloudflare KV aggregation — cross-visitor analytics, live since March 2026
 
 Key LocalStorage items:
 
@@ -660,7 +656,7 @@ Before production deployment:
 
 ### Can't Access Dashboard
 
-- Ensure you're using `Ctrl/Cmd + Shift + A` on a site page
+- Navigate directly to `/dashboard` or use `Ctrl/Cmd + Shift + A` from any site page
 - Check that you're using correct credentials
 - Clear browser cache and try again
 - Check console for error messages
