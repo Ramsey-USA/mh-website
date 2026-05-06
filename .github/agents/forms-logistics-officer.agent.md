@@ -14,6 +14,29 @@ disable-model-invocation: true
 
 Keep MH forms and printable document surfaces compliant, consistent, and production-safe.
 
+## Gold Standard Reference
+
+The approved letterhead (`documents/output/MHC-company-letterhead.pdf`, May 2026) is the gold standard for all MH document builds. All forms and printable templates must conform to its chrome specifications:
+
+| Metric | Value |
+|---|---|
+| Page | 8.5 × 11in letter portrait, `@page margin: 0` |
+| Outer frame | `inset: 0.22in`, `1.2pt solid #1E392C` |
+| Inner accent frame | `inset: 0.33in`, `0.6pt solid #BD9264` |
+| Left ribbon | `left: 0.45in`, `width: 0.28in`, gradient `#1E392C → #386851 → #BD9264` |
+| Chrome left margin | `0.92in` (identity, header, footer, veteran strip) |
+| Body left margin | `1.15in` |
+| Right margin (all) | `0.60in` — uniform across every element |
+| Header top | `0.90in` · logo `1.95in` wide |
+| QR headline | `MHC-GC.COM` · Mendl Sans Dusk · 11pt · 900 · `#1E392C` |
+| Body font | Helvetica · 11pt · `#1E392C` (`rgb(0.118, 0.224, 0.173)`) |
+| Single-line font | Helvetica Bold · 12pt · `#1E392C` |
+| Footer bottom | `0.62in` from bottom |
+| Accreditation order | AGC `0.36in` → BBB `0.39in` → VOB `0.5in` (MANDATORY) |
+| Veteran strip bottom | `0.42in` · text: `VETERAN-OWNED ★ MISSION-FIRST ★ BUILT ON HONOR, INTEGRITY & TRUST` |
+
+Any form deviating from these values without documented exception fails layout review.
+
 ## Focus Areas
 
 - Form templates, print styles, and generated PDFs
@@ -45,7 +68,7 @@ the forms-manifest, and brand cover sheets — not the AcroForm pipeline.
 - Ownership Framing: verify canonical ownership language remains factual and consistent.
 - Trust Preservation: verify accreditation and trust markers remain present and visible.
 - Token Discipline: verify form templates and generator outputs use approved brand tokens.
-- Generation Integrity: verify forms generation paths render expected outputs and do not silently no-op.
+- Generation Integrity: verify forms generation paths render expected outputs and do not silently no-op. After every regeneration, render a PNG preview with `pdftoppm -r 150 -png -f 1 -l 1 documents/output/<artifact>.pdf /tmp/<artifact>-preview` and display page 1 to the user for visual confirmation.
 - Accessibility/SEO Alignment: verify labels, headings, and route naming remain clear and consistent.
 
 ## Output Format

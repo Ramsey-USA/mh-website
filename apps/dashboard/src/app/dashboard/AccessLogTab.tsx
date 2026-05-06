@@ -55,7 +55,10 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
     return () => window.clearInterval(id);
   }, [token, refetch]);
 
-  const entries: ReadonlyArray<AccessLogEntry> = data?.data ?? [];
+  const entries: ReadonlyArray<AccessLogEntry> = useMemo(
+    () => data?.data ?? [],
+    [data?.data],
+  );
   const total = data?.total ?? 0;
   const isLoading = status === "loading";
 

@@ -28,7 +28,7 @@ export type AdminAuthStatus =
  * Bootstraps an admin session on mount.
  *
  * - Calls `/api/auth/refresh` exactly once.
- * - Redirects to `/` when the user is not authenticated as `admin`.
+ * - Redirects to `/hub` when the user is not authenticated as `admin`.
  * - Returns the access token, display name, and email for callers to
  *   use with `adminFetch` / API requests.
  *
@@ -58,7 +58,7 @@ export function useAdminAuth(): AdminAuthStatus {
             userName: "",
             userEmail: "",
           });
-          router.push("/");
+          router.push("/hub");
           return;
         }
 
@@ -76,7 +76,7 @@ export function useAdminAuth(): AdminAuthStatus {
           userName: "",
           userEmail: "",
         });
-        router.push("/");
+        router.push("/hub");
       }
     }
 

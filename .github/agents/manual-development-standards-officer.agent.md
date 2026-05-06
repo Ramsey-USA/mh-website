@@ -23,6 +23,18 @@ Hold the line on the Manual Development Standards (MDS) for the safety manual pr
 - `documents/output/sections/NN-slug.pdf` — regenerated outputs (never edit directly).
 - Repo memory: `/memories/repo/pdf-print-gotchas.md` — accumulated print-mode landmines.
 
+## Gold Standard Document Chrome
+
+The approved letterhead (`documents/output/MHC-company-letterhead.pdf`, May 2026) is the gold standard for all MH print artifacts. Letterhead chrome values serve as canonical precedent when resolving ambiguities in manual chrome:
+
+- **Uniform right margin**: `0.60in` — header, footer, identity row, veteran strip all share this value
+- **QR headline**: `MHC-GC.COM` (with dash) — never `MHCGC.COM`
+- **Body/AcroForm font**: Helvetica · 11pt · `#1E392C` (hunter green) across all body fields
+- **Double rule system**: `1.2pt solid #1E392C` primary + `0.6pt solid #BD9264` accent, offset −3.5pt on header, +2.5pt on footer
+- **Veteran strip**: `VETERAN-OWNED ★ MISSION-FIRST ★ BUILT ON HONOR, INTEGRITY & TRUST` · `bottom: 0.42in`
+
+For the full specification table, refer to `form-development-officer` Gold Standard Chrome Specification section.
+
 ## Canonical Standards (MDS)
 
 ### 1. Reference-table system
@@ -43,37 +55,45 @@ Hold the line on the Manual Development Standards (MDS) for the safety manual pr
 - `.sig-container` and `.data-container` MUST use `margin: 14pt 0` (or `16pt 0`) — zero side margin — to match `.section-header-card` width.
 - Never reintroduce `margin: 14pt 0.5in` or any side inset; it visually breaks the header→body alignment.
 
-### 4. Page margin must be edited in TWO files
+### 4. PNG preview after every regeneration
+
+After every `npm run docs:generate*` run, render a PNG preview of the affected page(s) for visual confirmation:
+```
+pdftoppm -r 150 -png -f 1 -l 1 documents/output/<artifact>.pdf /tmp/<artifact>-preview
+```
+Display the PNG to the user before marking the step complete. For multi-page artifacts, render the first page and any page where layout changed.
+
+### 5. Page margin must be edited in TWO files
 
 - `safety-manual-section.html` `@page { margin: T R B L }` rule SILENTLY OVERRIDES the Puppeteer `margin` option in `renderSections()`.
 - Symptom of forgetting: rebuilt PDFs are byte-identical (`md5sum` unchanged) despite generate.mjs edits.
 - Current canonical values: top `1.25in`, right `0.75in`, bottom `1.75in`, left `1.25in` — keep both files in sync.
 
-### 5. Footer ribbon clearance budget
+### 6. Footer ribbon clearance budget
 
 - Section footer ribbon sits ~1.37in from page bottom (flex `justify-content:flex-end`).
 - Bottom page margin MUST be `≥1.75in` so descenders never touch the green ribbon.
 - Verify after any margin/footer change by rendering page 3 of `21-fall-protection.pdf` and cropping `+0+1010` (the historical bleed test case).
 
-### 6. Header logo & brand chrome
+### 7. Header logo & brand chrome
 
 - Header logo height is governed by a single inline style on `<img src="${LOGO_COLOR_DATA_URL}">` in `buildSectionHeaderHtml()` (~L533). Current canonical: `height:36pt;max-width:144pt`.
 - Footer accreditation logos are mandatory and ordered AGC (22pt) → BBB (24pt) → VOB (28pt). Never remove or reorder.
 - Header/footer templates render in Puppeteer's isolated context — use `BRAND_TOKENS` base64 data URLs, never `file://`.
 
-### 7. Brand tokens — never hard-code
+### 8. Brand tokens — never hard-code
 
 - Colors: `BRAND_COLORS.{primary, primaryDark, secondary, secondaryText}` in JS; `var(--color-primary)`, `var(--color-primary-dark)`, `var(--color-primary-darker)`, `var(--color-secondary)`, `var(--color-secondary-text)`, `var(--color-stopwork)` in CSS.
 - Hardcoded color literals in `documents/styles/*.css` (`#386851`, `#1e392c`, `#12231b`, `#cc0000`, `#bd9264`, `#8a6b49`, `#b3261e`) are FORBIDDEN — always use the `--color-*` token. Lint rule: `grep -nE '#386851|#1e392c|#12231b|#cc0000|#bd9264' documents/styles/*.css` MUST return zero matches in `components.css`. Stop-work / alert text MUST use `var(--color-stopwork)`, never raw `#cc0000` (the brand stopwork red is `#b3261e`).
 - Fonts: `var(--font-heading)`, `var(--font-body)` — never literal `'DIN 2014'` outside generator constants.
 - Logos/QR/AGC/BBB/VOB: `BRAND_TOKENS["{{BRAND_*}}"]` and `LOGO_COLOR_DATA_URL`.
 
-### 8. Military-themed framing & accreditation presence
+### 9. Military-themed framing & accreditation presence
 
 - User standard: military-themed section framing required throughout. Preserve any "★ VETERAN OWNED ★" badges, ribbon language, and chain-of-command terminology already in place.
 - Footer trust/accreditation logos are MANDATORY and MUST be preserved on every regenerated artifact.
 
-### 9. Hierarchical section numbering (sec-h-0 … sec-h-3)
+### 10. Hierarchical section numbering (sec-h-0 … sec-h-3)
 
 - Numbered policy paragraphs MUST be tagged by `tagNumberedParagraphs()` in `generate.mjs`, which assigns depth-based classes:
   - `sec-h-0` → `X.0` top-level coloured banner (e.g. `1.0 PURPOSE`).
@@ -100,7 +120,7 @@ Hold the line on the Manual Development Standards (MDS) for the safety manual pr
 
 - All 47 forms in `documents/forms/2026-MHC-Company-Forms-Library/**.docx` MUST have a corresponding branded cover sheet in `documents/output/form-covers/{slug}_cover.pdf`, generated by `renderFormCovers()` in `generate.mjs` from `documents/forms/forms-manifest.json` + `documents/manuals/form-cover.html`.
 - Cover sheets are the brand-cohesion bridge between the safety manual chrome and the .docx forms (forms remain Word-authored; covers carry the MH chrome).
-- Cover MUST carry the same brand chrome as section pages: double-rule frame, vertical green→tan ribbon (matches `safety-manual-cover.html` and `safety-manual-letterhead.html`), MH+VETERAN OWNED logo, brand-secondary FORM ID badge + category chip, brand heading-face uppercase title (`var(--font-heading)` → Mendl Sans Dusk), MISH-program designator subtitle, brand-secondary form-identification card (Form Number / Category / Revision / Effective Date / Owning Manual Section / Document Owner), ★ field-use briefing, full WA/OR/ID licenses, AGC → BBB → VOB accreditation footer.
+- Cover MUST carry the same brand chrome as section pages: double-rule frame, vertical green→tan ribbon (matches `safety-manual-cover.html` and `MHC-company-letterhead.html`), MH+VETERAN OWNED logo, brand-secondary FORM ID badge + category chip, brand heading-face uppercase title (`var(--font-heading)` → Mendl Sans Dusk), MISH-program designator subtitle, brand-secondary form-identification card (Form Number / Category / Revision / Effective Date / Owning Manual Section / Document Owner), ★ field-use briefing, full WA/OR/ID licenses, AGC → BBB → VOB accreditation footer.
 - Manifest schema (`forms-manifest.json` → `forms[]`): `id`, `slug`, `title`, `category`, `categoryLabel`, `categoryIcon`, `manualSection` (nullable; renders as `—`), `docxPath`, `revision`, `effectiveDate`, `owner`. The `manualSection` field is opt-in — SMEs populate as MISH cross-references are confirmed; the `—` placeholder is the canonical "not yet linked" signal and is acceptable in production.
 - Adding a new form: drop the `.docx` into the appropriate `MHC-catN-*` folder, append a manifest entry, run `npm run docs:generate -- --template form-covers`. Do NOT hand-edit cover PDFs.
 - Tokens consumed by `form-cover.html` follow the same `{{BRAND_*}}` substitution scheme as the section/letterhead templates — never hard-code colors or logo paths.

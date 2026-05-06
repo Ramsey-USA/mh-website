@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MH Construction — Official Letterhead</title>
+    <style>
+      :root {
+        --brand-primary: {{BRAND_COLOR_PRIMARY}};
+        --brand-primary-dark: {{BRAND_COLOR_PRIMARY_DARK}};
+        --brand-primary-darker: {{BRAND_COLOR_PRIMARY_DARKER}};
+        --brand-primary-light: {{BRAND_COLOR_PRIMARY_LIGHT}};
+        --brand-secondary: {{BRAND_COLOR_SECONDARY}};
+        --brand-secondary-light: {{BRAND_COLOR_SECONDARY_LIGHT}};
+        --brand-secondary-text: {{BRAND_COLOR_SECONDARY_TEXT}};
+        --ink: #12231b;
+        --paper: #ffffff;
+        --muted: #f6f8f7;
+        --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Helvetica Neue", Arial, sans-serif;
+        --font-body: "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans",
+          sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      @page {
+        size: letter portrait;
+        margin: 0;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 8.5in;
+        position: relative;
+        font-family: var(--font-body);
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      /* ── Sheet (page-1 chrome overlay — zero flow height) ─────── */
+      /* position: absolute so it takes up NO document flow space.
+         <main> comes first in the DOM in pure normal flow so the
+         browser paginates it correctly across as many pages as needed. */
+      .sheet {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 8.5in;
+        height: 11in;
+        background: transparent; /* body white is the paper */
+        pointer-events: none;    /* let clicks pass through to form fields */
+        z-index: 0;
+      }
+
+      /* Outer + inner frame mirrors the cover’s double-rule treatment
+         so a printed letter sits visually inside the same brand system.
+         Page-1 only — follow-on pages render plain. */
+      .sheet::before {
+        content: "";
+        position: absolute;
+        top: 0.22in;
+        left: 0.22in;
+        right: 0.22in;
+        height: 10.56in;
+        border: 1.2pt solid var(--brand-primary-dark);
+        pointer-events: none;
+      }
+      .sheet::after {
+        content: "";
+        position: absolute;
+        top: 0.33in;
+        left: 0.33in;
+        right: 0.33in;
+        height: 10.34in;
+        border: 0.6pt solid var(--brand-secondary);
+        pointer-events: none;
+      }
+
+      /* Vertical hunter-green → tan ribbon on the binding edge,
+         identical proportions to safety-manual-cover.html.
+         Page-1 only. */
+      .left-ribbon {
+        position: absolute;
+        top: 0.45in;
+        left: 0.45in;
+        height: 10.10in;
+        width: 0.28in;
+        background: linear-gradient(
+          180deg,
+          var(--brand-primary-dark) 0%,
+          var(--brand-primary) 68%,
+          var(--brand-secondary) 100%
+        );
+      }
+
+      /* ── Header (page-1 absolute) ────────────────────── */
+      .identity {
+        position: absolute;
+        top: 0.62in;
+        left: 0.92in;
+        right: 0.9in;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 7.2pt;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: var(--brand-primary-dark);
+      }
+      .identity .dot {
+        color: var(--brand-secondary);
+        margin: 0 7pt;
+      }
+
+      .header {
+        position: fixed;
+        top: 0.62in;
+        left: 0.92in;
+        right: 0.9in;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 14pt;
+        border-bottom: 1.2pt solid var(--brand-primary-dark);
+        background: var(--paper);
+        width: 6.53in;
+      }
+      .header::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -3.5pt;
+        height: 0.6pt;
+        background: var(--brand-secondary);
+      }
+
+      .header .logo {
+        width: 1.82in;
+        height: auto;
+        display: block;
+      }
+
+      .header .qr-card {
+        display: flex;
+        align-items: center;
+        gap: 9pt;
+        border: 0.8pt solid var(--brand-secondary);
+        background: #fff;
+        padding: 7pt 10pt;
+      }
+      .header .qr-card img {
+        width: 0.78in;
+        height: 0.78in;
+        display: block;
+      }
+      .header .qr-card .qr-text {
+        text-align: left;
+        max-width: 1.55in;
+      }
+      .header .qr-card .qr-label {
+        font-size: 6.8pt;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--brand-secondary-text);
+        margin: 0 0 2pt;
+      }
+      .header .qr-card .qr-headline {
+        font-family: var(--font-heading);
+        font-size: 11pt;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--brand-primary-dark);
+        line-height: 1.05;
+      }
+      .header .qr-card .qr-url {
+        margin-top: 2pt;
+        font-size: 7.4pt;
+        color: var(--brand-primary-darker);
+        letter-spacing: 0.02em;
+      }
+
+      /* ── Body / form fields ────────────────────────────────── */
+      /* <main> comes BEFORE .sheet in the DOM — pure normal block flow.
+         padding-top pushes content below the page-1 chrome.
+         Browser paginates this naturally with no tricks. */
+      .body-area {
+        position: relative;
+        z-index: 1;            /* paint above .sheet decorations */
+        width: 8.5in;
+        padding-top: 2.25in;
+        padding-left: 1.15in;
+        padding-right: 1.05in;
+        padding-bottom: 1.5in; /* clear fixed footer */
+        font-family: var(--font-body);
+        color: var(--ink);
+      }
+
+      /* ── Memorandum header block ─────────────────────────────── */
+      .memo-block {
+        margin-bottom: 0;
+      }
+
+      /* Each row: bold key label + value input on the same baseline */
+      .memo-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+        min-height: 0.34in;
+        border-bottom: 0.3pt solid rgba(0,0,0,0.07);
+      }
+      .memo-row:last-child {
+        border-bottom: none;
+      }
+
+      /* Key — bold uppercase label column, fixed width */
+      .memo-key {
+        flex: 0 0 0.72in;
+        font-family: var(--font-body);
+        font-size: 8.5pt;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--brand-secondary-text);
+        padding: 7pt 8pt 7pt 0;
+        white-space: nowrap;
+        user-select: none;
+      }
+
+      /* Value — input stretches to fill remaining width */
+      .memo-val {
+        flex: 1;
+        min-width: 0;
+        align-self: center;
+        border: none;
+        background: transparent;
+        font-family: var(--font-body);
+        font-size: 11.5pt;
+        font-weight: 600;
+        color: var(--brand-primary-dark);
+        padding: 0 2pt;
+        outline: none;
+        width: 100%;
+      }
+      .memo-val::placeholder {
+        color: var(--brand-secondary-text);
+        opacity: 0.4;
+        font-style: italic;
+        font-weight: 400;
+      }
+      .memo-row:focus-within .memo-key {
+        color: var(--brand-secondary);
+      }
+
+      /* RE row — slight top weight to act as the 'punch' line */
+      .memo-row--re .memo-key {
+        color: var(--brand-secondary-text);
+        font-size: 8pt;
+      }
+      .memo-row--re .memo-val {
+        font-weight: 700;
+        font-size: 11.5pt;
+      }
+
+      /* Divider rule between memo block and body — 0.5pt, subtle */
+      .memo-divider {
+        border: none;
+        border-top: 0.5pt solid var(--brand-primary-dark);
+        margin: 10pt 0 14pt;
+      }
+      .memo-divider::after {
+        content: "";
+        display: block;
+        margin-top: 2.5pt;
+        border-top: 0.3pt solid var(--brand-secondary);
+      }
+
+      /* Body editable area — contenteditable div grows naturally and prints
+         across as many pages as needed without JS height tricks */
+      .field-area {
+        display: block;
+        width: 100%;
+        min-height: 2.8in;
+        border: none;
+        background: transparent;
+        font-family: var(--font-body);
+        font-size: 11.5pt;
+        color: var(--brand-primary-dark);
+        padding: 2pt 2pt 4pt;
+        outline: none;
+        line-height: 1.65;
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+      }
+      .field-area:empty::before {
+        content: attr(data-placeholder);
+        color: var(--brand-secondary-text);
+        opacity: 0.45;
+        font-style: italic;
+        pointer-events: none;
+      }
+
+      /* ── Footer (repeats on every page via position:fixed) ─────── */
+      .footer {
+        position: fixed;
+        left: 0.92in;
+        right: 0.9in;
+        bottom: 0.62in;
+        z-index: 100;
+        padding-top: 9pt;
+        border-top: 1.2pt solid var(--brand-primary-dark);
+        display: grid;
+        grid-template-columns: 1.45fr 1fr;
+        gap: 0.25in;
+        align-items: end;
+        background: var(--paper);
+        width: 6.53in;
+      }
+      .footer::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 2.5pt;
+        height: 0.6pt;
+        background: var(--brand-secondary);
+      }
+
+      .footer .contact {
+        font-size: 7.8pt;
+        line-height: 1.45;
+        color: var(--brand-primary-darker);
+      }
+      .footer .contact .label {
+        color: var(--brand-secondary-text);
+        font-size: 6.6pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 3pt;
+      }
+      .footer .contact .name {
+        font-weight: 800;
+        color: var(--brand-primary-dark);
+        font-size: 8.2pt;
+      }
+      .footer .licenses {
+        margin-top: 4pt;
+        font-size: 7.2pt;
+        color: var(--brand-secondary-text);
+        font-weight: 700;
+      }
+
+      .footer .trust {
+        text-align: right;
+      }
+      .footer .trust .label {
+        color: var(--brand-secondary-text);
+        font-size: 6.6pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 5pt;
+      }
+      .footer .logos {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 9pt;
+      }
+      .footer .logos img {
+        display: block;
+        width: auto;
+      }
+      .logo-agc {
+        height: 0.36in;
+      }
+      .logo-bbb {
+        height: 0.39in;
+      }
+      .logo-vob {
+        height: 0.5in;
+      }
+      .footer .chambers {
+        margin-top: 6pt;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10pt;
+        padding-top: 6pt;
+        border-top: 0.4pt solid var(--brand-secondary-light);
+      }
+      .footer .chambers img {
+        display: block;
+        width: auto;
+        height: 0.3in;
+      }
+
+      .veteran-strip {
+        position: fixed;
+        left: 0.92in;
+        right: 0.9in;
+        bottom: 0.42in;
+        z-index: 100;
+        text-align: center;
+        font-size: 6.6pt;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: var(--brand-secondary-text);
+        background: var(--paper);
+        width: 6.53in;
+      }
+      .veteran-strip .sep {
+        color: var(--brand-secondary);
+        margin: 0 6pt;
+      }
+
+      /* Overflow mode: if page-1 content runs into the absolute footer,
+         switch trust/accreditation to a normal-flow block after signature. */
+      html[data-overflow="true"] .footer,
+      html[data-overflow="true"] .veteran-strip {
+        display: none;
+      }
+
+      .flow-footer {
+        display: none;
+        margin-top: 18pt;
+        padding-top: 9pt;
+        border-top: 1.2pt solid var(--brand-primary-dark);
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .flow-footer .label {
+        color: var(--brand-secondary-text);
+        font-size: 6.6pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 5pt;
+      }
+      .flow-footer .logos {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        gap: 9pt;
+      }
+      .flow-footer .logos img {
+        display: block;
+        width: auto;
+      }
+      .flow-footer .logo-agc {
+        height: 0.32in;
+      }
+      .flow-footer .logo-bbb {
+        height: 0.34in;
+      }
+      .flow-footer .logo-vob {
+        height: 0.42in;
+      }
+      .flow-footer .chambers {
+        margin-top: 6pt;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10pt;
+        padding-top: 6pt;
+        border-top: 0.4pt solid var(--brand-secondary-light);
+      }
+      .flow-footer .chambers img {
+        display: block;
+        width: auto;
+        height: 0.26in;
+      }
+      .flow-veteran {
+        margin-top: 7pt;
+        text-align: left;
+        font-size: 6.2pt;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: var(--brand-secondary-text);
+      }
+      .flow-veteran .sep {
+        color: var(--brand-secondary);
+        margin: 0 5pt;
+      }
+
+      html[data-overflow="true"] .flow-footer {
+        display: block;
+      }
+
+
+
+      /* visually-hidden label for the body textarea (screen readers only) */
+      .sr-only {
+        position: absolute !important;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* ── Screen-only fill-in toolbar ──────────────────────────────
+         Hidden on print + when the page is rendered to PDF. Provides
+         quick Print / Email / Reset actions so a user can open this
+         file in a browser, fill it in, and either print to paper or
+         send it via email without any extra tooling. */
+      .lh-toolbar {
+        position: fixed;
+        top: 14px;
+        right: 14px;
+        z-index: 50;
+        display: flex;
+        gap: 8px;
+        padding: 8px 10px;
+        background: #ffffffea;
+        border: 1px solid var(--brand-secondary-light);
+        border-radius: 6px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        backdrop-filter: blur(6px);
+        font-family: var(--font-body);
+      }
+      .lh-toolbar button {
+        appearance: none;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 11pt;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        padding: 6px 12px;
+        border-radius: 4px;
+        border: 1px solid var(--brand-primary-dark);
+        background: var(--brand-primary-dark);
+        color: #fff;
+        transition: background 120ms ease, transform 120ms ease;
+      }
+      .lh-toolbar button:hover {
+        background: var(--brand-primary);
+      }
+      .lh-toolbar button:active {
+        transform: translateY(1px);
+      }
+      .lh-toolbar button.secondary {
+        background: #fff;
+        color: var(--brand-primary-dark);
+      }
+      .lh-toolbar button.secondary:hover {
+        background: var(--muted);
+      }
+      .lh-hint {
+        position: fixed;
+        left: 14px;
+        bottom: 14px;
+        z-index: 50;
+        max-width: 280px;
+        font-family: var(--font-body);
+        font-size: 9pt;
+        line-height: 1.4;
+        color: var(--brand-primary-darker);
+        background: #ffffffea;
+        border: 1px solid var(--brand-secondary-light);
+        border-radius: 6px;
+        padding: 8px 10px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+      }
+      .lh-hint strong {
+        color: var(--brand-primary-dark);
+      }
+
+      @media print {
+        .lh-toolbar,
+        .lh-hint { display: none !important; }
+      }
+      /* When generated to PDF the renderer adds ?print=1 (or we can
+         detect the lack of mouse) — hide UI chrome there too. */
+      html[data-mode="print"] .lh-toolbar,
+      html[data-mode="print"] .lh-hint {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Screen-only fill-in helpers (hidden on print + in generated PDF). -->
+    <div
+      class="lh-toolbar no-print"
+      role="toolbar"
+      aria-label="Letterhead actions"
+    >
+      <button type="button" id="lh-print" title="Print this letter (Ctrl+P)">
+        Print
+      </button>
+      <button type="button" id="lh-email" title="Open in your email client">
+        Email
+      </button>
+      <button
+        type="button"
+        id="lh-reset"
+        class="secondary"
+        title="Clear all fields"
+      >
+        Reset
+      </button>
+    </div>
+    <div class="lh-hint no-print" aria-hidden="true">
+      <strong>Tip:</strong> Tab between fields. The body grows as you type.
+      Print when ready.
+    </div>
+
+    <!-- ── Letter body — FIRST in DOM, pure normal flow, paginates freely ── -->
+    <main class="body-area" aria-label="letter body">
+      <!-- Memorandum header block (1-3-1 structure) -->
+      <div class="memo-block" role="group" aria-label="Memorandum header">
+        <div class="memo-row">
+          <span class="memo-key" aria-hidden="true">Date</span>
+          <input class="memo-val" type="text" id="lh-date" name="lh-date" placeholder="" aria-label="Date" autocomplete="off" />
+        </div>
+        <div class="memo-row">
+          <span class="memo-key" aria-hidden="true">To</span>
+          <input class="memo-val" type="text" id="lh-to" name="lh-to" placeholder="" aria-label="To" autocomplete="organization" />
+        </div>
+        <div class="memo-row">
+          <span class="memo-key" aria-hidden="true">Attn</span>
+          <input class="memo-val" type="text" id="lh-attn" name="lh-attn" placeholder="" aria-label="Attention" autocomplete="off" />
+        </div>
+        <div class="memo-row">
+          <span class="memo-key" aria-hidden="true">From</span>
+          <input class="memo-val" type="text" id="lh-from" name="lh-from" placeholder="" aria-label="From" autocomplete="off" />
+        </div>
+        <div class="memo-row memo-row--re">
+          <span class="memo-key" aria-hidden="true">Re</span>
+          <input class="memo-val" type="text" id="lh-re" name="lh-re" placeholder="" aria-label="RE" autocomplete="off" />
+        </div>
+      </div>
+
+      <hr class="memo-divider" aria-hidden="true" />
+
+      <div
+        class="field-area"
+        id="lh-body"
+        role="textbox"
+        aria-label="Letter body"
+        aria-multiline="true"
+        contenteditable="true"
+        data-placeholder="Begin letter body here…"
+      ></div>
+
+      <div class="flow-footer" aria-label="Accreditation and trust">
+        <div class="label">Accreditation &amp; Trust</div>
+        <div class="logos">
+          <img
+            class="logo-agc"
+            src="{{BRAND_AGC_HORIZONTAL}}"
+            alt="AGC membership"
+          />
+          <img
+            class="logo-bbb"
+            src="{{BRAND_BBB_SEAL}}"
+            alt="BBB accredited business"
+          />
+          <img
+            class="logo-vob"
+            src="{{BRAND_WA_VOB_LOGO}}"
+            alt="Washington certified veteran-owned business"
+          />
+        </div>
+        <div class="chambers" aria-label="Chamber of Commerce memberships">
+          <img
+            src="{{BRAND_CHAMBER_PASCO}}"
+            alt="Pasco Chamber of Commerce member"
+          />
+          <img
+            src="{{BRAND_CHAMBER_KENNEWICK}}"
+            alt="Tri-City Regional Chamber of Commerce member"
+          />
+          <img
+            src="{{BRAND_CHAMBER_RICHLAND}}"
+            alt="Richland Chamber of Commerce member"
+          />
+        </div>
+        <div class="flow-veteran">
+          Veteran-Owned <span class="sep">&#9733;</span> Mission-First
+          <span class="sep">&#9733;</span> Built on Honor, Integrity &amp; Trust
+        </div>
+      </div>
+    </main>
+
+    <!-- ── Page-1 chrome overlay (position:absolute, zero flow height) ── -->
+    <div class="sheet">
+      <div class="left-ribbon"></div>
+
+      <div class="identity">
+        <div>
+          {{BRAND_COMPANY_SHORT}}<span class="dot">•</span
+          >{{BRAND_ADDRESS_CITYSTATEZIP}}
+        </div>
+        <div>{{BRAND_VETERAN}}</div>
+      </div>
+
+      <header class="header">
+        <img
+          class="logo"
+          src="{{BRAND_LOGO_COLOR}}"
+          alt="MH Construction logo"
+        />
+        <div class="qr-card">
+          <img src="{{QR_WEBSITE}}" alt="QR code to {{BRAND_WEBSITE}}" />
+          <div class="qr-text">
+            <div class="qr-label">Scan to Visit</div>
+            <div class="qr-headline">MHC-GC.com</div>
+            <div class="qr-url">{{BRAND_WEBSITE}}</div>
+          </div>
+        </div>
+      </header>
+
+      <footer class="footer">
+        <div class="contact">
+          <div class="label">Company Contact</div>
+          <div class="name">{{BRAND_COMPANY_NAME}}</div>
+          {{BRAND_ADDRESS_STREET}}<br />
+          {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
+          {{BRAND_PHONE}} &middot; {{BRAND_WEBSITE}}
+          <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
+        </div>
+
+        <div class="trust">
+          <div class="label">Accreditation &amp; Trust</div>
+          <div class="logos">
+            <img
+              class="logo-agc"
+              src="{{BRAND_AGC_HORIZONTAL}}"
+              alt="AGC membership"
+            />
+            <img
+              class="logo-bbb"
+              src="{{BRAND_BBB_SEAL}}"
+              alt="BBB accredited business"
+            />
+            <img
+              class="logo-vob"
+              src="{{BRAND_WA_VOB_LOGO}}"
+              alt="Washington certified veteran-owned business"
+            />
+          </div>
+          <div class="chambers" aria-label="Chamber of Commerce memberships">
+            <img
+              src="{{BRAND_CHAMBER_PASCO}}"
+              alt="Pasco Chamber of Commerce member"
+            />
+            <img
+              src="{{BRAND_CHAMBER_KENNEWICK}}"
+              alt="Tri-City Regional Chamber of Commerce member"
+            />
+            <img
+              src="{{BRAND_CHAMBER_RICHLAND}}"
+              alt="Richland Chamber of Commerce member"
+            />
+          </div>
+        </div>
+      </footer>
+
+      <div class="veteran-strip">
+        Veteran-Owned <span class="sep">&#9733;</span> Mission-First
+        <span class="sep">&#9733;</span> Built on Honor, Integrity &amp; Trust
+      </div>
+    </div>
+
+    <script>
+      // Screen-only behavior. Hidden in print + when rendered to PDF
+      // via Puppeteer (page.pdf emulates print media, so the toolbar is
+      // suppressed automatically by the @media print rule).
+      (function () {
+        var doc = globalThis.document;
+
+        function updateOverflowMode() {
+          var htmlEl = doc.documentElement;
+          var body = doc.getElementById("lh-body");
+          var footer = doc.querySelector(".sheet .footer");
+          if (!htmlEl || !body || !footer) return;
+
+          var footerTop = footer.getBoundingClientRect().top;
+          var bodyBottom = body.getBoundingClientRect().bottom;
+          var contentBottom = bodyBottom;
+          var safetyGap = 8;
+          var overflow = contentBottom >= footerTop - safetyGap;
+
+          htmlEl.setAttribute("data-overflow", overflow ? "true" : "false");
+        }
+
+        function val(id) {
+          var el = doc.getElementById(id);
+          if (!el) return "";
+          var v = el.value == null ? el.textContent || "" : el.value;
+          return v.trim();
+        }
+
+        function buildSubject() {
+          return val("lh-re") || "Letter from MH Construction";
+        }
+
+        function buildMemoHeader(lines) {
+          var date = val("lh-date");
+          var to = val("lh-to");
+          var attn = val("lh-attn");
+          var from = val("lh-from");
+          var re = val("lh-re");
+          if (date) lines.push("DATE: " + date);
+          if (to) lines.push("TO:   " + to);
+          if (attn) lines.push("ATTN: " + attn);
+          if (from) lines.push("FROM: " + from);
+          if (re) lines.push("RE:   " + re);
+          if (date || to || attn || from || re) lines.push("", "------", "");
+        }
+
+        function buildEmailBody() {
+          var lines = [];
+          buildMemoHeader(lines);
+          var body = val("lh-body");
+          if (body) lines.push(body);
+          return lines.join("\n");
+        }
+
+        function clearAllFields() {
+          var nodes = doc.querySelectorAll(".memo-val");
+          Array.prototype.forEach.call(nodes, function (el) {
+            el.value = "";
+          });
+          var bodyArea = doc.getElementById("lh-body");
+          if (bodyArea) {
+            bodyArea.textContent = "";
+          }
+          var first = doc.getElementById("lh-date");
+          if (first) first.focus();
+        }
+
+        var btnPrint = doc.getElementById("lh-print");
+        var btnEmail = doc.getElementById("lh-email");
+        var btnReset = doc.getElementById("lh-reset");
+
+        if (btnPrint) {
+          btnPrint.addEventListener("click", function () {
+            updateOverflowMode();
+            globalThis.print();
+          });
+        }
+        if (btnEmail) {
+          btnEmail.addEventListener("click", function () {
+            var url =
+              "mailto:?subject=" +
+              encodeURIComponent(buildSubject()) +
+              "&body=" +
+              encodeURIComponent(buildEmailBody());
+            globalThis.location.href = url;
+          });
+        }
+        if (btnReset) {
+          btnReset.addEventListener("click", function () {
+            if (!globalThis.confirm("Clear all fields?")) return;
+            clearAllFields();
+            updateOverflowMode();
+          });
+        }
+
+        doc.addEventListener("input", function (event) {
+          var target = event.target;
+          if (!target) return;
+          if (target.matches(".memo-val, #lh-body")) {
+            updateOverflowMode();
+          }
+        });
+
+        globalThis.addEventListener("resize", updateOverflowMode);
+        globalThis.addEventListener("beforeprint", updateOverflowMode);
+        globalThis.setTimeout(updateOverflowMode, 0);
+      })();
+    </script>
+  </body>
+</html>

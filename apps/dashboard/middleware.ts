@@ -6,7 +6,7 @@
 import { type NextRequest } from "next/server";
 import { securityMiddleware } from "./src/middleware/security";
 
-export async function middleware(request: NextRequest) {
+export function middleware(request: NextRequest) {
   return securityMiddleware(request);
 }
 

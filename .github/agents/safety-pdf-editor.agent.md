@@ -26,6 +26,20 @@ Implement and verify safety PDF changes from source files, then regenerate outpu
 
 For ANY edit that touches section content, reference tables, signature blocks, page margins, header/footer chrome, brand typography, container widths, or form-cover sheets — delegate to `manual-development-standards-officer` BEFORE applying changes. MDSO owns the canonical Manual Development Standards (MDS §1–§12) and the source-side conventions that prevent post-hoc audit failures. This editor's lane is artifact-level work (cover/spine/tabs/TOC/reference/metadata/publish scripts) where MDS clauses do not directly apply.
 
+## Gold Standard Document Chrome
+
+The approved letterhead (`documents/output/MHC-company-letterhead.pdf`, May 2026) is the gold standard for all MH print artifacts. All regenerated PDFs must preserve these chrome values:
+
+- **Right margin**: `0.60in` uniform across identity row, header, footer, and veteran strip
+- **Body left/right**: `left: 1.15in`, `right: 0.60in`
+- **QR headline**: `MHC-GC.COM` (with dash) — never `MHCGC.COM`
+- **Body font**: Helvetica · 11pt · hunter green `#1E392C` · scrolling disabled
+- **Accreditation order**: AGC `0.36in` → BBB `0.39in` → VOB `0.5in` (MANDATORY, never reorder)
+- **Veteran strip**: `bottom: 0.42in` · `VETERAN-OWNED ★ MISSION-FIRST ★ BUILT ON HONOR, INTEGRITY & TRUST`
+- **Double rule system**: primary `1.2pt solid #1E392C` + accent `0.6pt solid #BD9264` offset, used consistently on header bottom and footer top
+
+For the full specification table, refer to `form-development-officer` Gold Standard Chrome Specification section.
+
 ## TOC Template Notes
 
 - `safety-manual-toc.html` uses **inlined CSS** (no `@import`) — do not restore the `@import url("../styles/brand.css")` line; the brand variables are embedded directly in `<style>`.
@@ -61,9 +75,14 @@ For ANY edit that touches section content, reference tables, signature blocks, p
 3. Apply minimal source edits.
 4. Regenerate only required outputs first (cover/spine/tabs/sections/digital/contents/reference).
 5. Validate page size, page count expectations, title/author/creator metadata, and timestamps.
-6. After regeneration, run `md5sum` on the output (or rendered page PNG) and confirm the hash CHANGED. Identical hash ⇒ edit didn't apply (likely `@page` override or wrong source file).
-7. Hand off to `manual-structure-officer` for a PASS/FAIL structural and typography audit.
-8. Report exact output files regenerated and verification results — including MDSO and MSO verdicts when applicable.
+6. After regeneration, run `md5sum` on the output and confirm the hash CHANGED. Identical hash ⇒ edit didn't apply (likely `@page` override or wrong source file).
+7. Render a PNG preview of page 1 (and any other changed pages) using:
+   ```
+   pdftoppm -r 150 -png -f 1 -l 1 documents/output/<artifact>.pdf /tmp/<artifact>-preview
+   ```
+   Display the resulting PNG to the user for visual confirmation before proceeding.
+8. Hand off to `manual-structure-officer` for a PASS/FAIL structural and typography audit.
+9. Report exact output files regenerated and verification results — including MDSO and MSO verdicts when applicable.
 
 ## Output Format
 

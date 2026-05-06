@@ -8,10 +8,14 @@
 
 # === Build output (Next.js / OpenNext / Cloudflare) ===
 /.next/
+**/.next/
 .next/cache/
 .open-next/
+**/.open-next/
 .swc/
+**/.swc/
 .wrangler/
+**/.wrangler/
 /build
 build/
 /out/
