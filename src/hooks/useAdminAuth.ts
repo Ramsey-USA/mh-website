@@ -58,7 +58,7 @@ export function useAdminAuth(): AdminAuthStatus {
             userName: "",
             userEmail: "",
           });
-          router.push("/");
+          router.push("/hub");
           return;
         }
 
@@ -76,7 +76,7 @@ export function useAdminAuth(): AdminAuthStatus {
           userName: "",
           userEmail: "",
         });
-        router.push("/");
+        router.push("/hub");
       }
     }
 

@@ -86,7 +86,7 @@ describe("useHubAdminAuth", () => {
     });
 
     await waitFor(() => {
-      expect(pushMock).toHaveBeenCalledWith("/");
+      expect(pushMock).toHaveBeenCalledWith("/hub");
     });
 
     expect(states.at(-1)?.status).toBe("redirecting");
@@ -101,7 +101,7 @@ describe("useHubAdminAuth", () => {
     });
 
     await waitFor(() => {
-      expect(pushMock).toHaveBeenCalledWith("/");
+      expect(pushMock).toHaveBeenCalledWith("/hub");
     });
   });
 
@@ -113,7 +113,7 @@ describe("useHubAdminAuth", () => {
     });
 
     await waitFor(() => {
-      expect(pushMock).toHaveBeenCalledWith("/");
+      expect(pushMock).toHaveBeenCalledWith("/hub");
     });
   });
 });

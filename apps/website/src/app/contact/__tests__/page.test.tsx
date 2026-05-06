@@ -4,7 +4,7 @@
  * components without error.
  */
 
-jest.mock("@/app/contact/ContactPageClient", () => ({
+jest.mock("../ContactPageClient", () => ({
   __esModule: true,
   default: () => <div data-testid="contact-page-client" />,
 }));
@@ -27,7 +27,7 @@ jest.mock("@/lib/seo/breadcrumb-schema", () => ({
 jest.mock("@/lib/constants/company", () => ({
   COMPANY_INFO: {
     name: "MH Construction",
-    phone: { tel: "+15093086489" },
+    phone: { display: "(509) 308-6489", tel: "+15093086489" },
     email: { main: "office@mhc-gc.com" },
     urls: { site: "https://mhc-gc.com" },
     address: {
@@ -36,13 +36,61 @@ jest.mock("@/lib/constants/company", () => ({
       stateCode: "WA",
       zip: "99301",
       country: "US",
+      full: "123 Main St, Pasco, WA 99301",
     },
     coordinates: { latitude: 46.2396, longitude: -119.1006 },
+    bbb: {
+      profileUrl: "https://www.bbb.org/test",
+      sealClickUrl: "https://www.bbb.org/test#sealclick",
+      sealHorizontal: "/images/bbb-seal.png",
+      sealHorizontalWhite: "/images/bbb-seal-white.png",
+      sealVertical: "/images/bbb-seal-vertical.png",
+      sealVerticalWhite: "/images/bbb-seal-vertical-white.png",
+      rating: "A+",
+      accreditedSince: "April 7, 2026",
+    },
+    travelers: {
+      website: "https://www.travelers.com",
+      logo: "/images/travelers-logo.png",
+      logoWhite: "/images/travelers-logo-white.png",
+    },
+    chambers: {
+      pasco: {
+        name: "Pasco Chamber of Commerce",
+        memberDirectoryUrl: "https://pascochamber.org/test",
+        logo: "/images/pasco-chamber.png",
+        logoWhite: "/images/pasco-chamber-white.png",
+      },
+      richland: {
+        name: "Richland Chamber of Commerce",
+        memberDirectoryUrl: "https://richlandchamber.org/test",
+        logo: "/images/richland-chamber.png",
+        logoWhite: "/images/richland-chamber-white.png",
+      },
+      triCityRegional: {
+        name: "Tri-City Regional Chamber",
+        memberDirectoryUrl: "https://tricityregionalchamber.org/test",
+        logo: "/images/tri-city-chamber.png",
+        logoWhite: "/images/tri-city-chamber-white.png",
+      },
+    },
   },
 }));
 
 import { render, screen } from "@testing-library/react";
 import ContactPage from "../page";
+
+// IntersectionObserver is not available in jsdom
+if (typeof global.IntersectionObserver === "undefined") {
+  Object.defineProperty(global, "IntersectionObserver", {
+    writable: true,
+    value: jest.fn().mockImplementation(() => ({
+      observe: jest.fn(),
+      unobserve: jest.fn(),
+      disconnect: jest.fn(),
+    })),
+  });
+}
 
 describe("ContactPage (server component)", () => {
   it("renders without throwing", () => {

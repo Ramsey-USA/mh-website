@@ -129,7 +129,7 @@ export default function AnalyticsDashboardPage() {
     } catch (err) {
       logger.error("Logout error:", err);
     }
-    router.push("/");
+    router.push("/hub");
   };
 
   const handleRefresh = useCallback(() => {
