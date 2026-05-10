@@ -1,0 +1,6 @@
+.next/
+.open-next/
+dist/
+build/
+node_modules/
+*.config.js
