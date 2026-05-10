@@ -14,6 +14,16 @@ disable-model-invocation: true
 
 Deliver a clear pre-merge readiness decision with actionable remediation.
 
+## Invocation Policy
+
+Follow `.github/AGENT_INVOCATION_MATRIX.md` before running final readiness.
+
+Required sequence:
+
+1. Confirm required domain specialists were invoked for changed scope.
+2. For dashboard or hub changes, require `dashboard-congruency-officer` before release decision.
+3. Run final release readiness PASS/FAIL only after required handoffs are complete.
+
 ## Required Checks
 
 - Branding compliance outcome

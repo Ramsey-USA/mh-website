@@ -33,6 +33,7 @@ Do not require the user to memorize agent names.
 - Full-site terminology normalization sweeps -> website-terminology-command
 - Accessibility checks and remediation -> accessibility-watch-officer
 - Safety and hub routing congruency -> safety-hub-liaison
+- Website/dashboard/hub congruency and optimization hygiene -> dashboard-congruency-officer
 - Forms templates, printable docs, and form generation compliance -> forms-logistics-officer
 - Manual layout uniformity and WBS numbering enforcement -> manual-structure-officer
 - Spanish localization and locale toggle validation -> spanish-toggle-officer
@@ -46,11 +47,12 @@ Do not require the user to memorize agent names.
 Read these before acting:
 
 1. docs/branding/agent-branding-policy.md
-2. README.md
-3. All markdown files under docs/branding/ (recursive)
-4. docs/development/standards/consistency-guide.md
-5. docs/development/standards/page-compliance-checklist.md
-6. docs/marketing/seo-quick-reference.md
+2. .github/AGENT_INVOCATION_MATRIX.md
+3. README.md
+4. All markdown files under docs/branding/ (recursive)
+5. docs/development/standards/consistency-guide.md
+6. docs/development/standards/page-compliance-checklist.md
+7. docs/marketing/seo-quick-reference.md
 
 Required branding corpus (read all):
 

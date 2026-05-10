@@ -206,21 +206,24 @@ are stored in `public/images/credentials/` as WebP files. Credentials are displa
 
 This project uses a military-themed agent squad in `.github/agents/`. **You do not need to remember agent names.** Just describe your task in plain English — Master at Arms routes automatically.
 
-| Agent                           | File                                   | Specialty                                                                                    |
-| ------------------------------- | -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| **Master at Arms**              | `master-at-arms.agent.md`              | Umbrella enforcement — routes all branding, copy, design, and compliance tasks automatically |
-| **Brand Comms Captain**         | `brand-comms-captain.agent.md`         | Copy tone, CTAs, vocabulary, relationship-first language                                     |
-| **Trust Sentinel**              | `trust-sentinel.agent.md`              | BBB, Chambers, Travelers, AGC credential surfaces — Footer, About, Contact, Allies           |
-| **License Compliance Officer**  | `license-compliance-officer.agent.md`  | WA/OR/ID license numbers, verification links, and cross-surface licensing consistency        |
-| **SEO Signal Officer**          | `seo-signal-officer.agent.md`          | Metadata, page titles, nav labels, schema naming                                             |
-| **Accessibility Watch Officer** | `accessibility-watch-officer.agent.md` | WCAG 2.1 AA — semantics, contrast, keyboard, focus                                           |
-| **Safety Hub Liaison**          | `safety-hub-liaison.agent.md`          | `/hub` canonical routing, safety language congruency                                         |
-| **Spanish Toggle Officer**      | `spanish-toggle-officer.agent.md`      | English/Spanish locale wiring, toggle behavior, translation coverage, and localization gates |
-| **Design Quartermaster**        | `design-quartermaster.agent.md`        | Design system enforcement — spacing, typography, component patterns                          |
-| **Telemetry Recon Officer**     | `telemetry-recon-officer.agent.md`     | On-demand analytics integrity — CTA coverage, event schema naming, dashboard continuity      |
-| **Performance Budget Officer**  | `performance-budget-officer.agent.md`  | On-demand speed protection — payload, bundle growth, and Core Web Vitals risk checks         |
-| **Documentation Drift Officer** | `documentation-drift-officer.agent.md` | On-demand docs/code alignment — stale references, path drift, workflow accuracy              |
-| **Release Command**             | `release-command.agent.md`             | Pre-merge gate — branding + lint + type-check + tests                                        |
+Canonical invocation policy and required handoff order: [`.github/AGENT_INVOCATION_MATRIX.md`](.github/AGENT_INVOCATION_MATRIX.md).
+
+| Agent                            | File                                    | Specialty                                                                                    |
+| -------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------- |
+| **Master at Arms**               | `master-at-arms.agent.md`               | Umbrella enforcement — routes all branding, copy, design, and compliance tasks automatically |
+| **Brand Comms Captain**          | `brand-comms-captain.agent.md`          | Copy tone, CTAs, vocabulary, relationship-first language                                     |
+| **Trust Sentinel**               | `trust-sentinel.agent.md`               | BBB, Chambers, Travelers, AGC credential surfaces — Footer, About, Contact, Allies           |
+| **License Compliance Officer**   | `license-compliance-officer.agent.md`   | WA/OR/ID license numbers, verification links, and cross-surface licensing consistency        |
+| **SEO Signal Officer**           | `seo-signal-officer.agent.md`           | Metadata, page titles, nav labels, schema naming                                             |
+| **Accessibility Watch Officer**  | `accessibility-watch-officer.agent.md`  | WCAG 2.1 AA — semantics, contrast, keyboard, focus                                           |
+| **Safety Hub Liaison**           | `safety-hub-liaison.agent.md`           | `/hub` canonical routing, safety language congruency                                         |
+| **Dashboard Congruency Officer** | `dashboard-congruency-officer.agent.md` | Website/dashboard/hub parity checks and optimization hygiene                                 |
+| **Spanish Toggle Officer**       | `spanish-toggle-officer.agent.md`       | English/Spanish locale wiring, toggle behavior, translation coverage, and localization gates |
+| **Design Quartermaster**         | `design-quartermaster.agent.md`         | Design system enforcement — spacing, typography, component patterns                          |
+| **Telemetry Recon Officer**      | `telemetry-recon-officer.agent.md`      | On-demand analytics integrity — CTA coverage, event schema naming, dashboard continuity      |
+| **Performance Budget Officer**   | `performance-budget-officer.agent.md`   | On-demand speed protection — payload, bundle growth, and Core Web Vitals risk checks         |
+| **Documentation Drift Officer**  | `documentation-drift-officer.agent.md`  | On-demand docs/code alignment — stale references, path drift, workflow accuracy              |
+| **Release Command**              | `release-command.agent.md`              | Pre-merge gate — branding + lint + type-check + tests                                        |
 
 **How to invoke:** In GitHub Copilot Chat, type `@master-at-arms` and describe your task. Use the three Officer agents above as focused on-demand specialists for analytics, performance, and docs/code drift checks. Or simply ask Copilot — the instructions file routes enforcement automatically on every change.
 
@@ -228,21 +231,24 @@ This project uses a military-themed agent squad in `.github/agents/`. **You do n
 
 Use this quick map when deciding which agent to invoke directly:
 
-| Task Type                                                  | Primary Agent                   | Invocation Pattern                                                     |
-| ---------------------------------------------------------- | ------------------------------- | ---------------------------------------------------------------------- |
-| Brand/copy/design compliance across page changes           | **Master at Arms**              | `@master-at-arms review this page update for full compliance`          |
-| CTA wording, tone, and relationship-first messaging        | **Brand Comms Captain**         | `@brand-comms-captain refine CTA copy for relationship-first voice`    |
-| Trust badges, credentials, and accreditation surfaces      | **Trust Sentinel**              | `@trust-sentinel verify credential surfaces were preserved`            |
-| License numbers and verification-link integrity (WA/OR/ID) | **License Compliance Officer**  | `@license-compliance-officer verify licensing consistency and links`   |
-| Metadata, nav labels, schema naming consistency            | **SEO Signal Officer**          | `@seo-signal-officer audit labels and schema naming`                   |
-| WCAG checks (semantics, contrast, keyboard/focus)          | **Accessibility Watch Officer** | `@accessibility-watch-officer validate accessibility before merge`     |
-| `/hub` routing and safety-language congruency              | **Safety Hub Liaison**          | `@safety-hub-liaison verify hub route and safety language alignment`   |
-| English/Spanish localization and language-toggle checks    | **Spanish Toggle Officer**      | `@spanish-toggle-officer validate full en/es toggle readiness`         |
-| Design system consistency and component pattern fidelity   | **Design Quartermaster**        | `@design-quartermaster align this UI to unified component standards`   |
-| Analytics coverage and event naming integrity (on-demand)  | **Telemetry Recon Officer**     | `@telemetry-recon-officer validate tracking coverage and event schema` |
-| Payload/bundle/CWV regression review (on-demand)           | **Performance Budget Officer**  | `@performance-budget-officer check performance risk for this feature`  |
-| Docs and implementation drift checks (on-demand)           | **Documentation Drift Officer** | `@documentation-drift-officer reconcile docs with these code changes`  |
-| Final pre-merge gate with risk summary                     | **Release Command**             | `@release-command run final readiness checks for this PR`              |
+| Task Type                                                  | Primary Agent                    | Invocation Pattern                                                       |
+| ---------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------ |
+| Brand/copy/design compliance across page changes           | **Master at Arms**               | `@master-at-arms review this page update for full compliance`            |
+| CTA wording, tone, and relationship-first messaging        | **Brand Comms Captain**          | `@brand-comms-captain refine CTA copy for relationship-first voice`      |
+| Trust badges, credentials, and accreditation surfaces      | **Trust Sentinel**               | `@trust-sentinel verify credential surfaces were preserved`              |
+| License numbers and verification-link integrity (WA/OR/ID) | **License Compliance Officer**   | `@license-compliance-officer verify licensing consistency and links`     |
+| Metadata, nav labels, schema naming consistency            | **SEO Signal Officer**           | `@seo-signal-officer audit labels and schema naming`                     |
+| WCAG checks (semantics, contrast, keyboard/focus)          | **Accessibility Watch Officer**  | `@accessibility-watch-officer validate accessibility before merge`       |
+| `/hub` routing and safety-language congruency              | **Safety Hub Liaison**           | `@safety-hub-liaison verify hub route and safety language alignment`     |
+| Website/dashboard/hub parity and optimization hygiene      | **Dashboard Congruency Officer** | `@dashboard-congruency-officer verify cross-app parity and optimization` |
+| English/Spanish localization and language-toggle checks    | **Spanish Toggle Officer**       | `@spanish-toggle-officer validate full en/es toggle readiness`           |
+| Design system consistency and component pattern fidelity   | **Design Quartermaster**         | `@design-quartermaster align this UI to unified component standards`     |
+| Analytics coverage and event naming integrity (on-demand)  | **Telemetry Recon Officer**      | `@telemetry-recon-officer validate tracking coverage and event schema`   |
+| Payload/bundle/CWV regression review (on-demand)           | **Performance Budget Officer**   | `@performance-budget-officer check performance risk for this feature`    |
+| Docs and implementation drift checks (on-demand)           | **Documentation Drift Officer**  | `@documentation-drift-officer reconcile docs with these code changes`    |
+| Final pre-merge gate with risk summary                     | **Release Command**              | `@release-command run final readiness checks for this PR`                |
+
+For required handoffs and merge-gate sequence, follow [`.github/AGENT_INVOCATION_MATRIX.md`](.github/AGENT_INVOCATION_MATRIX.md).
 
 #### Specialist Report Contracts
 

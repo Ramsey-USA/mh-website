@@ -24,6 +24,8 @@
 - [ ] Applied standards listed
 - [ ] Violations and remediations documented (or "none")
 - [ ] Risk level recorded (low, medium, high)
+- [ ] Required agent handoffs completed per .github/AGENT_INVOCATION_MATRIX.md
+- [ ] Release Command readiness result recorded (PASS or FAIL)
 
 ### Compliance Report
 
@@ -82,3 +84,5 @@ Risk Level:
 
 **Note:** Pre-commit hooks and CI/CD automatically verify code quality. If checks fail,
 ask AI: _"Run quality check and fix issues"_
+
+Agent routing, required handoffs, and merge-gate sequence are defined in `.github/AGENT_INVOCATION_MATRIX.md`.

@@ -15,6 +15,7 @@ project context, then follow this guide for Git workflow and contribution proces
 - [Common Mistakes](./docs/development/standards/common-mistakes.md) — 22 errors to avoid
 - [Cloudflare Deployment Guide](./docs/deployment/cloudflare-guide.md) — deploy process
 - [Services Integration Guide](./docs/technical/services-integration-guide.md) — Cloudflare, Hostinger, Resend, Twilio
+- [Agent Invocation Matrix](./.github/AGENT_INVOCATION_MATRIX.md) — canonical Copilot agent routing and merge-gate order
 
 ---
 
@@ -79,6 +80,7 @@ Before submitting a PR, confirm:
 - [ ] Page-level changes pass the [Page Compliance Checklist](./docs/development/standards/page-compliance-checklist.md)
 - [ ] **Smoke test mocks updated** if you modified `COMPANY_INFO` or shared constants (see below)
 - [ ] Added/renamed image filenames use lowercase kebab-case and pass pre-commit checks
+- [ ] Required agent invocations and handoffs completed per [Agent Invocation Matrix](./.github/AGENT_INVOCATION_MATRIX.md)
 
 ### ⚠️ Smoke Test Maintenance
 
