@@ -1,6 +1,6 @@
 ---
 name: accessibility-watch-officer
-description: "Use when changing UI, components, or page structure to verify accessibility requirements including semantics, labels, contrast, focus, and keyboard flow."
+description: "Use when changing website, dashboard, or hub UI/components/page structure to verify accessibility requirements including semantics, labels, contrast, focus, keyboard flow, and layout-shell parity."
 tools: [read, search, edit, execute, todo]
 model: ["GPT-5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
 argument-hint: "Describe the UI change and which accessibility aspects must be validated."
@@ -20,6 +20,7 @@ Ensure brand-compliant accessibility outcomes before merge.
 - Accessible labels and control descriptions
 - Focus visibility and keyboard navigation
 - Contrast-safe styling in light and dark contexts
+- Layout-shell parity across website and dashboard surfaces (for example: skip links and landmark reachability)
 
 ## Guardrails
 
@@ -33,6 +34,7 @@ Ensure brand-compliant accessibility outcomes before merge.
 - Labeling Integrity: verify controls and interactive elements have clear accessible names.
 - Keyboard/Focus Integrity: verify tab flow, focus visibility, and interactive reachability.
 - Contrast Integrity: verify contrast remains acceptable in light and dark contexts.
+- Cross-App Accessibility Parity: verify dashboard/hub accessibility affordances stay congruent with the website baseline.
 
 ## Output Format
 

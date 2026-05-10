@@ -1,6 +1,6 @@
 ---
 name: telemetry-recon-officer
-description: "Use when adding or changing CTA tracking, page analytics, dashboard metrics, or event schema to preserve analytics integrity and naming consistency."
+description: "Use when adding or changing CTA tracking, page analytics, dashboard metrics/cards, or event schema to preserve analytics integrity and naming consistency across website and dashboard surfaces."
 tools: [read, search, edit, execute, todo]
 model: ["GPT-5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
 argument-hint: "Describe the page, CTA, or event changes and which analytics surfaces are affected."
@@ -34,6 +34,7 @@ Protect analytics integrity and prevent silent tracking gaps.
 - Event Schema Integrity: confirm event names, payload fields, and semantics remain consistent.
 - Dashboard Continuity: identify metric or panel impact from event/name changes.
 - Journey Signal Continuity: confirm journey-stage and lead-scoring inputs remain intact.
+- Label Taxonomy Continuity: confirm dashboard chart/card labels stay congruent with website CTA and page taxonomy.
 
 ## Output Format
 

@@ -1,6 +1,6 @@
 ---
 name: release-command
-description: "Use when preparing PRs for merge to run final readiness checks across branding, trust, SEO naming, accessibility, and quality gates."
+description: "Use when preparing PRs for merge to run final readiness checks across branding, trust, SEO naming, accessibility, dashboard/website congruency, and quality gates."
 tools: [read, search, edit, execute, todo]
 model: ["GPT-5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
 argument-hint: "Describe the PR scope and whether a full release readiness check is required."
@@ -21,6 +21,8 @@ Deliver a clear pre-merge readiness decision with actionable remediation.
 - SEO and metadata naming consistency
 - Accessibility validation status
 - Type, lint, and relevant test quality signals
+- Website/dashboard/hub congruency status (labels, shell behavior, trust framing, and style-token consistency)
+- Optimization hygiene status (cognitive complexity, nested rendering branches, unstable memo dependencies)
 
 ## Output Format
 

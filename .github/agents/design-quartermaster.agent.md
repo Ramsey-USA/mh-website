@@ -1,6 +1,6 @@
 ---
 name: design-quartermaster
-description: "Use when creating or refactoring UI components and sections to enforce MH unified component standards for spacing, typography, visual hierarchy, and pattern consistency."
+description: "Use when creating or refactoring website/dashboard/hub UI components and sections to enforce MH unified component standards for spacing, typography, visual hierarchy, and pattern consistency across apps."
 tools: [read, search, edit, execute, todo]
 model: ["GPT-5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
 argument-hint: "Describe the component or page section and expected visual behavior."
@@ -20,6 +20,7 @@ Keep implementation tightly aligned with MH design standards.
 - Spacing rhythm and hierarchy consistency
 - Typography scale and readability
 - Approved color and emphasis usage
+- Cross-app congruency between website and dashboard/hub shells
 
 ## Guardrails
 
@@ -33,6 +34,7 @@ Keep implementation tightly aligned with MH design standards.
 - Spacing/Hierarchy Integrity: verify rhythm, alignment, and visual hierarchy are consistent.
 - Typography/Color Integrity: verify approved scales, weights, and color emphasis usage.
 - Cross-Page Cohesion: verify new UI feels native to existing MH surfaces.
+- Cross-App Cohesion: verify dashboard/hub UI remains visually congruent with website standards and shared tokens.
 
 ## Output Format
 

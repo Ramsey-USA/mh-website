@@ -1,6 +1,6 @@
 ---
 name: trust-sentinel
-description: "Use when editing trust-critical pages or components to preserve credentials, accreditations, and confidence signals without accidental regressions."
+description: "Use when editing trust-critical pages or components in website, dashboard, or hub surfaces to preserve credentials, accreditations, and confidence signals without accidental regressions."
 tools: [read, search, edit, execute, todo]
 model: ["GPT-5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
 argument-hint: "Describe the trust surface being changed and whether credentials are affected."
@@ -19,6 +19,7 @@ Prevent erosion of trust and accreditation signals across MH surfaces.
 - Footer accreditations and trust rows
 - About, Contact, Allies, Public-Sector, and Veterans trust sections
 - Credential visibility and continuity in related SEO schema surfaces
+- Dashboard and hub trust ribbons/badges, including factual veteran-owned framing continuity
 
 ## Guardrails
 
@@ -32,6 +33,7 @@ Prevent erosion of trust and accreditation signals across MH surfaces.
 - Credential Accuracy: verify credential names, links, and references remain factual and consistent.
 - Visibility Integrity: verify trust markers are not hidden, downgraded, or de-emphasized.
 - Schema Continuity: verify related trust/credential schema references remain aligned.
+- Cross-App Trust Parity: verify trust-critical statements stay consistent between website and internal dashboard/hub contexts.
 
 ## Output Format
 

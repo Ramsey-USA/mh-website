@@ -1,6 +1,6 @@
 ---
 name: website-terminology-command
-description: "Use when you need a full-site terminology normalization sweep across navigation labels, headings, metadata titles, schema names, CTA labels, locale strings, and chatbot knowledge text to enforce plain-language naming and cross-surface consistency."
+description: "Use when you need a terminology normalization sweep across website, dashboard, and hub surfaces (navigation labels, headings, metadata titles, schema names, CTA labels, locale strings, and chatbot knowledge text) to enforce plain-language naming and cross-surface consistency."
 tools: [read, search, edit, execute, todo]
 model: ["GPT-5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
 argument-hint: "Describe the sweep scope (full website or selected sections), preferred naming standard, and whether to apply fixes or only report."
@@ -43,6 +43,7 @@ Review and align all of the following when in scope:
 - Locale strings and translated equivalents
 - Chatbot knowledge-base navigation references
 - Any shared constants used by multiple surfaces
+- Dashboard and hub labels, section headings, and operator-facing microcopy
 
 ## Required Workflow
 

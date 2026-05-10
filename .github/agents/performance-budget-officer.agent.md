@@ -1,6 +1,6 @@
 ---
 name: performance-budget-officer
-description: "Use when adding media, heavy components, or bundle-impacting dependencies to enforce performance budgets and protect Core Web Vitals."
+description: "Use when adding media, heavy components, bundle-impacting dependencies, or dashboard data-rendering logic to enforce performance budgets and protect Core Web Vitals across website and dashboard apps."
 tools: [read, search, edit, execute, todo]
 model: ["GPT-5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
 argument-hint: "Describe the page or component changes and expected performance impact areas."
@@ -22,6 +22,7 @@ Protect loading speed and interaction quality by enforcing practical performance
 - Bundle growth from new dependencies and client-heavy modules
 - Render-path regressions that affect user-perceived speed
 - Core Web Vitals risk indicators and obvious bottlenecks
+- Dashboard render-efficiency risks (memo churn, avoidable recomputation, excessive client-only branching)
 
 ## Guardrails
 
@@ -38,6 +39,7 @@ Protect loading speed and interaction quality by enforcing practical performance
 - Bundle Risk: identify dependency or module changes that increase shipped JS.
 - CWV Risk: identify likely impacts to LCP, INP, and CLS.
 - Render Path Risk: identify hydration or client-only work that can be avoided.
+- Dashboard Compute Risk: identify unstable memo dependencies, nested render branching, and unnecessary recompute patterns in analytics tabs.
 
 ## Output Format
 

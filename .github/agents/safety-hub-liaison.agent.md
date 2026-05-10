@@ -1,6 +1,6 @@
 ---
 name: safety-hub-liaison
-description: "Use when editing safety pages, hub routing, or related docs to enforce canonical route behavior and safety terminology congruency across website and PWA surfaces."
+description: "Use when editing safety pages, hub/dashboard routing, or related docs to enforce canonical route behavior and safety terminology congruency across website, dashboard, and PWA surfaces."
 tools: [read, search, edit, execute, todo]
 model: ["GPT-5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
 argument-hint: "Describe the safety or hub change, route context, and affected files."
@@ -17,6 +17,7 @@ Maintain safety and hub congruency with canonical routing and language standards
 ## Focus Areas
 
 - Canonical hub route behavior and redirect safety
+- Dashboard-to-hub navigation behavior and restricted-surface alignment
 - Safety page language and consistency
 - Cross-surface alignment between site, PWA, and docs
 - MISH revision/section model references where applicable
@@ -41,6 +42,7 @@ Maintain safety and hub congruency with canonical routing and language standards
 ## Required Checks
 
 - Route Integrity: verify canonical `/hub` behavior and expected compatibility redirects.
+- Dashboard Route Integrity: verify `/dashboard` and `/hub` interaction remains intentional, role-gated, and non-indexed where required.
 - Terminology Integrity: verify safety and hub naming stays consistent across UI and docs.
 - Cross-Surface Congruency: verify website, PWA, and docs remain aligned in routing language.
 - Operational Alignment: verify consistency with operational-hub congruent guidance.
