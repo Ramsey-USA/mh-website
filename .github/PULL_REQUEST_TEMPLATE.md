@@ -39,6 +39,12 @@ Violations:
 
 Risk Level:
 
+Invoked Agents:
+
+Required Handoffs:
+
+Release Command Result:
+
 ### Exception Disclosure
 
 - [ ] No exception used

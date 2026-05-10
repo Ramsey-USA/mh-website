@@ -11,6 +11,7 @@ Use it to decide which agent to run, when specialist handoffs are required, and 
 1. Branding guardrails are always active via `.github/instructions/mh-branding-guardrails.instructions.md`.
 2. Branding gate runs on tool usage via `.github/hooks/branding-policy.json`.
 3. PR compliance requirements are enforced in `.github/PULL_REQUEST_TEMPLATE.md`.
+4. PR agent compliance reminder is enforced via `.github/workflows/pr-agent-compliance-reminder.yml`.
 
 ## Invocation Flags
 
@@ -74,3 +75,6 @@ When opening a PR, ensure the following are explicitly documented:
 1. Which agents were invoked.
 2. Which required handoffs were completed.
 3. Final `release-command` result.
+4. Keep checklist items for required handoffs and release result checked.
+
+The PR workflow `.github/workflows/pr-agent-compliance-reminder.yml` fails non-draft PRs when these required compliance fields are missing or placeholder values.
