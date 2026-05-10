@@ -168,7 +168,7 @@ export default function AnalyticsDashboardPage() {
                   ANALYTICS DASHBOARD
                 </h1>
                 <p className="text-sm text-brand-secondary font-bold uppercase tracking-wider">
-                  Welcome back, {userName} • Status: READY
+                  Welcome back, {userName} • Dashboard Active
                 </p>
                 <p className="text-xs text-white/80 font-semibold tracking-wide">
                   Veteran-Owned Since January 2025 • Founded 2010
