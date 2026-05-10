@@ -9,8 +9,8 @@ interface MaterialIconProps {
   interactive?: boolean; // Indicates if icon will animate/change
   /** Accessibility label for screen readers (when icon has semantic meaning) */
   ariaLabel?: string;
-  /** Theme preset for military/veteran styling */
-  theme?: "veteran" | "military" | "tactical" | "default";
+  /** Theme preset for brand-aligned icon styling */
+  theme?: "veteran" | "primary" | "secondary" | "default";
 }
 
 // Enhanced size mappings to maximize container space (approximately 75-80% fill ratio)
@@ -27,11 +27,11 @@ const sizeMap = {
   "5xl": 120, // 120px - extra large hero displays
 };
 
-// Military/veteran theme color mappings
+// Brand/veteran theme color mappings
 const themeColors = {
   veteran: "text-bronze-300 dark:text-bronze-400", // Veteran recognition
-  military: "text-brand-primary dark:text-brand-primary-light", // Military precision
-  tactical: "text-blue-600 dark:text-blue-400", // Tactical/strategic
+  primary: "text-brand-primary dark:text-brand-primary-light", // Primary brand emphasis
+  secondary: "text-blue-600 dark:text-blue-400", // Secondary visual emphasis
   default: "", // No theme color applied
 };
 

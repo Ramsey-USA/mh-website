@@ -158,17 +158,20 @@ export default function AnalyticsDashboardPage() {
             <div className="flex items-center gap-4">
               <div className="bg-black/40 backdrop-blur-sm p-3 rounded-xl border-2 border-brand-secondary">
                 <MaterialIcon
-                  icon="military_tech"
+                  icon="dashboard"
                   size="lg"
                   className="text-brand-secondary"
                 />
               </div>
               <div>
                 <h1 className="text-3xl font-black text-white tracking-tight">
-                  MISSION CONTROL
+                  ANALYTICS DASHBOARD
                 </h1>
                 <p className="text-sm text-brand-secondary font-bold uppercase tracking-wider">
-                  SITREP: Welcome back, {userName} • Status: OPERATIONAL
+                  Welcome back, {userName} • Status: READY
+                </p>
+                <p className="text-xs text-white/80 font-semibold tracking-wide">
+                  Veteran-Owned Since January 2025 • Founded 2010
                 </p>
               </div>
             </div>
@@ -196,7 +199,7 @@ export default function AnalyticsDashboardPage() {
                 className="flex items-center gap-2 px-6 py-3 bg-black/60 hover:bg-black/80 border-2 border-brand-secondary rounded-lg text-white font-black uppercase text-sm transition-all hover:scale-105"
               >
                 <MaterialIcon icon="power_settings_new" size="sm" />
-                Disengage
+                Sign Out
               </button>
             </div>
           </div>
@@ -328,7 +331,7 @@ function AnalyticsOverview({
             className="text-brand-secondary animate-pulse mx-auto mb-4"
           />
           <p className="text-brand-secondary font-bold uppercase tracking-wider">
-            SCANNING TACTICAL DATA...
+            Loading analytics data...
           </p>
         </div>
       </div>
@@ -342,7 +345,7 @@ function AnalyticsOverview({
           <MaterialIcon icon="warning" size="lg" className="text-red-400" />
           <div>
             <h3 className="font-black text-red-300 mb-1 uppercase tracking-wide">
-              MISSION CRITICAL ERROR
+              Analytics Error
             </h3>
             <p className="text-red-200">{error}</p>
           </div>
@@ -404,36 +407,36 @@ function AnalyticsOverview({
             size="lg"
             className="text-brand-secondary"
           />
-          TACTICAL OVERVIEW - ENGAGEMENT METRICS
+          Engagement Overview
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <MilitaryStatCard
+          <StatCard
             icon="visibility"
-            label="RECON OPERATIONS"
+            label="Page Views"
             sublabel="Page Views"
             value={formatNumber(data?.pageviews?.total)}
             trend={`${data?.today?.pageviews ?? 0} today`}
             trendUp
           />
-          <MilitaryStatCard
+          <StatCard
             icon="people"
-            label="TOTAL SESSIONS"
+            label="Total Sessions"
             sublabel="All Visitors"
             value={formatNumber(data?.sessions?.count)}
             trend={`${data?.today?.sessions ?? 0} today`}
             trendUp
           />
-          <MilitaryStatCard
+          <StatCard
             icon="schedule"
-            label="ENGAGEMENT TIME"
+            label="Engagement Time"
             sublabel="Avg. Session Duration"
             value={formatDuration(data?.sessions?.averageDuration ?? 0)}
             trend={`${data?.sessions?.count ?? 0} sessions`}
             trendUp
           />
-          <MilitaryStatCard
+          <StatCard
             icon="flag"
-            label="MISSION SUCCESS"
+            label="Total Conversions"
             sublabel="Total Conversions"
             value={formatNumber(data?.conversions?.total)}
             trend={`${data?.conversions?.contacts ?? 0} contacts`}
@@ -445,7 +448,7 @@ function AnalyticsOverview({
       <section data-print-section="true">
         <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
           <MaterialIcon icon="map" size="lg" className="text-brand-secondary" />
-          GEOGRAPHIC INTELLIGENCE - AO COVERAGE
+          Geographic Coverage
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <GeographicHeatMap locations={locations} />
@@ -463,7 +466,7 @@ function AnalyticsOverview({
             size="lg"
             className="text-brand-secondary"
           />
-          CTA ENGAGEMENT - TACTICAL RESPONSE
+          CTA Engagement
         </h2>
         <CTAPerformanceGrid ctas={ctas} />
       </section>
@@ -475,26 +478,26 @@ function AnalyticsOverview({
             size="lg"
             className="text-brand-secondary"
           />
-          MISSION OBJECTIVES - CONVERSIONS
+          Conversion Objectives
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <MilitaryMetricCard
+          <MetricCard
             icon="mail"
-            label="CONTACT SECURED"
+            label="Contact Forms"
             sublabel="Form Submissions"
             value={formatNumber(data?.conversions?.contacts)}
             color="green"
           />
-          <MilitaryMetricCard
+          <MetricCard
             icon="event"
             label="CONSULTATIONS"
             sublabel="Scheduled Meetings"
             value={formatNumber(data?.conversions?.consultations)}
             color="blue"
           />
-          <MilitaryMetricCard
+          <MetricCard
             icon="assessment"
-            label="TOTAL OBJECTIVES"
+            label="Total Conversions"
             sublabel="All Conversions"
             value={formatNumber(data?.conversions?.total)}
             color="purple"
@@ -504,12 +507,8 @@ function AnalyticsOverview({
 
       <section data-print-section="true">
         <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
-          <MaterialIcon
-            icon="military_tech"
-            size="lg"
-            className="text-bronze-400"
-          />
-          VETERAN OPERATIONS - BROTHERHOOD ENGAGEMENT
+          <MaterialIcon icon="groups" size="lg" className="text-bronze-400" />
+          Veteran Engagement
         </h2>
         <div className="bg-gradient-to-br from-bronze-900/60 to-bronze-800/40 backdrop-blur-sm rounded-xl border-2 border-bronze-500 p-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -535,7 +534,7 @@ function AnalyticsOverview({
             size="lg"
             className="text-brand-secondary"
           />
-          PERFORMANCE READINESS - SYSTEM STATUS
+          System Performance Status
         </h2>
         <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -561,7 +560,7 @@ function AnalyticsOverview({
   );
 }
 
-const MilitaryStatCard = function MilitaryStatCard({
+const StatCard = function StatCard({
   icon,
   label,
   sublabel,
@@ -628,7 +627,7 @@ const METRIC_COLOR_CLASSES: Readonly<
   },
 };
 
-function MilitaryMetricCard({
+function MetricCard({
   icon,
   label,
   sublabel,
@@ -712,7 +711,7 @@ function GeographicHeatMap({
           size="md"
           className="text-brand-secondary"
         />
-        OPERATIONAL ZONES
+        Service Regions
       </h3>
       <div className="space-y-3">
         {locations.length === 0 ? (
@@ -738,7 +737,7 @@ function GeographicHeatMap({
                     {loc.key}
                   </span>
                   <span className="text-brand-secondary font-black">
-                    {loc.count} ops
+                    {loc.count} clicks
                   </span>
                 </div>
                 <div className="h-2 bg-gray-700/50 rounded-full overflow-hidden">
@@ -767,7 +766,7 @@ function TopLocations({
     <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
       <h3 className="text-xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-2">
         <MaterialIcon icon="flag" size="md" className="text-brand-secondary" />
-        TARGET AO STATUS
+        Target Market Status
       </h3>
 
       <div className="bg-brand-primary/20 border-2 border-brand-secondary rounded-lg p-4 mb-4">
@@ -778,9 +777,7 @@ function TopLocations({
           <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
             TARGET MARKET COVERAGE
           </div>
-          <div className="text-gray-600 text-xs mt-1">
-            WA, OR, ID Operations
-          </div>
+          <div className="text-gray-600 text-xs mt-1">WA, OR, ID Coverage</div>
         </div>
       </div>
 
@@ -826,7 +823,7 @@ const CTA_BUCKETS: ReadonlyArray<{
 }> = [
   {
     match: (id) => id.includes("phone"),
-    title: "DIRECT COMMS",
+    title: "Phone Contacts",
     icon: "phone",
     bg: "from-green-900/60 to-green-800/40",
     border: "border-green-500",
@@ -835,7 +832,7 @@ const CTA_BUCKETS: ReadonlyArray<{
   },
   {
     match: (id) => id.includes("email"),
-    title: "SECURE MSGS",
+    title: "Email Inquiries",
     icon: "mail",
     bg: "from-blue-900/60 to-blue-800/40",
     border: "border-blue-500",
@@ -844,7 +841,7 @@ const CTA_BUCKETS: ReadonlyArray<{
   },
   {
     match: (id) => id.includes("address"),
-    title: "COORDINATES",
+    title: "Address Requests",
     icon: "place",
     bg: "from-purple-900/60 to-purple-800/40",
     border: "border-purple-500",

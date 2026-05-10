@@ -191,7 +191,7 @@ describe("Analytics Dashboard page", () => {
       render(<DashboardPage />);
     });
 
-    const logoutBtn = screen.getByText(/disengage/i);
+    const logoutBtn = screen.getByText(/sign out/i);
     await act(async () => {
       fireEvent.click(logoutBtn);
     });
@@ -284,8 +284,8 @@ describe("Analytics Dashboard page", () => {
       render(<DashboardPage />);
     });
 
-    expect(screen.getByText(/TACTICAL OVERVIEW/i)).toBeInTheDocument();
-    expect(screen.getByText(/MISSION SUCCESS/i)).toBeInTheDocument();
+    expect(screen.getByText(/Engagement Overview/i)).toBeInTheDocument();
+    expect(screen.getByText(/Conversion Objectives/i)).toBeInTheDocument();
   });
 
   it("renders no-data geographic and CTA messaging", async () => {
