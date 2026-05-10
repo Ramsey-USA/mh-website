@@ -89,7 +89,7 @@ describe("Analytics Dashboard page", () => {
       render(<DashboardPage />);
     });
 
-    expect(mockPush).toHaveBeenCalledWith("/hub");
+    expect(mockPush).toHaveBeenCalledWith("/");
   });
 
   it("redirects when refresh returns non-admin role", async () => {
@@ -108,7 +108,7 @@ describe("Analytics Dashboard page", () => {
       render(<DashboardPage />);
     });
 
-    expect(mockPush).toHaveBeenCalledWith("/hub");
+    expect(mockPush).toHaveBeenCalledWith("/");
   });
 
   it("renders the access log tab label for authenticated admins", async () => {
@@ -200,7 +200,7 @@ describe("Analytics Dashboard page", () => {
       method: "POST",
       credentials: "include",
     });
-    expect(mockPush).toHaveBeenCalledWith("/hub");
+    expect(mockPush).toHaveBeenCalledWith("/");
   });
 
   it("renders kvStatus=unavailable warning banner", async () => {

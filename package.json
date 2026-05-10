@@ -9,7 +9,6 @@
     "build": "pnpm --filter @mhc/website build",
     "build:dashboard": "pnpm --filter @mhc/dashboard build",
     "build:all": "pnpm --filter './apps/*' build",
-    "deploy": "pnpm --filter @mhc/website run deploy",
     "lint": "pnpm --filter './apps/*' lint",
     "lint:fix": "pnpm --filter './apps/*' lint:fix",
     "type-check": "pnpm --filter './apps/*' type-check",
@@ -26,8 +25,6 @@
     "lint:brand": "bash apps/website/scripts/brand-lint.sh",
     "lint:brand:ci": "BRAND_LINT_CHANGED_ONLY=true BRAND_LINT_BASE_SHA=${BASE_SHA:-} bash apps/website/scripts/brand-lint.sh",
     "docs:extract": "node apps/website/documents/scripts/extract.mjs",
-    "docs:generate:letterhead": "node apps/website/documents/scripts/generate.mjs --template letterhead && cp apps/website/documents/output/MHC-company-letterhead.pdf documents/output/MHC-company-letterhead.pdf && cp apps/website/documents/output/MHC-company-letterhead.docx documents/output/MHC-company-letterhead.docx",
-    "docs:generate:operations-guide": "node apps/website/documents/scripts/generate.mjs --template operations-hub-guide && cp apps/website/documents/output/operations-hub-dashboard-access-guide.pdf documents/output/operations-hub-dashboard-access-guide.pdf",
     "prepare": "node -e \"if (process.env.CI) process.exit(0)\" && husky"
   },
   "keywords": [
@@ -46,11 +43,7 @@
     "@commitlint/cli": "^20.5.2",
     "@commitlint/config-conventional": "^20.5.0",
     "@cspell/dict-es-es": "^3.0.8",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/forms": "^0.5.11",
-    "@tailwindcss/typography": "^0.5.19",
     "chalk": "^5.6.2",
-    "docx": "^9.6.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.3.3",
     "markdownlint-cli2": "^0.22.1",

@@ -275,18 +275,9 @@ export function SafetyTab({ token }: SafetyTabProps) {
     "/api/safety/downloads",
   );
 
-  const jobs = useMemo(
-    () => jobsQuery.data?.data ?? [],
-    [jobsQuery.data?.data],
-  );
-  const submissions = useMemo(
-    () => submissionsQuery.data?.data ?? [],
-    [submissionsQuery.data?.data],
-  );
-  const downloadLog = useMemo(
-    () => downloadLogQuery.data?.data ?? [],
-    [downloadLogQuery.data?.data],
-  );
+  const jobs = jobsQuery.data?.data ?? [];
+  const submissions = submissionsQuery.data?.data ?? [];
+  const downloadLog = downloadLogQuery.data?.data ?? [];
 
   const jobsLoading = jobsQuery.status === "loading";
   const subsLoading = submissionsQuery.status === "loading";

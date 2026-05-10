@@ -129,7 +129,7 @@ export default function AnalyticsDashboardPage() {
     } catch (err) {
       logger.error("Logout error:", err);
     }
-    router.push("/hub");
+    router.push("/");
   };
 
   const handleRefresh = useCallback(() => {
@@ -292,7 +292,7 @@ function AnalyticsOverview({
   error: string | null;
 }>) {
   // Memoize all derived aggregations so they only recompute when clicks change.
-  const clicks = useMemo(() => data?.clicks ?? [], [data?.clicks]);
+  const clicks = data?.clicks ?? [];
   const locations = useMemo(() => aggregateLocations(clicks), [clicks]);
   const stateCounts = useMemo(() => aggregateStateCounts(clicks), [clicks]);
   const topStateList = useMemo(() => topStates(stateCounts), [stateCounts]);

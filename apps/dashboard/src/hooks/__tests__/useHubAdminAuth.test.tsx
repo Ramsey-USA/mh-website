@@ -71,7 +71,7 @@ describe("useHubAdminAuth", () => {
     expect(pushMock).not.toHaveBeenCalled();
   });
 
-  it("redirects to '/hub' when refresh returns a non-admin role", async () => {
+  it("redirects to '/' when refresh returns a non-admin role", async () => {
     mockFetch({
       ok: true,
       body: {
@@ -86,13 +86,13 @@ describe("useHubAdminAuth", () => {
     });
 
     await waitFor(() => {
-      expect(pushMock).toHaveBeenCalledWith("/hub");
+      expect(pushMock).toHaveBeenCalledWith("/");
     });
 
     expect(states.at(-1)?.status).toBe("redirecting");
   });
 
-  it("redirects to '/hub' when refresh fails (network error)", async () => {
+  it("redirects to '/' when refresh fails (network error)", async () => {
     const fn = jest.fn().mockRejectedValue(new Error("offline"));
     globalThis.fetch = fn;
 
@@ -101,7 +101,7 @@ describe("useHubAdminAuth", () => {
     });
 
     await waitFor(() => {
-      expect(pushMock).toHaveBeenCalledWith("/hub");
+      expect(pushMock).toHaveBeenCalledWith("/");
     });
   });
 
@@ -113,7 +113,7 @@ describe("useHubAdminAuth", () => {
     });
 
     await waitFor(() => {
-      expect(pushMock).toHaveBeenCalledWith("/hub");
+      expect(pushMock).toHaveBeenCalledWith("/");
     });
   });
 });
