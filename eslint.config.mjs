@@ -197,19 +197,19 @@ const eslintConfig = [
         {
           patterns: [
             {
-              group: ["../**/components/*", "../../**/components/*"],
+              group: ["../**/components/**"],
               message: "Use @/components/* instead of relative imports",
             },
             {
-              group: ["../**/hooks/*", "../../**/hooks/*"],
+              group: ["../**/hooks/**"],
               message: "Use @/hooks/* instead of relative imports",
             },
             {
-              group: ["../**/lib/*", "../../**/lib/*"],
+              group: ["../**/lib/**"],
               message: "Use @/lib/* instead of relative imports",
             },
             {
-              group: ["../**/types/*", "../../**/types/*"],
+              group: ["../**/types/**"],
               message: "Use @/types/* instead of relative imports",
             },
           ],
