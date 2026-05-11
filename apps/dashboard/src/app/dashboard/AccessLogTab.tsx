@@ -51,15 +51,121 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
 
   useEffect(() => {
     if (!token) return;
-    const id = window.setInterval(() => void refetch(), REFRESH_INTERVAL_MS);
-    return () => window.clearInterval(id);
+    const id = globalThis.setInterval(
+      () => void refetch(),
+      REFRESH_INTERVAL_MS,
+    );
+    return () => globalThis.clearInterval(id);
   }, [token, refetch]);
 
-  const entries: ReadonlyArray<AccessLogEntry> = data?.data ?? [];
+  const entries = useMemo<ReadonlyArray<AccessLogEntry>>(
+    () => data?.data ?? [],
+    [data?.data],
+  );
   const total = data?.total ?? 0;
   const isLoading = status === "loading";
 
   const csvRows = useMemo(() => accessLogCsvRows(entries), [entries]);
+
+  let content: React.ReactNode;
+  if (isLoading) {
+    content = (
+      <div className="space-y-3">
+        {SKELETON_KEYS.map((key) => (
+          <div
+            key={key}
+            className="h-14 rounded-lg border border-gray-700 bg-gray-800/60 animate-pulse"
+          />
+        ))}
+      </div>
+    );
+  } else if (entries.length === 0) {
+    content = (
+      <div className="rounded-xl border border-gray-700 bg-gray-800/60 p-10 text-center text-gray-400">
+        <MaterialIcon
+          icon="history_toggle_off"
+          size="xl"
+          className="mx-auto mb-3 text-gray-500"
+        />
+        <p className="text-sm font-semibold">No access events yet</p>
+      </div>
+    );
+  } else {
+    content = (
+      <section
+        data-print-section="true"
+        className="rounded-xl border border-gray-700 bg-gray-800/80 overflow-hidden"
+      >
+        <div className="px-4 py-3 border-b border-gray-700 text-xs uppercase tracking-wider text-gray-400 font-bold">
+          {total} event{total === 1 ? "" : "s"}
+        </div>
+        <div className="overflow-x-auto">
+          <table className="min-w-full text-sm">
+            <thead className="bg-gray-900/80 text-gray-400 uppercase tracking-wider text-xs">
+              <tr>
+                <th scope="col" className="px-4 py-3 text-left">
+                  Time
+                </th>
+                <th scope="col" className="px-4 py-3 text-left">
+                  Name
+                </th>
+                <th scope="col" className="px-4 py-3 text-left">
+                  Role
+                </th>
+                <th scope="col" className="px-4 py-3 text-left">
+                  Event
+                </th>
+                <th scope="col" className="px-4 py-3 text-left">
+                  Resource
+                </th>
+                <th scope="col" className="px-4 py-3 text-left">
+                  IP Address
+                </th>
+                <th scope="col" className="px-4 py-3 text-left">
+                  Device / Browser
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-700">
+              {entries.map((entry) => (
+                <tr
+                  key={entry.id}
+                  className="hover:bg-gray-700/30 transition-colors text-gray-200"
+                >
+                  <td className="px-4 py-3 whitespace-nowrap">
+                    {formatAccessTimestamp(entry.accessed_at)}
+                  </td>
+                  <td className="px-4 py-3 font-semibold">{entry.user_name}</td>
+                  <td className="px-4 py-3">
+                    <span
+                      className={`inline-flex rounded-full px-2.5 py-1 text-xs font-black uppercase tracking-wide ${
+                        ROLE_BADGE_CLASSES[entry.role] ??
+                        "bg-gray-600 text-white"
+                      }`}
+                    >
+                      {entry.role}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3">
+                    {formatEventLabel(entry.event_type)}
+                  </td>
+                  <td className="px-4 py-3 text-gray-300">
+                    {entry.resource_title ?? entry.resource_key ?? "-"}
+                  </td>
+                  <td className="px-4 py-3 font-mono text-xs text-gray-300">
+                    {entry.ip_address ?? "-"}
+                  </td>
+                  <td className="px-4 py-3 text-gray-300">
+                    {summarizeUserAgent(entry.user_agent)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -108,7 +214,7 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3"
         >
           <label className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-            Role
+            <span>Role</span>
             <select
               value={roleFilter}
               onChange={(event) => setRoleFilter(event.target.value)}
@@ -123,7 +229,7 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
           </label>
 
           <label className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-            Event Type
+            <span>Event Type</span>
             <select
               value={eventTypeFilter}
               onChange={(event) => setEventTypeFilter(event.target.value)}
@@ -139,7 +245,7 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
           </label>
 
           <label className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-            From
+            <span>From</span>
             <input
               type="date"
               value={fromDate}
@@ -149,7 +255,7 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
           </label>
 
           <label className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-            To
+            <span>To</span>
             <input
               type="date"
               value={toDate}
@@ -174,100 +280,7 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
         </div>
       ) : null}
 
-      {isLoading ? (
-        <div className="space-y-3">
-          {SKELETON_KEYS.map((key) => (
-            <div
-              key={key}
-              className="h-14 rounded-lg border border-gray-700 bg-gray-800/60 animate-pulse"
-            />
-          ))}
-        </div>
-      ) : entries.length === 0 ? (
-        <div className="rounded-xl border border-gray-700 bg-gray-800/60 p-10 text-center text-gray-400">
-          <MaterialIcon
-            icon="history_toggle_off"
-            size="xl"
-            className="mx-auto mb-3 text-gray-500"
-          />
-          <p className="text-sm font-semibold">No access events yet</p>
-        </div>
-      ) : (
-        <section
-          data-print-section="true"
-          className="rounded-xl border border-gray-700 bg-gray-800/80 overflow-hidden"
-        >
-          <div className="px-4 py-3 border-b border-gray-700 text-xs uppercase tracking-wider text-gray-400 font-bold">
-            {total} event{total === 1 ? "" : "s"}
-          </div>
-          <div className="overflow-x-auto">
-            <table className="min-w-full text-sm">
-              <thead className="bg-gray-900/80 text-gray-400 uppercase tracking-wider text-xs">
-                <tr>
-                  <th scope="col" className="px-4 py-3 text-left">
-                    Time
-                  </th>
-                  <th scope="col" className="px-4 py-3 text-left">
-                    Name
-                  </th>
-                  <th scope="col" className="px-4 py-3 text-left">
-                    Role
-                  </th>
-                  <th scope="col" className="px-4 py-3 text-left">
-                    Event
-                  </th>
-                  <th scope="col" className="px-4 py-3 text-left">
-                    Resource
-                  </th>
-                  <th scope="col" className="px-4 py-3 text-left">
-                    IP Address
-                  </th>
-                  <th scope="col" className="px-4 py-3 text-left">
-                    Device / Browser
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-700">
-                {entries.map((entry) => (
-                  <tr
-                    key={entry.id}
-                    className="hover:bg-gray-700/30 transition-colors text-gray-200"
-                  >
-                    <td className="px-4 py-3 whitespace-nowrap">
-                      {formatAccessTimestamp(entry.accessed_at)}
-                    </td>
-                    <td className="px-4 py-3 font-semibold">
-                      {entry.user_name}
-                    </td>
-                    <td className="px-4 py-3">
-                      <span
-                        className={`inline-flex rounded-full px-2.5 py-1 text-xs font-black uppercase tracking-wide ${
-                          ROLE_BADGE_CLASSES[entry.role] ??
-                          "bg-gray-600 text-white"
-                        }`}
-                      >
-                        {entry.role}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      {formatEventLabel(entry.event_type)}
-                    </td>
-                    <td className="px-4 py-3 text-gray-300">
-                      {entry.resource_title ?? entry.resource_key ?? "-"}
-                    </td>
-                    <td className="px-4 py-3 font-mono text-xs text-gray-300">
-                      {entry.ip_address ?? "-"}
-                    </td>
-                    <td className="px-4 py-3 text-gray-300">
-                      {summarizeUserAgent(entry.user_agent)}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      )}
+      {content}
     </div>
   );
 }

@@ -1,0 +1,81 @@
+{
+  "classes": {
+    "indexable": {
+      "exact": [
+        "/",
+        "/about",
+        "/accessibility",
+        "/allies",
+        "/careers",
+        "/contact",
+        "/faq",
+        "/faq/[category]",
+        "/locations/coeur-d-alene",
+        "/locations/hermiston",
+        "/locations/kennewick",
+        "/locations/omak",
+        "/locations/pasco",
+        "/locations/pendleton",
+        "/locations/richland",
+        "/locations/spokane",
+        "/locations/walla-walla",
+        "/locations/west-richland",
+        "/locations/yakima",
+        "/privacy",
+        "/projects",
+        "/projects/[slug]",
+        "/public-sector",
+        "/resources",
+        "/resources/safety-manual/contents",
+        "/resources/safety-manual/forms",
+        "/safety",
+        "/services",
+        "/services/[slug]",
+        "/team",
+        "/terms",
+        "/testimonials",
+        "/veterans"
+      ],
+      "patterns": ["^/resources/safety-manual/\\[cluster\\]$"]
+    },
+    "noindex": {
+      "exact": [
+        "/careers/print",
+        "/employee-handbook",
+        "/offline",
+        "/safety/hub",
+        "/safety/incident-report",
+        "/safety/print/[id]"
+      ],
+      "patterns": []
+    },
+    "redirect": {
+      "exact": [
+        "/resources/safety-manual",
+        "/resources/safety-manual/section/[slug]",
+        "/resources/safety-program",
+        "/safety/intake"
+      ],
+      "patterns": []
+    }
+  },
+  "dynamicSitemapCoverage": [
+    {
+      "pattern": "^/resources/safety-manual/\\[cluster\\]$",
+      "requiresAny": ["ALL_CLUSTER_SLUGS", "SAFETY_CLUSTER_PAGES"]
+    },
+    {
+      "pattern": "^/services/\\[slug\\]$",
+      "requiresAny": ["getServiceRouteSlugs", "serviceEntries"]
+    },
+    {
+      "pattern": "^/projects/\\[slug\\]$",
+      "requiresAny": ["getProjectCaseStudySlugs", "projectEntries"]
+    },
+    {
+      "pattern": "^/faq/\\[category\\]$",
+      "requiresAny": ["getFAQCategorySlugs", "faqEntries"]
+    }
+  ],
+  "pendingClassification": []
+}

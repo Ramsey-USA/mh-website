@@ -32,6 +32,8 @@ See **[Patterns Index](./patterns/index.md)** for reusable section patterns, inc
 
 - **[Complete SEO & Search Optimization Guide](./seo/seo-complete-guide.md)** — Full SEO
   implementation guide. Pair with the [SEO Quick Reference](../marketing/seo-quick-reference.md).
+- **[Route Indexing Policy Checklist](./seo/route-indexing-policy-checklist.md)** — Required
+  process for classifying routes as indexable, noindex, or redirect and keeping sitemap coverage aligned.
 
 ## PWA & Media
 

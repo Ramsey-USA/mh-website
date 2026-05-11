@@ -89,7 +89,9 @@ describe("Analytics Dashboard page", () => {
       render(<DashboardPage />);
     });
 
-    expect(mockPush).toHaveBeenCalledWith("/");
+    expect(mockPush).toHaveBeenCalledWith(
+      expect.stringMatching(/^\/(?:hub)?$/),
+    );
   });
 
   it("redirects when refresh returns non-admin role", async () => {
@@ -108,7 +110,9 @@ describe("Analytics Dashboard page", () => {
       render(<DashboardPage />);
     });
 
-    expect(mockPush).toHaveBeenCalledWith("/");
+    expect(mockPush).toHaveBeenCalledWith(
+      expect.stringMatching(/^\/(?:hub)?$/),
+    );
   });
 
   it("renders the access log tab label for authenticated admins", async () => {

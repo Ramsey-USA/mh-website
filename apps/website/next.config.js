@@ -23,15 +23,8 @@ if (
   process.env.NODE_ENV === "production" &&
   !process.env.NEXT_PUBLIC_SITE_URL
 ) {
-  // Apply the production fallback so the build can proceed; canonical URLs will
-  // still be correct since the fallback matches the live domain.
-  // To silence this warning, add NEXT_PUBLIC_SITE_URL=https://www.mhc-gc.com
-  // in the Cloudflare Workers dashboard (Settings → Environment variables).
-  console.warn(
-    "[next.config.js] NEXT_PUBLIC_SITE_URL is not set — " +
-      "falling back to https://www.mhc-gc.com. " +
-      "Add it to the Cloudflare Workers dashboard to suppress this warning.",
-  );
+  // Keep canonical URLs stable in production builds even when env bindings are
+  // not present at build time (for example in local CI smoke builds).
   process.env.NEXT_PUBLIC_SITE_URL = "https://www.mhc-gc.com";
 }
 
@@ -318,16 +311,6 @@ const nextConfig = {
       ...prodOnly([
         {
           source: "/:all*(svg|jpg|jpeg|png|webp|avif|gif)",
-          headers: [
-            {
-              key: "Cache-Control",
-              value: "public, max-age=31536000, immutable",
-            },
-          ],
-        },
-        // Cache Next.js static files (CSS, JS bundles)
-        {
-          source: "/_next/static/:path*",
           headers: [
             {
               key: "Cache-Control",

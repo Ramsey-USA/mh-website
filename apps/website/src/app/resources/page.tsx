@@ -22,11 +22,25 @@ export const metadata: Metadata = {
   title: "Field Resources | MH Construction",
   description:
     "Download MH Construction's Safety Manual, toolbox talk forms, JHA templates, equipment checklists, and all field documentation. Founded 2010, Veteran-Owned Since January 2025. Consistent branding on and off the job site.",
+  alternates: {
+    canonical: "https://www.mhc-gc.com/resources",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "Field Resources | MH Construction",
     description:
       "Safety manuals, toolbox talks, and field forms from a Veteran-Owned Since January 2025 Tri-State licensed construction team with Tri-Cities headquarters — branded and ready to print.",
     url: "https://www.mhc-gc.com/resources",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Field Resources | MH Construction",
+    description:
+      "Safety manuals, toolbox talks, and field forms from MH Construction for field crews and project stakeholders.",
   },
 };
 

@@ -1,7 +1,21 @@
+import type { Metadata } from "next";
 import { permanentRedirect } from "next/navigation";
 
 import { getDocumentById } from "@/lib/data/documents";
 import { clusterForSection } from "@/lib/data/safety-manual-clusters";
+
+export const metadata: Metadata = {
+  title: "Safety Manual Section Redirect | MH Construction",
+  description:
+    "Legacy safety manual section route that permanently redirects to the current indexed cluster page.",
+  alternates: {
+    canonical: "https://www.mhc-gc.com/resources/safety-manual/contents",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 /**
  * Legacy section URL — `/resources/safety-manual/section/[slug]`

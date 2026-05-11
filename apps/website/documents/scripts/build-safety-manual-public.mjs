@@ -125,10 +125,19 @@ function extractPreviewHtml(body, maxWords = 250) {
 
 async function main() {
   if (!existsSync(SOURCE)) {
+    if (existsSync(OUTPUT)) {
+      console.log(
+        "ℹ safety-manual.json not found — using existing safety-manual-public.json.",
+      );
+      process.exit(0);
+    }
+
     console.warn(
-      "⚠  safety-manual.json not found — skipping public manifest derivation.",
+      "⚠ safety-manual.json not found and no safety-manual-public.json exists.",
     );
-    console.warn("   Run `npm run docs:extract-word` first if needed.");
+    console.warn(
+      "  Run `npm run docs:extract-word` then `npm run docs:build-public`.",
+    );
     process.exit(0);
   }
 

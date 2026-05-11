@@ -21,7 +21,7 @@ interface ProjectCardProps {
   project: ProjectPortfolio;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
   const handleCardClick = () => {
     trackProjectInterest(project.title, project.category, "click", {
       location: project.location.city,
@@ -48,7 +48,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             priority={project.isFeatured}
           />
         ) : (
-          <div className="flex justify-center items-center bg-gradient-to-br from-brand-primary/20 dark:from-brand-primary/30 to-brand-secondary/20 dark:to-brand-secondary/30 w-full h-full">
+          <div className="flex justify-center items-center bg-linear-to-br from-brand-primary/20 dark:from-brand-primary/30 to-brand-secondary/20 dark:to-brand-secondary/30 w-full h-full">
             <MaterialIcon
               icon="image"
               size="4xl"
@@ -164,9 +164,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {/* Project Tags */}
         {project.tags && project.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">
-            {project.tags.slice(0, 3).map((tag: string, _index: number) => (
+            {project.tags.slice(0, 3).map((tag: string) => (
               <span
-                key={_index}
+                key={`${project.id}-${tag}`}
                 className="inline-flex items-center bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-md text-gray-700 dark:text-gray-300 text-xs"
               >
                 {tag}
@@ -176,7 +176,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         )}
 
         {/* View Details Button */}
-        <Link href={`/projects/${project.id}`} passHref>
+        <Link href={`/projects/${project.seoMetadata.slug}`} passHref>
           <Button
             variant="outline"
             size="sm"

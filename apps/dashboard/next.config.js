@@ -45,6 +45,9 @@ const nextConfig = {
     ],
   },
 
+  // Explicitly enable Turbopack in Next 16 when custom webpack config is present.
+  turbopack: {},
+
   outputFileTracingExcludes: {
     "*": [
       "node_modules/@swc/core-linux-x64-gnu/**/*",
@@ -128,7 +131,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/:path((?!_next|.*\\..*).+)",
+        source: String.raw`/:path((?!_next|.*\..*).+)`,
         headers: [
           {
             key: "Cache-Control",

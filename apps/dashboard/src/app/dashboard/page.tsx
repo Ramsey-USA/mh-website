@@ -52,6 +52,10 @@ const RfqTab = dynamic(
   () => import("./RfqTab").then((m) => ({ default: m.RfqTab })),
   { ssr: false, loading: () => TAB_PLACEHOLDER },
 );
+const BrandingTab = dynamic(
+  () => import("./BrandingTab").then((m) => ({ default: m.BrandingTab })),
+  { ssr: false, loading: () => TAB_PLACEHOLDER },
+);
 
 type DashboardTab =
   | "analytics"
@@ -59,7 +63,8 @@ type DashboardTab =
   | "safety"
   | "drivers"
   | "access-log"
-  | "rfq";
+  | "rfq"
+  | "branding";
 
 const DASHBOARD_TABS: ReadonlyArray<DashboardTab> = [
   "analytics",
@@ -68,6 +73,7 @@ const DASHBOARD_TABS: ReadonlyArray<DashboardTab> = [
   "drivers",
   "access-log",
   "rfq",
+  "branding",
 ];
 
 const TAB_CONFIG: Readonly<
@@ -79,7 +85,45 @@ const TAB_CONFIG: Readonly<
   drivers: { icon: "directions_car", label: "Drivers" },
   "access-log": { icon: "verified_user", label: "Access Log" },
   rfq: { icon: "description", label: "RFQ Builder" },
+  branding: { icon: "auto_fix_high", label: "Branding Studio" },
 };
+
+function renderTabContent(
+  activeTab: DashboardTab,
+  adminToken: string | null,
+  dashboardData: DashboardData | null,
+  isLoading: boolean,
+  error: string | null,
+) {
+  const token = adminToken ?? "";
+
+  if (activeTab === "leads") {
+    return <LeadsTab token={token} />;
+  }
+  if (activeTab === "safety") {
+    return <SafetyTab token={token} />;
+  }
+  if (activeTab === "drivers") {
+    return <DriversTab token={token} />;
+  }
+  if (activeTab === "access-log") {
+    return <AccessLogTab token={token} />;
+  }
+  if (activeTab === "rfq") {
+    return <RfqTab token={token} />;
+  }
+  if (activeTab === "branding") {
+    return <BrandingTab token={token} />;
+  }
+
+  return (
+    <AnalyticsOverview
+      data={dashboardData}
+      isLoading={isLoading}
+      error={error}
+    />
+  );
+}
 
 export default function AnalyticsDashboardPage() {
   usePageTracking("Analytics Dashboard");
@@ -143,15 +187,22 @@ export default function AnalyticsDashboardPage() {
 
   const userName = auth.userName || "Admin";
   const userData = { name: userName, email: auth.userEmail };
+  const tabContent = renderTabContent(
+    activeTab,
+    adminToken,
+    dashboardData,
+    isLoading,
+    error,
+  );
 
   return (
     <div
       data-print-scope="dashboard"
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black"
+      className="min-h-screen bg-linear-to-br from-gray-900 via-gray-800 to-black"
     >
       <header
         data-print-hide="true"
-        className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary border-b-4 border-brand-secondary shadow-2xl"
+        className="bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary border-b-4 border-brand-secondary shadow-2xl"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
@@ -238,23 +289,7 @@ export default function AnalyticsDashboardPage() {
       <PrintHeader user={userData} data={dashboardData} />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {activeTab === "leads" ? (
-          <LeadsTab token={adminToken ?? ""} />
-        ) : activeTab === "safety" ? (
-          <SafetyTab token={adminToken ?? ""} />
-        ) : activeTab === "drivers" ? (
-          <DriversTab token={adminToken ?? ""} />
-        ) : activeTab === "access-log" ? (
-          <AccessLogTab token={adminToken ?? ""} />
-        ) : activeTab === "rfq" ? (
-          <RfqTab token={adminToken ?? ""} />
-        ) : (
-          <AnalyticsOverview
-            data={dashboardData}
-            isLoading={isLoading}
-            error={error}
-          />
-        )}
+        {tabContent}
       </main>
     </div>
   );
@@ -295,7 +330,7 @@ function AnalyticsOverview({
   error: string | null;
 }>) {
   // Memoize all derived aggregations so they only recompute when clicks change.
-  const clicks = data?.clicks ?? [];
+  const clicks = useMemo(() => data?.clicks ?? [], [data?.clicks]);
   const locations = useMemo(() => aggregateLocations(clicks), [clicks]);
   const stateCounts = useMemo(() => aggregateStateCounts(clicks), [clicks]);
   const topStateList = useMemo(() => topStates(stateCounts), [stateCounts]);
@@ -510,7 +545,7 @@ function AnalyticsOverview({
           <MaterialIcon icon="groups" size="lg" className="text-bronze-400" />
           Veteran Engagement
         </h2>
-        <div className="bg-gradient-to-br from-bronze-900/60 to-bronze-800/40 backdrop-blur-sm rounded-xl border-2 border-bronze-500 p-6">
+        <div className="bg-linear-to-br from-bronze-900/60 to-bronze-800/40 backdrop-blur-sm rounded-xl border-2 border-bronze-500 p-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <VeteranStat
               icon="visibility"
@@ -576,7 +611,7 @@ const StatCard = function StatCard({
   trendUp: boolean;
 }>) {
   return (
-    <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-xl border-2 border-brand-primary shadow-2xl p-6 hover:scale-105 transition-transform">
+    <div className="bg-linear-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-xl border-2 border-brand-primary shadow-2xl p-6 hover:scale-105 transition-transform">
       <div className="flex items-start justify-between mb-4">
         <div className="bg-brand-secondary/20 p-3 rounded-lg border border-brand-secondary">
           <MaterialIcon
@@ -643,7 +678,7 @@ function MetricCard({
   const colors = METRIC_COLOR_CLASSES[color];
   return (
     <div
-      className={`bg-gradient-to-br ${colors.bg} backdrop-blur-sm rounded-xl border-2 ${colors.border} p-6 hover:scale-105 transition-transform`}
+      className={`bg-linear-to-br ${colors.bg} backdrop-blur-sm rounded-xl border-2 ${colors.border} p-6 hover:scale-105 transition-transform`}
     >
       <div className="flex items-center justify-between mb-4">
         <MaterialIcon icon={icon} size="2xl" className={colors.text} />
@@ -704,7 +739,7 @@ function GeographicHeatMap({
 }: Readonly<{ locations: ReadonlyArray<LocationAggregate> }>) {
   const maxCount = locations[0]?.count ?? 1;
   return (
-    <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
+    <div className="bg-linear-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
       <h3 className="text-xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-2">
         <MaterialIcon
           icon="location_on"
@@ -742,7 +777,7 @@ function GeographicHeatMap({
                 </div>
                 <div className="h-2 bg-gray-700/50 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full transition-all"
+                    className="h-full bg-linear-to-r from-brand-primary to-brand-secondary rounded-full transition-all"
                     style={{ width: `${percentage}%` }}
                   />
                 </div>
@@ -763,7 +798,7 @@ function TopLocations({
   coverage: number;
 }>) {
   return (
-    <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
+    <div className="bg-linear-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
       <h3 className="text-xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-2">
         <MaterialIcon icon="flag" size="md" className="text-brand-secondary" />
         Target Market Status
@@ -860,7 +895,7 @@ function CTAPerformanceGrid({
         return (
           <div
             key={bucket.title}
-            className={`bg-gradient-to-br ${bucket.bg} backdrop-blur-sm rounded-xl border-2 ${bucket.border} p-6`}
+            className={`bg-linear-to-br ${bucket.bg} backdrop-blur-sm rounded-xl border-2 ${bucket.border} p-6`}
           >
             <div className="flex items-center gap-3 mb-4">
               <MaterialIcon

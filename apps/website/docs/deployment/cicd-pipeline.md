@@ -126,7 +126,7 @@ npm run build:lowmem
 **Environment Variables:**
 
 - `LOW_MEMORY_BUILD=true` - Reduces memory usage for CI
-- `NODE_OPTIONS=--max-old-space-size=3072` - 3GB memory limit
+- `NODE_OPTIONS=--max-old-space-size=4096` - 4GB memory limit
 
 **What happens:**
 
@@ -482,7 +482,7 @@ Results saved to `./lighthouse-results/`
 
 ### Build Fails with "Out of Memory"
 
-**Solution:** Already configured in CI with `--max-old-space-size=3072`
+**Solution:** Already configured in CI with `--max-old-space-size=4096`
 
 If local build fails:
 

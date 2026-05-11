@@ -300,3 +300,11 @@ export const totalFAQCount = faqCategories.reduce(
   (sum, cat) => sum + cat.questions.length,
   0,
 );
+
+export function getFAQCategoryBySlug(slug: string): FAQCategory | undefined {
+  return faqCategories.find((category) => category.id === slug);
+}
+
+export function getFAQCategorySlugs(): string[] {
+  return faqCategories.map((category) => category.id);
+}

@@ -7,11 +7,16 @@ const seoData = getFAQSEO();
 const { schemas, ...metadataProps } = seoData;
 export const metadata: Metadata = metadataProps;
 
-export default function FAQLayout({ children }: { children: React.ReactNode }) {
+export default function FAQLayout({
+  children,
+  params,
+}: Readonly<{
+  children: React.ReactNode;
+  params?: { category?: string };
+}>) {
   return (
     <>
-      {/* Enhanced FAQ Structured Data for SEO */}
-      <StructuredData data={schemas} />
+      {params?.category ? null : <StructuredData data={schemas} />}
       {children}
     </>
   );

@@ -2,6 +2,10 @@ import type { MetadataRoute } from "next";
 import fs from "node:fs";
 import path from "node:path";
 
+import { getServiceRouteSlugs } from "@/lib/data/service-routes";
+import { getProjectCaseStudySlugs } from "@/lib/data/project-case-studies";
+import { getFAQCategorySlugs } from "@/lib/data/faq-data";
+
 export const dynamic = "force-static";
 
 /**
@@ -15,7 +19,7 @@ export const dynamic = "force-static";
 
 const ACTIVE_PAGES = [
   // Priority 1.0 - Homepage (highest priority)
-  { path: "/", priority: 1.0, changeFreq: "monthly" as const },
+  { path: "/", priority: 1, changeFreq: "monthly" as const },
 
   // Priority 0.9 - Core business pages
   { path: "/about", priority: 0.9, changeFreq: "monthly" as const },
@@ -102,12 +106,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
     process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com";
   const currentDate = new Date();
 
-  // Auto-generate sitemap entries from registry
   const pageEntries = ACTIVE_PAGES.map(({ path, priority, changeFreq }) => ({
     url: `${baseUrl}${path}`,
     lastModified: currentDate,
     changeFrequency: changeFreq,
     priority,
+  }));
+
+  const serviceEntries = getServiceRouteSlugs().map((slug) => ({
+    url: `${baseUrl}/services/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
+  const projectEntries = getProjectCaseStudySlugs().map((slug) => ({
+    url: `${baseUrl}/projects/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  const faqEntries = getFAQCategorySlugs().map((category) => ({
+    url: `${baseUrl}/faq/${category}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
   }));
 
   const mediaEntries = getMediaUrls().map((mediaUrl) => ({
@@ -117,7 +141,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: getMediaPriority(mediaUrl),
   }));
 
-  return [...pageEntries, ...mediaEntries];
+  return [
+    ...pageEntries,
+    ...serviceEntries,
+    ...projectEntries,
+    ...faqEntries,
+    ...mediaEntries,
+  ];
 }
 
 function getMediaUrls(): string[] {
