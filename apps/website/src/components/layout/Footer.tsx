@@ -1150,10 +1150,7 @@ export default function Footer() {
             </a>
 
             {/* Washington State Veteran Owned Business */}
-            <WaVobBadge
-              size="md"
-              className="flex h-18 w-56 items-center justify-center rounded-lg"
-            />
+            <WaVobBadge size="lg" className="w-full max-w-60" />
           </div>
 
           {/* Bottom Bar - Enhanced Design */}

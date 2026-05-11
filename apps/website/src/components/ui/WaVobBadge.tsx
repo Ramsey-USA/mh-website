@@ -16,10 +16,10 @@
 import Image from "next/image";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
-type WaVobBadgeSize = "sm" | "md";
+type WaVobBadgeSize = "sm" | "md" | "lg";
 
 type WaVobBadgeProps = {
-  /** Controls image height: sm = h-10 (40px), md = h-12 (48px). Defaults to md. */
+  /** Controls image height: sm = h-10 (40px), md = h-12 (48px), lg = h-14 (56px). Defaults to md. */
   size?: WaVobBadgeSize;
   /** Additional class names applied to the outermost wrapper element. */
   className?: string;
@@ -28,6 +28,7 @@ type WaVobBadgeProps = {
 const sizeMap: Record<WaVobBadgeSize, string> = {
   sm: "h-10 w-auto",
   md: "h-12 w-auto",
+  lg: "h-14 w-auto",
 };
 
 /**
@@ -46,16 +47,21 @@ export function WaVobBadge({
       rel="noopener noreferrer"
       title={COMPANY_INFO.waVob.title}
       aria-label={`${COMPANY_INFO.waVob.alt} — click to verify certification`}
-      className={`group inline-block rounded-xl bg-linear-to-br from-red-600 to-blue-700 p-0.75 transition-transform duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ${className}`}
+      className={`group relative isolate inline-block overflow-hidden rounded-xl bg-linear-to-br from-red-600 via-red-500 to-blue-700 p-0.75 shadow-[0_10px_22px_-16px_rgba(220,38,38,0.9),0_14px_26px_-20px_rgba(29,78,216,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_-16px_rgba(220,38,38,0.95),0_18px_30px_-20px_rgba(29,78,216,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ${className}`}
     >
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/2 -skew-x-12 bg-linear-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-500 group-hover:left-[120%] group-hover:opacity-100"
+      />
       {/* Inner container — white bg on light mode, dark bg on dark mode, hides non-transparent logo bg */}
-      <div className="flex items-center justify-center rounded-[10px] bg-white dark:bg-gray-800 overflow-hidden">
+      <div className="relative flex items-center justify-center overflow-hidden rounded-[10px] bg-white px-2 py-1 dark:bg-gray-800">
         <Image
           src={COMPANY_INFO.waVob.logo}
           alt={COMPANY_INFO.waVob.alt}
           width={160}
           height={80}
           className={`${sizeMap[size]} object-contain`}
+          sizes="(max-width: 640px) 140px, 180px"
           loading="lazy"
         />
       </div>

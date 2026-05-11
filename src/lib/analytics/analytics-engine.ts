@@ -727,6 +727,26 @@ export class AdvancedAnalyticsEngine {
     });
 
     window.addEventListener("unhandledrejection", (event) => {
+      const reasonMessage =
+        typeof event.reason === "string"
+          ? event.reason
+          : typeof event.reason?.message === "string"
+            ? event.reason.message
+            : "";
+
+      // Ignore known browser extension messaging noise that is not actionable in app code.
+      if (
+        reasonMessage.includes(
+          "A listener indicated an asynchronous response by returning true",
+        ) &&
+        reasonMessage.includes(
+          "message channel closed before a response was received",
+        )
+      ) {
+        event.preventDefault();
+        return;
+      }
+
       this.trackError(
         new Error(event.reason?.message || "Unhandled Promise Rejection"),
         {

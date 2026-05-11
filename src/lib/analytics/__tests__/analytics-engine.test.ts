@@ -679,6 +679,27 @@ describe("AdvancedAnalyticsEngine", () => {
       );
       spy.mockRestore();
     });
+
+    it("suppresses known extension async listener channel-closed rejection", async () => {
+      const spy = jest.spyOn(AdvancedAnalyticsEngine.prototype, "trackError");
+      new AdvancedAnalyticsEngine();
+      await flushInit();
+
+      const event = new PromiseRejectionEvent("unhandledrejection", {
+        promise: Promise.resolve(),
+        reason:
+          "A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received",
+      });
+
+      const preventDefaultSpy = jest.spyOn(event, "preventDefault");
+      window.dispatchEvent(event);
+
+      expect(preventDefaultSpy).toHaveBeenCalled();
+      expect(spy).not.toHaveBeenCalled();
+
+      preventDefaultSpy.mockRestore();
+      spy.mockRestore();
+    });
   });
 
   describe("document visibilitychange listener (setupEventListeners)", () => {
