@@ -1,5 +1,73 @@
 // Learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom";
+import { TextDecoder, TextEncoder } from "node:util";
+
+if (typeof globalThis.TextEncoder === "undefined") {
+  Object.defineProperty(globalThis, "TextEncoder", {
+    writable: true,
+    value: TextEncoder,
+  });
+}
+
+if (typeof globalThis.TextDecoder === "undefined") {
+  Object.defineProperty(globalThis, "TextDecoder", {
+    writable: true,
+    value: TextDecoder,
+  });
+}
+
+if (typeof globalThis.Request === "undefined") {
+  class TestRequest {
+    constructor(input, init = {}) {
+      this.url = String(input);
+      this.method = init.method || "GET";
+      this.headers = init.headers || {};
+      this.body = init.body;
+    }
+  }
+  Object.defineProperty(globalThis, "Request", {
+    writable: true,
+    value: TestRequest,
+  });
+}
+
+if (typeof globalThis.Response === "undefined") {
+  class TestResponse {
+    constructor(body = null, init = {}) {
+      this.body = body;
+      this.status = init.status || 200;
+      this.headers = init.headers || {};
+    }
+  }
+  Object.defineProperty(globalThis, "Response", {
+    writable: true,
+    value: TestResponse,
+  });
+}
+
+if (typeof globalThis.Headers === "undefined") {
+  class TestHeaders {
+    constructor(init = {}) {
+      this.map = new Map(Object.entries(init));
+    }
+
+    set(key, value) {
+      this.map.set(String(key).toLowerCase(), String(value));
+    }
+
+    get(key) {
+      return this.map.get(String(key).toLowerCase()) ?? null;
+    }
+
+    has(key) {
+      return this.map.has(String(key).toLowerCase());
+    }
+  }
+  Object.defineProperty(globalThis, "Headers", {
+    writable: true,
+    value: TestHeaders,
+  });
+}
 
 // Mock Next.js router
 jest.mock("next/navigation", () => ({

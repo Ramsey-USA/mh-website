@@ -38,6 +38,15 @@ Object.defineProperty(globalThis, "fetch", {
 
 import { render, act } from "@testing-library/react";
 
+async function renderDashboardPage() {
+  const { default: DashboardPage } = require("../page") as {
+    default: () => Promise<React.ReactElement> | React.ReactElement;
+  };
+
+  const element = await DashboardPage();
+  return render(element);
+}
+
 function mockRefreshAsAdmin() {
   mockFetch.mockResolvedValueOnce({
     ok: true,
@@ -82,11 +91,8 @@ describe("Analytics Dashboard page", () => {
   it("renders without throwing when refresh is unauthorized", async () => {
     mockFetch.mockResolvedValueOnce({ ok: false, json: async () => ({}) });
 
-    const { default: DashboardPage } = require("../page") as {
-      default: React.ComponentType;
-    };
     await act(async () => {
-      render(<DashboardPage />);
+      await renderDashboardPage();
     });
 
     expect(mockPush).toHaveBeenCalledWith(
@@ -103,11 +109,8 @@ describe("Analytics Dashboard page", () => {
       }),
     });
 
-    const { default: DashboardPage } = require("../page") as {
-      default: React.ComponentType;
-    };
     await act(async () => {
-      render(<DashboardPage />);
+      await renderDashboardPage();
     });
 
     expect(mockPush).toHaveBeenCalledWith(
@@ -121,27 +124,46 @@ describe("Analytics Dashboard page", () => {
     mockRefreshAsAdmin();
     mockAnalyticsOk();
 
-    const { default: DashboardPage } = require("../page") as {
-      default: React.ComponentType;
-    };
-
     await act(async () => {
-      render(<DashboardPage />);
+      await renderDashboardPage();
     });
 
+    expect(mockFetch).toHaveBeenNthCalledWith(2, "/api/analytics/overview", {
+      headers: { Authorization: "Bearer admin-access-token" },
+      cache: "no-store",
+    });
     expect(screen.getByText(/Access Log/i)).toBeInTheDocument();
+  });
+
+  it("refresh button re-fetches analytics overview", async () => {
+    const { screen, fireEvent } = await import("@testing-library/react");
+
+    mockRefreshAsAdmin();
+    mockAnalyticsOk();
+
+    await act(async () => {
+      await renderDashboardPage();
+    });
+
+    mockAnalyticsOk();
+    const refreshBtn = screen.getByRole("button", { name: /refresh/i });
+    await act(async () => {
+      fireEvent.click(refreshBtn);
+    });
+
+    expect(mockFetch).toHaveBeenLastCalledWith("/api/analytics/overview", {
+      headers: { Authorization: "Bearer admin-access-token" },
+      cache: "no-store",
+    });
   });
 
   it("shows error state when analytics fetch returns !ok", async () => {
     mockRefreshAsAdmin();
     mockFetch.mockResolvedValueOnce({ ok: false, json: async () => ({}) });
 
-    const { default: DashboardPage } = require("../page") as {
-      default: React.ComponentType;
-    };
     let container!: HTMLElement;
     await act(async () => {
-      ({ container } = render(<DashboardPage />));
+      ({ container } = await renderDashboardPage());
     });
 
     expect(container.textContent).toMatch(/error|failed/i);
@@ -151,12 +173,9 @@ describe("Analytics Dashboard page", () => {
     mockRefreshAsAdmin();
     mockFetch.mockRejectedValueOnce(new Error("Network failure"));
 
-    const { default: DashboardPage } = require("../page") as {
-      default: React.ComponentType;
-    };
     let container!: HTMLElement;
     await act(async () => {
-      ({ container } = render(<DashboardPage />));
+      ({ container } = await renderDashboardPage());
     });
 
     expect(container.textContent).toMatch(/error|failed/i);
@@ -187,12 +206,8 @@ describe("Analytics Dashboard page", () => {
     });
     mockFetch.mockResolvedValueOnce({ ok: true, json: async () => ({}) });
 
-    const { default: DashboardPage } = require("../page") as {
-      default: React.ComponentType;
-    };
-
     await act(async () => {
-      render(<DashboardPage />);
+      await renderDashboardPage();
     });
 
     const logoutBtn = screen.getByText(/sign out/i);
@@ -231,11 +246,8 @@ describe("Analytics Dashboard page", () => {
       kvStatus: "unavailable",
     });
 
-    const { default: DashboardPage } = require("../page") as {
-      default: React.ComponentType;
-    };
     await act(async () => {
-      render(<DashboardPage />);
+      await renderDashboardPage();
     });
 
     expect(screen.getByText(/KV NOT CONNECTED/i)).toBeInTheDocument();
@@ -280,12 +292,8 @@ describe("Analytics Dashboard page", () => {
       kvStatus: "connected",
     });
 
-    const { default: DashboardPage } = require("../page") as {
-      default: React.ComponentType;
-    };
-
     await act(async () => {
-      render(<DashboardPage />);
+      await renderDashboardPage();
     });
 
     expect(screen.getByText(/Engagement Overview/i)).toBeInTheDocument();
@@ -319,12 +327,8 @@ describe("Analytics Dashboard page", () => {
       today: { pageviews: 1, sessions: 1 },
     });
 
-    const { default: DashboardPage } = require("../page") as {
-      default: React.ComponentType;
-    };
-
     await act(async () => {
-      render(<DashboardPage />);
+      await renderDashboardPage();
     });
 
     expect(

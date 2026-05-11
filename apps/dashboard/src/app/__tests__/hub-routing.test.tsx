@@ -6,6 +6,14 @@
 
 import { render, screen } from "@testing-library/react";
 
+async function renderHubPage() {
+  const { default: HubPage } = require("../hub/page") as {
+    default: () => Promise<React.ReactElement> | React.ReactElement;
+  };
+  const element = await HubPage();
+  return render(element);
+}
+
 jest.mock("next/link", () => ({
   __esModule: true,
   default: ({
@@ -31,18 +39,21 @@ jest.mock("@/components/analytics", () => ({
   PageTrackingClient: () => null,
 }));
 
+jest.mock("@/lib/hub/resources", () => ({
+  getHubSafetySummary: async () => ({
+    sectionCount: 50,
+    revisionNumber: "3",
+  }),
+}));
+
 describe("Operations Hub page routing", () => {
   beforeEach(() => {
     jest.clearAllMocks();
     globalThis.localStorage.clear();
   });
 
-  it("keeps Incident Reporting card mapped to direct incident entry route", () => {
-    const { default: HubPage } = require("../hub/page") as {
-      default: React.ComponentType;
-    };
-
-    render(<HubPage />);
+  it("keeps Incident Reporting card mapped to direct incident entry route", async () => {
+    await renderHubPage();
 
     const incidentCard = screen.getByRole("link", {
       name: /Incident Reporting/i,
@@ -51,17 +62,30 @@ describe("Operations Hub page routing", () => {
     expect(incidentCard).toHaveAttribute("href", "/safety/incident-report");
   });
 
-  it("keeps Employee Handbook card mapped to placeholder route", () => {
-    const { default: HubPage } = require("../hub/page") as {
-      default: React.ComponentType;
-    };
-
-    render(<HubPage />);
+  it("keeps Employee Handbook card mapped to placeholder route", async () => {
+    await renderHubPage();
 
     const handbookCard = screen.getByRole("link", {
       name: /Employee Handbook/i,
     });
 
     expect(handbookCard).toHaveAttribute("href", "/employee-handbook");
+  });
+
+  it("renders safety manual revision summary from hub resources", async () => {
+    await renderHubPage();
+
+    expect(screen.getByText(/MISH Rev 3/i)).toBeInTheDocument();
+    expect(screen.getByText(/50 sections/i)).toBeInTheDocument();
+  });
+
+  it("renders admin tools section with review profile action", async () => {
+    await renderHubPage();
+
+    expect(screen.getByText(/Admin Tools/i)).toBeInTheDocument();
+    const reviewProfilesCard = screen.getByRole("link", {
+      name: /Review Profiles/i,
+    });
+    expect(reviewProfilesCard).toHaveAttribute("href", "/hub/profile/review");
   });
 });

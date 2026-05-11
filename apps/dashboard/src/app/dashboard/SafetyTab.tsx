@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState, type FormEvent } from "react";
 import dynamic from "next/dynamic";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { DashboardFormField } from "@/components/ui/forms/DashboardFormField";
@@ -62,7 +62,7 @@ function NewJobForm({ token, onCreated, onCancel }: NewJobFormProps) {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
     if (!fields.job_number.trim() || !fields.job_name.trim()) {
@@ -239,6 +239,247 @@ const PIPELINE_BADGES = [
     color: "text-gray-400 border-gray-600 bg-gray-700/30",
   },
 ] as const;
+
+interface JobsTableContentProps {
+  readonly jobsLoading: boolean;
+  readonly jobs: ReadonlyArray<Job>;
+  readonly token: string;
+  readonly updatingId: string | null;
+  readonly expandedSsspJobId: string | null;
+  readonly onPatchStatus: (
+    jobId: string,
+    status: JobStatus,
+  ) => void | Promise<void>;
+  readonly onToggleSssp: (jobId: string) => void;
+  readonly onSsspLoaded: (jobId: string, record: SsspRecord | null) => void;
+}
+
+function JobsTableContent({
+  jobsLoading,
+  jobs,
+  token,
+  updatingId,
+  expandedSsspJobId,
+  onPatchStatus,
+  onToggleSssp,
+  onSsspLoaded,
+}: JobsTableContentProps) {
+  if (jobsLoading && jobs.length === 0) {
+    return (
+      <div className="py-12 text-center text-gray-500">
+        <MaterialIcon
+          icon="hourglass_empty"
+          size="xl"
+          className="animate-pulse mx-auto mb-2"
+        />
+        <p className="text-sm">Loading jobs…</p>
+      </div>
+    );
+  }
+
+  if (jobs.length === 0) {
+    return (
+      <div className="py-12 text-center text-gray-500">
+        <MaterialIcon icon="work_off" size="xl" className="mx-auto mb-2" />
+        <p className="text-sm">No jobs yet. Create the first job above.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="border-b border-gray-700 bg-gray-900/50">
+            {JOB_TABLE_HEADERS.map((h) => (
+              <th
+                key={h}
+                scope="col"
+                className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+              >
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-gray-700/50">
+          {jobs.map((job) => (
+            <JobRow
+              key={job.id}
+              job={job}
+              token={token}
+              updating={updatingId === job.id}
+              onPatchStatus={onPatchStatus}
+              ssspExpanded={expandedSsspJobId === job.id}
+              onToggleSssp={() => onToggleSssp(job.id)}
+              onSsspLoaded={onSsspLoaded}
+            />
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+interface SubmissionsTableContentProps {
+  readonly subsLoading: boolean;
+  readonly submissions: ReadonlyArray<Submission>;
+  readonly updatingId: string | null;
+  readonly onPatchStatus: (
+    subId: string,
+    status: "reviewed" | "archived",
+  ) => void | Promise<void>;
+}
+
+function SubmissionsTableContent({
+  subsLoading,
+  submissions,
+  updatingId,
+  onPatchStatus,
+}: SubmissionsTableContentProps) {
+  if (subsLoading && submissions.length === 0) {
+    return (
+      <div className="py-12 text-center text-gray-500">
+        <MaterialIcon
+          icon="hourglass_empty"
+          size="xl"
+          className="animate-pulse mx-auto mb-2"
+        />
+        <p className="text-sm">Loading submissions…</p>
+      </div>
+    );
+  }
+
+  if (submissions.length === 0) {
+    return (
+      <div className="py-12 text-center text-gray-500">
+        <MaterialIcon
+          icon="assignment_late"
+          size="xl"
+          className="mx-auto mb-2"
+        />
+        <p className="text-sm">No submissions match your filters.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="border-b border-gray-700 bg-gray-900/50">
+            {SUBMISSION_TABLE_HEADERS.map((h) => (
+              <th
+                key={h}
+                scope="col"
+                className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+              >
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-gray-700/50">
+          {submissions.map((sub) => (
+            <SubmissionRow
+              key={sub.id}
+              submission={sub}
+              updating={updatingId === sub.id}
+              onPatchStatus={onPatchStatus}
+            />
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+type DownloadLogEntry = DownloadLogResponse["data"][number];
+
+interface DownloadLogTableContentProps {
+  readonly downloadLogLoading: boolean;
+  readonly downloadLog: ReadonlyArray<DownloadLogEntry>;
+}
+
+function DownloadLogTableContent({
+  downloadLogLoading,
+  downloadLog,
+}: DownloadLogTableContentProps) {
+  if (downloadLogLoading && downloadLog.length === 0) {
+    return (
+      <div className="py-12 text-center text-gray-500">
+        <MaterialIcon
+          icon="hourglass_empty"
+          size="xl"
+          className="animate-pulse mx-auto mb-2"
+        />
+        <p className="text-sm">Loading download log…</p>
+      </div>
+    );
+  }
+
+  if (downloadLog.length === 0) {
+    return (
+      <div className="py-12 text-center text-gray-500">
+        <MaterialIcon icon="info_outline" size="xl" className="mx-auto mb-2" />
+        <p className="text-sm">No downloads recorded yet.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="border-b border-gray-700 bg-gray-900/50">
+            {DOWNLOAD_TABLE_HEADERS.map((h) => (
+              <th
+                key={h}
+                scope="col"
+                className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+              >
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-gray-700/50">
+          {downloadLog.map((entry) => (
+            <tr
+              key={entry.id}
+              className="hover:bg-gray-700/30 transition-colors"
+            >
+              <td className="px-4 py-3 text-gray-400 whitespace-nowrap">
+                {formatSafetyDate(entry.downloaded_at)}
+              </td>
+              <td className="px-4 py-3">
+                <p className="text-white font-semibold text-xs">
+                  {entry.section_title}
+                </p>
+                <p className="text-gray-500 text-xs font-mono">
+                  {entry.section_key}
+                </p>
+              </td>
+              <td className="px-4 py-3">
+                <span className="inline-block px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs font-mono">
+                  {entry.download_type}
+                </span>
+              </td>
+              <td className="px-4 py-3 text-gray-400">{entry.downloaded_by}</td>
+              <td className="px-4 py-3 text-gray-500 font-mono text-xs">
+                {entry.job_id ?? "—"}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div className="px-4 py-3 border-t border-gray-700 text-xs text-gray-500">
+        {downloadLog.length} download
+        {downloadLog.length === 1 ? "" : "s"} recorded
+      </div>
+    </div>
+  );
+}
 
 export function SafetyTab({ token }: SafetyTabProps) {
   const [showNewJobForm, setShowNewJobForm] = useState(false);
@@ -421,63 +662,18 @@ export function SafetyTab({ token }: SafetyTabProps) {
         )}
 
         <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
-          {jobsLoading && jobs.length === 0 ? (
-            <div className="py-12 text-center text-gray-500">
-              <MaterialIcon
-                icon="hourglass_empty"
-                size="xl"
-                className="animate-pulse mx-auto mb-2"
-              />
-              <p className="text-sm">Loading jobs…</p>
-            </div>
-          ) : jobs.length === 0 ? (
-            <div className="py-12 text-center text-gray-500">
-              <MaterialIcon
-                icon="work_off"
-                size="xl"
-                className="mx-auto mb-2"
-              />
-              <p className="text-sm">
-                No jobs yet. Create the first job above.
-              </p>
-            </div>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-gray-700 bg-gray-900/50">
-                    {JOB_TABLE_HEADERS.map((h) => (
-                      <th
-                        key={h}
-                        scope="col"
-                        className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
-                      >
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-700/50">
-                  {jobs.map((job) => (
-                    <JobRow
-                      key={job.id}
-                      job={job}
-                      token={token}
-                      updating={updatingId === job.id}
-                      onPatchStatus={patchJobStatus}
-                      ssspExpanded={expandedSsspJobId === job.id}
-                      onToggleSssp={() =>
-                        setExpandedSsspJobId((prev) =>
-                          prev === job.id ? null : job.id,
-                        )
-                      }
-                      onSsspLoaded={handleSsspPanelLoaded}
-                    />
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
+          <JobsTableContent
+            jobsLoading={jobsLoading}
+            jobs={jobs}
+            token={token}
+            updatingId={updatingId}
+            expandedSsspJobId={expandedSsspJobId}
+            onPatchStatus={patchJobStatus}
+            onToggleSssp={(jobId) =>
+              setExpandedSsspJobId((prev) => (prev === jobId ? null : jobId))
+            }
+            onSsspLoaded={handleSsspPanelLoaded}
+          />
         </div>
       </section>
 
@@ -632,53 +828,12 @@ export function SafetyTab({ token }: SafetyTabProps) {
         </div>
 
         <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
-          {subsLoading && submissions.length === 0 ? (
-            <div className="py-12 text-center text-gray-500">
-              <MaterialIcon
-                icon="hourglass_empty"
-                size="xl"
-                className="animate-pulse mx-auto mb-2"
-              />
-              <p className="text-sm">Loading submissions…</p>
-            </div>
-          ) : submissions.length === 0 ? (
-            <div className="py-12 text-center text-gray-500">
-              <MaterialIcon
-                icon="assignment_late"
-                size="xl"
-                className="mx-auto mb-2"
-              />
-              <p className="text-sm">No submissions match your filters.</p>
-            </div>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-gray-700 bg-gray-900/50">
-                    {SUBMISSION_TABLE_HEADERS.map((h) => (
-                      <th
-                        key={h}
-                        scope="col"
-                        className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
-                      >
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-700/50">
-                  {submissions.map((sub) => (
-                    <SubmissionRow
-                      key={sub.id}
-                      submission={sub}
-                      updating={updatingId === sub.id}
-                      onPatchStatus={patchSubmissionStatus}
-                    />
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
+          <SubmissionsTableContent
+            subsLoading={subsLoading}
+            submissions={submissions}
+            updatingId={updatingId}
+            onPatchStatus={patchSubmissionStatus}
+          />
         </div>
       </section>
 
@@ -723,78 +878,10 @@ export function SafetyTab({ token }: SafetyTabProps) {
           </div>
         </div>
         <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
-          {downloadLogLoading && downloadLog.length === 0 ? (
-            <div className="py-12 text-center text-gray-500">
-              <MaterialIcon
-                icon="hourglass_empty"
-                size="xl"
-                className="animate-pulse mx-auto mb-2"
-              />
-              <p className="text-sm">Loading download log…</p>
-            </div>
-          ) : downloadLog.length === 0 ? (
-            <div className="py-12 text-center text-gray-500">
-              <MaterialIcon
-                icon="info_outline"
-                size="xl"
-                className="mx-auto mb-2"
-              />
-              <p className="text-sm">No downloads recorded yet.</p>
-            </div>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-gray-700 bg-gray-900/50">
-                    {DOWNLOAD_TABLE_HEADERS.map((h) => (
-                      <th
-                        key={h}
-                        scope="col"
-                        className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
-                      >
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-700/50">
-                  {downloadLog.map((entry) => (
-                    <tr
-                      key={entry.id}
-                      className="hover:bg-gray-700/30 transition-colors"
-                    >
-                      <td className="px-4 py-3 text-gray-400 whitespace-nowrap">
-                        {formatSafetyDate(entry.downloaded_at)}
-                      </td>
-                      <td className="px-4 py-3">
-                        <p className="text-white font-semibold text-xs">
-                          {entry.section_title}
-                        </p>
-                        <p className="text-gray-500 text-xs font-mono">
-                          {entry.section_key}
-                        </p>
-                      </td>
-                      <td className="px-4 py-3">
-                        <span className="inline-block px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs font-mono">
-                          {entry.download_type}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 text-gray-400">
-                        {entry.downloaded_by}
-                      </td>
-                      <td className="px-4 py-3 text-gray-500 font-mono text-xs">
-                        {entry.job_id ?? "—"}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <div className="px-4 py-3 border-t border-gray-700 text-xs text-gray-500">
-                {downloadLog.length} download
-                {downloadLog.length !== 1 ? "s" : ""} recorded
-              </div>
-            </div>
-          )}
+          <DownloadLogTableContent
+            downloadLogLoading={downloadLogLoading}
+            downloadLog={downloadLog}
+          />
         </div>
       </section>
     </div>

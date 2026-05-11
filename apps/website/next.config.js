@@ -271,6 +271,11 @@ const nextConfig = {
         destination: "/contact",
         permanent: true, // 301
       },
+      {
+        source: "/safety/hub",
+        destination: "/hub",
+        permanent: true, // 301
+      },
     ];
   },
 

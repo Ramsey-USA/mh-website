@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { ExportCsvButton } from "@/components/dashboard/ExportCsvButton";
 import { useAdminTabData } from "@/hooks/useAdminTabData";
@@ -49,14 +49,15 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
   const { data, status, error, isFetching, refetch } =
     useAdminTabData<AccessLogResponse>(token, url);
 
+  const refreshAccessLog = useCallback(() => {
+    refetch().catch(() => undefined);
+  }, [refetch]);
+
   useEffect(() => {
     if (!token) return;
-    const id = globalThis.setInterval(
-      () => void refetch(),
-      REFRESH_INTERVAL_MS,
-    );
+    const id = globalThis.setInterval(refreshAccessLog, REFRESH_INTERVAL_MS);
     return () => globalThis.clearInterval(id);
-  }, [token, refetch]);
+  }, [token, refreshAccessLog]);
 
   const entries = useMemo<ReadonlyArray<AccessLogEntry>>(
     () => data?.data ?? [],
@@ -196,7 +197,7 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
             />
             <button
               type="button"
-              onClick={() => void refetch()}
+              onClick={refreshAccessLog}
               disabled={isFetching}
               className="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-4 py-2 text-sm font-black uppercase tracking-wide text-gray-200 hover:border-brand-secondary hover:text-white disabled:opacity-50 transition-colors"
             >

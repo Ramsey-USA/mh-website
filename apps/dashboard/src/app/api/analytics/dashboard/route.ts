@@ -11,9 +11,12 @@ import { requireRole } from "@/lib/auth/middleware";
 import { withSecurity } from "@/middleware/security";
 import { logger } from "@/lib/utils/logger";
 import {
-  getDashboardSnapshot,
-  type KVDashboardSnapshot,
-} from "@/lib/analytics/kv-store";
+  getAccessLogAnalytics,
+  getAnalyticsOverview,
+  getDriversAnalytics,
+  getLeadsAnalytics,
+  getSafetyAnalytics,
+} from "@/lib/dashboard/read-model";
 
 export const dynamic = "force-dynamic";
 
@@ -23,67 +26,26 @@ const DASHBOARD_CACHE_KEY = new Request(
   { method: "GET" },
 );
 
-function buildDashboardResponse(snapshot: KVDashboardSnapshot) {
-  const avgDuration =
-    snapshot.sessions.count > 0
-      ? Math.round(snapshot.sessions.totalDuration / snapshot.sessions.count)
-      : 0;
-
-  // Top pages sorted by views
-  const topPages = Object.entries(snapshot.pageviews.pages)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 10)
-    .map(([page, views]) => ({ page, views }));
-
-  return {
-    pageviews: snapshot.pageviews,
-    conversions: snapshot.conversions,
-    clicks: snapshot.clicks,
-    sessions: {
-      ...snapshot.sessions,
-      averageDuration: avgDuration,
-    },
-    topPages,
-    today: {
-      pageviews: snapshot.dailyPageviews?.total ?? 0,
-      sessions: snapshot.dailySessions?.count ?? 0,
-    },
-  };
-}
-
 async function handler(_request: NextRequest) {
   try {
-    const snapshot = await getDashboardSnapshot();
+    const [overview, leads, safety, drivers, accessLog] = await Promise.all([
+      getAnalyticsOverview(),
+      getLeadsAnalytics(),
+      getSafetyAnalytics(),
+      getDriversAnalytics(),
+      getAccessLogAnalytics(),
+    ]);
 
-    if (!snapshot) {
-      logger.warn(
-        "ANALYTICS KV not available — returning empty dashboard data. " +
-          "Provision with: wrangler kv namespace create ANALYTICS",
-      );
-      return NextResponse.json({
-        pageviews: { pages: {}, total: 0, lastUpdated: "" },
-        conversions: {
-          contacts: 0,
-          consultations: 0,
-          total: 0,
-          lastUpdated: "",
-        },
-        clicks: [],
-        sessions: {
-          count: 0,
-          totalDuration: 0,
-          averageDuration: 0,
-          lastUpdated: "",
-        },
-        topPages: [],
-        today: { pageviews: 0, sessions: 0 },
-        kvStatus: "unavailable",
-      });
-    }
-
-    const data = buildDashboardResponse(snapshot);
-    logger.info("Dashboard data fetched from KV");
-    return NextResponse.json({ ...data, kvStatus: "connected" });
+    logger.info("Dashboard compatibility payload fetched");
+    return NextResponse.json({
+      ...overview,
+      sections: {
+        leads,
+        safety,
+        drivers,
+        accessLog,
+      },
+    });
   } catch (error) {
     logger.error("Dashboard data fetch error:", error);
     return NextResponse.json(

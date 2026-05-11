@@ -27,6 +27,21 @@ const customJestConfig = {
 
   // Module name mapping (path aliases)
   moduleNameMapper: {
+    // Dashboard-specific aliases used by dashboard test suites opened from
+    // the repository root (Problems panel/Jest extension context).
+    "^@/lib/dashboard/read-model$":
+      "<rootDir>/apps/dashboard/src/lib/dashboard/read-model",
+    "^@/lib/hub/resources$": "<rootDir>/apps/dashboard/src/lib/hub/resources",
+    "^@/app/api/analytics/overview/route$":
+      "<rootDir>/apps/dashboard/src/app/api/analytics/overview/route",
+    "^@/app/api/analytics/leads/route$":
+      "<rootDir>/apps/dashboard/src/app/api/analytics/leads/route",
+    "^@/app/api/analytics/safety/route$":
+      "<rootDir>/apps/dashboard/src/app/api/analytics/safety/route",
+    "^@/app/api/analytics/drivers/route$":
+      "<rootDir>/apps/dashboard/src/app/api/analytics/drivers/route",
+    "^@/app/api/analytics/access-log/route$":
+      "<rootDir>/apps/dashboard/src/app/api/analytics/access-log/route",
     "^@/(.*)$": "<rootDir>/src/$1",
   },
 

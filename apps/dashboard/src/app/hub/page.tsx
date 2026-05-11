@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PageTrackingClient } from "@/components/analytics";
 import { HubCard } from "@/components/hub/HubCard";
-import { manuals } from "@/lib/data/documents";
 import { HUB_CARDS, ADMIN_CARDS } from "@/lib/hub/cards";
+import { getHubSafetySummary } from "@/lib/hub/resources";
 
 export const metadata: Metadata = {
   title: "Operations Hub | MH Construction",
@@ -15,16 +16,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function HubPage() {
-  const safetyManual = manuals.find((doc) => doc.id === "safety-manual");
-  const sectionCount = safetyManual?.totalSections ?? 50;
-  const revisionNumber = safetyManual?.revisionNumber ?? "3";
+const CARDS_FALLBACK = (
+  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {Array.from({ length: 6 }).map((_, index) => (
+      <div
+        key={`hub-card-skeleton-${index}`}
+        className="h-36 rounded-xl border border-slate-200 bg-white/80 animate-pulse dark:border-gray-800 dark:bg-gray-900/70"
+      />
+    ))}
+  </div>
+);
+
+export default async function HubPage() {
+  const { sectionCount, revisionNumber } = await getHubSafetySummary();
 
   return (
     <>
       <PageTrackingClient pageName="operations-hub" />
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-16 sm:px-6">
+      <section className="relative overflow-hidden bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-3xl text-white">
             <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
@@ -63,11 +73,13 @@ export default function HubPage() {
             </span>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {HUB_CARDS.map((card) => (
-              <HubCard key={card.title} card={card} accent="primary" />
-            ))}
-          </div>
+          <Suspense fallback={CARDS_FALLBACK}>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {HUB_CARDS.map((card) => (
+                <HubCard key={card.title} card={card} accent="primary" />
+              ))}
+            </div>
+          </Suspense>
 
           {/* Admin-only tools */}
           <div className="mt-10">
