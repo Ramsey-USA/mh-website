@@ -51,7 +51,6 @@ const ALLOWED_HEADINGS = [
 
 const HEADING_TAG = /<(h[1-6])\b[^>]*>([\s\S]*?)<\/\1>/gi;
 const STRIP_ATTRS = /\s(?:on\w+|style|class|id)=("[^"]*"|'[^']*'|[^\s>]+)/gi;
-const SCRIPT_OR_STYLE = /<(script|style)\b[\s\S]*?<\/\1>/gi;
 const WORD_RE = /\S+/g;
 
 function wordCount(html) {
@@ -169,7 +168,7 @@ async function main() {
     sections: slim,
   };
 
-  await writeFile(OUTPUT, JSON.stringify(out, null, 2) + "\n", "utf8");
+  await writeFile(OUTPUT, `${JSON.stringify(out, null, 2)}\n`, "utf8");
 
   const sizeKb = (JSON.stringify(out).length / 1024).toFixed(1);
   console.log(
