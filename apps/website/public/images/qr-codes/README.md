@@ -1,6 +1,6 @@
 # QR Codes for MH Construction
 
-Generated: 5/4/2026, 7:42:32 PM
+Generated: 5/11/2026, 12:12:34 AM
 
 ## Summary
 
@@ -327,25 +327,25 @@ Generated: 5/4/2026, 7:42:32 PM
 
 - **Name:** `phone`
 - **File:** `contact/qr-phone-color.png`
-- **URL:** tel:+15093086489
+- **URL:** <tel:+15093086489>
 
 ### ✅ Call Us: (509) 308-6489
 
 - **Name:** `phone`
 - **File:** `contact/qr-phone-bw.png`
-- **URL:** tel:+15093086489
+- **URL:** <tel:+15093086489>
 
-### ✅ Email: office@mhc-gc.com
+### ✅ Email: <office@mhc-gc.com>
 
 - **Name:** `email`
 - **File:** `contact/qr-email-color.png`
-- **URL:** mailto:office@mhc-gc.com
+- **URL:** <mailto:office@mhc-gc.com>
 
-### ✅ Email: office@mhc-gc.com
+### ✅ Email: <office@mhc-gc.com>
 
 - **Name:** `email`
 - **File:** `contact/qr-email-bw.png`
-- **URL:** mailto:office@mhc-gc.com
+- **URL:** <mailto:office@mhc-gc.com>
 
 ### ✅ LinkedIn Profile
 
@@ -1381,7 +1381,7 @@ Generated: 5/4/2026, 7:42:32 PM
 
 ## Usage in React Components
 
-### Import the QRCode component:
+### Import the QRCode component
 
 ```tsx
 import { QRCode } from '@/components/ui/QRCode';

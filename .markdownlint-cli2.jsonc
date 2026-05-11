@@ -15,8 +15,12 @@
     "!node_modules/**",
     "!**/node_modules/**",
     "!.next/**",
+    "!**/.next/**",
     "!.open-next/**",
+    "!**/.open-next/**",
     "!.github/agents/**",
+    "!public/images/qr-codes/README.md",
+    "!apps/website/public/images/qr-codes/README.md",
   ],
   // Per-file overrides for exceptionally long documentation reports
   "overrides": [

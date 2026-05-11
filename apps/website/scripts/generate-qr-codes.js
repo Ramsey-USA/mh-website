@@ -11,8 +11,8 @@
 
 const QRCode = require("qrcode");
 const sharp = require("sharp");
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 
 // Base URL for production
 const BASE_URL = "https://www.mhc-gc.com";
@@ -388,7 +388,29 @@ const QR_CODES = [
 
 // Safety Manual sections — loaded from canonical JSON so the QR pipeline,
 // the printed PDF pipeline, and the Next.js cluster pages always agree.
-const SAFETY_MANUAL_JSON = require("../documents/content/safety-manual.json");
+const SAFETY_MANUAL_PATHS = [
+  path.join(__dirname, "../documents/content/safety-manual.json"),
+  path.join(__dirname, "../../../documents/content/safety-manual.json"),
+  path.join(__dirname, "../documents/content/safety-manual-public.json"),
+  path.join(__dirname, "../../../documents/content/safety-manual-public.json"),
+];
+
+function loadSafetyManualJson() {
+  const manifestPath = SAFETY_MANUAL_PATHS.find((candidate) =>
+    fs.existsSync(candidate),
+  );
+
+  if (!manifestPath) {
+    console.warn(
+      "⚠ Could not load safety-manual manifest; using fallback section metadata.",
+    );
+    return { sections: [] };
+  }
+
+  return JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
+}
+
+const SAFETY_MANUAL_JSON = loadSafetyManualJson();
 const SAFETY_MANUAL_SECTIONS = SAFETY_MANUAL_JSON.sections.map((s) => ({
   number: s.numberStr,
   slug: s.slug,
@@ -485,7 +507,7 @@ function loadTeamQRCodes() {
       }));
   } catch (error) {
     console.warn(
-      `⚠ Could not load team data from ${TEAM_DATA_PATH}; using fallback team QR list.`,
+      `⚠ Could not load team data from ${TEAM_DATA_PATH}; using fallback team QR list. ${error instanceof Error ? error.message : String(error)}`,
     );
     return fallbackTeamCodes.map((qr) => ({ ...qr, folder: "team" }));
   }
@@ -558,15 +580,15 @@ async function colorFinderPatterns(qrBuffer, width, height) {
 
   // Parse Leather Tan color
   const leatherTan = {
-    r: parseInt(LEATHER_TAN.slice(1, 3), 16),
-    g: parseInt(LEATHER_TAN.slice(3, 5), 16),
-    b: parseInt(LEATHER_TAN.slice(5, 7), 16),
+    r: Number.parseInt(LEATHER_TAN.slice(1, 3), 16),
+    g: Number.parseInt(LEATHER_TAN.slice(3, 5), 16),
+    b: Number.parseInt(LEATHER_TAN.slice(5, 7), 16),
   };
 
   const hunterGreen = {
-    r: parseInt(HUNTER_GREEN.slice(1, 3), 16),
-    g: parseInt(HUNTER_GREEN.slice(3, 5), 16),
-    b: parseInt(HUNTER_GREEN.slice(5, 7), 16),
+    r: Number.parseInt(HUNTER_GREEN.slice(1, 3), 16),
+    g: Number.parseInt(HUNTER_GREEN.slice(3, 5), 16),
+    b: Number.parseInt(HUNTER_GREEN.slice(5, 7), 16),
   };
 
   // QR code finder pattern locations (approximate sizes based on 512px QR code)
@@ -707,7 +729,7 @@ async function generateQRCode(qrData, variant = "color") {
     await sharp(processedQRBuffer).toFile(tempColoredPath);
 
     // Step 3: Add logo overlay using sharp
-    const qrImage = await sharp(tempColoredPath);
+    const qrImage = sharp(tempColoredPath);
     const metadata = await qrImage.metadata();
 
     // Logo should be about 20% of QR code size (with error correction H, up to 30% can be covered)
@@ -881,6 +903,8 @@ function generateManifest(results) {
 function generateUsageDoc(manifest) {
   const successCount = manifest.qrCodes.filter((q) => q.success).length;
   const totalCount = manifest.qrCodes.length;
+  const formatMarkdownText = (value) =>
+    value.replaceAll(/([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/gi, "<$1>");
 
   const doc = `# QR Codes for MH Construction
 
@@ -898,18 +922,20 @@ Generated: ${new Date(manifest.generatedAt).toLocaleString()}
 ${manifest.qrCodes
   .map((qr) => {
     const status = qr.success ? "✅" : "❌";
-    return `### ${status} ${qr.description}
-- **Name:** \`${qr.name}\`
-- **File:** \`${qr.relativePath || qr.filename}\`
-- **URL:** ${qr.url}
-${qr.error ? `- **Error:** ${qr.error}` : ""}
-`;
+    return [
+      `### ${status} ${formatMarkdownText(qr.description)}`,
+      "",
+      `- **Name:** \`${qr.name}\``,
+      `- **File:** \`${qr.relativePath || qr.filename}\``,
+      `- **URL:** <${qr.url}>`,
+      ...(qr.error ? [`- **Error:** ${formatMarkdownText(qr.error)}`] : []),
+    ].join("\n");
   })
-  .join("\n")}
+  .join("\n\n")}
 
 ## Usage in React Components
 
-### Import the QRCode component:
+### Import the QRCode component
 
 \`\`\`tsx
 import { QRCode } from '@/components/ui/QRCode';
@@ -924,6 +950,7 @@ import { QRCode } from '@/components/ui/QRCode';
 ### Using in Marketing Materials
 
 All QR codes are optimized for print and digital use:
+
 - **Size:** 512x512 pixels
 - **Format:** PNG with transparency support
 - **Color:** Hunter Green (#386851) on white background
@@ -972,8 +999,10 @@ async function main() {
 
   // Generate two variants for each QR code
   for (const qrCode of qrCodes) {
-    allTasks.push(generateQRCode(qrCode, "color"));
-    allTasks.push(generateQRCode(qrCode, "bw"));
+    allTasks.push(
+      generateQRCode(qrCode, "color"),
+      generateQRCode(qrCode, "bw"),
+    );
   }
 
   const results = await Promise.all(allTasks);

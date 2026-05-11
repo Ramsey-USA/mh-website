@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("node:fs");
 const { PDFDocument } = require("pdf-lib");
 
 (async () => {
@@ -24,10 +24,10 @@ const { PDFDocument } = require("pdf-lib");
 
   const para =
     "This is an overflow stress test sentence for the fixed body box. ";
-  set("lh.body.page1", Array(220).fill(para).join(""));
-  set("lh.body.page2", Array(320).fill(para).join(""));
-  set("lh.body.page3", Array(320).fill(para).join(""));
+  set("lh.body.page1", new Array(220).fill(para).join(""));
+  set("lh.body.page2", new Array(320).fill(para).join(""));
+  set("lh.body.page3", new Array(320).fill(para).join(""));
 
   fs.writeFileSync(outPath, await doc.save());
-  console.log(outPath);
+  console.info(outPath);
 })();

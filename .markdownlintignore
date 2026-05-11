@@ -1,4 +1,8 @@
 docs/business/branding/COLOR-SCHEME-CORRECTION-NOV-2025.md
 docs/business/branding/CSS-CONFIG-UPDATE-NOV-2025.md
+public/images/qr-codes/README.md
+apps/website/public/images/qr-codes/README.md
 .open-next/\*\*
+**/.open-next/**
+**/.next/**
 .github/agents/**

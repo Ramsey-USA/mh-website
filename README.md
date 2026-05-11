@@ -63,21 +63,22 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Production-Ready Platform
 
-| Metric            | Status    | Details                                                                    |
-| ----------------- | --------- | -------------------------------------------------------------------------- |
-| **Build**         | Passing   | ~33s compilation, zero errors                                              |
-| **Deployed**      | Live      | Cloudflare Workers — mhc-gc.com                                            |
-| **TypeScript**    | Strict    | Zero type errors                                                           |
-| **ESLint**        | Clean     | Zero lint warnings, zero errors                                            |
-| **Tests**         | Passing   | CI and focused safety/hub suites green                                     |
-| **Coverage**      | Strong    | Maintained via `npm run test:coverage`                                     |
-| **SEO**           | External  | Audit via external tools                                                   |
-| **Lighthouse**    | External  | Audit via PageSpeed/DevTools                                               |
-| **Bundle Size**   | 240 kB    | Production optimized                                                       |
-| **Dark Mode**     | Complete  | Full theme support                                                         |
-| **PWA**           | PWA-first | Offline-ready, 5-layer caching, PWA-only sections via `usePWA` + `PWAOnly` |
-| **Analytics**     | Live      | 100% page coverage, dashboard active                                       |
-| **Documentation** | Optimized | Indexed under [docs/index.md](docs/index.md), zero bloat                   |
+| Metric               | Status    | Details                                                                                                                                                                                           |
+| -------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Build**            | Passing   | ~33s compilation, zero errors                                                                                                                                                                     |
+| **Deployed**         | Live      | Cloudflare Workers — mhc-gc.com                                                                                                                                                                   |
+| **TypeScript**       | Strict    | Zero type errors                                                                                                                                                                                  |
+| **ESLint**           | Clean     | Zero lint warnings, zero errors                                                                                                                                                                   |
+| **Tests**            | Passing   | CI and focused safety/hub suites green                                                                                                                                                            |
+| **Coverage**         | Strong    | Maintained via `pnpm --filter @mhc/website run test:coverage`                                                                                                                                     |
+| **Nightly Coverage** | Monitored | [![Nightly Coverage](https://github.com/Ramsey-USA/mh-website/actions/workflows/nightly-coverage.yml/badge.svg)](https://github.com/Ramsey-USA/mh-website/actions/workflows/nightly-coverage.yml) |
+| **SEO**              | External  | Audit via external tools                                                                                                                                                                          |
+| **Lighthouse**       | External  | Audit via PageSpeed/DevTools                                                                                                                                                                      |
+| **Bundle Size**      | 240 kB    | Production optimized                                                                                                                                                                              |
+| **Dark Mode**        | Complete  | Full theme support                                                                                                                                                                                |
+| **PWA**              | PWA-first | Offline-ready, 5-layer caching, PWA-only sections via `usePWA` + `PWAOnly`                                                                                                                        |
+| **Analytics**        | Live      | 100% page coverage, dashboard active                                                                                                                                                              |
+| **Documentation**    | Optimized | Indexed under [docs/index.md](docs/index.md), zero bloat                                                                                                                                          |
 
 ### Recent Changes
 
@@ -300,7 +301,7 @@ Use these slash prompts for standardized compliance checks before merge or relea
 - **Pre-commit hooks:** Auto-run type-check and quality scans before each commit
 - **CI/CD pipeline:** Automated TypeScript, ESLint 10, tests, and build verification
 - **AI workflow:** Ask AI: _"Run quality check and fix issues"_ → instant fixes
-- **Manual commands:** `npm run type-check`, `npm run lint`, `npm run quality:check`
+- **Manual commands:** `pnpm run type-check`, `pnpm run lint`, `pnpm --filter @mhc/website run quality:check`
 
 ### Features & Capabilities
 
@@ -323,7 +324,7 @@ Use these slash prompts for standardized compliance checks before merge or relea
 ```bash
 # Required
 Node.js 22+
-npm 9+
+pnpm 10+ (via Corepack)
 Git
 
 # For Deployment
@@ -339,14 +340,18 @@ git clone https://github.com/Ramsey-USA/mh-website.git
 cd mh-website
 
 # Install dependencies
-npm install
+corepack enable
+pnpm install
 
 # Create environment file
 cp .env.local.example .env.local
 # Edit .env.local with your keys
 
 # Start development server
-npm run dev
+pnpm run dev
+
+# Optional: generate public safety-manual manifest from Word source before build
+pnpm --filter @mhc/website run docs:extract-word
 
 # Visit http://localhost:3000
 ```
@@ -373,37 +378,44 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 
 ## Available Scripts
 
+Run all commands from repository root.
+
 ### Development
 
 ```bash
-npm run dev              # Start dev server (http://localhost:3000)
-npm run build            # OpenNext build → creates .open-next/ and .next/
-npm run deploy           # OpenNext build + deploy to Cloudflare Workers
-npm run start            # Start production server
-npm run type-check       # TypeScript validation
-npm run lint             # ESLint check
-npm run lint:fix         # Fix linting issues
-npm run format           # Prettier format all files
+pnpm run dev                                  # Website dev server (http://localhost:3000)
+pnpm run build                                # Website OpenNext build
+pnpm run build:all                            # Build website + dashboard
+pnpm run type-check                           # Type-check all apps
+pnpm run lint                                 # Lint all apps
+pnpm run lint:fix                             # Auto-fix lint across all apps
+pnpm run format                               # Prettier format all files
+pnpm --filter @mhc/website run deploy         # Build + deploy website worker
+pnpm --filter @mhc/website run start          # Start website production server
+pnpm --filter @mhc/dashboard run start        # Start dashboard production server (port 3001)
 ```
 
 ### Testing
 
 ```bash
-npm run test             # Run test suite
-npm run test:watch       # Run tests in watch mode
-npm run test:coverage    # Run tests with coverage report
-npm run test:pwa         # PWA functionality tests
+pnpm run test                                  # Website test suite
+pnpm run test:ci                               # Website CI tests
+pnpm --filter @mhc/website run test:ci:coverage # CI-style coverage run (website)
+pnpm run test:ci:all                           # CI tests across all apps
+pnpm --filter @mhc/website run test:watch      # Watch mode (website)
+pnpm --filter @mhc/website run test:coverage   # Coverage report (website)
+pnpm --filter @mhc/website run test:pwa        # PWA functionality tests
 ```
 
 ### Quality & Maintenance
 
 ```bash
-npm run quality:check    # Run full quality scan
-npm run lint:markdown    # Lint markdown files
-npm run optimize:images  # Convert images to WebP
-npm run optimize:videos  # Convert videos to WebM/MP4
-npm run audit:images     # Analyze optimization opportunities
-npm run clean            # Clean build artifacts
+pnpm --filter @mhc/website run quality:check   # Website quality scan
+pnpm run lint:markdown                          # Lint markdown files
+pnpm --filter @mhc/website run optimize:images # Convert images to WebP
+pnpm --filter @mhc/website run optimize:videos # Convert videos to WebM/MP4
+pnpm --filter @mhc/website run audit:images    # Analyze optimization opportunities
+pnpm --filter @mhc/website run clean           # Clean website build artifacts
 ```
 
 ---
@@ -472,7 +484,7 @@ v7.1.0.
 
 ```bash
 # Build + deploy
-npm run deploy
+pnpm --filter @mhc/website run deploy
 # Equivalent to: WRANGLER_SEND_METRICS=false opennextjs-cloudflare build && WRANGLER_SEND_METRICS=false npx wrangler deploy
 
 # Secrets — set via wrangler or dashboard
