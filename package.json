@@ -7,7 +7,7 @@
     "dev": "pnpm --filter @mhc/website dev",
     "dev:dashboard": "pnpm --filter @mhc/dashboard dev",
     "build": "pnpm --filter @mhc/website build",
-    "deploy": "pnpm --filter @mhc/website deploy",
+    "deploy": "pnpm --filter @mhc/website run deploy",
     "build:dashboard": "pnpm --filter @mhc/dashboard build",
     "build:all": "pnpm --filter './apps/*' build",
     "lint": "pnpm --filter @mhc/dashboard lint && pnpm --filter @mhc/website lint",
