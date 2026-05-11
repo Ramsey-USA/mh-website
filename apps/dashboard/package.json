@@ -8,7 +8,7 @@
     "dev:turbo": "next dev --turbo --port 3001",
     "build": "npm run build:lowmem",
     "build:lowmem": "cross-env LOW_MEMORY_BUILD=true NODE_OPTIONS=--max-old-space-size=4096 opennextjs-cloudflare build",
-    "deploy": "cross-env LOW_MEMORY_BUILD=true NODE_OPTIONS=--max-old-space-size=4096 WRANGLER_SEND_METRICS=false opennextjs-cloudflare build && cross-env WRANGLER_SEND_METRICS=false wrangler deploy",
+    "deploy": "node ../../scripts/deploy-opennext.mjs",
     "build:next": "next build",
     "start": "next start --port 3001",
     "lint": "eslint .",

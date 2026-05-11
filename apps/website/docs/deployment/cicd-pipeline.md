@@ -140,6 +140,7 @@ npm run build:lowmem
 
 - `worker.js` - Cloudflare Worker handler
 - Static assets for R2
+- `cache/` - OpenNext build cache reused on rebuilds, not deployed
 - KV namespace bindings
 
 ### Step 6: Artifact Staging

@@ -183,7 +183,9 @@ jobs:
       - name: Restore Next.js build cache (website)
         uses: actions/cache@v4
         with:
-          path: apps/website/.next/cache
+          path: |
+            apps/website/.next/cache
+            apps/website/.open-next/cache
           key: nextjs-website-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{
             hashFiles('apps/website/src/**', 'packages/shared/src/**') }}
           restore-keys: |
@@ -225,7 +227,9 @@ jobs:
       - name: Restore Next.js build cache (dashboard)
         uses: actions/cache@v4
         with:
-          path: apps/dashboard/.next/cache
+          path: |
+            apps/dashboard/.next/cache
+            apps/dashboard/.open-next/cache
           key: nextjs-dashboard-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{
             hashFiles('apps/dashboard/src/**', 'packages/shared/src/**') }}
           restore-keys: |
