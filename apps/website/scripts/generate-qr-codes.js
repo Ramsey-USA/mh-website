@@ -565,7 +565,7 @@ function buildFinalQRCodeList() {
 function ensureOutputDir() {
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-    console.log(`✓ Created directory: ${OUTPUT_DIR}`);
+    console.info(`✓ Created directory: ${OUTPUT_DIR}`);
   }
 }
 
@@ -821,7 +821,7 @@ async function generateQRCode(qrData, variant = "color") {
     fs.unlinkSync(tempFilepath);
     fs.unlinkSync(tempColoredPath);
 
-    console.log(
+    console.info(
       `✓ Generated: ${relativePath} → ${qrData.description} (${variant})`,
     );
     return {
@@ -892,7 +892,7 @@ function generateManifest(results) {
 
   const manifestPath = path.join(OUTPUT_DIR, "qr-codes-manifest.json");
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
-  console.log(`\n✓ Generated manifest: qr-codes-manifest.json`);
+  console.info(`\n✓ Generated manifest: qr-codes-manifest.json`);
 
   return manifest;
 }
@@ -976,17 +976,17 @@ To update URLs or add new QR codes, edit \`scripts/generate-qr-codes.js\`.
 
   const docPath = path.join(OUTPUT_DIR, "README.md");
   fs.writeFileSync(docPath, doc);
-  console.log(`✓ Generated documentation: README.md`);
+  console.info(`✓ Generated documentation: README.md`);
 }
 
 /**
  * Main execution
  */
 async function main() {
-  console.log("🎯 MH Construction QR Code Generator\n");
-  console.log(`Base URL: ${BASE_URL}`);
-  console.log(`Output: ${OUTPUT_DIR}`);
-  console.log(`Variants: color, bw\n`);
+  console.info("🎯 MH Construction QR Code Generator\n");
+  console.info(`Base URL: ${BASE_URL}`);
+  console.info(`Output: ${OUTPUT_DIR}`);
+  console.info(`Variants: color, bw\n`);
 
   // Ensure output directory exists
   ensureOutputDir();
@@ -994,7 +994,7 @@ async function main() {
   const qrCodes = buildFinalQRCodeList();
 
   // Generate all QR codes (2 variants each)
-  console.log("Generating QR codes...\n");
+  console.info("Generating QR codes...\n");
   const allTasks = [];
 
   // Generate two variants for each QR code
@@ -1016,20 +1016,20 @@ async function main() {
   const failCount = results.filter((r) => !r.success).length;
   const uniqueQRCount = qrCodes.length;
 
-  console.log("\n" + "=".repeat(50));
-  console.log(`✅ Successfully generated: ${successCount} QR code files`);
-  console.log(
+  console.info("\n" + "=".repeat(50));
+  console.info(`✅ Successfully generated: ${successCount} QR code files`);
+  console.info(
     `   (${uniqueQRCount} unique QR codes × 2 variants = ${successCount})`,
   );
   if (failCount > 0) {
-    console.log(`❌ Failed: ${failCount} QR code files`);
+    console.info(`❌ Failed: ${failCount} QR code files`);
   }
-  console.log("=".repeat(50) + "\n");
+  console.info("=".repeat(50) + "\n");
 
-  console.log("📁 Files created:");
-  console.log(`   ${OUTPUT_DIR}/`);
-  console.log(`   ├── qr-codes-manifest.json`);
-  console.log(`   ├── README.md`);
+  console.info("📁 Files created:");
+  console.info(`   ${OUTPUT_DIR}/`);
+  console.info(`   ├── qr-codes-manifest.json`);
+  console.info(`   ├── README.md`);
 
   // Group results by name for display
   const groupedResults = {};
@@ -1044,20 +1044,20 @@ async function main() {
     .slice(0, 5)
     .forEach((entries) => {
       entries.forEach((entry) => {
-        console.log(`   ├── ${entry.relativePath || entry.filename}`);
+        console.info(`   ├── ${entry.relativePath || entry.filename}`);
       });
     });
 
   if (Object.keys(groupedResults).length > 5) {
-    console.log(
+    console.info(
       `   └── ... and ${(Object.keys(groupedResults).length - 5) * 2} more files`,
     );
   }
 
-  console.log("\n✨ Done! QR codes are ready for marketing use.\n");
-  console.log("📋 Two variants available for each QR code:");
-  console.log("   • Color (with MH branding colors)");
-  console.log("   • Black & White (for any background)\n");
+  console.info("\n✨ Done! QR codes are ready for marketing use.\n");
+  console.info("📋 Two variants available for each QR code:");
+  console.info("   • Color (with MH branding colors)");
+  console.info("   • Black & White (for any background)\n");
 }
 
 // Run the script
