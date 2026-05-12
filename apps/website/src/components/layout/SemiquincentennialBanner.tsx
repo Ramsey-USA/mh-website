@@ -341,7 +341,7 @@ export function SemiquincentennialBanner() {
     return (
       <section
         aria-label="Happy 250th Birthday, America!"
-        className="relative overflow-hidden bg-gradient-to-r from-[#B22234] via-[#3C3B6E] to-[#B22234] py-4 text-center"
+        className="relative overflow-hidden bg-linear-to-r from-[#B22234] via-[#3C3B6E] to-[#B22234] py-4 text-center"
       >
         <div className="flex items-center justify-center gap-4">
           <AmericanFlag size="sm" animated />
@@ -364,12 +364,12 @@ export function SemiquincentennialBanner() {
   return (
     <section
       aria-label="United States 250th Anniversary Countdown — July 4, 2026"
-      className="relative overflow-hidden bg-gradient-to-r from-[#0f0808] via-[#0f0f2a] to-[#0f0808] border-t border-b border-[#B22234]/40"
+      className="relative overflow-hidden bg-linear-to-r from-[#0f0808] via-[#0f0f2a] to-[#0f0808] border-t border-b border-[#B22234]/40"
     >
       {/* Top patriotic stripe */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#B22234] via-[#FFFFFF] to-[#3C3B6E]"
+        className="absolute inset-x-0 top-0 h-0.5 bg-linear-to-r from-[#B22234] via-[#FFFFFF] to-[#3C3B6E]"
       />
 
       <div className="mx-auto max-w-7xl px-4 py-3 sm:py-4">
@@ -424,7 +424,7 @@ export function SemiquincentennialBanner() {
           <button
             type="button"
             onClick={launchFireworks}
-            className="flex items-center gap-1.5 rounded border border-[#B22234]/50 bg-[#B22234]/20 px-3 py-1.5 text-xs sm:text-sm font-semibold text-white hover:bg-[#B22234]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFD700] transition-colors touch-manipulation"
+            className="flex items-center gap-1.5 rounded border border-[#B22234]/50 bg-[#B22234]/20 px-3 py-1.5 text-xs sm:text-sm font-semibold text-white hover:bg-[#B22234]/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFD700] transition-colors touch-manipulation"
             aria-label="Launch fireworks to celebrate America's 250th anniversary"
           >
             <MaterialIcon
@@ -447,7 +447,7 @@ export function SemiquincentennialBanner() {
       {/* Bottom patriotic stripe */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#3C3B6E] via-[#FFFFFF] to-[#B22234]"
+        className="absolute inset-x-0 bottom-0 h-0.5 bg-linear-to-r from-[#3C3B6E] via-[#FFFFFF] to-[#B22234]"
       />
     </section>
   );

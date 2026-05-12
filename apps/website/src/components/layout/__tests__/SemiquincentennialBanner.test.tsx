@@ -13,12 +13,11 @@ jest.mock("@/components/icons/AmericanFlag", () => ({
     size?: string;
     className?: string;
   }) => (
-    <div
+    <img
       data-testid="american-flag"
       data-size={size}
       className={className}
-      role="img"
-      aria-label="American Flag - Veteran-Owned Company"
+      alt="American Flag - Veteran-Owned Company"
     />
   ),
 }));
@@ -39,9 +38,7 @@ beforeEach(() => {
   jest.setSystemTime(FROZEN_NOW);
 
   // Stub canvas getContext so the fireworks path doesn't throw in jsdom
-  jest
-    .spyOn(HTMLCanvasElement.prototype, "getContext")
-    .mockReturnValue(null as unknown as CanvasRenderingContext2D);
+  jest.spyOn(HTMLCanvasElement.prototype, "getContext").mockReturnValue(null);
 });
 
 afterEach(() => {
@@ -73,7 +70,7 @@ describe("SemiquincentennialBanner", () => {
     render(<SemiquincentennialBanner />);
     const daysLabel = screen.getByText("Days");
     const daysValue = daysLabel.previousSibling as HTMLElement;
-    const days = parseInt(daysValue.textContent ?? "0", 10);
+    const days = Number.parseInt(daysValue.textContent ?? "0", 10);
     expect(days).toBeGreaterThan(0);
   });
 
@@ -120,7 +117,7 @@ describe("SemiquincentennialBanner", () => {
 
   it("shows the 'seconds' value update after one tick", () => {
     render(<SemiquincentennialBanner />);
-    const initialSeconds = parseInt(
+    const initialSeconds = Number.parseInt(
       (screen.getByText("Sec").previousSibling as HTMLElement).textContent ??
         "0",
       10,
@@ -130,7 +127,7 @@ describe("SemiquincentennialBanner", () => {
       jest.advanceTimersByTime(1_000);
     });
 
-    const updatedSeconds = parseInt(
+    const updatedSeconds = Number.parseInt(
       (screen.getByText("Sec").previousSibling as HTMLElement).textContent ??
         "0",
       10,

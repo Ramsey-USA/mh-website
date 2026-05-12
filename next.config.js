@@ -41,7 +41,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 const createNextIntlPlugin = require("next-intl/plugin");
 const path = require("node:path");
-const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
+const withNextIntl = createNextIntlPlugin("./apps/website/src/i18n/request.ts");
 const isLowMemoryBuild = process.env.LOW_MEMORY_BUILD === "true";
 
 /** @type {import('next').NextConfig} */
@@ -138,7 +138,7 @@ const nextConfig = {
     // Enhanced module resolution
     config.resolve.alias = {
       ...config.resolve.alias,
-      "@": path.resolve(__dirname, "src"),
+      "@": path.resolve(__dirname, "apps/website/src"),
       // resend v6 declares @react-email/render as an optional peer dependency.
       // We do NOT install it (it is excluded from package.json `dependencies` and
       // `pnpm.peerDependencyRules.ignoreMissing`) because it transitively depends

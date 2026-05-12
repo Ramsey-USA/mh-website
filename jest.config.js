@@ -42,22 +42,22 @@ const customJestConfig = {
       "<rootDir>/apps/dashboard/src/app/api/analytics/drivers/route",
     "^@/app/api/analytics/access-log/route$":
       "<rootDir>/apps/dashboard/src/app/api/analytics/access-log/route",
-    "^@/(.*)$": "<rootDir>/src/$1",
+    "^@/(.*)$": "<rootDir>/apps/website/src/$1",
   },
 
   // Coverage collection
   collectCoverageFrom: [
-    "src/**/*.{js,jsx,ts,tsx}",
-    "!src/**/*.d.ts",
-    "!src/**/*.stories.{js,jsx,ts,tsx}",
-    "!src/**/__tests__/**",
-    "!src/app/layout.tsx",
-    "!src/app/**/layout.tsx",
+    "apps/website/src/**/*.{js,jsx,ts,tsx}",
+    "!apps/website/src/**/*.d.ts",
+    "!apps/website/src/**/*.stories.{js,jsx,ts,tsx}",
+    "!apps/website/src/**/__tests__/**",
+    "!apps/website/src/app/layout.tsx",
+    "!apps/website/src/app/**/layout.tsx",
     // Barrel re-export files — no executable logic, just re-exports
-    "!src/**/index.ts",
-    "!src/**/index.tsx",
+    "!apps/website/src/**/index.ts",
+    "!apps/website/src/**/index.tsx",
     // Pure TypeScript type declaration files — no executable code
-    "!src/types/**",
+    "!apps/website/src/types/**",
   ],
 
   // Use V8 coverage provider instead of the default babel/istanbul provider.

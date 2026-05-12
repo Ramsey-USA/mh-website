@@ -62,11 +62,89 @@ const NextStepsSection = dynamic(
   { ssr: true },
 );
 
+const getCultureIconBg = (color: string) => {
+  if (color.includes("primary")) {
+    return "bg-brand-primary";
+  }
+
+  if (color.includes("secondary")) {
+    return "bg-brand-secondary";
+  }
+
+  return "bg-bronze-700";
+};
+
 export default function CareersPageClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const locale = useLocale();
   const isEs = locale === "es";
+  const copy = isEs
+    ? {
+        readyToJoinHeading: "¿Listo para unirte a nuestro equipo?",
+        readyToJoinDescription:
+          "Comience con lo esencial. Comparta su información de contacto, cuéntenos dónde puede contribuir y adjunte un currículum si tiene uno listo. Si hay compatibilidad, nos comunicaremos directamente.",
+        startApplication: "Iniciar solicitud",
+        callButton: "Llamar (509) 308-6489",
+        veteransPriority: "Los veteranos reciben consideración prioritaria",
+        enoughToBegin: "Nombre, correo y rol son suficientes para comenzar.",
+        journeyPrefix: "Tu viaje para",
+        journeyHighlight: "unirte a nuestro equipo",
+        journeyLead:
+          "Pasos claros. Comunicación directa. Respeto por tu tiempo.",
+        journeyDescription:
+          "Nuestro proceso comienza con una solicitud breve y avanza solo cuando hay una verdadera compatibilidad. Mantenemos el proceso enfocado y te informamos qué sigue.",
+        journeyGoal:
+          "El objetivo es una buena relación de trabajo, no pasos innecesarios.",
+        noRolePrefix: "¿No ve el",
+        noRoleHighlight: "Rol perfecto?",
+        noRoleIntro:
+          "El rol correcto podría no estar publicado aún, pero la relación correcta puede comenzar ahora. Si trae",
+        noRoleValues:
+          "los valores correctos, ética de trabajo y mentalidad de oficio",
+        noRoleMiddle:
+          "queremos escucharte. Siempre estamos abiertos a candidatos fuertes que compartan nuestros estándares de",
+        noRoleStandards: "honestidad, profesionalismo y trabajo minucioso",
+        noRoleOutro: "Cuéntanos dónde puedes contribuir.",
+        submitApplication: "Enviar solicitud",
+        contactHr: "Contactar a RRHH",
+        hrHotline: "Línea de RRHH:",
+        careersQuestions: "¿Preguntas sobre carreras?",
+        careersSupport:
+          "Contacta a nuestro equipo para obtener información sobre empleos, beneficios, proceso de contratación y oportunidades de crecimiento",
+      }
+    : {
+        readyToJoinHeading: "Ready to Join Our Team?",
+        readyToJoinDescription:
+          "Start with the essentials. Share your contact information, tell us where you can contribute, and attach a resume if you have one ready. If there is a fit, we will follow up directly.",
+        startApplication: "Start Application",
+        callButton: "Call (509) 308-6489",
+        veteransPriority: "Veterans receive priority consideration",
+        enoughToBegin: "Name, email, and role are enough to begin.",
+        journeyPrefix: "Your Journey to",
+        journeyHighlight: "Join Our Team",
+        journeyLead:
+          "Clear steps. Direct communication. Respect for your time.",
+        journeyDescription:
+          "Our process starts with a short application and moves forward only when there is a real fit. We keep the process focused and let you know what comes next.",
+        journeyGoal:
+          "The goal is a good working relationship, not unnecessary steps.",
+        noRolePrefix: "Don't See the",
+        noRoleHighlight: "Perfect Role?",
+        noRoleIntro:
+          "The right role might not be posted yet, but the right relationship can still begin now. If you bring",
+        noRoleValues: "the right values, work ethic, and craft mindset",
+        noRoleMiddle:
+          "we want to hear from you. We are always open to strong candidates who share our standards for",
+        noRoleStandards: "honesty, professionalism, and thorough work",
+        noRoleOutro: "Tell us where you can contribute.",
+        submitApplication: "Submit Application",
+        contactHr: "Contact HR",
+        hrHotline: "HR Hotline:",
+        careersQuestions: "Questions About Careers?",
+        careersSupport:
+          "Contact our team for information about jobs, benefits, hiring process, and growth opportunities",
+      };
 
   // Analytics tracking
   usePageTracking("Careers");
@@ -229,14 +307,14 @@ export default function CareersPageClient() {
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 This is not a generic hiring funnel. It is a{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  direct path into a Veteran-Owned team
-                </span>
-                . We invest in people who value honest communication,
+                  direct path into a Veteran-Owned team.
+                </span>{" "}
+                We invest in people who value honest communication,
                 professionalism, and steady growth through{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  meaningful work, mentorship, and long-term relationships
-                </span>
-                . Every team member should know what is expected, who they can
+                  meaningful work, mentorship, and long-term relationships.
+                </span>{" "}
+                Every team member should know what is expected, who they can
                 learn from, and how they can keep improving.
               </p>
 
@@ -302,11 +380,7 @@ export default function CareersPageClient() {
                 tagline: `Core Value ${index + 1}`,
                 description: value.description,
                 image: `/images/culture/culture-${index + 1}.jpg`,
-                iconBg: value.color.includes("primary")
-                  ? "bg-brand-primary"
-                  : value.color.includes("secondary")
-                    ? "bg-brand-secondary"
-                    : "bg-bronze-700",
+                iconBg: getCultureIconBg(value.color),
               }))}
               title="MH Construction"
               subtitle="Why Choose"
@@ -315,14 +389,14 @@ export default function CareersPageClient() {
                 <>
                   This is not a generic hiring funnel. It is a{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    direct path into a Veteran-Owned team
-                  </span>
-                  . We invest in people who value honest communication,
+                    direct path into a Veteran-Owned team.
+                  </span>{" "}
+                  We invest in people who value honest communication,
                   professionalism, and steady growth through{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    meaningful work, mentorship, and long-term relationships
-                  </span>
-                  . Every team member should know what is expected, who they can
+                    meaningful work, mentorship, and long-term relationships.
+                  </span>{" "}
+                  Every team member should know what is expected, who they can
                   learn from, and how they can keep improving.
                 </>
               }
@@ -367,16 +441,19 @@ export default function CareersPageClient() {
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                   Build your future with a Veteran-Owned team that values
-                  loyalty
-                </span>
-                . Your well-being and success matter here—we offer competitive
-                pay plus comprehensive benefits because we know you're building
-                a life, not just a career. From health coverage to{" "}
+                  loyalty.
+                </span>{" "}
+                Your well-being and success matter here—we offer competitive pay
+                plus comprehensive benefits because we know you're building a
+                life, not just a career. From health coverage to{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
                   professional development, retirement planning to performance
                   bonuses
                 </span>
-                —we invest in your total success as part of our mission.
+                <span>
+                  {" "}
+                  we invest in your total success as part of our mission.
+                </span>
               </p>
             </div>
 
@@ -466,13 +543,13 @@ export default function CareersPageClient() {
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 Don't just take our word for it—hear directly from{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  the people who work here every day
-                </span>
-                . Real stories from real team members about{" "}
+                  the people who work here every day.
+                </span>{" "}
+                Real stories from real team members about{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  career growth, workplace culture, and leadership support
-                </span>
-                . These aren't scripted testimonials—they're authentic voices.
+                  career growth, workplace culture, and leadership support.
+                </span>{" "}
+                These aren't scripted testimonials—they're authentic voices.
               </p>
             </div>
 
@@ -753,16 +830,16 @@ export default function CareersPageClient() {
                 commitment to our{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                   4 Core Values: Honesty, Integrity, Professionalism, and
-                  Thoroughness
-                </span>
-                . Even when we aren't hiring for a specific role, we are always
+                  Thoroughness.
+                </span>{" "}
+                Even when we aren't hiring for a specific role, we are always
                 open to inquiries from{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
                   skilled professionals who want to contribute to a
-                  high-standard operations environment
-                </span>
-                . Whether you are a seasoned Project Manager or a dedicated
-                Field Specialist, we want to hear from you.
+                  high-standard operations environment.
+                </span>{" "}
+                Whether you are a seasoned Project Manager or a dedicated Field
+                Specialist, we want to hear from you.
               </p>
             </div>
 
@@ -791,16 +868,12 @@ export default function CareersPageClient() {
 
                     {/* Heading */}
                     <h3 className="mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight">
-                      {isEs
-                        ? "¿Listo para unirte a nuestro equipo?"
-                        : "Ready to Join Our Team?"}
+                      {copy.readyToJoinHeading}
                     </h3>
 
                     {/* Description */}
                     <p className="mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
-                      {isEs
-                        ? "Comience con lo esencial. Comparta su información de contacto, cuéntenos dónde puede contribuir y adjunte un currículum si tiene uno listo. Si hay compatibilidad, nos comunicaremos directamente."
-                        : "Start with the essentials. Share your contact information, tell us where you can contribute, and attach a resume if you have one ready. If there is a fit, we will follow up directly."}
+                      {copy.readyToJoinDescription}
                     </p>
 
                     {/* CTA Buttons */}
@@ -813,7 +886,7 @@ export default function CareersPageClient() {
                       >
                         <MaterialIcon icon="send" size="lg" className="mr-3" />
                         <span className="font-medium">
-                          {isEs ? "Iniciar solicitud" : "Start Application"}
+                          {copy.startApplication}
                         </span>
                       </Button>
                       <Link href="/contact">
@@ -827,11 +900,7 @@ export default function CareersPageClient() {
                             size="lg"
                             className="mr-3"
                           />
-                          <span className="font-medium">
-                            {isEs
-                              ? "Llamar (509) 308-6489"
-                              : "Call (509) 308-6489"}
-                          </span>
+                          <span className="font-medium">{copy.callButton}</span>
                         </Button>
                       </Link>
                     </div>
@@ -839,14 +908,9 @@ export default function CareersPageClient() {
                     {/* Supporting Text */}
                     <p className="mt-8 text-sm text-gray-600 dark:text-gray-400 font-medium">
                       <span className="text-brand-primary dark:text-brand-primary-light font-bold">
-                        {isEs
-                          ? "Los veteranos reciben consideración prioritaria"
-                          : "Veterans receive priority consideration"}
+                        {copy.veteransPriority}
                       </span>
-                      .{" "}
-                      {isEs
-                        ? "Nombre, correo y rol son suficientes para comenzar."
-                        : "Name, email, and role are enough to begin."}
+                      . {copy.enoughToBegin}
                     </p>
                   </div>
                 </div>
@@ -883,29 +947,22 @@ export default function CareersPageClient() {
                 {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    {isEs ? "Tu viaje para" : "Your Journey to"}
+                    {copy.journeyPrefix}
                   </span>
                   <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    {isEs ? "unirte a nuestro equipo" : "Join Our Team"}
+                    {copy.journeyHighlight}
                   </span>
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    {isEs
-                      ? "Pasos claros. Comunicación directa. Respeto por tu tiempo."
-                      : "Clear steps. Direct communication. Respect for your time."}
+                    {copy.journeyLead}
                   </span>
-                  {isEs
-                    ? "Nuestro proceso comienza con una solicitud breve y avanza solo cuando hay una verdadera compatibilidad. Mantenemos el proceso enfocado y te informamos qué sigue."
-                    : "Our process starts with a short application and moves forward only when there is a real fit. We keep the process focused and let you know what comes next."}{" "}
+                  <span> {copy.journeyDescription} </span>
                   <span className="font-bold text-gray-900 dark:text-white">
-                    {isEs
-                      ? "El objetivo es una buena relación de trabajo, no pasos innecesarios"
-                      : "The goal is a good working relationship, not unnecessary steps"}
+                    {copy.journeyGoal}
                   </span>
-                  .
                 </p>
               </div>
 
@@ -1209,7 +1266,7 @@ export default function CareersPageClient() {
                   </Button>
                   <Button
                     onClick={() => {
-                      window.location.href = `mailto:${COMPANY_INFO.email.main}`;
+                      globalThis.location.href = `mailto:${COMPANY_INFO.email.main}`;
                     }}
                     variant="secondary"
                     size="lg"
@@ -1257,36 +1314,24 @@ export default function CareersPageClient() {
                 {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    {isEs ? "¿No ve el" : "Don't See the"}
+                    {copy.noRolePrefix}
                   </span>
                   <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    {isEs ? "Rol perfecto?" : "Perfect Role?"}
+                    {copy.noRoleHighlight}
                   </span>
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  {isEs
-                    ? "El rol correcto podría no estar publicado aún, pero la relación correcta puede comenzar ahora. Si trae"
-                    : "The right role might not be posted yet, but the right relationship can still begin now. If you bring"}{" "}
+                  {copy.noRoleIntro}{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    {isEs
-                      ? "los valores correctos, ética de trabajo y mentalidad de oficio"
-                      : "the right values, work ethic, and craft mindset"}
+                    {copy.noRoleValues}
                   </span>
-                  ,{" "}
-                  {isEs
-                    ? "queremos escucharte. Siempre estamos abiertos a candidatos fuertes que compartan nuestros estándares de"
-                    : "we want to hear from you. We are always open to strong candidates who share our standards for"}{" "}
+                  , {copy.noRoleMiddle}{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    {isEs
-                      ? "honestidad, profesionalismo y trabajo minucioso"
-                      : "honesty, professionalism, and thorough work"}
+                    {copy.noRoleStandards}
                   </span>
-                  .{" "}
-                  {isEs
-                    ? "Cuéntanos dónde puedes contribuir."
-                    : "Tell us where you can contribute."}
+                  . {copy.noRoleOutro}
                 </p>
               </div>
 
@@ -1305,9 +1350,7 @@ export default function CareersPageClient() {
                     ariaLabel="Submit Application"
                     className="mr-3"
                   />
-                  <span className="font-medium">
-                    {isEs ? "Enviar solicitud" : "Submit Application"}
-                  </span>
+                  <span className="font-medium">{copy.submitApplication}</span>
                 </Button>
                 <Link href="/contact">
                   <Button
@@ -1322,9 +1365,7 @@ export default function CareersPageClient() {
                       ariaLabel="Contact HR"
                       className="mr-3"
                     />
-                    <span className="font-medium">
-                      {isEs ? "Contactar a RRHH" : "Contact HR"}
-                    </span>
+                    <span className="font-medium">{copy.contactHr}</span>
                   </Button>
                 </Link>
               </div>
@@ -1336,8 +1377,7 @@ export default function CareersPageClient() {
                   ariaLabel="HR Phone"
                   className="inline mr-2"
                 />
-                {isEs ? "Línea de RRHH:" : "HR Hotline:"}{" "}
-                {COMPANY_INFO.phone.display} |{" "}
+                {copy.hrHotline} {COMPANY_INFO.phone.display} |{" "}
                 <a
                   href={`mailto:${COMPANY_INFO.email.main}`}
                   className="font-semibold text-brand-primary hover:text-brand-secondary underline"
@@ -1353,18 +1393,16 @@ export default function CareersPageClient() {
         <section className="relative bg-linear-to-r from-brand-primary to-brand-primary-dark py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
             <h2 className="mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter drop-shadow-lg">
-              {isEs ? "¿Preguntas sobre carreras?" : "Questions About Careers?"}
+              {copy.careersQuestions}
             </h2>
             <p className="mx-auto max-w-3xl font-light text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8">
-              {isEs
-                ? "Contacta a nuestro equipo para obtener información sobre empleos, beneficios, proceso de contratación y oportunidades de crecimiento"
-                : "Contact our team for information about jobs, benefits, hiring process, and growth opportunities"}
+              {copy.careersSupport}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="secondary" size="lg" asChild>
                 <Link href="/contact">
                   <MaterialIcon icon="email" className="mr-2" />
-                  {isEs ? "Contactar a RRHH" : "Contact HR"}
+                  {copy.contactHr}
                 </Link>
               </Button>
               <Button

@@ -1,5 +1,10 @@
 export * from "./use-breakpoint";
 export { usePWA, type PWAStatus } from "./usePWA";
+export {
+  useSmokeBossCampaignStatus,
+  getSmokeBossCampaignStatus,
+  type SmokeBossCampaignStatus,
+} from "./useSmokeBossCampaignStatus";
 export { usePageTracking, useClickTracking } from "@/lib/analytics/hooks";
 export {
   useFormSubmit,

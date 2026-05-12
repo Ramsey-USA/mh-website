@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  useEffect,
-  useState,
-  useRef,
-  type FormEvent,
-  type ReactNode,
-} from "react";
+import { useEffect, useState, useRef, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -252,17 +246,14 @@ const licenseDetails: LicenseDetail[] = [
   },
 ];
 
-function FooterNavLink({
-  href,
-  icon,
-  label,
-  sub,
-}: {
-  href: string;
-  icon: string;
-  label: string;
-  sub: string;
+function FooterNavLink(props: {
+  readonly href: string;
+  readonly icon: string;
+  readonly label: string;
+  readonly sub: string;
 }) {
+  const { href, icon, label, sub } = props;
+
   return (
     <Link
       href={href}
@@ -289,15 +280,17 @@ function FooterNavLink({
   );
 }
 
-function SocialLink({
-  href,
-  icon,
-  ariaLabel,
-  title,
-  hoverClassName,
-  shadowClassName,
-  iconGlowClassName,
-}: SocialLinkItem) {
+function SocialLink(props: Readonly<SocialLinkItem>) {
+  const {
+    href,
+    icon,
+    ariaLabel,
+    title,
+    hoverClassName,
+    shadowClassName,
+    iconGlowClassName,
+  } = props;
+
   return (
     <a
       href={href}
@@ -317,17 +310,14 @@ function SocialLink({
   );
 }
 
-function FooterActionCardContent({
-  icon,
-  eyebrow,
-  body,
-  accent = "primary",
-}: {
-  icon: string;
-  eyebrow: string;
-  body: ReactNode;
-  accent?: "primary" | "secondary";
+function FooterActionCardContent(props: {
+  readonly icon: string;
+  readonly eyebrow: string;
+  readonly body: ReactNode;
+  readonly accent?: "primary" | "secondary";
 }) {
+  const { icon, eyebrow, body, accent = "primary" } = props;
+
   const accentClasses =
     accent === "secondary"
       ? {
@@ -344,11 +334,11 @@ function FooterActionCardContent({
   return (
     <>
       <div
-        className={`flex flex-shrink-0 items-center justify-center rounded-lg p-2 transition-transform ${accentClasses.iconWrapper}`}
+        className={`flex shrink-0 items-center justify-center rounded-lg p-2 transition-transform ${accentClasses.iconWrapper}`}
       >
         <MaterialIcon icon={icon} size="md" />
       </div>
-      <div className="min-w-0 flex-grow">
+      <div className="min-w-0 grow">
         <div
           className={`${accentClasses.eyebrow} mb-0.5 text-xs font-bold uppercase tracking-wide`}
         >
@@ -359,7 +349,7 @@ function FooterActionCardContent({
       <MaterialIcon
         icon="arrow_forward"
         size="sm"
-        className={`${accentClasses.arrow} flex-shrink-0 opacity-0 transition-opacity group-hover:opacity-100`}
+        className={`${accentClasses.arrow} shrink-0 opacity-0 transition-opacity group-hover:opacity-100`}
       />
     </>
   );
@@ -408,15 +398,12 @@ function LicenseBadge() {
   );
 }
 
-function ServiceAreasDropdown({
-  isOpen,
-  onToggle,
-  isEs,
-}: {
-  isOpen: boolean;
-  onToggle: () => void;
-  isEs: boolean;
+function ServiceAreasDropdown(props: {
+  readonly isOpen: boolean;
+  readonly onToggle: () => void;
+  readonly isEs: boolean;
 }) {
+  const { isOpen, onToggle, isEs } = props;
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -439,7 +426,7 @@ function ServiceAreasDropdown({
         onClick={onToggle}
         className={serviceAreasTriggerClassName}
         aria-expanded={isOpen}
-        aria-haspopup="listbox"
+        aria-haspopup="dialog"
       >
         <MaterialIcon
           icon="map"
@@ -457,8 +444,7 @@ function ServiceAreasDropdown({
       </button>
       {isOpen && (
         <div
-          className="absolute bottom-full left-0 z-50 mb-2 w-72 rounded-xl border border-brand-primary/40 bg-gradient-to-b from-gray-800 to-gray-900 p-3 shadow-xl shadow-brand-primary/20"
-          role="listbox"
+          className="absolute bottom-full left-0 z-50 mb-2 w-72 rounded-xl border border-brand-primary/40 bg-linear-to-b from-gray-800 to-gray-900 p-3 shadow-xl shadow-brand-primary/20"
           aria-label={isEs ? "Areas de servicio" : "Service areas"}
         >
           <div className="mb-2 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-brand-primary">
@@ -592,10 +578,10 @@ export default function Footer() {
       }
     };
 
-    window.addEventListener("keydown", handleAdminShortcut);
+    globalThis.addEventListener("keydown", handleAdminShortcut);
 
     return () => {
-      window.removeEventListener("keydown", handleAdminShortcut);
+      globalThis.removeEventListener("keydown", handleAdminShortcut);
     };
   }, []);
 
@@ -604,17 +590,19 @@ export default function Footer() {
       return;
     }
 
-    const timeoutId = window.setTimeout(() => {
+    const timeoutId = globalThis.setTimeout(() => {
       setNewsletterStatus("idle");
       setNewsletterMessage("");
     }, 5000);
 
     return () => {
-      window.clearTimeout(timeoutId);
+      globalThis.clearTimeout(timeoutId);
     };
   }, [newsletterStatus]);
 
-  const handleNewsletterSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleNewsletterSubmit = async (event: {
+    preventDefault: () => void;
+  }) => {
     event.preventDefault();
 
     const normalizedEmail = newsletterEmail.trim();
@@ -648,9 +636,26 @@ export default function Footer() {
       setNewsletterMessage(isEs ? "Intente de nuevo" : "Try again");
     } catch {
       setNewsletterStatus("error");
-      setNewsletterMessage(isEs ? "Error" : "Error");
+      setNewsletterMessage("Error");
     }
   };
+
+  let newsletterSubmitLabel = isEs ? "Suscribirse" : "Subscribe";
+  if (newsletterStatus === "submitting") {
+    newsletterSubmitLabel = isEs ? "Suscribiendo..." : "Subscribing...";
+  }
+
+  let newsletterFeedbackClassName = "text-gray-400";
+  if (newsletterStatus === "success") {
+    newsletterFeedbackClassName = "text-green-400";
+  } else if (newsletterStatus === "error") {
+    newsletterFeedbackClassName = "text-red-400";
+  }
+
+  let newsletterPlaceholder = "Enter your email";
+  if (isEs) {
+    newsletterPlaceholder = "Ingrese su correo";
+  }
 
   return (
     <>
@@ -659,7 +664,7 @@ export default function Footer() {
         onClose={() => setShowAdminModal(false)}
       />
       <footer
-        className="bg-gradient-to-br from-gray-800 dark:from-black via-gray-900 dark:via-gray-900 to-black dark:to-black pt-6 xs:pt-8 sm:pt-10 pb-4 border-t border-brand-primary/20 text-gray-300 touch-manipulation"
+        className="bg-linear-to-br from-gray-800 dark:from-black via-gray-900 dark:via-gray-900 to-black dark:to-black pt-6 xs:pt-8 sm:pt-10 pb-4 border-t border-brand-primary/20 text-gray-300 touch-manipulation"
         itemScope
         itemType="https://schema.org/Organization"
       >
@@ -682,7 +687,7 @@ export default function Footer() {
                       height={132}
                       loading="lazy"
                       itemProp="logo"
-                      className="mx-auto sm:mx-0 lg:mx-0 w-[240px] xs:w-[270px] sm:w-[300px] h-auto drop-shadow-lg hover:drop-shadow-xl transition-all duration-300 cursor-pointer"
+                      className="mx-auto sm:mx-0 lg:mx-0 w-60 xs:w-67.5 sm:w-75 h-auto drop-shadow-lg hover:drop-shadow-xl transition-all duration-300 cursor-pointer"
                     />
                   </Link>
                 </div>
@@ -692,7 +697,7 @@ export default function Footer() {
                   aria-label={
                     isEs ? "Enlaces de redes sociales" : "Social media links"
                   }
-                  className="mx-auto flex w-[240px] max-w-full flex-nowrap items-center justify-between pb-1 xs:w-[270px] sm:mx-0 sm:w-[300px]"
+                  className="mx-auto flex w-60 max-w-full flex-nowrap items-center justify-between pb-1 xs:w-67.5 sm:mx-0 sm:w-75"
                 >
                   {socialLinks.map((link) => (
                     <SocialLink key={link.href} {...link} />
@@ -736,7 +741,7 @@ export default function Footer() {
 
                 {/* Service Area Map */}
                 <div className="mt-4 flex flex-1 items-end justify-center sm:justify-start">
-                  <div className="w-full max-w-[340px] rounded-lg border border-brand-primary/20 bg-brand-primary/5 p-4 transition-all duration-300 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10">
+                  <div className="w-full max-w-85 rounded-lg border border-brand-primary/20 bg-brand-primary/5 p-4 transition-all duration-300 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10">
                     <PNWStatesMap
                       width={220}
                       height={154}
@@ -942,16 +947,16 @@ export default function Footer() {
               </div>
 
               {/* Newsletter Signup */}
-              <div className="group bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation">
+              <div className="group bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
+                  <div className="shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
                     <MaterialIcon
                       icon="notifications_active"
                       size="md"
                       className="text-white"
                     />
                   </div>
-                  <div className="flex-grow">
+                  <div className="grow">
                     <div className="text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
                       {isEs ? "Manténgase al día" : "Stay Updated"}
                     </div>
@@ -969,9 +974,7 @@ export default function Footer() {
                     type="email"
                     name="email"
                     autoComplete="email"
-                    placeholder={
-                      isEs ? "Ingrese su correo" : "Enter your email"
-                    }
+                    placeholder={newsletterPlaceholder}
                     required
                     value={newsletterEmail}
                     onChange={(event) => setNewsletterEmail(event.target.value)}
@@ -983,29 +986,16 @@ export default function Footer() {
                     disabled={newsletterStatus === "submitting"}
                     className="w-full px-4 py-2 bg-brand-primary hover:bg-brand-primary-dark text-brand-secondary-light hover:text-white text-sm font-bold rounded-lg transition-all duration-300 border-2 border-brand-secondary/50 hover:border-brand-secondary shadow-md hover:shadow-lg flex items-center justify-center gap-2"
                   >
-                    {newsletterStatus === "submitting"
-                      ? isEs
-                        ? "Suscribiendo..."
-                        : "Subscribing..."
-                      : isEs
-                        ? "Suscribirse"
-                        : "Subscribe"}
+                    {newsletterSubmitLabel}
                     <MaterialIcon icon="arrow_forward" size="sm" />
                   </button>
-                  <div
+                  <output
                     id="footer-newsletter-feedback"
-                    role={newsletterStatus === "error" ? "alert" : "status"}
                     aria-live="polite"
-                    className={`text-xs ${
-                      newsletterStatus === "success"
-                        ? "text-green-400"
-                        : newsletterStatus === "error"
-                          ? "text-red-400"
-                          : "text-gray-400"
-                    }`}
+                    className={`text-xs ${newsletterFeedbackClassName}`}
                   >
                     {newsletterMessage}
-                  </div>
+                  </output>
                 </form>
               </div>
             </section>
@@ -1169,7 +1159,7 @@ export default function Footer() {
                   key={link.href}
                   href={link.href}
                   prefetch={false}
-                  className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 hover:from-brand-primary/15 hover:to-brand-secondary/15 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
+                  className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-primary/20 bg-linear-to-r from-brand-primary/5 to-brand-secondary/5 hover:from-brand-primary/15 hover:to-brand-secondary/15 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
                 >
                   <MaterialIcon
                     icon={link.icon}
@@ -1197,8 +1187,10 @@ export default function Footer() {
 
               {/* Back to Top Button */}
               <button
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="group flex items-center gap-2 bg-gradient-to-r from-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary text-brand-secondary-light px-4 py-2 rounded-lg shadow-md hover:shadow-lg hover:shadow-brand-primary/20 transition-all duration-300 hover:scale-105 touch-manipulation border border-brand-secondary/30 hover:border-brand-secondary"
+                onClick={() =>
+                  globalThis.scrollTo({ top: 0, behavior: "smooth" })
+                }
+                className="group flex items-center gap-2 bg-linear-to-r from-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary text-brand-secondary-light px-4 py-2 rounded-lg shadow-md hover:shadow-lg hover:shadow-brand-primary/20 transition-all duration-300 hover:scale-105 touch-manipulation border border-brand-secondary/30 hover:border-brand-secondary"
                 aria-label={isEs ? "Volver arriba" : "Back to top"}
               >
                 <MaterialIcon

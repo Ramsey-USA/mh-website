@@ -7,6 +7,7 @@ import {
   SemiquincentennialBanner,
 } from "@/components/layout";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { SmokeBossFunnel } from "@/components/ui/cta";
 import { usePWA } from "@/hooks/usePWA";
 
 interface AppShellProps {
@@ -28,7 +29,8 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
       <>
         <Navigation />
         <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
-          <main id="main-content" className="flex-grow">
+          <SmokeBossFunnel />
+          <main id="main-content" className="grow">
             {children}
           </main>
           <SemiquincentennialBanner />
@@ -68,7 +70,8 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
         </div>
       </header>
 
-      <main id="main-content" className="flex-grow">
+      <main id="main-content" className="grow">
+        <SmokeBossFunnel />
         {children}
       </main>
 

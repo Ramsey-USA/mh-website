@@ -36,6 +36,11 @@ const ACTIVE_PAGES = [
   { path: "/projects", priority: 0.8, changeFreq: "weekly" as const },
   { path: "/public-sector", priority: 0.8, changeFreq: "monthly" as const },
   { path: "/testimonials", priority: 0.8, changeFreq: "weekly" as const },
+  {
+    path: "/cool-desert-nights",
+    priority: 0.82,
+    changeFreq: "weekly" as const,
+  },
 
   // Priority 0.7 - Supporting pages
   { path: "/team", priority: 0.7, changeFreq: "monthly" as const },

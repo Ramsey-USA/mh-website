@@ -101,6 +101,13 @@ export const breadcrumbPatterns = {
       url: "https://www.mhc-gc.com/terms",
     },
   ],
+  coolDesertNights: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    {
+      name: "Cool Desert Nights 2026",
+      url: "https://www.mhc-gc.com/cool-desert-nights",
+    },
+  ],
   // Location pages
   locationRichland: [
     { name: "Home", url: "https://www.mhc-gc.com" },

@@ -458,14 +458,13 @@ type TradeGroup = { trade: string; icon: string; vendors: Vendor[] };
 // Within each group, partners are also sorted alphabetically by name.
 // Quarterly governance: adds, removals, and reclassifications require
 // a documented reason and owner approval before merging.
-const tradeGroups: TradeGroup[] = Object.entries(
-  vendors.reduce<Record<string, Vendor[]>>((acc, v) => {
-    (acc[v.trade] ??= []).push(v);
-    return acc;
-  }, {}),
+const tradeGroups: TradeGroup[] = Array.from(
+  new Set(vendors.map((vendor) => vendor.trade)),
 )
-  .sort(([a], [b]) => a.localeCompare(b))
-  .map(([trade, tradeVendors]) => {
+  .sort((a, b) => a.localeCompare(b))
+  .map((trade) => {
+    const tradeVendors = vendors.filter((vendor) => vendor.trade === trade);
+
     if (!(trade in TRADE_ICONS)) {
       // Guard against unmapped trade categories: errors surface in server logs
       // so the missing icon is caught before it reaches users.
@@ -530,13 +529,13 @@ export default function AlliesPage() {
       <StructuredData data={breadcrumbSchema} />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="hero-section relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 flex items-end justify-end text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20" />
+      <section className="hero-section relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 flex items-end justify-end text-white overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20" />
 
         {/* Content — bottom right */}
         <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
           <div className="flex justify-end mb-4">
-            <div className="relative p-4 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
+            <div className="relative p-4 bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
               <MaterialIcon
                 icon="diversity_3"
                 size="4xl"
@@ -586,10 +585,10 @@ export default function AlliesPage() {
           <div className="relative z-10 px-6 sm:px-10 lg:px-14">
             <div className="mb-16 sm:mb-20 text-center">
               <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
+                <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full" />
-                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full" />
+                  <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
                       icon="handshake"
                       size="2xl"
@@ -598,14 +597,14 @@ export default function AlliesPage() {
                     />
                   </div>
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
+                <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
               </div>
 
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Why Build With
                 </span>
-                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   MH Construction
                 </span>
               </h2>
@@ -633,14 +632,14 @@ export default function AlliesPage() {
             <StaggeredFadeIn className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {partnershipValues.map((value) => (
                 <div key={value.title} className="group relative flex h-full">
-                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse" />
+                  <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse" />
                   <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
-                    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker" />
+                    <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker" />
                     <div className="p-6 flex flex-col flex-1 text-center">
                       <div className="relative inline-block mx-auto mb-4">
-                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full" />
+                        <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full" />
                         <div
-                          className={`relative flex justify-center items-center bg-gradient-to-r ${value.color} rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300`}
+                          className={`relative flex justify-center items-center bg-linear-to-r ${value.color} rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300`}
                         >
                           <MaterialIcon
                             icon={value.icon}
@@ -653,7 +652,7 @@ export default function AlliesPage() {
                       <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-lg">
                         {value.title}
                       </h3>
-                      <p className="flex-grow text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                      <p className="grow text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                         {value.description}
                       </p>
                     </div>
@@ -672,10 +671,10 @@ export default function AlliesPage() {
           <div className="relative z-10">
             <div className="mb-16 sm:mb-20 text-center">
               <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
+                <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 blur-2xl rounded-full" />
-                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-secondary/30 blur-2xl rounded-full" />
+                  <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-secondary p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
                       icon="groups"
                       size="2xl"
@@ -684,14 +683,14 @@ export default function AlliesPage() {
                     />
                   </div>
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
+                <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
               </div>
 
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Our
                 </span>
-                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Trade Partner Network
                 </span>
               </h2>
@@ -715,7 +714,7 @@ export default function AlliesPage() {
                   <MaterialIcon
                     icon="checklist"
                     size="sm"
-                    className="text-brand-primary dark:text-brand-primary-light flex-shrink-0"
+                    className="text-brand-primary dark:text-brand-primary-light shrink-0"
                     ariaLabel="Listing criteria"
                   />
                   <span className="text-xs font-bold uppercase tracking-widest text-brand-primary dark:text-brand-primary-light">
@@ -799,7 +798,7 @@ export default function AlliesPage() {
                       The top-level #vendors nav item covers keyboard access. */}
                   {/* Trade group header */}
                   <div className="flex items-center gap-3 mb-8">
-                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-brand-primary/10 dark:bg-brand-primary/20 flex-shrink-0">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-brand-primary/10 dark:bg-brand-primary/20 shrink-0">
                       <MaterialIcon
                         icon={group.icon}
                         size="sm"
@@ -838,10 +837,10 @@ export default function AlliesPage() {
             <div className="text-center">
               <div className="mb-16 sm:mb-20">
                 <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
+                  <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full" />
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full" />
+                    <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="diversity_3"
                         size="2xl"
@@ -850,14 +849,14 @@ export default function AlliesPage() {
                       />
                     </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
+                  <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
                 </div>
 
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Become an
                   </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Ally in Force
                   </span>
                 </h2>

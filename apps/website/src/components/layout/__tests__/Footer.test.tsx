@@ -50,6 +50,9 @@ jest.mock("@/components/ui/modals/AdminSignInModal", () => ({
 }));
 
 describe("Footer", () => {
+  const getNewsletterFeedback = () =>
+    document.getElementById("footer-newsletter-feedback");
+
   beforeEach(() => {
     global.fetch = jest.fn();
   });
@@ -140,7 +143,9 @@ describe("Footer", () => {
       );
     });
 
-    expect(await screen.findByRole("status")).toHaveTextContent("Subscribed!");
+    await waitFor(() => {
+      expect(getNewsletterFeedback()).toHaveTextContent("Subscribed!");
+    });
     expect(input).toHaveValue("");
   });
 
@@ -170,7 +175,7 @@ describe("Footer", () => {
 
     // Wait for the success state to appear
     await waitFor(() =>
-      expect(screen.getByRole("status")).toHaveTextContent("Subscribed!"),
+      expect(getNewsletterFeedback()).toHaveTextContent("Subscribed!"),
     );
 
     // The cleanup function in useEffect is registered now (success state).
@@ -192,7 +197,7 @@ describe("Footer", () => {
     await user.click(screen.getByRole("button", { name: /subscribe/i }));
 
     await waitFor(() =>
-      expect(screen.getByRole("status")).toHaveTextContent("Subscribed!"),
+      expect(getNewsletterFeedback()).toHaveTextContent("Subscribed!"),
     );
 
     // Advance time past the 5-second auto-clear timeout (wrapped in act to flush state updates)
@@ -200,9 +205,7 @@ describe("Footer", () => {
       jest.advanceTimersByTime(6000);
     });
 
-    await waitFor(() =>
-      expect(screen.getByRole("status")).toHaveTextContent(""),
-    );
+    await waitFor(() => expect(getNewsletterFeedback()).toHaveTextContent(""));
 
     jest.useRealTimers();
   });
@@ -296,7 +299,9 @@ describe("Footer", () => {
     );
     await user.click(screen.getByRole("button", { name: /subscribe/i }));
 
-    expect(await screen.findByRole("alert")).toHaveTextContent("Try again");
+    await waitFor(() => {
+      expect(getNewsletterFeedback()).toHaveTextContent("Try again");
+    });
   });
 
   it("shows 'Error' when the newsletter fetch itself throws", async () => {
@@ -313,6 +318,8 @@ describe("Footer", () => {
     );
     await user.click(screen.getByRole("button", { name: /subscribe/i }));
 
-    expect(await screen.findByRole("alert")).toHaveTextContent("Error");
+    await waitFor(() => {
+      expect(getNewsletterFeedback()).toHaveTextContent("Error");
+    });
   });
 });

@@ -280,7 +280,7 @@ export function Navigation() {
       {isMenuOpen && (
         <button
           type="button"
-          className="z-[60] fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-300 cursor-pointer"
+          className="z-60 fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-300 cursor-pointer"
           onClick={() => setIsMenuOpen(false)}
           onKeyDown={(e) => e.key === "Escape" && setIsMenuOpen(false)}
           aria-label={navText.closeMenuLabel}
@@ -288,14 +288,14 @@ export function Navigation() {
       )}
 
       {/* Main Header - Transparent and absolute positioning */}
-      <header className="top-0 left-0 right-0 z-[65] absolute bg-transparent pointer-events-none">
+      <header className="top-0 left-0 right-0 z-65 absolute bg-transparent pointer-events-none">
         <div className="mx-auto px-2 xs:px-3 sm:px-4 lg:px-6 max-w-7xl">
           <div className="flex justify-center items-center py-2 xs:py-3 sm:py-4 md:py-5 h-auto relative">
             {/* Left spacer for symmetry */}
-            <div className="absolute left-0 w-[44px] xs:w-[48px] sm:w-[56px] flex-shrink-0"></div>
+            <div className="absolute left-0 w-11 xs:w-12 sm:w-14 shrink-0"></div>
 
             {/* Logo - Centered with mobile optimization */}
-            <div className="flex-shrink-0 pointer-events-auto">
+            <div className="shrink-0 pointer-events-auto">
               <Link
                 href="/"
                 className="flex items-center hover:scale-105 transition-all duration-300 bg-slate-900 shadow-lg hover:shadow-xl px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 sm:py-4 rounded-xl border-2 border-slate-700/50 hover:border-slate-600/70"
@@ -308,26 +308,26 @@ export function Navigation() {
                   priority
                   sizes="(max-width: 475px) 123px, (max-width: 640px) 135px, (max-width: 768px) 158px, (max-width: 1024px) 196px, 247px"
                   quality={85}
-                  className="drop-shadow-lg w-auto h-[70px] xs:h-[77px] sm:h-[90px] md:h-[112px] lg:h-[141px]"
+                  className="drop-shadow-lg w-auto h-17.5 xs:h-19.25 sm:h-22.5 md:h-28 lg:h-35.25"
                 />
               </Link>
             </div>
 
             {/* Right spacer for symmetry */}
-            <div className="absolute right-0 w-[44px] xs:w-[48px] sm:w-[56px] flex-shrink-0"></div>
+            <div className="absolute right-0 w-11 xs:w-12 sm:w-14 shrink-0"></div>
           </div>
         </div>
       </header>
 
       {/* Theme Toggle - Fixed left edge */}
-      <div className="top-2 xs:top-3 sm:top-4 left-2 xs:left-3 sm:left-4 lg:left-6 z-[70] fixed flex items-center pointer-events-auto">
+      <div className="top-2 xs:top-3 sm:top-4 left-2 xs:left-3 sm:left-4 lg:left-6 z-70 fixed flex items-center pointer-events-auto">
         <div className={controlButtonClassName}>
           <ThemeToggle compact size="sm" />
         </div>
       </div>
 
       {/* Header Controls - Fixed right edge */}
-      <div className="top-2 xs:top-3 sm:top-4 right-2 xs:right-3 sm:right-4 lg:right-6 z-[70] fixed flex items-center gap-1.5 xs:gap-2 sm:gap-2.5 pointer-events-auto">
+      <div className="top-2 xs:top-3 sm:top-4 right-2 xs:right-3 sm:right-4 lg:right-6 z-70 fixed flex items-center gap-1.5 xs:gap-2 sm:gap-2.5 pointer-events-auto">
         {/* Language Toggle */}
         <LanguageToggle className="order-1" />
 
@@ -354,7 +354,7 @@ export function Navigation() {
             <span
               className={`w-full h-0.5 bg-brand-secondary transition-all duration-300 transform ${
                 isMenuOpen
-                  ? "-rotate-45 -translate-y-[0.4rem] xs:-translate-y-2"
+                  ? "-rotate-45 translate-y-[-0.4rem] xs:-translate-y-2"
                   : ""
               }`}
             />
@@ -364,11 +364,11 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 right-0 bottom-0 z-[65] transition-all duration-500 ease-in-out ${
+        className={`fixed top-0 left-0 right-0 bottom-0 z-65 transition-all duration-500 ease-in-out ${
           isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="relative bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-800 to-white dark:to-gray-900 shadow-inner backdrop-blur-lg border-gray-200 dark:border-gray-700 border-b h-full">
+        <div className="relative bg-linear-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-800 to-white dark:to-gray-900 shadow-inner backdrop-blur-lg border-gray-200 dark:border-gray-700 border-b h-full">
           {/* Logo Background Watermark */}
           <div className="absolute inset-0 flex justify-center items-center pointer-events-none overflow-hidden">
             <div className="relative w-full h-full">
@@ -396,7 +396,7 @@ export function Navigation() {
                       key={item.href}
                       href={item.href}
                       prefetch={false}
-                      className="group flex flex-col items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 px-1.5 sm:px-2 py-2 sm:py-2.5 rounded-lg font-medium text-gray-900 hover:text-brand-primary dark:hover:text-bronze-400 dark:text-gray-100 text-center transition-all duration-300 touch-manipulation min-h-[56px] sm:min-h-[60px]"
+                      className="group flex flex-col items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 px-1.5 sm:px-2 py-2 sm:py-2.5 rounded-lg font-medium text-gray-900 hover:text-brand-primary dark:hover:text-bronze-400 dark:text-gray-100 text-center transition-all duration-300 touch-manipulation min-h-14 sm:min-h-15"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <div className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 mb-1">
@@ -422,7 +422,7 @@ export function Navigation() {
             </div>
 
             {/* Social Media Links - Compact footer */}
-            <div className="flex-shrink-0 pt-3 sm:pt-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="shrink-0 pt-3 sm:pt-4 border-t border-gray-200 dark:border-gray-700">
               <div className="mb-2 sm:mb-3 text-center">
                 <h4 className="font-bold text-brand-secondary text-xs sm:text-sm uppercase tracking-wide">
                   {navText.connectLabel}
@@ -433,7 +433,7 @@ export function Navigation() {
                   href={COMPANY_INFO.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#1877F2] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#1877F2]/40"
+                  className="group flex justify-center items-center bg-linear-to-br from-gray-700 to-gray-800 hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#1877F2] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#1877F2]/40"
                   aria-label={navText.facebookLabel}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -447,7 +447,7 @@ export function Navigation() {
                   href={COMPANY_INFO.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#E4405F] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#E4405F]/40"
+                  className="group flex justify-center items-center bg-linear-to-br from-gray-700 to-gray-800 hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#E4405F] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#E4405F]/40"
                   aria-label={navText.instagramLabel}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -461,7 +461,7 @@ export function Navigation() {
                   href={COMPANY_INFO.social.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#1D9BF0] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-black/40"
+                  className="group flex justify-center items-center bg-linear-to-br from-gray-700 to-gray-800 hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#1D9BF0] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-black/40"
                   aria-label={navText.twitterLabel}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -475,7 +475,7 @@ export function Navigation() {
                   href={COMPANY_INFO.social.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#FF0000] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#FF0000]/40"
+                  className="group flex justify-center items-center bg-linear-to-br from-gray-700 to-gray-800 hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#FF0000] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#FF0000]/40"
                   aria-label={navText.youtubeLabel}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -489,7 +489,7 @@ export function Navigation() {
                   href={COMPANY_INFO.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#0A66C2] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#0A66C2]/40"
+                  className="group flex justify-center items-center bg-linear-to-br from-gray-700 to-gray-800 hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#0A66C2] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#0A66C2]/40"
                   aria-label={navText.linkedinLabel}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -506,7 +506,7 @@ export function Navigation() {
                 <Link
                   href="/privacy"
                   prefetch={false}
-                  className="group flex items-center gap-1 px-2 py-1 rounded-full border border-gray-300 dark:border-gray-600 bg-gradient-to-r from-gray-100 dark:from-gray-800 to-gray-50 dark:to-gray-700 hover:from-brand-primary/10 hover:to-brand-secondary/10 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
+                  className="group flex items-center gap-1 px-2 py-1 rounded-full border border-gray-300 dark:border-gray-600 bg-linear-to-r from-gray-100 dark:from-gray-800 to-gray-50 dark:to-gray-700 hover:from-brand-primary/10 hover:to-brand-secondary/10 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
@@ -522,7 +522,7 @@ export function Navigation() {
                 <Link
                   href="/terms"
                   prefetch={false}
-                  className="group flex items-center gap-1 px-2 py-1 rounded-full border border-gray-300 dark:border-gray-600 bg-gradient-to-r from-gray-100 dark:from-gray-800 to-gray-50 dark:to-gray-700 hover:from-brand-primary/10 hover:to-brand-secondary/10 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
+                  className="group flex items-center gap-1 px-2 py-1 rounded-full border border-gray-300 dark:border-gray-600 bg-linear-to-r from-gray-100 dark:from-gray-800 to-gray-50 dark:to-gray-700 hover:from-brand-primary/10 hover:to-brand-secondary/10 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
@@ -537,7 +537,7 @@ export function Navigation() {
                 </Link>
                 <Link
                   href="/accessibility"
-                  className="group flex items-center gap-1 px-2 py-1 rounded-full border border-gray-300 dark:border-gray-600 bg-gradient-to-r from-gray-100 dark:from-gray-800 to-gray-50 dark:to-gray-700 hover:from-brand-primary/10 hover:to-brand-secondary/10 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
+                  className="group flex items-center gap-1 px-2 py-1 rounded-full border border-gray-300 dark:border-gray-600 bg-linear-to-r from-gray-100 dark:from-gray-800 to-gray-50 dark:to-gray-700 hover:from-brand-primary/10 hover:to-brand-secondary/10 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon

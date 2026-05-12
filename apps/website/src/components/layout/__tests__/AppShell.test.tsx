@@ -33,6 +33,12 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
   MaterialIcon: ({ icon }: { icon: string }) => <span>{icon}</span>,
 }));
 
+jest.mock("@/components/ui/cta", () => ({
+  SmokeBossFunnel: () => (
+    <aside data-testid="smoke-boss-funnel">Smoke Boss Funnel</aside>
+  ),
+}));
+
 describe("AppShell", () => {
   beforeEach(() => {
     jest.clearAllMocks();

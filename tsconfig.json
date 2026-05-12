@@ -49,7 +49,7 @@
     ],
     // === Path Mapping ===
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./apps/website/src/*"]
     }
   },
   "include": [
