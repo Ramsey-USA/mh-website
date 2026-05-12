@@ -51,7 +51,7 @@ describe("SmokeBossFunnel", () => {
     });
   });
 
-  it("renders event-driver content while campaign is active", () => {
+  it("renders event update content while campaign is active", () => {
     render(<SmokeBossFunnel />);
 
     expect(
@@ -60,7 +60,7 @@ describe("SmokeBossFunnel", () => {
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /View Mission Briefing/i }),
+      screen.getByRole("link", { name: /View Event Briefing/i }),
     ).toHaveAttribute("href", "/cool-desert-nights");
   });
 

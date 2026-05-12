@@ -1,6 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Navigation,
   Footer,
@@ -21,6 +24,62 @@ const QUICK_ACTIONS = [
   { label: "Resources", href: "/resources", icon: "menu_book" },
 ] as const;
 
+function SmokeBossAfterHeroSlot() {
+  const pathname = usePathname();
+  const [slot, setSlot] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    setSlot(null);
+
+    // Preserve campaign exclusion for the event destination page.
+    if (pathname === "/cool-desert-nights") {
+      return;
+    }
+
+    let cancelled = false;
+    let attempts = 0;
+    let timeoutId: number | null = null;
+    let createdSlot: HTMLDivElement | null = null;
+
+    const placeSlot = () => {
+      if (cancelled) return;
+
+      const main = document.getElementById("main-content");
+      const pageRoot = main?.firstElementChild as HTMLElement | null;
+      const heroLikeSection = pageRoot?.querySelector("section");
+      const anchor = heroLikeSection ?? pageRoot;
+
+      if (!anchor || !anchor.parentElement) {
+        attempts += 1;
+        if (attempts < 40) {
+          timeoutId = window.setTimeout(placeSlot, 50);
+        }
+        return;
+      }
+
+      createdSlot = document.createElement("div");
+      createdSlot.setAttribute("data-smoke-boss-after-hero", "true");
+      anchor.insertAdjacentElement("afterend", createdSlot);
+      setSlot(createdSlot);
+    };
+
+    placeSlot();
+
+    return () => {
+      cancelled = true;
+      if (timeoutId !== null) {
+        window.clearTimeout(timeoutId);
+      }
+      setSlot(null);
+      createdSlot?.remove();
+    };
+  }, [pathname]);
+
+  if (!slot) return null;
+
+  return createPortal(<SmokeBossFunnel />, slot);
+}
+
 export function AppShell({ children }: Readonly<AppShellProps>) {
   const { isStandalone } = usePWA();
 
@@ -29,9 +88,9 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
       <>
         <Navigation />
         <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
-          <SmokeBossFunnel />
           <main id="main-content" className="grow">
             {children}
+            <SmokeBossAfterHeroSlot />
           </main>
           <SemiquincentennialBanner />
           <Footer />
@@ -71,8 +130,8 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
       </header>
 
       <main id="main-content" className="grow">
-        <SmokeBossFunnel />
         {children}
+        <SmokeBossAfterHeroSlot />
       </main>
 
       <footer className="border-t border-slate-200 bg-white px-4 py-3 text-xs text-slate-600 dark:border-slate-800 dark:bg-gray-900 dark:text-slate-300">

@@ -28,9 +28,12 @@ export function CoolDesertNightsPageClient() {
 
   return (
     <div className="bg-linear-to-b from-brand-primary/95 via-brand-primary/90 to-brand-primary/85 text-white">
-      <section className="relative overflow-hidden border-b border-brand-secondary/35">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(189,146,100,0.28),transparent_45%),radial-gradient(circle_at_85%_5%,rgba(56,104,81,0.35),transparent_40%)]" />
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+      <section
+        id="event-hero"
+        className="relative overflow-hidden border-b border-brand-secondary/35"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-brand-primary/25 via-transparent to-brand-secondary/20" />
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pt-16 pb-12 sm:px-6 sm:pt-24 sm:pb-16 md:pt-32 md:pb-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:pt-40 lg:pb-28">
           <div className="space-y-6">
             {isMissionComplete ? (
               <h1 className="text-balance text-3xl font-black leading-tight sm:text-5xl">
@@ -70,7 +73,7 @@ export function CoolDesertNightsPageClient() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-white/45 bg-white/10 text-white hover:bg-white/20"
+                  className="border-brand-secondary/45 bg-brand-primary/35 text-white hover:bg-brand-secondary/20"
                 >
                   <MaterialIcon icon="handshake" size="md" className="mr-2" />
                   Talk With Our Team
@@ -81,7 +84,7 @@ export function CoolDesertNightsPageClient() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="border-white/45 bg-white/10 text-white hover:bg-white/20"
+                    className="border-brand-secondary/45 bg-brand-primary/35 text-white hover:bg-brand-secondary/20"
                   >
                     <MaterialIcon icon="map" size="md" className="mr-2" />
                     Visit Our Booth
@@ -92,7 +95,7 @@ export function CoolDesertNightsPageClient() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
+            <div className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-4 backdrop-blur-sm">
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/75">
                 Official Event Logo
               </p>
@@ -105,7 +108,7 @@ export function CoolDesertNightsPageClient() {
                 onError={() => setEventLogoSrc("/images/og-default.webp")}
               />
             </div>
-            <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
+            <div className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-4 backdrop-blur-sm">
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/75">
                 MH Construction
               </p>
@@ -122,18 +125,38 @@ export function CoolDesertNightsPageClient() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 pt-6 sm:px-6">
-        <p className="inline-flex items-center gap-2 rounded-full border border-brand-secondary/45 bg-brand-secondary/20 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-white">
-          <MaterialIcon icon="event" size="sm" />
-          Event Briefing | Cool Desert Nights 2026
-        </p>
+      <section
+        id="event-update"
+        className="relative overflow-hidden border-b border-brand-secondary/25 bg-brand-primary/35 py-6"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-secondary/45 bg-brand-secondary/20 px-4 py-1.5 text-white">
+            <MaterialIcon icon="event" size="sm" />
+            <span className="flex flex-col leading-tight">
+              <span className="font-heading text-[11px] font-bold uppercase tracking-[0.16em] text-white">
+                Event Update
+              </span>
+              <span className="text-[10px] uppercase tracking-[0.14em] text-brand-secondary/90">
+                Field Brief | Cool Desert Nights 2026
+              </span>
+            </span>
+          </div>
+        </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-        <div className="rounded-2xl border border-brand-secondary/45 bg-white/10 p-6 sm:p-8">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
-            Community Leadership
-          </p>
+      <section
+        id="community-leadership"
+        className="mx-auto max-w-7xl px-4 py-12 sm:px-6"
+      >
+        <div className="rounded-2xl border border-brand-secondary/45 bg-brand-primary/30 p-6 sm:p-8">
+          <div className="mb-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
+              Community Leadership
+            </p>
+            <p className="text-[10px] uppercase tracking-[0.14em] text-brand-secondary/80">
+              Command Alignment
+            </p>
+          </div>
           <p className="text-lg font-semibold text-white sm:text-xl">
             MH Construction Owner Jeremy Thamert will serve as an official BBQ
             judge alongside the Mayor of Kennewick.
@@ -153,8 +176,11 @@ export function CoolDesertNightsPageClient() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-8 sm:px-6 lg:grid-cols-3">
-        <article className="rounded-2xl border border-white/20 bg-white/10 p-6">
+      <section
+        id="event-overview"
+        className="mx-auto grid max-w-7xl gap-6 px-4 pb-8 sm:px-6 lg:grid-cols-3"
+      >
+        <article className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-6">
           <h2 className="mb-3 text-xl font-black text-brand-secondary">
             Competition Overview
           </h2>
@@ -172,7 +198,7 @@ export function CoolDesertNightsPageClient() {
           </p>
         </article>
 
-        <article className="rounded-2xl border border-white/20 bg-white/10 p-6">
+        <article className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-6">
           <h2 className="mb-3 text-xl font-black text-brand-secondary">
             MH Construction Presence
           </h2>
@@ -183,7 +209,7 @@ export function CoolDesertNightsPageClient() {
           </p>
         </article>
 
-        <article className="rounded-2xl border border-white/20 bg-white/10 p-6">
+        <article className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-6">
           <h2 className="mb-3 text-xl font-black text-brand-secondary">
             Local Impact
           </h2>
@@ -203,12 +229,20 @@ export function CoolDesertNightsPageClient() {
         </article>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[1.2fr_0.8fr]">
-        <div className="overflow-hidden rounded-2xl border border-white/20 bg-white/10">
-          <div className="border-b border-white/20 px-5 py-3">
-            <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-white/80">
-              Event Feature Video
-            </h3>
+      <section
+        id="event-media"
+        className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[1.2fr_0.8fr]"
+      >
+        <div className="overflow-hidden rounded-2xl border border-brand-secondary/30 bg-brand-primary/30">
+          <div className="border-b border-brand-secondary/30 px-5 py-3">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/80">
+                Event Media
+              </p>
+              <p className="text-[10px] uppercase tracking-[0.14em] text-brand-secondary/85">
+                Visual Brief
+              </p>
+            </div>
           </div>
           <div className="aspect-video w-full bg-black">
             <OptimizedVideo
@@ -222,7 +256,7 @@ export function CoolDesertNightsPageClient() {
         </div>
 
         <div className="space-y-4">
-          <div className="rounded-2xl border border-white/20 bg-white/10 p-4">
+          <div className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-4">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/75">
               Premium Signage Logo A
             </p>
@@ -236,7 +270,7 @@ export function CoolDesertNightsPageClient() {
             />
           </div>
 
-          <div className="rounded-2xl border border-white/20 bg-white/10 p-4">
+          <div className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-4">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/75">
               Premium Signage Logo B
             </p>
@@ -254,22 +288,27 @@ export function CoolDesertNightsPageClient() {
 
       {!isMissionComplete && (
         <section id="booth-map" className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
-          <div className="rounded-2xl border border-brand-secondary/45 bg-white/10 p-6 sm:p-8">
-            <h2 className="text-2xl font-black text-brand-secondary">
-              Digital Booth Map
-            </h2>
+          <div className="rounded-2xl border border-brand-secondary/45 bg-brand-primary/30 p-6 sm:p-8">
+            <div>
+              <h2 className="text-2xl font-black text-brand-secondary">
+                Digital Booth Map
+              </h2>
+              <p className="text-[10px] uppercase tracking-[0.14em] text-brand-secondary/80">
+                Site Recon
+              </p>
+            </div>
             <p className="mt-3 max-w-3xl text-white/90">
               Our booth is staged near the BBQ competition lane for direct
               access to event traffic and the fleet showcase.
             </p>
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
-              <div className="rounded-xl border border-white/20 bg-brand-primary/35 p-4">
+              <div className="rounded-xl border border-brand-secondary/30 bg-brand-primary/45 p-4">
                 <p className="text-sm font-semibold text-white">Booth ID</p>
                 <p className="text-white/85">
                   Smoke &amp; Shine Sponsor Booth - 10 x 10
                 </p>
               </div>
-              <div className="rounded-xl border border-white/20 bg-brand-primary/35 p-4">
+              <div className="rounded-xl border border-brand-secondary/30 bg-brand-primary/45 p-4">
                 <p className="text-sm font-semibold text-white">Landmark</p>
                 <p className="text-white/85">
                   Adjacent to BBQ competition ingress
@@ -280,9 +319,15 @@ export function CoolDesertNightsPageClient() {
         </section>
       )}
 
-      <section className="mx-auto max-w-7xl px-4 pb-16 pt-6 sm:px-6">
-        <div className="rounded-2xl border border-white/20 bg-white/10 p-6">
+      <section
+        id="event-timeline"
+        className="mx-auto max-w-7xl px-4 pb-16 pt-6 sm:px-6"
+      >
+        <div className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-6">
           <h2 className="text-lg font-black text-white">Event Timeline</h2>
+          <p className="text-[10px] uppercase tracking-[0.14em] text-brand-secondary/85">
+            After-Action Timeline
+          </p>
           <p className="mt-2 text-sm text-white/85">
             Production deployment target: May 20, 2026. Chamber reciprocity and
             partner coordination are tracked through official event channels.
