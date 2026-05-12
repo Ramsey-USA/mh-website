@@ -4,6 +4,7 @@ export interface ProjectCaseStudy {
   title: string;
   metaTitle: string;
   metaDescription: string;
+  ogImage: string;
   description: string;
   location: {
     city: string;
@@ -24,6 +25,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     metaTitle: "Kennewick Commercial Office Renovation | MH Construction",
     metaDescription:
       "A 12,000 sq ft commercial office renovation in Kennewick, WA with phased interior upgrades, modern circulation, and safety-first delivery.",
+    ogImage: "/images/projects/kennewick-office-renovation.webp",
     description:
       "MH Construction delivered a phased interior renovation that improved office function, updated finishes, and kept the occupied environment under control.",
     location: { city: "Kennewick", state: "WA" },
@@ -58,6 +60,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     metaTitle: "Pasco Industrial Warehouse Build-Out | MH Construction",
     metaDescription:
       "A 24,000 sq ft industrial warehouse build-out in Pasco, WA with loading docks, climate control, and durable concrete flooring.",
+    ogImage: "/images/projects/pasco-warehouse.webp",
     description:
       "MH Construction built a distribution-ready warehouse with resilient materials, utility coordination, and a clear operational layout.",
     location: { city: "Pasco", state: "WA" },
@@ -92,6 +95,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     metaTitle: "Richland Residential Custom Home | MH Construction",
     metaDescription:
       "A 3,800 sq ft custom home in Richland, WA designed for accessible living, efficient systems, and careful finish detailing.",
+    ogImage: "/images/projects/richland-custom-home.webp",
     description:
       "MH Construction delivered a custom home with universal design principles, premium finishes, and a clear delivery plan for the owner family.",
     location: { city: "Richland", state: "WA" },
@@ -130,6 +134,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     metaTitle: "Spokane Healthcare Clinic Tenant Improvement | MH Construction",
     metaDescription:
       "A 6,500 sq ft healthcare tenant improvement in Spokane, WA built for code compliance, patient flow, and durable clinic operations.",
+    ogImage: "/images/projects/spokane-healthcare-clinic.webp",
     description:
       "MH Construction coordinated a healthcare tenant improvement with clear patient flow, compliant finishes, and careful sequencing around occupied operations.",
     location: { city: "Spokane", state: "WA" },
@@ -165,6 +170,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "West Richland Multi-Family Residential Complex | MH Construction",
     metaDescription:
       "A 16-unit multi-family residential complex in West Richland, WA built with energy-efficient systems and durable shared amenities.",
+    ogImage: "/images/projects/west-richland-multifamily.webp",
     description:
       "MH Construction completed a multi-family project with controlled sequencing, shared amenity planning, and energy-conscious detailing.",
     location: { city: "West Richland", state: "WA" },

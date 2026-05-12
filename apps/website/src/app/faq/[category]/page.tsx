@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { PageTrackingClient } from "@/components/analytics";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
@@ -35,9 +35,7 @@ export async function generateMetadata({
   }
 
   const title = `${faqCategory.title} FAQ | MH Construction`;
-  const description =
-    faqCategory.questions[0]?.answer ??
-    "Browse frequently asked questions for this topic.";
+  const description = faqCategory.metaDescription;
 
   return {
     title,
@@ -50,6 +48,12 @@ export async function generateMetadata({
       description,
       url: `${SITE_URL}/faq/${faqCategory.id}`,
       type: "website",
+      images: [
+        {
+          url: `${SITE_URL}${faqCategory.ogImage}`,
+          alt: `${faqCategory.title} frequently asked questions`,
+        },
+      ],
     },
     robots: { index: true, follow: true },
   };
@@ -95,7 +99,7 @@ export default async function FAQCategoryPage({
       <main className="bg-white dark:bg-gray-950 min-h-screen">
         <section className="border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 py-14 text-white sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl">
-            <Breadcrumb
+            <Breadcrumbs
               items={[
                 { label: "Home", href: "/" },
                 { label: "FAQ", href: "/faq" },

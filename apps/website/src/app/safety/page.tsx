@@ -366,7 +366,7 @@ export default function SafetyPage() {
       {/* ── Hero ── */}
       <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
         {/* Background image */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
+        <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
           <Image
             src="/images/safety/safety-culture.webp"
             alt="MH Construction safety briefing on the job site"
@@ -374,7 +374,7 @@ export default function SafetyPage() {
             className="object-cover opacity-30"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80" />
+          <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80" />
         </div>
 
         {/* Header Text — Bottom Right */}
@@ -418,7 +418,7 @@ export default function SafetyPage() {
               <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                 Industry-Recognized
               </span>
-              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
+              <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
                 Safety Credentials
               </span>
             </h2>
@@ -467,7 +467,7 @@ export default function SafetyPage() {
               <span className="block mb-2 sm:mb-3 font-semibold text-white/70 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                 Verified &amp; Trusted
               </span>
-              <span className="block bg-gradient-to-r from-brand-secondary via-white to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
+              <span className="block bg-linear-to-r from-brand-secondary via-white to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
                 Safety Badges
               </span>
             </h2>
@@ -516,7 +516,7 @@ export default function SafetyPage() {
                 <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-tight py-1">
                   MH Construction
                 </span>
-                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm py-1 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm py-1 leading-normal">
                   Written Safety Program
                 </span>
               </h2>
@@ -566,7 +566,7 @@ export default function SafetyPage() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/60 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-brand-primary/60 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                 <p className="font-black text-xl">50 Sections</p>
                 <p className="text-white/80 text-sm">
@@ -590,7 +590,7 @@ export default function SafetyPage() {
             <span className="block mb-2 sm:mb-3 font-semibold text-white/80 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
               The Numbers Speak
             </span>
-            <span className="block bg-gradient-to-r from-brand-secondary via-white to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
+            <span className="block bg-linear-to-r from-brand-secondary via-white to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
               Safety Record
             </span>
           </h2>
@@ -634,7 +634,7 @@ export default function SafetyPage() {
               <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                 Culture Is Built
               </span>
-              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
+              <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
                 In Daily Habits
               </span>
             </h2>
@@ -672,7 +672,7 @@ export default function SafetyPage() {
               <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                 Full Regulatory
               </span>
-              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
+              <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
                 Compliance
               </span>
             </h2>
@@ -734,7 +734,7 @@ export default function SafetyPage() {
         <div className="max-w-4xl mx-auto px-4">
           <div className="rounded-3xl bg-white/5 border border-white/10 text-white p-10 md:p-14 text-center relative overflow-hidden">
             <div
-              className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-transparent to-brand-accent/10 pointer-events-none"
+              className="absolute inset-0 bg-linear-to-br from-brand-primary/20 via-transparent to-brand-accent/10 pointer-events-none"
               aria-hidden="true"
             />
 
@@ -751,7 +751,7 @@ export default function SafetyPage() {
                 <span className="block mb-2 sm:mb-3 font-semibold text-white/80 text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-tight overflow-visible py-1">
                   Safety Documentation
                 </span>
-                <span className="block bg-gradient-to-r from-brand-secondary via-white to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
+                <span className="block bg-linear-to-r from-brand-secondary via-white to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
                   Lives in the App
                 </span>
               </h2>

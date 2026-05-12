@@ -24,9 +24,8 @@ interface ServiceAreasSectionProps {
   serviceAreas: ServiceArea[];
 }
 
-export function ServiceAreasSection({
-  serviceAreas,
-}: ServiceAreasSectionProps) {
+export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
+  const { serviceAreas } = props;
   return (
     <BrandedContentSection
       id="service-areas"
@@ -43,9 +42,8 @@ export function ServiceAreasSection({
             </span>{" "}
             with{" "}
             <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
-              expert construction management services
+              expert construction management services.
             </span>
-            .
           </>
         ),
       }}
@@ -54,16 +52,16 @@ export function ServiceAreasSection({
         <StaggeredFadeIn
           className={gridPresets.twoColumn("md", "mx-auto max-w-4xl")}
         >
-          {serviceAreas.map((area, index) => (
+          {serviceAreas.map((area) => (
             <Card
-              key={index}
-              className="relative bg-gradient-to-br from-white via-white to-brand-primary/5 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 border-2 border-brand-primary/20 dark:border-brand-primary/30 p-8 hover:border-brand-primary dark:hover:border-brand-primary-light hover:scale-[1.02] hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group overflow-hidden"
+              key={area.title}
+              className="relative bg-linear-to-br from-white via-white to-brand-primary/5 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 border-2 border-brand-primary/20 dark:border-brand-primary/30 p-8 hover:border-brand-primary dark:hover:border-brand-primary-light hover:scale-[1.02] hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group overflow-hidden"
             >
               {/* Card decorative background */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 dark:bg-brand-primary/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-700"></div>
 
               <div className="relative flex items-center mb-6 gap-4">
-                <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+                <div className="shrink-0 w-14 h-14 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
                   <MaterialIcon
                     icon={area.iconName}
                     size="xl"
@@ -75,11 +73,11 @@ export function ServiceAreasSection({
                 </h3>
               </div>
               <ul className="relative space-y-3">
-                {area.areas.map((location, lIndex) => {
-                  const link = area.links?.[lIndex];
+                {area.areas.map((location, locationIndex) => {
+                  const link = area.links?.[locationIndex] ?? null;
                   const content = (
                     <>
-                      <div className="flex-shrink-0 w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mr-3 group-hover/item:scale-110 transition-transform duration-200">
+                      <div className="shrink-0 w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mr-3 group-hover/item:scale-110 transition-transform duration-200">
                         <MaterialIcon
                           icon="check_circle"
                           size="sm"
@@ -101,7 +99,7 @@ export function ServiceAreasSection({
 
                   return (
                     <li
-                      key={lIndex}
+                      key={`${area.title}-${location}`}
                       className="flex items-center group/item hover:translate-x-1 transition-transform duration-200"
                     >
                       {link ? (

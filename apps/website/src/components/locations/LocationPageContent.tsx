@@ -5,6 +5,7 @@ import { usePageTracking } from "@/lib/analytics/hooks";
 import { Button } from "@/components/ui";
 import { SectionContainer } from "@/components/layout";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { enhancedSEO } from "@/components/seo/EnhancedSEO";
 import {
@@ -198,9 +199,18 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
 
       <main className="min-h-screen flex flex-col">
         {/* Hero Section - Location Specific */}
-        <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20 sm:py-28 md:py-36 lg:py-44">
+        <section className="relative bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20 sm:py-28 md:py-36 lg:py-44">
           <SectionContainer padding="compact">
             <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
+              <Breadcrumbs
+                items={[
+                  { label: "Home", href: "/" },
+                  { label: "Locations", href: "/locations" },
+                  { label: `${location.city}, ${location.state}` },
+                ]}
+                className="mb-6 bg-transparent text-white/70 [&_nav]:border-0 [&_nav]:bg-transparent [&_nav]:py-0 [&_span[aria-current='page']]:text-white [&_a]:text-white/70 [&_a:hover]:text-white"
+              />
+
               {/* Location Badge */}
               <div className="flex items-center justify-center gap-2 text-brand-secondary">
                 <MaterialIcon icon="place" size="lg" />
@@ -464,7 +474,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                       <MaterialIcon
                         icon="account_balance"
                         size="xl"
-                        className="text-brand-primary flex-shrink-0 mt-0.5"
+                        className="text-brand-primary shrink-0 mt-0.5"
                       />
                       <div>
                         <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
@@ -537,7 +547,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                   <MaterialIcon
                     icon="location_city"
                     size="xl"
-                    className="text-brand-primary flex-shrink-0 mt-1"
+                    className="text-brand-primary shrink-0 mt-1"
                   />
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
@@ -578,7 +588,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
         </section>
 
         {/* Contact CTA Section */}
-        <section className="order-5 py-16 sm:py-20 md:py-24 bg-gradient-to-br from-brand-primary via-brand-primary to-brand-primary-dark text-white">
+        <section className="order-5 py-16 sm:py-20 md:py-24 bg-linear-to-br from-brand-primary via-brand-primary to-brand-primary-dark text-white">
           <SectionContainer padding="compact">
             <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
               <h2 className="font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">

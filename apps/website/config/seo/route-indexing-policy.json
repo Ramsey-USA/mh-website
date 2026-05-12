@@ -10,17 +10,8 @@
         "/contact",
         "/faq",
         "/faq/[category]",
-        "/locations/coeur-d-alene",
-        "/locations/hermiston",
-        "/locations/kennewick",
-        "/locations/omak",
-        "/locations/pasco",
-        "/locations/pendleton",
-        "/locations/richland",
-        "/locations/spokane",
-        "/locations/walla-walla",
-        "/locations/west-richland",
-        "/locations/yakima",
+        "/locations",
+        "/locations/[city]",
         "/privacy",
         "/projects",
         "/projects/[slug]",
@@ -43,7 +34,6 @@
         "/careers/print",
         "/employee-handbook",
         "/offline",
-        "/safety/hub",
         "/safety/incident-report",
         "/safety/print/[id]"
       ],
@@ -75,6 +65,10 @@
     {
       "pattern": "^/faq/\\[category\\]$",
       "requiresAny": ["getFAQCategorySlugs", "faqEntries"]
+    },
+    {
+      "pattern": "^/locations/\\[city\\]$",
+      "requiresAny": ["getLocationSlugs", "LOCATION_PAGES"]
     }
   ],
   "pendingClassification": []

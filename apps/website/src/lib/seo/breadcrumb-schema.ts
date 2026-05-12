@@ -78,6 +78,10 @@ export const breadcrumbPatterns = {
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "FAQ", url: "https://www.mhc-gc.com/faq" },
   ],
+  locations: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Locations", url: "https://www.mhc-gc.com/locations" },
+  ],
   safety: [
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "Safety Hub", url: "https://www.mhc-gc.com/safety" },
@@ -100,7 +104,7 @@ export const breadcrumbPatterns = {
   // Location pages
   locationRichland: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    { name: "Locations", url: "https://www.mhc-gc.com/locations" },
     {
       name: "Richland, WA",
       url: "https://www.mhc-gc.com/locations/richland",
@@ -108,7 +112,7 @@ export const breadcrumbPatterns = {
   ],
   locationKennewick: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    { name: "Locations", url: "https://www.mhc-gc.com/locations" },
     {
       name: "Kennewick, WA",
       url: "https://www.mhc-gc.com/locations/kennewick",
@@ -116,22 +120,22 @@ export const breadcrumbPatterns = {
   ],
   locationPasco: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    { name: "Locations", url: "https://www.mhc-gc.com/locations" },
     { name: "Pasco, WA", url: "https://www.mhc-gc.com/locations/pasco" },
   ],
   locationYakima: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    { name: "Locations", url: "https://www.mhc-gc.com/locations" },
     { name: "Yakima, WA", url: "https://www.mhc-gc.com/locations/yakima" },
   ],
   locationSpokane: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    { name: "Locations", url: "https://www.mhc-gc.com/locations" },
     { name: "Spokane, WA", url: "https://www.mhc-gc.com/locations/spokane" },
   ],
   locationWestRichland: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    { name: "Locations", url: "https://www.mhc-gc.com/locations" },
     {
       name: "West Richland, WA",
       url: "https://www.mhc-gc.com/locations/west-richland",
@@ -139,7 +143,7 @@ export const breadcrumbPatterns = {
   ],
   locationWallaWalla: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    { name: "Locations", url: "https://www.mhc-gc.com/locations" },
     {
       name: "Walla Walla, WA",
       url: "https://www.mhc-gc.com/locations/walla-walla",
@@ -147,7 +151,7 @@ export const breadcrumbPatterns = {
   ],
   locationHermiston: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    { name: "Locations", url: "https://www.mhc-gc.com/locations" },
     {
       name: "Hermiston, OR",
       url: "https://www.mhc-gc.com/locations/hermiston",
@@ -155,7 +159,7 @@ export const breadcrumbPatterns = {
   ],
   locationPendleton: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    { name: "Locations", url: "https://www.mhc-gc.com/locations" },
     {
       name: "Pendleton, OR",
       url: "https://www.mhc-gc.com/locations/pendleton",
@@ -163,7 +167,7 @@ export const breadcrumbPatterns = {
   ],
   locationCoeurDAlene: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    { name: "Locations", url: "https://www.mhc-gc.com/locations" },
     {
       name: "Coeur d'Alene, ID",
       url: "https://www.mhc-gc.com/locations/coeur-d-alene",
@@ -171,7 +175,7 @@ export const breadcrumbPatterns = {
   ],
   locationOmak: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    { name: "Locations", url: "https://www.mhc-gc.com/locations" },
     {
       name: "Omak, WA",
       url: "https://www.mhc-gc.com/locations/omak",

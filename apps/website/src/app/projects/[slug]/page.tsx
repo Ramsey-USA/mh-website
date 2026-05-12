@@ -4,7 +4,7 @@ import { notFound, redirect } from "next/navigation";
 
 import { PageTrackingClient } from "@/components/analytics";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { Button } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
@@ -29,7 +29,7 @@ function formatTechnicalSpecValue(value: string | number | string[]): string {
   return value;
 }
 
-export function generateStaticParams() {
+export function generateStaticParams(): Array<{ slug: string }> {
   return getProjectCaseStudySlugs().map((slug) => ({ slug }));
 }
 
@@ -67,6 +67,11 @@ export async function generateMetadata({
     project?.seoMetadata.metaDescription ??
     project?.description ??
     "Completed construction project case study.";
+  const openGraphImage =
+    caseStudy?.ogImage ??
+    project?.images.find((image) => image.isFeatured)?.url ??
+    project?.images[0]?.url ??
+    "/images/projects/project-default.webp";
 
   return {
     title,
@@ -79,6 +84,12 @@ export async function generateMetadata({
       description,
       url: `${SITE_URL}/projects/${canonicalSlug}`,
       type: "article",
+      images: [
+        {
+          url: `${SITE_URL}${openGraphImage}`,
+          alt: `${project?.title ?? caseStudy?.title ?? "Project"} case study`,
+        },
+      ],
     },
     robots: { index: true, follow: true },
   };
@@ -202,7 +213,7 @@ export default async function ProjectCaseStudyPage({
       <main className="bg-white dark:bg-gray-950 min-h-screen">
         <section className="border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 py-14 text-white sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
-            <Breadcrumb
+            <Breadcrumbs
               items={[
                 { label: "Home", href: "/" },
                 { label: "Projects", href: "/projects" },

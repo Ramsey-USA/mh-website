@@ -27,15 +27,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function DashboardRootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function DashboardRootLayout(
+  props: Readonly<{ children: React.ReactNode }>,
+) {
+  const { children } = props;
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className="min-h-screen bg-slate-50 dark:bg-gray-950 font-body antialiased">
+      <body
+        suppressHydrationWarning
+        className="min-h-screen bg-slate-50 dark:bg-gray-950 font-body antialiased"
+      >
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

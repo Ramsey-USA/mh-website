@@ -20,15 +20,94 @@ interface NextStepsSectionProps {
   noBackground?: boolean;
 }
 
-export function NextStepsSection({
-  title: _title = "Let's Build Your Vision Together",
-  subtitle:
-    _subtitle = "Partner with a Veteran-Owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision.",
-  className = "",
-  noBackground: _noBackground = false,
-}: NextStepsSectionProps) {
+type NextStepsCopy = {
+  subtitle: string;
+  title: string;
+  introPrefix: string;
+  introHighlightA: string;
+  introMiddle: string;
+  introHighlightB: string;
+  introSuffix: string;
+  tag: string;
+  option2Title: string;
+  option2Description: string;
+  option2Bullets: readonly string[];
+  option2Cta: string;
+  option3Title: string;
+  option3Description: string;
+  option3Bullets: readonly string[];
+  option3Cta: string;
+};
+
+const NEXT_STEPS_COPY: Record<"en" | "es", NextStepsCopy> = {
+  es: {
+    subtitle: "Listo para comenzar su proyecto?",
+    title: "Construyamos juntos",
+    introPrefix: "Donde ",
+    introHighlightA: "su palabra es su compromiso",
+    introMiddle: ", y la nuestra también. Asóciese con un ",
+    introHighlightB: "equipo veterano centrado en relaciones",
+    introSuffix: "respaldado por valores probados.",
+    tag: "Mas popular",
+    option2Title: "Vea nuestro trabajo real",
+    option2Description:
+      "Proyectos reales. Resultados reales. Testimonios reales de Clientes que confian en nosotros.",
+    option2Bullets: [
+      "650+ proyectos completados desde 2010",
+      "98% de satisfaccion de clientes",
+      "70% de referidos - excelencia comprobada",
+    ],
+    option2Cta: "Ver nuestro trabajo",
+    option3Title: "Hablemos cara a cara",
+    option3Description:
+      "Respuestas honestas de personas reales. Sin sistemas automatizados. Solo comunicacion transparente.",
+    option3Bullets: [
+      "Consulta presencial preferida",
+      "Precios transparentes desde el primer dia",
+      "Contacto directo con quienes toman decisiones",
+    ],
+    option3Cta: "Contactenos",
+  },
+  en: {
+    subtitle: "Ready to Start Your Project?",
+    title: "Let's Build Together",
+    introPrefix: "Where ",
+    introHighlightA: "your word is your bond",
+    introMiddle: ", and ours is too. Partner with a ",
+    introHighlightB: "Veteran-Owned, relationship-first team",
+    introSuffix: "backed by proven values.",
+    tag: "Most Popular",
+    option2Title: "See Our Real Work",
+    option2Description:
+      "Real projects. Real results. Real testimonials from Client Partners who trust us.",
+    option2Bullets: [
+      "650+ completed projects since 2010",
+      "98% Client Partner satisfaction rate",
+      "70% referral rate - proven excellence",
+    ],
+    option2Cta: "View Our Work",
+    option3Title: "Let's Talk Face-to-Face",
+    option3Description:
+      "Honest answers from real people. No automated systems. Just transparent communication.",
+    option3Bullets: [
+      "Face-to-face consultation preferred",
+      "Transparent pricing from day one",
+      "Direct line to decision-makers",
+    ],
+    option3Cta: "Get In Touch",
+  },
+};
+
+export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
+  const {
+    title: _title = "Let's Build Your Vision Together",
+    subtitle:
+      _subtitle = "Partner with a Veteran-Owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision.",
+    className = "",
+    noBackground: _noBackground = false,
+  } = props;
   const locale = useLocale();
-  const isEs = locale === "es";
+  const copy = NEXT_STEPS_COPY[locale === "es" ? "es" : "en"];
 
   return (
     <BrandedContentSection
@@ -36,27 +115,19 @@ export function NextStepsSection({
       header={{
         icon: "handshake",
         iconVariant: "secondary",
-        subtitle: isEs
-          ? "Listo para comenzar su proyecto?"
-          : "Ready to Start Your Project?",
-        title: isEs ? "Construyamos juntos" : "Let's Build Together",
+        subtitle: copy.subtitle,
+        title: copy.title,
         description: (
           <>
-            {isEs ? "Donde " : "Where "}
+            {copy.introPrefix}
             <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              {isEs ? "su palabra es su compromiso" : "your word is your bond"}
+              {copy.introHighlightA}
             </span>
-            {isEs
-              ? ", y la nuestra también. Asóciese con un "
-              : ", and ours is too. Partner with a "}
+            {copy.introMiddle}
             <span className="font-bold text-gray-900 dark:text-white">
-              {isEs
-                ? "equipo veterano centrado en relaciones"
-                : "Veteran-Owned, relationship-first team"}
-            </span>{" "}
-            {isEs
-              ? "respaldado por valores probados."
-              : "backed by proven values."}
+              {copy.introHighlightB}
+            </span>
+            {` ${copy.introSuffix}`}
           </>
         ),
       }}
@@ -68,14 +139,14 @@ export function NextStepsSection({
 
         {/* Option 2: View Our Work */}
         <div className="group relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 border-2 border-brand-secondary flex flex-col h-full">
-          <div className="bg-gradient-to-r from-brand-secondary to-brand-secondary-dark -top-4 left-1/2 absolute px-5 py-1.5 rounded-full -translate-x-1/2 shadow-lg border-2 border-brand-secondary/30">
+          <div className="bg-linear-to-r from-brand-secondary to-brand-secondary-dark -top-4 left-1/2 absolute px-5 py-1.5 rounded-full -translate-x-1/2 shadow-lg border-2 border-brand-secondary/30">
             <span className="font-bold text-xs text-white uppercase tracking-wider flex items-center gap-1.5">
               <MaterialIcon icon="star" size="sm" className="text-yellow-300" />
-              {isEs ? "Mas popular" : "Most Popular"}
+              {copy.tag}
             </span>
           </div>
           <div className="flex justify-center mb-6">
-            <div className="rounded-xl bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <div className="rounded-xl bg-linear-to-br from-brand-secondary to-brand-secondary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
               <MaterialIcon
                 icon="photo_library"
                 size="xl"
@@ -84,50 +155,22 @@ export function NextStepsSection({
             </div>
           </div>
           <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-            {isEs ? "Vea nuestro trabajo real" : "See Our Real Work"}
+            {copy.option2Title}
           </h3>
           <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-            {isEs
-              ? "Proyectos reales. Resultados reales. Testimonios reales de Clientes que confian en nosotros."
-              : "Real projects. Real results. Real testimonials from Client Partners who trust us."}
+            {copy.option2Description}
           </p>
-          <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 flex-grow">
-            <li className="flex items-center gap-2">
-              <MaterialIcon
-                icon="check_circle"
-                size="sm"
-                className="text-brand-secondary flex-shrink-0"
-              />
-              <span>
-                {isEs
-                  ? "650+ proyectos completados desde 2010"
-                  : "650+ completed projects since 2010"}
-              </span>
-            </li>
-            <li className="flex items-center gap-2">
-              <MaterialIcon
-                icon="check_circle"
-                size="sm"
-                className="text-brand-secondary flex-shrink-0"
-              />
-              <span>
-                {isEs
-                  ? "98% de satisfaccion de clientes"
-                  : "98% Client Partner satisfaction rate"}
-              </span>
-            </li>
-            <li className="flex items-center gap-2">
-              <MaterialIcon
-                icon="check_circle"
-                size="sm"
-                className="text-brand-secondary flex-shrink-0"
-              />
-              <span>
-                {isEs
-                  ? "70% de referidos - excelencia comprobada"
-                  : "70% referral rate - proven excellence"}
-              </span>
-            </li>
+          <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow">
+            {copy.option2Bullets.map((bullet) => (
+              <li key={bullet} className="flex items-center gap-2">
+                <MaterialIcon
+                  icon="check_circle"
+                  size="sm"
+                  className="text-brand-secondary shrink-0"
+                />
+                <span>{bullet}</span>
+              </li>
+            ))}
           </ul>
           <Link href="/projects">
             <Button variant="secondary" size="lg" className="w-full group/btn">
@@ -136,7 +179,7 @@ export function NextStepsSection({
                 size="lg"
                 className="mr-2 group-hover/btn:scale-110 transition-transform"
               />
-              {isEs ? "Ver nuestro trabajo" : "View Our Work"}
+              {copy.option2Cta}
             </Button>
           </Link>
         </div>
@@ -144,7 +187,7 @@ export function NextStepsSection({
         {/* Option 3: Contact Us */}
         <div className="group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
           <div className="flex justify-center mb-6">
-            <div className="rounded-xl bg-gradient-to-br from-brand-secondary to-bronze-600 p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <div className="rounded-xl bg-linear-to-br from-brand-secondary to-bronze-600 p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
               <MaterialIcon
                 icon="contact_phone"
                 size="xl"
@@ -153,50 +196,22 @@ export function NextStepsSection({
             </div>
           </div>
           <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-            {isEs ? "Hablemos cara a cara" : "Let's Talk Face-to-Face"}
+            {copy.option3Title}
           </h3>
           <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-            {isEs
-              ? "Respuestas honestas de personas reales. Sin sistemas automatizados. Solo comunicacion transparente."
-              : "Honest answers from real people. No automated systems. Just transparent communication."}
+            {copy.option3Description}
           </p>
-          <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 flex-grow">
-            <li className="flex items-center gap-2">
-              <MaterialIcon
-                icon="check_circle"
-                size="sm"
-                className="text-brand-secondary flex-shrink-0"
-              />
-              <span>
-                {isEs
-                  ? "Consulta presencial preferida"
-                  : "Face-to-face consultation preferred"}
-              </span>
-            </li>
-            <li className="flex items-center gap-2">
-              <MaterialIcon
-                icon="check_circle"
-                size="sm"
-                className="text-brand-secondary flex-shrink-0"
-              />
-              <span>
-                {isEs
-                  ? "Precios transparentes desde el primer dia"
-                  : "Transparent pricing from day one"}
-              </span>
-            </li>
-            <li className="flex items-center gap-2">
-              <MaterialIcon
-                icon="check_circle"
-                size="sm"
-                className="text-brand-secondary flex-shrink-0"
-              />
-              <span>
-                {isEs
-                  ? "Contacto directo con quienes toman decisiones"
-                  : "Direct line to decision-makers"}
-              </span>
-            </li>
+          <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow">
+            {copy.option3Bullets.map((bullet) => (
+              <li key={bullet} className="flex items-center gap-2">
+                <MaterialIcon
+                  icon="check_circle"
+                  size="sm"
+                  className="text-brand-secondary shrink-0"
+                />
+                <span>{bullet}</span>
+              </li>
+            ))}
           </ul>
           <Link href="/contact">
             <Button
@@ -209,7 +224,7 @@ export function NextStepsSection({
                 size="lg"
                 className="mr-2 group-hover/btn:scale-110 transition-transform"
               />
-              {isEs ? "Contactenos" : "Get In Touch"}
+              {copy.option3Cta}
             </Button>
           </Link>
         </div>

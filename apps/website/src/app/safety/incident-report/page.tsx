@@ -219,7 +219,7 @@ export default function SafetyIncidentReportPage() {
     <>
       <PageTrackingClient pageName="safety-incident-report" />
 
-      <section className="bg-gradient-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-12 sm:px-6">
+      <section className="bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-5xl text-white">
           <p className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
             <MaterialIcon

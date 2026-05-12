@@ -20,10 +20,8 @@ interface PitchDeckCTAProps {
 /** Contact page URL pre-filled with pitch deck request subject */
 const PITCH_DECK_HREF = "/contact?subject=pitch-deck";
 
-export function PitchDeckCTA({
-  variant = "card",
-  className = "",
-}: PitchDeckCTAProps) {
+export function PitchDeckCTA(props: Readonly<PitchDeckCTAProps>) {
+  const { variant = "card", className = "" } = props;
   const { trackEvent } = useAnalytics();
 
   const handleClick = useCallback(() => {
@@ -33,7 +31,7 @@ export function PitchDeckCTA({
   if (variant === "banner") {
     return (
       <div
-        className={`bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary py-4 px-4 sm:px-6 ${className}`}
+        className={`bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary py-4 px-4 sm:px-6 ${className}`}
       >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
@@ -72,14 +70,14 @@ export function PitchDeckCTA({
       <div
         className={`flex items-center gap-4 p-4 bg-brand-primary/10 dark:bg-brand-primary/20 border-2 border-brand-primary/30 rounded-xl ${className}`}
       >
-        <div className="flex-shrink-0 bg-gradient-to-br from-brand-primary to-brand-primary-dark p-3 rounded-lg">
+        <div className="shrink-0 bg-linear-to-br from-brand-primary to-brand-primary-dark p-3 rounded-lg">
           <MaterialIcon
             icon="picture_as_pdf"
             size="lg"
             className="text-white"
           />
         </div>
-        <div className="flex-grow">
+        <div className="grow">
           <p className="font-bold text-gray-900 dark:text-white text-sm mb-1">
             Want more details?
           </p>
@@ -87,7 +85,7 @@ export function PitchDeckCTA({
             Our pitch deck covers everything you need to know
           </p>
         </div>
-        <Link href={PITCH_DECK_HREF} className="flex-shrink-0">
+        <Link href={PITCH_DECK_HREF} className="shrink-0">
           <Button
             variant="primary"
             size="sm"
@@ -108,7 +106,7 @@ export function PitchDeckCTA({
       className={`group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full ${className}`}
     >
       <div className="flex justify-center mb-6">
-        <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+        <div className="rounded-xl bg-linear-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
           <MaterialIcon
             icon="picture_as_pdf"
             size="xl"
@@ -123,12 +121,12 @@ export function PitchDeckCTA({
         Request our pitch deck to explore our capabilities, values, and 650+
         project track record — we'll send it directly to you.
       </p>
-      <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 flex-grow">
+      <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow">
         <li className="flex items-center gap-2">
           <MaterialIcon
             icon="check_circle"
             size="sm"
-            className="text-brand-primary flex-shrink-0"
+            className="text-brand-primary shrink-0"
           />
           <span>Complete company overview</span>
         </li>
@@ -136,7 +134,7 @@ export function PitchDeckCTA({
           <MaterialIcon
             icon="check_circle"
             size="sm"
-            className="text-brand-primary flex-shrink-0"
+            className="text-brand-primary shrink-0"
           />
           <span>Services & capabilities breakdown</span>
         </li>
@@ -144,7 +142,7 @@ export function PitchDeckCTA({
           <MaterialIcon
             icon="check_circle"
             size="sm"
-            className="text-brand-primary flex-shrink-0"
+            className="text-brand-primary shrink-0"
           />
           <span>Project portfolio highlights</span>
         </li>

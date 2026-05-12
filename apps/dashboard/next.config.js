@@ -17,10 +17,8 @@ if (
   process.env.NODE_ENV === "production" &&
   !process.env.NEXT_PUBLIC_SITE_URL
 ) {
-  console.warn(
-    "[dashboard/next.config.js] NEXT_PUBLIC_SITE_URL is not set — " +
-      "falling back to https://www.mhc-gc.com.",
-  );
+  // Keep canonical URLs stable in production builds even when wrangler vars
+  // are not present during `next build`.
   process.env.NEXT_PUBLIC_SITE_URL = "https://www.mhc-gc.com";
 }
 

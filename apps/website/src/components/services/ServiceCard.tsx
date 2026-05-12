@@ -9,25 +9,19 @@ interface ServiceCardProps {
   onOpenModal: () => void;
 }
 
-export function ServiceCard({ service, onOpenModal }: ServiceCardProps) {
+export function ServiceCard(props: Readonly<ServiceCardProps>) {
+  const { service, onOpenModal } = props;
   const cardId = service.title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 
   return (
-    <div
+    <button
       id={cardId}
       className="group cursor-pointer relative flex h-full"
       onClick={onOpenModal}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onOpenModal();
-        }
-      }}
-      role="button"
-      tabIndex={0}
+      type="button"
       aria-label={`View details for ${service.title}`}
     >
       {/* Animated Border Glow */}
@@ -35,10 +29,10 @@ export function ServiceCard({ service, onOpenModal }: ServiceCardProps) {
 
       <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
         {/* Top Accent Bar */}
-        <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+        <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
         <div className="relative p-6 sm:p-8 flex flex-col flex-1">
-          <div className="flex-shrink-0 pb-4 text-center">
+          <div className="shrink-0 pb-4 text-center">
             <div className="relative inline-block mb-6">
               {/* Blur glow layer behind icon */}
               <GlowEffect
@@ -67,18 +61,18 @@ export function ServiceCard({ service, onOpenModal }: ServiceCardProps) {
               {service.subtitle}
             </p>
           </div>
-          <div className="relative flex flex-col flex-grow">
+          <div className="relative flex flex-col grow">
             {/* Key highlights - simplified preview */}
             <div className="mb-6 space-y-2">
-              {service.features.slice(0, 3).map((feature, idx) => (
+              {service.features.slice(0, 3).map((feature) => (
                 <div
-                  key={idx}
+                  key={`${service.title}-${feature}`}
                   className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-300"
                 >
                   <MaterialIcon
                     icon="check_circle"
                     size="sm"
-                    className="text-brand-primary flex-shrink-0"
+                    className="text-brand-primary shrink-0"
                   />
                   <span className="line-clamp-1">{feature}</span>
                 </div>
@@ -92,7 +86,7 @@ export function ServiceCard({ service, onOpenModal }: ServiceCardProps) {
 
             {/* Click for details indicator */}
             <div className="mt-auto pt-4 border-t border-brand-primary/20 dark:border-brand-primary/30 group-hover:border-brand-primary dark:group-hover:border-brand-primary-light transition-colors duration-300">
-              <div className="relative flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-gradient-to-r from-brand-primary/0 via-brand-primary/5 to-brand-primary/0 group-hover:from-brand-primary/5 group-hover:via-brand-primary/10 group-hover:to-brand-primary/5 transition-all duration-300">
+              <div className="relative flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-linear-to-r from-brand-primary/0 via-brand-primary/5 to-brand-primary/0 group-hover:from-brand-primary/5 group-hover:via-brand-primary/10 group-hover:to-brand-primary/5 transition-all duration-300">
                 <MaterialIcon
                   icon="info"
                   size="md"
@@ -111,6 +105,6 @@ export function ServiceCard({ service, onOpenModal }: ServiceCardProps) {
           </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 }

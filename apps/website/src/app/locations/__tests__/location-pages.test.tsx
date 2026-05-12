@@ -1,7 +1,6 @@
 /** @jest-environment jsdom */
 /**
- * Smoke tests for all 11 location pages.
- * Each is a 12-line server component wrapping <LocationPageContent>.
+ * Smoke test for the dynamic locations route.
  */
 
 const mockLocationData = {
@@ -19,6 +18,7 @@ const mockLocationData = {
 
 jest.mock("@/lib/data/locations", () => ({
   getLocationBySlug: jest.fn(() => mockLocationData),
+  getLocationSlugs: jest.fn(() => ["pasco", "kennewick"]),
 }));
 
 jest.mock("@/components/locations/LocationPageContent", () => ({
@@ -33,55 +33,15 @@ jest.mock("@/lib/seo/location-metadata", () => ({
 
 import { render, screen } from "@testing-library/react";
 
-// Dynamically import each page after mocks are set up
-const locationPages = [
-  {
-    slug: "kennewick",
-    name: "KennewickLocationPage",
-    path: "../kennewick/page",
-  },
-  { slug: "pasco", name: "PascoLocationPage", path: "../pasco/page" },
-  { slug: "richland", name: "RichlandLocationPage", path: "../richland/page" },
-  { slug: "spokane", name: "SpokaneLocationPage", path: "../spokane/page" },
-  { slug: "yakima", name: "YakimaLocationPage", path: "../yakima/page" },
-  {
-    slug: "walla-walla",
-    name: "WallaWallaLocationPage",
-    path: "../walla-walla/page",
-  },
-  {
-    slug: "west-richland",
-    name: "WestRichlandLocationPage",
-    path: "../west-richland/page",
-  },
-  {
-    slug: "hermiston",
-    name: "HermistonLocationPage",
-    path: "../hermiston/page",
-  },
-  {
-    slug: "pendleton",
-    name: "PendletonLocationPage",
-    path: "../pendleton/page",
-  },
-  { slug: "omak", name: "OmakLocationPage", path: "../omak/page" },
-  {
-    slug: "coeur-d-alene",
-    name: "CoeurDAleneLocationPage",
-    path: "../coeur-d-alene/page",
-  },
-];
-
 describe("Location pages", () => {
-  it.each(locationPages)(
-    "$slug page renders LocationPageContent",
-    ({ path }) => {
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
-      const { default: Page } = require(path) as {
-        default: React.ComponentType;
-      };
-      render(<Page />);
-      expect(screen.getByTestId("location-page-content")).toBeInTheDocument();
-    },
-  );
+  it("dynamic location page renders LocationPageContent", async () => {
+    const { default: Page } = require("../[city]/page") as {
+      default: (props: {
+        params: Promise<{ city: string }>;
+      }) => Promise<React.JSX.Element>;
+    };
+
+    render(await Page({ params: Promise.resolve({ city: "pasco" }) }));
+    expect(screen.getByTestId("location-page-content")).toBeInTheDocument();
+  });
 });

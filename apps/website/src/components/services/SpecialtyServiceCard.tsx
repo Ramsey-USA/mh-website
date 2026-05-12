@@ -10,7 +10,10 @@ interface SpecialtyServiceCardProps {
   service: SpecialtyService;
 }
 
-export function SpecialtyServiceCard({ service }: SpecialtyServiceCardProps) {
+export function SpecialtyServiceCard(
+  props: Readonly<SpecialtyServiceCardProps>,
+) {
+  const { service } = props;
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -34,10 +37,10 @@ export function SpecialtyServiceCard({ service }: SpecialtyServiceCardProps) {
         aria-expanded={isExpanded}
         aria-label={`${isExpanded ? "Collapse" : "Expand"} ${service.title} details`}
       >
-        <CardHeader className="flex-shrink-0 pb-4 p-4 sm:p-5 lg:p-6">
+        <CardHeader className="shrink-0 pb-4 p-4 sm:p-5 lg:p-6">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-start gap-3 flex-1">
-              <div className="flex-shrink-0 bg-brand-secondary/10 rounded-2xl w-12 h-12 sm:w-14 sm:h-14 p-2 flex items-center justify-center">
+              <div className="shrink-0 bg-brand-secondary/10 rounded-2xl w-12 h-12 sm:w-14 sm:h-14 p-2 flex items-center justify-center">
                 <MaterialIcon
                   icon={service.iconName}
                   size="lg"
@@ -54,7 +57,7 @@ export function SpecialtyServiceCard({ service }: SpecialtyServiceCardProps) {
               </div>
             </div>
             <button
-              className="flex-shrink-0 text-brand-secondary dark:text-brand-secondary-light hover:scale-110 transition-transform"
+              className="shrink-0 text-brand-secondary dark:text-brand-secondary-light hover:scale-110 transition-transform"
               aria-label={isExpanded ? "Collapse" : "Expand"}
               type="button"
             >
@@ -68,7 +71,7 @@ export function SpecialtyServiceCard({ service }: SpecialtyServiceCardProps) {
         </CardHeader>
 
         {!isExpanded && (
-          <CardContent className="flex-grow pt-0 px-4 sm:px-5 lg:px-6 pb-4 sm:pb-5 lg:pb-6">
+          <CardContent className="grow pt-0 px-4 sm:px-5 lg:px-6 pb-4 sm:pb-5 lg:pb-6">
             <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed break-words line-clamp-3">
               {service.description}
             </p>
@@ -85,7 +88,7 @@ export function SpecialtyServiceCard({ service }: SpecialtyServiceCardProps) {
 
         {/* Expanded Content */}
         {isExpanded && (
-          <CardContent className="flex-grow pt-0 px-4 sm:px-5 lg:px-6 pb-4 sm:pb-5 lg:pb-6 animate-in slide-in-from-top duration-300 overflow-y-auto">
+          <CardContent className="grow pt-0 px-4 sm:px-5 lg:px-6 pb-4 sm:pb-5 lg:pb-6 animate-in slide-in-from-top duration-300 overflow-y-auto">
             <p className="mb-4 text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed break-words">
               {service.description}
             </p>
@@ -97,18 +100,21 @@ export function SpecialtyServiceCard({ service }: SpecialtyServiceCardProps) {
                   <div className="flex items-center mb-2">
                     <MaterialIcon
                       icon="business"
-                      className="mr-2 text-brand-secondary text-sm sm:text-base flex-shrink-0"
+                      className="mr-2 text-brand-secondary text-sm sm:text-base shrink-0"
                     />
                     <p className="font-bold text-gray-900 dark:text-white text-xs sm:text-sm">
                       Markets We Serve:
                     </p>
                   </div>
                   <ul className="space-y-1.5">
-                    {service.markets.map((market, mIndex) => (
-                      <li key={mIndex} className="flex items-start text-xs">
+                    {service.markets.map((market) => (
+                      <li
+                        key={`${service.title}-market-${market}`}
+                        className="flex items-start text-xs"
+                      >
                         <MaterialIcon
                           icon="check_circle"
-                          className="flex-shrink-0 mt-0.5 mr-1.5 text-brand-secondary text-xs sm:text-sm"
+                          className="shrink-0 mt-0.5 mr-1.5 text-brand-secondary text-xs sm:text-sm"
                         />
                         <span className="text-gray-700 dark:text-gray-300 leading-tight break-words">
                           {market}
@@ -125,18 +131,21 @@ export function SpecialtyServiceCard({ service }: SpecialtyServiceCardProps) {
                   <div className="flex items-center mb-2">
                     <MaterialIcon
                       icon="construction"
-                      className="mr-2 text-brand-primary text-sm sm:text-base flex-shrink-0"
+                      className="mr-2 text-brand-primary text-sm sm:text-base shrink-0"
                     />
                     <p className="font-bold text-gray-900 dark:text-white text-xs sm:text-sm">
                       What We Build:
                     </p>
                   </div>
                   <ul className="space-y-1.5">
-                    {service.buildTypes.map((type, tIndex) => (
-                      <li key={tIndex} className="flex items-start text-xs">
+                    {service.buildTypes.map((type) => (
+                      <li
+                        key={`${service.title}-build-${type}`}
+                        className="flex items-start text-xs"
+                      >
                         <MaterialIcon
                           icon="arrow_right"
-                          className="flex-shrink-0 mt-0.5 mr-1.5 text-brand-primary text-xs sm:text-sm"
+                          className="shrink-0 mt-0.5 mr-1.5 text-brand-primary text-xs sm:text-sm"
                         />
                         <span className="text-gray-700 dark:text-gray-300 leading-tight break-words">
                           {type}
@@ -153,18 +162,21 @@ export function SpecialtyServiceCard({ service }: SpecialtyServiceCardProps) {
                   <div className="flex items-center mb-2">
                     <MaterialIcon
                       icon="verified"
-                      className="mr-2 text-brand-secondary text-sm sm:text-base flex-shrink-0"
+                      className="mr-2 text-brand-secondary text-sm sm:text-base shrink-0"
                     />
                     <p className="font-bold text-gray-900 dark:text-white text-xs sm:text-sm">
                       Key Features:
                     </p>
                   </div>
                   <ul className="space-y-1.5">
-                    {service.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-start text-xs">
+                    {service.features.map((feature) => (
+                      <li
+                        key={`${service.title}-feature-${feature}`}
+                        className="flex items-start text-xs"
+                      >
                         <MaterialIcon
                           icon="check_circle"
-                          className="flex-shrink-0 mt-0.5 mr-1.5 text-brand-secondary text-xs sm:text-sm"
+                          className="shrink-0 mt-0.5 mr-1.5 text-brand-secondary text-xs sm:text-sm"
                         />
                         <span className="text-gray-700 dark:text-gray-300 leading-tight break-words">
                           {feature}
@@ -181,18 +193,21 @@ export function SpecialtyServiceCard({ service }: SpecialtyServiceCardProps) {
                   <div className="flex items-center mb-2">
                     <MaterialIcon
                       icon="settings"
-                      className="mr-2 text-brand-primary text-sm sm:text-base flex-shrink-0"
+                      className="mr-2 text-brand-primary text-sm sm:text-base shrink-0"
                     />
                     <p className="font-bold text-gray-900 dark:text-white text-xs sm:text-sm">
                       Capabilities:
                     </p>
                   </div>
                   <ul className="space-y-1.5">
-                    {service.capabilities.map((cap, cIndex) => (
-                      <li key={cIndex} className="flex items-start text-xs">
+                    {service.capabilities.map((cap) => (
+                      <li
+                        key={`${service.title}-capability-${cap}`}
+                        className="flex items-start text-xs"
+                      >
                         <MaterialIcon
                           icon="arrow_right"
-                          className="flex-shrink-0 mt-0.5 mr-1.5 text-brand-primary text-xs sm:text-sm"
+                          className="shrink-0 mt-0.5 mr-1.5 text-brand-primary text-xs sm:text-sm"
                         />
                         <span className="text-gray-700 dark:text-gray-300 leading-tight break-words">
                           {cap}
@@ -218,7 +233,7 @@ export function SpecialtyServiceCard({ service }: SpecialtyServiceCardProps) {
 
               {/* CTA Text */}
               {service.ctaText && (
-                <div className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-3 border-l-4 border-brand-primary rounded-md">
+                <div className="bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-3 border-l-4 border-brand-primary rounded-md">
                   <p className="font-medium text-gray-800 dark:text-gray-200 text-xs leading-relaxed break-words">
                     <MaterialIcon
                       icon="phone"

@@ -791,3 +791,7 @@ export const locations: Record<string, LocationData> = {
 export function getLocationBySlug(slug: string): LocationData | undefined {
   return locations[slug];
 }
+
+export function getLocationSlugs(): string[] {
+  return Object.keys(locations);
+}

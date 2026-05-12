@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getProjectsSEO } from "@/lib/seo/page-seo-utils";
 import { StructuredData } from "@/components/seo/SeoMeta";
+import { SectionShell } from "@/components/layout";
+import { projectCaseStudies } from "@/lib/data/project-case-studies";
 
 // Enhanced SEO metadata for Projects page
 const seoData = getProjectsSEO();
@@ -17,7 +19,17 @@ export default function ProjectsLayout({
   return (
     <>
       {params?.slug ? null : <StructuredData data={schemas} />}
-      {children}
+      <SectionShell
+        navTitle="Case Studies"
+        navLabel="Project case studies"
+        navItems={projectCaseStudies.map((project) => ({
+          href: `/projects/${project.slug}`,
+          label: project.title,
+        }))}
+        navNote="Move between case studies to compare delivery methods, market types, and field-proven outcomes across the portfolio."
+      >
+        {children}
+      </SectionShell>
     </>
   );
 }

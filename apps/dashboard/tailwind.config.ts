@@ -1,6 +1,4 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+const config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -359,7 +357,7 @@ const config: Config = {
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
     require("@tailwindcss/aspect-ratio"),
-    function ({ addUtilities }: { addUtilities: Function }) {
+    function ({ addUtilities }) {
       const newUtilities = {
         ".perspective-1000": {
           perspective: "1000px",
@@ -385,4 +383,4 @@ const config: Config = {
   ],
 };
 
-export default config;
+module.exports = config;

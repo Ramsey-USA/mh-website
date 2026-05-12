@@ -18,7 +18,7 @@ export default function EmployeeHandbookPage() {
     <>
       <PageTrackingClient pageName="employee-handbook-placeholder" />
 
-      <section className="bg-gradient-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-14 sm:px-6">
+      <section className="bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-14 sm:px-6">
         <div className="mx-auto max-w-4xl text-white">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
             <MaterialIcon

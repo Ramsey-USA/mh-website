@@ -23,9 +23,10 @@ export function GovernmentProjectsSection() {
             MH Construction brings{" "}
             <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
               specialized expertise
-            </span>{" "}
-            in government and grant-funded construction projects. We understand
-            the unique requirements, documentation standards, and{" "}
+            </span>
+            {
+              " in government and grant-funded construction projects. We understand the unique requirements, documentation standards, and "
+            }
             <span className="font-bold text-brand-primary dark:text-brand-primary-light">
               compliance needs
             </span>{" "}
@@ -37,20 +38,20 @@ export function GovernmentProjectsSection() {
       <FadeInWhenVisible>
         <div className="mx-auto max-w-5xl">
           {/* Main Government Services Card */}
-          <Card className="relative bg-gradient-to-br from-white via-white to-brand-primary/5 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 border-2 border-brand-primary shadow-xl hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-500 mb-8 overflow-hidden group">
+          <Card className="relative bg-linear-to-br from-white via-white to-brand-primary/5 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 border-2 border-brand-primary shadow-xl hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-500 mb-8 overflow-hidden group">
             {/* Decorative background pattern */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/5 dark:bg-brand-primary/10 rounded-full blur-3xl transform translate-x-32 -translate-y-32 group-hover:scale-150 transition-transform duration-1000"></div>
 
             <CardContent className="relative p-8 lg:p-12">
               <div className="flex items-center gap-4 mb-6">
-                <div className="flex-shrink-0 w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <div className="shrink-0 w-16 h-16 lg:w-20 lg:h-20 bg-linear-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                   <MaterialIcon
                     icon="account_balance"
                     size="2xl"
                     className="text-white"
                   />
                 </div>
-                <h3 className="font-black text-gray-900 dark:text-white text-xl sm:text-2xl lg:text-3xl leading-tight break-words">
+                <h3 className="font-black text-gray-900 dark:text-white text-xl sm:text-2xl lg:text-3xl leading-tight wrap-break-word">
                   Comprehensive Government Project Management
                 </h3>
               </div>
@@ -60,15 +61,17 @@ export function GovernmentProjectsSection() {
                 projects, our team navigates complex government requirements
                 with{" "}
                 <span className="text-brand-primary dark:text-brand-primary-light font-semibold">
-                  precision and efficiency
+                  precision and efficiency.
                 </span>
-                . We specialize in grant documentation, compliance management,
+                {
+                  " We specialize in grant documentation, compliance management,"
+                }
                 and public sector communication standards.
               </p>
 
               {/* Government Project Types Grid */}
               <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="relative bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-gray-800 dark:to-gray-800/80 p-6 rounded-2xl border border-brand-primary/20 dark:border-gray-700 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 group/card">
+                <div className="relative bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-gray-800 dark:to-gray-800/80 p-6 rounded-2xl border border-brand-primary/20 dark:border-gray-700 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 group/card">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex items-center justify-center group-hover/card:scale-110 transition-transform duration-300">
                       <MaterialIcon
@@ -86,7 +89,7 @@ export function GovernmentProjectsSection() {
                       <MaterialIcon
                         icon="check_circle"
                         size="sm"
-                        className="text-brand-secondary mt-1 flex-shrink-0"
+                        className="text-brand-secondary mt-1 shrink-0"
                       />
                       <span>GSA Facilities & Federal Buildings</span>
                     </li>
@@ -94,7 +97,7 @@ export function GovernmentProjectsSection() {
                       <MaterialIcon
                         icon="check_circle"
                         size="sm"
-                        className="text-brand-secondary mt-1 flex-shrink-0"
+                        className="text-brand-secondary mt-1 shrink-0"
                       />
                       <span>Military Base Construction & Renovations</span>
                     </li>
@@ -102,7 +105,7 @@ export function GovernmentProjectsSection() {
                       <MaterialIcon
                         icon="check_circle"
                         size="sm"
-                        className="text-brand-secondary mt-1 flex-shrink-0"
+                        className="text-brand-secondary mt-1 shrink-0"
                       />
                       <span>Federal Grant-Funded Projects</span>
                     </li>
@@ -110,14 +113,14 @@ export function GovernmentProjectsSection() {
                       <MaterialIcon
                         icon="check_circle"
                         size="sm"
-                        className="text-brand-secondary mt-1 flex-shrink-0"
+                        className="text-brand-secondary mt-1 shrink-0"
                       />
                       <span>Veterans Affairs Facilities</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="relative bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-gray-800 dark:to-gray-800/80 p-6 rounded-2xl border border-brand-primary/20 dark:border-gray-700 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 group/card">
+                <div className="relative bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-gray-800 dark:to-gray-800/80 p-6 rounded-2xl border border-brand-primary/20 dark:border-gray-700 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 group/card">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex items-center justify-center group-hover/card:scale-110 transition-transform duration-300">
                       <MaterialIcon
@@ -135,7 +138,7 @@ export function GovernmentProjectsSection() {
                       <MaterialIcon
                         icon="check_circle"
                         size="sm"
-                        className="text-brand-secondary mt-1 flex-shrink-0"
+                        className="text-brand-secondary mt-1 shrink-0"
                       />
                       <span>Municipal Buildings & City Halls</span>
                     </li>
@@ -143,7 +146,7 @@ export function GovernmentProjectsSection() {
                       <MaterialIcon
                         icon="check_circle"
                         size="sm"
-                        className="text-brand-secondary mt-1 flex-shrink-0"
+                        className="text-brand-secondary mt-1 shrink-0"
                       />
                       <span>Educational Facilities & Schools</span>
                     </li>
@@ -151,7 +154,7 @@ export function GovernmentProjectsSection() {
                       <MaterialIcon
                         icon="check_circle"
                         size="sm"
-                        className="text-brand-secondary mt-1 flex-shrink-0"
+                        className="text-brand-secondary mt-1 shrink-0"
                       />
                       <span>Public Safety & Emergency Services</span>
                     </li>
@@ -159,7 +162,7 @@ export function GovernmentProjectsSection() {
                       <MaterialIcon
                         icon="check_circle"
                         size="sm"
-                        className="text-brand-secondary mt-1 flex-shrink-0"
+                        className="text-brand-secondary mt-1 shrink-0"
                       />
                       <span>State Grant-Funded Infrastructure</span>
                     </li>
@@ -168,7 +171,7 @@ export function GovernmentProjectsSection() {
               </div>
 
               {/* Grant Documentation Expertise */}
-              <div className="relative bg-gradient-to-r from-brand-secondary/10 via-brand-secondary/15 to-brand-secondary/10 dark:from-gray-800 dark:via-gray-800/90 dark:to-gray-800 p-6 lg:p-8 rounded-2xl mb-6 border border-brand-secondary/20 dark:border-gray-700 hover:shadow-lg transition-all duration-300 overflow-hidden group/grant">
+              <div className="relative bg-linear-to-r from-brand-secondary/10 via-brand-secondary/15 to-brand-secondary/10 dark:from-gray-800 dark:via-gray-800/90 dark:to-gray-800 p-6 lg:p-8 rounded-2xl mb-6 border border-brand-secondary/20 dark:border-gray-700 hover:shadow-lg transition-all duration-300 overflow-hidden group/grant">
                 {/* Decorative accent */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-secondary/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16 group-hover/grant:scale-150 transition-transform duration-700"></div>
 
@@ -269,9 +272,9 @@ export function GovernmentProjectsSection() {
 
           {/* Why Choose Us for Government Work */}
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-gradient-to-br from-white to-brand-primary/5 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-brand-primary/10 hover:-translate-y-2 transition-all duration-300 group">
+            <Card className="bg-linear-to-br from-white to-brand-primary/5 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-brand-primary/10 hover:-translate-y-2 transition-all duration-300 group">
               <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <div className="w-16 h-16 bg-linear-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                   <MaterialIcon
                     icon="military_tech"
                     size="xl"
@@ -288,9 +291,9 @@ export function GovernmentProjectsSection() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-white to-brand-primary/5 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-brand-primary/10 hover:-translate-y-2 transition-all duration-300 group">
+            <Card className="bg-linear-to-br from-white to-brand-primary/5 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-brand-primary/10 hover:-translate-y-2 transition-all duration-300 group">
               <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <div className="w-16 h-16 bg-linear-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                   <MaterialIcon
                     icon="workspace_premium"
                     size="xl"
@@ -307,9 +310,9 @@ export function GovernmentProjectsSection() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-white to-brand-primary/5 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-brand-primary/10 hover:-translate-y-2 transition-all duration-300 group">
+            <Card className="bg-linear-to-br from-white to-brand-primary/5 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-brand-primary/10 hover:-translate-y-2 transition-all duration-300 group">
               <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <div className="w-16 h-16 bg-linear-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                   <MaterialIcon
                     icon="verified"
                     size="xl"

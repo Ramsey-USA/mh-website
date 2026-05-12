@@ -17,6 +17,8 @@ export interface FAQCategory {
   id: string;
   title: string;
   icon: string;
+  metaDescription: string;
+  ogImage: string;
   questions: FAQQuestion[];
 }
 
@@ -25,6 +27,9 @@ export const faqCategories: FAQCategory[] = [
     id: "general",
     title: "General Information",
     icon: "info",
+    metaDescription:
+      "Review MH Construction background, licensing, service footprint, and veteran-owned company basics in one FAQ hub.",
+    ogImage: "/images/og/faq/general-information.webp",
     questions: [
       {
         question:
@@ -53,6 +58,9 @@ export const faqCategories: FAQCategory[] = [
     id: "process",
     title: "Process & Partnership",
     icon: "diversity_3",
+    metaDescription:
+      "Understand how MH Construction handles consultations, open-book pricing, scheduling, changes, and project communication.",
+    ogImage: "/images/og/faq/process-partnership.webp",
     questions: [
       {
         question: "How does your consultation process work?",
@@ -85,6 +93,9 @@ export const faqCategories: FAQCategory[] = [
     id: "safety",
     title: "Safety & Quality",
     icon: "verified_user",
+    metaDescription:
+      "Review MH Construction safety performance, quality standards, insurance coverage, and issue-resolution process.",
+    ogImage: "/images/og/faq/safety-quality.webp",
     questions: [
       {
         question: "What is your safety record?",
@@ -112,6 +123,9 @@ export const faqCategories: FAQCategory[] = [
     id: "communication",
     title: "Communication & Support",
     icon: "campaign",
+    metaDescription:
+      "Find direct contact options, consultation steps, and support expectations for working with MH Construction.",
+    ogImage: "/images/og/faq/communication-support.webp",
     questions: [
       {
         question: "Can I speak with a real person?",
@@ -134,6 +148,9 @@ export const faqCategories: FAQCategory[] = [
     id: "veterans",
     title: "Veteran Benefits & Services",
     icon: "military_tech",
+    metaDescription:
+      "Learn how MH Construction supports veterans with priority scheduling, service-aware communication, and qualifying project discounts.",
+    ogImage: "/images/og/faq/veteran-benefits-services.webp",
     questions: [
       {
         question: "What veteran benefits do you offer?",
@@ -165,6 +182,9 @@ export const faqCategories: FAQCategory[] = [
     id: "technical",
     title: "Technical & Project Management",
     icon: "gps_fixed",
+    metaDescription:
+      "Review permitting, PEMB delivery, project management controls, and commercial construction logistics across the Tri-State footprint.",
+    ogImage: "/images/og/faq/technical-project-management.webp",
     questions: [
       {
         question:
@@ -227,6 +247,9 @@ export const faqCategories: FAQCategory[] = [
     id: "partnership",
     title: "Working Together",
     icon: "diversity_3",
+    metaDescription:
+      "See how MH Construction approaches trade partners, client collaboration, subcontractor coordination, and post-closeout support.",
+    ogImage: "/images/og/faq/working-together.webp",
     questions: [
       {
         question: "What does 'Client Partner' mean?",
@@ -270,6 +293,9 @@ export const faqCategories: FAQCategory[] = [
     id: "financial",
     title: "Pricing & Payment",
     icon: "description",
+    metaDescription:
+      "Get clear answers on open-book pricing, deposits, payment expectations, and change-cost transparency.",
+    ogImage: "/images/og/faq/pricing-payment.webp",
     questions: [
       {
         question: "How does your pricing work?",

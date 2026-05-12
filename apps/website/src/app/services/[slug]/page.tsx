@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { PageTrackingClient } from "@/components/analytics";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
@@ -49,6 +49,12 @@ export async function generateMetadata({
       description: service.metaDescription,
       url: `${SITE_URL}/services/${service.slug}`,
       type: "website",
+      images: [
+        {
+          url: `${SITE_URL}${service.ogImage}`,
+          alt: `${service.title} service line overview`,
+        },
+      ],
     },
     robots: { index: true, follow: true },
   };
@@ -87,7 +93,7 @@ export default async function ServicePage({
       <main className="bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 min-h-screen">
         <section className="border-b border-gray-200 bg-white/95 px-4 py-14 sm:px-6 lg:px-8 dark:border-gray-800 dark:bg-gray-950/80">
           <div className="mx-auto max-w-5xl">
-            <Breadcrumb
+            <Breadcrumbs
               items={[
                 { label: "Home", href: "/" },
                 { label: "Services", href: "/services" },

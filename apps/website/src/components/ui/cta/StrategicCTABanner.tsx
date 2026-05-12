@@ -21,10 +21,8 @@ interface StrategicCTABannerProps {
   className?: string;
 }
 
-export function StrategicCTABanner({
-  variant = "combo",
-  className = "",
-}: StrategicCTABannerProps) {
+export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
+  const { variant = "combo", className = "" } = props;
   const { trackEvent } = useAnalytics();
 
   const trackPwaInstall = useCallback(
@@ -54,10 +52,9 @@ export function StrategicCTABanner({
 
   if (variant === "pwa") {
     return (
-      <section
+      <aside
         className={`bg-brand-primary py-6 px-4 sm:px-6 ${className}`}
         aria-labelledby="pwa-cta-heading"
-        role="complementary"
       >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
@@ -85,7 +82,7 @@ export function StrategicCTABanner({
             variant="secondary"
             size="lg"
             onClick={trackPwaInstall}
-            className="flex-shrink-0"
+            className="shrink-0"
             aria-label="Install MH Construction Progressive Web App"
           >
             <MaterialIcon
@@ -97,16 +94,15 @@ export function StrategicCTABanner({
             Install App
           </Button>
         </div>
-      </section>
+      </aside>
     );
   }
 
   if (variant === "pitch-deck") {
     return (
-      <section
+      <aside
         className={`bg-brand-secondary py-6 px-4 sm:px-6 ${className}`}
         aria-labelledby="pitch-deck-cta-heading"
-        role="complementary"
       >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
@@ -130,12 +126,12 @@ export function StrategicCTABanner({
               </p>
             </div>
           </div>
-          <Link href={PITCH_DECK_HREF} className="flex-shrink-0">
+          <Link href={PITCH_DECK_HREF} className="shrink-0">
             <Button
               variant="outline"
               size="lg"
               onClick={trackPitchDeck}
-              className="flex-shrink-0 bg-white/10 border-white/30 text-white hover:bg-white/20"
+              className="shrink-0 bg-white/10 border-white/30 text-white hover:bg-white/20"
               aria-label="Request MH Construction pitch deck"
             >
               <MaterialIcon
@@ -148,16 +144,15 @@ export function StrategicCTABanner({
             </Button>
           </Link>
         </div>
-      </section>
+      </aside>
     );
   }
 
   if (variant === "consultation") {
     return (
-      <section
+      <aside
         className={`bg-gray-900 py-6 px-4 sm:px-6 ${className}`}
         aria-labelledby="consultation-cta-heading"
-        role="complementary"
       >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
@@ -183,7 +178,7 @@ export function StrategicCTABanner({
               </p>
             </div>
           </div>
-          <Link href="/contact" className="flex-shrink-0">
+          <Link href="/contact" className="shrink-0">
             <Button
               variant="primary"
               size="lg"
@@ -200,7 +195,7 @@ export function StrategicCTABanner({
             </Button>
           </Link>
         </div>
-      </section>
+      </aside>
     );
   }
 
@@ -217,11 +212,7 @@ export function StrategicCTABanner({
       }}
       className={className}
     >
-      <div
-        className="grid grid-cols-1 sm:grid-cols-3 gap-4"
-        role="group"
-        aria-label="Engagement options"
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {/* Install App */}
         <Button
           variant="outline"

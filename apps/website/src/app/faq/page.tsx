@@ -85,19 +85,19 @@ function FAQItem({ question, answer, link }: Readonly<FAQQuestion>) {
   return (
     <details className="group relative">
       {/* Animated Border Glow */}
-      <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
+      <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
       <div className="relative border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent rounded-xl overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300">
         {/* Top Accent Bar */}
-        <div className="h-1 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker group-open:h-2 transition-all duration-300"></div>
+        <div className="h-1 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker group-open:h-2 transition-all duration-300"></div>
 
         <summary className="flex items-center justify-between p-6 cursor-pointer bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors duration-200">
           <h3 className="text-lg font-bold text-gray-900 dark:text-white pr-4">
             {question}
           </h3>
-          <div className="relative inline-block flex-shrink-0">
+          <div className="relative inline-block shrink-0">
             <div className="absolute -inset-1 bg-brand-primary/20 dark:bg-brand-primary/30 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="relative rounded-lg bg-gradient-to-br from-brand-primary to-brand-primary-dark p-2 group-hover:scale-110 transition-transform duration-300">
+            <div className="relative rounded-lg bg-linear-to-br from-brand-primary to-brand-primary-dark p-2 group-hover:scale-110 transition-transform duration-300">
               <MaterialIcon
                 icon="expand_more"
                 className="text-white transform group-open:rotate-180 transition-transform duration-300"
@@ -140,16 +140,16 @@ export default function FAQPage() {
         {/* Hero Section */}
         <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
           {/* Background - Dark gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
+          <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
             {/* Overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
+            <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
           </div>
 
           {/* Header Text - Bottom Right */}
           <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
             {/* Mission Icon */}
             <div className="flex justify-end mb-4">
-              <div className="relative p-4 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
+              <div className="relative p-4 bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
                 <MaterialIcon
                   icon="help"
                   size="4xl"
@@ -205,7 +205,7 @@ export default function FAQPage() {
 
               {/* Trust Stat Badges */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-                <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
+                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
                   <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
                     {faqCategories.reduce(
                       (sum, cat) => sum + cat.questions.length,
@@ -217,7 +217,7 @@ export default function FAQPage() {
                     Questions Answered
                   </div>
                 </div>
-                <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
+                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
                   <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
                     {faqCategories.length}
                   </div>
@@ -225,7 +225,7 @@ export default function FAQPage() {
                     Topic Categories
                   </div>
                 </div>
-                <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
+                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
                   <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
                     0.64
                   </div>
@@ -233,7 +233,7 @@ export default function FAQPage() {
                     EMR Safety Record
                   </div>
                 </div>
-                <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
+                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
                   <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
                     3
                   </div>
@@ -264,10 +264,10 @@ export default function FAQPage() {
                   <FadeInWhenVisible delay={categoryIndex * 0.1}>
                     {/* Icon with decorative lines */}
                     <div className="flex items-center justify-center mb-8 gap-4">
-                      <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                      <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                       <div className="relative">
-                        <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                        <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                        <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                        <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                           <MaterialIcon
                             icon={category.icon}
                             size="2xl"
@@ -275,7 +275,7 @@ export default function FAQPage() {
                           />
                         </div>
                       </div>
-                      <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                      <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                     </div>
 
                     {/* Two-line gradient heading */}
@@ -283,7 +283,7 @@ export default function FAQPage() {
                       <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                         FAQ Category
                       </span>
-                      <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                      <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                         {category.title}
                       </span>
                     </h2>
@@ -314,10 +314,10 @@ export default function FAQPage() {
             <div className="max-w-4xl mx-auto text-center">
               {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-6 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
                       icon="support_agent"
                       size="2xl"
@@ -325,7 +325,7 @@ export default function FAQPage() {
                     />
                   </div>
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
 
               {/* Two-line gradient heading */}
@@ -333,7 +333,7 @@ export default function FAQPage() {
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Still Have
                 </span>
-                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Questions?
                 </span>
               </h2>

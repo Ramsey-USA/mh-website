@@ -3,6 +3,7 @@ export interface ServiceRouteData {
   title: string;
   metaTitle: string;
   metaDescription: string;
+  ogImage: string;
   summary: string;
   category: string;
   overview: string;
@@ -21,6 +22,7 @@ export const serviceRoutes: ServiceRouteData[] = [
     metaTitle: "Commercial Construction Services | MH Construction",
     metaDescription:
       "Plan and deliver commercial construction with a disciplined partner that keeps scope, budget, safety, and schedule aligned from kickoff through closeout.",
+    ogImage: "/images/og/services/commercial-construction.webp",
     summary:
       "MH Construction plans and delivers commercial projects with disciplined coordination, clear communication, and a practical focus on schedule control.",
     category: "Commercial Construction",
@@ -59,6 +61,7 @@ export const serviceRoutes: ServiceRouteData[] = [
     metaTitle: "Municipal and Government Construction | MH Construction",
     metaDescription:
       "Support municipal and government construction with compliance-aware planning, transparent communication, and disciplined field execution.",
+    ogImage: "/images/og/services/municipal-government.webp",
     summary:
       "MH Construction supports municipal and government work with clear documentation, code-aware planning, and public-sector coordination.",
     category: "Municipal & Government",
@@ -97,6 +100,7 @@ export const serviceRoutes: ServiceRouteData[] = [
     metaTitle: "Drywall and Interior Construction Services | MH Construction",
     metaDescription:
       "Deliver drywall and interior build-outs with crisp coordination, clean finishes, and efficient sequencing for occupied or fast-track spaces.",
+    ogImage: "/images/og/services/drywall-interiors.webp",
     summary:
       "MH Construction delivers drywall and interior scopes with clean finish standards, fast sequencing, and dependable trade coordination.",
     category: "Drywall & Interiors",
@@ -135,6 +139,7 @@ export const serviceRoutes: ServiceRouteData[] = [
     metaTitle: "Restoration and Remodeling Services | MH Construction",
     metaDescription:
       "Restore damaged spaces and remodel existing facilities with disciplined recovery planning, practical sequencing, and clear client communication.",
+    ogImage: "/images/og/services/restoration-remodeling.webp",
     summary:
       "MH Construction restores and remodels spaces with practical field planning, measured sequencing, and strong communication after damage or disruption.",
     category: "Restoration & Remodeling",

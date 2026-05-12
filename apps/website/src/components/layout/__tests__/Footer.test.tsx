@@ -11,7 +11,7 @@ import Footer from "../Footer";
 
 jest.mock("next/link", () => ({
   __esModule: true,
-  default: ({ children, href, ...props }: any) => (
+  default: ({ children, href, prefetch, ...props }: any) => (
     <a href={typeof href === "string" ? href : "/"} {...props}>
       {children}
     </a>

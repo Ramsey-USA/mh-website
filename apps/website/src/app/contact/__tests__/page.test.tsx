@@ -4,7 +4,7 @@
  * components without error.
  */
 
-jest.mock("@/app/contact/ContactPageClient", () => ({
+jest.mock("../ContactPageClient", () => ({
   __esModule: true,
   default: () => <div data-testid="contact-page-client" />,
 }));
@@ -30,6 +30,31 @@ jest.mock("@/lib/constants/company", () => ({
     phone: { tel: "+15093086489" },
     email: { main: "office@mhc-gc.com" },
     urls: { site: "https://mhc-gc.com" },
+    bbb: {
+      sealClickUrl:
+        "https://www.bbb.org/us/wa/pasco/profile/general-contractor/mh-construction-inc-1296-1000169655",
+      sealHorizontal: "/images/badges/BBB-h.webp",
+      sealHorizontalWhite: "/images/badges/BBB-h-w.webp",
+    },
+    travelers: {
+      website: "https://www.travelers.com",
+      logo: "/images/logos/travelers-logo.webp",
+      logoWhite: "/images/logos/travelers-logo-white.webp",
+    },
+    chambers: {
+      pasco: {
+        website: "https://www.pascochamber.org",
+        logo: "/images/logos/Pasco-Chamber.webp",
+      },
+      richland: {
+        website: "https://www.richlandchamber.org",
+        logo: "/images/logos/Richland-Chamber.webp",
+      },
+      triCityRegional: {
+        website: "https://www.tricityregionalchamber.com",
+        logo: "/images/logos/Tri-City-Regional-Chamber.webp",
+      },
+    },
     address: {
       street: "123 Main St",
       city: "Pasco",

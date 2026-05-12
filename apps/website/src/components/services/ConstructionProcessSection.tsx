@@ -30,16 +30,16 @@ export function ConstructionProcessSection() {
             </span>
             ,{" "}
             <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
-              communication
+              communication,
             </span>
-            , and collaborative excellence.
+            {" and collaborative excellence."}
           </>
         ),
       }}
     >
       <div className="mx-auto max-w-6xl relative">
         {/* Vertical connecting line */}
-        <div className="absolute left-8 top-12 bottom-12 w-0.5 bg-gradient-to-b from-brand-primary via-brand-secondary to-bronze-700 dark:from-brand-primary-dark dark:via-brand-secondary-dark dark:to-bronze-700 hidden sm:block"></div>
+        <div className="absolute left-8 top-12 bottom-12 w-0.5 bg-linear-to-b from-brand-primary via-brand-secondary to-bronze-700 dark:from-brand-primary-dark dark:via-brand-secondary-dark dark:to-bronze-700 hidden sm:block"></div>
 
         <StaggeredFadeIn className="space-y-8 lg:space-y-12">
           {/* Step 1 */}
@@ -47,7 +47,7 @@ export function ConstructionProcessSection() {
             <IconContainer
               size="md"
               gradient="mixed"
-              className="flex-shrink-0 z-10 ring-4 ring-white dark:ring-gray-800"
+              className="shrink-0 z-10 ring-4 ring-white dark:ring-gray-800"
             >
               <span className="font-black text-2xl text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
                 1
@@ -55,7 +55,7 @@ export function ConstructionProcessSection() {
               {/* Pulse animation */}
               <div className="absolute inset-0 rounded-full bg-brand-primary/50 animate-ping opacity-20"></div>
             </IconContainer>
-            <Card className="flex-1 bg-gradient-to-br from-white to-brand-primary/5 dark:from-gray-900 dark:to-gray-800 border-l-4 border-brand-primary hover:shadow-2xl dark:hover:shadow-brand-primary/10 hover:-translate-y-1 transition-all duration-300 group">
+            <Card className="flex-1 bg-linear-to-br from-white to-brand-primary/5 dark:from-gray-900 dark:to-gray-800 border-l-4 border-brand-primary hover:shadow-2xl dark:hover:shadow-brand-primary/10 hover:-translate-y-1 transition-all duration-300 group">
               <CardContent className="p-6 sm:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -75,8 +75,8 @@ export function ConstructionProcessSection() {
                   detailed plans or just an idea, we'll work{" "}
                   <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
                     WITH you
-                  </span>{" "}
-                  to clarify scope, timeline, and budget expectations.
+                  </span>
+                  {" to clarify scope, timeline, and budget expectations."}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <span className="bg-brand-primary/10 px-3 py-1.5 rounded-full text-brand-primary text-sm font-medium hover:bg-brand-primary/20 transition-colors duration-200">
@@ -98,14 +98,14 @@ export function ConstructionProcessSection() {
             <IconContainer
               size="md"
               gradient="secondary"
-              className="flex-shrink-0 z-10 ring-4 ring-white dark:ring-gray-800"
+              className="shrink-0 z-10 ring-4 ring-white dark:ring-gray-800"
             >
               <span className="font-black text-2xl text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
                 2
               </span>
               <div className="absolute inset-0 rounded-full bg-brand-secondary/50 animate-ping opacity-20"></div>
             </IconContainer>
-            <Card className="flex-1 bg-gradient-to-br from-white to-brand-secondary/5 dark:from-gray-900 dark:to-gray-800 border-l-4 border-brand-secondary hover:shadow-2xl dark:hover:shadow-brand-secondary/10 hover:-translate-y-1 transition-all duration-300 group">
+            <Card className="flex-1 bg-linear-to-br from-white to-brand-secondary/5 dark:from-gray-900 dark:to-gray-800 border-l-4 border-brand-secondary hover:shadow-2xl dark:hover:shadow-brand-secondary/10 hover:-translate-y-1 transition-all duration-300 group">
               <CardContent className="p-6 sm:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -126,8 +126,8 @@ export function ConstructionProcessSection() {
                   You'll understand{" "}
                   <span className="font-semibold text-brand-secondary dark:text-brand-secondary-light">
                     every aspect
-                  </span>{" "}
-                  of your project costs upfront.
+                  </span>
+                  {" of your project costs upfront."}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <span className="bg-brand-secondary/10 px-3 py-1.5 rounded-full text-brand-secondary text-sm font-medium hover:bg-brand-secondary/20 transition-colors duration-200">
@@ -149,14 +149,14 @@ export function ConstructionProcessSection() {
             <IconContainer
               size="md"
               gradient="forest"
-              className="flex-shrink-0 z-10 ring-4 ring-white dark:ring-gray-800"
+              className="shrink-0 z-10 ring-4 ring-white dark:ring-gray-800"
             >
               <span className="font-black text-2xl text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
                 3
               </span>
               <div className="absolute inset-0 rounded-full bg-brand-secondary/50 animate-ping opacity-20"></div>
             </IconContainer>
-            <Card className="flex-1 bg-gradient-to-br from-white to-brand-secondary/5 dark:from-gray-900 dark:to-gray-800 border-l-4 border-brand-secondary hover:shadow-2xl dark:hover:shadow-brand-secondary/10 hover:-translate-y-1 transition-all duration-300 group">
+            <Card className="flex-1 bg-linear-to-br from-white to-brand-secondary/5 dark:from-gray-900 dark:to-gray-800 border-l-4 border-brand-secondary hover:shadow-2xl dark:hover:shadow-brand-secondary/10 hover:-translate-y-1 transition-all duration-300 group">
               <CardContent className="p-6 sm:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -175,9 +175,11 @@ export function ConstructionProcessSection() {
                   permits, coordinate with subcontractors, and schedule
                   materials. Our Project Manager handles{" "}
                   <span className="font-semibold text-brand-secondary dark:text-bronze-400">
-                    all paperwork
+                    all paperwork,
                   </span>
-                  , submittals, and RFIs while keeping you informed every step
+                  {
+                    " submittals, and RFIs while keeping you informed every step"
+                  }
                   of the way.
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -197,7 +199,7 @@ export function ConstructionProcessSection() {
 
           {/* Step 4 */}
           <div className="flex sm:flex-row flex-col gap-6 items-start">
-            <div className="flex justify-center items-center bg-gradient-to-br from-brand-primary to-brand-primary-dark shadow-lg rounded-full w-16 h-16 flex-shrink-0">
+            <div className="flex justify-center items-center bg-linear-to-br from-brand-primary to-brand-primary-dark shadow-lg rounded-full w-16 h-16 shrink-0">
               <span className="font-black text-2xl text-white">4</span>
             </div>
             <Card className="flex-1 bg-white dark:bg-gray-900 border-brand-primary border-l-4">
@@ -236,7 +238,7 @@ export function ConstructionProcessSection() {
 
           {/* Step 5 */}
           <div className="flex sm:flex-row flex-col gap-6 items-start">
-            <div className="flex justify-center items-center bg-gradient-to-br from-brand-secondary to-brand-secondary-dark shadow-lg rounded-full w-16 h-16 flex-shrink-0">
+            <div className="flex justify-center items-center bg-linear-to-br from-brand-secondary to-brand-secondary-dark shadow-lg rounded-full w-16 h-16 shrink-0">
               <span className="font-black text-2xl text-white">5</span>
             </div>
             <Card className="flex-1 bg-white dark:bg-gray-900 border-brand-secondary border-l-4">
@@ -274,7 +276,7 @@ export function ConstructionProcessSection() {
 
           {/* Step 6 */}
           <div className="flex sm:flex-row flex-col gap-6 items-start">
-            <div className="flex justify-center items-center bg-gradient-to-br from-brand-secondary to-forest-700 shadow-lg rounded-full w-16 h-16 flex-shrink-0">
+            <div className="flex justify-center items-center bg-linear-to-br from-brand-secondary to-forest-700 shadow-lg rounded-full w-16 h-16 shrink-0">
               <span className="font-black text-2xl text-white">6</span>
             </div>
             <Card className="flex-1 bg-white dark:bg-gray-900 border-brand-secondary border-l-4">
@@ -313,7 +315,7 @@ export function ConstructionProcessSection() {
 
         {/* CTA Section */}
         <FadeInWhenVisible>
-          <div className="bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 shadow-xl mx-auto mt-16 p-8 lg:p-12 border-2 border-brand-primary dark:border-brand-primary/50 rounded-2xl max-w-4xl text-center">
+          <div className="bg-linear-to-br from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 shadow-xl mx-auto mt-16 p-8 lg:p-12 border-2 border-brand-primary dark:border-brand-primary/50 rounded-2xl max-w-4xl text-center">
             <MaterialIcon
               icon="handshake"
               size="4xl"
@@ -332,7 +334,7 @@ export function ConstructionProcessSection() {
                 <Button
                   variant="primary"
                   size="lg"
-                  className="transition-all duration-300 min-w-[260px]"
+                  className="transition-all duration-300 min-w-65"
                 >
                   <MaterialIcon icon="phone" size="lg" className="mr-3" />
                   <span className="font-medium">Contact Us Today</span>
@@ -342,7 +344,7 @@ export function ConstructionProcessSection() {
                 <Button
                   variant="secondary"
                   size="lg"
-                  className="transition-all duration-300 min-w-[260px]"
+                  className="transition-all duration-300 min-w-65"
                 >
                   <MaterialIcon
                     icon="photo_library"

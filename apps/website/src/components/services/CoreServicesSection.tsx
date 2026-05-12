@@ -20,14 +20,18 @@ interface CoreServicesSectionProps {
   services: CoreService[];
 }
 
-export function CoreServicesSection({ services }: CoreServicesSectionProps) {
+export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
+  const { services } = props;
   const [selectedService, setSelectedService] = useState<number | null>(null);
 
   // Memoize the selected service data
-  const currentService = useMemo(
-    () => (selectedService !== null ? services[selectedService] : null),
-    [selectedService, services],
-  );
+  const currentService = useMemo(() => {
+    if (selectedService === null) {
+      return null;
+    }
+
+    return services[selectedService];
+  }, [selectedService, services]);
 
   // Close modal handler
   const closeModal = useCallback(() => {
@@ -55,9 +59,8 @@ export function CoreServicesSection({ services }: CoreServicesSectionProps) {
             </span>{" "}
             designed to bring your vision to life through collaboration and{" "}
             <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
-              disciplined execution
+              disciplined execution.
             </span>
-            .
           </>
         ),
       }}
@@ -86,8 +89,8 @@ export function CoreServicesSection({ services }: CoreServicesSectionProps) {
           panelClassName="max-w-3xl rounded-3xl border-0 dark:bg-gray-800"
           contentClassName="p-0"
           renderHeader={({ titleId, onClose }) => (
-            <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary p-6 sm:p-8 text-white">
-              <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/20"></div>
+            <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-secondary p-6 sm:p-8 text-white">
+              <div className="absolute inset-0 bg-linear-to-br from-black/10 to-black/20"></div>
               <button
                 onClick={onClose}
                 className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 rounded-full p-2.5 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 z-10"
@@ -102,7 +105,7 @@ export function CoreServicesSection({ services }: CoreServicesSectionProps) {
                 />
               </button>
               <div className="relative flex items-start gap-4">
-                <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-xl border border-white/30">
+                <div className="shrink-0 bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-xl border border-white/30">
                   <MaterialIcon
                     icon={currentService.iconName}
                     size="2xl"
@@ -142,12 +145,12 @@ export function CoreServicesSection({ services }: CoreServicesSectionProps) {
                 </h3>
               </div>
               <ul className="space-y-3">
-                {currentService.features.map((feature, fIndex) => (
+                {currentService.features.map((feature) => (
                   <li
-                    key={fIndex}
+                    key={`${currentService.title}-feature-${feature}`}
                     className="flex items-start gap-3 group hover:translate-x-1 transition-transform duration-200"
                   >
-                    <div className="flex-shrink-0 w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-0.5 group-hover:scale-110 transition-transform duration-200">
+                    <div className="shrink-0 w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-0.5 group-hover:scale-110 transition-transform duration-200">
                       <MaterialIcon
                         icon="check_circle"
                         size="sm"
@@ -175,12 +178,12 @@ export function CoreServicesSection({ services }: CoreServicesSectionProps) {
                 </h3>
               </div>
               <ul className="space-y-3">
-                {currentService.benefits.map((benefit, bIndex) => (
+                {currentService.benefits.map((benefit) => (
                   <li
-                    key={bIndex}
+                    key={`${currentService.title}-benefit-${benefit}`}
                     className="flex items-start gap-3 group hover:translate-x-1 transition-transform duration-200"
                   >
-                    <div className="flex-shrink-0 w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-0.5 group-hover:scale-110 transition-transform duration-200">
+                    <div className="shrink-0 w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-0.5 group-hover:scale-110 transition-transform duration-200">
                       <MaterialIcon
                         icon="military_tech"
                         size="sm"
@@ -197,7 +200,7 @@ export function CoreServicesSection({ services }: CoreServicesSectionProps) {
 
             {/* CTA Text */}
             {currentService.ctaText && (
-              <div className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-4 rounded-xl border-l-4 border-brand-primary mb-6">
+              <div className="bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-4 rounded-xl border-l-4 border-brand-primary mb-6">
                 <p className="text-gray-800 dark:text-gray-200 text-sm sm:text-base leading-relaxed font-medium">
                   <MaterialIcon
                     icon="phone"

@@ -316,7 +316,7 @@ export default async function TeamPage() {
         {/* Hero Section */}
         <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
           {/* Background - Ready for photo or video */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
+          <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
             <Image
               src="/images/team/mh-construction-team-group-2025.webp"
               alt="MH Construction team group photo, 2025"
@@ -325,14 +325,14 @@ export default async function TeamPage() {
               priority
             />
             {/* Overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
+            <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
           </div>
 
           {/* Header Text - Bottom Right */}
           <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
             {/* Mission Icon */}
             <div className="flex justify-end mb-4">
-              <div className="relative p-4 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
+              <div className="relative p-4 bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
                 <MaterialIcon
                   icon="groups"
                   size="4xl"
@@ -380,10 +380,10 @@ export default async function TeamPage() {
             <div className="mb-16 sm:mb-20 text-center">
               {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
                       icon="groups"
                       size="2xl"
@@ -391,7 +391,7 @@ export default async function TeamPage() {
                     />
                   </div>
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
 
               {/* Two-line gradient heading */}
@@ -399,7 +399,7 @@ export default async function TeamPage() {
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Meet Our
                 </span>
-                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Elite Team
                 </span>
               </h2>
@@ -472,10 +472,10 @@ export default async function TeamPage() {
                     <div className="mb-12 sm:mb-14 md:mb-16 text-center">
                       {/* Icon with decorative lines */}
                       <div className="flex items-center justify-center mb-8 gap-4">
-                        <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                        <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                         <div className="relative">
-                          <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                          <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                          <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                          <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                             <MaterialIcon
                               icon={config.icon}
                               size="2xl"
@@ -483,14 +483,14 @@ export default async function TeamPage() {
                             />
                           </div>
                         </div>
-                        <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                        <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                       </div>
 
                       <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                         <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                           {heading.subtitle}
                         </span>
-                        <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                        <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                           {heading.title}
                         </span>
                       </h3>
@@ -540,10 +540,10 @@ export default async function TeamPage() {
             <div className="mb-16 sm:mb-20 text-center">
               {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
                       icon="forum"
                       size="2xl"
@@ -551,7 +551,7 @@ export default async function TeamPage() {
                     />
                   </div>
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
 
               {/* Two-line gradient heading */}
@@ -559,7 +559,7 @@ export default async function TeamPage() {
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   What Our Team Members
                 </span>
-                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Say About Us
                 </span>
               </h2>
@@ -615,10 +615,10 @@ export default async function TeamPage() {
                     <div className="mb-12 sm:mb-14 md:mb-16 text-center">
                       {/* Icon with decorative lines */}
                       <div className="flex items-center justify-center mb-8 gap-4">
-                        <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                        <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                         <div className="relative">
-                          <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                          <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                          <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                          <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                             <MaterialIcon
                               icon={config.icon}
                               size="2xl"
@@ -626,14 +626,14 @@ export default async function TeamPage() {
                             />
                           </div>
                         </div>
-                        <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                        <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                       </div>
 
                       <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                         <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                           {heading.subtitle}
                         </span>
-                        <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                        <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                           {heading.title}
                         </span>
                       </h3>
@@ -680,10 +680,10 @@ export default async function TeamPage() {
               <div className="mb-16 sm:mb-20 text-center">
                 {/* Icon with decorative lines */}
                 <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="diversity_3"
                         size="2xl"
@@ -691,7 +691,7 @@ export default async function TeamPage() {
                       />
                     </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
 
                 {/* Two-line gradient heading */}
@@ -699,7 +699,7 @@ export default async function TeamPage() {
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Our Partnership
                   </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Company Culture
                   </span>
                 </h2>
@@ -726,11 +726,11 @@ export default async function TeamPage() {
                 <div className="scroll-reveal">
                   <div className="group relative flex h-full">
                     {/* Animated Border Glow */}
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
-                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+                      <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
@@ -750,7 +750,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Team Unity
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           From veterans to civilians, office to field—we&apos;re
                           one team with shared values forged through military
                           discipline and construction excellence. Every Client
@@ -772,7 +772,7 @@ export default async function TeamPage() {
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
-                      <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                      <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
@@ -794,7 +794,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Mutual Support
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           We lift each other up through mentorship programs,
                           share 150+ years of combined knowledge freely, and
                           ensure no one faces challenges alone. Your growth is
@@ -816,7 +816,7 @@ export default async function TeamPage() {
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
-                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+                      <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
@@ -836,7 +836,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Shared Success
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           When our Client Partners win, we all win—from AGC-WA
                           Top EMR Awards to 3+ years without time-loss injuries.
                           Celebrating achievements together (70% referral
@@ -852,15 +852,15 @@ export default async function TeamPage() {
               </div>
 
               {/* Culture Highlights - Enhanced */}
-              <div className="relative bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-800/95 dark:to-gray-800 shadow-2xl p-8 sm:p-10 md:p-12 rounded-2xl border-2 border-brand-secondary/10 dark:border-brand-secondary/20 overflow-hidden">
+              <div className="relative bg-linear-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-800/95 dark:to-gray-800 shadow-2xl p-8 sm:p-10 md:p-12 rounded-2xl border-2 border-brand-secondary/10 dark:border-brand-secondary/20 overflow-hidden">
                 {/* Decorative background elements */}
-                <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-brand-secondary/5 to-transparent rounded-full blur-3xl"></div>
-                <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-brand-primary/5 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-96 h-96 bg-linear-to-br from-brand-secondary/5 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-96 h-96 bg-linear-to-tr from-brand-primary/5 to-transparent rounded-full blur-3xl"></div>
 
                 <div className="relative z-10">
                   {/* Enhanced heading */}
                   <div className="flex flex-col items-center mb-10">
-                    <div className="mb-6 p-4 bg-gradient-to-br from-brand-secondary to-bronze-700 rounded-2xl shadow-lg">
+                    <div className="mb-6 p-4 bg-linear-to-br from-brand-secondary to-bronze-700 rounded-2xl shadow-lg">
                       <MaterialIcon
                         icon="diversity_3"
                         size="xl"
@@ -872,7 +872,7 @@ export default async function TeamPage() {
                       <span className="block mb-2 text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl font-semibold">
                         What Makes Our
                       </span>
-                      <span className="block bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-secondary bg-clip-text text-transparent">
+                      <span className="block bg-linear-to-r from-brand-secondary via-brand-primary to-brand-secondary bg-clip-text text-transparent">
                         Team Culture Special
                       </span>
                     </h3>
@@ -881,7 +881,7 @@ export default async function TeamPage() {
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                     <div className="space-y-6">
                       <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
-                        <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-primary to-brand-primary-dark group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-primary to-brand-primary-dark group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
                           <MaterialIcon
                             icon="military_tech"
                             size="sm"
@@ -903,7 +903,7 @@ export default async function TeamPage() {
                         </div>
                       </div>
                       <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
-                        <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-primary to-brand-primary-dark group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-primary to-brand-primary-dark group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
                           <MaterialIcon
                             icon="forum"
                             size="sm"
@@ -925,7 +925,7 @@ export default async function TeamPage() {
                         </div>
                       </div>
                       <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
-                        <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-primary to-brand-primary-dark group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-primary to-brand-primary-dark group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
                           <MaterialIcon
                             icon="verified_user"
                             size="sm"
@@ -948,7 +948,7 @@ export default async function TeamPage() {
                     </div>
                     <div className="space-y-6">
                       <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
-                        <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-secondary to-bronze-700 group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-secondary to-bronze-700 group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
                           <MaterialIcon
                             icon="location_city"
                             size="sm"
@@ -971,7 +971,7 @@ export default async function TeamPage() {
                         </div>
                       </div>
                       <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
-                        <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-secondary to-bronze-700 group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-secondary to-bronze-700 group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
                           <MaterialIcon
                             icon="balance"
                             size="sm"
@@ -991,7 +991,7 @@ export default async function TeamPage() {
                         </div>
                       </div>
                       <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
-                        <div className="flex flex-shrink-0 justify-center items-center bg-gradient-to-br from-brand-secondary to-bronze-700 group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-secondary to-bronze-700 group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
                           <MaterialIcon
                             icon="handshake"
                             size="sm"
@@ -1038,10 +1038,10 @@ export default async function TeamPage() {
               <div className="mb-16 sm:mb-20 text-center">
                 {/* Icon with decorative lines */}
                 <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="school"
                         size="2xl"
@@ -1049,7 +1049,7 @@ export default async function TeamPage() {
                       />
                     </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
 
                 {/* Two-line gradient heading */}
@@ -1057,7 +1057,7 @@ export default async function TeamPage() {
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Professional Development &
                   </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Career Growth
                   </span>
                 </h2>
@@ -1086,7 +1086,7 @@ export default async function TeamPage() {
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
-                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+                      <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
@@ -1106,7 +1106,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Continuous Training
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           Regular training on new techniques, evolving safety
                           standards (OSHA 30, VPP Star), and emerging technology
                           integration. Stay at the forefront of construction
@@ -1126,7 +1126,7 @@ export default async function TeamPage() {
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
-                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+                      <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
@@ -1147,7 +1147,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Cross-Training Programs
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           Expand your skillset across multiple specialties and
                           construction disciplines. Learn from experienced
                           professionals in different trades, increasing your
@@ -1166,7 +1166,7 @@ export default async function TeamPage() {
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
-                      <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                      <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
@@ -1187,7 +1187,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Structured Mentorship
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           Paired with experienced professionals who share 150+
                           years of combined knowledge freely. From apprentice to
                           master craftsman, from entry-level to leadership—your
@@ -1206,7 +1206,7 @@ export default async function TeamPage() {
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
-                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+                      <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
@@ -1226,7 +1226,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Clear Advancement Paths
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           Transparent career progression from apprentice →
                           journeyman → foreman → superintendent → project
                           manager. Your advancement is based on merit, skills,
@@ -1245,7 +1245,7 @@ export default async function TeamPage() {
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
-                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+                      <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
@@ -1266,7 +1266,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Leadership Development
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           Emerging leaders receive specialized training in
                           project management, team leadership, Client Partner
                           relationships, and business development. We build
@@ -1285,7 +1285,7 @@ export default async function TeamPage() {
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
-                      <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                      <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
@@ -1306,7 +1306,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Industry Involvement
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           Active participation in AGC, NAIOP, and other
                           professional organizations. Network with industry
                           leaders, stay current on regulations and best
@@ -1320,15 +1320,15 @@ export default async function TeamPage() {
               </div>
 
               {/* Investment in Your Success - Enhanced Stats */}
-              <div className="relative bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-800/95 dark:to-gray-800 shadow-2xl p-8 sm:p-10 md:p-12 rounded-2xl border-2 border-brand-primary/10 dark:border-brand-primary/20 overflow-hidden">
+              <div className="relative bg-linear-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-800/95 dark:to-gray-800 shadow-2xl p-8 sm:p-10 md:p-12 rounded-2xl border-2 border-brand-primary/10 dark:border-brand-primary/20 overflow-hidden">
                 {/* Decorative background elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-brand-primary/5 to-transparent rounded-full blur-3xl"></div>
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-brand-secondary/5 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-linear-to-br from-brand-primary/5 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-linear-to-tr from-brand-secondary/5 to-transparent rounded-full blur-3xl"></div>
 
                 <div className="relative z-10">
                   {/* Icon and heading */}
                   <div className="flex flex-col items-center mb-10">
-                    <div className="mb-6 p-4 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-2xl shadow-lg">
+                    <div className="mb-6 p-4 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-2xl shadow-lg">
                       <MaterialIcon
                         icon="trending_up"
                         size="xl"
@@ -1340,7 +1340,7 @@ export default async function TeamPage() {
                       <span className="block mb-2 text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl font-semibold">
                         Our Commitment
                       </span>
-                      <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent">
+                      <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent">
                         Investment in Your Success
                       </span>
                     </h3>
@@ -1351,7 +1351,7 @@ export default async function TeamPage() {
                     {/* Stat 1 */}
                     <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
                       <div className="mb-3 flex justify-center">
-                        <div className="p-3 bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 rounded-lg group-hover:from-brand-primary/20 group-hover:to-brand-primary/10 transition-colors duration-300">
+                        <div className="p-3 bg-linear-to-br from-brand-primary/10 to-brand-primary/5 rounded-lg group-hover:from-brand-primary/20 group-hover:to-brand-primary/10 transition-colors duration-300">
                           <MaterialIcon
                             icon="military_tech"
                             size="lg"
@@ -1359,7 +1359,7 @@ export default async function TeamPage() {
                           />
                         </div>
                       </div>
-                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-gradient-to-br from-brand-primary to-brand-primary-dark bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-linear-to-br from-brand-primary to-brand-primary-dark bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                         150+
                       </p>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
@@ -1372,7 +1372,7 @@ export default async function TeamPage() {
                     {/* Stat 2 */}
                     <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
                       <div className="mb-3 flex justify-center">
-                        <div className="p-3 bg-gradient-to-br from-brand-secondary/10 to-brand-secondary/5 rounded-lg group-hover:from-brand-secondary/20 group-hover:to-brand-secondary/10 transition-colors duration-300">
+                        <div className="p-3 bg-linear-to-br from-brand-secondary/10 to-brand-secondary/5 rounded-lg group-hover:from-brand-secondary/20 group-hover:to-brand-secondary/10 transition-colors duration-300">
                           <MaterialIcon
                             icon="paid"
                             size="lg"
@@ -1380,7 +1380,7 @@ export default async function TeamPage() {
                           />
                         </div>
                       </div>
-                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-gradient-to-br from-brand-secondary to-bronze-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-linear-to-br from-brand-secondary to-bronze-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                         100%
                       </p>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
@@ -1393,7 +1393,7 @@ export default async function TeamPage() {
                     {/* Stat 3 - AGC Awards */}
                     <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
                       <div className="mb-3 flex justify-center">
-                        <div className="p-3 bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 rounded-lg group-hover:from-brand-primary/20 group-hover:to-brand-primary/10 transition-colors duration-300">
+                        <div className="p-3 bg-linear-to-br from-brand-primary/10 to-brand-primary/5 rounded-lg group-hover:from-brand-primary/20 group-hover:to-brand-primary/10 transition-colors duration-300">
                           <MaterialIcon
                             icon="emoji_events"
                             size="lg"
@@ -1401,7 +1401,7 @@ export default async function TeamPage() {
                           />
                         </div>
                       </div>
-                      <p className="font-black text-2xl sm:text-3xl md:text-4xl bg-gradient-to-br from-brand-primary to-brand-primary-dark bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                      <p className="font-black text-2xl sm:text-3xl md:text-4xl bg-linear-to-br from-brand-primary to-brand-primary-dark bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                         AGC-WA
                       </p>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
@@ -1414,7 +1414,7 @@ export default async function TeamPage() {
                     {/* Stat 4 - Years in Business */}
                     <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
                       <div className="mb-3 flex justify-center">
-                        <div className="p-3 bg-gradient-to-br from-brand-secondary/10 to-brand-secondary/5 rounded-lg group-hover:from-brand-secondary/20 group-hover:to-brand-secondary/10 transition-colors duration-300">
+                        <div className="p-3 bg-linear-to-br from-brand-secondary/10 to-brand-secondary/5 rounded-lg group-hover:from-brand-secondary/20 group-hover:to-brand-secondary/10 transition-colors duration-300">
                           <MaterialIcon
                             icon="business"
                             size="lg"
@@ -1422,7 +1422,7 @@ export default async function TeamPage() {
                           />
                         </div>
                       </div>
-                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-gradient-to-br from-brand-secondary to-bronze-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-linear-to-br from-brand-secondary to-bronze-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                         15+
                       </p>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
@@ -1466,7 +1466,7 @@ export default async function TeamPage() {
                   <Button
                     variant="primary"
                     size="lg"
-                    className="transition-all duration-300 w-full sm:w-auto sm:min-w-[280px]"
+                    className="transition-all duration-300 w-full sm:w-auto sm:min-w-70"
                   >
                     <MaterialIcon icon="work" size="lg" className="mr-3" />
                     <span className="font-medium">
@@ -1490,10 +1490,10 @@ export default async function TeamPage() {
             <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
               <div className="mb-12 sm:mb-14 md:mb-16 text-center">
                 <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="foundation"
                         size="2xl"
@@ -1501,14 +1501,14 @@ export default async function TeamPage() {
                       />
                     </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
 
                 <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Founder
                   </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Tribute
                   </span>
                 </h3>
@@ -1520,10 +1520,10 @@ export default async function TeamPage() {
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-bronze-50/90 via-white to-brand-secondary/10 dark:from-bronze-900/20 dark:via-gray-900 dark:to-brand-secondary/15 rounded-2xl border-2 border-bronze-200 dark:border-bronze-700 shadow-xl p-6 sm:p-8 md:p-10">
+              <div className="bg-linear-to-br from-bronze-50/90 via-white to-brand-secondary/10 dark:from-bronze-900/20 dark:via-gray-900 dark:to-brand-secondary/15 rounded-2xl border-2 border-bronze-200 dark:border-bronze-700 shadow-xl p-6 sm:p-8 md:p-10">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 items-start">
                   <div className="lg:col-span-1">
-                    <div className="relative w-full max-w-sm mx-auto aspect-[4/5] rounded-xl overflow-hidden border-2 border-brand-secondary/30 dark:border-brand-secondary/40 shadow-lg bg-gray-100 dark:bg-gray-800">
+                    <div className="relative w-full max-w-sm mx-auto aspect-4/5 rounded-xl overflow-hidden border-2 border-brand-secondary/30 dark:border-brand-secondary/40 shadow-lg bg-gray-100 dark:bg-gray-800">
                       <Image
                         src={
                           founderTributeMember.avatar ??
@@ -1583,7 +1583,7 @@ export default async function TeamPage() {
                               <MaterialIcon
                                 icon="check_circle"
                                 size="sm"
-                                className="text-brand-secondary dark:text-brand-secondary-light flex-shrink-0 mt-0.5"
+                                className="text-brand-secondary dark:text-brand-secondary-light shrink-0 mt-0.5"
                               />
                               <span className="leading-relaxed font-normal">
                                 {highlight}

@@ -32,32 +32,32 @@
   "dictionaryDefinitions": [
     {
       "name": "technical-words",
-      "path": "./config/cspell/project-words.txt",
+      "path": "../../config/cspell/project-words.txt",
       "addWords": true
     },
     {
       "name": "technical-additions",
-      "path": "./config/cspell/technical-additions.txt",
+      "path": "../../config/cspell/technical-additions.txt",
       "addWords": true
     },
     {
       "name": "safety-industry-words",
-      "path": "./config/cspell/safety-industry-words.txt",
+      "path": "../../config/cspell/safety-industry-words.txt",
       "addWords": true
     },
     {
       "name": "names-and-places-words",
-      "path": "./config/cspell/names-and-places-words.txt",
+      "path": "../../config/cspell/names-and-places-words.txt",
       "addWords": true
     },
     {
       "name": "spanish-custom-words",
-      "path": "./config/cspell/spanish-custom-words.txt",
+      "path": "../../config/cspell/spanish-custom-words.txt",
       "addWords": true
     },
     {
       "name": "es-es",
-      "path": "./node_modules/@cspell/dict-es-es/Spanish.trie.gz"
+      "path": "../../node_modules/@cspell/dict-es-es/Spanish.trie.gz"
     }
   ],
   "dictionaries": [
