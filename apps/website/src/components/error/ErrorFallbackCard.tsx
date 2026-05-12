@@ -9,7 +9,7 @@ interface ErrorFallbackCardProps {
   reset: () => void;
   heading: string;
   message: string;
-  digest?: string;
+  digest?: string | undefined;
 }
 
 export function ErrorFallbackCard({

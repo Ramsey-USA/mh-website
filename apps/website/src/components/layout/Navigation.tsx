@@ -37,6 +37,12 @@ const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
       icon: "photo_library",
     },
     {
+      href: "/cool-desert-nights",
+      label: "Event",
+      subLabel: "Field Brief",
+      icon: "event",
+    },
+    {
       href: "/team",
       label: "Our Team",
       subLabel: "Chain of Command",
@@ -122,6 +128,12 @@ const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
       label: "Proyectos",
       subLabel: "Portafolio",
       icon: "photo_library",
+    },
+    {
+      href: "/cool-desert-nights",
+      label: "Evento",
+      subLabel: "Informe de campo",
+      icon: "event",
     },
     {
       href: "/team",

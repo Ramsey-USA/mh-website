@@ -67,6 +67,12 @@ const navCol1Links: FooterNavItem[] = [
     sub: "Portfolio",
   },
   {
+    href: "/cool-desert-nights",
+    icon: "event",
+    label: "Event",
+    sub: "Field Brief",
+  },
+  {
     href: "/resources",
     icon: "folder_open",
     label: "Resources",
@@ -509,6 +515,10 @@ export default function Footer() {
       "/contact": { label: "Contacto", sub: "Contacto" },
       "/services": { label: "Servicios", sub: "Operaciones" },
       "/projects": { label: "Proyectos", sub: "Portafolio" },
+      "/cool-desert-nights": {
+        label: "Evento",
+        sub: "Informe de campo",
+      },
       "/resources": { label: "Recursos", sub: "Inteligencia de campo" },
       "/safety": { label: "Seguridad", sub: "Proteccion operativa" },
       "/faq": { label: "Ayuda/Preguntas", sub: "Informe rapido" },

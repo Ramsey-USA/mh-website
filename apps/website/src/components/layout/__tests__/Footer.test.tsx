@@ -69,6 +69,14 @@ describe("Footer", () => {
     expect(screen.getByText("RCE-49250")).toBeVisible();
   });
 
+  it("renders the Event footer link pointing to Cool Desert Nights", () => {
+    render(<Footer />);
+
+    const eventLink = screen.getByRole("link", { name: /event/i });
+    expect(eventLink).toBeInTheDocument();
+    expect(eventLink).toHaveAttribute("href", "/cool-desert-nights");
+  });
+
   it("keeps the Oregon license verification link intact", () => {
     render(<Footer />);
 

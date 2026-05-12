@@ -357,7 +357,11 @@ const config = {
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
     require("@tailwindcss/aspect-ratio"),
-    function ({ addUtilities }) {
+    function ({
+      addUtilities,
+    }: {
+      addUtilities: (utilities: Record<string, Record<string, string>>) => void;
+    }) {
       const newUtilities = {
         ".perspective-1000": {
           perspective: "1000px",

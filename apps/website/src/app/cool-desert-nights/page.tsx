@@ -7,37 +7,37 @@ import {
 import { CoolDesertNightsPageClient } from "./CoolDesertNightsPageClient";
 
 export const metadata: Metadata = withGeoMetadata({
-  title: "MHC Cool Desert Nights 2026 Hub | Smoke & Shine BBQ Showdown",
+  title: "MH Construction at Cool Desert Nights 2026 | Event Briefing",
   description:
-    "MHC Cool Desert Nights 2026 hub for the Smoke & Shine BBQ Showdown, fleet showcase, local leadership highlights, and event briefing and debrief updates.",
+    "MH Construction event briefing for Cool Desert Nights 2026, including schedule links, booth details, leadership collaboration, and event updates.",
   alternates: {
     canonical: "https://www.mhc-gc.com/cool-desert-nights",
   },
   openGraph: {
-    title: "MHC Cool Desert Nights 2026 Hub | Smoke & Shine BBQ Showdown",
+    title: "MH Construction at Cool Desert Nights 2026 | Event Briefing",
     description:
-      "MHC Cool Desert Nights 2026 hub for the Smoke & Shine BBQ Showdown, fleet showcase, local leadership highlights, and event briefing and debrief updates.",
+      "MH Construction event briefing for Cool Desert Nights 2026, including schedule links, booth details, leadership collaboration, and event updates.",
     url: "https://www.mhc-gc.com/cool-desert-nights",
     images: [
       {
         url: "/images/events/cool-desert-nights/og-smoke-boss-2026.webp",
         width: 1200,
         height: 630,
-        alt: "MHC Cool Desert Nights 2026 Smoke Boss event hub",
+        alt: "MH Construction Cool Desert Nights 2026 event briefing",
       },
       {
         url: "/images/og-default.webp",
         width: 1200,
         height: 630,
-        alt: "MHC at Cool Desert Nights 2026",
+        alt: "MH Construction at Cool Desert Nights 2026",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MHC Cool Desert Nights 2026 Hub | Smoke & Shine BBQ Showdown",
+    title: "MH Construction at Cool Desert Nights 2026 | Event Briefing",
     description:
-      "MHC Cool Desert Nights 2026 hub for the Smoke & Shine BBQ Showdown, fleet showcase, local leadership highlights, and event briefing and debrief updates.",
+      "MH Construction event briefing for Cool Desert Nights 2026, including schedule links, booth details, leadership collaboration, and event updates.",
     images: [
       "/images/events/cool-desert-nights/og-smoke-boss-2026.webp",
       "/images/og-default.webp",
