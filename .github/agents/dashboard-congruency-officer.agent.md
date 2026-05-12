@@ -21,6 +21,7 @@ Maintain deliberate congruency between website and dashboard/hub surfaces while 
 - Metadata and robots posture correctness for restricted dashboard surfaces
 - Shared design-token usage (color/typography/spacing consistency)
 - Optimization hygiene in high-churn dashboard modules
+- Shared visual asset parity for trust/map components when equivalents exist in website and dashboard
 
 ## Guardrails
 
@@ -36,6 +37,7 @@ Maintain deliberate congruency between website and dashboard/hub surfaces while 
 - Design-Token Integrity: verify brand tokens and type scale usage remain consistent with shared standards.
 - Render/Complexity Hygiene: flag unstable memo dependencies, nested rendering branches, and avoidable complexity regressions.
 - Quality Gate Signals: verify lint/type/test checks for touched areas and report residual risk.
+- Shared Component Drift Check: when website trust-row/map visuals change, verify dashboard/hub equivalents (if present) are intentionally aligned or explicitly exempted.
 
 ## Output Format
 

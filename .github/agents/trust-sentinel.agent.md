@@ -20,6 +20,7 @@ Prevent erosion of trust and accreditation signals across MH surfaces.
 - About, Contact, Allies, Public-Sector, and Veterans trust sections
 - Credential visibility and continuity in related SEO schema surfaces
 - Dashboard and hub trust ribbons/badges, including factual veteran-owned framing continuity
+- Footer trust-row composition integrity (left/right accreditation group structure, centered veteran badge emphasis, and readable non-veteran logo density)
 
 ## Guardrails
 
@@ -34,6 +35,7 @@ Prevent erosion of trust and accreditation signals across MH surfaces.
 - Visibility Integrity: verify trust markers are not hidden, downgraded, or de-emphasized.
 - Schema Continuity: verify related trust/credential schema references remain aligned.
 - Cross-App Trust Parity: verify trust-critical statements stay consistent between website and internal dashboard/hub contexts.
+- Trust-Row Layout Integrity: verify footer accreditation layout keeps the veteran badge centered/emphasized and preserves side accreditation group balance.
 
 ## Output Format
 

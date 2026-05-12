@@ -46,10 +46,6 @@ export function CoolDesertNightsPageClient() {
                 ? "Thank you to the Richland and Kennewick community, event leadership, and local partners who made this event successful."
                 : "Join us June 26-27 in Richland, WA for the event weekend, community activities, and a chance to connect with our team in person."}
             </p>
-            <p className="inline-flex items-center gap-2 rounded-full border border-brand-secondary/45 bg-brand-secondary/20 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-white">
-              <MaterialIcon icon="event" size="sm" />
-              Event Briefing | Cool Desert Nights 2026
-            </p>
 
             <div className="flex flex-wrap gap-3">
               <Link
@@ -124,6 +120,13 @@ export function CoolDesertNightsPageClient() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pt-6 sm:px-6">
+        <p className="inline-flex items-center gap-2 rounded-full border border-brand-secondary/45 bg-brand-secondary/20 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-white">
+          <MaterialIcon icon="event" size="sm" />
+          Event Briefing | Cool Desert Nights 2026
+        </p>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">

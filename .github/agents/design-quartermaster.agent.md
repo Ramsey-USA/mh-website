@@ -21,6 +21,7 @@ Keep implementation tightly aligned with MH design standards.
 - Typography scale and readability
 - Approved color and emphasis usage
 - Cross-app congruency between website and dashboard/hub shells
+- Shared map/icon composition consistency (for example, PNW state map orientation and adjacency)
 
 ## Guardrails
 
@@ -35,6 +36,7 @@ Keep implementation tightly aligned with MH design standards.
 - Typography/Color Integrity: verify approved scales, weights, and color emphasis usage.
 - Cross-Page Cohesion: verify new UI feels native to existing MH surfaces.
 - Cross-App Cohesion: verify dashboard/hub UI remains visually congruent with website standards and shared tokens.
+- Map/Icon Composition Integrity: verify shared state-map/icon surfaces stay intentionally aligned (no unintended tilt drift; snug but readable adjacency).
 
 ## Output Format
 

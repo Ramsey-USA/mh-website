@@ -837,11 +837,11 @@ export default function Footer() {
                 <div className="flex flex-col leading-tight">
                   <h3
                     id="contact-heading"
-                    className="font-medium text-brand-primary text-xs uppercase tracking-wide"
+                    className="font-semibold text-brand-primary text-sm uppercase tracking-wide"
                   >
                     {isEs ? "Contacto" : "Contact"}
                   </h3>
-                  <span className="text-[9px] uppercase tracking-wide text-brand-secondary/80">
+                  <span className="text-[10px] uppercase tracking-wide text-brand-secondary/80">
                     {isEs ? "Centro de mando" : "Command Center"}
                   </span>
                 </div>
@@ -1012,145 +1012,155 @@ export default function Footer() {
           </div>
 
           {/* Accreditations Row */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-6 pb-2 border-t border-gray-700/50">
-            {/* AGC Washington */}
-            <a
-              href="https://www.agcwa.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="AGC of Washington Member"
-              className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
-            >
-              <Image
-                src="/images/logo/nwagc-logo.webp"
-                alt="AGC Northwest Washington Member"
-                width={795}
-                height={291}
-                className="h-12 w-auto object-contain"
-                loading="lazy"
-              />
-            </a>
+          <div className="pt-6 pb-2 border-t border-gray-700/50">
+            <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center justify-items-center gap-4 md:grid-cols-[1fr_auto_1fr] md:items-stretch md:gap-5">
+              <div className="grid w-full max-w-lg grid-cols-2 justify-items-center gap-3">
+                {/* AGC Washington */}
+                <a
+                  href="https://www.agcwa.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="AGC of Washington Member"
+                  className="group flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+                >
+                  <Image
+                    src="/images/logo/nwagc-logo.webp"
+                    alt="AGC Northwest Washington Member"
+                    width={795}
+                    height={291}
+                    className="h-11 w-auto object-contain"
+                    loading="lazy"
+                  />
+                </a>
 
-            {/* BBB */}
-            <a
-              href={COMPANY_INFO.bbb.sealClickUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="BBB Accredited Business - A+ Rating"
-              className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
-            >
-              {}
-              <img
-                src={COMPANY_INFO.bbb.sealHorizontal}
-                alt="MH Construction, Inc. BBB Business Review"
-                width={220}
-                height={50}
-                className="h-12 w-auto object-contain dark:hidden"
-                loading="lazy"
-                decoding="async"
-              />
-              {}
-              <img
-                src={COMPANY_INFO.bbb.sealHorizontalWhite}
-                alt="MH Construction, Inc. BBB Business Review"
-                width={220}
-                height={50}
-                className="h-12 w-auto object-contain hidden dark:block"
-                loading="lazy"
-                decoding="async"
-              />
-            </a>
+                {/* BBB */}
+                <a
+                  href={COMPANY_INFO.bbb.sealClickUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="BBB Accredited Business - A+ Rating"
+                  className="group flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+                >
+                  <img
+                    src={COMPANY_INFO.bbb.sealHorizontal}
+                    alt="MH Construction, Inc. BBB Business Review"
+                    width={220}
+                    height={50}
+                    className="h-11 w-auto object-contain dark:hidden"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    src={COMPANY_INFO.bbb.sealHorizontalWhite}
+                    alt="MH Construction, Inc. BBB Business Review"
+                    width={220}
+                    height={50}
+                    className="hidden h-11 w-auto object-contain dark:block"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
 
-            {/* Travelers */}
-            <a
-              href={COMPANY_INFO.travelers.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Travelers Insurance Partner - Auto & Bonding"
-              className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
-            >
-              <Image
-                src={COMPANY_INFO.travelers.logo}
-                alt="Travelers Insurance - Auto & Bonding Partner"
-                width={200}
-                height={56}
-                className="h-12 w-auto object-contain dark:hidden"
-                loading="lazy"
-              />
-              <Image
-                src={COMPANY_INFO.travelers.logoWhite}
-                alt="Travelers Insurance - Auto & Bonding Partner"
-                width={200}
-                height={56}
-                className="h-12 w-auto object-contain hidden dark:block"
-                loading="lazy"
-              />
-            </a>
+                {/* Travelers */}
+                <a
+                  href={COMPANY_INFO.travelers.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Travelers Insurance Partner - Auto & Bonding"
+                  className="group col-span-2 flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+                >
+                  <Image
+                    src={COMPANY_INFO.travelers.logo}
+                    alt="Travelers Insurance - Auto & Bonding Partner"
+                    width={200}
+                    height={56}
+                    className="h-11 w-auto object-contain dark:hidden"
+                    loading="lazy"
+                  />
+                  <Image
+                    src={COMPANY_INFO.travelers.logoWhite}
+                    alt="Travelers Insurance - Auto & Bonding Partner"
+                    width={200}
+                    height={56}
+                    className="hidden h-11 w-auto object-contain dark:block"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
 
-            {/* Pasco Chamber of Commerce */}
-            <a
-              href={COMPANY_INFO.chambers.pasco.memberDirectoryUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Pasco Chamber of Commerce Member"
-              className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
-            >
-              <Image
-                src={COMPANY_INFO.chambers.pasco.logo}
-                alt="Pasco Chamber of Commerce Member"
-                width={200}
-                height={56}
-                className="h-12 w-auto object-contain dark:hidden"
-                loading="lazy"
+              {/* Washington State Veteran Owned Business */}
+              <WaVobBadge
+                size="fill"
+                framed={false}
+                className="order-first h-36 w-36 self-center max-w-none sm:h-40 sm:w-40 md:order-0 md:h-full md:w-48 md:self-stretch"
               />
-              <Image
-                src={COMPANY_INFO.chambers.pasco.logoWhite}
-                alt="Pasco Chamber of Commerce Member"
-                width={200}
-                height={56}
-                className="h-12 w-auto object-contain hidden dark:block"
-                loading="lazy"
-              />
-            </a>
 
-            {/* Richland Chamber of Commerce */}
-            <a
-              href={COMPANY_INFO.chambers.richland.memberDirectoryUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Richland Chamber of Commerce Member"
-              className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
-            >
-              <Image
-                src={COMPANY_INFO.chambers.richland.logo}
-                alt="Richland Chamber of Commerce Member"
-                width={200}
-                height={56}
-                className="h-12 w-auto object-contain"
-                loading="lazy"
-              />
-            </a>
+              <div className="grid w-full max-w-lg grid-cols-2 justify-items-center gap-3">
+                {/* Pasco Chamber of Commerce */}
+                <a
+                  href={COMPANY_INFO.chambers.pasco.memberDirectoryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Pasco Chamber of Commerce Member"
+                  className="group flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+                >
+                  <Image
+                    src={COMPANY_INFO.chambers.pasco.logo}
+                    alt="Pasco Chamber of Commerce Member"
+                    width={200}
+                    height={56}
+                    className="h-11 w-auto object-contain dark:hidden"
+                    loading="lazy"
+                  />
+                  <Image
+                    src={COMPANY_INFO.chambers.pasco.logoWhite}
+                    alt="Pasco Chamber of Commerce Member"
+                    width={200}
+                    height={56}
+                    className="hidden h-11 w-auto object-contain dark:block"
+                    loading="lazy"
+                  />
+                </a>
 
-            {/* Tri-City Regional Chamber of Commerce */}
-            <a
-              href={COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Tri-City Regional Chamber of Commerce Member"
-              className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
-            >
-              <Image
-                src={COMPANY_INFO.chambers.triCityRegional.logo}
-                alt="Tri-City Regional Chamber of Commerce Member"
-                width={200}
-                height={56}
-                className="h-12 w-auto object-contain"
-                loading="lazy"
-              />
-            </a>
+                {/* Richland Chamber of Commerce */}
+                <a
+                  href={COMPANY_INFO.chambers.richland.memberDirectoryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Richland Chamber of Commerce Member"
+                  className="group flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+                >
+                  <Image
+                    src={COMPANY_INFO.chambers.richland.logo}
+                    alt="Richland Chamber of Commerce Member"
+                    width={200}
+                    height={56}
+                    className="h-11 w-auto object-contain"
+                    loading="lazy"
+                  />
+                </a>
 
-            {/* Washington State Veteran Owned Business */}
-            <WaVobBadge size="lg" className="w-full max-w-60" />
+                {/* Tri-City Regional Chamber of Commerce */}
+                <a
+                  href={
+                    COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Tri-City Regional Chamber of Commerce Member"
+                  className="group col-span-2 flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+                >
+                  <Image
+                    src={COMPANY_INFO.chambers.triCityRegional.logo}
+                    alt="Tri-City Regional Chamber of Commerce Member"
+                    width={200}
+                    height={56}
+                    className="h-11 w-auto object-contain"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Bottom Bar - Enhanced Design */}

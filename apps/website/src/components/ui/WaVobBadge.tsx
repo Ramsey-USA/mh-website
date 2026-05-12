@@ -16,19 +16,23 @@
 import Image from "next/image";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
-type WaVobBadgeSize = "sm" | "md" | "lg";
+type WaVobBadgeSize = "sm" | "md" | "lg" | "xl" | "fill";
 
 type WaVobBadgeProps = {
-  /** Controls image height: sm = h-10 (40px), md = h-12 (48px), lg = h-14 (56px). Defaults to md. */
+  /** Controls image height: sm = h-10 (40px), md = h-12 (48px), lg = h-14 (56px), xl = h-20 (80px), fill = h-full (fills parent height). Defaults to md. */
   size?: WaVobBadgeSize;
   /** Additional class names applied to the outermost wrapper element. */
   className?: string;
+  /** When false, renders only the logo without the decorative badge container. */
+  framed?: boolean;
 };
 
 const sizeMap: Record<WaVobBadgeSize, string> = {
   sm: "h-10 w-auto",
   md: "h-12 w-auto",
   lg: "h-14 w-auto",
+  xl: "h-20 w-auto",
+  fill: "h-full w-full",
 };
 
 /**
@@ -38,7 +42,31 @@ const sizeMap: Record<WaVobBadgeSize, string> = {
 export function WaVobBadge({
   size = "md",
   className = "",
+  framed = true,
 }: Readonly<WaVobBadgeProps>) {
+  if (!framed) {
+    return (
+      <a
+        href={COMPANY_INFO.waVob.verifyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={COMPANY_INFO.waVob.title}
+        aria-label={`${COMPANY_INFO.waVob.alt} — click to verify certification`}
+        className={`inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ${className}`}
+      >
+        <Image
+          src={COMPANY_INFO.waVob.logo}
+          alt={COMPANY_INFO.waVob.alt}
+          width={160}
+          height={80}
+          className={`${sizeMap[size]} rounded-[18px] object-contain`}
+          sizes="(max-width: 640px) 140px, 180px"
+          loading="lazy"
+        />
+      </a>
+    );
+  }
+
   return (
     /* Gradient border wrapper — patriotic red→blue, soft rounded corners */
     <a

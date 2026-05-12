@@ -10,7 +10,7 @@ export function PNWStatesMap({
   className = "",
   width = 220,
   height = 154,
-}: PNWStatesMapProps) {
+}: Readonly<PNWStatesMapProps>) {
   return (
     <div
       role="img"
@@ -18,7 +18,7 @@ export function PNWStatesMap({
       className={`relative block ${className}`.trim()}
       style={{ width, height }}
     >
-      <div className="pointer-events-none absolute left-[2%] top-[2%] h-[36%] w-[56%] select-none">
+      <div className="pointer-events-none absolute left-[0%] top-[1%] h-[38%] w-[58%] select-none">
         <Image
           src="/images/states/extracted/labeled/wa-washington.png"
           alt=""
@@ -29,7 +29,7 @@ export function PNWStatesMap({
         />
       </div>
 
-      <div className="pointer-events-none absolute left-[5%] top-[35%] h-[57%] w-[56%] select-none">
+      <div className="pointer-events-none absolute left-[3%] top-[33%] h-[59%] w-[58%] select-none">
         <Image
           src="/images/states/extracted/labeled/or-oregon.png"
           alt=""
@@ -40,7 +40,7 @@ export function PNWStatesMap({
         />
       </div>
 
-      <div className="pointer-events-none absolute left-[54%] top-[8%] h-[82%] w-[44%] select-none">
+      <div className="pointer-events-none absolute left-[51%] top-[6%] h-[84%] w-[46%] select-none">
         <Image
           src="/images/states/extracted/labeled/id-idaho.png"
           alt=""
@@ -51,17 +51,17 @@ export function PNWStatesMap({
         />
       </div>
 
-      <span className="pointer-events-none absolute left-[25%] top-[16%] rounded-md bg-gray-900/70 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white">
+      <span className="pointer-events-none absolute left-[23%] top-[15%] rounded-md bg-gray-900/70 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white">
         WA
       </span>
-      <span className="pointer-events-none absolute left-[24%] top-[66%] rounded-md bg-gray-900/70 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white">
+      <span className="pointer-events-none absolute left-[22%] top-[65%] rounded-md bg-gray-900/70 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white">
         OR
       </span>
-      <span className="pointer-events-none absolute left-[73%] top-[50%] rounded-md bg-gray-900/70 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white">
+      <span className="pointer-events-none absolute left-[71%] top-[49%] rounded-md bg-gray-900/70 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white">
         ID
       </span>
 
-      <span className="pointer-events-none absolute left-[37%] top-[32%] h-2.5 w-2.5 rounded-full border border-white bg-brand-secondary shadow-[0_0_10px_rgba(189,146,100,0.8)]" />
+      <span className="pointer-events-none absolute left-[35%] top-[31%] h-2.5 w-2.5 rounded-full border border-white bg-brand-secondary shadow-[0_0_10px_rgba(189,146,100,0.8)]" />
     </div>
   );
 }
