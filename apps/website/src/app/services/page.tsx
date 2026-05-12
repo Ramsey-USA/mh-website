@@ -89,7 +89,7 @@ export default function ServicesPage() {
       <StructuredData
         data={generateBreadcrumbSchema(breadcrumbPatterns.services)}
       />
-      <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
+      <div className="bg-linear-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
         {/* Hero Section */}
         <ServicesHero />
 
@@ -137,10 +137,10 @@ export default function ServicesPage() {
             <div className="mb-16 sm:mb-20 text-center">
               {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
                       icon="diversity_3"
                       size="2xl"
@@ -148,7 +148,7 @@ export default function ServicesPage() {
                     />
                   </div>
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
 
               {/* Two-line gradient heading */}
@@ -156,7 +156,7 @@ export default function ServicesPage() {
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Two Paths to
                 </span>
-                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Partnership Excellence
                 </span>
               </h2>
@@ -183,18 +183,18 @@ export default function ServicesPage() {
               {/* Client Partner Relationships */}
               <div className="group relative flex h-full">
                 {/* Animated Border Glow */}
-                <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
                 <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
                   {/* Top Accent Bar */}
-                  <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+                  <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
                   <div className="relative p-8 lg:p-10 flex flex-col flex-1">
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="relative flex-shrink-0">
+                      <div className="relative shrink-0">
                         {/* Blur glow layer behind icon */}
-                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-2xl"></div>
-                        <div className="relative w-16 h-16 lg:w-18 lg:h-18 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                        <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-2xl"></div>
+                        <div className="relative w-16 h-16 lg:w-18 lg:h-18 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                           <MaterialIcon
                             icon="handshake"
                             size="xl"
@@ -223,13 +223,13 @@ export default function ServicesPage() {
                       management and partnership-focused collaboration.
                     </p>
 
-                    <div className="mb-6 flex-grow">
+                    <div className="mb-6 grow">
                       <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-4">
                         What We Offer Client Partners:
                       </h4>
                       <ul className="space-y-3">
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
                             <MaterialIcon
                               icon="check_circle"
                               size="sm"
@@ -241,7 +241,7 @@ export default function ServicesPage() {
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
                             <MaterialIcon
                               icon="check_circle"
                               size="sm"
@@ -253,7 +253,7 @@ export default function ServicesPage() {
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
                             <MaterialIcon
                               icon="check_circle"
                               size="sm"
@@ -265,7 +265,7 @@ export default function ServicesPage() {
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
                             <MaterialIcon
                               icon="check_circle"
                               size="sm"
@@ -277,7 +277,7 @@ export default function ServicesPage() {
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
                             <MaterialIcon
                               icon="check_circle"
                               size="sm"
@@ -336,18 +336,18 @@ export default function ServicesPage() {
               {/* Trade Partnerships */}
               <div className="group relative flex h-full">
                 {/* Animated Border Glow */}
-                <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
                 <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
                   {/* Top Accent Bar */}
-                  <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                  <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
                   <div className="relative p-8 lg:p-10 flex flex-col flex-1">
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="relative flex-shrink-0">
+                      <div className="relative shrink-0">
                         {/* Blur glow layer behind icon */}
-                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-2xl"></div>
-                        <div className="relative w-16 h-16 lg:w-18 lg:h-18 bg-gradient-to-br from-brand-secondary to-bronze-700 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                        <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-2xl"></div>
+                        <div className="relative w-16 h-16 lg:w-18 lg:h-18 bg-linear-to-br from-brand-secondary to-bronze-700 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                           <MaterialIcon
                             icon="construction"
                             size="xl"
@@ -375,13 +375,13 @@ export default function ServicesPage() {
                       Northwest market.
                     </p>
 
-                    <div className="mb-6 flex-grow">
+                    <div className="mb-6 grow">
                       <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-4">
                         What We Offer Trade Partners:
                       </h4>
                       <ul className="space-y-3">
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
                             <MaterialIcon
                               icon="check_circle"
                               size="sm"
@@ -393,7 +393,7 @@ export default function ServicesPage() {
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
                             <MaterialIcon
                               icon="check_circle"
                               size="sm"
@@ -405,7 +405,7 @@ export default function ServicesPage() {
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
                             <MaterialIcon
                               icon="check_circle"
                               size="sm"
@@ -417,7 +417,7 @@ export default function ServicesPage() {
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
                             <MaterialIcon
                               icon="check_circle"
                               size="sm"
@@ -429,7 +429,7 @@ export default function ServicesPage() {
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
                             <MaterialIcon
                               icon="check_circle"
                               size="sm"
@@ -489,7 +489,7 @@ export default function ServicesPage() {
             {/* Bottom Note */}
             <FadeInWhenVisible>
               <div className="mt-16 lg:mt-20 text-center max-w-3xl mx-auto">
-                <div className="relative bg-gradient-to-r from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-850 dark:to-gray-800 p-6 lg:p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg">
+                <div className="relative bg-linear-to-r from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-850 dark:to-gray-800 p-6 lg:p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg">
                   <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
                     <MaterialIcon
                       icon="info"
@@ -511,17 +511,17 @@ export default function ServicesPage() {
         {/* Next Steps Section */}
         <section
           id="next-steps"
-          className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary py-12 sm:py-16 lg:py-20 xl:py-24"
+          className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-secondary py-12 sm:py-16 lg:py-20 xl:py-24"
         >
           <div className="absolute inset-0 bg-[url('/images/textures/construction-pattern.svg')] opacity-5"></div>
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="mb-16 sm:mb-20 text-center">
               {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-white/30 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-r from-transparent to-white/30 rounded-full"></div>
                 <div className="relative">
                   <div className="absolute -inset-4 bg-white/20 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-white/90 via-white to-white/90 p-5 rounded-2xl shadow-2xl border-2 border-white/50">
+                  <div className="relative bg-linear-to-br from-white/90 via-white to-white/90 p-5 rounded-2xl shadow-2xl border-2 border-white/50">
                     <MaterialIcon
                       icon="rocket_launch"
                       size="2xl"
@@ -529,7 +529,7 @@ export default function ServicesPage() {
                     />
                   </div>
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-white/30 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-l from-transparent to-white/30 rounded-full"></div>
               </div>
 
               {/* Two-line gradient heading */}
@@ -558,7 +558,7 @@ export default function ServicesPage() {
 
             <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
               {/* Option 1: Request Estimate */}
-              <div className="relative bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-850 dark:to-gray-800 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(56,104,81,0.3)] p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2 border-4 border-brand-primary hover:border-brand-primary-dark group overflow-hidden">
+              <div className="relative bg-linear-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-850 dark:to-gray-800 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(56,104,81,0.3)] p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2 border-4 border-brand-primary hover:border-brand-primary-dark group overflow-hidden">
                 {/* Decorative background blur */}
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-brand-primary/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
 
@@ -602,7 +602,7 @@ export default function ServicesPage() {
               </div>
 
               {/* Option 2: View Our Work */}
-              <div className="relative bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-850 dark:to-gray-800 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(189,146,100,0.3)] p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700 hover:border-brand-secondary group overflow-hidden">
+              <div className="relative bg-linear-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-850 dark:to-gray-800 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(189,146,100,0.3)] p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700 hover:border-brand-secondary group overflow-hidden">
                 {/* Decorative background blur */}
                 <div className="absolute -top-10 -left-10 w-32 h-32 bg-brand-secondary/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
 
@@ -640,7 +640,7 @@ export default function ServicesPage() {
               </div>
 
               {/* Option 3: Contact Us */}
-              <div className="relative bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-850 dark:to-gray-800 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(56,104,81,0.3)] p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700 hover:border-brand-primary group overflow-hidden">
+              <div className="relative bg-linear-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-850 dark:to-gray-800 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(56,104,81,0.3)] p-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700 hover:border-brand-primary group overflow-hidden">
                 {/* Decorative background blur */}
                 <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-brand-primary/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
 
@@ -712,7 +712,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Contact CTA - Ask Questions */}
-        <section className="relative bg-gradient-to-r from-brand-primary to-brand-primary-dark py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+        <section className="relative bg-linear-to-r from-brand-primary to-brand-primary-dark py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
             <h2 className="mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter drop-shadow-lg">
               Questions About Our Services?
@@ -750,10 +750,10 @@ export default function ServicesPage() {
             <div className="mb-16 sm:mb-20 text-center">
               {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
                       icon="photo_library"
                       size="2xl"
@@ -761,7 +761,7 @@ export default function ServicesPage() {
                     />
                   </div>
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
 
               {/* Two-line gradient heading */}
@@ -769,7 +769,7 @@ export default function ServicesPage() {
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Our Construction
                 </span>
-                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Portfolio
                 </span>
               </h2>

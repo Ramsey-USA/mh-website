@@ -96,7 +96,7 @@ export function PageNavigation({
                 <Link
                   href={item.href}
                   onClick={(e) => handleClick(e, item.href)}
-                  className="group flex flex-col items-center hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 focus:bg-brand-primary/10 dark:focus:bg-brand-primary/20 px-2 mobile-sm:px-1.5 xs:px-4 py-3 mobile-sm:py-2.5 xs:py-4 min-w-[60px] mobile-sm:min-w-[56px] xs:min-w-[80px] transition-colors duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+                  className="group flex flex-col items-center hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 focus:bg-brand-primary/10 dark:focus:bg-brand-primary/20 px-2 mobile-sm:px-1.5 xs:px-4 py-3 mobile-sm:py-2.5 xs:py-4 min-w-15 mobile-sm:min-w-[56px] xs:min-w-20 transition-colors duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900"
                   aria-label={`${navigateToPrefix} ${getNavigationLabel(item, isMobile ?? undefined, locale)}`}
                   tabIndex={0}
                 >

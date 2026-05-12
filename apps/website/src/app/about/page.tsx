@@ -82,7 +82,7 @@ export default function AboutPage() {
         }}
       />
 
-      <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
+      <div className="bg-linear-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
         {/* Hero Section - Keyword-rich introduction */}
         <AboutHero />
 
@@ -168,10 +168,10 @@ export default function AboutPage() {
             <div className="mb-16 sm:mb-20 text-center">
               {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
                       icon="campaign"
                       size="2xl"
@@ -179,7 +179,7 @@ export default function AboutPage() {
                     />
                   </div>
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
 
               {/* Two-line gradient heading */}
@@ -187,7 +187,7 @@ export default function AboutPage() {
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Mission Updates
                 </span>
-                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Latest News & Achievements
                 </span>
               </h2>
@@ -309,8 +309,8 @@ export default function AboutPage() {
                   date="Jul 2025"
                   href="/about"
                   linkText="Our Values"
-                  accentGradient="bg-gradient-to-r from-bronze-600 via-bronze-700 to-bronze-800"
-                  glowGradient="bg-gradient-to-br from-bronze-700/40 to-bronze-800/40"
+                  accentGradient="bg-linear-to-r from-bronze-600 via-bronze-700 to-bronze-800"
+                  glowGradient="bg-linear-to-br from-bronze-700/40 to-bronze-800/40"
                   enhancedIcon
                 />
               </div>
