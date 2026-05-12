@@ -67,9 +67,9 @@ const navCol1Links: FooterNavItem[] = [
     sub: "Portfolio",
   },
   {
-    href: "/cool-desert-nights",
+    href: "/events",
     icon: "event",
-    label: "Event",
+    label: "Events",
     sub: "Field Brief",
   },
   {
@@ -251,6 +251,171 @@ const licenseDetails: LicenseDetail[] = [
     verifyUrl: "https://www.labor.idaho.gov/",
   },
 ];
+
+const navCol1TranslationsEs: Record<string, { label: string; sub: string }> = {
+  "/": { label: "Inicio", sub: "Base central" },
+  "/contact": { label: "Contacto", sub: "Contacto" },
+  "/services": { label: "Servicios", sub: "Operaciones" },
+  "/projects": { label: "Proyectos", sub: "Portafolio" },
+  "/events": {
+    label: "Eventos",
+    sub: "Informe de campo",
+  },
+  "/resources": { label: "Recursos", sub: "Inteligencia de campo" },
+  "/safety": { label: "Seguridad", sub: "Proteccion operativa" },
+  "/faq": { label: "Ayuda/Preguntas", sub: "Informe rapido" },
+};
+
+const navCol2TranslationsEs: Record<string, { label: string; sub: string }> = {
+  "/about": { label: "Nosotros", sub: "Nuestro compromiso" },
+  "/team": { label: "Nuestro equipo", sub: "Cadena de mando" },
+  "/allies": { label: "Aliados", sub: "Socios" },
+  "/public-sector": { label: "Gobierno", sub: "Sector publico" },
+  "/veterans": { label: "Veteranos", sub: "Servicio primero" },
+  "/careers": { label: "Carreras", sub: "Unete" },
+  "/testimonials": { label: "Resenas", sub: "Reconocimientos" },
+};
+
+const footerUtilityTranslationsEs: Record<string, string> = {
+  "/privacy": "Privacidad",
+  "/terms": "Terminos",
+  "/accessibility": "Accesibilidad",
+  "/sitemap.xml": "Mapa del sitio",
+};
+
+function localizeFooterNavItems(
+  links: FooterNavItem[],
+  translations: Record<string, { label: string; sub: string }>,
+  isEs: boolean,
+) {
+  if (!isEs) return links;
+
+  return links.map((link) => {
+    const translation = translations[link.href];
+    return {
+      ...link,
+      label: translation?.label ?? link.label,
+      sub: translation?.sub ?? link.sub,
+    };
+  });
+}
+
+function localizeFooterUtilityItems(isEs: boolean) {
+  if (!isEs) return footerUtilityLinks;
+
+  return footerUtilityLinks.map((link) => ({
+    ...link,
+    label: footerUtilityTranslationsEs[link.href] ?? link.label,
+  }));
+}
+
+function useAdminShortcut(onOpen: () => void) {
+  useEffect(() => {
+    const handleAdminShortcut = (event: KeyboardEvent) => {
+      if (
+        (event.ctrlKey || event.metaKey) &&
+        event.shiftKey &&
+        event.key.toLowerCase() === "a"
+      ) {
+        event.preventDefault();
+        onOpen();
+      }
+    };
+
+    globalThis.addEventListener("keydown", handleAdminShortcut);
+    return () => {
+      globalThis.removeEventListener("keydown", handleAdminShortcut);
+    };
+  }, [onOpen]);
+}
+
+function useFooterNewsletter(isEs: boolean) {
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [newsletterMessage, setNewsletterMessage] = useState("");
+
+  useEffect(() => {
+    if (newsletterStatus !== "success" && newsletterStatus !== "error") {
+      return;
+    }
+
+    const timeoutId = globalThis.setTimeout(() => {
+      setNewsletterStatus("idle");
+      setNewsletterMessage("");
+    }, 5000);
+
+    return () => {
+      globalThis.clearTimeout(timeoutId);
+    };
+  }, [newsletterStatus]);
+
+  const handleNewsletterSubmit = async (event: {
+    preventDefault: () => void;
+  }) => {
+    event.preventDefault();
+
+    const normalizedEmail = newsletterEmail.trim();
+    if (!normalizedEmail) {
+      return;
+    }
+
+    setNewsletterStatus("submitting");
+    setNewsletterMessage("");
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: normalizedEmail }),
+      });
+
+      if (response.ok) {
+        setNewsletterEmail("");
+        setNewsletterStatus("success");
+        setNewsletterMessage(isEs ? "¡Suscrito!" : "Subscribed!");
+        try {
+          trackFormSubmit("newsletter");
+        } catch {
+          /* analytics failure is non-blocking */
+        }
+        return;
+      }
+
+      setNewsletterStatus("error");
+      setNewsletterMessage(isEs ? "Intente de nuevo" : "Try again");
+    } catch {
+      setNewsletterStatus("error");
+      setNewsletterMessage("Error");
+    }
+  };
+
+  let newsletterSubmitLabel = isEs ? "Suscribirse" : "Subscribe";
+  if (newsletterStatus === "submitting") {
+    newsletterSubmitLabel = isEs ? "Suscribiendo..." : "Subscribing...";
+  }
+
+  let newsletterFeedbackClassName = "text-gray-400";
+  if (newsletterStatus === "success") {
+    newsletterFeedbackClassName = "text-green-400";
+  } else if (newsletterStatus === "error") {
+    newsletterFeedbackClassName = "text-red-400";
+  }
+
+  const newsletterPlaceholder = isEs ? "Ingrese su correo" : "Enter your email";
+
+  return {
+    newsletterEmail,
+    setNewsletterEmail,
+    newsletterStatus,
+    newsletterMessage,
+    handleNewsletterSubmit,
+    newsletterSubmitLabel,
+    newsletterFeedbackClassName,
+    newsletterPlaceholder,
+  };
+}
 
 function FooterNavLink(props: {
   readonly href: string;
@@ -507,165 +672,86 @@ function ServiceAreasDropdown(props: {
 export default function Footer() {
   const locale = useLocale();
   const isEs = locale === "es";
-  const localizedNavCol1Links = navCol1Links.map((link) => {
-    if (!isEs) return link;
-
-    const translations: Record<string, { label: string; sub: string }> = {
-      "/": { label: "Inicio", sub: "Base central" },
-      "/contact": { label: "Contacto", sub: "Contacto" },
-      "/services": { label: "Servicios", sub: "Operaciones" },
-      "/projects": { label: "Proyectos", sub: "Portafolio" },
-      "/cool-desert-nights": {
-        label: "Evento",
-        sub: "Informe de campo",
-      },
-      "/resources": { label: "Recursos", sub: "Inteligencia de campo" },
-      "/safety": { label: "Seguridad", sub: "Proteccion operativa" },
-      "/faq": { label: "Ayuda/Preguntas", sub: "Informe rapido" },
-    };
-
-    const translation = translations[link.href];
-    return {
-      ...link,
-      label: translation?.label ?? link.label,
-      sub: translation?.sub ?? link.sub,
-    };
-  });
-
-  const localizedNavCol2Links = navCol2Links.map((link) => {
-    if (!isEs) return link;
-
-    const translations: Record<string, { label: string; sub: string }> = {
-      "/about": { label: "Nosotros", sub: "Nuestro compromiso" },
-      "/team": { label: "Nuestro equipo", sub: "Cadena de mando" },
-      "/allies": { label: "Aliados", sub: "Socios" },
-      "/public-sector": { label: "Gobierno", sub: "Sector publico" },
-      "/veterans": { label: "Veteranos", sub: "Servicio primero" },
-      "/careers": { label: "Carreras", sub: "Unete" },
-      "/testimonials": { label: "Resenas", sub: "Reconocimientos" },
-    };
-
-    const translation = translations[link.href];
-    return {
-      ...link,
-      label: translation?.label ?? link.label,
-      sub: translation?.sub ?? link.sub,
-    };
-  });
-
-  const localizedFooterUtilityLinks = footerUtilityLinks.map((link) => {
-    if (!isEs) return link;
-
-    const translations: Record<string, string> = {
-      "/privacy": "Privacidad",
-      "/terms": "Terminos",
-      "/accessibility": "Accesibilidad",
-      "/sitemap.xml": "Mapa del sitio",
-    };
-
-    return {
-      ...link,
-      label: translations[link.href] ?? link.label,
-    };
-  });
+  const copy = isEs
+    ? {
+        socialNavLabel: "Enlaces de redes sociales",
+        rateUsEyebrow: "Calificanos",
+        leaveGoogleReview: "Deja una resena en Google",
+        servingPnw: "Sirviendo al Pacifico Noroeste",
+        mainNavLabel: "Navegacion principal",
+        servicesHeading: "Servicios",
+        missionExecution: "Ejecucion de mision",
+        companyInfoLabel: "Informacion de la compania",
+        companyHeading: "Compania",
+        ourForces: "Nuestras fuerzas",
+        contactHeading: "Contacto",
+        commandCenter: "Centro de mando",
+        joinTeamEyebrow: "Unete al equipo",
+        quickApplication: "Solicitud rapida",
+        callUsEyebrow: "Llamenos",
+        emailUsEyebrow: "Escribanos",
+        visitUsEyebrow: "Visitenos",
+        stayUpdated: "Mantengase al dia",
+        joinNewsletter: "Unase a nuestro boletin",
+        emailAddress: "Correo electronico",
+        legalLinksLabel: "Enlaces legales y utilitarios",
+        backToTopAria: "Volver arriba",
+        backToTopLabel: "Arriba",
+        phoneAriaPrefix: "Llame a MH Construction al",
+        emailAriaPrefix: "Envie un correo a MH Construction a",
+      }
+    : {
+        socialNavLabel: "Social media links",
+        rateUsEyebrow: "Rate Us",
+        leaveGoogleReview: "Leave a Google Review",
+        servingPnw: "Serving the Pacific Northwest",
+        mainNavLabel: "Main navigation",
+        servicesHeading: "Services",
+        missionExecution: "Mission Execution",
+        companyInfoLabel: "Company information",
+        companyHeading: "Company",
+        ourForces: "Our Forces",
+        contactHeading: "Contact",
+        commandCenter: "Command Center",
+        joinTeamEyebrow: "Join the Team",
+        quickApplication: "Quick Application",
+        callUsEyebrow: "Call Us",
+        emailUsEyebrow: "Email Us",
+        visitUsEyebrow: "Visit Us",
+        stayUpdated: "Stay Updated",
+        joinNewsletter: "Join Our Newsletter",
+        emailAddress: "Email address",
+        legalLinksLabel: "Legal and utility links",
+        backToTopAria: "Back to top",
+        backToTopLabel: "Top",
+        phoneAriaPrefix: "Call MH Construction at",
+        emailAriaPrefix: "Email MH Construction at",
+      };
+  const localizedNavCol1Links = localizeFooterNavItems(
+    navCol1Links,
+    navCol1TranslationsEs,
+    isEs,
+  );
+  const localizedNavCol2Links = localizeFooterNavItems(
+    navCol2Links,
+    navCol2TranslationsEs,
+    isEs,
+  );
+  const localizedFooterUtilityLinks = localizeFooterUtilityItems(isEs);
   const [showAdminModal, setShowAdminModal] = useState(false);
-  const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [newsletterStatus, setNewsletterStatus] = useState<
-    "idle" | "submitting" | "success" | "error"
-  >("idle");
-  const [newsletterMessage, setNewsletterMessage] = useState("");
   const [areasDropdownOpen, setAreasDropdownOpen] = useState(false);
+  const {
+    newsletterEmail,
+    setNewsletterEmail,
+    newsletterStatus,
+    newsletterMessage,
+    handleNewsletterSubmit,
+    newsletterSubmitLabel,
+    newsletterFeedbackClassName,
+    newsletterPlaceholder,
+  } = useFooterNewsletter(isEs);
 
-  useEffect(() => {
-    const handleAdminShortcut = (event: KeyboardEvent) => {
-      if (
-        (event.ctrlKey || event.metaKey) &&
-        event.shiftKey &&
-        event.key.toLowerCase() === "a"
-      ) {
-        event.preventDefault();
-        setShowAdminModal(true);
-      }
-    };
-
-    globalThis.addEventListener("keydown", handleAdminShortcut);
-
-    return () => {
-      globalThis.removeEventListener("keydown", handleAdminShortcut);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (newsletterStatus !== "success" && newsletterStatus !== "error") {
-      return;
-    }
-
-    const timeoutId = globalThis.setTimeout(() => {
-      setNewsletterStatus("idle");
-      setNewsletterMessage("");
-    }, 5000);
-
-    return () => {
-      globalThis.clearTimeout(timeoutId);
-    };
-  }, [newsletterStatus]);
-
-  const handleNewsletterSubmit = async (event: {
-    preventDefault: () => void;
-  }) => {
-    event.preventDefault();
-
-    const normalizedEmail = newsletterEmail.trim();
-    if (!normalizedEmail) {
-      return;
-    }
-
-    setNewsletterStatus("submitting");
-    setNewsletterMessage("");
-
-    try {
-      const response = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: normalizedEmail }),
-      });
-
-      if (response.ok) {
-        setNewsletterEmail("");
-        setNewsletterStatus("success");
-        setNewsletterMessage(isEs ? "¡Suscrito!" : "Subscribed!");
-        try {
-          trackFormSubmit("newsletter");
-        } catch {
-          /* analytics failure is non-blocking */
-        }
-        return;
-      }
-
-      setNewsletterStatus("error");
-      setNewsletterMessage(isEs ? "Intente de nuevo" : "Try again");
-    } catch {
-      setNewsletterStatus("error");
-      setNewsletterMessage("Error");
-    }
-  };
-
-  let newsletterSubmitLabel = isEs ? "Suscribirse" : "Subscribe";
-  if (newsletterStatus === "submitting") {
-    newsletterSubmitLabel = isEs ? "Suscribiendo..." : "Subscribing...";
-  }
-
-  let newsletterFeedbackClassName = "text-gray-400";
-  if (newsletterStatus === "success") {
-    newsletterFeedbackClassName = "text-green-400";
-  } else if (newsletterStatus === "error") {
-    newsletterFeedbackClassName = "text-red-400";
-  }
-
-  let newsletterPlaceholder = "Enter your email";
-  if (isEs) {
-    newsletterPlaceholder = "Ingrese su correo";
-  }
+  useAdminShortcut(() => setShowAdminModal(true));
 
   return (
     <>
@@ -704,9 +790,7 @@ export default function Footer() {
 
                 {/* Social Media Links */}
                 <nav
-                  aria-label={
-                    isEs ? "Enlaces de redes sociales" : "Social media links"
-                  }
+                  aria-label={copy.socialNavLabel}
                   className="mx-auto flex w-60 max-w-full flex-nowrap items-center justify-between pb-1 xs:w-67.5 sm:mx-0 sm:w-75"
                 >
                   {socialLinks.map((link) => (
@@ -729,13 +813,11 @@ export default function Footer() {
                 >
                   <FooterActionCardContent
                     icon="rate_review"
-                    eyebrow={isEs ? "Calificanos" : "Rate Us"}
+                    eyebrow={copy.rateUsEyebrow}
                     body={
                       <>
                         <div className="mb-1 text-sm font-bold text-gray-300 transition-colors group-hover:text-brand-primary xs:text-base">
-                          {isEs
-                            ? "Deja una resena en Google"
-                            : "Leave a Google Review"}
+                          {copy.leaveGoogleReview}
                         </div>
                         <div className="flex items-center gap-1 text-yellow-500">
                           <MaterialIcon icon="star" size="sm" />
@@ -758,9 +840,7 @@ export default function Footer() {
                       className="mx-auto drop-shadow-md"
                     />
                     <div className="mt-3 text-center text-sm font-semibold text-brand-secondary dark:text-brand-secondary-light">
-                      {isEs
-                        ? "Sirviendo al Pacifico Noroeste"
-                        : "Serving the Pacific Northwest"}
+                      {copy.servingPnw}
                     </div>
                   </div>
                 </div>
@@ -770,7 +850,7 @@ export default function Footer() {
             {/* Column 2: Core Navigation */}
             <nav
               className="h-full space-y-3 xs:space-y-4"
-              aria-label={isEs ? "Navegacion principal" : "Main navigation"}
+              aria-label={copy.mainNavLabel}
             >
               <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
                 <MaterialIcon
@@ -780,10 +860,10 @@ export default function Footer() {
                 />
                 <div className="flex flex-col leading-tight">
                   <h3 className="font-semibold text-brand-primary text-sm uppercase tracking-wide">
-                    {isEs ? "Servicios" : "Services"}
+                    {copy.servicesHeading}
                   </h3>
                   <span className="text-[10px] uppercase tracking-wide text-brand-secondary/80">
-                    {isEs ? "Ejecucion de mision" : "Mission Execution"}
+                    {copy.missionExecution}
                   </span>
                 </div>
               </div>
@@ -797,9 +877,7 @@ export default function Footer() {
             {/* Column 3: Company & Partnerships */}
             <nav
               className="h-full space-y-3 xs:space-y-4"
-              aria-label={
-                isEs ? "Informacion de la compania" : "Company information"
-              }
+              aria-label={copy.companyInfoLabel}
             >
               <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
                 <MaterialIcon
@@ -809,10 +887,10 @@ export default function Footer() {
                 />
                 <div className="flex flex-col leading-tight">
                   <h3 className="font-semibold text-brand-primary text-sm uppercase tracking-wide">
-                    {isEs ? "Compania" : "Company"}
+                    {copy.companyHeading}
                   </h3>
                   <span className="text-[10px] uppercase tracking-wide text-brand-secondary/80">
-                    {isEs ? "Nuestras fuerzas" : "Our Forces"}
+                    {copy.ourForces}
                   </span>
                 </div>
               </div>
@@ -839,10 +917,10 @@ export default function Footer() {
                     id="contact-heading"
                     className="font-semibold text-brand-primary text-sm uppercase tracking-wide"
                   >
-                    {isEs ? "Contacto" : "Contact"}
+                    {copy.contactHeading}
                   </h3>
                   <span className="text-[10px] uppercase tracking-wide text-brand-secondary/80">
-                    {isEs ? "Centro de mando" : "Command Center"}
+                    {copy.commandCenter}
                   </span>
                 </div>
               </div>
@@ -865,11 +943,11 @@ export default function Footer() {
                 >
                   <FooterActionCardContent
                     icon="badge"
-                    eyebrow={isEs ? "Unete al equipo" : "Join the Team"}
+                    eyebrow={copy.joinTeamEyebrow}
                     accent="secondary"
                     body={
                       <div className="text-sm font-bold text-gray-300 transition-colors group-hover:text-brand-secondary xs:text-base">
-                        {isEs ? "Solicitud rapida" : "Quick Application"}
+                        {copy.quickApplication}
                       </div>
                     }
                   />
@@ -882,15 +960,11 @@ export default function Footer() {
                     style: "button",
                   }}
                   className={primaryActionCardClassName}
-                  aria-label={`${
-                    isEs
-                      ? "Llame a MH Construction al"
-                      : "Call MH Construction at"
-                  } ${COMPANY_INFO.phone.display}`}
+                  aria-label={`${copy.phoneAriaPrefix} ${COMPANY_INFO.phone.display}`}
                 >
                   <FooterActionCardContent
                     icon="call"
-                    eyebrow={isEs ? "Llamenos" : "Call Us"}
+                    eyebrow={copy.callUsEyebrow}
                     body={
                       <div className="text-sm font-bold text-gray-300 transition-colors group-hover:text-brand-primary xs:text-base">
                         {COMPANY_INFO.phone.display}
@@ -906,15 +980,11 @@ export default function Footer() {
                     style: "button",
                   }}
                   className={primaryActionCardClassName}
-                  aria-label={`${
-                    isEs
-                      ? "Envie un correo a MH Construction a"
-                      : "Email MH Construction at"
-                  } ${COMPANY_INFO.email.main}`}
+                  aria-label={`${copy.emailAriaPrefix} ${COMPANY_INFO.email.main}`}
                 >
                   <FooterActionCardContent
                     icon="mail"
-                    eyebrow={isEs ? "Escríbanos" : "Email Us"}
+                    eyebrow={copy.emailUsEyebrow}
                     body={
                       <div className="truncate text-xs font-bold text-gray-300 transition-colors group-hover:text-brand-primary xs:text-sm">
                         {COMPANY_INFO.email.main}
@@ -933,7 +1003,7 @@ export default function Footer() {
                 >
                   <FooterActionCardContent
                     icon="place"
-                    eyebrow={isEs ? "Visítenos" : "Visit Us"}
+                    eyebrow={copy.visitUsEyebrow}
                     body={
                       <div className="text-xs font-bold text-gray-300 transition-colors group-hover:text-brand-primary xs:text-sm">
                         <span itemProp="streetAddress">
@@ -968,16 +1038,16 @@ export default function Footer() {
                   </div>
                   <div className="grow">
                     <div className="text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
-                      {isEs ? "Manténgase al día" : "Stay Updated"}
+                      {copy.stayUpdated}
                     </div>
                     <div className="text-gray-300 font-bold text-sm xs:text-base group-hover:text-brand-primary transition-colors">
-                      {isEs ? "Únase a nuestro boletín" : "Join Our Newsletter"}
+                      {copy.joinNewsletter}
                     </div>
                   </div>
                 </div>
                 <form onSubmit={handleNewsletterSubmit} className="space-y-2">
                   <label htmlFor="footer-newsletter-email" className="sr-only">
-                    {isEs ? "Correo electrónico" : "Email address"}
+                    {copy.emailAddress}
                   </label>
                   <input
                     id="footer-newsletter-email"
@@ -1168,11 +1238,7 @@ export default function Footer() {
             {/* Primary Row: Legal Links as Icon Pills */}
             <nav
               className="flex flex-wrap justify-center items-center gap-2 xs:gap-3 mb-6"
-              aria-label={
-                isEs
-                  ? "Enlaces legales y utilitarios"
-                  : "Legal and utility links"
-              }
+              aria-label={copy.legalLinksLabel}
             >
               {localizedFooterUtilityLinks.map((link) => (
                 <Link
@@ -1211,7 +1277,7 @@ export default function Footer() {
                   globalThis.scrollTo({ top: 0, behavior: "smooth" })
                 }
                 className="group flex items-center gap-2 bg-linear-to-r from-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary text-brand-secondary-light px-4 py-2 rounded-lg shadow-md hover:shadow-lg hover:shadow-brand-primary/20 transition-all duration-300 hover:scale-105 touch-manipulation border border-brand-secondary/30 hover:border-brand-secondary"
-                aria-label={isEs ? "Volver arriba" : "Back to top"}
+                aria-label={copy.backToTopAria}
               >
                 <MaterialIcon
                   icon="arrow_upward"
@@ -1219,7 +1285,7 @@ export default function Footer() {
                   className="text-brand-secondary group-hover:text-brand-secondary-light group-hover:-translate-y-0.5 transition-all duration-300"
                 />
                 <span className="font-bold text-sm text-brand-secondary group-hover:text-brand-secondary-light transition-colors duration-300">
-                  {isEs ? "Arriba" : "Top"}
+                  {copy.backToTopLabel}
                 </span>
               </button>
             </div>

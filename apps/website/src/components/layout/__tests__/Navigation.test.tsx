@@ -140,16 +140,16 @@ describe("Navigation", () => {
     expect(hubLink).toHaveAttribute("href", "/hub");
   });
 
-  it("renders the Event link pointing to /cool-desert-nights", async () => {
+  it("renders the Events link pointing to /events", async () => {
     const user = userEvent.setup();
 
     render(<Navigation />);
 
     await user.click(screen.getByRole("button", { name: /open menu/i }));
 
-    const eventLink = screen.getByRole("link", { name: /event/i });
+    const eventLink = screen.getByRole("link", { name: /events/i });
     expect(eventLink).toBeInTheDocument();
-    expect(eventLink).toHaveAttribute("href", "/cool-desert-nights");
+    expect(eventLink).toHaveAttribute("href", "/events");
   });
 
   it("closes the menu after clicking each social media link", async () => {

@@ -7,16 +7,16 @@ import {
 import { CoolDesertNightsPageClient } from "./CoolDesertNightsPageClient";
 
 export const metadata: Metadata = withGeoMetadata({
-  title: "MH Construction at Cool Desert Nights 2026 | Event Briefing",
+  title: "MH Construction Events | Cool Desert Nights 2026 Briefing",
   description:
-    "MH Construction event briefing for Cool Desert Nights 2026, including schedule links, booth details, leadership collaboration, and event updates.",
+    "MH Construction events briefing for Cool Desert Nights 2026, including official schedule links, leadership coordination, and relationship-first contact pathways.",
   alternates: {
     canonical: "https://www.mhc-gc.com/cool-desert-nights",
   },
   openGraph: {
-    title: "MH Construction at Cool Desert Nights 2026 | Event Briefing",
+    title: "MH Construction Events | Cool Desert Nights 2026 Briefing",
     description:
-      "MH Construction event briefing for Cool Desert Nights 2026, including schedule links, booth details, leadership collaboration, and event updates.",
+      "MH Construction events briefing for Cool Desert Nights 2026, including official schedule links, leadership coordination, and relationship-first contact pathways.",
     url: "https://www.mhc-gc.com/cool-desert-nights",
     images: [
       {
@@ -35,9 +35,9 @@ export const metadata: Metadata = withGeoMetadata({
   },
   twitter: {
     card: "summary_large_image",
-    title: "MH Construction at Cool Desert Nights 2026 | Event Briefing",
+    title: "MH Construction Events | Cool Desert Nights 2026 Briefing",
     description:
-      "MH Construction event briefing for Cool Desert Nights 2026, including schedule links, booth details, leadership collaboration, and event updates.",
+      "MH Construction events briefing for Cool Desert Nights 2026, including official schedule links, leadership coordination, and relationship-first contact pathways.",
     images: [
       "/images/events/cool-desert-nights/og-smoke-boss-2026.webp",
       "/images/og-default.webp",

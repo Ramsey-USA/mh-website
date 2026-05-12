@@ -42,19 +42,20 @@ jest.mock("@/components/ui/modals/AdminSignInModal", () => ({
     onClose: () => void;
   }) =>
     isOpen ? (
-      <div role="dialog" aria-labelledby="admin-access-title">
+      <dialog open aria-labelledby="admin-access-title">
         <h2 id="admin-access-title">Admin Access</h2>
         <button onClick={onClose}>Close admin modal</button>
-      </div>
+      </dialog>
     ) : null,
 }));
 
 describe("Footer", () => {
   const getNewsletterFeedback = () =>
     document.getElementById("footer-newsletter-feedback");
+  const keyboardEventTarget = globalThis as unknown as Window;
 
   beforeEach(() => {
-    global.fetch = jest.fn();
+    globalThis.fetch = jest.fn();
   });
 
   afterEach(() => {
@@ -69,12 +70,12 @@ describe("Footer", () => {
     expect(screen.getByText("RCE-49250")).toBeVisible();
   });
 
-  it("renders the Event footer link pointing to Cool Desert Nights", () => {
+  it("renders the Events footer link pointing to /events", () => {
     render(<Footer />);
 
-    const eventLink = screen.getByRole("link", { name: /event/i });
+    const eventLink = screen.getByRole("link", { name: /events/i });
     expect(eventLink).toBeInTheDocument();
-    expect(eventLink).toHaveAttribute("href", "/cool-desert-nights");
+    expect(eventLink).toHaveAttribute("href", "/events");
   });
 
   it("keeps the Oregon license verification link intact", () => {
@@ -130,7 +131,7 @@ describe("Footer", () => {
 
   it("submits the newsletter form with accessible status feedback", async () => {
     const user = userEvent.setup();
-    (global.fetch as jest.Mock).mockResolvedValue({ ok: true });
+    (globalThis.fetch as jest.Mock).mockResolvedValue({ ok: true });
 
     render(<Footer />);
 
@@ -141,7 +142,7 @@ describe("Footer", () => {
     await user.click(submitButton);
 
     await waitFor(() => {
-      expect(global.fetch).toHaveBeenCalledWith(
+      expect(globalThis.fetch).toHaveBeenCalledWith(
         "/api/newsletter",
         expect.objectContaining({
           method: "POST",
@@ -162,7 +163,11 @@ describe("Footer", () => {
 
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
 
-    fireEvent.keyDown(window, { key: "A", ctrlKey: true, shiftKey: true });
+    fireEvent.keyDown(keyboardEventTarget, {
+      key: "A",
+      ctrlKey: true,
+      shiftKey: true,
+    });
 
     expect(screen.getByRole("dialog")).toBeInTheDocument();
     expect(
@@ -173,7 +178,7 @@ describe("Footer", () => {
   it("clears status message after 5 seconds (timeout callback) and runs cleanup on unmount", async () => {
     jest.useFakeTimers();
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    (global.fetch as jest.Mock).mockResolvedValue({ ok: true });
+    (globalThis.fetch as jest.Mock).mockResolvedValue({ ok: true });
 
     const { unmount } = render(<Footer />);
 
@@ -196,7 +201,7 @@ describe("Footer", () => {
   it("resets status after 5-second auto-clear timeout fires", async () => {
     jest.useFakeTimers();
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    (global.fetch as jest.Mock).mockResolvedValue({ ok: true });
+    (globalThis.fetch as jest.Mock).mockResolvedValue({ ok: true });
 
     render(<Footer />);
 
@@ -248,7 +253,11 @@ describe("Footer", () => {
   it("closes the admin modal when onClose is called", async () => {
     render(<Footer />);
 
-    fireEvent.keyDown(window, { key: "A", ctrlKey: true, shiftKey: true });
+    fireEvent.keyDown(keyboardEventTarget, {
+      key: "A",
+      ctrlKey: true,
+      shiftKey: true,
+    });
     expect(screen.getByRole("dialog")).toBeInTheDocument();
 
     await userEvent.click(
@@ -260,7 +269,7 @@ describe("Footer", () => {
 
   it("scrolls to top when the Back to Top button is clicked", async () => {
     const scrollTo = jest.fn();
-    Object.defineProperty(window, "scrollTo", {
+    Object.defineProperty(globalThis, "scrollTo", {
       writable: true,
       value: scrollTo,
     });
@@ -280,7 +289,7 @@ describe("Footer", () => {
     await user.click(screen.getByRole("button", { name: /subscribe/i }));
 
     // Status should remain idle (no fetch call)
-    expect(global.fetch).not.toHaveBeenCalled();
+    expect(globalThis.fetch).not.toHaveBeenCalled();
   });
 
   it("handles the JS empty-email guard when form is submitted programmatically", async () => {
@@ -292,12 +301,12 @@ describe("Footer", () => {
     fireEvent.submit(form);
 
     // The JS guard (lines 434-435) fires before fetch
-    expect(global.fetch).not.toHaveBeenCalled();
+    expect(globalThis.fetch).not.toHaveBeenCalled();
   });
 
   it("shows 'Try again' when the newsletter API returns a non-ok response", async () => {
     const user = userEvent.setup();
-    (global.fetch as jest.Mock).mockResolvedValue({ ok: false });
+    (globalThis.fetch as jest.Mock).mockResolvedValue({ ok: false });
 
     render(<Footer />);
 
@@ -314,7 +323,7 @@ describe("Footer", () => {
 
   it("shows 'Error' when the newsletter fetch itself throws", async () => {
     const user = userEvent.setup();
-    (global.fetch as jest.Mock).mockRejectedValueOnce(
+    (globalThis.fetch as jest.Mock).mockRejectedValueOnce(
       new Error("Network error"),
     );
 

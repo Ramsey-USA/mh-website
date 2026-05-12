@@ -10,7 +10,11 @@ export function SmokeBossFunnel() {
   const pathname = usePathname();
   const { isMissionComplete } = useSmokeBossCampaignStatus();
 
-  if (isMissionComplete || pathname === "/cool-desert-nights") {
+  if (
+    isMissionComplete ||
+    pathname === "/cool-desert-nights" ||
+    pathname === "/events"
+  ) {
     return null;
   }
 
@@ -46,7 +50,7 @@ export function SmokeBossFunnel() {
           </p>
         </div>
 
-        <Link href="/cool-desert-nights" className="shrink-0">
+        <Link href="/events" className="shrink-0">
           <Button
             variant="secondary"
             size="lg"

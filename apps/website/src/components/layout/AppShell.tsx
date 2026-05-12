@@ -31,35 +31,43 @@ function SmokeBossAfterHeroSlot() {
   useEffect(() => {
     setSlot(null);
 
-    // Preserve campaign exclusion for the event destination page.
-    if (pathname === "/cool-desert-nights") {
+    // Preserve campaign exclusion for the event destination page and its
+    // first-class /events entry route.
+    if (pathname === "/cool-desert-nights" || pathname === "/events") {
       return;
     }
 
     let cancelled = false;
     let attempts = 0;
-    let timeoutId: number | null = null;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
     let createdSlot: HTMLDivElement | null = null;
 
     const placeSlot = () => {
       if (cancelled) return;
 
       const main = document.getElementById("main-content");
-      const pageRoot = main?.firstElementChild as HTMLElement | null;
-      const heroLikeSection = pageRoot?.querySelector("section");
-      const anchor = heroLikeSection ?? pageRoot;
+      const heroLikeSection =
+        main?.querySelector<HTMLElement>(
+          'section.hero-section, section[id$="-hero"], section[id*="hero"], section[aria-labelledby="hero-heading"], [data-page-hero="true"]',
+        ) ?? main?.querySelector<HTMLElement>("section");
 
-      if (!anchor || !anchor.parentElement) {
+      const firstRenderableChild = Array.from(main?.children ?? []).find(
+        (node) => node.tagName !== "SCRIPT" && node.tagName !== "TEMPLATE",
+      ) as HTMLElement | undefined;
+
+      const anchor = heroLikeSection ?? firstRenderableChild ?? null;
+
+      if (!anchor?.parentElement) {
         attempts += 1;
         if (attempts < 40) {
-          timeoutId = window.setTimeout(placeSlot, 50);
+          timeoutId = globalThis.setTimeout(placeSlot, 50);
         }
         return;
       }
 
       createdSlot = document.createElement("div");
-      createdSlot.setAttribute("data-smoke-boss-after-hero", "true");
-      anchor.insertAdjacentElement("afterend", createdSlot);
+      createdSlot.dataset["smokeBossAfterHero"] = "true";
+      anchor.after(createdSlot);
       setSlot(createdSlot);
     };
 
@@ -68,7 +76,7 @@ function SmokeBossAfterHeroSlot() {
     return () => {
       cancelled = true;
       if (timeoutId !== null) {
-        window.clearTimeout(timeoutId);
+        globalThis.clearTimeout(timeoutId);
       }
       setSlot(null);
       createdSlot?.remove();

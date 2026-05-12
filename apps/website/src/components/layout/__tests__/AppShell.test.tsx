@@ -111,4 +111,31 @@ describe("AppShell", () => {
     ).toBeInTheDocument();
     expect(screen.getByText("Page Content")).toBeInTheDocument();
   });
+
+  it("places the event funnel after hero when a script precedes hero content", async () => {
+    mockUsePWA.mockReturnValue({
+      isStandalone: false,
+      isInstallable: true,
+      isIOS: false,
+    });
+
+    render(
+      <AppShell>
+        <>
+          <script type="application/ld+json">{"{}"}</script>
+          <section data-page-hero="true" data-testid="page-hero">
+            Hero
+          </section>
+          <div>Body</div>
+        </>
+      </AppShell>,
+    );
+
+    const funnel = await screen.findByTestId("smoke-boss-funnel");
+    const hero = screen.getByTestId("page-hero");
+    const slotAfterHero = hero.nextElementSibling as HTMLElement | null;
+
+    expect(slotAfterHero).not.toBeNull();
+    expect(slotAfterHero?.contains(funnel)).toBe(true);
+  });
 });

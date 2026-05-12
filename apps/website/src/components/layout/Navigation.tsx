@@ -37,8 +37,8 @@ const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
       icon: "photo_library",
     },
     {
-      href: "/cool-desert-nights",
-      label: "Event",
+      href: "/events",
+      label: "Events",
       subLabel: "Field Brief",
       icon: "event",
     },
@@ -130,8 +130,8 @@ const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
       icon: "photo_library",
     },
     {
-      href: "/cool-desert-nights",
-      label: "Evento",
+      href: "/events",
+      label: "Eventos",
       subLabel: "Informe de campo",
       icon: "event",
     },

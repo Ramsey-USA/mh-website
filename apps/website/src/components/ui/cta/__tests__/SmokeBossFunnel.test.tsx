@@ -61,7 +61,7 @@ describe("SmokeBossFunnel", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /View Event Briefing/i }),
-    ).toHaveAttribute("href", "/cool-desert-nights");
+    ).toHaveAttribute("href", "/events");
   });
 
   it("does not render after mission complete", () => {
@@ -72,6 +72,12 @@ describe("SmokeBossFunnel", () => {
 
   it("does not render on the mission page route", () => {
     mockUsePathname.mockReturnValue("/cool-desert-nights");
+    const { container } = render(<SmokeBossFunnel />);
+    expect(container).toBeEmptyDOMElement();
+  });
+
+  it("does not render on the events entry route", () => {
+    mockUsePathname.mockReturnValue("/events");
     const { container } = render(<SmokeBossFunnel />);
     expect(container).toBeEmptyDOMElement();
   });
