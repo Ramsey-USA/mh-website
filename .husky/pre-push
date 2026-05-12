@@ -1,0 +1,5 @@
+set -e
+
+echo "🔍 Pre-push: running full type checks..."
+pm run --silent type-check
+echo "✅ Pre-push: type checks passed!"

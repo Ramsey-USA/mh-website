@@ -4,15 +4,11 @@ echo "🔍 Pre-commit: running quality checks..."
 
 # Run lint-staged (eslint + prettier on staged files)
 echo "\n✨ Linting staged files..."
-npx lint-staged
+pnpm exec lint-staged
 
 # Enforce kebab-case filenames for newly staged image uploads
 echo "\n🖼️  Validating image filenames..."
 bash scripts/validation/check-image-kebab-case.sh
-
-# TypeScript type-check
-echo "\n📘 Type checking..."
-npm run --silent type-check
 
 # Check for common issues
 echo "\n🧹 Checking for code quality issues..."
