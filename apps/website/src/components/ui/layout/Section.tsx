@@ -58,7 +58,7 @@ export function Section({
     default: "bg-white dark:bg-gray-900",
     gray: "bg-gray-50 dark:bg-gray-800",
     gradient:
-      "bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800",
+      "bg-linear-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800",
   }[variant];
 
   // Padding variant classes

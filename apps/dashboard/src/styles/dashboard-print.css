@@ -71,8 +71,8 @@
   }
 
   /* Dashboard content uses many gradient backgrounds — neutralize. */
-  [data-print-scope="dashboard"] .bg-gradient-to-br,
-  [data-print-scope="dashboard"] .bg-gradient-to-r {
+  [data-print-scope="dashboard"] .bg-linear-to-br,
+  [data-print-scope="dashboard"] .bg-linear-to-r {
     background: #ffffff !important;
   }
 

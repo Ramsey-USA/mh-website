@@ -1,4 +1,4 @@
-import { PageTrackingClient } from "@/components/analytics";
+import { PageTrackingClient, TrackedBridgeLink } from "@/components/analytics";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Button, AlternatingShowcase } from "@/components/ui";
@@ -308,15 +308,15 @@ export default function PublicSectorFullPage() {
       <PageTrackingClient pageName="Public Sector" />
       <StructuredData data={breadcrumbSchema} />
       {/* Hero Section - Group 4: Professional & Patriotic */}
-      <section className="hero-section relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 flex items-end justify-end text-white overflow-hidden">
+      <section className="hero-section relative bg-linear-to-br from-gray-900 via-gray-700 to-gray-900 flex items-end justify-end text-white overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-700/30 via-gray-900/80 to-gray-600/20"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-gray-700/30 via-gray-900/80 to-gray-600/20"></div>
 
         {/* Content - Bottom Right */}
         <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
           {/* Mission Icon */}
           <div className="flex justify-end mb-4">
-            <div className="relative p-4 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
+            <div className="relative p-4 bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
               <MaterialIcon
                 icon="account_balance"
                 size="4xl"
@@ -367,10 +367,10 @@ export default function PublicSectorFullPage() {
           {/* Section Header */}
           <div className="mb-16 sm:mb-20 text-center">
             <div className="flex items-center justify-center mb-8 gap-4">
-              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                   <MaterialIcon
                     icon="account_balance"
                     size="2xl"
@@ -378,14 +378,14 @@ export default function PublicSectorFullPage() {
                   />
                 </div>
               </div>
-              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
             </div>
 
             <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
               <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                 Federal Contracting
               </span>
-              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+              <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                 Support Services
               </span>
             </h2>
@@ -419,19 +419,19 @@ export default function PublicSectorFullPage() {
               >
                 {/* Animated border glow */}
                 <div
-                  className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-xl opacity-20 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+                  className="absolute -inset-2 bg-linear-to-r from-slate-600/40 to-gray-700/40 blur-xl opacity-20 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
                   aria-hidden="true"
                 />
                 {/* Top accent bar */}
-                <div className="h-2 bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600" />
+                <div className="h-2 bg-linear-to-r from-slate-600 via-gray-700 to-slate-600" />
                 <div className="relative p-6 sm:p-8 pt-8">
                   {/* Icon with nested blur layers */}
                   <div className="relative inline-block mb-6">
                     <div
-                      className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-lg opacity-70"
+                      className="absolute -inset-2 bg-linear-to-r from-slate-600/40 to-gray-700/40 blur-lg opacity-70"
                       aria-hidden="true"
                     />
-                    <div className="relative bg-gradient-to-br from-slate-600 via-gray-700 to-slate-800 p-4 rounded-xl shadow-xl">
+                    <div className="relative bg-linear-to-br from-slate-600 via-gray-700 to-slate-800 p-4 rounded-xl shadow-xl">
                       <MaterialIcon
                         icon={service.icon}
                         size="2xl"
@@ -454,7 +454,7 @@ export default function PublicSectorFullPage() {
                         <li key={feature} className="flex items-start text-sm">
                           <MaterialIcon
                             icon="check_circle"
-                            className="flex-shrink-0 mt-0.5 mr-2 text-gray-500 dark:text-gray-400"
+                            className="shrink-0 mt-0.5 mr-2 text-gray-500 dark:text-gray-400"
                             size="sm"
                           />
                           <span className="text-gray-700 dark:text-gray-300">
@@ -563,10 +563,10 @@ export default function PublicSectorFullPage() {
             {/* Section Header */}
             <div className="mb-16 sm:mb-20 text-center">
               <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-500 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-500 rounded-full"></div>
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50">
+                  <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50">
                     <MaterialIcon
                       icon="science"
                       size="2xl"
@@ -574,14 +574,14 @@ export default function PublicSectorFullPage() {
                     />
                   </div>
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-500 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-500 rounded-full"></div>
               </div>
 
               <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Hanford & Department of
                 </span>
-                <span className="block bg-gradient-to-r from-brand-primary-light via-white to-brand-primary-light bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary-light via-white to-brand-primary-light bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Energy Expertise
                 </span>
               </h2>
@@ -609,14 +609,14 @@ export default function PublicSectorFullPage() {
                   className="group relative bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-2xl border border-white/20 hover:border-transparent transition-all duration-300 overflow-hidden hover:-translate-y-1"
                 >
                   {/* Top accent bar */}
-                  <div className="h-2 bg-gradient-to-r from-slate-500 via-gray-400 to-slate-500" />
+                  <div className="h-2 bg-linear-to-r from-slate-500 via-gray-400 to-slate-500" />
                   <div className="p-6 pt-6">
                     <div className="relative inline-block mb-4">
                       <div
-                        className="absolute -inset-2 bg-gradient-to-r from-slate-500/40 to-gray-400/40 blur-lg opacity-70"
+                        className="absolute -inset-2 bg-linear-to-r from-slate-500/40 to-gray-400/40 blur-lg opacity-70"
                         aria-hidden="true"
                       />
-                      <div className="relative bg-gradient-to-br from-slate-600 via-gray-500 to-slate-700 p-3 rounded-xl shadow-xl">
+                      <div className="relative bg-linear-to-br from-slate-600 via-gray-500 to-slate-700 p-3 rounded-xl shadow-xl">
                         <MaterialIcon
                           icon={capability.icon}
                           size="xl"
@@ -638,15 +638,15 @@ export default function PublicSectorFullPage() {
             {/* Federal Project Capabilities highlight card */}
             <div className="group relative bg-gray-800 rounded-2xl border border-gray-600 overflow-hidden shadow-xl">
               {/* Top accent bar */}
-              <div className="h-2 bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600" />
+              <div className="h-2 bg-linear-to-r from-slate-600 via-gray-700 to-slate-600" />
               <div className="p-8 pt-8">
                 <div className="flex items-start">
-                  <div className="relative inline-block flex-shrink-0 mr-6">
+                  <div className="relative inline-block shrink-0 mr-6">
                     <div
-                      className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-lg opacity-70"
+                      className="absolute -inset-2 bg-linear-to-r from-slate-600/40 to-gray-700/40 blur-lg opacity-70"
                       aria-hidden="true"
                     />
-                    <div className="relative bg-gradient-to-br from-slate-600 via-gray-700 to-slate-800 p-4 rounded-xl shadow-xl">
+                    <div className="relative bg-linear-to-br from-slate-600 via-gray-700 to-slate-800 p-4 rounded-xl shadow-xl">
                       <MaterialIcon
                         icon="construction"
                         size="2xl"
@@ -697,10 +697,10 @@ export default function PublicSectorFullPage() {
           <div className="mb-16 sm:mb-20 text-center">
             {/* Icon with decorative lines */}
             <div className="flex items-center justify-center mb-8 gap-4">
-              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                   <MaterialIcon
                     icon="gavel"
                     size="2xl"
@@ -708,14 +708,14 @@ export default function PublicSectorFullPage() {
                   />
                 </div>
               </div>
-              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
             </div>
 
             <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
               <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                 Federal Contract
               </span>
-              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+              <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                 Categories
               </span>
             </h2>
@@ -744,10 +744,10 @@ export default function PublicSectorFullPage() {
             {/* Section Header */}
             <div className="mb-16 sm:mb-20 text-center">
               <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-bronze-700 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/20 to-brand-secondary/20 blur-2xl rounded-full"></div>
+                  <div className="relative bg-linear-to-br from-brand-primary via-brand-secondary to-bronze-700 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
                       icon="timeline"
                       size="2xl"
@@ -755,14 +755,14 @@ export default function PublicSectorFullPage() {
                     />
                   </div>
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
 
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Federal Contract
                 </span>
-                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Execution Process
                 </span>
               </h2>
@@ -786,15 +786,15 @@ export default function PublicSectorFullPage() {
                 >
                   {/* Animated border glow */}
                   <div
-                    className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-xl opacity-20 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+                    className="absolute -inset-2 bg-linear-to-r from-slate-600/40 to-gray-700/40 blur-xl opacity-20 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
                     aria-hidden="true"
                   />
                   {/* Top accent bar */}
-                  <div className="h-2 bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600" />
+                  <div className="h-2 bg-linear-to-r from-slate-600 via-gray-700 to-slate-600" />
                   <div className="relative p-8 pt-8">
                     <div className="flex items-start">
                       <div className="flex-shrink-0 mr-6">
-                        <div className="flex justify-center items-center bg-gradient-to-br from-slate-600 to-gray-800 shadow-lg rounded-full w-16 h-16 font-bold text-white text-2xl">
+                        <div className="flex justify-center items-center bg-linear-to-br from-slate-600 to-gray-800 shadow-lg rounded-full w-16 h-16 font-bold text-white text-2xl">
                           {process.step}
                         </div>
                       </div>
@@ -831,10 +831,10 @@ export default function PublicSectorFullPage() {
           {/* Section Header */}
           <div className="mb-16 sm:mb-20 text-center">
             <div className="flex items-center justify-center mb-8 gap-4">
-              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
-                <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                   <MaterialIcon
                     icon="domain"
                     size="2xl"
@@ -842,14 +842,14 @@ export default function PublicSectorFullPage() {
                   />
                 </div>
               </div>
-              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
             </div>
 
             <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
               <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                 Federal Facility
               </span>
-              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+              <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                 Classifications
               </span>
             </h2>
@@ -875,18 +875,18 @@ export default function PublicSectorFullPage() {
               >
                 {/* Animated border glow */}
                 <div
-                  className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-xl opacity-20 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+                  className="absolute -inset-2 bg-linear-to-r from-slate-600/40 to-gray-700/40 blur-xl opacity-20 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
                   aria-hidden="true"
                 />
                 {/* Top accent bar */}
-                <div className="h-2 bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600" />
+                <div className="h-2 bg-linear-to-r from-slate-600 via-gray-700 to-slate-600" />
                 <div className="relative p-6 sm:p-8 pt-8">
                   <div className="relative inline-block mb-4">
                     <div
-                      className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-lg opacity-70"
+                      className="absolute -inset-2 bg-linear-to-r from-slate-600/40 to-gray-700/40 blur-lg opacity-70"
                       aria-hidden="true"
                     />
-                    <div className="relative bg-gradient-to-br from-slate-600 via-gray-700 to-slate-800 p-3 rounded-xl shadow-xl">
+                    <div className="relative bg-linear-to-br from-slate-600 via-gray-700 to-slate-800 p-3 rounded-xl shadow-xl">
                       <MaterialIcon
                         icon={project.icon}
                         size="xl"
@@ -927,10 +927,10 @@ export default function PublicSectorFullPage() {
             {/* Section Header */}
             <div className="mb-16 sm:mb-20 text-center">
               <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
                       icon="emoji_events"
                       size="2xl"
@@ -938,14 +938,14 @@ export default function PublicSectorFullPage() {
                     />
                   </div>
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
 
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Mission Success
                 </span>
-                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Factors
                 </span>
               </h2>
@@ -971,19 +971,19 @@ export default function PublicSectorFullPage() {
                 >
                   {/* Animated border glow */}
                   <div
-                    className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-xl opacity-20 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+                    className="absolute -inset-2 bg-linear-to-r from-slate-600/40 to-gray-700/40 blur-xl opacity-20 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
                     aria-hidden="true"
                   />
                   {/* Top accent bar */}
-                  <div className="h-2 bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600" />
+                  <div className="h-2 bg-linear-to-r from-slate-600 via-gray-700 to-slate-600" />
                   <div className="relative p-6 sm:p-8 pt-8">
                     <div className="flex items-start">
                       <div className="relative inline-block flex-shrink-0 mr-6">
                         <div
-                          className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-lg opacity-70"
+                          className="absolute -inset-2 bg-linear-to-r from-slate-600/40 to-gray-700/40 blur-lg opacity-70"
                           aria-hidden="true"
                         />
-                        <div className="relative bg-gradient-to-br from-slate-600 via-gray-700 to-slate-800 p-3 rounded-xl shadow-xl">
+                        <div className="relative bg-linear-to-br from-slate-600 via-gray-700 to-slate-800 p-3 rounded-xl shadow-xl">
                           <MaterialIcon
                             icon={factor.icon}
                             size="lg"
@@ -1023,10 +1023,10 @@ export default function PublicSectorFullPage() {
             <div className="mb-16 sm:mb-20 text-center">
               {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-500 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-500 rounded-full"></div>
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50">
+                  <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50">
                     <MaterialIcon
                       icon="flag"
                       size="2xl"
@@ -1034,7 +1034,7 @@ export default function PublicSectorFullPage() {
                     />
                   </div>
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-500 rounded-full"></div>
+                <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-500 rounded-full"></div>
               </div>
 
               {/* Two-line gradient heading */}
@@ -1042,7 +1042,7 @@ export default function PublicSectorFullPage() {
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Ready to Plan Your
                 </span>
-                <span className="block bg-gradient-to-r from-brand-primary-light via-white to-brand-primary-light bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary-light via-white to-brand-primary-light bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Government Project?
                 </span>
               </h2>
@@ -1160,6 +1160,47 @@ export default function PublicSectorFullPage() {
                   Request Federal Capabilities Brief
                 </Button>
               </a>
+            </div>
+
+            <div className="mt-8 grid gap-3 md:grid-cols-3 text-left">
+              {[
+                {
+                  href: "/veterans/public-sector-construction",
+                  title: "Veteran Public Sector Path",
+                  detail:
+                    "Connect veteran-led values to government delivery planning.",
+                },
+                {
+                  href: "/public-sector/veteran-led-compliance",
+                  title: "Compliance Workflow",
+                  detail:
+                    "Review intake, compliance mapping, and execution controls.",
+                },
+                {
+                  href: "/public-sector/tri-state-government-construction",
+                  title: "Tri-State Coverage",
+                  detail:
+                    "Align WA, OR, and ID market coverage with project strategy.",
+                },
+              ].map((bridge) => (
+                <TrackedBridgeLink
+                  key={bridge.href}
+                  href={bridge.href}
+                  trackId={`public-sector-bridge-${bridge.href}`}
+                  className="rounded-xl border border-gray-500 bg-white/10 p-4 hover:bg-white/15 transition-colors"
+                >
+                  <h4 className="font-bold text-white text-base">
+                    {bridge.title}
+                  </h4>
+                  <p className="mt-2 text-sm text-gray-200 leading-relaxed">
+                    {bridge.detail}
+                  </p>
+                  <span className="mt-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-primary-light">
+                    Open pathway
+                    <MaterialIcon icon="arrow_forward" size="sm" />
+                  </span>
+                </TrackedBridgeLink>
+              ))}
             </div>
 
             <p className="mt-8 text-gray-600 dark:text-gray-300 text-sm">

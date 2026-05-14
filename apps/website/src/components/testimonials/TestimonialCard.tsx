@@ -78,7 +78,7 @@ export function TestimonialCard({
               />
             ) : (
               <div
-                className={`flex justify-center items-center bg-gradient-to-br ${styles.iconBg} w-full h-full`}
+                className={`flex justify-center items-center bg-linear-to-br ${styles.iconBg} w-full h-full`}
               >
                 <span className="font-bold text-white text-lg sm:text-2xl">
                   {testimonial.name.charAt(0)}

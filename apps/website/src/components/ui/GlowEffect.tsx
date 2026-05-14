@@ -6,7 +6,7 @@
  *
  * Replaces repeated pattern:
  * ```tsx
- * <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+ * <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
  * ```
  *
  * @example
@@ -41,14 +41,14 @@ export interface GlowEffectProps {
 }
 
 const gradientVariants = {
-  primary: "bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40",
+  primary: "bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40",
   secondary:
-    "bg-gradient-to-br from-brand-secondary/40 to-brand-secondary-dark/40",
+    "bg-linear-to-br from-brand-secondary/40 to-brand-secondary-dark/40",
   "primary-secondary":
-    "bg-gradient-to-br from-brand-primary/40 to-brand-secondary/40",
+    "bg-linear-to-br from-brand-primary/40 to-brand-secondary/40",
   "primary-dark":
-    "bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40",
-  bronze: "bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40",
+    "bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40",
+  bronze: "bg-linear-to-br from-brand-secondary/40 to-bronze-700/40",
 };
 
 const sizeVariants = {

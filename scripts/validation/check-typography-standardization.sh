@@ -72,8 +72,8 @@ echo ""
 echo "🎨 Checking brand gradient consistency..."
 
 # Check for brand gradient patterns
-brand_gradients=$(find $SRC_DIR -name "*.tsx" | xargs grep -l "bg-gradient-to-r.*from-.*brand" | wc -l)
-inconsistent_gradients=$(find $SRC_DIR -name "*.tsx" | xargs grep -c "bg-gradient-to-r.*from-gray.*to-gray" | grep -v ":0" | wc -l)
+brand_gradients=$(find $SRC_DIR -name "*.tsx" | xargs grep -l "bg-linear-to-r.*from-.*brand" | wc -l)
+inconsistent_gradients=$(find $SRC_DIR -name "*.tsx" | xargs grep -c "bg-linear-to-r.*from-gray.*to-gray" | grep -v ":0" | wc -l)
 
 if [ $brand_gradients -gt 8 ]; then
     echo "✅ Brand gradients implemented across $brand_gradients files"

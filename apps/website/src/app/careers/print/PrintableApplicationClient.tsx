@@ -366,7 +366,7 @@ export default function PrintableApplicationClient() {
         </div>
 
         {/* Brand Messaging Banner */}
-        <div className="mb-6 p-4 bg-gradient-to-r from-brand-primary/10 via-brand-primary/5 to-brand-secondary/10 border-2 border-brand-primary/25 rounded-xl text-center print:bg-gray-50 print:border-gray-300 shadow-sm">
+        <div className="mb-6 p-4 bg-linear-to-r from-brand-primary/10 via-brand-primary/5 to-brand-secondary/10 border-2 border-brand-primary/25 rounded-xl text-center print:bg-gray-50 print:border-gray-300 shadow-sm">
           <p className="text-base font-black text-brand-primary print:text-gray-800">
             &ldquo;{t.brandSlogan}&rdquo;
           </p>
@@ -376,7 +376,7 @@ export default function PrintableApplicationClient() {
         </div>
 
         {/* Instructions Box */}
-        <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-5 mb-6 print:bg-white print:border-gray-300 print:break-inside-avoid shadow-sm">
+        <div className="bg-linear-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-5 mb-6 print:bg-white print:border-gray-300 print:break-inside-avoid shadow-sm">
           <div className="flex gap-6">
             <div className="flex-1">
               <h3 className="font-bold text-gray-900 dark:text-white text-base mb-3 flex items-center gap-2">

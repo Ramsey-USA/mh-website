@@ -49,6 +49,76 @@ interface LocationPageProps {
   readonly location: LocationData;
 }
 
+type ServiceDeepLink = {
+  href: string;
+  label: string;
+};
+
+type BridgeDeepLink = {
+  href: string;
+  label: string;
+};
+
+const SERVICE_LABELS: Record<string, string> = {
+  "commercial-construction": "Commercial Construction",
+  "municipal-government": "Municipal and Government",
+  "drywall-interiors": "Drywall and Interiors",
+  "restoration-remodeling": "Restoration and Remodeling",
+};
+
+const LOCATION_SERVICE_MAP: Record<string, string[]> = {
+  pasco: ["commercial-construction", "municipal-government"],
+  kennewick: ["commercial-construction", "drywall-interiors"],
+  richland: ["restoration-remodeling", "commercial-construction"],
+  yakima: ["municipal-government", "commercial-construction"],
+  spokane: ["drywall-interiors", "commercial-construction"],
+  "west-richland": ["restoration-remodeling", "commercial-construction"],
+  "walla-walla": ["commercial-construction", "restoration-remodeling"],
+  hermiston: ["municipal-government", "commercial-construction"],
+  pendleton: ["municipal-government", "commercial-construction"],
+  "coeur-d-alene": ["commercial-construction", "drywall-interiors"],
+  omak: ["municipal-government", "commercial-construction"],
+};
+
+const LOCATION_BRIDGE_MAP: Record<string, BridgeDeepLink[]> = {
+  yakima: [
+    {
+      href: "/veterans/public-sector-construction",
+      label: "Veteran-led public sector pathway",
+    },
+    {
+      href: "/public-sector/veteran-led-compliance",
+      label: "Compliance workflow",
+    },
+  ],
+  pendleton: [
+    {
+      href: "/public-sector/tri-state-government-construction",
+      label: "Tri-state government coverage",
+    },
+    {
+      href: "/public-sector/veteran-led-compliance",
+      label: "Compliance workflow",
+    },
+  ],
+  hermiston: [
+    {
+      href: "/public-sector/tri-state-government-construction",
+      label: "Tri-state government coverage",
+    },
+    {
+      href: "/veterans/public-sector-construction",
+      label: "Veteran-led public sector pathway",
+    },
+  ],
+  pasco: [
+    {
+      href: "/public-sector/veteran-led-compliance",
+      label: "Compliance workflow",
+    },
+  ],
+};
+
 export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
   usePageTracking(`Location - ${location.city}`);
   const priorityServices = location.servicePriorities || [];
@@ -99,6 +169,13 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
       location.breadcrumbKey as keyof typeof breadcrumbPatterns
     ],
   );
+  const serviceDeepLinks: ServiceDeepLink[] = (
+    LOCATION_SERVICE_MAP[location.slug] ?? ["commercial-construction"]
+  ).map((serviceSlug) => ({
+    href: `/services/${serviceSlug}`,
+    label: SERVICE_LABELS[serviceSlug] ?? "Service Line",
+  }));
+  const bridgeDeepLinks = LOCATION_BRIDGE_MAP[location.slug] ?? [];
 
   // Generate location-specific structured data
   const locationSchema = {
@@ -357,6 +434,26 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                   .
                 </p>
                 <div className="flex flex-wrap gap-3">
+                  {serviceDeepLinks.map((serviceLink) => (
+                    <Link
+                      key={serviceLink.href}
+                      href={serviceLink.href}
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-semibold text-gray-900 dark:text-gray-100 hover:border-brand-primary transition-colors"
+                    >
+                      <MaterialIcon icon="verified" size="sm" />
+                      {serviceLink.label}
+                    </Link>
+                  ))}
+                  {bridgeDeepLinks.map((bridgeLink) => (
+                    <Link
+                      key={bridgeLink.href}
+                      href={bridgeLink.href}
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-semibold text-gray-900 dark:text-gray-100 hover:border-brand-secondary transition-colors"
+                    >
+                      <MaterialIcon icon="account_balance" size="sm" />
+                      {bridgeLink.label}
+                    </Link>
+                  ))}
                   <Link
                     href="/services"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-semibold text-gray-900 dark:text-gray-100 hover:border-brand-primary transition-colors"

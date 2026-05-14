@@ -15,6 +15,13 @@ jest.mock("@/components/analytics", () => ({
   PageTrackingClient: ({ pageName }: { pageName: string }) => (
     <div data-testid="page-tracking" data-page={pageName} />
   ),
+  TrackedBridgeLink: ({
+    children,
+    href,
+  }: {
+    children: React.ReactNode;
+    href: string;
+  }) => <a href={href}>{children}</a>,
 }));
 
 jest.mock("next/dynamic", () => {

@@ -166,13 +166,13 @@ export function BrandedContentSection({
         <div className="mb-16 sm:mb-20 text-center">
           {/* Icon with decorative lines */}
           <div className="flex items-center justify-center mb-8 gap-4">
-            <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
             <div className="relative">
               <div
-                className={`absolute -inset-4 bg-gradient-to-br ${getIconBlurGradient(header.iconVariant, header.customIconBlur)} blur-2xl rounded-full`}
+                className={`absolute -inset-4 bg-linear-to-br ${getIconBlurGradient(header.iconVariant, header.customIconBlur)} blur-2xl rounded-full`}
               ></div>
               <div
-                className={`relative bg-gradient-to-br ${getIconGradient(header.iconVariant, header.customIconGradient)} p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600`}
+                className={`relative bg-linear-to-br ${getIconGradient(header.iconVariant, header.customIconGradient)} p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600`}
               >
                 <MaterialIcon
                   icon={header.icon}
@@ -181,7 +181,7 @@ export function BrandedContentSection({
                 />
               </div>
             </div>
-            <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
           </div>
 
           {/* Two-line gradient heading - CRITICAL: overflow-visible */}
@@ -190,7 +190,7 @@ export function BrandedContentSection({
               {header.subtitle}
             </span>
             <span
-              className={`block bg-gradient-to-r ${getTitleGradient(header.iconVariant, header.customTitleGradient)} bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal`}
+              className={`block bg-linear-to-r ${getTitleGradient(header.iconVariant, header.customTitleGradient)} bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal`}
             >
               {header.title}
             </span>
@@ -232,8 +232,8 @@ export function BrandedContentSection({
       </div>
 
       {/* Large Brand Color Blobs - REQUIRED */}
-      <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+      <div className="absolute top-20 right-[15%] w-96 h-96 bg-linear-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-linear-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
       {/* Content Container */}
       <div

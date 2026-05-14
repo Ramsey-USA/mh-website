@@ -23,17 +23,17 @@ export function UnderConstruction({
   estimatedCompletion = "Soon",
 }: UnderConstructionProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Hero Section with Under Construction Notice */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-[60vh] flex items-center justify-center text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
+      <section className="relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 min-h-[60vh] flex items-center justify-center text-white overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
           <FadeInWhenVisible>
             <div className="flex justify-center items-center mb-8">
               <div className="relative">
                 <div className="absolute inset-0 bg-brand-secondary/30 blur-2xl rounded-full"></div>
-                <div className="relative bg-gradient-to-br from-brand-secondary to-bronze-600 p-6 rounded-2xl shadow-2xl">
+                <div className="relative bg-linear-to-br from-brand-secondary to-bronze-600 p-6 rounded-2xl shadow-2xl">
                   <MaterialIcon
                     icon="construction"
                     size="4xl"
@@ -67,7 +67,7 @@ export function UnderConstruction({
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
-            <div className="bg-gradient-to-br from-brand-primary/10 via-white to-brand-secondary/10 dark:from-brand-primary/20 dark:via-gray-800 dark:to-brand-secondary/20 p-8 sm:p-10 lg:p-12 border-2 border-brand-primary/30 dark:border-brand-primary/40 rounded-2xl shadow-lg">
+            <div className="bg-linear-to-br from-brand-primary/10 via-white to-brand-secondary/10 dark:from-brand-primary/20 dark:via-gray-800 dark:to-brand-secondary/20 p-8 sm:p-10 lg:p-12 border-2 border-brand-primary/30 dark:border-brand-primary/40 rounded-2xl shadow-lg">
               <div className="flex justify-center items-center mb-6">
                 <div className="bg-brand-primary/20 dark:bg-brand-primary/30 p-3 rounded-full">
                   <MaterialIcon
@@ -183,7 +183,7 @@ export function UnderConstruction({
 
       {/* Contact CTA Section */}
       {showContactCTA && (
-        <section className="relative py-16 bg-gradient-to-br from-brand-primary to-brand-primary-dark">
+        <section className="relative py-16 bg-linear-to-br from-brand-primary to-brand-primary-dark">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <FadeInWhenVisible>
               <h3 className="mb-6 font-bold text-white text-2xl sm:text-3xl">

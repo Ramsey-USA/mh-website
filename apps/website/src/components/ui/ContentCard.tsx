@@ -107,10 +107,9 @@ export function ContentCard({
 }: ContentCardProps) {
   const categoryClass = categoryColorClasses[categoryColor];
   const accentClass =
-    accentGradient ||
-    `bg-gradient-to-r ${defaultAccentGradients[categoryColor]}`;
+    accentGradient || `bg-linear-to-r ${defaultAccentGradients[categoryColor]}`;
   const glowClass =
-    glowGradient || `bg-gradient-to-br ${defaultGlowGradients[categoryColor]}`;
+    glowGradient || `bg-linear-to-br ${defaultGlowGradients[categoryColor]}`;
 
   const cardContent = (
     <div className={cn("group relative flex h-full", className)}>
@@ -151,10 +150,7 @@ export function ContentCard({
                   <div
                     className={cn(
                       "relative rounded-xl p-2 shadow-xl group-hover:scale-110 transition-all duration-300",
-                      accentClass.replace(
-                        "bg-gradient-to-r",
-                        "bg-gradient-to-br",
-                      ),
+                      accentClass.replace("bg-linear-to-r", "bg-linear-to-br"),
                     )}
                   >
                     <MaterialIcon

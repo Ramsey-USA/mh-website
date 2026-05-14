@@ -136,7 +136,7 @@ fi
 
 # 9. BRAND GRADIENT ANALYSIS
 echo "🌈 Brand Gradient Implementation..."
-proper_gradients=$(find $SRC_DIR -name "*.tsx" | xargs grep -c "bg-gradient-to-r.*from-brand.*to-brand" | paste -sd+ | bc)
+proper_gradients=$(find $SRC_DIR -name "*.tsx" | xargs grep -c "bg-linear-to-r.*from-brand.*to-brand" | paste -sd+ | bc)
 gradient_text=$(find $SRC_DIR -name "*.tsx" | xargs grep -c "bg-clip-text.*text-transparent" | paste -sd+ | bc)
 gray_gradients=$(find $SRC_DIR -name "*.tsx" | xargs grep -c "from-gray.*to-gray" | paste -sd+ | bc)
 
@@ -180,7 +180,7 @@ echo "===================================="
 if [ -f "$SRC_DIR/government/page.tsx" ]; then
     echo "🎨 Government Page Design Analysis..."
     
-    gov_dark_sections=$(grep -c "bg-gradient-to-br from-gray-900" "$SRC_DIR/government/page.tsx" 2>/dev/null || echo "0")
+    gov_dark_sections=$(grep -c "bg-linear-to-br from-gray-900" "$SRC_DIR/government/page.tsx" 2>/dev/null || echo "0")
     gov_white_sections=$(grep -c "bg-white.*dark:bg-gray-900" "$SRC_DIR/government/page.tsx" 2>/dev/null || echo "0")
     gov_brand_violations=$(grep -c "brand-primary\|brand-secondary" "$SRC_DIR/government/page.tsx" 2>/dev/null || echo "0")
     

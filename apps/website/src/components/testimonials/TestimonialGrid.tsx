@@ -53,7 +53,7 @@ export function TestimonialGrid({
 
   return (
     <section
-      className={`relative bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-8 sm:py-12 lg:py-16 ${className}`}
+      className={`relative bg-linear-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 py-8 sm:py-12 lg:py-16 ${className}`}
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(189,146,100,0.05)_0%,transparent_50%)] opacity-60"></div>

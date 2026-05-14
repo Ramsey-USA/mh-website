@@ -164,10 +164,10 @@ export function ServicesShowcase() {
                   {/* Enhanced Icon Container */}
                   <div className="relative inline-block mb-4 sm:mb-5 flex-shrink-0">
                     <div
-                      className={`absolute inset-0 bg-gradient-to-br ${service.iconGlow} blur-xl rounded-3xl`}
+                      className={`absolute inset-0 bg-linear-to-br ${service.iconGlow} blur-xl rounded-3xl`}
                     ></div>
                     <div
-                      className={`relative flex justify-center items-center bg-gradient-to-br ${service.iconGradient} rounded-2xl w-16 h-16 sm:w-20 sm:h-20 shadow-xl group-hover:scale-110 transition-transform duration-300`}
+                      className={`relative flex justify-center items-center bg-linear-to-br ${service.iconGradient} rounded-2xl w-16 h-16 sm:w-20 sm:h-20 shadow-xl group-hover:scale-110 transition-transform duration-300`}
                     >
                       <MaterialIcon
                         icon={service.icon}
@@ -188,9 +188,9 @@ export function ServicesShowcase() {
                     {service.description}
                   </p>
                   <div className="mt-auto pt-4 sm:pt-5">
-                    <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700/50 dark:to-gray-700/30 border-2 border-gray-200 dark:border-gray-600 group-hover:border-brand-primary dark:group-hover:border-brand-primary-light transition-all duration-300">
+                    <div className="relative overflow-hidden rounded-xl bg-linear-to-r from-gray-50 to-gray-100 dark:from-gray-700/50 dark:to-gray-700/30 border-2 border-gray-200 dark:border-gray-600 group-hover:border-brand-primary dark:group-hover:border-brand-primary-light transition-all duration-300">
                       {/* Animated background gradient on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/0 via-brand-primary/5 to-brand-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-linear-to-r from-brand-primary/0 via-brand-primary/5 to-brand-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                       <div className="relative flex items-center justify-center gap-2 py-3 sm:py-3.5 px-4">
                         <MaterialIcon
@@ -229,9 +229,9 @@ export function ServicesShowcase() {
           contentClassName="p-0"
           renderHeader={({ titleId, onClose }) => (
             <div
-              className={`relative bg-gradient-to-br ${currentService.iconGradient} p-6 sm:p-8 text-white`}
+              className={`relative bg-linear-to-br ${currentService.iconGradient} p-6 sm:p-8 text-white`}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/20"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-black/10 to-black/20"></div>
               <button
                 onClick={onClose}
                 className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 rounded-full p-2.5 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 z-10"

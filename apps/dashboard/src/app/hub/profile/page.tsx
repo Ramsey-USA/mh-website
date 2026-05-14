@@ -16,7 +16,7 @@ export default function HubProfilePage() {
   return (
     <div className="min-h-screen bg-gray-950">
       {/* Page header */}
-      <div className="bg-gradient-to-r from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-10 sm:px-6">
+      <div className="bg-linear-to-r from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-10 sm:px-6">
         <div className="mx-auto max-w-3xl">
           <p className="mb-2 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
             <MaterialIcon

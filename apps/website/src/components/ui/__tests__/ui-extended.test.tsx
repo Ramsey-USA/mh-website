@@ -303,7 +303,7 @@ describe("Section", () => {
       </Section>,
     );
     expect(container.querySelector("section")?.className).toContain(
-      "bg-gradient",
+      "bg-linear-to-b",
     );
   });
 

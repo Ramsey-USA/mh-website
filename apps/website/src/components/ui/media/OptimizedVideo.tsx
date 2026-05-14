@@ -132,7 +132,7 @@ export function HeroVideo({
   webmSrc,
   mp4Src,
   poster,
-  overlayClassName = "bg-gradient-to-br from-gray-900/80 via-brand-primary/60 to-gray-900/80",
+  overlayClassName = "bg-linear-to-br from-gray-900/80 via-brand-primary/60 to-gray-900/80",
   children,
 }: HeroVideoProps) {
   return (

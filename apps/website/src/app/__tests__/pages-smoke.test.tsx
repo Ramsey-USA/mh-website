@@ -39,6 +39,13 @@ jest.mock("@opennextjs/cloudflare", () => ({
 
 jest.mock("@/components/analytics", () => ({
   PageTrackingClient: () => null,
+  TrackedBridgeLink: ({
+    children,
+    href,
+  }: {
+    children: React.ReactNode;
+    href: string;
+  }) => <a href={href}>{children}</a>,
 }));
 
 jest.mock("@/components/icons/MaterialIcon", () => ({

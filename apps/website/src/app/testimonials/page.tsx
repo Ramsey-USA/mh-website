@@ -125,7 +125,7 @@ export default function TestimonialsPage() {
       <StructuredData data={faqSchema} />
 
       {/* Hero Section - Modern MH Standard with Diagonal Stripes */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white overflow-hidden">
+      <section className="relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white overflow-hidden">
         <DiagonalStripePattern />
         <BrandColorBlobs />
 
@@ -134,10 +134,10 @@ export default function TestimonialsPage() {
           <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
             {/* Icon with decorative lines */}
             <div className="flex items-center justify-center mb-8 gap-4">
-              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-white/30 rounded-full"></div>
+              <div className="h-1 w-16 bg-linear-to-r from-transparent to-white/30 rounded-full"></div>
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/50 to-bronze-600/50 blur-2xl rounded-full"></div>
-                <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50">
+                <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/50 to-bronze-600/50 blur-2xl rounded-full"></div>
+                <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50">
                   <MaterialIcon
                     icon="forum"
                     size="2xl"
@@ -146,7 +146,7 @@ export default function TestimonialsPage() {
                   />
                 </div>
               </div>
-              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-white/30 rounded-full"></div>
+              <div className="h-1 w-16 bg-linear-to-l from-transparent to-white/30 rounded-full"></div>
             </div>
 
             {/* Two-line gradient heading */}
@@ -154,7 +154,7 @@ export default function TestimonialsPage() {
               <span className="block mb-3 sm:mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                 Service-Earned Commendations
               </span>
-              <span className="block bg-gradient-to-r from-brand-secondary via-brand-secondary-light to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+              <span className="block bg-linear-to-r from-brand-secondary via-brand-secondary-light to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                 From Client Partners
               </span>
             </h1>
@@ -290,10 +290,10 @@ export default function TestimonialsPage() {
               {/* Section Header */}
               <div className="mb-16 sm:mb-20 text-center">
                 <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="military_tech"
                         size="2xl"
@@ -302,14 +302,14 @@ export default function TestimonialsPage() {
                       />
                     </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
 
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Why Businesses Trust
                   </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Veteran-Owned Since January 2025. Relationship-First.
                   </span>
                 </h2>
@@ -333,11 +333,11 @@ export default function TestimonialsPage() {
                 {/* Honesty Card */}
                 <div className="group relative">
                   {/* Animated border glow */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
                   {/* Card */}
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300">
                     {/* Top accent bar */}
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
 
                     <div className="flex items-center gap-3 mb-4">
                       <div className="relative">
@@ -386,11 +386,11 @@ export default function TestimonialsPage() {
                 {/* Integrity Card */}
                 <div className="group relative">
                   {/* Animated border glow */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
                   {/* Card */}
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300">
                     {/* Top accent bar */}
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
 
                     <div className="flex items-center gap-3 mb-4">
                       <div className="relative">
@@ -439,11 +439,11 @@ export default function TestimonialsPage() {
                 {/* Professionalism Card */}
                 <div className="group relative">
                   {/* Animated border glow */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
                   {/* Card */}
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300">
                     {/* Top accent bar */}
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
 
                     <div className="flex items-center gap-3 mb-4">
                       <div className="relative">
@@ -492,11 +492,11 @@ export default function TestimonialsPage() {
                 {/* Thoroughness Card */}
                 <div className="group relative">
                   {/* Animated border glow */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
                   {/* Card */}
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300">
                     {/* Top accent bar */}
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
 
                     <div className="flex items-center gap-3 mb-4">
                       <div className="relative">
@@ -577,7 +577,7 @@ export default function TestimonialsPage() {
                   <div className="space-y-3">
                     {/* Tri-Cities Headquarters Card */}
                     <div className="group relative">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
                       <div className="relative flex items-start gap-3 bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
                         <MaterialIcon
                           icon="location_city"
@@ -598,7 +598,7 @@ export default function TestimonialsPage() {
 
                     {/* Eastern Washington Card */}
                     <div className="group relative">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
                       <div className="relative flex items-start gap-3 bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
                         <MaterialIcon
                           icon="terrain"
@@ -619,7 +619,7 @@ export default function TestimonialsPage() {
 
                     {/* Multi-State Card */}
                     <div className="group relative">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
                       <div className="relative flex items-start gap-3 bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
                         <MaterialIcon
                           icon="landscape"
@@ -663,7 +663,7 @@ export default function TestimonialsPage() {
                   <div className="grid grid-cols-2 gap-3">
                     {/* Office Buildings Card */}
                     <div className="group relative">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
                       <div className="relative bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
                         <MaterialIcon
                           icon="business"
@@ -682,7 +682,7 @@ export default function TestimonialsPage() {
 
                     {/* Medical Facilities Card */}
                     <div className="group relative">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
                       <div className="relative bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
                         <MaterialIcon
                           icon="local_hospital"
@@ -701,7 +701,7 @@ export default function TestimonialsPage() {
 
                     {/* Industrial Card */}
                     <div className="group relative">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
                       <div className="relative bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
                         <MaterialIcon
                           icon="factory"
@@ -720,7 +720,7 @@ export default function TestimonialsPage() {
 
                     {/* Government Card */}
                     <div className="group relative">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
                       <div className="relative bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
                         <MaterialIcon
                           icon="account_balance"
@@ -739,7 +739,7 @@ export default function TestimonialsPage() {
 
                     {/* Retail Card */}
                     <div className="group relative">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
                       <div className="relative bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
                         <MaterialIcon
                           icon="store"
@@ -758,7 +758,7 @@ export default function TestimonialsPage() {
 
                     {/* Agricultural Card */}
                     <div className="group relative">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
                       <div className="relative bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
                         <MaterialIcon
                           icon="agriculture"
@@ -786,10 +786,10 @@ export default function TestimonialsPage() {
               {/* Why Reviews Matter - Following MH Section Header Standard */}
               <div className="mb-16 sm:mb-20 text-center">
                 <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="verified"
                         size="2xl"
@@ -798,14 +798,14 @@ export default function TestimonialsPage() {
                       />
                     </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
 
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Why Client Feedback
                   </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Matters to Us
                   </span>
                 </h2>
@@ -832,9 +832,9 @@ export default function TestimonialsPage() {
               <div className="grid md:grid-cols-3 gap-8">
                 {/* Honest Communication Card */}
                 <div className="group relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300">
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
                     <MaterialIcon
                       icon="handshake"
                       size="lg"
@@ -853,9 +853,9 @@ export default function TestimonialsPage() {
 
                 {/* Veteran Excellence Card */}
                 <div className="group relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300">
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
                     <MaterialIcon
                       icon="military_tech"
                       size="lg"
@@ -874,9 +874,9 @@ export default function TestimonialsPage() {
 
                 {/* Proven Track Record Card */}
                 <div className="group relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300">
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
                     <MaterialIcon
                       icon="workspace_premium"
                       size="lg"
@@ -905,10 +905,10 @@ export default function TestimonialsPage() {
               {/* Section Header */}
               <div className="mb-16 sm:mb-20 text-center">
                 <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-primary-dark p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-secondary/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-linear-to-br from-brand-primary via-brand-secondary to-brand-primary-dark p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="help"
                         size="2xl"
@@ -917,14 +917,14 @@ export default function TestimonialsPage() {
                       />
                     </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
 
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Common Questions About
                   </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Working With Us
                   </span>
                 </h2>
@@ -947,7 +947,7 @@ export default function TestimonialsPage() {
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 {/* FAQ 1 */}
                 <div className="group relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
                     <div className="flex items-start gap-4 mb-4">
                       <MaterialIcon
@@ -972,7 +972,7 @@ export default function TestimonialsPage() {
 
                 {/* FAQ 2 */}
                 <div className="group relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
                     <div className="flex items-start gap-4 mb-4">
                       <MaterialIcon
@@ -997,7 +997,7 @@ export default function TestimonialsPage() {
 
                 {/* FAQ 3 */}
                 <div className="group relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
                     <div className="flex items-start gap-4 mb-4">
                       <MaterialIcon
@@ -1023,7 +1023,7 @@ export default function TestimonialsPage() {
 
                 {/* FAQ 4 */}
                 <div className="group relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
                     <div className="flex items-start gap-4 mb-4">
                       <MaterialIcon
@@ -1075,10 +1075,10 @@ export default function TestimonialsPage() {
               {/* Section Header */}
               <div className="mb-12 sm:mb-16 text-center">
                 <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="verified"
                         size="2xl"
@@ -1087,14 +1087,14 @@ export default function TestimonialsPage() {
                       />
                     </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
 
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl leading-relaxed tracking-tighter">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-tight">
                     Credentials You Can
                   </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm">
                     Trust & Verify
                   </span>
                 </h2>
@@ -1104,9 +1104,9 @@ export default function TestimonialsPage() {
               <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
                 {/* Veteran-Owned Badge */}
                 <div className="group relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300 text-center">
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
                     <MaterialIcon
                       icon="military_tech"
                       size="2xl"
@@ -1124,9 +1124,9 @@ export default function TestimonialsPage() {
 
                 {/* Multi-State Licensed */}
                 <div className="group relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300 text-center">
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
                     <MaterialIcon
                       icon="verified_user"
                       size="2xl"
@@ -1144,9 +1144,9 @@ export default function TestimonialsPage() {
 
                 {/* Safety Record */}
                 <div className="group relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300 text-center">
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
                     <MaterialIcon
                       icon="health_and_safety"
                       size="2xl"
@@ -1164,9 +1164,9 @@ export default function TestimonialsPage() {
 
                 {/* 650+ Projects */}
                 <div className="group relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300 text-center">
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
                     <MaterialIcon
                       icon="engineering"
                       size="2xl"
@@ -1189,9 +1189,9 @@ export default function TestimonialsPage() {
                   rel="noopener noreferrer"
                   className="group relative"
                 >
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300 text-center h-full flex flex-col justify-center">
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
                     {/* Dark text seal for light mode */}
                     {}
                     <img
@@ -1309,11 +1309,11 @@ export default function TestimonialsPage() {
       {/* Final CTA Section - Modern MH Standard */}
       <section
         id="leave-review"
-        className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 py-16 sm:py-20 lg:py-24 text-white overflow-hidden"
+        className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-gray-900 py-16 sm:py-20 lg:py-24 text-white overflow-hidden"
       >
         {/* Placeholder for any additional blobs */}
-        <div className="absolute top-10 right-[20%] w-96 h-96 bg-gradient-to-br from-brand-secondary/20 to-transparent blur-3xl rounded-full"></div>
-        <div className="absolute bottom-10 left-[20%] w-96 h-96 bg-gradient-to-tr from-brand-primary-darker/30 to-transparent blur-3xl rounded-full"></div>
+        <div className="absolute top-10 right-[20%] w-96 h-96 bg-linear-to-br from-brand-secondary/20 to-transparent blur-3xl rounded-full"></div>
+        <div className="absolute bottom-10 left-[20%] w-96 h-96 bg-linear-to-tr from-brand-primary-darker/30 to-transparent blur-3xl rounded-full"></div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6">

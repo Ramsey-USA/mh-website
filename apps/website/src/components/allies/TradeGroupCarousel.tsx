@@ -84,7 +84,7 @@ export function TradeGroupCarousel({
           <div
             className={cn(
               "w-full h-full flex items-center justify-center",
-              !vendor.brandColors && `bg-gradient-to-br ${vendor.accentColor}`,
+              !vendor.brandColors && `bg-linear-to-br ${vendor.accentColor}`,
             )}
             style={
               vendor.brandColors
@@ -259,7 +259,7 @@ export function TradeGroupCarousel({
         <div
           className={cn(
             "h-1.5 w-full flex-shrink-0",
-            !vendor.brandColors && `bg-gradient-to-r ${vendor.accentColor}`,
+            !vendor.brandColors && `bg-linear-to-r ${vendor.accentColor}`,
           )}
           style={
             vendor.brandColors

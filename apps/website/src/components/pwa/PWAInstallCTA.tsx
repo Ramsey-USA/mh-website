@@ -96,7 +96,7 @@ export function PWAInstallCTA({
           className={`group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full border-2 border-gray-300/20 ${className}`}
         >
           <div className="flex justify-center mb-6">
-            <div className="rounded-xl bg-gradient-to-br from-gray-400 to-gray-500 p-4 shadow-lg">
+            <div className="rounded-xl bg-linear-to-br from-gray-400 to-gray-500 p-4 shadow-lg">
               <MaterialIcon
                 icon="install_mobile"
                 size="xl"
@@ -166,7 +166,7 @@ export function PWAInstallCTA({
         </div>
 
         <div className="flex justify-center mb-6">
-          <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <div className="rounded-xl bg-linear-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
             <MaterialIcon
               icon="install_mobile"
               size="xl"
@@ -237,7 +237,7 @@ export function PWAInstallCTA({
   if (variant === "banner") {
     return (
       <section
-        className={`relative overflow-hidden bg-gradient-to-br from-gray-950 via-brand-primary-dark to-brand-primary py-8 sm:py-10 ${className}`}
+        className={`relative overflow-hidden bg-linear-to-br from-gray-950 via-brand-primary-dark to-brand-primary py-8 sm:py-10 ${className}`}
         aria-labelledby="homepage-ops-hub-heading"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(217,189,147,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_30%)]" />

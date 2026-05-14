@@ -7,5 +7,6 @@
  */
 
 export * from "./TrackedContactLinks";
+export * from "./TrackedBridgeLinks";
 export * from "./EnhancedAnalytics";
 export * from "./PageTrackingClient";

@@ -72,7 +72,7 @@ export function ThemeToggle({
             "relative inline-flex items-center justify-center",
             sizeClasses[size],
             "rounded-full",
-            "bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600",
+            "bg-linear-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600",
             "border-2 border-gray-300 dark:border-gray-500",
             "transition-all duration-300 ease-in-out",
             "hover:shadow-lg hover:shadow-brand-primary/20",
@@ -86,7 +86,7 @@ export function ThemeToggle({
           <div
             className={`
               absolute inset-1 rounded-full 
-              bg-gradient-to-r from-brand-primary to-brand-primary-dark
+              bg-linear-to-r from-brand-primary to-brand-primary-dark
               transition-transform duration-300 ease-in-out
               ${isDarkMode ? "translate-x-0" : "translate-x-full"}
             `}
@@ -140,7 +140,7 @@ export function ThemeToggle({
               "transition-all duration-200 ease-in-out",
               "focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2",
               theme === key
-                ? "bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white shadow-md scale-105"
+                ? "bg-linear-to-r from-brand-primary to-brand-primary-dark text-white shadow-md scale-105"
                 : "text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-secondary hover:bg-white dark:hover:bg-gray-700",
             )}
             aria-label={`Switch to ${label.toLowerCase()} mode`}

@@ -13,6 +13,127 @@ import { getFAQCategoryBySlug, getFAQCategorySlugs } from "@/lib/data/faq-data";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 
+type FAQRoutePlan = {
+  service: { href: string; label: string };
+  location: { href: string; label: string };
+  support: { href: string; label: string };
+};
+
+const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
+  general: {
+    service: {
+      href: "/services/commercial-construction",
+      label: "Commercial construction service line",
+    },
+    location: {
+      href: "/locations/pasco",
+      label: "Pasco regional service market",
+    },
+    support: {
+      href: "/contact",
+      label: "Start a direct consultation",
+    },
+  },
+  process: {
+    service: {
+      href: "/services/drywall-interiors",
+      label: "Drywall and interiors delivery path",
+    },
+    location: {
+      href: "/locations/kennewick",
+      label: "Kennewick project planning market",
+    },
+    support: {
+      href: "/projects/kennewick-commercial-office-renovation",
+      label: "Review a phased process case study",
+    },
+  },
+  safety: {
+    service: {
+      href: "/services/restoration-remodeling",
+      label: "Restoration and remodeling controls",
+    },
+    location: {
+      href: "/locations/richland",
+      label: "Richland safety-focused delivery market",
+    },
+    support: {
+      href: "/resources/safety-manual/program-compliance-and-continuity",
+      label: "Program compliance and continuity standards",
+    },
+  },
+  communication: {
+    service: {
+      href: "/services/commercial-construction",
+      label: "Commercial project communication path",
+    },
+    location: {
+      href: "/locations/spokane",
+      label: "Spokane communication-first service market",
+    },
+    support: {
+      href: "/contact",
+      label: "Talk with the project team",
+    },
+  },
+  veterans: {
+    service: {
+      href: "/services/municipal-government",
+      label: "Municipal and government delivery path",
+    },
+    location: {
+      href: "/locations/yakima",
+      label: "Yakima public-sector service market",
+    },
+    support: {
+      href: "/public-sector",
+      label: "Explore public and government projects",
+    },
+  },
+  technical: {
+    service: {
+      href: "/services/commercial-construction",
+      label: "Commercial technical planning service",
+    },
+    location: {
+      href: "/locations/pendleton",
+      label: "Pendleton technical delivery market",
+    },
+    support: {
+      href: "/projects/pasco-industrial-warehouse-build-out",
+      label: "Review industrial technical execution",
+    },
+  },
+  partnership: {
+    service: {
+      href: "/services/commercial-construction",
+      label: "Client partnership service pathway",
+    },
+    location: {
+      href: "/locations/walla-walla",
+      label: "Walla Walla partner delivery market",
+    },
+    support: {
+      href: "/allies",
+      label: "Trade partner network",
+    },
+  },
+  financial: {
+    service: {
+      href: "/services/commercial-construction",
+      label: "Scope and budget control service path",
+    },
+    location: {
+      href: "/locations/richland",
+      label: "Richland budget planning market",
+    },
+    support: {
+      href: "/contact",
+      label: "Request open-book pricing conversation",
+    },
+  },
+};
+
 export function generateStaticParams() {
   return getFAQCategorySlugs().map((category) => ({ category }));
 }
@@ -89,6 +210,12 @@ export default async function FAQCategoryPage({
       },
     })),
   };
+  const defaultRoutePlan = FAQ_ROUTE_PLANS["general"];
+  const routePlan = FAQ_ROUTE_PLANS[faqCategory.id] ?? defaultRoutePlan;
+
+  if (!routePlan) {
+    notFound();
+  }
 
   return (
     <>
@@ -148,6 +275,42 @@ export default async function FAQCategoryPage({
                   ) : null}
                 </article>
               ))}
+            </div>
+
+            <div className="mt-10 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+              <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
+                Move To Scope
+              </p>
+              <h2 className="mt-3 text-xl font-bold text-gray-900 dark:text-white">
+                Route this category into a project decision
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-300">
+                Use the direct service path, local market page, and support
+                destination below to move from research to execution.
+              </p>
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                <Link
+                  href={routePlan.service.href}
+                  className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+                >
+                  <span>{routePlan.service.label}</span>
+                  <MaterialIcon icon="arrow_forward" size="sm" />
+                </Link>
+                <Link
+                  href={routePlan.location.href}
+                  className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+                >
+                  <span>{routePlan.location.label}</span>
+                  <MaterialIcon icon="arrow_forward" size="sm" />
+                </Link>
+                <Link
+                  href={routePlan.support.href}
+                  className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+                >
+                  <span>{routePlan.support.label}</span>
+                  <MaterialIcon icon="arrow_forward" size="sm" />
+                </Link>
+              </div>
             </div>
 
             <div className="mt-10 rounded-3xl border border-brand-primary/20 bg-brand-primary/5 p-6 dark:border-brand-primary/30 dark:bg-brand-primary/10">

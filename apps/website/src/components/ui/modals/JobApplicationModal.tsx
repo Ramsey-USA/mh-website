@@ -450,7 +450,7 @@ export function JobApplicationModal({
               </span>
               {isEs ? " y aquí comienza." : "—and that starts here."}
             </p>
-            <div className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-4 rounded-xl border border-brand-primary/30 dark:border-brand-primary/40 inline-block">
+            <div className="bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-4 rounded-xl border border-brand-primary/30 dark:border-brand-primary/40 inline-block">
               <div className="flex items-center gap-2">
                 <MaterialIcon
                   icon="military_tech"
@@ -516,9 +516,9 @@ export function JobApplicationModal({
           aria-describedby={descriptionId}
           className="relative bg-white dark:bg-gray-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden shadow-2xl border-2 border-brand-primary/20"
         >
-          <div className="relative bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker p-6 sm:p-8 text-white overflow-hidden">
+          <div className="relative bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker p-6 sm:p-8 text-white overflow-hidden">
             <div
-              className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"
+              className="absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-black/10"
               aria-hidden="true"
             ></div>
             <div
@@ -612,7 +612,7 @@ export function JobApplicationModal({
 
           <div className="max-h-[calc(90vh-200px)] overflow-y-auto px-6 pt-6 pb-10 sm:pb-12">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="rounded-2xl border-2 border-brand-primary/20 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 p-4 sm:p-5 dark:border-brand-primary/30 dark:from-brand-primary/10 dark:to-brand-secondary/10 shadow-sm">
+              <div className="rounded-2xl border-2 border-brand-primary/20 bg-linear-to-br from-brand-primary/5 to-brand-secondary/5 p-4 sm:p-5 dark:border-brand-primary/30 dark:from-brand-primary/10 dark:to-brand-secondary/10 shadow-sm">
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 p-2 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl">
                     <MaterialIcon
@@ -879,7 +879,7 @@ export function JobApplicationModal({
                     ? "Opcional. Si no tiene un currículum listo, envíe la solicitud de todas formas."
                     : "Optional. If you do not have a resume ready, send the application anyway."}
                 </p>
-                <div className="flex justify-center mt-1 px-6 pt-8 pb-8 border-2 border-gray-300 hover:border-brand-primary dark:border-gray-600 border-dashed rounded-xl transition-all duration-300 hover:bg-gradient-to-br hover:from-brand-primary/5 hover:to-brand-secondary/5 dark:hover:from-brand-primary/10 dark:hover:to-brand-secondary/10 group cursor-pointer">
+                <div className="flex justify-center mt-1 px-6 pt-8 pb-8 border-2 border-gray-300 hover:border-brand-primary dark:border-gray-600 border-dashed rounded-xl transition-all duration-300 hover:bg-linear-to-br hover:from-brand-primary/5 hover:to-brand-secondary/5 dark:hover:from-brand-primary/10 dark:hover:to-brand-secondary/10 group cursor-pointer">
                   <div className="space-y-2 text-center">
                     <div className="mx-auto w-16 h-16 flex items-center justify-center bg-brand-primary/10 dark:bg-brand-primary/20 rounded-2xl group-hover:scale-110 transition-transform duration-300">
                       <MaterialIcon
@@ -924,7 +924,7 @@ export function JobApplicationModal({
                 </div>
               </div>
 
-              <div className="rounded-2xl border-2 border-brand-secondary/25 bg-gradient-to-r from-brand-primary/5 via-transparent to-brand-secondary/10 p-4 sm:p-5 dark:border-brand-secondary/35 dark:from-brand-primary/10 dark:to-brand-secondary/15 shadow-sm">
+              <div className="rounded-2xl border-2 border-brand-secondary/25 bg-linear-to-r from-brand-primary/5 via-transparent to-brand-secondary/10 p-4 sm:p-5 dark:border-brand-secondary/35 dark:from-brand-primary/10 dark:to-brand-secondary/15 shadow-sm">
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 p-2 bg-brand-secondary/15 dark:bg-brand-secondary/25 rounded-xl">
                     <MaterialIcon
@@ -948,7 +948,7 @@ export function JobApplicationModal({
               </div>
 
               {/* Security Trust Indicator & Turnstile */}
-              <div className="rounded-2xl border-2 border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-brand-primary/10 p-4 dark:border-brand-primary/30 dark:from-brand-primary/10 dark:to-brand-primary/15">
+              <div className="rounded-2xl border-2 border-brand-primary/20 bg-linear-to-r from-brand-primary/5 to-brand-primary/10 p-4 dark:border-brand-primary/30 dark:from-brand-primary/10 dark:to-brand-primary/15">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <div className="flex-shrink-0 p-2 bg-brand-primary/15 dark:bg-brand-primary/25 rounded-xl">

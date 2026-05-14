@@ -61,7 +61,7 @@ export function LeadershipTeam() {
     >
       <div className="mx-auto max-w-4xl">
         {/* Introductory overview card */}
-        <Card className="mb-12 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker border-none text-white relative overflow-hidden">
+        <Card className="mb-12 bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker border-none text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/images/patterns/diagonal-stripes.svg')] opacity-10"></div>
           <CardContent className="relative py-8 px-6 sm:px-8 lg:px-10">
             <div className="flex items-center justify-center gap-4 mb-6">
@@ -99,17 +99,17 @@ export function LeadershipTeam() {
           {teamSpecialties.map((specialty) => (
             <div key={specialty.title} className="group relative flex h-full">
               {/* Animated Border Glow */}
-              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+              <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
               <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
                 {/* Top Accent Bar */}
-                <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+                <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="relative flex-shrink-0">
-                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
-                      <div className="relative rounded-xl bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+                      <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
+                      <div className="relative rounded-xl bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
                         <MaterialIcon
                           icon={specialty.icon}
                           size="lg"
@@ -134,7 +134,7 @@ export function LeadershipTeam() {
 
         {/* CTA to Team Page */}
         <div className="text-center">
-          <div className="inline-block bg-gradient-to-r from-brand-primary/10 via-brand-secondary/10 to-bronze-600/10 dark:from-brand-primary/20 dark:via-brand-secondary/20 dark:to-bronze-600/20 rounded-2xl p-8 lg:p-12 border-2 border-brand-primary/30 dark:border-brand-primary/50">
+          <div className="inline-block bg-linear-to-r from-brand-primary/10 via-brand-secondary/10 to-bronze-600/10 dark:from-brand-primary/20 dark:via-brand-secondary/20 dark:to-bronze-600/20 rounded-2xl p-8 lg:p-12 border-2 border-brand-primary/30 dark:border-brand-primary/50">
             <h3 className="text-2xl lg:text-3xl font-black text-gray-900 dark:text-white mb-4">
               Meet Your Chain of Command
             </h3>

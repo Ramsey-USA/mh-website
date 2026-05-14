@@ -117,7 +117,7 @@ export function WhyPartnerSection() {
       {/* Core Philosophy Callout */}
       <div className="flex justify-center mb-16">
         <div className="relative group">
-          <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-75 group-hover:opacity-100 transition duration-500"></div>
+          <div className="absolute -inset-1 bg-linear-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-75 group-hover:opacity-100 transition duration-500"></div>
           <div className="relative bg-white dark:bg-gray-800 px-8 py-6 rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-xl">
             <p className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
               {locale === "es" ? (
@@ -149,13 +149,13 @@ export function WhyPartnerSection() {
             >
               {/* Colored Border Glow - Visible on hover */}
               <div
-                className={`absolute -inset-2 bg-gradient-to-br ${iconData.iconBgGradient} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
+                className={`absolute -inset-2 bg-linear-to-br ${iconData.iconBgGradient} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
               ></div>
 
               <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
                 {/* Top Accent Bar */}
                 <div
-                  className={`h-2 bg-gradient-to-r ${iconData.iconBgGradient}`}
+                  className={`h-2 bg-linear-to-r ${iconData.iconBgGradient}`}
                 ></div>
 
                 <div className="p-6 sm:p-8 flex flex-col flex-1">
@@ -165,10 +165,10 @@ export function WhyPartnerSection() {
                     <div className="relative">
                       {/* Blur glow layer behind icon */}
                       <div
-                        className={`absolute -inset-2 bg-gradient-to-br ${iconData.iconBgGradient} opacity-30 blur-lg rounded-2xl`}
+                        className={`absolute -inset-2 bg-linear-to-br ${iconData.iconBgGradient} opacity-30 blur-lg rounded-2xl`}
                       ></div>
                       <div
-                        className={`relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${iconData.iconBgGradient} rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 transition-all duration-300`}
+                        className={`relative inline-flex items-center justify-center w-16 h-16 bg-linear-to-br ${iconData.iconBgGradient} rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 transition-all duration-300`}
                       >
                         <MaterialIcon
                           icon={iconData.icon}
@@ -220,7 +220,7 @@ export function WhyPartnerSection() {
                         className="flex items-start gap-3"
                       >
                         <div
-                          className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br ${iconData.iconBgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                          className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-linear-to-br ${iconData.iconBgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
                         >
                           <MaterialIcon
                             icon="check"
@@ -243,7 +243,7 @@ export function WhyPartnerSection() {
       {/* Trade Partner CTA */}
       <div className="mt-4 flex justify-center">
         <div className="relative group max-w-2xl w-full">
-          <div className="absolute -inset-1 bg-gradient-to-r from-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-50 group-hover:opacity-90 transition duration-500" />
+          <div className="absolute -inset-1 bg-linear-to-r from-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-50 group-hover:opacity-90 transition duration-500" />
           <div className="relative flex flex-col sm:flex-row items-center justify-between gap-4 bg-white dark:bg-gray-800 rounded-xl border-2 border-brand-secondary/30 dark:border-brand-secondary/40 shadow-xl px-8 py-5">
             <div className="flex items-center gap-3">
               <MaterialIcon

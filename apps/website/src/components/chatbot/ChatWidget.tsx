@@ -317,7 +317,7 @@ export function ChatWidget() {
 
           <button
             onClick={handleOpenChat}
-            className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-brand-primary to-brand-primary-dark text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+            className="flex items-center justify-center w-14 h-14 rounded-full bg-linear-to-br from-brand-primary to-brand-primary-dark text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900"
             aria-label={copy.openChatLabel}
             title={copy.chatTitle}
           >
@@ -339,7 +339,7 @@ export function ChatWidget() {
           }}
         >
           {/* Header */}
-          <div className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white shrink-0">
+          <div className="flex items-center gap-3 px-4 py-3 bg-linear-to-r from-brand-primary to-brand-primary-dark text-white shrink-0">
             <button
               onClick={() => setIsOpen(false)}
               className="flex sm:hidden items-center justify-center w-8 h-8 rounded-full hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"

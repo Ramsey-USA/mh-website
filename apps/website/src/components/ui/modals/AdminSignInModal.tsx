@@ -98,10 +98,10 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
         className="relative z-10 mx-4 w-full max-w-md animate-modal-slide"
       >
         <Card className="bg-white dark:bg-gray-900 shadow-2xl border-2 border-brand-primary/30">
-          <CardHeader className="relative bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary p-6 overflow-hidden text-white">
+          <CardHeader className="relative bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary p-6 overflow-hidden text-white">
             {/* Background decoration */}
             <div
-              className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"
+              className="absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-black/10"
               aria-hidden="true"
             />
             <div

@@ -114,7 +114,7 @@ export function TestimonialsCarousel({
         {/* Author Info */}
         <div className="flex items-center space-x-4 border-t border-gray-200 dark:border-gray-700 pt-6">
           {/* Avatar */}
-          <div className="flex-shrink-0 flex justify-center items-center bg-gradient-to-br from-brand-primary to-brand-secondary shadow-lg p-3 rounded-2xl w-16 h-16 sm:w-20 sm:h-20">
+          <div className="flex-shrink-0 flex justify-center items-center bg-linear-to-br from-brand-primary to-brand-secondary shadow-lg p-3 rounded-2xl w-16 h-16 sm:w-20 sm:h-20">
             <span className="font-bold text-white text-2xl sm:text-3xl">
               {currentTestimonial.name.charAt(0)}
             </span>

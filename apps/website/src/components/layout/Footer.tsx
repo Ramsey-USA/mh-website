@@ -158,19 +158,19 @@ const serviceStates = [
 ] as const;
 
 const socialLinkBaseClass =
-  "group flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg border border-gray-600 bg-gradient-to-br from-gray-700 to-gray-800 p-2.5 shadow-md transition-all duration-300 touch-manipulation hover:scale-105 dark:border-gray-500 dark:from-gray-600 dark:to-gray-700";
+  "group flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg border border-gray-600 bg-linear-to-br from-gray-700 to-gray-800 p-2.5 shadow-md transition-all duration-300 touch-manipulation hover:scale-105 dark:border-gray-500 dark:from-gray-600 dark:to-gray-700";
 
 const primaryActionCardClassName =
-  "group flex items-center gap-3 rounded-lg border border-brand-primary/30 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 p-3 transition-all duration-300 hover:scale-105 hover:border-brand-primary hover:from-brand-primary/20 hover:to-brand-secondary/20 touch-manipulation";
+  "group flex items-center gap-3 rounded-lg border border-brand-primary/30 bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 p-3 transition-all duration-300 hover:scale-105 hover:border-brand-primary hover:from-brand-primary/20 hover:to-brand-secondary/20 touch-manipulation";
 
 const secondaryActionCardClassName =
-  "group flex items-center gap-3 rounded-lg border border-brand-secondary/40 bg-gradient-to-r from-brand-secondary/15 to-brand-primary/15 p-3 transition-all duration-300 hover:scale-105 hover:border-brand-secondary hover:from-brand-secondary/25 hover:to-brand-primary/25 touch-manipulation";
+  "group flex items-center gap-3 rounded-lg border border-brand-secondary/40 bg-linear-to-r from-brand-secondary/15 to-brand-primary/15 p-3 transition-all duration-300 hover:scale-105 hover:border-brand-secondary hover:from-brand-secondary/25 hover:to-brand-primary/25 touch-manipulation";
 
 const serviceAreasTriggerClassName =
-  "group flex items-center gap-2 rounded-lg border border-brand-secondary/30 bg-gradient-to-r from-brand-primary to-brand-primary-dark px-4 py-2 text-sm font-bold text-brand-secondary shadow-md transition-all duration-300 touch-manipulation hover:scale-105 hover:from-brand-primary-dark hover:to-brand-primary hover:border-brand-secondary hover:text-brand-secondary-light hover:shadow-lg hover:shadow-brand-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900";
+  "group flex items-center gap-2 rounded-lg border border-brand-secondary/30 bg-linear-to-r from-brand-primary to-brand-primary-dark px-4 py-2 text-sm font-bold text-brand-secondary shadow-md transition-all duration-300 touch-manipulation hover:scale-105 hover:from-brand-primary-dark hover:to-brand-primary hover:border-brand-secondary hover:text-brand-secondary-light hover:shadow-lg hover:shadow-brand-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900";
 
 const serviceAreaCityChipClassName =
-  "rounded-full border border-brand-primary/25 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 px-2.5 py-1 text-xs font-semibold text-gray-200 transition-all duration-300 hover:scale-105 hover:border-brand-secondary/40 hover:from-brand-primary/20 hover:to-brand-secondary/20 hover:text-brand-secondary-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900";
+  "rounded-full border border-brand-primary/25 bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 px-2.5 py-1 text-xs font-semibold text-gray-200 transition-all duration-300 hover:scale-105 hover:border-brand-secondary/40 hover:from-brand-primary/20 hover:to-brand-secondary/20 hover:text-brand-secondary-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900";
 
 const socialLinks: SocialLinkItem[] = [
   {

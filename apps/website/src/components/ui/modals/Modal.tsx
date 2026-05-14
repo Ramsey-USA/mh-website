@@ -68,9 +68,9 @@ export function Modal({
           {renderHeader ? (
             renderHeader({ titleId, onClose })
           ) : (
-            <div className="relative bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary p-6 text-white overflow-hidden">
+            <div className="relative bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary p-6 text-white overflow-hidden">
               <div
-                className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"
+                className="absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-black/10"
                 aria-hidden="true"
               />
               <div

@@ -21,6 +21,141 @@ const safetyManualEntry = manuals.find((m) => m.id === "safety-manual");
 const REVISION_NUMBER = safetyManualEntry?.revisionNumber ?? "3";
 const REVISION_DATE = safetyManualEntry?.revisionDate ?? "04/07/2026";
 
+type SafetyRoutePlan = {
+  service: { href: string; label: string };
+  market: { href: string; label: string };
+  support: { href: string; label: string };
+};
+
+const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
+  "program-foundation": {
+    service: {
+      href: "/services/municipal-government",
+      label: "Municipal and government service line",
+    },
+    market: {
+      href: "/locations/yakima",
+      label: "Yakima public-sector market",
+    },
+    support: {
+      href: "/contact",
+      label: "Request a compliance planning call",
+    },
+  },
+  "field-onboarding-and-communication": {
+    service: {
+      href: "/services/commercial-construction",
+      label: "Commercial construction delivery",
+    },
+    market: {
+      href: "/locations/kennewick",
+      label: "Kennewick field coordination market",
+    },
+    support: {
+      href: "/faq/process",
+      label: "Process and partnership FAQ",
+    },
+  },
+  "safety-oversight-and-industrial-hygiene": {
+    service: {
+      href: "/services/municipal-government",
+      label: "Municipal and government controls",
+    },
+    market: {
+      href: "/locations/pendleton",
+      label: "Pendleton regulated delivery market",
+    },
+    support: {
+      href: "/faq/safety",
+      label: "Safety and quality FAQ",
+    },
+  },
+  "fall-and-access-safety": {
+    service: {
+      href: "/services/drywall-interiors",
+      label: "Drywall and interiors execution",
+    },
+    market: {
+      href: "/locations/spokane",
+      label: "Spokane interiors market",
+    },
+    support: {
+      href: "/contact",
+      label: "Talk with the field safety team",
+    },
+  },
+  "excavation-confined-spaces-and-energy-control": {
+    service: {
+      href: "/services/commercial-construction",
+      label: "Commercial construction sequencing",
+    },
+    market: {
+      href: "/locations/pasco",
+      label: "Pasco industrial delivery market",
+    },
+    support: {
+      href: "/faq/technical",
+      label: "Technical project management FAQ",
+    },
+  },
+  "energy-and-fire-hazards": {
+    service: {
+      href: "/services/restoration-remodeling",
+      label: "Restoration and remodeling controls",
+    },
+    market: {
+      href: "/locations/richland",
+      label: "Richland restoration market",
+    },
+    support: {
+      href: "/faq/safety",
+      label: "Safety and quality FAQ",
+    },
+  },
+  "motor-vehicles-and-heavy-equipment": {
+    service: {
+      href: "/services/commercial-construction",
+      label: "Commercial heavy-equipment delivery",
+    },
+    market: {
+      href: "/locations/hermiston",
+      label: "Hermiston logistics market",
+    },
+    support: {
+      href: "/public-sector",
+      label: "Public and government projects",
+    },
+  },
+  "tools-and-materials": {
+    service: {
+      href: "/services/commercial-construction",
+      label: "Commercial tools and materials planning",
+    },
+    market: {
+      href: "/locations/kennewick",
+      label: "Kennewick materials execution market",
+    },
+    support: {
+      href: "/projects/kennewick-commercial-office-renovation",
+      label: "View related field case study",
+    },
+  },
+  "program-compliance-and-continuity": {
+    service: {
+      href: "/services/municipal-government",
+      label: "Municipal continuity planning",
+    },
+    market: {
+      href: "/locations/yakima",
+      label: "Yakima continuity-ready market",
+    },
+    support: {
+      href: "/contact",
+      label: "Request continuity planning support",
+    },
+  },
+};
+
 export function generateStaticParams() {
   return ALL_CLUSTER_SLUGS.map((cluster) => ({ cluster }));
 }
@@ -60,9 +195,9 @@ export async function generateMetadata({
 
 export default async function SafetyManualClusterPage({
   params,
-}: {
+}: Readonly<{
   params: Promise<{ cluster: string }>;
-}) {
+}>) {
   const { cluster: clusterSlug } = await params;
   const cluster = getClusterBySlug(clusterSlug);
   if (!cluster) notFound();
@@ -91,6 +226,12 @@ export default async function SafetyManualClusterPage({
   const range = `MISH ${String(cluster.min).padStart(2, "0")}–${String(
     cluster.max,
   ).padStart(2, "0")}`;
+  const defaultRoutePlan = SAFETY_ROUTE_PLANS["program-foundation"];
+  const routePlan = SAFETY_ROUTE_PLANS[cluster.slug] ?? defaultRoutePlan;
+
+  if (!routePlan) {
+    notFound();
+  }
 
   // Prev / next cluster
   const idx = SAFETY_MANUAL_CLUSTERS.findIndex((c) => c.slug === cluster.slug);
@@ -168,8 +309,8 @@ export default async function SafetyManualClusterPage({
         <div className="mx-auto flex max-w-5xl items-start gap-3 text-sm text-amber-800 dark:text-amber-300">
           <MaterialIcon icon="lock" size="sm" className="mt-0.5 shrink-0" />
           <span>
-            <strong>Public preview only.</strong> This page shows the public
-            <em> Purpose</em>, <em>Scope</em>, and reference resources for each
+            <strong>Public preview only.</strong> This page shows the public{" "}
+            <em>Purpose</em>, <em>Scope</em>, and reference resources for each
             section. Full procedures, forms, and proprietary controls are
             restricted —{" "}
             <Link
@@ -303,6 +444,44 @@ export default async function SafetyManualClusterPage({
           })}
         </div>
       </main>
+
+      <section className="mx-auto mt-2 w-full max-w-6xl px-4 sm:px-6">
+        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+          <p className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            Route To Implementation
+          </p>
+          <h2 className="mt-2 text-xl font-bold text-gray-900 dark:text-gray-100">
+            Apply this safety guidance to active scopes
+          </h2>
+          <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-300">
+            Connect this cluster to a service line, regional market, and live
+            planning path to move safety standards into execution.
+          </p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            <Link
+              href={routePlan.service.href}
+              className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+            >
+              <span>{routePlan.service.label}</span>
+              <MaterialIcon icon="arrow_forward" size="sm" />
+            </Link>
+            <Link
+              href={routePlan.market.href}
+              className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+            >
+              <span>{routePlan.market.label}</span>
+              <MaterialIcon icon="arrow_forward" size="sm" />
+            </Link>
+            <Link
+              href={routePlan.support.href}
+              className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+            >
+              <span>{routePlan.support.label}</span>
+              <MaterialIcon icon="arrow_forward" size="sm" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* ── Prev / next cluster ───────────────────────────────────── */}
       <nav

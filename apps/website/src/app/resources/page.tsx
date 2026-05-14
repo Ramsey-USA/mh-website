@@ -57,7 +57,7 @@ export default function ResourcesPage() {
       <PageTrackingClient pageName="resources" />
       <StructuredData data={breadcrumbSchema} />
 
-      <div className="relative min-h-screen bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <div className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <DiagonalStripePattern />
         <BrandColorBlobs />
 
@@ -84,7 +84,7 @@ export default function ResourcesPage() {
               </div>
               <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight tracking-tight">
                 Field{" "}
-                <span className="bg-gradient-to-r from-brand-primary to-brand-primary-light bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-brand-primary to-brand-primary-light bg-clip-text text-transparent">
                   Resources
                 </span>
               </h1>
@@ -98,7 +98,7 @@ export default function ResourcesPage() {
           {/* Bonding & Insurance Agency CTA */}
           <Link
             href="/safety"
-            className="group flex items-start sm:items-center gap-5 bg-gradient-to-r from-brand-primary/8 to-brand-primary/4 dark:from-brand-primary/20 dark:to-brand-primary/10 border border-brand-primary/25 dark:border-brand-primary/40 rounded-2xl p-5 sm:p-6 mb-10 hover:border-brand-primary hover:shadow-lg transition-all duration-300"
+            className="group flex items-start sm:items-center gap-5 bg-linear-to-r from-brand-primary/8 to-brand-primary/4 dark:from-brand-primary/20 dark:to-brand-primary/10 border border-brand-primary/25 dark:border-brand-primary/40 rounded-2xl p-5 sm:p-6 mb-10 hover:border-brand-primary hover:shadow-lg transition-all duration-300"
           >
             <div className="flex-shrink-0 w-12 h-12 bg-brand-primary rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
               <MaterialIcon

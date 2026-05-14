@@ -170,24 +170,24 @@ const ROLE_SKILL_WEIGHTS: Record<string, SkillWeightProfile> = {
 
 const TEAM_PROFILE_SECTION_THEME = {
   credentials:
-    "bg-gradient-to-br from-brand-secondary/15 via-bronze-100/60 to-brand-secondary/10 dark:from-brand-secondary/25 dark:via-bronze-800/30 dark:to-brand-secondary/20 border-2 border-brand-secondary/30 dark:border-brand-secondary/40 shadow-sm",
-  bio: "bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 dark:from-brand-primary/20 dark:to-brand-primary/10 border-2 border-brand-primary/25 dark:border-brand-primary/35 shadow-sm",
+    "bg-linear-to-br from-brand-secondary/15 via-bronze-100/60 to-brand-secondary/10 dark:from-brand-secondary/25 dark:via-bronze-800/30 dark:to-brand-secondary/20 border-2 border-brand-secondary/30 dark:border-brand-secondary/40 shadow-sm",
+  bio: "bg-linear-to-br from-brand-primary/10 to-brand-primary/5 dark:from-brand-primary/20 dark:to-brand-primary/10 border-2 border-brand-primary/25 dark:border-brand-primary/35 shadow-sm",
   careerHighlights:
-    "bg-gradient-to-br from-bronze-50 to-brand-secondary/10 dark:from-bronze-900/25 dark:to-brand-secondary/15 border-2 border-bronze-200 dark:border-bronze-700 shadow-sm",
+    "bg-linear-to-br from-bronze-50 to-brand-secondary/10 dark:from-bronze-900/25 dark:to-brand-secondary/15 border-2 border-bronze-200 dark:border-bronze-700 shadow-sm",
   specialties:
-    "bg-gradient-to-br from-brand-primary/8 via-brand-primary/5 to-brand-secondary/8 dark:from-brand-primary/15 dark:via-brand-primary/10 dark:to-brand-secondary/12 border-2 border-brand-primary/25 dark:border-brand-primary/35 shadow-sm",
+    "bg-linear-to-br from-brand-primary/8 via-brand-primary/5 to-brand-secondary/8 dark:from-brand-primary/15 dark:via-brand-primary/10 dark:to-brand-secondary/12 border-2 border-brand-primary/25 dark:border-brand-primary/35 shadow-sm",
   achievements:
-    "bg-gradient-to-br from-bronze-50/80 to-white dark:from-bronze-900/20 dark:to-gray-900/70 border-2 border-bronze-200 dark:border-bronze-700 shadow-sm",
+    "bg-linear-to-br from-bronze-50/80 to-white dark:from-bronze-900/20 dark:to-gray-900/70 border-2 border-bronze-200 dark:border-bronze-700 shadow-sm",
   skillsPanel:
-    "bg-gradient-to-br from-brand-primary/10 via-brand-primary/5 to-brand-secondary/8 dark:from-brand-primary/20 dark:via-brand-primary/10 dark:to-brand-secondary/12 border-2 border-brand-primary/20 dark:border-brand-primary/30",
+    "bg-linear-to-br from-brand-primary/10 via-brand-primary/5 to-brand-secondary/8 dark:from-brand-primary/20 dark:via-brand-primary/10 dark:to-brand-secondary/12 border-2 border-brand-primary/20 dark:border-brand-primary/30",
   currentStats:
-    "bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 dark:from-brand-primary/20 dark:to-brand-primary/10 border-2 border-brand-primary/20 dark:border-brand-primary/30",
+    "bg-linear-to-br from-brand-primary/10 to-brand-primary/5 dark:from-brand-primary/20 dark:to-brand-primary/10 border-2 border-brand-primary/20 dark:border-brand-primary/30",
   careerStats:
-    "bg-gradient-to-br from-brand-secondary/12 via-bronze-100/50 to-brand-secondary/8 dark:from-brand-secondary/20 dark:via-bronze-900/25 dark:to-brand-secondary/12 border-2 border-brand-secondary/25 dark:border-brand-secondary/35",
+    "bg-linear-to-br from-brand-secondary/12 via-bronze-100/50 to-brand-secondary/8 dark:from-brand-secondary/20 dark:via-bronze-900/25 dark:to-brand-secondary/12 border-2 border-brand-secondary/25 dark:border-brand-secondary/35",
   personalDetails:
-    "bg-gradient-to-br from-gray-50 to-brand-primary/6 dark:from-gray-900 dark:to-brand-primary/10 border-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-sm",
+    "bg-linear-to-br from-gray-50 to-brand-primary/6 dark:from-gray-900 dark:to-brand-primary/10 border-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-sm",
   personalInsights:
-    "bg-gradient-to-br from-brand-secondary/10 via-bronze-50 to-brand-primary/6 dark:from-brand-secondary/20 dark:via-bronze-900/20 dark:to-brand-primary/10 border-2 border-brand-secondary/20 dark:border-brand-secondary/30",
+    "bg-linear-to-br from-brand-secondary/10 via-bronze-50 to-brand-primary/6 dark:from-brand-secondary/20 dark:via-bronze-900/20 dark:to-brand-primary/10 border-2 border-brand-secondary/20 dark:border-brand-secondary/30",
   contactButton:
     "inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary-light dark:hover:bg-brand-primary text-white px-6 py-3 rounded-lg border border-brand-secondary/40 dark:border-brand-secondary/50 font-bold text-sm shadow-md hover:shadow-lg transition-all duration-300",
 } as const;
@@ -497,7 +497,7 @@ function TeamAvatar({ member }: Readonly<{ member: VintageTeamMember }>) {
 
   if (!member.avatar || hasError) {
     return (
-      <div className="w-full h-full rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark flex items-center justify-center shadow-lg">
+      <div className="w-full h-full rounded-xl bg-linear-to-br from-brand-primary to-brand-primary-dark flex items-center justify-center shadow-lg">
         <MaterialIcon
           icon={getRoleIcon(member.role)}
           size="4xl"

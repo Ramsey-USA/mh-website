@@ -17,6 +17,8 @@
         "/projects",
         "/projects/[slug]",
         "/public-sector",
+        "/public-sector/tri-state-government-construction",
+        "/public-sector/veteran-led-compliance",
         "/resources",
         "/resources/safety-manual/contents",
         "/resources/safety-manual/forms",
@@ -26,7 +28,8 @@
         "/team",
         "/terms",
         "/testimonials",
-        "/veterans"
+        "/veterans",
+        "/veterans/public-sector-construction"
       ],
       "patterns": ["^/resources/safety-manual/\\[cluster\\]$"]
     },

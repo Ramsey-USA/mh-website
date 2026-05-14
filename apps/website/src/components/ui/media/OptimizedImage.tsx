@@ -86,7 +86,7 @@ export function OptimizedImage({
       <div className="relative overflow-hidden" style={animStyle}>
         <Image {...imageProps} alt={imageProps.alt} />
         {!isLoaded && !hasError && (
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
+          <div className="absolute inset-0 bg-linear-to-br from-gray-200 to-gray-300 animate-pulse" />
         )}
       </div>
     );
@@ -96,7 +96,7 @@ export function OptimizedImage({
     <div className="relative">
       <Image {...imageProps} alt={imageProps.alt} />
       {!isLoaded && !hasError && (
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
+        <div className="absolute inset-0 bg-linear-to-br from-gray-200 to-gray-300 animate-pulse" />
       )}
     </div>
   );
@@ -156,7 +156,7 @@ export function GalleryImage({
       />
 
       {/* Overlay with caption */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="bottom-4 left-4 absolute text-white">
           {category && (
             <span className="inline-block bg-brand-primary mb-2 px-2 py-1 rounded font-semibold text-xs">

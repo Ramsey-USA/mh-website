@@ -20,7 +20,7 @@ export function LegalPageLayout({
   children,
 }: LegalPageLayoutProps) {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-black">
+    <main className="min-h-screen bg-linear-to-b from-white to-gray-50 dark:from-gray-900 dark:to-black">
       <PageTrackingClient pageName={pageName} />
       <StructuredData data={structuredData} />
 

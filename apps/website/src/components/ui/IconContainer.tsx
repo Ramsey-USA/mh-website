@@ -6,7 +6,7 @@
  *
  * Replaces repeated pattern:
  * ```tsx
- * <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+ * <div className="relative flex justify-center items-center bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
  *   <MaterialIcon icon="..." className="text-white" />
  * </div>
  * ```
@@ -46,12 +46,12 @@ const sizeVariants = {
 };
 
 const gradientVariants = {
-  primary: "bg-gradient-to-br from-brand-primary to-brand-primary-dark",
-  secondary: "bg-gradient-to-br from-brand-secondary to-brand-secondary-dark",
-  bronze: "bg-gradient-to-br from-brand-secondary to-bronze-700",
+  primary: "bg-linear-to-br from-brand-primary to-brand-primary-dark",
+  secondary: "bg-linear-to-br from-brand-secondary to-brand-secondary-dark",
+  bronze: "bg-linear-to-br from-brand-secondary to-bronze-700",
   mixed:
-    "bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary",
-  forest: "bg-gradient-to-br from-brand-secondary via-forest-600 to-forest-700",
+    "bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-secondary",
+  forest: "bg-linear-to-br from-brand-secondary via-forest-600 to-forest-700",
 };
 
 const shapeVariants = {

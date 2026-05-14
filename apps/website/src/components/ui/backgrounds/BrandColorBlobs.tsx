@@ -33,13 +33,13 @@ export function BrandColorBlobs({
     <>
       {showPrimary && (
         <div
-          className={`absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full ${className}`}
+          className={`absolute top-20 right-[15%] w-96 h-96 bg-linear-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full ${className}`}
           aria-hidden="true"
         />
       )}
       {showSecondary && (
         <div
-          className={`absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full ${className}`}
+          className={`absolute bottom-20 left-[15%] w-96 h-96 bg-linear-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full ${className}`}
           aria-hidden="true"
         />
       )}

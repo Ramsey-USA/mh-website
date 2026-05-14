@@ -33,7 +33,7 @@ export function PageHero({ title, subtitle, description }: PageHeroProps) {
     <section className="relative min-h-screen h-screen overflow-hidden hero-section">
       {/* Video/Image Background Container */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/80"
+        className="absolute inset-0 bg-linear-to-r from-gray-900/80 via-gray-900/60 to-gray-900/80"
         aria-hidden="true"
       >
         {/* Future video element will go here */}
@@ -42,7 +42,7 @@ export function PageHero({ title, subtitle, description }: PageHeroProps) {
           </video> */}
 
         {/* Temporary background for now */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-gray-900 to-brand-secondary/20"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-brand-primary/20 via-gray-900 to-brand-secondary/20"></div>
       </div>
 
       {/* Content Overlay */}

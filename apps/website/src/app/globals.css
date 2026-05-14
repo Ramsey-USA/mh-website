@@ -146,11 +146,11 @@ nav[aria-label="Navegacion de ruta"] {
   }
 
   .gradient-text-three-color {
-    @apply bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent;
+    @apply bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent;
   }
 
   .gradient-text-bronze {
-    @apply bg-gradient-to-r from-brand-primary via-bronze-600 to-brand-secondary bg-clip-text text-transparent;
+    @apply bg-linear-to-r from-brand-primary via-bronze-600 to-brand-secondary bg-clip-text text-transparent;
   }
 
   /* Dark mode opacity adjustments for patterns */

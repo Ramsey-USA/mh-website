@@ -116,7 +116,7 @@ export function AlternatingShowcase({
                   />
                   {/* Overlay gradient for better icon visibility */}
                   <div
-                    className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent lg:bg-gradient-to-r lg:from-black/60 lg:via-black/20 lg:to-transparent"
+                    className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent lg:bg-linear-to-r lg:from-black/60 lg:via-black/20 lg:to-transparent"
                     aria-hidden="true"
                   ></div>
 
@@ -124,7 +124,7 @@ export function AlternatingShowcase({
                   <div className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
                     <div className="relative inline-block">
                       <div
-                        className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 blur-xl rounded-2xl"
+                        className="absolute inset-0 bg-linear-to-br from-brand-primary/30 to-brand-secondary/30 blur-xl rounded-2xl"
                         aria-hidden="true"
                       ></div>
                       <div

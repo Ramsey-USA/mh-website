@@ -35,19 +35,19 @@ function PhilosophyCard({
   return (
     <div className="group relative flex h-full">
       <div
-        className={`absolute -inset-2 bg-gradient-to-br ${glowFrom} ${glowTo} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
+        className={`absolute -inset-2 bg-linear-to-br ${glowFrom} ${glowTo} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
       ></div>
       <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
         <div
-          className={`h-2 bg-gradient-to-r ${barFrom} ${barVia} ${barTo}`}
+          className={`h-2 bg-linear-to-r ${barFrom} ${barVia} ${barTo}`}
         ></div>
         <div className="p-6 sm:p-8 flex flex-col flex-1">
           <div className="relative inline-block mb-4">
             <div
-              className={`absolute -inset-2 bg-gradient-to-br ${glowFrom} ${glowTo} opacity-30 blur-lg rounded-xl`}
+              className={`absolute -inset-2 bg-linear-to-br ${glowFrom} ${glowTo} opacity-30 blur-lg rounded-xl`}
             ></div>
             <div
-              className={`relative rounded-xl bg-gradient-to-br ${barFrom} ${barVia} ${barTo} p-3 shadow-xl group-hover:scale-110 transition-all duration-300`}
+              className={`relative rounded-xl bg-linear-to-br ${barFrom} ${barVia} ${barTo} p-3 shadow-xl group-hover:scale-110 transition-all duration-300`}
             >
               <MaterialIcon
                 icon={icon}
@@ -102,11 +102,11 @@ export function PartnershipPhilosophy() {
         <div className="mx-auto max-w-4xl">
           {/* Mission & Vision Cards */}
           <div className="gap-8 grid sm:grid-cols-1 md:grid-cols-2 mb-12">
-            <Card className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 border-2 border-brand-primary dark:border-brand-primary/50 transition-shadow">
+            <Card className="bg-linear-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 border-2 border-brand-primary dark:border-brand-primary/50 transition-shadow">
               <CardHeader>
                 <div className="relative inline-block mb-3">
-                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/20 to-brand-primary-dark/20 blur-xl rounded-full"></div>
-                  <div className="relative w-16 h-16 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-xl flex items-center justify-center shadow-lg">
+                  <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/20 to-brand-primary-dark/20 blur-xl rounded-full"></div>
+                  <div className="relative w-16 h-16 bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-xl flex items-center justify-center shadow-lg">
                     <MaterialIcon
                       icon="map"
                       size="xl"

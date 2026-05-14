@@ -78,6 +78,37 @@ const faqSchema = {
   ),
 };
 
+const intentRoutes = [
+  {
+    title: "Need scope and budget clarity",
+    description: "Move directly into planning and open-book scoping.",
+    href: "/services/commercial-construction",
+    cta: "Review commercial service line",
+    icon: "build",
+  },
+  {
+    title: "Need process and timeline confidence",
+    description: "Use a field-proven case study before your kickoff call.",
+    href: "/projects/kennewick-commercial-office-renovation",
+    cta: "Review phased delivery case study",
+    icon: "schedule",
+  },
+  {
+    title: "Need government project guidance",
+    description: "Start with public-sector requirements and pathways.",
+    href: "/public-sector",
+    cta: "Explore public sector services",
+    icon: "account_balance",
+  },
+  {
+    title: "Need a direct conversation",
+    description: "Talk with the team to convert answers into a plan.",
+    href: "/contact",
+    cta: "Schedule consultation",
+    icon: "support_agent",
+  },
+];
+
 /**
  * FAQ Accordion Component - Modern Card Design
  */
@@ -241,6 +272,52 @@ export default function FAQPage() {
                     States Licensed
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-10">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white tracking-tight">
+                  Choose Your Next Step
+                </h2>
+                <p className="mt-3 text-sm sm:text-base text-gray-600 dark:text-gray-300">
+                  Route this FAQ research into the right service, case study, or
+                  consultation path.
+                </p>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                {intentRoutes.map((route) => (
+                  <Link
+                    key={route.href}
+                    href={route.href}
+                    className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-5 shadow-sm hover:shadow-md hover:border-brand-primary transition-all"
+                  >
+                    <div className="flex items-start gap-3">
+                      <MaterialIcon
+                        icon={route.icon}
+                        size="md"
+                        className="text-brand-primary mt-0.5"
+                      />
+                      <div>
+                        <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-gray-100">
+                          {route.title}
+                        </h3>
+                        <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                          {route.description}
+                        </p>
+                        <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-brand-primary dark:text-brand-primary-light">
+                          {route.cta}
+                          <MaterialIcon icon="arrow_forward" size="sm" />
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>

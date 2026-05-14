@@ -149,22 +149,22 @@ export function AwardsSection() {
             <div key={card.title} className="group relative flex h-full">
               {/* Animated Border Glow */}
               <div
-                className={`absolute -inset-2 bg-gradient-to-br ${card.glowFrom} ${card.glowTo} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
+                className={`absolute -inset-2 bg-linear-to-br ${card.glowFrom} ${card.glowTo} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
               ></div>
 
               <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden flex flex-col w-full">
                 {/* Top Accent Bar */}
                 <div
-                  className={`h-2 bg-gradient-to-r ${card.barFrom} ${card.barVia} ${card.barTo}`}
+                  className={`h-2 bg-linear-to-r ${card.barFrom} ${card.barVia} ${card.barTo}`}
                 ></div>
 
                 <div className="p-6 flex flex-col flex-1 text-center">
                   <div className="relative inline-block mx-auto mb-4">
                     <div
-                      className={`absolute -inset-2 bg-gradient-to-br ${card.glowFrom} ${card.glowTo} opacity-30 blur-lg rounded-xl`}
+                      className={`absolute -inset-2 bg-linear-to-br ${card.glowFrom} ${card.glowTo} opacity-30 blur-lg rounded-xl`}
                     ></div>
                     <div
-                      className={`relative rounded-xl bg-gradient-to-br ${card.iconFrom} ${card.iconVia} ${card.iconTo} p-3 shadow-xl group-hover:scale-110 transition-all duration-300`}
+                      className={`relative rounded-xl bg-linear-to-br ${card.iconFrom} ${card.iconVia} ${card.iconTo} p-3 shadow-xl group-hover:scale-110 transition-all duration-300`}
                     >
                       <MaterialIcon
                         icon={card.icon}
@@ -217,8 +217,8 @@ export function AwardsSection() {
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
                     <div className="relative">
-                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-xl rounded-full"></div>
-                      <div className="relative w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                      <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-xl rounded-full"></div>
+                      <div className="relative w-16 h-16 lg:w-20 lg:h-20 bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                         <MaterialIcon
                           icon={item.icon}
                           size="xl"
@@ -230,7 +230,7 @@ export function AwardsSection() {
                       <span className="block font-black text-brand-primary dark:text-brand-primary-light text-4xl lg:text-5xl">
                         {item.year}
                       </span>
-                      <span className="inline-block bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20 dark:from-brand-primary/30 dark:to-brand-secondary/30 px-3 py-1 rounded-full font-semibold text-brand-primary text-xs border border-brand-primary/30">
+                      <span className="inline-block bg-linear-to-r from-brand-primary/20 to-brand-secondary/20 dark:from-brand-primary/30 dark:to-brand-secondary/30 px-3 py-1 rounded-full font-semibold text-brand-primary text-xs border border-brand-primary/30">
                         AGC Award
                       </span>
                     </div>
@@ -275,7 +275,7 @@ export function AwardsSection() {
 
         {/* Summary Banner */}
         <div className="mt-12 text-center">
-          <div className="inline-block bg-gradient-to-r from-brand-primary/10 via-brand-secondary/10 to-brand-primary/10 dark:from-brand-primary/20 dark:via-brand-secondary/20 dark:to-brand-primary/20 rounded-2xl px-8 py-6 border-2 border-brand-primary/30 dark:border-brand-primary/50">
+          <div className="inline-block bg-linear-to-r from-brand-primary/10 via-brand-secondary/10 to-brand-primary/10 dark:from-brand-primary/20 dark:via-brand-secondary/20 dark:to-brand-primary/20 rounded-2xl px-8 py-6 border-2 border-brand-primary/30 dark:border-brand-primary/50">
             <div className="flex items-center justify-center gap-3 flex-wrap">
               <MaterialIcon
                 icon="workspace_premium"

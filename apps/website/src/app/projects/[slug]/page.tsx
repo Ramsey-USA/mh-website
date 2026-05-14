@@ -17,6 +17,97 @@ import { PortfolioService } from "@/lib/services/portfolio-service";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 
+type RelatedRoute = {
+  href: string;
+  label: string;
+};
+
+type ProjectRoutePlan = {
+  primaryService: RelatedRoute;
+  secondaryService: RelatedRoute;
+  location: RelatedRoute;
+};
+
+const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
+  "kennewick-commercial-office-renovation": {
+    primaryService: {
+      href: "/services/commercial-construction",
+      label: "Commercial Construction",
+    },
+    secondaryService: {
+      href: "/services/drywall-interiors",
+      label: "Drywall and Interiors",
+    },
+    location: {
+      href: "/locations/kennewick",
+      label: "Kennewick Market",
+    },
+  },
+  "pasco-industrial-warehouse-build-out": {
+    primaryService: {
+      href: "/services/commercial-construction",
+      label: "Commercial Construction",
+    },
+    secondaryService: {
+      href: "/services/municipal-government",
+      label: "Municipal and Government",
+    },
+    location: {
+      href: "/locations/pasco",
+      label: "Pasco Market",
+    },
+  },
+  "richland-residential-custom-home": {
+    primaryService: {
+      href: "/services/restoration-remodeling",
+      label: "Restoration and Remodeling",
+    },
+    secondaryService: {
+      href: "/services/drywall-interiors",
+      label: "Drywall and Interiors",
+    },
+    location: {
+      href: "/locations/richland",
+      label: "Richland Market",
+    },
+  },
+  "spokane-healthcare-clinic-tenant-improvement": {
+    primaryService: {
+      href: "/services/drywall-interiors",
+      label: "Drywall and Interiors",
+    },
+    secondaryService: {
+      href: "/services/commercial-construction",
+      label: "Commercial Construction",
+    },
+    location: {
+      href: "/locations/spokane",
+      label: "Spokane Market",
+    },
+  },
+  "west-richland-multi-family-complex": {
+    primaryService: {
+      href: "/services/commercial-construction",
+      label: "Commercial Construction",
+    },
+    secondaryService: {
+      href: "/services/restoration-remodeling",
+      label: "Restoration and Remodeling",
+    },
+    location: {
+      href: "/locations/west-richland",
+      label: "West Richland Market",
+    },
+  },
+};
+
+function cityToLocationSlug(city: string): string {
+  return city
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 function formatTechnicalSpecValue(value: string | number | string[]): string {
   if (Array.isArray(value)) {
     return value.join(", ");
@@ -203,6 +294,21 @@ export default async function ProjectCaseStudyPage({
     { name: "Projects", url: "/projects" },
     { name: title, url: canonicalPath },
   ];
+  const routePlan = PROJECT_ROUTE_PLANS[canonicalSlug ?? slug] ??
+    PROJECT_ROUTE_PLANS[caseStudy?.slug ?? ""] ?? {
+      primaryService: {
+        href: "/services/commercial-construction",
+        label: "Commercial Construction",
+      },
+      secondaryService: {
+        href: "/services/restoration-remodeling",
+        label: "Restoration and Remodeling",
+      },
+      location: {
+        href: `/locations/${cityToLocationSlug(location.city)}`,
+        label: `${location.city} Market`,
+      },
+    };
 
   return (
     <>
@@ -342,6 +448,39 @@ export default async function ProjectCaseStudyPage({
                     </li>
                   ))}
                 </ul>
+              </div>
+
+              <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+                <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
+                  Related Service Paths
+                </p>
+                <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-300">
+                  Use the nearest service line and market page to move this case
+                  study into scoping and consultation.
+                </p>
+                <div className="mt-4 space-y-3">
+                  <Link
+                    href={routePlan.primaryService.href}
+                    className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+                  >
+                    <span>{routePlan.primaryService.label}</span>
+                    <MaterialIcon icon="arrow_forward" size="sm" />
+                  </Link>
+                  <Link
+                    href={routePlan.secondaryService.href}
+                    className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+                  >
+                    <span>{routePlan.secondaryService.label}</span>
+                    <MaterialIcon icon="arrow_forward" size="sm" />
+                  </Link>
+                  <Link
+                    href={routePlan.location.href}
+                    className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+                  >
+                    <span>{routePlan.location.label}</span>
+                    <MaterialIcon icon="arrow_forward" size="sm" />
+                  </Link>
+                </div>
               </div>
 
               <div className="rounded-3xl border border-brand-primary/20 bg-brand-primary/5 p-6 dark:border-brand-primary/30 dark:bg-brand-primary/10">

@@ -37,7 +37,8 @@
         "editor.codeActionsOnSave": {
           "source.fixAll.eslint": "explicit"
         },
-        "js/ts.preferences.importModuleSpecifier": "relative",
+        "typescript.preferences.importModuleSpecifier": "non-relative",
+        "javascript.preferences.importModuleSpecifier": "non-relative",
         "files.associations": {
           "*.css": "tailwindcss"
         },

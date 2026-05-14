@@ -85,13 +85,13 @@ export function Timeline({
         <div className="mb-16 sm:mb-20 text-center">
           {/* Icon with decorative lines */}
           <div className="flex items-center justify-center mb-8 gap-4">
-            <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
             <div className="relative">
               <div
-                className={`absolute -inset-4 bg-gradient-to-br ${iconGlowColors[iconBg]} blur-2xl rounded-full`}
+                className={`absolute -inset-4 bg-linear-to-br ${iconGlowColors[iconBg]} blur-2xl rounded-full`}
               ></div>
               <div
-                className={`relative bg-gradient-to-br ${iconBgColors[iconBg]} p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600`}
+                className={`relative bg-linear-to-br ${iconBgColors[iconBg]} p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600`}
               >
                 <MaterialIcon
                   icon={icon}
@@ -100,7 +100,7 @@ export function Timeline({
                 />
               </div>
             </div>
-            <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
           </div>
 
           {/* Two-line gradient heading */}
@@ -108,7 +108,7 @@ export function Timeline({
             <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
               {subtitle}
             </span>
-            <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+            <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
               {title}
             </span>
           </h2>
@@ -125,7 +125,7 @@ export function Timeline({
         {/* Timeline - Vertical Alternating Layout */}
         <div className="relative max-w-6xl mx-auto">
           {/* Vertical Connecting Line - Desktop Only */}
-          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-brand-primary/30 via-brand-secondary to-brand-primary/30"></div>
+          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-linear-to-b from-brand-primary/30 via-brand-secondary to-brand-primary/30"></div>
 
           {/* Timeline Steps */}
           <div className="space-y-12 lg:space-y-20">
@@ -148,7 +148,7 @@ export function Timeline({
                                 {step.title}
                               </h3>
                             </div>
-                            <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                            <div className="flex-shrink-0 w-16 h-16 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                               <MaterialIcon
                                 icon={step.icon}
                                 size="xl"
@@ -164,7 +164,7 @@ export function Timeline({
 
                       {/* Center Circle */}
                       <div className="flex-shrink-0 relative z-10">
-                        <div className="w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-20 h-20 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
                           {step.num}
                         </div>
                       </div>
@@ -179,7 +179,7 @@ export function Timeline({
 
                       {/* Center Circle */}
                       <div className="flex-shrink-0 relative z-10">
-                        <div className="w-20 h-20 bg-gradient-to-br from-brand-secondary to-brand-secondary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-20 h-20 bg-linear-to-br from-brand-secondary to-brand-secondary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
                           {step.num}
                         </div>
                       </div>
@@ -188,7 +188,7 @@ export function Timeline({
                       <div className="flex-1 text-left">
                         <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-secondary dark:group-hover:border-brand-secondary-light">
                           <div className="flex items-center gap-4 mb-4">
-                            <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-brand-secondary to-brand-secondary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
+                            <div className="flex-shrink-0 w-16 h-16 bg-linear-to-br from-brand-secondary to-brand-secondary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
                               <MaterialIcon
                                 icon={step.icon}
                                 size="xl"
@@ -218,14 +218,14 @@ export function Timeline({
                       className={cn(
                         "w-16 h-16 rounded-full flex items-center justify-center text-white font-black text-2xl shadow-xl border-4 border-white dark:border-gray-900 relative z-10",
                         step.num === steps.length
-                          ? "bg-gradient-to-br from-brand-secondary to-brand-secondary-dark"
-                          : "bg-gradient-to-br from-brand-primary to-brand-primary-dark",
+                          ? "bg-linear-to-br from-brand-secondary to-brand-secondary-dark"
+                          : "bg-linear-to-br from-brand-primary to-brand-primary-dark",
                       )}
                     >
                       {step.num}
                     </div>
                     {index < steps.length - 1 && (
-                      <div className="w-1 flex-1 bg-gradient-to-b from-brand-primary to-brand-secondary mt-2 min-h-[60px]"></div>
+                      <div className="w-1 flex-1 bg-linear-to-b from-brand-primary to-brand-secondary mt-2 min-h-[60px]"></div>
                     )}
                   </div>
 
@@ -237,8 +237,8 @@ export function Timeline({
                           className={cn(
                             "flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center shadow-lg",
                             step.num === steps.length
-                              ? "bg-gradient-to-br from-brand-secondary to-brand-secondary-dark"
-                              : "bg-gradient-to-br from-brand-primary to-brand-primary-dark",
+                              ? "bg-linear-to-br from-brand-secondary to-brand-secondary-dark"
+                              : "bg-linear-to-br from-brand-primary to-brand-primary-dark",
                           )}
                         >
                           <MaterialIcon

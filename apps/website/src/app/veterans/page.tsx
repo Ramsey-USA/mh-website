@@ -1,4 +1,4 @@
-import { PageTrackingClient } from "@/components/analytics";
+import { PageTrackingClient, TrackedBridgeLink } from "@/components/analytics";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -41,15 +41,15 @@ export default function VeteransPage() {
       <div className="relative z-10">
         <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
           {/* Background - Ready for photo or video */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
+            <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
           </div>
 
           {/* Header Text - Bottom Right */}
           <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
             {/* Mission Icon */}
             <div className="flex justify-end mb-4">
-              <div className="relative p-4 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
+              <div className="relative p-4 bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
                 <AmericanFlag size="4xl" animated={true} />
               </div>
             </div>
@@ -115,10 +115,10 @@ export default function VeteransPage() {
               <div className="mb-16 sm:mb-20 text-center">
                 {/* Icon with decorative lines */}
                 <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="verified"
                         size="2xl"
@@ -126,7 +126,7 @@ export default function VeteransPage() {
                       />
                     </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
 
                 {/* Two-line gradient heading */}
@@ -134,7 +134,7 @@ export default function VeteransPage() {
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Our Foundation
                   </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Veteran-Owned Values & Proven Performance
                   </span>
                 </h2>
@@ -261,13 +261,13 @@ export default function VeteransPage() {
                   >
                     {/* Colored Border Glow */}
                     <div
-                      className={`absolute -inset-2 bg-gradient-to-br ${value.iconBgGradient} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
+                      className={`absolute -inset-2 bg-linear-to-br ${value.iconBgGradient} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
                     ></div>
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
                       <div
-                        className={`h-2 bg-gradient-to-r ${value.iconBgGradient}`}
+                        className={`h-2 bg-linear-to-r ${value.iconBgGradient}`}
                       ></div>
 
                       <div className="p-6 sm:p-8 flex flex-col flex-1">
@@ -275,10 +275,10 @@ export default function VeteransPage() {
                         <div className="flex items-start justify-between mb-5">
                           <div className="relative">
                             <div
-                              className={`absolute -inset-2 bg-gradient-to-br ${value.iconBgGradient} opacity-30 blur-lg rounded-2xl`}
+                              className={`absolute -inset-2 bg-linear-to-br ${value.iconBgGradient} opacity-30 blur-lg rounded-2xl`}
                             ></div>
                             <div
-                              className={`relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${value.iconBgGradient} rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 transition-all duration-300`}
+                              className={`relative inline-flex items-center justify-center w-16 h-16 bg-linear-to-br ${value.iconBgGradient} rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 transition-all duration-300`}
                             >
                               <MaterialIcon
                                 icon={value.icon}
@@ -335,7 +335,7 @@ export default function VeteransPage() {
                               className="flex items-start gap-3"
                             >
                               <div
-                                className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br ${value.iconBgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                                className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-linear-to-br ${value.iconBgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
                               >
                                 <MaterialIcon
                                   icon="check"
@@ -362,15 +362,15 @@ export default function VeteransPage() {
                   style={{ "--delay": "0.1s" } as React.CSSProperties}
                 >
                   <div className="group relative flex h-full">
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
-                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
-                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+                      <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
                       <div className="p-8 sm:p-10 text-center">
                         <div className="relative inline-block mb-6 mx-auto">
-                          <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-2xl rounded-full"></div>
+                          <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-2xl rounded-full"></div>
                           <div className="relative">
                             <MaterialIcon
                               icon="military_tech"
@@ -404,15 +404,15 @@ export default function VeteransPage() {
                   style={{ "--delay": "0.2s" } as React.CSSProperties}
                 >
                   <div className="group relative flex h-full">
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
-                      <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
-                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                      <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
                       <div className="p-8 sm:p-10 text-center">
                         <div className="relative inline-block mb-6 mx-auto">
-                          <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-2xl rounded-full"></div>
+                          <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-2xl rounded-full"></div>
                           <div className="relative">
                             <MaterialIcon
                               icon="anchor"
@@ -454,10 +454,10 @@ export default function VeteransPage() {
               <div className="mb-16 sm:mb-20 text-center">
                 {/* Icon with decorative lines */}
                 <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="military_tech"
                         size="2xl"
@@ -465,7 +465,7 @@ export default function VeteransPage() {
                       />
                     </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
 
                 {/* Two-line gradient heading */}
@@ -473,7 +473,7 @@ export default function VeteransPage() {
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Service Recognizes Service
                   </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Combat Veteran Discount at the Ready
                   </span>
                 </h2>
@@ -497,12 +497,12 @@ export default function VeteransPage() {
               <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
                 {/* All Branches */}
                 <div className="group relative flex h-full">
-                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                  <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
                   <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
-                    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary"></div>
+                    <div className="h-2 bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary"></div>
                     <div className="p-6 sm:p-8 text-center flex flex-col flex-1">
                       <div className="relative inline-block mb-4 mx-auto">
-                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-secondary/40 opacity-30 blur-lg rounded-full"></div>
+                        <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-secondary/40 opacity-30 blur-lg rounded-full"></div>
                         <div className="relative">
                           <MaterialIcon
                             icon="shield"
@@ -528,12 +528,12 @@ export default function VeteransPage() {
 
                 {/* Case-by-Case Evaluation */}
                 <div className="group relative flex h-full">
-                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                  <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
                   <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
-                    <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                    <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
                     <div className="p-6 sm:p-8 text-center flex flex-col flex-1">
                       <div className="relative inline-block mb-4 mx-auto">
-                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
+                        <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
                         <div className="relative">
                           <MaterialIcon
                             icon="balance"
@@ -561,7 +561,7 @@ export default function VeteransPage() {
               {/* Screening Process Timeline Section */}
               <div className="relative max-w-6xl mx-auto mt-16">
                 {/* Vertical Connecting Line - Desktop */}
-                <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-brand-primary/30 via-brand-secondary to-brand-primary/30"></div>
+                <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-linear-to-b from-brand-primary/30 via-brand-secondary to-brand-primary/30"></div>
 
                 {/* Timeline Header */}
                 <div className="mb-12 text-center">
@@ -630,7 +630,7 @@ export default function VeteransPage() {
                                       {step.title}
                                     </h4>
                                   </div>
-                                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                                  <div className="flex-shrink-0 w-14 h-14 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                                     <MaterialIcon
                                       icon={step.icon}
                                       size="lg"
@@ -646,7 +646,7 @@ export default function VeteransPage() {
 
                             {/* Center Circle */}
                             <div className="flex-shrink-0 relative z-10">
-                              <div className="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                              <div className="w-16 h-16 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
                                 {step.num}
                               </div>
                             </div>
@@ -661,7 +661,7 @@ export default function VeteransPage() {
 
                             {/* Center Circle */}
                             <div className="flex-shrink-0 relative z-10">
-                              <div className="w-16 h-16 bg-gradient-to-br from-brand-secondary to-bronze-700 rounded-full flex items-center justify-center text-white font-black text-xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                              <div className="w-16 h-16 bg-linear-to-br from-brand-secondary to-bronze-700 rounded-full flex items-center justify-center text-white font-black text-xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
                                 {step.num}
                               </div>
                             </div>
@@ -670,7 +670,7 @@ export default function VeteransPage() {
                             <div className="flex-1 text-left">
                               <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-secondary dark:group-hover:border-brand-secondary-light">
                                 <div className="flex items-center gap-4 mb-4">
-                                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-brand-secondary to-bronze-700 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
+                                  <div className="flex-shrink-0 w-14 h-14 bg-linear-to-br from-brand-secondary to-bronze-700 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
                                     <MaterialIcon
                                       icon={step.icon}
                                       size="lg"
@@ -699,14 +699,14 @@ export default function VeteransPage() {
                           <div
                             className={`w-14 h-14 ${
                               step.num % 2 === 0
-                                ? "bg-gradient-to-br from-brand-secondary to-bronze-700"
-                                : "bg-gradient-to-br from-brand-primary to-brand-primary-dark"
+                                ? "bg-linear-to-br from-brand-secondary to-bronze-700"
+                                : "bg-linear-to-br from-brand-primary to-brand-primary-dark"
                             } rounded-full flex items-center justify-center text-white font-black text-lg shadow-xl border-4 border-white dark:border-gray-900 relative z-10`}
                           >
                             {step.num}
                           </div>
                           {index < 4 && (
-                            <div className="w-1 flex-1 bg-gradient-to-b from-brand-primary to-brand-secondary mt-2 min-h-[60px]"></div>
+                            <div className="w-1 flex-1 bg-linear-to-b from-brand-primary to-brand-secondary mt-2 min-h-[60px]"></div>
                           )}
                         </div>
 
@@ -717,8 +717,8 @@ export default function VeteransPage() {
                               <div
                                 className={`flex-shrink-0 w-12 h-12 ${
                                   step.num % 2 === 0
-                                    ? "bg-gradient-to-br from-brand-secondary to-bronze-700"
-                                    : "bg-gradient-to-br from-brand-primary to-brand-primary-dark"
+                                    ? "bg-linear-to-br from-brand-secondary to-bronze-700"
+                                    : "bg-linear-to-br from-brand-primary to-brand-primary-dark"
                                 } rounded-xl flex items-center justify-center shadow-lg`}
                               >
                                 <MaterialIcon
@@ -806,10 +806,10 @@ export default function VeteransPage() {
               <div className="mb-16 sm:mb-20 text-center relative z-10">
                 {/* Icon with decorative lines */}
                 <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="volunteer_activism"
                         size="2xl"
@@ -817,7 +817,7 @@ export default function VeteransPage() {
                       />
                     </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
 
                 {/* Two-line gradient heading */}
@@ -825,7 +825,7 @@ export default function VeteransPage() {
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Mission Commitment
                   </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Year-Round Veteran Support Programs
                   </span>
                 </h2>
@@ -881,7 +881,7 @@ export default function VeteransPage() {
                     className="h-full flex flex-col text-center p-6 sm:p-8 bg-white dark:bg-gray-800 rounded-3xl border-2 border-gray-200 dark:border-gray-700 hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group shadow-lg hover:-translate-y-2 scroll-reveal"
                   >
                     <div className="relative inline-block mb-4 mx-auto">
-                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 opacity-20 blur-lg rounded-full group-hover:opacity-40 transition-opacity"></div>
+                      <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/30 to-brand-secondary/30 opacity-20 blur-lg rounded-full group-hover:opacity-40 transition-opacity"></div>
                       <div className="relative">
                         <MaterialIcon
                           icon={stat.icon}
@@ -908,15 +908,15 @@ export default function VeteransPage() {
               <div className={`${gridPresets.cards3("md")} relative z-10`}>
                 <div className="group relative flex h-full scroll-reveal">
                   {/* Animated Border Glow */}
-                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                  <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
                   <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                     {/* Top Accent Bar */}
-                    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+                    <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
                     <div className="p-6 sm:p-8 flex flex-col flex-1">
                       <div className="relative inline-block mb-4 mx-auto">
-                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
+                        <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
                         <div className="relative">
                           <MaterialIcon
                             icon="badge"
@@ -957,15 +957,15 @@ export default function VeteransPage() {
 
                 <div className="group relative flex h-full scroll-reveal">
                   {/* Animated Border Glow */}
-                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                  <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
                   <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                     {/* Top Accent Bar */}
-                    <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                    <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
                     <div className="p-6 sm:p-8 flex flex-col flex-1">
                       <div className="relative inline-block mb-4 mx-auto">
-                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
+                        <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
                         <div className="relative">
                           <MaterialIcon
                             icon="handshake"
@@ -1004,15 +1004,15 @@ export default function VeteransPage() {
 
                 <div className="group relative flex h-full scroll-reveal">
                   {/* Animated Border Glow */}
-                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                  <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
                   <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                     {/* Top Accent Bar */}
-                    <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                    <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
                     <div className="p-6 sm:p-8 flex flex-col flex-1">
                       <div className="relative inline-block mb-4 mx-auto">
-                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
+                        <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
                         <div className="relative">
                           <MaterialIcon
                             icon="military_tech"
@@ -1068,10 +1068,10 @@ export default function VeteransPage() {
               <div className="mb-16 sm:mb-20 text-center">
                 {/* Icon with decorative lines */}
                 <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="groups"
                         size="2xl"
@@ -1079,7 +1079,7 @@ export default function VeteransPage() {
                       />
                     </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
 
                 {/* Two-line gradient heading */}
@@ -1087,7 +1087,7 @@ export default function VeteransPage() {
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Building Relationships
                   </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Strategic Veteran Organization Partnerships
                   </span>
                 </h2>
@@ -1158,17 +1158,17 @@ export default function VeteransPage() {
                         <div
                           role="img"
                           aria-label={`${item.title} - ${item.tagline}`}
-                          className={`relative h-64 sm:h-80 lg:h-full lg:min-h-[500px] overflow-hidden bg-gradient-to-br from-brand-primary via-gray-900 to-brand-secondary ${
+                          className={`relative h-64 sm:h-80 lg:h-full lg:min-h-[500px] overflow-hidden bg-linear-to-br from-brand-primary via-gray-900 to-brand-secondary ${
                             isLeft ? "lg:order-1" : "lg:order-2"
                           }`}
                         >
                           {/* Overlay gradient for better icon visibility */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent lg:bg-gradient-to-r lg:from-black/60 lg:via-black/20 lg:to-transparent"></div>
+                          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent lg:bg-linear-to-r lg:from-black/60 lg:via-black/20 lg:to-transparent"></div>
 
                           {/* Icon Badge on Image */}
                           <div className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
                             <div className="relative inline-block">
-                              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 blur-xl rounded-2xl"></div>
+                              <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 to-brand-secondary/30 blur-xl rounded-2xl"></div>
                               <div
                                 className={`relative w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 ${item.iconBg} rounded-2xl flex items-center justify-center shadow-xl`}
                               >
@@ -1265,6 +1265,70 @@ export default function VeteransPage() {
                 Accredited & Certified
               </p>
               <AccreditationsLogoRow />
+            </div>
+          </section>
+
+          <section className="relative py-12 sm:py-16">
+            <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white tracking-tight">
+                  Public Sector Bridge Paths
+                </h3>
+                <p className="mt-3 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                  Move from veteran-focused values into government project
+                  planning with direct pathways for compliance, regional
+                  strategy, and project scoping.
+                </p>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-3">
+                {[
+                  {
+                    href: "/veterans/public-sector-construction",
+                    title: "Veteran-Led Public Sector Path",
+                    description:
+                      "Bridge veteran values into public-sector delivery planning.",
+                    icon: "account_balance",
+                  },
+                  {
+                    href: "/public-sector/veteran-led-compliance",
+                    title: "Compliance Workflow",
+                    description:
+                      "Review the compliance sequence from intake through execution.",
+                    icon: "verified",
+                  },
+                  {
+                    href: "/public-sector/tri-state-government-construction",
+                    title: "Tri-State Government Strategy",
+                    description:
+                      "Map WA, OR, and ID opportunities to service coverage.",
+                    icon: "travel_explore",
+                  },
+                ].map((pathway) => (
+                  <TrackedBridgeLink
+                    key={pathway.href}
+                    href={pathway.href}
+                    trackId={`veterans-bridge-${pathway.href}`}
+                    className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 shadow-sm hover:shadow-md hover:border-brand-primary transition-all"
+                  >
+                    <MaterialIcon
+                      icon={pathway.icon}
+                      size="md"
+                      className="text-brand-primary"
+                    />
+                    <h4 className="mt-3 font-bold text-gray-900 dark:text-white text-lg">
+                      {pathway.title}
+                    </h4>
+                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {pathway.description}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-brand-primary dark:text-brand-primary-light">
+                      Open pathway
+                      <MaterialIcon icon="arrow_forward" size="sm" />
+                    </span>
+                  </TrackedBridgeLink>
+                ))}
+              </div>
             </div>
           </section>
 

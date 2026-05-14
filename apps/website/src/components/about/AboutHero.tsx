@@ -6,16 +6,16 @@ export function AboutHero() {
   return (
     <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
       {/* Background - Ready for photo or video */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
+      <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
         {/* Overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
       </div>
 
       {/* Header Text - Bottom Right */}
       <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
         {/* Mission Icon */}
         <div className="flex justify-end mb-4">
-          <div className="relative p-4 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
+          <div className="relative p-4 bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
             <MaterialIcon
               icon="military_tech"
               size="4xl"

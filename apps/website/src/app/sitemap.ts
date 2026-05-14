@@ -35,6 +35,21 @@ const ACTIVE_PAGES = [
   { path: "/contact", priority: 0.8, changeFreq: "monthly" as const },
   { path: "/projects", priority: 0.8, changeFreq: "weekly" as const },
   { path: "/public-sector", priority: 0.8, changeFreq: "monthly" as const },
+  {
+    path: "/veterans/public-sector-construction",
+    priority: 0.8,
+    changeFreq: "monthly" as const,
+  },
+  {
+    path: "/public-sector/veteran-led-compliance",
+    priority: 0.8,
+    changeFreq: "monthly" as const,
+  },
+  {
+    path: "/public-sector/tri-state-government-construction",
+    priority: 0.78,
+    changeFreq: "monthly" as const,
+  },
   { path: "/testimonials", priority: 0.8, changeFreq: "weekly" as const },
   {
     path: "/cool-desert-nights",

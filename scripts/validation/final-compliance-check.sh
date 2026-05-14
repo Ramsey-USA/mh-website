@@ -50,7 +50,7 @@ standard_h2=$(find $SRC_DIR -name "*.tsx" | xargs grep -l "font-bold.*text-2xl.*
 echo "📰 Standardized H2 Headers: ✅ $standard_h2 sections using standard pattern"
 
 # Brand gradients
-brand_gradients=$(find $SRC_DIR -name "*.tsx" | xargs grep -l "bg-gradient-to-r.*from-brand.*to-brand" | wc -l)
+brand_gradients=$(find $SRC_DIR -name "*.tsx" | xargs grep -l "bg-linear-to-r.*from-brand.*to-brand" | wc -l)
 echo "🌈 Brand Gradients: ✅ $brand_gradients proper gradient implementations"
 
 # Typography hierarchy
@@ -62,7 +62,7 @@ echo "🏛️  Public Sector Page Special Design Validation..."
 echo ""
 
 # Check public sector page maintains black/white theme
-gov_dark_theme=$(grep -c "bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900" $SRC_DIR/public-sector/page.tsx 2>/dev/null || echo "0")
+gov_dark_theme=$(grep -c "bg-linear-to-br from-gray-900 via-gray-700 to-gray-900" $SRC_DIR/public-sector/page.tsx 2>/dev/null || echo "0")
 gov_white_sections=$(grep -c "bg-white.*dark:bg-gray-900" $SRC_DIR/public-sector/page.tsx 2>/dev/null || echo "0")
 echo "🎨 Public Sector Dark Theme: $([ $gov_dark_theme -gt 0 ] && echo "✅ PRESERVED" || echo "⚠️  Check styling")"
 echo "⚪ Public Sector Light Sections: $([ $gov_white_sections -gt 0 ] && echo "✅ PRESERVED" || echo "⚠️  Check styling")"
