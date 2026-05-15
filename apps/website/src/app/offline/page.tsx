@@ -12,7 +12,7 @@ const OFFLINE_FEATURES = [
 
 export default function OfflinePage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 px-4">
       <PageTrackingClient pageName="Offline" />
       <div className="max-w-lg w-full text-center">
         <div className="mb-8 flex justify-center">

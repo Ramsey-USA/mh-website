@@ -9,7 +9,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { Button } from "@/components/ui";
-import { OptimizedVideo } from "@/components/ui/media/OptimizedVideo";
+import { StripedBackground } from "@/components/ui/StripedBackground";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { useSmokeBossCampaignStatus } from "@/hooks";
 
@@ -23,52 +23,78 @@ const NextStepsSection = dynamic(
 
 const chamberScheduleUrl =
   "https://www.richlandchamber.org/cool-desert-nights/";
-const mayorOfficeUrl = "https://www.go2kennewick.com/131/Mayor-Council";
-const pnwbaUrl = "https://www.pnwba.com/";
+const eventbriteUrl =
+  "https://www.eventbrite.com/e/2026-cool-desert-nights-tickets-1984588946964";
+const mayorOfficeUrl = "https://www.ci.richland.wa.us/government/city-council";
 const kiwanisUrl = "https://kiwanisrichland.org/";
+const panelClass =
+  "rounded-2xl border border-gray-200 bg-white/92 shadow-xl backdrop-blur-sm dark:border-white/20 dark:bg-white/5 dark:shadow-2xl";
+const subPanelClass =
+  "rounded-xl border border-gray-200 bg-white/88 backdrop-blur-sm dark:border-white/15 dark:bg-white/8";
+const inlineLinkClass =
+  "font-semibold text-brand-primary underline decoration-brand-primary/45 underline-offset-4 transition-colors hover:text-brand-primary-dark dark:text-brand-secondary dark:decoration-brand-secondary/60 dark:hover:text-brand-secondary-light";
 
 export function CoolDesertNightsPageClient() {
   const { isMissionComplete } = useSmokeBossCampaignStatus();
   const [eventLogoSrc, setEventLogoSrc] = useState(
-    "/images/events/cool-desert-nights/cool-desert-nights-logo.webp",
-  );
-  const [signageLogoASrc, setSignageLogoASrc] = useState(
-    "/images/events/cool-desert-nights/smoke-boss-premium-signage-logo.webp",
-  );
-  const [signageLogoBSrc, setSignageLogoBSrc] = useState(
-    "/images/events/cool-desert-nights/smoke-boss-booth-signage-logo.webp",
+    "/images/events/cool-desert-nights/cool-desert-nights-logo1.webp",
   );
 
   return (
     <>
       <PageTrackingClient pageName="Cool Desert Nights Event" />
-      <div className="bg-linear-to-b from-brand-primary/95 via-brand-primary/90 to-brand-primary/85 text-white">
+      <div className="relative overflow-hidden text-white">
+        {/* Hero Section (no stripes) */}
         <section
           id="event-hero"
           className="relative overflow-hidden border-b border-brand-secondary/35"
         >
-          <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-brand-primary/25 via-transparent to-brand-secondary/20" />
-          <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pt-16 pb-12 sm:px-6 sm:pt-24 sm:pb-16 md:pt-32 md:pb-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:pt-40 lg:pb-28">
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900" />
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80" />
+          <div className="relative mx-auto grid max-w-7xl gap-8 px-4 pt-32 pb-28 sm:px-6 sm:pt-36 sm:pb-32 md:pt-40 md:pb-36 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:pt-44 lg:pb-40">
             <div className="space-y-6">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary/90">
-                  Events | Field Brief
+                  Base HQ - Events | Field Brief
                 </p>
                 {isMissionComplete ? (
-                  <h1 className="text-balance text-3xl font-black leading-tight sm:text-5xl">
-                    Cool Desert Nights 2026: Event Debrief
+                  <h1 className="text-balance text-2xl font-black leading-tight sm:text-4xl lg:text-5xl">
+                    Base HQ - Events: Cool Desert Nights 2026 Debrief
                   </h1>
                 ) : (
-                  <h1 className="text-balance text-3xl font-black leading-tight sm:text-5xl">
-                    MH Construction at the 32nd Annual Cool Desert Nights
+                  <h1 className="text-balance text-2xl font-black leading-tight sm:text-4xl lg:text-5xl">
+                    Base HQ - Events: Cool Desert Nights 2026 Briefing
                   </h1>
                 )}
               </div>
               <p className="max-w-3xl text-base leading-relaxed text-white/90 sm:text-lg">
                 {isMissionComplete
-                  ? "Thank you to the Richland and Kennewick community, event leadership, and local partners who made this event successful."
-                  : "Join us June 26-27 in Richland, WA for the event weekend, community activities, and a chance to connect with our team in person."}
+                  ? "Thank you to the Richland and Kennewick community, event leadership, and Client Partners who made this event successful through coordinated execution."
+                  : "Cool Desert Nights 2026 is scheduled for June 26-27 in Richland, WA, featuring classic cars, a Friday night cruise, and a Saturday Show 'n Shine in the Uptown Shopping Center."}
               </p>
+
+              <div className="grid gap-3 text-sm text-white/90 sm:grid-cols-3">
+                <div className="rounded-xl border border-white/20 bg-white/8 px-4 py-3 backdrop-blur-sm">
+                  <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
+                    Event Window
+                  </p>
+                  <p className="mt-1 font-semibold">June 26-27, 2026</p>
+                </div>
+                <div className="rounded-xl border border-white/20 bg-white/8 px-4 py-3 backdrop-blur-sm">
+                  <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
+                    Location
+                  </p>
+                  <p className="mt-1 font-semibold">Uptown Shopping Center</p>
+                </div>
+                <div className="rounded-xl border border-white/20 bg-white/8 px-4 py-3 backdrop-blur-sm">
+                  <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
+                    Signature Events
+                  </p>
+                  <p className="mt-1 font-semibold">
+                    Cruise + Show &#39;n Shine
+                  </p>
+                </div>
+              </div>
 
               <div className="flex flex-wrap gap-3">
                 <Link
@@ -79,21 +105,21 @@ export function CoolDesertNightsPageClient() {
                   <Button
                     variant="secondary"
                     size="lg"
-                    className="touch-manipulation border-brand-secondary bg-brand-secondary/25 text-white hover:bg-brand-secondary hover:text-brand-primary"
+                    className="touch-manipulation"
                   >
                     <MaterialIcon
                       icon="calendar_month"
                       size="md"
                       className="mr-2"
                     />
-                    View Official Schedule
+                    Chamber Schedule + Registration
                   </Button>
                 </Link>
                 <Link href="/contact">
                   <Button
-                    variant="outline"
+                    variant="primary"
                     size="lg"
-                    className="touch-manipulation border-brand-secondary/45 bg-brand-primary/35 text-white hover:bg-brand-secondary/20"
+                    className="touch-manipulation"
                   >
                     <MaterialIcon icon="handshake" size="md" className="mr-2" />
                     Talk With Our Team
@@ -102,9 +128,9 @@ export function CoolDesertNightsPageClient() {
                 {!isMissionComplete && (
                   <Link href="#booth-map">
                     <Button
-                      variant="outline"
+                      variant="primary"
                       size="lg"
-                      className="touch-manipulation border-brand-secondary/45 bg-brand-primary/35 text-white hover:bg-brand-secondary/20"
+                      className="touch-manipulation"
                     >
                       <MaterialIcon icon="map" size="md" className="mr-2" />
                       Visit Our Booth
@@ -114,9 +140,9 @@ export function CoolDesertNightsPageClient() {
               </div>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-4 backdrop-blur-sm">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/75">
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary/95">
                   Official Event Logo
                 </p>
                 <Image
@@ -124,12 +150,12 @@ export function CoolDesertNightsPageClient() {
                   alt="Cool Desert Nights official event logo"
                   width={520}
                   height={320}
-                  className="h-36 w-full rounded-lg object-contain"
+                  className="h-36 w-full object-contain drop-shadow-[0_14px_34px_rgba(0,0,0,0.55)] sm:h-44 lg:h-48"
                   onError={() => setEventLogoSrc("/images/og-default.webp")}
                 />
               </div>
-              <div className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-4 backdrop-blur-sm">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/75">
+              <div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary/95">
                   MH Construction
                 </p>
                 <Image
@@ -137,285 +163,357 @@ export function CoolDesertNightsPageClient() {
                   alt="MH Construction brand logo"
                   width={520}
                   height={320}
-                  className="h-36 w-full rounded-lg bg-brand-primary/40 object-contain p-3"
+                  className="h-36 w-full object-contain drop-shadow-[0_14px_34px_rgba(0,0,0,0.55)] sm:h-44 lg:h-48"
                   priority
                 />
               </div>
             </div>
           </div>
-
           <PageNavigation
             items={navigationConfigs.coolDesertNights}
             className="absolute bottom-0 left-0 right-0"
           />
         </section>
 
-        <Breadcrumb
-          items={[{ label: "Home", href: "/" }, { label: "Events" }]}
-        />
+        {/* Main Content Sections with Stripes */}
+        <StripedBackground className="bg-white dark:bg-gray-900">
+          <div className="relative z-10">
+            <Breadcrumb
+              items={[{ label: "Home", href: "/" }, { label: "Events" }]}
+            />
 
-        <section
-          id="event-update"
-          className="relative overflow-hidden border-b border-brand-secondary/25 bg-brand-primary/35 py-6"
-        >
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-secondary/45 bg-brand-secondary/20 px-4 py-1.5 text-white">
-              <MaterialIcon icon="event" size="sm" />
-              <span className="flex flex-col leading-tight">
-                <span className="font-heading text-[11px] font-bold uppercase tracking-[0.16em] text-white">
-                  Event Update
-                </span>
-                <span className="text-[10px] uppercase tracking-[0.14em] text-brand-secondary/90">
-                  Discover | Field Brief | Cool Desert Nights 2026
-                </span>
-              </span>
-            </div>
-          </div>
-        </section>
-
-        <section
-          id="community-leadership"
-          className="mx-auto max-w-7xl px-4 py-12 sm:px-6"
-        >
-          <div className="rounded-2xl border border-brand-secondary/45 bg-brand-primary/30 p-6 sm:p-8">
-            <div className="mb-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
-                Community Leadership
-              </p>
-              <p className="text-[10px] uppercase tracking-[0.14em] text-brand-secondary/80">
-                Trust | Command Alignment
-              </p>
-            </div>
-            <p className="text-lg font-semibold text-white sm:text-xl">
-              MH Construction Owner Jeremy Thamert will serve as an official BBQ
-              judge alongside the Mayor of Kennewick.
-            </p>
-            <p className="mt-3 text-white/85">
-              Local leadership alignment is coordinated with the{" "}
-              <Link
-                href={mayorOfficeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-brand-secondary underline decoration-brand-secondary/60 underline-offset-4"
-              >
-                Kennewick Mayor&apos;s Office
-              </Link>{" "}
-              to support coordinated community participation.
-            </p>
-          </div>
-        </section>
-
-        <section
-          id="event-overview"
-          className="mx-auto grid max-w-7xl gap-6 px-4 pb-8 sm:px-6 lg:grid-cols-3"
-        >
-          <article className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-6">
-            <h2 className="mb-3 text-xl font-black text-brand-secondary">
-              Competition Overview
-            </h2>
-            <p className="text-white/90">
-              The Smoke &amp; Shine BBQ Showdown is sanctioned by the{" "}
-              <Link
-                href={pnwbaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-brand-secondary underline decoration-brand-secondary/60 underline-offset-4"
-              >
-                PNWBA
-              </Link>
-              , bringing regional teams together in one official competition.
-            </p>
-          </article>
-
-          <article className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-6">
-            <h2 className="mb-3 text-xl font-black text-brand-secondary">
-              MH Construction Presence
-            </h2>
-            <p className="text-white/90">
-              Our event footprint includes a 10 x 10 booth package, sponsor
-              signage, and an on-site fleet display designed for direct
-              community engagement.
-            </p>
-          </article>
-
-          <article className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-6">
-            <h2 className="mb-3 text-xl font-black text-brand-secondary">
-              Local Impact
-            </h2>
-            <p className="text-white/90">
-              MH Construction support extends to the Richland Kiwanis Pancake
-              Breakfast,{" "}
-              <Link
-                href={kiwanisUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-brand-secondary underline decoration-brand-secondary/60 underline-offset-4"
-              >
-                Kiwanis programming
-              </Link>
-              , and the Party in the Park weekend draw.
-            </p>
-          </article>
-        </section>
-
-        <section
-          id="event-media"
-          className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[1.2fr_0.8fr]"
-        >
-          <div className="overflow-hidden rounded-2xl border border-brand-secondary/30 bg-brand-primary/30">
-            <div className="border-b border-brand-secondary/30 px-5 py-3">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/80">
-                  Event Media
+            <section
+              id="community-leadership"
+              className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16"
+            >
+              <div className={`${panelClass} p-6 sm:p-8`}>
+                <div className="mb-2">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
+                    Community Leadership
+                  </p>
+                  <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/80">
+                    Trust | Command Alignment
+                  </p>
+                </div>
+                <p className="text-xl font-black text-gray-900 dark:text-white sm:text-2xl">
+                  MH Construction Owner Jeremy Thamert will serve as an official
+                  BBQ judge alongside Richland Mayor Theresa Richardson.
                 </p>
-                <p className="text-[10px] uppercase tracking-[0.14em] text-brand-secondary/85">
-                  Visual Brief
+                <p className="mt-3 text-gray-700 dark:text-white/85">
+                  Local leadership alignment is coordinated with the{" "}
+                  <Link
+                    href={mayorOfficeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={inlineLinkClass}
+                  >
+                    Richland Mayor&apos;s Office
+                  </Link>{" "}
+                  and event leadership to support coordinated community
+                  participation and clear communication.
                 </p>
               </div>
-            </div>
-            <div className="aspect-video w-full bg-black">
-              <OptimizedVideo
-                webmSrc="/videos/events/cool-desert-nights/smoke-boss-feature.webm"
-                mp4Src="/videos/events/cool-desert-nights/smoke-boss-feature.mp4"
-                poster="/images/events/cool-desert-nights/smoke-boss-video-poster.webp"
-                controls
-                ariaLabel="Cool Desert Nights event feature video"
-              />
-            </div>
-          </div>
+            </section>
 
-          <div className="space-y-4">
-            <div className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-4">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/75">
-                Premium Signage Logo A
-              </p>
-              <Image
-                src={signageLogoASrc}
-                alt="Smoke Boss premium signage logo"
-                width={600}
-                height={260}
-                className="h-24 w-full rounded-lg object-contain"
-                onError={() => setSignageLogoASrc("/images/logo/mh-logo.webp")}
-              />
-            </div>
-
-            <div className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-4">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/75">
-                Premium Signage Logo B
-              </p>
-              <Image
-                src={signageLogoBSrc}
-                alt="Smoke Boss booth signage logo"
-                width={600}
-                height={260}
-                className="h-24 w-full rounded-lg object-contain"
-                onError={() => setSignageLogoBSrc("/images/logo/mh-logo.webp")}
-              />
-            </div>
-          </div>
-        </section>
-
-        {!isMissionComplete && (
-          <section
-            id="booth-map"
-            className="mx-auto max-w-7xl px-4 py-8 sm:px-6"
-          >
-            <div className="rounded-2xl border border-brand-secondary/45 bg-brand-primary/30 p-6 sm:p-8">
-              <div>
-                <h2 className="text-2xl font-black text-brand-secondary">
-                  Digital Booth Map
+            <section
+              id="mh-values"
+              className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16"
+            >
+              <div className={`${panelClass} p-6`}>
+                <h2 className="text-xl font-black text-brand-secondary">
+                  Service-Earned Values In Action
                 </h2>
-                <p className="text-[10px] uppercase tracking-[0.14em] text-brand-secondary/80">
-                  Site Recon
+                <p className="mt-2 max-w-3xl text-gray-700 dark:text-white/85">
+                  Event coordination follows the same operating standard as
+                  every MH Construction project: Honesty, Integrity,
+                  Professionalism, and Thoroughness.
                 </p>
-              </div>
-              <p className="mt-3 max-w-3xl text-white/90">
-                Our booth is staged near the BBQ competition lane for direct
-                access to event traffic and the fleet showcase.
-              </p>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-xl border border-brand-secondary/30 bg-brand-primary/45 p-4">
-                  <p className="text-sm font-semibold text-white">Booth ID</p>
-                  <p className="text-white/85">
-                    Smoke &amp; Shine Sponsor Booth - 10 x 10
-                  </p>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  <div className={`${subPanelClass} p-4`}>
+                    <p className="text-sm font-bold text-gray-900 dark:text-white">
+                      Honesty
+                    </p>
+                    <p className="mt-1 text-sm text-gray-700 dark:text-white/80">
+                      Clear event expectations and scope.
+                    </p>
+                  </div>
+                  <div className={`${subPanelClass} p-4`}>
+                    <p className="text-sm font-bold text-gray-900 dark:text-white">
+                      Integrity
+                    </p>
+                    <p className="mt-1 text-sm text-gray-700 dark:text-white/80">
+                      Commitments delivered as promised.
+                    </p>
+                  </div>
+                  <div className={`${subPanelClass} p-4`}>
+                    <p className="text-sm font-bold text-gray-900 dark:text-white">
+                      Professionalism
+                    </p>
+                    <p className="mt-1 text-sm text-gray-700 dark:text-white/80">
+                      Coordinated leadership and partner communication.
+                    </p>
+                  </div>
+                  <div className={`${subPanelClass} p-4`}>
+                    <p className="text-sm font-bold text-gray-900 dark:text-white">
+                      Thoroughness
+                    </p>
+                    <p className="mt-1 text-sm text-gray-700 dark:text-white/80">
+                      Details managed from schedule through close-out.
+                    </p>
+                  </div>
                 </div>
-                <div className="rounded-xl border border-brand-secondary/30 bg-brand-primary/45 p-4">
-                  <p className="text-sm font-semibold text-white">Landmark</p>
-                  <p className="text-white/85">
-                    Adjacent to BBQ competition ingress
-                  </p>
-                </div>
               </div>
-            </div>
-          </section>
-        )}
+            </section>
 
-        <section
-          id="event-timeline"
-          className="mx-auto max-w-7xl px-4 pt-6 pb-8 sm:px-6"
-        >
-          <div className="rounded-2xl border border-brand-secondary/30 bg-brand-primary/30 p-6">
-            <h2 className="text-lg font-black text-white">Event Timeline</h2>
-            <p className="text-[10px] uppercase tracking-[0.14em] text-brand-secondary/85">
-              Proof | After-Action Timeline
-            </p>
-            <p className="mt-2 text-sm text-white/85">
-              Production deployment target: May 20, 2026. Chamber reciprocity
-              and partner coordination are tracked through official event
-              channels.
-            </p>
-          </div>
-        </section>
+            <section
+              id="event-overview"
+              className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-3"
+            >
+              <article className={`${panelClass} p-6`}>
+                <h2 className="mb-3 text-xl font-black text-brand-secondary">
+                  Competition Overview
+                </h2>
+                <p className="text-gray-700 dark:text-white/90">
+                  Cool Desert Nights is a premier Tri-Cities summer event with
+                  classic cars, a Friday night cruise on George Washington Way,
+                  and a Saturday Show &#39;n Shine hosted in Richland&apos;s
+                  Uptown Shopping Center.
+                </p>
+              </article>
 
-        <section
-          id="event-action"
-          className="mx-auto max-w-7xl px-4 pb-14 sm:px-6"
-        >
-          <div className="rounded-2xl border border-brand-secondary/45 bg-brand-primary/35 p-6 sm:p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
-              Events Coordination
-            </p>
-            <p className="text-[10px] uppercase tracking-[0.14em] text-brand-secondary/80">
-              Action | Rally Point
-            </p>
-            <h2 className="mt-2 text-2xl font-black text-white sm:text-3xl">
-              Connect With the Team Before the Next Event Window
-            </h2>
-            <p className="mt-3 max-w-3xl text-white/90">
-              For event partnerships, sponsorship coordination, or community
-              planning, contact our team directly for relationship-first support
-              and clear next steps.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  className="touch-manipulation border-brand-secondary bg-brand-secondary/25 text-white hover:bg-brand-secondary hover:text-brand-primary"
-                >
-                  <MaterialIcon
-                    icon="contact_phone"
-                    size="md"
-                    className="mr-2"
+              <article className={`${panelClass} p-6`}>
+                <h2 className="mb-3 text-xl font-black text-brand-secondary">
+                  MH Construction Presence
+                </h2>
+                <p className="text-gray-700 dark:text-white/90">
+                  Saturday Show &#39;n Shine includes hundreds of cars on
+                  display, plus family-friendly activities with a kids&#39;
+                  zone, vendor booths, and community access points throughout
+                  the venue.
+                </p>
+              </article>
+
+              <article className={`${panelClass} p-6`}>
+                <h2 className="mb-3 text-xl font-black text-brand-secondary">
+                  Local Impact
+                </h2>
+                <p className="text-gray-700 dark:text-white/90">
+                  Weekend programming includes Party in the Park, live music,
+                  food vendors, and a Saturday awards ceremony. MH Construction
+                  support extends to the Richland Kiwanis Pancake Breakfast,{" "}
+                  <Link
+                    href={kiwanisUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={inlineLinkClass}
+                  >
+                    Kiwanis programming
+                  </Link>
+                  , and the Party in the Park weekend draw.
+                </p>
+              </article>
+            </section>
+
+            <section
+              id="event-media"
+              className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16"
+            >
+              <div className={`${panelClass} overflow-hidden`}>
+                <div className="border-b border-brand-secondary/30 px-5 py-3">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.14em] text-gray-600 dark:text-white/80">
+                      Event Media
+                    </p>
+                    <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
+                      Visual Brief
+                    </p>
+                  </div>
+                </div>
+                <div className="aspect-video w-full bg-black">
+                  <Image
+                    src="/images/events/cool-desert-nights/Smoke%20n%20Shine%20Showdown%20Graphic.webp"
+                    alt="Official Smoke n Shine Showdown BBQ contest graphic"
+                    width={1280}
+                    height={720}
+                    className="h-full w-full object-cover"
                   />
-                  Coordinate With MH
-                </Button>
-              </Link>
-              <Link href="/allies">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="touch-manipulation border-brand-secondary/45 bg-brand-primary/35 text-white hover:bg-brand-secondary/20"
-                >
-                  <MaterialIcon icon="handshake" size="md" className="mr-2" />
-                  Partner Pathways
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
+                </div>
+              </div>
+            </section>
 
-        <NextStepsSection />
+            <section
+              id="event-identity"
+              className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16"
+            >
+              <div className={`${panelClass} p-6 sm:p-8`}>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary/95">
+                  2026 Event Identity
+                </p>
+                <h2 className="mt-2 text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
+                  Official Cool Desert Nights 2026 Graphic
+                </h2>
+                <div className="mt-5">
+                  <Image
+                    src="/images/events/cool-desert-nights/cool-desert-nights-2026.webp"
+                    alt="Official Cool Desert Nights 2026 event graphic"
+                    width={1200}
+                    height={720}
+                    className="h-auto w-full object-contain drop-shadow-[0_14px_34px_rgba(0,0,0,0.55)]"
+                  />
+                </div>
+              </div>
+            </section>
+
+            {!isMissionComplete && (
+              <section
+                id="booth-map"
+                className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16"
+              >
+                <div className={`${panelClass} p-6 sm:p-8`}>
+                  <div>
+                    <h2 className="text-2xl font-black text-brand-secondary">
+                      Digital Booth Map
+                    </h2>
+                    <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/80">
+                      Site Recon
+                    </p>
+                  </div>
+                  <p className="mt-3 max-w-3xl text-gray-700 dark:text-white/90">
+                    Our booth is staged near the BBQ competition lane for direct
+                    access to event traffic and the fleet showcase.
+                  </p>
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    <div className={`${subPanelClass} p-4`}>
+                      <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                        Booth ID
+                      </p>
+                      <p className="text-gray-700 dark:text-white/85">
+                        Smoke &amp; Shine Sponsor Booth - 10 x 10
+                      </p>
+                    </div>
+                    <div className={`${subPanelClass} p-4`}>
+                      <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                        Landmark
+                      </p>
+                      <p className="text-gray-700 dark:text-white/85">
+                        Adjacent to BBQ competition ingress
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            <section
+              id="event-timeline"
+              className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16"
+            >
+              <div className={`${panelClass} p-6`}>
+                <h2 className="text-2xl font-black text-brand-secondary">
+                  Event Timeline
+                </h2>
+                <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
+                  Proof | After-Action Timeline
+                </p>
+                <div className="mt-3 space-y-2 text-sm text-gray-700 dark:text-white/85">
+                  <p>
+                    Friday Cruise: Classic cars cruise along George Washington
+                    Way.
+                  </p>
+                  <p>Party in the Park: Live music and community activities.</p>
+                  <p>
+                    Saturday Show &#39;n Shine: Vehicle displays, kids&#39;
+                    zone, vendors, and awards ceremony.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section
+              id="event-action"
+              className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16"
+            >
+              <div className={`${panelClass} p-6 sm:p-8`}>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
+                  Events Coordination
+                </p>
+                <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/80">
+                  Action | Rally Point
+                </p>
+                <h2 className="mt-2 text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
+                  Connect With the Team Before the Next Event Window
+                </h2>
+                <p className="mt-3 max-w-3xl text-gray-700 dark:text-white/90">
+                  Early online registration for cars, trucks, and motorcycles is
+                  available through the Richland Chamber. Vendor applications
+                  for 2026 are also being accepted through the chamber, and full
+                  listing details are available on Eventbrite.
+                </p>
+                <p className="mt-3 max-w-3xl text-gray-700 dark:text-white/90">
+                  Start with the{" "}
+                  <Link
+                    href={chamberScheduleUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={inlineLinkClass}
+                  >
+                    Richland Chamber of Commerce event page
+                  </Link>{" "}
+                  and view Eventbrite details below.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <Link href="/contact">
+                    <Button
+                      variant="primary"
+                      size="lg"
+                      className="touch-manipulation"
+                    >
+                      <MaterialIcon
+                        icon="contact_phone"
+                        size="md"
+                        className="mr-2"
+                      />
+                      Coordinate With MH
+                    </Button>
+                  </Link>
+                  <Link href="/allies">
+                    <Button
+                      variant="secondary"
+                      size="lg"
+                      className="touch-manipulation"
+                    >
+                      <MaterialIcon
+                        icon="handshake"
+                        size="md"
+                        className="mr-2"
+                      />
+                      Partner Pathways
+                    </Button>
+                  </Link>
+                  <Link
+                    href={eventbriteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button
+                      variant="secondary"
+                      size="lg"
+                      className="touch-manipulation"
+                    >
+                      <MaterialIcon
+                        icon="confirmation_number"
+                        size="md"
+                        className="mr-2"
+                      />
+                      View Eventbrite Details
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </section>
+            <NextStepsSection />
+          </div>
+        </StripedBackground>
       </div>
     </>
   );
