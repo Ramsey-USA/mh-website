@@ -4,7 +4,7 @@
   "description": "Veteran-owned construction website for MH Construction - Building Projects for the Client, NOT the Dollar",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "dev:inspect": "cross-env NODE_OPTIONS=--inspect next dev",
     "dev:turbo": "next dev --turbo",
     "build": "npm run build:lowmem",
@@ -28,6 +28,7 @@
     "audit:ci": "npm run security:check:prod",
     "ci:gate": "npm run type-check && npm run lint && npm run format:check && npm run test:ci && npm run audit:ci && npm run build",
     "smoke:safety": "node scripts/validation/smoke-safety-system.js",
+    "smoke:routes": "node scripts/validation/smoke-routes.js",
     "test:pwa": "node scripts/test-pwa.js",
     "test:performance": "node scripts/test-basic-performance.js",
     "perf:validate": "node scripts/validation/performance-gate.js",

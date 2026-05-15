@@ -13,6 +13,16 @@
 // Disable telemetry during CI/production builds
 process.env.NEXT_TELEMETRY_DISABLED = "1";
 
+// Required for local development when code reads Cloudflare bindings
+// through getCloudflareContext() (KV, D1, R2, etc.).
+const { initOpenNextCloudflareForDev } = require("@opennextjs/cloudflare");
+initOpenNextCloudflareForDev({ remoteBindings: false }).catch((error) => {
+  console.warn(
+    "[next.config.js] Cloudflare dev context init failed; continuing without bindings",
+    error,
+  );
+});
+
 // ── Build-time environment guard ──────────────────────────────────────────────
 // NEXT_PUBLIC_SITE_URL is baked into the client bundle at build time.
 // If missing, canonical URLs, OG tags, and sitemap links will be wrong.

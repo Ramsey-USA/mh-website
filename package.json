@@ -14,6 +14,7 @@
     "lint:fix": "pnpm --filter @mhc/dashboard lint:fix && pnpm --filter @mhc/website lint:fix",
     "type-check": "pnpm --filter './apps/*' type-check",
     "test": "pnpm --filter @mhc/website test",
+    "smoke:routes": "pnpm --filter @mhc/website smoke:routes",
     "test:dashboard": "pnpm --filter @mhc/dashboard test",
     "test:ci": "pnpm --filter @mhc/website test:ci",
     "test:ci:dashboard": "pnpm --filter @mhc/dashboard test:ci",
