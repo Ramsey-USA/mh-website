@@ -20,6 +20,7 @@ permissions:
 env:
   NODE_VERSION: "22"
   NEXT_PUBLIC_SITE_URL: https://www.mhc-gc.com
+  HUSKY: "0"
 
 jobs:
   # ──────────────────────────────────────────────────────────────
@@ -38,7 +39,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -145,7 +146,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -172,7 +173,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -193,7 +194,7 @@ jobs:
             nextjs-website-cache-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --filter @mhc/website...
 
       - name: Build website
         working-directory: apps/website
@@ -216,7 +217,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -237,7 +238,7 @@ jobs:
             nextjs-dashboard-cache-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --filter @mhc/dashboard...
 
       - name: Build dashboard
         working-directory: apps/dashboard

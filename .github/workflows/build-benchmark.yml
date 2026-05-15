@@ -1,0 +1,222 @@
+name: Build Performance Benchmark
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "apps/website/**"
+      - "packages/shared/**"
+      - "next.config.js"
+      - "open-next.config.ts"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/build-benchmark.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: build-benchmark-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+env:
+  NODE_VERSION: "22"
+  NEXT_PUBLIC_SITE_URL: https://www.mhc-gc.com
+  HUSKY: "0"
+
+jobs:
+  benchmark-website-build:
+    name: Benchmark Website Build Modes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "pnpm"
+
+      - name: Restore Next.js build cache (website)
+        uses: actions/cache@v4
+        with:
+          path: |
+            apps/website/.next/cache
+            apps/website/.open-next/cache
+          key: benchmark-nextjs-website-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{ hashFiles('apps/website/src/**', 'packages/shared/src/**', 'next.config.js', 'open-next.config.ts') }}
+          restore-keys: |
+            benchmark-nextjs-website-cache-${{ hashFiles('pnpm-lock.yaml') }}-
+            benchmark-nextjs-website-cache-
+
+      - name: Install dependencies (website scope)
+        run: pnpm install --frozen-lockfile --filter @mhc/website...
+
+      - name: Benchmark standard build
+        id: standard
+        working-directory: apps/website
+        run: |
+          rm -rf .next .open-next
+          start_ts=$(date +%s)
+          npm run build:standard
+          end_ts=$(date +%s)
+          duration=$((end_ts - start_ts))
+          echo "seconds=$duration" >> "$GITHUB_OUTPUT"
+          echo "mode=standard" > benchmark-standard.txt
+          echo "seconds=$duration" >> benchmark-standard.txt
+
+      - name: Benchmark low-memory build
+        id: lowmem
+        working-directory: apps/website
+        run: |
+          rm -rf .next .open-next
+          start_ts=$(date +%s)
+          npm run build:lowmem
+          end_ts=$(date +%s)
+          duration=$((end_ts - start_ts))
+          echo "seconds=$duration" >> "$GITHUB_OUTPUT"
+          echo "mode=lowmem" > benchmark-lowmem.txt
+          echo "seconds=$duration" >> benchmark-lowmem.txt
+
+      - name: Compute benchmark delta
+        id: delta
+        working-directory: apps/website
+        run: |
+          standard=${{ steps.standard.outputs.seconds }}
+          lowmem=${{ steps.lowmem.outputs.seconds }}
+
+          if [ "$standard" -eq 0 ]; then
+            pct="0.00"
+          else
+            pct=$(awk "BEGIN { printf \"%.2f\", (($lowmem - $standard) / $standard) * 100 }")
+          fi
+
+          if [ "$lowmem" -gt "$standard" ]; then
+            winner="standard"
+            faster_by=$((lowmem - standard))
+          elif [ "$standard" -gt "$lowmem" ]; then
+            winner="lowmem"
+            faster_by=$((standard - lowmem))
+          else
+            winner="tie"
+            faster_by=0
+          fi
+
+          {
+            echo "standard_seconds=$standard"
+            echo "lowmem_seconds=$lowmem"
+            echo "delta_percent=$pct"
+            echo "winner=$winner"
+            echo "faster_by_seconds=$faster_by"
+          } >> "$GITHUB_OUTPUT"
+
+          mkdir -p benchmark
+          cat > benchmark/build-benchmark.json <<EOF
+          {
+            "standardSeconds": $standard,
+            "lowMemorySeconds": $lowmem,
+            "deltaPercentLowMemoryVsStandard": $pct,
+            "winner": "$winner",
+            "fasterBySeconds": $faster_by,
+            "runId": "${{ github.run_id }}",
+            "sha": "${{ github.sha }}"
+          }
+          EOF
+
+      - name: Upload benchmark artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-build-benchmark-${{ github.run_id }}
+          path: |
+            apps/website/benchmark/build-benchmark.json
+            apps/website/benchmark-standard.txt
+            apps/website/benchmark-lowmem.txt
+
+      - name: Add benchmark summary
+        run: |
+          {
+            echo "## Build Benchmark (Website)"
+            echo ""
+            echo "| Build Mode | Duration (s) |"
+            echo "| --- | ---: |"
+            echo "| Standard | ${{ steps.delta.outputs.standard_seconds }} |"
+            echo "| Low Memory | ${{ steps.delta.outputs.lowmem_seconds }} |"
+            echo ""
+            echo "Winner: **${{ steps.delta.outputs.winner }}**"
+            echo ""
+            echo "Low-memory delta vs standard: **${{ steps.delta.outputs.delta_percent }}%**"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Post benchmark comment
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false
+        uses: actions/github-script@v7
+        env:
+          STANDARD_SECONDS: ${{ steps.delta.outputs.standard_seconds }}
+          LOWMEM_SECONDS: ${{ steps.delta.outputs.lowmem_seconds }}
+          DELTA_PERCENT: ${{ steps.delta.outputs.delta_percent }}
+          WINNER: ${{ steps.delta.outputs.winner }}
+          FASTER_BY_SECONDS: ${{ steps.delta.outputs.faster_by_seconds }}
+        with:
+          script: |
+            const marker = "<!-- build-benchmark-report -->";
+            const standard = Number(process.env.STANDARD_SECONDS || "0");
+            const lowmem = Number(process.env.LOWMEM_SECONDS || "0");
+            const delta = process.env.DELTA_PERCENT || "0.00";
+            const winner = process.env.WINNER || "tie";
+            const fasterBy = Number(process.env.FASTER_BY_SECONDS || "0");
+
+            const winnerText = winner === "tie"
+              ? "Tie"
+              : `${winner} build is faster by ${fasterBy}s`;
+
+            const body = [
+              marker,
+              "## Build Performance Benchmark",
+              "",
+              "| Build Mode | Duration (s) |",
+              "| --- | ---: |",
+              `| Standard | ${standard} |`,
+              `| Low Memory | ${lowmem} |`,
+              "",
+              `Winner: **${winnerText}**`,
+              `Low-memory delta vs standard: **${delta}%**`,
+              "",
+              `Run: ${context.runId}`
+            ].join("\n");
+
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner,
+              repo,
+              issue_number,
+              per_page: 100,
+            });
+
+            const existing = comments.find((comment) =>
+              comment.user?.type === "Bot" && comment.body?.includes(marker),
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number,
+                body,
+              });
+            }

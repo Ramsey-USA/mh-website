@@ -176,7 +176,7 @@ export function CoolDesertNightsPageClient() {
         </section>
 
         {/* Main Content Sections with Stripes */}
-        <StripedBackground className="bg-white dark:bg-gray-900">
+        <StripedBackground>
           <div className="relative z-10">
             <Breadcrumb
               items={[{ label: "Home", href: "/" }, { label: "Events" }]}
@@ -331,7 +331,7 @@ export function CoolDesertNightsPageClient() {
                 </div>
                 <div className="aspect-video w-full bg-black">
                   <Image
-                    src="/images/events/cool-desert-nights/Smoke%20n%20Shine%20Showdown%20Graphic.webp"
+                    src="/images/events/cool-desert-nights/smoke-n-shine-showdown-graphic.webp"
                     alt="Official Smoke n Shine Showdown BBQ contest graphic"
                     width={1280}
                     height={720}
