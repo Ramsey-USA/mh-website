@@ -485,8 +485,8 @@ export default function PrintPageClient() {
             ? (JSON.parse(raw.data) as unknown)
             : raw.data;
         setSubmission({ ...raw, data: parsedData });
-      } catch (err) {
-        setError((err as Error).message ?? "Failed to load submission.");
+      } catch (_err) {
+        setError((_err as Error).message ?? "Failed to load submission.");
       } finally {
         setLoading(false);
       }

@@ -94,12 +94,12 @@ export async function checkD1Status(): Promise<ServiceStatus> {
       latency,
       lastChecked: new Date().toISOString(),
     };
-  } catch (error) {
-    logger.error("D1 health check failed", { error });
+  } catch (_error) {
+    logger.error("D1 health check failed", { _error });
     return {
       name: "cloudflare-d1",
       status: "unavailable",
-      error: error instanceof Error ? error.message : "Connection failed",
+      error: _error instanceof Error ? _error.message : "Connection failed",
       latency: Date.now() - startTime,
       lastChecked: new Date().toISOString(),
     };
@@ -145,12 +145,12 @@ export async function checkKVStatus(): Promise<ServiceStatus> {
       latency,
       lastChecked: new Date().toISOString(),
     };
-  } catch (error) {
-    logger.error("KV health check failed", { error });
+  } catch (_error) {
+    logger.error("KV health check failed", { _error });
     return {
       name: "cloudflare-kv",
       status: "unavailable",
-      error: error instanceof Error ? error.message : "Connection failed",
+      error: _error instanceof Error ? _error.message : "Connection failed",
       latency: Date.now() - startTime,
       lastChecked: new Date().toISOString(),
     };
@@ -191,12 +191,12 @@ export async function checkR2Status(): Promise<ServiceStatus> {
       latency,
       lastChecked: new Date().toISOString(),
     };
-  } catch (error) {
-    logger.error("R2 health check failed", { error });
+  } catch (_error) {
+    logger.error("R2 health check failed", { _error });
     return {
       name: "cloudflare-r2",
       status: "unavailable",
-      error: error instanceof Error ? error.message : "Connection failed",
+      error: _error instanceof Error ? _error.message : "Connection failed",
       latency: Date.now() - startTime,
       lastChecked: new Date().toISOString(),
     };
@@ -226,12 +226,12 @@ export async function checkAIStatus(): Promise<ServiceStatus> {
       status: "healthy",
       lastChecked: new Date().toISOString(),
     };
-  } catch (error) {
-    logger.error("AI health check failed", { error });
+  } catch (_error) {
+    logger.error("AI health check failed", { _error });
     return {
       name: "cloudflare-ai",
       status: "unavailable",
-      error: error instanceof Error ? error.message : "Binding unavailable",
+      error: _error instanceof Error ? _error.message : "Binding unavailable",
       lastChecked: new Date().toISOString(),
     };
   }

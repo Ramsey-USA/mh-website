@@ -158,7 +158,7 @@ export function PWAInstallPrompt() {
         <div className="p-4 pr-10">
           {/* Icon and Title */}
           <div className="flex items-start gap-3 mb-3">
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
                 <svg
                   className="w-7 h-7 text-green-700 dark:text-green-400"
@@ -192,7 +192,7 @@ export function PWAInstallPrompt() {
           <ul className="space-y-1.5 mb-4 ml-15">
             <li className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
               <svg
-                className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0"
+                className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -210,7 +210,7 @@ export function PWAInstallPrompt() {
             </li>
             <li className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
               <svg
-                className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0"
+                className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -228,7 +228,7 @@ export function PWAInstallPrompt() {
             </li>
             <li className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
               <svg
-                className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0"
+                className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

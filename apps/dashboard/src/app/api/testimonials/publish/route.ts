@@ -129,8 +129,8 @@ async function handler(request: NextRequest): Promise<NextResponse> {
       },
       { status: 200 },
     );
-  } catch (err) {
-    logger.error("Unexpected error in testimonials/publish", { err });
+  } catch (_err) {
+    logger.error("Unexpected error in testimonials/publish", { _err });
     return internalServerError("Failed to publish testimonial");
   }
 }

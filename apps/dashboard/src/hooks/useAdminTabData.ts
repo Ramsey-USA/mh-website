@@ -70,11 +70,11 @@ export function useAdminTabData<T>(
       if (cancelledRef.current) return null;
       setState({ status: "success", data, error: null, isFetching: false });
       return data;
-    } catch (err) {
+    } catch (_err) {
       if (cancelledRef.current) return null;
       const message =
-        err instanceof Error ? err.message : "Failed to load data";
-      logger.error(`useAdminTabData(${url}) error:`, err);
+        _err instanceof Error ? _err.message : "Failed to load data";
+      logger.error(`useAdminTabData(${url}) error:`, _err);
       setState((prev) => ({
         status: "error",
         data: prev.status === "success" ? prev.data : null,

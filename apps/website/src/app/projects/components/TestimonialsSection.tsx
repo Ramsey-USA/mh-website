@@ -103,7 +103,7 @@ export function TestimonialsSection({
                         <div className="p-6 flex flex-col flex-1">
                           {/* Rating Stars */}
                           <div
-                            className="flex flex-shrink-0 items-center mb-4"
+                            className="flex shrink-0 items-center mb-4"
                             role="img"
                             aria-label={`${item.clientTestimonial!.rating} star rating`}
                           >
@@ -121,12 +121,12 @@ export function TestimonialsSection({
                           </div>
 
                           {/* Testimonial Quote */}
-                          <blockquote className="flex-grow mb-4 text-gray-700 dark:text-gray-300 italic font-light leading-relaxed text-base">
+                          <blockquote className="grow mb-4 text-gray-700 dark:text-gray-300 italic font-light leading-relaxed text-base">
                             "{item.clientTestimonial!.quote}"
                           </blockquote>
 
                           {/* Client Information */}
-                          <div className="flex-shrink-0 pt-4 border-t border-gray-200 dark:border-gray-600">
+                          <div className="shrink-0 pt-4 border-t border-gray-200 dark:border-gray-600">
                             <p className="font-semibold text-gray-900 dark:text-white mb-1">
                               {item.clientTestimonial!.clientName}
                             </p>
@@ -154,7 +154,7 @@ export function TestimonialsSection({
                         <div className="p-6 flex flex-col flex-1">
                           {/* Rating Stars */}
                           <div
-                            className="flex flex-shrink-0 items-center mb-4"
+                            className="flex shrink-0 items-center mb-4"
                             role="img"
                             aria-label={`${item.rating || 5} star rating`}
                           >
@@ -172,12 +172,12 @@ export function TestimonialsSection({
                           </div>
 
                           {/* Testimonial Quote */}
-                          <blockquote className="flex-grow mb-4 text-gray-700 dark:text-gray-300 italic font-light leading-relaxed text-base">
+                          <blockquote className="grow mb-4 text-gray-700 dark:text-gray-300 italic font-light leading-relaxed text-base">
                             "{item.quote}"
                           </blockquote>
 
                           {/* Client Information */}
-                          <div className="flex-shrink-0 pt-4 border-t border-gray-200 dark:border-gray-600">
+                          <div className="shrink-0 pt-4 border-t border-gray-200 dark:border-gray-600">
                             <p className="font-semibold text-gray-900 dark:text-white mb-1">
                               {item.name}
                             </p>

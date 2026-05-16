@@ -150,7 +150,7 @@ export function ListItemSkeleton({ count = 5 }: { count?: number }) {
     <div className="space-y-3">
       {Array.from({ length: count }).map((_, index) => (
         <div key={`skeleton-list-${index}`} className="flex items-center gap-3">
-          <Skeleton variant="circular" className="w-8 h-8 flex-shrink-0" />
+          <Skeleton variant="circular" className="w-8 h-8 shrink-0" />
           <Skeleton className="h-4 flex-1" />
         </div>
       ))}

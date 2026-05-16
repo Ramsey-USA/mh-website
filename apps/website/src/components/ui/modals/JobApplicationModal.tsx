@@ -382,11 +382,11 @@ export function JobApplicationModal({
       setTimeout(() => {
         handleClose();
       }, 2000);
-    } catch (error) {
-      logger.error("Error submitting application:", error);
+    } catch (_error) {
+      logger.error("Error submitting application:", _error);
       setSubmitError(
-        error instanceof Error
-          ? error.message
+        _error instanceof Error
+          ? _error.message
           : isEs
             ? "No se pudo enviar su solicitud. Inténtelo de nuevo."
             : "Could not submit your application. Please try again.",
@@ -614,7 +614,7 @@ export function JobApplicationModal({
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="rounded-2xl border-2 border-brand-primary/20 bg-linear-to-br from-brand-primary/5 to-brand-secondary/5 p-4 sm:p-5 dark:border-brand-primary/30 dark:from-brand-primary/10 dark:to-brand-secondary/10 shadow-sm">
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 p-2 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl">
+                  <div className="shrink-0 p-2 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl">
                     <MaterialIcon
                       icon="info"
                       size="md"
@@ -926,7 +926,7 @@ export function JobApplicationModal({
 
               <div className="rounded-2xl border-2 border-brand-secondary/25 bg-linear-to-r from-brand-primary/5 via-transparent to-brand-secondary/10 p-4 sm:p-5 dark:border-brand-secondary/35 dark:from-brand-primary/10 dark:to-brand-secondary/15 shadow-sm">
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 p-2 bg-brand-secondary/15 dark:bg-brand-secondary/25 rounded-xl">
+                  <div className="shrink-0 p-2 bg-brand-secondary/15 dark:bg-brand-secondary/25 rounded-xl">
                     <MaterialIcon
                       icon="handshake"
                       size="md"
@@ -951,7 +951,7 @@ export function JobApplicationModal({
               <div className="rounded-2xl border-2 border-brand-primary/20 bg-linear-to-r from-brand-primary/5 to-brand-primary/10 p-4 dark:border-brand-primary/30 dark:from-brand-primary/10 dark:to-brand-primary/15">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <div className="flex-shrink-0 p-2 bg-brand-primary/15 dark:bg-brand-primary/25 rounded-xl">
+                    <div className="shrink-0 p-2 bg-brand-primary/15 dark:bg-brand-primary/25 rounded-xl">
                       <MaterialIcon
                         icon="verified_user"
                         size="md"
@@ -974,7 +974,7 @@ export function JobApplicationModal({
                   {TURNSTILE_SITE_KEY && (
                     <div
                       ref={turnstileRef}
-                      className="cf-turnstile flex-shrink-0"
+                      className="cf-turnstile shrink-0"
                       data-sitekey={TURNSTILE_SITE_KEY}
                     />
                   )}

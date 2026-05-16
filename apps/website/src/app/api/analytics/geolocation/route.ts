@@ -133,8 +133,8 @@ export const GET = rateLimit(rateLimitPresets.public)(async (
     }
 
     return response;
-  } catch (error) {
-    logger.error("Geolocation API error:", error);
+  } catch (_error) {
+    logger.error("Geolocation API error:", _error);
     // Do not surface analytics geo failures as a 500, since callers have
     // fallback providers and this endpoint is best-effort metadata.
     return NextResponse.json(

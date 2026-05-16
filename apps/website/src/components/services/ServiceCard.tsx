@@ -54,10 +54,10 @@ export function ServiceCard(props: Readonly<ServiceCardProps>) {
                 />
               </IconContainer>
             </div>
-            <h3 className="mb-3 text-gray-900 dark:text-white text-xl sm:text-2xl font-black leading-tight break-words">
+            <h3 className="mb-3 text-gray-900 dark:text-white text-xl sm:text-2xl font-black leading-tight wrap-break-word">
               {service.title}
             </h3>
-            <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-sm sm:text-base break-words mb-4">
+            <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-sm sm:text-base wrap-break-word mb-4">
               {service.subtitle}
             </p>
           </div>

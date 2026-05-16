@@ -176,8 +176,8 @@ async function handler(request: NextRequest): Promise<NextResponse> {
     // Not in a Cloudflare Workers context (local dev / test) — await normally
     try {
       await Promise.all(promises);
-    } catch (err) {
-      logger.error("Analytics collect error:", err);
+    } catch (_err) {
+      logger.error("Analytics collect error:", _err);
     }
   }
 

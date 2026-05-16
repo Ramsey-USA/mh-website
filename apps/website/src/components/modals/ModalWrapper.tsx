@@ -147,7 +147,7 @@ export function ModalWrapper({
           >
             <div className="flex items-center gap-3 flex-1">
               {isSuccess && (
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <MaterialIcon
                     icon="check_circle"
                     size="lg"
@@ -184,7 +184,7 @@ export function ModalWrapper({
             {showCloseButton && (
               <button
                 onClick={onClose}
-                className="flex-shrink-0 ml-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                className="shrink-0 ml-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                 aria-label="Close modal"
                 disabled={isLoading}
               >

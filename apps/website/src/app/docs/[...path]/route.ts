@@ -70,8 +70,8 @@ export async function GET(
         "X-Content-Type-Options": "nosniff",
       },
     });
-  } catch (error) {
-    logger.error("R2 fetch error for docs proxy:", error);
+  } catch (_error) {
+    logger.error("R2 fetch error for docs proxy:", _error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },

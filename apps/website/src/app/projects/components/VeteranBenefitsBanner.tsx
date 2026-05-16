@@ -32,7 +32,7 @@ export function VeteranBenefitsBanner() {
                 <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
                 <div className="p-6 flex items-center">
-                  <div className="relative inline-block mr-4 flex-shrink-0">
+                  <div className="relative inline-block mr-4 shrink-0">
                     <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
                     <div className="relative rounded-xl bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
                       <MaterialIcon
@@ -66,7 +66,7 @@ export function VeteranBenefitsBanner() {
                 <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
                 <div className="p-6 flex items-center">
-                  <div className="relative inline-block mr-4 flex-shrink-0">
+                  <div className="relative inline-block mr-4 shrink-0">
                     <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-xl"></div>
                     <div className="relative rounded-xl bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
                       <MaterialIcon

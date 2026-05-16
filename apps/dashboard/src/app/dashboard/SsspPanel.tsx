@@ -69,8 +69,8 @@ export function SsspPanel({
       }
       onLoaded?.(jobId, json.data.sssp ?? null);
       return json.data;
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load SSSP");
+    } catch (_err) {
+      setError(_err instanceof Error ? _err.message : "Failed to load SSSP");
       return null;
     } finally {
       setLoading(false);
@@ -123,14 +123,14 @@ export function SsspPanel({
         setUploads((prev) =>
           prev.map((u) => (u.name === file.name ? { ...u, state: "done" } : u)),
         );
-      } catch (err) {
+      } catch (_err) {
         setUploads((prev) =>
           prev.map((u) =>
             u.name === file.name
               ? {
                   ...u,
                   state: "error",
-                  error: err instanceof Error ? err.message : "Upload failed",
+                  error: _err instanceof Error ? _err.message : "Upload failed",
                 }
               : u,
           ),
@@ -159,8 +159,8 @@ export function SsspPanel({
         throw new Error(json.error ?? "Generation failed");
       }
       await loadData();
-    } catch (err) {
-      setGenError(err instanceof Error ? err.message : "Generation failed");
+    } catch (_err) {
+      setGenError(_err instanceof Error ? _err.message : "Generation failed");
     } finally {
       setGenerating(false);
     }
@@ -179,8 +179,8 @@ export function SsspPanel({
         throw new Error(json.error ?? "Update failed");
       }
       await loadData();
-    } catch (err) {
-      setPatchError(err instanceof Error ? err.message : "Update failed");
+    } catch (_err) {
+      setPatchError(_err instanceof Error ? _err.message : "Update failed");
     }
   };
 
@@ -197,9 +197,9 @@ export function SsspPanel({
         const json = (await res.json()) as { error?: string };
         throw new Error(json.error ?? "Failed to save notes");
       }
-    } catch (err) {
+    } catch (_err) {
       setPatchError(
-        err instanceof Error ? err.message : "Failed to save notes",
+        _err instanceof Error ? _err.message : "Failed to save notes",
       );
     } finally {
       setSavingNotes(false);

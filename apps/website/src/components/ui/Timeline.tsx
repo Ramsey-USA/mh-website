@@ -148,7 +148,7 @@ export function Timeline({
                                 {step.title}
                               </h3>
                             </div>
-                            <div className="flex-shrink-0 w-16 h-16 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                            <div className="shrink-0 w-16 h-16 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                               <MaterialIcon
                                 icon={step.icon}
                                 size="xl"
@@ -163,7 +163,7 @@ export function Timeline({
                       </div>
 
                       {/* Center Circle */}
-                      <div className="flex-shrink-0 relative z-10">
+                      <div className="shrink-0 relative z-10">
                         <div className="w-20 h-20 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
                           {step.num}
                         </div>
@@ -178,7 +178,7 @@ export function Timeline({
                       <div className="flex-1"></div>
 
                       {/* Center Circle */}
-                      <div className="flex-shrink-0 relative z-10">
+                      <div className="shrink-0 relative z-10">
                         <div className="w-20 h-20 bg-linear-to-br from-brand-secondary to-brand-secondary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
                           {step.num}
                         </div>
@@ -188,7 +188,7 @@ export function Timeline({
                       <div className="flex-1 text-left">
                         <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-secondary dark:group-hover:border-brand-secondary-light">
                           <div className="flex items-center gap-4 mb-4">
-                            <div className="flex-shrink-0 w-16 h-16 bg-linear-to-br from-brand-secondary to-brand-secondary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
+                            <div className="shrink-0 w-16 h-16 bg-linear-to-br from-brand-secondary to-brand-secondary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
                               <MaterialIcon
                                 icon={step.icon}
                                 size="xl"
@@ -213,7 +213,7 @@ export function Timeline({
                 {/* Mobile Layout - Vertical */}
                 <div className="lg:hidden flex gap-4">
                   {/* Left Side - Number and Line */}
-                  <div className="flex flex-col items-center flex-shrink-0">
+                  <div className="flex flex-col items-center shrink-0">
                     <div
                       className={cn(
                         "w-16 h-16 rounded-full flex items-center justify-center text-white font-black text-2xl shadow-xl border-4 border-white dark:border-gray-900 relative z-10",

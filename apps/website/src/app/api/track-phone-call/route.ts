@@ -87,8 +87,8 @@ async function handlePOST(request: NextRequest) {
         ? "Phone call tracked successfully"
         : "Phone call logged (email not configured)",
     );
-  } catch (error) {
-    logger.error("Error processing phone call tracking:", error);
+  } catch (_error) {
+    logger.error("Error processing phone call tracking:", _error);
     return internalServerError("Failed to track phone call");
   }
 }

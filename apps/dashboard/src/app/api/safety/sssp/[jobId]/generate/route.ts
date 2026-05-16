@@ -121,8 +121,8 @@ async function handlePOST(
       { ssspId, status: "generating" },
       "SSSP generation started.",
     );
-  } catch (error) {
-    logger.error("Error triggering SSSP generation:", error);
+  } catch (_error) {
+    logger.error("Error triggering SSSP generation:", _error);
     return internalServerError("Failed to trigger SSSP generation");
   }
 }

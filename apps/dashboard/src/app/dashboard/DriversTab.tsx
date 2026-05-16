@@ -92,8 +92,8 @@ function DriverForm({ token, driver, onSaved, onCancel }: DriverFormProps) {
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? "Failed to save driver");
       onSaved();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to save driver");
+    } catch (_err) {
+      setError(_err instanceof Error ? _err.message : "Failed to save driver");
     } finally {
       setSubmitting(false);
     }

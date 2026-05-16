@@ -79,8 +79,8 @@ async function handleGET(
         "X-Content-Type-Options": "nosniff",
       },
     });
-  } catch (error) {
-    logger.error("Error retrieving intake file", error);
+  } catch (_error) {
+    logger.error("Error retrieving intake file", _error);
     return internalServerError("Failed to retrieve intake file");
   }
 }

@@ -171,9 +171,9 @@ async function fetchProfileOverrides(): Promise<
     for (const row of rows) {
       overrides.set(row.slug, rowToOverride(row));
     }
-  } catch (err) {
+  } catch (_err) {
     logger.warn("team/page: failed to fetch profile overrides from D1", {
-      err,
+      _err,
     });
   }
 

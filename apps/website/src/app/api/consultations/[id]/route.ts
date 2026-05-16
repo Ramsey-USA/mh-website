@@ -42,8 +42,8 @@ async function handleGET(
     }
 
     return createSuccessResponse(consultation);
-  } catch (error) {
-    logger.error("Error fetching consultation:", error);
+  } catch (_error) {
+    logger.error("Error fetching consultation:", _error);
     return internalServerError("Failed to fetch consultation");
   }
 }
@@ -104,8 +104,8 @@ async function handlePUT(
     );
 
     return createSuccessResponse(consultation, "Consultation updated");
-  } catch (error) {
-    logger.error("Error updating consultation:", error);
+  } catch (_error) {
+    logger.error("Error updating consultation:", _error);
     return internalServerError("Failed to update consultation");
   }
 }
@@ -132,8 +132,8 @@ async function handleDELETE(
     }
 
     return createSuccessResponse({ id }, "Consultation deleted");
-  } catch (error) {
-    logger.error("Error deleting consultation:", error);
+  } catch (_error) {
+    logger.error("Error deleting consultation:", _error);
     return internalServerError("Failed to delete consultation");
   }
 }

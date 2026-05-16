@@ -62,8 +62,8 @@ async function handleGET(
     }
 
     return NextResponse.json({ success: true, data: submission });
-  } catch (error) {
-    logger.error("Error fetching submission:", error);
+  } catch (_error) {
+    logger.error("Error fetching submission:", _error);
     return NextResponse.json(
       { error: "Failed to fetch submission" },
       { status: 500 },
@@ -136,8 +136,8 @@ async function handlePATCH(
     );
 
     return NextResponse.json({ success: true, data: submission });
-  } catch (error) {
-    logger.error("Error updating submission:", error);
+  } catch (_error) {
+    logger.error("Error updating submission:", _error);
     return NextResponse.json(
       { error: "Failed to update submission" },
       { status: 500 },

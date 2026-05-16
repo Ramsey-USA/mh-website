@@ -149,8 +149,8 @@ async function handler(request: NextRequest) {
     });
 
     return response;
-  } catch (error) {
-    logger.error("Field login error:", error);
+  } catch (_error) {
+    logger.error("Field login error:", _error);
     return internalServerError("Authentication failed");
   }
 }

@@ -111,8 +111,8 @@ async function handleGet(
     });
 
     return createSuccessResponse({ submissions, count: submissions.length });
-  } catch (err) {
-    logger.error("team-profile/review GET: DB query failed", { err });
+  } catch (_err) {
+    logger.error("team-profile/review GET: DB query failed", { _err });
     return internalServerError("Failed to load pending submissions");
   }
 }
@@ -207,8 +207,8 @@ async function handlePost(
         : `${member.name}'s profile has been rejected.`;
 
     return createSuccessResponse({ slug, status: newStatus }, message);
-  } catch (err) {
-    logger.error("team-profile/review POST: DB update failed", { err, slug });
+  } catch (_err) {
+    logger.error("team-profile/review POST: DB update failed", { _err, slug });
     return internalServerError("Failed to process review decision");
   }
 }

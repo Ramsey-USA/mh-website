@@ -116,8 +116,8 @@ async function handlePOST(request: NextRequest, context?: unknown) {
       { ssspId, status: "ready" },
       "SSSP ready for review.",
     );
-  } catch (error) {
-    logger.error("Error processing SSSP result callback:", error);
+  } catch (_error) {
+    logger.error("Error processing SSSP result callback:", _error);
     return internalServerError("Failed to process SSSP result");
   }
 }

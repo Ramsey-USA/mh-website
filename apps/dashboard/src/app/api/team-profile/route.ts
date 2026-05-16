@@ -160,9 +160,9 @@ async function handleGet(
         "SELECT * FROM team_profiles WHERE slug = ?",
         slug,
       );
-    } catch (err) {
+    } catch (_err) {
       logger.warn("team-profile GET: DB query failed, using static data", {
-        err,
+        _err,
         slug,
       });
     }
@@ -473,8 +473,8 @@ async function handlePut(
       : "Profile submitted for review. It will appear on the team page once approved.";
 
     return createSuccessResponse({ slug, status }, message);
-  } catch (err) {
-    logger.error("team-profile PUT: DB upsert failed", { err, slug });
+  } catch (_err) {
+    logger.error("team-profile PUT: DB upsert failed", { _err, slug });
     return internalServerError("Failed to save profile");
   }
 }

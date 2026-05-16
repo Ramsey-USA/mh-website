@@ -198,8 +198,8 @@ async function handleGET(request: NextRequest) {
       pageSize,
       total,
     });
-  } catch (error) {
-    logger.error("Failed to fetch leads:", error);
+  } catch (_error) {
+    logger.error("Failed to fetch leads:", _error);
     return internalServerError("Failed to fetch leads");
   }
 }
@@ -260,8 +260,8 @@ async function handlePOST(request: NextRequest) {
       "Lead created successfully",
       201,
     );
-  } catch (error) {
-    logger.error("Failed to create lead:", error);
+  } catch (_error) {
+    logger.error("Failed to create lead:", _error);
     return internalServerError("Failed to create lead");
   }
 }
@@ -365,8 +365,8 @@ async function handlePATCH(request: NextRequest) {
     logger.info("Lead updated", { id: data.id, fields: Object.keys(updates) });
 
     return createSuccessResponse({ id: data.id }, "Lead updated successfully");
-  } catch (error) {
-    logger.error("Failed to update lead:", error);
+  } catch (_error) {
+    logger.error("Failed to update lead:", _error);
     return internalServerError("Failed to update lead");
   }
 }

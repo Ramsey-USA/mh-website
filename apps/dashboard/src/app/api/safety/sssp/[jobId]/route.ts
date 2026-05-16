@@ -54,8 +54,8 @@ async function handleGET(
     );
 
     return createSuccessResponse({ sssp, sourceFiles });
-  } catch (error) {
-    logger.error("Error fetching SSSP:", error);
+  } catch (_error) {
+    logger.error("Error fetching SSSP:", _error);
     return internalServerError("Failed to fetch SSSP");
   }
 }
@@ -122,8 +122,8 @@ async function handlePATCH(
     );
 
     return createSuccessResponse(updated);
-  } catch (error) {
-    logger.error("Error updating SSSP:", error);
+  } catch (_error) {
+    logger.error("Error updating SSSP:", _error);
     return internalServerError("Failed to update SSSP");
   }
 }

@@ -173,7 +173,7 @@ export function CoreValuesSection() {
                     </p>
 
                     <div className="flex items-center gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
-                      <div className="flex items-center justify-center w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex-shrink-0">
+                      <div className="flex items-center justify-center w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl shrink-0">
                         <MaterialIcon
                           icon="analytics"
                           size="md"

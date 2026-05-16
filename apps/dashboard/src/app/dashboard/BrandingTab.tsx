@@ -140,12 +140,12 @@ export function BrandingTab({ token }: BrandingTabProps) {
           status: "success",
           message: `Branded file downloaded as ${outputName}`,
         });
-      } catch (error) {
+      } catch (_error) {
         updateResult(id, {
           status: "error",
           message:
-            error instanceof Error
-              ? error.message
+            _error instanceof Error
+              ? _error.message
               : "Unable to brand this file",
         });
       } finally {

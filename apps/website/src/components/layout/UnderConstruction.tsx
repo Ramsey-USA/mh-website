@@ -112,7 +112,7 @@ export function UnderConstruction({
                       <MaterialIcon
                         icon="check_circle"
                         size="sm"
-                        className="text-brand-primary mr-3 mt-1 flex-shrink-0"
+                        className="text-brand-primary mr-3 mt-1 shrink-0"
                       />
                       <span>
                         <strong>Call us directly:</strong>{" "}
@@ -129,7 +129,7 @@ export function UnderConstruction({
                       <MaterialIcon
                         icon="check_circle"
                         size="sm"
-                        className="text-brand-primary mr-3 mt-1 flex-shrink-0"
+                        className="text-brand-primary mr-3 mt-1 shrink-0"
                       />
                       <span>
                         <strong>Email us:</strong>{" "}
@@ -145,7 +145,7 @@ export function UnderConstruction({
                       <MaterialIcon
                         icon="check_circle"
                         size="sm"
-                        className="text-brand-primary mr-3 mt-1 flex-shrink-0"
+                        className="text-brand-primary mr-3 mt-1 shrink-0"
                       />
                       <span>
                         <strong>Visit our homepage</strong> for core information
@@ -156,7 +156,7 @@ export function UnderConstruction({
                       <MaterialIcon
                         icon="check_circle"
                         size="sm"
-                        className="text-brand-primary mr-3 mt-1 flex-shrink-0"
+                        className="text-brand-primary mr-3 mt-1 shrink-0"
                       />
                       <span>
                         <strong>Schedule a consultation</strong> to discuss your

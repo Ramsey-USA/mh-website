@@ -692,7 +692,7 @@ export function TeamProfileSection({
           {/* Header with Photo */}
           <div className="flex items-start gap-4 sm:gap-5 md:gap-6">
             {/* Photo */}
-            <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 flex-shrink-0">
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 shrink-0">
               <TeamAvatar member={member} />
               {/* Veteran Badge - Using Bronze per branding guidelines */}
               {member.veteranStatus &&
@@ -853,7 +853,7 @@ export function TeamProfileSection({
                     <MaterialIcon
                       icon="check_circle"
                       size="sm"
-                      className="text-brand-secondary dark:text-brand-secondary-light flex-shrink-0 mt-0.5"
+                      className="text-brand-secondary dark:text-brand-secondary-light shrink-0 mt-0.5"
                     />
                     <span className="leading-relaxed font-normal">
                       {highlight}
@@ -1149,7 +1149,7 @@ export function TeamProfileSection({
                   <MaterialIcon
                     icon="home"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-300 flex-shrink-0 mt-0.5"
+                    className="text-gray-500 dark:text-gray-300 shrink-0 mt-0.5"
                   />
                   <div>
                     <span className="text-brand-secondary-text dark:text-gray-300 font-medium">
@@ -1166,7 +1166,7 @@ export function TeamProfileSection({
                   <MaterialIcon
                     icon="emoji_events"
                     size="sm"
-                    className="text-bronze-badge flex-shrink-0 mt-0.5"
+                    className="text-bronze-badge shrink-0 mt-0.5"
                   />
                   <div>
                     <span className="text-brand-secondary-text dark:text-gray-300 font-medium">
@@ -1182,7 +1182,7 @@ export function TeamProfileSection({
                 <MaterialIcon
                   icon="business_center"
                   size="sm"
-                  className="text-gray-500 dark:text-gray-300 flex-shrink-0 mt-0.5"
+                  className="text-gray-500 dark:text-gray-300 shrink-0 mt-0.5"
                 />
                 <div>
                   <span className="text-brand-secondary-text dark:text-gray-300 font-medium">
@@ -1227,7 +1227,7 @@ export function TeamProfileSection({
                       <MaterialIcon
                         icon="lightbulb"
                         size="sm"
-                        className="text-bronze-badge dark:text-bronze-badge-light flex-shrink-0 mt-0.5"
+                        className="text-bronze-badge dark:text-bronze-badge-light shrink-0 mt-0.5"
                       />
                       <div>
                         <span className="text-gray-600 dark:text-gray-300 font-medium">
@@ -1244,7 +1244,7 @@ export function TeamProfileSection({
                       <MaterialIcon
                         icon="sports_esports"
                         size="sm"
-                        className="text-brand-primary dark:text-brand-primary-light flex-shrink-0 mt-0.5"
+                        className="text-brand-primary dark:text-brand-primary-light shrink-0 mt-0.5"
                       />
                       <div>
                         <span className="text-gray-600 dark:text-gray-300 font-medium">
@@ -1261,7 +1261,7 @@ export function TeamProfileSection({
                       <MaterialIcon
                         icon="interests"
                         size="sm"
-                        className="text-brand-secondary dark:text-brand-secondary-light flex-shrink-0 mt-0.5"
+                        className="text-brand-secondary dark:text-brand-secondary-light shrink-0 mt-0.5"
                       />
                       <div>
                         <span className="text-gray-600 dark:text-gray-300 font-medium">

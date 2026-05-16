@@ -59,7 +59,7 @@ export function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
             return (
               <li
                 key={item.href || `breadcrumb-${index}`}
-                className="flex items-center flex-shrink-0"
+                className="flex items-center shrink-0"
               >
                 {index > 0 && (
                   <MaterialIcon

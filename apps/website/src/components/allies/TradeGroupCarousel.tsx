@@ -54,7 +54,7 @@ export function TradeGroupCarousel({
   // ── Logo / identity panel ────────────────────────────────────────────────
   const logoPanel = (
     <div
-      className="flex flex-col items-center justify-center gap-4 p-6 sm:p-8 md:w-2/5 flex-shrink-0"
+      className="flex flex-col items-center justify-center gap-4 p-6 sm:p-8 md:w-2/5 shrink-0"
       style={
         vendor.brandColors
           ? {
@@ -158,7 +158,7 @@ export function TradeGroupCarousel({
                 icon="check_circle"
                 size="sm"
                 ariaLabel=""
-                className="text-brand-primary dark:text-brand-primary-light flex-shrink-0 mt-0.5"
+                className="text-brand-primary dark:text-brand-primary-light shrink-0 mt-0.5"
               />
               {h}
             </li>
@@ -179,7 +179,7 @@ export function TradeGroupCarousel({
               icon="location_on"
               size="sm"
               ariaLabel="Address"
-              className="text-gray-400 flex-shrink-0"
+              className="text-gray-400 shrink-0"
             />
             {vendor.address}
           </a>
@@ -193,7 +193,7 @@ export function TradeGroupCarousel({
               icon="mail"
               size="sm"
               ariaLabel="Email"
-              className="text-gray-400 flex-shrink-0"
+              className="text-gray-400 shrink-0"
             />
             {vendor.email}
           </a>
@@ -233,7 +233,7 @@ export function TradeGroupCarousel({
                   icon="arrow_right"
                   size="sm"
                   ariaLabel=""
-                  className="text-brand-primary flex-shrink-0"
+                  className="text-brand-primary shrink-0"
                 />
                 {item}
               </li>

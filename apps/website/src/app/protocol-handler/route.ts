@@ -57,8 +57,8 @@ export function GET(request: NextRequest) {
           status: 302,
         });
     }
-  } catch (error) {
-    logger.error("[Protocol Handler] Error parsing URL:", error);
+  } catch (_error) {
+    logger.error("[Protocol Handler] Error parsing URL:", _error);
     return NextResponse.redirect(new URL("/", request.url), { status: 302 });
   }
 }

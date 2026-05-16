@@ -99,8 +99,8 @@ async function handleGET(request: NextRequest, user: JWTUser) {
     >(sql, ...params);
 
     return NextResponse.json({ success: true, data: submissions });
-  } catch (error) {
-    logger.error("Error fetching form submissions:", error);
+  } catch (_error) {
+    logger.error("Error fetching form submissions:", _error);
     return NextResponse.json(
       { error: "Failed to fetch submissions" },
       { status: 500 },
@@ -190,8 +190,8 @@ async function handlePOST(request: NextRequest, user: JWTUser) {
       { success: true, data: submission },
       { status: 201 },
     );
-  } catch (error) {
-    logger.error("Error submitting safety form:", error);
+  } catch (_error) {
+    logger.error("Error submitting safety form:", _error);
     return NextResponse.json(
       { error: "Failed to submit form" },
       { status: 500 },

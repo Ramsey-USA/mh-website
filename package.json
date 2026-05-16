@@ -19,6 +19,8 @@
     "test:ci": "pnpm --filter @mhc/website test:ci",
     "test:ci:dashboard": "pnpm --filter @mhc/dashboard test:ci",
     "test:ci:all": "pnpm --filter './apps/*' test:ci",
+    "cleanup:ast-safe": "node scripts/codemods/ast-safe-cleanup.js",
+    "cleanup:ast-safe:write": "node scripts/codemods/ast-safe-cleanup.js --write",
     "format": "prettier --write --cache --cache-location .prettier-cache .",
     "format:check": "prettier --check --cache --cache-location .prettier-cache .",
     "security:check:prod": "pnpm audit --prod --audit-level high",

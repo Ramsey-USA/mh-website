@@ -67,8 +67,8 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
         throw new Error(json.error || "Failed to update lead");
       }
       onUpdate();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Update failed");
+    } catch (_err) {
+      setError(_err instanceof Error ? _err.message : "Update failed");
     } finally {
       setUpdating(false);
     }

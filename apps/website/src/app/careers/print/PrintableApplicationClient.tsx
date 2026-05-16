@@ -243,7 +243,7 @@ function FormField({ label, wide = false }: { label: string; wide?: boolean }) {
 function SectionHeader({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="flex items-center gap-3 text-base font-black uppercase tracking-wider text-brand-primary dark:text-brand-secondary border-b-2 border-brand-primary dark:border-brand-secondary pb-2 mb-5 mt-10 first:mt-0 print:text-gray-800 print:border-gray-800">
-      <span className="flex-shrink-0 w-1 h-6 bg-brand-primary dark:bg-brand-secondary rounded-full print:hidden" />
+      <span className="shrink-0 w-1 h-6 bg-brand-primary dark:bg-brand-secondary rounded-full print:hidden" />
       {children}
     </h2>
   );
@@ -392,7 +392,7 @@ export default function PrintableApplicationClient() {
               <ul className="text-sm text-gray-700 dark:text-gray-200 space-y-2 print:text-xs">
                 {t.instructionsList.map((item, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <span className="flex-shrink-0 w-5 h-5 flex items-center justify-center bg-brand-primary/15 text-brand-primary font-bold text-xs rounded-full mt-0.5">
+                    <span className="shrink-0 w-5 h-5 flex items-center justify-center bg-brand-primary/15 text-brand-primary font-bold text-xs rounded-full mt-0.5">
                       {i + 1}
                     </span>
                     <span>{item}</span>

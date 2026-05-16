@@ -26,7 +26,7 @@ export function OfflineIndicator() {
         aria-live="polite"
         className="fixed bottom-0 inset-x-0 z-[200] flex items-center justify-center gap-2 bg-amber-600 text-white text-sm font-semibold px-4 py-2.5 shadow-lg"
       >
-        <MaterialIcon icon="wifi_off" size="sm" className="flex-shrink-0" />
+        <MaterialIcon icon="wifi_off" size="sm" className="shrink-0" />
         <span>
           You&apos;re offline — the app is running from cache. Forms will sync
           when you reconnect.
@@ -45,7 +45,7 @@ export function OfflineIndicator() {
       <MaterialIcon
         icon="cloud_sync"
         size="sm"
-        className="flex-shrink-0 animate-spin"
+        className="shrink-0 animate-spin"
       />
       <span>
         Back online — syncing {pendingCount} pending{" "}

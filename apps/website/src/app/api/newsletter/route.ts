@@ -65,11 +65,11 @@ async function handlePOST(request: NextRequest) {
           [data.email, data.name ?? null, unsubscribeToken],
         );
       }
-    } catch (dbErr) {
+    } catch (_dbErr) {
       // DB unavailable (e.g. local dev) — log and continue so email still sends
       logger.warn(
         "Newsletter: DB insert failed, continuing without persist",
-        dbErr,
+        _dbErr,
       );
     }
 
@@ -185,8 +185,8 @@ async function handlePOST(request: NextRequest) {
       message: "Thank you for subscribing to our newsletter!",
       subscribed: true,
     });
-  } catch (error) {
-    logger.error("Newsletter signup error:", error);
+  } catch (_error) {
+    logger.error("Newsletter signup error:", _error);
     return internalServerError(
       "Failed to process newsletter signup. Please try again later.",
     );
@@ -239,8 +239,8 @@ async function handleDELETE(request: NextRequest): Promise<NextResponse> {
       unsubscribed: true,
       message: "You have been successfully unsubscribed.",
     });
-  } catch (error) {
-    logger.error("Newsletter unsubscribe error:", error);
+  } catch (_error) {
+    logger.error("Newsletter unsubscribe error:", _error);
     return internalServerError("Failed to process unsubscribe request.");
   }
 }

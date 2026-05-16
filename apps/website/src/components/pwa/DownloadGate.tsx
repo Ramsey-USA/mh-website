@@ -83,7 +83,7 @@ export function DownloadGate({
         <MaterialIcon
           icon="lock"
           size="sm"
-          className="flex-shrink-0 text-brand-primary"
+          className="shrink-0 text-brand-primary"
         />
         <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">
           Available in the MH Construction App

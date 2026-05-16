@@ -160,9 +160,9 @@ export function ServicesShowcase() {
           >
             <Card className="flex flex-col bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-secondary/20 border border-gray-200 dark:border-gray-700 rounded-3xl h-full transition-all duration-300 p-6 sm:p-7 lg:p-8 overflow-hidden group hover:scale-[1.02]">
               <div className="relative flex flex-col h-full">
-                <CardHeader className="flex-shrink-0 pb-4 px-0">
+                <CardHeader className="shrink-0 pb-4 px-0">
                   {/* Enhanced Icon Container */}
-                  <div className="relative inline-block mb-4 sm:mb-5 flex-shrink-0">
+                  <div className="relative inline-block mb-4 sm:mb-5 shrink-0">
                     <div
                       className={`absolute inset-0 bg-linear-to-br ${service.iconGlow} blur-xl rounded-3xl`}
                     ></div>
@@ -176,15 +176,15 @@ export function ServicesShowcase() {
                       />
                     </div>
                   </div>
-                  <CardTitle className="mb-2 sm:mb-3 text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl font-black leading-tight break-words">
+                  <CardTitle className="mb-2 sm:mb-3 text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl font-black leading-tight wrap-break-word">
                     {service.title}
                   </CardTitle>
-                  <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-sm sm:text-base break-words">
+                  <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-sm sm:text-base wrap-break-word">
                     {renderSubtitle(service.subtitle)}
                   </p>
                 </CardHeader>
-                <CardContent className="flex flex-col flex-grow pt-0 px-0">
-                  <p className="mb-4 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed break-words">
+                <CardContent className="flex flex-col grow pt-0 px-0">
+                  <p className="mb-4 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed wrap-break-word">
                     {service.description}
                   </p>
                   <div className="mt-auto pt-4 sm:pt-5">
@@ -246,7 +246,7 @@ export function ServicesShowcase() {
                 />
               </button>
               <div className="relative flex items-start gap-4">
-                <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-xl border border-white/30">
+                <div className="shrink-0 bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-xl border border-white/30">
                   <MaterialIcon
                     icon={currentService.icon}
                     size="2xl"
@@ -292,7 +292,7 @@ export function ServicesShowcase() {
                   <li key={feature} className="flex items-start">
                     <MaterialIcon
                       icon="check_circle"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-primary dark:text-brand-primary-light"
+                      className="shrink-0 mt-1 mr-3 text-brand-primary dark:text-brand-primary-light"
                       size="md"
                     />
                     <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
@@ -322,7 +322,7 @@ export function ServicesShowcase() {
                   <li key={benefit} className="flex items-start">
                     <MaterialIcon
                       icon="military_tech"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-secondary dark:text-brand-secondary-light"
+                      className="shrink-0 mt-1 mr-3 text-brand-secondary dark:text-brand-secondary-light"
                       size="md"
                     />
                     <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">

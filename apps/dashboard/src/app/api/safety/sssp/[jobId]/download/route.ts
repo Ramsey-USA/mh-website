@@ -87,8 +87,8 @@ async function handleGET(
         "Cache-Control": "no-store",
       },
     });
-  } catch (error) {
-    logger.error("Error downloading SSSP:", error);
+  } catch (_error) {
+    logger.error("Error downloading SSSP:", _error);
     return internalServerError("Failed to download SSSP");
   }
 }

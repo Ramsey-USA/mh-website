@@ -153,8 +153,8 @@ export default function DashboardClientPage({
       const data = (await response.json()) as DashboardData;
       setDashboardData(data);
       setError(null);
-    } catch (err) {
-      logger.error("Analytics fetch error:", err);
+    } catch (_err) {
+      logger.error("Analytics fetch error:", _err);
       setError("Failed to load analytics data");
     } finally {
       setIsLoading(false);
@@ -173,8 +173,8 @@ export default function DashboardClientPage({
         method: "POST",
         credentials: "include",
       });
-    } catch (err) {
-      logger.error("Logout error:", err);
+    } catch (_err) {
+      logger.error("Logout error:", _err);
     }
     router.push("/");
   };

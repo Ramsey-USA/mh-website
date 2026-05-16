@@ -249,7 +249,7 @@ export function WhyPartnerSection() {
               <MaterialIcon
                 icon="handshake"
                 size="xl"
-                className="text-brand-secondary flex-shrink-0"
+                className="text-brand-secondary shrink-0"
                 ariaLabel={t.tradeCta.iconAria}
               />
               <p className="font-semibold text-gray-900 dark:text-white text-base sm:text-lg leading-snug">
@@ -261,7 +261,7 @@ export function WhyPartnerSection() {
             </div>
             <Link
               href="/allies"
-              className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-brand-secondary hover:bg-brand-secondary-dark text-black font-bold rounded-xl shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-sm sm:text-base"
+              className="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-brand-secondary hover:bg-brand-secondary-dark text-black font-bold rounded-xl shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-sm sm:text-base"
             >
               {t.tradeCta.button}
               <MaterialIcon icon="arrow_forward" size="sm" ariaLabel="" />

@@ -127,11 +127,11 @@ export function useFormSubmit<TData = unknown, TResponse = unknown>(
 
         onSuccess?.(json as TResponse);
         return json as TResponse;
-      } catch (err) {
+      } catch (_err) {
         const errorMessage =
-          err instanceof Error ? err.message : defaultErrorMessage;
+          _err instanceof Error ? _err.message : defaultErrorMessage;
         setError(errorMessage);
-        onError?.(err instanceof Error ? err : new Error(errorMessage));
+        onError?.(_err instanceof Error ? _err : new Error(errorMessage));
         return null;
       } finally {
         setIsSubmitting(false);

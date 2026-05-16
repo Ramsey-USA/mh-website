@@ -76,8 +76,8 @@ export default function SafetyIncidentReportPage() {
         }
 
         setJobs(json.data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to load jobs");
+      } catch (_err) {
+        setError(_err instanceof Error ? _err.message : "Failed to load jobs");
       } finally {
         setLoadingJobs(false);
       }
@@ -169,9 +169,11 @@ export default function SafetyIncidentReportPage() {
         rootCause: "",
         correctiveAction: "",
       });
-    } catch (err) {
+    } catch (_err) {
       setError(
-        err instanceof Error ? err.message : "Failed to submit incident report",
+        _err instanceof Error
+          ? _err.message
+          : "Failed to submit incident report",
       );
     } finally {
       setSubmitting(false);

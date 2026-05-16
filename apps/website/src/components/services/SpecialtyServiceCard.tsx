@@ -48,10 +48,10 @@ export function SpecialtyServiceCard(
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <CardTitle className="mb-2 text-gray-900 dark:text-white text-base sm:text-lg md:text-xl font-bold leading-tight break-words">
+                <CardTitle className="mb-2 text-gray-900 dark:text-white text-base sm:text-lg md:text-xl font-bold leading-tight wrap-break-word">
                   {service.title}
                 </CardTitle>
-                <p className="font-semibold text-brand-secondary dark:text-brand-secondary-light text-xs sm:text-sm break-words">
+                <p className="font-semibold text-brand-secondary dark:text-brand-secondary-light text-xs sm:text-sm wrap-break-word">
                   {service.subtitle}
                 </p>
               </div>
@@ -72,7 +72,7 @@ export function SpecialtyServiceCard(
 
         {!isExpanded && (
           <CardContent className="grow pt-0 px-4 sm:px-5 lg:px-6 pb-4 sm:pb-5 lg:pb-6">
-            <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed break-words line-clamp-3">
+            <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed wrap-break-word line-clamp-3">
               {service.description}
             </p>
             <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700">
@@ -89,7 +89,7 @@ export function SpecialtyServiceCard(
         {/* Expanded Content */}
         {isExpanded && (
           <CardContent className="grow pt-0 px-4 sm:px-5 lg:px-6 pb-4 sm:pb-5 lg:pb-6 animate-in slide-in-from-top duration-300 overflow-y-auto">
-            <p className="mb-4 text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed break-words">
+            <p className="mb-4 text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed wrap-break-word">
               {service.description}
             </p>
 
@@ -116,7 +116,7 @@ export function SpecialtyServiceCard(
                           icon="check_circle"
                           className="shrink-0 mt-0.5 mr-1.5 text-brand-secondary text-xs sm:text-sm"
                         />
-                        <span className="text-gray-700 dark:text-gray-300 leading-tight break-words">
+                        <span className="text-gray-700 dark:text-gray-300 leading-tight wrap-break-word">
                           {market}
                         </span>
                       </li>
@@ -147,7 +147,7 @@ export function SpecialtyServiceCard(
                           icon="arrow_right"
                           className="shrink-0 mt-0.5 mr-1.5 text-brand-primary text-xs sm:text-sm"
                         />
-                        <span className="text-gray-700 dark:text-gray-300 leading-tight break-words">
+                        <span className="text-gray-700 dark:text-gray-300 leading-tight wrap-break-word">
                           {type}
                         </span>
                       </li>
@@ -178,7 +178,7 @@ export function SpecialtyServiceCard(
                           icon="check_circle"
                           className="shrink-0 mt-0.5 mr-1.5 text-brand-secondary text-xs sm:text-sm"
                         />
-                        <span className="text-gray-700 dark:text-gray-300 leading-tight break-words">
+                        <span className="text-gray-700 dark:text-gray-300 leading-tight wrap-break-word">
                           {feature}
                         </span>
                       </li>
@@ -209,7 +209,7 @@ export function SpecialtyServiceCard(
                           icon="arrow_right"
                           className="shrink-0 mt-0.5 mr-1.5 text-brand-primary text-xs sm:text-sm"
                         />
-                        <span className="text-gray-700 dark:text-gray-300 leading-tight break-words">
+                        <span className="text-gray-700 dark:text-gray-300 leading-tight wrap-break-word">
                           {cap}
                         </span>
                       </li>
@@ -221,7 +221,7 @@ export function SpecialtyServiceCard(
               {/* Additional Note */}
               {service.note && (
                 <div className="bg-brand-secondary/10 dark:bg-brand-secondary/20 p-3 border-l-4 border-brand-secondary rounded-md">
-                  <p className="font-medium text-gray-700 dark:text-gray-300 text-xs leading-relaxed break-words">
+                  <p className="font-medium text-gray-700 dark:text-gray-300 text-xs leading-relaxed wrap-break-word">
                     <MaterialIcon
                       icon="info"
                       className="inline mr-1.5 text-brand-secondary text-xs sm:text-sm"
@@ -234,7 +234,7 @@ export function SpecialtyServiceCard(
               {/* CTA Text */}
               {service.ctaText && (
                 <div className="bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-3 border-l-4 border-brand-primary rounded-md">
-                  <p className="font-medium text-gray-800 dark:text-gray-200 text-xs leading-relaxed break-words">
+                  <p className="font-medium text-gray-800 dark:text-gray-200 text-xs leading-relaxed wrap-break-word">
                     <MaterialIcon
                       icon="phone"
                       className="inline mr-1.5 text-brand-primary text-xs sm:text-sm"

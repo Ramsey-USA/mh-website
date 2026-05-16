@@ -46,8 +46,8 @@ async function handler(_request: NextRequest) {
         accessLog,
       },
     });
-  } catch (error) {
-    logger.error("Dashboard data fetch error:", error);
+  } catch (_error) {
+    logger.error("Dashboard data fetch error:", _error);
     return NextResponse.json(
       { error: "Failed to fetch analytics data" },
       { status: 500 },

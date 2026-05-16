@@ -28,7 +28,7 @@ export function UpdateNotification({ onUpdate }: UpdateNotificationProps) {
         <div className="p-4">
           <div className="flex items-start gap-3">
             {/* Icon */}
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <svg
                 className="w-6 h-6 text-blue-600 dark:text-blue-400"
                 fill="none"
@@ -76,7 +76,7 @@ export function UpdateNotification({ onUpdate }: UpdateNotificationProps) {
             {/* Close button */}
             <button
               onClick={handleDismiss}
-              className="flex-shrink-0 text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
+              className="shrink-0 text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
               aria-label="Dismiss"
             >
               <svg

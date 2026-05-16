@@ -133,7 +133,7 @@ export function ContentCard({
         {/* Top Accent Bar */}
         <div className={cn("h-2", accentClass)}></div>
 
-        <div className="pt-6 px-6 pb-6 flex flex-col flex-grow">
+        <div className="pt-6 px-6 pb-6 flex flex-col grow">
           {/* Header: Icon/Category + Date */}
           <div className="flex items-start justify-between mb-3">
             {enhancedIcon ? (
@@ -189,7 +189,7 @@ export function ContentCard({
             )}
 
             {date && (
-              <span className="text-gray-500 dark:text-gray-300 text-xs sm:text-sm flex-shrink-0">
+              <span className="text-gray-500 dark:text-gray-300 text-xs sm:text-sm shrink-0">
                 {date}
               </span>
             )}
@@ -201,7 +201,7 @@ export function ContentCard({
           </h3>
 
           {/* Description */}
-          <div className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
+          <div className="mb-4 text-gray-600 dark:text-gray-300 grow text-sm sm:text-base md:text-lg">
             {description}
           </div>
 

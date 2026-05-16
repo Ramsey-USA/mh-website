@@ -82,8 +82,8 @@ function NewJobForm({ token, onCreated, onCancel }: NewJobFormProps) {
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? "Failed to create job");
       onCreated();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to create job");
+    } catch (_err) {
+      setError(_err instanceof Error ? _err.message : "Failed to create job");
     } finally {
       setSubmitting(false);
     }

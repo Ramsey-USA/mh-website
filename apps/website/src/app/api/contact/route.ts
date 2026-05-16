@@ -200,8 +200,8 @@ async function handlePOST(request: NextRequest) {
             { id: submissionId },
           );
         }
-      } catch (error) {
-        logger.error("Failed to store contact submission in database:", error);
+      } catch (_error) {
+        logger.error("Failed to store contact submission in database:", _error);
         // Continue even if DB fails (best-effort pattern)
       }
     }
@@ -237,9 +237,9 @@ async function handlePOST(request: NextRequest) {
         ? "Message sent successfully"
         : "Message received (email service not configured)",
     );
-  } catch (error) {
-    logger.error("Error processing contact form:", error);
-    captureServerException(error, { request, route: "/api/contact" });
+  } catch (_error) {
+    logger.error("Error processing contact form:", _error);
+    captureServerException(_error, { request, route: "/api/contact" });
     return internalServerError("Failed to process contact form submission");
   }
 }
@@ -399,8 +399,8 @@ async function handleGET() {
         );
 
         return createPaginatedResponse(submissions, submissions.length);
-      } catch (error) {
-        logger.error("Error fetching from database:", error);
+      } catch (_error) {
+        logger.error("Error fetching from database:", _error);
         // Fall through to fallback response (best-effort pattern)
       }
     }
@@ -411,9 +411,9 @@ async function handleGET() {
       0,
       "D1 database not available in this environment",
     );
-  } catch (error) {
-    logger.error("Error fetching contact submissions:", error);
-    captureServerException(error, { route: "/api/contact GET" });
+  } catch (_error) {
+    logger.error("Error fetching contact submissions:", _error);
+    captureServerException(_error, { route: "/api/contact GET" });
     return internalServerError("Failed to fetch contact submissions");
   }
 }

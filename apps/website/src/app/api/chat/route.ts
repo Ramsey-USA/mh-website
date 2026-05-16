@@ -125,21 +125,21 @@ async function handler(request: NextRequest): Promise<Response> {
           aiResponse = result.response;
         }
       }
-    } catch (aiError) {
+    } catch (_aiError) {
       // Workers AI not available — fall back to knowledge base
       logger.debug("Workers AI unavailable, using fallback", {
-        error: aiError instanceof Error ? aiError.message : "unknown",
+        error: _aiError instanceof Error ? _aiError.message : "unknown",
       });
     }
 
     const response = aiResponse ?? getChatFallbackResponse(payload.message);
 
     return NextResponse.json({ response });
-  } catch (error) {
+  } catch (_error) {
     logger.error("Chat API error", {
-      error: error instanceof Error ? error.message : "unknown",
+      error: _error instanceof Error ? _error.message : "unknown",
     });
-    captureServerException(error, { request, route: "/api/chat" });
+    captureServerException(_error, { request, route: "/api/chat" });
     return internalServerError(
       "Something went wrong. Please try again or call (509) 308-6489.",
     );

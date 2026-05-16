@@ -160,7 +160,7 @@ export function PartnershipPhilosophy() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
+                    className="shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
                   />
                   <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
                     <strong className="text-gray-900 dark:text-white">
@@ -172,7 +172,7 @@ export function PartnershipPhilosophy() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
+                    className="shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
                   />
                   <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
                     <strong className="text-gray-900 dark:text-white">
@@ -184,7 +184,7 @@ export function PartnershipPhilosophy() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
+                    className="shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
                   />
                   <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
                     <strong className="text-gray-900 dark:text-white">
@@ -196,7 +196,7 @@ export function PartnershipPhilosophy() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
+                    className="shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
                   />
                   <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
                     <strong className="text-gray-900 dark:text-white">
@@ -208,7 +208,7 @@ export function PartnershipPhilosophy() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
+                    className="shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
                   />
                   <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
                     <strong className="text-gray-900 dark:text-white">
@@ -241,7 +241,7 @@ export function PartnershipPhilosophy() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="location_city"
-                    className="flex-shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
+                    className="shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
                   />
                   <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
                     <strong className="text-gray-900 dark:text-white">
@@ -253,7 +253,7 @@ export function PartnershipPhilosophy() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="military_tech"
-                    className="flex-shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
+                    className="shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
                   />
                   <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
                     <strong className="text-gray-900 dark:text-white">
@@ -265,7 +265,7 @@ export function PartnershipPhilosophy() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="eco"
-                    className="flex-shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
+                    className="shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
                   />
                   <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
                     <strong className="text-gray-900 dark:text-white">

@@ -75,7 +75,7 @@ export function TestimonialGrid({
               </h2>
             )}
             {subtitle && (
-              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
+              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 wrap-break-word">
                 {subtitle}
               </p>
             )}
@@ -130,7 +130,7 @@ export function TestimonialGrid({
                 <MaterialIcon
                   icon="rate_review"
                   size="lg"
-                  className="mr-2 sm:mr-3 flex-shrink-0"
+                  className="mr-2 sm:mr-3 shrink-0"
                 />
                 <span className="font-medium text-sm sm:text-base">
                   View All Reviews

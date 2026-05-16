@@ -225,7 +225,7 @@ export function ValuesShowcase() {
                   </h3>
 
                   {/* Short Description */}
-                  <p className="text-gray-700 dark:text-gray-300 text-center text-sm sm:text-base md:text-lg leading-relaxed mb-4 flex-grow">
+                  <p className="text-gray-700 dark:text-gray-300 text-center text-sm sm:text-base md:text-lg leading-relaxed mb-4 grow">
                     {value.shortDesc}
                   </p>
 
@@ -278,7 +278,7 @@ export function ValuesShowcase() {
                   />
                 </button>
                 <div className="relative flex items-start gap-4">
-                  <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-xl border border-white/30">
+                  <div className="shrink-0 bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-xl border border-white/30">
                     <MaterialIcon
                       icon={currentValue.icon}
                       size="2xl"
@@ -327,7 +327,7 @@ export function ValuesShowcase() {
                     >
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
+                        className="shrink-0 mt-1 mr-3 text-brand-primary"
                         size="md"
                       />
                       <span className="text-base sm:text-lg leading-relaxed">

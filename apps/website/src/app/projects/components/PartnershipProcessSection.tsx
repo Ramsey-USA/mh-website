@@ -72,7 +72,7 @@ export function PartnershipProcessSection() {
 
                   <div className="p-6">
                     <div className="flex items-start min-h-[5rem]">
-                      <div className="flex-shrink-0 mr-4">
+                      <div className="shrink-0 mr-4">
                         <div className="relative inline-block">
                           <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-600/40 opacity-30 blur-lg rounded-full"></div>
                           <div className="relative flex justify-center items-center bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 rounded-full w-12 h-12 font-bold text-white text-xl shadow-xl group-hover:scale-110 transition-all duration-300">
@@ -80,9 +80,9 @@ export function PartnershipProcessSection() {
                           </div>
                         </div>
                       </div>
-                      <div className="flex-grow">
+                      <div className="grow">
                         <div className="flex justify-between items-start">
-                          <div className="flex-grow pr-4">
+                          <div className="grow pr-4">
                             <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl leading-tight">
                               {process.title}
                             </h3>

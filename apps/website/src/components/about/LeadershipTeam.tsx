@@ -107,7 +107,7 @@ export function LeadershipTeam() {
 
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="relative flex-shrink-0">
+                    <div className="relative shrink-0">
                       <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
                       <div className="relative rounded-xl bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
                         <MaterialIcon

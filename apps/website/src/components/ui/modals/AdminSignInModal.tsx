@@ -65,13 +65,13 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
             (isEs ? "Credenciales inválidas" : "Invalid credentials"),
         );
       }
-    } catch (err) {
+    } catch (_err) {
       setError(
         isEs
           ? "La autenticación falló. Inténtelo de nuevo."
           : "Authentication failed. Please try again.",
       );
-      logger.error("Admin login error:", err);
+      logger.error("Admin login error:", _err);
     } finally {
       setIsSubmitting(false);
     }
