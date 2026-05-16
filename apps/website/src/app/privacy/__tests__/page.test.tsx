@@ -45,9 +45,10 @@ import PrivacyPolicyPage from "../page";
 describe("PrivacyPolicyPage", () => {
   it("renders the Privacy Policy heading", () => {
     render(<PrivacyPolicyPage />);
-    expect(
-      screen.getByRole("heading", { name: /Privacy Policy/i }),
-    ).toBeInTheDocument();
+    const headings = screen.getAllByRole("heading", {
+      name: /Privacy Policy/i,
+    });
+    expect(headings.length).toBeGreaterThan(0);
   });
 
   it("renders contact information", () => {

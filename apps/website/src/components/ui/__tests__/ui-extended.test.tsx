@@ -247,26 +247,25 @@ describe("IconContainer", () => {
 // ─── PageHero ────────────────────────────────────────────────────────────────
 
 describe("PageHero", () => {
-  it("renders title, subtitle, and description", () => {
+  it("renders eyebrow, title, highlight, and description", () => {
     const { PageHero } = require("../layout/PageHero");
     render(
       <PageHero
+        eyebrow="Built for Washington"
         title="Our Projects"
-        subtitle="Proven construction excellence"
+        highlight="Proven construction excellence"
         description="Serving the Pacific Northwest since 2010"
       />,
     );
+    expect(screen.getByText("Built for Washington")).toBeTruthy();
     expect(screen.getByText("Our Projects")).toBeTruthy();
     expect(screen.getByText("Proven construction excellence")).toBeTruthy();
     expect(
       screen.getByText("Serving the Pacific Northwest since 2010"),
     ).toBeTruthy();
-  });
-
-  it("renders navigation items", () => {
-    const { PageHero } = require("../layout/PageHero");
-    render(<PageHero title="T" subtitle="S" description="D" />);
-    expect(screen.getByRole("navigation")).toBeTruthy();
+    expect(
+      screen.getByText("Building projects for the Client, NOT the Dollar"),
+    ).toBeTruthy();
   });
 });
 

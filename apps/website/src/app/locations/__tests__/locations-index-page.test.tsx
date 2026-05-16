@@ -12,6 +12,10 @@ jest.mock("@/components/seo/SeoMeta", () => ({
   StructuredData: () => null,
 }));
 
+jest.mock("@/lib/i18n/locale.server", () => ({
+  getServerLocale: jest.fn(async () => "en"),
+}));
+
 jest.mock("@/components/ui", () => ({
   Button: ({
     children,
@@ -29,15 +33,16 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
 import { render, screen } from "@testing-library/react";
 
 describe("Locations index page", () => {
-  it("renders the service area hub and location cards", () => {
+  it("renders the service area hub and location cards", async () => {
     const { default: LocationsPage } = require("../page") as {
-      default: React.ComponentType;
+      default: () => Promise<React.ReactElement>;
     };
 
-    render(<LocationsPage />);
+    const page = await LocationsPage();
+    render(page);
 
     expect(
-      screen.getByRole("heading", {
+      await screen.findByRole("heading", {
         name: /regional coverage built for local decisions/i,
       }),
     ).toBeInTheDocument();

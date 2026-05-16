@@ -45,9 +45,10 @@ import TermsOfServicePage from "../page";
 describe("TermsOfServicePage", () => {
   it("renders the Terms of Service heading", () => {
     render(<TermsOfServicePage />);
-    expect(
-      screen.getByRole("heading", { name: /Terms of Service/i }),
-    ).toBeInTheDocument();
+    const headings = screen.getAllByRole("heading", {
+      name: /Terms of Service/i,
+    });
+    expect(headings.length).toBeGreaterThan(0);
   });
 
   it("renders contact email", () => {

@@ -417,11 +417,12 @@ describe("Team page", () => {
 // ── Veterans page ─────────────────────────────────────────────────────────────
 
 describe("Veterans page", () => {
-  it("renders without throwing", () => {
+  it("renders without throwing", async () => {
     const { default: VeteransPage } = require("../veterans/page") as {
-      default: React.ComponentType;
+      default: () => Promise<React.ReactElement>;
     };
-    expect(() => render(<VeteransPage />)).not.toThrow();
+    const page = await VeteransPage();
+    expect(() => render(page)).not.toThrow();
   });
 });
 
@@ -486,11 +487,12 @@ describe("Accessibility page", () => {
 // ── Allies page ───────────────────────────────────────────────────────────────
 
 describe("Allies page", () => {
-  it("renders without throwing", () => {
+  it("renders without throwing", async () => {
     const { default: AlliesPage } = require("../allies/page") as {
-      default: React.ComponentType;
+      default: () => Promise<React.ReactElement>;
     };
-    expect(() => render(<AlliesPage />)).not.toThrow();
+    const page = await AlliesPage();
+    expect(() => render(page)).not.toThrow();
   });
 });
 
