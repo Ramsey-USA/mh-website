@@ -116,7 +116,7 @@ export default function TestimonialsPage() {
       <PageTrackingClient pageName="Testimonials" />
       <StructuredData data={breadcrumbSchema} />
       {aggregateRatingSchema && <StructuredData data={aggregateRatingSchema} />}
-      {reviewSchemas.map((schema, _index) => (
+      {reviewSchemas.map((schema, index) => (
         <StructuredData
           key={`review-${schema.author?.name || schema["@type"] || "schema"}-${index}`}
           data={schema}

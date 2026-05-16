@@ -53,7 +53,7 @@ export function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ol className="flex items-center space-x-2 text-sm overflow-x-auto scrollbar-hide">
-          {items.map((item, _index) => {
+          {items.map((item, index) => {
             const isLast = index === items.length - 1;
 
             return (

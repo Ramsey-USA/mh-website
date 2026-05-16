@@ -70,8 +70,8 @@ async function handleGET(
     }
 
     return createSuccessResponse(row);
-  } catch (_error) {
-    logger._error("Error fetching intake submission", error);
+  } catch (error) {
+    logger.error("Error fetching intake submission", error);
     return internalServerError("Failed to fetch intake submission");
   }
 }
@@ -141,8 +141,8 @@ async function handlePATCH(
       updates: Object.keys(updates),
     });
     return createSuccessResponse(row, "Intake submission updated");
-  } catch (_error) {
-    logger._error("Error updating intake submission", error);
+  } catch (error) {
+    logger.error("Error updating intake submission", error);
     return internalServerError("Failed to update intake submission");
   }
 }

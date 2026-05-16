@@ -506,7 +506,7 @@ export default async function TeamPage() {
                     {/* Team member profiles */}
                     <div className="space-y-8 sm:space-y-10 md:space-y-12">
                       {hasMembers ? (
-                        members.map((member, _index) => (
+                        members.map((member, index) => (
                           <div key={member.slug} className="scroll-reveal">
                             <TeamProfileSection member={member} index={index} />
                           </div>
@@ -649,7 +649,7 @@ export default async function TeamPage() {
                     {/* Team member profiles */}
                     <div className="space-y-8 sm:space-y-10 md:space-y-12">
                       {hasMembers ? (
-                        members.map((member, _index) => (
+                        members.map((member, index) => (
                           <div key={member.slug} className="scroll-reveal">
                             <TeamProfileSection member={member} index={index} />
                           </div>

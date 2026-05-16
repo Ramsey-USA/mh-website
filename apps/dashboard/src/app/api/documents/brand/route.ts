@@ -78,7 +78,7 @@ async function handlePOST(request: NextRequest): Promise<NextResponse> {
     return badRequest(
       "Unsupported file type. Upload PDF or Word (.docx) files.",
     );
-  } catch (_error) {
+  } catch (error) {
     logger.error("Document branding error", {
       error: error instanceof Error ? error.message : "Unknown error",
     });

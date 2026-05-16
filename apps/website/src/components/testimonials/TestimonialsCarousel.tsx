@@ -164,7 +164,7 @@ export function TestimonialsCarousel({
 
       {/* Dots Indicator */}
       <div className="flex justify-center items-center gap-2 mt-8">
-        {testimonials.map((_, _index) => (
+        {testimonials.map((_, index) => (
           <button
             key={`testimonial-dot-${index}`}
             onClick={() => goToSlide(index)}
@@ -173,7 +173,7 @@ export function TestimonialsCarousel({
                 ? "bg-brand-primary w-12 h-3"
                 : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 w-3 h-3"
             }`}
-            aria-label={`Go to testimonial ${_index + 1}`}
+            aria-label={`Go to testimonial ${index + 1}`}
           />
         ))}
       </div>

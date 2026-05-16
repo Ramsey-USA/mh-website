@@ -82,7 +82,7 @@ export function ServicesShowcase() {
   // Build services array from translations with icon metadata
   const services = useMemo(
     () =>
-      (t.items || []).map((item, _index) => ({
+      (t.items || []).map((item, index) => ({
         ...item,
         icon: serviceIcons[index]?.icon || "engineering",
         iconGradient:
@@ -143,18 +143,18 @@ export function ServicesShowcase() {
     >
       {/* Service Cards Grid */}
       <div className={gridPresets.cards3("md")}>
-        {services.map((service, _index) => (
+        {services.map((service, index) => (
           <button
             type="button"
             key={service.title}
             className="scroll-reveal cursor-pointer text-left bg-transparent border-0 p-0"
-            style={{ "--delay": `${_index * 0.1}s` } as CSSProperties}
+            style={{ "--delay": `${index * 0.1}s` } as CSSProperties}
             onClick={() => {
               trackServiceInterest(service.title, "click", {
                 location: "homepage-showcase",
-                position: _index + 1,
+                position: index + 1,
               });
-              openModal(_index);
+              openModal(index);
             }}
             aria-label={`${t.viewDetailsAriaPrefix} ${service.title}`}
           >

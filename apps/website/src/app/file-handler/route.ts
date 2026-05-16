@@ -54,8 +54,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.redirect(new URL("/contact", request.url), {
       status: 303,
     });
-  } catch (_error) {
-    logger._error("[File Handler] Error processing files:", error);
+  } catch (error) {
+    logger.error("[File Handler] Error processing files:", error);
     return NextResponse.json(
       { error: "Failed to process files" },
       { status: 500 },

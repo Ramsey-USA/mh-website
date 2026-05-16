@@ -242,8 +242,8 @@ async function handlePOST(request: NextRequest) {
       "Safety document received and queued for review.",
       201,
     );
-  } catch (_error) {
-    logger._error("Error processing Safety intake upload", error);
+  } catch (error) {
+    logger.error("Error processing Safety intake upload", error);
     return internalServerError("Failed to process Safety intake upload");
   }
 }
@@ -289,8 +289,8 @@ async function handleGET(request: NextRequest, _user: JWTUser) {
     );
 
     return createSuccessResponse(rows);
-  } catch (_error) {
-    logger._error("Error fetching Safety intake submissions", error);
+  } catch (error) {
+    logger.error("Error fetching Safety intake submissions", error);
     return internalServerError("Failed to fetch Safety intake submissions");
   }
 }

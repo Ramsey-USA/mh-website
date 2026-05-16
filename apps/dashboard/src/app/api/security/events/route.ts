@@ -145,8 +145,8 @@ async function handler(request: NextRequest) {
     }
 
     return methodNotAllowed("Method not supported");
-  } catch (_error) {
-    logger._error("Security events error:", error);
+  } catch (error) {
+    logger.error("Security events error:", error);
     return internalServerError("Failed to process security events");
   }
 }

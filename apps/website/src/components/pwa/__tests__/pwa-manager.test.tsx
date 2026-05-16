@@ -79,7 +79,6 @@ jest.mock("next/navigation", () => ({
 import { PWAManager } from "../PWAManager";
 import { UpdateNotification } from "../UpdateNotification";
 import { PWAInstallCTA } from "../PWAInstallCTA";
-import { logger } from "@/lib/utils/logger";
 
 // ─── PWAManager ───────────────────────────────────────────────────────────────
 

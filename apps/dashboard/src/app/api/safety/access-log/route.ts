@@ -101,8 +101,8 @@ async function handlePOST(request: NextRequest, user: JWTUser) {
     await logAccessEvent(request, payload);
 
     return NextResponse.json({ success: true }, { status: 201 });
-  } catch (_error) {
-    logger._error("Error logging safety access event:", error);
+  } catch (error) {
+    logger.error("Error logging safety access event:", error);
     return NextResponse.json(
       { error: "Failed to log access event" },
       { status: 500 },
@@ -196,8 +196,8 @@ async function handleGET(request: NextRequest, _user: JWTUser) {
       data,
       total: Number(totalRow?.total ?? 0),
     });
-  } catch (_error) {
-    logger._error("Error fetching safety access logs:", error);
+  } catch (error) {
+    logger.error("Error fetching safety access logs:", error);
     return NextResponse.json(
       { error: "Failed to fetch access log" },
       { status: 500 },

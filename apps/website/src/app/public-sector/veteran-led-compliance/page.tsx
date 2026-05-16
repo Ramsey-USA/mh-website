@@ -73,13 +73,13 @@ export default function VeteranLedCompliancePage() {
       <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-4 sm:grid-cols-2">
-            {workflow.map((step, _index) => (
+            {workflow.map((step, index) => (
               <article
                 key={step.title}
                 className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900"
               >
                 <div className="inline-flex items-center gap-2 rounded-full bg-brand-primary/10 px-3 py-1 text-xs font-bold text-brand-primary dark:text-brand-primary-light">
-                  <span>Step {_index + 1}</span>
+                  <span>Step {index + 1}</span>
                 </div>
                 <div className="mt-3 flex items-center gap-3">
                   <MaterialIcon

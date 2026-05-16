@@ -260,8 +260,8 @@ export const POST = rateLimit(rateLimitPresets.api)(async (
           { status: 404 },
         );
     }
-  } catch (_error) {
-    logger._error("API function error:", error);
+  } catch (error) {
+    logger.error("API function error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },

@@ -119,8 +119,8 @@ async function handlePOST(request: NextRequest) {
       },
       "Resume uploaded successfully",
     );
-  } catch (_error) {
-    logger._error("Error processing resume upload:", error);
+  } catch (error) {
+    logger.error("Error processing resume upload:", error);
     return internalServerError("Failed to process upload");
   }
 }
@@ -168,8 +168,8 @@ async function handleGET(request: NextRequest) {
         "Content-Disposition": `attachment; filename="${downloadName}"`,
       },
     });
-  } catch (_error) {
-    logger._error("Error retrieving resume:", error);
+  } catch (error) {
+    logger.error("Error retrieving resume:", error);
     return internalServerError("Failed to retrieve file");
   }
 }

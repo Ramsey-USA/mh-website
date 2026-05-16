@@ -129,7 +129,7 @@ export function Timeline({
 
           {/* Timeline Steps */}
           <div className="space-y-12 lg:space-y-20">
-            {steps.map((step, _index) => (
+            {steps.map((step, index) => (
               <div
                 key={step.num}
                 className="relative group scroll-reveal"

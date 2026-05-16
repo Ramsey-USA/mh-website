@@ -140,8 +140,8 @@ async function handlePOST(
       "Plan file uploaded successfully.",
       HttpStatus.CREATED,
     );
-  } catch (_error) {
-    logger._error("Error uploading SSSP plan file:", error);
+  } catch (error) {
+    logger.error("Error uploading SSSP plan file:", error);
     return internalServerError("Failed to upload plan file");
   }
 }

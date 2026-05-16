@@ -226,7 +226,7 @@ export async function brandPdfDocument(
   await pdfDoc.embedFont(StandardFonts.Helvetica);
   await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
-  pages.forEach((page, _index) => {
+  pages.forEach((page, index) => {
     const { width, height } = page.getSize();
     drawPdfBrandingHeader(page, width, height, title, subtitle);
     drawPdfBrandingFooter(page, width, index + 1, pages.length);

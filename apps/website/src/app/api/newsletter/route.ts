@@ -185,8 +185,8 @@ async function handlePOST(request: NextRequest) {
       message: "Thank you for subscribing to our newsletter!",
       subscribed: true,
     });
-  } catch (_error) {
-    logger._error("Newsletter signup error:", error);
+  } catch (error) {
+    logger.error("Newsletter signup error:", error);
     return internalServerError(
       "Failed to process newsletter signup. Please try again later.",
     );
@@ -239,8 +239,8 @@ async function handleDELETE(request: NextRequest): Promise<NextResponse> {
       unsubscribed: true,
       message: "You have been successfully unsubscribed.",
     });
-  } catch (_error) {
-    logger._error("Newsletter unsubscribe error:", error);
+  } catch (error) {
+    logger.error("Newsletter unsubscribe error:", error);
     return internalServerError("Failed to process unsubscribe request.");
   }
 }

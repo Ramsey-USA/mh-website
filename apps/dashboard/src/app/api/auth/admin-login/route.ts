@@ -157,8 +157,8 @@ async function handler(request: NextRequest) {
     });
 
     return response;
-  } catch (_error) {
-    logger._error("Admin login error:", error);
+  } catch (error) {
+    logger.error("Admin login error:", error);
     captureServerException(error, { request, route: "/api/auth/admin-login" });
     return internalServerError("Authentication failed");
   }

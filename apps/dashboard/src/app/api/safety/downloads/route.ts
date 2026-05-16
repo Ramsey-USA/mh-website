@@ -68,8 +68,8 @@ async function handleGET(request: NextRequest, _user: JWTUser) {
 
     const logs = await db.query<DownloadLogEntry>(sql, ...params);
     return NextResponse.json({ success: true, data: logs });
-  } catch (_error) {
-    logger._error("Error fetching download log:", error);
+  } catch (error) {
+    logger.error("Error fetching download log:", error);
     return NextResponse.json(
       { error: "Failed to fetch download log" },
       { status: 500 },
@@ -114,8 +114,8 @@ async function handlePOST(request: NextRequest, user: JWTUser) {
     });
 
     return NextResponse.json({ success: true }, { status: 201 });
-  } catch (_error) {
-    logger._error("Error logging download:", error);
+  } catch (error) {
+    logger.error("Error logging download:", error);
     return NextResponse.json(
       { error: "Failed to log download" },
       { status: 500 },

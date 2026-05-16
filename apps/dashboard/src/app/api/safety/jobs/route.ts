@@ -47,8 +47,8 @@ async function handleGET(_request: NextRequest, _user: JWTUser) {
     );
 
     return createSuccessResponse(jobs);
-  } catch (_error) {
-    logger._error("Error fetching jobs:", error);
+  } catch (error) {
+    logger.error("Error fetching jobs:", error);
     return internalServerError("Failed to fetch jobs");
   }
 }
@@ -87,8 +87,8 @@ async function handlePOST(request: NextRequest, _user: JWTUser) {
 
     logger.info(`Created job: ${job_number} – ${job_name}`);
     return createSuccessResponse(job, undefined, HttpStatus.CREATED);
-  } catch (_error) {
-    logger._error("Error creating job:", error);
+  } catch (error) {
+    logger.error("Error creating job:", error);
     return internalServerError("Failed to create job");
   }
 }

@@ -80,8 +80,8 @@ async function handleGET(_request: NextRequest, _user: JWTUser) {
         },
       },
     });
-  } catch (_error) {
-    logger._error("Error fetching driver alerts:", error);
+  } catch (error) {
+    logger.error("Error fetching driver alerts:", error);
     return NextResponse.json(
       { error: "Failed to fetch driver alerts" },
       { status: 500 },

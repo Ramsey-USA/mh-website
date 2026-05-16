@@ -382,8 +382,8 @@ export function JobApplicationModal({
       setTimeout(() => {
         handleClose();
       }, 2000);
-    } catch (_error) {
-      logger._error("Error submitting application:", error);
+    } catch (error) {
+      logger.error("Error submitting application:", error);
       setSubmitError(
         error instanceof Error
           ? error.message

@@ -55,8 +55,8 @@ async function handleGET(request: NextRequest, _user: JWTUser) {
     const drivers = await db.query<AuthorizedDriver>(sql, ...params);
 
     return createSuccessResponse(drivers);
-  } catch (_error) {
-    logger._error("Error fetching drivers:", error);
+  } catch (error) {
+    logger.error("Error fetching drivers:", error);
     return internalServerError("Failed to fetch drivers");
   }
 }
@@ -173,8 +173,8 @@ async function handlePOST(request: NextRequest, _user: JWTUser) {
 
     logger.info(`Created authorized driver: ${employee_name}`);
     return createSuccessResponse(driver, undefined, HttpStatus.CREATED);
-  } catch (_error) {
-    logger._error("Error creating driver:", error);
+  } catch (error) {
+    logger.error("Error creating driver:", error);
     return internalServerError("Failed to create driver");
   }
 }

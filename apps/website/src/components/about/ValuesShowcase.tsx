@@ -178,7 +178,7 @@ export function ValuesShowcase() {
 
         {/* Value Category Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {valueCategories.map((value, _index) => (
+          {valueCategories.map((value, index) => (
             <div
               key={value.id}
               className="group relative flex h-full cursor-pointer"

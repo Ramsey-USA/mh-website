@@ -193,8 +193,8 @@ export async function GET(request: NextRequest) {
       },
       checked_at: new Date().toISOString(),
     });
-  } catch (_error) {
-    logger._error("Driver alert check failed:", error);
+  } catch (error) {
+    logger.error("Driver alert check failed:", error);
     return NextResponse.json({ error: "Alert check failed" }, { status: 500 });
   }
 }
