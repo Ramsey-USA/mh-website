@@ -197,7 +197,7 @@ export async function securityMiddleware(
     }
 
     return securedResponse;
-  } catch (error) {
+  } catch (_error) {
     // Log error and continue with minimal security (best-effort, non-blocking)
     deferAudit(
       auditLogger.logEvent(AuditEventType.ERROR_OCCURRED, {
@@ -337,7 +337,7 @@ export function withSecurity<
       );
 
       return securedResponse;
-    } catch (error) {
+    } catch (_error) {
       await auditLogger.logEvent(AuditEventType.ERROR_OCCURRED, {
         source: "api",
         ipAddress,

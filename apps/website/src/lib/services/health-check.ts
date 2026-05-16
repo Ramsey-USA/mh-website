@@ -94,7 +94,7 @@ export async function checkD1Status(): Promise<ServiceStatus> {
       latency,
       lastChecked: new Date().toISOString(),
     };
-  } catch (error) {
+  } catch (_error) {
     logger.error("D1 health check failed", { error });
     return {
       name: "cloudflare-d1",
@@ -145,7 +145,7 @@ export async function checkKVStatus(): Promise<ServiceStatus> {
       latency,
       lastChecked: new Date().toISOString(),
     };
-  } catch (error) {
+  } catch (_error) {
     logger.error("KV health check failed", { error });
     return {
       name: "cloudflare-kv",
@@ -191,7 +191,7 @@ export async function checkR2Status(): Promise<ServiceStatus> {
       latency,
       lastChecked: new Date().toISOString(),
     };
-  } catch (error) {
+  } catch (_error) {
     logger.error("R2 health check failed", { error });
     return {
       name: "cloudflare-r2",
@@ -226,7 +226,7 @@ export async function checkAIStatus(): Promise<ServiceStatus> {
       status: "healthy",
       lastChecked: new Date().toISOString(),
     };
-  } catch (error) {
+  } catch (_error) {
     logger.error("AI health check failed", { error });
     return {
       name: "cloudflare-ai",

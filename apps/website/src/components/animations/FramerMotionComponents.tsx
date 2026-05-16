@@ -130,7 +130,7 @@ export function StaggeredFadeIn({
 
   return (
     <div ref={ref} className={className}>
-      {children.map((child, index) => {
+      {children.map((child, _index) => {
         const delay = index * staggerDelay;
         const visible = !observerReady || inView;
         const style: CSSProperties = {
@@ -139,7 +139,7 @@ export function StaggeredFadeIn({
           transition: `opacity 0.6s cubic-bezier(0.25,0.25,0,1) ${delay}s, transform 0.6s cubic-bezier(0.25,0.25,0,1) ${delay}s`,
         };
         return (
-          <div key={index} style={style}>
+          <div key={_index} style={style}>
             {child}
           </div>
         );

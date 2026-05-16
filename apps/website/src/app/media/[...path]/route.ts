@@ -73,8 +73,8 @@ export async function GET(
           },
         });
       }
-    } catch (error) {
-      logger.error("R2 fetch error for media proxy:", error);
+    } catch (_error) {
+      logger._error("R2 fetch error for media proxy:", error);
     }
   }
 

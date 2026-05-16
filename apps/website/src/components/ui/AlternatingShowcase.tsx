@@ -88,7 +88,7 @@ export function AlternatingShowcase({
     >
       {/* Stacked Cards with Alternating Image/Text Layout */}
       <div className="space-y-12 lg:space-y-16">
-        {items.map((item, index) => {
+        {items.map((item, _index) => {
           const isEven = index % 2 === 0;
           return (
             <div

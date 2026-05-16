@@ -36,6 +36,7 @@ jest.mock("web-vitals", () => ({
 
 import { MobilePerformanceMonitor } from "../MobilePerformanceMonitor";
 import { WebVitalsReporter } from "../WebVitalsReporter";
+import { logger } from "@/lib/utils/logger";
 
 // ─── MobilePerformanceMonitor ─────────────────────────────────────────────────
 

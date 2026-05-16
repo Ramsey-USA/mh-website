@@ -68,7 +68,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
       <StaggeredFadeIn
         className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
       >
-        {services.map((service, index) => (
+        {services.map((service, _index) => (
           <ServiceCard
             key={service.title}
             service={service}

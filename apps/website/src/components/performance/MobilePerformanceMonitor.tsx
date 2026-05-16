@@ -85,7 +85,7 @@ export function MobilePerformanceMonitor() {
           fidObserver.disconnect();
           clsObserver.disconnect();
         };
-      } catch (error) {
+      } catch (_error) {
         logger.warn("[Performance] Observer setup failed:", error);
       }
     }

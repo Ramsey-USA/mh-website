@@ -135,7 +135,7 @@ async function handler(request: NextRequest): Promise<Response> {
     const response = aiResponse ?? getChatFallbackResponse(payload.message);
 
     return NextResponse.json({ response });
-  } catch (error) {
+  } catch (_error) {
     logger.error("Chat API error", {
       error: error instanceof Error ? error.message : "unknown",
     });

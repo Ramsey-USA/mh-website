@@ -150,8 +150,8 @@ async function handler(request: NextRequest) {
     }
 
     return methodNotAllowed("Method not supported");
-  } catch (error) {
-    logger.error("Security status error:", error);
+  } catch (_error) {
+    logger._error("Security status error:", error);
     return internalServerError("Failed to retrieve security status");
   }
 }

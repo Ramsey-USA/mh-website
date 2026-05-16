@@ -53,8 +53,8 @@ async function handleGET(
     }
 
     return createSuccessResponse(driver);
-  } catch (error) {
-    logger.error("Error fetching driver:", error);
+  } catch (_error) {
+    logger._error("Error fetching driver:", error);
     return internalServerError("Failed to fetch driver");
   }
 }
@@ -153,8 +153,8 @@ async function handlePUT(
 
     logger.info(`Updated authorized driver: ${id}`);
     return createSuccessResponse(updated);
-  } catch (error) {
-    logger.error("Error updating driver:", error);
+  } catch (_error) {
+    logger._error("Error updating driver:", error);
     return internalServerError("Failed to update driver");
   }
 }
@@ -195,8 +195,8 @@ async function handleDELETE(
       undefined,
       `Authorization revoked for ${existing.employee_name}`,
     );
-  } catch (error) {
-    logger.error("Error revoking driver:", error);
+  } catch (_error) {
+    logger._error("Error revoking driver:", error);
     return internalServerError("Failed to revoke driver authorization");
   }
 }

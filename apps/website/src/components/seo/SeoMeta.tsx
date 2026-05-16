@@ -246,9 +246,9 @@ export function generateBreadcrumbStructuredData(
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: breadcrumbs.map((crumb, index) => ({
+    itemListElement: breadcrumbs.map((crumb, _index) => ({
       "@type": "ListItem",
-      position: index + 1,
+      position: _index + 1,
       name: crumb.name,
       item: crumb.url,
     })),

@@ -252,9 +252,9 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
           hasOfferCatalog: {
             "@type": "OfferCatalog",
             name: `Recent Projects — ${location.city}, ${location.state}`,
-            itemListElement: location.recentProjects.map((project, index) => ({
+            itemListElement: location.recentProjects.map((project, _index) => ({
               "@type": "Offer",
-              position: index + 1,
+              position: _index + 1,
               itemOffered: {
                 "@type": "Service",
                 name: project.name,

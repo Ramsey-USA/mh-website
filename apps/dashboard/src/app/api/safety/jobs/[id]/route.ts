@@ -52,8 +52,8 @@ async function handleGET(
     }
 
     return createSuccessResponse(job);
-  } catch (error) {
-    logger.error("Error fetching job:", error);
+  } catch (_error) {
+    logger._error("Error fetching job:", error);
     return internalServerError("Failed to fetch job");
   }
 }
@@ -88,8 +88,8 @@ async function handlePATCH(
 
     const job = await db.queryOne<Job>(`SELECT * FROM jobs WHERE id = ?`, id);
     return createSuccessResponse(job);
-  } catch (error) {
-    logger.error("Error updating job:", error);
+  } catch (_error) {
+    logger._error("Error updating job:", error);
     return internalServerError("Failed to update job");
   }
 }

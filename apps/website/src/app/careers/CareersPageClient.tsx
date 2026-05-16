@@ -373,13 +373,13 @@ export default function CareersPageClient() {
 
             {/* Culture Values Showcase - Alternating Image/Text Layout */}
             <AlternatingShowcase
-              items={cultureValues.map((value, index) => ({
-                id: `culture-${index + 1}`,
+              items={cultureValues.map((value, _index) => ({
+                id: `culture-${_index + 1}`,
                 title: value.title,
                 icon: value.icon,
-                tagline: `Core Value ${index + 1}`,
+                tagline: `Core Value ${_index + 1}`,
                 description: value.description,
-                image: `/images/culture/culture-${index + 1}.jpg`,
+                image: `/images/culture/culture-${_index + 1}.jpg`,
                 iconBg: getCultureIconBg(value.color),
               }))}
               title="MH Construction"
@@ -1009,7 +1009,7 @@ export default function CareersPageClient() {
                       desc: "When both sides are aligned, we move into an offer, paperwork, safety expectations, and a clear onboarding plan.",
                       position: "left",
                     },
-                  ].map((step, index) => (
+                  ].map((step, _index) => (
                     <div
                       key={step.num}
                       className="relative group scroll-reveal"

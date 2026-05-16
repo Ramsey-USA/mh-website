@@ -140,7 +140,7 @@ export function BrandingTab({ token }: BrandingTabProps) {
           status: "success",
           message: `Branded file downloaded as ${outputName}`,
         });
-      } catch (error) {
+      } catch (_error) {
         updateResult(id, {
           status: "error",
           message:

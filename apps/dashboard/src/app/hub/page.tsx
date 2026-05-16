@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const CARDS_FALLBACK = (
   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-    {Array.from({ length: 6 }).map((_, index) => (
+    {Array.from({ length: 6 }).map((_, _index) => (
       <div
         key={`hub-card-skeleton-${index}`}
         className="h-36 rounded-xl border border-slate-200 bg-white/80 animate-pulse dark:border-gray-800 dark:bg-gray-900/70"

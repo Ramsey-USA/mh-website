@@ -168,8 +168,8 @@ async function handlePOST(_request: NextRequest) {
       },
       "Leads sync completed successfully",
     );
-  } catch (error) {
-    logger.error("Leads sync failed:", error);
+  } catch (_error) {
+    logger._error("Leads sync failed:", error);
     return internalServerError("Failed to sync leads");
   }
 }

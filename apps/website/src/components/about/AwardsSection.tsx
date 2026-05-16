@@ -197,7 +197,7 @@ export function AwardsSection() {
 
         {/* Trophy Case Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
-          {emrTimeline.map((item, index) => (
+          {emrTimeline.map((item, _index) => (
             <div
               key={item.year}
               className="group scroll-reveal"

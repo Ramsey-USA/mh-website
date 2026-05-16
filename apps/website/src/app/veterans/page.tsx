@@ -644,7 +644,7 @@ export default async function VeteransPage() {
                       desc: "Receive a detailed, transparent proposal showing standard pricing, your veteran discount applied, and final project cost. No hidden fees. No surprises. No expiration on your discount—it applies to every project you do with us.",
                       position: "left",
                     },
-                  ].map((step, index) => (
+                  ].map((step, _index) => (
                     <div
                       key={step.num}
                       className="relative group scroll-reveal"

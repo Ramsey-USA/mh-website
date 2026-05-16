@@ -133,8 +133,8 @@ async function handler(request: NextRequest) {
     });
 
     return response;
-  } catch (error) {
-    logger.error("Hub login error:", error);
+  } catch (_error) {
+    logger._error("Hub login error:", error);
     return internalServerError("Authentication failed");
   }
 }

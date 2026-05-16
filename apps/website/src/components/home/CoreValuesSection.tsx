@@ -106,7 +106,7 @@ export function CoreValuesSection() {
     >
       {/* Stacked Value Cards with Alternating Layout */}
       <div className="space-y-12 lg:space-y-16">
-        {coreValues.map((item, index) => {
+        {coreValues.map((item, _index) => {
           const isEven = index % 2 === 0;
           return (
             <div

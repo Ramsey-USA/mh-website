@@ -763,14 +763,14 @@ function GeographicHeatMap({
             <p className="text-xs mt-1">CTA clicks will populate this map</p>
           </div>
         ) : (
-          locations.map((loc, index) => {
+          locations.map((loc, _index) => {
             const percentage = (loc.count / maxCount) * 100;
             return (
               <div key={loc.key} className="space-y-1">
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-white font-bold flex items-center gap-2">
                     <span className="text-brand-secondary font-black">
-                      #{index + 1}
+                      #{_index + 1}
                     </span>
                     {loc.key}
                   </span>
