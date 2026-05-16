@@ -24,12 +24,21 @@
  * 8. Fix async/await patterns
  */
 
-const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
-const SRC = path.join(ROOT, "src");
+const APPS_DIR = path.join(ROOT, "apps");
+const IGNORE_DIRS = new Set([
+  ".git",
+  ".next",
+  ".open-next",
+  ".swc",
+  "coverage",
+  "dist",
+  "build",
+  "node_modules",
+]);
 
 // Parse command line arguments
 const args = process.argv.slice(2);
@@ -58,18 +67,34 @@ let stats = {
 };
 
 /**
- * Get all TypeScript files in src directory
+ * Get all TypeScript files in app src directories
  */
 function getAllTsFiles() {
   const exts = [".ts", ".tsx"];
   const files = [];
 
+  function getSourceRoots() {
+    if (!fs.existsSync(APPS_DIR)) {
+      throw new Error(`Apps directory not found: ${APPS_DIR}`);
+    }
+
+    const appEntries = fs.readdirSync(APPS_DIR, { withFileTypes: true });
+    return appEntries
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => path.join(APPS_DIR, entry.name, "src"))
+      .filter((srcDir) => fs.existsSync(srcDir));
+  }
+
   function walk(dir) {
-    const entries = fs.readdirSync(dir);
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
     for (const entry of entries) {
-      const full = path.join(dir, entry);
-      const stat = fs.statSync(full);
-      if (stat.isDirectory()) {
+      if (entry.isDirectory() && IGNORE_DIRS.has(entry.name)) {
+        continue;
+      }
+
+      const full = path.join(dir, entry.name);
+
+      if (entry.isDirectory()) {
         walk(full);
       } else if (exts.includes(path.extname(full))) {
         files.push(full);
@@ -77,7 +102,11 @@ function getAllTsFiles() {
     }
   }
 
-  walk(SRC);
+  const sourceRoots = getSourceRoots();
+  for (const sourceRoot of sourceRoots) {
+    walk(sourceRoot);
+  }
+
   return files;
 }
 
@@ -185,28 +214,9 @@ function fixCatchBlocks(content) {
  * Fix 3: Unused function parameters
  */
 function fixUnusedParams(content) {
-  let fixed = 0;
-  let modified = content;
-
-  // Common patterns for unused params
-  const patterns = [
-    { from: /\bmap\(\s*\([^,]+,\s*index\s*\)/g, to: "map(($1, _index)" },
-    { from: /\bfilter\(\s*\([^,]+,\s*index\s*\)/g, to: "filter(($1, _index)" },
-    {
-      from: /\bforEach\(\s*\([^,]+,\s*index\s*\)/g,
-      to: "forEach(($1, _index)",
-    },
-  ];
-
-  for (const pattern of patterns) {
-    const matches = modified.match(pattern.from);
-    if (matches) {
-      modified = modified.replace(pattern.from, pattern.to);
-      fixed += matches.length;
-    }
-  }
-
-  return { content: modified, fixed };
+  // This transform is intentionally disabled because textual callback rewrites
+  // can rename parameters that are still referenced in callback bodies.
+  return { content, fixed: 0 };
 }
 
 /**
