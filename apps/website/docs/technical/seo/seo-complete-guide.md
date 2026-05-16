@@ -7,6 +7,8 @@
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../../branding/brand-constants.md).
 
+**Brand Congruency:** SEO copy, titles, schema, and page labels must remain aligned with approved MH voice, trust language, veteran-owned framing, and accessibility naming.
+
 > **Consolidation Note:** This document consolidates and supersedes:
 >
 > - `ultimate-seo-guide.md` (456 lines)

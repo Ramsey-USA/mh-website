@@ -1,12 +1,15 @@
 # MH Construction — Architecture Documentation
 
 **Category:** Project - Architecture  
-**Last Updated:** April 29, 2026  
-**Version:** 1.2.0  
+**Last Updated:** May 15, 2026  
+**Version:** 1.3.0  
 **Status:** ✅ Active
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
 > **Page Structure Standard:** All lead-path pages follow the [Universal Page Flow Standard](../development/standards/universal-page-flow-standard.md) (Discover → Trust → Proof → Action).
+
+> **Brand Congruency Note:** Architecture, page labels, metadata, and SEO-facing names must stay aligned with approved MH branding, trust language, and veteran-owned factual framing.
+> Visual architecture decisions must keep typography and color usage aligned with the canonical MH font system and color system.
 
 ## 🎯 **CURRENT STATE: Complete Production Platform**
 
@@ -56,6 +59,12 @@
 - ✅ **Theme System** - Dark/Light mode support with seamless switching
 - ✅ **Analytics Integration** - Enhanced tracking and performance monitoring
 - ✅ **Partnership Guide** - Cloudflare Workers AI chatbot (floating widget, all pages)
+
+### Brand Surface Requirements
+
+- Keep trust, accreditation, and veteran-owned references accurate and visible on public surfaces.
+- Avoid unapproved aliases or slogan-heavy names in routes, metadata, or section titles.
+- Preserve accessibility semantics and consistent page naming when refactoring architecture.
 
 ---
 

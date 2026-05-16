@@ -1,11 +1,13 @@
 # MH Construction Hero Section Standards
 
 **Category:** Branding - Standards  
-**Last Updated:** April 15, 2026  
-**Version:** 7.0.0  
+**Last Updated:** May 16, 2026  
+**Version:** 7.1.0  
 **Status:** ✅ Active
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
+
+**Brand Congruency:** Hero layouts and taglines must stay aligned with approved MH terminology, trust content, accessibility, and SEO naming.
 
 ---
 
@@ -14,6 +16,21 @@
 This document defines the official MH Construction hero section standard implemented
 across all website pages, with veteran-focused messaging, military operations terminology,
 and visual-first design philosophy.
+
+**Canonical Baseline Source:** `apps/website/src/components/home/HeroSection.tsx`
+
+If this document conflicts with implemented Home Hero behavior, the Home Hero source
+is the tie-breaker until this document is updated.
+
+## Hero Presence Requirement
+
+All website pages must include a hero section.
+
+- A page is non-compliant if it omits a hero entirely.
+- Preferred implementation is a root `hero-section` that follows Home baseline posture.
+- Shared hero wrappers are allowed only when they preserve Home baseline typography,
+  spacing envelope, icon strategy, and bottom-navigation framing behavior.
+- Any missing hero page is a release-blocking FAIL for hero congruency checks.
 
 ## 🎯 Tagline Strategy Update (December 14, 2025)
 
@@ -63,7 +80,7 @@ recognition and accessibility.
 | Page           | Dual Naming                 | Military/Construction Blend Tagline                                             | Mantra                                                                                                                                                                                  |
 | -------------- | --------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Homepage       | Base HQ → Home              | "Mission-Focused Execution \| Building Projects for the Client, NOT the Dollar" | Your Tri-State Construction Command Center                                                                                                                                              |
-| About          | Our Oath → About Us         | "Service-Proven Excellence Through Service-Earned Experience"                   | Service-Earned Values, Construction Excellence                                                                                                                                          |
+| About          | Our Oath → About Us         | "Battle-Tested Excellence Through Service-Earned Experience"                    | Service-Earned Values, Construction Excellence                                                                                                                                          |
 | Services       | Operations → Services       | "Your Construction Mission Deserves Veteran-Led Expert Oversight"               | The Battle Plan - Strategic Construction Excellence                                                                                                                                     |
 | Projects       | Missions → Projects         | "650+ Construction Missions Completed - Proven Results"                         | Mission Success: 650+ Projects, Countless Relationships                                                                                                                                 |
 | Team           | Chain of Command → Our Team | "All-Branch Veteran Leadership You Can Trust"                                   | 150+ Years Combined Military-Grade Expertise at Your Service                                                                                                                            |
@@ -82,15 +99,23 @@ recognition and accessibility.
 
 ### ✅ MUST INCLUDE
 
-1. **Full Viewport Height**: `h-screen flex items-end justify-end` (bottom-right positioning)
-2. **Visual-First Design**: Text positioned bottom-right to allow photos/videos to be focal point
-3. **Multi-line Format**: Vertical text arrangement with separators for emphasis
-4. **Veteran Messaging**: Emphasize veteran-owned, honest communication, proven craftsmanship
-5. **PageNavigation at Bottom**: Section-based navigation using `#section-id` anchors (Dec 2025 standard)
+1. **Hero Presence on Every Page**: Every website page includes a hero section.
+2. **Home-Class Hero Root Posture**: `hero-section relative flex items-end justify-end text-white overflow-hidden`
+3. **Visual-First Design**: Text positioned bottom-right to allow photos/videos to be focal point
+4. **Multi-line Format**: Vertical text arrangement with separators for emphasis
+5. **Veteran Messaging**: Emphasize veteran-owned, honest communication, proven craftsmanship
+6. **Header/Nav Framing Envelope**: Hero content wrapper preserves spacing that clears header above and nav below:
+
+- `mb-32 sm:mb-36 md:mb-40 lg:mb-44`
+- `mr-4 sm:mr-6 lg:mr-8 xl:mr-12`
+- `ml-auto max-w-2xl pointer-events-none pb-2`
+
+6. **PageNavigation at Bottom**: Section-based navigation using `#section-id` anchors (Dec 2025 standard)
+7. **Single Mission Icon Treatment**: Use one intentional icon container aligned with Home-style emphasis.
 
 ### ❌ MUST NOT INCLUDE
 
-1. **NO Badges**: Veteran badges, military_tech icons, decorative badges
+1. **NO Hero Clutter**: No decorative badge clusters, stat chips, or competing icon groups in hero copy area
 2. **NO CTA Buttons**: Schedule Consultation, Get Estimate, Contact buttons
 3. **NO Stats**: 30+ years, 100+ projects, satisfaction rate displays
 4. **NO Trust Indicators**: Icons with project counts or ratings
@@ -107,39 +132,43 @@ recognition and accessibility.
 visual element. This creates a more impactful first impression where imagery speaks first.
 
 ```tsx
-<section className="relative h-screen flex items-end justify-end text-white overflow-hidden">
+<section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
   {/* Background - Photo or Video Focal Point */}
-  <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
+  <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
     {/* Add background image or video here */}
     {/* <img src="/path/to/image.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" /> */}
     {/* <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover" /> */}
 
     {/* Overlay for text readability */}
-    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
+    <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
   </div>
 
   {/* Header Text - Bottom Right (Allows visual to dominate) */}
-  <div className="relative z-30 mb-20 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
-    <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+  <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+    {/* Mission Icon - Single container only */}
+    <div className="flex justify-end mb-4">
+      <div className="relative p-4 bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
+        <AmericanFlag size="4xl" animated={true} />
+      </div>
+    </div>
+
+    <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
       {/* DUAL NAMING - Military → Civilian (Required) */}
-      <span className="block text-brand-secondary/80 text-sm sm:text-base md:text-lg lg:text-xl font-normal mb-2">
+      <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
         Base HQ → Home
       </span>
       {/* PAGE-SPECIFIC MANTRA */}
-      <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
+      <span className="block text-brand-secondary">
         Your Tri-State Construction Command Center
       </span>
-      {/* TAGLINE WITH SEPARATORS */}
-      <span className="block text-brand-secondary">
-        Veteran-Owned Excellence
+      <span className="block text-brand-primary">
+        Mission-Focused Execution
       </span>
-      <span className="block">|</span>
-      <span className="block text-white/95">Mission-Focused Execution</span>
-      <span className="block">|</span>
-      <span className="block text-brand-primary">Proven Craftsmanship</span>
-      <span className="block">|</span>
       <span className="block text-white/90">
         Building Projects for the Client, NOT the Dollar
+      </span>
+      <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
+        Serving Pasco, Kennewick, Richland, and the Pacific Northwest
       </span>
     </h1>
   </div>
@@ -158,20 +187,19 @@ visual element. This creates a more impactful first impression where imagery spe
 
 ### Responsive Size Guide
 
-| Element           | Mobile      | Tablet       | Desktop       |
-| ----------------- | ----------- | ------------ | ------------- |
-| **Multi-line H1** | `text-base` | `sm:text-xl` | `xl:text-4xl` |
+| Element           | Mobile    | Tablet        | Desktop       |
+| ----------------- | --------- | ------------- | ------------- |
+| **Multi-line H1** | `text-lg` | `sm:text-2xl` | `xl:text-5xl` |
 
 ### Full Responsive Classes (Right-Aligned)
 
 ```tsx
 // Multi-line heading with vertical format
-className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed"
+className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight"
 
 // Individual lines with different accent colors
 <span className="block text-brand-secondary">Line 1</span>
-<span className="block">|</span>  // Separator
-<span className="block text-white/95">Line 2</span>
+<span className="block text-brand-primary">Line 2</span>
 ```
 
 ---
@@ -180,20 +208,21 @@ className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl
 
 Use this checklist when creating or reviewing any page's hero section:
 
-- [ ] Full viewport height (`h-screen flex items-center justify-center`)
+- [ ] Every website page in scope includes a hero section (missing hero is automatic FAIL)
+- [ ] Hero root posture matches Home baseline (`hero-section relative flex items-end justify-end text-white overflow-hidden`)
 - [ ] Background gradient with overlay
-- [ ] Content wrapper with responsive padding
-- [ ] Spacing container (`space-y-2` to `lg:space-y-6`)
+- [ ] Content wrapper uses Home spacing envelope (`mb-32 sm:mb-36 md:mb-40 lg:mb-44`, `mr-4 sm:mr-6 lg:mr-8 xl:mr-12`, `ml-auto max-w-2xl pointer-events-none pb-2`)
+- [ ] Single mission icon container above H1 (Home-style glass/outline treatment)
 - [ ] **Dual naming format at top** (e.g., "Base HQ → Home")
 - [ ] **Page-specific mantra** included for SEO and engagement
-- [ ] Title with proper responsive classes
+- [ ] Title with Home-parity responsive classes (`text-lg` through `xl:text-5xl`, `font-black`, right-aligned)
 - [ ] Title uses `text-brand-secondary` color
 - [ ] Subtitle with proper responsive classes
 - [ ] Description includes company tagline
 - [ ] PageNavigation at `absolute bottom-0 left-0 right-0` with section anchors only
 - [ ] Navigation config uses `#section-id` format (no cross-page links)
 - [ ] All navigable sections have unique `id` attributes
-- [ ] **NO** veteran badges or decorative badges
+- [ ] **NO** decorative badge clusters or competing icon groups in hero
 - [ ] **NO** CTA buttons in hero
 - [ ] **NO** stats cards or displays
 - [ ] **NO** trust indicators
@@ -204,28 +233,34 @@ Use this checklist when creating or reviewing any page's hero section:
 
 ## Examples by Page
 
-### Home Page
+### Home Page (Canonical)
 
 ```tsx
-<h1>Commercial Construction Excellence</h1>
-<p>Your trusted construction partner in Pasco, Kennewick, and Richland.</p>
-<p>"Building projects for the Client, NOT the Dollar" — Veteran-owned excellence...</p>
+<section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
+  {/* baseline spacing and single mission icon */}
+  <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+    <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
+      ...
+    </h1>
+  </div>
+  <PageNavigation className="absolute bottom-0 left-0 right-0" />
+</section>
 ```
 
-### Services Page
+### Services Page (Parity Target)
 
 ```tsx
-<h1>Construction Excellence</h1>
-<p>"Building projects for the Client, NOT the Dollar"</p>
-<p>We Work WITH You Every Step. Military Precision. Advanced Technology...</p>
+<h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black ...">
+  ...
+</h1>
 ```
 
-### Projects Page
+### Projects Page (Parity Target)
 
 ```tsx
-<h1>Partnership Success Stories</h1>
-<p>"Building projects for the Client, NOT the Dollar"</p>
-<p>Building Excellence Together Across the Pacific Northwest...</p>
+<h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black ...">
+  ...
+</h1>
 ```
 
 ---

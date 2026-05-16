@@ -7,6 +7,9 @@
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
+**Brand Congruency:** This overview must stay aligned with the canonical voice, trust content, accessibility, and approved naming rules used across the site.
+Typography and color direction described here must stay aligned with the canonical MH font system and color system.
+
 All brand identity is built upon the four-value foundation system from
 [core-values.md](../../business/core-values.md): **Honesty, Integrity, Professionalism,
 Thorough­ness**—culminating in **Trust** as the ultimate goal.

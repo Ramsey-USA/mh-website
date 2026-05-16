@@ -5,6 +5,8 @@
 **BBB:** A+ Rating since April 7, 2026
 
 > **Brand Reference:** See [Brand Constants](../branding/brand-constants.md) for exact brand values.
+>
+> **Brand Congruency:** These templates must stay relationship-first, factual, and aligned with approved MH voice, veteran-owned framing, trust content, and SEO naming.
 
 ---
 

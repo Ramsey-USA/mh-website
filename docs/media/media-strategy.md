@@ -5,6 +5,8 @@
 > conventions, SEO rules, and a path toward automated testimonial
 > distribution to social media and email.
 
+**Brand Congruency:** Media assets and overlays must support canonical MH typography, color usage, trust visibility, and approved naming.
+
 ---
 
 ## Table of Contents

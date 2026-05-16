@@ -30,6 +30,7 @@ Enforce structural consistency for printable manuals so every section renders wi
 - Never break or skip required WBS numbering sequence in manual sections.
 - Never introduce typography outside approved tokenized print scale.
 - Never allow header/footer bands, logos, or hero/content blocks to touch or overlap border frames; enforce an explicit inner safe-area padding standard on every manual artifact.
+- Use the branding congruency checklist as a required final gate for any manual or print-layout change.
 
 ## Required Checks
 
@@ -40,6 +41,7 @@ Enforce structural consistency for printable manuals so every section renders wi
 - WBS Numbering Consistency: hierarchical numbering format and sequence integrity.
 - Generation Consistency: output PDFs preserve structural rules from templates.
 - PDF Artifact Consistency: regenerated PDFs match expected page size, page count expectations, and title/author/creator metadata conventions.
+- Branding Congruency Consistency: verify voice, trust, accessibility, and approved naming remain aligned with brand standards.
 
 ## Required Workflow
 

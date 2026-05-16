@@ -26,6 +26,7 @@ Protect MH voice quality in client partner-facing language.
 - Avoid hype, gimmicks, and slogan-heavy copy.
 - Keep language clear, plain, and human.
 - Route action intent toward direct human contact.
+- Align with the branding congruency checklist for voice, trust, accessibility, and naming consistency.
 
 ## Required Checks
 
@@ -33,6 +34,7 @@ Protect MH voice quality in client partner-facing language.
 - CTA Integrity: verify calls to action align with contact-first intent.
 - Veteran Framing Integrity: verify veteran-owned language remains factual and grounded.
 - Terminology Integrity: verify wording aligns with approved brand terminology.
+- Congruency Integrity: verify the branding congruency checklist passes for the edited surface.
 
 ## Output Format
 

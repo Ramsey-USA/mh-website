@@ -1,95 +1,59 @@
 "use client";
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 
 interface PageHeroProps {
+  eyebrow: string;
   title: string;
-  subtitle: string;
+  highlight?: string;
   description: string;
+  icon?: string;
+  missionLine?: string;
 }
 
-interface HeroNavItem {
-  href: string;
-  label: string;
-  icon: string;
-}
-
-const heroNavItems: HeroNavItem[] = [
-  { href: "/contact", label: "Start Partnership", icon: "handshake" },
-  { href: "/", label: "Home", icon: "home" },
-  { href: "/about", label: "Our Story", icon: "military_tech" },
-  { href: "/services", label: "Partnership Approach", icon: "build" },
-  { href: "/projects", label: "Success Stories", icon: "photo_library" },
-  { href: "/team", label: "Our Team", icon: "groups" },
-  { href: "/public-sector", label: "Public Sector", icon: "account_balance" },
-  { href: "/allies", label: "Allies", icon: "handshake" },
-  { href: "/careers", label: "Join Our Team", icon: "work" },
-  { href: "/contact", label: "Connect With Us", icon: "contact_phone" },
-];
-
-export function PageHero({ title, subtitle, description }: PageHeroProps) {
+export function PageHero({
+  eyebrow,
+  title,
+  highlight,
+  description,
+  icon = "verified",
+  missionLine = "Building projects for the Client, NOT the Dollar",
+}: PageHeroProps) {
   return (
-    <section className="relative min-h-screen h-screen overflow-hidden hero-section">
-      {/* Video/Image Background Container */}
-      <div
-        className="absolute inset-0 bg-linear-to-r from-gray-900/80 via-gray-900/60 to-gray-900/80"
-        aria-hidden="true"
-      >
-        {/* Future video element will go here */}
-        {/* <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline>
-            <source src="/videos/hero-video.mp4" type="video/mp4" />
-          </video> */}
-
-        {/* Temporary background for now */}
-        <div className="absolute inset-0 bg-linear-to-br from-brand-primary/20 via-gray-900 to-brand-secondary/20"></div>
+    <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
+      <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
+        <div
+          className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"
+          aria-hidden="true"
+        ></div>
       </div>
 
-      {/* Content Overlay */}
-      <div className="z-10 relative flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full text-white">
-        <FadeInWhenVisible className="w-full text-center">
-          {/* Title */}
-          <h1 className="mb-6 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
-            <span className="block text-white drop-shadow-lg">{title}</span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="mx-auto mb-8 max-w-3xl text-white/90 text-xl sm:text-2xl md:text-3xl leading-relaxed">
-            {subtitle}
-          </p>
-
-          {/* Description */}
-          <p className="mx-auto max-w-4xl text-white/80 text-lg md:text-xl leading-relaxed">
-            {description}
-          </p>
-        </FadeInWhenVisible>
-      </div>
-
-      {/* Comprehensive Navigation Bar - Overlaid at bottom of hero */}
-      <nav className="right-0 bottom-0 left-0 z-20 absolute bg-white/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-md border-t-4 border-brand-primary">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex justify-center">
-            <div className="flex space-x-1 overflow-x-auto">
-              {heroNavItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="group flex flex-col items-center hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 px-4 py-4 min-w-[80px] transition-colors duration-200"
-                >
-                  <MaterialIcon
-                    icon={item.icon}
-                    size="md"
-                    className="mb-1 text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors duration-200"
-                  />
-                  <span className="font-medium text-gray-700 dark:text-gray-300 group-hover:text-brand-primary text-xs transition-colors duration-200">
-                    {item.label}
-                  </span>
-                </a>
-              ))}
-            </div>
+      <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+        <div className="flex justify-end mb-4">
+          <div className="relative p-4 bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
+            <MaterialIcon
+              icon={icon}
+              size="4xl"
+              className="text-white drop-shadow-lg"
+              ariaLabel={title}
+            />
           </div>
         </div>
-      </nav>
+
+        <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
+          <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+            {eyebrow}
+          </span>
+          <span className="block text-brand-secondary">{title}</span>
+          {highlight ? (
+            <span className="block text-brand-primary">{highlight}</span>
+          ) : null}
+          <span className="block text-white/90">{description}</span>
+          <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
+            {missionLine}
+          </span>
+        </h1>
+      </div>
     </section>
   );
 }

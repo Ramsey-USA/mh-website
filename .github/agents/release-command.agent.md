@@ -23,10 +23,12 @@ Required sequence:
 1. Confirm required domain specialists were invoked for changed scope.
 2. For dashboard or hub changes, require `dashboard-congruency-officer` before release decision.
 3. Run final release readiness PASS/FAIL only after required handoffs are complete.
+4. Confirm the branding congruency checklist was used for any branding-sensitive change.
 
 ## Required Checks
 
 - Branding compliance outcome
+- Branding congruency checklist status
 - Trust and accreditation preservation status
 - SEO and metadata naming consistency
 - Accessibility validation status

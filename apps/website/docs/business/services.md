@@ -6,6 +6,8 @@
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
 
+**Brand Congruency:** Service descriptions must preserve trust content, factual veteran-owned framing, and approved service naming across the site.
+
 ## Expert Veteran-Led Construction Management in the Pacific Northwest
 
 **Tri-Cities Headquarters**: Pasco, WA | **Service Area**: Washington, Oregon, Idaho  

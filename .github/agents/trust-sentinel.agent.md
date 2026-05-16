@@ -27,6 +27,7 @@ Prevent erosion of trust and accreditation signals across MH surfaces.
 - Never remove trust markers without explicit approved exception.
 - Keep trust language factual and easy to verify.
 - Escalate risk if a trust-critical block is reduced or hidden.
+- Use the branding congruency checklist as the final gate for trust-sensitive changes.
 
 ## Required Checks
 
@@ -36,6 +37,7 @@ Prevent erosion of trust and accreditation signals across MH surfaces.
 - Schema Continuity: verify related trust/credential schema references remain aligned.
 - Cross-App Trust Parity: verify trust-critical statements stay consistent between website and internal dashboard/hub contexts.
 - Trust-Row Layout Integrity: verify footer accreditation layout keeps the veteran badge centered/emphasized and preserves side accreditation group balance.
+- Congruency Integrity: verify the branding congruency checklist passes for trust-critical surfaces.
 
 ## Output Format
 

@@ -7,6 +7,8 @@
 
 Define one source of truth for dual terminology used across MH Construction website surfaces.
 
+**Brand Congruency:** Dual terminology must never weaken trust content, factual veteran-owned framing, or accessibility clarity.
+
 This standard governs:
 
 - Navigation labels

@@ -4,6 +4,8 @@
 **Project:** mh-website v7.0.0  
 **Analysis Scope:** Code quality, performance, testing, security, accessibility, SEO, component reusability, documentation
 
+**Brand Congruency:** Findings and recommendations should preserve canonical MH typography, color usage, trust signals, and approved naming.
+
 ---
 
 ## 📊 Executive Summary

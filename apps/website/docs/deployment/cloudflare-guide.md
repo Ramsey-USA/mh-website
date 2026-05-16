@@ -16,6 +16,8 @@
 > **Related:** For external service configuration (Hostinger, Resend, Twilio), see
 > [Services Integration Guide](../technical/services-integration-guide.md).
 
+**Brand Congruency:** Deployment configuration and release verification must preserve canonical MH naming, trust content visibility, and approved visual standards.
+
 ---
 
 ## Table of Contents

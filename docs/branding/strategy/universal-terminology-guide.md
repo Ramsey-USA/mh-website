@@ -4,6 +4,8 @@
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
+**Brand Congruency:** Keep all terminology factual, relationship-first, accessible, and aligned with approved veteran-owned framing, trust language, and SEO naming.
+
 ---
 
 ## 🧭Quick Navigation

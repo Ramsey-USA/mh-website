@@ -32,6 +32,7 @@ Do not require the user to memorize agent names.
 - SEO, metadata, nav labels, schema naming -> seo-signal-officer
 - Full-site terminology normalization sweeps -> website-terminology-command
 - Accessibility checks and remediation -> accessibility-watch-officer
+- Hero typography/spacing/icon/nav parity enforcement -> hero-congruency-officer
 - Safety and hub routing congruency -> safety-hub-liaison
 - Website/dashboard/hub congruency and optimization hygiene -> dashboard-congruency-officer
 - Forms templates, printable docs, and form generation compliance -> forms-logistics-officer
@@ -59,6 +60,7 @@ Required branding corpus (read all):
 - docs/branding/agent-branding-policy.md
 - docs/branding/brand-constants.md
 - docs/branding/index.md
+- docs/development/standards/branding-congruency-checklist.md
 - docs/branding/section-types-guide.md
 - docs/branding/standards/color-system.md
 - docs/branding/standards/documents-and-forms-standards.md
@@ -80,6 +82,7 @@ Required branding corpus (read all):
 5. Keep terminology consistent across UI labels, headings, metadata, schema, and CTA copy.
 6. Enforce accessibility requirements: semantics, labels, contrast, keyboard flow, visible focus.
 7. Enforce SEO plain-language labels and naming consistency.
+8. Use the branding congruency checklist as the final pre-merge gate for any branding-sensitive change.
 
 ## Required Workflow
 
@@ -93,6 +96,7 @@ Required branding corpus (read all):
 5. Run quality checks when code changed:
    - npm run type-check
    - npm run lint
+   - Verify the branding congruency checklist before completion
 6. Produce a Branding Compliance Report.
 7. If exception is needed, record it in .github/branding-exceptions.json with owner, ticket, and expiration.
 

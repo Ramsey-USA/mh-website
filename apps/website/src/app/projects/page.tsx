@@ -8,6 +8,7 @@
 import dynamic from "next/dynamic";
 import { usePageTracking } from "@/lib/analytics/hooks";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { useLocale } from "@/hooks/useLocale";
 import { useProjectsSearch } from "./components/useProjectsSearch";
 
 // Critical above-the-fold components - load with SSR
@@ -105,6 +106,8 @@ import {
 export default function ProjectsPage() {
   // Analytics tracking
   usePageTracking("Projects");
+  const locale = useLocale();
+  const isEs = locale === "es";
 
   // ALL HOOKS MUST BE CALLED BEFORE ANY CONDITIONAL RETURNS
   const {
@@ -132,12 +135,18 @@ export default function ProjectsPage() {
       />
 
       <div className="relative bg-white dark:bg-gray-900 w-full min-h-screen overflow-x-hidden">
+        <span className="sr-only">
+          {isEs ? "Idioma espanol activo" : "English language active"}
+        </span>
         {/* Hero Section */}
         <ProjectsHero />
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb
-          items={[{ label: "Home", href: "/" }, { label: "Projects" }]}
+          items={[
+            { label: isEs ? "Inicio" : "Home", href: "/" },
+            { label: isEs ? "Proyectos" : "Projects" },
+          ]}
         />
 
         {/* Filter & Search Section - Primary discovery entry */}

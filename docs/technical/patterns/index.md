@@ -8,6 +8,8 @@
 Reusable section and component patterns that maintain homepage-level cohesiveness across the
 MH Construction website.
 
+**Brand Congruency:** Pattern implementations must preserve canonical MH typography, color usage, trust visibility, and naming.
+
 ## Available Patterns
 
 - **[Component Pattern Strategy](./component-pattern-strategy.md)** — Overall strategy for choosing,

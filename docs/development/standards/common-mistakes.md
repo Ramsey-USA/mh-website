@@ -5,6 +5,8 @@
 **Last Updated:** April 15, 2026  
 **Use Case:** Reference before starting work to avoid known pitfalls
 
+**Brand Congruency:** Mistake prevention in this guide is part of maintaining canonical MH typography, color usage, trust visibility, and naming.
+
 ---
 
 ## 🎯 Typography Mistakes

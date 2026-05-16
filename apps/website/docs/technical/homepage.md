@@ -1,11 +1,13 @@
 # Homepage Documentation
 
-**Last Updated:** April 15, 2026  
-**Version:** 2.1.0  
+**Last Updated:** May 15, 2026  
+**Version:** 2.2.0  
 **Status:** ✅ Active & Optimized  
 **File:** `/src/app/page.tsx`
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
+
+> **Brand Congruency Note:** Keep homepage copy, hero labels, trust statements, and SEO metadata aligned with canonical MH branding and factual veteran-owned framing.
 
 > **📐 DESIGN TEMPLATE:** This page serves as the visual and structural
 > template for most site pages. Component patterns (timelines, section
@@ -44,6 +46,9 @@ veteran-owned values and transparent communication.
 - ✅ Performance optimization strategies (lazy loading, etc.)
 - ✅ Technical implementation patterns
 - ✅ MH branding guidelines (colors, typography, spacing)
+
+**Branding requirement:** Any homepage-inspired page must preserve the same relationship-first voice, trust content visibility, accessibility semantics, and approved naming conventions.
+Typography and color treatment on homepage-inspired pages must stay within the canonical MH font and palette system so the overall visual language remains congruent.
 
 **What is page-specific:**
 

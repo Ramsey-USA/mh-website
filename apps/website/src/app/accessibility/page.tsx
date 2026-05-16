@@ -8,6 +8,7 @@ import {
 export default function AccessibilityPage() {
   return (
     <LegalPageLayout
+      // HeroSection is provided by LegalPageLayout.
       pageName="Accessibility"
       title="Accessibility Statement"
       lastUpdated="March 15, 2026"

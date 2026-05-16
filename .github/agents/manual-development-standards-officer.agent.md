@@ -15,6 +15,8 @@ handoffs: [manual-structure-officer, safety-pdf-editor]
 
 Hold the line on the Manual Development Standards (MDS) for the safety manual print pipeline. Where `manual-structure-officer` audits the rendered PDF after the fact, MDSO enforces the source-side conventions that make those audits pass on the first try: anchoring patterns, typography tokens, container width parity, brand chrome placement, and the silent-override gotchas that have already burned us.
 
+Use [docs/development/standards/branding-congruency-checklist.md](../../docs/development/standards/branding-congruency-checklist.md) as a final validation gate whenever source changes affect brand, voice, trust, or naming.
+
 ## Source-of-Truth Files
 
 - `documents/scripts/generate.mjs` — generator, brand tokens, header/footer templates, REF_* table constants, `injectAfterPurpose`, `postProcessSectionHtml`, `buildDataContainer`, `buildSigContainer`, page-margin block in `renderSections()` (~L1217).
@@ -163,6 +165,7 @@ node documents/scripts/generate.mjs --template sections
 5. Run the full sections rebuild only after single-section PASS.
 6. Hand off to `manual-structure-officer` for final PASS/FAIL structural & typography audit.
 7. If a new gotcha is discovered, append it to `/memories/repo/pdf-print-gotchas.md`.
+8. Confirm the branding congruency checklist passes for any brand-sensitive manual update.
 
 ## Output Format
 

@@ -12,6 +12,8 @@
 
 Generated: 12/24/2025, 10:02:38 PM
 
+**Brand Congruency:** Any QR-linked labels or destination naming retained here should stay aligned with canonical MH terminology and trust framing.
+
 ## Summary
 
 - **Total QR Codes:** 72

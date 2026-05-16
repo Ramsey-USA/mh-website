@@ -20,6 +20,9 @@ The Team Profile Radar Chart provides a visual representation of team member com
 skill dimensions. Each dimension is scored 0-100 and reflects objective performance metrics, certifications,
 and role responsibilities.
 
+**Brand Congruency:** Radar chart labels and scoring language must stay factual, accessible, and aligned with approved MH voice and naming.
+Chart colors, labels, and any supporting type treatments must remain within the canonical MH palette and font system.
+
 ## Core Principles
 
 1. **Objective Measurement**: Scores based on verifiable criteria (certifications, experience, performance)

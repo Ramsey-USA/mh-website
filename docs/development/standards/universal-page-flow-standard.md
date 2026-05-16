@@ -9,6 +9,8 @@
 
 **Scope:** This standard applies to all website pages and landing pages. Header, navigation, hero, toggles, and footer remain governed by their existing standards. This document governs the order and job of body sections.
 
+**Brand Congruency:** Body-flow decisions must still use canonical MH typography and color patterns so section order and visual language remain aligned.
+
 ---
 
 ## Core Rule

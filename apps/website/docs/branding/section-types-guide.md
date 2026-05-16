@@ -6,6 +6,9 @@
 **Created:** December 28, 2025  
 **Last Updated:** April 18, 2026
 
+**Brand Congruency:** Section planning must preserve approved MH voice, trust content, accessibility, and terminology alignment.
+Section treatments must also stay within the approved MH typography and color system so visual patterns remain congruent across pages.
+
 ---
 
 ## Overview

@@ -15,6 +15,8 @@
 
 **Complete Icon System:** Material Icons implementation guide and standards
 
+**Brand Congruency:** Icons, adjacent text, and supporting visual accents must stay aligned with the canonical MH typography and color system.
+
 ---
 
 ## 📋 Table of Contents

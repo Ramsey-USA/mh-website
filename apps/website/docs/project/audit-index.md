@@ -10,6 +10,8 @@
 
 This file is the consolidated entry point for all major documentation and congruency audits.
 
+**Brand Congruency:** Audits indexed here must verify canonical MH typography, color usage, trust content, and approved naming across surfaces.
+
 Use this index to:
 
 - Find the latest audit context quickly

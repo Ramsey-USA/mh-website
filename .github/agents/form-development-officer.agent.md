@@ -21,6 +21,8 @@ The reference implementation is `documents/letterhead/MHC-company-letterhead.htm
 + `addFillableFieldsToLetterhead()` in `documents/scripts/generate.mjs`.
 The approved visual output is `documents/output/MHC-company-letterhead.pdf` (May 2026) — treat as the gold standard for all new document builds.
 
+Use [docs/development/standards/branding-congruency-checklist.md](../../docs/development/standards/branding-congruency-checklist.md) as the final review gate for any fillable form change.
+
 ## Gold Standard Chrome Specification
 
 All measurements are canonical. Do not alter without explicit approval. These values are sourced directly from `generateLetterhead()` and its CSS in `generate.mjs`.

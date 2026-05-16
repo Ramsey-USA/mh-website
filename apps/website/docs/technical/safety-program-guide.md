@@ -26,6 +26,8 @@ This guide documents:
 **Total Sections:** 50 (00–49) | **Total Pages:** ~350 (formatted output)
 **Source Files:** Word (.docx) source library (MISH sections)
 
+**Brand Congruency:** Safety program templates, generated PDFs, and print routes must keep typography and color usage aligned with the canonical MH font and palette standards.
+
 ### PDF Governance Update (April 22, 2026)
 
 - Safety PDF workflow is now governed by dedicated agents:

@@ -6,6 +6,8 @@
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
 
+**Brand Congruency:** Core values language must remain factual, relationship-first, and consistent with approved veteran-owned framing and trust messaging.
+
 ## 4-Value Service-Earned Foundation System
 
 **Trust-Centered Philosophy**: "Trust as our ultimate goal and measurable company foundation"

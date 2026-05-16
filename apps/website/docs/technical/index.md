@@ -1,17 +1,23 @@
 # Technical Documentation
 
 **Category:** Technical - Overview  
-**Last Updated:** May 4, 2026
+**Last Updated:** May 15, 2026
 
 ## Overview
 
 Implementation guides for the MH Construction website covering the homepage reference standard,
 design system, SEO, PWA, analytics, security, and external service integrations.
 
+Use these guides together with the branding and development standards so implementation stays congruent with approved voice, trust content, accessibility, and SEO naming.
+
+**Brand Congruency:** Technical implementations must keep typography and color usage aligned with the canonical MH font and palette system.
+
 ## Reference Standard
 
 - **[Homepage Documentation](./homepage.md)** — The canonical reference page. All other pages
   must match its visual weight, spacing, and polish.
+
+Brand-facing content in this section should stay aligned with the canonical terminology and messaging guides.
 
 ## Design System
 

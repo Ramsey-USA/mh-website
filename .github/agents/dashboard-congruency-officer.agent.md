@@ -29,6 +29,7 @@ Maintain deliberate congruency between website and dashboard/hub surfaces while 
 - Preserve trust and accreditation statements where they are intentionally present.
 - Avoid introducing website-dashboard naming drift.
 - Prefer low-risk refactors with clear before/after validation.
+- Use the branding congruency checklist as the final gate for any dashboard/hub change that affects public-facing terminology or trust framing.
 
 ## Required Checks
 
@@ -38,6 +39,7 @@ Maintain deliberate congruency between website and dashboard/hub surfaces while 
 - Render/Complexity Hygiene: flag unstable memo dependencies, nested rendering branches, and avoidable complexity regressions.
 - Quality Gate Signals: verify lint/type/test checks for touched areas and report residual risk.
 - Shared Component Drift Check: when website trust-row/map visuals change, verify dashboard/hub equivalents (if present) are intentionally aligned or explicitly exempted.
+- Congruency Integrity: verify the branding congruency checklist passes for the final dashboard/hub surface set.
 
 ## Output Format
 

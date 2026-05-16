@@ -5,6 +5,8 @@
 **Version:** 1.0.0  
 **Status:** ✅ Active - Mandatory
 
+**Brand Congruency:** Security guidance must preserve canonical trust messaging, accessible terminology, and consistent MH visual-language references.
+
 ## 🧭 Quick Navigation
 
 - [📚 Development Standards](../development/standards/development-standards.md)

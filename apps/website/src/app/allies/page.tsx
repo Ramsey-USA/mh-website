@@ -36,6 +36,7 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 import { AccreditationsLogoRow } from "@/components/shared-sections";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.allies);
@@ -522,14 +523,18 @@ const partnershipValues = [
 ];
 
 // ── Page ─────────────────────────────────────────────────────────────────────
-export default function AlliesPage() {
+export default async function AlliesPage() {
+  const locale = await getServerLocale();
+  const isEs = locale === "es";
+
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       <PageTrackingClient pageName="Allies" />
       <StructuredData data={breadcrumbSchema} />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="hero-section relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 flex items-end justify-end text-white overflow-hidden">
+      <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900" />
         <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20" />
 
         {/* Content — bottom right */}
@@ -540,24 +545,40 @@ export default function AlliesPage() {
                 icon="diversity_3"
                 size="4xl"
                 className="text-white drop-shadow-lg"
-                ariaLabel="Strategic Partnership Network"
+                ariaLabel={
+                  isEs
+                    ? "Red Estrategica de Socios"
+                    : "Strategic Partnership Network"
+                }
               />
             </div>
           </div>
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
             <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-              Allies → Partners
+              {isEs ? "Aliados → Socios" : "Allies → Partners"}
             </span>
             <span className="block text-brand-secondary">
-              Allies in Force: Strategic Partnership Network
+              {isEs
+                ? "Aliados en Accion: Red Estrategica de Socios"
+                : "Allies in Force: Strategic Partnership Network"}
             </span>
             <span className="block text-brand-primary">
-              THE ROI IS THE RELATIONSHIP
+              {isEs ? "EL ROI ES LA RELACION" : "THE ROI IS THE RELATIONSHIP"}
             </span>
             <span className="block text-white/90">
-              Building projects for the Client,{" "}
-              <span className="font-black italic text-bronze-300">NOT</span> the
-              Dollar
+              {isEs ? (
+                <>
+                  Construyendo proyectos para el Cliente,{" "}
+                  <span className="font-black italic text-bronze-300">NO</span>{" "}
+                  por el Dolar
+                </>
+              ) : (
+                <>
+                  Building projects for the Client,{" "}
+                  <span className="font-black italic text-bronze-300">NOT</span>{" "}
+                  the Dollar
+                </>
+              )}
             </span>
           </h1>
         </div>
@@ -570,7 +591,10 @@ export default function AlliesPage() {
 
       {/* ── BREADCRUMB ────────────────────────────────────────────────────── */}
       <Breadcrumb
-        items={[{ label: "Home", href: "/" }, { label: "Allies in Force" }]}
+        items={[
+          { label: isEs ? "Inicio" : "Home", href: "/" },
+          { label: isEs ? "Aliados en Accion" : "Allies in Force" },
+        ]}
       />
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl flex flex-col">

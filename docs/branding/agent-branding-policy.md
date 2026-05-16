@@ -7,6 +7,8 @@
 
 > **Purpose:** Fast, unambiguous policy for AI agents enforcing MH branding standards.
 
+**Brand Congruency:** Enforcement must preserve factual veteran-owned framing, relationship-first voice, trust content, accessibility, and approved naming on every surface.
+
 > **Authority Order:**
 >
 > 1. This file (agent decision policy)

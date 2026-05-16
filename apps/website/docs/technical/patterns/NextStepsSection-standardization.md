@@ -9,6 +9,8 @@ section used across all major pages of the MH Website. It is the canonical
 (Discover → Trust → Proof → **Action**). Every lead-path page must end with this component
 as the last section before the footer.
 
+**Brand Congruency:** NextSteps implementations must preserve canonical MH typography, color usage, trust content visibility, and naming.
+
 ## Component Location
 
 **File:** `/src/components/shared-sections/NextStepsSection.tsx` (241 lines)

@@ -125,6 +125,8 @@ The four-value foundation system, in hierarchical order:
 
 ## Brand Typography
 
+**Brand Congruency:** Typography and color choices must stay paired with the approved MH brand system; do not introduce alternate font stacks or palettes outside documented exceptions.
+
 ### Font System
 
 Web brand fonts are loaded via the Adobe Fonts (Typekit) kit `jqs8bjh`.
@@ -159,6 +161,8 @@ DIN 2014 + fallbacks (body)
 ---
 
 ## Brand Colors
+
+**Brand Congruency:** Use these colors consistently across pages, components, and print outputs so typography, contrast, and visual tone remain aligned.
 
 | Name                        | Hex     | RGB                | Usage                           |
 | --------------------------- | ------- | ------------------ | ------------------------------- |

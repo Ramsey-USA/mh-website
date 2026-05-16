@@ -8,6 +8,8 @@
 **System Capabilities:** Geographic tracking, CTA effectiveness, journey stages, lead
 scoring (0-100), device intelligence, traffic attribution, 100+ data points
 
+**Brand Congruency:** Analytics labels, dashboard naming, and visual references should remain aligned with canonical MH typography, color, and terminology standards.
+
 **Related Documentation:**
 
 - Developer Guide: [docs/technical/analytics-tracking-guide.md](docs/technical/analytics-tracking-guide.md)

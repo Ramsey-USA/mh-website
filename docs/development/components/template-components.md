@@ -13,6 +13,8 @@ Template components eliminate repetitive code by providing pre-built,
 standard-compliant section structures that developers can customize with content
 while maintaining visual consistency.
 
+**Brand Congruency:** Template usage must preserve canonical MH typography, color system, trust content visibility, and approved naming.
+
 **Non-coder friendly explanation:** These are pre-made building blocks for pages.
 Instead of manually coding the same fancy background and header pattern 26 times,
 developers import one component and just fill in the content.

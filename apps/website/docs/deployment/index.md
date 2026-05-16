@@ -8,6 +8,8 @@
 Operational guides for deploying the MH Construction website to Cloudflare Workers and
 maintaining safety-critical CI gates.
 
+**Brand Congruency:** Deployment and release procedures must not introduce drift in canonical MH typography, color usage, trust content, or naming.
+
 ## Available Resources
 
 ### Cloudflare

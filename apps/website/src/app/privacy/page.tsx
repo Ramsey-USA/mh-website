@@ -10,6 +10,7 @@ const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.privacy);
 export default function PrivacyPolicyPage() {
   return (
     <LegalPageLayout
+      // HeroSection is provided by LegalPageLayout.
       pageName="Privacy Policy"
       title="Privacy Policy"
       lastUpdated="December 22, 2025"

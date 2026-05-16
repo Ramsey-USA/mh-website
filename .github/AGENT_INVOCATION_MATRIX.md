@@ -1,6 +1,6 @@
 # Agent Invocation Matrix
 
-Last Updated: May 10, 2026
+Last Updated: May 16, 2026
 Status: Canonical
 
 This document is the canonical invocation policy for Copilot agents in this repository.
@@ -35,20 +35,21 @@ Use `master-at-arms` as the default umbrella command surface for:
 
 ## Specialist Invocation Matrix
 
-| Change Area                                   | Primary Agent                                    | Required Specialist Handoffs                                                                                                                                               |
-| --------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Copy, headings, CTA tone                      | `brand-comms-captain`                            | `website-terminology-command` when labels span multiple surfaces                                                                                                           |
-| Trust, accreditations, confidence signals     | `trust-sentinel`                                 | `license-compliance-officer` if WA/OR/ID license data is touched; `design-quartermaster` when trust-row layout/emphasis changes                                            |
-| License values and verification links         | `license-compliance-officer`                     | `trust-sentinel` for placement/visibility checks                                                                                                                           |
-| Metadata, nav labels, schema naming           | `seo-signal-officer`                             | `website-terminology-command` for full-surface normalization                                                                                                               |
-| Accessibility semantics/focus/contrast        | `accessibility-watch-officer`                    | `design-quartermaster` when component patterns are changed                                                                                                                 |
-| Safety and hub route behavior                 | `safety-hub-liaison`                             | `dashboard-congruency-officer` for website/dashboard parity impacts                                                                                                        |
-| Dashboard/hub parity and optimization hygiene | `dashboard-congruency-officer`                   | `accessibility-watch-officer`, `website-terminology-command`, `trust-sentinel` as needed; include shared icon/map parity checks when website trust/map visuals are changed |
-| Analytics event/label continuity              | `telemetry-recon-officer`                        | `dashboard-congruency-officer` when dashboard cards/labels change                                                                                                          |
-| Performance regressions and budget risk       | `performance-budget-officer`                     | `dashboard-congruency-officer` for dashboard render/computation hotspots                                                                                                   |
-| UI patterns and design-system fidelity        | `design-quartermaster`                           | `accessibility-watch-officer` for interaction/access checks                                                                                                                |
-| Forms/manual PDFs and generation              | `forms-logistics-officer` or `safety-pdf-editor` | `manual-development-standards-officer`, `manual-structure-officer`                                                                                                         |
-| Pre-merge final go/no-go                      | `release-command`                                | Domain specialists as required by changed files                                                                                                                            |
+| Change Area                                                | Primary Agent                                    | Required Specialist Handoffs                                                                                                                                               |
+| ---------------------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Copy, headings, CTA tone                                   | `brand-comms-captain`                            | `website-terminology-command` when labels span multiple surfaces                                                                                                           |
+| Trust, accreditations, confidence signals                  | `trust-sentinel`                                 | `license-compliance-officer` if WA/OR/ID license data is touched; `design-quartermaster` when trust-row layout/emphasis changes                                            |
+| License values and verification links                      | `license-compliance-officer`                     | `trust-sentinel` for placement/visibility checks                                                                                                                           |
+| Metadata, nav labels, schema naming                        | `seo-signal-officer`                             | `website-terminology-command` for full-surface normalization                                                                                                               |
+| Accessibility semantics/focus/contrast                     | `accessibility-watch-officer`                    | `design-quartermaster` when component patterns are changed                                                                                                                 |
+| Hero section presence + typography/spacing/icon/nav parity | `hero-congruency-officer`                        | `design-quartermaster` for broader design-system cohesion; `accessibility-watch-officer` for readability/interaction regressions                                           |
+| Safety and hub route behavior                              | `safety-hub-liaison`                             | `dashboard-congruency-officer` for website/dashboard parity impacts                                                                                                        |
+| Dashboard/hub parity and optimization hygiene              | `dashboard-congruency-officer`                   | `accessibility-watch-officer`, `website-terminology-command`, `trust-sentinel` as needed; include shared icon/map parity checks when website trust/map visuals are changed |
+| Analytics event/label continuity                           | `telemetry-recon-officer`                        | `dashboard-congruency-officer` when dashboard cards/labels change                                                                                                          |
+| Performance regressions and budget risk                    | `performance-budget-officer`                     | `dashboard-congruency-officer` for dashboard render/computation hotspots                                                                                                   |
+| UI patterns and design-system fidelity                     | `design-quartermaster`                           | `accessibility-watch-officer` for interaction/access checks                                                                                                                |
+| Forms/manual PDFs and generation                           | `forms-logistics-officer` or `safety-pdf-editor` | `manual-development-standards-officer`, `manual-structure-officer`                                                                                                         |
+| Pre-merge final go/no-go                                   | `release-command`                                | Domain specialists as required by changed files                                                                                                                            |
 
 ## Required Pre-Merge Invocation Sequence
 

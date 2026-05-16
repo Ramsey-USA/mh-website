@@ -1,8 +1,8 @@
 # Operational Hub Congruent Plan
 
 **Category:** Project - Platform Governance  
-**Last Updated:** April 19, 2026  
-**Version:** 1.0.0  
+**Last Updated:** May 15, 2026  
+**Version:** 1.1.0  
 **Status:** ✅ Active - Canonical Cross-Platform Standard
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
@@ -18,6 +18,8 @@ This plan keeps all MD documentation aligned so MH Construction presents one con
 - all manuals, forms, and printable documents
 
 When language or documents change over time, this file defines how updates stay congruent with MH branding standards.
+
+Brand congruency means the website, hub, and document surfaces must keep the same factual veteran-owned framing, relationship-first voice, trust content, accessibility, and SEO naming.
 
 ---
 
@@ -70,6 +72,8 @@ If two documents conflict, follow the higher-priority item first and then update
 5. **Routing consistency:** `/hub` is canonical staff access; `/safety/hub` remains backward-compat redirect only.
 6. **Document standards consistency:** Printable and downloadable materials follow [Documents & Forms Branding Standards](../branding/standards/documents-and-forms-standards.md).
 
+7. **Branding congruency consistency:** Do not introduce unapproved names, slogans, visual patterns, or trust-content reductions on any surface.
+
 ---
 
 ## Change Workflow for MD Files
@@ -96,6 +100,7 @@ Recommended checks:
 - [ ] Manuals/forms documentation still matches current print/download workflows
 - [ ] Canonical references point to active files only
 - [ ] Cross-links between branding, technical, and project docs are valid
+- [ ] Brand voice, trust content, accessibility, and SEO naming remain congruent across surfaces
 
 ---
 

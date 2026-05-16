@@ -59,7 +59,9 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ---
 
-## Project Status (May 4, 2026)
+## Project Status (May 15, 2026)
+
+**Branding Congruency:** All public-facing copy in this repository must stay aligned with the canonical branding, trust, accessibility, and SEO naming standards in the docs.
 
 ### Production-Ready Platform
 

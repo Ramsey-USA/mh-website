@@ -8,6 +8,10 @@
 This directory contains business-related documentation for MH Construction, including core values and service
 offerings.
 
+Business docs should stay congruent with the canonical MH voice, trust language, factual veteran-owned framing, and approved naming rules.
+
+**Brand Congruency:** Business-facing documentation must also keep typography and color usage aligned with canonical MH standards.
+
 ## Available Resources
 
 ### Company Information

@@ -14,6 +14,7 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 // NextStepsSection uses useLocale (client hook) and sits at the very end of
 // the page (~line 1264). Dynamic import keeps its JS out of the critical path.
@@ -31,7 +32,10 @@ const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.veterans);
  * Veterans Initiative Page
  * Showcasing MH Construction's Veteran-Owned status and community support programs
  */
-export default function VeteransPage() {
+export default async function VeteransPage() {
+  const locale = await getServerLocale();
+  const isEs = locale === "es";
+
   return (
     <div className="relative min-h-screen">
       <PageTrackingClient pageName="Veterans" />
@@ -55,24 +59,48 @@ export default function VeteransPage() {
             </div>
             <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                Service First → Veterans
+                {isEs
+                  ? "Servicio Primero → Veteranos"
+                  : "Service First → Veterans"}
               </span>
               <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
-                Supporting Those Who Served - One Community, One Mission
+                {isEs
+                  ? "Apoyando a Quienes Sirvieron - Una Comunidad, Una Mision"
+                  : "Supporting Those Who Served - One Community, One Mission"}
               </span>
               <span className="block text-brand-secondary">
-                Honoring Those Who Served
+                {isEs
+                  ? "Honrando a Quienes Sirvieron"
+                  : "Honoring Those Who Served"}
               </span>
               <span className="block text-white/95">
-                All Branches, All Values
+                {isEs
+                  ? "Todas las Ramas, Todos los Valores"
+                  : "All Branches, All Values"}
               </span>
               <span className="block text-brand-primary">
-                Combat Veteran Discount at the Ready
+                {isEs
+                  ? "Descuento para Veteranos de Combate Disponible"
+                  : "Combat Veteran Discount at the Ready"}
               </span>
               <span className="block text-white/90">
-                Building projects for the Client,{" "}
-                <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the Dollar
+                {isEs ? (
+                  <>
+                    Construyendo proyectos para el Cliente,{" "}
+                    <span className="font-black italic text-bronze-300">
+                      NO
+                    </span>{" "}
+                    por el Dolar
+                  </>
+                ) : (
+                  <>
+                    Building projects for the Client,{" "}
+                    <span className="font-black italic text-bronze-300">
+                      NOT
+                    </span>{" "}
+                    the Dollar
+                  </>
+                )}
               </span>
             </h1>
           </div>
@@ -100,8 +128,12 @@ export default function VeteransPage() {
           {/* Breadcrumb Navigation */}
           <Breadcrumb
             items={[
-              { label: "Home", href: "/" },
-              { label: "Service First → Veterans" },
+              { label: isEs ? "Inicio" : "Home", href: "/" },
+              {
+                label: isEs
+                  ? "Servicio Primero → Veteranos"
+                  : "Service First → Veterans",
+              },
             ]}
           />
 
@@ -257,7 +289,7 @@ export default function VeteransPage() {
                 ].map((value) => (
                   <div
                     key={value.title}
-                    className="group relative flex h-full min-h-[420px] scroll-reveal"
+                    className="group relative flex h-full min-h-105 scroll-reveal"
                   >
                     {/* Colored Border Glow */}
                     <div
@@ -335,7 +367,7 @@ export default function VeteransPage() {
                               className="flex items-start gap-3"
                             >
                               <div
-                                className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-linear-to-br ${value.iconBgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                                className={`mt-0.5 shrink-0 w-5 h-5 rounded-full bg-linear-to-br ${value.iconBgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
                               >
                                 <MaterialIcon
                                   icon="check"
@@ -516,7 +548,7 @@ export default function VeteransPage() {
                       <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4">
                         All Branches Welcome
                       </h3>
-                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed flex-grow">
+                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed grow">
                         Army, Navy, Air Force, Marines, Coast Guard, Space
                         Force—we honor every branch that defended our nation in
                         combat zones. All combat veterans qualify for
@@ -547,7 +579,7 @@ export default function VeteransPage() {
                       <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4">
                         Tailored to Your Service
                       </h3>
-                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed flex-grow">
+                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed grow">
                         Every veteran's situation is unique. Discount amounts
                         are determined case-by-case through our screening
                         process, considering project scope, service record, and
@@ -630,7 +662,7 @@ export default function VeteransPage() {
                                       {step.title}
                                     </h4>
                                   </div>
-                                  <div className="flex-shrink-0 w-14 h-14 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                                  <div className="shrink-0 w-14 h-14 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                                     <MaterialIcon
                                       icon={step.icon}
                                       size="lg"
@@ -645,7 +677,7 @@ export default function VeteransPage() {
                             </div>
 
                             {/* Center Circle */}
-                            <div className="flex-shrink-0 relative z-10">
+                            <div className="shrink-0 relative z-10">
                               <div className="w-16 h-16 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
                                 {step.num}
                               </div>
@@ -660,7 +692,7 @@ export default function VeteransPage() {
                             <div className="flex-1"></div>
 
                             {/* Center Circle */}
-                            <div className="flex-shrink-0 relative z-10">
+                            <div className="shrink-0 relative z-10">
                               <div className="w-16 h-16 bg-linear-to-br from-brand-secondary to-bronze-700 rounded-full flex items-center justify-center text-white font-black text-xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
                                 {step.num}
                               </div>
@@ -670,7 +702,7 @@ export default function VeteransPage() {
                             <div className="flex-1 text-left">
                               <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-secondary dark:group-hover:border-brand-secondary-light">
                                 <div className="flex items-center gap-4 mb-4">
-                                  <div className="flex-shrink-0 w-14 h-14 bg-linear-to-br from-brand-secondary to-bronze-700 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
+                                  <div className="shrink-0 w-14 h-14 bg-linear-to-br from-brand-secondary to-bronze-700 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
                                     <MaterialIcon
                                       icon={step.icon}
                                       size="lg"
@@ -695,7 +727,7 @@ export default function VeteransPage() {
                       {/* Mobile Layout */}
                       <div className="lg:hidden flex gap-4">
                         {/* Left Side - Number and Line */}
-                        <div className="flex flex-col items-center flex-shrink-0">
+                        <div className="flex flex-col items-center shrink-0">
                           <div
                             className={`w-14 h-14 ${
                               step.num % 2 === 0
@@ -706,7 +738,7 @@ export default function VeteransPage() {
                             {step.num}
                           </div>
                           {index < 4 && (
-                            <div className="w-1 flex-1 bg-linear-to-b from-brand-primary to-brand-secondary mt-2 min-h-[60px]"></div>
+                            <div className="w-1 flex-1 bg-linear-to-b from-brand-primary to-brand-secondary mt-2 min-h-15"></div>
                           )}
                         </div>
 
@@ -715,7 +747,7 @@ export default function VeteransPage() {
                           <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-brand-primary dark:hover:border-brand-primary-light">
                             <div className="flex items-center gap-3 mb-4">
                               <div
-                                className={`flex-shrink-0 w-12 h-12 ${
+                                className={`shrink-0 w-12 h-12 ${
                                   step.num % 2 === 0
                                     ? "bg-linear-to-br from-brand-secondary to-bronze-700"
                                     : "bg-linear-to-br from-brand-primary to-brand-primary-dark"
@@ -751,7 +783,7 @@ export default function VeteransPage() {
                       <MaterialIcon
                         icon="verified_user"
                         size="2xl"
-                        className="text-brand-primary flex-shrink-0"
+                        className="text-brand-primary shrink-0"
                       />
                       <div>
                         <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-2">
@@ -930,7 +962,7 @@ export default function VeteransPage() {
                       <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4 text-center">
                         Veteran Hiring Priority
                       </h3>
-                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed flex-grow">
+                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed grow">
                         Qualified veterans from all branches receive priority
                         consideration for all positions. We're deploying
                         tactical apprenticeship programs for transitioning
@@ -979,7 +1011,7 @@ export default function VeteransPage() {
                       <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4 text-center">
                         Veteran Allies
                       </h3>
-                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed flex-grow">
+                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed grow">
                         Recruiting Veteran-Owned Trade Partners for our growing
                         network. As we establish company longevity, we're
                         building partnerships with preferential opportunities
@@ -1026,7 +1058,7 @@ export default function VeteransPage() {
                       <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4 text-center">
                         Training & Education
                       </h3>
-                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed flex-grow">
+                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed grow">
                         Developing programs for veterans pursuing construction
                         trades, including internship opportunities and GI Bill
                         apprenticeship participation as we grow our veteran
@@ -1158,7 +1190,7 @@ export default function VeteransPage() {
                         <div
                           role="img"
                           aria-label={`${item.title} - ${item.tagline}`}
-                          className={`relative h-64 sm:h-80 lg:h-full lg:min-h-[500px] overflow-hidden bg-linear-to-br from-brand-primary via-gray-900 to-brand-secondary ${
+                          className={`relative h-64 sm:h-80 lg:h-full lg:min-h-125 overflow-hidden bg-linear-to-br from-brand-primary via-gray-900 to-brand-secondary ${
                             isLeft ? "lg:order-1" : "lg:order-2"
                           }`}
                         >
@@ -1204,7 +1236,7 @@ export default function VeteransPage() {
                             </p>
 
                             <div className="flex items-center gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
-                              <div className="flex items-center justify-center w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex-shrink-0">
+                              <div className="flex items-center justify-center w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl shrink-0">
                                 <MaterialIcon
                                   icon="analytics"
                                   size="md"
@@ -1232,7 +1264,7 @@ export default function VeteransPage() {
                     <MaterialIcon
                       icon="contact_mail"
                       size="2xl"
-                      className="text-brand-primary flex-shrink-0"
+                      className="text-brand-primary shrink-0"
                     />
                     <div className="flex-1 text-left">
                       <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-2">

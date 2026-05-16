@@ -10,6 +10,9 @@
 > For web component typography, see [Unified Component Standards](./unified-component-standards.md).
 > For color tokens, see [Color System](./color-system.md).
 
+**Brand Congruency:** Print and form surfaces must preserve factual veteran-owned framing, trust content, accessibility, and approved naming.
+Their typography and color treatment must also stay aligned with the canonical MH font system and color system.
+
 ---
 
 ## Quick Navigation

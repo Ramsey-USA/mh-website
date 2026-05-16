@@ -5,6 +5,8 @@
 **Status:** ✅ Active - Government Color Scheme
 **Version:** 3.3.0 - Emergency/Urgent Button Variants Removed
 
+**Brand Congruency:** Button colors, type treatments, and labels must remain aligned with Brand Constants, the Color System, and Unified Component Standards.
+
 **⚠️ CONSOLIDATED DOCUMENT:** This guide consolidates and supersedes:
 
 - `buttons-guide.md` (technical implementation)

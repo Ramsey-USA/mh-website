@@ -26,6 +26,8 @@ Implement and verify safety PDF changes from source files, then regenerate outpu
 
 For ANY edit that touches section content, reference tables, signature blocks, page margins, header/footer chrome, brand typography, container widths, or form-cover sheets — delegate to `manual-development-standards-officer` BEFORE applying changes. MDSO owns the canonical Manual Development Standards (MDS §1–§12) and the source-side conventions that prevent post-hoc audit failures. This editor's lane is artifact-level work (cover/spine/tabs/TOC/reference/metadata/publish scripts) where MDS clauses do not directly apply.
 
+Use [docs/development/standards/branding-congruency-checklist.md](../../docs/development/standards/branding-congruency-checklist.md) as the final gate for any safety PDF artifact that affects trust, naming, or voice.
+
 ## Gold Standard Document Chrome
 
 The approved letterhead (`documents/output/MHC-company-letterhead.pdf`, May 2026) is the gold standard for all MH print artifacts. All regenerated PDFs must preserve these chrome values:
@@ -83,6 +85,7 @@ For the full specification table, refer to `form-development-officer` Gold Stand
    Display the resulting PNG to the user for visual confirmation before proceeding.
 8. Hand off to `manual-structure-officer` for a PASS/FAIL structural and typography audit.
 9. Report exact output files regenerated and verification results — including MDSO and MSO verdicts when applicable.
+10. Confirm the branding congruency checklist passes whenever branding or naming changes are involved.
 
 ## Output Format
 

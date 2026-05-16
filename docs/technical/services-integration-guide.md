@@ -15,6 +15,8 @@ Transactional email notifications (form submissions, alerts) route through **n8n
 
 **Tech Stack:** Next.js 16 + Tailwind CSS + TypeScript — high-performance, mobile-responsive, tactical professional tone.
 
+**Brand Congruency:** Integration outputs and service-driven messaging must preserve canonical MH terminology, trust language, and approved visual-language standards.
+
 ---
 
 ## Current Status Summary

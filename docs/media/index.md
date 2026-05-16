@@ -7,6 +7,8 @@
 
 Photo and video strategy guidance for the MH Construction website and supporting marketing surfaces.
 
+**Brand Congruency:** Media planning must preserve canonical typography and color context alongside approved voice, trust framing, and naming.
+
 ## Available Resources
 
 - **[Media Strategy](./media-strategy.md)** — Photo/video roadmap, capture priorities, and asset

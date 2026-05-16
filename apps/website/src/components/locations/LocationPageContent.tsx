@@ -276,7 +276,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
 
       <main className="min-h-screen flex flex-col">
         {/* Hero Section - Location Specific */}
-        <section className="relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 text-white py-20 sm:py-28 md:py-36 lg:py-44">
+        <section className="hero-section relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 text-white py-20 sm:py-28 md:py-36 lg:py-44">
           <SectionContainer padding="compact">
             <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
               <Breadcrumbs

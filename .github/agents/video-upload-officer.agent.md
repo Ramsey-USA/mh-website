@@ -99,6 +99,7 @@ CRF by 6 (max VP9: 63, max H.264: 51) and re-encode until it fits.
 - Never overwrite existing files with different content without confirmation.
 - Every output WebM must be ≤ 10 MB and every MP4 must be ≤ 15 MB before
   references are updated.
+- Use the branding congruency checklist as a final gate for video naming, poster labels, and trust-visible destination/context updates.
 - Poster images must use the `poster-{name}.jpg` prefix naming (not `{name}-poster.jpg`).
 - Exclude build artifacts and generated folders unless explicitly requested.
 - Preserve MH branding and accessibility context (e.g., `<video>` `aria-label` attributes).

@@ -2,6 +2,8 @@
 
 This guide outlines the standard JSDoc format and documentation practices for the MH Construction codebase.
 
+**Brand Congruency:** Documentation comments and naming examples should stay aligned with canonical MH terminology, trust language, and approved brand phrasing.
+
 ---
 
 ## JSDoc Format Standard

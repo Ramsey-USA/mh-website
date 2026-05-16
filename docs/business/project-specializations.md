@@ -9,6 +9,8 @@
 > focus on commercial construction throughout the Pacific Northwest. 650+ completed projects
 > since 2010. 70% referral rate.
 
+**Brand Congruency:** Project summaries should remain factual, relationship-first, and aligned with approved veteran-owned and trust language.
+
 ---
 
 ## Contents

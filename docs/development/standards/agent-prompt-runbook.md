@@ -10,6 +10,8 @@ This runbook defines **which prompt to run, when to run it, and what blocks merg
 
 Use this to keep layout consistency, trust markers, ownership wording, and WBS numbering compliant.
 
+**Brand Congruency:** Prompt routing and release decisions must preserve canonical MH typography, color usage, trust framing, and approved naming.
+
 ---
 
 ## Prompt Routing Matrix

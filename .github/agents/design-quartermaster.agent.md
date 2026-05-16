@@ -28,6 +28,7 @@ Keep implementation tightly aligned with MH design standards.
 - Avoid off-pattern visual implementations.
 - Keep new UI consistent with established site rhythm.
 - Preserve accessibility while applying visual standards.
+- Use the branding congruency checklist as the final gate for design-sensitive changes.
 
 ## Required Checks
 
@@ -37,6 +38,7 @@ Keep implementation tightly aligned with MH design standards.
 - Cross-Page Cohesion: verify new UI feels native to existing MH surfaces.
 - Cross-App Cohesion: verify dashboard/hub UI remains visually congruent with website standards and shared tokens.
 - Map/Icon Composition Integrity: verify shared state-map/icon surfaces stay intentionally aligned (no unintended tilt drift; snug but readable adjacency).
+- Congruency Integrity: verify the branding congruency checklist passes for any UI or section change.
 
 ## Output Format
 

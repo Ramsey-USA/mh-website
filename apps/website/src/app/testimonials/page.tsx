@@ -125,7 +125,7 @@ export default function TestimonialsPage() {
       <StructuredData data={faqSchema} />
 
       {/* Hero Section - Modern MH Standard with Diagonal Stripes */}
-      <section className="relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white overflow-hidden">
+      <section className="hero-section relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white overflow-hidden">
         <DiagonalStripePattern />
         <BrandColorBlobs />
 

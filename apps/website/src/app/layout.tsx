@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { cookies } from "next/headers";
 import { Suspense } from "react";
 import "./globals.css";
 import "../styles/material-icons.css";
@@ -24,6 +25,7 @@ import {
   DEFAULT_LOCALE,
   LOCALE_COOKIE_NAME,
   SUPPORTED_LOCALES,
+  normalizeLocale,
 } from "@/lib/i18n/locale";
 
 export const metadata: Metadata = withGeoMetadata({
@@ -172,13 +174,16 @@ export const viewport: Viewport = {
   colorScheme: "light dark",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const locale = normalizeLocale(cookieStore.get(LOCALE_COOKIE_NAME)?.value);
+
   return (
-    <html lang={DEFAULT_LOCALE}>
+    <html lang={locale}>
       <head>
         <FaviconLinks />
         {/* Google Analytics */}
@@ -204,20 +209,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link
-          rel="dns-prefetch"
-          href="https://o4511220420050944.ingest.us.sentry.io"
-        />
-        {/* Preconnect to Adobe Fonts (Typekit) for brand fonts */}
-        <link
-          rel="preconnect"
-          href="https://use.typekit.net"
-          crossOrigin="anonymous"
-        />
-        <link rel="dns-prefetch" href="https://use.typekit.net" />
-        {/* Load Adobe Fonts stylesheet as a <link> so the browser can fetch it
-            in parallel with globals.css, rather than as a render-blocking
-            @import discovered only after globals.css is fully downloaded. */}
         <link
           rel="stylesheet"
           href="https://use.typekit.net/jqs8bjh.css"

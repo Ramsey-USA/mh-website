@@ -4,6 +4,8 @@
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
+**Brand Congruency:** Page-specific voice may vary, but it must remain aligned with approved MH terminology, trust language, accessibility, and SEO naming.
+
 ---
 
 ## 🧭 Quick Navigation

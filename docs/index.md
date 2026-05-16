@@ -1,13 +1,17 @@
 # MH Construction Documentation
 
 **Category:** Documentation - Master Index  
-**Last Updated:** May 4, 2026
+**Last Updated:** May 15, 2026
 
 ## Overview
 
 Central index for all MH Construction project documentation. Each category has its own
 `index.md` with a full file listing. Start with the main [README](../README.md) for the
 developer workflow, then drill into the category you need.
+
+All documentation categories should remain congruent with the canonical brand language, trust content, and SEO naming rules documented in the Branding and Development standards.
+
+**Brand Congruency:** Documentation across all categories must keep typography and color decisions aligned with the canonical MH font and palette standards.
 
 ## Categories
 

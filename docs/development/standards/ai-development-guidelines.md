@@ -1,8 +1,8 @@
 # AI Development Guidelines for MH Construction Website
 
 **Category:** Development - AI Standards  
-**Last Updated:** March 15, 2026  
-**Version:** 1.0.0  
+**Last Updated:** May 15, 2026  
+**Version:** 1.1.0  
 **Status:** ✅ Active - Mandatory
 
 ## 🧭 Quick Navigation
@@ -39,6 +39,48 @@ introduction of inconsistencies and bugs that have historically plagued this pro
   project consistency strategy
 
 **All brand and technical standards are mandatory and must be followed together.**
+
+---
+
+## 🛡 Mandatory Branding Congruency Gate (100% Required)
+
+Every AI-generated change must pass all checks below before completion.
+If any check fails, the task is incomplete.
+
+### 1. Visual System Congruency
+
+- Follow approved colors, typography, spacing, and component patterns from MH branding standards.
+- Do not introduce unapproved visual patterns, gradients, icon systems, or layout motifs.
+- Keep hero and section behavior aligned with Unified Component Standards and established page flow.
+- Preserve approved exception scope: patriotic red-to-blue border is allowed only for `WaVobBadge`.
+
+### 2. Voice and Messaging Congruency
+
+- Use relationship-first, factual messaging.
+- Preserve accurate veteran-owned framing without hype or slogan-heavy language.
+- Avoid militarized aliases in page copy, metadata, headings, or labels unless explicitly approved.
+
+### 3. Trust and Accreditation Preservation
+
+- Do not remove, hide, or weaken trust indicators, certifications, compliance references, safety claims, or accreditation content.
+- When refactoring sections, preserve trust content prominence and context.
+
+### 4. Accessibility Congruency
+
+- Maintain semantic structure, keyboard accessibility, and sufficient color contrast.
+- Keep descriptive alt text, accessible labels, and meaningful heading hierarchy.
+- Do not reduce accessibility to achieve visual effects.
+
+### 5. SEO Naming Congruency
+
+- Keep page titles, headings, slugs, metadata labels, and structured naming aligned with approved brand language.
+- Use consistent service and market terminology across pages.
+- Do not introduce unapproved names, aliases, or keyword stuffing.
+
+### 6. Cross-Page Consistency Congruency
+
+- Reuse established terminology, CTA style, and trust messaging across related pages.
+- Align new sections with existing templates and consistency guide patterns before introducing variants.
 
 ---
 
@@ -322,6 +364,15 @@ Before presenting code to the user, verify:
 - [ ] Error handling included
 - [ ] Comments explain "why", not "what"
 
+### Branding Congruency
+
+- [ ] Relationship-first, factual voice maintained
+- [ ] Trust/accreditation sections preserved and visible
+- [ ] No unapproved visual patterns or naming aliases introduced
+- [ ] Accessibility standards remain intact (semantic headings, labels, contrast)
+- [ ] SEO naming and metadata labels align with brand language
+- [ ] Veteran badge color exception used only in `WaVobBadge`
+
 ---
 
 ## 🐛 Recognizing and Preventing Historical Bugs
@@ -533,6 +584,12 @@ If you encounter situations not covered by these guidelines:
 ---
 
 ## 📝 Changelog
+
+### 2026-05-15 - v1.1.0
+
+- **ADDED**: Mandatory Branding Congruency Gate with 6 required checks
+- **ADDED**: Branding Congruency subsection in AI code review checklist
+- **UPDATED**: Metadata date and version to reflect branding governance alignment
 
 ### 2025-10-14 - v1.0.0
 

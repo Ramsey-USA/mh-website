@@ -2,6 +2,8 @@
 
 This directory contains SQL migration files for the Cloudflare D1 database.
 
+**Brand Congruency:** Schema and migration naming should remain consistent with canonical MH terminology used across app surfaces and reporting.
+
 ## Quick Start
 
 ### 1. Create the D1 Database

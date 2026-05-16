@@ -6,6 +6,8 @@
 We welcome contributions to the MH Construction website. Start with [README.md](./README.md) for
 project context, then follow this guide for Git workflow and contribution process.
 
+All contributions must preserve MH branding congruency: factual veteran-owned framing, relationship-first voice, trust content, accessibility, and approved SEO naming.
+
 **Quick orientation:**
 
 - [Development Standards](./docs/development/standards/development-standards.md) — code patterns and conventions

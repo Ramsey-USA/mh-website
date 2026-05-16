@@ -1,12 +1,16 @@
 # Project Documentation
 
 **Category:** Project - Overview  
-**Last Updated:** May 4, 2026
+**Last Updated:** May 15, 2026
 
 ## Overview
 
 High-level project architecture, audit history, and the cross-surface congruency plan that aligns
 the website, PWA, and operational documents.
+
+All project documentation should preserve the same brand voice, trust framing, and SEO naming used in the canonical branding and development standards.
+
+**Brand Congruency:** Project planning and architecture updates must also keep typography and color guidance aligned with canonical MH standards.
 
 ## Available Resources
 

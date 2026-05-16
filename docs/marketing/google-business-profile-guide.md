@@ -6,6 +6,8 @@
 **Status:** ✅ Active
 
 > **Brand Reference:** See [Brand Constants](../branding/brand-constants.md) for exact brand values.
+>
+> **Brand Congruency:** Keep every post, reply, and profile edit factual, relationship-first, and aligned with approved MH voice, trust language, and SEO naming.
 
 ---
 

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PageTrackingClient } from "@/components/analytics";
+import { PageHero } from "@/components/ui/layout/PageHero";
 import { RetryConnectionButton } from "./RetryConnectionButton";
 
 const OFFLINE_FEATURES = [
@@ -12,9 +13,17 @@ const OFFLINE_FEATURES = [
 
 export default function OfflinePage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 px-4">
+    <div className="min-h-screen bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
       <PageTrackingClient pageName="Offline" />
-      <div className="max-w-lg w-full text-center">
+      <PageHero
+        eyebrow="Connection Status"
+        title="Offline Hub"
+        highlight="You are offline"
+        description="Critical resources remain available from cache while connectivity is restored."
+        icon="wifi_off"
+      />
+
+      <div className="mx-auto max-w-lg w-full text-center px-4 pb-16 -mt-8 relative z-20">
         <div className="mb-8 flex justify-center">
           <Image
             src="/images/logo/mh-logo-dark-bg.webp"
@@ -41,14 +50,6 @@ export default function OfflinePage() {
             />
           </svg>
         </div>
-
-        <h1 className="text-3xl md:text-4xl font-black text-white mb-2">
-          Offline Hub
-        </h1>
-
-        <p className="text-brand-secondary font-semibold text-sm uppercase tracking-widest mb-3">
-          You&apos;re offline
-        </p>
 
         <p className="text-white/80 text-sm mb-4">
           Building projects for the Client, NOT the Dollar.

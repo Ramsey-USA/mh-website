@@ -1,7 +1,7 @@
 # Branding Documentation
 
 **Category:** Branding - Overview  
-**Last Updated:** April 20, 2026
+**Last Updated:** May 15, 2026
 
 ## Overview
 
@@ -12,6 +12,12 @@ and brand identity guidelines.
 
 - **[Brand Constants](./brand-constants.md)** - ⭐ **START HERE** - Canonical values for all brand elements
 - **[Agent Branding Policy](./agent-branding-policy.md)** - Fast enforcement policy for AI agent decisions
+
+## Branding Congruency Requirement
+
+All branding edits must stay congruent with the messaging, trust, accessibility, and SEO naming rules used across the site.
+Typography and color decisions must also follow the canonical MH font system and color system so page layouts do not drift visually.
+For implementation work, pair this directory with [Development Standards](../development/standards/development-standards.md) and [AI Development Guidelines](../development/standards/ai-development-guidelines.md).
 
 ## Agent Quick Start
 

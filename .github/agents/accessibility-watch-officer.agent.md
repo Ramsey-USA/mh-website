@@ -27,6 +27,7 @@ Ensure brand-compliant accessibility outcomes before merge.
 - Do not ship regressions in semantic or keyboard behavior.
 - Keep accessibility fixes consistent with MH design standards.
 - Prefer low-risk, explicit remediation steps.
+- Align with the branding congruency checklist so accessibility work also preserves trust, naming, and factual voice.
 
 ## Required Checks
 
@@ -35,6 +36,7 @@ Ensure brand-compliant accessibility outcomes before merge.
 - Keyboard/Focus Integrity: verify tab flow, focus visibility, and interactive reachability.
 - Contrast Integrity: verify contrast remains acceptable in light and dark contexts.
 - Cross-App Accessibility Parity: verify dashboard/hub accessibility affordances stay congruent with the website baseline.
+- Congruency Integrity: verify the branding congruency checklist passes for UI surfaces under review.
 
 ## Output Format
 

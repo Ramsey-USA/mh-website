@@ -9,6 +9,8 @@ Complete design system implementation guides for MH Construction interactive ele
 [Unified Component Standards](../../branding/standards/unified-component-standards.md) (the
 canonical UI component spec).
 
+**Brand Congruency:** Design-system implementations must use the canonical MH typography and color system so component behavior stays visually consistent across pages.
+
 ## Available Resources
 
 - **[Buttons & CTAs Complete Guide](./buttons-ctas-complete-guide.md)** — Button variants, CTA

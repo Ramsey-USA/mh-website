@@ -8,6 +8,7 @@ import {
 export default function TermsOfServicePage() {
   return (
     <LegalPageLayout
+      // HeroSection is provided by LegalPageLayout.
       pageName="Terms of Service"
       title="Terms of Service"
       lastUpdated="December 22, 2025"

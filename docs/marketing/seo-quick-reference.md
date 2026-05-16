@@ -1,7 +1,7 @@
 # SEO Quick Reference Card
 
 **Category:** Technical - SEO Quick Reference  
-**Last Updated:** April 24, 2026  
+**Last Updated:** May 15, 2026  
 **Status:** ✅ Active - Quick Action Card
 **Canonical Source:** [docs/technical/seo/seo-complete-guide.md](./docs/technical/seo/seo-complete-guide.md)
 **Consolidation Rule:** Keep this file as a short action card; place deep implementation details in the complete guide.
@@ -68,6 +68,13 @@ npm run build && node scripts/seo-audit.js
 - Trust/credential references: keep licensing and accreditation claims factual, plain-language, and aligned with the canonical values in `docs/branding/brand-constants.md`
 - Keep sitemap entries aligned with active routes
 - Re-run `node scripts/seo-audit.js` after SEO-related changes
+
+## Branding Congruency
+
+- Use relationship-first, factual language in all titles and descriptions.
+- Keep veteran-owned references accurate and consistent with the brand constants.
+- Avoid slogan-heavy phrasing, militarized aliases, or unapproved naming variants.
+- Preserve trust and accreditation language instead of compressing it into vague marketing copy.
 
 ---
 

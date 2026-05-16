@@ -5,6 +5,8 @@
 **Last Updated:** April 19, 2026  
 **Use Case:** Run this checklist on any page to ensure consistency
 
+**Brand Congruency:** This checklist is a required gate for typography, color, voice, trust content, accessibility, and naming alignment.
+
 ---
 
 ## 📋 How to Use This Checklist

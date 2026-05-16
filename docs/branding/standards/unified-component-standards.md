@@ -8,6 +8,10 @@
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
+**Brand Congruency:** Component, typography, and layout decisions must remain aligned with approved MH voice, trust content, accessibility, and naming standards.
+
+Color usage inside components must continue to pull from the approved MH color system so typography and palette stay visually congruent.
+
 > **Purpose:** Single source of truth for all component design, typography, and branding standards.
 > This consolidates previous separate documents to eliminate conflicts and provide clear guidance.
 

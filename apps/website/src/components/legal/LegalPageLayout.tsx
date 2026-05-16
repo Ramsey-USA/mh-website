@@ -3,6 +3,7 @@ import { type ReactNode } from "react";
 import { PageTrackingClient } from "@/components/analytics";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StructuredData } from "@/components/seo/SeoMeta";
+import { PageHero } from "@/components/ui/layout/PageHero";
 
 interface LegalPageLayoutProps {
   pageName: string;
@@ -24,6 +25,14 @@ export function LegalPageLayout({
       <PageTrackingClient pageName={pageName} />
       <StructuredData data={structuredData} />
 
+      <PageHero
+        eyebrow="Policy Brief"
+        title={title}
+        highlight={`Last Updated ${lastUpdated}`}
+        description="Clear policies and transparent standards for every Client Partner."
+        icon="gavel"
+      />
+
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mb-8 sm:mb-12">
           <Link
@@ -34,9 +43,9 @@ export function LegalPageLayout({
             <span>Back to Home</span>
           </Link>
 
-          <h1 className="mb-4 text-3xl font-black text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mb-4 text-3xl font-black text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
             {title}
-          </h1>
+          </h2>
 
           <p className="text-gray-600 dark:text-gray-300">
             Last Updated: {lastUpdated}

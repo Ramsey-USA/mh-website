@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useLocale } from "@/hooks/useLocale";
 import { PageTrackingClient } from "@/components/analytics";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
@@ -39,6 +40,8 @@ export function CoolDesertNightsPageClient() {
   const [eventLogoSrc, setEventLogoSrc] = useState(
     "/images/events/cool-desert-nights/cool-desert-nights-logo1.webp",
   );
+  const locale = useLocale();
+  const isEs = locale === "es";
 
   return (
     <>
@@ -55,43 +58,55 @@ export function CoolDesertNightsPageClient() {
             <div className="space-y-6">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary/90">
-                  Base HQ - Events | Field Brief
+                  {isEs
+                    ? "Base Central - Eventos | Informe de Campo"
+                    : "Base HQ - Events | Field Brief"}
                 </p>
                 {isMissionComplete ? (
                   <h1 className="text-balance text-2xl font-black leading-tight sm:text-4xl lg:text-5xl">
-                    Base HQ - Events: Cool Desert Nights 2026 Debrief
+                    {isEs
+                      ? "Base Central - Eventos: Cool Desert Nights 2026 Resumen"
+                      : "Base HQ - Events: Cool Desert Nights 2026 Debrief"}
                   </h1>
                 ) : (
                   <h1 className="text-balance text-2xl font-black leading-tight sm:text-4xl lg:text-5xl">
-                    Base HQ - Events: Cool Desert Nights 2026 Briefing
+                    {isEs
+                      ? "Base Central - Eventos: Cool Desert Nights 2026 Informe"
+                      : "Base HQ - Events: Cool Desert Nights 2026 Briefing"}
                   </h1>
                 )}
               </div>
               <p className="max-w-3xl text-base leading-relaxed text-white/90 sm:text-lg">
                 {isMissionComplete
-                  ? "Thank you to the Richland and Kennewick community, event leadership, and Client Partners who made this event successful through coordinated execution."
-                  : "Cool Desert Nights 2026 is scheduled for June 26-27 in Richland, WA, featuring classic cars, a Friday night cruise, and a Saturday Show 'n Shine in the Uptown Shopping Center."}
+                  ? isEs
+                    ? "Gracias a la comunidad de Richland y Kennewick, al liderazgo del evento y a los Socios Clientes que hicieron posible el éxito de este evento mediante una ejecución coordinada."
+                    : "Thank you to the Richland and Kennewick community, event leadership, and Client Partners who made this event successful through coordinated execution."
+                  : isEs
+                    ? "Cool Desert Nights 2026 está programado para el 26 y 27 de junio en Richland, WA, con autos clásicos, un crucero nocturno el viernes y una exhibición Show 'n Shine el sábado en Uptown Shopping Center."
+                    : "Cool Desert Nights 2026 is scheduled for June 26-27 in Richland, WA, featuring classic cars, a Friday night cruise, and a Saturday Show 'n Shine in the Uptown Shopping Center."}
               </p>
 
               <div className="grid gap-3 text-sm text-white/90 sm:grid-cols-3">
                 <div className="rounded-xl border border-white/20 bg-white/8 px-4 py-3 backdrop-blur-sm">
                   <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
-                    Event Window
+                    {isEs ? "Fechas del Evento" : "Event Window"}
                   </p>
-                  <p className="mt-1 font-semibold">June 26-27, 2026</p>
+                  <p className="mt-1 font-semibold">26-27 de junio, 2026</p>
                 </div>
                 <div className="rounded-xl border border-white/20 bg-white/8 px-4 py-3 backdrop-blur-sm">
                   <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
-                    Location
+                    {isEs ? "Ubicación" : "Location"}
                   </p>
                   <p className="mt-1 font-semibold">Uptown Shopping Center</p>
                 </div>
                 <div className="rounded-xl border border-white/20 bg-white/8 px-4 py-3 backdrop-blur-sm">
                   <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
-                    Signature Events
+                    {isEs ? "Eventos Principales" : "Signature Events"}
                   </p>
                   <p className="mt-1 font-semibold">
-                    Cruise + Show &#39;n Shine
+                    {isEs
+                      ? "Crucero + Show 'n Shine"
+                      : "Cruise + Show 'n Shine"}
                   </p>
                 </div>
               </div>
@@ -112,7 +127,9 @@ export function CoolDesertNightsPageClient() {
                       size="md"
                       className="mr-2"
                     />
-                    Chamber Schedule + Registration
+                    {isEs
+                      ? "Programa y registro"
+                      : "Chamber Schedule + Registration"}
                   </Button>
                 </Link>
                 <Link href="/contact">
@@ -122,7 +139,7 @@ export function CoolDesertNightsPageClient() {
                     className="touch-manipulation"
                   >
                     <MaterialIcon icon="handshake" size="md" className="mr-2" />
-                    Talk With Our Team
+                    {isEs ? "Habla con nuestro equipo" : "Talk With Our Team"}
                   </Button>
                 </Link>
                 {!isMissionComplete && (
@@ -133,7 +150,7 @@ export function CoolDesertNightsPageClient() {
                       className="touch-manipulation"
                     >
                       <MaterialIcon icon="map" size="md" className="mr-2" />
-                      Visit Our Booth
+                      {isEs ? "Visita nuestro stand" : "Visit Our Booth"}
                     </Button>
                   </Link>
                 )}
@@ -189,28 +206,49 @@ export function CoolDesertNightsPageClient() {
               <div className={`${panelClass} p-6 sm:p-8`}>
                 <div className="mb-2">
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
-                    Community Leadership
+                    {isEs ? "Liderazgo comunitario" : "Community Leadership"}
                   </p>
                   <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/80">
-                    Trust | Command Alignment
+                    {isEs
+                      ? "Confianza | Alineación de mando"
+                      : "Trust | Command Alignment"}
                   </p>
                 </div>
                 <p className="text-xl font-black text-gray-900 dark:text-white sm:text-2xl">
-                  MH Construction Owner Jeremy Thamert will serve as an official
-                  BBQ judge alongside Richland Mayor Theresa Richardson.
+                  {isEs
+                    ? "El propietario de MH Construction, Jeremy Thamert, será juez oficial de BBQ junto a la alcaldesa de Richland, Theresa Richardson."
+                    : "MH Construction Owner Jeremy Thamert will serve as an official BBQ judge alongside Richland Mayor Theresa Richardson."}
                 </p>
                 <p className="mt-3 text-gray-700 dark:text-white/85">
-                  Local leadership alignment is coordinated with the{" "}
-                  <Link
-                    href={mayorOfficeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={inlineLinkClass}
-                  >
-                    Richland Mayor&apos;s Office
-                  </Link>{" "}
-                  and event leadership to support coordinated community
-                  participation and clear communication.
+                  {isEs ? (
+                    <>
+                      La coordinación del liderazgo local se realiza con la{" "}
+                      <Link
+                        href={mayorOfficeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={inlineLinkClass}
+                      >
+                        Oficina de la Alcaldesa de Richland
+                      </Link>{" "}
+                      y el liderazgo del evento para apoyar la participación
+                      comunitaria coordinada y una comunicación clara.
+                    </>
+                  ) : (
+                    <>
+                      Local leadership alignment is coordinated with the{" "}
+                      <Link
+                        href={mayorOfficeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={inlineLinkClass}
+                      >
+                        Richland Mayor&apos;s Office
+                      </Link>{" "}
+                      and event leadership to support coordinated community
+                      participation and clear communication.
+                    </>
+                  )}
                 </p>
               </div>
             </section>
@@ -221,44 +259,54 @@ export function CoolDesertNightsPageClient() {
             >
               <div className={`${panelClass} p-6`}>
                 <h2 className="text-xl font-black text-brand-secondary">
-                  Service-Earned Values In Action
+                  {isEs
+                    ? "Valores ganados en servicio en acción"
+                    : "Service-Earned Values In Action"}
                 </h2>
                 <p className="mt-2 max-w-3xl text-gray-700 dark:text-white/85">
-                  Event coordination follows the same operating standard as
-                  every MH Construction project: Honesty, Integrity,
-                  Professionalism, and Thoroughness.
+                  {isEs
+                    ? "La coordinación del evento sigue el mismo estándar operativo que cada proyecto de MH Construction: Honestidad, Integridad, Profesionalismo y Minuciosidad."
+                    : "Event coordination follows the same operating standard as every MH Construction project: Honesty, Integrity, Professionalism, and Thoroughness."}
                 </p>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                   <div className={`${subPanelClass} p-4`}>
                     <p className="text-sm font-bold text-gray-900 dark:text-white">
-                      Honesty
+                      {isEs ? "Honestidad" : "Honesty"}
                     </p>
                     <p className="mt-1 text-sm text-gray-700 dark:text-white/80">
-                      Clear event expectations and scope.
+                      {isEs
+                        ? "Expectativas y alcance del evento claros."
+                        : "Clear event expectations and scope."}
                     </p>
                   </div>
                   <div className={`${subPanelClass} p-4`}>
                     <p className="text-sm font-bold text-gray-900 dark:text-white">
-                      Integrity
+                      {isEs ? "Integridad" : "Integrity"}
                     </p>
                     <p className="mt-1 text-sm text-gray-700 dark:text-white/80">
-                      Commitments delivered as promised.
+                      {isEs
+                        ? "Compromisos cumplidos según lo prometido."
+                        : "Commitments delivered as promised."}
                     </p>
                   </div>
                   <div className={`${subPanelClass} p-4`}>
                     <p className="text-sm font-bold text-gray-900 dark:text-white">
-                      Professionalism
+                      {isEs ? "Profesionalismo" : "Professionalism"}
                     </p>
                     <p className="mt-1 text-sm text-gray-700 dark:text-white/80">
-                      Coordinated leadership and partner communication.
+                      {isEs
+                        ? "Liderazgo y comunicación con socios coordinados."
+                        : "Coordinated leadership and partner communication."}
                     </p>
                   </div>
                   <div className={`${subPanelClass} p-4`}>
                     <p className="text-sm font-bold text-gray-900 dark:text-white">
-                      Thoroughness
+                      {isEs ? "Minuciosidad" : "Thoroughness"}
                     </p>
                     <p className="mt-1 text-sm text-gray-700 dark:text-white/80">
-                      Details managed from schedule through close-out.
+                      {isEs
+                        ? "Detalles gestionados desde la programación hasta el cierre."
+                        : "Details managed from schedule through close-out."}
                     </p>
                   </div>
                 </div>
@@ -271,45 +319,66 @@ export function CoolDesertNightsPageClient() {
             >
               <article className={`${panelClass} p-6`}>
                 <h2 className="mb-3 text-xl font-black text-brand-secondary">
-                  Competition Overview
+                  {isEs ? "Resumen de la competencia" : "Competition Overview"}
                 </h2>
                 <p className="text-gray-700 dark:text-white/90">
-                  Cool Desert Nights is a premier Tri-Cities summer event with
-                  classic cars, a Friday night cruise on George Washington Way,
-                  and a Saturday Show &#39;n Shine hosted in Richland&apos;s
-                  Uptown Shopping Center.
+                  {isEs
+                    ? "Cool Desert Nights es un evento veraniego destacado en Tri-Cities con autos clásicos, un crucero nocturno el viernes por George Washington Way y una exhibición Show 'n Shine el sábado en Uptown Shopping Center de Richland."
+                    : "Cool Desert Nights is a premier Tri-Cities summer event with classic cars, a Friday night cruise on George Washington Way, and a Saturday Show 'n Shine hosted in Richland's Uptown Shopping Center."}
                 </p>
               </article>
 
               <article className={`${panelClass} p-6`}>
                 <h2 className="mb-3 text-xl font-black text-brand-secondary">
-                  MH Construction Presence
+                  {isEs
+                    ? "Presencia de MH Construction"
+                    : "MH Construction Presence"}
                 </h2>
                 <p className="text-gray-700 dark:text-white/90">
-                  Saturday Show &#39;n Shine includes hundreds of cars on
-                  display, plus family-friendly activities with a kids&#39;
-                  zone, vendor booths, and community access points throughout
-                  the venue.
+                  {isEs
+                    ? "El Show 'n Shine del sábado incluye cientos de autos en exhibición, además de actividades familiares con zona infantil, puestos de vendedores y puntos de acceso comunitario en todo el recinto."
+                    : "Saturday Show 'n Shine includes hundreds of cars on display, plus family-friendly activities with a kids' zone, vendor booths, and community access points throughout the venue."}
                 </p>
               </article>
 
               <article className={`${panelClass} p-6`}>
                 <h2 className="mb-3 text-xl font-black text-brand-secondary">
-                  Local Impact
+                  {isEs ? "Impacto local" : "Local Impact"}
                 </h2>
                 <p className="text-gray-700 dark:text-white/90">
-                  Weekend programming includes Party in the Park, live music,
-                  food vendors, and a Saturday awards ceremony. MH Construction
-                  support extends to the Richland Kiwanis Pancake Breakfast,{" "}
-                  <Link
-                    href={kiwanisUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={inlineLinkClass}
-                  >
-                    Kiwanis programming
-                  </Link>
-                  , and the Party in the Park weekend draw.
+                  {isEs ? (
+                    <>
+                      La programación del fin de semana incluye Party in the
+                      Park, música en vivo, puestos de comida y una ceremonia de
+                      premiación el sábado. El apoyo de MH Construction se
+                      extiende al desayuno de pancakes de Kiwanis de Richland,{" "}
+                      <Link
+                        href={kiwanisUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={inlineLinkClass}
+                      >
+                        programación Kiwanis
+                      </Link>
+                      , y el sorteo de Party in the Park.
+                    </>
+                  ) : (
+                    <>
+                      Weekend programming includes Party in the Park, live
+                      music, food vendors, and a Saturday awards ceremony. MH
+                      Construction support extends to the Richland Kiwanis
+                      Pancake Breakfast,{" "}
+                      <Link
+                        href={kiwanisUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={inlineLinkClass}
+                      >
+                        Kiwanis programming
+                      </Link>
+                      , and the Party in the Park weekend draw.
+                    </>
+                  )}
                 </p>
               </article>
             </section>
@@ -322,17 +391,21 @@ export function CoolDesertNightsPageClient() {
                 <div className="border-b border-brand-secondary/30 px-5 py-3">
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.14em] text-gray-600 dark:text-white/80">
-                      Event Media
+                      {isEs ? "Medios del evento" : "Event Media"}
                     </p>
                     <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
-                      Visual Brief
+                      {isEs ? "Resumen visual" : "Visual Brief"}
                     </p>
                   </div>
                 </div>
                 <div className="aspect-video w-full bg-black">
                   <Image
                     src="/images/events/cool-desert-nights/smoke-n-shine-showdown-graphic.webp"
-                    alt="Official Smoke n Shine Showdown BBQ contest graphic"
+                    alt={
+                      isEs
+                        ? "Gráfico oficial del concurso BBQ Smoke n Shine Showdown"
+                        : "Official Smoke n Shine Showdown BBQ contest graphic"
+                    }
                     width={1280}
                     height={720}
                     className="h-full w-full object-cover"
@@ -347,15 +420,21 @@ export function CoolDesertNightsPageClient() {
             >
               <div className={`${panelClass} p-6 sm:p-8`}>
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary/95">
-                  2026 Event Identity
+                  {isEs ? "Identidad del evento 2026" : "2026 Event Identity"}
                 </p>
                 <h2 className="mt-2 text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
-                  Official Cool Desert Nights 2026 Graphic
+                  {isEs
+                    ? "Gráfico oficial de Cool Desert Nights 2026"
+                    : "Official Cool Desert Nights 2026 Graphic"}
                 </h2>
                 <div className="mt-5">
                   <Image
                     src="/images/events/cool-desert-nights/cool-desert-nights-2026.webp"
-                    alt="Official Cool Desert Nights 2026 event graphic"
+                    alt={
+                      isEs
+                        ? "Gráfico oficial del evento Cool Desert Nights 2026"
+                        : "Official Cool Desert Nights 2026 event graphic"
+                    }
                     width={1200}
                     height={720}
                     className="h-auto w-full object-contain drop-shadow-[0_14px_34px_rgba(0,0,0,0.55)]"
@@ -518,3 +597,5 @@ export function CoolDesertNightsPageClient() {
     </>
   );
 }
+
+export default CoolDesertNightsPageClient;

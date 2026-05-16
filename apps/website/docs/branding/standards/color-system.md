@@ -7,6 +7,10 @@
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
+**Brand Congruency:** Color decisions must preserve approved MH brand meaning, accessibility contrast, trust signals, and veteran-owned framing.
+
+Typography must use the canonical MH font system alongside this palette so pages do not drift into mixed visual language.
+
 ## Quick Navigation
 
 - [🏠 Brand Documentation](../)

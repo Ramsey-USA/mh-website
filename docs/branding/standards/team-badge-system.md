@@ -19,6 +19,8 @@ The Team Achievement Badge System provides a standardized way to recognize and d
 accomplishments, certifications, and milestones on the MH Construction website. Badges follow strict
 branding guidelines and are awarded based on objective, verifiable criteria.
 
+**Brand Congruency:** Badge styling and labels must remain factual, accessible, and aligned with approved MH voice, trust language, and veteran-owned framing.
+
 ## Core Principles
 
 1. **Merit-Based**: All badges must be earned through objective achievements

@@ -9,6 +9,8 @@
 This checklist is the operational standard for deciding whether a route should be indexed,
 listed in sitemap, or blocked from indexing.
 
+**Brand Congruency:** Route indexing and canonicalization decisions must preserve approved page names, trust surfaces, and SEO-safe terminology.
+
 Use this when:
 
 - adding a new route under `src/app`

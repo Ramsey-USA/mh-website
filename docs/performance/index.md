@@ -7,6 +7,8 @@
 
 Page-level performance audits and Core Web Vitals tracking for the MH Construction website.
 
+**Brand Congruency:** Performance updates must preserve canonical MH typography, color usage, trust visibility, and approved naming on optimized pages.
+
 ## Available Resources
 
 - **[Page Performance Audit](./page-performance-audit.md)** — Latest per-page performance audit

@@ -308,8 +308,9 @@ export default function PublicSectorFullPage() {
       <PageTrackingClient pageName="Public Sector" />
       <StructuredData data={breadcrumbSchema} />
       {/* Hero Section - Group 4: Professional & Patriotic */}
-      <section className="hero-section relative bg-linear-to-br from-gray-900 via-gray-700 to-gray-900 flex items-end justify-end text-white overflow-hidden">
+      <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
         {/* Background Elements */}
+        <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-gray-700 to-gray-900"></div>
         <div className="absolute inset-0 bg-linear-to-br from-gray-700/30 via-gray-900/80 to-gray-600/20"></div>
 
         {/* Content - Bottom Right */}
@@ -793,14 +794,14 @@ export default function PublicSectorFullPage() {
                   <div className="h-2 bg-linear-to-r from-slate-600 via-gray-700 to-slate-600" />
                   <div className="relative p-8 pt-8">
                     <div className="flex items-start">
-                      <div className="flex-shrink-0 mr-6">
+                      <div className="shrink-0 mr-6">
                         <div className="flex justify-center items-center bg-linear-to-br from-slate-600 to-gray-800 shadow-lg rounded-full w-16 h-16 font-bold text-white text-2xl">
                           {process.step}
                         </div>
                       </div>
-                      <div className="flex-grow">
+                      <div className="grow">
                         <div className="flex justify-between items-start">
-                          <div className="flex-grow">
+                          <div className="grow">
                             <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
                               {process.title}
                             </h3>
@@ -978,7 +979,7 @@ export default function PublicSectorFullPage() {
                   <div className="h-2 bg-linear-to-r from-slate-600 via-gray-700 to-slate-600" />
                   <div className="relative p-6 sm:p-8 pt-8">
                     <div className="flex items-start">
-                      <div className="relative inline-block flex-shrink-0 mr-6">
+                      <div className="relative inline-block shrink-0 mr-6">
                         <div
                           className="absolute -inset-2 bg-linear-to-r from-slate-600/40 to-gray-700/40 blur-lg opacity-70"
                           aria-hidden="true"

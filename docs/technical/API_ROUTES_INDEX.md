@@ -4,6 +4,8 @@ This document provides a centralized index of all API endpoints in the MH Constr
 
 **Base URL:** `/api`
 
+**Brand Congruency:** Route naming, endpoint labels, and API descriptions should stay aligned with approved MH terminology and trust-safe language.
+
 ---
 
 ## Table of Contents

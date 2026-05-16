@@ -7,6 +7,8 @@
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../../branding/brand-constants.md).
 
+**Brand Congruency:** Consistency rules in this guide must preserve canonical MH typography and color usage along with approved voice and naming.
+
 ## 🧭 Quick Navigation
 
 - [📌 Brand Constants](../../branding/brand-constants.md) - ⭐ **SINGLE SOURCE OF TRUTH**

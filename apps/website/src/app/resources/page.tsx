@@ -71,7 +71,7 @@ export default function ResourcesPage() {
 
           {/* Hero */}
           <FadeInWhenVisible>
-            <div className="text-center mb-14">
+            <div className="hero-section text-center mb-14">
               <div className="inline-flex items-center gap-2 bg-brand-primary/10 dark:bg-brand-primary/20 border border-brand-primary/20 rounded-full px-4 py-1.5 mb-5">
                 <MaterialIcon
                   icon="folder_open"
@@ -100,7 +100,7 @@ export default function ResourcesPage() {
             href="/safety"
             className="group flex items-start sm:items-center gap-5 bg-linear-to-r from-brand-primary/8 to-brand-primary/4 dark:from-brand-primary/20 dark:to-brand-primary/10 border border-brand-primary/25 dark:border-brand-primary/40 rounded-2xl p-5 sm:p-6 mb-10 hover:border-brand-primary hover:shadow-lg transition-all duration-300"
           >
-            <div className="flex-shrink-0 w-12 h-12 bg-brand-primary rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
+            <div className="shrink-0 w-12 h-12 bg-brand-primary rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
               <MaterialIcon
                 icon="shield_lock"
                 size="md"
@@ -133,7 +133,7 @@ export default function ResourcesPage() {
             <MaterialIcon
               icon="arrow_forward"
               size="md"
-              className="text-brand-primary flex-shrink-0 group-hover:translate-x-1 transition-transform duration-200 hidden sm:block"
+              className="text-brand-primary shrink-0 group-hover:translate-x-1 transition-transform duration-200 hidden sm:block"
             />
           </Link>
 
@@ -214,7 +214,7 @@ export default function ResourcesPage() {
                     {doc.id === "safety-manual" && (
                       <span className="sr-only">Safety Manual</span>
                     )}
-                    <div className="flex-shrink-0 w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
+                    <div className="shrink-0 w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
                       <MaterialIcon
                         icon={doc.icon}
                         size="md"
@@ -233,7 +233,7 @@ export default function ResourcesPage() {
                             </p>
                           )}
                         </div>
-                        <div className="flex items-center gap-2 flex-shrink-0">
+                        <div className="flex items-center gap-2 shrink-0">
                           {doc.totalSections && (
                             <span className="text-xs bg-brand-primary/10 text-brand-primary dark:text-brand-primary-light font-semibold px-2.5 py-1 rounded-full">
                               {doc.totalSections} sections
@@ -290,7 +290,7 @@ export default function ResourcesPage() {
                     className="flex flex-col bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:border-brand-bronze dark:hover:border-brand-secondary hover:shadow-md transition-all duration-300"
                   >
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 bg-brand-bronze/10 dark:bg-brand-bronze/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 bg-brand-bronze/10 dark:bg-brand-bronze/20 rounded-lg flex items-center justify-center shrink-0">
                         <MaterialIcon
                           icon={doc.icon}
                           size="sm"

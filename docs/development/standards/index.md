@@ -8,6 +8,8 @@
 Mandatory engineering standards, page templates, and AI agent rules. All new and refactored
 pages must align with these documents to maintain homepage-level cohesiveness.
 
+**Brand Congruency:** Standards in this section are mandatory for keeping typography, color, voice, trust content, and naming congruent across the app.
+
 ## Core Standards
 
 - **[Development Standards](./development-standards.md)** — Core code patterns and conventions
@@ -19,6 +21,7 @@ pages must align with these documents to maintain homepage-level cohesiveness.
 - **[Page Template Guide](./page-template-guide.md)** — Complete boilerplate for new pages
 - **[Universal Page Flow Standard](./universal-page-flow-standard.md)** — Required body-content sequence
 - **[Page Compliance Checklist](./page-compliance-checklist.md)** — 150+ pre-merge verification items
+- **[Branding Congruency Checklist](./branding-congruency-checklist.md)** — Quick gate for voice, trust, accessibility, and naming alignment
 
 ## AI & Agent Guidance
 

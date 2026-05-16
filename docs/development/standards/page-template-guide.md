@@ -15,6 +15,8 @@
 **Reference:** [Homepage](../../technical/homepage.md) - Your page must match this quality level  
 **Quick Start:** Copy the template below and customize for your page
 
+**Brand Congruency:** New page scaffolds must keep typography, color usage, trust content, and naming aligned with canonical MH standards.
+
 ---
 
 ## 🎯 What "Cohesive with Homepage" Means

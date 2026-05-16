@@ -21,6 +21,8 @@ This document outlines the complete build, test, and deployment pipeline for MH 
 
 The mh-website uses a multi-stage CI/CD pipeline with:
 
+**Brand Congruency:** CI/CD validation should preserve canonical MH naming, trust language, accessibility expectations, and approved visual standards.
+
 - **Local Development:** Pre-commit hooks via Husky
 - **Code Quality Gates:** Linting, type checking, formatting
 - **Automated Testing:** Unit tests, integration tests with code coverage

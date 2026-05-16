@@ -1,8 +1,8 @@
 # MH Construction Website - Development Standards
 
 **Category:** Development - Code Standards  
-**Last Updated:** April 18, 2026  
-**Version:** 1.1.0  
+**Last Updated:** May 15, 2026  
+**Version:** 1.2.0  
 **Status:** ✅ Active - Mandatory
 
 ## 🧭 Quick Navigation
@@ -35,6 +35,34 @@ These standards ensure consistency, maintainability, and prevent recurring bugs.
 - **Icon Standards** - See below (Material Icons only, NO emojis in code)
 
 **These branding standards are mandatory and enforced alongside technical standards.**
+
+---
+
+## 🛡 Branding Congruency Standard (100% Required)
+
+All implementation work must remain fully congruent with MH branding.
+Any change that fails one of the checks below is non-compliant.
+
+### Mandatory Checks
+
+1. **Brand visual system preserved**: Use approved colors, typography, layout rhythm, and component standards. Do not introduce off-brand visual treatments without explicit approval.
+
+1. **Voice and messaging preserved**: Use relationship-first, factual language. Preserve veteran-owned framing without hype or slogan-heavy language.
+
+1. **Trust and accreditation content preserved**: Do not remove or downgrade certifications, trust indicators, compliance language, or credibility sections.
+
+1. **Accessibility preserved**: Maintain semantic structure, keyboard access, labels, alt text, and contrast standards.
+
+1. **SEO naming alignment preserved**: Keep page names, headings, slugs, metadata, and labels aligned with approved brand terminology. Avoid unapproved aliases, militarized names, or keyword stuffing.
+
+1. **Approved exception scope preserved**: Patriotic red-to-blue border is allowed only in `WaVobBadge` and nowhere else.
+
+### Required Validation for Branding-Sensitive Changes
+
+- Verify congruency across affected pages, not only the edited file.
+- Confirm CTA language and trust messaging match established cross-page terminology.
+- Confirm no accreditation or trust component was removed during refactors.
+- Confirm metadata naming remains aligned with page content and brand taxonomy.
 
 ---
 
@@ -736,6 +764,12 @@ Before committing code, ensure:
 - [ ] Responsive design tested (mobile, tablet, desktop)
 - [ ] Animations respect `prefers-reduced-motion`
 - [ ] Dark mode tested and working
+- [ ] Relationship-first, factual brand voice maintained
+- [ ] Trust/accreditation content preserved on all impacted pages
+- [ ] No off-brand visual additions or unapproved naming aliases
+- [ ] Accessibility parity maintained after design/content edits
+- [ ] SEO naming and metadata labels remain brand-aligned
+- [ ] Veteran badge exception limited to `WaVobBadge`
 
 ---
 
@@ -747,6 +781,12 @@ Before committing code, ensure:
 ---
 
 ## 📝 Changelog
+
+### 2026-05-15 - v1.2.0
+
+- **ADDED**: Branding Congruency Standard with mandatory validation checks
+- **UPDATED**: Pre-commit checklist with explicit branding, trust, accessibility, and SEO alignment gates
+- **UPDATED**: Metadata date and version for branding governance parity
 
 ### 2025-11-08 - v1.1.0
 

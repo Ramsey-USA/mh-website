@@ -8,6 +8,8 @@
 Engineering standards, quick references, refactoring playbooks, and component templates for
 building MH Construction website features at homepage-level quality.
 
+**Brand Congruency:** Development work must preserve canonical MH typography, color usage, terminology, trust visibility, and accessibility expectations.
+
 ## Standards (Required Reading)
 
 See **[Standards Index](./standards/index.md)** for the full standards library, including:

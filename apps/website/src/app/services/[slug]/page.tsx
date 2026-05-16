@@ -244,7 +244,7 @@ export default async function ServicePage({
       <StructuredData data={serviceSchema} />
 
       <main className="bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 min-h-screen">
-        <section className="border-b border-gray-200 bg-white/95 px-4 py-14 sm:px-6 lg:px-8 dark:border-gray-800 dark:bg-gray-950/80">
+        <section className="hero-section border-b border-gray-200 bg-white/95 px-4 py-14 sm:px-6 lg:px-8 dark:border-gray-800 dark:bg-gray-950/80">
           <div className="mx-auto max-w-5xl">
             <Breadcrumbs
               items={[

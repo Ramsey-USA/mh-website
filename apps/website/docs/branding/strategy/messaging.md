@@ -7,6 +7,9 @@
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
+**Brand Congruency:** Preserve the relationship-first voice, factual veteran-owned framing, trust emphasis, and SEO-safe terminology across all messaging surfaces.
+Any visual treatments used with messaging, such as headers, cards, or CTA blocks, must also stay within the approved MH typography and color system.
+
 **Current messaging focus:**
 
 - **Veteran Values:** Military discipline, proven methods, traditional excellence
