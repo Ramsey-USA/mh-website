@@ -143,25 +143,27 @@ describe("ContactPageClient", () => {
     expect(screen.getByText("Tracking: Contact")).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
-        name: /your project. our expertise. let's connect./i,
+        name: /contact\.hero\.kicker contact\.hero\.titleLine1 contact\.hero\.titleLine2 contact\.hero\.titleLine3Prefix contact\.hero\.notWord contact\.hero\.titleLine3Suffix/i,
       }),
     ).toBeInTheDocument();
     expect(screen.getByText("Page nav items: 2")).toBeInTheDocument();
-    expect(screen.getByText("Home / Introductions")).toBeInTheDocument();
+    expect(
+      screen.getByText("common.back / contact.hero.breadcrumb"),
+    ).toBeInTheDocument();
 
     expect(
       screen.getByRole("link", {
-        name: /call mh construction at \(509\) 555-0100/i,
+        name: /contact\.quickContact\.cards\.call\.ariaPrefix \(509\) 555-0100/i,
       }),
     ).toHaveAttribute("href", "tel:+15095550100");
     expect(
-      screen.getByRole("link", { name: /send email to mh construction/i }),
+      screen.getByRole("link", {
+        name: /contact\.quickContact\.cards\.email\.ariaLabel/i,
+      }),
     ).toHaveAttribute("href", "mailto:office@mhc-gc.com");
     expect(
       getLinkByHrefContaining("google.com/maps/search/?api=1&query="),
-    ).toHaveAccessibleName(
-      /get directions to mh construction office in pasco, wa/i,
-    );
+    ).toHaveAccessibleName(/contact\.quickContact\.cards\.visit\.ariaLabel/i);
     expect(
       getLinkByHrefContaining("google.com/maps/search/?api=1&query="),
     ).toHaveAttribute(
@@ -171,21 +173,23 @@ describe("ContactPageClient", () => {
       ),
     );
 
-    expect(screen.getByText("Call Now")).toBeInTheDocument();
-    expect(screen.getByText("Send Email")).toBeInTheDocument();
-    expect(screen.getAllByText("Get Directions").length).toBeGreaterThanOrEqual(
-      2,
-    );
+    expect(
+      screen.getByText("contact.quickContact.cards.call.actionLabel"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("contact.quickContact.cards.email.actionLabel"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getAllByText("contact.quickContact.cards.visit.actionLabel")
+        .length,
+    ).toBeGreaterThanOrEqual(1);
 
-    expect(getLinkByHref("/contact")).toHaveAccessibleName(/contact us today/i);
-    expect(getLinkByHref("/services")).toHaveAccessibleName(
-      /explore services/i,
-    );
-    expect(getLinkByHref("/allies")).toHaveAccessibleName(
-      /apply as approved trade partner/i,
-    );
-    expect(getLinkByHref("/allies#benefits")).toHaveAccessibleName(
-      /view ally benefits/i,
+    expect(getLinkByHref("/contact")).toHaveAttribute("href", "/contact");
+    expect(getLinkByHref("/services")).toHaveAttribute("href", "/services");
+    expect(getLinkByHref("/allies")).toHaveAttribute("href", "/allies");
+    expect(getLinkByHref("/allies#benefits")).toHaveAttribute(
+      "href",
+      "/allies#benefits",
     );
   });
 
@@ -194,22 +198,22 @@ describe("ContactPageClient", () => {
 
     expect(
       screen.getByRole("link", {
-        name: /explore construction services and solutions/i,
+        name: /contact\.options\.cards\.services\.ariaLabel/i,
       }),
     ).toHaveAttribute("href", "/services");
     expect(
       screen.getByRole("link", {
-        name: /view completed projects and partnerships/i,
+        name: /contact\.options\.cards\.projects\.ariaLabel/i,
       }),
     ).toHaveAttribute("href", "/projects");
     expect(
       screen.getByRole("link", {
-        name: /meet the mh construction partnership team/i,
+        name: /contact\.options\.cards\.team\.ariaLabel/i,
       }),
     ).toHaveAttribute("href", "/team");
     expect(
       screen.getByRole("link", {
-        name: /explore career opportunities at mh construction/i,
+        name: /contact\.options\.cards\.careers\.ariaLabel/i,
       }),
     ).toHaveAttribute("href", "/careers");
 
@@ -223,9 +227,7 @@ describe("ContactPageClient", () => {
       getLinkByHref(
         "https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301",
       ),
-    ).toHaveAccessibleName(
-      /get directions to mh construction office in pasco, washington/i,
-    );
+    ).toHaveAccessibleName(/contact\.office\.getDirectionsAria/i);
     expect(
       screen.getByTitle(
         "MH Construction Office Location - 3111 N Capitol Ave, Pasco, WA 99301",

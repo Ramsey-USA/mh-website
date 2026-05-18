@@ -228,10 +228,7 @@ export default async function RootLayout({
         <link
           rel="stylesheet"
           href="https://use.typekit.net/jqs8bjh.css"
-          media="print"
-          ref={(el) => {
-            if (el) el.media = "all";
-          }}
+          media="all"
           crossOrigin="anonymous"
         />
         <noscript>

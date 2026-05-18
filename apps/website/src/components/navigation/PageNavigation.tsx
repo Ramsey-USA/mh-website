@@ -31,6 +31,31 @@ export function PageNavigation({ items, className = "" }: PageNavigationProps) {
   // const isMobile = useIsMobile();
   const locale = useLocale();
 
+  const handleHashNavigation = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (!href.includes("#")) return;
+
+    const [path, hashPart] = href.split("#");
+    const hash = hashPart?.trim();
+    if (!hash) return;
+
+    const isSamePageHash = path === "" || path === pathname;
+    if (!isSamePageHash) return;
+
+    event.preventDefault();
+
+    const target = document.getElementById(hash);
+    if (!target) return;
+
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+    globalThis.history.pushState(null, "", `#${hash}`);
+  };
+
   return (
     <nav
       className={`page-navigation flex overflow-x-auto backdrop-blur-md border-t border-brand-primary/30 ${className}`}
@@ -40,7 +65,7 @@ export function PageNavigation({ items, className = "" }: PageNavigationProps) {
         <Link
           key={item.href}
           href={item.href}
-          locale={false}
+          onClick={(event) => handleHashNavigation(event, item.href)}
           className={`flex items-center px-4 py-2 text-sm sm:text-base font-medium transition-colors duration-200 ${
             pathname === item.href
               ? "text-brand-primary"

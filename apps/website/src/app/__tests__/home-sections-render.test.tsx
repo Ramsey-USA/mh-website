@@ -3,11 +3,13 @@
  */
 
 import { render, screen } from "@testing-library/react";
-import Home from "../page";
 
 jest.mock("next/headers", () => ({
-  cookies: async () => ({
+  cookies: () => ({
     get: () => undefined,
+  }),
+  headers: () => ({
+    get: () => null,
   }),
 }));
 
@@ -68,27 +70,29 @@ jest.mock("@/components/ui/Timeline", () => ({
 describe("Home page section rendering", () => {
   it("mounts all static and dynamic section slots", async () => {
     const previousNodeEnv = process.env.NODE_ENV;
-    Object.defineProperty(process.env, "NODE_ENV", {
-      value: "production",
-      configurable: true,
-    });
+    try {
+      Object.defineProperty(process.env, "NODE_ENV", {
+        value: "production",
+        configurable: true,
+      });
 
-    const ui = await Home();
-    render(ui);
+      const { default: Home } = await import("../page");
+      const ui = await Home();
+      render(ui);
 
-    expect(screen.getByTestId("page-tracking-client")).toBeInTheDocument();
-    expect(screen.getByTestId("home-sentry-support")).toBeInTheDocument();
-    expect(screen.getByTestId("structured-data")).toBeInTheDocument();
-    expect(screen.getByTestId("hero-section")).toBeInTheDocument();
-    expect(screen.getByTestId("core-values-section")).toBeInTheDocument();
-    // Restore NODE_ENV after test
-    Object.defineProperty(process.env, "NODE_ENV", {
-      value: previousNodeEnv,
-      configurable: true,
-    });
-
-    expect(
-      screen.getAllByTestId("dynamic-home-section").length,
-    ).toBeGreaterThan(0);
+      expect(screen.getByTestId("page-tracking-client")).toBeInTheDocument();
+      expect(screen.getByTestId("home-sentry-support")).toBeInTheDocument();
+      expect(screen.getByTestId("structured-data")).toBeInTheDocument();
+      expect(screen.getByTestId("hero-section")).toBeInTheDocument();
+      expect(screen.getByTestId("core-values-section")).toBeInTheDocument();
+      expect(
+        screen.getAllByTestId("dynamic-home-section").length,
+      ).toBeGreaterThan(0);
+    } finally {
+      Object.defineProperty(process.env, "NODE_ENV", {
+        value: previousNodeEnv,
+        configurable: true,
+      });
+    }
   });
 });

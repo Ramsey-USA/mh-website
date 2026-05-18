@@ -317,7 +317,6 @@ export function Navigation() {
                   alt="MH Construction"
                   width={247}
                   height={141}
-                  priority
                   sizes="(max-width: 475px) 123px, (max-width: 640px) 135px, (max-width: 768px) 158px, (max-width: 1024px) 196px, 247px"
                   quality={85}
                   className="drop-shadow-lg w-auto h-17.5 xs:h-19.25 sm:h-22.5 md:h-28 lg:h-35.25"
