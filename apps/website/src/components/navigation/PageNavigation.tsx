@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { type NavigationItem, getNavigationLabel } from "./navigationConfigs";
-import { useIsMobile } from "@/hooks/use-breakpoint";
+// import { useIsMobile } from "@/hooks/use-breakpoint";
 import { useLocale } from "@/hooks/useLocale";
 
 /**
@@ -28,7 +28,7 @@ interface PageNavigationProps {
 
 export function PageNavigation({ items, className = "" }: PageNavigationProps) {
   const pathname = usePathname();
-  const isMobile = useIsMobile();
+  // const isMobile = useIsMobile();
   const locale = useLocale();
 
   return (
@@ -40,7 +40,7 @@ export function PageNavigation({ items, className = "" }: PageNavigationProps) {
         <Link
           key={item.href}
           href={item.href}
-          locale={locale}
+          locale={false}
           className={`flex items-center px-4 py-2 text-sm sm:text-base font-medium transition-colors duration-200 ${
             pathname === item.href
               ? "text-brand-primary"
@@ -54,7 +54,7 @@ export function PageNavigation({ items, className = "" }: PageNavigationProps) {
               aria-hidden="true"
             />
           )}
-          {getNavigationLabel(item, locale)}
+          {getNavigationLabel(item, false, locale)}
         </Link>
       ))}
     </nav>

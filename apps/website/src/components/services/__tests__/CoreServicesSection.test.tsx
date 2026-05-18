@@ -58,10 +58,16 @@ jest.mock("@/components/ui", () => ({
 }));
 
 describe("CoreServicesSection", () => {
+  const sectionCopy = {
+    title: "Core Services",
+    subtitle: "What We Do",
+    description: "Test description",
+  };
+
   it("opens a core service detail modal and closes it with escape", async () => {
     const user = userEvent.setup();
 
-    render(<CoreServicesSection services={coreServices} />);
+    render(<CoreServicesSection services={coreServices} {...sectionCopy} />);
 
     await user.click(
       screen.getByRole("button", {
@@ -97,7 +103,7 @@ describe("CoreServicesSection", () => {
   it("closes the core service detail modal when the shared backdrop button is clicked", async () => {
     const user = userEvent.setup();
 
-    render(<CoreServicesSection services={coreServices} />);
+    render(<CoreServicesSection services={coreServices} {...sectionCopy} />);
 
     await user.click(
       screen.getByRole("button", {

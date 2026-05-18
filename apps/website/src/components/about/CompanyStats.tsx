@@ -58,9 +58,9 @@ export const companyStats: StatItem[] = [
 
 export function CompanyStats({
   stats = companyStats,
-  title,
-  subtitle,
-  description,
+  title = "",
+  subtitle = "",
+  description = "",
   headerIcon = "analytics",
   className = "",
   id = "company-stats",

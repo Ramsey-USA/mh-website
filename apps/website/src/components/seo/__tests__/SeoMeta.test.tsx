@@ -12,7 +12,7 @@ jest.mock("next/script", () => ({
   }: {
     id?: string;
     type?: string;
-    dangerouslySetInnerHTML?: { __html?: string };
+    dangerouslySetInnerHTML?: { __html: string };
   }) => (
     <script
       id={id}

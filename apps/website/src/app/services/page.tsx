@@ -19,15 +19,11 @@ import { useTranslations } from "next-intl";
 import type { Testimonial } from "@/lib/data/testimonials";
 import {
   ServicesHero,
+  CoreServicesSection,
   coreServices,
   specialtyServices,
   serviceAreas,
 } from "@/components/services";
-const CoreServicesSection = dynamic(() =>
-  import("@/components/services").then((m) => ({
-    default: m.CoreServicesSection,
-  })),
-);
 const SpecialtyServicesSection = dynamic(() =>
   import("@/components/services").then((m) => ({
     default: m.SpecialtyServicesSection,
@@ -116,11 +112,7 @@ export default function ServicesPage() {
       />
       <div className="bg-linear-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
         {/* Hero Section */}
-        <ServicesHero
-          title={tHome("services.hero.sectionTitle")}
-          subtitle={tHome("services.hero.sectionSubtitle")}
-          description={tHome("services.hero.sectionDescription")}
-        />
+        <ServicesHero />
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb

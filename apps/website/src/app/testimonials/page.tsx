@@ -8,7 +8,7 @@ async function getIsLighthouseAudit(
 ) {
   if (searchParamsPromise) {
     const searchParams = await searchParamsPromise;
-    const lighthouseParam = searchParams.__lh;
+    const lighthouseParam = searchParams["__lh"];
 
     if (Array.isArray(lighthouseParam)) {
       return lighthouseParam.includes("1") || lighthouseParam.includes("true");

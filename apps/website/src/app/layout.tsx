@@ -229,7 +229,9 @@ export default async function RootLayout({
           rel="stylesheet"
           href="https://use.typekit.net/jqs8bjh.css"
           media="print"
-          onLoad="this.media='all'"
+          ref={(el) => {
+            if (el) el.media = "all";
+          }}
           crossOrigin="anonymous"
         />
         <noscript>

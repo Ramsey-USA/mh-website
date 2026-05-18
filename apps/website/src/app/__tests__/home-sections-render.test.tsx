@@ -68,7 +68,10 @@ jest.mock("@/components/ui/Timeline", () => ({
 describe("Home page section rendering", () => {
   it("mounts all static and dynamic section slots", async () => {
     const previousNodeEnv = process.env.NODE_ENV;
-    process.env.NODE_ENV = "production";
+    Object.defineProperty(process.env, "NODE_ENV", {
+      value: "production",
+      configurable: true,
+    });
 
     const ui = await Home();
     render(ui);
@@ -78,11 +81,14 @@ describe("Home page section rendering", () => {
     expect(screen.getByTestId("structured-data")).toBeInTheDocument();
     expect(screen.getByTestId("hero-section")).toBeInTheDocument();
     expect(screen.getByTestId("core-values-section")).toBeInTheDocument();
+    // Restore NODE_ENV after test
+    Object.defineProperty(process.env, "NODE_ENV", {
+      value: previousNodeEnv,
+      configurable: true,
+    });
 
     expect(
       screen.getAllByTestId("dynamic-home-section").length,
     ).toBeGreaterThan(0);
-
-    process.env.NODE_ENV = previousNodeEnv;
   });
 });

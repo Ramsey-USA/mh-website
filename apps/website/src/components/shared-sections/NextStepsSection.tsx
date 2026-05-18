@@ -18,6 +18,7 @@ interface NextStepsSectionProps {
   className?: string;
   noBackground?: boolean;
   locale?: SupportedLocale;
+  description?: string;
 }
 
 type NextStepsCopy = {

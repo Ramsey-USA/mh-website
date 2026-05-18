@@ -49,13 +49,13 @@ const teamSpecialties = [
 ];
 
 export function LeadershipTeam({
-  title,
-  subtitle,
-  description,
+  title = "",
+  subtitle = "",
+  description = "",
 }: {
-  title: string;
-  subtitle: string;
-  description: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
 }) {
   return (
     <BrandedContentSection
@@ -65,8 +65,8 @@ export function LeadershipTeam({
         iconVariant: "primary",
         subtitle,
         title,
+        description,
       }}
-      description={description}
     >
       <div className="mx-auto max-w-4xl">
         {/* Introductory overview card */}

@@ -15,7 +15,11 @@ const FadeInWhenVisible = dynamic(
   { ssr: true },
 );
 // Above-fold: static
-import { AboutHero } from "@/components/about";
+import {
+  AboutHero,
+  PartnershipPhilosophy,
+  AwardsSection,
+} from "@/components/about";
 import { useTranslations } from "next-intl";
 import type { Testimonial } from "@/lib/data/testimonials";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
@@ -27,11 +31,6 @@ import { aboutTimelineSteps } from "@/lib/data/about-timeline";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { AccreditationsLogoRow } from "@/components/shared-sections";
 // Below-fold: lazy-loaded to reduce initial JS
-const PartnershipPhilosophy = dynamic(() =>
-  import("@/components/about").then((m) => ({
-    default: m.PartnershipPhilosophy,
-  })),
-);
 const CompanyStats = dynamic(() =>
   import("@/components/about").then((m) => ({ default: m.CompanyStats })),
 );
@@ -43,9 +42,6 @@ const LeadershipTeam = dynamic(() =>
 );
 const SafetySection = dynamic(() =>
   import("@/components/about").then((m) => ({ default: m.SafetySection })),
-);
-const AwardsSection = dynamic(() =>
-  import("@/components/about").then((m) => ({ default: m.AwardsSection })),
 );
 const Timeline = dynamic(() =>
   import("@/components/ui/Timeline").then((m) => ({ default: m.Timeline })),
@@ -125,13 +121,7 @@ export default function AboutPage() {
         />
 
         {/* Partnership Philosophy Section - Story and positioning first */}
-        <PartnershipPhilosophy
-          title={commonT("about.partnershipPhilosophy.sectionTitle")}
-          subtitle={commonT("about.partnershipPhilosophy.sectionSubtitle")}
-          description={commonT(
-            "about.partnershipPhilosophy.sectionDescription",
-          )}
-        />
+        <PartnershipPhilosophy />
 
         {/* Leadership Team Section - Faces and structure build trust early */}
         <LeadershipTeam
@@ -168,11 +158,7 @@ export default function AboutPage() {
         />
 
         {/* Awards & Recognition Section - External proof signals */}
-        <AwardsSection
-          title={commonT("about.awards.sectionTitle")}
-          subtitle={commonT("about.awards.sectionSubtitle")}
-          description={commonT("about.awards.sectionDescription")}
-        />
+        <AwardsSection />
 
         {/* Accreditations & Certifications - Credential logos */}
         <section className="relative py-12 sm:py-14 bg-gray-50 dark:bg-gray-800/60">
