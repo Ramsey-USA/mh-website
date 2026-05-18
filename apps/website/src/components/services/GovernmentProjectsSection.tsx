@@ -9,30 +9,24 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
 import { Card, CardContent, Button } from "@/components/ui";
 
-export function GovernmentProjectsSection() {
+export function GovernmentProjectsSection({
+  title,
+  subtitle,
+  description,
+}: {
+  title: string;
+  subtitle: string;
+  description: string;
+}) {
   return (
     <BrandedContentSection
       id="government"
       header={{
         icon: "account_balance",
         iconVariant: "bronze",
-        subtitle: "Public Sector Expertise",
-        title: "Government & Grant-Funded Projects",
-        description: (
-          <>
-            MH Construction brings{" "}
-            <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
-              specialized expertise
-            </span>
-            {
-              " in government and grant-funded construction projects. We understand the unique requirements, documentation standards, and "
-            }
-            <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              compliance needs
-            </span>{" "}
-            of public sector work throughout the Pacific Northwest.
-          </>
-        ),
+        subtitle,
+        title,
+        description,
       }}
     >
       <FadeInWhenVisible>

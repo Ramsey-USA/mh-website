@@ -184,7 +184,7 @@ Every interior page (non-cover) must have a running header implemented via `@top
 Every interior page must include the canonical footer line:
 
 ```
-MH Construction, Inc.  |  (509) 308-6489  ·  3111 N. Capitol Ave., Pasco, WA 99301  ·  www.mhc-gc.com  |  WA: MHCONCI907R7  ·  OR: 194331  ·  ID: RCE-49250
+MH Construction, Inc.  |  (509) 308-6489  ·  3111 N Capitol Ave, Pasco, WA 99301  ·  www.mhc-gc.com  |  WA: MHCONCI907R7  ·  OR: 194331  ·  ID: RCE-49250
 ```
 
 Page number format: `Page X of Y`
@@ -218,7 +218,7 @@ All form copy follows [Universal Terminology Guide](../strategy/universal-termin
 
 | Do                                               | Do Not                                  |
 | ------------------------------------------------ | --------------------------------------- |
-| Client Partners                                  | clients, customers                      |
+| Client Partners                                  | clients, retail-buyer labels            |
 | Veteran-Owned Since January 2025                 | Veteran-Owned (bare)                    |
 | Building projects for the Client, NOT the Dollar | paraphrases of the slogan               |
 | Operations                                       | jobs (when using dual-label context)    |
@@ -281,7 +281,7 @@ brand-secondary-text → #8A6B49   (body text)
 The following are prohibited on all document and form surfaces:
 
 - ❌ Bare `"Veteran-Owned"` without `"Since January 2025"` when ownership status is being stated
-- ❌ `"clients"` or `"customers"` — use `"Client Partners"`
+- ❌ `"clients"` or retail-buyer labels — use `"Client Partners"`
 - ❌ Emoji in document source (✓ checkmarks in HTML/CSS are acceptable; emoji characters are not)
 - ❌ Hardcoded hex colors that bypass `brand.css` / Tailwind tokens
 - ❌ Paraphrasing the primary slogan within the same document that states the canonical version

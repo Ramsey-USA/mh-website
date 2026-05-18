@@ -57,6 +57,8 @@ const customJestConfig = {
 
   // Module name mapping (path aliases)
   moduleNameMapper: {
+    "^next-intl$": "<rootDir>/test/mocks/next-intl.js",
+    "^next-intl/server$": "<rootDir>/test/mocks/next-intl-server.js",
     // Shared lib resolves from packages/shared (mirrors tsconfig paths + webpack aliases)
     ...sharedModuleMap,
     // App-specific modules
@@ -106,6 +108,12 @@ const customJestConfig = {
     "/public/docs/",
     // Shared test utilities — not test suites themselves
     "/__tests__/helpers/",
+  ],
+
+  // Some dependencies ship ESM-only builds (for example next-intl/use-intl).
+  // Let Jest transform them instead of ignoring node_modules entirely.
+  transformIgnorePatterns: [
+    "/node_modules/(?!(next-intl|use-intl|@formatjs)/)",
   ],
 
   // Skip Haste map scans of large generated trees (faster startup)

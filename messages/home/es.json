@@ -7,9 +7,9 @@
     "serving": "Sede en Tri-Cities (Pasco, Richland, Kennewick) | Licencia Tri-State en WA, OR, ID"
   },
   "coreValues": {
-    "sectionSubtitle": "Valores de Empresa Veterana",
-    "sectionTitle": "Construidos en Honestidad e Integridad",
-    "sectionDescription": "Cuatro valores fundamentales guían cada proyecto y asociación, enfocados en construir proyectos para el cliente, NO para el dinero.",
+    "sectionSubtitle": "Marco de Decision",
+    "sectionTitle": "Cuatro Valores en la Practica",
+    "sectionDescription": "Estos valores definen cómo tomamos decisiones sobre alcance, presupuesto y cronograma mientras protegemos la calidad y la rendición de cuentas.",
     "keyMetric": "Métrica Clave",
     "values": [
       {
@@ -39,9 +39,9 @@
     ]
   },
   "companyStats": {
-    "subtitle": "Resultados Disciplinados y Comprobados",
-    "title": "Historial Comprobado",
-    "description": "Resultados medibles de un equipo veterano y partidario dedicado de la Ley Build America, Buy America (BABAA). BABAA es un requisito federal de contenido nacional para ciertos proyectos de infraestructura con fondos federales, y nos mantenemos al día con prácticas de cumplimiento para obra pública.",
+    "subtitle": "Resumen de Rendimiento",
+    "title": "Cifras que Puede Verificar",
+    "description": "Vista rapida del rendimiento en seguridad, profundidad del equipo, volumen de entrega y cobertura de licencias en Washington, Oregon e Idaho.",
     "labels": {
       "safety": "EMR de Seguridad Galardonado",
       "experience": "Años de Experiencia Combinada",
@@ -50,9 +50,9 @@
     }
   },
   "services": {
-    "sectionSubtitle": "Construcción de Espectro Completo",
-    "sectionTitle": "Servicios Basados en la Confianza",
-    "sectionDescription": "Desde la planificación hasta la finalización, cada proyecto refleja nuestros valores fundamentales—honestidad, integridad, profesionalismo y minuciosidad.",
+    "sectionSubtitle": "Frentes de Servicio por Fase",
+    "sectionTitle": "De la Planificacion al Cierre",
+    "sectionDescription": "Conozca cada frente de servicio desde la preconstrucción hasta la ejecución y el cierre de obra.",
     "clickForDetails": "Haga clic para detalles completos",
     "viewDetailsAriaPrefix": "Ver detalles de",
     "closeDetailsBackdropAria": "Cerrar modal de detalles del servicio",
@@ -100,7 +100,7 @@
       },
       {
         "title": "Edificios Comerciales",
-        "subtitle": "Proyectos construidos para el Cliente, NO para el Dinero",
+        "subtitle": "Instalaciones comerciales con enfoque primero en el cliente",
         "description": "Construcción comercial para oficinas, tiendas, instalaciones médicas y espacios religiosos. Con licencia en WA, OR e ID—calidad de artesanía sobre márgenes de ganancia.",
         "features": [
           "Oficinas profesionales y espacios comerciales",
@@ -173,10 +173,10 @@
     ]
   },
   "whyPartner": {
-    "sectionSubtitle": "Empresa Veterana. Comprometidos con BABAA. Relaciones Primero.",
-    "sectionTitle": "Rendimiento Comprobado e Integridad Ganada",
-    "sectionDescription": "Donde la disciplina se une a la experiencia en construcción—comunicación honesta, artesanía comprobada e integridad ganada crean asociaciones basadas en la confianza.",
-    "philosophy": "Construyendo proyectos para el Cliente, NO para el Dinero",
+    "sectionSubtitle": "Por Que los Equipos Siguen con MH",
+    "sectionTitle": "Estandares que Protegen Resultados",
+    "sectionDescription": "Revise los estándares operativos detrás de cada alianza con clientes: liderazgo en seguridad, procesos transparentes y confiabilidad medible en cada fase.",
+    "philosophy": "Tu palabra es tu compromiso; la nuestra también. Punto.",
     "theROI": "EL ROI ES LA RELACIÓN",
     "tradeCta": {
       "prompt": "¿Es usted contratista de oficios?",
@@ -224,7 +224,7 @@
       {
         "title": "Asociaciones a Largo Plazo",
         "subtitle": "Relaciones que Superan los Proyectos",
-        "description": "El 70% de nuestro negocio proviene de referencias y socios habituales—confianza ganada a través de acciones, no palabras. Nuestro compromiso no termina cuando el proyecto se completa. Estamos por el largo plazo, construyendo relaciones que importan. EL ROI ES LA RELACIÓN.",
+        "description": "El 70% de nuestro negocio proviene de referencias y socios habituales—confianza ganada a través de acciones, no palabras. Nuestro compromiso no termina cuando el proyecto se completa. Estamos por el largo plazo, construyendo relaciones que importan.",
         "highlights": [
           "70% de negocio por referencias y repetición",
           "Compromiso de asociación de por vida",
@@ -261,13 +261,13 @@
     ]
   },
   "testimonials": {
-    "subtitle": "Confiado por Nuestros Socios",
-    "title": "Lo que Dicen Nuestros Clientes",
+    "subtitle": "Voces de Clientes",
+    "title": "Relaciones Probadas en Campo",
     "description": "Lea testimonios de valiosos Clientes en todo el Noroeste del Pacífico que han experimentado nuestra excelencia colaborativa de primera mano."
   },
   "process": {
-    "subtitle": "Simple y Transparente",
-    "title": "Nuestro Proceso",
+    "subtitle": "Hoja de Ruta de Ejecucion",
+    "title": "Modelo de Entrega en Cinco Pasos",
     "descriptionPart1": "Cinco pasos claros desde el",
     "descriptionPart2": "primer contacto hasta la finalización del proyecto",
     "descriptionPart3": ". Sin sorpresas, solo",

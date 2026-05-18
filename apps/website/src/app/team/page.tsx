@@ -10,7 +10,6 @@ import {
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import ScrollReveal from "@/components/animations/ScrollReveal";
 
 // TeamProfileSection contains ~1 000 lines of client-side JS and dynamically
 // imports recharts. Making it dynamic with ssr:true keeps server-rendered HTML
@@ -31,7 +30,7 @@ import {
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-import { getEmployeeTestimonials } from "@/lib/data/testimonials";
+import type { Testimonial } from "@/lib/data/testimonials";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
@@ -40,6 +39,7 @@ import {
 import { getD1DatabaseAsync } from "@/lib/db/env";
 import { createDbClient } from "@/lib/db/client";
 import { logger } from "@/lib/utils/logger";
+import { getTranslations } from "next-intl/server";
 
 // Lazy load below-the-fold heavy components for better mobile performance
 const TestimonialGrid = dynamic(() =>
@@ -47,12 +47,6 @@ const TestimonialGrid = dynamic(() =>
     default: mod.TestimonialGrid,
   })),
 );
-const StrategicCTABanner = dynamic(() =>
-  import("@/components/ui/cta").then((mod) => ({
-    default: mod.StrategicCTABanner,
-  })),
-);
-
 const NextStepsSection = dynamic(
   () =>
     import("@/components/shared-sections").then((mod) => ({
@@ -165,9 +159,22 @@ async function fetchProfileOverrides(): Promise<
 
   try {
     const db = createDbClient({ DB });
-    const rows = await db.query<TeamProfileRow>(
-      "SELECT * FROM team_profiles WHERE status = 'approved'",
+
+    const tableExistsRows = await db.query<{ name: string }>(
+      "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'team_profiles'",
     );
+    if (!tableExistsRows[0]?.name) {
+      return overrides;
+    }
+
+    const rows = await Promise.race([
+      db.query<TeamProfileRow>(
+        "SELECT * FROM team_profiles WHERE status = 'approved'",
+      ),
+      new Promise<TeamProfileRow[]>((resolve) => {
+        globalThis.setTimeout(() => resolve([]), 300);
+      }),
+    ]);
     for (const row of rows) {
       overrides.set(row.slug, rowToOverride(row));
     }
@@ -180,53 +187,25 @@ async function fetchProfileOverrides(): Promise<
   return overrides;
 }
 
-function getDepartmentHeadingParts(department: string) {
-  if (department.startsWith("The ")) {
-    return {
-      subtitle: "The",
-      title: department.slice(4),
-    };
-  }
-
-  const parts = department.split(" ");
-  return {
-    subtitle: parts.slice(0, -1).join(" "),
-    title: parts.at(-1) ?? department,
-  };
-}
-
-const departmentConfig: Record<
-  string,
-  { icon: string; description: string; id: string }
-> = {
+const departmentConfig: Record<string, { icon: string; id: string }> = {
   "The Upper Brass": {
     icon: "workspace_premium",
-    description:
-      "Command leadership setting strategic direction and maintaining disciplined, dependable standards across all operations.",
     id: "upper-brass",
   },
   "Mission Commanders": {
     icon: "engineering",
-    description:
-      "Mission planning and execution—precision estimating, strategic scheduling, and tactical project coordination.",
     id: "mission-commanders",
   },
   "Special Operations": {
     icon: "military_tech",
-    description:
-      "Specialized operations in marketing, safety, and strategic initiatives driving competitive advantage.",
     id: "special-operations",
   },
   "Logistics Command": {
     icon: "support_agent",
-    description:
-      "Base operations providing critical logistics, communications, and administrative support for mission success.",
     id: "logistics-command",
   },
   "Field Officers": {
     icon: "construction",
-    description:
-      "Frontline operations delivering quality craftsmanship with disciplined execution and safety excellence.",
     id: "field-officers",
   },
 };
@@ -279,6 +258,7 @@ const faqSchema = {
 };
 
 export default async function TeamPage() {
+  const t = await getTranslations();
   // Fetch profile overrides from D1; gracefully falls back to static JSON if unavailable
   const overrides = await fetchProfileOverrides();
 
@@ -288,6 +268,25 @@ export default async function TeamPage() {
   );
 
   const membersByDepartment = groupByDepartment(mergedMembers);
+  const employeeTestimonials = (
+    t.raw("careersPage.data.employeeTestimonials") as Array<{
+      id: string;
+      name: string;
+      title: string;
+      role: string;
+      quote: string;
+      rating: number;
+      featured?: boolean;
+      date?: string;
+      veteranStatus?: boolean;
+    }>
+  ).map(
+    (testimonial) =>
+      ({
+        ...testimonial,
+        type: "employee",
+      }) as Testimonial,
+  );
   const founderTributeMember = mergedMembers.find(
     (member) => member.slug === "mike-holstein",
   );
@@ -301,6 +300,37 @@ export default async function TeamPage() {
     "Logistics Command",
   ];
 
+  const departmentCopy: Record<
+    string,
+    { subtitle: string; title: string; description: string }
+  > = {
+    "The Upper Brass": {
+      subtitle: t("team.departments.upperBrass.subtitle"),
+      title: t("team.departments.upperBrass.title"),
+      description: t("team.departments.upperBrass.description"),
+    },
+    "Mission Commanders": {
+      subtitle: t("team.departments.missionCommanders.subtitle"),
+      title: t("team.departments.missionCommanders.title"),
+      description: t("team.departments.missionCommanders.description"),
+    },
+    "Field Officers": {
+      subtitle: t("team.departments.fieldOfficers.subtitle"),
+      title: t("team.departments.fieldOfficers.title"),
+      description: t("team.departments.fieldOfficers.description"),
+    },
+    "Special Operations": {
+      subtitle: t("team.departments.specialOperations.subtitle"),
+      title: t("team.departments.specialOperations.title"),
+      description: t("team.departments.specialOperations.description"),
+    },
+    "Logistics Command": {
+      subtitle: t("team.departments.logisticsCommand.subtitle"),
+      title: t("team.departments.logisticsCommand.title"),
+      description: t("team.departments.logisticsCommand.description"),
+    },
+  };
+
   return (
     <>
       <PageTrackingClient pageName="Team" />
@@ -309,9 +339,6 @@ export default async function TeamPage() {
       />
       <StructuredData data={faqSchema} />
 
-      {/* Initialize scroll reveal animations */}
-      <ScrollReveal />
-
       <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
         {/* Hero Section */}
         <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
@@ -319,9 +346,11 @@ export default async function TeamPage() {
           <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
             <Image
               src="/images/team/mh-construction-team-group-2025.webp"
-              alt="MH Construction team group photo, 2025"
+              alt={t("team.hero.imageAlt")}
               fill
               className="object-cover opacity-35"
+              sizes="100vw"
+              quality={70}
               priority
             />
             {/* Overlay for text readability */}
@@ -337,24 +366,24 @@ export default async function TeamPage() {
                   icon="groups"
                   size="4xl"
                   className="text-white drop-shadow-lg"
-                  ariaLabel="Chain of Command - Elite construction team"
+                  ariaLabel={t("team.hero.iconAria")}
                 />
               </div>
             </div>
             <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                Chain of Command → Our Team
+                {t("team.hero.kicker")}
               </span>
               <span className="block text-brand-secondary">
-                All-Branch Veteran Leadership You Can Trust
+                {t("team.hero.titleLine1")}
               </span>
               <span className="block text-brand-primary">
-                150+ Years Combined Military-Grade Expertise
+                {t("team.hero.titleLine2")}
               </span>
               <span className="block text-white/90">
-                Building projects for the Client,{" "}
+                {t("team.hero.titleLine3Prefix")}{" "}
                 <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the Dollar
+                {t("team.hero.titleLine3Suffix")}
               </span>
             </h1>
           </div>
@@ -368,7 +397,10 @@ export default async function TeamPage() {
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb
-          items={[{ label: "Home", href: "/" }, { label: "Chain of Command" }]}
+          items={[
+            { label: t("common.back"), href: "/" },
+            { label: t("team.hero.breadcrumb") },
+          ]}
         />
 
         <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
@@ -397,54 +429,16 @@ export default async function TeamPage() {
               {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Meet Our
+                  {t("team.overview.subtitle")}
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Elite Team
+                  {t("team.overview.title")}
                 </span>
               </h2>
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                Meet our{" "}
-                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  All-Branch veteran leadership team
-                </span>{" "}
-                honoring Army, Navy, Air Force, Marines, Coast Guard, and Space
-                Force service.{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  Award-winning professionals
-                </span>{" "}
-                you can trust, bringing 150+ years combined military-grade
-                expertise and precision to every{" "}
-                <Link
-                  href="/projects"
-                  className="text-brand-primary hover:text-brand-primary-dark underline"
-                >
-                  Pacific Northwest construction mission
-                </Link>
-                . From{" "}
-                <Link
-                  href="/services"
-                  className="text-brand-primary hover:text-brand-primary-dark underline"
-                >
-                  commercial and industrial construction
-                </Link>{" "}
-                to{" "}
-                <Link
-                  href="/public-sector"
-                  className="text-brand-primary hover:text-brand-primary-dark underline"
-                >
-                  government projects
-                </Link>
-                , our Chain of Command delivers{" "}
-                <Link
-                  href="/about"
-                  className="text-brand-primary hover:text-brand-primary-dark underline"
-                >
-                  service-earned values
-                </Link>{" "}
-                on every project.
+                {t("team.overview.description")}
               </p>
             </div>
 
@@ -456,10 +450,13 @@ export default async function TeamPage() {
                 );
                 const config = departmentConfig[department] ?? {
                   icon: "groups",
-                  description: "",
                   id: "team",
                 };
-                const heading = getDepartmentHeadingParts(department);
+                const heading = departmentCopy[department] ?? {
+                  subtitle: department,
+                  title: department,
+                  description: "",
+                };
                 const hasMembers = members.length > 0;
 
                 return (
@@ -496,9 +493,9 @@ export default async function TeamPage() {
                       </h3>
 
                       {/* Description with better styling */}
-                      {config.description && (
+                      {heading.description && (
                         <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                          {config.description}
+                          {heading.description}
                         </p>
                       )}
                     </div>
@@ -514,11 +511,10 @@ export default async function TeamPage() {
                       ) : (
                         <div className="scroll-reveal rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 bg-white/80 dark:bg-gray-800/80 p-6 sm:p-8 text-center shadow-sm">
                           <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
-                            Personnel roster update in progress.
+                            {t("team.departments.emptyState.title")}
                           </p>
                           <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
-                            This command section will populate as deployment
-                            assignments are finalized.
+                            {t("team.departments.emptyState.description")}
                           </p>
                         </div>
                       )}
@@ -557,33 +553,24 @@ export default async function TeamPage() {
               {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  What Our Team Members
+                  {t("team.employeeTestimonials.subtitle")}
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Say About Us
+                  {t("team.employeeTestimonials.title")}
                 </span>
               </h2>
 
               {/* Description with colored keywords */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                Hear directly from the professionals who bring our partnership
-                philosophy to life every day—veteran and civilian voices united
-                in{" "}
-                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  dependable execution
-                </span>{" "}
-                and{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  service-earned values.
-                </span>
+                {t("team.employeeTestimonials.description")}
               </p>
             </div>
 
             <TestimonialGrid
-              testimonials={getEmployeeTestimonials()}
+              testimonials={employeeTestimonials}
               variant="employee"
               columns={3}
-              className="!py-0"
+              className="py-0!"
             />
           </div>
         </section>
@@ -599,10 +586,13 @@ export default async function TeamPage() {
                 );
                 const config = departmentConfig[department] ?? {
                   icon: "groups",
-                  description: "",
                   id: "team",
                 };
-                const heading = getDepartmentHeadingParts(department);
+                const heading = departmentCopy[department] ?? {
+                  subtitle: department,
+                  title: department,
+                  description: "",
+                };
                 const hasMembers = members.length > 0;
 
                 return (
@@ -639,9 +629,9 @@ export default async function TeamPage() {
                       </h3>
 
                       {/* Description with better styling */}
-                      {config.description && (
+                      {heading.description && (
                         <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                          {config.description}
+                          {heading.description}
                         </p>
                       )}
                     </div>
@@ -657,11 +647,10 @@ export default async function TeamPage() {
                       ) : (
                         <div className="scroll-reveal rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 bg-white/80 dark:bg-gray-800/80 p-6 sm:p-8 text-center shadow-sm">
                           <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
-                            Personnel roster update in progress.
+                            {t("team.departments.emptyState.title")}
                           </p>
                           <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
-                            This command section will populate as deployment
-                            assignments are finalized.
+                            {t("team.departments.emptyState.description")}
                           </p>
                         </div>
                       )}
@@ -697,27 +686,16 @@ export default async function TeamPage() {
                 {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Our Partnership
+                    {t("team.culture.subtitle")}
                   </span>
                   <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Company Culture
+                    {t("team.culture.title")}
                   </span>
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    &ldquo;All for one, one for all&rdquo;
-                  </span>{" "}
-                  isn't just a motto—it's how we partner, grow, and succeed
-                  together. Our{" "}
-                  <span className="font-bold text-gray-900 dark:text-white">
-                    people-centered culture
-                  </span>{" "}
-                  starts with leadership committed to serving both Client
-                  Partners and communities, maintaining the highest standards of
-                  safety (.64 EMR award-winning), quality craftsmanship, and
-                  transparent communication that defines every partnership.
+                  {t("team.culture.description")}
                 </p>
               </div>
 
@@ -748,16 +726,10 @@ export default async function TeamPage() {
                           </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
-                          Team Unity
+                          {t("team.culture.cards.teamUnity.title")}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
-                          From veterans to civilians, office to field—we&apos;re
-                          one team with shared values forged through military
-                          discipline and construction excellence. Every Client
-                          Partner success belongs to all of us, every safety
-                          milestone reflects our collective commitment, and
-                          every project showcases our unified dedication to
-                          quality.
+                          {t("team.culture.cards.teamUnity.description")}
                         </p>
                       </div>
                     </div>
@@ -786,22 +758,18 @@ export default async function TeamPage() {
                               icon="volunteer_activism"
                               size="lg"
                               theme="tactical"
-                              ariaLabel="Mutual support"
+                              ariaLabel={t(
+                                "team.culture.cards.mutualSupport.iconAria",
+                              )}
                               className="text-white drop-shadow-lg"
                             />
                           </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
-                          Mutual Support
+                          {t("team.culture.cards.mutualSupport.title")}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
-                          We lift each other up through mentorship programs,
-                          share 150+ years of combined knowledge freely, and
-                          ensure no one faces challenges alone. Your growth is
-                          our growth—from apprentice to master craftsman, from
-                          entry-level to leadership, we invest in continuous
-                          professional development and cross-training
-                          excellence.
+                          {t("team.culture.cards.mutualSupport.description")}
                         </p>
                       </div>
                     </div>
@@ -834,16 +802,10 @@ export default async function TeamPage() {
                           </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
-                          Shared Success
+                          {t("team.culture.cards.sharedSuccess.title")}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
-                          When our Client Partners win, we all win—from AGC-WA
-                          Top EMR Awards to 3+ years without time-loss injuries.
-                          Celebrating achievements together (70% referral
-                          business), learning from setbacks as a unified team,
-                          and building lasting relationships that extend well
-                          beyond project completion. THE ROI IS THE
-                          RELATIONSHIP.
+                          {t("team.culture.cards.sharedSuccess.description")}
                         </p>
                       </div>
                     </div>
@@ -865,15 +827,15 @@ export default async function TeamPage() {
                         icon="diversity_3"
                         size="xl"
                         className="text-white"
-                        ariaLabel="Culture diversity"
+                        ariaLabel={t("team.culture.highlights.iconAria")}
                       />
                     </div>
                     <h3 className="font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tight text-center">
                       <span className="block mb-2 text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl font-semibold">
-                        What Makes Our
+                        {t("team.culture.highlights.headingSubtitle")}
                       </span>
                       <span className="block bg-linear-to-r from-brand-secondary via-brand-primary to-brand-secondary bg-clip-text text-transparent">
-                        Team Culture Special
+                        {t("team.culture.highlights.headingTitle")}
                       </span>
                     </h3>
                   </div>
@@ -890,15 +852,14 @@ export default async function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
-                            Veteran-Owned Discipline
+                            {t(
+                              "team.culture.highlights.items.veteranDiscipline.title",
+                            )}
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                            Veteran-Owned under Army veteran leadership since
-                            January 2025. Structured military processes and
-                            unwavering attention to detail meet creative
-                            civilian problem-solving—discipline, leadership,
-                            service, and accountability integrated into every
-                            project phase with clear, dependable results.
+                            {t(
+                              "team.culture.highlights.items.veteranDiscipline.description",
+                            )}
                           </p>
                         </div>
                       </div>
@@ -912,15 +873,14 @@ export default async function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
-                            Open Communication & Transparency
+                            {t(
+                              "team.culture.highlights.items.communication.title",
+                            )}
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                            Every voice matters, from apprentice to owner, field
-                            crew to executive leadership. Regular project
-                            updates with photo documentation, immediate
-                            notification of changes, and open-book pricing
-                            ensure collaborative problem-solving and zero
-                            surprises.
+                            {t(
+                              "team.culture.highlights.items.communication.description",
+                            )}
                           </p>
                         </div>
                       </div>
@@ -934,14 +894,12 @@ export default async function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
-                            Award-Winning Safety First
+                            {t("team.culture.highlights.items.safety.title")}
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                            Presidential leadership focused on safety management
-                            drives our .64 EMR award-winning record—40% better
-                            than industry average. Multiple AGC-WA Top EMR
-                            Awards, OSHA VPP Star designation, and 3+
-                            consecutive years without time-loss injuries.
+                            {t(
+                              "team.culture.highlights.items.safety.description",
+                            )}
                           </p>
                         </div>
                       </div>
@@ -957,16 +915,12 @@ export default async function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-secondary dark:group-hover:text-brand-secondary-light transition-colors duration-300">
-                            Community Focused & Regional Roots
+                            {t("team.culture.highlights.items.community.title")}
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                            Building stronger communities through quality
-                            craftsmanship, lasting relationships, and local
-                            hiring preferences. Team members are deeply rooted
-                            in the Tri-Cities (Pasco, Richland, Kennewick) and
-                            surrounding regions, with personal investment in
-                            community success across our Tri-State licensed
-                            market.
+                            {t(
+                              "team.culture.highlights.items.community.description",
+                            )}
                           </p>
                         </div>
                       </div>
@@ -980,13 +934,12 @@ export default async function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-secondary dark:group-hover:text-brand-secondary-light transition-colors duration-300">
-                            Work-Life Balance
+                            {t("team.culture.highlights.items.balance.title")}
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                            Supporting families and personal well-being while
-                            maintaining project excellence. Flexible scheduling
-                            when possible, predictable work hours, and respect
-                            for time away from work.
+                            {t(
+                              "team.culture.highlights.items.balance.description",
+                            )}
                           </p>
                         </div>
                       </div>
@@ -1000,13 +953,14 @@ export default async function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-secondary dark:group-hover:text-brand-secondary-light transition-colors duration-300">
-                            Long-Term Relationship Mindset
+                            {t(
+                              "team.culture.highlights.items.relationships.title",
+                            )}
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                            Building lasting relationships that extend well
-                            beyond project completion, with 70% referral
-                            business proving the strength of our commitment to
-                            Client Partner success and future growth together.
+                            {t(
+                              "team.culture.highlights.items.relationships.description",
+                            )}
                           </p>
                         </div>
                       </div>
@@ -1018,13 +972,10 @@ export default async function TeamPage() {
               {/* Quote Section */}
               <div className="mt-8 sm:mt-10 md:mt-12 text-center px-2">
                 <blockquote className="mb-4 font-medium text-brand-primary text-lg sm:text-xl md:text-2xl italic">
-                  &ldquo;When you join MH Construction, you&apos;re not just
-                  getting a job—you&apos;re joining a Veteran-Owned team that
-                  values integrity, transparency, and building relationships
-                  that last beyond project completion.&rdquo;
+                  {t("team.culture.quote.text")}
                 </blockquote>
                 <cite className="font-semibold text-brand-secondary">
-                  — Jeremy Thamert, Owner & President
+                  {t("team.culture.quote.author")}
                 </cite>
               </div>
             </div>
@@ -1055,25 +1006,16 @@ export default async function TeamPage() {
                 {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Professional Development &
+                    {t("team.careerGrowth.subtitle")}
                   </span>
                   <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Career Growth
+                    {t("team.careerGrowth.title")}
                   </span>
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  We invest in your growth from day one. With{" "}
-                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    structured training programs, mentorship opportunities, and
-                    clear advancement paths
-                  </span>
-                  {", your "}
-                  <span className="font-bold text-gray-900 dark:text-white">
-                    career trajectory is limited only by your ambition and
-                    dedication.
-                  </span>
+                  {t("team.careerGrowth.description")}
                 </p>
               </div>
 
@@ -1104,14 +1046,14 @@ export default async function TeamPage() {
                           </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
-                          Continuous Training
+                          {t(
+                            "team.careerGrowth.cards.continuousTraining.title",
+                          )}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
-                          Regular training on new techniques, evolving safety
-                          standards (OSHA 30, VPP Star), and emerging technology
-                          integration. Stay at the forefront of construction
-                          excellence with ongoing certification maintenance and
-                          skills development.
+                          {t(
+                            "team.careerGrowth.cards.continuousTraining.description",
+                          )}
                         </p>
                       </div>
                     </div>
@@ -1139,19 +1081,20 @@ export default async function TeamPage() {
                             <MaterialIcon
                               icon="sync_alt"
                               size="lg"
-                              ariaLabel="Cross-training"
+                              ariaLabel={t(
+                                "team.careerGrowth.cards.crossTraining.iconAria",
+                              )}
                               className="text-white drop-shadow-lg"
                             />
                           </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
-                          Cross-Training Programs
+                          {t("team.careerGrowth.cards.crossTraining.title")}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
-                          Expand your skillset across multiple specialties and
-                          construction disciplines. Learn from experienced
-                          professionals in different trades, increasing your
-                          versatility and value within the organization.
+                          {t(
+                            "team.careerGrowth.cards.crossTraining.description",
+                          )}
                         </p>
                       </div>
                     </div>
@@ -1179,19 +1122,18 @@ export default async function TeamPage() {
                             <MaterialIcon
                               icon="supervisor_account"
                               size="lg"
-                              ariaLabel="Mentorship"
+                              ariaLabel={t(
+                                "team.careerGrowth.cards.mentorship.iconAria",
+                              )}
                               className="text-white drop-shadow-lg"
                             />
                           </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
-                          Structured Mentorship
+                          {t("team.careerGrowth.cards.mentorship.title")}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
-                          Paired with experienced professionals who share 150+
-                          years of combined knowledge freely. From apprentice to
-                          master craftsman, from entry-level to leadership—your
-                          mentor guides your journey every step of the way.
+                          {t("team.careerGrowth.cards.mentorship.description")}
                         </p>
                       </div>
                     </div>
@@ -1224,13 +1166,10 @@ export default async function TeamPage() {
                           </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
-                          Clear Advancement Paths
+                          {t("team.careerGrowth.cards.careerPaths.title")}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
-                          Transparent career progression from apprentice →
-                          journeyman → foreman → superintendent → project
-                          manager. Your advancement is based on merit, skills,
-                          and demonstrated leadership—not politics or tenure.
+                          {t("team.careerGrowth.cards.careerPaths.description")}
                         </p>
                       </div>
                     </div>
@@ -1258,19 +1197,22 @@ export default async function TeamPage() {
                             <MaterialIcon
                               icon="badge"
                               size="lg"
-                              ariaLabel="Leadership development"
+                              ariaLabel={t(
+                                "team.careerGrowth.cards.leadershipDevelopment.iconAria",
+                              )}
                               className="text-white drop-shadow-lg"
                             />
                           </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
-                          Leadership Development
+                          {t(
+                            "team.careerGrowth.cards.leadershipDevelopment.title",
+                          )}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
-                          Emerging leaders receive specialized training in
-                          project management, team leadership, Client Partner
-                          relationships, and business development. We build
-                          tomorrow&apos;s construction leaders today.
+                          {t(
+                            "team.careerGrowth.cards.leadershipDevelopment.description",
+                          )}
                         </p>
                       </div>
                     </div>
@@ -1298,20 +1240,22 @@ export default async function TeamPage() {
                             <MaterialIcon
                               icon="connect_without_contact"
                               size="lg"
-                              ariaLabel="Industry involvement"
+                              ariaLabel={t(
+                                "team.careerGrowth.cards.industryInvolvement.iconAria",
+                              )}
                               className="text-white drop-shadow-lg"
                             />
                           </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
-                          Industry Involvement
+                          {t(
+                            "team.careerGrowth.cards.industryInvolvement.title",
+                          )}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
-                          Active participation in AGC, NAIOP, and other
-                          professional organizations. Network with industry
-                          leaders, stay current on regulations and best
-                          practices, and represent MH Construction in the
-                          broader community.
+                          {t(
+                            "team.careerGrowth.cards.industryInvolvement.description",
+                          )}
                         </p>
                       </div>
                     </div>
@@ -1333,15 +1277,15 @@ export default async function TeamPage() {
                         icon="trending_up"
                         size="xl"
                         className="text-white"
-                        ariaLabel="Investment growth"
+                        ariaLabel={t("team.careerGrowth.investment.iconAria")}
                       />
                     </div>
                     <h3 className="font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tight text-center">
                       <span className="block mb-2 text-gray-700 dark:text-gray-300 text-xl sm:text-2xl md:text-3xl font-semibold">
-                        Our Commitment
+                        {t("team.careerGrowth.investment.headingSubtitle")}
                       </span>
                       <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent">
-                        Investment in Your Success
+                        {t("team.careerGrowth.investment.headingTitle")}
                       </span>
                     </h3>
                   </div>
@@ -1363,9 +1307,13 @@ export default async function TeamPage() {
                         150+
                       </p>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
-                        Years Combined
+                        {t(
+                          "team.careerGrowth.investment.stats.experience.line1",
+                        )}
                         <br />
-                        Experience
+                        {t(
+                          "team.careerGrowth.investment.stats.experience.line2",
+                        )}
                       </p>
                     </div>
 
@@ -1384,9 +1332,13 @@ export default async function TeamPage() {
                         100%
                       </p>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
-                        Training
+                        {t(
+                          "team.careerGrowth.investment.stats.trainingFunding.line1",
+                        )}
                         <br />
-                        Funding
+                        {t(
+                          "team.careerGrowth.investment.stats.trainingFunding.line2",
+                        )}
                       </p>
                     </div>
 
@@ -1405,9 +1357,9 @@ export default async function TeamPage() {
                         AGC-WA
                       </p>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
-                        Top EMR Awards
+                        {t("team.careerGrowth.investment.stats.awards.line1")}
                         <br />
-                        (Multiple Years)
+                        {t("team.careerGrowth.investment.stats.awards.line2")}
                       </p>
                     </div>
 
@@ -1426,9 +1378,13 @@ export default async function TeamPage() {
                         15+
                       </p>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
-                        Years in Business
+                        {t(
+                          "team.careerGrowth.investment.stats.yearsBusiness.line1",
+                        )}
                         <br />
-                        Since 2010
+                        {t(
+                          "team.careerGrowth.investment.stats.yearsBusiness.line2",
+                        )}
                       </p>
                     </div>
                   </div>
@@ -1436,9 +1392,13 @@ export default async function TeamPage() {
               </div>
             </div>
 
-            {/* Strategic CTA Banner - Conversion Optimization */}
+            {/* Next Steps CTA - Conversion Optimization */}
             <div className="-mx-4 sm:-mx-6 lg:-mx-8">
-              <StrategicCTABanner variant="combo" className="my-0" />
+              <NextStepsSection
+                title={t("team.nextSteps.sectionTitle")}
+                subtitle={t("team.nextSteps.sectionSubtitle")}
+                description={t("team.nextSteps.sectionDescription")}
+              />
             </div>
 
             {/* Call to Action - Careers Link */}
@@ -1447,22 +1407,16 @@ export default async function TeamPage() {
                 {/* Section Header - v4.0.2 Clean Standards */}
                 <h3 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tight">
                   <span className="block mb-2 text-gray-700 dark:text-gray-300">
-                    Interested in Joining
+                    {t("team.careersCta.subtitle")}
                   </span>
                   <span className="block text-brand-primary">
-                    Chain of Command?
+                    {t("team.careersCta.title")}
                   </span>
                 </h3>
                 <p className="mb-6 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                  Explore career opportunities and learn more about what makes
-                  MH Construction a great place to work—from award-winning
-                  safety culture (.64 EMR) to veteran hiring initiatives,
-                  continuous professional development to competitive benefits.
-                  View our current openings and discover the benefits of joining
-                  our Veteran-Owned team where your growth is our mission and
-                  every team member's success matters.
+                  {t("team.careersCta.description")}
                 </p>
-                <Link href="/careers">
+                <Link href="/careers" prefetch={false}>
                   <Button
                     variant="primary"
                     size="lg"
@@ -1470,7 +1424,7 @@ export default async function TeamPage() {
                   >
                     <MaterialIcon icon="work" size="lg" className="mr-3" />
                     <span className="font-medium">
-                      View Career Opportunities
+                      {t("team.careersCta.button")}
                     </span>
                   </Button>
                 </Link>
@@ -1506,17 +1460,15 @@ export default async function TeamPage() {
 
                 <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Founder
+                    {t("team.founderTribute.subtitle")}
                   </span>
                   <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Tribute
+                    {t("team.founderTribute.title")}
                   </span>
                 </h3>
 
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  Honoring the legacy and leadership foundation that launched MH
-                  Construction and shaped the partnership-first standards we
-                  carry forward today.
+                  {t("team.founderTribute.description")}
                 </p>
               </div>
 
@@ -1540,7 +1492,7 @@ export default async function TeamPage() {
                         {founderTributeMember.name}
                       </h4>
                       <p className="text-brand-secondary-dark dark:text-brand-secondary-light font-semibold text-lg sm:text-xl">
-                        Founder
+                        {t("team.founderTribute.founderLabel")}
                       </p>
                     </div>
                   </div>
@@ -1553,14 +1505,10 @@ export default async function TeamPage() {
                           size="sm"
                           className="text-brand-primary dark:text-brand-secondary"
                         />
-                        Tribute Statement
+                        {t("team.founderTribute.tributeStatementTitle")}
                       </h5>
                       <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                        Mike Holstein founded MH Construction in 2010 and set
-                        the company&apos;s original standard for integrity,
-                        discipline, and client-first execution. His leadership
-                        established the cultural and operational foundation that
-                        continues to guide every mission today.
+                        {t("team.founderTribute.tributeStatementBody")}
                       </p>
                     </div>
 
@@ -1571,7 +1519,7 @@ export default async function TeamPage() {
                           size="sm"
                           className="text-brand-primary dark:text-brand-secondary"
                         />
-                        Notable Projects & Legacy Milestones
+                        {t("team.founderTribute.milestonesTitle")}
                       </h5>
                       <ul className="space-y-2">
                         {founderTributeMember.careerHighlights.map(
@@ -1601,7 +1549,11 @@ export default async function TeamPage() {
         )}
 
         {/* Next Steps Section - Standardized Final CTA */}
-        <NextStepsSection />
+        <NextStepsSection
+          title={t("team.nextSteps.sectionTitle")}
+          subtitle={t("team.nextSteps.sectionSubtitle")}
+          description={t("team.nextSteps.sectionDescription")}
+        />
       </div>
     </>
   );

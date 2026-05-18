@@ -66,7 +66,7 @@ project owners/decision-makers.
 **FORBIDDEN Terms (DO NOT USE):**
 
 - ❌ "clients" (too transactional, lacks relationship emphasis)
-- ❌ "customers" (retail language, not appropriate for B2B construction)
+- ❌ retail-buyer labels (transactional language, not appropriate for B2B construction)
 - ❌ "partners" alone (ambiguous - could mean trade partners or clients)
 - ❌ "clientele" (too formal/pretentious)
 - ❌ "patrons" (incorrect industry usage)
@@ -126,7 +126,7 @@ referring to subcontractors creates confusion.
 
 **FORBIDDEN Phrases:**
 
-- ❌ "work FOR you" (implies subservience, not partnership)
+- ❌ service-to-you wording (implies subservience, not partnership)
 - ❌ "service provider" (too transactional)
 - ❌ "vendor relationship" (diminishes partnership)
 
@@ -660,7 +660,7 @@ Use these based on page context and messaging group:
 ❌ "Our clients appreciate our work"
 ✅ "Our Client Partners appreciate our collaborative approach"
 
-❌ "We work for you"
+❌ "We serve you"
 ✅ "We work WITH you"
 
 ❌ "Our partners" (ambiguous)

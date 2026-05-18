@@ -60,32 +60,22 @@ const safetyFeatures: AlternatingShowcaseItem[] = [
   },
 ];
 
-export function SafetySection() {
+export function SafetySection({
+  title,
+  subtitle,
+  description,
+}: {
+  title: string;
+  subtitle: string;
+  description: string;
+}) {
   return (
     <AlternatingShowcase
       items={safetyFeatures}
-      title="Zero-Incident Commitment"
-      subtitle="Mission-First Safety Culture"
+      title={title}
+      subtitle={subtitle}
       icon="shield"
-      description={
-        <>
-          Safety is never compromised at MH Construction. Our{" "}
-          <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-            award-winning comprehensive safety programs
-          </span>{" "}
-          and regulatory compliance ensure every construction operation meets
-          the highest standards. With multiple{" "}
-          <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
-            AGC-WA Top EMR Awards
-          </span>{" "}
-          and a .64 EMR (40% better than industry average), we demonstrate
-          unwavering commitment to{" "}
-          <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-            zero-incident mission culture
-          </span>{" "}
-          with military-grade safety discipline.
-        </>
-      }
+      description={description}
       sectionId="safety"
       iconVariant="primary"
     />

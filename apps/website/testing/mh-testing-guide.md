@@ -83,9 +83,7 @@ src/
 ├── contexts/__tests__/theme-context.test.tsx
 ├── hooks/__tests__/use-breakpoint.test.ts
 ├── lib/                                          # Library tests (38 files)
-│   ├── analytics/__tests__/                      # engine, beacon, data-collector, geolocation,
-│   │                                             # hooks, kv-store, marketing-tracking, metadata,
-│   │                                             # metrics-calculator, tracking
+│   ├── analytics/                                # Shared analytics unit tests retired after GA-only migration
 │   ├── api/__tests__/                            # form-handler, responses
 │   ├── auth/__tests__/                           # auth-context, jwt, middleware
 │   ├── chatbot/__tests__/knowledge-base.test.ts
@@ -137,8 +135,8 @@ Coverage: **97.32% statements, 91.23% branches, 99.03% functions**
 
 - **Pages:** Home, careers, contact, dashboard, locations, offline, privacy, projects, public-sector, terms, testimonials, error, not-found, loading states
 - **Components:** Layout (Footer, Navigation), home sections (Hero, CoreValues, ServicesShowcase, WhyPartner), about (CompanyStats, ValuesShowcase), services (CoreServices, ServicesHero, SpecialtyServiceCard), chatbot, modals (Admin, Job Application, generic), UI (alerts, badges, cards, CTAs, inputs, images, skeletons), icons (AmericanFlag, MaterialIcon), team profiles, testimonials carousel, breadcrumbs, page navigation, animations, performance, PWA (install prompt, service worker), SEO (EnhancedSEO, SeoMeta), analytics (TrackedContactLinks), error boundary, branded content section
-- **API Routes:** Analytics (collect, dashboard, geolocation), auth (admin login, logout/refresh), chat, consultations, contact, form callbacks, functions, job applications, newsletter, security, phone call tracking, resume upload
-- **Libraries:** Analytics (engine, beacon, data-collector, geolocation, hooks, KV store, marketing tracking, metadata, metrics calculator, tracking), API (form handler, responses), auth (context, JWT, middleware), chatbot knowledge base, Cloudflare R2, constants, data (exports, locations), DB (client, env), email (service, templates), notifications, performance (mobile optimizations), security (audit logger, rate limiters, security manager, scanners), SEO (page utils, schemas), portfolio service, styles (card/layout variants), utils (logger, utils)
+- **API Routes:** Analytics (dashboard), auth (admin login, logout/refresh), chat, consultations, contact, form callbacks, functions, job applications, newsletter, security, phone call tracking, resume upload
+- **Libraries:** Analytics (app-level tracking helpers/components), API (form handler, responses), auth (context, JWT, middleware), chatbot knowledge base, Cloudflare R2, constants, data (exports, locations), DB (client, env), email (service, templates), notifications, performance (mobile optimizations), security (audit logger, rate limiters, security manager, scanners), SEO (page utils, schemas), portfolio service, styles (card/layout variants), utils (logger, utils)
 - **Integration:** Authentication flow, contact form submission
 - **Middleware:** Security middleware
 - **Contexts:** Theme context

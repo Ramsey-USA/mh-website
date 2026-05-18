@@ -77,28 +77,14 @@ This document provides a centralized index of all API endpoints in the MH Constr
 
 - **Path:** `/analytics/collect`
 - **Method:** `POST`
-- **Purpose:** Track page views, clicks, conversions, and session events (batched via `sendBeacon`)
-- **Request Body:**
-  ```json
-  {
-    "events": [
-      {
-        "type": "pageview",
-        "page": "/services",
-        "deviceType": "mobile",
-        "country": "US",
-        "state": "WA"
-      }
-    ]
-  }
-  ```
-- **Implementation:** [apps/website/src/app/api/analytics/collect/route.ts](../../apps/website/src/app/api/analytics/collect/route.ts)
+- **Purpose:** Deprecated. Website analytics collection now uses Google Analytics events.
+- **Implementation:** Removed from website runtime.
 
 ### Analytics Dashboard
 
 - **Path:** `/analytics/dashboard`
 - **Method:** `GET`
-- **Purpose:** Retrieve aggregated analytics data from Cloudflare KV (pageviews, conversions, clicks, sessions, top pages); cached 30 s
+- **Purpose:** Retrieve dashboard analytics data for admin users
 - **Authorization:** Required (admin)
 - **Implementation:** [apps/dashboard/src/app/api/analytics/dashboard/route.ts](../../apps/dashboard/src/app/api/analytics/dashboard/route.ts)
 
@@ -106,8 +92,8 @@ This document provides a centralized index of all API endpoints in the MH Constr
 
 - **Path:** `/analytics/geolocation`
 - **Method:** `POST`
-- **Purpose:** Enrich analytics events with Cloudflare-provided country/state/city data
-- **Implementation:** [apps/website/src/app/api/analytics/geolocation/route.ts](../../apps/website/src/app/api/analytics/geolocation/route.ts)
+- **Purpose:** Deprecated. Geolocation enrichment endpoint removed from website runtime.
+- **Implementation:** Removed from website runtime.
 
 ---
 

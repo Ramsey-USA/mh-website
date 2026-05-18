@@ -64,7 +64,7 @@ const columnClasses: Record<GridColumns, string> = {
  * @param extraClasses - Additional custom classes to append
  * @returns Complete grid className string
  */
-function getGridClassName(
+export function getGridClassName(
   columns: GridConfig,
   gap: GridGap = "md",
   useResponsiveGap = false,

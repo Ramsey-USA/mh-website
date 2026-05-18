@@ -4,20 +4,20 @@
  * Used on: Homepage, About, Services pages
  */
 
-"use client";
-
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PitchDeckCTA } from "@/components/ui/cta";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
-import { useLocale } from "@/hooks/useLocale";
+import type { SupportedLocale } from "@/lib/i18n/locale";
+import { cornerRadius, hoverMotion } from "@/lib/styles/design-tokens";
 
 interface NextStepsSectionProps {
   title?: string;
   subtitle?: string;
   className?: string;
   noBackground?: boolean;
+  locale?: SupportedLocale;
 }
 
 type NextStepsCopy = {
@@ -105,8 +105,8 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
       _subtitle = "Partner with a Veteran-Owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision.",
     className = "",
     noBackground: _noBackground = false,
+    locale = "en",
   } = props;
-  const locale = useLocale();
   const copy = NEXT_STEPS_COPY[locale === "es" ? "es" : "en"];
 
   return (
@@ -138,15 +138,21 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
         <PitchDeckCTA variant="card" />
 
         {/* Option 2: View Our Work */}
-        <div className="group relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 border-2 border-brand-secondary flex flex-col h-full">
-          <div className="bg-linear-to-r from-brand-secondary to-brand-secondary-dark -top-4 left-1/2 absolute px-5 py-1.5 rounded-full -translate-x-1/2 shadow-lg border-2 border-brand-secondary/30">
+        <div
+          className={`group relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 ${cornerRadius.card} ${hoverMotion.translateUpLarge} border border-brand-secondary/40 dark:border-brand-secondary/50 flex flex-col h-full`}
+        >
+          <div
+            className={`bg-linear-to-r from-brand-secondary to-brand-secondary-dark -top-4 left-1/2 absolute px-5 py-1.5 ${cornerRadius.full} -translate-x-1/2 shadow-lg border border-brand-secondary/30`}
+          >
             <span className="font-bold text-xs text-white uppercase tracking-wider flex items-center gap-1.5">
               <MaterialIcon icon="star" size="sm" className="text-yellow-300" />
               {copy.tag}
             </span>
           </div>
           <div className="flex justify-center mb-6">
-            <div className="rounded-xl bg-linear-to-br from-brand-secondary to-brand-secondary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <div
+              className={`${cornerRadius.element} bg-linear-to-br from-brand-secondary to-brand-secondary-dark p-4 shadow-lg ${hoverMotion.iconSubtle}`}
+            >
               <MaterialIcon
                 icon="photo_library"
                 size="xl"
@@ -154,10 +160,10 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
               />
             </div>
           </div>
-          <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
+          <h3 className="mb-4 font-bold text-xl sm:text-2xl text-center text-gray-900 dark:text-white leading-tight">
             {copy.option2Title}
           </h3>
-          <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
+          <p className="mb-5 text-center text-gray-600 text-sm sm:text-base dark:text-gray-300 leading-relaxed">
             {copy.option2Description}
           </p>
           <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow">
@@ -185,9 +191,13 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
         </div>
 
         {/* Option 3: Contact Us */}
-        <div className="group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
+        <div
+          className={`group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 ${cornerRadius.card} ${hoverMotion.translateUpLarge} flex flex-col h-full`}
+        >
           <div className="flex justify-center mb-6">
-            <div className="rounded-xl bg-linear-to-br from-brand-secondary to-bronze-600 p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <div
+              className={`${cornerRadius.element} bg-linear-to-br from-brand-secondary to-bronze-600 p-4 shadow-lg ${hoverMotion.iconSubtle}`}
+            >
               <MaterialIcon
                 icon="contact_phone"
                 size="xl"
@@ -195,10 +205,10 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
               />
             </div>
           </div>
-          <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
+          <h3 className="mb-4 font-bold text-xl sm:text-2xl text-center text-gray-900 dark:text-white leading-tight">
             {copy.option3Title}
           </h3>
-          <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
+          <p className="mb-5 text-center text-gray-600 text-sm sm:text-base dark:text-gray-300 leading-relaxed">
             {copy.option3Description}
           </p>
           <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow">

@@ -38,6 +38,7 @@ import {
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { AccreditationsLogoRow } from "@/components/shared-sections";
+import { getTranslations } from "next-intl/server";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.allies);
 
@@ -493,31 +494,23 @@ function tradeId(trade: string): string {
 // ── Partnership Values ───────────────────────────────────────────────────────
 const partnershipValues = [
   {
+    key: "handshakes",
     icon: "handshake",
-    title: "Where Handshakes Still Matter",
-    description:
-      "Your word is your bond. We treat our Trade Partners with the same integrity and respect we give our Client Partners — face-to-face trust, mutual respect, and a shared commitment to doing what's right.",
     color: "from-brand-primary to-brand-primary-dark",
   },
   {
+    key: "scheduling",
     icon: "campaign",
-    title: "Reliable Scheduling & Open Communication",
-    description:
-      "Transparent, open-book communication and dependable project timelines help our trade partners plan confidently and manage their resources effectively. You control it, we manage it — together.",
     color: "from-brand-secondary to-brand-secondary-dark",
   },
   {
+    key: "payment",
     icon: "account_balance",
-    title: "Fair & Prompt Payment",
-    description:
-      "Competitive compensation and reliable payment schedules support the financial health and growth of every trade partner. Building for the Client, NOT the Dollar, means treating partners with the same fairness.",
     color: "from-brand-secondary to-brand-secondary-dark",
   },
   {
+    key: "safety",
     icon: "health_and_safety",
-    title: "Award-Winning Safety Culture",
-    description:
-      "Our .64 EMR safety record is 40% better than the industry average. Everyone goes home safe, every single day. Partners on our sites operate within a culture of accountability and excellence.",
     color: "from-brand-primary-light to-brand-primary",
   },
 ];
@@ -525,7 +518,7 @@ const partnershipValues = [
 // ── Page ─────────────────────────────────────────────────────────────────────
 export default async function AlliesPage() {
   const locale = await getServerLocale();
-  const isEs = locale === "es";
+  const t = await getTranslations({ locale });
 
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
@@ -545,40 +538,26 @@ export default async function AlliesPage() {
                 icon="diversity_3"
                 size="4xl"
                 className="text-white drop-shadow-lg"
-                ariaLabel={
-                  isEs
-                    ? "Red Estrategica de Socios"
-                    : "Strategic Partnership Network"
-                }
+                ariaLabel={t("allies.hero.iconAria")}
               />
             </div>
           </div>
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
             <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-              {isEs ? "Aliados → Socios" : "Allies → Partners"}
+              {t("allies.hero.kicker")}
             </span>
             <span className="block text-brand-secondary">
-              {isEs
-                ? "Aliados en Accion: Red Estrategica de Socios"
-                : "Allies in Force: Strategic Partnership Network"}
+              {t("allies.hero.titleLine1")}
             </span>
             <span className="block text-brand-primary">
-              {isEs ? "EL ROI ES LA RELACION" : "THE ROI IS THE RELATIONSHIP"}
+              {t("allies.hero.titleLine2")}
             </span>
             <span className="block text-white/90">
-              {isEs ? (
-                <>
-                  Construyendo proyectos para el Cliente,{" "}
-                  <span className="font-black italic text-bronze-300">NO</span>{" "}
-                  por el Dolar
-                </>
-              ) : (
-                <>
-                  Building projects for the Client,{" "}
-                  <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                  the Dollar
-                </>
-              )}
+              {t("allies.hero.titleLine3Prefix")}
+              <span className="font-black italic text-bronze-300">
+                {t("allies.hero.notWord")}
+              </span>{" "}
+              {t("allies.hero.titleLine3Suffix")}
             </span>
           </h1>
         </div>
@@ -592,8 +571,8 @@ export default async function AlliesPage() {
       {/* ── BREADCRUMB ────────────────────────────────────────────────────── */}
       <Breadcrumb
         items={[
-          { label: isEs ? "Inicio" : "Home", href: "/" },
-          { label: isEs ? "Aliados en Accion" : "Allies in Force" },
+          { label: t("allies.hero.breadcrumbHome"), href: "/" },
+          { label: t("allies.hero.breadcrumbCurrent") },
         ]}
       />
 
@@ -617,7 +596,7 @@ export default async function AlliesPage() {
                       icon="handshake"
                       size="2xl"
                       className="text-white drop-shadow-lg"
-                      ariaLabel="Why partner with MHC"
+                      ariaLabel={t("allies.partnership.iconAria")}
                     />
                   </div>
                 </div>
@@ -626,36 +605,31 @@ export default async function AlliesPage() {
 
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Why Build With
+                  {t("allies.partnership.subtitle")}
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  MH Construction
+                  {t("allies.partnership.title")}
                 </span>
               </h2>
 
               <p className="mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  &ldquo;THE ROI IS THE RELATIONSHIP — and we prove it.&rdquo;
+                  {t("allies.partnership.quote")}
                 </span>{" "}
-                Since 2010, MH Construction has built a reputation for honest
-                communication, prompt payment, and a safety culture second to
-                none{" "}
+                {t("allies.partnership.descriptionPrefix")}{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  (.64 EMR — 40% safer than industry average)
-                </span>
-                {". "}Veteran-Owned Since January 2025 leadership means our
-                partners get the same code of conduct that defines military
-                service: honor, accountability, and follow-through on every
-                commitment.
+                  {t("allies.partnership.metric")}
+                </span>{" "}
+                {t("allies.partnership.descriptionSuffix")}
               </p>
               <cite className="block mt-4 font-semibold text-brand-secondary-text text-lg dark:text-brand-secondary-light not-italic">
-                — MH Construction Leadership Team
+                {t("allies.partnership.cite")}
               </cite>
             </div>
 
             <StaggeredFadeIn className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {partnershipValues.map((value) => (
-                <div key={value.title} className="group relative flex h-full">
+                <div key={value.key} className="group relative flex h-full">
                   <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse" />
                   <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                     <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker" />
@@ -669,15 +643,19 @@ export default async function AlliesPage() {
                             icon={value.icon}
                             size="lg"
                             className="text-white drop-shadow-lg"
-                            ariaLabel={value.title}
+                            ariaLabel={t(
+                              `allies.partnership.values.${value.key}.title`,
+                            )}
                           />
                         </div>
                       </div>
                       <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-lg">
-                        {value.title}
+                        {t(`allies.partnership.values.${value.key}.title`)}
                       </h3>
                       <p className="grow text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        {value.description}
+                        {t(
+                          `allies.partnership.values.${value.key}.description`,
+                        )}
                       </p>
                     </div>
                   </div>
@@ -703,7 +681,7 @@ export default async function AlliesPage() {
                       icon="groups"
                       size="2xl"
                       className="text-white drop-shadow-lg"
-                      ariaLabel="Trade Partner Network"
+                      ariaLabel={t("allies.network.iconAria")}
                     />
                   </div>
                 </div>
@@ -712,24 +690,23 @@ export default async function AlliesPage() {
 
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Our
+                  {t("allies.network.subtitle")}
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Trade Partner Network
+                  {t("allies.network.title")}
                 </span>
               </h2>
 
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                Vetted companies grouped by trade and listed{" "}
+                {t("allies.network.descriptionPrefix")}{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  alphabetically within each category
-                </span>
-                {". "}Partners are selected based on licensing, safety
-                alignment, performance history, and shared values —{" "}
+                  {t("allies.network.descriptionEmphasis")}
+                </span>{" "}
+                {t("allies.network.descriptionMiddle")}{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  reviewed quarterly to ensure fair and current representation
+                  {t("allies.network.descriptionStrong")}
                 </span>
-                {"."}
+                .
               </p>
 
               {/* Listing Criteria */}
@@ -739,20 +716,20 @@ export default async function AlliesPage() {
                     icon="checklist"
                     size="sm"
                     className="text-brand-primary dark:text-brand-primary-light shrink-0"
-                    ariaLabel="Listing criteria"
+                    ariaLabel={t("allies.network.criteria.aria")}
                   />
                   <span className="text-xs font-bold uppercase tracking-widest text-brand-primary dark:text-brand-primary-light">
-                    Listing Criteria
+                    {t("allies.network.criteria.label")}
                   </span>
                 </div>
                 <ul className="flex flex-wrap gap-2">
                   {[
-                    "Licensed & insured",
-                    "Safety-culture aligned",
-                    "Active project footprint",
-                    "Demonstrated performance history",
-                    "Honest communication standard",
-                    "Reviewed quarterly",
+                    t("allies.network.criteria.item1"),
+                    t("allies.network.criteria.item2"),
+                    t("allies.network.criteria.item3"),
+                    t("allies.network.criteria.item4"),
+                    t("allies.network.criteria.item5"),
+                    t("allies.network.criteria.item6"),
                   ].map((criterion) => (
                     <li
                       key={criterion}
@@ -869,7 +846,7 @@ export default async function AlliesPage() {
                         icon="diversity_3"
                         size="2xl"
                         className="text-white drop-shadow-lg"
-                        ariaLabel="Become an ally"
+                        ariaLabel={t("allies.cta.iconAria")}
                       />
                     </div>
                   </div>
@@ -878,24 +855,23 @@ export default async function AlliesPage() {
 
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Become an
+                    {t("allies.cta.subtitle")}
                   </span>
                   <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Ally in Force
+                    {t("allies.cta.title")}
                   </span>
                 </h2>
 
                 <p className="mx-auto mb-8 max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  Ready to grow your business with a{" "}
+                  {t("allies.cta.descriptionPrefix")}{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    Veteran-Owned Since January 2025 construction leader
+                    {t("allies.cta.descriptionEmphasis")}
                   </span>
-                  ? We&apos;re actively seeking reliable, skilled trade partners
-                  who value quality workmanship, honest communication, and{" "}
+                  ? {t("allies.cta.descriptionMiddle")}{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    sustainable business relationships built on mutual success
+                    {t("allies.cta.descriptionStrong")}
                   </span>
-                  {"."}
+                  .
                 </p>
               </div>
 
@@ -904,8 +880,11 @@ export default async function AlliesPage() {
                   href="/contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-primary hover:bg-brand-primary-dark text-white font-bold rounded-xl shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl"
                 >
-                  <MaterialIcon icon="handshake" ariaLabel="Apply" />
-                  Begin Partnership Discussion
+                  <MaterialIcon
+                    icon="handshake"
+                    ariaLabel={t("allies.cta.buttonPrimaryAria")}
+                  />
+                  {t("allies.cta.buttonPrimary")}
                 </Link>
                 <Link
                   href="/projects"
@@ -914,9 +893,9 @@ export default async function AlliesPage() {
                   <MaterialIcon
                     icon="emoji_events"
                     size="sm"
-                    ariaLabel="Portfolio"
+                    ariaLabel={t("allies.cta.buttonSecondaryAria")}
                   />
-                  View Our Portfolio
+                  {t("allies.cta.buttonSecondary")}
                 </Link>
               </div>
 
@@ -924,23 +903,23 @@ export default async function AlliesPage() {
                 <MaterialIcon
                   icon="call"
                   size="sm"
-                  ariaLabel="Phone"
+                  ariaLabel={t("allies.cta.phoneAria")}
                   className="inline mr-2"
                 />
-                Trade Partnership Inquiries:{" "}
+                {t("allies.cta.phoneLabel")}{" "}
                 <a
                   href={`tel:${COMPANY_INFO.phone.tel}`}
                   className="font-semibold hover:text-brand-primary transition-colors"
                 >
                   {COMPANY_INFO.phone.display}
                 </a>{" "}
-                | 7:00 AM – 4:00 PM PST
+                | {t("allies.cta.hours")}
               </p>
               <p className="text-gray-500 dark:text-gray-300 text-sm">
                 <MaterialIcon
                   icon="mark_email_read"
                   size="sm"
-                  ariaLabel="Email"
+                  ariaLabel={t("allies.cta.emailAria")}
                   className="inline mr-2"
                 />
                 <a
@@ -958,14 +937,13 @@ export default async function AlliesPage() {
         <section className="order-3 relative py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
-              Accredited & Certified
+              {t("allies.accreditations.kicker")}
             </p>
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
-              Partner with a Trusted General Contractor
+              {t("allies.accreditations.title")}
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
-              Our accreditations reflect our commitment to quality, ethics, and
-              safety
+              {t("allies.accreditations.description")}
             </p>
             <AccreditationsLogoRow />
           </div>

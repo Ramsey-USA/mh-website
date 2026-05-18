@@ -56,7 +56,6 @@ const MUTATION_ROUTES = [
   "/api/newsletter",
   "/api/upload/resume",
   "/api/track-phone-call",
-  "/api/analytics/collect",
 ] as const;
 
 // ---------------------------------------------------------------------------
@@ -119,10 +118,8 @@ describe("Cache-Control: no-store on state-mutating API requests", () => {
    * be stored and replayed publicly (which would serve stale analytics/auth
    * status to arbitrary visitors).
    */
-  it("GET /api/analytics/collect → Cache-Control must not be public", async () => {
-    const response = await middleware(
-      makeRequest("/api/analytics/collect", "GET"),
-    );
+  it("GET /api/contact → Cache-Control must not be public", async () => {
+    const response = await middleware(makeRequest("/api/contact", "GET"));
     const header = response.headers.get("Cache-Control") ?? "";
     expect(header).not.toContain("public");
   });

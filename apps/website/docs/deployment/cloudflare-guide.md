@@ -40,7 +40,7 @@
 ```text
 git push → Cloudflare Workers CI picks up the commit
          → Runs build command:   npm run build
-         → Runs deploy command:  npm run deploy
+         → Runs deploy command:  WRANGLER_SEND_METRICS=false npx wrangler deploy
          → Output: .open-next/worker.js + .open-next/assets deployed as a Worker
 ```
 
@@ -49,10 +49,6 @@ The `opennextjs-cloudflare build` command (invoked by `npm run build`):
 1. Runs `next build` internally
 2. Packages the Next.js App Router output into a Cloudflare Worker + static assets
 3. Writes everything to `.open-next/`
-
-`npm run deploy` reuses a current `.open-next/` build when one is already
-present. If the artifacts are stale or missing, it runs `npm run build:lowmem`
-first and then deploys the generated Worker.
 
 `wrangler.toml` tells `wrangler deploy` where the Worker entry point and assets are:
 
@@ -76,16 +72,16 @@ binding = "ASSETS"
 
 ### Workers & Pages → mhc-v2-website → Settings → Builds → Edit
 
-| Field               | Value                          | Notes                                        |
-| ------------------- | ------------------------------ | -------------------------------------------- |
-| **Build command**   | `npm run build`                | Runs `opennextjs-cloudflare build`           |
-| **Deploy command**  | `npm run deploy`               | Reuses current build artifacts when possible |
-| **Version command** | `npx wrangler versions upload` | Optional — for gradual/versioned rollouts    |
-| **Root directory**  | `/`                            | Repo root                                    |
+| Field               | Value                                             | Notes                                      |
+| ------------------- | ------------------------------------------------- | ------------------------------------------ |
+| **Build command**   | `npm run build`                                   | Runs `opennextjs-cloudflare build`         |
+| **Deploy command**  | `WRANGLER_SEND_METRICS=false npx wrangler deploy` | Deploys Worker; reads `wrangler.toml` auto |
+| **Version command** | `npx wrangler versions upload`                    | Optional — for gradual/versioned rollouts  |
+| **Root directory**  | `/`                                               | Repo root                                  |
 
 > ⚠️ **`npx wrangler pages deploy .open-next/assets` is WRONG here.** That is the
 > Cloudflare Pages command and will not work with the Workers `wrangler.toml` config.
-> The correct deploy command is the repo helper: `npm run deploy`.
+> The correct deploy command is `WRANGLER_SEND_METRICS=false npx wrangler deploy`.
 
 ---
 

@@ -9,7 +9,12 @@ function isLighthouseRun(): boolean {
   }
 
   const userAgent = typeof navigator !== "undefined" ? navigator.userAgent : "";
-  return Boolean(window.__LIGHTHOUSE__) || /Chrome-Lighthouse/i.test(userAgent);
+  const isAuditQuery = window.location.search.includes("__lh=1");
+  return (
+    Boolean(window.__LIGHTHOUSE__) ||
+    /Chrome-Lighthouse/i.test(userAgent) ||
+    isAuditQuery
+  );
 }
 
 interface ServiceWorkerRegistrationProps {

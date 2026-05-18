@@ -397,6 +397,23 @@ These patterns appear across many pages. When you touch any file, fix the patter
   2. `errors-in-console` (score 0) on home: Service worker registration failing with 403 on `/sw.js`. **Fix:** SW registration now probes `/sw.js` availability in production before attempting `navigator.serviceWorker.register()`; Lighthouse UA skip also added. Deployed Apr 17.
   - ⏳ **Awaiting post-deploy Lighthouse retest** to confirm both fixes raise BP from 77.
 
+### Lighthouse Retest (2026-05-17, Local Dev)
+
+Lighthouse is confirmed working in this environment using Chromium (`CHROME_PATH=/usr/bin/chromium`) and reports were saved to `lighthouse-results/retest-2026-05-17/`.
+
+| Page                 | Perf | A11y | Best Pr. | SEO | LCP   | CLS   | TBT     |
+| -------------------- | ---- | ---- | -------- | --- | ----- | ----- | ------- |
+| Home (`/`)           | 42   | 97   | 100      | 92  | 5.5s  | 0.004 | 8420ms  |
+| Careers (`/careers`) | 16   | 96   | 96       | 92  | 8.0s  | 0.349 | 15980ms |
+| Contact (`/contact`) | 32   | 96   | 96       | 92  | 10.5s | 0.000 | 13560ms |
+| Team (`/team`)       | 31   | 97   | 96       | 92  | 12.6s | 0.000 | 20880ms |
+
+Notes:
+
+- This run was executed against local dev server (`next dev`) with inspector/turbopack overhead, so absolute Perf scores are conservative.
+- Accessibility and Best Practices were stable; largest regressions were performance metrics (LCP/TBT) on heavy routes.
+- Recommended next run for decision-grade numbers: production build target and/or PageSpeed Insights on deployed URL.
+
 ---
 
 ## Post-Deploy Verification Checklist (Apr 17 fixes)
@@ -406,7 +423,7 @@ Run these steps after the next production deployment.
 ### Code changes deployed
 
 - [ ] `TestimonialGrid` SSR fix (`ssr: true`) — [src/app/careers/CareersPageClient.tsx](../../src/app/careers/CareersPageClient.tsx)
-- [ ] Geolocation API 200 fallback — [src/app/api/analytics/geolocation/route.ts](../../src/app/api/analytics/geolocation/route.ts)
+- [ ] Verify no stale requests are made to removed analytics/geolocation endpoints in browser console or network panel
 - [ ] Service worker pre-probe + Lighthouse skip — [src/components/pwa/ServiceWorkerRegistration.tsx](../../src/components/pwa/ServiceWorkerRegistration.tsx)
 
 ### Cloudflare changes applied

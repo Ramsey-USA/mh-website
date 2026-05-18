@@ -80,7 +80,7 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center animate-modal-backdrop">
+    <div className="fixed inset-0 z-100 flex items-center justify-center animate-modal-backdrop">
       <button
         type="button"
         className="absolute inset-0 bg-black/80 backdrop-blur-sm"
@@ -187,7 +187,6 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
                   variant="outline"
                   className="flex-1"
                 >
-                  Cancel
                   {isEs ? "Cancelar" : "Cancel"}
                 </Button>
                 <Button

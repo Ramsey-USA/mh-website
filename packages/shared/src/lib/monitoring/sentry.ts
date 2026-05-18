@@ -23,6 +23,7 @@ type SentryModule = typeof import("@sentry/browser");
 
 let isInitialized = false;
 let _sentry: SentryModule | null = null;
+let initPromise: Promise<void> | null = null;
 
 const FALLBACK_SENTRY_DSN =
   "https://4bcf174e0a1db00489a4d0cde0b290de@o4511220420050944.ingest.us.sentry.io/4511220427980800";
@@ -36,50 +37,89 @@ export async function initSentry(): Promise<void> {
     return;
   }
 
-  _sentry = await import("@sentry/browser");
+  if (initPromise) {
+    return initPromise;
+  }
 
-  const dsn = process.env["NEXT_PUBLIC_SENTRY_DSN"] || FALLBACK_SENTRY_DSN;
+  initPromise = (async () => {
+    try {
+      _sentry = await import("@sentry/browser");
 
-  _sentry.init({
-    dsn,
-    environment: process.env.NODE_ENV || "production",
-    release: process.env["NEXT_PUBLIC_APP_VERSION"] || "unknown",
+      const runtimeFlags = globalThis as typeof globalThis & {
+        __MHC_SENTRY_CLIENT_INITIALIZED__?: boolean;
+        __MHC_SENTRY_REPLAY_INITIALIZED__?: boolean;
+      };
 
-    // Send default PII data (e.g., automatic IP address collection)
-    sendDefaultPii: true,
-
-    // Adjust sample rate based on environment
-    tracesSampleRate: process.env.NODE_ENV === "production" ? 0.1 : 1,
-
-    // Capture unhandled promise rejections
-    integrations: [
-      _sentry.browserTracingIntegration(),
-      _sentry.replayIntegration({
-        maskAllText: true,
-        blockAllMedia: true,
-      }),
-    ],
-
-    // Session replay sample rate
-    replaysSessionSampleRate: 0.1,
-    replaysOnErrorSampleRate: 1,
-
-    // Don't send errors in development unless explicitly enabled
-    enabled:
-      process.env.NODE_ENV === "production" ||
-      Boolean(process.env["NEXT_PUBLIC_SENTRY_DEBUG"]),
-
-    // Filter out noisy errors
-    beforeSend(event) {
-      // Ignore ResizeObserver errors (common and usually harmless)
-      if (event.exception?.values?.[0]?.value?.includes("ResizeObserver")) {
-        return null;
+      if (runtimeFlags.__MHC_SENTRY_CLIENT_INITIALIZED__) {
+        isInitialized = true;
+        return;
       }
-      return event;
-    },
-  });
 
-  isInitialized = true;
+      if (_sentry.getClient()) {
+        isInitialized = true;
+        runtimeFlags.__MHC_SENTRY_CLIENT_INITIALIZED__ = true;
+        return;
+      }
+
+      const dsn = process.env["NEXT_PUBLIC_SENTRY_DSN"] || FALLBACK_SENTRY_DSN;
+      let tracingIntegration: ReturnType<
+        SentryModule["browserTracingIntegration"]
+      > | null = null;
+
+      try {
+        tracingIntegration = _sentry.browserTracingIntegration();
+      } catch {
+        // Keep app behavior stable if tracing integration cannot be initialized.
+      }
+
+      const integrations = [tracingIntegration].filter(
+        (integration): integration is NonNullable<typeof integration> =>
+          integration !== null,
+      );
+
+      _sentry.init({
+        dsn,
+        environment: process.env.NODE_ENV || "production",
+        release: process.env["NEXT_PUBLIC_APP_VERSION"] || "unknown",
+
+        // Send default PII data (e.g., automatic IP address collection)
+        sendDefaultPii: true,
+
+        // Adjust sample rate based on environment
+        tracesSampleRate: process.env.NODE_ENV === "production" ? 0.1 : 1,
+
+        // Capture unhandled promise rejections
+        integrations,
+
+        // Replay is disabled pending a safer singleton strategy.
+        replaysSessionSampleRate: 0,
+        replaysOnErrorSampleRate: 0,
+
+        // Don't send errors in development unless explicitly enabled
+        enabled:
+          process.env.NODE_ENV === "production" ||
+          Boolean(process.env["NEXT_PUBLIC_SENTRY_DEBUG"]),
+
+        // Filter out noisy errors
+        beforeSend(event) {
+          // Ignore ResizeObserver errors (common and usually harmless)
+          if (event.exception?.values?.[0]?.value?.includes("ResizeObserver")) {
+            return null;
+          }
+          return event;
+        },
+      });
+
+      isInitialized = true;
+      runtimeFlags.__MHC_SENTRY_CLIENT_INITIALIZED__ = true;
+    } catch {
+      _sentry = null;
+    } finally {
+      initPromise = null;
+    }
+  })();
+
+  return initPromise;
 }
 
 /**

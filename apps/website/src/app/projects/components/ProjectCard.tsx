@@ -4,6 +4,7 @@
  */
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   Card,
   CardHeader,
@@ -12,7 +13,6 @@ import {
   Button,
 } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
 import { getCardClassName } from "@/lib/styles/card-variants";
 import type { ProjectPortfolio } from "@/lib/types";
 import { trackProjectInterest } from "@/lib/analytics/marketing-tracking";
@@ -40,12 +40,15 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
       {/* Project Image */}
       <div className="relative bg-gray-200 dark:bg-gray-700 h-64">
         {project.images[0] ? (
-          <OptimizedImage
+          <Image
             src={project.images[0].url}
             alt={project.images[0].alt}
             fill
             className="object-cover"
-            priority={project.isFeatured}
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            quality={72}
+            loading="lazy"
+            priority={false}
           />
         ) : (
           <div className="flex justify-center items-center bg-linear-to-br from-brand-primary/20 dark:from-brand-primary/30 to-brand-secondary/20 dark:to-brand-secondary/30 w-full h-full">
@@ -176,7 +179,11 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
         )}
 
         {/* View Details Button */}
-        <Link href={`/projects/${project.seoMetadata.slug}`} passHref>
+        <Link
+          href={`/projects/${project.seoMetadata.slug}`}
+          prefetch={false}
+          passHref
+        >
           <Button
             variant="outline"
             size="sm"

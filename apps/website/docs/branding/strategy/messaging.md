@@ -17,7 +17,7 @@ Any visual treatments used with messaging, such as headers, cards, or CTA blocks
 - **Traditional Business:** Handshakes matter, promises kept, relationships last
 - **Personal Consultation:** All CTAs direct to `/contact` for human interaction
 
-> **Note:** Booking, automated estimator, and 3D Explorer pages have been removed. All CTAs now
+> **Note:** Booking, AI Estimator, and 3D Explorer pages have been removed. All CTAs now
 > direct to `/contact` for personal communication focused on honest relationships and
 > transparent pricing.
 
@@ -640,20 +640,20 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 
 #### Preferred Terms
 
-| Use This            | Instead of This | Why                        |
-| ------------------- | --------------- | -------------------------- |
-| Partner/Partnership | Client/Customer | Emphasizes collaboration   |
-| Work WITH you       | Work FOR you    | Shows true partnership     |
-| Precision           | Accuracy        | Reflects military heritage |
-| Excellence          | Quality         | Stronger commitment        |
-| Solution            | Fix/Resolution  | Proactive approach         |
-| Investment          | Cost/Price      | Value perspective          |
-| Timeline            | Deadline        | Collaborative planning     |
-| Vision              | Requirements    | Client empowerment         |
-| Trust               | Satisfaction    | Ultimate goal emphasis     |
-| Thoroughness        | Attention       | Comprehensive approach     |
-| Integrity           | Ethics          | Deeper moral commitment    |
-| Craftsmanship       | Workmanship     | Artisan-level quality      |
+| Use This            | Instead of This           | Why                        |
+| ------------------- | ------------------------- | -------------------------- |
+| Partner/Partnership | Transactional role labels | Emphasizes collaboration   |
+| Work WITH you       | Service-to-you wording    | Shows true partnership     |
+| Precision           | Accuracy                  | Reflects military heritage |
+| Excellence          | Quality                   | Stronger commitment        |
+| Solution            | Fix/Resolution            | Proactive approach         |
+| Investment          | Cost/Price                | Value perspective          |
+| Timeline            | Deadline                  | Collaborative planning     |
+| Vision              | Requirements              | Client empowerment         |
+| Trust               | Satisfaction              | Ultimate goal emphasis     |
+| Thoroughness        | Attention                 | Comprehensive approach     |
+| Integrity           | Ethics                    | Deeper moral commitment    |
+| Craftsmanship       | Workmanship               | Artisan-level quality      |
 
 #### Core Values Language
 
@@ -891,7 +891,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 
 ### Message Consistency Checklist
 
-- [ ] Partnership language used over client/customer
+- [ ] Partnership language used over transactional role labels
 - [ ] Four core values referenced appropriately (Honesty, Integrity, Professionalism, and Thoroughness)
 - [ ] Trust-centered philosophy incorporated
 - [ ] "THE ROI IS THE RELATIONSHIP" messaging present where appropriate

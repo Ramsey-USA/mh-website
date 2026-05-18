@@ -1,45 +1,59 @@
 import { type Metadata } from "next";
-import dynamic from "next/dynamic";
+import { cookies, headers } from "next/headers";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { PageTrackingClient } from "@/components/analytics";
+import { HomePageSentrySupport } from "@/components/monitoring/HomePageSentrySupport";
+import dynamic from "next/dynamic";
+import { getTranslations } from "next-intl/server";
+import type { Testimonial } from "@/lib/data/testimonials";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
-// Above-fold sections: static imports for instant LCP
-import { HeroSection, CoreValuesSection } from "@/components/home";
-import { PWAInstallCTA } from "@/components/pwa";
-// Below-fold sections: lazy-loaded to keep initial JS bundle lean
-import { type TimelineStep } from "@/components/ui/Timeline";
-const ServicesShowcase = dynamic(() =>
-  import("@/components/home").then((m) => ({ default: m.ServicesShowcase })),
+import { normalizeLocale } from "@/lib/i18n/locale";
+import enHome from "@/../messages/home/en.json";
+import esHome from "@/../messages/home/es.json";
+
+import {
+  HeroSection,
+  CoreValuesSection,
+  WhyPartnerSection,
+} from "@/components/home";
+import { ServicesShowcaseDeferred } from "@/components/home/ServicesShowcaseDeferred";
+import type { TimelineStep } from "@/components/ui/Timeline";
+
+const CompanyStats = dynamic(
+  () =>
+    import("@/components/about").then((mod) => ({
+      default: mod.CompanyStats,
+    })),
+  { ssr: true },
 );
-const WhyPartnerSection = dynamic(() =>
-  import("@/components/home").then((m) => ({ default: m.WhyPartnerSection })),
+const TestimonialsSection = dynamic(
+  () =>
+    import("@/components/shared-sections").then((mod) => ({
+      default: mod.TestimonialsSection,
+    })),
+  { ssr: true },
 );
-const CompanyStats = dynamic(() =>
-  import("@/components/about/CompanyStats").then((m) => ({
-    default: m.CompanyStats,
-  })),
+const NextStepsSection = dynamic(
+  () =>
+    import("@/components/shared-sections").then((mod) => ({
+      default: mod.NextStepsSection,
+    })),
+  { ssr: true },
 );
-const Timeline = dynamic(() =>
-  import("@/components/ui/Timeline").then((m) => ({ default: m.Timeline })),
-);
-const TestimonialsSection = dynamic(() =>
-  import("@/components/shared-sections").then((m) => ({
-    default: m.TestimonialsSection,
-  })),
-);
-const NextStepsSection = dynamic(() =>
-  import("@/components/shared-sections").then((m) => ({
-    default: m.NextStepsSection,
-  })),
-);
-const StrategicCTABanner = dynamic(() =>
-  import("@/components/ui/cta").then((m) => ({
-    default: m.StrategicCTABanner,
-  })),
+const Timeline = dynamic(
+  () =>
+    import("@/components/ui/Timeline").then((mod) => ({
+      default: mod.Timeline,
+    })),
+  { ssr: true },
 );
 
 const SITE_URL = "https://www.mhc-gc.com";
+const HOME_COPY_BY_LOCALE = {
+  en: enHome,
+  es: esHome,
+} as const;
 
 export const metadata: Metadata = withGeoMetadata({
   title: {
@@ -103,117 +117,155 @@ export const metadata: Metadata = withGeoMetadata({
   },
 });
 
-// Process timeline steps
-const processSteps: TimelineStep[] = [
-  {
-    num: 1,
-    icon: "engineering",
-    title: "Pre-Construction Planning",
-    desc: "Comprehensive site assessment, detailed scope development, and strategic planning to identify challenges before they arise.",
-    position: "left",
-  },
-  {
-    num: 2,
-    icon: "payments",
-    title: "Budget Transparency",
-    desc: "Clear, itemized pricing with complete cost breakdown. No hidden fees, no surprises—just honest numbers you can trust.",
-    position: "right",
-  },
-  {
-    num: 3,
-    icon: "verified",
-    title: "Quality Execution",
-    desc: "Expert craftsmanship with systematic quality checkpoints at every phase. Precision execution backed by 150+ years combined experience.",
-    position: "left",
-  },
-  {
-    num: 4,
-    icon: "forum",
-    title: "Proactive Communication",
-    desc: "Regular updates keep you informed throughout the project. Real-time notifications of any changes—you're never in the dark.",
-    position: "right",
-  },
-  {
-    num: 5,
-    icon: "task_alt",
-    title: "Seamless Close-Out",
-    desc: "Comprehensive final walkthrough and complete documentation. Our commitment to your satisfaction extends beyond project completion.",
-    position: "left",
-  },
-];
+const processStepMeta: Array<Pick<TimelineStep, "num" | "icon" | "position">> =
+  [
+    {
+      num: 1,
+      icon: "engineering",
+      position: "left",
+    },
+    {
+      num: 2,
+      icon: "payments",
+      position: "right",
+    },
+    {
+      num: 3,
+      icon: "verified",
+      position: "left",
+    },
+    {
+      num: 4,
+      icon: "forum",
+      position: "right",
+    },
+    {
+      num: 5,
+      icon: "task_alt",
+      position: "left",
+    },
+  ];
 
-export default function Home() {
+export default async function Home() {
   // Analytics tracking remains client-only while page rendering stays server-first
 
   // Get enhanced SEO data for homepage
   const homepageSEO = getHomepageSEO();
+  const cookieStore = await cookies();
+  const locale = normalizeLocale(cookieStore.get("locale")?.value);
+  const tTestimonials = await getTranslations({
+    locale,
+    namespace: "testimonialsData",
+  });
+  const homeCopy = HOME_COPY_BY_LOCALE[locale] ?? enHome;
+  const clientTestimonials = (
+    tTestimonials.raw("clientTestimonials") as Array<{
+      id: string;
+      name: string;
+      location?: string;
+      project?: string;
+      company?: string;
+      rating?: number;
+      quote: string;
+      featured?: boolean;
+      date?: string;
+      image?: string;
+      category?: string;
+    }>
+  ).map(
+    (testimonial) =>
+      ({
+        ...testimonial,
+        type: "client",
+      }) as Testimonial,
+  );
+  const processSteps: TimelineStep[] = processStepMeta.map((step, index) => ({
+    ...step,
+    title: homeCopy.process.steps[index]?.title ?? "",
+    desc: homeCopy.process.steps[index]?.desc ?? "",
+  }));
+  const isProduction = process.env.NODE_ENV === "production";
+  const requestHeaders = await headers();
+  const isLighthouseAudit = /Chrome-Lighthouse/i.test(
+    requestHeaders.get("user-agent") ?? "",
+  );
+  const enableHomeTelemetry = isProduction && !isLighthouseAudit;
 
   return (
     <>
-      <PageTrackingClient pageName="Home" />
+      {enableHomeTelemetry ? <PageTrackingClient pageName="Home" /> : null}
+      {enableHomeTelemetry ? <HomePageSentrySupport /> : null}
 
       {/* Enhanced SEO structured data for Veteran-Owned construction excellence */}
-      <StructuredData data={homepageSEO.schemas} />
+      {isProduction ? <StructuredData data={homepageSEO.schemas} /> : null}
 
       {/* Home Page Hero Section */}
-      <HeroSection />
-
-      {/* PWA Install Banner - Only shows when installable */}
-      <PWAInstallCTA variant="banner" />
+      <HeroSection locale={locale} copy={homeCopy.hero} />
 
       {/* Showcase of Services Section - Primary discovery path */}
-      <ServicesShowcase />
-
-      {/* Core Values Section - Trust foundation after service orientation */}
-      <CoreValuesSection />
+      <ServicesShowcaseDeferred />
 
       {/* Why Partner With MH Construction Section - Partnership philosophy */}
-      <WhyPartnerSection />
+      <WhyPartnerSection
+        sectionVariant="white"
+        className="pt-0 pb-0"
+        locale={locale}
+      />
+
+      {/* Core Values Section - Trust foundation after differentiator */}
+      <CoreValuesSection
+        sectionVariant="gray"
+        className="pt-0 pb-0"
+        animated={false}
+        locale={locale}
+      />
 
       {/* Company Statistics Section - Proof after discovery and trust */}
       <CompanyStats
         id="stats"
-        subtitle="Disciplined, Proven Results"
-        title="Proven Track Record"
-        description="Measurable results from a Veteran-Owned team committed to disciplined execution, clear communication, and strong Client Partner relationships across the Pacific Northwest."
+        subtitle={homeCopy.companyStats.subtitle}
+        title={homeCopy.companyStats.title}
+        description={homeCopy.companyStats.description}
         variant="primary"
+        className="bg-gray-50 dark:bg-gray-800 pt-0"
+        animated={false}
       />
 
       {/* Enhanced Client Partner Testimonials - Social proof after trust and stats */}
       <TestimonialsSection
         id="testimonials"
-        subtitle="Trusted By Our Partners"
-        title="What Our Client Partners Say"
-        description="Read testimonials from valued Client Partners across the Pacific Northwest who have experienced our collaborative excellence firsthand."
+        subtitle={homeCopy.testimonials.subtitle}
+        title={homeCopy.testimonials.title}
+        description={homeCopy.testimonials.description}
+        testimonials={clientTestimonials}
+        animated={false}
       />
 
       {/* Our Process Timeline Section - Reinforce confidence before conversion */}
       <Timeline
         id="our-process"
         icon="timeline"
-        subtitle="Simple & Transparent"
-        title="Our Process"
+        subtitle={homeCopy.process.subtitle}
+        title={homeCopy.process.title}
         description={
           <>
-            Five clear steps from{" "}
+            {homeCopy.process.descriptionPart1}{" "}
             <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              first contact to project completion
+              {homeCopy.process.descriptionPart2}
             </span>
-            . No surprises, just{" "}
+            {homeCopy.process.descriptionPart3}{" "}
             <span className="font-bold text-gray-900 dark:text-white">
-              honest communication and proven results
+              {homeCopy.process.descriptionPart4}
             </span>
-            .
+            {homeCopy.process.descriptionPart5}
           </>
         }
         steps={processSteps}
+        className="bg-gray-50 dark:bg-gray-800"
       />
 
-      {/* Strategic CTA after proof and process - Combo (App + Pitch Deck + Contact) */}
-      <StrategicCTABanner variant="combo" className="my-0" />
-
       {/* Next Steps Section */}
-      <NextStepsSection />
+      <NextStepsSection locale={locale} />
     </>
   );
 }

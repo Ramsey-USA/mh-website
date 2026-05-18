@@ -98,7 +98,15 @@ const valueCategories: ValueCategory[] = [
  * Interactive cards showing why values matter to Partners, Community, and Team
  * Pattern matches ServicesShowcase from homepage
  */
-export function ValuesShowcase() {
+export function ValuesShowcase({
+  title,
+  subtitle,
+  description,
+}: {
+  title: string;
+  subtitle: string;
+  description: string;
+}) {
   const [selectedValue, setSelectedValue] = useState<number | null>(null);
 
   // Memoize the selected value data
@@ -124,6 +132,17 @@ export function ValuesShowcase() {
     >
       <DiagonalStripePattern />
       <BrandColorBlobs />
+      <div className="text-center mb-12">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-2">
+          {title}
+        </h2>
+        <div className="text-xl sm:text-2xl text-brand-primary dark:text-brand-primary-light font-semibold mb-2">
+          {subtitle}
+        </div>
+        <div className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+          {description}
+        </div>
+      </div>
 
       <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}

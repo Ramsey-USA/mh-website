@@ -57,6 +57,13 @@ homepage - same visual weight, spacing, animations, and polish.
 
 That's it. Everything else is organized in `/docs/` by category (branding, technical, business, etc.).
 
+### Documentation Source of Truth
+
+- `docs/` is the canonical source for project documentation.
+- `apps/website/docs/` is a synced copy used by the website app.
+- Run `pnpm docs:sync` after updating docs to refresh the app copy.
+- `pnpm lint:markdown` now runs `pnpm docs:sync:check` first and fails if the two trees drift.
+
 ---
 
 ## Project Status (May 15, 2026)
@@ -294,7 +301,7 @@ Use these slash prompts for standardized compliance checks before merge or relea
 - **Database:** Cloudflare D1 (SQLite) + KV (cache, ISR, analytics) + R2 (files, resumes, safety intake)
 - **Email:** Resend API
 - **SMS:** Twilio (admin alerts for urgent form submissions)
-- **Analytics:** Custom system — localStorage client-side + Cloudflare KV server-side pipeline
+- **Analytics:** Google Analytics (gtag.js) event tracking
 - **Monitoring:** Uptime Kuma (self-hosted) — website, n8n, Portainer, Twilio, Resend, Cloudflare
 - **CI/CD:** GitHub Actions + Cloudflare Workers CI (auto-deploy on push to main)
 
@@ -304,6 +311,27 @@ Use these slash prompts for standardized compliance checks before merge or relea
 - **CI/CD pipeline:** Automated TypeScript, ESLint 10, tests, and build verification
 - **AI workflow:** Ask AI: _"Run quality check and fix issues"_ → instant fixes
 - **Manual commands:** `pnpm run type-check`, `pnpm run lint`, `pnpm --filter @mhc/website run quality:check`
+
+### Analytics + Lighthouse Workflow
+
+Use Google Analytics for behavior signal and Lighthouse for technical signal.
+
+1. **Collect behavior truth (GA):** validate high-value events (CTA clicks, form submits, key page views) in GA Realtime/DebugView.
+2. **Collect performance truth (Lighthouse):** measure target pages and capture Performance + Core Web Vitals indicators.
+3. **Correlate results:**
+
+- High traffic + poor Lighthouse score = highest fix priority.
+- High conversions + poor score = protect conversion path immediately.
+- Low traffic + poor score = optimize after high-impact routes.
+
+4. **Re-test after fixes:** compare Lighthouse before/after and watch GA conversion trends over the next release window.
+
+Recommended cadence:
+
+- Weekly: Lighthouse checks on core pages (`/`, `/services`, `/projects`, `/contact`, `/careers`)
+- Per release: verify GA events and conversion funnels still fire as expected
+
+Use the release worksheet: [docs/performance/performance-triage-template.md](docs/performance/performance-triage-template.md)
 
 ### Features & Capabilities
 

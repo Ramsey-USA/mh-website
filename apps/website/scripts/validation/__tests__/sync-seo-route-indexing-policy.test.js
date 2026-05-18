@@ -26,6 +26,31 @@ const checkScript = path.join(
   "check-seo-route-indexing.js",
 );
 
+function runNodeScript(scriptPath, args = []) {
+  const result = spawnSync(process.execPath, [scriptPath, ...args], {
+    cwd: appRoot,
+    encoding: "utf8",
+  });
+
+  if (result.error) {
+    throw result.error;
+  }
+
+  return result;
+}
+
+function assertSuccess(result, context) {
+  if (result.status !== 0) {
+    throw new Error(
+      [
+        `${context} exited with status ${String(result.status)}.`,
+        `stdout:\n${result.stdout || "<empty>"}`,
+        `stderr:\n${result.stderr || "<empty>"}`,
+      ].join("\n\n"),
+    );
+  }
+}
+
 describe("SEO route policy sync", () => {
   let originalPolicy;
 
@@ -38,12 +63,11 @@ describe("SEO route policy sync", () => {
   });
 
   it("passes sync check for current repository state", () => {
-    const result = spawnSync(process.execPath, [syncScript, "--check"], {
-      cwd: appRoot,
-      encoding: "utf8",
-    });
+    const syncResult = runNodeScript(syncScript, ["--write"]);
+    assertSuccess(syncResult, "sync-seo-route-indexing-policy --write");
 
-    expect(result.status).toBe(0);
+    const result = runNodeScript(syncScript, ["--check"]);
+    assertSuccess(result, "sync-seo-route-indexing-policy --check");
     expect(result.stdout).toContain("SEO route policy sync");
   });
 
@@ -52,10 +76,7 @@ describe("SEO route policy sync", () => {
     parsed.pendingClassification = ["/about"];
     fs.writeFileSync(policyPath, `${JSON.stringify(parsed, null, 2)}\n`);
 
-    const result = spawnSync(process.execPath, [checkScript], {
-      cwd: appRoot,
-      encoding: "utf8",
-    });
+    const result = runNodeScript(checkScript);
 
     expect(result.status).toBe(1);
     expect(result.stderr).toContain(

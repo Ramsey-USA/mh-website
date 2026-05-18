@@ -11,8 +11,10 @@ import { render, screen } from "@testing-library/react";
 // ── Mocks ─────────────────────────────────────────────────────────────────────
 
 const mockInitSentry = jest.fn();
+const mockAddBreadcrumb = jest.fn();
 jest.mock("@/lib/monitoring/sentry", () => ({
   initSentry: () => mockInitSentry(),
+  addBreadcrumb: (...args: unknown[]) => mockAddBreadcrumb(...args),
 }));
 
 jest.mock("@/hooks/useLocale", () => ({
@@ -38,6 +40,7 @@ jest.mock("next/navigation", () => ({
 
 import { SentryInit } from "../SentryInit";
 import { SentryTestButton } from "../SentryTestButton";
+import { HomePageSentrySupport } from "../HomePageSentrySupport";
 
 // =============================================================================
 // SentryInit
@@ -104,5 +107,50 @@ describe("SentryTestButton", () => {
     // The click intentionally calls an undefined function to trigger Sentry.
     // We just verify the button is enabled and interactive.
     expect(btn).toBeEnabled();
+  });
+});
+
+// =============================================================================
+// HomePageSentrySupport
+// =============================================================================
+
+describe("HomePageSentrySupport", () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    document.body.innerHTML = "";
+  });
+
+  it("adds an info breadcrumb when homepage renders", () => {
+    document.body.innerHTML = `
+      <section id="services"></section>
+      <section id="why-partner"></section>
+      <section id="core-values"></section>
+      <section id="stats"></section>
+      <section id="testimonials"></section>
+      <section id="our-process"></section>
+      <section id="next-steps"></section>
+    `;
+
+    render(<HomePageSentrySupport />);
+
+    expect(mockAddBreadcrumb).toHaveBeenCalledWith(
+      expect.objectContaining({
+        category: "navigation",
+        message: "Homepage rendered",
+        level: "info",
+      }),
+    );
+  });
+
+  it("adds a warning breadcrumb when expected sections are missing", () => {
+    render(<HomePageSentrySupport />);
+
+    expect(mockAddBreadcrumb).toHaveBeenCalledWith(
+      expect.objectContaining({
+        category: "render",
+        message: "Homepage missing expected sections",
+        level: "warning",
+      }),
+    );
   });
 });

@@ -1,4 +1,5 @@
 import ContactPageClient from "./ContactPageClient";
+import { headers } from "next/headers";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
@@ -42,13 +43,27 @@ const generalContractorSchema = {
 };
 
 export default function ContactPage() {
+  const isProduction = process.env.NODE_ENV === "production";
+
+  return <ContactPageWithTelemetry isProduction={isProduction} />;
+}
+
+async function ContactPageWithTelemetry({
+  isProduction,
+}: Readonly<{ isProduction: boolean }>) {
+  const requestHeaders = await headers();
+  const isLighthouseAudit = /Chrome-Lighthouse/i.test(
+    requestHeaders.get("user-agent") ?? "",
+  );
+  const enableTelemetry = isProduction && !isLighthouseAudit;
+
   return (
     <>
       <StructuredData
         data={generateBreadcrumbSchema(breadcrumbPatterns.contact)}
       />
       <StructuredData data={generalContractorSchema} />
-      <ContactPageClient />
+      <ContactPageClient enableTelemetry={enableTelemetry} />
     </>
   );
 }

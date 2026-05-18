@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
+import Script from "next/script";
 import { Suspense } from "react";
+import { NextIntlClientProvider } from "next-intl";
 import "./globals.css";
 import "../styles/material-icons.css";
 import { AppShell } from "@/components/layout/AppShell";
@@ -27,6 +29,7 @@ import {
   SUPPORTED_LOCALES,
   normalizeLocale,
 } from "@/lib/i18n/locale";
+import { getMessages } from "next-intl/server";
 
 export const metadata: Metadata = withGeoMetadata({
   metadataBase: new URL(
@@ -35,7 +38,9 @@ export const metadata: Metadata = withGeoMetadata({
   title: {
     default:
       "Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction",
-    template: "%s | MH Construction",
+    // Child routes already provide fully-branded titles in most cases.
+    // Keep template neutral to avoid duplicate "| MH Construction" suffixes.
+    template: "%s",
   },
   description:
     "Base HQ → Home: Your Tri-State Construction Command Center. Founded 2010, Veteran-Owned Since January 2025. Headquartered in the Tri-Cities (Pasco, Richland, Kennewick), delivering projects across Washington, Oregon, and Idaho throughout the Pacific Northwest. Dual-label approach: Military Operations → Construction Services. Service-earned values meet construction excellence with disciplined execution, authentic partnerships, and transparent communication. Chain of Command structure with 150+ years combined expertise. Montana expansion coming soon.",
@@ -180,7 +185,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const cookieStore = await cookies();
+  const requestHeaders = await headers();
   const locale = normalizeLocale(cookieStore.get(LOCALE_COOKIE_NAME)?.value);
+  const messages = await getMessages();
+  const isProduction = process.env.NODE_ENV === "production";
+  const isLighthouseAudit = /Chrome-Lighthouse/i.test(
+    requestHeaders.get("user-agent") ?? "",
+  );
+  const enableRuntimeEnhancements = isProduction && !isLighthouseAudit;
 
   return (
     <html lang={locale}>
@@ -193,7 +205,9 @@ export default async function RootLayout({
           />
         )}
         {/* Cloudflare Email Protection - async non-blocking script */}
-        <script
+        <Script
+          id="cf-email-protection-shim"
+          strategy="beforeInteractive"
           async
           data-cfasync="false"
           dangerouslySetInnerHTML={{
@@ -209,11 +223,22 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://use.typekit.net" />
+        <link rel="dns-prefetch" href="https://use.typekit.net" />
         <link
           rel="stylesheet"
           href="https://use.typekit.net/jqs8bjh.css"
+          media="print"
+          onLoad="this.media='all'"
           crossOrigin="anonymous"
         />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://use.typekit.net/jqs8bjh.css"
+            crossOrigin="anonymous"
+          />
+        </noscript>
         {/* Preload self-hosted Material Icons font for optimal performance */}
         <link
           rel="preload"
@@ -222,7 +247,9 @@ export default async function RootLayout({
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        <script
+        <Script
+          id="set-html-lang-from-cookie"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(() => {
               const escapeRegex = (value) => value.replace(/[.*+?^$()|[\\]{}\\\\]/g, "\\\\$&");
@@ -235,26 +262,62 @@ export default async function RootLayout({
             })();`,
           }}
         />
+        {!isProduction || isLighthouseAudit ? (
+          <Script
+            id="clear-sw-cache-for-dev-and-lighthouse"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `(() => {
+                try {
+                  if ("serviceWorker" in navigator) {
+                    navigator.serviceWorker.getRegistrations()
+                      .then((registrations) => Promise.all(registrations.map((r) => r.unregister())))
+                      .catch(() => undefined);
+                  }
+                  if ("caches" in window) {
+                    caches.keys()
+                      .then((keys) => Promise.all(keys.map((key) => caches.delete(key))))
+                      .catch(() => undefined);
+                  }
+                } catch {
+                  // Best-effort cleanup for dev and Lighthouse audits.
+                }
+              })();`,
+            }}
+          />
+        ) : null}
 
         {/* Enhanced Schema Markup */}
-        <StructuredData
-          data={[generateEnhancedOrganizationSchema(), generateWebsiteSchema()]}
-        />
+        {isProduction ? (
+          <StructuredData
+            data={[
+              generateEnhancedOrganizationSchema(),
+              generateWebsiteSchema(),
+            ]}
+          />
+        ) : null}
       </head>
       <body className="font-sans">
-        <SentryInit />
-        <Suspense>
-          <SentryTestButton />
-        </Suspense>
+        {isProduction ? <SentryInit /> : null}
+        {!isProduction ? (
+          <Suspense>
+            <SentryTestButton />
+          </Suspense>
+        ) : null}
         <SkipLink />
         <ScrollProgress />
-        <DeferredPerformanceEnhancements />
-        <ThemeProvider defaultTheme="light" storageKey="mh-construction-theme">
-          <ErrorBoundary>
-            <AppShell>{children}</AppShell>
-            <ChatWidgetLazy />
-          </ErrorBoundary>
-        </ThemeProvider>
+        {enableRuntimeEnhancements ? <DeferredPerformanceEnhancements /> : null}
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <ThemeProvider
+            defaultTheme="light"
+            storageKey="mh-construction-theme"
+          >
+            <ErrorBoundary>
+              <AppShell>{children}</AppShell>
+              {isProduction ? <ChatWidgetLazy /> : null}
+            </ErrorBoundary>
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

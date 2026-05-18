@@ -63,22 +63,10 @@ export function trackJourneyMilestone(
 ) {
   if (typeof window === "undefined") return;
 
-  // Store journey in localStorage for funnel analysis
-  const journey = JSON.parse(localStorage.getItem("mh_user_journey") || "[]");
-  journey.push({
-    milestone,
-    timestamp: new Date().toISOString(),
-    page: window.location.pathname,
-    ...properties,
-  });
-
-  // Keep last 50 milestones
-  localStorage.setItem("mh_user_journey", JSON.stringify(journey.slice(-50)));
-
   trackClick(`journey-${milestone}`, {
     milestone,
     category: "user-journey",
-    journeyStep: journey.length,
+    page: window.location.pathname,
     ...properties,
   });
 }
@@ -90,20 +78,9 @@ export function trackJourneyMilestone(
 export function trackLandingPage(page: string, referrer: string) {
   if (typeof window === "undefined") return;
 
-  // Use a separate key to avoid overwriting the sessions array in tracking.ts
-  const session = JSON.parse(
-    localStorage.getItem("mh_analytics_landing") || "{}",
-  );
-  if (!session.landingPage) {
-    session.landingPage = page;
-    session.referrer = referrer;
-    session.entryTime = new Date().toISOString();
-    localStorage.setItem("mh_analytics_landing", JSON.stringify(session));
-
-    trackClick("landing-page", {
-      landingPage: page,
-      referrer,
-      category: "session-tracking",
-    });
-  }
+  trackClick("landing-page", {
+    landingPage: page,
+    referrer,
+    category: "session-tracking",
+  });
 }

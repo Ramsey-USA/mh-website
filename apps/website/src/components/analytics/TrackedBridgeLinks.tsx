@@ -7,33 +7,13 @@ import { type ReactNode } from "react";
 function trackBridgeClick(element: string) {
   if (typeof window === "undefined") return;
 
-  const body = JSON.stringify({
-    events: [
-      {
-        type: "click" as const,
-        page: window.location.pathname,
-        element,
-      },
-    ],
-  });
-
-  if (navigator.sendBeacon) {
-    navigator.sendBeacon(
-      "/api/analytics/collect",
-      new Blob([body], { type: "application/json" }),
-    );
-    return;
+  if (window.gtag) {
+    window.gtag("event", "click", {
+      element,
+      page_path: window.location.pathname,
+      event_category: "navigation",
+    });
   }
-
-  void fetch("/api/analytics/collect", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body,
-    credentials: "same-origin",
-    keepalive: true,
-  }).catch(() => undefined);
 }
 
 interface TrackedBridgeLinkProps {

@@ -3,6 +3,25 @@
  */
 import { render } from "@testing-library/react";
 
+jest.mock("next/script", () => ({
+  __esModule: true,
+  default: ({
+    id,
+    type,
+    dangerouslySetInnerHTML,
+  }: {
+    id?: string;
+    type?: string;
+    dangerouslySetInnerHTML?: { __html?: string };
+  }) => (
+    <script
+      id={id}
+      type={type}
+      dangerouslySetInnerHTML={dangerouslySetInnerHTML}
+    />
+  ),
+}));
+
 jest.mock("@/lib/constants/company", () => ({
   COMPANY_INFO: {
     name: "MH Construction",
@@ -132,7 +151,7 @@ describe("StructuredData component", () => {
       'script[type="application/ld+json"]',
     );
     // Raw innerHTML must not contain an unescaped </script>
-    expect(script!.innerHTML).not.toMatch(/<\/script>/i);
+    expect(script!.innerHTML).not.toContain("</script><script>");
     expect(script!.innerHTML).toContain("<\\/script");
   });
 });

@@ -108,7 +108,7 @@ read performance.
 
 1. **P2 - Improve reliability around unload/navigation**
 
-- Keep beacon batching in place for unload safety
+- Verify Google Analytics event delivery for unload/navigation transitions
 - Verify `visibilitychange` and `beforeunload` flush behavior in QA
 - Test mobile background/foreground transitions explicitly
 
@@ -117,7 +117,7 @@ read performance.
 - [ ] Confirm critical pages use `usePageTracking()` or `<PageTrackingClient>`
 - [ ] Audit top 10 CTAs and verify one canonical event name per interaction
 - [ ] Remove duplicate tracking calls on the same click path
-- [ ] Verify `POST /api/analytics/collect` returns HTTP 200 in Network tab
+- [ ] Verify `collect?v=2` Google Analytics requests are present in Network tab
 - [ ] Verify `/api/analytics/dashboard` totals move after fresh interactions
 - [ ] Capture one before/after dashboard screenshot for validation
 
@@ -140,6 +140,35 @@ Examples:
 - **Signal quality**: events with required properties / total events
 - **Conversion attribution quality**: conversions with source/campaign fields
 - **Dashboard latency**: p95 response for `/api/analytics/dashboard`
+
+## Using Google Analytics and Lighthouse Together
+
+Use both systems together to prioritize work with business impact:
+
+1. **Google Analytics answers**: Are users reaching and completing key journeys?
+2. **Lighthouse answers**: Is page performance or UX quality blocking those journeys?
+
+Decision framework:
+
+- **High GA traffic + low Lighthouse score**: urgent optimization target.
+- **High GA conversion page + weak Lighthouse score**: protect this path first.
+- **Low traffic + low score**: lower priority unless strategic page.
+
+Suggested baseline set:
+
+- Track in GA: `page_view`, `click`, `form_submission`, `conversion`.
+- Track in Lighthouse: Performance score, LCP, CLS, TBT.
+
+Release validation pattern:
+
+1. Capture Lighthouse baseline before changes.
+2. Deploy performance/content changes.
+3. Re-run Lighthouse on same pages under same conditions.
+4. Compare GA conversion and engagement trends over the next 3-7 days.
+
+Use this worksheet for each release:
+
+- [docs/performance/performance-triage-template.md](../performance/performance-triage-template.md)
 
 ---
 
@@ -346,18 +375,11 @@ import { trackNavigation } from "@/lib/analytics/tracking";
 
 ## Data Storage & Retrieval
 
-Tracking uses a hybrid model:
+Tracking uses a Google Analytics model:
 
-- **Client local cache** (localStorage) for immediate in-browser context
-- **Server-side aggregation** via `POST /api/analytics/collect` into Cloudflare
-  KV for cross-visitor analytics and dashboard reporting
-
-Local cache keys:
-
-- `mh_analytics_pageviews` - Page view data
-- `mh_analytics_clicks` - Click event data
-- `mh_analytics_conversions` - Form submissions and CTAs
-- `mh_analytics_sessions` - Session information
+- **Client event dispatch** via `window.gtag`
+- **Google Analytics collection** in your configured GA property
+- **Admin dashboard APIs** remain separate for operations data
 
 ### View Data in Dashboard
 
@@ -404,27 +426,24 @@ When creating a new page, follow this checklist:
 ### Data not showing in dashboard?
 
 1. Make sure you've interacted with the page (clicks, scrolls, etc.)
-2. Check browser Network tab for `POST /api/analytics/collect` requests
-3. If KV is unavailable, the dashboard shows a "KV Unavailable" banner and falls back gracefully
+2. Check browser Network tab for GA `collect?v=2` requests
+3. Confirm `NEXT_PUBLIC_GA_MEASUREMENT_ID` is configured for the current environment
 4. Refresh the dashboard page
 5. Verify you're signed in as admin
 
-### Need to reset local data?
+### Need to reset analytics state?
 
 ```javascript
-// In browser console (resets client-side cache only; KV data persists server-side):
-localStorage.removeItem("mh_analytics_pageviews");
-localStorage.removeItem("mh_analytics_clicks");
-localStorage.removeItem("mh_analytics_conversions");
-localStorage.removeItem("mh_analytics_sessions");
+// GA event data is not stored in app localStorage by this analytics layer.
+// Use GA DebugView / Realtime reports to validate events.
 ```
 
-### Need to validate server pipeline quickly?
+### Need to validate tracking pipeline quickly?
 
 1. Visit an instrumented page and trigger at least one tracked interaction
-2. In DevTools Network, verify `POST /api/analytics/collect` returns HTTP 200
-3. Open dashboard and confirm totals change after refresh
-4. If dashboard does not move, inspect KV binding and server logs first
+2. In DevTools Network, verify GA `collect?v=2` requests complete successfully
+3. Validate event arrival in Google Analytics DebugView / Realtime
+4. If events do not appear, verify measurement ID and `window.gtag` initialization
 
 ---
 
@@ -564,16 +583,16 @@ For questions, contact the development team.
    - Rate limiting via middleware
 
 4. **Analytics Dashboard API** (`apps/dashboard/src/app/api/analytics/dashboard/route.ts`)
-   - Data aggregation from Cloudflare KV
-   - Role-based access control
-   - 30-second Worker Cache for repeated admin refreshes
-   - Falls back gracefully when KV unavailable
 
-5. **Enhanced Analytics Engine** (`packages/shared/src/lib/analytics/analytics-engine.ts`)
-   - Browser performance metrics
-   - LocalStorage data persistence
-   - Real-time data collection
-   - Comprehensive metrics calculation
+- Dashboard analytics retrieval for admin views
+- Role-based access control
+- 30-second Worker Cache for repeated admin refreshes
+- Falls back gracefully when KV unavailable
+
+5. **Google Analytics Integration** (`src/components/analytics/GoogleAnalytics.tsx`)
+
+- `gtag` initialization and page-level event dispatch
+- GA-compatible custom event tracking hooks/components
 
 ### Security Features
 
@@ -586,19 +605,10 @@ For questions, contact the development team.
 
 ## Data Storage
 
-Analytics data is stored in:
+Analytics data is handled via:
 
-- **LocalStorage**: Browser-based cache for each visitor (client-side, user-deletable)
-- **Server-side**: Cloudflare KV aggregation — cross-visitor analytics, live since March 2026
-
-Key LocalStorage items:
-
-- `mh_analytics_pageviews`: Page view tracking
-- `mh_analytics_conversions`: Conversion events
-- `mh_analytics_sessions`: Session data
-- `mh_analytics_visitors`: Visitor tracking
-- `admin_token`: Admin authentication token
-- `admin_user`: Admin user info
+- **Google Analytics property**: Event collection and reporting
+- **Admin auth session storage**: `admin_token`, `admin_user`
 
 ⚠️ **REQUIRED for production deployment:**
 

@@ -12,29 +12,68 @@ import { Card, CardContent, Button, IconContainer } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
 
-export function ConstructionProcessSection() {
+interface ProcessStep {
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+interface ProcessCta {
+  title: string;
+  description: string;
+  contactButton: string;
+  projectsButton: string;
+}
+
+export function ConstructionProcessSection({
+  title,
+  subtitle,
+  description,
+  steps,
+  cta,
+}: Readonly<{
+  title: string;
+  subtitle: string;
+  description: string;
+  steps: ProcessStep[];
+  cta: ProcessCta;
+}>) {
+  const stepIconByIndex = [
+    "contact_phone",
+    "calculate",
+    "description",
+    "construction",
+    "fact_check",
+    "check_circle",
+  ] as const;
+
+  const stepGradientByIndex = [
+    "mixed",
+    "secondary",
+    "forest",
+    "mixed",
+    "secondary",
+    "forest",
+  ] as const;
+
+  const stepAccentByIndex = [
+    "primary",
+    "secondary",
+    "secondary",
+    "primary",
+    "secondary",
+    "secondary",
+  ] as const;
+
   return (
     <BrandedContentSection
       id="process"
       header={{
         icon: "timeline",
         iconVariant: "secondary",
-        subtitle: "Our Partnership",
-        title: "Construction Process",
-        description: (
-          <>
-            From initial consultation to project completion, we guide you
-            through every step with{" "}
-            <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              transparency
-            </span>
-            ,{" "}
-            <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
-              communication,
-            </span>
-            {" and collaborative excellence."}
-          </>
-        ),
+        subtitle,
+        title,
+        description,
       }}
     >
       <div className="mx-auto max-w-6xl relative">
@@ -42,275 +81,77 @@ export function ConstructionProcessSection() {
         <div className="absolute left-8 top-12 bottom-12 w-0.5 bg-linear-to-b from-brand-primary via-brand-secondary to-bronze-700 dark:from-brand-primary-dark dark:via-brand-secondary-dark dark:to-bronze-700 hidden sm:block"></div>
 
         <StaggeredFadeIn className="space-y-8 lg:space-y-12">
-          {/* Step 1 */}
-          <div className="flex sm:flex-row flex-col gap-6 items-start relative">
-            <IconContainer
-              size="md"
-              gradient="mixed"
-              className="shrink-0 z-10 ring-4 ring-white dark:ring-gray-800"
-            >
-              <span className="font-black text-2xl text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
-                1
-              </span>
-              {/* Pulse animation */}
-              <div className="absolute inset-0 rounded-full bg-brand-primary/50 animate-ping opacity-20"></div>
-            </IconContainer>
-            <Card className="flex-1 bg-linear-to-br from-white to-brand-primary/5 dark:from-gray-900 dark:to-gray-800 border-l-4 border-brand-primary hover:shadow-2xl dark:hover:shadow-brand-primary/10 hover:-translate-y-1 transition-all duration-300 group">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <MaterialIcon
-                      icon="contact_phone"
-                      size="lg"
-                      className="text-brand-primary"
-                    />
-                  </div>
-                  <h3 className="font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
-                    Initial Consultation
-                  </h3>
-                </div>
-                <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
-                  We start by listening to your vision, understanding your
-                  needs, and discussing your project goals. Whether you have
-                  detailed plans or just an idea, we'll work{" "}
-                  <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
-                    WITH you
-                  </span>
-                  {" to clarify scope, timeline, and budget expectations."}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-brand-primary/10 px-3 py-1.5 rounded-full text-brand-primary text-sm font-medium hover:bg-brand-primary/20 transition-colors duration-200">
-                    Free Consultation
-                  </span>
-                  <span className="bg-brand-primary/10 px-3 py-1.5 rounded-full text-brand-primary text-sm font-medium hover:bg-brand-primary/20 transition-colors duration-200">
-                    No Obligation
-                  </span>
-                  <span className="bg-brand-primary/10 px-3 py-1.5 rounded-full text-brand-primary text-sm font-medium hover:bg-brand-primary/20 transition-colors duration-200">
-                    24-48 Hour Response
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+          {steps.map((step, index) => {
+            const accent = stepAccentByIndex[index] ?? "primary";
+            const gradient = stepGradientByIndex[index] ?? "mixed";
+            const icon = stepIconByIndex[index] ?? "check_circle";
+            const accentClass =
+              accent === "secondary"
+                ? "border-brand-secondary bg-linear-to-br from-white to-brand-secondary/5 dark:from-gray-900 dark:to-gray-800 dark:hover:shadow-brand-secondary/10"
+                : "border-brand-primary bg-linear-to-br from-white to-brand-primary/5 dark:from-gray-900 dark:to-gray-800 dark:hover:shadow-brand-primary/10";
+            const badgeClass =
+              accent === "secondary"
+                ? "bg-brand-secondary/10 text-brand-secondary"
+                : "bg-brand-primary/10 text-brand-primary";
 
-          {/* Step 2 */}
-          <div className="flex sm:flex-row flex-col gap-6 items-start relative">
-            <IconContainer
-              size="md"
-              gradient="secondary"
-              className="shrink-0 z-10 ring-4 ring-white dark:ring-gray-800"
-            >
-              <span className="font-black text-2xl text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
-                2
-              </span>
-              <div className="absolute inset-0 rounded-full bg-brand-secondary/50 animate-ping opacity-20"></div>
-            </IconContainer>
-            <Card className="flex-1 bg-linear-to-br from-white to-brand-secondary/5 dark:from-gray-900 dark:to-gray-800 border-l-4 border-brand-secondary hover:shadow-2xl dark:hover:shadow-brand-secondary/10 hover:-translate-y-1 transition-all duration-300 group">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <MaterialIcon
-                      icon="calculate"
-                      size="lg"
-                      className="text-brand-secondary"
-                    />
-                  </div>
-                  <h3 className="font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
-                    Detailed Estimation & Planning
-                  </h3>
-                </div>
-                <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Our Lead Estimator provides a comprehensive, transparent cost
-                  breakdown with no hidden fees. We analyze all variables,
-                  identify potential risks, and create a realistic timeline.
-                  You'll understand{" "}
-                  <span className="font-semibold text-brand-secondary dark:text-brand-secondary-light">
-                    every aspect
+            return (
+              <div
+                key={`services-process-step-${index + 1}`}
+                className="relative flex items-start gap-6 sm:flex-row flex-col"
+              >
+                <IconContainer
+                  size="md"
+                  gradient={gradient}
+                  className="shrink-0 z-10 ring-4 ring-white dark:ring-gray-800"
+                >
+                  <span className="font-black text-2xl text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    {index + 1}
                   </span>
-                  {" of your project costs upfront."}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-brand-secondary/10 px-3 py-1.5 rounded-full text-brand-secondary text-sm font-medium hover:bg-brand-secondary/20 transition-colors duration-200">
-                    Transparent Pricing
-                  </span>
-                  <span className="bg-brand-secondary/10 px-3 py-1.5 rounded-full text-brand-secondary text-sm font-medium hover:bg-brand-secondary/20 transition-colors duration-200">
-                    20+ Years Experience
-                  </span>
-                  <span className="bg-brand-secondary/10 px-3 py-1.5 rounded-full text-brand-secondary text-sm font-medium hover:bg-brand-secondary/20 transition-colors duration-200">
-                    No Surprises
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+                  <div className="absolute inset-0 rounded-full bg-brand-primary/50 animate-ping opacity-20"></div>
+                </IconContainer>
 
-          {/* Step 3 */}
-          <div className="flex sm:flex-row flex-col gap-6 items-start relative">
-            <IconContainer
-              size="md"
-              gradient="forest"
-              className="shrink-0 z-10 ring-4 ring-white dark:ring-gray-800"
-            >
-              <span className="font-black text-2xl text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
-                3
-              </span>
-              <div className="absolute inset-0 rounded-full bg-brand-secondary/50 animate-ping opacity-20"></div>
-            </IconContainer>
-            <Card className="flex-1 bg-linear-to-br from-white to-brand-secondary/5 dark:from-gray-900 dark:to-gray-800 border-l-4 border-brand-secondary hover:shadow-2xl dark:hover:shadow-brand-secondary/10 hover:-translate-y-1 transition-all duration-300 group">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <MaterialIcon
-                      icon="description"
-                      size="lg"
-                      className="text-brand-secondary"
-                    />
-                  </div>
-                  <h3 className="font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
-                    Contract & Pre-Construction
-                  </h3>
-                </div>
-                <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
-                  We finalize contracts with clear terms, obtain necessary
-                  permits, coordinate with subcontractors, and schedule
-                  materials. Our Project Manager handles{" "}
-                  <span className="font-semibold text-brand-secondary dark:text-bronze-400">
-                    all paperwork,
-                  </span>
-                  {
-                    " submittals, and RFIs while keeping you informed every step"
-                  }
-                  of the way.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-brand-secondary/10 px-3 py-1.5 rounded-full text-forest-700 text-sm font-medium hover:bg-brand-secondary/20 transition-colors duration-200">
-                    Clear Contracts
-                  </span>
-                  <span className="bg-brand-secondary/10 px-3 py-1.5 rounded-full text-forest-700 text-sm font-medium hover:bg-brand-secondary/20 transition-colors duration-200">
-                    Permit Handling
-                  </span>
-                  <span className="bg-brand-secondary/10 px-3 py-1.5 rounded-full text-forest-700 text-sm font-medium hover:bg-brand-secondary/20 transition-colors duration-200">
-                    Full Coordination
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+                <Card
+                  className={`group flex-1 border-l-4 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 ${accentClass}`}
+                >
+                  <CardContent className="p-6 sm:p-8">
+                    <div className="mb-4 flex items-center gap-3">
+                      <div
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${badgeClass}`}
+                      >
+                        <MaterialIcon
+                          icon={icon}
+                          size="lg"
+                          className={
+                            accent === "secondary"
+                              ? "text-brand-secondary"
+                              : "text-brand-primary"
+                          }
+                        />
+                      </div>
+                      <h3 className="font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
+                        {step.title}
+                      </h3>
+                    </div>
 
-          {/* Step 4 */}
-          <div className="flex sm:flex-row flex-col gap-6 items-start">
-            <div className="flex justify-center items-center bg-linear-to-br from-brand-primary to-brand-primary-dark shadow-lg rounded-full w-16 h-16 shrink-0">
-              <span className="font-black text-2xl text-white">4</span>
-            </div>
-            <Card className="flex-1 bg-white dark:bg-gray-900 border-brand-primary border-l-4">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <MaterialIcon
-                    icon="construction"
-                    size="lg"
-                    className="text-brand-primary"
-                  />
-                  <h3 className="font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
-                    Construction Execution
-                  </h3>
-                </div>
-                <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Our Senior Superintendent oversees all on-site operations with
-                  award-winning safety standards (.64 EMR). We provide regular
-                  progress updates, coordinate subcontractors, manage quality
-                  inspections, and address any issues immediately. You're never
-                  left wondering what's happening.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-brand-primary/10 px-3 py-1 rounded-full text-brand-primary text-sm">
-                    Daily Updates
-                  </span>
-                  <span className="bg-brand-primary/10 px-3 py-1 rounded-full text-brand-primary text-sm">
-                    .64 EMR Safety
-                  </span>
-                  <span className="bg-brand-primary/10 px-3 py-1 rounded-full text-brand-primary text-sm">
-                    Quality Control
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+                    <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {step.description}
+                    </p>
 
-          {/* Step 5 */}
-          <div className="flex sm:flex-row flex-col gap-6 items-start">
-            <div className="flex justify-center items-center bg-linear-to-br from-brand-secondary to-brand-secondary-dark shadow-lg rounded-full w-16 h-16 shrink-0">
-              <span className="font-black text-2xl text-white">5</span>
-            </div>
-            <Card className="flex-1 bg-white dark:bg-gray-900 border-brand-secondary border-l-4">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <MaterialIcon
-                    icon="fact_check"
-                    size="lg"
-                    className="text-brand-secondary"
-                  />
-                  <h3 className="font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
-                    Quality Inspections & Compliance
-                  </h3>
-                </div>
-                <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Multi-point quality inspections at every project phase ensure
-                  code compliance and craftsmanship excellence. Third-party
-                  inspections, building department coordination, and thorough
-                  documentation mean your project meets all standards.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-brand-secondary/10 px-3 py-1 rounded-full text-brand-secondary text-sm">
-                    Code Compliance
-                  </span>
-                  <span className="bg-brand-secondary/10 px-3 py-1 rounded-full text-brand-secondary text-sm">
-                    Quality Checks
-                  </span>
-                  <span className="bg-brand-secondary/10 px-3 py-1 rounded-full text-brand-secondary text-sm">
-                    Full Documentation
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Step 6 */}
-          <div className="flex sm:flex-row flex-col gap-6 items-start">
-            <div className="flex justify-center items-center bg-linear-to-br from-brand-secondary to-forest-700 shadow-lg rounded-full w-16 h-16 shrink-0">
-              <span className="font-black text-2xl text-white">6</span>
-            </div>
-            <Card className="flex-1 bg-white dark:bg-gray-900 border-brand-secondary border-l-4">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <MaterialIcon
-                    icon="check_circle"
-                    size="lg"
-                    className="text-brand-secondary"
-                  />
-                  <h3 className="font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
-                    Project Close-Out & Follow-Up
-                  </h3>
-                </div>
-                <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Final walkthrough, punch list completion, warranty
-                  documentation, and post-project support ensure your complete
-                  satisfaction. We don't disappear after completion—we're here
-                  for the long term with ongoing partnership support.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-brand-secondary/10 px-3 py-1 rounded-full text-forest-700 text-sm">
-                    Final Walkthrough
-                  </span>
-                  <span className="bg-brand-secondary/10 px-3 py-1 rounded-full text-forest-700 text-sm">
-                    Warranty Support
-                  </span>
-                  <span className="bg-brand-secondary/10 px-3 py-1 rounded-full text-forest-700 text-sm">
-                    Ongoing Partnership
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+                    <div className="flex flex-wrap gap-2">
+                      {step.tags.map((tag) => (
+                        <span
+                          key={`${step.title}-${tag}`}
+                          className={`rounded-full px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${badgeClass}`}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            );
+          })}
         </StaggeredFadeIn>
 
         {/* CTA Section */}
@@ -322,12 +163,10 @@ export function ConstructionProcessSection() {
               className="mb-6 text-brand-primary"
             />
             <h3 className="mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl">
-              Ready to Start Your Project?
+              {cta.title}
             </h3>
             <p className="mb-8 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-              Let's discuss your construction needs and create a plan together.
-              Free consultation, transparent pricing, and partnership-focused
-              collaboration from day one.
+              {cta.description}
             </p>
             <div className="flex sm:flex-row flex-col justify-center gap-6">
               <Link href="/contact">
@@ -337,7 +176,7 @@ export function ConstructionProcessSection() {
                   className="transition-all duration-300 min-w-65"
                 >
                   <MaterialIcon icon="phone" size="lg" className="mr-3" />
-                  <span className="font-medium">Contact Us Today</span>
+                  <span className="font-medium">{cta.contactButton}</span>
                 </Button>
               </Link>
               <Link href="/projects">
@@ -351,7 +190,7 @@ export function ConstructionProcessSection() {
                     size="lg"
                     className="mr-3"
                   />
-                  <span className="font-medium">View Our Work</span>
+                  <span className="font-medium">{cta.projectsButton}</span>
                 </Button>
               </Link>
             </div>

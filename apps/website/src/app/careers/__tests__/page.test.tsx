@@ -134,16 +134,6 @@ jest.mock("@/components/ui/backgrounds", () => ({
   BrandColorBlobs: () => null,
 }));
 
-jest.mock("@/lib/data/testimonials", () => ({
-  getEmployeeTestimonials: () => [],
-}));
-
-jest.mock("@/lib/data/careers", () => ({
-  companyBenefits: [],
-  veteranBenefits: [],
-  cultureValues: [],
-}));
-
 jest.mock("@/lib/constants/company", () => ({
   COMPANY_INFO: {
     email: { main: "office@mhc-gc.com" },

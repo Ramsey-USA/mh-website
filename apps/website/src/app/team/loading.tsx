@@ -1,10 +1,14 @@
+import { cornerRadius } from "@/lib/styles/design-tokens";
+
 export default function TeamLoading() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 animate-pulse">
       {/* Hero skeleton */}
       <div className="bg-gray-100 dark:bg-gray-900 py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="h-12 w-1/2 bg-gray-200 dark:bg-gray-700 rounded-xl mx-auto mb-4" />
+          <div
+            className={`h-12 w-1/2 bg-gray-200 dark:bg-gray-700 ${cornerRadius.element} mx-auto mb-4`}
+          />
           <div className="h-6 w-2/5 bg-gray-200 dark:bg-gray-700 rounded-lg mx-auto" />
         </div>
       </div>
@@ -15,7 +19,7 @@ export default function TeamLoading() {
           {Array.from({ length: 6 }).map((_, i) => (
             <div
               key={i}
-              className="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700"
+              className={`bg-white dark:bg-gray-800 ${cornerRadius.card} overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700`}
             >
               <div className="h-64 bg-gray-200 dark:bg-gray-700" />
               <div className="p-6 space-y-3">

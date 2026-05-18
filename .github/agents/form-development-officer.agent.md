@@ -50,7 +50,7 @@ All measurements are canonical. Do not alter without explicit approval. These va
 - Double rule: `1.2pt solid #1E392C` + `0.6pt solid #BD9264` at `−3.5pt` below
 - QR card: `0.8pt solid #BD9264` border, padding `7pt 10pt`, QR image `0.78in × 0.78in`
 - QR label: 6.8pt · 800 · `letter-spacing: 0.16em` · uppercase · `#8A6B49`
-- QR headline: Mendl Sans Dusk / Abolition · 11pt · 900 · `#1E392C` · `line-height: 1.05` · text: **`MHC-GC.COM`**
+- QR headline: Mendl Sans Dusk · 11pt · 900 · `#1E392C` · `line-height: 1.05` · text: **`MHC-GC.COM`**
 - QR URL: 7.4pt · `#12231b`
 
 ### Body — Page 1

@@ -119,14 +119,6 @@ jest.mock("@/components/testimonials", () => ({
   ),
 }));
 
-jest.mock("@/lib/data/testimonials", () => ({
-  getClientTestimonials: jest
-    .fn()
-    .mockReturnValue([
-      { id: "1", name: "Test Client", text: "Great work!", rating: 5 },
-    ]),
-}));
-
 jest.mock("@/components/templates/BrandedContentSection", () => ({
   BrandedContentSection: ({
     children,
@@ -285,37 +277,60 @@ describe("VendorPlatformLink", () => {
 // ─── TestimonialsSection ──────────────────────────────────────────────────────
 
 describe("TestimonialsSection", () => {
+  const mockTestimonials = [
+    {
+      id: "1",
+      name: "Test Client",
+      quote: "Great work!",
+      rating: 5,
+      type: "client" as const,
+    },
+  ];
+
   it("renders with default props", () => {
-    render(<TestimonialsSection />);
+    render(<TestimonialsSection testimonials={mockTestimonials} />);
     expect(screen.getByText("What Our Client Partners Say")).toBeTruthy();
     expect(screen.getByTestId("testimonials-carousel")).toBeTruthy();
   });
 
   it("renders with custom title and subtitle", () => {
-    render(<TestimonialsSection title="Custom Title" subtitle="Custom Sub" />);
+    render(
+      <TestimonialsSection
+        title="Custom Title"
+        subtitle="Custom Sub"
+        testimonials={mockTestimonials}
+      />,
+    );
     expect(screen.getByText("Custom Title")).toBeTruthy();
   });
 
   it("passes testimonials from data source to carousel", () => {
-    render(<TestimonialsSection />);
+    render(<TestimonialsSection testimonials={mockTestimonials} />);
     const carousel = screen.getByTestId("testimonials-carousel");
     expect(carousel.getAttribute("data-count")).toBe("1");
   });
 
   it("renders with custom className", () => {
     const { container } = render(
-      <TestimonialsSection className="my-section" />,
+      <TestimonialsSection
+        className="my-section"
+        testimonials={mockTestimonials}
+      />,
     );
     expect(container.querySelector(".my-section")).toBeTruthy();
   });
 
   it("renders with custom id", () => {
-    const { container } = render(<TestimonialsSection id="custom-id" />);
+    const { container } = render(
+      <TestimonialsSection id="custom-id" testimonials={mockTestimonials} />,
+    );
     expect(container.querySelector("#custom-id")).toBeTruthy();
   });
 
   it("renders with autoPlay=false", () => {
-    render(<TestimonialsSection autoPlay={false} />);
+    render(
+      <TestimonialsSection autoPlay={false} testimonials={mockTestimonials} />,
+    );
     expect(screen.getByTestId("testimonials-carousel")).toBeTruthy();
   });
 });

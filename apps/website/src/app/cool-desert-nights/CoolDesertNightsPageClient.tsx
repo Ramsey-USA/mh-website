@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { useLocale } from "@/hooks/useLocale";
+import { useTranslations } from "next-intl";
 import { PageTrackingClient } from "@/components/analytics";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
@@ -40,8 +40,7 @@ export function CoolDesertNightsPageClient() {
   const [eventLogoSrc, setEventLogoSrc] = useState(
     "/images/events/cool-desert-nights/cool-desert-nights-logo1.webp",
   );
-  const locale = useLocale();
-  const isEs = locale === "es";
+  const t = useTranslations("coolDesertNightsPage");
 
   return (
     <>
@@ -58,55 +57,47 @@ export function CoolDesertNightsPageClient() {
             <div className="space-y-6">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary/90">
-                  {isEs
-                    ? "Base Central - Eventos | Informe de Campo"
-                    : "Base HQ - Events | Field Brief"}
+                  {t("hero.kicker")}
                 </p>
                 {isMissionComplete ? (
                   <h1 className="text-balance text-2xl font-black leading-tight sm:text-4xl lg:text-5xl">
-                    {isEs
-                      ? "Base Central - Eventos: Cool Desert Nights 2026 Resumen"
-                      : "Base HQ - Events: Cool Desert Nights 2026 Debrief"}
+                    {t("hero.titleComplete")}
                   </h1>
                 ) : (
                   <h1 className="text-balance text-2xl font-black leading-tight sm:text-4xl lg:text-5xl">
-                    {isEs
-                      ? "Base Central - Eventos: Cool Desert Nights 2026 Informe"
-                      : "Base HQ - Events: Cool Desert Nights 2026 Briefing"}
+                    {t("hero.titleBriefing")}
                   </h1>
                 )}
               </div>
               <p className="max-w-3xl text-base leading-relaxed text-white/90 sm:text-lg">
                 {isMissionComplete
-                  ? isEs
-                    ? "Gracias a la comunidad de Richland y Kennewick, al liderazgo del evento y a los Socios Clientes que hicieron posible el éxito de este evento mediante una ejecución coordinada."
-                    : "Thank you to the Richland and Kennewick community, event leadership, and Client Partners who made this event successful through coordinated execution."
-                  : isEs
-                    ? "Cool Desert Nights 2026 está programado para el 26 y 27 de junio en Richland, WA, con autos clásicos, un crucero nocturno el viernes y una exhibición Show 'n Shine el sábado en Uptown Shopping Center."
-                    : "Cool Desert Nights 2026 is scheduled for June 26-27 in Richland, WA, featuring classic cars, a Friday night cruise, and a Saturday Show 'n Shine in the Uptown Shopping Center."}
+                  ? t("hero.descriptionComplete")
+                  : t("hero.descriptionBriefing")}
               </p>
 
               <div className="grid gap-3 text-sm text-white/90 sm:grid-cols-3">
                 <div className="rounded-xl border border-white/20 bg-white/8 px-4 py-3 backdrop-blur-sm">
                   <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
-                    {isEs ? "Fechas del Evento" : "Event Window"}
-                  </p>
-                  <p className="mt-1 font-semibold">26-27 de junio, 2026</p>
-                </div>
-                <div className="rounded-xl border border-white/20 bg-white/8 px-4 py-3 backdrop-blur-sm">
-                  <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
-                    {isEs ? "Ubicación" : "Location"}
-                  </p>
-                  <p className="mt-1 font-semibold">Uptown Shopping Center</p>
-                </div>
-                <div className="rounded-xl border border-white/20 bg-white/8 px-4 py-3 backdrop-blur-sm">
-                  <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
-                    {isEs ? "Eventos Principales" : "Signature Events"}
+                    {t("hero.stats.eventWindow.label")}
                   </p>
                   <p className="mt-1 font-semibold">
-                    {isEs
-                      ? "Crucero + Show 'n Shine"
-                      : "Cruise + Show 'n Shine"}
+                    {t("hero.stats.eventWindow.value")}
+                  </p>
+                </div>
+                <div className="rounded-xl border border-white/20 bg-white/8 px-4 py-3 backdrop-blur-sm">
+                  <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
+                    {t("hero.stats.location.label")}
+                  </p>
+                  <p className="mt-1 font-semibold">
+                    {t("hero.stats.location.value")}
+                  </p>
+                </div>
+                <div className="rounded-xl border border-white/20 bg-white/8 px-4 py-3 backdrop-blur-sm">
+                  <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
+                    {t("hero.stats.signatureEvents.label")}
+                  </p>
+                  <p className="mt-1 font-semibold">
+                    {t("hero.stats.signatureEvents.value")}
                   </p>
                 </div>
               </div>
@@ -127,9 +118,7 @@ export function CoolDesertNightsPageClient() {
                       size="md"
                       className="mr-2"
                     />
-                    {isEs
-                      ? "Programa y registro"
-                      : "Chamber Schedule + Registration"}
+                    {t("hero.cta.schedule")}
                   </Button>
                 </Link>
                 <Link href="/contact">
@@ -139,7 +128,7 @@ export function CoolDesertNightsPageClient() {
                     className="touch-manipulation"
                   >
                     <MaterialIcon icon="handshake" size="md" className="mr-2" />
-                    {isEs ? "Habla con nuestro equipo" : "Talk With Our Team"}
+                    {t("hero.cta.team")}
                   </Button>
                 </Link>
                 {!isMissionComplete && (
@@ -150,7 +139,7 @@ export function CoolDesertNightsPageClient() {
                       className="touch-manipulation"
                     >
                       <MaterialIcon icon="map" size="md" className="mr-2" />
-                      {isEs ? "Visita nuestro stand" : "Visit Our Booth"}
+                      {t("hero.cta.booth")}
                     </Button>
                   </Link>
                 )}
@@ -160,11 +149,11 @@ export function CoolDesertNightsPageClient() {
             <div className="grid gap-6 sm:grid-cols-2">
               <div>
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary/95">
-                  Official Event Logo
+                  {t("hero.logo.eventLabel")}
                 </p>
                 <Image
                   src={eventLogoSrc}
-                  alt="Cool Desert Nights official event logo"
+                  alt={t("hero.logo.eventAlt")}
                   width={520}
                   height={320}
                   className="h-36 w-full object-contain drop-shadow-[0_14px_34px_rgba(0,0,0,0.55)] sm:h-44 lg:h-48"
@@ -173,11 +162,11 @@ export function CoolDesertNightsPageClient() {
               </div>
               <div>
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary/95">
-                  MH Construction
+                  {t("hero.logo.companyLabel")}
                 </p>
                 <Image
                   src="/images/logo/mh-logo.webp"
-                  alt="MH Construction brand logo"
+                  alt={t("hero.logo.companyAlt")}
                   width={520}
                   height={320}
                   className="h-36 w-full object-contain drop-shadow-[0_14px_34px_rgba(0,0,0,0.55)] sm:h-44 lg:h-48"
@@ -196,7 +185,10 @@ export function CoolDesertNightsPageClient() {
         <StripedBackground>
           <div className="relative z-10">
             <Breadcrumb
-              items={[{ label: "Home", href: "/" }, { label: "Events" }]}
+              items={[
+                { label: t("breadcrumb.home"), href: "/" },
+                { label: t("breadcrumb.current") },
+              ]}
             />
 
             <section
@@ -206,49 +198,26 @@ export function CoolDesertNightsPageClient() {
               <div className={`${panelClass} p-6 sm:p-8`}>
                 <div className="mb-2">
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
-                    {isEs ? "Liderazgo comunitario" : "Community Leadership"}
+                    {t("communityLeadership.kicker")}
                   </p>
                   <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/80">
-                    {isEs
-                      ? "Confianza | Alineación de mando"
-                      : "Trust | Command Alignment"}
+                    {t("communityLeadership.overline")}
                   </p>
                 </div>
                 <p className="text-xl font-black text-gray-900 dark:text-white sm:text-2xl">
-                  {isEs
-                    ? "El propietario de MH Construction, Jeremy Thamert, será juez oficial de BBQ junto a la alcaldesa de Richland, Theresa Richardson."
-                    : "MH Construction Owner Jeremy Thamert will serve as an official BBQ judge alongside Richland Mayor Theresa Richardson."}
+                  {t("communityLeadership.title")}
                 </p>
                 <p className="mt-3 text-gray-700 dark:text-white/85">
-                  {isEs ? (
-                    <>
-                      La coordinación del liderazgo local se realiza con la{" "}
-                      <Link
-                        href={mayorOfficeUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={inlineLinkClass}
-                      >
-                        Oficina de la Alcaldesa de Richland
-                      </Link>{" "}
-                      y el liderazgo del evento para apoyar la participación
-                      comunitaria coordinada y una comunicación clara.
-                    </>
-                  ) : (
-                    <>
-                      Local leadership alignment is coordinated with the{" "}
-                      <Link
-                        href={mayorOfficeUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={inlineLinkClass}
-                      >
-                        Richland Mayor&apos;s Office
-                      </Link>{" "}
-                      and event leadership to support coordinated community
-                      participation and clear communication.
-                    </>
-                  )}
+                  {t("communityLeadership.descriptionPrefix")}{" "}
+                  <Link
+                    href={mayorOfficeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={inlineLinkClass}
+                  >
+                    {t("communityLeadership.linkLabel")}
+                  </Link>{" "}
+                  {t("communityLeadership.descriptionSuffix")}
                 </p>
               </div>
             </section>
@@ -259,54 +228,42 @@ export function CoolDesertNightsPageClient() {
             >
               <div className={`${panelClass} p-6`}>
                 <h2 className="text-xl font-black text-brand-secondary">
-                  {isEs
-                    ? "Valores ganados en servicio en acción"
-                    : "Service-Earned Values In Action"}
+                  {t("values.title")}
                 </h2>
                 <p className="mt-2 max-w-3xl text-gray-700 dark:text-white/85">
-                  {isEs
-                    ? "La coordinación del evento sigue el mismo estándar operativo que cada proyecto de MH Construction: Honestidad, Integridad, Profesionalismo y Minuciosidad."
-                    : "Event coordination follows the same operating standard as every MH Construction project: Honesty, Integrity, Professionalism, and Thoroughness."}
+                  {t("values.description")}
                 </p>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                   <div className={`${subPanelClass} p-4`}>
                     <p className="text-sm font-bold text-gray-900 dark:text-white">
-                      {isEs ? "Honestidad" : "Honesty"}
+                      {t("values.cards.honesty.title")}
                     </p>
                     <p className="mt-1 text-sm text-gray-700 dark:text-white/80">
-                      {isEs
-                        ? "Expectativas y alcance del evento claros."
-                        : "Clear event expectations and scope."}
+                      {t("values.cards.honesty.description")}
                     </p>
                   </div>
                   <div className={`${subPanelClass} p-4`}>
                     <p className="text-sm font-bold text-gray-900 dark:text-white">
-                      {isEs ? "Integridad" : "Integrity"}
+                      {t("values.cards.integrity.title")}
                     </p>
                     <p className="mt-1 text-sm text-gray-700 dark:text-white/80">
-                      {isEs
-                        ? "Compromisos cumplidos según lo prometido."
-                        : "Commitments delivered as promised."}
+                      {t("values.cards.integrity.description")}
                     </p>
                   </div>
                   <div className={`${subPanelClass} p-4`}>
                     <p className="text-sm font-bold text-gray-900 dark:text-white">
-                      {isEs ? "Profesionalismo" : "Professionalism"}
+                      {t("values.cards.professionalism.title")}
                     </p>
                     <p className="mt-1 text-sm text-gray-700 dark:text-white/80">
-                      {isEs
-                        ? "Liderazgo y comunicación con socios coordinados."
-                        : "Coordinated leadership and partner communication."}
+                      {t("values.cards.professionalism.description")}
                     </p>
                   </div>
                   <div className={`${subPanelClass} p-4`}>
                     <p className="text-sm font-bold text-gray-900 dark:text-white">
-                      {isEs ? "Minuciosidad" : "Thoroughness"}
+                      {t("values.cards.thoroughness.title")}
                     </p>
                     <p className="mt-1 text-sm text-gray-700 dark:text-white/80">
-                      {isEs
-                        ? "Detalles gestionados desde la programación hasta el cierre."
-                        : "Details managed from schedule through close-out."}
+                      {t("values.cards.thoroughness.description")}
                     </p>
                   </div>
                 </div>
@@ -319,66 +276,37 @@ export function CoolDesertNightsPageClient() {
             >
               <article className={`${panelClass} p-6`}>
                 <h2 className="mb-3 text-xl font-black text-brand-secondary">
-                  {isEs ? "Resumen de la competencia" : "Competition Overview"}
+                  {t("overview.competition.title")}
                 </h2>
                 <p className="text-gray-700 dark:text-white/90">
-                  {isEs
-                    ? "Cool Desert Nights es un evento veraniego destacado en Tri-Cities con autos clásicos, un crucero nocturno el viernes por George Washington Way y una exhibición Show 'n Shine el sábado en Uptown Shopping Center de Richland."
-                    : "Cool Desert Nights is a premier Tri-Cities summer event with classic cars, a Friday night cruise on George Washington Way, and a Saturday Show 'n Shine hosted in Richland's Uptown Shopping Center."}
+                  {t("overview.competition.description")}
                 </p>
               </article>
 
               <article className={`${panelClass} p-6`}>
                 <h2 className="mb-3 text-xl font-black text-brand-secondary">
-                  {isEs
-                    ? "Presencia de MH Construction"
-                    : "MH Construction Presence"}
+                  {t("overview.presence.title")}
                 </h2>
                 <p className="text-gray-700 dark:text-white/90">
-                  {isEs
-                    ? "El Show 'n Shine del sábado incluye cientos de autos en exhibición, además de actividades familiares con zona infantil, puestos de vendedores y puntos de acceso comunitario en todo el recinto."
-                    : "Saturday Show 'n Shine includes hundreds of cars on display, plus family-friendly activities with a kids' zone, vendor booths, and community access points throughout the venue."}
+                  {t("overview.presence.description")}
                 </p>
               </article>
 
               <article className={`${panelClass} p-6`}>
                 <h2 className="mb-3 text-xl font-black text-brand-secondary">
-                  {isEs ? "Impacto local" : "Local Impact"}
+                  {t("overview.localImpact.title")}
                 </h2>
                 <p className="text-gray-700 dark:text-white/90">
-                  {isEs ? (
-                    <>
-                      La programación del fin de semana incluye Party in the
-                      Park, música en vivo, puestos de comida y una ceremonia de
-                      premiación el sábado. El apoyo de MH Construction se
-                      extiende al desayuno de pancakes de Kiwanis de Richland,{" "}
-                      <Link
-                        href={kiwanisUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={inlineLinkClass}
-                      >
-                        programación Kiwanis
-                      </Link>
-                      , y el sorteo de Party in the Park.
-                    </>
-                  ) : (
-                    <>
-                      Weekend programming includes Party in the Park, live
-                      music, food vendors, and a Saturday awards ceremony. MH
-                      Construction support extends to the Richland Kiwanis
-                      Pancake Breakfast,{" "}
-                      <Link
-                        href={kiwanisUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={inlineLinkClass}
-                      >
-                        Kiwanis programming
-                      </Link>
-                      , and the Party in the Park weekend draw.
-                    </>
-                  )}
+                  {t("overview.localImpact.descriptionPrefix")}{" "}
+                  <Link
+                    href={kiwanisUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={inlineLinkClass}
+                  >
+                    {t("overview.localImpact.linkLabel")}
+                  </Link>
+                  {t("overview.localImpact.descriptionSuffix")}
                 </p>
               </article>
             </section>
@@ -391,21 +319,17 @@ export function CoolDesertNightsPageClient() {
                 <div className="border-b border-brand-secondary/30 px-5 py-3">
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.14em] text-gray-600 dark:text-white/80">
-                      {isEs ? "Medios del evento" : "Event Media"}
+                      {t("eventMedia.title")}
                     </p>
                     <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
-                      {isEs ? "Resumen visual" : "Visual Brief"}
+                      {t("eventMedia.subtitle")}
                     </p>
                   </div>
                 </div>
                 <div className="aspect-video w-full bg-black">
                   <Image
                     src="/images/events/cool-desert-nights/smoke-n-shine-showdown-graphic.webp"
-                    alt={
-                      isEs
-                        ? "Gráfico oficial del concurso BBQ Smoke n Shine Showdown"
-                        : "Official Smoke n Shine Showdown BBQ contest graphic"
-                    }
+                    alt={t("eventMedia.imageAlt")}
                     width={1280}
                     height={720}
                     className="h-full w-full object-cover"
@@ -420,21 +344,15 @@ export function CoolDesertNightsPageClient() {
             >
               <div className={`${panelClass} p-6 sm:p-8`}>
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary/95">
-                  {isEs ? "Identidad del evento 2026" : "2026 Event Identity"}
+                  {t("eventIdentity.kicker")}
                 </p>
                 <h2 className="mt-2 text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
-                  {isEs
-                    ? "Gráfico oficial de Cool Desert Nights 2026"
-                    : "Official Cool Desert Nights 2026 Graphic"}
+                  {t("eventIdentity.title")}
                 </h2>
                 <div className="mt-5">
                   <Image
                     src="/images/events/cool-desert-nights/cool-desert-nights-2026.webp"
-                    alt={
-                      isEs
-                        ? "Gráfico oficial del evento Cool Desert Nights 2026"
-                        : "Official Cool Desert Nights 2026 event graphic"
-                    }
+                    alt={t("eventIdentity.imageAlt")}
                     width={1200}
                     height={720}
                     className="h-auto w-full object-contain drop-shadow-[0_14px_34px_rgba(0,0,0,0.55)]"
@@ -451,31 +369,30 @@ export function CoolDesertNightsPageClient() {
                 <div className={`${panelClass} p-6 sm:p-8`}>
                   <div>
                     <h2 className="text-2xl font-black text-brand-secondary">
-                      Digital Booth Map
+                      {t("boothMap.title")}
                     </h2>
                     <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/80">
-                      Site Recon
+                      {t("boothMap.subtitle")}
                     </p>
                   </div>
                   <p className="mt-3 max-w-3xl text-gray-700 dark:text-white/90">
-                    Our booth is staged near the BBQ competition lane for direct
-                    access to event traffic and the fleet showcase.
+                    {t("boothMap.description")}
                   </p>
                   <div className="mt-5 grid gap-3 sm:grid-cols-2">
                     <div className={`${subPanelClass} p-4`}>
                       <p className="text-sm font-semibold text-gray-900 dark:text-white">
-                        Booth ID
+                        {t("boothMap.cards.boothId.title")}
                       </p>
                       <p className="text-gray-700 dark:text-white/85">
-                        Smoke &amp; Shine Sponsor Booth - 10 x 10
+                        {t("boothMap.cards.boothId.value")}
                       </p>
                     </div>
                     <div className={`${subPanelClass} p-4`}>
                       <p className="text-sm font-semibold text-gray-900 dark:text-white">
-                        Landmark
+                        {t("boothMap.cards.landmark.title")}
                       </p>
                       <p className="text-gray-700 dark:text-white/85">
-                        Adjacent to BBQ competition ingress
+                        {t("boothMap.cards.landmark.value")}
                       </p>
                     </div>
                   </div>
@@ -489,21 +406,15 @@ export function CoolDesertNightsPageClient() {
             >
               <div className={`${panelClass} p-6`}>
                 <h2 className="text-2xl font-black text-brand-secondary">
-                  Event Timeline
+                  {t("timeline.title")}
                 </h2>
                 <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/85">
-                  Proof | After-Action Timeline
+                  {t("timeline.subtitle")}
                 </p>
                 <div className="mt-3 space-y-2 text-sm text-gray-700 dark:text-white/85">
-                  <p>
-                    Friday Cruise: Classic cars cruise along George Washington
-                    Way.
-                  </p>
-                  <p>Party in the Park: Live music and community activities.</p>
-                  <p>
-                    Saturday Show &#39;n Shine: Vehicle displays, kids&#39;
-                    zone, vendors, and awards ceremony.
-                  </p>
+                  <p>{t("timeline.items.fridayCruise")}</p>
+                  <p>{t("timeline.items.partyInPark")}</p>
+                  <p>{t("timeline.items.saturdayShow")}</p>
                 </div>
               </div>
             </section>
@@ -514,31 +425,28 @@ export function CoolDesertNightsPageClient() {
             >
               <div className={`${panelClass} p-6 sm:p-8`}>
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
-                  Events Coordination
+                  {t("action.kicker")}
                 </p>
                 <p className="text-xs uppercase tracking-[0.14em] text-brand-secondary/80">
-                  Action | Rally Point
+                  {t("action.overline")}
                 </p>
                 <h2 className="mt-2 text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
-                  Connect With the Team Before the Next Event Window
+                  {t("action.title")}
                 </h2>
                 <p className="mt-3 max-w-3xl text-gray-700 dark:text-white/90">
-                  Early online registration for cars, trucks, and motorcycles is
-                  available through the Richland Chamber. Vendor applications
-                  for 2026 are also being accepted through the chamber, and full
-                  listing details are available on Eventbrite.
+                  {t("action.description1")}
                 </p>
                 <p className="mt-3 max-w-3xl text-gray-700 dark:text-white/90">
-                  Start with the{" "}
+                  {t("action.description2Prefix")}{" "}
                   <Link
                     href={chamberScheduleUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={inlineLinkClass}
                   >
-                    Richland Chamber of Commerce event page
+                    {t("action.description2Link")}
                   </Link>{" "}
-                  and view Eventbrite details below.
+                  {t("action.description2Suffix")}
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <Link href="/contact">
@@ -552,7 +460,7 @@ export function CoolDesertNightsPageClient() {
                         size="md"
                         className="mr-2"
                       />
-                      Coordinate With MH
+                      {t("action.cta.coordinate")}
                     </Button>
                   </Link>
                   <Link href="/allies">
@@ -566,7 +474,7 @@ export function CoolDesertNightsPageClient() {
                         size="md"
                         className="mr-2"
                       />
-                      Partner Pathways
+                      {t("action.cta.pathways")}
                     </Button>
                   </Link>
                   <Link
@@ -584,7 +492,7 @@ export function CoolDesertNightsPageClient() {
                         size="md"
                         className="mr-2"
                       />
-                      View Eventbrite Details
+                      {t("action.cta.eventbrite")}
                     </Button>
                   </Link>
                 </div>

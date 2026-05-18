@@ -3,7 +3,7 @@
 import { useEffect, useState, type CSSProperties } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { usePageTracking } from "@/lib/analytics/hooks";
-import { useLocale } from "@/hooks/useLocale";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Button, AlternatingShowcase } from "@/components/ui";
@@ -24,16 +24,9 @@ import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
-import { getEmployeeTestimonials } from "@/lib/data/testimonials";
-import {
-  companyBenefits,
-  veteranBenefits,
-  cultureValues,
-} from "@/lib/data/careers";
+import type { Testimonial } from "@/lib/data/testimonials";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { AccreditationsLogoRow } from "@/components/shared-sections";
-import { StructuredData } from "@/components/seo/SeoMeta";
-import { getCareersSEO } from "@/lib/seo/page-seo-utils";
 import { SimpleSkeleton } from "@/components/ui/SimpleSkeleton";
 import {
   generateBreadcrumbSchema,
@@ -77,80 +70,10 @@ const getCultureIconBg = (color: string) => {
 export default function CareersPageClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const locale = useLocale();
-  const isEs = locale === "es";
-  const copy = isEs
-    ? {
-        readyToJoinHeading: "¿Listo para unirte a nuestro equipo?",
-        readyToJoinDescription:
-          "Comience con lo esencial. Comparta su información de contacto, cuéntenos dónde puede contribuir y adjunte un currículum si tiene uno listo. Si hay compatibilidad, nos comunicaremos directamente.",
-        startApplication: "Iniciar solicitud",
-        callButton: "Llamar (509) 308-6489",
-        veteransPriority: "Los veteranos reciben consideración prioritaria",
-        enoughToBegin: "Nombre, correo y rol son suficientes para comenzar.",
-        journeyPrefix: "Tu viaje para",
-        journeyHighlight: "unirte a nuestro equipo",
-        journeyLead:
-          "Pasos claros. Comunicación directa. Respeto por tu tiempo.",
-        journeyDescription:
-          "Nuestro proceso comienza con una solicitud breve y avanza solo cuando hay una verdadera compatibilidad. Mantenemos el proceso enfocado y te informamos qué sigue.",
-        journeyGoal:
-          "El objetivo es una buena relación de trabajo, no pasos innecesarios.",
-        noRolePrefix: "¿No ve el",
-        noRoleHighlight: "Rol perfecto?",
-        noRoleIntro:
-          "El rol correcto podría no estar publicado aún, pero la relación correcta puede comenzar ahora. Si trae",
-        noRoleValues:
-          "los valores correctos, ética de trabajo y mentalidad de oficio",
-        noRoleMiddle:
-          "queremos escucharte. Siempre estamos abiertos a candidatos fuertes que compartan nuestros estándares de",
-        noRoleStandards: "honestidad, profesionalismo y trabajo minucioso",
-        noRoleOutro: "Cuéntanos dónde puedes contribuir.",
-        submitApplication: "Enviar solicitud",
-        contactHr: "Contactar a RRHH",
-        hrHotline: "Línea de RRHH:",
-        careersQuestions: "¿Preguntas sobre carreras?",
-        careersSupport:
-          "Contacta a nuestro equipo para obtener información sobre empleos, beneficios, proceso de contratación y oportunidades de crecimiento",
-      }
-    : {
-        readyToJoinHeading: "Ready to Join Our Team?",
-        readyToJoinDescription:
-          "Start with the essentials. Share your contact information, tell us where you can contribute, and attach a resume if you have one ready. If there is a fit, we will follow up directly.",
-        startApplication: "Start Application",
-        callButton: "Call (509) 308-6489",
-        veteransPriority: "Veterans receive priority consideration",
-        enoughToBegin: "Name, email, and role are enough to begin.",
-        journeyPrefix: "Your Journey to",
-        journeyHighlight: "Join Our Team",
-        journeyLead:
-          "Clear steps. Direct communication. Respect for your time.",
-        journeyDescription:
-          "Our process starts with a short application and moves forward only when there is a real fit. We keep the process focused and let you know what comes next.",
-        journeyGoal:
-          "The goal is a good working relationship, not unnecessary steps.",
-        noRolePrefix: "Don't See the",
-        noRoleHighlight: "Perfect Role?",
-        noRoleIntro:
-          "The right role might not be posted yet, but the right relationship can still begin now. If you bring",
-        noRoleValues: "the right values, work ethic, and craft mindset",
-        noRoleMiddle:
-          "we want to hear from you. We are always open to strong candidates who share our standards for",
-        noRoleStandards: "honesty, professionalism, and thorough work",
-        noRoleOutro: "Tell us where you can contribute.",
-        submitApplication: "Submit Application",
-        contactHr: "Contact HR",
-        hrHotline: "HR Hotline:",
-        careersQuestions: "Questions About Careers?",
-        careersSupport:
-          "Contact our team for information about jobs, benefits, hiring process, and growth opportunities",
-      };
+  const t = useTranslations("careersPage");
 
   // Analytics tracking
   usePageTracking("Careers");
-
-  // Get enhanced SEO data for Careers page
-  const careersSEO = getCareersSEO();
 
   // ALL HOOKS MUST BE CALLED BEFORE ANY CONDITIONAL RETURNS
   const [showApplicationModal, setShowApplicationModal] = useState(false);
@@ -192,14 +115,48 @@ export default function CareersPageClient() {
     }
   };
 
+  const companyBenefits = t.raw("data.companyBenefits") as Array<{
+    icon: string;
+    title: string;
+    description: string;
+  }>;
+
+  const veteranBenefits = t.raw("data.veteranBenefits") as Array<{
+    icon: string;
+    title: string;
+    description: string;
+  }>;
+
+  const cultureValues = t.raw("data.cultureValues") as Array<{
+    icon: string;
+    title: string;
+    description: string;
+    color: string;
+  }>;
+
+  const employeeTestimonials = (
+    t.raw("data.employeeTestimonials") as Array<{
+      id: string;
+      name: string;
+      title: string;
+      role: string;
+      quote: string;
+      rating: number;
+      featured?: boolean;
+      date?: string;
+      veteranStatus?: boolean;
+    }>
+  ).map(
+    (testimonial) =>
+      ({
+        ...testimonial,
+        type: "employee",
+      }) as Testimonial,
+  );
+
   return (
     <>
       {/* SEO Meta Tags */}
-
-      {/* Structured Data */}
-      {careersSEO.schemas && careersSEO.schemas.length > 0 && (
-        <StructuredData data={careersSEO.schemas} />
-      )}
 
       {/* Breadcrumb Schema */}
       <script
@@ -232,27 +189,29 @@ export default function CareersPageClient() {
                   icon="work"
                   size="4xl"
                   className="text-white drop-shadow-lg"
-                  ariaLabel="Occupation Specialties - Career opportunities"
+                  ariaLabel={t("hero.iconAria")}
                 />
               </div>
             </div>
             <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                Enlist → Careers
+                {t("hero.kicker")}
               </span>
               <span className="block text-brand-secondary">
-                Occupation Specialties
+                {t("hero.titleLine1")}
               </span>
               <span className="block text-brand-primary">
-                Build Your Future with Our Veteran-Owned Team Since January 2025
+                {t("hero.titleLine2")}
               </span>
               <span className="block text-white/90">
-                Building projects for the Client,{" "}
-                <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the Dollar
+                {t("hero.titleLine3Prefix")}{" "}
+                <span className="font-black italic text-bronze-300">
+                  {t("hero.titleLine3Not")}
+                </span>{" "}
+                {t("hero.titleLine3Suffix")}
               </span>
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl mt-2">
-                THE ROI IS THE RELATIONSHIP
+                {t("hero.titleLine4")}
               </span>
             </h1>
           </div>
@@ -267,8 +226,8 @@ export default function CareersPageClient() {
         {/* Breadcrumb Navigation */}
         <Breadcrumb
           items={[
-            { label: "Home", href: "/" },
-            { label: "Occupation Specialties" },
+            { label: t("breadcrumb.home"), href: "/" },
+            { label: t("breadcrumb.current") },
           ]}
         />
 
@@ -296,26 +255,24 @@ export default function CareersPageClient() {
               {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Why Choose
+                  {t("whyChoose.headingPrefix")}
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  MH Construction
+                  {t("whyChoose.headingTitle")}
                 </span>
               </h2>
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                This is not a generic hiring funnel. It is a{" "}
+                {t("whyChoose.description.prefix")}{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  direct path into a Veteran-Owned team.
+                  {t("whyChoose.description.highlight1")}
                 </span>{" "}
-                We invest in people who value honest communication,
-                professionalism, and steady growth through{" "}
+                {t("whyChoose.description.middle")}{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  meaningful work, mentorship, and long-term relationships.
+                  {t("whyChoose.description.highlight2")}
                 </span>{" "}
-                Every team member should know what is expected, who they can
-                learn from, and how they can keep improving.
+                {t("whyChoose.description.suffix")}
               </p>
 
               {/* Core Philosophy Callout */}
@@ -324,11 +281,10 @@ export default function CareersPageClient() {
                   <div className="absolute -inset-1 bg-linear-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-75 group-hover:opacity-100 transition duration-500"></div>
                   <div className="relative bg-white dark:bg-gray-800 px-8 py-6 rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-xl">
                     <p className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
-                      "THE ROI IS THE RELATIONSHIP"
+                      {t("whyChoose.callout.quote")}
                     </p>
                     <p className="text-brand-secondary-text dark:text-brand-secondary-light text-sm sm:text-base font-semibold text-center mt-2">
-                      Where partnerships outlast projects and your growth is our
-                      success
+                      {t("whyChoose.callout.subtitle")}
                     </p>
                   </div>
                 </div>
@@ -342,7 +298,7 @@ export default function CareersPageClient() {
                   150+
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                  Years Combined Experience
+                  {t("whyChoose.stats.experience")}
                 </div>
               </div>
               <div className="group text-center p-6 bg-linear-to-br from-brand-secondary/5 to-bronze-700/10 dark:from-brand-secondary/10 dark:to-bronze-700/20 rounded-xl border border-brand-secondary/20 hover:border-brand-secondary transition-all duration-300 hover:scale-105">
@@ -350,7 +306,7 @@ export default function CareersPageClient() {
                   .64
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                  EMR Safety Rating
+                  {t("whyChoose.stats.safety")}
                 </div>
               </div>
               <div className="group text-center p-6 bg-linear-to-br from-bronze-700/5 to-bronze-800/10 dark:from-bronze-700/10 dark:to-bronze-800/20 rounded-xl border border-bronze-700/20 hover:border-bronze-700 transition-all duration-300 hover:scale-105">
@@ -358,7 +314,7 @@ export default function CareersPageClient() {
                   100%
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                  Mentorship Program
+                  {t("whyChoose.stats.mentorship")}
                 </div>
               </div>
               <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-secondary/10 dark:from-brand-primary/10 dark:to-brand-secondary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
@@ -366,7 +322,7 @@ export default function CareersPageClient() {
                   70%
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                  Referral Business
+                  {t("whyChoose.stats.referral")}
                 </div>
               </div>
             </div>
@@ -377,27 +333,27 @@ export default function CareersPageClient() {
                 id: `culture-${index + 1}`,
                 title: value.title,
                 icon: value.icon,
-                tagline: `Core Value ${index + 1}`,
+                tagline: t("whyChoose.coreValueTagline", {
+                  index: index + 1,
+                }),
                 description: value.description,
                 image: `/images/culture/culture-${index + 1}.jpg`,
                 iconBg: getCultureIconBg(value.color),
               }))}
-              title="MH Construction"
-              subtitle="Why Choose"
+              title={t("whyChoose.showcase.title")}
+              subtitle={t("whyChoose.showcase.subtitle")}
               icon="star"
               description={
                 <>
-                  This is not a generic hiring funnel. It is a{" "}
+                  {t("whyChoose.description.prefix")}{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    direct path into a Veteran-Owned team.
+                    {t("whyChoose.description.highlight1")}
                   </span>{" "}
-                  We invest in people who value honest communication,
-                  professionalism, and steady growth through{" "}
+                  {t("whyChoose.description.middle")}{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    meaningful work, mentorship, and long-term relationships.
+                    {t("whyChoose.description.highlight2")}
                   </span>{" "}
-                  Every team member should know what is expected, who they can
-                  learn from, and how they can keep improving.
+                  {t("whyChoose.description.suffix")}
                 </>
               }
               sectionId="why-work-here"
@@ -430,30 +386,23 @@ export default function CareersPageClient() {
               {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Employee Benefits
+                  {t("benefits.headingPrefix")}
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  & Perks
+                  {t("benefits.headingTitle")}
                 </span>
               </h2>
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  Build your future with a Veteran-Owned team that values
-                  loyalty.
+                  {t("benefits.description.highlight1")}
                 </span>{" "}
-                Your well-being and success matter here—we offer competitive pay
-                plus comprehensive benefits because we know you're building a
-                life, not just a career. From health coverage to{" "}
+                {t("benefits.description.middle")}{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  professional development, retirement planning to performance
-                  bonuses
+                  {t("benefits.description.highlight2")}
                 </span>
-                <span>
-                  {" "}
-                  we invest in your total success as part of our mission.
-                </span>
+                <span> {t("benefits.description.suffix")}</span>
               </p>
             </div>
 
@@ -532,28 +481,28 @@ export default function CareersPageClient() {
               {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Hear From Our
+                  {t("testimonials.headingPrefix")}
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Team Members
+                  {t("testimonials.headingTitle")}
                 </span>
               </h2>
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                Don't just take our word for it—hear directly from{" "}
+                {t("testimonials.description.prefix")}{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  the people who work here every day.
+                  {t("testimonials.description.highlight1")}
                 </span>{" "}
-                Real stories from real team members about{" "}
+                {t("testimonials.description.middle")}{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  career growth, workplace culture, and leadership support.
+                  {t("testimonials.description.highlight2")}
                 </span>{" "}
-                These aren't scripted testimonials—they're authentic voices.
+                {t("testimonials.description.suffix")}
               </p>
             </div>
 
-            <TestimonialGrid testimonials={getEmployeeTestimonials()} />
+            <TestimonialGrid testimonials={employeeTestimonials} />
           </div>
         </section>
 
@@ -582,25 +531,23 @@ export default function CareersPageClient() {
                 {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Supporting Our
+                    {t("veterans.headingPrefix")}
                   </span>
                   <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Veterans
+                    {t("veterans.headingTitle")}
                   </span>
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    Veteran-Owned Since January 2025, Veteran-led, Veteran-proud
+                    {t("veterans.description.highlight1")}
                   </span>
-                  . Your military experience translates directly to construction
-                  excellence: discipline becomes precision, teamwork becomes
-                  partnership. We don't just hire veterans—we{" "}
+                  . {t("veterans.description.middle")}{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    celebrate your service, honor your skills, and build careers
+                    {t("veterans.description.highlight2")}
                   </span>{" "}
-                  that match your dedication.
+                  {t("veterans.description.suffix")}
                 </p>
 
                 {/* Veteran Pride Callout */}
@@ -614,7 +561,7 @@ export default function CareersPageClient() {
                           size="lg"
                           className="text-brand-primary"
                         />
-                        WELCOME HOME, BROTHER. WELCOME HOME, SISTER.
+                        {t("veterans.callout")}
                         <MaterialIcon
                           icon="military_tech"
                           size="lg"
@@ -635,13 +582,13 @@ export default function CareersPageClient() {
                     className="text-brand-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2">
-                    Priority
+                    {t("veterans.stats.priority.value")}
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                    Consideration
+                    {t("veterans.stats.priority.label")}
                   </div>
                   <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">
-                    All Positions
+                    {t("veterans.stats.priority.note")}
                   </p>
                 </div>
                 <div className="group text-center p-6 bg-linear-to-br from-brand-secondary/10 to-bronze-700/20 dark:from-brand-secondary/20 dark:to-bronze-700/30 rounded-xl border-2 border-brand-secondary/30 hover:border-brand-secondary transition-all duration-300 hover:scale-105">
@@ -654,10 +601,10 @@ export default function CareersPageClient() {
                     100%
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                    Military-Friendly
+                    {t("veterans.stats.militaryFriendly.label")}
                   </div>
                   <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">
-                    Workplace Culture
+                    {t("veterans.stats.militaryFriendly.note")}
                   </p>
                 </div>
                 <div className="group text-center p-6 bg-linear-to-br from-bronze-700/10 to-bronze-800/20 dark:from-bronze-700/20 dark:to-bronze-800/30 rounded-xl border-2 border-bronze-700/30 hover:border-bronze-700 transition-all duration-300 hover:scale-105">
@@ -667,14 +614,13 @@ export default function CareersPageClient() {
                     className="text-bronze-700 dark:text-bronze-400 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="text-3xl sm:text-4xl font-black text-bronze-700 dark:text-bronze-400 mb-2">
-                    All Branches
+                    {t("veterans.stats.branches.value")}
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                    Welcome Here
+                    {t("veterans.stats.branches.label")}
                   </div>
                   <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">
-                    Army • Navy • Marines • Air Force • Coast Guard • Space
-                    Force
+                    {t("veterans.stats.branches.note")}
                   </p>
                 </div>
               </div>
@@ -738,14 +684,13 @@ export default function CareersPageClient() {
                       className="text-brand-primary mx-auto mb-6"
                     />
                     <h3 className="mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl">
-                      Veterans Receive Priority Consideration
+                      {t("veterans.cta.title")}
                     </h3>
                     <p className="mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto">
-                      Your service matters. Your skills translate. Your
-                      experience is valued.
+                      {t("veterans.cta.descriptionLine1")}
                       <br />
                       <span className="text-brand-primary dark:text-brand-primary-light font-bold">
-                        Start your next mission with us.
+                        {t("veterans.cta.descriptionLine2")}
                       </span>
                     </p>
                     <div className="flex sm:flex-row flex-col justify-center gap-4 sm:gap-6">
@@ -759,12 +704,14 @@ export default function CareersPageClient() {
                           icon="military_tech"
                           size="lg"
                           theme="veteran"
-                          ariaLabel="Veteran Application"
+                          ariaLabel={t("veterans.cta.applyAria")}
                           className="mr-3"
                         />
-                        <span className="font-medium">Apply as Veteran</span>
+                        <span className="font-medium">
+                          {t("veterans.cta.applyButton")}
+                        </span>
                       </Button>
-                      <Link href="/veterans">
+                      <Link href="/veterans" prefetch={false}>
                         <Button
                           variant="outline"
                           size="lg"
@@ -774,11 +721,11 @@ export default function CareersPageClient() {
                             icon="info"
                             size="lg"
                             theme="military"
-                            ariaLabel="Veterans Initiative"
+                            ariaLabel={t("veterans.cta.initiativeAria")}
                             className="mr-3"
                           />
                           <span className="font-medium">
-                            Veterans Initiative
+                            {t("veterans.cta.initiativeButton")}
                           </span>
                         </Button>
                       </Link>
@@ -817,29 +764,24 @@ export default function CareersPageClient() {
               {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Build Your
+                  {t("positions.headingPrefix")}
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Future with MH Construction
+                  {t("positions.headingTitle")}
                 </span>
               </h2>
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                We are always looking for driven individuals who mirror our
-                commitment to our{" "}
+                {t("positions.description.prefix")}{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  4 Core Values: Honesty, Integrity, Professionalism, and
-                  Thoroughness.
+                  {t("positions.description.highlight1")}
                 </span>{" "}
-                Even when we aren't hiring for a specific role, we are always
-                open to inquiries from{" "}
+                {t("positions.description.middle")}{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  skilled professionals who want to contribute to a
-                  high-standard operations environment.
+                  {t("positions.description.highlight2")}
                 </span>{" "}
-                Whether you are a seasoned Project Manager or a dedicated Field
-                Specialist, we want to hear from you.
+                {t("positions.description.suffix")}
               </p>
             </div>
 
@@ -868,12 +810,12 @@ export default function CareersPageClient() {
 
                     {/* Heading */}
                     <h3 className="mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight">
-                      {copy.readyToJoinHeading}
+                      {t("readyToJoin.heading")}
                     </h3>
 
                     {/* Description */}
                     <p className="mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
-                      {copy.readyToJoinDescription}
+                      {t("readyToJoin.description")}
                     </p>
 
                     {/* CTA Buttons */}
@@ -886,10 +828,10 @@ export default function CareersPageClient() {
                       >
                         <MaterialIcon icon="send" size="lg" className="mr-3" />
                         <span className="font-medium">
-                          {copy.startApplication}
+                          {t("readyToJoin.startApplication")}
                         </span>
                       </Button>
-                      <Link href="/contact">
+                      <Link href="/contact" prefetch={false}>
                         <Button
                           variant="outline"
                           size="lg"
@@ -900,7 +842,11 @@ export default function CareersPageClient() {
                             size="lg"
                             className="mr-3"
                           />
-                          <span className="font-medium">{copy.callButton}</span>
+                          <span className="font-medium">
+                            {t("readyToJoin.callButton", {
+                              phone: COMPANY_INFO.phone.display,
+                            })}
+                          </span>
                         </Button>
                       </Link>
                     </div>
@@ -908,9 +854,9 @@ export default function CareersPageClient() {
                     {/* Supporting Text */}
                     <p className="mt-8 text-sm text-gray-600 dark:text-gray-400 font-medium">
                       <span className="text-brand-primary dark:text-brand-primary-light font-bold">
-                        {copy.veteransPriority}
+                        {t("readyToJoin.veteransPriority")}
                       </span>
-                      . {copy.enoughToBegin}
+                      . {t("readyToJoin.enoughToBegin")}
                     </p>
                   </div>
                 </div>
@@ -947,21 +893,21 @@ export default function CareersPageClient() {
                 {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    {copy.journeyPrefix}
+                    {t("journey.prefix")}
                   </span>
                   <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    {copy.journeyHighlight}
+                    {t("journey.highlight")}
                   </span>
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    {copy.journeyLead}
+                    {t("journey.lead")}
                   </span>
-                  <span> {copy.journeyDescription} </span>
+                  <span> {t("journey.description")} </span>
                   <span className="font-bold text-gray-900 dark:text-white">
-                    {copy.journeyGoal}
+                    {t("journey.goal")}
                   </span>
                 </p>
               </div>
@@ -975,38 +921,33 @@ export default function CareersPageClient() {
                 <div className="space-y-12 lg:space-y-20">
                   {[
                     {
+                      key: "submit",
                       num: 1,
                       icon: "description",
-                      title: "Submit Application",
-                      desc: "Start with the essentials: your name, email, and the role or trade you want to discuss. Add a resume or background if it helps.",
                       position: "left",
                     },
                     {
+                      key: "review",
                       num: 2,
                       icon: "fact_check",
-                      title: "Team Review",
-                      desc: "We review your application against current project needs, open roles, and the standards we expect across the company.",
                       position: "right",
                     },
                     {
+                      key: "conversation",
                       num: 3,
                       icon: "forum",
-                      title: "Direct Conversation",
-                      desc: "If there is a fit, we reach out directly to talk through your background, the work ahead, and what both sides need from the role.",
                       position: "left",
                     },
                     {
+                      key: "interview",
                       num: 4,
                       icon: "verified_user",
-                      title: "Interview and Verification",
-                      desc: "For strong matches, we schedule an interview and verify the details needed for the position, including references, certifications, or site requirements.",
                       position: "right",
                     },
                     {
+                      key: "offer",
                       num: 5,
                       icon: "celebration",
-                      title: "Offer & Onboarding",
-                      desc: "When both sides are aligned, we move into an offer, paperwork, safety expectations, and a clear onboarding plan.",
                       position: "left",
                     },
                   ].map((step, index) => (
@@ -1025,7 +966,9 @@ export default function CareersPageClient() {
                                 <div className="flex items-center justify-end gap-4 mb-4">
                                   <div>
                                     <h3 className="font-black text-gray-900 dark:text-white text-2xl mb-1">
-                                      {step.title}
+                                      {t(
+                                        `journey.timeline.steps.${step.key}.title`,
+                                      )}
                                     </h3>
                                   </div>
                                   <div className="shrink-0 w-16 h-16 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
@@ -1037,7 +980,9 @@ export default function CareersPageClient() {
                                   </div>
                                 </div>
                                 <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
-                                  {step.desc}
+                                  {t(
+                                    `journey.timeline.steps.${step.key}.description`,
+                                  )}
                                 </p>
                               </div>
                             </div>
@@ -1076,12 +1021,16 @@ export default function CareersPageClient() {
                                   </div>
                                   <div>
                                     <h3 className="font-black text-gray-900 dark:text-white text-2xl mb-1">
-                                      {step.title}
+                                      {t(
+                                        `journey.timeline.steps.${step.key}.title`,
+                                      )}
                                     </h3>
                                   </div>
                                 </div>
                                 <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
-                                  {step.desc}
+                                  {t(
+                                    `journey.timeline.steps.${step.key}.description`,
+                                  )}
                                 </p>
                               </div>
                             </div>
@@ -1125,11 +1074,13 @@ export default function CareersPageClient() {
                                 />
                               </div>
                               <h3 className="font-black text-gray-900 dark:text-white text-xl">
-                                {step.title}
+                                {t(`journey.timeline.steps.${step.key}.title`)}
                               </h3>
                             </div>
                             <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                              {step.desc}
+                              {t(
+                                `journey.timeline.steps.${step.key}.description`,
+                              )}
                             </p>
                           </div>
                         </div>
@@ -1143,7 +1094,7 @@ export default function CareersPageClient() {
               <div className="scroll-reveal">
                 <div className="mt-16">
                   <h3 className="mb-8 font-black text-center text-gray-900 dark:text-white text-2xl sm:text-3xl">
-                    What to Expect Timeline
+                    {t("journey.details.title")}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                     {/* Fast-Track Card */}
@@ -1163,13 +1114,12 @@ export default function CareersPageClient() {
                             </div>
                           </div>
                           <h4 className="mb-3 font-black text-gray-900 dark:text-white text-xl">
-                            Quick Start When Needed
+                            {t("journey.details.fastTrack.title")}
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-                            When project timing and role alignment are clear,
-                            strong candidates may move through the process in{" "}
+                            {t("journey.details.fastTrack.prefix")}{" "}
                             <span className="font-bold text-brand-primary">
-                              fewer steps
+                              {t("journey.details.fastTrack.highlight")}
                             </span>
                           </p>
                         </div>
@@ -1193,15 +1143,14 @@ export default function CareersPageClient() {
                             </div>
                           </div>
                           <h4 className="mb-3 font-black text-gray-900 dark:text-white text-xl">
-                            Typical Review Pace
+                            {t("journey.details.typical.title")}
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-                            Timing depends on hiring needs, project load, and
-                            role fit, but the process stays{" "}
+                            {t("journey.details.typical.prefix")}{" "}
                             <span className="font-bold text-brand-secondary-text dark:text-brand-secondary-light">
-                              direct and transparent
+                              {t("journey.details.typical.highlight")}
                             </span>{" "}
-                            from first contact forward
+                            {t("journey.details.typical.suffix")}
                           </p>
                         </div>
                       </div>
@@ -1224,13 +1173,12 @@ export default function CareersPageClient() {
                             </div>
                           </div>
                           <h4 className="mb-3 font-black text-gray-900 dark:text-white text-xl">
-                            Always Transparent
+                            {t("journey.details.transparent.title")}
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-                            We do not add steps for appearance. We keep
-                            communication clear and stay available for your{" "}
+                            {t("journey.details.transparent.prefix")}{" "}
                             <span className="font-bold text-bronze-700 dark:text-bronze-400">
-                              questions
+                              {t("journey.details.transparent.highlight")}
                             </span>
                           </p>
                         </div>
@@ -1243,11 +1191,10 @@ export default function CareersPageClient() {
               {/* CTA Section */}
               <div className="mt-12 text-center">
                 <p className="mb-6 font-medium text-gray-700 text-xl dark:text-gray-300">
-                  Ready to start a direct conversation with MH Construction?
+                  {t("journey.cta.title")}
                 </p>
                 <p className="mb-6 font-semibold text-brand-secondary-text text-lg dark:text-brand-secondary-light">
-                  THE ROI IS THE RELATIONSHIP — Build your career on a
-                  foundation of trust
+                  {t("journey.cta.subtitle")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <Button
@@ -1259,10 +1206,10 @@ export default function CareersPageClient() {
                       icon="send"
                       size="md"
                       theme="military"
-                      ariaLabel="Send Inquiry"
+                      ariaLabel={t("journey.cta.sendAria")}
                       className="mr-2"
                     />
-                    Start Application
+                    {t("journey.cta.startApplication")}
                   </Button>
                   <Button
                     onClick={() => {
@@ -1275,10 +1222,10 @@ export default function CareersPageClient() {
                       icon="mark_email_read"
                       size="md"
                       theme="military"
-                      ariaLabel="Email Resume"
+                      ariaLabel={t("journey.cta.emailAria")}
                       className="mr-2"
                     />
-                    Email Your Resume
+                    {t("journey.cta.emailResume")}
                   </Button>
                 </div>
               </div>
@@ -1314,24 +1261,24 @@ export default function CareersPageClient() {
                 {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    {copy.noRolePrefix}
+                    {t("noRole.prefix")}
                   </span>
                   <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    {copy.noRoleHighlight}
+                    {t("noRole.highlight")}
                   </span>
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  {copy.noRoleIntro}{" "}
+                  {t("noRole.intro")}{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    {copy.noRoleValues}
+                    {t("noRole.values")}
                   </span>
-                  , {copy.noRoleMiddle}{" "}
+                  , {t("noRole.middle")}{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    {copy.noRoleStandards}
+                    {t("noRole.standards")}
                   </span>
-                  . {copy.noRoleOutro}
+                  . {t("noRole.outro")}
                 </p>
               </div>
 
@@ -1347,12 +1294,14 @@ export default function CareersPageClient() {
                     icon="description"
                     size="lg"
                     theme="military"
-                    ariaLabel="Submit Application"
+                    ariaLabel={t("noRole.submitAria")}
                     className="mr-3"
                   />
-                  <span className="font-medium">{copy.submitApplication}</span>
+                  <span className="font-medium">
+                    {t("noRole.submitApplication")}
+                  </span>
                 </Button>
-                <Link href="/contact">
+                <Link href="/contact" prefetch={false}>
                   <Button
                     variant="outline"
                     size="lg"
@@ -1362,10 +1311,10 @@ export default function CareersPageClient() {
                       icon="campaign"
                       size="lg"
                       theme="military"
-                      ariaLabel="Contact HR"
+                      ariaLabel={t("noRole.contactAria")}
                       className="mr-3"
                     />
-                    <span className="font-medium">{copy.contactHr}</span>
+                    <span className="font-medium">{t("noRole.contactHr")}</span>
                   </Button>
                 </Link>
               </div>
@@ -1374,10 +1323,10 @@ export default function CareersPageClient() {
                   icon="call"
                   size="sm"
                   theme="military"
-                  ariaLabel="HR Phone"
+                  ariaLabel={t("noRole.phoneAria")}
                   className="inline mr-2"
                 />
-                {copy.hrHotline} {COMPANY_INFO.phone.display} |{" "}
+                {t("noRole.hrHotline")} {COMPANY_INFO.phone.display} |{" "}
                 <a
                   href={`mailto:${COMPANY_INFO.email.main}`}
                   className="font-semibold text-brand-primary hover:text-brand-secondary underline"
@@ -1393,16 +1342,16 @@ export default function CareersPageClient() {
         <section className="relative bg-linear-to-r from-brand-primary to-brand-primary-dark py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
             <h2 className="mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter drop-shadow-lg">
-              {copy.careersQuestions}
+              {t("contactCta.questions")}
             </h2>
             <p className="mx-auto max-w-3xl font-light text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8">
-              {copy.careersSupport}
+              {t("contactCta.support")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="secondary" size="lg" asChild>
-                <Link href="/contact">
+                <Link href="/contact" prefetch={false}>
                   <MaterialIcon icon="email" className="mr-2" />
-                  {copy.contactHr}
+                  {t("noRole.contactHr")}
                 </Link>
               </Button>
               <Button
@@ -1413,7 +1362,7 @@ export default function CareersPageClient() {
               >
                 <a href={`tel:${COMPANY_INFO.phone.tel}`}>
                   <MaterialIcon icon="call" className="mr-2" />
-                  Call {COMPANY_INFO.phone.display}
+                  {t("contactCta.call", { phone: COMPANY_INFO.phone.display })}
                 </a>
               </Button>
             </div>
@@ -1425,14 +1374,13 @@ export default function CareersPageClient() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <div className="scroll-reveal">
               <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
-                Join an Accredited Team
+                {t("accreditations.kicker")}
               </p>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                Work for a Trusted, Award-Winning Contractor
+                {t("accreditations.title")}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-8">
-                Our reputation for quality, safety, and integrity makes MH
-                Construction a great place to build your career
+                {t("accreditations.description")}
               </p>
               <AccreditationsLogoRow showChambers={false}>
                 {/* Safety Award Badge */}
@@ -1441,10 +1389,10 @@ export default function CareersPageClient() {
                     icon="workspace_premium"
                     size="lg"
                     className="text-brand-secondary dark:text-brand-secondary-light"
-                    ariaLabel="Safety First"
+                    ariaLabel={t("accreditations.badgeAria")}
                   />
                   <span className="font-semibold text-gray-900 dark:text-white text-sm">
-                    Award-Winning Safety
+                    {t("accreditations.badgeText")}
                   </span>
                 </div>
               </AccreditationsLogoRow>
@@ -1461,12 +1409,9 @@ export default function CareersPageClient() {
                 className="mb-3 text-4xl text-yellow-300"
               />
               <h2 className="mb-2 text-2xl font-bold">
-                Get Notified About New Openings
+                {t("pwaAlerts.title")}
               </h2>
-              <p className="mb-6 text-white/80">
-                Enable job-alert notifications in the app and be the first to
-                hear when a new driving or operations role is posted.
-              </p>
+              <p className="mb-6 text-white/80">{t("pwaAlerts.description")}</p>
               <button
                 type="button"
                 onClick={() => {
@@ -1480,7 +1425,7 @@ export default function CareersPageClient() {
                 className="inline-flex items-center gap-2 rounded-full bg-yellow-400 px-8 py-3 font-semibold text-brand-navy shadow-lg transition hover:bg-yellow-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-200"
               >
                 <MaterialIcon icon="notifications" className="text-xl" />
-                Enable Job Alerts
+                {t("pwaAlerts.button")}
               </button>
             </div>
           </section>

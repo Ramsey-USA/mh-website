@@ -391,9 +391,9 @@ Your analytics dashboard uses **mission-ready language** familiar to veterans:
 
 ## 🔒 Security & Privacy
 
-- Client-side events are batched and sent to the server via `navigator.sendBeacon`
-- Server-side data is aggregated in **Cloudflare KV** (cross-visitor metrics)
-- Local browser data is also retained for instant client feedback
+- Client-side events are sent to Google Analytics (`gtag`) when GA is configured
+- Dashboard reporting remains available through admin analytics endpoints
+- No custom local analytics cache is required
 - No personal data sent to external services
 - Geographic data from Cloudflare (server-level)
 - No cookies required
@@ -402,15 +402,13 @@ Your analytics dashboard uses **mission-ready language** familiar to veterans:
 ### How Data Flows
 
 ```text
-Visitor's Browser  →  POST /api/analytics/collect  →  Cloudflare KV (server-side)
-       ↓                                                        ↓
-  localStorage (local)                               Dashboard reads from KV
-                                                  (cross-visitor aggregated data)
+Visitor's Browser  →  Google Analytics (`gtag`)  →  GA property reporting
+     ↓
+Admin Dashboard endpoints continue serving internal operational analytics views
 ```
 
-**What changed (March 2026):** Previously the dashboard only showed data from the admin's own
-browser (localStorage). Now, all visitor events are sent to the server and aggregated in
-Cloudflare KV, so the dashboard shows data from **all visitors** across all devices.
+**Current state:** Internal website analytics collection endpoints were removed in favor of
+Google Analytics event collection.
 
 ---
 
@@ -426,8 +424,8 @@ Cloudflare KV, so the dashboard shows data from **all visitors** across all devi
 ✅ **Device Intelligence:** Complete
 ✅ **Traffic Sources:** UTM & referrer
 ✅ **Dashboard:** Military-themed, MH branding
-✅ **Server-Side Pipeline:** Cloudflare KV aggregation (cross-visitor data)
-✅ **Beacon System:** Client batching + `sendBeacon` delivery
+✅ **Google Analytics Pipeline:** Client-side `gtag` event delivery
+✅ **Admin Dashboard:** Internal analytics routes remain available for operations visibility
 
 ---
 

@@ -164,9 +164,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 - Google Analytics: <https://analytics.google.com>
 - Admin → Data Streams → Measurement ID
 
-> **Note:** This project primarily uses a custom analytics pipeline
-> (localStorage client-side + Cloudflare KV server-side). Google Analytics
-> is optional and only needed if dual-tracking is desired.
+> **Note:** This project uses Google Analytics (`gtag.js`) for analytics events.
 
 ---
 

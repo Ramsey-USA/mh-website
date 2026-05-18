@@ -4,25 +4,21 @@
 
 import { fireEvent, render, screen } from "@testing-library/react";
 
-const sendBeaconMock = jest.fn().mockReturnValue(true);
-const fetchMock = jest.fn().mockResolvedValue({ ok: true });
+const gtagMock = jest.fn();
 
-Object.defineProperty(window.navigator, "sendBeacon", {
+Object.defineProperty(window, "gtag", {
   configurable: true,
-  value: sendBeaconMock,
+  value: gtagMock,
 });
-
-global.fetch = fetchMock as typeof fetch;
 
 import { TrackedBridgeButton, TrackedBridgeLink } from "../TrackedBridgeLinks";
 
 beforeEach(() => {
-  sendBeaconMock.mockClear();
-  fetchMock.mockClear();
+  gtagMock.mockClear();
 });
 
 describe("TrackedBridgeLink", () => {
-  it("sends a click beacon with the track id", () => {
+  it("sends a click event with the track id", () => {
     render(
       <TrackedBridgeLink href="/public-sector" trackId="bridge-public-sector">
         Public Sector
@@ -31,10 +27,11 @@ describe("TrackedBridgeLink", () => {
 
     fireEvent.click(screen.getByRole("link"));
 
-    expect(sendBeaconMock).toHaveBeenCalledWith(
-      "/api/analytics/collect",
-      expect.any(Blob),
-    );
+    expect(gtagMock).toHaveBeenCalledWith("event", "click", {
+      element: "bridge-public-sector",
+      page_path: "/",
+      event_category: "navigation",
+    });
   });
 });
 
@@ -52,6 +49,10 @@ describe("TrackedBridgeButton", () => {
 
     fireEvent.click(screen.getByRole("link", { name: "Contact" }));
 
-    expect(sendBeaconMock).toHaveBeenCalledTimes(1);
+    expect(gtagMock).toHaveBeenCalledWith("event", "click", {
+      element: "bridge-contact",
+      page_path: "/",
+      event_category: "navigation",
+    });
   });
 });

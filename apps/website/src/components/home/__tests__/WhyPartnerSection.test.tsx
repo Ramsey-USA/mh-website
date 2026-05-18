@@ -21,8 +21,8 @@ describe("WhyPartnerSection", () => {
   it("renders the core philosophy callout", () => {
     render(<WhyPartnerSection />);
     expect(
-      screen.getByText(/Building projects for the client/i),
-    ).toBeInTheDocument();
+      screen.getAllByText(/Your word is your bond/i).length,
+    ).toBeGreaterThan(0);
   });
 
   it("renders the EMR safety card", () => {

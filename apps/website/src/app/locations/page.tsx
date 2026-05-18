@@ -8,7 +8,7 @@ import { StructuredData } from "@/components/seo/SeoMeta";
 import { Button } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { locations } from "@/lib/data/locations";
-import { getServerLocale } from "@/lib/i18n/locale.server";
+import { getTranslations } from "next-intl/server";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
@@ -65,8 +65,7 @@ const locationsSchema = {
 };
 
 export default async function LocationsPage() {
-  const locale = await getServerLocale();
-  const isEs = locale === "es";
+  const t = await getTranslations();
 
   return (
     <>
@@ -79,25 +78,21 @@ export default async function LocationsPage() {
           <div className="mx-auto max-w-6xl">
             <Breadcrumbs
               items={[
-                { label: isEs ? "Inicio" : "Home", href: "/" },
-                { label: isEs ? "Ubicaciones" : "Locations" },
+                { label: t("locations.breadcrumb.home"), href: "/" },
+                { label: t("locations.breadcrumb.current") },
               ]}
               className="mb-6 bg-transparent text-white/70 [&_nav]:border-0 [&_nav]:bg-transparent [&_nav]:py-0 [&_span[aria-current='page']]:text-white [&_a]:text-white/70 [&_a:hover]:text-white"
             />
 
             <div className="max-w-3xl">
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
-                {isEs ? "Centro de Cobertura" : "Service Area Hub"}
+                {t("locations.hero.kicker")}
               </p>
               <h1 className="text-3xl font-black tracking-tight sm:text-5xl">
-                {isEs
-                  ? "Cobertura regional diseñada para decisiones locales"
-                  : "Regional coverage built for local decisions"}
+                {t("locations.hero.title")}
               </h1>
               <p className="mt-5 text-lg leading-8 text-white/85">
-                {isEs
-                  ? "Revisa los mercados que atiende MH Construction en Washington, Oregón e Idaho. Elige una ciudad, confirma evidencia local y avanza con un alcance que se ajuste al mercado."
-                  : "Review the markets MH Construction serves across Washington, Oregon, and Idaho. Pick a city, confirm the local proof, and move forward with scope that matches the market."}
+                {t("locations.hero.description")}
               </p>
             </div>
           </div>
@@ -156,7 +151,7 @@ export default async function LocationsPage() {
                   <div className="mt-6 flex items-center justify-between gap-4 text-sm text-gray-600 dark:text-gray-300">
                     <span>
                       {(location.recentProjects || []).length}{" "}
-                      {isEs ? "proyecto verificado" : "verified project"}
+                      {t("locations.card.verifiedProject")}
                       {(location.recentProjects || []).length === 1 ? "" : "s"}
                     </span>
                     <span>
@@ -167,9 +162,9 @@ export default async function LocationsPage() {
 
                   <Button asChild className="mt-6 w-full">
                     <Link href={`/locations/${location.slug}`}>
-                      {isEs
-                        ? `Revisar mercado de ${location.city}`
-                        : `Review ${location.city} market`}
+                      {t("locations.card.reviewMarket", {
+                        city: location.city,
+                      })}
                     </Link>
                   </Button>
                 </article>

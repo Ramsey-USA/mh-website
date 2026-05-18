@@ -5,30 +5,30 @@ import { useEffect, useState } from "react";
 
 const WebVitalsReporter = dynamic(
   () =>
-    import("@/components/performance/WebVitalsReporter").then((mod) => ({
-      default: mod.WebVitalsReporter,
-    })),
+    import("@/components/performance/WebVitalsReporter").then(
+      (mod) => mod.WebVitalsReporter,
+    ),
   { ssr: false },
 );
 
 const MobilePerformanceMonitor = dynamic(
   () =>
-    import("@/components/performance/MobilePerformanceMonitor").then((mod) => ({
-      default: mod.MobilePerformanceMonitor,
-    })),
+    import("@/components/performance/MobilePerformanceMonitor").then(
+      (mod) => mod.MobilePerformanceMonitor,
+    ),
   { ssr: false },
 );
 
 const PWAManager = dynamic(
-  () => import("@/components/pwa").then((mod) => ({ default: mod.PWAManager })),
+  () => import("@/components/pwa/PWAManager").then((mod) => mod.PWAManager),
   { ssr: false },
 );
 
 const OfflineIndicator = dynamic(
   () =>
-    import("@/components/pwa/OfflineIndicator").then((mod) => ({
-      default: mod.OfflineIndicator,
-    })),
+    import("@/components/pwa/OfflineIndicator").then(
+      (mod) => mod.OfflineIndicator,
+    ),
   { ssr: false },
 );
 

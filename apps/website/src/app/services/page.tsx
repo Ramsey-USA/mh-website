@@ -7,15 +7,6 @@ import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
-// FadeInWhenVisible is a client animation component. Dynamic import keeps its
-// JS out of the critical bundle since all its usage in this page is below fold.
-const FadeInWhenVisible = dynamic(
-  () =>
-    import("@/components/animations/FramerMotionComponents").then((m) => ({
-      default: m.FadeInWhenVisible,
-    })),
-  { ssr: true },
-);
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
@@ -24,14 +15,14 @@ import {
 } from "@/lib/seo/breadcrumb-schema";
 import { AccreditationsLogoRow } from "@/components/shared-sections";
 import { COMPANY_INFO } from "@/lib/constants/company";
-// Above-fold: static — hero needs to paint immediately for LCP
+import { useTranslations } from "next-intl";
+import type { Testimonial } from "@/lib/data/testimonials";
 import {
   ServicesHero,
   coreServices,
   specialtyServices,
   serviceAreas,
 } from "@/components/services";
-// Below-fold: lazy-loaded to reduce initial JS bundle
 const CoreServicesSection = dynamic(() =>
   import("@/components/services").then((m) => ({
     default: m.CoreServicesSection,
@@ -65,11 +56,6 @@ const ConstructionExpertiseSection = dynamic(() =>
     default: m.ConstructionExpertiseSection,
   })),
 );
-const StrategicCTABanner = dynamic(() =>
-  import("@/components/ui/cta").then((m) => ({
-    default: m.StrategicCTABanner,
-  })),
-);
 const TestimonialsSection = dynamic(() =>
   import("@/components/shared-sections").then((m) => ({
     default: m.TestimonialsSection,
@@ -82,6 +68,45 @@ const NextStepsSection = dynamic(() =>
 );
 
 export default function ServicesPage() {
+  const tHome = useTranslations("home");
+  const tCommon = useTranslations("common");
+  const tTestimonialsData = useTranslations("testimonialsData");
+  const t = tHome;
+
+  const processSteps = tHome.raw("services.process.steps") as Array<{
+    title: string;
+    description: string;
+    tags: string[];
+  }>;
+
+  const processCta = tHome.raw("services.process.cta") as {
+    title: string;
+    description: string;
+    contactButton: string;
+    projectsButton: string;
+  };
+
+  const clientTestimonials = (
+    tTestimonialsData.raw("clientTestimonials") as Array<{
+      id: string;
+      name: string;
+      location?: string;
+      project?: string;
+      company?: string;
+      rating?: number;
+      quote: string;
+      featured?: boolean;
+      date?: string;
+      image?: string;
+      category?: string;
+    }>
+  ).map(
+    (testimonial) =>
+      ({
+        ...testimonial,
+        type: "client",
+      }) as Testimonial,
+  );
   return (
     <>
       <PageTrackingClient pageName="Services" />
@@ -91,41 +116,84 @@ export default function ServicesPage() {
       />
       <div className="bg-linear-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
         {/* Hero Section */}
-        <ServicesHero />
+        <ServicesHero
+          title={tHome("services.hero.sectionTitle")}
+          subtitle={tHome("services.hero.sectionSubtitle")}
+          description={tHome("services.hero.sectionDescription")}
+        />
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb
-          items={[{ label: "Home", href: "/" }, { label: "Services" }]}
+          items={[
+            { label: tCommon("back"), href: "/" },
+            { label: tHome("services.hero.sectionTitle") },
+          ]}
         />
 
         {/* Core Services Section - Primary discovery content */}
-        <CoreServicesSection services={coreServices} />
+        <CoreServicesSection
+          services={coreServices}
+          title={tHome("services.core.sectionTitle")}
+          subtitle={tHome("services.core.sectionSubtitle")}
+          description={tHome("services.core.sectionDescription")}
+        />
 
         {/* Specialty Services Section - Expanded discovery */}
-        <SpecialtyServicesSection services={specialtyServices} />
+        <SpecialtyServicesSection
+          services={specialtyServices}
+          title={tHome("services.specialty.sectionTitle")}
+          subtitle={tHome("services.specialty.sectionSubtitle")}
+          description={tHome("services.specialty.sectionDescription")}
+        />
 
         {/* Government & Grant-Funded Projects Section */}
-        <GovernmentProjectsSection />
+        <GovernmentProjectsSection
+          title={tHome("services.government.sectionTitle")}
+          subtitle={tHome("services.government.sectionSubtitle")}
+          description={tHome("services.government.sectionDescription")}
+        />
 
         {/* Service Areas Section - Clarify geographic fit early */}
-        <ServiceAreasSection serviceAreas={serviceAreas} />
+        <ServiceAreasSection
+          serviceAreas={serviceAreas}
+          title={tHome("services.areas.sectionTitle")}
+          subtitle={tHome("services.areas.sectionSubtitle")}
+          description={tHome("services.areas.sectionDescription")}
+        />
 
         {/* Construction Expertise Section - Trust after concrete offerings */}
-        <ConstructionExpertiseSection />
+        <ConstructionExpertiseSection
+          title={tHome("services.expertise.sectionTitle")}
+          subtitle={tHome("services.expertise.sectionSubtitle")}
+          description={tHome("services.expertise.sectionDescription")}
+          priorityHeading={tHome("services.expertise.priorityHeading")}
+          priorityDescription={tHome("services.expertise.priorityDescription")}
+        />
 
         {/* Why Choose Us Section - Value proposition after scope is clear */}
-        <WhyChooseUs />
+        <WhyChooseUs
+          title={tHome("services.whyChooseUs.sectionTitle")}
+          subtitle={tHome("services.whyChooseUs.sectionSubtitle")}
+          description={tHome("services.whyChooseUs.sectionDescription")}
+        />
 
         {/* Client Testimonials Section - Proof after capabilities and trust */}
         <TestimonialsSection
           id="testimonials"
-          subtitle="Client Partner"
-          title="Testimonials"
-          description="Hear directly from our partners about their experience working with MH Construction on their most important projects—where trust is earned, not claimed."
+          subtitle={tHome("services.testimonials.sectionSubtitle")}
+          title={tHome("services.testimonials.sectionTitle")}
+          description={tHome("services.testimonials.sectionDescription")}
+          testimonials={clientTestimonials}
         />
 
         {/* Construction Process Overview Section */}
-        <ConstructionProcessSection />
+        <ConstructionProcessSection
+          title={tHome("services.process.sectionTitle")}
+          subtitle={tHome("services.process.sectionSubtitle")}
+          description={tHome("services.process.sectionDescription")}
+          steps={processSteps}
+          cta={processCta}
+        />
 
         {/* Partnership Types Section - Client Partner vs Trade Partner */}
         <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
@@ -154,28 +222,16 @@ export default function ServicesPage() {
               {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Two Paths to
+                  {t("services.partnership.sectionSubtitle")}
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Partnership Excellence
+                  {t("services.partnership.sectionTitle")}
                 </span>
               </h2>
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                Whether you're a{" "}
-                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  Client Partner with a construction project
-                </span>{" "}
-                or a{" "}
-                <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
-                  Trade Partner seeking partnership opportunities
-                </span>
-                , MH Construction offers{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  dedicated pathways to collaboration and success
-                </span>
-                {"."}
+                {t("services.partnership.sectionDescription")}
               </p>
             </div>
 
@@ -204,28 +260,21 @@ export default function ServicesPage() {
                       </div>
                       <div>
                         <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl leading-tight">
-                          Client Partner Relationships
+                          {t("services.partnership.clientCard.title")}
                         </h3>
                         <p className="text-brand-primary dark:text-brand-primary-light font-semibold text-lg">
-                          Project Collaboration
+                          {t("services.partnership.clientCard.subtitle")}
                         </p>
                       </div>
                     </div>
 
                     <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
-                      For Client Partners—businesses and organizations—planning
-                      construction projects across the Pacific Northwest. We
-                      work{" "}
-                      <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
-                        WITH you
-                      </span>{" "}
-                      to bring your vision to life through expert construction
-                      management and partnership-focused collaboration.
+                      {t("services.partnership.clientCard.description")}
                     </p>
 
                     <div className="mb-6 grow">
                       <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-4">
-                        What We Offer Client Partners:
+                        {t("services.partnership.clientCard.listTitle")}
                       </h4>
                       <ul className="space-y-3">
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
@@ -237,7 +286,7 @@ export default function ServicesPage() {
                             />
                           </div>
                           <span className="text-gray-700 dark:text-gray-300">
-                            Free consultations and project assessments
+                            {t("services.partnership.clientCard.items.0")}
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
@@ -249,7 +298,7 @@ export default function ServicesPage() {
                             />
                           </div>
                           <span className="text-gray-700 dark:text-gray-300">
-                            Phased planning with scope and schedule alignment
+                            {t("services.partnership.clientCard.items.1")}
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
@@ -261,7 +310,7 @@ export default function ServicesPage() {
                             />
                           </div>
                           <span className="text-gray-700 dark:text-gray-300">
-                            Transparent pricing and open-book approach
+                            {t("services.partnership.clientCard.items.2")}
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
@@ -273,7 +322,7 @@ export default function ServicesPage() {
                             />
                           </div>
                           <span className="text-gray-700 dark:text-gray-300">
-                            Full-service construction management
+                            {t("services.partnership.clientCard.items.3")}
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
@@ -285,7 +334,7 @@ export default function ServicesPage() {
                             />
                           </div>
                           <span className="text-gray-700 dark:text-gray-300">
-                            Master planning and pre-construction services
+                            {t("services.partnership.clientCard.items.4")}
                           </span>
                         </li>
                       </ul>
@@ -303,7 +352,9 @@ export default function ServicesPage() {
                             size="md"
                             className="mr-2 group-hover:scale-110 transition-transform duration-300"
                           />
-                          View Our Work
+                          {t(
+                            "services.partnership.clientCard.buttons.viewWork",
+                          )}
                         </Button>
                       </Link>
                       <Link href="/contact" className="block">
@@ -317,7 +368,9 @@ export default function ServicesPage() {
                             size="md"
                             className="mr-2 group-hover:scale-110 transition-transform duration-300"
                           />
-                          Schedule Free Consultation
+                          {t(
+                            "services.partnership.clientCard.buttons.scheduleConsultation",
+                          )}
                         </Button>
                       </Link>
                       <p className="text-center text-gray-600 dark:text-gray-300 text-sm">
@@ -326,7 +379,8 @@ export default function ServicesPage() {
                           size="sm"
                           className="inline mr-1"
                         />
-                        Call {COMPANY_INFO.phone.display}
+                        {t("services.partnership.callLabel")}{" "}
+                        {COMPANY_INFO.phone.display}
                       </p>
                     </div>
                   </div>
@@ -357,27 +411,21 @@ export default function ServicesPage() {
                       </div>
                       <div>
                         <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl leading-tight">
-                          Trade Partnerships
+                          {t("services.partnership.tradeCard.title")}
                         </h3>
                         <p className="text-brand-secondary dark:text-brand-secondary-light font-semibold text-lg">
-                          Trade Partner Network
+                          {t("services.partnership.tradeCard.subtitle")}
                         </p>
                       </div>
                     </div>
 
                     <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
-                      For subcontractors, suppliers, and trade professionals
-                      seeking{" "}
-                      <span className="font-semibold text-brand-secondary dark:text-brand-secondary-light">
-                        consistent project opportunities
-                      </span>{" "}
-                      with a Veteran-Owned construction leader in the Pacific
-                      Northwest market.
+                      {t("services.partnership.tradeCard.description")}
                     </p>
 
                     <div className="mb-6 grow">
                       <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-4">
-                        What We Offer Trade Partners:
+                        {t("services.partnership.tradeCard.listTitle")}
                       </h4>
                       <ul className="space-y-3">
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
@@ -389,7 +437,7 @@ export default function ServicesPage() {
                             />
                           </div>
                           <span className="text-gray-700 dark:text-gray-300">
-                            Consistent project opportunities
+                            {t("services.partnership.tradeCard.items.0")}
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
@@ -401,7 +449,7 @@ export default function ServicesPage() {
                             />
                           </div>
                           <span className="text-gray-700 dark:text-gray-300">
-                            Professional growth in established network
+                            {t("services.partnership.tradeCard.items.1")}
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
@@ -413,7 +461,7 @@ export default function ServicesPage() {
                             />
                           </div>
                           <span className="text-gray-700 dark:text-gray-300">
-                            Early-stage project planning involvement
+                            {t("services.partnership.tradeCard.items.2")}
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
@@ -425,7 +473,7 @@ export default function ServicesPage() {
                             />
                           </div>
                           <span className="text-gray-700 dark:text-gray-300">
-                            Advanced notice for procurement planning
+                            {t("services.partnership.tradeCard.items.3")}
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
@@ -437,7 +485,7 @@ export default function ServicesPage() {
                             />
                           </div>
                           <span className="text-gray-700 dark:text-gray-300">
-                            Partnership with Veteran-Owned business
+                            {t("services.partnership.tradeCard.items.4")}
                           </span>
                         </li>
                       </ul>
@@ -455,7 +503,9 @@ export default function ServicesPage() {
                             size="md"
                             className="mr-2 group-hover:scale-110 transition-transform duration-300"
                           />
-                          Join Trade Partner Network
+                          {t(
+                            "services.partnership.tradeCard.buttons.joinNetwork",
+                          )}
                         </Button>
                       </Link>
                       <Link href="/allies#vendor-application" className="block">
@@ -469,7 +519,9 @@ export default function ServicesPage() {
                             size="md"
                             className="mr-2 group-hover:scale-110 transition-transform duration-300"
                           />
-                          Download Trade Partner Package
+                          {t(
+                            "services.partnership.tradeCard.buttons.downloadPackage",
+                          )}
                         </Button>
                       </Link>
                       <p className="text-center text-gray-600 dark:text-gray-300 text-sm">
@@ -478,7 +530,8 @@ export default function ServicesPage() {
                           size="sm"
                           className="inline mr-1"
                         />
-                        Call {COMPANY_INFO.phone.display}
+                        {t("services.partnership.callLabel")}{" "}
+                        {COMPANY_INFO.phone.display}
                       </p>
                     </div>
                   </div>
@@ -487,24 +540,21 @@ export default function ServicesPage() {
             </div>
 
             {/* Bottom Note */}
-            <FadeInWhenVisible>
-              <div className="mt-16 lg:mt-20 text-center max-w-3xl mx-auto">
-                <div className="relative bg-linear-to-r from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-850 dark:to-gray-800 p-6 lg:p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg">
-                  <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                    <MaterialIcon
-                      icon="info"
-                      size="md"
-                      className="inline mr-2 text-brand-primary align-text-bottom"
-                    />
-                    <span className="font-medium">
-                      Different pathways, same commitment to excellence.
-                    </span>{" "}
-                    Whether you're building a project or building your business,
-                    MH Construction values every partnership relationship.
-                  </p>
-                </div>
+            <div className="mt-16 lg:mt-20 text-center max-w-3xl mx-auto">
+              <div className="relative bg-linear-to-r from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-850 dark:to-gray-800 p-6 lg:p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg">
+                <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+                  <MaterialIcon
+                    icon="info"
+                    size="md"
+                    className="inline mr-2 text-brand-primary align-text-bottom"
+                  />
+                  <span className="font-medium">
+                    {t("services.partnership.bottomNote.title")}
+                  </span>{" "}
+                  {t("services.partnership.bottomNote.description")}
+                </p>
               </div>
-            </FadeInWhenVisible>
+            </div>
           </div>
         </section>
 
@@ -535,24 +585,16 @@ export default function ServicesPage() {
               {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-white/80 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Let's Build Something
+                  {t("services.deepNextSteps.subtitle")}
                 </span>
                 <span className="block text-white font-black drop-shadow-lg overflow-visible py-2 pb-3 leading-normal">
-                  Great Together
+                  {t("services.deepNextSteps.title")}
                 </span>
               </h2>
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                Take the next step toward{" "}
-                <span className="font-bold text-white">
-                  bringing your construction vision to life
-                </span>{" "}
-                with transparent pricing, expert guidance, and{" "}
-                <span className="font-bold text-white">
-                  Veteran-Owned reliability
-                </span>
-                {"."}
+                {t("services.deepNextSteps.description")}
               </p>
             </div>
 
@@ -564,7 +606,7 @@ export default function ServicesPage() {
 
                 <div className="bg-brand-primary -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2 shadow-lg">
                   <span className="font-bold text-sm text-white uppercase tracking-wide">
-                    Start Here
+                    {t("services.deepNextSteps.cards.estimate.badge")}
                   </span>
                 </div>
                 <IconContainer
@@ -579,11 +621,10 @@ export default function ServicesPage() {
                   />
                 </IconContainer>
                 <h3 className="relative mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
-                  Get Expert Estimate
+                  {t("services.deepNextSteps.cards.estimate.title")}
                 </h3>
                 <p className="relative mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
-                  Get a detailed, transparent estimate with line-item pricing
-                  within 3-5 business days.
+                  {t("services.deepNextSteps.cards.estimate.description")}
                 </p>
                 <Link href="/contact">
                   <Button
@@ -596,7 +637,7 @@ export default function ServicesPage() {
                       size="md"
                       className="mr-2 group-hover/btn:rotate-12 transition-transform duration-300"
                     />
-                    Contact Us Today
+                    {t("services.deepNextSteps.cards.estimate.button")}
                   </Button>
                 </Link>
               </div>
@@ -618,10 +659,10 @@ export default function ServicesPage() {
                   />
                 </IconContainer>
                 <h3 className="relative mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
-                  See Our Projects
+                  {t("services.deepNextSteps.cards.projects.title")}
                 </h3>
                 <p className="relative mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
-                  Browse our completed projects and see the quality we deliver.
+                  {t("services.deepNextSteps.cards.projects.description")}
                 </p>
                 <Link href="/projects">
                   <Button
@@ -634,7 +675,7 @@ export default function ServicesPage() {
                       size="md"
                       className="mr-2 group-hover/btn:rotate-12 transition-transform duration-300"
                     />
-                    View Our Projects
+                    {t("services.deepNextSteps.cards.projects.button")}
                   </Button>
                 </Link>
               </div>
@@ -656,11 +697,10 @@ export default function ServicesPage() {
                   />
                 </IconContainer>
                 <h3 className="relative mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
-                  Contact Us
+                  {t("services.deepNextSteps.cards.contact.title")}
                 </h3>
                 <p className="relative mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
-                  Have questions? Reach out directly via phone, email, or
-                  contact form for immediate help.
+                  {t("services.deepNextSteps.cards.contact.description")}
                 </p>
                 <Link href="/contact">
                   <Button
@@ -673,7 +713,7 @@ export default function ServicesPage() {
                       size="md"
                       className="mr-2 group-hover/btn:rotate-12 transition-transform duration-300"
                     />
-                    Get In Touch
+                    {t("services.deepNextSteps.cards.contact.button")}
                   </Button>
                 </Link>
               </div>
@@ -686,26 +726,32 @@ export default function ServicesPage() {
                   150+
                 </p>
                 <p className="text-white/90 text-lg">
-                  Years Combined Experience
+                  {t("services.deepNextSteps.stats.experience")}
                 </p>
               </div>
               <div className="group">
                 <p className="mb-2 font-black text-4xl lg:text-5xl group-hover:scale-110 transition-transform duration-300 inline-block">
                   .64 EMR
                 </p>
-                <p className="text-white/90 text-lg">Award-Winning Safety</p>
+                <p className="text-white/90 text-lg">
+                  {t("services.deepNextSteps.stats.safety")}
+                </p>
               </div>
               <div className="group">
                 <p className="mb-2 font-black text-4xl lg:text-5xl group-hover:scale-110 transition-transform duration-300 inline-block">
                   3-5 Days
                 </p>
-                <p className="text-white/90 text-lg">Estimate Turnaround</p>
+                <p className="text-white/90 text-lg">
+                  {t("services.deepNextSteps.stats.turnaround")}
+                </p>
               </div>
               <div className="group">
                 <p className="mb-2 font-black text-4xl lg:text-5xl group-hover:scale-110 transition-transform duration-300 inline-block">
                   70%
                 </p>
-                <p className="text-white/90 text-lg">Referral Rate</p>
+                <p className="text-white/90 text-lg">
+                  {t("services.deepNextSteps.stats.referral")}
+                </p>
               </div>
             </div>
           </div>
@@ -715,17 +761,16 @@ export default function ServicesPage() {
         <section className="relative bg-linear-to-r from-brand-primary to-brand-primary-dark py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
             <h2 className="mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter drop-shadow-lg">
-              Questions About Our Services?
+              {t("services.contactCta.heading")}
             </h2>
             <p className="mx-auto max-w-3xl font-light text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8">
-              Contact our team for answers about construction services, pricing,
-              timelines, and capabilities
+              {t("services.contactCta.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="secondary" size="lg" asChild>
                 <Link href="/contact">
                   <MaterialIcon icon="phone" className="mr-2" />
-                  Contact Our Team
+                  {t("services.contactCta.primaryButton")}
                 </Link>
               </Button>
               <Button
@@ -736,7 +781,8 @@ export default function ServicesPage() {
               >
                 <a href={`tel:${COMPANY_INFO.phone.tel}`}>
                   <MaterialIcon icon="call" className="mr-2" />
-                  Call {COMPANY_INFO.phone.display}
+                  {t("services.partnership.callLabel")}{" "}
+                  {COMPANY_INFO.phone.display}
                 </a>
               </Button>
             </div>
@@ -767,28 +813,20 @@ export default function ServicesPage() {
               {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Our Construction
+                  {t("services.portfolio.subtitle")}
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Portfolio
+                  {t("services.portfolio.title")}
                 </span>
               </h2>
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                Explore our{" "}
-                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  completed projects showcasing quality craftsmanship
-                </span>{" "}
-                across{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  commercial, residential, and government sectors
-                </span>
-                {"."}
+                {t("services.portfolio.description")}
               </p>
             </div>
 
-            <FadeInWhenVisible className="text-center">
+            <div className="text-center">
               <Link href="/projects">
                 <Button
                   variant="primary"
@@ -796,14 +834,14 @@ export default function ServicesPage() {
                   className="shadow-xl hover:shadow-2xl transition-all duration-300"
                 >
                   <MaterialIcon icon="visibility" className="mr-2" size="md" />
-                  View Complete Portfolio
+                  {t("services.portfolio.button")}
                 </Button>
               </Link>
               <p className="mt-4 text-gray-600 dark:text-gray-300">
                 <MaterialIcon icon="info" size="sm" className="inline mr-2" />
-                Detailed portfolio with High-Level CRM integration coming soon
+                {t("services.portfolio.note")}
               </p>
-            </FadeInWhenVisible>
+            </div>
           </div>
         </section>
 
@@ -811,7 +849,7 @@ export default function ServicesPage() {
         <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 overflow-hidden">
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
             <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
-              Accredited & Certified
+              {t("services.accreditations.title")}
             </p>
             <AccreditationsLogoRow showChambers={false}>
               <div className="flex items-center gap-2 px-4 py-2 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-full">
@@ -821,18 +859,19 @@ export default function ServicesPage() {
                   className="text-brand-primary"
                 />
                 <span className="text-base font-semibold text-brand-primary dark:text-brand-primary-light">
-                  WA · OR · ID Licensed
+                  {t("services.accreditations.licensed")}
                 </span>
               </div>
             </AccreditationsLogoRow>
           </div>
         </section>
 
-        {/* Strategic CTA Banner - Conversion Optimization */}
-        <StrategicCTABanner variant="combo" className="my-0" />
-
         {/* Next Steps Section - Standardized Final CTA */}
-        <NextStepsSection />
+        <NextStepsSection
+          title={t("services.finalNextSteps.sectionTitle")}
+          subtitle={t("services.finalNextSteps.sectionSubtitle")}
+          description={t("services.finalNextSteps.sectionDescription")}
+        />
       </div>
     </>
   );

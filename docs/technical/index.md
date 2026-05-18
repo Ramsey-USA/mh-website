@@ -33,6 +33,7 @@ See **[Patterns Index](./patterns/index.md)** for reusable section patterns, inc
 - **[AlternatingShowcase Pattern](./patterns/AlternatingShowcase-pattern.md)**
 - **[NextStepsSection Standardization](./patterns/NextStepsSection-standardization.md)**
 - **[Component Pattern Strategy](./patterns/component-pattern-strategy.md)**
+- **[CTA Page Allocation](./cta-page-allocation.md)** — _See for the official distinction and usage policy between `NextStepsSection` and `StrategicCTABanner`._
 
 ## SEO
 

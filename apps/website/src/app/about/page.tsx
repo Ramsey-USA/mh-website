@@ -16,6 +16,8 @@ const FadeInWhenVisible = dynamic(
 );
 // Above-fold: static
 import { AboutHero } from "@/components/about";
+import { useTranslations } from "next-intl";
+import type { Testimonial } from "@/lib/data/testimonials";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import {
   generateBreadcrumbSchema,
@@ -65,6 +67,30 @@ const NextStepsSection = dynamic(() =>
 );
 
 export default function AboutPage() {
+  const t = useTranslations();
+  const commonT = useTranslations("common");
+  const clientTestimonials = (
+    t.raw("testimonialsData.clientTestimonials") as Array<{
+      id: string;
+      name: string;
+      location?: string;
+      project?: string;
+      company?: string;
+      rating?: number;
+      quote: string;
+      featured?: boolean;
+      date?: string;
+      image?: string;
+      category?: string;
+    }>
+  ).map(
+    (testimonial) =>
+      ({
+        ...testimonial,
+        type: "client",
+      }) as Testimonial,
+  );
+
   return (
     <>
       <PageTrackingClient pageName="About" />
@@ -84,78 +110,97 @@ export default function AboutPage() {
 
       <div className="bg-linear-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
         {/* Hero Section - Keyword-rich introduction */}
-        <AboutHero />
+        <AboutHero
+          title={commonT("about.hero.sectionTitle")}
+          subtitle={commonT("about.hero.sectionSubtitle")}
+          description={commonT("about.hero.sectionDescription")}
+        />
 
         {/* Breadcrumb Navigation - Schema markup for SEO */}
         <Breadcrumb
-          items={[{ label: "Home", href: "/" }, { label: "Our Oath" }]}
+          items={[
+            { label: commonT("back"), href: "/" },
+            { label: commonT("about.hero.sectionTitle") },
+          ]}
         />
 
         {/* Partnership Philosophy Section - Story and positioning first */}
-        <PartnershipPhilosophy />
+        <PartnershipPhilosophy
+          title={commonT("about.partnershipPhilosophy.sectionTitle")}
+          subtitle={commonT("about.partnershipPhilosophy.sectionSubtitle")}
+          description={commonT(
+            "about.partnershipPhilosophy.sectionDescription",
+          )}
+        />
 
         {/* Leadership Team Section - Faces and structure build trust early */}
-        <LeadershipTeam />
+        <LeadershipTeam
+          title={commonT("about.leadershipTeam.sectionTitle")}
+          subtitle={commonT("about.leadershipTeam.sectionSubtitle")}
+          description={commonT("about.leadershipTeam.sectionDescription")}
+        />
 
         {/* Why Values Matter Section - Trust framework before proof */}
-        <ValuesShowcase />
+        <ValuesShowcase
+          title={commonT("about.valuesShowcase.sectionTitle")}
+          subtitle={commonT("about.valuesShowcase.sectionSubtitle")}
+          description={commonT("about.valuesShowcase.sectionDescription")}
+        />
 
         {/* Company Evolution Timeline Section - Story continuity before proof cluster */}
         <Timeline
           id="company-evolution"
           icon="history"
           iconBg="bronze"
-          subtitle="16+ Years of Excellence"
-          title="Our Journey"
-          description={
-            <>
-              From founding father's vision to{" "}
-              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                Veteran-Owned, relationship-first leadership
-              </span>{" "}
-              —sixteen years of partnership philosophy, safety leadership, and{" "}
-              <span className="font-bold text-gray-900 dark:text-white">
-                650+ successfully completed projects.
-              </span>
-            </>
-          }
+          subtitle={commonT("about.timeline.sectionSubtitle")}
+          title={commonT("about.timeline.sectionTitle")}
+          description={commonT("about.timeline.sectionDescription")}
           steps={aboutTimelineSteps}
         />
 
         {/* Company Stats - Proof after story and leadership */}
         <CompanyStats
           id="stats"
-          subtitle=""
-          title="Trusted by the Community"
-          description=""
+          subtitle={commonT("about.companyStats.sectionSubtitle")}
+          title={commonT("about.companyStats.sectionTitle")}
+          description={commonT("about.companyStats.sectionDescription")}
           variant="primary"
         />
 
         {/* Awards & Recognition Section - External proof signals */}
-        <AwardsSection />
+        <AwardsSection
+          title={commonT("about.awards.sectionTitle")}
+          subtitle={commonT("about.awards.sectionSubtitle")}
+          description={commonT("about.awards.sectionDescription")}
+        />
 
         {/* Accreditations & Certifications - Credential logos */}
         <section className="relative py-12 sm:py-14 bg-gray-50 dark:bg-gray-800/60">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-6">
-              Accredited & Certified
+              {commonT("about.accreditations.sectionTitle")}
             </p>
             <AccreditationsLogoRow />
           </div>
         </section>
 
         {/* Safety & Compliance Section - Verified operational proof */}
-        <SafetySection />
+        <SafetySection
+          title={commonT("about.safety.sectionTitle")}
+          subtitle={commonT("about.safety.sectionSubtitle")}
+          description={commonT("about.safety.sectionDescription")}
+        />
 
         {/* Client Reviews Section - Social proof after credibility cluster */}
         <TestimonialsSection
           id="testimonials"
-          subtitle="Client Partner"
-          title="Testimonials"
-          description="Hear directly from our partners about their experience working with MH Construction on their most important projects—where trust is earned, not claimed."
+          subtitle={commonT("about.testimonials.sectionSubtitle")}
+          title={commonT("about.testimonials.sectionTitle")}
+          description={commonT("about.testimonials.sectionDescription")}
+          testimonials={clientTestimonials}
         />
 
-        {/* News & Achievements Section - MERGED from Company Blog + Latest News */}
+        {/* News & Achievements Section */}
         <section
           id="news"
           className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
@@ -164,9 +209,7 @@ export default function AboutPage() {
           <BrandColorBlobs />
 
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            {/* Section Header - Military Construction Standard */}
             <div className="mb-16 sm:mb-20 text-center">
-              {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
                 <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
@@ -182,73 +225,32 @@ export default function AboutPage() {
                 <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
 
-              {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Mission Updates
+                  {commonT("about.news.sectionSubtitle")}
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Latest News & Achievements
+                  {commonT("about.news.sectionTitle")}
                 </span>
               </h2>
 
-              {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                Stay updated with our latest{" "}
-                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  projects, partnerships, and industry insights
-                </span>{" "}
-                —milestones from our{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  Veteran-Owned team
-                </span>{" "}
-                where every achievement reflects our commitment to excellence.
+                {commonT("about.news.sectionDescription")}
               </p>
             </div>
 
-            {/* Combined grid with best content from both sections - 6 items total */}
             <div className={gridPresets.cards3("md", "mx-auto max-w-7xl")}>
-              {/* Company Milestone */}
-              <div className="scroll-reveal">
-                <ContentCard
-                  variant="news"
-                  icon="celebration"
-                  category="Company Milestone"
-                  categoryColor="primary"
-                  title="650+ Successful Projects in Pacific Northwest"
-                  description="We're proud to announce over 650 completed construction projects across Washington, Oregon, and Idaho. Thank you to all our client partners for your continued trust in MH Construction."
-                  date="Nov 2025"
-                  href="/projects"
-                  linkText="View Our Work"
-                />
-              </div>
-
-              <div className="scroll-reveal">
-                <ContentCard
-                  variant="news"
-                  icon="verified"
-                  category="Accreditation"
-                  categoryColor="primary"
-                  title="BBB Accredited with A+ Rating"
-                  description="MH Construction has earned Better Business Bureau accreditation with an A+ rating — recognizing our commitment to trust, transparency, and ethical business practices in every client partnership."
-                  date="Apr 2026"
-                  href="https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036"
-                  linkText="View BBB Profile"
-                  external
-                />
-              </div>
-
               <div className="scroll-reveal">
                 <ContentCard
                   variant="feature"
-                  icon="rocket_launch"
-                  category="New Technology"
+                  icon="precision_manufacturing"
+                  category={commonT("about.news.cards.crm.category")}
                   categoryColor="secondary"
-                  title="Integrated CRM & Project Management Platform"
-                  description="High-Level CRM implementation underway — providing seamless communication, real-time project updates, and an enhanced client experience from first contact to project close-out."
-                  date="Mar 2026"
+                  title={commonT("about.news.cards.crm.title")}
+                  description={commonT("about.news.cards.crm.description")}
+                  date={commonT("about.news.cards.crm.date")}
                   href="/contact"
-                  linkText="Learn More"
+                  linkText={commonT("about.news.cards.crm.linkText")}
                   enhancedIcon
                 />
               </div>
@@ -257,13 +259,13 @@ export default function AboutPage() {
                 <ContentCard
                   variant="feature"
                   icon="handshake"
-                  category="Partnership"
+                  category={commonT("about.news.cards.trade.category")}
                   categoryColor="secondary"
-                  title="Expanding Trade Partner Network"
-                  description="We're actively growing our network of skilled trade professionals to better serve Client Partners across the Pacific Northwest. Join our Veteran-Owned partnership program."
-                  date="Oct 2025"
+                  title={commonT("about.news.cards.trade.title")}
+                  description={commonT("about.news.cards.trade.description")}
+                  date={commonT("about.news.cards.trade.date")}
                   href="/allies"
-                  linkText="Become a Partner"
+                  linkText={commonT("about.news.cards.trade.linkText")}
                   enhancedIcon
                 />
               </div>
@@ -272,13 +274,13 @@ export default function AboutPage() {
                 <ContentCard
                   variant="feature"
                   icon="workspace_premium"
-                  category="Recognition"
+                  category={commonT("about.news.cards.safety.category")}
                   categoryColor="secondary"
-                  title="Award-Winning Safety Record"
-                  description="Our commitment to safety excellence has been recognized by industry organizations. Zero accidents, 100% compliance - that's the Veteran-Owned difference."
-                  date="Sep 2025"
+                  title={commonT("about.news.cards.safety.title")}
+                  description={commonT("about.news.cards.safety.description")}
+                  date={commonT("about.news.cards.safety.date")}
                   href="/about#safety"
-                  linkText="Safety Standards"
+                  linkText={commonT("about.news.cards.safety.linkText")}
                   enhancedIcon
                 />
               </div>
@@ -287,13 +289,13 @@ export default function AboutPage() {
                 <ContentCard
                   variant="feature"
                   icon="lightbulb"
-                  category="Industry Insight"
+                  category={commonT("about.news.cards.insight.category")}
                   categoryColor="primary"
-                  title="Best Practices for Commercial Construction Projects"
-                  description="Drawing from our years of experience, we share key insights for successful commercial builds: planning, communication, and partnership-focused collaboration."
-                  date="Aug 2025"
+                  title={commonT("about.news.cards.insight.title")}
+                  description={commonT("about.news.cards.insight.description")}
+                  date={commonT("about.news.cards.insight.date")}
                   href="/services"
-                  linkText="Our Services"
+                  linkText={commonT("about.news.cards.insight.linkText")}
                   enhancedIcon
                 />
               </div>
@@ -302,13 +304,13 @@ export default function AboutPage() {
                 <ContentCard
                   variant="feature"
                   icon="military_tech"
-                  category="Veteran Initiative"
+                  category={commonT("about.news.cards.veteran.category")}
                   categoryColor="bronze"
-                  title="Supporting Veteran-Owned Businesses"
-                  description="As a Veteran-Owned company, we prioritize partnerships with fellow veteran businesses and support programs that help veterans transition to civilian careers."
-                  date="Jul 2025"
+                  title={commonT("about.news.cards.veteran.title")}
+                  description={commonT("about.news.cards.veteran.description")}
+                  date={commonT("about.news.cards.veteran.date")}
                   href="/about"
-                  linkText="Our Values"
+                  linkText={commonT("about.news.cards.veteran.linkText")}
                   accentGradient="bg-linear-to-r from-bronze-600 via-bronze-700 to-bronze-800"
                   glowGradient="bg-linear-to-br from-bronze-700/40 to-bronze-800/40"
                   enhancedIcon
@@ -316,7 +318,6 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Footer note about future blog */}
             <FadeInWhenVisible className="mt-12 text-center">
               <div className="bg-brand-light dark:bg-gray-800 p-6 border-brand-primary border-l-4 rounded-xl inline-block">
                 <div className="flex items-center gap-3">
@@ -326,8 +327,7 @@ export default function AboutPage() {
                     className="text-brand-primary"
                   />
                   <p className="font-medium text-gray-700 dark:text-gray-300">
-                    Full blog integration with High-Level CRM platform — in
-                    progress
+                    {commonT("about.news.footerNote")}
                   </p>
                 </div>
               </div>
@@ -336,7 +336,11 @@ export default function AboutPage() {
         </section>
 
         {/* Next Steps Section - Final conversion action */}
-        <NextStepsSection />
+        <NextStepsSection
+          title={commonT("about.nextSteps.sectionTitle")}
+          subtitle={commonT("about.nextSteps.sectionSubtitle")}
+          description={commonT("about.nextSteps.sectionDescription")}
+        />
       </div>
     </>
   );

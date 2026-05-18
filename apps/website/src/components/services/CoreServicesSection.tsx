@@ -18,10 +18,13 @@ import type { CoreService } from "./servicesData";
 
 interface CoreServicesSectionProps {
   services: CoreService[];
+  title: string;
+  subtitle: string;
+  description: string;
 }
 
 export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
-  const { services } = props;
+  const { services, title, subtitle, description } = props;
   const [selectedService, setSelectedService] = useState<number | null>(null);
 
   // Memoize the selected service data
@@ -49,20 +52,9 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
       header={{
         icon: "flag",
         iconVariant: "primary",
-        subtitle: "Core Partnership",
-        title: "Services",
-        description: (
-          <>
-            Comprehensive{" "}
-            <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              partnership-focused management services
-            </span>{" "}
-            designed to bring your vision to life through collaboration and{" "}
-            <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
-              disciplined execution.
-            </span>
-          </>
-        ),
+        subtitle,
+        title,
+        description,
       }}
     >
       <StaggeredFadeIn
@@ -169,12 +161,12 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-4">
                 <MaterialIcon
-                  icon="stars"
+                  icon="military_tech"
                   size="lg"
                   className="text-brand-secondary"
                 />
                 <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold">
-                  Partnership Benefits
+                  Benefits
                 </h3>
               </div>
               <ul className="space-y-3">

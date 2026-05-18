@@ -15,6 +15,7 @@ import { createDbClient } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
 import { escapeHtml } from "@/lib/utils/escape-html";
 import { isValidEmail } from "@/lib/utils/validation";
+import { captureServerException } from "@/lib/monitoring/sentry-server";
 
 export const dynamic = "force-dynamic";
 
@@ -49,28 +50,55 @@ async function handlePOST(request: NextRequest) {
       return badRequest("Name is too long");
     }
 
-    // Persist subscription to D1 (upsert — idempotent if already subscribed)
+    // Persist subscription to D1 (best-effort upsert — idempotent if subscribed)
     const unsubscribeToken = crypto.randomUUID().replace(/-/g, "");
-    try {
-      const db = getD1Database();
-      if (db) {
+    const db = getD1Database();
+    if (!db) {
+      logger.warn("Newsletter: D1 database not configured; continuing");
+      captureServerException(
+        new Error("D1 database binding not available for newsletter signup"),
+        {
+          route: "/api/newsletter POST",
+          extra: { context: "database_unavailable" },
+        },
+      );
+    } else {
+      try {
         const client = createDbClient({ DB: db });
         await client.query(
           `INSERT INTO newsletter_subscribers (email, name, unsubscribe_token, subscribed)
-           VALUES (?, ?, ?, 1)
-           ON CONFLICT(email) DO UPDATE SET
-             name = COALESCE(excluded.name, name),
-             subscribed = 1,
-             updated_at = datetime('now')`,
+             VALUES (?, ?, ?, 1)
+             ON CONFLICT(email) DO UPDATE SET
+               name = COALESCE(excluded.name, name),
+               subscribed = 1,
+               updated_at = datetime('now')`,
           [data.email, data.name ?? null, unsubscribeToken],
         );
+        logger.info("Newsletter subscriber stored in database", {
+          email: data.email,
+          unsubscribeToken,
+        });
+      } catch (_dbErr) {
+        logger.error(
+          "Newsletter: Failed to store subscriber in database",
+          _dbErr,
+        );
+        captureServerException(_dbErr, {
+          route: "/api/newsletter POST",
+          extra: {
+            context: "database_insert",
+            email: data.email,
+          },
+        });
+        sendToN8nAsync({
+          type: "newsletter",
+          data: {
+            email: data.email,
+            name: data.name,
+            error: "Database write failed",
+          },
+        });
       }
-    } catch (_dbErr) {
-      // DB unavailable (e.g. local dev) — log and continue so email still sends
-      logger.warn(
-        "Newsletter: DB insert failed, continuing without persist",
-        _dbErr,
-      );
     }
 
     // Notification email to Matt

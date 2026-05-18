@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "pnpm --filter @mhc/website dev",
+    "dev:inspect": "pnpm --filter @mhc/website dev:inspect",
     "dev:dashboard": "pnpm --filter @mhc/dashboard dev",
     "build": "pnpm --filter @mhc/website build",
     "deploy": "pnpm --filter @mhc/website run deploy",
@@ -25,9 +26,11 @@
     "format:check": "prettier --check --cache --cache-location .prettier-cache .",
     "security:check:prod": "pnpm audit --prod --audit-level high",
     "audit:ci": "pnpm run security:check:prod",
-    "lint:markdown": "git ls-files '*.md' ':!:.github/agents/**' ':!:public/images/qr-codes/README.md' ':!:apps/website/public/images/qr-codes/README.md' | xargs -r markdownlint-cli2 --config .markdownlint-cli2.jsonc --ignore-path .markdownlintignore --no-globs",
+    "lint:markdown": "pnpm docs:sync:check && git ls-files '*.md' ':!:.github/agents/**' ':!:public/images/qr-codes/README.md' ':!:apps/website/public/images/qr-codes/README.md' ':!:apps/website/docs/**' | xargs -r markdownlint-cli2 --config .markdownlint-cli2.jsonc --ignore-path .markdownlintignore --no-globs",
     "lint:brand": "bash apps/website/scripts/brand-lint.sh",
     "lint:brand:ci": "BRAND_LINT_CHANGED_ONLY=true BRAND_LINT_BASE_SHA=${BASE_SHA:-} bash apps/website/scripts/brand-lint.sh",
+    "docs:sync": "bash scripts/docs/sync-to-app.sh",
+    "docs:sync:check": "bash scripts/docs/check-sync.sh",
     "docs:extract": "node apps/website/documents/scripts/extract.mjs",
     "prepare": "node -e \"const {spawnSync}=require('node:child_process'); const result=spawnSync('git',['rev-parse','--is-inside-work-tree'],{stdio:'ignore'}); if (process.env.CI || result.status !== 0) process.exit(0)\" && husky"
   },

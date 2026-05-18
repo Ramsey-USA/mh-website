@@ -156,7 +156,7 @@ When creating a new page hero section:
 | Trade Partners | "Building Success Together"                                                | B2B partnership          |
 | Veterans       | "Honoring Those Who Served"                                                | Veteran support          |
 
-**NOTE**: Booking, automated estimator, and 3D Explorer pages have been removed (Dec 2025).
+**NOTE**: Booking, AI Estimator, and 3D Explorer pages have been removed (Dec 2025).
 All consultation CTAs now direct to `/contact` for face-to-face consultation.
 
 ### 🎯 Direct Consultation Path (Dec 2025)

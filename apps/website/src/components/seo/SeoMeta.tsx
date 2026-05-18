@@ -1,4 +1,5 @@
 import { type Metadata } from "next";
+import Script from "next/script";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
 // Removed unused interface _SEOProps to satisfy lint rule
@@ -137,7 +138,9 @@ export function StructuredData({ data }: { data: object | object[] }) {
   );
 
   return (
-    <script
+    <Script
+      id="structured-data"
+      strategy="afterInteractive"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: sanitizedData }}
     />

@@ -1,6 +1,13 @@
 "use client";
 
-import { useEffect, useState, useRef, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  useRef,
+  type ReactNode,
+} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -578,12 +585,16 @@ function ServiceAreasDropdown(props: {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
       ) {
-        if (isOpen) onToggle();
+        onToggle();
       }
     };
 
@@ -672,74 +683,84 @@ function ServiceAreasDropdown(props: {
 export default function Footer() {
   const locale = useLocale();
   const isEs = locale === "es";
-  const copy = isEs
-    ? {
-        socialNavLabel: "Enlaces de redes sociales",
-        rateUsEyebrow: "Calificanos",
-        leaveGoogleReview: "Deja una resena en Google",
-        servingPnw: "Sirviendo al Pacifico Noroeste",
-        mainNavLabel: "Navegacion principal",
-        servicesHeading: "Servicios",
-        missionExecution: "Ejecucion de mision",
-        companyInfoLabel: "Informacion de la compania",
-        companyHeading: "Compania",
-        ourForces: "Nuestras fuerzas",
-        contactHeading: "Contacto",
-        commandCenter: "Centro de mando",
-        joinTeamEyebrow: "Unete al equipo",
-        quickApplication: "Solicitud rapida",
-        callUsEyebrow: "Llamenos",
-        emailUsEyebrow: "Escribanos",
-        visitUsEyebrow: "Visitenos",
-        stayUpdated: "Mantengase al dia",
-        joinNewsletter: "Unase a nuestro boletin",
-        emailAddress: "Correo electronico",
-        legalLinksLabel: "Enlaces legales y utilitarios",
-        backToTopAria: "Volver arriba",
-        backToTopLabel: "Arriba",
-        phoneAriaPrefix: "Llame a MH Construction al",
-        emailAriaPrefix: "Envie un correo a MH Construction a",
-      }
-    : {
-        socialNavLabel: "Social media links",
-        rateUsEyebrow: "Rate Us",
-        leaveGoogleReview: "Leave a Google Review",
-        servingPnw: "Serving the Pacific Northwest",
-        mainNavLabel: "Main navigation",
-        servicesHeading: "Services",
-        missionExecution: "Mission Execution",
-        companyInfoLabel: "Company information",
-        companyHeading: "Company",
-        ourForces: "Our Forces",
-        contactHeading: "Contact",
-        commandCenter: "Command Center",
-        joinTeamEyebrow: "Join the Team",
-        quickApplication: "Quick Application",
-        callUsEyebrow: "Call Us",
-        emailUsEyebrow: "Email Us",
-        visitUsEyebrow: "Visit Us",
-        stayUpdated: "Stay Updated",
-        joinNewsletter: "Join Our Newsletter",
-        emailAddress: "Email address",
-        legalLinksLabel: "Legal and utility links",
-        backToTopAria: "Back to top",
-        backToTopLabel: "Top",
-        phoneAriaPrefix: "Call MH Construction at",
-        emailAriaPrefix: "Email MH Construction at",
-      };
-  const localizedNavCol1Links = localizeFooterNavItems(
-    navCol1Links,
-    navCol1TranslationsEs,
-    isEs,
+  const copy = useMemo(
+    () =>
+      isEs
+        ? {
+            socialNavLabel: "Enlaces de redes sociales",
+            rateUsEyebrow: "Calificanos",
+            leaveGoogleReview: "Deja una resena en Google",
+            servingPnw: "Sirviendo al Pacifico Noroeste",
+            mainNavLabel: "Navegacion principal",
+            servicesHeading: "Servicios",
+            missionExecution: "Ejecucion de mision",
+            companyInfoLabel: "Informacion de la compania",
+            companyHeading: "Compania",
+            ourForces: "Nuestras fuerzas",
+            contactHeading: "Contacto",
+            commandCenter: "Centro de mando",
+            joinTeamEyebrow: "Unete al equipo",
+            quickApplication: "Solicitud rapida",
+            callUsEyebrow: "Llamenos",
+            emailUsEyebrow: "Escribanos",
+            visitUsEyebrow: "Visitenos",
+            stayUpdated: "Mantengase al dia",
+            joinNewsletter: "Unase a nuestro boletin",
+            emailAddress: "Correo electronico",
+            legalLinksLabel: "Enlaces legales y utilitarios",
+            backToTopAria: "Volver arriba",
+            backToTopLabel: "Arriba",
+            phoneAriaPrefix: "Llame a MH Construction al",
+            emailAriaPrefix: "Envie un correo a MH Construction a",
+          }
+        : {
+            socialNavLabel: "Social media links",
+            rateUsEyebrow: "Rate Us",
+            leaveGoogleReview: "Leave a Google Review",
+            servingPnw: "Serving the Pacific Northwest",
+            mainNavLabel: "Main navigation",
+            servicesHeading: "Services",
+            missionExecution: "Mission Execution",
+            companyInfoLabel: "Company information",
+            companyHeading: "Company",
+            ourForces: "Our Forces",
+            contactHeading: "Contact",
+            commandCenter: "Command Center",
+            joinTeamEyebrow: "Join the Team",
+            quickApplication: "Quick Application",
+            callUsEyebrow: "Call Us",
+            emailUsEyebrow: "Email Us",
+            visitUsEyebrow: "Visit Us",
+            stayUpdated: "Stay Updated",
+            joinNewsletter: "Join Our Newsletter",
+            emailAddress: "Email address",
+            legalLinksLabel: "Legal and utility links",
+            backToTopAria: "Back to top",
+            backToTopLabel: "Top",
+            phoneAriaPrefix: "Call MH Construction at",
+            emailAriaPrefix: "Email MH Construction at",
+          },
+    [isEs],
   );
-  const localizedNavCol2Links = localizeFooterNavItems(
-    navCol2Links,
-    navCol2TranslationsEs,
-    isEs,
+  const localizedNavCol1Links = useMemo(
+    () => localizeFooterNavItems(navCol1Links, navCol1TranslationsEs, isEs),
+    [isEs],
   );
-  const localizedFooterUtilityLinks = localizeFooterUtilityItems(isEs);
+  const localizedNavCol2Links = useMemo(
+    () => localizeFooterNavItems(navCol2Links, navCol2TranslationsEs, isEs),
+    [isEs],
+  );
+  const localizedFooterUtilityLinks = useMemo(
+    () => localizeFooterUtilityItems(isEs),
+    [isEs],
+  );
   const [showAdminModal, setShowAdminModal] = useState(false);
   const [areasDropdownOpen, setAreasDropdownOpen] = useState(false);
+  const openAdminModal = useCallback(() => setShowAdminModal(true), []);
+  const closeAdminModal = useCallback(() => setShowAdminModal(false), []);
+  const toggleAreasDropdown = useCallback(() => {
+    setAreasDropdownOpen((prev) => !prev);
+  }, []);
   const {
     newsletterEmail,
     setNewsletterEmail,
@@ -751,14 +772,11 @@ export default function Footer() {
     newsletterPlaceholder,
   } = useFooterNewsletter(isEs);
 
-  useAdminShortcut(() => setShowAdminModal(true));
+  useAdminShortcut(openAdminModal);
 
   return (
     <>
-      <AdminSignInModal
-        isOpen={showAdminModal}
-        onClose={() => setShowAdminModal(false)}
-      />
+      <AdminSignInModal isOpen={showAdminModal} onClose={closeAdminModal} />
       <footer
         className="bg-linear-to-br from-gray-800 dark:from-black via-gray-900 dark:via-gray-900 to-black dark:to-black pt-6 xs:pt-8 sm:pt-10 pb-4 border-t border-brand-primary/20 text-gray-300 touch-manipulation"
         itemScope
@@ -1264,7 +1282,7 @@ export default function Footer() {
               {/* Areas Served */}
               <ServiceAreasDropdown
                 isOpen={areasDropdownOpen}
-                onToggle={() => setAreasDropdownOpen(!areasDropdownOpen)}
+                onToggle={toggleAreasDropdown}
                 isEs={isEs}
               />
 

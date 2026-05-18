@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useMemo, type CSSProperties } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
 import { gridPresets } from "@/lib/styles/layout-variants";
@@ -13,10 +14,18 @@ import {
   Button,
 } from "@/components/ui";
 import { trackServiceInterest } from "@/lib/analytics/marketing-tracking";
-import { Modal } from "@/components/ui/modals/Modal";
 import { useLocale } from "@/hooks/useLocale";
 import en from "@/../messages/home/en.json";
 import es from "@/../messages/home/es.json";
+import { cornerRadius, hoverMotion } from "@/lib/styles/design-tokens";
+
+const ServicesDetailModal = dynamic(
+  () =>
+    import("@/components/ui/modals/Modal").then((mod) => ({
+      default: mod.Modal,
+    })),
+  { ssr: false },
+);
 
 // Helper function to render subtitle with styled "NOT"
 function renderSubtitle(subtitle: string) {
@@ -74,7 +83,11 @@ const serviceIcons = [
  * Interactive cards with modal details for core construction services
  * Optimized with keyboard navigation, body scroll lock, and performance enhancements
  */
-export function ServicesShowcase() {
+export function ServicesShowcase({
+  sectionVariant = "white",
+}: {
+  sectionVariant?: "white" | "gray";
+}) {
   const locale = useLocale();
   const t = locale === "es" ? es.services : en.services;
   const [selectedService, setSelectedService] = useState<number | null>(null);
@@ -115,6 +128,7 @@ export function ServicesShowcase() {
   return (
     <BrandedContentSection
       id="services"
+      variant={sectionVariant}
       header={{
         icon: "explore",
         iconVariant: "bronze",
@@ -126,13 +140,13 @@ export function ServicesShowcase() {
               t.sectionDescription
             ) : (
               <>
-                From planning to completion, every project reflects our{" "}
+                Understand each delivery lane from{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  core values
+                  preconstruction planning
                 </span>{" "}
-                —honesty, integrity, professionalism, and{" "}
+                through active build and{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  thoroughness
+                  close-out
                 </span>
                 .
               </>
@@ -158,16 +172,18 @@ export function ServicesShowcase() {
             }}
             aria-label={`${t.viewDetailsAriaPrefix} ${service.title}`}
           >
-            <Card className="flex flex-col bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-secondary/20 border border-gray-200 dark:border-gray-700 rounded-3xl h-full transition-all duration-300 p-6 sm:p-7 lg:p-8 overflow-hidden group hover:scale-[1.02]">
+            <Card
+              className={`flex flex-col bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-secondary/20 border border-gray-200 dark:border-gray-700 ${cornerRadius.card} h-full transition-all duration-300 p-6 sm:p-8 overflow-hidden group hover:scale-[1.02]`}
+            >
               <div className="relative flex flex-col h-full">
                 <CardHeader className="shrink-0 pb-4 px-0">
                   {/* Enhanced Icon Container */}
                   <div className="relative inline-block mb-4 sm:mb-5 shrink-0">
                     <div
-                      className={`absolute inset-0 bg-linear-to-br ${service.iconGlow} blur-xl rounded-3xl`}
+                      className={`absolute inset-0 bg-linear-to-br ${service.iconGlow} blur-xl ${cornerRadius.card}`}
                     ></div>
                     <div
-                      className={`relative flex justify-center items-center bg-linear-to-br ${service.iconGradient} rounded-2xl w-16 h-16 sm:w-20 sm:h-20 shadow-xl group-hover:scale-110 transition-transform duration-300`}
+                      className={`relative flex justify-center items-center bg-linear-to-br ${service.iconGradient} ${cornerRadius.icon} w-16 h-16 sm:w-20 sm:h-20 shadow-xl ${hoverMotion.iconSubtle}`}
                     >
                       <MaterialIcon
                         icon={service.icon}
@@ -176,7 +192,7 @@ export function ServicesShowcase() {
                       />
                     </div>
                   </div>
-                  <CardTitle className="mb-2 sm:mb-3 text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl font-black leading-tight wrap-break-word">
+                  <CardTitle className="mb-2 sm:mb-3 text-gray-900 dark:text-white text-xl sm:text-2xl font-black leading-tight wrap-break-word">
                     {service.title}
                   </CardTitle>
                   <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-sm sm:text-base wrap-break-word">
@@ -184,11 +200,13 @@ export function ServicesShowcase() {
                   </p>
                 </CardHeader>
                 <CardContent className="flex flex-col grow pt-0 px-0">
-                  <p className="mb-4 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed wrap-break-word">
+                  <p className="mb-4 text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed wrap-break-word">
                     {service.description}
                   </p>
                   <div className="mt-auto pt-4 sm:pt-5">
-                    <div className="relative overflow-hidden rounded-xl bg-linear-to-r from-gray-50 to-gray-100 dark:from-gray-700/50 dark:to-gray-700/30 border-2 border-gray-200 dark:border-gray-600 group-hover:border-brand-primary dark:group-hover:border-brand-primary-light transition-all duration-300">
+                    <div
+                      className={`relative overflow-hidden ${cornerRadius.element} bg-linear-to-r from-gray-50 to-gray-100 dark:from-gray-700/50 dark:to-gray-700/30 border border-gray-200 dark:border-gray-600 group-hover:border-brand-primary dark:group-hover:border-brand-primary-light transition-all duration-300`}
+                    >
                       {/* Animated background gradient on hover */}
                       <div className="absolute inset-0 bg-linear-to-r from-brand-primary/0 via-brand-primary/5 to-brand-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
@@ -218,7 +236,7 @@ export function ServicesShowcase() {
 
       {/* Service Detail Modal */}
       {currentService && (
-        <Modal
+        <ServicesDetailModal
           isOpen={true}
           onClose={closeModal}
           title={currentService.title}
@@ -234,7 +252,7 @@ export function ServicesShowcase() {
               <div className="absolute inset-0 bg-linear-to-br from-black/10 to-black/20"></div>
               <button
                 onClick={onClose}
-                className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 rounded-full p-2.5 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 z-10"
+                className={`absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 ${cornerRadius.full} p-2.5 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 z-10`}
                 aria-label={t.closeModalAria}
                 type="button"
                 autoFocus
@@ -246,7 +264,9 @@ export function ServicesShowcase() {
                 />
               </button>
               <div className="relative flex items-start gap-4">
-                <div className="shrink-0 bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-xl border border-white/30">
+                <div
+                  className={`shrink-0 bg-white/20 backdrop-blur-sm p-4 ${cornerRadius.icon} shadow-xl border border-white/30`}
+                >
                   <MaterialIcon
                     icon={currentService.icon}
                     size="2xl"
@@ -276,7 +296,9 @@ export function ServicesShowcase() {
             {/* What's Included */}
             <div className="mb-6">
               <div className="flex items-center mb-4">
-                <div className="flex items-center justify-center w-10 h-10 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl mr-3">
+                <div
+                  className={`flex items-center justify-center w-10 h-10 bg-brand-primary/10 dark:bg-brand-primary/20 ${cornerRadius.element} mr-3`}
+                >
                   <MaterialIcon
                     icon="checklist"
                     size="lg"
@@ -306,7 +328,9 @@ export function ServicesShowcase() {
             {/* Key Benefits */}
             <div className="mb-6">
               <div className="flex items-center mb-4">
-                <div className="flex items-center justify-center w-10 h-10 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-xl mr-3">
+                <div
+                  className={`flex items-center justify-center w-10 h-10 bg-brand-secondary/10 dark:bg-brand-secondary/20 ${cornerRadius.element} mr-3`}
+                >
                   <MaterialIcon
                     icon="stars"
                     size="lg"
@@ -357,7 +381,7 @@ export function ServicesShowcase() {
               </Link>
             </div>
           </div>
-        </Modal>
+        </ServicesDetailModal>
       )}
     </BrandedContentSection>
   );

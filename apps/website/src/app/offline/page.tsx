@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageTrackingClient } from "@/components/analytics";
 import { PageHero } from "@/components/ui/layout/PageHero";
 import { RetryConnectionButton } from "./RetryConnectionButton";
+import { cornerRadius } from "@/lib/styles/design-tokens";
 
 const OFFLINE_FEATURES = [
   "Previously loaded pages",
@@ -34,7 +35,9 @@ export default function OfflinePage() {
           />
         </div>
 
-        <div className="w-20 h-20 bg-brand-secondary/10 border border-brand-secondary/30 rounded-full flex items-center justify-center mx-auto mb-6">
+        <div
+          className={`w-20 h-20 bg-brand-secondary/10 border border-brand-secondary/30 ${cornerRadius.full} flex items-center justify-center mx-auto mb-6`}
+        >
           <svg
             className="w-10 h-10 text-brand-secondary"
             fill="none"
@@ -61,7 +64,9 @@ export default function OfflinePage() {
           returns.
         </p>
 
-        <div className="bg-brand-primary-dark/60 border border-brand-secondary/20 rounded-2xl p-6 mb-8 text-left space-y-3">
+        <div
+          className={`bg-brand-primary-dark/60 border border-brand-secondary/20 ${cornerRadius.icon} p-6 mb-8 text-left space-y-3`}
+        >
           <p className="text-xs font-bold uppercase tracking-widest text-brand-secondary mb-4">
             Available offline
           </p>
@@ -78,7 +83,7 @@ export default function OfflinePage() {
 
           <Link
             href="/"
-            className="px-6 py-3 bg-brand-primary-dark hover:bg-brand-primary text-white font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
+            className={`px-6 py-3 bg-brand-primary-dark hover:bg-brand-primary text-white font-bold ${cornerRadius.element} transition-colors flex items-center justify-center gap-2`}
           >
             <svg
               className="w-4 h-4"

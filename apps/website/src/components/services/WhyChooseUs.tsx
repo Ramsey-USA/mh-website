@@ -14,7 +14,17 @@ import {
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 
-export function WhyChooseUs() {
+interface WhyChooseUsProps {
+  title: string;
+  subtitle: string;
+  description: string;
+}
+
+export function WhyChooseUs({
+  title,
+  subtitle,
+  description,
+}: Readonly<WhyChooseUsProps>) {
   return (
     <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
       <DiagonalStripePattern />
@@ -23,7 +33,6 @@ export function WhyChooseUs() {
       <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FadeInWhenVisible>
           <div className="mb-16 sm:mb-20 text-center">
-            {/* Icon with decorative lines */}
             <div className="flex items-center justify-center mb-8 gap-4">
               <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               <div className="relative">
@@ -39,60 +48,46 @@ export function WhyChooseUs() {
               <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
             </div>
 
-            {/* Two-line gradient heading */}
             <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
               <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                Why Partner With
+                {subtitle}
               </span>
               <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                MH Construction
+                {title}
               </span>
             </h2>
 
-            {/* Description with colored keyword highlighting */}
             <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-              Built on{" "}
-              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                service-earned trust and operational integrity
-              </span>
-              , where mission partnerships matter more than transactions—your
-              trusted partner for{" "}
-              <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
-                construction excellence
-              </span>
-              {" where handshakes still matter and promises are deployed with"}
-              disciplined follow-through.
+              {description}
             </p>
           </div>
         </FadeInWhenVisible>
 
-        <StaggeredFadeIn
-          className={gridPresets.cards4("md", "mx-auto max-w-7xl")}
-        >
+        <StaggeredFadeIn className={gridPresets.cards4("md", "gap-6 lg:gap-8")}>
           {whyChooseUs.map((reason) => {
             const cardContent = (
-              <Card className="flex flex-col bg-linear-to-br from-white via-white to-brand-primary/5 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 hover:shadow-2xl dark:hover:shadow-brand-primary/20 border-2 border-brand-primary/20 dark:border-brand-primary/30 hover:border-brand-primary dark:hover:border-brand-primary-light h-full transition-all duration-300 hover:-translate-y-2 group overflow-hidden">
-                {/* Decorative background pattern */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 dark:bg-brand-primary/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-700"></div>
+              <Card className="group relative h-full overflow-hidden border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-brand-primary/30">
+                <div className="absolute top-0 right-0 h-32 w-32 translate-x-16 -translate-y-16 rounded-full bg-brand-primary/5 blur-2xl transition-transform duration-700 group-hover:scale-150 dark:bg-brand-primary/10"></div>
 
-                <CardHeader className="shrink-0 relative">
-                  <div className="w-14 h-14 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+                <CardHeader className="relative shrink-0">
+                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-brand-primary to-brand-primary-dark shadow-lg transition-all duration-300 group-hover:rotate-3 group-hover:scale-110">
                     <MaterialIcon
                       icon={reason.iconName}
                       size="xl"
                       className="text-white"
                     />
                   </div>
-                  <CardTitle className="flex items-center min-h-[3rem] text-gray-900 dark:text-white text-xl font-black">
+                  <CardTitle className="flex min-h-12 items-center text-xl font-black text-gray-900 dark:text-white">
                     {reason.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="flex flex-col grow relative">
-                  <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed mb-4 grow">
+
+                <CardContent className="relative flex grow flex-col">
+                  <p className="mb-4 grow text-base leading-relaxed text-gray-700 dark:text-gray-300">
                     {reason.description}
                   </p>
-                  {reason.ctaLink && (
-                    <div className="flex items-center text-brand-primary dark:text-brand-primary-light hover:text-brand-secondary dark:hover:text-brand-secondary transition-colors mt-auto pt-2 font-semibold">
+                  {reason.ctaLink ? (
+                    <div className="mt-auto flex items-center pt-2 font-semibold text-brand-primary transition-colors hover:text-brand-secondary dark:text-brand-primary-light dark:hover:text-brand-secondary">
                       <MaterialIcon
                         icon="arrow_forward"
                         size="sm"
@@ -102,7 +97,7 @@ export function WhyChooseUs() {
                         {reason.ctaLinkText || "Learn More"}
                       </span>
                     </div>
-                  )}
+                  ) : null}
                 </CardContent>
               </Card>
             );

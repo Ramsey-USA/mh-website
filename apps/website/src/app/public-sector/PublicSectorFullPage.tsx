@@ -33,17 +33,24 @@ const breadcrumbSchema = generateBreadcrumbSchema(
 );
 
 // Lazy load heavy interactive components for better mobile performance
-const InteractiveGrantSelector = dynamic(() =>
-  import("./InteractiveGrantSelector").then((mod) => ({
-    default: mod.InteractiveGrantSelector,
-  })),
+const InteractiveGrantSelector = dynamic(
+  () =>
+    import("./InteractiveGrantSelector").then((mod) => ({
+      default: mod.InteractiveGrantSelector,
+    })),
+  {
+    loading: () => (
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {Array.from({ length: 3 }).map((_, idx) => (
+          <div
+            key={idx}
+            className="h-56 rounded-2xl animate-pulse bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600"
+          />
+        ))}
+      </div>
+    ),
+  },
 );
-const StrategicCTABanner = dynamic(() =>
-  import("@/components/ui/cta").then((mod) => ({
-    default: mod.StrategicCTABanner,
-  })),
-);
-
 const NextStepsSection = dynamic(
   () =>
     import("@/components/shared-sections").then((mod) => ({
@@ -1123,13 +1130,8 @@ export default function PublicSectorFullPage() {
               </div>
             </div>
 
-            {/* Strategic CTA Banner - Conversion Optimization */}
-            <div className="mb-12">
-              <StrategicCTABanner variant="combo" className="my-0" />
-            </div>
-
             <div className="flex sm:flex-row flex-col justify-center gap-4">
-              <Link href="/contact">
+              <Link href="/contact" prefetch={false}>
                 <Button
                   size="lg"
                   className="bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-800 px-10 py-7 text-white text-xl"

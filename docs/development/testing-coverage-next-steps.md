@@ -30,7 +30,7 @@ All items below were completed March 28, 2026. New tests written per group:
 | `components/layout`   | 17          | SectionContainer, FaviconLinks, UnderConstruction (new file)  |
 | `components/team`     | 6           | Navy Veteran, Master's, AAS badges; no-avatar; 6 role icons   |
 | `components/seo`      | 20          | Full SeoMeta.tsx coverage (new file)                          |
-| `lib/analytics`       | 16          | kv-store.ts — all write/read ops, error paths (new file)      |
+| `lib/analytics`       | 0           | Shared analytics unit tests retired after GA-only migration   |
 | `lib/email`           | 20          | email-service.ts — full coverage incl. Resend mock (new file) |
 | `middleware/security` | 5           | cf-connecting-ip, x-forwarded-for, withSecurity branches      |
 | `app/careers`         | 3           | handleCloseApplicationModal, URL cleanup, mailto button       |

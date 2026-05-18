@@ -227,12 +227,12 @@ Use this section as the canonical licensing reference for docs and agent workflo
 
 ### Avoid These Terms
 
-| Avoid                | Use Instead                     |
-| -------------------- | ------------------------------- |
-| ❌ "customers"       | ✅ "Client Partners"            |
-| ❌ "clients" (alone) | ✅ "Client Partners"            |
-| ❌ "subs"            | ✅ "Trade Partners"             |
-| ❌ "vendors"         | ✅ "Trade Partners" or "Allies" |
+| Avoid                        | Use Instead                     |
+| ---------------------------- | ------------------------------- |
+| ❌ "retail-buyer labels"     | ✅ "Client Partners"            |
+| ❌ "clients" (alone)         | ✅ "Client Partners"            |
+| ❌ "subcontractor shorthand" | ✅ "Trade Partners"             |
+| ❌ "vendors"                 | ✅ "Trade Partners" or "Allies" |
 
 ---
 

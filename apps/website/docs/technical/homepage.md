@@ -183,7 +183,7 @@ The homepage follows the **Universal Page Flow Standard**: **Discover → Trust 
 - **Component:** `CompanyStats` (Lazy-loaded)
 - **Purpose:** Credibility through measurable results
 - **Features:**
-  - Service-proven excellence messaging
+  - Battle-tested excellence messaging
   - Proven track record display
   - Visual statistics presentation
   - Lazy-loaded for performance optimization
@@ -697,3 +697,20 @@ className = "bg-white dark:bg-gray-900 text-gray-900 dark:text-white";
 
 **Built for the Client, NOT the Dollar.**  
 **Founded 2010 | Veteran-Owned Since January 2025**
+
+### Updates on Component Patterns
+
+**Recent Changes:**
+
+- Unified card corner radii across homepage sections using shared constants (`rounded-3xl`).
+- Standardized hover motion amplitude tokens for consistent scaling and rotation effects.
+
+**Impact:**
+
+- Improved visual consistency across all homepage sections.
+- Enhanced maintainability by centralizing style definitions.
+
+**Action Required:**
+
+- Ensure all new components adhere to the updated shared constants for hover effects and corner radii.
+- Review other pages for alignment with these updates.

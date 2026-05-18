@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
@@ -115,10 +113,13 @@ export function Timeline({
 
           {/* Description with HTML support for keyword highlighting */}
           {description && (
-            <div
-              className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"
-              dangerouslySetInnerHTML={{ __html: description }}
-            />
+            <div className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              {typeof description === "string" ? (
+                <span dangerouslySetInnerHTML={{ __html: description }} />
+              ) : (
+                description
+              )}
+            </div>
           )}
         </div>
 
@@ -225,7 +226,7 @@ export function Timeline({
                       {step.num}
                     </div>
                     {index < steps.length - 1 && (
-                      <div className="w-1 flex-1 bg-linear-to-b from-brand-primary to-brand-secondary mt-2 min-h-[60px]"></div>
+                      <div className="w-1 flex-1 bg-linear-to-b from-brand-primary to-brand-secondary mt-2 min-h-15"></div>
                     )}
                   </div>
 
@@ -235,7 +236,7 @@ export function Timeline({
                       <div className="flex items-center gap-3 mb-4">
                         <div
                           className={cn(
-                            "flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center shadow-lg",
+                            "shrink-0 w-14 h-14 rounded-xl flex items-center justify-center shadow-lg",
                             step.num === steps.length
                               ? "bg-linear-to-br from-brand-secondary to-brand-secondary-dark"
                               : "bg-linear-to-br from-brand-primary to-brand-primary-dark",

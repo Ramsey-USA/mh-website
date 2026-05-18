@@ -1,10 +1,7 @@
-"use client";
-
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { BrandedContentSection } from "@/components/templates";
-import { useLocale } from "@/hooks/useLocale";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 import en from "@/../messages/home/en.json";
 import es from "@/../messages/home/es.json";
 
@@ -58,6 +55,22 @@ type WhyPartnerValue = {
   accentColor?: string;
 };
 
+function resolveDisplayStat(value: WhyPartnerValue): string {
+  const explicitStat = value.stat?.trim();
+  if (explicitStat) {
+    return explicitStat;
+  }
+
+  // Fallback to the title prefix when copy uses "<metric> - <statement>" format.
+  const [titlePrefix] = value.title.split(" - ");
+  if (titlePrefix && titlePrefix !== value.title) {
+    return titlePrefix.trim();
+  }
+
+  const numericMatch = value.title.match(/\d+(?:\.\d+)?\+?%?/);
+  return numericMatch?.[0] ?? "";
+}
+
 function getStatAccentClass(accentColor?: string): string {
   if (accentColor === "bronze-500") {
     return "text-bronze-700 dark:text-bronze-400";
@@ -82,12 +95,21 @@ function getSubtitleAccentClass(accentColor?: string): string {
   return "text-brand-primary-dark dark:text-brand-primary";
 }
 
-export function WhyPartnerSection() {
-  const locale = useLocale();
+export function WhyPartnerSection({
+  sectionVariant = "white",
+  locale = "en",
+  className = "",
+}: {
+  sectionVariant?: "white" | "gray";
+  locale?: SupportedLocale;
+  className?: string;
+}) {
   const t = locale === "es" ? es.whyPartner : en.whyPartner;
   return (
     <BrandedContentSection
       id="why-partner"
+      variant={sectionVariant}
+      className={className}
       header={{
         icon: "verified",
         iconVariant: "primary",
@@ -99,15 +121,15 @@ export function WhyPartnerSection() {
               t.sectionDescription
             ) : (
               <>
-                Where{" "}
+                Review the operating standards behind every{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  discipline meets construction expertise
+                  client partnership
                 </span>
-                —honest communication, proven craftsmanship, and{" "}
+                : safety leadership, transparent process controls, and{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  earned integrity
+                  measurable reliability
                 </span>{" "}
-                create partnerships built on trust.
+                across every phase.
               </>
             )}
           </>
@@ -117,45 +139,38 @@ export function WhyPartnerSection() {
       {/* Core Philosophy Callout */}
       <div className="flex justify-center mb-16">
         <div className="relative group">
-          <div className="absolute -inset-1 bg-linear-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-75 group-hover:opacity-100 transition duration-500"></div>
-          <div className="relative bg-white dark:bg-gray-800 px-8 py-6 rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-xl">
+          <div className="absolute -inset-1 bg-linear-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-3xl blur-sm opacity-40 group-hover:opacity-70 transition duration-500"></div>
+          <div className="relative bg-white dark:bg-gray-800 px-8 py-6 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg">
             <p className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
-              {locale === "es" ? (
-                t.philosophy
-              ) : (
-                <>
-                  "Building projects for the Client,{" "}
-                  <span className="font-black italic text-bronze-700 dark:text-bronze-400 text-xl sm:text-2xl md:text-3xl">
-                    NOT
-                  </span>{" "}
-                  the dollar"
-                </>
-              )}
+              {t.philosophy}
             </p>
           </div>
         </div>
       </div>
 
       {/* Modern Grid Cards with Unique Hover Effects */}
-      <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
         {(t.values || []).map((value: WhyPartnerValue, idx: number) => {
           const iconData = partnershipIcons[idx] ?? partnershipIcons[0]!;
+          const displayStat = resolveDisplayStat(value);
           const statAccentClass = getStatAccentClass(iconData.accentColor);
-          const subtitleAccentClass = getSubtitleAccentClass(value.accentColor);
+          const subtitleAccentClass = getSubtitleAccentClass(
+            iconData.accentColor,
+          );
           return (
             <div
               key={value.title}
-              className="group relative flex h-full min-h-[520px]"
+              className="group relative flex h-full min-h-130"
             >
               {/* Colored Border Glow - Visible on hover */}
               <div
-                className={`absolute -inset-2 bg-linear-to-br ${iconData.iconBgGradient} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
+                className={`absolute -inset-1 bg-linear-to-br ${iconData.iconBgGradient} rounded-3xl opacity-15 group-hover:opacity-35 blur-lg transition-all duration-500`}
               ></div>
 
-              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+              <div className="relative bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/40 dark:group-hover:border-brand-primary/50 shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
                 {/* Top Accent Bar */}
                 <div
-                  className={`h-2 bg-linear-to-r ${iconData.iconBgGradient}`}
+                  className={`h-1 bg-linear-to-r ${iconData.iconBgGradient}`}
                 ></div>
 
                 <div className="p-6 sm:p-8 flex flex-col flex-1">
@@ -186,11 +201,13 @@ export function WhyPartnerSection() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div
-                        className={`text-3xl sm:text-4xl font-black group-hover:scale-105 transition-transform duration-300 ${statAccentClass}`}
-                      >
-                        {value.stat ?? ""}
-                      </div>
+                      {displayStat ? (
+                        <div
+                          className={`text-3xl sm:text-4xl font-black group-hover:scale-105 transition-transform duration-300 ${statAccentClass}`}
+                        >
+                          {displayStat}
+                        </div>
+                      ) : null}
                       <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
                         {value.statLabel}
                       </div>
@@ -220,7 +237,7 @@ export function WhyPartnerSection() {
                         className="flex items-start gap-3"
                       >
                         <div
-                          className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-linear-to-br ${iconData.iconBgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                          className={`mt-0.5 shrink-0 w-5 h-5 rounded-full bg-linear-to-br ${iconData.iconBgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
                         >
                           <MaterialIcon
                             icon="check"
@@ -238,13 +255,13 @@ export function WhyPartnerSection() {
             </div>
           );
         })}
-      </StaggeredFadeIn>
+      </div>
 
       {/* Trade Partner CTA */}
       <div className="mt-4 flex justify-center">
         <div className="relative group max-w-2xl w-full">
-          <div className="absolute -inset-1 bg-linear-to-r from-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-50 group-hover:opacity-90 transition duration-500" />
-          <div className="relative flex flex-col sm:flex-row items-center justify-between gap-4 bg-white dark:bg-gray-800 rounded-xl border-2 border-brand-secondary/30 dark:border-brand-secondary/40 shadow-xl px-8 py-5">
+          <div className="absolute -inset-1 bg-linear-to-r from-brand-secondary to-bronze-600 rounded-3xl blur-sm opacity-35 group-hover:opacity-65 transition duration-500" />
+          <div className="relative flex flex-col sm:flex-row items-center justify-between gap-4 bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg px-8 py-5">
             <div className="flex items-center gap-3">
               <MaterialIcon
                 icon="handshake"

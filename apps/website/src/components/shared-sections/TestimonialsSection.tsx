@@ -5,7 +5,7 @@
  */
 
 import { TestimonialsCarousel } from "@/components/testimonials";
-import { getClientTestimonials } from "@/lib/data/testimonials";
+import type { Testimonial } from "@/lib/data/testimonials";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
 
 interface TestimonialsSectionProps {
@@ -16,6 +16,8 @@ interface TestimonialsSectionProps {
   autoPlay?: boolean;
   autoPlayInterval?: number;
   id?: string;
+  animated?: boolean;
+  testimonials: Testimonial[];
 }
 
 export function TestimonialsSection({
@@ -26,6 +28,8 @@ export function TestimonialsSection({
   autoPlay = true,
   autoPlayInterval = 5000,
   id,
+  animated = false,
+  testimonials,
 }: TestimonialsSectionProps) {
   return (
     <BrandedContentSection
@@ -37,10 +41,11 @@ export function TestimonialsSection({
         title,
         description,
       }}
+      animated={animated}
       className={className}
     >
       <TestimonialsCarousel
-        testimonials={getClientTestimonials()}
+        testimonials={testimonials}
         autoPlay={autoPlay}
         autoPlayInterval={autoPlayInterval}
       />

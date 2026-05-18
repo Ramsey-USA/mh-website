@@ -793,9 +793,9 @@ export function HeroSection({
 
 ### Analytics
 
-- POST /api/analytics/collect - Page view/event tracking
+- Google Analytics (client-side `gtag`) - Page view/event tracking
 - GET /api/analytics/dashboard - Dashboard data
-- GET /api/analytics/geolocation - Location data
+- Dashboard analytics endpoint(s) - Admin reporting data
 ```
 
 **Priority:** 🟡 Low-Medium (Nice to have)

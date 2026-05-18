@@ -90,25 +90,32 @@ export async function handleFormSubmission<T = unknown>(
       status: "new",
     };
 
-    // Store in D1 database (best-effort)
+    // Store in D1 database (fail-fast)
     let dbStored = false;
     try {
       const DB = getD1Database();
-      if (DB) {
-        // Database client is now properly typed
-        const db = createDbClient({ DB });
-        await db.insert(config.tableName, dbRecord as Record<string, unknown>);
-        logger.info(`${config.submissionType} stored in database`, {
-          id: submissionId,
-          table: config.tableName,
-        });
-        dbStored = true;
-      } else {
-        logger.info(
-          `D1 database not available, ${config.submissionType} not persisted`,
-          { id: submissionId },
+      if (!DB) {
+        logger.error("D1 database not available");
+        return NextResponse.json(
+          {
+            success: false,
+            error: {
+              code: "SERVICE_UNAVAILABLE",
+              message: "Database connection not available",
+            },
+          },
+          { status: 503 },
         );
       }
+
+      // Database client is now properly typed
+      const db = createDbClient({ DB });
+      await db.insert(config.tableName, dbRecord as Record<string, unknown>);
+      logger.info(`${config.submissionType} stored in database`, {
+        id: submissionId,
+        table: config.tableName,
+      });
+      dbStored = true;
     } catch (error: unknown) {
       const normalizedError =
         error instanceof Error ? error : new Error(String(error));
@@ -116,7 +123,17 @@ export async function handleFormSubmission<T = unknown>(
         `Failed to store ${config.submissionType} in database:`,
         normalizedError,
       );
-      // Continue to send email even if DB fails (best-effort pattern)
+
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: "DATABASE_ERROR",
+            message: "Failed to store submission in database",
+          },
+        },
+        { status: 503 },
+      );
     }
 
     // Store JSON backup in R2 for job applications (redundant backup)

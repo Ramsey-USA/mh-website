@@ -1,13 +1,6 @@
-/**
- * Company Stats Section for About Page
- * Displays key company statistics and achievements with animated counters
- * Reusable component that can be used on any page with custom data
- */
-
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { HoverScale } from "@/components/animations/FramerMotionComponents";
-import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { BrandedContentSection } from "@/components/templates";
+import { cornerRadius, hoverMotion } from "@/lib/styles/design-tokens";
 
 export interface StatItem {
   iconName: string;
@@ -20,41 +13,17 @@ export interface StatItem {
 }
 
 export interface CompanyStatsProps {
-  /**
-   * Array of statistics to display
-   */
   stats?: StatItem[];
-  /**
-   * Section title (main line)
-   */
   title?: string;
-  /**
-   * Section subtitle (appears above title)
-   */
   subtitle?: string;
-  /**
-   * Section description - emphasizes measurable trust through proven performance
-   */
   description?: string;
-  /**
-   * Icon to display above the title
-   */
   headerIcon?: string;
-  /**
-   * Background gradient variant
-   */
   variant?: "primary" | "secondary" | "accent";
-  /**
-   * Additional CSS classes
-   */
   className?: string;
-  /**
-   * Optional section ID for anchor links
-   */
   id?: string;
+  animated?: boolean;
 }
 
-// Company Stats Data - Updated with 6 Differences Key Metrics
 export const companyStats: StatItem[] = [
   {
     iconName: "health_and_safety",
@@ -89,13 +58,23 @@ export const companyStats: StatItem[] = [
 
 export function CompanyStats({
   stats = companyStats,
-  title = "Mission Track Record",
-  subtitle = "Disciplined Results",
-  description = "Proven results from a Veteran-Owned team committed to clear communication, disciplined execution, and lasting Client Partner relationships across the Pacific Northwest.",
+  title,
+  subtitle,
+  description,
   headerIcon = "analytics",
   className = "",
   id = "company-stats",
+  animated = false,
 }: CompanyStatsProps) {
+  const formatStatValue = (stat: StatItem) => {
+    const decimals = stat.decimals ?? 0;
+    const value =
+      decimals > 0
+        ? stat.value.toFixed(decimals)
+        : Math.round(stat.value).toString();
+    return `${stat.prefix || ""}${value}${stat.suffix || ""}`;
+  };
+
   return (
     <BrandedContentSection
       id={id}
@@ -106,35 +85,27 @@ export function CompanyStats({
         title: title,
         description: description,
       }}
+      animated={animated}
       className={className}
     >
       <div className="gap-4 sm:gap-6 grid grid-cols-2 lg:grid-cols-4 mx-auto max-w-6xl">
         {stats.map((stat) => (
-          <HoverScale key={stat.label}>
-            <div className="h-full flex flex-col text-center p-5 sm:p-6 lg:p-8 bg-white dark:bg-gray-800 rounded-3xl border-2 border-gray-200 dark:border-gray-700 hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group shadow-lg">
-              <MaterialIcon
-                icon={stat.iconName}
-                className="mb-4 text-brand-primary group-hover:scale-110 transition-transform"
-                size="xl"
-              />
-              <div className="mb-2 font-black text-3xl sm:text-4xl lg:text-5xl text-brand-primary dark:text-brand-primary-light drop-shadow-sm">
-                {stat.animated ? (
-                  <AnimatedCounter
-                    value={stat.value}
-                    suffix={stat.suffix || ""}
-                    prefix={stat.prefix || ""}
-                    decimals={stat.decimals || 0}
-                    duration={2000}
-                  />
-                ) : (
-                  stat.value
-                )}
-              </div>
-              <div className="text-gray-700 dark:text-gray-300 font-medium text-xs sm:text-sm lg:text-base leading-relaxed mt-auto">
-                {stat.label}
-              </div>
+          <div
+            key={stat.label}
+            className={`h-full flex flex-col text-center p-6 sm:p-8 bg-white dark:bg-gray-800 ${cornerRadius.card} border border-gray-200 dark:border-gray-700 hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group shadow-lg hover:scale-[1.02]`}
+          >
+            <MaterialIcon
+              icon={stat.iconName}
+              className={`mb-4 text-brand-primary ${hoverMotion.iconSubtle}`}
+              size="xl"
+            />
+            <div className="mb-2 font-black text-3xl sm:text-4xl text-brand-primary dark:text-brand-primary-light drop-shadow-sm">
+              {formatStatValue(stat)}
             </div>
-          </HoverScale>
+            <div className="text-gray-700 dark:text-gray-300 font-medium text-xs sm:text-sm leading-relaxed mt-auto">
+              {stat.label}
+            </div>
+          </div>
         ))}
       </div>
     </BrandedContentSection>

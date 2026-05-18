@@ -137,13 +137,15 @@ describe("safety helpers", () => {
         makeJob({ id: "b", status: "active" }),
         makeJob({ id: "c", status: "closed" }),
       ];
-      const subs = [
+      const submissions = [
         makeSubmission({
           job_id: "a",
           created_at: "2026-05-02T00:00:00Z",
         }),
       ];
-      expect(outstandingJobs(jobs, subs, NOW).map((j) => j.id)).toEqual(["b"]);
+      expect(outstandingJobs(jobs, submissions, NOW).map((j) => j.id)).toEqual([
+        "b",
+      ]);
     });
   });
 

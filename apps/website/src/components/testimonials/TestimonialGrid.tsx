@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TestimonialCard } from "./TestimonialCard";
@@ -32,7 +33,7 @@ interface TestimonialGridProps {
 
 export function TestimonialGrid({
   testimonials,
-  title = "What People Say",
+  title,
   subtitle,
   variant = "default",
   maxItems,
@@ -44,9 +45,13 @@ export function TestimonialGrid({
   columns = 3,
   className = "",
 }: TestimonialGridProps) {
+  const t = useTranslations("testimonialGrid");
+
   const displayTestimonials = maxItems
     ? testimonials.slice(0, maxItems)
     : testimonials;
+
+  const resolvedTitle = title ?? t("defaultTitle");
 
   // Show "Coming Soon" message if no testimonials
   const hasNoTestimonials = displayTestimonials.length === 0;
@@ -62,15 +67,15 @@ export function TestimonialGrid({
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Header */}
-        {(title || subtitle) && (
+        {(resolvedTitle || subtitle) && (
           <FadeInWhenVisible className="mb-12 sm:mb-16 lg:mb-20 text-center">
-            {title && (
+            {resolvedTitle && (
               <h2 className="mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
                 <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
-                  {title.split(" ").slice(0, -1).join(" ")}
+                  {resolvedTitle.split(" ").slice(0, -1).join(" ")}
                 </span>
                 <span className="block text-brand-primary dark:text-brand-primary font-black">
-                  {title.split(" ").slice(-1)}
+                  {resolvedTitle.split(" ").slice(-1)}
                 </span>
               </h2>
             )}
@@ -85,19 +90,17 @@ export function TestimonialGrid({
         {/* Testimonials Grid or Coming Soon Message */}
         {hasNoTestimonials ? (
           <FadeInWhenVisible>
-            <div className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center min-h-[400px]">
+            <div className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center min-h-100">
               <MaterialIcon
                 icon="construction"
                 size="4xl"
                 className="text-brand-primary mb-6"
               />
               <h3 className="mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl text-center">
-                Coming Soon
+                {t("comingSoonTitle")}
               </h3>
               <p className="max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
-                Testimonials will be available soon. We're committed to sharing
-                only authentic feedback from our valued partners and team
-                members.
+                {t("comingSoonDescription")}
               </p>
             </div>
           </FadeInWhenVisible>
@@ -125,7 +128,7 @@ export function TestimonialGrid({
               <Button
                 variant="secondary"
                 size="lg"
-                className="group transition-all duration-300 w-full sm:w-auto min-h-[48px] touch-manipulation"
+                className="group transition-all duration-300 w-full sm:w-auto min-h-12 touch-manipulation"
               >
                 <MaterialIcon
                   icon="rate_review"
@@ -133,7 +136,7 @@ export function TestimonialGrid({
                   className="mr-2 sm:mr-3 shrink-0"
                 />
                 <span className="font-medium text-sm sm:text-base">
-                  View All Reviews
+                  {t("viewAllReviews")}
                 </span>
                 <MaterialIcon
                   icon="arrow_forward"

@@ -163,16 +163,16 @@ export const navigationConfigs = {
       icon: "build",
     },
     {
-      href: "#core-values",
-      label: "Core Values",
-      mobileLabel: "Values",
-      icon: "shield",
-    },
-    {
       href: "#why-partner",
       label: "Why Partner",
       mobileLabel: "Why Us",
       icon: "handshake",
+    },
+    {
+      href: "#core-values",
+      label: "Core Values",
+      mobileLabel: "Values",
+      icon: "shield",
     },
     {
       href: "#testimonials",

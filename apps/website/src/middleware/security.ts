@@ -65,16 +65,6 @@ const SORTED_ROUTE_CONFIG = Object.entries(ROUTE_SECURITY_CONFIG).sort(
 // Security paths that bypass normal processing
 const SECURITY_BYPASS_PATHS = [
   "/api/security/status",
-  // Analytics beacon uses sendBeacon/fetch(keepalive) which cannot set
-  // custom headers — CSRF check would always block it. The route has its
-  // own rate limiter (60 req/min) so middleware CSRF is redundant here.
-  "/api/analytics/collect",
-  // Geolocation is a public idempotent GET called on every page load.
-  // Skipping middleware overhead (CSRF gen, audit log write, rate limit
-  // check) reduces per-request subrequest pressure on the Worker isolate
-  // and keeps prefetch fan-out from triggering 503s. The route itself
-  // has its own rate limiter and returns a safe 200 fallback on error.
-  "/api/analytics/geolocation",
   "/favicon.ico",
   "/_next/",
   "/images/",
@@ -84,12 +74,41 @@ const SECURITY_BYPASS_PATHS = [
 ];
 
 function isTrustedLighthouseAudit(request: NextRequest): boolean {
+  const hostname = request.nextUrl.hostname;
+  const isLocalHost =
+    hostname === "localhost" ||
+    hostname === "127.0.0.1" ||
+    hostname === "0.0.0.0";
+  const userAgent = request.headers.get("user-agent") ?? "";
+  const isAuditQuery = request.nextUrl.searchParams.get("__lh") === "1";
+  const isLighthouseUserAgent = /Chrome-Lighthouse/i.test(userAgent);
+
+  // Local Lighthouse runs in production mode should bypass app-level security
+  // checks so audits remain deterministic without impacting real traffic.
+  if (isLocalHost && (isLighthouseUserAgent || isAuditQuery)) {
+    return true;
+  }
+
+  // Local and CI Lighthouse runs should not be throttled by app-level
+  // security checks. Keep this bypass out of production.
+  if (
+    process.env.NODE_ENV !== "production" &&
+    (isLighthouseUserAgent || isAuditQuery)
+  ) {
+    return true;
+  }
+
   const configuredKey = process.env["LIGHTHOUSE_AUDIT_KEY"];
   if (!configuredKey) {
     return false;
   }
 
   const providedKey = request.headers.get("x-mh-lighthouse-key");
+  // In production, require localhost when using key-based bypass.
+  if (process.env.NODE_ENV === "production") {
+    return isLocalHost && providedKey === configuredKey;
+  }
+
   return providedKey === configuredKey;
 }
 

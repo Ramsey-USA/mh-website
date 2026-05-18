@@ -48,16 +48,25 @@ const teamSpecialties = [
   },
 ];
 
-export function LeadershipTeam() {
+export function LeadershipTeam({
+  title,
+  subtitle,
+  description,
+}: {
+  title: string;
+  subtitle: string;
+  description: string;
+}) {
   return (
     <BrandedContentSection
       id="team"
       header={{
         icon: "military_tech",
         iconVariant: "primary",
-        subtitle: "Chain of Command Excellence",
-        title: "Leadership Team",
+        subtitle,
+        title,
       }}
+      description={description}
     >
       <div className="mx-auto max-w-4xl">
         {/* Introductory overview card */}

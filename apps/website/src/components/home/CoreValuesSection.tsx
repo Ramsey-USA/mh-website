@@ -1,11 +1,10 @@
-"use client";
-
 import type { CSSProperties } from "react";
+import Image from "next/image";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
-import Image from "next/image";
-import { useLocale } from "@/hooks/useLocale";
 import { CORE_VALUE_ICONS } from "@/lib/constants/navigation-icons";
+import { cornerRadius, hoverMotion } from "@/lib/styles/design-tokens";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 import en from "@/../messages/home/en.json";
 import es from "@/../messages/home/es.json";
 
@@ -15,7 +14,7 @@ const coreValuesBase = [
     icon: CORE_VALUE_ICONS.honesty,
     tagline: "Clear Communication Every Time",
     description:
-      "Full transparency—truthful assessments, open communication, honest intel. Upfront discussion of challenges and obstacles. Real-time updates on timeline or budget changes. Honest assessment when a project isn't the right fit. Complete cost breakdown before starting. Straight talk, no jargon.",
+      "Full transparency-truthful assessments, open communication, honest intel. Upfront discussion of challenges and obstacles. Real-time updates on timeline or budget changes. Honest assessment when a project is not the right fit. Complete cost breakdown before starting. Straight talk, no jargon.",
     image: "/images/values/honesty.webp",
     iconBg: "bg-brand-secondary",
     stats: "100% Transparent Pricing",
@@ -25,7 +24,7 @@ const coreValuesBase = [
     icon: CORE_VALUE_ICONS.integrity,
     tagline: "Doing What's Right",
     description:
-      "Strong ethics—doing what's right even when no one's watching. Using specified materials and methods without substitutions. Comprehensive warranties—we stand behind our work. Making decisions that benefit clients, not just our bottom line. Following through on commitments even when circumstances change. No shortcuts, period.",
+      "Strong ethics-doing what is right even when no one is watching. Using specified materials and methods without substitutions. Comprehensive warranties-we stand behind our work. Making decisions that benefit Client Partners, not just our bottom line. Following through on commitments even when circumstances change. No shortcuts, period.",
     image: "/images/values/integrity.webp",
     iconBg: "bg-primary-700",
     stats: "Unwavering Ethics",
@@ -35,7 +34,7 @@ const coreValuesBase = [
     icon: CORE_VALUE_ICONS.professionalism,
     tagline: "Excellence in Action",
     description:
-      "On time, prepared, and ready—zero excuses. Arriving on time and prepared. Clear communication in all interactions. Proper site management and organization. Treating your property with respect. Maintaining industry credentials and continuous improvement.",
+      "On time, prepared, and ready-zero excuses. Arriving on time and prepared. Clear communication in all interactions. Proper site management and organization. Treating your property with respect. Maintaining industry credentials and continuous improvement.",
     image: "/images/values/professionalism.webp",
     iconBg: "bg-brand-primary",
     stats: "Expert Service Standards",
@@ -45,19 +44,24 @@ const coreValuesBase = [
     icon: CORE_VALUE_ICONS.thoroughness,
     tagline: "No Detail Left Behind",
     description:
-      "Meticulous planning and execution—complete documentation, zero surprises. Detailed site analysis and planning. Precision measurements and calculations. Systematic quality checkpoints at every phase. Complete documentation with photo records. Comprehensive final review with detailed punch lists.",
+      "Meticulous planning and execution-complete documentation, zero surprises. Detailed site analysis and planning. Precision measurements and calculations. Systematic quality checkpoints at every phase. Complete documentation with photo records. Comprehensive final review with detailed punch lists.",
     image: "/images/values/thoroughness.webp",
     iconBg: "bg-primary-600",
     stats: "Zero Details Missed",
   },
 ];
 
-/**
- * Core Values Section
- * Displays the four foundational principles with alternating image/text layouts
- */
-export function CoreValuesSection() {
-  const locale = useLocale();
+export function CoreValuesSection({
+  sectionVariant = "white",
+  className = "",
+  animated = false,
+  locale = "en",
+}: {
+  sectionVariant?: "white" | "gray";
+  className?: string;
+  animated?: boolean;
+  locale?: SupportedLocale;
+}) {
   const t = locale === "es" ? es.coreValues : en.coreValues;
 
   const coreValues = coreValuesBase.map((item, i) => ({
@@ -71,6 +75,9 @@ export function CoreValuesSection() {
   return (
     <BrandedContentSection
       id="core-values"
+      variant={sectionVariant}
+      className={className}
+      animated={animated}
       header={{
         icon: "shield",
         iconVariant: "primary",
@@ -82,20 +89,13 @@ export function CoreValuesSection() {
               t.sectionDescription
             ) : (
               <>
-                Four foundational values guide every{" "}
+                These values set the standard for decisions on{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  project and partnership
+                  scope, budget, and schedule
                 </span>
-                {"—focused on building projects for the "}
+                {" while protecting "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  client
-                </span>
-                {", "}
-                <span className="font-black italic text-bronze-600 dark:text-bronze-400">
-                  NOT
-                </span>{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  the dollar
+                  quality and accountability
                 </span>
                 {"."}
               </>
@@ -104,7 +104,6 @@ export function CoreValuesSection() {
         ),
       }}
     >
-      {/* Stacked Value Cards with Alternating Layout */}
       <div className="space-y-12 lg:space-y-16">
         {coreValues.map((item, index) => {
           const isEven = index % 2 === 0;
@@ -114,10 +113,11 @@ export function CoreValuesSection() {
               className="scroll-reveal group"
               style={{ "--delay": `${index * 0.1}s` } as CSSProperties}
             >
-              <div className="flex flex-col lg:grid lg:grid-cols-2 bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300">
-                {/* Image Side */}
+              <div
+                className={`flex flex-col lg:grid lg:grid-cols-2 bg-white dark:bg-gray-800 ${cornerRadius.card} shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:scale-[1.02]`}
+              >
                 <div
-                  className={`relative h-64 sm:h-80 lg:h-full lg:min-h-[500px] overflow-hidden ${
+                  className={`relative h-64 sm:h-80 lg:h-full lg:min-h-125 overflow-hidden ${
                     isEven ? "lg:order-1" : "lg:order-2"
                   }`}
                 >
@@ -125,21 +125,21 @@ export function CoreValuesSection() {
                     src={item.image}
                     alt={`${item.value} - ${item.tagline}`}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className={hoverMotion.imageZoom}
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     loading="lazy"
                     quality={75}
                     priority={false}
                   />
-                  {/* Overlay gradient for better icon visibility */}
                   <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent lg:bg-linear-to-r lg:from-black/60 lg:via-black/20 lg:to-transparent"></div>
 
-                  {/* Icon Badge on Image */}
                   <div className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
                     <div className="relative inline-block">
-                      <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 to-brand-secondary/30 blur-xl rounded-2xl"></div>
                       <div
-                        className={`relative w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 ${item.iconBg} rounded-2xl flex items-center justify-center shadow-xl`}
+                        className={`absolute inset-0 bg-linear-to-br from-brand-primary/30 to-brand-secondary/30 blur-xl ${cornerRadius.icon}`}
+                      ></div>
+                      <div
+                        className={`relative w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 ${item.iconBg} ${cornerRadius.icon} flex items-center justify-center shadow-xl`}
                       >
                         <MaterialIcon
                           icon={item.icon}
@@ -152,18 +152,17 @@ export function CoreValuesSection() {
                   </div>
                 </div>
 
-                {/* Content Side */}
                 <div
-                  className={`p-8 sm:p-10 lg:p-12 flex flex-col justify-center ${
+                  className={`p-6 sm:p-8 lg:p-10 flex flex-col justify-center ${
                     isEven ? "lg:order-2" : "lg:order-1"
                   }`}
                 >
                   <div className="space-y-4 lg:space-y-5">
                     <div>
-                      <h3 className="font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl lg:text-3xl leading-tight tracking-tight mb-2">
+                      <h3 className="font-black text-gray-900 dark:text-gray-100 text-xl sm:text-2xl leading-tight tracking-tight mb-2">
                         {item.value}
                       </h3>
-                      <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-base sm:text-lg lg:text-xl">
+                      <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-sm sm:text-base">
                         {item.tagline}
                       </p>
                     </div>
@@ -173,7 +172,9 @@ export function CoreValuesSection() {
                     </p>
 
                     <div className="flex items-center gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
-                      <div className="flex items-center justify-center w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl shrink-0">
+                      <div
+                        className={`flex items-center justify-center w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 ${cornerRadius.element} shrink-0`}
+                      >
                         <MaterialIcon
                           icon="analytics"
                           size="md"

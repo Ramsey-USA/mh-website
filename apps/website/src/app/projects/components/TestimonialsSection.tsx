@@ -5,7 +5,7 @@
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import type { ProjectPortfolio } from "@/lib/types";
-import { getClientTestimonials } from "@/lib/data/testimonials";
+import type { Testimonial } from "@/lib/data/testimonials";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -13,18 +13,28 @@ import {
 
 interface TestimonialsSectionProps {
   projects?: ProjectPortfolio[];
+  testimonials?: Testimonial[];
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  clientPartnerLabel?: string;
+  starRatingAriaSuffix?: string;
 }
 
 export function TestimonialsSection({
   projects,
+  testimonials,
+  title = "Stories",
+  subtitle = "Partnership Success",
+  description = "Real experiences from Client Partners who've witnessed our four core values in action—building projects for the Client, NOT the Dollar.",
+  clientPartnerLabel = "Client Partner",
+  starRatingAriaSuffix = "star rating",
 }: Readonly<TestimonialsSectionProps>) {
   const testimonialsProjects = projects
     ? projects.filter((p) => p.clientTestimonial).slice(0, 4)
     : [];
 
-  const clientTestimonials = projects
-    ? []
-    : getClientTestimonials(true).slice(0, 6);
+  const clientTestimonials = projects ? [] : (testimonials ?? []);
 
   if (testimonialsProjects.length === 0 && clientTestimonials.length === 0) {
     return null;
@@ -61,28 +71,16 @@ export function TestimonialsSection({
             {/* Two-line gradient heading */}
             <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
               <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                Partnership Success
+                {subtitle}
               </span>
               <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                Stories
+                {title}
               </span>
             </h2>
 
             {/* Description with colored keyword highlighting */}
             <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-              Real experiences from{" "}
-              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                Client Partners
-              </span>{" "}
-              who've witnessed our{" "}
-              <span className="font-bold text-gray-900 dark:text-white">
-                four core values
-              </span>{" "}
-              in action—building projects for the Client,{" "}
-              <span className="font-black italic text-bronze-600 dark:text-bronze-400">
-                NOT
-              </span>{" "}
-              the Dollar.
+              {description}
             </p>
           </div>
 
@@ -105,7 +103,7 @@ export function TestimonialsSection({
                           <div
                             className="flex shrink-0 items-center mb-4"
                             role="img"
-                            aria-label={`${item.clientTestimonial!.rating} star rating`}
+                            aria-label={`${item.clientTestimonial!.rating} ${starRatingAriaSuffix}`}
                           >
                             {Array.from({
                               length: item.clientTestimonial!.rating,
@@ -156,7 +154,7 @@ export function TestimonialsSection({
                           <div
                             className="flex shrink-0 items-center mb-4"
                             role="img"
-                            aria-label={`${item.rating || 5} star rating`}
+                            aria-label={`${item.rating || 5} ${starRatingAriaSuffix}`}
                           >
                             {Array.from({ length: item.rating || 5 }).map(
                               (_, i) => (
@@ -182,7 +180,9 @@ export function TestimonialsSection({
                               {item.name}
                             </p>
                             <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">
-                              {item.company || item.project || "Client Partner"}
+                              {item.company ||
+                                item.project ||
+                                clientPartnerLabel}
                             </p>
                           </div>
                         </div>

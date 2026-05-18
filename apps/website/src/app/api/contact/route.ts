@@ -139,14 +139,19 @@ async function handlePOST(request: NextRequest) {
       logger.error("Failed to send email:", emailResult.error);
     }
 
-    // Store submission in D1 database (best-effort pattern)
+    // Store submission in D1 database (best-effort)
     const submissionId = crypto.randomUUID();
 
     // For general contact forms, store in contact_submissions table
-    // (job-application and consultation types are stored in their own tables)
     if (data.type === "contact" || data.type === "general" || !data.type) {
       try {
         const DB = getD1Database();
+        if (!DB) {
+          logger.warn(
+            "Contact submission DB unavailable; continuing without persistence",
+          );
+        }
+
         if (DB) {
           const db = createDbClient({ DB });
 
@@ -194,15 +199,12 @@ async function handlePOST(request: NextRequest) {
           logger.info("Contact submission stored in database", {
             id: submissionId,
           });
-        } else {
-          logger.info(
-            "D1 database not available, contact submission not persisted",
-            { id: submissionId },
-          );
         }
-      } catch (_error) {
-        logger.error("Failed to store contact submission in database:", _error);
-        // Continue even if DB fails (best-effort pattern)
+      } catch (dbError) {
+        logger.error(
+          "Failed to store contact submission in database:",
+          dbError,
+        );
       }
     }
 

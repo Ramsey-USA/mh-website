@@ -88,12 +88,12 @@
 - **Domain**: NameCheap (registrar) → Cloudflare (DNS/CDN)
 - **Database**: Cloudflare D1 (SQLite)
 - **Storage**: Cloudflare R2 (FILE_ASSETS, SAFETY_INTAKE, RESUMES buckets)
-- **Cache**: Cloudflare KV (CACHE, ANALYTICS namespaces)
+- **Cache**: Cloudflare KV (CACHE namespace)
 - **AI**: Cloudflare Workers AI — `@cf/meta/llama-3.1-8b-instruct` (Partnership Guide chatbot)
 - **Email**: Resend API (transactional emails, form notifications)
 - **SMS**: Twilio (admin alerts — optional, degrades gracefully)
 - **Bot Protection**: Cloudflare Turnstile (form verification)
-- **Analytics**: Custom system — localStorage client-side + Cloudflare KV server-side pipeline
+- **Analytics**: Google Analytics (gtag.js) event tracking
 - **CI/CD**: GitHub Actions
 
 See [Services Integration Guide](../technical/services-integration-guide.md) for full configuration.
@@ -245,7 +245,7 @@ src/
 - **Network Metrics**: Connection type, speed, latency, data saver mode
 - **Traffic Analysis**: Source, medium, campaign, referrer tracking
 - **Session Intelligence**: New/returning visitors, session count
-- **Privacy-First**: No PII — server-side Cloudflare KV aggregation (cross-visitor data) + client localStorage cache (user-deletable)
+- **Privacy-First**: No PII in custom app analytics storage; analytics events route through configured Google Analytics properties
 - **Easy Integration**: `usePageTracking('Page Name')` - one line setup
 - **Tracked Components**: Drop-in replacements for buttons, links, forms
 

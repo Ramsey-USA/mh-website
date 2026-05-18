@@ -132,13 +132,11 @@ describe("ServicesShowcase", () => {
     );
   });
 
-  it("renders the styled NOT in the Owner's Representative subtitle", () => {
+  it("renders the updated commercial delivery subtitle", () => {
     render(<ServicesShowcase />);
-    // The subtitle "Built projects for the Client, NOT the Dollar" should
-    // split "NOT" into its own italicized span
-    const notSpan = screen.getByText("NOT");
-    expect(notSpan.tagName).toBe("SPAN");
-    expect(notSpan.className).toContain("italic");
+    expect(
+      screen.getByText("Commercial Facilities with Owner-First Delivery"),
+    ).toBeInTheDocument();
   });
 
   it("renders all six service cards", () => {

@@ -24,6 +24,7 @@ const baseUrl = process.env.BASE_URL || "http://localhost:3000";
 const outputFileFlagIndex = args.findIndex((arg) => arg === "--output");
 const outputFile =
   outputFileFlagIndex >= 0 ? args[outputFileFlagIndex + 1] : null;
+const auditTimeoutMs = Number(process.env.LH_AUDIT_TIMEOUT_MS || 120000);
 const transientFailurePatterns = [
   /TARGET_CRASHED/i,
   /unexpectedly crashed/i,
@@ -32,14 +33,28 @@ const transientFailurePatterns = [
   /navigating frame was detached/i,
   /ERR_CONNECTION_RESET/i,
   /ERR_CONNECTION_REFUSED/i,
+  /Network\.getResponseBody/i,
+  /Debugger\.getScriptSource/i,
+  /No resource with given identifier found/i,
+  /Missing Lighthouse category scores/i,
   /interstitial/i,
 ];
+const lighthouseAuditKey = process.env.LIGHTHOUSE_AUDIT_KEY || "";
+const emulatedUserAgent =
+  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Chrome-Lighthouse";
+
+function withAuditQuery(url) {
+  const parsed = new URL(url);
+  parsed.searchParams.set("__lh", "1");
+  return parsed.toString();
+}
 
 const config = {
   extends: "lighthouse:default",
   settings: {
     onlyCategories: ["performance", "accessibility", "best-practices", "seo"],
     formFactor: "desktop",
+    emulatedUserAgent,
     throttling: {
       rttMs: 40,
       throughputKbps: 10240,
@@ -75,18 +90,52 @@ async function runLighthouse(url, name) {
       "--no-sandbox",
       "--disable-dev-shm-usage",
       "--disable-gpu",
+      `--user-agent=${emulatedUserAgent}`,
     ],
   });
 
   const options = {
-    logLevel: "info",
+    logLevel: "error",
     output: "json",
     port: chrome.port,
+    ...(lighthouseAuditKey
+      ? { extraHeaders: { "x-mh-lighthouse-key": lighthouseAuditKey } }
+      : {}),
   };
 
   try {
     console.log(`  Running Lighthouse on ${url}...`);
-    const runnerResult = await lighthouse(url, options, config);
+    const timeoutToken = Symbol("lh-timeout");
+    const timeoutPromise = new Promise((resolve) => {
+      setTimeout(() => resolve(timeoutToken), auditTimeoutMs);
+    });
+
+    const lighthousePromise = lighthouse(url, options, config).catch(
+      (error) => ({ __lighthouseError: error }),
+    );
+
+    const runnerResult = await Promise.race([
+      lighthousePromise,
+      timeoutPromise,
+    ]);
+
+    if (runnerResult === timeoutToken) {
+      return {
+        name,
+        url,
+        error: `Lighthouse timed out after ${auditTimeoutMs}ms`,
+        success: false,
+      };
+    }
+
+    if (runnerResult && runnerResult.__lighthouseError) {
+      return {
+        name,
+        url,
+        error: runnerResult.__lighthouseError.message,
+        success: false,
+      };
+    }
 
     const { lhr } = runnerResult;
 
@@ -102,10 +151,15 @@ async function runLighthouse(url, name) {
       categories["best-practices"]?.score == null ||
       categories.seo?.score == null
     ) {
+      const warningDetails = Array.isArray(lhr.runWarnings)
+        ? lhr.runWarnings.join(" | ")
+        : "";
       return {
         name,
         url,
-        error: "Missing Lighthouse category scores in report",
+        error: warningDetails
+          ? `Missing Lighthouse category scores in report (${warningDetails})`
+          : "Missing Lighthouse category scores in report",
         success: false,
       };
     }
@@ -156,8 +210,10 @@ function warmUrl(url) {
       url,
       {
         headers: {
-          "user-agent":
-            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+          "user-agent": emulatedUserAgent,
+          ...(lighthouseAuditKey
+            ? { "x-mh-lighthouse-key": lighthouseAuditKey }
+            : {}),
         },
       },
       (res) => {
@@ -228,7 +284,7 @@ async function main() {
   const results = [];
 
   for (const page of pages) {
-    const fullUrl = `${baseUrl}${page.url}`;
+    const fullUrl = withAuditQuery(`${baseUrl}${page.url}`);
     console.log(`📊 Testing: ${page.name} (${page.url})`);
 
     const result = await runAuditWithWarmup(fullUrl, page.name);

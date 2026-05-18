@@ -14,7 +14,8 @@ export function SmokeBossFunnel() {
   if (
     isMissionComplete ||
     pathname === "/cool-desert-nights" ||
-    pathname === "/events"
+    pathname === "/events" ||
+    pathname === "/careers"
   ) {
     return null;
   }

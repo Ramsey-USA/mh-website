@@ -1,5 +1,6 @@
 import { PageTrackingClient, TrackedBridgeLink } from "@/components/analytics";
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { AmericanFlag } from "@/components/icons/AmericanFlag";
@@ -15,6 +16,7 @@ import {
 } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { getTranslations } from "next-intl/server";
 
 // NextStepsSection uses useLocale (client hook) and sits at the very end of
 // the page (~line 1264). Dynamic import keeps its JS out of the critical path.
@@ -34,7 +36,113 @@ const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.veterans);
  */
 export default async function VeteransPage() {
   const locale = await getServerLocale();
-  const isEs = locale === "es";
+  const t = await getTranslations({ locale });
+  const foundationCards = [
+    {
+      key: "leadership",
+      icon: "military_tech",
+      iconBgGradient: "from-brand-primary to-brand-primary-dark",
+      accentColor: "brand-primary",
+      stat: "2",
+    },
+    {
+      key: "safety",
+      icon: "health_and_safety",
+      iconBgGradient: "from-bronze-600 to-bronze-700",
+      accentColor: "bronze-500",
+      stat: ".64",
+    },
+    {
+      key: "experience",
+      icon: "workspace_premium",
+      iconBgGradient: "from-brand-secondary to-bronze-700",
+      accentColor: "brand-secondary",
+      stat: "150+",
+    },
+    {
+      key: "transparency",
+      icon: "fact_check",
+      iconBgGradient: "from-brand-primary to-brand-primary-dark",
+      accentColor: "brand-primary",
+      stat: "100%",
+    },
+    {
+      key: "missions",
+      icon: "verified",
+      iconBgGradient: "from-bronze-600 to-bronze-800",
+      accentColor: "bronze-500",
+      stat: "650+",
+    },
+    {
+      key: "referrals",
+      icon: "handshake",
+      iconBgGradient: "from-brand-secondary to-brand-secondary-dark",
+      accentColor: "brand-secondary",
+      stat: "70%",
+    },
+  ];
+
+  const combatCards = [
+    { key: "allBranches", icon: "shield", theme: "military" as const },
+    { key: "tailoredService", icon: "balance", theme: "veteran" as const },
+  ];
+
+  const timelineSteps = [
+    { key: "initialConsultation", num: 1, icon: "phone", position: "left" },
+    {
+      key: "serviceVerification",
+      num: 2,
+      icon: "verified_user",
+      position: "right",
+    },
+    { key: "projectAssessment", num: 3, icon: "assessment", position: "left" },
+    {
+      key: "discountDetermination",
+      num: 4,
+      icon: "balance",
+      position: "right",
+    },
+    {
+      key: "transparentProposal",
+      num: 5,
+      icon: "description",
+      position: "left",
+    },
+  ];
+
+  const supportStats = [
+    { key: "hiringPriority", icon: "badge" },
+    { key: "veteranLeaders", icon: "military_tech" },
+    { key: "apprenticeship", icon: "school" },
+    { key: "network", icon: "handshake" },
+  ];
+
+  const partnershipCriteria = [
+    {
+      key: "nonProfit",
+      icon: "verified",
+      iconBg: "bg-brand-primary",
+      position: "left",
+    },
+    {
+      key: "mission",
+      icon: "military_tech",
+      iconBg: "bg-brand-secondary",
+      position: "right",
+    },
+    {
+      key: "regional",
+      icon: "location_on",
+      iconBg: "bg-primary-700",
+      position: "left",
+    },
+    {
+      key: "collaborative",
+      icon: "handshake",
+      iconBg: "bg-bronze-700",
+      position: "right",
+    },
+  ];
 
   return (
     <div className="relative min-h-screen">
@@ -59,48 +167,26 @@ export default async function VeteransPage() {
             </div>
             <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                {isEs
-                  ? "Servicio Primero → Veteranos"
-                  : "Service First → Veterans"}
+                {t("veteransPage.hero.kicker")}
               </span>
               <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
-                {isEs
-                  ? "Apoyando a Quienes Sirvieron - Una Comunidad, Una Mision"
-                  : "Supporting Those Who Served - One Community, One Mission"}
+                {t("veteransPage.hero.titleLine1")}
               </span>
               <span className="block text-brand-secondary">
-                {isEs
-                  ? "Honrando a Quienes Sirvieron"
-                  : "Honoring Those Who Served"}
+                {t("veteransPage.hero.titleLine2")}
               </span>
               <span className="block text-white/95">
-                {isEs
-                  ? "Todas las Ramas, Todos los Valores"
-                  : "All Branches, All Values"}
+                {t("veteransPage.hero.titleLine3")}
               </span>
               <span className="block text-brand-primary">
-                {isEs
-                  ? "Descuento para Veteranos de Combate Disponible"
-                  : "Combat Veteran Discount at the Ready"}
+                {t("veteransPage.hero.titleLine4")}
               </span>
               <span className="block text-white/90">
-                {isEs ? (
-                  <>
-                    Construyendo proyectos para el Cliente,{" "}
-                    <span className="font-black italic text-bronze-300">
-                      NO
-                    </span>{" "}
-                    por el Dolar
-                  </>
-                ) : (
-                  <>
-                    Building projects for the Client,{" "}
-                    <span className="font-black italic text-bronze-300">
-                      NOT
-                    </span>{" "}
-                    the Dollar
-                  </>
-                )}
+                {t("veteransPage.hero.titleLine5Prefix")}
+                <span className="font-black italic text-bronze-300">
+                  {t("veteransPage.hero.notWord")}
+                </span>{" "}
+                {t("veteransPage.hero.titleLine5Suffix")}
               </span>
             </h1>
           </div>
@@ -116,23 +202,27 @@ export default async function VeteransPage() {
       {/* All sections below Hero - WITH parallax background */}
       <div className="relative min-h-screen">
         {/* Shared background - anchored to the content container to avoid fixed-scroll repaints */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 dark:opacity-25 pointer-events-none"
-          style={{
-            backgroundImage: "url('/images/logo/mh-veteran-bg.webp')",
-          }}
-        ></div>
+        <div className="absolute inset-0 opacity-30 dark:opacity-25 pointer-events-none">
+          <Image
+            src="/images/logo/mh-veteran-bg.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            quality={60}
+            loading="lazy"
+            className="object-cover object-center"
+            aria-hidden="true"
+          />
+        </div>
 
         {/* Content with parallax background */}
         <div className="relative z-10">
           {/* Breadcrumb Navigation */}
           <Breadcrumb
             items={[
-              { label: isEs ? "Inicio" : "Home", href: "/" },
+              { label: t("veteransPage.breadcrumb.home"), href: "/" },
               {
-                label: isEs
-                  ? "Servicio Primero → Veteranos"
-                  : "Service First → Veterans",
+                label: t("veteransPage.breadcrumb.current"),
               },
             ]}
           />
@@ -164,131 +254,32 @@ export default async function VeteransPage() {
                 {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Our Foundation
+                    {t("veteransPage.foundation.subtitle")}
                   </span>
                   <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Veteran-Owned Values & Proven Performance
+                    {t("veteransPage.foundation.title")}
                   </span>
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  Where{" "}
+                  {t("veteransPage.foundation.description.prefix")}{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    military discipline meets honest construction leadership
+                    {t("veteransPage.foundation.description.highlight1")}
                   </span>
-                  —service-earned values of honesty, integrity, and
-                  relationship-first commitment guide{" "}
+                  {t("veteransPage.foundation.description.middle")}{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    every project and partnership
+                    {t("veteransPage.foundation.description.highlight2")}
                   </span>{" "}
-                  we build.
+                  {t("veteransPage.foundation.description.suffix")}
                 </p>
               </div>
 
               {/* Veteran Foundation Values Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
-                {[
-                  {
-                    icon: "military_tech",
-                    title: "Veteran-Owned Leadership",
-                    subtitle: "Service-Earned Excellence",
-                    description:
-                      "Army veteran owner Jeremy Thamert brings 15+ years military aviation experience and operational discipline. Navy veteran Matt Ramsey applies disciplined execution to digital operations. Combined veteran leadership ensures every project receives dependable follow-through and clear communication.",
-                    iconBgGradient: "from-brand-primary to-brand-primary-dark",
-                    accentColor: "brand-primary",
-                    highlights: [
-                      "Army + Navy veteran team",
-                      "Military operational discipline",
-                      "Dependable execution",
-                    ],
-                    stat: "2",
-                    statLabel: "Veteran Leaders",
-                  },
-                  {
-                    icon: "health_and_safety",
-                    title: ".64 EMR - Combat-Ready Safety",
-                    subtitle: "Every Team Member Returns Home",
-                    description:
-                      "Military-grade safety protocols with .64 EMR—40% better than industry average. 3+ years without time-loss injury. OSHA VPP Star designation. No one left behind isn't just military—it's construction standard.",
-                    iconBgGradient: "from-bronze-600 to-bronze-700",
-                    accentColor: "bronze-500",
-                    highlights: [
-                      ".64 EMR (40% better)",
-                      "3+ years zero time-loss",
-                      "OSHA VPP Star certified",
-                    ],
-                    stat: ".64",
-                    statLabel: "EMR Safety Rating",
-                  },
-                  {
-                    icon: "workspace_premium",
-                    title: "150+ Years Combined Experience",
-                    subtitle: "Veteran + Civilian Excellence",
-                    description:
-                      "Veterans and civilians working together with 150+ years combined construction expertise. Military discipline merged with generational craftsmanship—proven methods refined through service and experience.",
-                    iconBgGradient: "from-brand-secondary to-bronze-700",
-                    accentColor: "brand-secondary",
-                    highlights: [
-                      "150+ years expertise",
-                      "Veteran-civilian collaboration",
-                      "Proven construction methods",
-                    ],
-                    stat: "150+",
-                    statLabel: "Years Experience",
-                  },
-                  {
-                    icon: "fact_check",
-                    title: "100% Transparency",
-                    subtitle: "Zero Surprises, Complete Trust",
-                    description:
-                      "Open-book pricing with military-grade transparency. Complete visibility on every cost, timeline, and decision. Your word is your bond—so is ours. Honest assessments, real-time updates, zero hidden costs.",
-                    iconBgGradient: "from-brand-primary to-brand-primary-dark",
-                    accentColor: "brand-primary",
-                    highlights: [
-                      "Open-book pricing",
-                      "Real-time updates",
-                      "Honest communication",
-                    ],
-                    stat: "100%",
-                    statLabel: "Transparency",
-                  },
-                  {
-                    icon: "verified",
-                    title: "650+ Successful Missions",
-                    subtitle: "Proven Operational Excellence",
-                    description:
-                      "650+ successfully completed projects since 2010. Veteran leadership brings mission planning, execution under pressure, and consistent results. Whether routine or urgent—we deliver no matter the challenges.",
-                    iconBgGradient: "from-bronze-600 to-bronze-800",
-                    accentColor: "bronze-500",
-                    highlights: [
-                      "650+ completed projects",
-                      "Disciplined planning",
-                      "Consistent execution",
-                    ],
-                    stat: "650+",
-                    statLabel: "Projects Completed",
-                  },
-                  {
-                    icon: "handshake",
-                    title: "70% Referral & Repeat Business",
-                    subtitle: "Relationships That Outlast Projects",
-                    description:
-                      "70% of business from referrals and repeat partners—trust earned through action. Our commitment doesn't end when the project completes. Long-term partnerships built on service-earned values and proven integrity.",
-                    iconBgGradient:
-                      "from-brand-secondary to-brand-secondary-dark",
-                    accentColor: "brand-secondary",
-                    highlights: [
-                      "70% referral business",
-                      "Long-term partnerships",
-                      "Earned trust & loyalty",
-                    ],
-                    stat: "70%",
-                    statLabel: "Referral Rate",
-                  },
-                ].map((value) => (
+                {foundationCards.map((value) => (
                   <div
-                    key={value.title}
+                    key={value.key}
                     className="group relative flex h-full min-h-105 scroll-reveal"
                   >
                     {/* Colored Border Glow */}
@@ -333,14 +324,18 @@ export default async function VeteransPage() {
                               {value.stat}
                             </div>
                             <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
-                              {value.statLabel}
+                              {t(
+                                `veteransPage.foundation.values.${value.key}.statLabel`,
+                              )}
                             </div>
                           </div>
                         </div>
 
                         {/* Title and Subtitle */}
                         <h3 className="mb-2 font-black text-gray-900 dark:text-white text-xl sm:text-2xl leading-tight">
-                          {value.title}
+                          {t(
+                            `veteransPage.foundation.values.${value.key}.title`,
+                          )}
                         </h3>
                         <p
                           className={`mb-4 text-sm sm:text-base font-semibold ${
@@ -351,19 +346,27 @@ export default async function VeteransPage() {
                                 : "text-brand-primary-dark dark:text-brand-primary"
                           }`}
                         >
-                          {value.subtitle}
+                          {t(
+                            `veteransPage.foundation.values.${value.key}.subtitle`,
+                          )}
                         </p>
 
                         {/* Description */}
                         <p className="mb-6 text-gray-700 dark:text-gray-200 text-sm sm:text-base leading-relaxed flex-1">
-                          {value.description}
+                          {t(
+                            `veteransPage.foundation.values.${value.key}.description`,
+                          )}
                         </p>
 
                         {/* Key Highlights */}
                         <div className="space-y-2 pt-4 border-t border-gray-200 dark:border-gray-700 mt-auto">
-                          {value.highlights.map((highlight) => (
+                          {(
+                            t.raw(
+                              `veteransPage.foundation.values.${value.key}.highlights`,
+                            ) as string[]
+                          ).map((highlight) => (
                             <div
-                              key={`${value.title}-${highlight}`}
+                              key={`${value.key}-${highlight}`}
                               className="flex items-start gap-3"
                             >
                               <div
@@ -408,22 +411,21 @@ export default async function VeteransPage() {
                               icon="military_tech"
                               size="5xl"
                               theme="veteran"
-                              ariaLabel="Army Veteran Leadership"
+                              ariaLabel={t(
+                                "veteransPage.leadership.jeremy.aria",
+                              )}
                               className="text-brand-primary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
                             />
                           </div>
                         </div>
                         <h3 className="text-gray-900 dark:text-white text-2xl sm:text-3xl font-bold mb-2">
-                          Jeremy Thamert
+                          {t("veteransPage.leadership.jeremy.name")}
                         </h3>
                         <p className="text-brand-primary font-semibold text-lg mb-6">
-                          Owner & President | Army Veteran
+                          {t("veteransPage.leadership.jeremy.role")}
                         </p>
                         <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                          15+ years Army aviation experience brings operational
-                          discipline and steady leadership. Your word is your
-                          bond—service-earned integrity guides every partnership
-                          we build.
+                          {t("veteransPage.leadership.jeremy.bio")}
                         </p>
                       </div>
                     </div>
@@ -450,23 +452,19 @@ export default async function VeteransPage() {
                               icon="anchor"
                               size="5xl"
                               theme="veteran"
-                              ariaLabel="Navy Veteran"
+                              ariaLabel={t("veteransPage.leadership.matt.aria")}
                               className="text-brand-secondary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
                             />
                           </div>
                         </div>
                         <h3 className="text-gray-900 dark:text-white text-2xl sm:text-3xl font-bold mb-2">
-                          Matt Ramsey
+                          {t("veteransPage.leadership.matt.name")}
                         </h3>
                         <p className="text-brand-secondary-text font-semibold text-lg mb-6 dark:text-brand-secondary-light">
-                          Digital Marketing Manager / Safety Officer | Navy
-                          Veteran
+                          {t("veteransPage.leadership.matt.role")}
                         </p>
                         <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                          Navy veteran bringing military discipline to digital
-                          excellence. Trust earned through consistent action and
-                          genuine commitment—principles guiding our veteran
-                          outreach initiatives.
+                          {t("veteransPage.leadership.matt.bio")}
                         </p>
                       </div>
                     </div>
@@ -503,91 +501,75 @@ export default async function VeteransPage() {
                 {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Service Recognizes Service
+                    {t("veteransPage.combat.subtitle")}
                   </span>
                   <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Combat Veteran Discount at the Ready
+                    {t("veteransPage.combat.title")}
                   </span>
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    All branches, all ranks, all eras
+                    {t("veteransPage.combat.description.highlight1")}
                   </span>
-                  —Army, Navy, Air Force, Marines, Coast Guard, and Space Force.
-                  If you served in combat, we honor that service with{" "}
+                  {t("veteransPage.combat.description.middle")}{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    preferential pricing on all construction services
+                    {t("veteransPage.combat.description.highlight2")}
                   </span>
-                  . Each discount is determined through our screening process
-                  based on your project scope, service record, and specific
-                  needs. No fine print. No gimmicks. Your service matters.
+                  {t("veteransPage.combat.description.suffix")}
                 </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
-                {/* All Branches */}
-                <div className="group relative flex h-full">
-                  <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
-                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
-                    <div className="h-2 bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary"></div>
-                    <div className="p-6 sm:p-8 text-center flex flex-col flex-1">
-                      <div className="relative inline-block mb-4 mx-auto">
-                        <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-secondary/40 opacity-30 blur-lg rounded-full"></div>
-                        <div className="relative">
-                          <MaterialIcon
-                            icon="shield"
-                            size="4xl"
-                            theme="military"
-                            ariaLabel="All Military Branches"
-                            className="text-brand-primary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
-                          />
+                {combatCards.map((card, cardIndex) => (
+                  <div key={card.key} className="group relative flex h-full">
+                    <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                      <div
+                        className={`h-2 ${
+                          cardIndex === 0
+                            ? "bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary"
+                            : "bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"
+                        }`}
+                      ></div>
+                      <div className="p-6 sm:p-8 text-center flex flex-col flex-1">
+                        <div className="relative inline-block mb-4 mx-auto">
+                          <div
+                            className={`absolute -inset-2 opacity-30 blur-lg rounded-full ${
+                              cardIndex === 0
+                                ? "bg-linear-to-br from-brand-primary/40 to-brand-secondary/40"
+                                : "bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40"
+                            }`}
+                          ></div>
+                          <div className="relative">
+                            <MaterialIcon
+                              icon={card.icon}
+                              size="4xl"
+                              theme={card.theme}
+                              ariaLabel={t(
+                                `veteransPage.combat.cards.${card.key}.aria`,
+                              )}
+                              className={`drop-shadow-lg group-hover:scale-110 transition-all duration-300 ${
+                                cardIndex === 0
+                                  ? "text-brand-primary"
+                                  : "text-brand-secondary"
+                              }`}
+                            />
+                          </div>
                         </div>
+                        <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4">
+                          {t(`veteransPage.combat.cards.${card.key}.title`)}
+                        </h3>
+                        <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed grow">
+                          {t(
+                            `veteransPage.combat.cards.${card.key}.description`,
+                          )}
+                        </p>
                       </div>
-                      <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4">
-                        All Branches Welcome
-                      </h3>
-                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed grow">
-                        Army, Navy, Air Force, Marines, Coast Guard, Space
-                        Force—we honor every branch that defended our nation in
-                        combat zones. All combat veterans qualify for
-                        consideration.
-                      </p>
                     </div>
                   </div>
-                </div>
-
-                {/* Case-by-Case Evaluation */}
-                <div className="group relative flex h-full">
-                  <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
-                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
-                    <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
-                    <div className="p-6 sm:p-8 text-center flex flex-col flex-1">
-                      <div className="relative inline-block mb-4 mx-auto">
-                        <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
-                        <div className="relative">
-                          <MaterialIcon
-                            icon="balance"
-                            size="4xl"
-                            theme="veteran"
-                            ariaLabel="Case-by-Case Evaluation"
-                            className="text-brand-secondary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
-                          />
-                        </div>
-                      </div>
-                      <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4">
-                        Tailored to Your Service
-                      </h3>
-                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed grow">
-                        Every veteran's situation is unique. Discount amounts
-                        are determined case-by-case through our screening
-                        process, considering project scope, service record, and
-                        individual circumstances.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
 
               {/* Screening Process Timeline Section */}
@@ -598,53 +580,16 @@ export default async function VeteransPage() {
                 {/* Timeline Header */}
                 <div className="mb-12 text-center">
                   <h3 className="text-gray-900 dark:text-white text-2xl sm:text-3xl font-bold mb-4">
-                    Combat Veteran Discount Screening Process
+                    {t("veteransPage.combat.timeline.title")}
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto">
-                    Our straightforward screening process ensures fair and
-                    respectful evaluation of every combat veteran application.
+                    {t("veteransPage.combat.timeline.description")}
                   </p>
                 </div>
 
                 {/* Timeline Steps */}
                 <div className="space-y-12 lg:space-y-20">
-                  {[
-                    {
-                      num: 1,
-                      icon: "phone",
-                      title: "Initial Consultation",
-                      desc: `Contact us at ${COMPANY_INFO.phone.display} or through our contact page. Mention your military service during the initial discussion. We'll schedule a face-to-face or virtual consultation to discuss your project scope and requirements.`,
-                      position: "left",
-                    },
-                    {
-                      num: 2,
-                      icon: "verified_user",
-                      title: "Service Verification",
-                      desc: "Provide proof of combat service (DD-214, VA card, or military ID showing combat deployment). We handle all documentation with military-grade confidentiality and respect. Your privacy is our priority.",
-                      position: "right",
-                    },
-                    {
-                      num: 3,
-                      icon: "assessment",
-                      title: "Project Assessment",
-                      desc: "We evaluate your project scope, timeline, and specific construction needs. Factors include project size, complexity, materials required, labor intensity, and your budget constraints.",
-                      position: "left",
-                    },
-                    {
-                      num: 4,
-                      icon: "balance",
-                      title: "Discount Determination",
-                      desc: "Based on your service record and project details, we determine an appropriate discount. Considerations include combat service duration, decorations received, current financial situation, and project urgency. Every case is unique.",
-                      position: "right",
-                    },
-                    {
-                      num: 5,
-                      icon: "description",
-                      title: "Transparent Proposal",
-                      desc: "Receive a detailed, transparent proposal showing standard pricing, your veteran discount applied, and final project cost. No hidden fees. No surprises. No expiration on your discount—it applies to every project you do with us.",
-                      position: "left",
-                    },
-                  ].map((step, index) => (
+                  {timelineSteps.map((step, index) => (
                     <div
                       key={step.num}
                       className="relative group scroll-reveal"
@@ -659,7 +604,9 @@ export default async function VeteransPage() {
                                 <div className="flex items-center justify-end gap-4 mb-4">
                                   <div>
                                     <h4 className="font-black text-gray-900 dark:text-white text-xl mb-1">
-                                      {step.title}
+                                      {t(
+                                        `veteransPage.combat.timeline.steps.${step.key}.title`,
+                                      )}
                                     </h4>
                                   </div>
                                   <div className="shrink-0 w-14 h-14 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
@@ -671,7 +618,10 @@ export default async function VeteransPage() {
                                   </div>
                                 </div>
                                 <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
-                                  {step.desc}
+                                  {t(
+                                    `veteransPage.combat.timeline.steps.${step.key}.description`,
+                                    { phone: COMPANY_INFO.phone.display },
+                                  )}
                                 </p>
                               </div>
                             </div>
@@ -711,12 +661,17 @@ export default async function VeteransPage() {
                                   </div>
                                   <div>
                                     <h4 className="font-black text-gray-900 dark:text-white text-xl mb-1">
-                                      {step.title}
+                                      {t(
+                                        `veteransPage.combat.timeline.steps.${step.key}.title`,
+                                      )}
                                     </h4>
                                   </div>
                                 </div>
                                 <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
-                                  {step.desc}
+                                  {t(
+                                    `veteransPage.combat.timeline.steps.${step.key}.description`,
+                                    { phone: COMPANY_INFO.phone.display },
+                                  )}
                                 </p>
                               </div>
                             </div>
@@ -760,11 +715,16 @@ export default async function VeteransPage() {
                                 />
                               </div>
                               <h4 className="font-black text-gray-900 dark:text-white text-lg">
-                                {step.title}
+                                {t(
+                                  `veteransPage.combat.timeline.steps.${step.key}.title`,
+                                )}
                               </h4>
                             </div>
                             <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                              {step.desc}
+                              {t(
+                                `veteransPage.combat.timeline.steps.${step.key}.description`,
+                                { phone: COMPANY_INFO.phone.display },
+                              )}
                             </p>
                           </div>
                         </div>
@@ -787,15 +747,10 @@ export default async function VeteransPage() {
                       />
                       <div>
                         <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-2">
-                          Our Commitment
+                          {t("veteransPage.combat.commitment.title")}
                         </h4>
                         <p className="text-gray-700 dark:text-gray-300">
-                          This isn't a marketing gimmick or one-time promotion.
-                          As a Veteran-Owned company, honoring combat service is
-                          part of our DNA. Your word is your bond—so is ours.
-                          Every combat veteran receives fair consideration,
-                          respectful treatment, and meaningful pricing that
-                          reflects the sacrifice made for our nation.
+                          {t("veteransPage.combat.commitment.description")}
                         </p>
                       </div>
                     </div>
@@ -807,22 +762,23 @@ export default async function VeteransPage() {
               <div className="mt-12 text-center">
                 <Link
                   href="/contact"
+                  prefetch={false}
                   className="inline-flex items-center gap-2 px-10 py-5 bg-brand-primary hover:bg-brand-primary/90 text-white transition-all duration-300 rounded-lg font-bold text-lg sm:text-xl shadow-lg hover:shadow-xl"
                 >
                   <MaterialIcon
                     icon="phone"
                     size="lg"
                     theme="military"
-                    ariaLabel="Contact Now"
+                    ariaLabel={t("veteransPage.combat.cta.aria")}
                   />
                   <span>
-                    Call {COMPANY_INFO.phone.display} - Mention Your Service
+                    {t("veteransPage.combat.cta.button", {
+                      phone: COMPANY_INFO.phone.display,
+                    })}
                   </span>
                 </Link>
                 <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                  Direct line to Veteran-Owned leadership. No automated systems,
-                  no gatekeepers—just honest conversation with someone who
-                  understands.
+                  {t("veteransPage.combat.cta.note")}
                 </p>
               </div>
             </div>
@@ -855,61 +811,32 @@ export default async function VeteransPage() {
                 {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Mission Commitment
+                    {t("veteransPage.support.subtitle")}
                   </span>
                   <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Year-Round Veteran Support Programs
+                    {t("veteransPage.support.title")}
                   </span>
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  As a{" "}
+                  {t("veteransPage.support.description.prefix")}{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    Veteran-Owned company Since January 2025
+                    {t("veteransPage.support.description.highlight1")}
                   </span>
-                  , we're deploying long-term operational programs to support
-                  veterans.{" "}
+                  {t("veteransPage.support.description.middle")}{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    Service over self
+                    {t("veteransPage.support.description.highlight2")}
                   </span>
-                  —building relationships that outlast projects.
+                  {t("veteransPage.support.description.suffix")}
                 </p>
               </div>
 
               {/* Stats Grid */}
               <div className="gap-6 sm:gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto max-w-6xl mb-16 relative z-10">
-                {[
-                  {
-                    icon: "badge",
-                    value: "100%",
-                    label: "Veteran Hiring Priority",
-                    description:
-                      "All qualified veterans receive priority consideration",
-                  },
-                  {
-                    icon: "military_tech",
-                    value: "2",
-                    label: "Veteran Leaders",
-                    description: "Army & Navy veterans in leadership positions",
-                  },
-                  {
-                    icon: "school",
-                    value: "Active",
-                    label: "Apprenticeship Programs",
-                    description:
-                      "Training programs for transitioning service members",
-                  },
-                  {
-                    icon: "handshake",
-                    value: "Growing",
-                    label: "Veteran Network",
-                    description:
-                      "Partnerships with Veteran-Owned Trade Partners",
-                  },
-                ].map((stat) => (
+                {supportStats.map((stat) => (
                   <div
-                    key={stat.label}
+                    key={stat.key}
                     className="h-full flex flex-col text-center p-6 sm:p-8 bg-white dark:bg-gray-800 rounded-3xl border-2 border-gray-200 dark:border-gray-700 hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group shadow-lg hover:-translate-y-2 scroll-reveal"
                   >
                     <div className="relative inline-block mb-4 mx-auto">
@@ -924,13 +851,13 @@ export default async function VeteransPage() {
                       </div>
                     </div>
                     <div className="mb-3 font-black text-4xl sm:text-5xl text-brand-primary dark:text-brand-primary-light drop-shadow-sm">
-                      {stat.value}
+                      {t(`veteransPage.support.stats.${stat.key}.value`)}
                     </div>
                     <div className="text-gray-900 dark:text-white font-bold text-base sm:text-lg mb-3">
-                      {stat.label}
+                      {t(`veteransPage.support.stats.${stat.key}.label`)}
                     </div>
                     <div className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mt-auto">
-                      {stat.description}
+                      {t(`veteransPage.support.stats.${stat.key}.description`)}
                     </div>
                   </div>
                 ))}
@@ -954,28 +881,28 @@ export default async function VeteransPage() {
                             icon="badge"
                             size="4xl"
                             theme="military"
-                            ariaLabel="Veteran Hiring Priority"
+                            ariaLabel={t(
+                              "veteransPage.support.programs.hiring.aria",
+                            )}
                             className="text-brand-primary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
                           />
                         </div>
                       </div>
                       <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4 text-center">
-                        Veteran Hiring Priority
+                        {t("veteransPage.support.programs.hiring.title")}
                       </h3>
                       <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed grow">
-                        Qualified veterans from all branches receive priority
-                        consideration for all positions. We're deploying
-                        tactical apprenticeship programs for transitioning
-                        service members as we build our veteran support
-                        operational network. Your military experience translates
-                        to construction excellence.
+                        {t("veteransPage.support.programs.hiring.description")}
                       </p>
                       <div className="text-center">
                         <Link
                           href="/careers"
+                          prefetch={false}
                           className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors font-semibold"
                         >
-                          <span>View Career Opportunities</span>
+                          <span>
+                            {t("veteransPage.support.programs.hiring.link")}
+                          </span>
                           <MaterialIcon
                             icon="arrow_forward"
                             size="sm"
@@ -1003,26 +930,28 @@ export default async function VeteransPage() {
                             icon="handshake"
                             size="4xl"
                             theme="veteran"
-                            ariaLabel="Veteran Allies Network"
+                            ariaLabel={t(
+                              "veteransPage.support.programs.allies.aria",
+                            )}
                             className="text-brand-secondary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
                           />
                         </div>
                       </div>
                       <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4 text-center">
-                        Veteran Allies
+                        {t("veteransPage.support.programs.allies.title")}
                       </h3>
                       <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed grow">
-                        Recruiting Veteran-Owned Trade Partners for our growing
-                        network. As we establish company longevity, we're
-                        building partnerships with preferential opportunities
-                        for Veteran-Owned businesses.
+                        {t("veteransPage.support.programs.allies.description")}
                       </p>
                       <div className="text-center">
                         <Link
                           href="/allies"
+                          prefetch={false}
                           className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors font-semibold"
                         >
-                          <span>Become an Ally</span>
+                          <span>
+                            {t("veteransPage.support.programs.allies.link")}
+                          </span>
                           <MaterialIcon
                             icon="arrow_forward"
                             size="sm"
@@ -1050,26 +979,30 @@ export default async function VeteransPage() {
                             icon="military_tech"
                             size="4xl"
                             theme="veteran"
-                            ariaLabel="Training & Education Programs"
+                            ariaLabel={t(
+                              "veteransPage.support.programs.training.aria",
+                            )}
                             className="text-brand-secondary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
                           />
                         </div>
                       </div>
                       <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4 text-center">
-                        Training & Education
+                        {t("veteransPage.support.programs.training.title")}
                       </h3>
                       <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed grow">
-                        Developing programs for veterans pursuing construction
-                        trades, including internship opportunities and GI Bill
-                        apprenticeship participation as we grow our veteran
-                        support network.
+                        {t(
+                          "veteransPage.support.programs.training.description",
+                        )}
                       </p>
                       <div className="text-center">
                         <Link
                           href="/about"
+                          prefetch={false}
                           className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors font-semibold"
                         >
-                          <span>Learn About Our Values</span>
+                          <span>
+                            {t("veteransPage.support.programs.training.link")}
+                          </span>
                           <MaterialIcon
                             icon="arrow_forward"
                             size="sm"
@@ -1089,12 +1022,18 @@ export default async function VeteransPage() {
             id="veteran-partnerships"
             className="relative py-20 lg:py-32 xl:py-40"
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none"
-              style={{
-                backgroundImage: "url('/images/logo/mh-veteran-bg.webp')",
-              }}
-            ></div>
+            <div className="absolute inset-0 opacity-10 pointer-events-none">
+              <Image
+                src="/images/logo/mh-veteran-bg.webp"
+                alt=""
+                fill
+                sizes="100vw"
+                quality={55}
+                loading="lazy"
+                className="object-cover object-center"
+                aria-hidden="true"
+              />
+            </div>
             <div className="relative z-10 mx-auto px-4 container">
               {/* Section Header */}
               <div className="mb-16 sm:mb-20 text-center">
@@ -1117,79 +1056,40 @@ export default async function VeteransPage() {
                 {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Building Relationships
+                    {t("veteransPage.partnerships.subtitle")}
                   </span>
                   <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Strategic Veteran Organization Partnerships
+                    {t("veteransPage.partnerships.title")}
                   </span>
                 </h2>
 
                 {/* Description */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  We partner with{" "}
+                  {t("veteransPage.partnerships.description.prefix")}{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    selective veteran organizations
+                    {t("veteransPage.partnerships.description.highlight1")}
                   </span>{" "}
-                  that share our commitment to{" "}
+                  {t("veteransPage.partnerships.description.middle")}{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    honesty, integrity, and measurable impact
+                    {t("veteransPage.partnerships.description.highlight2")}
                   </span>
-                  . Quality partnerships over transactional relationships.
+                  {t("veteransPage.partnerships.description.suffix")}
                 </p>
               </div>
 
               {/* Partnership Criteria Cards - Alternating Layout */}
               <div className="space-y-12 lg:space-y-16">
-                {[
-                  {
-                    title: "Verified Non-Profit Status",
-                    tagline: "Transparent Operations",
-                    description:
-                      "Verified 501(c)(3) status with transparent financials and public accountability. Open books, clear mission statements, and documented impact metrics. Organizations that operate with the same honesty and integrity we expect from ourselves.",
-                    icon: "verified",
-                    iconBg: "bg-brand-primary",
-                    stats: "501(c)(3) Required",
-                    position: "left",
-                  },
-                  {
-                    title: "Veteran-Focused Mission",
-                    tagline: "Service Members First",
-                    description:
-                      "Primary mission dedicated to serving veterans, active duty, or military families. Not organizations that treat veterans as an afterthought or marketing angle. Programs specifically designed by veterans, for veterans, with proven understanding of military culture.",
-                    icon: "military_tech",
-                    iconBg: "bg-brand-secondary",
-                    stats: "Mission-Driven Focus",
-                    position: "right",
-                  },
-                  {
-                    title: "Regional Presence & Impact",
-                    tagline: "Local Boots on Ground",
-                    description:
-                      "Strong presence in Pacific Northwest with active programs in Washington, Oregon, or Idaho. Local organizations that understand regional veteran populations and Tri-Cities community needs. Measurable local impact over distant national headquarters.",
-                    icon: "location_on",
-                    iconBg: "bg-primary-700",
-                    stats: "PNW-Focused Programs",
-                    position: "left",
-                  },
-                  {
-                    title: "Collaborative Approach",
-                    tagline: "Partnership Over Transactional",
-                    description:
-                      "Organizations seeking genuine partnerships, not just donation checks. Collaborative planning, mutual support, and shared commitment to veteran welfare. Open communication, aligned values, and willingness to work together on long-term initiatives.",
-                    icon: "handshake",
-                    iconBg: "bg-bronze-700",
-                    stats: "Long-Term Relationships",
-                    position: "right",
-                  },
-                ].map((item) => {
+                {partnershipCriteria.map((item) => {
                   const isLeft = item.position === "left";
                   return (
-                    <div key={item.title} className="scroll-reveal group">
+                    <div key={item.key} className="scroll-reveal group">
                       <div className="flex flex-col lg:grid lg:grid-cols-2 bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300">
                         {/* Image Side */}
                         <div
                           role="img"
-                          aria-label={`${item.title} - ${item.tagline}`}
+                          aria-label={t(
+                            `veteransPage.partnerships.criteria.${item.key}.aria`,
+                          )}
                           className={`relative h-64 sm:h-80 lg:h-full lg:min-h-125 overflow-hidden bg-linear-to-br from-brand-primary via-gray-900 to-brand-secondary ${
                             isLeft ? "lg:order-1" : "lg:order-2"
                           }`}
@@ -1224,15 +1124,21 @@ export default async function VeteransPage() {
                           <div className="space-y-4 lg:space-y-5">
                             <div>
                               <h3 className="font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl lg:text-3xl leading-tight tracking-tight mb-2">
-                                {item.title}
+                                {t(
+                                  `veteransPage.partnerships.criteria.${item.key}.title`,
+                                )}
                               </h3>
                               <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-base sm:text-lg lg:text-xl">
-                                {item.tagline}
+                                {t(
+                                  `veteransPage.partnerships.criteria.${item.key}.tagline`,
+                                )}
                               </p>
                             </div>
 
                             <p className="font-normal text-gray-700 dark:text-gray-300 text-sm sm:text-base lg:text-base leading-relaxed">
-                              {item.description}
+                              {t(
+                                `veteransPage.partnerships.criteria.${item.key}.description`,
+                              )}
                             </p>
 
                             <div className="flex items-center gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
@@ -1245,7 +1151,9 @@ export default async function VeteransPage() {
                               </div>
                               <div className="flex-1">
                                 <p className="font-bold text-gray-900 dark:text-white text-base">
-                                  {item.stats}
+                                  {t(
+                                    `veteransPage.partnerships.criteria.${item.key}.stats`,
+                                  )}
                                 </p>
                               </div>
                             </div>
@@ -1268,20 +1176,18 @@ export default async function VeteransPage() {
                     />
                     <div className="flex-1 text-left">
                       <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-2">
-                        Organization Partnership Inquiries
+                        {t("veteransPage.partnerships.cta.title")}
                       </h4>
                       <p className="text-gray-700 dark:text-gray-300 mb-4">
-                        If your veteran organization meets these criteria and
-                        seeks genuine partnership opportunities, contact us. We
-                        review all partnership proposals carefully and respond
-                        to qualified organizations within 2 business days.
+                        {t("veteransPage.partnerships.cta.description")}
                       </p>
                       <Link
                         href="/contact"
+                        prefetch={false}
                         className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary hover:bg-brand-primary/90 text-white transition-all duration-300 rounded-lg font-bold shadow-lg hover:shadow-xl"
                       >
                         <MaterialIcon icon="send" size="sm" />
-                        <span>Submit Partnership Inquiry</span>
+                        <span>{t("veteransPage.partnerships.cta.button")}</span>
                       </Link>
                     </div>
                   </div>
@@ -1294,7 +1200,7 @@ export default async function VeteransPage() {
           <section className="relative py-12 sm:py-16">
             <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
               <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
-                Accredited & Certified
+                {t("veteransPage.accreditations.kicker")}
               </p>
               <AccreditationsLogoRow />
             </div>
@@ -1304,36 +1210,28 @@ export default async function VeteransPage() {
             <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
               <div className="text-center mb-8">
                 <h3 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white tracking-tight">
-                  Public Sector Bridge Paths
+                  {t("veteransPage.bridgePaths.title")}
                 </h3>
                 <p className="mt-3 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                  Move from veteran-focused values into government project
-                  planning with direct pathways for compliance, regional
-                  strategy, and project scoping.
+                  {t("veteransPage.bridgePaths.description")}
                 </p>
               </div>
 
               <div className="grid gap-4 md:grid-cols-3">
                 {[
                   {
+                    key: "publicSector",
                     href: "/veterans/public-sector-construction",
-                    title: "Veteran-Led Public Sector Path",
-                    description:
-                      "Bridge veteran values into public-sector delivery planning.",
                     icon: "account_balance",
                   },
                   {
+                    key: "compliance",
                     href: "/public-sector/veteran-led-compliance",
-                    title: "Compliance Workflow",
-                    description:
-                      "Review the compliance sequence from intake through execution.",
                     icon: "verified",
                   },
                   {
+                    key: "triState",
                     href: "/public-sector/tri-state-government-construction",
-                    title: "Tri-State Government Strategy",
-                    description:
-                      "Map WA, OR, and ID opportunities to service coverage.",
                     icon: "travel_explore",
                   },
                 ].map((pathway) => (
@@ -1349,13 +1247,15 @@ export default async function VeteransPage() {
                       className="text-brand-primary"
                     />
                     <h4 className="mt-3 font-bold text-gray-900 dark:text-white text-lg">
-                      {pathway.title}
+                      {t(`veteransPage.bridgePaths.items.${pathway.key}.title`)}
                     </h4>
                     <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                      {pathway.description}
+                      {t(
+                        `veteransPage.bridgePaths.items.${pathway.key}.description`,
+                      )}
                     </p>
                     <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-brand-primary dark:text-brand-primary-light">
-                      Open pathway
+                      {t("veteransPage.bridgePaths.openPathway")}
                       <MaterialIcon icon="arrow_forward" size="sm" />
                     </span>
                   </TrackedBridgeLink>
@@ -1366,8 +1266,8 @@ export default async function VeteransPage() {
 
           {/* Next Steps Section - Veteran-Specific Messaging */}
           <NextStepsSection
-            title="Let's Build Together"
-            subtitle="Partner with a Veteran-Owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision. Your word is your bond, so is ours."
+            title={t("veteransPage.nextSteps.title")}
+            subtitle={t("veteransPage.nextSteps.subtitle")}
             noBackground={true}
           />
         </div>

@@ -1,15 +1,14 @@
 /**
  * @jest-environment jsdom
  *
- * Dedicated test for app/testimonials/page.tsx with REAL testimonials data.
- * The smoke test uses an empty array; this file mocks populated testimonials
- * to exercise all module-level conditional branches.
+ * Dedicated test for app/testimonials/page.tsx with localized testimonials
+ * data so module-level rating and schema branches are exercised.
  */
 
 import React from "react";
 import { render, screen } from "@testing-library/react";
 
-// ── Module-level mocks (same as pages-smoke, but getClientTestimonials returns data) ──
+// ── Module-level mocks ───────────────────────────────────────────────────────
 
 jest.mock("next/dynamic", () => () => () => null);
 
@@ -100,11 +99,6 @@ jest.mock("@/lib/seo/review-schema", () => ({
   ),
 }));
 
-jest.mock("@/lib/i18n/locale.server", () => ({
-  getServerLocale: jest.fn(async () => "en"),
-}));
-
-// ── KEY DIFFERENCE: return populated testimonials ─────────────────────────────
 const mockTestimonials = [
   {
     id: "t1",
@@ -126,8 +120,11 @@ const mockTestimonials = [
   },
 ];
 
-jest.mock("@/lib/data/testimonials", () => ({
-  getClientTestimonials: jest.fn(() => mockTestimonials),
+jest.mock("next-intl/server", () => ({
+  getTranslations: jest.fn(async () => ({
+    raw: (key: string) =>
+      key === "clientTestimonials" ? mockTestimonials : [],
+  })),
 }));
 
 // ─── Tests ────────────────────────────────────────────────────────────────────

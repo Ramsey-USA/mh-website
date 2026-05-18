@@ -65,16 +65,6 @@ const SORTED_ROUTE_CONFIG = Object.entries(ROUTE_SECURITY_CONFIG).sort(
 // Security paths that bypass normal processing
 const SECURITY_BYPASS_PATHS = [
   "/api/security/status",
-  // Analytics beacon uses sendBeacon/fetch(keepalive) which cannot set
-  // custom headers — CSRF check would always block it. The route has its
-  // own rate limiter (60 req/min) so middleware CSRF is redundant here.
-  "/api/analytics/collect",
-  // Geolocation is a public idempotent GET called on every page load.
-  // Skipping middleware overhead (CSRF gen, audit log write, rate limit
-  // check) reduces per-request subrequest pressure on the Worker isolate
-  // and keeps prefetch fan-out from triggering 503s. The route itself
-  // has its own rate limiter and returns a safe 200 fallback on error.
-  "/api/analytics/geolocation",
   "/favicon.ico",
   "/_next/",
   "/images/",

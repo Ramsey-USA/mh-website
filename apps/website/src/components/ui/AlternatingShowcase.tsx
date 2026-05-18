@@ -100,7 +100,7 @@ export function AlternatingShowcase({
                 {/* Image Side */}
                 <div
                   className={cn(
-                    "relative h-64 sm:h-80 lg:h-full lg:min-h-[500px] overflow-hidden",
+                    "relative h-64 sm:h-80 lg:h-full lg:min-h-125 overflow-hidden",
                     isEven ? "lg:order-1" : "lg:order-2",
                   )}
                 >
@@ -111,7 +111,7 @@ export function AlternatingShowcase({
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     loading="lazy"
-                    quality={75}
+                    quality={68}
                     priority={false}
                   />
                   {/* Overlay gradient for better icon visibility */}

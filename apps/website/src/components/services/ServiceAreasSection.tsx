@@ -22,30 +22,22 @@ interface ServiceArea {
 
 interface ServiceAreasSectionProps {
   serviceAreas: ServiceArea[];
+  title: string;
+  subtitle: string;
+  description: string;
 }
 
 export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
-  const { serviceAreas } = props;
+  const { serviceAreas, title, subtitle, description } = props;
   return (
     <BrandedContentSection
       id="service-areas"
       header={{
         icon: "location_on",
         iconVariant: "primary",
-        subtitle: "Areas We",
-        title: "Serve",
-        description: (
-          <>
-            Serving the{" "}
-            <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              Tri-State licensed region and Pacific Northwest
-            </span>{" "}
-            with{" "}
-            <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
-              expert construction management services.
-            </span>
-          </>
-        ),
+        subtitle,
+        title,
+        description,
       }}
     >
       <FadeInWhenVisible>

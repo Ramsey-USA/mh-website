@@ -270,17 +270,36 @@ jest.mock("@/lib/styles/layout-variants", () => ({
   },
 }));
 
-jest.mock("@/lib/data/testimonials", () => ({
-  getEmployeeTestimonials: jest.fn(() => []),
-  getClientTestimonials: jest.fn(() => []),
-}));
-
 jest.mock("@/lib/data/vintage-team", () => ({
   vintageTeamMembers: [],
 }));
 
 jest.mock("@/lib/i18n/locale.server", () => ({
   getServerLocale: jest.fn(async () => "en"),
+}));
+
+jest.mock("next-intl", () => ({
+  useTranslations: jest.fn(() => {
+    const translate = ((key: string) => key) as ((key: string) => string) & {
+      raw: (key: string) => unknown;
+    };
+    translate.raw = (key: string) => {
+      if (key === "testimonialsData.clientTestimonials") return [];
+      if (key === "careersPage.data.employeeTestimonials") return [];
+      return [];
+    };
+    return translate;
+  }),
+}));
+
+jest.mock("next-intl/server", () => ({
+  getTranslations: jest.fn(async () => {
+    const translate = ((key: string) => key) as ((key: string) => string) & {
+      raw: (key: string) => unknown;
+    };
+    translate.raw = () => [];
+    return translate;
+  }),
 }));
 
 jest.mock("@/components/home", () => ({

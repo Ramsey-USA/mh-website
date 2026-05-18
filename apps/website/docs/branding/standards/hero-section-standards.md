@@ -110,8 +110,8 @@ recognition and accessibility.
 - `mr-4 sm:mr-6 lg:mr-8 xl:mr-12`
 - `ml-auto max-w-2xl pointer-events-none pb-2`
 
-6. **PageNavigation at Bottom**: Section-based navigation using `#section-id` anchors (Dec 2025 standard)
-7. **Single Mission Icon Treatment**: Use one intentional icon container aligned with Home-style emphasis.
+1. **PageNavigation at Bottom**: Section-based navigation using `#section-id` anchors (Dec 2025 standard)
+2. **Single Mission Icon Treatment**: Use one intentional icon container aligned with Home-style emphasis.
 
 ### ❌ MUST NOT INCLUDE
 

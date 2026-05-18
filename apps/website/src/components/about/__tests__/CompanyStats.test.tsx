@@ -9,24 +9,6 @@ jest.mock("@/components/animations/FramerMotionComponents", () => ({
   HoverScale: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }));
 
-jest.mock("@/components/ui/AnimatedCounter", () => ({
-  AnimatedCounter: ({
-    value,
-    suffix,
-    prefix,
-  }: {
-    value: number;
-    suffix?: string;
-    prefix?: string;
-  }) => (
-    <span data-testid="counter">
-      {prefix}
-      {value}
-      {suffix}
-    </span>
-  ),
-}));
-
 jest.mock("@/components/templates", () => ({
   BrandedContentSection: ({ children }: { children: React.ReactNode }) => (
     <section>{children}</section>
@@ -41,11 +23,11 @@ describe("CompanyStats", () => {
     expect(screen.getByText("States Licensed & Insured")).toBeInTheDocument();
   });
 
-  it("renders AnimatedCounter for animated stats", () => {
+  it("renders formatted values for animated stats", () => {
     render(<CompanyStats />);
-    // Animated stats should render via AnimatedCounter mock
-    const counters = screen.getAllByTestId("counter");
-    expect(counters.length).toBeGreaterThan(0);
+    expect(screen.getByText("0.64")).toBeInTheDocument();
+    expect(screen.getByText("150+")).toBeInTheDocument();
+    expect(screen.getByText("650+")).toBeInTheDocument();
   });
 
   it("renders raw value for non-animated stat", () => {

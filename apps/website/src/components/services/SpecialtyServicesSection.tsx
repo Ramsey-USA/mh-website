@@ -9,10 +9,16 @@ import type { SpecialtyService } from "./servicesData";
 
 interface SpecialtyServicesSectionProps {
   services: SpecialtyService[];
+  title: string;
+  subtitle: string;
+  description: string;
 }
 
 export function SpecialtyServicesSection({
   services,
+  title,
+  subtitle,
+  description,
 }: SpecialtyServicesSectionProps) {
   return (
     <BrandedContentSection
@@ -20,10 +26,9 @@ export function SpecialtyServicesSection({
       header={{
         icon: "hub",
         iconVariant: "secondary",
-        subtitle: "Specialized Partnership",
-        title: "Solutions",
-        description:
-          "Diverse collaborative construction expertise across our Tri-State licensed footprint and the Pacific Northwest region.",
+        subtitle,
+        title,
+        description,
       }}
     >
       {/* Grid - 2 columns on tablet, 3 on desktop */}
