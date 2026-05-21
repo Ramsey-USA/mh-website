@@ -49,6 +49,18 @@ jest.mock("@/components/animations/FramerMotionComponents", () => ({
   ),
 }));
 
+jest.mock("next-intl", () => ({
+  useTranslations: () => {
+    const dict: Record<string, string> = {
+      defaultTitle: "Client Testimonials",
+      comingSoonTitle: "Coming Soon",
+      comingSoonDescription: "Testimonials are being added.",
+      viewAllReviews: "View All Reviews",
+    };
+    return (key: string) => dict[key] ?? key;
+  },
+}));
+
 // ── Shared test data ──────────────────────────────────────────────────────────
 
 const clientTestimonial: Testimonial = {

@@ -87,7 +87,7 @@ documents/content/safety-manual.json                ← Auto-generated manifest 
            │
            ▼  npm run docs:generate + npm run docs:generate:forms
 documents/output/sections/                          ← 50 generated PDFs served to field staff
-documents/output/forms/                             ← Generated form PDFs
+documents/output/form-packages/                     ← Generated form package PDFs (cover + fillable)
 documents/output/safety-manual-contents.pdf         ← Standalone table-of-contents PDF
 documents/output/safety-manual-reference.pdf        ← Standalone section reference guide PDF
            │
@@ -149,7 +149,7 @@ documents/
 │   ├── safety-manual-contents.pdf
 │   ├── safety-manual-reference.pdf
 │   ├── sections/          ← Generated section PDFs (served to /hub field staff)
-│   └── forms/             ← Generated form PDFs
+│   └── form-packages/     ← Generated form package PDFs
 ├── scripts/
 │   ├── extract.mjs        ← PDF text extraction → safety-manual.json
 │   ├── extract-word.mjs   ← Word doc extraction → safety-manual.json (preferred — cleaner)
@@ -233,7 +233,7 @@ npm run docs:generate
 npm run docs:generate:forms
 ```
 
-This rebuilds all manual PDFs (cover, spine, tabs, sections) plus form PDFs into
+This rebuilds all manual PDFs (cover, spine, tabs, sections) plus form package PDFs into
 `documents/output/`.
 
 For a single-command full rebuild, use:
@@ -271,6 +271,15 @@ This assembles the complete manual PDF used for bonding-company and insurer revi
 Publish approved section PDFs, forms, and the complete manual to the `FILE_ASSETS`
 bucket so they can be served through the `/docs/**` route. Keep unreviewed public
 uploads in `SAFETY_INTAKE` until admin review is complete.
+
+```bash
+npm run docs:publish:safety
+npm run docs:publish:forms
+```
+
+`docs:publish:safety` uploads manual artifacts and `docs/safety/sections/*.pdf`.
+`docs:publish:forms` uploads package PDFs from `documents/output/form-packages/`
+to `docs/safety/forms/*.pdf`.
 
 ### Step 5 — Update the web registry
 
@@ -315,19 +324,17 @@ npm run type-check && npm run lint && npm run build
 
 ## Available npm Commands
 
-| Command                                                              | Description                                                               |
-| -------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `npm run docs:extract`                                               | Extract PDF text → `safety-manual.json` (PDF source)                      |
-| `npm run docs:extract-word`                                          | Extract Word docs → `safety-manual.json` (**preferred** — cleaner output) |
-| `npm run docs:generate`                                              | Generate manual PDFs (cover, spine, tabs, all sections)                   |
-| `npm run docs:generate:forms`                                        | Generate all discovered form PDFs from `documents/forms/`                 |
-| `npm run docs:all`                                                   | Generate manual PDFs + form PDFs, then merge complete manuals             |
-| `node documents/scripts/generate.mjs --template cover`               | Cover page only                                                           |
-| `node documents/scripts/generate.mjs --template spine`               | Spine label only                                                          |
-| `node documents/scripts/generate.mjs --template tabs`                | All 50 tab dividers                                                       |
-| `node documents/scripts/generate.mjs --template sections`            | All 50 section PDFs                                                       |
-| `node documents/scripts/generate.mjs --template section --section N` | Single section N                                                          |
-| `node documents/scripts/generate.mjs --template toolbox-talk`        | Toolbox talk form PDF (if `documents/forms/toolbox-talk.html` exists)     |
+- `npm run docs:extract`: Extract PDF text to `safety-manual.json` (falls back to Word source if PDF source path is missing)
+- `npm run docs:extract-word`: Extract Word docs to `safety-manual.json` (preferred)
+- `npm run docs:generate`: Generate manual PDFs (cover, spine, tabs, all sections)
+- `npm run docs:generate:forms`: Generate form package PDFs in `documents/output/form-packages/` from manifest fillable forms
+- `npm run docs:all`: Generate manual PDFs + form packages, then merge complete manuals
+- `node documents/scripts/generate.mjs --template cover`: Cover page only
+- `node documents/scripts/generate.mjs --template spine`: Spine label only
+- `node documents/scripts/generate.mjs --template tabs`: All 50 tab dividers
+- `node documents/scripts/generate.mjs --template sections`: All 50 section PDFs
+- `node documents/scripts/generate.mjs --template section --section N`: Single section N
+- `node documents/scripts/generate.mjs --template form-package --form "FORM 02-B"`: Generate one package PDF for a specific form ID/slug
 
 ---
 

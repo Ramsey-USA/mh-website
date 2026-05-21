@@ -1,0 +1,3745 @@
+
+> @mhc/website@7.1.0 test /workspaces/mh-website/apps/website
+> jest -- --runInBand --runTestsByPath src/app/locations/__tests__/locations-index-page.test.tsx src/app/careers/__tests__/page.test.tsx src/components/ui/cta/__tests__/cta-components.test.tsx src/components/services/__tests__/CoreServicesSection.test.tsx src/components/testimonials/__tests__/testimonials.test.tsx src/components/about/__tests__/about-sections.test.tsx src/components/services/__tests__/services-sections.test.tsx src/app/employee-handbook/__tests__/page.test.tsx src/app/__tests__/home-sections-render.test.tsx src/app/contact/__tests__/page.test.tsx src/components/navigation/__tests__/PageNavigation.test.tsx src/components/home/__tests__/HeroSection.test.tsx
+
+FAIL src/app/careers/__tests__/page.test.tsx
+  ● CareersPage application CTAs › opens the modal with veteran application context
+
+    TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/Apply as Veteran/i`
+
+    Here are the accessible roles:
+
+      heading:
+
+      Name "hero.kicker hero.titleLine1 hero.titleLine2 hero.titleLine3Prefix hero.titleLine3Not hero.titleLine3Suffix hero.titleLine4":
+      [36m<h1[39m
+        [33mclass[39m=[32m"text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight"[39m
+      [36m/>[39m
+
+      Name "whyChoose.headingPrefix whyChoose.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "benefits.headingPrefix benefits.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "testimonials.headingPrefix testimonials.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "defaultTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter"[39m
+      [36m/>[39m
+
+      Name "comingSoonTitle":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl text-center"[39m
+      [36m/>[39m
+
+      Name "veterans.headingPrefix veterans.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "veterans.cta.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl"[39m
+      [36m/>[39m
+
+      Name "positions.headingPrefix positions.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "readyToJoin.heading":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight"[39m
+      [36m/>[39m
+
+      Name "journey.prefix journey.highlight":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.submit.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.submit.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.review.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.review.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.conversation.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.conversation.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.interview.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.interview.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.offer.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.offer.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-8 font-black text-center text-gray-900 dark:text-white text-2xl sm:text-3xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.fastTrack.title":
+      [36m<h4[39m
+        [33mclass[39m=[32m"mb-3 font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.typical.title":
+      [36m<h4[39m
+        [33mclass[39m=[32m"mb-3 font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.transparent.title":
+      [36m<h4[39m
+        [33mclass[39m=[32m"mb-3 font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "noRole.prefix noRole.highlight":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "contactCta.questions":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter drop-shadow-lg"[39m
+      [36m/>[39m
+
+      Name "accreditations.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2"[39m
+      [36m/>[39m
+
+      Name "Ready to Start Your Project? Let's Build Together":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "MH Construction Pitch Deck":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight"[39m
+      [36m/>[39m
+
+      Name "See Our Real Work":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-bold text-xl sm:text-2xl text-center text-gray-900 dark:text-white leading-tight"[39m
+      [36m/>[39m
+
+      Name "Let's Talk Face-to-Face":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-bold text-xl sm:text-2xl text-center text-gray-900 dark:text-white leading-tight"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      paragraph:
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-brand-secondary-text dark:text-brand-secondary-light text-sm sm:text-base font-semibold text-center mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed flex items-center justify-center gap-3"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-xs text-gray-600 dark:text-gray-300 mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-xs text-gray-600 dark:text-gray-300 mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-xs text-gray-600 dark:text-gray-300 mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mt-8 text-sm text-gray-600 dark:text-gray-400 font-medium"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-6 font-medium text-gray-700 text-xl dark:text-gray-300"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-6 font-semibold text-brand-secondary-text text-lg dark:text-brand-secondary-light"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mt-8 text-gray-500 dark:text-gray-300 text-lg"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-3xl font-light text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 mb-8"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-5 text-center text-gray-600 text-sm sm:text-base dark:text-gray-300 leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-5 text-center text-gray-600 text-sm sm:text-base dark:text-gray-300 leading-relaxed"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      button:
+
+      Name "military_tech veterans.cta.applyButton":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "info veterans.cta.initiativeButton":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "send readyToJoin.startApplication":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "phone readyToJoin.callButton":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "send journey.cta.startApplication":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "mark_email_read journey.cta.emailResume":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "description noRole.submitApplication":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "campaign noRole.contactHr":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "email noRole.contactHr":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "call contactCta.call":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "request_page Request Pitch Deck":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "photo_library View Our Work":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "mail Get In Touch":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      link:
+
+      Name "info veterans.cta.initiativeButton":
+      [36m<a[39m
+        [33mhref[39m=[32m"/veterans"[39m
+      [36m/>[39m
+
+      Name "phone readyToJoin.callButton":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      Name "campaign noRole.contactHr":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      Name "office@mhc-gc.com":
+      [36m<a[39m
+        [33mclass[39m=[32m"font-semibold text-brand-primary hover:text-brand-secondary underline"[39m
+        [33mhref[39m=[32m"mailto:office@mhc-gc.com"[39m
+      [36m/>[39m
+
+      Name "email noRole.contactHr":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      Name "call contactCta.call":
+      [36m<a[39m
+        [33mhref[39m=[32m"tel:+15093086489"[39m
+      [36m/>[39m
+
+      Name "BBB Accredited Business A+ Rating BBB Accredited Business A+ Rating":
+      [36m<a[39m
+        [33mclass[39m=[32m"hover:opacity-80 transition-opacity"[39m
+        [33mhref[39m=[32m"https://www.bbb.org/test#sealclick"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"BBB Accredited Business - A+ Rating"[39m
+      [36m/>[39m
+
+      Name "AGC of Washington Member":
+      [36m<a[39m
+        [33mclass[39m=[32m"hover:opacity-80 transition-opacity"[39m
+        [33mhref[39m=[32m"https://www.agcwa.com/"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"AGC of Washington Member"[39m
+      [36m/>[39m
+
+      Name "Travelers Insurance - Auto & Bonding Partner Travelers Insurance - Auto & Bonding Partner":
+      [36m<a[39m
+        [33mclass[39m=[32m"hover:opacity-80 transition-opacity"[39m
+        [33mhref[39m=[32m"https://www.travelers.com"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"Travelers Insurance - Auto & Bonding Partner"[39m
+      [36m/>[39m
+
+      Name "Washington State Veteran Owned Business — click to verify certification":
+      [36m<a[39m
+        [33maria-label[39m=[32m"Washington State Veteran Owned Business — click to verify certification"[39m
+        [33mclass[39m=[32m"group relative isolate inline-block overflow-hidden rounded-xl bg-linear-to-br from-red-600 via-red-500 to-blue-700 p-0.75 shadow-[0_10px_22px_-16px_rgba(220,38,38,0.9),0_14px_26px_-20px_rgba(29,78,216,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_-16px_rgba(220,38,38,0.95),0_18px_30px_-20px_rgba(29,78,216,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 "[39m
+        [33mhref[39m=[32m"https://example.com/wa-vob-verify"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"Verify WA VOB Certification"[39m
+      [36m/>[39m
+
+      Name "request_page Request Pitch Deck":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact?subject=pitch-deck"[39m
+      [36m/>[39m
+
+      Name "photo_library View Our Work":
+      [36m<a[39m
+        [33mhref[39m=[32m"/projects"[39m
+      [36m/>[39m
+
+      Name "mail Get In Touch":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      img:
+
+      Name "BBB Accredited Business A+ Rating":
+      [36m<img[39m
+        [33malt[39m=[32m"BBB Accredited Business A+ Rating"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto dark:hidden"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"42"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/bbb-seal.png"[39m
+        [33mwidth[39m=[32m"200"[39m
+      [36m/>[39m
+
+      Name "BBB Accredited Business A+ Rating":
+      [36m<img[39m
+        [33malt[39m=[32m"BBB Accredited Business A+ Rating"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto hidden dark:block"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"42"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/bbb-seal-white.png"[39m
+        [33mwidth[39m=[32m"200"[39m
+      [36m/>[39m
+
+      Name "AGC of Washington Member":
+      [36m<img[39m
+        [33malt[39m=[32m"AGC of Washington Member"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"427"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/logo/agc-member.webp"[39m
+        [33mwidth[39m=[32m"405"[39m
+      [36m/>[39m
+
+      Name "Travelers Insurance - Auto & Bonding Partner":
+      [36m<img[39m
+        [33malt[39m=[32m"Travelers Insurance - Auto & Bonding Partner"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto dark:hidden"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"122"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/travelers-logo.png"[39m
+        [33mwidth[39m=[32m"600"[39m
+      [36m/>[39m
+
+      Name "Travelers Insurance - Auto & Bonding Partner":
+      [36m<img[39m
+        [33malt[39m=[32m"Travelers Insurance - Auto & Bonding Partner"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto hidden dark:block"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"122"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/travelers-logo-white.png"[39m
+        [33mwidth[39m=[32m"600"[39m
+      [36m/>[39m
+
+      Name "Washington State Veteran Owned Business":
+      [36m<img[39m
+        [33malt[39m=[32m"Washington State Veteran Owned Business"[39m
+        [33mclass[39m=[32m"h-12 w-auto object-contain"[39m
+        [33mheight[39m=[32m"80"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msizes[39m=[32m"(max-width: 640px) 140px, 180px"[39m
+        [33msrc[39m=[32m"/images/logo/veteran-owned-business.jpg"[39m
+        [33mwidth[39m=[32m"160"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      list:
+
+      Name "":
+      [36m<ul[39m
+        [33mclass[39m=[32m"space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<ul[39m
+        [33mclass[39m=[32m"space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<ul[39m
+        [33mclass[39m=[32m"space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      listitem:
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"relative bg-white dark:bg-gray-900 min-h-screen overflow-hidden"[39m
+        [36m>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"hero-section relative flex items-end justify-end text-white overflow-hidden"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex justify-end mb-4"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"relative p-4 bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl"[39m
+                [36m>[39m
+                  [36m<span>[39m
+                    [0mwork[0m
+                  [36m</span>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<h1[39m
+                [33mclass[39m=[32m"text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1"[39m
+                [36m>[39m
+                  [0mhero.kicker[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-secondary"[39m
+                [36m>[39m
+                  [0mhero.titleLine1[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-primary"[39m
+                [36m>[39m
+                  [0mhero.titleLine2[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-white/90"[39m
+                [36m>[39m
+                  [0mhero.titleLine3Prefix[0m
+                  [0m [0m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"font-black italic text-bronze-300"[39m
+                  [36m>[39m
+                    [0mhero.titleLine3Not[0m
+                  [36m</span>[39m
+                  [0m [0m
+                  [0mhero.titleLine3Suffix[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl mt-2"[39m
+                [36m>[39m
+                  [0mhero.titleLine4[0m
+                [36m</span>[39m
+              [36m</h1>[39m
+            [36m</div>[39m
+          [36m</section>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mb-16 sm:mb-20 text-center"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center justify-center mb-8 gap-4"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"[39m
+                  [36m/>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"[39m
+                    [36m/>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600"[39m
+                    [36m>[39m
+                      [36m<span>[39m
+                        [0mstar[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<h2[39m
+                  [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1"[39m
+                  [36m>[39m
+                    [0mwhyChoose.headingPrefix[0m
+                  [36m</span>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal"[39m
+                  [36m>[39m
+                    [0mwhyChoose.headingTitle[0m
+                  [36m</span>[39m
+                [36m</h2>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+                [36m>[39m
+                  [0mwhyChoose.description.prefix[0m
+                  [0m [0m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"font-bold text-brand-primary dark:text-brand-primary-light"[39m
+                  [36m>[39m
+                    [0mwhyChoose.description.highlight1[0m
+                  [36m</span>[39m
+                  [0m [0m
+                  [0mwhyChoose.description.middle[0m
+                  [0m [0m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"font-bold text-gray-900 dark:text-white"[39m
+                  [36m>[39m
+                    [0mwhyChoose.description.highlight2[0m
+                  [36m</span>[39m
+                  [0m [0m
+                  [0mwhyChoose.description.suffix[0m
+                [36m</p>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"inline-block mt-8"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative group"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"absolute -inset-1 bg-linear-to-r from-brand-primary via-brand-se...
+
+      223 |     render(<CareersPageClient />);
+      224 |
+    > 225 |     await user.click(screen.getByRole("button", { name: /Apply as Veteran/i }));
+          |                             ^
+      226 |
+      227 |     expect(
+      228 |       screen.getByText("Modal entry: Veteran Application"),
+
+      at Object.getElementError (../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+      at Object.getByRole (src/app/careers/__tests__/page.test.tsx:225:29)
+
+  ● CareersPage application CTAs › opens the modal with general application context
+
+    TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/Submit Application/i`
+
+    Here are the accessible roles:
+
+      heading:
+
+      Name "hero.kicker hero.titleLine1 hero.titleLine2 hero.titleLine3Prefix hero.titleLine3Not hero.titleLine3Suffix hero.titleLine4":
+      [36m<h1[39m
+        [33mclass[39m=[32m"text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight"[39m
+      [36m/>[39m
+
+      Name "whyChoose.headingPrefix whyChoose.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "benefits.headingPrefix benefits.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "testimonials.headingPrefix testimonials.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "defaultTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter"[39m
+      [36m/>[39m
+
+      Name "comingSoonTitle":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl text-center"[39m
+      [36m/>[39m
+
+      Name "veterans.headingPrefix veterans.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "veterans.cta.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl"[39m
+      [36m/>[39m
+
+      Name "positions.headingPrefix positions.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "readyToJoin.heading":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight"[39m
+      [36m/>[39m
+
+      Name "journey.prefix journey.highlight":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.submit.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.submit.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.review.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.review.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.conversation.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.conversation.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.interview.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.interview.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.offer.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.offer.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-8 font-black text-center text-gray-900 dark:text-white text-2xl sm:text-3xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.fastTrack.title":
+      [36m<h4[39m
+        [33mclass[39m=[32m"mb-3 font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.typical.title":
+      [36m<h4[39m
+        [33mclass[39m=[32m"mb-3 font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.transparent.title":
+      [36m<h4[39m
+        [33mclass[39m=[32m"mb-3 font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "noRole.prefix noRole.highlight":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "contactCta.questions":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter drop-shadow-lg"[39m
+      [36m/>[39m
+
+      Name "accreditations.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2"[39m
+      [36m/>[39m
+
+      Name "Ready to Start Your Project? Let's Build Together":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "MH Construction Pitch Deck":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight"[39m
+      [36m/>[39m
+
+      Name "See Our Real Work":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-bold text-xl sm:text-2xl text-center text-gray-900 dark:text-white leading-tight"[39m
+      [36m/>[39m
+
+      Name "Let's Talk Face-to-Face":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-bold text-xl sm:text-2xl text-center text-gray-900 dark:text-white leading-tight"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      paragraph:
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-brand-secondary-text dark:text-brand-secondary-light text-sm sm:text-base font-semibold text-center mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed flex items-center justify-center gap-3"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-xs text-gray-600 dark:text-gray-300 mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-xs text-gray-600 dark:text-gray-300 mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-xs text-gray-600 dark:text-gray-300 mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mt-8 text-sm text-gray-600 dark:text-gray-400 font-medium"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-6 font-medium text-gray-700 text-xl dark:text-gray-300"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-6 font-semibold text-brand-secondary-text text-lg dark:text-brand-secondary-light"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mt-8 text-gray-500 dark:text-gray-300 text-lg"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-3xl font-light text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 mb-8"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-5 text-center text-gray-600 text-sm sm:text-base dark:text-gray-300 leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-5 text-center text-gray-600 text-sm sm:text-base dark:text-gray-300 leading-relaxed"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      button:
+
+      Name "military_tech veterans.cta.applyButton":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "info veterans.cta.initiativeButton":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "send readyToJoin.startApplication":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "phone readyToJoin.callButton":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "send journey.cta.startApplication":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "mark_email_read journey.cta.emailResume":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "description noRole.submitApplication":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "campaign noRole.contactHr":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "email noRole.contactHr":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "call contactCta.call":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "request_page Request Pitch Deck":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "photo_library View Our Work":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "mail Get In Touch":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      link:
+
+      Name "info veterans.cta.initiativeButton":
+      [36m<a[39m
+        [33mhref[39m=[32m"/veterans"[39m
+      [36m/>[39m
+
+      Name "phone readyToJoin.callButton":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      Name "campaign noRole.contactHr":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      Name "office@mhc-gc.com":
+      [36m<a[39m
+        [33mclass[39m=[32m"font-semibold text-brand-primary hover:text-brand-secondary underline"[39m
+        [33mhref[39m=[32m"mailto:office@mhc-gc.com"[39m
+      [36m/>[39m
+
+      Name "email noRole.contactHr":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      Name "call contactCta.call":
+      [36m<a[39m
+        [33mhref[39m=[32m"tel:+15093086489"[39m
+      [36m/>[39m
+
+      Name "BBB Accredited Business A+ Rating BBB Accredited Business A+ Rating":
+      [36m<a[39m
+        [33mclass[39m=[32m"hover:opacity-80 transition-opacity"[39m
+        [33mhref[39m=[32m"https://www.bbb.org/test#sealclick"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"BBB Accredited Business - A+ Rating"[39m
+      [36m/>[39m
+
+      Name "AGC of Washington Member":
+      [36m<a[39m
+        [33mclass[39m=[32m"hover:opacity-80 transition-opacity"[39m
+        [33mhref[39m=[32m"https://www.agcwa.com/"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"AGC of Washington Member"[39m
+      [36m/>[39m
+
+      Name "Travelers Insurance - Auto & Bonding Partner Travelers Insurance - Auto & Bonding Partner":
+      [36m<a[39m
+        [33mclass[39m=[32m"hover:opacity-80 transition-opacity"[39m
+        [33mhref[39m=[32m"https://www.travelers.com"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"Travelers Insurance - Auto & Bonding Partner"[39m
+      [36m/>[39m
+
+      Name "Washington State Veteran Owned Business — click to verify certification":
+      [36m<a[39m
+        [33maria-label[39m=[32m"Washington State Veteran Owned Business — click to verify certification"[39m
+        [33mclass[39m=[32m"group relative isolate inline-block overflow-hidden rounded-xl bg-linear-to-br from-red-600 via-red-500 to-blue-700 p-0.75 shadow-[0_10px_22px_-16px_rgba(220,38,38,0.9),0_14px_26px_-20px_rgba(29,78,216,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_-16px_rgba(220,38,38,0.95),0_18px_30px_-20px_rgba(29,78,216,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 "[39m
+        [33mhref[39m=[32m"https://example.com/wa-vob-verify"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"Verify WA VOB Certification"[39m
+      [36m/>[39m
+
+      Name "request_page Request Pitch Deck":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact?subject=pitch-deck"[39m
+      [36m/>[39m
+
+      Name "photo_library View Our Work":
+      [36m<a[39m
+        [33mhref[39m=[32m"/projects"[39m
+      [36m/>[39m
+
+      Name "mail Get In Touch":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      img:
+
+      Name "BBB Accredited Business A+ Rating":
+      [36m<img[39m
+        [33malt[39m=[32m"BBB Accredited Business A+ Rating"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto dark:hidden"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"42"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/bbb-seal.png"[39m
+        [33mwidth[39m=[32m"200"[39m
+      [36m/>[39m
+
+      Name "BBB Accredited Business A+ Rating":
+      [36m<img[39m
+        [33malt[39m=[32m"BBB Accredited Business A+ Rating"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto hidden dark:block"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"42"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/bbb-seal-white.png"[39m
+        [33mwidth[39m=[32m"200"[39m
+      [36m/>[39m
+
+      Name "AGC of Washington Member":
+      [36m<img[39m
+        [33malt[39m=[32m"AGC of Washington Member"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"427"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/logo/agc-member.webp"[39m
+        [33mwidth[39m=[32m"405"[39m
+      [36m/>[39m
+
+      Name "Travelers Insurance - Auto & Bonding Partner":
+      [36m<img[39m
+        [33malt[39m=[32m"Travelers Insurance - Auto & Bonding Partner"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto dark:hidden"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"122"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/travelers-logo.png"[39m
+        [33mwidth[39m=[32m"600"[39m
+      [36m/>[39m
+
+      Name "Travelers Insurance - Auto & Bonding Partner":
+      [36m<img[39m
+        [33malt[39m=[32m"Travelers Insurance - Auto & Bonding Partner"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto hidden dark:block"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"122"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/travelers-logo-white.png"[39m
+        [33mwidth[39m=[32m"600"[39m
+      [36m/>[39m
+
+      Name "Washington State Veteran Owned Business":
+      [36m<img[39m
+        [33malt[39m=[32m"Washington State Veteran Owned Business"[39m
+        [33mclass[39m=[32m"h-12 w-auto object-contain"[39m
+        [33mheight[39m=[32m"80"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msizes[39m=[32m"(max-width: 640px) 140px, 180px"[39m
+        [33msrc[39m=[32m"/images/logo/veteran-owned-business.jpg"[39m
+        [33mwidth[39m=[32m"160"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      list:
+
+      Name "":
+      [36m<ul[39m
+        [33mclass[39m=[32m"space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<ul[39m
+        [33mclass[39m=[32m"space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<ul[39m
+        [33mclass[39m=[32m"space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      listitem:
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"relative bg-white dark:bg-gray-900 min-h-screen overflow-hidden"[39m
+        [36m>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"hero-section relative flex items-end justify-end text-white overflow-hidden"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex justify-end mb-4"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"relative p-4 bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl"[39m
+                [36m>[39m
+                  [36m<span>[39m
+                    [0mwork[0m
+                  [36m</span>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<h1[39m
+                [33mclass[39m=[32m"text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1"[39m
+                [36m>[39m
+                  [0mhero.kicker[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-secondary"[39m
+                [36m>[39m
+                  [0mhero.titleLine1[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-primary"[39m
+                [36m>[39m
+                  [0mhero.titleLine2[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-white/90"[39m
+                [36m>[39m
+                  [0mhero.titleLine3Prefix[0m
+                  [0m [0m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"font-black italic text-bronze-300"[39m
+                  [36m>[39m
+                    [0mhero.titleLine3Not[0m
+                  [36m</span>[39m
+                  [0m [0m
+                  [0mhero.titleLine3Suffix[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl mt-2"[39m
+                [36m>[39m
+                  [0mhero.titleLine4[0m
+                [36m</span>[39m
+              [36m</h1>[39m
+            [36m</div>[39m
+          [36m</section>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mb-16 sm:mb-20 text-center"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center justify-center mb-8 gap-4"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"[39m
+                  [36m/>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"[39m
+                    [36m/>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600"[39m
+                    [36m>[39m
+                      [36m<span>[39m
+                        [0mstar[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<h2[39m
+                  [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1"[39m
+                  [36m>[39m
+                    [0mwhyChoose.headingPrefix[0m
+                  [36m</span>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal"[39m
+                  [36m>[39m
+                    [0mwhyChoose.headingTitle[0m
+                  [36m</span>[39m
+                [36m</h2>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+                [36m>[39m
+                  [0mwhyChoose.description.prefix[0m
+                  [0m [0m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"font-bold text-brand-primary dark:text-brand-primary-light"[39m
+                  [36m>[39m
+                    [0mwhyChoose.description.highlight1[0m
+                  [36m</span>[39m
+                  [0m [0m
+                  [0mwhyChoose.description.middle[0m
+                  [0m [0m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"font-bold text-gray-900 dark:text-white"[39m
+                  [36m>[39m
+                    [0mwhyChoose.description.highlight2[0m
+                  [36m</span>[39m
+                  [0m [0m
+                  [0mwhyChoose.description.suffix[0m
+                [36m</p>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"inline-block mt-8"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative group"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"absolute -inset-1 bg-linear-to-r from-brand-primary via-brand-se...
+
+      236 |
+      237 |     await user.click(
+    > 238 |       screen.getByRole("button", { name: /Submit Application/i }),
+          |              ^
+      239 |     );
+      240 |
+      241 |     expect(
+
+      at Object.getElementError (../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+      at Object.getByRole (src/app/careers/__tests__/page.test.tsx:238:14)
+
+  ● CareersPage application CTAs › opens the modal with general inquiry context from the primary start button
+
+    TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/Start Application/i`
+
+    Here are the accessible roles:
+
+      heading:
+
+      Name "hero.kicker hero.titleLine1 hero.titleLine2 hero.titleLine3Prefix hero.titleLine3Not hero.titleLine3Suffix hero.titleLine4":
+      [36m<h1[39m
+        [33mclass[39m=[32m"text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight"[39m
+      [36m/>[39m
+
+      Name "whyChoose.headingPrefix whyChoose.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "benefits.headingPrefix benefits.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "testimonials.headingPrefix testimonials.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "defaultTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter"[39m
+      [36m/>[39m
+
+      Name "comingSoonTitle":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl text-center"[39m
+      [36m/>[39m
+
+      Name "veterans.headingPrefix veterans.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "veterans.cta.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl"[39m
+      [36m/>[39m
+
+      Name "positions.headingPrefix positions.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "readyToJoin.heading":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight"[39m
+      [36m/>[39m
+
+      Name "journey.prefix journey.highlight":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.submit.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.submit.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.review.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.review.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.conversation.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.conversation.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.interview.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.interview.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.offer.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.offer.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-8 font-black text-center text-gray-900 dark:text-white text-2xl sm:text-3xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.fastTrack.title":
+      [36m<h4[39m
+        [33mclass[39m=[32m"mb-3 font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.typical.title":
+      [36m<h4[39m
+        [33mclass[39m=[32m"mb-3 font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.transparent.title":
+      [36m<h4[39m
+        [33mclass[39m=[32m"mb-3 font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "noRole.prefix noRole.highlight":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "contactCta.questions":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter drop-shadow-lg"[39m
+      [36m/>[39m
+
+      Name "accreditations.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2"[39m
+      [36m/>[39m
+
+      Name "Ready to Start Your Project? Let's Build Together":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "MH Construction Pitch Deck":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight"[39m
+      [36m/>[39m
+
+      Name "See Our Real Work":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-bold text-xl sm:text-2xl text-center text-gray-900 dark:text-white leading-tight"[39m
+      [36m/>[39m
+
+      Name "Let's Talk Face-to-Face":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-bold text-xl sm:text-2xl text-center text-gray-900 dark:text-white leading-tight"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      paragraph:
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-brand-secondary-text dark:text-brand-secondary-light text-sm sm:text-base font-semibold text-center mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed flex items-center justify-center gap-3"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-xs text-gray-600 dark:text-gray-300 mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-xs text-gray-600 dark:text-gray-300 mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-xs text-gray-600 dark:text-gray-300 mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mt-8 text-sm text-gray-600 dark:text-gray-400 font-medium"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-6 font-medium text-gray-700 text-xl dark:text-gray-300"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-6 font-semibold text-brand-secondary-text text-lg dark:text-brand-secondary-light"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mt-8 text-gray-500 dark:text-gray-300 text-lg"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-3xl font-light text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 mb-8"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-5 text-center text-gray-600 text-sm sm:text-base dark:text-gray-300 leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-5 text-center text-gray-600 text-sm sm:text-base dark:text-gray-300 leading-relaxed"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      button:
+
+      Name "military_tech veterans.cta.applyButton":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "info veterans.cta.initiativeButton":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "send readyToJoin.startApplication":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "phone readyToJoin.callButton":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "send journey.cta.startApplication":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "mark_email_read journey.cta.emailResume":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "description noRole.submitApplication":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "campaign noRole.contactHr":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "email noRole.contactHr":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "call contactCta.call":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "request_page Request Pitch Deck":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "photo_library View Our Work":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "mail Get In Touch":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      link:
+
+      Name "info veterans.cta.initiativeButton":
+      [36m<a[39m
+        [33mhref[39m=[32m"/veterans"[39m
+      [36m/>[39m
+
+      Name "phone readyToJoin.callButton":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      Name "campaign noRole.contactHr":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      Name "office@mhc-gc.com":
+      [36m<a[39m
+        [33mclass[39m=[32m"font-semibold text-brand-primary hover:text-brand-secondary underline"[39m
+        [33mhref[39m=[32m"mailto:office@mhc-gc.com"[39m
+      [36m/>[39m
+
+      Name "email noRole.contactHr":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      Name "call contactCta.call":
+      [36m<a[39m
+        [33mhref[39m=[32m"tel:+15093086489"[39m
+      [36m/>[39m
+
+      Name "BBB Accredited Business A+ Rating BBB Accredited Business A+ Rating":
+      [36m<a[39m
+        [33mclass[39m=[32m"hover:opacity-80 transition-opacity"[39m
+        [33mhref[39m=[32m"https://www.bbb.org/test#sealclick"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"BBB Accredited Business - A+ Rating"[39m
+      [36m/>[39m
+
+      Name "AGC of Washington Member":
+      [36m<a[39m
+        [33mclass[39m=[32m"hover:opacity-80 transition-opacity"[39m
+        [33mhref[39m=[32m"https://www.agcwa.com/"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"AGC of Washington Member"[39m
+      [36m/>[39m
+
+      Name "Travelers Insurance - Auto & Bonding Partner Travelers Insurance - Auto & Bonding Partner":
+      [36m<a[39m
+        [33mclass[39m=[32m"hover:opacity-80 transition-opacity"[39m
+        [33mhref[39m=[32m"https://www.travelers.com"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"Travelers Insurance - Auto & Bonding Partner"[39m
+      [36m/>[39m
+
+      Name "Washington State Veteran Owned Business — click to verify certification":
+      [36m<a[39m
+        [33maria-label[39m=[32m"Washington State Veteran Owned Business — click to verify certification"[39m
+        [33mclass[39m=[32m"group relative isolate inline-block overflow-hidden rounded-xl bg-linear-to-br from-red-600 via-red-500 to-blue-700 p-0.75 shadow-[0_10px_22px_-16px_rgba(220,38,38,0.9),0_14px_26px_-20px_rgba(29,78,216,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_-16px_rgba(220,38,38,0.95),0_18px_30px_-20px_rgba(29,78,216,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 "[39m
+        [33mhref[39m=[32m"https://example.com/wa-vob-verify"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"Verify WA VOB Certification"[39m
+      [36m/>[39m
+
+      Name "request_page Request Pitch Deck":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact?subject=pitch-deck"[39m
+      [36m/>[39m
+
+      Name "photo_library View Our Work":
+      [36m<a[39m
+        [33mhref[39m=[32m"/projects"[39m
+      [36m/>[39m
+
+      Name "mail Get In Touch":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      img:
+
+      Name "BBB Accredited Business A+ Rating":
+      [36m<img[39m
+        [33malt[39m=[32m"BBB Accredited Business A+ Rating"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto dark:hidden"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"42"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/bbb-seal.png"[39m
+        [33mwidth[39m=[32m"200"[39m
+      [36m/>[39m
+
+      Name "BBB Accredited Business A+ Rating":
+      [36m<img[39m
+        [33malt[39m=[32m"BBB Accredited Business A+ Rating"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto hidden dark:block"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"42"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/bbb-seal-white.png"[39m
+        [33mwidth[39m=[32m"200"[39m
+      [36m/>[39m
+
+      Name "AGC of Washington Member":
+      [36m<img[39m
+        [33malt[39m=[32m"AGC of Washington Member"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"427"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/logo/agc-member.webp"[39m
+        [33mwidth[39m=[32m"405"[39m
+      [36m/>[39m
+
+      Name "Travelers Insurance - Auto & Bonding Partner":
+      [36m<img[39m
+        [33malt[39m=[32m"Travelers Insurance - Auto & Bonding Partner"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto dark:hidden"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"122"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/travelers-logo.png"[39m
+        [33mwidth[39m=[32m"600"[39m
+      [36m/>[39m
+
+      Name "Travelers Insurance - Auto & Bonding Partner":
+      [36m<img[39m
+        [33malt[39m=[32m"Travelers Insurance - Auto & Bonding Partner"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto hidden dark:block"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"122"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/travelers-logo-white.png"[39m
+        [33mwidth[39m=[32m"600"[39m
+      [36m/>[39m
+
+      Name "Washington State Veteran Owned Business":
+      [36m<img[39m
+        [33malt[39m=[32m"Washington State Veteran Owned Business"[39m
+        [33mclass[39m=[32m"h-12 w-auto object-contain"[39m
+        [33mheight[39m=[32m"80"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msizes[39m=[32m"(max-width: 640px) 140px, 180px"[39m
+        [33msrc[39m=[32m"/images/logo/veteran-owned-business.jpg"[39m
+        [33mwidth[39m=[32m"160"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      list:
+
+      Name "":
+      [36m<ul[39m
+        [33mclass[39m=[32m"space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<ul[39m
+        [33mclass[39m=[32m"space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<ul[39m
+        [33mclass[39m=[32m"space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      listitem:
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"relative bg-white dark:bg-gray-900 min-h-screen overflow-hidden"[39m
+        [36m>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"hero-section relative flex items-end justify-end text-white overflow-hidden"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex justify-end mb-4"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"relative p-4 bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl"[39m
+                [36m>[39m
+                  [36m<span>[39m
+                    [0mwork[0m
+                  [36m</span>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<h1[39m
+                [33mclass[39m=[32m"text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1"[39m
+                [36m>[39m
+                  [0mhero.kicker[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-secondary"[39m
+                [36m>[39m
+                  [0mhero.titleLine1[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-primary"[39m
+                [36m>[39m
+                  [0mhero.titleLine2[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-white/90"[39m
+                [36m>[39m
+                  [0mhero.titleLine3Prefix[0m
+                  [0m [0m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"font-black italic text-bronze-300"[39m
+                  [36m>[39m
+                    [0mhero.titleLine3Not[0m
+                  [36m</span>[39m
+                  [0m [0m
+                  [0mhero.titleLine3Suffix[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl mt-2"[39m
+                [36m>[39m
+                  [0mhero.titleLine4[0m
+                [36m</span>[39m
+              [36m</h1>[39m
+            [36m</div>[39m
+          [36m</section>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mb-16 sm:mb-20 text-center"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center justify-center mb-8 gap-4"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"[39m
+                  [36m/>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"[39m
+                    [36m/>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600"[39m
+                    [36m>[39m
+                      [36m<span>[39m
+                        [0mstar[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<h2[39m
+                  [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1"[39m
+                  [36m>[39m
+                    [0mwhyChoose.headingPrefix[0m
+                  [36m</span>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal"[39m
+                  [36m>[39m
+                    [0mwhyChoose.headingTitle[0m
+                  [36m</span>[39m
+                [36m</h2>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+                [36m>[39m
+                  [0mwhyChoose.description.prefix[0m
+                  [0m [0m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"font-bold text-brand-primary dark:text-brand-primary-light"[39m
+                  [36m>[39m
+                    [0mwhyChoose.description.highlight1[0m
+                  [36m</span>[39m
+                  [0m [0m
+                  [0mwhyChoose.description.middle[0m
+                  [0m [0m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"font-bold text-gray-900 dark:text-white"[39m
+                  [36m>[39m
+                    [0mwhyChoose.description.highlight2[0m
+                  [36m</span>[39m
+                  [0m [0m
+                  [0mwhyChoose.description.suffix[0m
+                [36m</p>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"inline-block mt-8"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative group"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"absolute -inset-1 bg-linear-to-r from-brand-primary via-brand-se...
+
+      250 |
+      251 |     await user.click(
+    > 252 |       screen.getAllByRole("button", { name: /Start Application/i })[0]!,
+          |              ^
+      253 |     );
+      254 |
+      255 |     expect(
+
+      at Object.getElementError (../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:109:15
+      at Object.getAllByRole (src/app/careers/__tests__/page.test.tsx:252:14)
+
+  ● CareersPage application CTAs › closes the modal without cleaning URL when no apply params
+
+    TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/Apply as Veteran/i`
+
+    Here are the accessible roles:
+
+      heading:
+
+      Name "hero.kicker hero.titleLine1 hero.titleLine2 hero.titleLine3Prefix hero.titleLine3Not hero.titleLine3Suffix hero.titleLine4":
+      [36m<h1[39m
+        [33mclass[39m=[32m"text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight"[39m
+      [36m/>[39m
+
+      Name "whyChoose.headingPrefix whyChoose.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "benefits.headingPrefix benefits.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "testimonials.headingPrefix testimonials.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "defaultTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter"[39m
+      [36m/>[39m
+
+      Name "comingSoonTitle":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl text-center"[39m
+      [36m/>[39m
+
+      Name "veterans.headingPrefix veterans.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "veterans.cta.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl"[39m
+      [36m/>[39m
+
+      Name "positions.headingPrefix positions.headingTitle":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "readyToJoin.heading":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight"[39m
+      [36m/>[39m
+
+      Name "journey.prefix journey.highlight":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.submit.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.submit.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.review.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.review.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.conversation.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.conversation.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.interview.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.interview.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.offer.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-2xl mb-1"[39m
+      [36m/>[39m
+
+      Name "journey.timeline.steps.offer.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-8 font-black text-center text-gray-900 dark:text-white text-2xl sm:text-3xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.fastTrack.title":
+      [36m<h4[39m
+        [33mclass[39m=[32m"mb-3 font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.typical.title":
+      [36m<h4[39m
+        [33mclass[39m=[32m"mb-3 font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "journey.details.transparent.title":
+      [36m<h4[39m
+        [33mclass[39m=[32m"mb-3 font-black text-gray-900 dark:text-white text-xl"[39m
+      [36m/>[39m
+
+      Name "noRole.prefix noRole.highlight":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "contactCta.questions":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter drop-shadow-lg"[39m
+      [36m/>[39m
+
+      Name "accreditations.title":
+      [36m<h3[39m
+        [33mclass[39m=[32m"text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2"[39m
+      [36m/>[39m
+
+      Name "Ready to Start Your Project? Let's Build Together":
+      [36m<h2[39m
+        [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+      [36m/>[39m
+
+      Name "MH Construction Pitch Deck":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight"[39m
+      [36m/>[39m
+
+      Name "See Our Real Work":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-bold text-xl sm:text-2xl text-center text-gray-900 dark:text-white leading-tight"[39m
+      [36m/>[39m
+
+      Name "Let's Talk Face-to-Face":
+      [36m<h3[39m
+        [33mclass[39m=[32m"mb-4 font-bold text-xl sm:text-2xl text-center text-gray-900 dark:text-white leading-tight"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      paragraph:
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-brand-secondary-text dark:text-brand-secondary-light text-sm sm:text-base font-semibold text-center mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"font-black text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed flex items-center justify-center gap-3"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-xs text-gray-600 dark:text-gray-300 mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-xs text-gray-600 dark:text-gray-300 mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-xs text-gray-600 dark:text-gray-300 mt-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mt-8 text-sm text-gray-600 dark:text-gray-400 font-medium"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-6 font-medium text-gray-700 text-xl dark:text-gray-300"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-6 font-semibold text-brand-secondary-text text-lg dark:text-brand-secondary-light"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mt-8 text-gray-500 dark:text-gray-300 text-lg"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-3xl font-light text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"text-gray-600 dark:text-gray-300 mb-8"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-5 text-center text-gray-600 text-sm sm:text-base dark:text-gray-300 leading-relaxed"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<p[39m
+        [33mclass[39m=[32m"mb-5 text-center text-gray-600 text-sm sm:text-base dark:text-gray-300 leading-relaxed"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      button:
+
+      Name "military_tech veterans.cta.applyButton":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "info veterans.cta.initiativeButton":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "send readyToJoin.startApplication":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "phone readyToJoin.callButton":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "send journey.cta.startApplication":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "mark_email_read journey.cta.emailResume":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "description noRole.submitApplication":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "campaign noRole.contactHr":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "email noRole.contactHr":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "call contactCta.call":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "request_page Request Pitch Deck":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "photo_library View Our Work":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      Name "mail Get In Touch":
+      [36m<button[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      link:
+
+      Name "info veterans.cta.initiativeButton":
+      [36m<a[39m
+        [33mhref[39m=[32m"/veterans"[39m
+      [36m/>[39m
+
+      Name "phone readyToJoin.callButton":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      Name "campaign noRole.contactHr":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      Name "office@mhc-gc.com":
+      [36m<a[39m
+        [33mclass[39m=[32m"font-semibold text-brand-primary hover:text-brand-secondary underline"[39m
+        [33mhref[39m=[32m"mailto:office@mhc-gc.com"[39m
+      [36m/>[39m
+
+      Name "email noRole.contactHr":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      Name "call contactCta.call":
+      [36m<a[39m
+        [33mhref[39m=[32m"tel:+15093086489"[39m
+      [36m/>[39m
+
+      Name "BBB Accredited Business A+ Rating BBB Accredited Business A+ Rating":
+      [36m<a[39m
+        [33mclass[39m=[32m"hover:opacity-80 transition-opacity"[39m
+        [33mhref[39m=[32m"https://www.bbb.org/test#sealclick"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"BBB Accredited Business - A+ Rating"[39m
+      [36m/>[39m
+
+      Name "AGC of Washington Member":
+      [36m<a[39m
+        [33mclass[39m=[32m"hover:opacity-80 transition-opacity"[39m
+        [33mhref[39m=[32m"https://www.agcwa.com/"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"AGC of Washington Member"[39m
+      [36m/>[39m
+
+      Name "Travelers Insurance - Auto & Bonding Partner Travelers Insurance - Auto & Bonding Partner":
+      [36m<a[39m
+        [33mclass[39m=[32m"hover:opacity-80 transition-opacity"[39m
+        [33mhref[39m=[32m"https://www.travelers.com"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"Travelers Insurance - Auto & Bonding Partner"[39m
+      [36m/>[39m
+
+      Name "Washington State Veteran Owned Business — click to verify certification":
+      [36m<a[39m
+        [33maria-label[39m=[32m"Washington State Veteran Owned Business — click to verify certification"[39m
+        [33mclass[39m=[32m"group relative isolate inline-block overflow-hidden rounded-xl bg-linear-to-br from-red-600 via-red-500 to-blue-700 p-0.75 shadow-[0_10px_22px_-16px_rgba(220,38,38,0.9),0_14px_26px_-20px_rgba(29,78,216,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_-16px_rgba(220,38,38,0.95),0_18px_30px_-20px_rgba(29,78,216,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 "[39m
+        [33mhref[39m=[32m"https://example.com/wa-vob-verify"[39m
+        [33mrel[39m=[32m"noopener noreferrer"[39m
+        [33mtarget[39m=[32m"_blank"[39m
+        [33mtitle[39m=[32m"Verify WA VOB Certification"[39m
+      [36m/>[39m
+
+      Name "request_page Request Pitch Deck":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact?subject=pitch-deck"[39m
+      [36m/>[39m
+
+      Name "photo_library View Our Work":
+      [36m<a[39m
+        [33mhref[39m=[32m"/projects"[39m
+      [36m/>[39m
+
+      Name "mail Get In Touch":
+      [36m<a[39m
+        [33mhref[39m=[32m"/contact"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      img:
+
+      Name "BBB Accredited Business A+ Rating":
+      [36m<img[39m
+        [33malt[39m=[32m"BBB Accredited Business A+ Rating"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto dark:hidden"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"42"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/bbb-seal.png"[39m
+        [33mwidth[39m=[32m"200"[39m
+      [36m/>[39m
+
+      Name "BBB Accredited Business A+ Rating":
+      [36m<img[39m
+        [33malt[39m=[32m"BBB Accredited Business A+ Rating"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto hidden dark:block"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"42"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/bbb-seal-white.png"[39m
+        [33mwidth[39m=[32m"200"[39m
+      [36m/>[39m
+
+      Name "AGC of Washington Member":
+      [36m<img[39m
+        [33malt[39m=[32m"AGC of Washington Member"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"427"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/logo/agc-member.webp"[39m
+        [33mwidth[39m=[32m"405"[39m
+      [36m/>[39m
+
+      Name "Travelers Insurance - Auto & Bonding Partner":
+      [36m<img[39m
+        [33malt[39m=[32m"Travelers Insurance - Auto & Bonding Partner"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto dark:hidden"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"122"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/travelers-logo.png"[39m
+        [33mwidth[39m=[32m"600"[39m
+      [36m/>[39m
+
+      Name "Travelers Insurance - Auto & Bonding Partner":
+      [36m<img[39m
+        [33malt[39m=[32m"Travelers Insurance - Auto & Bonding Partner"[39m
+        [33mclass[39m=[32m"h-10 sm:h-12 w-auto hidden dark:block"[39m
+        [33mdecoding[39m=[32m"async"[39m
+        [33mheight[39m=[32m"122"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msrc[39m=[32m"/images/travelers-logo-white.png"[39m
+        [33mwidth[39m=[32m"600"[39m
+      [36m/>[39m
+
+      Name "Washington State Veteran Owned Business":
+      [36m<img[39m
+        [33malt[39m=[32m"Washington State Veteran Owned Business"[39m
+        [33mclass[39m=[32m"h-12 w-auto object-contain"[39m
+        [33mheight[39m=[32m"80"[39m
+        [33mloading[39m=[32m"lazy"[39m
+        [33msizes[39m=[32m"(max-width: 640px) 140px, 180px"[39m
+        [33msrc[39m=[32m"/images/logo/veteran-owned-business.jpg"[39m
+        [33mwidth[39m=[32m"160"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      list:
+
+      Name "":
+      [36m<ul[39m
+        [33mclass[39m=[32m"space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<ul[39m
+        [33mclass[39m=[32m"space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<ul[39m
+        [33mclass[39m=[32m"space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+      listitem:
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      Name "":
+      [36m<li[39m
+        [33mclass[39m=[32m"flex items-center gap-2"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"relative bg-white dark:bg-gray-900 min-h-screen overflow-hidden"[39m
+        [36m>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"hero-section relative flex items-end justify-end text-white overflow-hidden"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex justify-end mb-4"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"relative p-4 bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl"[39m
+                [36m>[39m
+                  [36m<span>[39m
+                    [0mwork[0m
+                  [36m</span>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<h1[39m
+                [33mclass[39m=[32m"text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1"[39m
+                [36m>[39m
+                  [0mhero.kicker[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-secondary"[39m
+                [36m>[39m
+                  [0mhero.titleLine1[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-primary"[39m
+                [36m>[39m
+                  [0mhero.titleLine2[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-white/90"[39m
+                [36m>[39m
+                  [0mhero.titleLine3Prefix[0m
+                  [0m [0m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"font-black italic text-bronze-300"[39m
+                  [36m>[39m
+                    [0mhero.titleLine3Not[0m
+                  [36m</span>[39m
+                  [0m [0m
+                  [0mhero.titleLine3Suffix[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl mt-2"[39m
+                [36m>[39m
+                  [0mhero.titleLine4[0m
+                [36m</span>[39m
+              [36m</h1>[39m
+            [36m</div>[39m
+          [36m</section>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mb-16 sm:mb-20 text-center"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center justify-center mb-8 gap-4"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"[39m
+                  [36m/>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"[39m
+                    [36m/>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600"[39m
+                    [36m>[39m
+                      [36m<span>[39m
+                        [0mstar[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<h2[39m
+                  [33mclass[39m=[32m"mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1"[39m
+                  [36m>[39m
+                    [0mwhyChoose.headingPrefix[0m
+                  [36m</span>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal"[39m
+                  [36m>[39m
+                    [0mwhyChoose.headingTitle[0m
+                  [36m</span>[39m
+                [36m</h2>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"[39m
+                [36m>[39m
+                  [0mwhyChoose.description.prefix[0m
+                  [0m [0m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"font-bold text-brand-primary dark:text-brand-primary-light"[39m
+                  [36m>[39m
+                    [0mwhyChoose.description.highlight1[0m
+                  [36m</span>[39m
+                  [0m [0m
+                  [0mwhyChoose.description.middle[0m
+                  [0m [0m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"font-bold text-gray-900 dark:text-white"[39m
+                  [36m>[39m
+                    [0mwhyChoose.description.highlight2[0m
+                  [36m</span>[39m
+                  [0m [0m
+                  [0mwhyChoose.description.suffix[0m
+                [36m</p>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"inline-block mt-8"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative group"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"absolute -inset-1 bg-linear-to-r from-brand-primary via-brand-se...
+
+      276 |
+      277 |     // Open it first
+    > 278 |     await user.click(screen.getByRole("button", { name: /Apply as Veteran/i }));
+          |                             ^
+      279 |     expect(screen.getByText(/Modal entry:/)).toBeInTheDocument();
+      280 |
+      281 |     // Close it
+
+      at Object.getElementError (../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+      at Object.getByRole (src/app/careers/__tests__/page.test.tsx:278:29)
+
+FAIL src/components/navigation/__tests__/PageNavigation.test.tsx
+  ● PageNavigation — hash link scroll handling › does not scroll when hash element does not exist
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "#section-a"
+    Received: ""
+
+      184 |     await user.click(link);
+      185 |
+    > 186 |     expect(globalThis.location.hash).toBe("#section-a");
+          |                                      ^
+      187 |   });
+      188 |
+      189 |   it("does not call pushState for hash links with different page path", async () => {
+
+      at Object.toBe (src/components/navigation/__tests__/PageNavigation.test.tsx:186:38)
+
+FAIL src/app/locations/__tests__/locations-index-page.test.tsx
+  ● Locations index page › renders the service area hub and location cards
+
+    TestingLibraryElementError: Found multiple elements with the role "link" and name `/locations.card.reviewMarket/i`
+
+    Here are the matching elements:
+
+    Ignored nodes: comments, script, style
+    [36m<a[39m
+      [33mhref[39m=[32m"/locations/richland"[39m
+    [36m>[39m
+      [0mlocations.card.reviewMarket[0m
+    [36m</a>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<a[39m
+      [33mhref[39m=[32m"/locations/kennewick"[39m
+    [36m>[39m
+      [0mlocations.card.reviewMarket[0m
+    [36m</a>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<a[39m
+      [33mhref[39m=[32m"/locations/pasco"[39m
+    [36m>[39m
+      [0mlocations.card.reviewMarket[0m
+    [36m</a>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<a[39m
+      [33mhref[39m=[32m"/locations/yakima"[39m
+    [36m>[39m
+      [0mlocations.card.reviewMarket[0m
+    [36m</a>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<a[39m
+      [33mhref[39m=[32m"/locations/spokane"[39m
+    [36m>[39m
+      [0mlocations.card.reviewMarket[0m
+    [36m</a>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<a[39m
+      [33mhref[39m=[32m"/locations/west-richland"[39m
+    [36m>[39m
+      [0mlocations.card.reviewMarket[0m
+    [36m</a>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<a[39m
+      [33mhref[39m=[32m"/locations/walla-walla"[39m
+    [36m>[39m
+      [0mlocations.card.reviewMarket[0m
+    [36m</a>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<a[39m
+      [33mhref[39m=[32m"/locations/hermiston"[39m
+    [36m>[39m
+      [0mlocations.card.reviewMarket[0m
+    [36m</a>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<a[39m
+      [33mhref[39m=[32m"/locations/pendleton"[39m
+    [36m>[39m
+      [0mlocations.card.reviewMarket[0m
+    [36m</a>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<a[39m
+      [33mhref[39m=[32m"/locations/coeur-d-alene"[39m
+    [36m>[39m
+      [0mlocations.card.reviewMarket[0m
+    [36m</a>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<a[39m
+      [33mhref[39m=[32m"/locations/omak"[39m
+    [36m>[39m
+      [0mlocations.card.reviewMarket[0m
+    [36m</a>[39m
+
+    (If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<main[39m
+          [33mclass[39m=[32m"min-h-screen bg-white dark:bg-gray-950"[39m
+        [36m>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"hero-section border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 py-14 text-white sm:px-6 lg:px-8"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"mx-auto max-w-6xl"[39m
+            [36m>[39m
+              [36m<nav[39m
+                [33mdata-testid[39m=[32m"breadcrumbs"[39m
+              [36m/>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"max-w-3xl"[39m
+              [36m>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary"[39m
+                [36m>[39m
+                  [0mlocations.hero.kicker[0m
+                [36m</p>[39m
+                [36m<h1[39m
+                  [33mclass[39m=[32m"text-3xl font-black tracking-tight sm:text-5xl"[39m
+                [36m>[39m
+                  [0mlocations.hero.title[0m
+                [36m</h1>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"mt-5 text-lg leading-8 text-white/85"[39m
+                [36m>[39m
+                  [0mlocations.hero.description[0m
+                [36m</p>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</section>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"px-4 py-12 sm:px-6 lg:px-8 lg:py-16"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"mx-auto max-w-6xl"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"grid gap-6 md:grid-cols-2 xl:grid-cols-3"[39m
+              [36m>[39m
+                [36m<article[39m
+                  [33mclass[39m=[32m"rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition-transform hover:-translate-y-1 dark:border-gray-800 dark:bg-gray-900"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"flex items-start justify-between gap-4"[39m
+                  [36m>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-xs font-bold uppercase tracking-[0.24em] text-brand-primary dark:text-brand-primary-light"[39m
+                      [36m>[39m
+                        [0mWA[0m
+                      [36m</p>[39m
+                      [36m<h2[39m
+                        [33mclass[39m=[32m"mt-2 text-2xl font-bold text-gray-900 dark:text-white"[39m
+                      [36m>[39m
+                        [0mRichland[0m
+                      [36m</h2>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300"[39m
+                      [36m>[39m
+                        [0mBenton County[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"rounded-2xl bg-brand-primary/10 p-3 text-brand-primary dark:bg-brand-primary/20 dark:text-brand-primary-light"[39m
+                    [36m>[39m
+                      [36m<span[39m
+                        [33maria-hidden[39m=[32m"true"[39m
+                      [36m/>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"mt-5 text-sm leading-6 text-gray-700 dark:text-gray-300"[39m
+                  [36m>[39m
+                    [0mStrategic Construction Operations in Benton County[0m
+                  [36m</p>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"mt-5 space-y-3"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"flex items-start gap-3 rounded-2xl bg-gray-50 p-3 dark:bg-gray-950"[39m
+                    [36m>[39m
+                      [36m<span[39m
+                        [33maria-hidden[39m=[32m"true"[39m
+                      [36m/>[39m
+                      [36m<span[39m
+                        [33mclass[39m=[32m"text-sm leading-6 text-gray-700 dark:text-gray-300"[39m
+                      [36m>[39m
+                        [0mHigh-end residential production[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"flex items-start gap-3 rounded-2xl bg-gray-50 p-3 dark:bg-gray-950"[39m
+                    [36m>[39m
+                      [36m<span[39m
+                        [33maria-hidden[39m=[32m"true"[39m
+                      [36m/>[39m
+                      [36m<span[39m
+                        [33mclass[39m=[32m"text-sm leading-6 text-gray-700 dark:text-gray-300"[39m
+                      [36m>[39m
+                        [0mSite facilitation[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"flex items-start gap-3 rounded-2xl bg-gray-50 p-3 dark:bg-gray-950"[39m
+                    [36m>[39m
+                      [36m<span[39m
+                        [33maria-hidden[39m=[32m"true"[39m
+                      [36m/>[39m
+                      [36m<span[39m
+                        [33mclass[39m=[32m"text-sm leading-6 text-gray-700 dark:text-gray-300"[39m
+                      [36m>[39m
+                        [0mMunicipal inspections[0m
+                      [36m</span>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"mt-6 flex items-center justify-between gap-4 text-sm text-gray-600 dark:text-gray-300"[39m
+                  [36m>[39m
+                    [36m<span>[39m
+                      [0m3[0m
+                      [0m [0m
+                      [0mlocations.card.verifiedProject[0m
+                      [0ms[0m
+                    [36m</span>[39m
+                    [36m<span>[39m
+                      [0m2[0m
+                      [0m ZIP[0m
+                      [0ms[0m
+                    [36m</span>[39m
+                  [36m</div>[39m
+                  [36m<a[39m
+                    [33mhref[39m=[32m"/locations/richland"[39m
+                  [36m>[39m
+                    [0mlocations.card.reviewMarket[0m
+                  [36m</a>[39m
+                [36m</article>[39m
+                [36m<article[39m
+                  [33mclass[39m=[32m"rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition-transform hover:-translate-y-1 dark:border-gray-800 dark:bg-gray-900"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"flex items-start justify-between gap-4"[39m
+                  [36m>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-xs font-bold uppercase tracking-[0.24em] text-brand-primary dark:text-brand-primary-light"[39m
+                      [36m>[39m
+                        [0mWA[0m
+                      [36m</p>[39m
+                      [36m<h2[39m
+                        [33mclass...
+
+      44 |     expect(await screen.findByText("locations.hero.title")).toBeInTheDocument();
+      45 |     expect(
+    > 46 |       screen.getByRole("link", { name: /locations.card.reviewMarket/i }),
+         |              ^
+      47 |     ).toHaveAttribute("href", "/locations/pasco");
+      48 |   });
+      49 | });
+
+      at Object.getElementError (../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at getElementError (../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:20:35)
+      at getMultipleElementsFoundError (../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:23:10)
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:55:13
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+      at Object.getByRole (src/app/locations/__tests__/locations-index-page.test.tsx:46:14)
+
+FAIL src/app/contact/__tests__/page.test.tsx
+  ● Console
+
+    console.error
+      <ContactPageWithTelemetry> is an async Client Component. Only Server Components can be async at the moment. This error is often caused by accidentally adding `'use client'` to a module that was originally written for the server.
+
+      80 |   async function renderPage() {
+      81 |     const ui = await ContactPage();
+    > 82 |     render(ui);
+         |           ^
+      83 |   }
+      84 |
+      85 |   it("renders without throwing", async () => {
+
+      at renderWithHooks (../../node_modules/.pnpm/react-dom@19.2.5_react@19.2.5/node_modules/react-dom/cjs/react-dom-client.development.js:7645:21)
+      at updateFunctionComponent (../../node_modules/.pnpm/react-dom@19.2.5_react@19.2.5/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19)
+      at beginWork (../../node_modules/.pnpm/react-dom@19.2.5_react@19.2.5/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (../../node_modules/.pnpm/react-dom@19.2.5_react@19.2.5/node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at performUnitOfWork (../../node_modules/.pnpm/react-dom@19.2.5_react@19.2.5/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22)
+      at workLoopSync (../../node_modules/.pnpm/react-dom@19.2.5_react@19.2.5/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41)
+      at renderRootSync (../../node_modules/.pnpm/react-dom@19.2.5_react@19.2.5/node_modules/react-dom/cjs/react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (../../node_modules/.pnpm/react-dom@19.2.5_react@19.2.5/node_modules/react-dom/cjs/react-dom-client.development.js:16504:11)
+      at performWorkOnRootViaSchedulerTask (../../node_modules/.pnpm/react-dom@19.2.5_react@19.2.5/node_modules/react-dom/cjs/react-dom-client.development.js:18957:7)
+      at flushActQueue (../../node_modules/.pnpm/react@19.2.5/node_modules/react/cjs/react.development.js:590:34)
+      at process.env.NODE_ENV.exports.act (../../node_modules/.pnpm/react@19.2.5/node_modules/react/cjs/react.development.js:884:10)
+      at ../../node_modules/.pnpm/@testing-library+react@16.3.2_@testing-library+dom@10.4.1_@types+react-dom@19.2.3_@type_42bd4be5b674570827b99e11cad0b44b/node_modules/@testing-library/react/dist/act-compat.js:46:25
+      at renderRoot (../../node_modules/.pnpm/@testing-library+react@16.3.2_@testing-library+dom@10.4.1_@types+react-dom@19.2.3_@type_42bd4be5b674570827b99e11cad0b44b/node_modules/@testing-library/react/dist/pure.js:189:26)
+      at render (../../node_modules/.pnpm/@testing-library+react@16.3.2_@testing-library+dom@10.4.1_@types+react-dom@19.2.3_@type_42bd4be5b674570827b99e11cad0b44b/node_modules/@testing-library/react/dist/pure.js:291:10)
+      at renderPage (src/app/contact/__tests__/page.test.tsx:82:11)
+      at Object.<anonymous> (src/app/contact/__tests__/page.test.tsx:86:5)
+
+    console.error
+      A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
+      
+      When testing, code that resolves suspended data should be wrapped into act(...):
+      
+      act(() => {
+        /* finish loading suspended data */
+      });
+      /* assert on the output */
+      
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      at pingSuspendedRoot (../../node_modules/.pnpm/react-dom@19.2.5_react@19.2.5/node_modules/react-dom/cjs/react-dom-client.development.js:18600:17)
+
+    console.error
+      A component suspended inside an `act` scope, but the `act` call was not awaited. When testing React components that depend on asynchronous data, you must await the result:
+      
+      await act(() => ...)
+
+      at ../../node_modules/.pnpm/react@19.2.5/node_modules/react/cjs/react.development.js:890:23
+      at invokeTheCallbackFunction (../../node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/generated/Function.js:19:26)
+      at ../../node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/Window.js:613:9
+
+    console.error
+      A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
+      
+      When testing, code that resolves suspended data should be wrapped into act(...):
+      
+      act(() => {
+        /* finish loading suspended data */
+      });
+      /* assert on the output */
+      
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      at pingSuspendedRoot (../../node_modules/.pnpm/react-dom@19.2.5_react@19.2.5/node_modules/react-dom/cjs/react-dom-client.development.js:18600:17)
+
+    console.error
+      A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
+      
+      When testing, code that resolves suspended data should be wrapped into act(...):
+      
+      act(() => {
+        /* finish loading suspended data */
+      });
+      /* assert on the output */
+      
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      at pingSuspendedRoot (../../node_modules/.pnpm/react-dom@19.2.5_react@19.2.5/node_modules/react-dom/cjs/react-dom-client.development.js:18600:17)
+
+    console.error
+      A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
+      
+      When testing, code that resolves suspended data should be wrapped into act(...):
+      
+      act(() => {
+        /* finish loading suspended data */
+      });
+      /* assert on the output */
+      
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      at pingSuspendedRoot (../../node_modules/.pnpm/react-dom@19.2.5_react@19.2.5/node_modules/react-dom/cjs/react-dom-client.development.js:18600:17)
+
+  ● ContactPage (server component) › renders the ContactPageClient
+
+    TestingLibraryElementError: Unable to find an element by: [data-testid="contact-page-client"]
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div />[39m
+    [36m</body>[39m
+
+      89 |   it("renders the ContactPageClient", async () => {
+      90 |     await renderPage();
+    > 91 |     expect(screen.getByTestId("contact-page-client")).toBeInTheDocument();
+         |                   ^
+      92 |   });
+      93 |
+      94 |   it("renders two StructuredData blocks (breadcrumb + GeneralContractor)", async () => {
+
+      at Object.getElementError (../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+      at Object.getByTestId (src/app/contact/__tests__/page.test.tsx:91:19)
+
+  ● ContactPage (server component) › renders two StructuredData blocks (breadcrumb + GeneralContractor)
+
+    TestingLibraryElementError: Unable to find an element by: [data-testid="structured-data"]
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div />[39m
+    [36m</body>[39m
+
+      94 |   it("renders two StructuredData blocks (breadcrumb + GeneralContractor)", async () => {
+      95 |     await renderPage();
+    > 96 |     const scripts = screen.getAllByTestId("structured-data");
+         |                            ^
+      97 |     expect(scripts).toHaveLength(2);
+      98 |   });
+      99 |
+
+      at Object.getElementError (../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:109:15
+      at Object.getAllByTestId (src/app/contact/__tests__/page.test.tsx:96:28)
+
+  ● ContactPage (server component) › includes GeneralContractor schema with correct @type
+
+    TestingLibraryElementError: Unable to find an element by: [data-testid="structured-data"]
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div />[39m
+    [36m</body>[39m
+
+      100 |   it("includes GeneralContractor schema with correct @type", async () => {
+      101 |     await renderPage();
+    > 102 |     const scripts = screen.getAllByTestId("structured-data");
+          |                            ^
+      103 |     const schemas = scripts.map((s) =>
+      104 |       JSON.parse(
+      105 |         s.getAttribute("data-testid") === "structured-data"
+
+      at Object.getElementError (../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:109:15
+      at Object.getAllByTestId (src/app/contact/__tests__/page.test.tsx:102:28)
+
+PASS src/components/services/__tests__/CoreServicesSection.test.tsx
+PASS src/components/ui/cta/__tests__/cta-components.test.tsx
+PASS src/components/home/__tests__/HeroSection.test.tsx
+PASS src/components/services/__tests__/services-sections.test.tsx
+PASS src/components/testimonials/__tests__/testimonials.test.tsx
+PASS src/components/about/__tests__/about-sections.test.tsx
+PASS src/app/employee-handbook/__tests__/page.test.tsx
+PASS src/app/__tests__/home-sections-render.test.tsx
+
+Test Suites: 4 failed, 8 passed, 12 total
+Tests:       9 failed, 91 passed, 100 total
+Snapshots:   0 total
+Time:        7.038 s
+Ran all test suites matching --runInBand|--runTestsByPath|src/app/locations/__tests__/locations-index-page.test.tsx|src/app/careers/__tests__/page.test.tsx|src/components/ui/cta/__tests__/cta-components.test.tsx|src/components/services/__tests__/CoreServicesSection.test.tsx|src/components/testimonials/__tests__/testimonials.test.tsx|src/components/about/__tests__/about-sections.test.tsx|src/components/services/__tests__/services-sections.test.tsx|src/app/employee-handbook/__tests__/page.test.tsx|src/app/__tests__/home-sections-render.test.tsx|src/app/contact/__tests__/page.test.tsx|src/components/navigation/__tests__/PageNavigation.test.tsx|src/components/home/__tests__/HeroSection.test.tsx.

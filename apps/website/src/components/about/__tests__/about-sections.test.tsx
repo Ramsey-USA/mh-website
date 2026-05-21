@@ -94,12 +94,26 @@ import { render, screen } from "@testing-library/react";
 describe("AboutHero", () => {
   it("renders without throwing", () => {
     const { AboutHero } = require("../AboutHero");
-    expect(() => render(<AboutHero />)).not.toThrow();
+    expect(() =>
+      render(
+        <AboutHero
+          title="Service-Earned Values"
+          subtitle="Built Through Action"
+          description="Trusted delivery"
+        />,
+      ),
+    ).not.toThrow();
   });
 
   it("renders the heading text", () => {
     const { AboutHero } = require("../AboutHero");
-    render(<AboutHero />);
+    render(
+      <AboutHero
+        title="Service-Earned Values"
+        subtitle="Built Through Action"
+        description="Trusted delivery"
+      />,
+    );
     expect(screen.getByText(/Service-Earned Values/i)).toBeInTheDocument();
   });
 });

@@ -41,13 +41,14 @@ describe("Locations index page", () => {
     const page = await LocationsPage();
     render(page);
 
+    expect(await screen.findByText("locations.hero.title")).toBeInTheDocument();
+    const marketLinks = screen.getAllByRole("link", {
+      name: /locations.card.reviewMarket/i,
+    });
     expect(
-      await screen.findByRole("heading", {
-        name: /regional coverage built for local decisions/i,
-      }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("link", { name: /review pasco market/i }),
-    ).toHaveAttribute("href", "/locations/pasco");
+      marketLinks.some(
+        (link) => link.getAttribute("href") === "/locations/pasco",
+      ),
+    ).toBe(true);
   });
 });

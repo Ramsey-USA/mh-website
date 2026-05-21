@@ -176,6 +176,11 @@ Published Safety PDFs should be delivered through the existing `FILE_ASSETS` R2
 binding and `/docs/**` proxy path. Public Safety uploads should use a dedicated
 `SAFETY_INTAKE` bucket so unreviewed files stay isolated from published assets.
 
+Current publish workflow for approved artifacts:
+
+- `npm run docs:publish:safety` → uploads manual artifacts to `docs/safety/` and section PDFs to `docs/safety/sections/`
+- `npm run docs:publish:forms` → uploads form package PDFs from `documents/output/form-packages/` to `docs/safety/forms/`
+
 ---
 
 ## Environment Variables

@@ -48,6 +48,28 @@ jest.mock("next/navigation", () => ({
   useSearchParams: () => mockSearchParams,
 }));
 
+jest.mock("next-intl", () => ({
+  useTranslations: () => {
+    const values: Record<string, unknown> = {
+      "data.companyBenefits": [],
+      "data.veteranBenefits": [],
+      "data.cultureValues": [],
+      "data.employeeTestimonials": [],
+    };
+
+    const labels: Record<string, string> = {
+      "veterans.cta.applyButton": "Apply as Veteran",
+      "noRole.submitApplication": "Submit Application",
+      "readyToJoin.startApplication": "Start Application",
+      "journey.cta.startApplication": "Start Application",
+    };
+
+    const t = (key: string) => labels[key] ?? key;
+    t.raw = (key: string) => values[key] ?? [];
+    return t;
+  },
+}));
+
 jest.mock("@/lib/analytics/hooks", () => ({
   usePageTracking: jest.fn(),
 }));

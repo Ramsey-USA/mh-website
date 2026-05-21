@@ -5,12 +5,13 @@
 import { render, screen } from "@testing-library/react";
 
 jest.mock("next/headers", () => ({
-  cookies: () => ({
+  __esModule: true,
+  cookies: jest.fn(async () => ({
     get: () => undefined,
-  }),
-  headers: () => ({
+  })),
+  headers: jest.fn(async () => ({
     get: () => null,
-  }),
+  })),
 }));
 
 jest.mock("next-intl/server", () => ({

@@ -43,27 +43,33 @@ describe("EmployeeHandbookPage", () => {
   it("renders the main heading", async () => {
     await renderPage();
     expect(
-      screen.getByRole("heading", { name: /employee handbook placeholder/i }),
+      screen.getByRole("heading", {
+        name: /employeeHandbook.placeholder.title/i,
+      }),
     ).toBeInTheDocument();
   });
 
   it("renders the status and next step sections", async () => {
     await renderPage();
     expect(
-      screen.getByRole("heading", { name: /current status/i }),
+      screen.getByRole("heading", { name: /employeeHandbook.status.title/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /next step/i }),
+      screen.getByRole("heading", { name: /employeeHandbook.nextStep.title/i }),
     ).toBeInTheDocument();
   });
 
   it("links back to Operations Hub and Field Resources", async () => {
     await renderPage();
     expect(
-      screen.getByRole("link", { name: /back to operations hub/i }),
+      screen.getByRole("link", {
+        name: /employeeHandbook.cta.backToHub/i,
+      }),
     ).toHaveAttribute("href", "/hub");
     expect(
-      screen.getByRole("link", { name: /view field resources/i }),
+      screen.getByRole("link", {
+        name: /employeeHandbook.cta.viewResources/i,
+      }),
     ).toHaveAttribute("href", "/resources");
   });
 });

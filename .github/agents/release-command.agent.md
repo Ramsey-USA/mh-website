@@ -35,6 +35,7 @@ Required sequence:
 - Type, lint, and relevant test quality signals
 - Website/dashboard/hub congruency status (labels, shell behavior, trust framing, and style-token consistency)
 - Optimization hygiene status (cognitive complexity, nested rendering branches, unstable memo dependencies)
+- Document pipeline release status: when safety/manual/form artifacts changed, verify both `npm run docs:publish:safety` and `npm run docs:publish:forms` completed successfully (or capture blocker + mitigation).
 
 ## Output Format
 

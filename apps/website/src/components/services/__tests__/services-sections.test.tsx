@@ -108,18 +108,46 @@ import { render, screen } from "@testing-library/react";
 // ── ConstructionProcessSection ────────────────────────────────────────────────
 
 describe("ConstructionProcessSection", () => {
+  const processProps = {
+    title: "Our Process",
+    subtitle: "How we deliver",
+    description: "Clear, disciplined phases from planning to handoff.",
+    steps: [
+      {
+        title: "Plan",
+        description: "Scope, schedule, and constraints alignment.",
+        tags: ["Planning"],
+      },
+      {
+        title: "Build",
+        description: "Execution with quality and safety controls.",
+        tags: ["Execution"],
+      },
+    ],
+    cta: {
+      title: "Start Your Project",
+      description: "Connect with our team for next steps.",
+      contactButton: "Contact Us",
+      projectsButton: "See Projects",
+    },
+  };
+
   it("renders without throwing", () => {
     const {
       ConstructionProcessSection,
     } = require("../ConstructionProcessSection");
-    expect(() => render(<ConstructionProcessSection />)).not.toThrow();
+    expect(() =>
+      render(<ConstructionProcessSection {...processProps} />),
+    ).not.toThrow();
   });
 
   it("renders the process section", () => {
     const {
       ConstructionProcessSection,
     } = require("../ConstructionProcessSection");
-    const { container } = render(<ConstructionProcessSection />);
+    const { container } = render(
+      <ConstructionProcessSection {...processProps} />,
+    );
     expect(container.querySelector("#process")).toBeInTheDocument();
   });
 });

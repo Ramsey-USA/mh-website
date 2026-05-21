@@ -1,0 +1,4 @@
+
+> @mhc/website@7.1.0 test /workspaces/mh-website/apps/website
+> jest -- --runInBand --runTestsByPath src/app/locations/__tests__/locations-index-page.test.tsx src/app/careers/__tests__/page.test.tsx src/components/ui/cta/__tests__/cta-components.test.tsx src/components/services/__tests__/CoreServicesSection.test.tsx src/components/testimonials/__tests__/testimonials.test.tsx src/components/about/__tests__/about-sections.test.tsx src/components/services/__tests__/services-sections.test.tsx src/app/employee-handbook/__tests__/page.test.tsx src/app/__tests__/home-sections-render.test.tsx src/app/contact/__tests__/page.test.tsx src/components/navigation/__tests__/PageNavigation.test.tsx src/components/home/__tests__/HeroSection.test.tsx
+

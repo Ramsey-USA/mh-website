@@ -75,7 +75,7 @@
     "docs:generate:letterhead": "node documents/scripts/generate.mjs --template letterhead",
     "docs:generate:tabs": "node documents/scripts/generate.mjs --template tabs",
     "docs:generate:sections": "node documents/scripts/generate.mjs --template sections",
-    "docs:generate:forms": "node documents/scripts/generate.mjs --template forms",
+    "docs:generate:forms": "node documents/scripts/generate.mjs --template form-packages",
     "docs:merge": "node documents/scripts/merge.mjs",
     "docs:merge:digital": "node documents/scripts/merge.mjs --no-tabs",
     "docs:publish": "echo '⚠️  PDFs are now served from Cloudflare R2. Use docs:publish:r2 for local uploads.'",

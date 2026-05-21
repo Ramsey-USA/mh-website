@@ -2,31 +2,31 @@ function createTranslator() {
   return (key) => key;
 }
 
-async function getTranslations() {
-  return createTranslator();
+function getTranslations() {
+  return Promise.resolve(createTranslator());
 }
 
-async function getMessages() {
-  return {};
+function getMessages() {
+  return Promise.resolve({});
 }
 
-async function getLocale() {
-  return "en";
+function getLocale() {
+  return Promise.resolve("en");
 }
 
-async function getNow() {
-  return new Date();
+function getNow() {
+  return Promise.resolve(new Date());
 }
 
-async function getTimeZone() {
-  return "America/Los_Angeles";
+function getTimeZone() {
+  return Promise.resolve("America/Los_Angeles");
 }
 
-async function getFormatter() {
-  return {
+function getFormatter() {
+  return Promise.resolve({
     dateTime: (value) => String(value),
     number: (value) => String(value),
-  };
+  });
 }
 
 function getRequestConfig(factory) {

@@ -66,27 +66,39 @@ jest.mock("@/lib/constants/company", () => ({
   },
 }));
 
+jest.mock("next/headers", () => ({
+  __esModule: true,
+  headers: jest.fn(async () => ({
+    get: () => "",
+  })),
+}));
+
 import { render, screen } from "@testing-library/react";
 import ContactPage from "../page";
 
 describe("ContactPage (server component)", () => {
-  it("renders without throwing", () => {
-    expect(() => render(<ContactPage />)).not.toThrow();
+  async function renderPage() {
+    const ui = await ContactPage();
+    render(ui);
+  }
+
+  it("renders without throwing", async () => {
+    await expect(renderPage()).resolves.toBeUndefined();
   });
 
-  it("renders the ContactPageClient", () => {
-    render(<ContactPage />);
+  it("renders the ContactPageClient", async () => {
+    await renderPage();
     expect(screen.getByTestId("contact-page-client")).toBeInTheDocument();
   });
 
-  it("renders two StructuredData blocks (breadcrumb + GeneralContractor)", () => {
-    render(<ContactPage />);
+  it("renders two StructuredData blocks (breadcrumb + GeneralContractor)", async () => {
+    await renderPage();
     const scripts = screen.getAllByTestId("structured-data");
     expect(scripts).toHaveLength(2);
   });
 
-  it("includes GeneralContractor schema with correct @type", () => {
-    render(<ContactPage />);
+  it("includes GeneralContractor schema with correct @type", async () => {
+    await renderPage();
     const scripts = screen.getAllByTestId("structured-data");
     const schemas = scripts.map((s) =>
       JSON.parse(

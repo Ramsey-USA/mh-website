@@ -26,36 +26,36 @@
 
       /* Sheet + double-border frame (mirrors letterhead exactly) */
       .sheet { position:relative; width:8.5in; height:11in; background:var(--paper); overflow:hidden; }
-      .sheet::before { content:""; position:absolute; top:0.22in; left:0.22in; right:0.22in; height:10.56in; border:1.2pt solid var(--brand-primary-dark); pointer-events:none; z-index:10; }
+      .sheet::before { content:""; position:absolute; top:0.22in; left:0.22in; right:0.22in; height:10.56in; border:1.2pt solid var(--brand-primary); pointer-events:none; z-index:10; }
       .sheet::after  { content:""; position:absolute; top:0.33in; left:0.33in; right:0.33in; height:10.34in; border:0.6pt solid var(--brand-secondary); pointer-events:none; z-index:10; }
 
       /* Vertical ribbon */
-      .left-ribbon { position:absolute; top:0.45in; left:0.45in; height:10.10in; width:0.28in; background:linear-gradient(180deg,var(--brand-primary-dark) 0%,var(--brand-primary) 68%,var(--brand-secondary) 100%); }
+      .left-ribbon { position:absolute; top:0.45in; left:0.45in; height:10.10in; width:0.28in; background:linear-gradient(180deg,var(--brand-primary) 0%,var(--brand-primary) 68%,var(--brand-secondary) 100%); }
 
       /* Identity line */
-      .identity { position:absolute; top:0.62in; left:0.92in; right:0.9in; display:flex; justify-content:space-between; align-items:center; font-size:7.2pt; font-weight:700; letter-spacing:0.11em; text-transform:uppercase; color:var(--brand-primary-dark); }
+      .identity { position:absolute; top:0.62in; left:0.92in; right:0.9in; display:flex; justify-content:space-between; align-items:center; font-size:7.2pt; font-weight:700; letter-spacing:0.11em; text-transform:uppercase; color:var(--brand-primary); }
       .identity .dot { color:var(--brand-secondary); margin:0 7pt; }
 
       /* Logo + QR header */
-      .page-header { position:absolute; top:0.95in; left:0.92in; right:0.9in; display:flex; justify-content:space-between; align-items:center; padding-bottom:14pt; border-bottom:1.2pt solid var(--brand-primary-dark); }
+      .page-header { position:absolute; top:0.95in; left:0.92in; right:0.9in; display:flex; justify-content:space-between; align-items:center; padding-bottom:14pt; border-bottom:1.2pt solid var(--brand-primary); }
       .page-header::after { content:""; position:absolute; left:0; right:0; bottom:-3.5pt; height:0.6pt; background:var(--brand-secondary); }
       .page-header .logo { width:1.82in; height:auto; display:block; }
       .page-header .qr-card { display:flex; align-items:center; gap:9pt; border:0.8pt solid var(--brand-secondary); background:#fff; padding:7pt 10pt; }
       .page-header .qr-card img { width:0.78in; height:0.78in; display:block; }
       .page-header .qr-text { text-align:left; max-width:1.55in; }
-      .page-header .qr-label { font-size:6.8pt; font-weight:800; letter-spacing:0.16em; text-transform:uppercase; color:var(--brand-secondary-text); margin:0 0 2pt; }
-      .page-header .qr-headline { font-family:var(--font-heading); font-size:11pt; font-weight:900; letter-spacing:0.04em; text-transform:uppercase; color:var(--brand-primary-dark); line-height:1.05; }
+      .page-header .qr-label { font-size:6.8pt; font-weight:800; letter-spacing:0.16em; text-transform:uppercase; color:var(--brand-secondary); margin:0 0 2pt; }
+      .page-header .qr-headline { font-family:var(--font-heading); font-size:11pt; font-weight:900; letter-spacing:0.04em; text-transform:uppercase; color:var(--brand-primary); line-height:1.05; }
       .page-header .qr-url { margin-top:2pt; font-size:7.4pt; color:var(--brand-primary-darker); }
 
       /* Body area — constrained between header and footer */
       .body-area { position:absolute; top:2.16in; left:0.92in; right:0.9in; bottom:1.52in; overflow:hidden; font-size:8.2pt; line-height:1.38; }
 
       /* Title block */
-      .doc-title-block { border-bottom:1.2pt solid var(--brand-primary-dark); padding-bottom:7pt; margin-bottom:9pt; position:relative; }
+      .doc-title-block { border-bottom:1.2pt solid var(--brand-primary); padding-bottom:7pt; margin-bottom:9pt; position:relative; }
       .doc-title-block::after { content:""; position:absolute; left:0; right:0; bottom:-3.5pt; height:0.6pt; background:var(--brand-secondary); }
-      .chip { display:inline-block; font-size:6.5pt; text-transform:uppercase; letter-spacing:0.14em; font-weight:800; color:var(--brand-secondary-text); border:0.8pt solid var(--brand-secondary-light); background:var(--muted); padding:1.5pt 6pt; margin-bottom:4pt; }
-      .doc-title { font-family:var(--font-heading); font-size:16pt; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--brand-primary-dark); line-height:1.05; margin:0 0 3pt; }
-      .doc-meta { font-size:7.2pt; letter-spacing:0.08em; text-transform:uppercase; color:var(--brand-secondary-text); font-weight:700; }
+      .chip { display:inline-block; font-size:6.5pt; text-transform:uppercase; letter-spacing:0.14em; font-weight:800; color:var(--brand-secondary); border:0.8pt solid var(--brand-secondary); background:var(--muted); padding:1.5pt 6pt; margin-bottom:4pt; }
+      .doc-title { font-family:var(--font-heading); font-size:16pt; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--brand-primary); line-height:1.05; margin:0 0 3pt; }
+      .doc-meta { font-size:7.2pt; letter-spacing:0.08em; text-transform:uppercase; color:var(--brand-secondary); font-weight:700; }
 
       /* Section headings */
       h2 { font-family:var(--font-heading); font-size:9pt; font-weight:900; letter-spacing:0.06em; text-transform:uppercase; color:var(--brand-primary); margin:8pt 0 4pt; }
@@ -63,7 +63,7 @@
       /* Tables */
       table { width:100%; border-collapse:collapse; margin-bottom:7pt; font-size:7.8pt; }
       th,td { border:0.6pt solid var(--line); padding:3.5pt 6pt; text-align:left; vertical-align:top; }
-      th { background:var(--brand-primary-dark); color:#fff; font-size:7pt; font-weight:800; text-transform:uppercase; letter-spacing:0.09em; }
+      th { background:var(--brand-primary); color:#fff; font-size:7pt; font-weight:800; text-transform:uppercase; letter-spacing:0.09em; }
       tr:nth-child(even) td { background:var(--muted); }
 
       /* Code inline */
@@ -77,30 +77,30 @@
       /* Two-column layout for access section */
       .two-col { display:grid; grid-template-columns:1fr 1fr; gap:8pt; margin-bottom:6pt; }
       .access-block { background:var(--muted); border:0.6pt solid var(--line); padding:5pt 7pt; }
-      .access-block .label { font-size:7pt; font-weight:800; text-transform:uppercase; letter-spacing:0.12em; color:var(--brand-secondary-text); margin-bottom:3pt; }
+      .access-block .label { font-size:7pt; font-weight:800; text-transform:uppercase; letter-spacing:0.12em; color:var(--brand-secondary); margin-bottom:3pt; }
       ul { margin:0 0 4pt 13pt; padding:0; }
       li { margin-bottom:2pt; }
 
       /* Separator */
-      .sep { border:none; border-top:0.4pt solid var(--brand-secondary-light); margin:6pt 0; }
+      .sep { border:none; border-top:0.4pt solid var(--brand-secondary); margin:6pt 0; }
 
       /* Footer */
-      .page-footer { position:absolute; left:0.92in; right:0.9in; bottom:0.62in; padding-top:9pt; border-top:1.2pt solid var(--brand-primary-dark); display:grid; grid-template-columns:1.45fr 1fr; gap:0.25in; align-items:end; z-index:5; }
+      .page-footer { position:absolute; left:0.92in; right:0.9in; bottom:0.62in; padding-top:9pt; border-top:1.2pt solid var(--brand-primary); display:grid; grid-template-columns:1.45fr 1fr; gap:0.25in; align-items:end; z-index:5; }
       .page-footer::before { content:""; position:absolute; left:0; right:0; top:2.5pt; height:0.6pt; background:var(--brand-secondary); }
       .page-footer .contact { font-size:7.8pt; line-height:1.45; color:var(--brand-primary-darker); }
-      .page-footer .contact .label { color:var(--brand-secondary-text); font-size:6.6pt; letter-spacing:0.16em; text-transform:uppercase; font-weight:800; margin-bottom:3pt; }
-      .page-footer .contact .name { font-weight:800; color:var(--brand-primary-dark); font-size:8.2pt; }
-      .page-footer .licenses { margin-top:4pt; font-size:7.2pt; color:var(--brand-secondary-text); font-weight:700; }
+      .page-footer .contact .label { color:var(--brand-secondary); font-size:6.6pt; letter-spacing:0.16em; text-transform:uppercase; font-weight:800; margin-bottom:3pt; }
+      .page-footer .contact .name { font-weight:800; color:var(--brand-primary); font-size:8.2pt; }
+      .page-footer .licenses { margin-top:4pt; font-size:7.2pt; color:var(--brand-secondary); font-weight:700; }
       .page-footer .trust { text-align:right; }
-      .page-footer .trust .label { color:var(--brand-secondary-text); font-size:6.6pt; letter-spacing:0.16em; text-transform:uppercase; font-weight:800; margin-bottom:5pt; }
+      .page-footer .trust .label { color:var(--brand-secondary); font-size:6.6pt; letter-spacing:0.16em; text-transform:uppercase; font-weight:800; margin-bottom:5pt; }
       .page-footer .logos { display:flex; justify-content:flex-end; align-items:flex-end; gap:9pt; }
       .page-footer .logos img { display:block; width:auto; }
       .logo-agc { height:0.36in; } .logo-bbb { height:0.39in; } .logo-vob { height:0.5in; }
-      .page-footer .chambers { margin-top:6pt; display:flex; justify-content:flex-end; align-items:center; gap:10pt; padding-top:6pt; border-top:0.4pt solid var(--brand-secondary-light); }
+      .page-footer .chambers { margin-top:6pt; display:flex; justify-content:flex-end; align-items:center; gap:10pt; padding-top:6pt; border-top:0.4pt solid var(--brand-secondary); }
       .page-footer .chambers img { display:block; width:auto; height:0.3in; }
 
       /* Veteran strip */
-      .veteran-strip { position:absolute; left:0.92in; right:0.9in; bottom:0.42in; text-align:center; font-size:6.6pt; letter-spacing:0.22em; text-transform:uppercase; font-weight:800; color:var(--brand-secondary-text); z-index:5; }
+      .veteran-strip { position:absolute; left:0.92in; right:0.9in; bottom:0.42in; text-align:center; font-size:6.6pt; letter-spacing:0.22em; text-transform:uppercase; font-weight:800; color:var(--brand-secondary); z-index:5; }
       .veteran-strip .star { color:var(--brand-secondary); margin:0 6pt; }
     </style>
   </head>

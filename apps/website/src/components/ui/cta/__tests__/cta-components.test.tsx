@@ -59,12 +59,6 @@ jest.mock("@/components/ui/cta", () => ({
   PitchDeckCTA: () => <div data-testid="pitch-deck-cta" />,
 }));
 
-// Mock useLocale — default to English; override per-test when needed
-const mockUseLocale = jest.fn().mockReturnValue("en");
-jest.mock("@/hooks/useLocale", () => ({
-  useLocale: () => mockUseLocale(),
-}));
-
 import { StrategicCTABanner } from "../StrategicCTABanner";
 import { PitchDeckCTA } from "../PitchDeckCTA";
 import { NextStepsSection } from "@/components/shared-sections/NextStepsSection";
@@ -138,10 +132,6 @@ describe("PitchDeckCTA", () => {
 // ── NextStepsSection ──────────────────────────────────────────────────────────
 
 describe("NextStepsSection", () => {
-  beforeEach(() => {
-    mockUseLocale.mockReturnValue("en");
-  });
-
   it("renders without throwing with default props", () => {
     expect(() => render(<NextStepsSection />)).not.toThrow();
   });
@@ -166,8 +156,7 @@ describe("NextStepsSection", () => {
   });
 
   it("renders Spanish content when locale is 'es'", () => {
-    mockUseLocale.mockReturnValue("es");
-    render(<NextStepsSection />);
+    render(<NextStepsSection locale="es" />);
     expect(screen.getByText("Vea nuestro trabajo real")).toBeInTheDocument();
     expect(screen.getByText("Hablemos cara a cara")).toBeInTheDocument();
     expect(screen.getByText(/Mas popular/i)).toBeInTheDocument();
@@ -176,8 +165,7 @@ describe("NextStepsSection", () => {
   });
 
   it("Spanish locale: shows project/satisfaction stats in Spanish", () => {
-    mockUseLocale.mockReturnValue("es");
-    render(<NextStepsSection />);
+    render(<NextStepsSection locale="es" />);
     expect(
       screen.getByText(/650\+ proyectos completados desde 2010/i),
     ).toBeInTheDocument();
@@ -188,8 +176,7 @@ describe("NextStepsSection", () => {
   });
 
   it("Spanish locale: shows contact section in Spanish", () => {
-    mockUseLocale.mockReturnValue("es");
-    render(<NextStepsSection />);
+    render(<NextStepsSection locale="es" />);
     expect(
       screen.getByText(/Consulta presencial preferida/i),
     ).toBeInTheDocument();

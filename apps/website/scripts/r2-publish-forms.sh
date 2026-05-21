@@ -2,19 +2,17 @@
 # ──────────────────────────────────────────────────────────────────────────────
 # scripts/r2-publish-forms.sh
 #
-# Upload locally generated Safety Program form PDFs to the FILE_ASSETS R2 bucket
-# (mh-construction-assets) under the "docs/forms/" key prefix.
+# Upload locally generated Safety Program form package PDFs to the FILE_ASSETS R2 bucket
+# (mh-construction-assets) under the "docs/safety/forms/" key prefix.
 #
 # Run AFTER:
-#   npm run docs:generate   (creates documents/output/forms/*.pdf)
+#   npm run docs:generate:forms   (creates documents/output/form-packages/*.pdf)
 #
 # Resulting R2 keys (served via /docs/** Workers proxy):
-#   docs/forms/toolbox-talk.pdf
-#   docs/forms/jha.pdf
-#   docs/forms/incident-report.pdf
-#   docs/forms/site-inspection.pdf
-#   docs/forms/equipment-checklist.pdf
-#   docs/forms/signin-log.pdf
+#   docs/safety/forms/form-02-a-toolbox-talk-sign-in-log.pdf
+#   docs/safety/forms/form-02-b-job-hazard-analysis.pdf
+#   docs/safety/forms/form-02-c-incident-accident-report.pdf
+#   ...remaining packaged forms from the manifest
 #
 # Prerequisites:
 #   wrangler CLI installed and authenticated:
@@ -27,13 +25,13 @@
 set -euo pipefail
 
 BUCKET="mh-construction-assets"
-R2_PREFIX="docs/forms"
-FORMS_DIR="documents/output/forms"
+R2_PREFIX="docs/safety/forms"
+FORMS_DIR="documents/output/form-packages"
 
-echo "🔍  Checking for generated form PDFs in $FORMS_DIR …"
+echo "🔍  Checking for generated form package PDFs in $FORMS_DIR …"
 
 if [ ! -d "$FORMS_DIR" ]; then
-  echo "❌  $FORMS_DIR not found. Run 'npm run docs:generate' first."
+  echo "❌  $FORMS_DIR not found. Run 'npm run docs:generate:forms' first."
   exit 1
 fi
 
@@ -45,7 +43,7 @@ if [ "$PDF_COUNT" -eq 0 ]; then
 fi
 
 echo ""
-echo "📤  Uploading $PDF_COUNT form PDFs to R2 ($R2_PREFIX/) …"
+echo "📤  Uploading $PDF_COUNT form package PDFs to R2 ($R2_PREFIX/) …"
 
 TOTAL=0
 find "$FORMS_DIR" -name "*.pdf" -type f | sort | while read -r pdf_path; do
@@ -59,17 +57,11 @@ find "$FORMS_DIR" -name "*.pdf" -type f | sort | while read -r pdf_path; do
 done
 
 echo ""
-echo "✅  Form PDFs published to R2."
+echo "✅  Form package PDFs published to R2."
 echo "    Bucket  : $BUCKET"
 echo "    Prefix  : $R2_PREFIX/"
 echo ""
 echo "    Live URLs (via /docs/** proxy):"
-echo "    https://www.mhc-gc.com/docs/forms/toolbox-talk.pdf"
-echo "    https://www.mhc-gc.com/docs/forms/jha.pdf"
-echo "    https://www.mhc-gc.com/docs/forms/incident-report.pdf"
-echo "    https://www.mhc-gc.com/docs/forms/site-inspection.pdf"
-echo "    https://www.mhc-gc.com/docs/forms/equipment-checklist.pdf"
-echo "    https://www.mhc-gc.com/docs/forms/signin-log.pdf"
-echo ""
-echo "    Verify:"
-echo "    wrangler r2 object list $BUCKET --prefix $R2_PREFIX/ | head -20"
+echo "    https://www.mhc-gc.com/docs/safety/forms/form-02-a-toolbox-talk-sign-in-log.pdf"
+echo "    https://www.mhc-gc.com/docs/safety/forms/form-02-b-job-hazard-analysis.pdf"
+echo "    https://www.mhc-gc.com/docs/safety/forms/form-02-c-incident-accident-report.pdf"

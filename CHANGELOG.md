@@ -16,6 +16,10 @@ All notable changes to the MH Construction website are documented here.
 
 ---
 
+## May 2026
+
+- **May 21:** Safety document branding and release workflow alignment — standardized manual and form print templates to the current MH primary green and primary tan pattern across all active manual chrome templates (`safety-manual-cover`, `spine`, `letterhead`, `toc`, `tabs`, `section`) and form templates (`form-cover`, `form-fillable`); rebuilt safety artifacts (50 section PDFs, merged manual outputs, and 18 form packages) and published them to `FILE_ASSETS` under `docs/safety/**` including `docs/safety/forms/form-02-b-job-hazard-analysis.pdf`; updated release scripts so `docs:generate:forms` now builds package outputs (`--template form-packages`), forms publishing targets `documents/output/form-packages` → `docs/safety/forms/`, and safety publishing no longer emits a legacy `documents/output/forms` warning; hardened extraction continuity by allowing `docs:extract` to fall back to Word-source extraction when legacy PDF source directories are absent.
+
 ## April 2026
 
 - **Apr 30 (b):** 4-Tier Veteran Owned Business certification framework documentation — added

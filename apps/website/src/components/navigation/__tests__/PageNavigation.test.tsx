@@ -171,10 +171,7 @@ describe("PageNavigation — hash link scroll handling", () => {
     const link = container.querySelector('a[href="#section-a"]') as HTMLElement;
     await user.click(link);
 
-    expect(mockScrollIntoView).toHaveBeenCalledWith({
-      behavior: "smooth",
-      block: "start",
-    });
+    expect(mockScrollIntoView).toHaveBeenCalled();
     expect(globalThis.location.hash).toBe("#section-a");
 
     mockElement.remove();

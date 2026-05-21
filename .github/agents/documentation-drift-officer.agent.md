@@ -20,6 +20,7 @@ Keep documentation synchronized with implementation so onboarding and execution 
 - Workflow and command accuracy for development and deployment
 - Standards and policy references that can drift after refactors
 - Cross-doc consistency for naming and canonical guidance
+- Dual doc-tree parity between `docs/` and `apps/website/docs/` for mirrored runbooks
 
 ## Guardrails
 
@@ -34,6 +35,7 @@ Keep documentation synchronized with implementation so onboarding and execution 
 - Reference Accuracy: verify changed routes, files, and commands are correctly documented.
 - Workflow Accuracy: verify setup, deployment, and operational steps still match implementation.
 - Cross-Doc Consistency: verify terminology and guidance are aligned across related docs.
+- Dual-Tree Parity: when a topic exists in both `docs/` and `apps/website/docs/`, verify both copies are updated together and remain semantically aligned.
 - Certification Policy Consistency: verify documentation and examples use real certification ladders only (no placeholder labels such as Cert A-E), and that inferred prerequisites are verifiable.
 - Team Profile Theme Consistency: verify team profile section color guidance matches `TEAM_PROFILE_SECTION_THEME` in `src/components/team/TeamProfileSection.tsx`.
 - Canonical Ownership: identify which document is source of truth when conflicts exist.

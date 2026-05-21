@@ -42,15 +42,8 @@ const generalContractorSchema = {
   slogan: "Founded 2010, Veteran-Owned Since January 2025",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
   const isProduction = process.env.NODE_ENV === "production";
-
-  return <ContactPageWithTelemetry isProduction={isProduction} />;
-}
-
-async function ContactPageWithTelemetry({
-  isProduction,
-}: Readonly<{ isProduction: boolean }>) {
   const requestHeaders = await headers();
   const isLighthouseAudit = /Chrome-Lighthouse/i.test(
     requestHeaders.get("user-agent") ?? "",

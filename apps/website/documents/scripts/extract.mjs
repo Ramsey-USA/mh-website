@@ -13,7 +13,8 @@
  * Output: documents/content/safety-manual.json
  */
 
-import { readFile, writeFile, readdir } from "fs/promises";
+import { readFile, writeFile, readdir, access } from "fs/promises";
+import { spawnSync } from "child_process";
 import { join, resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import { PDFParse } from "pdf-parse";
@@ -99,6 +100,32 @@ function buildSlug(title) {
 }
 
 async function main() {
+  try {
+    await access(INPUT_DIR);
+  } catch {
+    const fallbackScript = join(ROOT, "documents/scripts/extract-word.mjs");
+    console.log("📄 MH Construction — Safety Manual PDF Extractor");
+    console.log("================================================");
+    console.log(`Input:  ${INPUT_DIR}`);
+    console.log(`Output: ${OUTPUT}\n`);
+    console.log(
+      "ℹ  Legacy PDF source directory not found. Falling back to Word-source extraction.\n",
+    );
+
+    const result = spawnSync(process.execPath, [fallbackScript], {
+      cwd: ROOT,
+      stdio: "inherit",
+    });
+
+    if (result.status !== 0) {
+      throw new Error(
+        `Word-source fallback exited with code ${result.status ?? 1}`,
+      );
+    }
+
+    return;
+  }
+
   console.log("📄 MH Construction — Safety Manual PDF Extractor");
   console.log("================================================");
   console.log(`Input:  ${INPUT_DIR}`);

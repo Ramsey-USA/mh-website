@@ -801,7 +801,7 @@ async function extractFieldRectsFromHtml(html, tmpName = "_tmp_measure.html") {
         pushRect(el, el.getAttribute("data-check"), "check");
       });
       document.querySelectorAll("[data-cell]").forEach((el) => {
-        pushRect(el, el.getAttribute("data-cell"), "text");
+        pushRect(el, el.getAttribute("data-cell"), "cell");
       });
       return out;
     });
@@ -826,6 +826,11 @@ async function applyMeasuredFieldsToPdf(pdfPath, fields) {
   const pages = pdfDoc.getPages();
   const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
   const inch = (n) => n * 72;
+  const widgetInsets = {
+    text: { left: 0.015, right: 0.015, top: 0.01, bottom: 0.055 },
+    cell: { left: 0.01, right: 0.01, top: 0.015, bottom: 0.015 },
+    multiline: { left: 0.02, right: 0.02, top: 0.02, bottom: 0.02 },
+  };
   const transparent = {
     borderColor: rgb(1, 1, 1),
     borderWidth: 0,
@@ -857,7 +862,21 @@ async function applyMeasuredFieldsToPdf(pdfPath, fields) {
     } else {
       const tf = form.createTextField(f.name);
       if (f.type === "multiline") tf.enableMultiline();
-      tf.addToPage(page, { ...textStyle, x, y, width: w, height: h });
+      const inset = widgetInsets[f.type] || widgetInsets.text;
+      const widgetX = x + inch(inset.left);
+      const widgetW = Math.max(8, w - inch(inset.left + inset.right));
+      const widgetTop = f.y + inset.top;
+      const widgetH = Math.max(
+        f.type === "multiline" ? 18 : 8.64,
+        h - inch(inset.top + inset.bottom),
+      );
+      tf.addToPage(page, {
+        ...textStyle,
+        x: widgetX,
+        y: ph - inch(widgetTop) - widgetH,
+        width: widgetW,
+        height: widgetH,
+      });
       tf.setFontSize(f.type === "multiline" ? 10 : 9);
     }
   }
@@ -1835,13 +1854,19 @@ function buildContentsPdfHtml(sections) {
       table {
         width: 100%;
         border-collapse: collapse;
-      }
-      tr {
+        const inset = widgetInsets[f.type] || widgetInsets.text;
+        const widgetX = x + inch(inset.left);
+        const widgetW = Math.max(8, w - inch(inset.left + inset.right));
+        const widgetTop = f.y + inset.top;
+        const widgetH = Math.max(
+          f.type === "multiline" ? 18 : 8.64,
+          h - inch(inset.top + inset.bottom),
+        );
         border-bottom: 1px solid #e5e7eb;
       }
-      td {
-        padding: 0.1in 0;
-        vertical-align: top;
+          x: widgetX,
+          y: ph - inch(widgetTop) - widgetH,
+          width: widgetW,
       }
       .num {
         width: 1.15in;

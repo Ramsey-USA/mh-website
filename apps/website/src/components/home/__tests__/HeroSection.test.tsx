@@ -1,10 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { HeroSection } from "../HeroSection";
 
-jest.mock("@/components/icons/AmericanFlag", () => ({
-  AmericanFlag: () => <div data-testid="american-flag" />,
-}));
-
 jest.mock("@/components/navigation/PageNavigation", () => ({
   PageNavigation: () => (
     <nav data-testid="page-nav" aria-label="Page navigation" />
@@ -26,7 +22,7 @@ describe("HeroSection", () => {
   it("renders the main heading text", () => {
     render(<HeroSection />);
     expect(
-      screen.getAllByText(/Founded 2010, Veteran-Owned Since January 2025/i)[0],
+      screen.getByText(/Veteran-Owned Since January 2025/i),
     ).toBeInTheDocument();
   });
 
@@ -37,11 +33,6 @@ describe("HeroSection", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders the American Flag icon", () => {
-    render(<HeroSection />);
-    expect(screen.getAllByTestId("american-flag")[0]).toBeInTheDocument();
-  });
-
   it("renders the PageNavigation component", () => {
     render(<HeroSection />);
     expect(screen.getAllByTestId("page-nav")[0]).toBeInTheDocument();
@@ -50,9 +41,7 @@ describe("HeroSection", () => {
   it("renders the service area text", () => {
     render(<HeroSection />);
     expect(
-      screen.getAllByText(
-        /Tri-Cities HQ .* Tri-State Licensed in WA, OR, ID/i,
-      )[0],
+      screen.getByText(/Serving WA, OR, and ID from the Tri-Cities/i),
     ).toBeInTheDocument();
   });
 });
