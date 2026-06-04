@@ -651,5 +651,5 @@ Process for deprecating badges:
 
 **Last Review Date**: December 24, 2025  
 **Next Review Date**: March 24, 2026  
-**Document Owner**: Marketing/HR Department  
+**Document Owner**: Safety Officer (Matt Ramsey)  
 **Technical Contact**: Development Team

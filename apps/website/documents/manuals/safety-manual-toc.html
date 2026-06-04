@@ -64,7 +64,7 @@
         display: flex;
         flex-direction: column;
         min-height: 10.16in; /* 11in − 2×0.42in margins */
-        padding: 0.45in 0.48in 0.12in 0.88in; /* right gap mirrors left strip-to-content gap */
+        padding: 0.34in 0.46in 0.08in 0.86in; /* compacted to keep TOC + footer on one page */
         background: var(--paper);
         overflow: hidden;
       }
@@ -108,50 +108,52 @@
       .toc-header {
         flex-shrink: 0;
         text-align: center;
-        padding-bottom: 0.08in;
-        margin-bottom: 0.08in;
+        padding-bottom: 0.06in;
+        margin-bottom: 0.06in;
         border-bottom: 1.2pt solid var(--brand-primary);
       }
 
       .toc-logo {
-        height: 0.9in;
+        height: 0.72in;
         width: auto;
         display: block;
-        margin: 0 auto 0.05in;
+        margin: 0 auto 0.03in;
       }
 
       /* Program chip — mirrors cover's MHC-APP chip */
       .toc-program-chip {
         width: fit-content;
-        margin: 0 auto 0.05in;
-        background: var(--muted);
+        margin: 0 auto 0.03in;
+        background: var(--brand-primary);
         border: 0.8pt solid var(--brand-secondary);
-        color: var(--brand-secondary);
+        color: #ffffff;
         text-transform: uppercase;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.16em;
         font-family: var(--font-body);
-        font-size: 6.5pt;
+        font-size: 6.2pt;
         font-weight: 800;
-        padding: 2pt 10pt;
+        padding: 1.5pt 8pt;
+        border-radius: 1.5pt;
+        box-shadow: inset 0 -1pt 0 var(--brand-secondary);
       }
 
       .toc-title {
         font-family: var(--font-heading);
-        font-size: 16pt;
+        font-size: 14.6pt;
         font-weight: 900;
         color: var(--brand-primary);
-        margin: 0.04in 0 0.02in;
+        margin: 0.02in 0 0.01in;
         letter-spacing: 0.01em;
-        line-height: 1.05;
+        line-height: 1.02;
         text-transform: uppercase;
       }
 
       .toc-subtitle {
         font-family: var(--font-body);
-        font-size: 7.5pt;
+        font-size: 7.1pt;
         font-weight: 700;
         color: var(--brand-primary);
-        letter-spacing: 0.11em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
         margin: 0;
       }
@@ -162,26 +164,34 @@
         columns: 2;
         column-gap: 0.28in;
         column-fill: balance;
-        margin-top: 0.04in;
+        margin-top: 0.02in;
       }
 
       /* Each operational cluster stays together in one column */
       .cluster {
         break-inside: avoid;
-        margin-bottom: 0.05in;
+        margin-bottom: 0.045in;
+        padding: 0.05in 0.07in 0.045in;
+        background: var(--muted);
+        border: 0.75pt solid var(--brand-secondary);
+        border-radius: 2pt;
       }
 
       /* Cluster heading — Mendl Sans Dusk Medium */
       .cluster-head {
         font-family: var(--font-heading);
-        font-size: 7pt;
+        font-size: 6.7pt;
         font-weight: 500;
-        color: var(--brand-primary);
+        color: #ffffff;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin: 0 0 2pt;
-        padding: 2pt 0 2pt;
-        border-bottom: 0.75pt solid var(--brand-primary);
+        letter-spacing: 0.09em;
+        margin: -0.05in -0.07in 3pt;
+        padding: 2.5pt 7pt 2pt;
+        border-bottom: 0.75pt solid var(--brand-secondary);
+        background: var(--brand-primary);
+        border-left: 3pt solid var(--brand-secondary);
+        border-radius: 2pt 2pt 0 0;
+        box-shadow: inset 0 -1pt 0 var(--brand-secondary);
       }
 
       /* MISH entry list */
@@ -194,22 +204,28 @@
       .mish-entry {
         display: flex;
         align-items: baseline;
-        gap: 6pt;
+        gap: 5pt;
         padding: 0.5pt 0;
         /* DIN 2014 for legibility in high-stress environments */
         font-family: var(--font-body);
-        font-size: 9pt;
-        line-height: 1.25;
+        font-size: 8.55pt;
+        line-height: 1.16;
         color: #000000;
       }
 
       .mish-code {
         flex-shrink: 0;
-        width: 0.8in;
+        width: 0.76in;
         font-family: var(--font-heading);
-        font-size: 7.5pt;
+        font-size: 7pt;
         font-weight: 700;
-        color: var(--brand-primary);
+        color: #ffffff;
+        background: var(--brand-primary);
+        border: 0.75pt solid var(--brand-secondary);
+        border-radius: 1.5pt;
+        box-shadow: inset 0 -1pt 0 var(--brand-secondary);
+        padding: 0.8pt 4pt 0.4pt;
+        text-align: center;
       }
 
       .mish-wbs {
@@ -219,8 +235,8 @@
       .mish-title {
         flex: 1;
         color: #000000;
-        font-size: 8.6pt;
-        line-height: 1.18;
+        font-size: 8.25pt;
+        line-height: 1.14;
         text-wrap: pretty;
         hyphens: auto;
       }
@@ -247,77 +263,94 @@
       /* ── Footer ─────────────────────────────────────────── */
       .toc-footer-row {
         flex-shrink: 0;
-        display: flex;
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 18pt;
         align-items: flex-end;
-        justify-content: space-between;
-        padding-top: 0.06in;
-        border-top: 0.7pt solid var(--brand-secondary);
-        margin-top: 0.06in;
+        margin-top: 0.04in;
       }
 
-      .toc-footer-left {
+      .toc-footer-contact {
         font-family: var(--font-body);
-        font-size: 6.5pt;
+        font-size: 8pt;
+        line-height: 1.42;
+        color: var(--brand-primary-darker);
+      }
+
+      .toc-footer-contact .meta {
         color: var(--brand-secondary);
-        white-space: nowrap;
+        font-size: 7pt;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 4pt;
+      }
+
+      .toc-footer-contact .name {
+        font-size: 8.4pt;
+        font-weight: 800;
+        color: var(--brand-primary);
+      }
+
+      .toc-footer-contact .licenses {
+        margin-top: 5pt;
+        font-size: 7.5pt;
       }
 
       /* ── Footer trust / accreditation logos — matches cover ──── */
       .toc-footer-trust {
+        text-align: right;
         flex-shrink: 0;
         display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
         align-items: flex-end;
-        gap: 8pt;
+        gap: 9pt;
+      }
+
+      .toc-footer-trust::before {
+        content: "Accreditation and Trust";
+        flex-basis: 100%;
+        text-align: right;
+        color: var(--brand-secondary);
+        font-size: 7pt;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        font-weight: 800;
+        white-space: nowrap;
+        margin-bottom: 5pt;
       }
 
       .toc-footer-logo-agc {
-        height: 0.32in;
+        height: 0.38in;
         width: auto;
       }
 
       .toc-footer-logo-bbb {
-        height: 0.36in;
+        height: 0.41in;
         width: auto;
       }
 
       .toc-footer-logo-vob {
-        height: 0.46in;
+        height: 0.55in;
         width: auto;
       }
 
-      /* ── Footer QR + revision ──────────────────────────── */
+      /* Hidden in manual footer to match forms footer pattern */
       .toc-footer-right {
-        font-family: var(--font-body);
-        font-size: 6.5pt;
-        font-weight: 700;
-        color: var(--brand-secondary);
-        text-align: right;
-        white-space: nowrap;
+        display: none;
       }
 
       .toc-footer-qr {
-        flex-shrink: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5pt;
+        display: none;
       }
 
       .toc-footer-qr img {
-        width: 0.44in;
-        height: 0.44in;
-        display: block;
+        display: none;
       }
 
       .toc-footer-qr-label {
-        font-family: var(--font-body);
-        font-size: 5.5pt;
-        font-weight: 700;
-        color: var(--brand-secondary);
-        text-align: center;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        white-space: nowrap;
+        display: none;
       }
     </style>
   </head>
@@ -332,7 +365,8 @@
             src="{{BRAND_LOGO_COLOR}}"
             alt="MH Construction, Inc."
           />
-          <h1 class="toc-title">Table of Contents</h1>
+          <div class="toc-program-chip">MISH Program Index</div>
+          <h1 class="toc-title">MISH Program Table of Contents</h1>
           <p class="toc-subtitle">
             MH Construction Industrial &amp; Safety Health Program
           </p>
@@ -345,9 +379,14 @@
 
         <!-- ── Footer ─────────────────────────────────────────── -->
         <footer class="toc-footer-row">
-          <span class="toc-footer-left"
-            >{{BRAND_COMPANY_NAME}}&nbsp;&middot;&nbsp;{{BRAND_PHONE}}&nbsp;&middot;&nbsp;{{BRAND_WEBSITE}}</span
-          >
+          <div class="toc-footer-contact">
+            <div class="meta">Company Contact</div>
+            <div class="name">{{BRAND_COMPANY_NAME}}</div>
+            {{BRAND_ADDRESS_STREET}}<br />
+            {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
+            {{BRAND_PHONE}} &middot; {{BRAND_WEBSITE}}
+            <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
+          </div>
           <!-- Accreditation and trust logos — mirrors cover footer -->
           <div class="toc-footer-trust">
             <img
@@ -366,15 +405,6 @@
               alt="Washington certified veteran owned business"
             />
           </div>
-          <!-- QR code — scan to open the public table of contents page -->
-          <div class="toc-footer-qr">
-            <img src="{{QR_TOC_URL}}" alt="Scan for Table of Contents" />
-            <span class="toc-footer-qr-label">Scan for TOC</span>
-          </div>
-          <span class="toc-footer-right"
-            >Rev
-            {{BRAND_REVISION_NUMBER}}&nbsp;&middot;&nbsp;{{BRAND_REVISION_DATE}}</span
-          >
         </footer>
       </div>
     </div>

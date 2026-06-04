@@ -36,7 +36,7 @@ This guide documents:
 - Completion requires source-first edits, regeneration, and explicit PASS/FAIL checks for
   structure, typography, and generated PDF artifact metadata.
 - Standardized author/creator metadata target:
-  - `Author: Matt Ramsey, Editor-in-Chief`
+  - `Author: Matt Ramsey, Safety Officer`
   - `Creator: MH Construction Document Pipeline`
 - Standardized Safety Manual PDF title naming:
   - `MH Construction Safety Manual — Cover|Spine|Digital`

@@ -76,13 +76,18 @@
          display: block;
          overflow: hidden; /* clearfix for the floated QR block */
          margin-bottom: 14pt;
-         padding-bottom: 10pt;
-         border-bottom: 1.5pt solid var(--brand-secondary);
+         padding: 10pt 12pt 11pt;
+         border: 1pt solid var(--brand-secondary);
+         border-left: 4pt solid var(--brand-primary);
+         background: var(--muted);
+         border-radius: 2pt;
+         box-shadow: inset 0 -1pt 0 var(--brand-secondary);
        }
        .section-info-row .qr-block-inline {
          float: right;
          margin-left: 12pt;
          margin-bottom: 4pt;
+         margin-top: 1pt;
        }
        .revision-info-table {
          width: 100%; /* spans the full text column */
@@ -92,7 +97,7 @@
        }
        .revision-info-table .rit-label {
          font-weight: 700;
-         color: var(--brand-primary-dark);
+         color: var(--brand-primary);
          text-transform: uppercase;
          font-size: var(--type-print-label);
          letter-spacing: 0.04em;
@@ -224,7 +229,7 @@
          background: linear-gradient(
            90deg,
            var(--brand-primary),
-           var(--brand-primary-dark)
+           var(--brand-primary)
          );
          color: #ffffff;
          font-family: var(--font-heading);
@@ -234,6 +239,7 @@
          text-transform: uppercase;
          border-left: 4pt solid var(--brand-secondary);
          border-radius: 3pt;
+         box-shadow: inset 0 -1pt 0 var(--brand-secondary);
          page-break-after: avoid;
          break-after: avoid;
          -webkit-print-color-adjust: exact;
@@ -251,7 +257,7 @@
          margin-top: 8pt;
        }
        .section-body p.sec-h.sec-h-1 > strong:first-child {
-         color: var(--brand-primary-dark);
+         color: var(--brand-primary);
          font-weight: 800;
        }
 
@@ -282,10 +288,11 @@
          background: linear-gradient(
            90deg,
            var(--brand-primary),
-           var(--brand-primary-dark)
+           var(--brand-primary)
          );
          border-left: 4pt solid var(--brand-secondary);
          border-radius: 3pt;
+         box-shadow: inset 0 -1pt 0 var(--brand-secondary);
          page-break-after: avoid;
          break-after: avoid;
          -webkit-print-color-adjust: exact;
@@ -333,7 +340,7 @@
          margin-right: 6pt;
        }
        .section-body h4.sec-subhead.sec-h.sec-h-1 > strong:first-child {
-         color: var(--brand-primary-dark);
+         color: var(--brand-primary);
          font-weight: 800;
        }
 
@@ -383,11 +390,12 @@
        .section-header-card {
          position: relative;
          margin: 0 0 16pt;
-         padding: 14pt 16pt 12pt;
-         background: linear-gradient(180deg, var(--muted) 0%, var(--paper) 70%);
-         border: 0.75pt solid var(--brand-secondary);
+         padding: 12pt 14pt 13pt;
+         background: linear-gradient(180deg, var(--muted) 0%, var(--paper) 76%);
+         border: 1pt solid var(--brand-secondary);
          border-left: 4pt solid var(--brand-primary);
-         border-radius: 6pt;
+         border-radius: 2pt;
+         box-shadow: inset 0 -1pt 0 var(--brand-secondary);
          page-break-inside: avoid;
          break-inside: avoid;
          -webkit-print-color-adjust: exact;
@@ -412,7 +420,7 @@
          font-weight: 700;
          letter-spacing: 0.11em;
          text-transform: uppercase;
-         color: var(--brand-primary-dark);
+         color: var(--brand-primary);
        }
 
        .section-identity .dot {
@@ -425,9 +433,9 @@
          align-items: flex-start;
          justify-content: space-between;
          gap: 12pt;
-         padding-bottom: 8pt;
-         margin-bottom: 9pt;
-         border-bottom: 0.5pt solid #e0d6c2;
+         padding-bottom: 9pt;
+         margin-bottom: 10pt;
+         border-bottom: 0.5pt solid var(--brand-secondary);
        }
        .shc-title-block {
          flex: 1 1 auto;
@@ -441,14 +449,15 @@
          font-weight: 800;
          letter-spacing: 0.08em;
          text-transform: uppercase;
-         padding: 2pt 9pt;
-         border-radius: 9pt;
+         padding: 2.5pt 10pt 2pt;
+         border-radius: 1.5pt;
+         box-shadow: inset 0 -1pt 0 var(--brand-secondary);
          margin-bottom: 5pt;
        }
        .shc-title {
-         font-size: 18pt;
+         font-size: 17.5pt;
          font-weight: 700;
-         color: var(--brand-primary-dark);
+         color: var(--brand-primary);
          margin: 0;
          line-height: 1.15;
          letter-spacing: -0.005em;
@@ -459,8 +468,8 @@
          font-family: var(--font-body);
          background: #ffffff;
          border: 0.5pt solid var(--brand-secondary);
-         border-radius: 4pt;
-         padding: 5pt 9pt;
+         border-radius: 2pt;
+         padding: 5pt 9pt 6pt;
          min-width: 1.2in;
        }
        .shc-rev-badge .shc-rev-label {
@@ -469,14 +478,14 @@
          font-weight: 800;
          letter-spacing: 0.1em;
          text-transform: uppercase;
-         color: var(--brand-secondary-text);
+         color: var(--brand-secondary);
          margin-bottom: 1pt;
        }
        .shc-rev-badge .shc-rev-value {
          display: block;
          font-size: 9pt;
          font-weight: 700;
-         color: var(--brand-primary-dark);
+         color: var(--brand-primary);
          line-height: 1.15;
        }
 
@@ -502,7 +511,7 @@
          grid-column: 1 / -1;
          padding-left: 0;
          border-left: 0;
-         border-top: 0.5pt solid #e0d6c2;
+         border-top: 0.5pt solid var(--brand-secondary);
          padding-top: 6pt;
          margin-top: 2pt;
        }
@@ -514,7 +523,7 @@
          font-weight: 800;
          letter-spacing: 0.1em;
          text-transform: uppercase;
-         color: var(--brand-secondary-text);
+         color: var(--brand-secondary);
        }
        .shc-meta-value {
          font-size: 9pt;
@@ -523,7 +532,7 @@
          line-height: 1.3;
        }
        .shc-meta-value strong {
-         color: var(--brand-primary-dark);
+         color: var(--brand-primary);
        }
 
        /* page-frame removed — Chrome print mode rendered ghost bottom borders
@@ -538,7 +547,7 @@
          width: 0.28in;
          background: linear-gradient(
            180deg,
-           var(--brand-primary-dark) 0%,
+           var(--brand-primary) 0%,
            var(--brand-primary) 68%,
            var(--brand-secondary) 100%
          );
@@ -607,6 +616,7 @@
       </div>
       <div class="shc-title-row">
         <div class="shc-title-block">
+          <div class="shc-mish-chip">MISH {{SECTION_NUMBER}}</div>
           <h1 class="shc-title">{{SECTION_TITLE}}</h1>
         </div>
         <div class="shc-rev-badge">

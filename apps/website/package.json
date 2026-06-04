@@ -78,6 +78,8 @@
     "docs:generate:forms": "node documents/scripts/generate.mjs --template form-packages",
     "docs:merge": "node documents/scripts/merge.mjs",
     "docs:merge:digital": "node documents/scripts/merge.mjs --no-tabs",
+    "docs:audit:mish-overrun": "node documents/scripts/audit-mish-overrun.mjs --prepare",
+    "docs:audit:mish-overrun:check": "node documents/scripts/audit-mish-overrun.mjs",
     "docs:publish": "echo '⚠️  PDFs are now served from Cloudflare R2. Use docs:publish:r2 for local uploads.'",
     "docs:publish:r2": "bash scripts/r2-seed-pdfs.sh",
     "docs:publish:safety": "bash scripts/r2-publish-safety-pdfs.sh",

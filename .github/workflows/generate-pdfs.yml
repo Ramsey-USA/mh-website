@@ -121,6 +121,19 @@ jobs:
             --rev-date "${{ steps.rev.outputs.date }}" \
             --rev-number "${{ steps.rev.outputs.number }}"
 
+      # ── 8b. Validate forms-integrated manual merge (hard fail on mapping drift) ──
+      - name: Validate merged manuals include mapped forms appendix
+        if: ${{ github.event.inputs.section == '' || github.event.inputs.section == null }}
+        run: |
+          npm run docs:merge
+          npm run docs:merge:digital
+
+      # ── 8c. Visual run-off gate for MISH manual content ─────────────────
+      - name: Audit MISH manual visual run-off (strict)
+        if: ${{ github.event.inputs.section == '' || github.event.inputs.section == null }}
+        working-directory: apps/website
+        run: npm run docs:audit:mish-overrun:check
+
       # ── 9. Upload PDFs to Cloudflare R2 ──────────────────────────────────
       - name: Upload PDFs to Cloudflare R2
         env:

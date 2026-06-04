@@ -365,83 +365,97 @@
         order: 10;
         margin-top: auto;
         display: grid;
-        grid-template-columns: 1.35fr 1fr;
-        gap: 0.22in;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 18pt;
         align-items: end;
-        padding: 0.08in 0.35in 0.56in 0.76in;
-        border-top: 0.7pt solid #c5b8a0;
+        padding: 0 0.9in 0.62in 0.92in;
         background: white;
         position: relative;
         z-index: 10;
       }
 
       .tab-footer-contact {
-        font-size: 7.8pt;
+        font-size: 8pt;
         line-height: 1.42;
-        color: var(--brand-primary);
+        color: var(--brand-primary-darker);
         text-align: left;
       }
 
       .tab-footer-contact strong {
-        font-size: 8pt;
+        font-size: 8.4pt;
         font-weight: 800;
         color: var(--brand-primary);
-        letter-spacing: 0.02em;
         display: block;
-        margin-bottom: 1pt;
       }
 
       .tab-footer-contact .meta {
-        font-size: 6.8pt;
+        font-size: 7pt;
         font-weight: 800;
         color: var(--brand-secondary);
         letter-spacing: 0.13em;
         text-transform: uppercase;
-        margin-bottom: 3pt;
+        margin-bottom: 4pt;
+      }
+
+      .tab-footer-contact .licenses {
+        margin-top: 5pt;
+        font-size: 7.5pt;
+      }
+
+      .tab-footer-contact::after {
+        content: "{{BRAND_LICENSES_INLINE}}";
+        display: block;
+        margin-top: 5pt;
+        font-size: 7.5pt;
+        color: var(--brand-secondary-text);
       }
 
       .tab-footer-trust {
         display: flex;
+        flex-wrap: wrap;
         justify-content: flex-end;
         align-items: flex-end;
         gap: 9pt;
         min-width: 0;
         max-width: 100%;
-        flex-wrap: nowrap;
+        text-align: right;
+      }
+
+      .tab-footer-trust::before {
+        content: "Accreditation and Trust";
+        flex-basis: 100%;
+        text-align: right;
+        color: var(--brand-secondary);
+        font-size: 7pt;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        font-weight: 800;
+        white-space: nowrap;
+        margin-bottom: 5pt;
       }
 
       .tab-footer-qr {
-        height: 0.34in;
-        width: auto;
-        max-width: 0.5in;
-        flex-shrink: 0;
-        border: 0.8pt solid var(--brand-secondary);
-        padding: 2pt;
-        border-radius: 3pt;
-        background: white;
-        filter: none;
+        display: none;
       }
 
       .tab-footer-agc {
-        height: 0.3in;
+        height: 0.38in;
         width: auto;
-        max-width: 1.12in;
         flex-shrink: 0;
         object-fit: contain;
         filter: none;
       }
 
       .tab-footer-bbb {
-        height: 0.34in;
+        height: 0.41in;
         width: auto;
-        max-width: 0.9in;
         flex-shrink: 0;
         object-fit: contain;
         filter: none;
       }
 
       .tab-footer-vob {
-        height: 0.44in;
+        height: 0.55in;
         width: auto;
         flex-shrink: 0;
       }

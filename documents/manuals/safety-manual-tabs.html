@@ -60,7 +60,7 @@
         content: "";
         position: absolute;
         inset: 0.22in;
-        border: 1.2pt solid var(--brand-primary-dark);
+        border: 1.2pt solid var(--brand-primary);
         pointer-events: none;
         z-index: 20;
       }
@@ -89,7 +89,7 @@
         width: 0.28in;
         background: linear-gradient(
           180deg,
-          var(--brand-primary-dark) 0%,
+          var(--brand-primary) 0%,
           var(--brand-primary) 68%,
           var(--brand-secondary) 100%
         );
@@ -114,7 +114,7 @@
 
       .tab-header-identity {
         font-size: 6.7pt;
-        color: var(--brand-primary-dark);
+        color: var(--brand-primary);
         letter-spacing: 0.09em;
         text-transform: uppercase;
         font-weight: 700;
@@ -160,7 +160,7 @@
 
       .tab-header-qr-label {
         font-size: 5.2pt;
-        color: var(--brand-secondary-text);
+        color: var(--brand-secondary);
         text-transform: uppercase;
         letter-spacing: 0.06em;
         font-weight: 700;
@@ -184,7 +184,7 @@
 
       .tab-logo-wrap {
         background: var(--muted);
-        border: 1pt solid var(--brand-secondary-light);
+        border: 1pt solid var(--brand-secondary);
         border-radius: 6pt;
         padding: 0.1in 0.18in;
         margin-top: auto;
@@ -215,14 +215,14 @@
         font-weight: 900;
         background: linear-gradient(
           180deg,
-          var(--brand-primary-dark) 0%,
+          var(--brand-primary) 0%,
           var(--brand-primary) 68%,
           var(--brand-secondary) 100%
         );
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        color: var(--brand-primary-dark); /* fallback */
+        color: var(--brand-primary); /* fallback */
         opacity: 0.55;
         line-height: 1;
         margin-bottom: 0.26in;
@@ -246,7 +246,7 @@
         font-family: var(--font-heading);
         font-size: 22pt;
         font-weight: 700;
-        color: var(--brand-primary-dark);
+        color: var(--brand-primary);
         line-height: 1.2;
         margin-bottom: auto;
         position: relative;
@@ -278,7 +278,7 @@
 
       .tab-hero-qr-label {
         font-size: 5.5pt;
-        color: var(--brand-secondary-text);
+        color: var(--brand-secondary);
         text-transform: uppercase;
         letter-spacing: 0.06em;
         font-weight: 700;
@@ -303,12 +303,12 @@
         font-size: 6.5pt;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: var(--brand-secondary-text);
+        color: var(--brand-secondary);
         font-weight: 800;
         text-align: center;
         margin-bottom: 10pt;
         padding-bottom: 6pt;
-        border-bottom: 0.5pt solid var(--brand-secondary-light);
+        border-bottom: 0.5pt solid var(--brand-secondary);
       }
 
       .tab-sig-row {
@@ -326,13 +326,13 @@
       .tab-sig-name {
         font-size: 8.5pt;
         font-weight: 800;
-        color: var(--brand-primary-dark);
+        color: var(--brand-primary);
         line-height: 1.2;
       }
 
       .tab-sig-role {
         font-size: 6.5pt;
-        color: var(--brand-secondary-text);
+        color: var(--brand-secondary);
         text-transform: uppercase;
         letter-spacing: 0.08em;
         font-weight: 600;
@@ -341,7 +341,7 @@
 
       .tab-sig-line {
         height: 1pt;
-        border-bottom: 1pt solid var(--brand-primary-dark);
+        border-bottom: 1pt solid var(--brand-primary);
         margin-top: 14pt;
       }
 
@@ -353,7 +353,7 @@
 
       .tab-sig-date-label {
         font-size: 6pt;
-        color: var(--brand-secondary-text);
+        color: var(--brand-secondary);
         text-transform: uppercase;
         letter-spacing: 0.1em;
         font-weight: 700;
@@ -365,83 +365,97 @@
         order: 10;
         margin-top: auto;
         display: grid;
-        grid-template-columns: 1.35fr 1fr;
-        gap: 0.22in;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 18pt;
         align-items: end;
-        padding: 0.08in 0.35in 0.56in 0.76in;
-        border-top: 0.7pt solid #c5b8a0;
+        padding: 0 0.9in 0.62in 0.92in;
         background: white;
         position: relative;
         z-index: 10;
       }
 
       .tab-footer-contact {
-        font-size: 7.8pt;
+        font-size: 8pt;
         line-height: 1.42;
-        color: var(--brand-primary-dark);
+        color: var(--brand-primary-darker);
         text-align: left;
       }
 
       .tab-footer-contact strong {
-        font-size: 8pt;
+        font-size: 8.4pt;
         font-weight: 800;
-        color: var(--brand-primary-dark);
-        letter-spacing: 0.02em;
+        color: var(--brand-primary);
         display: block;
-        margin-bottom: 1pt;
       }
 
       .tab-footer-contact .meta {
-        font-size: 6.8pt;
+        font-size: 7pt;
         font-weight: 800;
-        color: var(--brand-secondary-text);
+        color: var(--brand-secondary);
         letter-spacing: 0.13em;
         text-transform: uppercase;
-        margin-bottom: 3pt;
+        margin-bottom: 4pt;
+      }
+
+      .tab-footer-contact .licenses {
+        margin-top: 5pt;
+        font-size: 7.5pt;
+      }
+
+      .tab-footer-contact::after {
+        content: "{{BRAND_LICENSES_INLINE}}";
+        display: block;
+        margin-top: 5pt;
+        font-size: 7.5pt;
+        color: var(--brand-secondary-text);
       }
 
       .tab-footer-trust {
         display: flex;
+        flex-wrap: wrap;
         justify-content: flex-end;
         align-items: flex-end;
         gap: 9pt;
         min-width: 0;
         max-width: 100%;
-        flex-wrap: nowrap;
+        text-align: right;
+      }
+
+      .tab-footer-trust::before {
+        content: "Accreditation and Trust";
+        flex-basis: 100%;
+        text-align: right;
+        color: var(--brand-secondary);
+        font-size: 7pt;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        font-weight: 800;
+        white-space: nowrap;
+        margin-bottom: 5pt;
       }
 
       .tab-footer-qr {
-        height: 0.34in;
-        width: auto;
-        max-width: 0.5in;
-        flex-shrink: 0;
-        border: 0.8pt solid var(--brand-secondary-light);
-        padding: 2pt;
-        border-radius: 3pt;
-        background: white;
-        filter: none;
+        display: none;
       }
 
       .tab-footer-agc {
-        height: 0.3in;
+        height: 0.38in;
         width: auto;
-        max-width: 1.12in;
         flex-shrink: 0;
         object-fit: contain;
         filter: none;
       }
 
       .tab-footer-bbb {
-        height: 0.34in;
+        height: 0.41in;
         width: auto;
-        max-width: 0.9in;
         flex-shrink: 0;
         object-fit: contain;
         filter: none;
       }
 
       .tab-footer-vob {
-        height: 0.44in;
+        height: 0.55in;
         width: auto;
         flex-shrink: 0;
       }

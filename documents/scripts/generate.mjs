@@ -15,7 +15,6 @@
  *   npm run docs:generate -- --template section --section 11  # single section
  *   npm run docs:generate -- --template toolbox-talk          # standalone form
  *   npm run docs:generate -- --template form-covers           # all 47 form cover sheets
- *   npm run docs:generate -- --template operations-hub-guide  # hub/dashboard access guide
  *   node documents/scripts/generate.mjs --template cover
  *
  * Output directory: documents/output/
@@ -32,14 +31,14 @@
 
 import puppeteer from "puppeteer";
 import QRCode from "qrcode";
-import { PDFDocument, StandardFonts, rgb, TextAlignment } from "pdf-lib";
+import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
 import { readFileSync, existsSync, unlinkSync } from "node:fs";
-import { join, resolve, dirname, extname, relative } from "node:path";
+import { join, resolve, dirname, extname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const SITE_URL = "https://www.mhc-gc.com";
-const PDF_METADATA_AUTHOR = "Matt Ramsey, Editor-in-Chief";
+const PDF_METADATA_AUTHOR = "Matt Ramsey, Safety Officer";
 const PDF_METADATA_CREATOR = "MH Construction Document Pipeline";
 const PDF_METADATA_SUBJECT = "Accident · Injury · Safety · Health Program";
 
@@ -619,6 +618,113 @@ function buildSectionHeaderHtml(
   ].join("");
 }
 
+const FORMS_FOOTER_FONT = `'DIN 2014','Helvetica Neue',Arial,sans-serif`;
+
+function buildCanonicalFormsFooterHtml({
+  tag = "div",
+  className = "",
+  style = "",
+}) {
+  const agcLogo = BRAND_TOKENS["{{BRAND_AGC_HORIZONTAL}}"];
+  const bbbLogo = BBB_LOGO_DATA_URL || BRAND_TOKENS["{{BRAND_BBB_SEAL}}"];
+  const vobLogo = BRAND_TOKENS["{{BRAND_WA_VOB_LOGO}}"];
+  const safeTag = tag || "div";
+  const classAttr = className ? ` class=\"${className}\"` : "";
+  const styleAttr = style ? ` style=\"${style}\"` : "";
+
+  return [
+    `<${safeTag}${classAttr}${styleAttr}>`,
+    `<div style=\"font-size:8pt;line-height:1.42;color:${BRAND_COLORS.primaryDark};font-family:${FORMS_FOOTER_FONT};\">`,
+    `<div style=\"color:${BRAND_COLORS.secondary};font-size:7pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;margin-bottom:4pt;\">Company Contact</div>`,
+    `<div style=\"font-size:8.4pt;font-weight:800;color:${BRAND_COLORS.primary};\">${BRAND.companyName}</div>`,
+    `${BRAND.addressStreet}<br />`,
+    `${BRAND.addressCityStateZip}<br />`,
+    `${BRAND.phone} &middot; ${BRAND.website}`,
+    `<div style=\"margin-top:5pt;font-size:7.5pt;\">${BRAND_LICENSES_INLINE}</div>`,
+    `</div>`,
+    `<div style=\"text-align:right;font-family:${FORMS_FOOTER_FONT};\">`,
+    `<div style=\"color:${BRAND_COLORS.secondary};font-size:7pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;margin-bottom:5pt;\">Accreditation and Trust</div>`,
+    `<div style=\"display:flex;justify-content:flex-end;align-items:flex-end;gap:9pt;\">`,
+    agcLogo
+      ? `<img src=\"${agcLogo}\" alt=\"AGC membership\" style=\"display:block;width:auto;height:0.38in;\" />`
+      : "",
+    bbbLogo
+      ? `<img src=\"${bbbLogo}\" alt=\"BBB accredited business\" style=\"display:block;width:auto;height:0.41in;\" />`
+      : "",
+    vobLogo
+      ? `<img src=\"${vobLogo}\" alt=\"Washington certified veteran owned business\" style=\"display:block;width:auto;height:0.55in;\" />`
+      : "",
+    `</div>`,
+    `</div>`,
+    `</${safeTag}>`,
+  ].join("");
+}
+
+function replaceTabFooterBlocks(html, replacementHtml) {
+  const marker = '<div class="tab-footer"';
+  let cursor = 0;
+  let output = "";
+
+  while (cursor < html.length) {
+    const start = html.indexOf(marker, cursor);
+    if (start === -1) {
+      output += html.slice(cursor);
+      break;
+    }
+
+    output += html.slice(cursor, start);
+
+    let i = start;
+    let depth = 0;
+    while (i < html.length) {
+      const nextOpen = html.indexOf("<div", i);
+      const nextClose = html.indexOf("</div>", i);
+      if (nextClose === -1) {
+        throw new Error("Malformed tabs template while replacing footer blocks");
+      }
+      if (nextOpen !== -1 && nextOpen < nextClose) {
+        depth += 1;
+        i = nextOpen + 4;
+        continue;
+      }
+      depth -= 1;
+      i = nextClose + 6;
+      if (depth === 0) break;
+    }
+
+    output += replacementHtml;
+    cursor = i;
+  }
+
+  return output;
+}
+
+function replaceFirstDivBlockByClass(html, className, replacementHtml) {
+  const marker = `<div class="${className}"`;
+  const start = html.indexOf(marker);
+  if (start === -1) return html;
+
+  let i = start;
+  let depth = 0;
+  while (i < html.length) {
+    const nextOpen = html.indexOf("<div", i);
+    const nextClose = html.indexOf("</div>", i);
+    if (nextClose === -1) {
+      throw new Error(`Malformed template while replacing ${className} block`);
+    }
+    if (nextOpen !== -1 && nextOpen < nextClose) {
+      depth += 1;
+      i = nextOpen + 4;
+      continue;
+    }
+    depth -= 1;
+    i = nextClose + 6;
+    if (depth === 0) break;
+  }
+
+  return html.slice(0, start) + replacementHtml + html.slice(i);
+}
+
 /**
  * Build the per-section footer HTML rendered by Puppeteer on EVERY printed page.
  *
@@ -630,62 +736,17 @@ function buildSectionHeaderHtml(
  * document context with no access to components.css.
  */
 function buildSectionFooterHtml() {
-  const font = `'DIN 2014','Helvetica Neue',Arial,sans-serif`;
-  const contactMeta = "Company Contact";
-  const trustMeta = "Accreditation and Trust";
-  // Use precomputed base64 data URLs from BRAND_TOKENS — file:// cannot load in
-  // Puppeteer's isolated header/footer context.
-  const agcLogo = BRAND_TOKENS["{{BRAND_AGC_HORIZONTAL}}"];
-  const bbbLogo = BBB_LOGO_DATA_URL || BRAND_TOKENS["{{BRAND_BBB_SEAL}}"];
-  const vobLogo = BRAND_TOKENS["{{BRAND_WA_VOB_LOGO}}"];
-
-  // Cover-matching ribbon: same gradient + 0.22in height (proportional to a running footer)
-  const ribbonBar = [
-    `<div style="width:100%;height:0.22in;flex-shrink:0;`,
-    `background:linear-gradient(90deg,${BRAND_COLORS.primaryDark} 0%,${BRAND_COLORS.primary} 68%,${BRAND_COLORS.secondary} 100%);`,
-    `-webkit-print-color-adjust:exact;print-color-adjust:exact;"></div>`,
-  ].join("");
-
-  // Cover footer grid: Company Contact (left 57%) | Accreditation & Trust (right)
-  // Logo heights scaled from cover (AGC 0.38in→22pt, BBB 0.41in→24pt, VOB 0.55in→28pt)
-  const contentRow = [
-    `<div style="width:100%;display:grid;grid-template-columns:1.35fr 1fr;align-items:end;`,
-    `gap:10pt;padding:4pt 0.75in 5pt 1.25in;background:#ffffff;box-sizing:border-box;">`,
-
-    // LEFT — Company Contact
-    `<div style="min-width:0;font-family:${font};line-height:1.3;color:${BRAND_COLORS.primaryDark};">`,
-    `<div style="font-size:6pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;color:${BRAND_COLORS.secondaryText};margin-bottom:2pt;">${contactMeta}</div>`,
-    `<div style="font-size:7.5pt;font-weight:800;color:${BRAND_COLORS.primaryDark};white-space:nowrap;">${BRAND.companyName}</div>`,
-    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.addressStreet}</div>`,
-    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.addressCityStateZip}</div>`,
-    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.phone} \u00b7 ${BRAND.website}</div>`,
-    `<div style="font-size:6.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND_LICENSES_INLINE}</div>`,
-    `</div>`,
-
-    // CENTER-RIGHT — Accreditation & Trust (mirrors cover .trust block)
-    `<div style="min-width:0;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;gap:3pt;font-family:${font};">`,
-    `<div style="font-size:6pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;color:${BRAND_COLORS.secondaryText};text-align:right;white-space:nowrap;">${trustMeta}</div>`,
-    `<div style="display:flex;align-items:flex-end;justify-content:flex-end;gap:9pt;">`,
-    agcLogo
-      ? `<img src="${agcLogo}" alt="AGC membership" style="height:22pt;width:auto;display:block;" />`
-      : `<span style="font-size:6pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">AGC</span>`,
-    bbbLogo
-      ? `<img src="${bbbLogo}" alt="BBB accredited business" style="height:24pt;width:auto;display:block;" />`
-      : `<span style="font-size:6pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">BBB</span>`,
-    vobLogo
-      ? `<img src="${vobLogo}" alt="Washington certified veteran owned business" style="height:28pt;width:auto;display:block;" />`
-      : `<span style="font-size:6pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">VOB</span>`,
-    `</div>`,
-    `</div>`,
-
-    `</div>`,
-  ].join("");
+  const contentRow = buildCanonicalFormsFooterHtml({
+    tag: "div",
+    style:
+      "width:100%;display:grid;grid-template-columns:1.6fr 1fr;align-items:end;" +
+      "gap:18pt;padding:0 0.9in 0 0.92in;background:#ffffff;box-sizing:border-box;",
+  });
 
   return [
-    `<div style="width:100%;height:100%;font-family:${font};`,
+    `<div style="width:100%;height:100%;font-family:${FORMS_FOOTER_FONT};`,
     `box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;`,
     `display:flex;flex-direction:column;justify-content:flex-end;">`,
-    ribbonBar,
     contentRow,
     `</div>`,
   ].join("");
@@ -802,7 +863,7 @@ async function extractFieldRectsFromHtml(html, tmpName = "_tmp_measure.html") {
         pushRect(el, el.getAttribute("data-check"), "check");
       });
       document.querySelectorAll("[data-cell]").forEach((el) => {
-        pushRect(el, el.getAttribute("data-cell"), "text");
+        pushRect(el, el.getAttribute("data-cell"), "cell");
       });
       return out;
     });
@@ -827,6 +888,11 @@ async function applyMeasuredFieldsToPdf(pdfPath, fields) {
   const pages = pdfDoc.getPages();
   const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
   const inch = (n) => n * 72;
+  const widgetInsets = {
+    text: { left: 0.015, right: 0.015, top: 0.01, bottom: 0.055 },
+    cell: { left: 0.01, right: 0.01, top: 0.015, bottom: 0.015 },
+    multiline: { left: 0.02, right: 0.02, top: 0.02, bottom: 0.02 },
+  };
   const transparent = {
     borderColor: rgb(1, 1, 1),
     borderWidth: 0,
@@ -858,7 +924,21 @@ async function applyMeasuredFieldsToPdf(pdfPath, fields) {
     } else {
       const tf = form.createTextField(f.name);
       if (f.type === "multiline") tf.enableMultiline();
-      tf.addToPage(page, { ...textStyle, x, y, width: w, height: h });
+      const inset = widgetInsets[f.type] || widgetInsets.text;
+      const widgetX = x + inch(inset.left);
+      const widgetW = Math.max(8, w - inch(inset.left + inset.right));
+      const widgetTop = f.y + inset.top;
+      const widgetH = Math.max(
+        f.type === "multiline" ? 18 : 8.64,
+        h - inch(inset.top + inset.bottom),
+      );
+      tf.addToPage(page, {
+        ...textStyle,
+        x: widgetX,
+        y: ph - inch(widgetTop) - widgetH,
+        width: widgetW,
+        height: widgetH,
+      });
       tf.setFontSize(f.type === "multiline" ? 10 : 9);
     }
   }
@@ -877,22 +957,20 @@ async function addFillableFieldsToLetterhead(pdfPath) {
   const form = pdfDoc.getForm();
   const pages = pdfDoc.getPages();
   const page = pages[0];
-  const page2 = pages[1];
-  const page3 = pages[2];
+  const page2 = pages[1]; // continuation page
   const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
-  const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
   const pageHeight = page.getHeight();
   const inch = (n) => n * 72;
   const yFromTop = (topIn, heightIn) =>
     pageHeight - inch(topIn) - inch(heightIn);
 
-  // Single-line fields: hunter-green bold typed text
+  // Single-line fields: transparent overlay
   const lineStyle = {
     borderColor: rgb(1, 1, 1),
     borderWidth: 0,
-    textColor: rgb(0.118, 0.224, 0.173),
-    font: fontBold,
+    textColor: rgb(0.07, 0.14, 0.11),
+    font,
   };
   // Body textarea: fully transparent overlay too
   const bodyStyle = {
@@ -902,108 +980,76 @@ async function addFillableFieldsToLetterhead(pdfPath) {
     font,
   };
 
+  // Keep single-line widgets slightly above the HTML bottom border so
+  // the visual underline comes from the template, not PDF annotations.
+  const singleLineInsetBottom = 0.055; // inches
+
   const addField = (name, xIn, topIn, wIn, hIn, opts = {}) => {
     const targetPage = opts.page || page;
     const field = form.createTextField(name);
     if (opts.multiline) field.enableMultiline();
-
-    // Keep all fields strictly within their fixed box bounds.
-    // For multiline body fields this prevents hidden overflow scrolling
-    // and forces users to continue on the next page field.
-    field.disableScrolling();
-
+    const widgetH = opts.multiline
+      ? hIn
+      : Math.max(0.12, hIn - singleLineInsetBottom);
     field.addToPage(targetPage, {
       ...(opts.multiline ? bodyStyle : lineStyle),
       x: inch(xIn),
-      y: yFromTop(topIn, hIn),
+      y: yFromTop(topIn, widgetH),
       width: inch(wIn),
-      height: inch(hIn),
+      height: inch(widgetH),
     });
-
-    // Lock font size so fields don't auto-scale to fit the box.
-    field.setFontSize(opts.fontSize ?? (opts.multiline ? 11 : 12));
+    // Lock font size so fields don't auto-scale to fit the box (which
+    // otherwise renders body text huge until the field is filled).
+    // Must run AFTER addToPage so the /DA entry exists.
+    field.setFontSize(opts.fontSize ?? (opts.multiline ? 11 : 10));
     return field;
   };
 
-  // ── Memo header geometry (1-3-1 structure) ────────────────────────────────
-  //   body-area top:  2.25in from page top
-  //   left margin:    1.15in from page left
-  //   key col width:  0.72in  →  value starts at 1.87in
-  //   row height:     0.34in  (matches HTML .memo-row min-height)
-  //   total value width: 8.5 - 1.05(right) - 1.87 = 5.58in
+  // Table geometry — derived directly from HTML table layout:
+  //   body-area top: 2.55in from page top
+  //   left margin:   1.15in from page left
+  //   6 columns × 1.05in = 6.30in wide, zero cell padding
+  //   Row heights: date/to/addr/from/subject = 0.42in, body = 4.35in
+  //   Label height offset (6.6pt + 2pt margin ≈ 0.16in)
 
-  const fH = 0.26; // single-line field height
-  const colL = 1.15; // left content margin (in)
+  const bTop = 2.55; // body-area top (in)
+  const rH = 0.42; // standard row height
+  const bH = 4.35; // body row height (fills page down to footer)
+  const fH = 0.24; // single-line field height
+  const lOff = 0.16; // label offset (label margin-top 4pt + label height ~8pt)
 
-  const memoTop = 2.25; // body-area top (in)
-  const memoRowH = 0.34; // row height (in)
-  const memoKeyW = 0.72; // key label column width (in)
-  const memoValX = colL + memoKeyW; // 1.87in
-  const memoValW = 6.3 - memoKeyW; // 5.58in
-  const memoVOff = 0.06; // vertical nudge to align value in row
+  const rowDate = bTop;
+  const rowTo = bTop + rH;
+  const rowAddr = bTop + rH * 2;
+  const rowFrom = bTop + rH * 3;
+  const rowSubject = bTop + rH * 4;
+  const rowBody = bTop + rH * 5;
 
-  // DATE — Line 1
-  addField("lh.date", memoValX, memoTop + memoVOff, memoValW, fH);
-  // TO   — Line 2
-  addField("lh.to", memoValX, memoTop + memoRowH + memoVOff, memoValW, fH);
-  // ATTN — Line 3
-  addField(
-    "lh.attn",
-    memoValX,
-    memoTop + memoRowH * 2 + memoVOff,
-    memoValW,
-    fH,
-  );
-  // FROM — Line 4
-  addField(
-    "lh.from",
-    memoValX,
-    memoTop + memoRowH * 3 + memoVOff,
-    memoValW,
-    fH,
-  );
-  // RE   — Line 5
-  addField("lh.re", memoValX, memoTop + memoRowH * 4 + memoVOff, memoValW, fH);
+  // x positions: cols 1-3 = left half, cols 4-6 = right half, cols 5-6 = date
+  const colL = 1.15; // left half
+  const colR = 1.15 + 3 * 1.05; // right half  = 4.30
+  const colW2 = 3 * 1.05; // half width  = 3.15
+  const dateX = 1.15 + 4 * 1.05; // date x      = 5.35
 
-  // Body fields are fixed per page; users manually continue on page 2/3.
-  const bodyTopY = memoTop + memoRowH * 5 + 0.3;
-  const bodyFieldH = 4.3;
-  addField("lh.body.page1", colL, bodyTopY, 6.3, bodyFieldH, {
+  addField("lh.date", dateX, rowDate + lOff, 2.1, fH);
+  addField("lh.toName", colL, rowTo + lOff, colW2, fH);
+  addField("lh.toOrg", colR, rowTo + lOff, colW2, fH);
+  addField("lh.toAddress", colL, rowAddr + lOff, colW2, fH);
+  addField("lh.toCityStateZip", colR, rowAddr + lOff, colW2, fH);
+  addField("lh.from", colL, rowFrom + lOff, 6.3, fH);
+  addField("lh.subject", colL, rowSubject + lOff, colW2, fH);
+  addField("lh.jobBid", colR, rowSubject + lOff, colW2, fH);
+  addField("lh.body", colL, rowBody + 0.04, 6.3, bH - 0.08, {
     multiline: true,
-    fontSize: 11,
   });
 
+  // Continuation page body field — sized to the .cont-body region in
+  // safety-manual-letterhead.html (top: 1.10in, left: 1.15in,
+  // right: 1.05in (→ width 6.30in), bottom: 2.10in → height 7.80in).
   if (page2) {
-    addField("lh.body.page2", colL, 2.34, 6.3, 6.5, {
+    addField("lh.body2", 1.15, 1.1, 6.3, 7.8, {
       multiline: true,
-      fontSize: 11,
       page: page2,
-    });
-  }
-
-  if (page3) {
-    addField("lh.body.page3", colL, 2.34, 6.3, 6.5, {
-      multiline: true,
-      fontSize: 11,
-      page: page3,
-    });
-  }
-
-  const page4 = pages[3];
-  if (page4) {
-    addField("lh.body.page4", colL, 2.34, 6.3, 6.5, {
-      multiline: true,
-      fontSize: 11,
-      page: page4,
-    });
-  }
-
-  const page5 = pages[4];
-  if (page5) {
-    addField("lh.body.page5", colL, 2.34, 6.3, 6.5, {
-      multiline: true,
-      fontSize: 11,
-      page: page5,
     });
   }
 
@@ -1629,758 +1675,51 @@ async function generateCover() {
 /**
  * Generate the official MH Construction letterhead PDF.
  * Mirrors the cover’s frame/ribbon/footer chrome so printed correspondence
- * lives inside the same MH Construction brand system as the rest of the
- * company’s official documents.
+ * lives inside the same brand system as the safety manual.
  */
 async function generateLetterhead() {
   console.log("\n✉️  Generating letterhead…");
   await ensureDir(OUTPUT_DIR);
+  const raw = await readFile(
+    join(DOCS_DIR, "manuals/safety-manual-letterhead.html"),
+    "utf-8",
+  );
   const websiteUrl = BRAND.website?.startsWith("http")
     ? BRAND.website
     : `https://${BRAND.website}`;
   const qrWebsite = await buildQrDataUrl(websiteUrl);
-  const pdfPath = join(OUTPUT_DIR, "MHC-company-letterhead.pdf");
+  let html = applyBrandTokens(raw).replace("{{QR_WEBSITE}}", qrWebsite);
 
-  // Build header template (logo + QR)
-  const headerTemplate = `
-    <style>
-      * { margin: 0; padding: 0; }
-      body { font-family: "DIN 2014", Helvetica, Arial, sans-serif; }
-      .hdr-wrap {
-        background: #fff;
-        padding: 0.16in 0.5in 0.08in;
-      }
-      .identity {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 12pt;
-        font-size: 7.2pt;
-        font-weight: 700;
-        letter-spacing: 0.11em;
-        text-transform: uppercase;
-        color: #1E392C;
-        margin-bottom: 0.08in;
-      }
-      .identity-right {
-        margin-left: auto;
-        white-space: nowrap;
-      }
-      .identity .dot {
-        color: #BD9264;
-        margin: 0 7pt;
-      }
-      .hdr {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1.2pt solid #1E392C;
-        padding-bottom: 11pt;
-        position: relative;
-      }
-      .hdr-secondary {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: -3pt;
-        height: 0.6pt;
-        background: #BD9264;
-      }
-      .logo { height: 0.48in; }
-      .qr-card {
-        display: flex;
-        gap: 0.1in;
-        align-items: center;
-        border: 1pt solid #BD9264;
-        background: #fff;
-        padding: 7pt 10pt;
-      }
-      .qr-img { width: 0.72in; height: 0.72in; }
-      .qr-text { max-width: 1.45in; }
-      .qr-label {
-        font-size: 6.8pt;
-        font-weight: 800;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: #8A6B49;
-        margin-bottom: 2pt;
-      }
-      .qr-headline {
-        font-family: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Helvetica Neue", Arial, sans-serif;
-        font-size: 10.5pt;
-        font-weight: 900;
-        color: #1E392C;
-        line-height: 1.04;
-      }
-      .qr-url {
-        font-size: 7pt;
-        color: #12231b;
-        margin-top: 2pt;
-        letter-spacing: 0.02em;
-      }
-    </style>
-    <div class="hdr-wrap">
-      <div class="identity">
-        <div>{{BRAND_COMPANY_SHORT}}<span class="dot">•</span>{{BRAND_ADDRESS_CITYSTATEZIP}}</div>
-        <div class="identity-right">{{BRAND_VETERAN}}</div>
-      </div>
-      <div class="hdr">
-        <img class="logo" src="{{BRAND_LOGO_COLOR}}" alt="MH Construction" />
-        <div class="qr-card">
-          <img class="qr-img" src="{{QR_WEBSITE}}" alt="QR code" />
-          <div class="qr-text">
-            <div class="qr-label">SCAN FOR</div>
-            <div class="qr-headline">MHCGC.COM</div>
-            <div class="qr-url">{{BRAND_WEBSITE}}</div>
-          </div>
-        </div>
-        <div class="hdr-secondary"></div>
-      </div>
-    </div>
-  `;
+  const fixedFooterHtml = buildCanonicalFormsFooterHtml({
+    tag: "footer",
+    className: "footer",
+    style:
+      "position:fixed;left:0.92in;right:0.9in;bottom:0.62in;z-index:100;" +
+      "display:grid;grid-template-columns:1.6fr 1fr;gap:18pt;align-items:end;background:var(--paper);",
+  });
+  html = html.replace(/<footer class="footer">[\s\S]*?<\/footer>/, fixedFooterHtml);
 
-  // Build footer template (contact + logos + veteran strip)
-  const footerTemplate = `
-    <style>
-      * { margin: 0; padding: 0; }
-      body { font-family: "DIN 2014", Helvetica, Arial, sans-serif; font-size: 8pt; }
-      .ftr-wrap {
-        background: #fff;
-        padding: 0.08in 0.5in 0;
-      }
-      .ftr {
-        position: relative;
-        display: grid;
-        grid-template-columns: 1.45fr 1fr;
-        gap: 0.22in;
-        align-items: end;
-        border-top: 1.2pt solid #1E392C;
-        padding-top: 8pt;
-        min-height: 0.54in;
-      }
-      .ftr::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 2.5pt;
-        height: 0.6pt;
-        background: #BD9264;
-      }
-      .ftr-label {
-        color: #8A6B49;
-        font-size: 6.6pt;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        font-weight: 800;
-        margin-bottom: 4pt;
-      }
-      .ftr-contact {
-        font-size: 7.8pt;
-        line-height: 1.42;
-        color: #12231b;
-      }
-      .ftr-contact .name {
-        font-size: 8.2pt;
-        font-weight: 800;
-        color: #1E392C;
-      }
-      .ftr-contact .licenses {
-        margin-top: 4pt;
-        font-size: 7.2pt;
-        color: #8A6B49;
-        font-weight: 700;
-      }
-      .ftr-trust {
-        text-align: right;
-      }
-      .ftr-logos {
-        display: flex;
-        gap: 9pt;
-        align-items: flex-end;
-        justify-content: flex-end;
-      }
-      .ftr-logo { width: auto; display: block; }
-      .logo-agc { height: 0.36in; }
-      .logo-bbb { height: 0.39in; }
-      .logo-vob { height: 0.5in; }
-      .chambers {
-        margin-top: 6pt;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 10pt;
-        padding-top: 6pt;
-        border-top: 0.4pt solid #D9BD93;
-      }
-      .chambers img {
-        height: 0.3in;
-        width: auto;
-        display: block;
-      }
-      .vet-strip {
-        padding: 0.04in 0 0;
-        font-size: 6.6pt;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        font-weight: 800;
-        color: #8A6B49;
-        text-align: center;
-      }
-    </style>
-    <div class="ftr-wrap">
-      <div class="ftr">
-      <div class="ftr-contact">
-        <div class="ftr-label">Company Contact</div>
-        <div class="name">{{BRAND_COMPANY_NAME}}</div>
-        {{BRAND_ADDRESS_STREET}}<br/>
-        {{BRAND_ADDRESS_CITYSTATEZIP}}<br/>
-        <strong>{{BRAND_PHONE}}</strong> &middot; {{BRAND_WEBSITE}}<br/>
-        {{BRAND_EMAIL}}<br/>
-        <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
-      </div>
-      <div class="ftr-trust">
-        <div class="ftr-label">Accreditation &amp; Trust</div>
-        <div class="ftr-logos">
-          <img class="ftr-logo logo-agc" src="{{BRAND_AGC_HORIZONTAL}}" alt="AGC" />
-          <img class="ftr-logo logo-bbb" src="{{BRAND_BBB_SEAL}}" alt="BBB" />
-          <img class="ftr-logo logo-vob" src="{{BRAND_WA_VOB_LOGO}}" alt="WA VOB" />
-        </div>
-        <div class="chambers">
-          <img src="{{BRAND_CHAMBER_PASCO}}" alt="Pasco Chamber" />
-          <img src="{{BRAND_CHAMBER_KENNEWICK}}" alt="Tri-City Regional Chamber" />
-          <img src="{{BRAND_CHAMBER_RICHLAND}}" alt="Richland Chamber" />
-        </div>
-      </div>
-      </div>
-    <div class="vet-strip">
-      ★ VETERAN-OWNED ★ MISSION-FIRST ★ BUILT ON HONOR, INTEGRITY & TRUST ★
-    </div>
-    </div>
-  `;
+  const flowFooterHtml = buildCanonicalFormsFooterHtml({
+    tag: "div",
+    className: "flow-footer",
+    style:
+      "display:none;margin-top:18pt;break-inside:avoid;page-break-inside:avoid;" +
+      "display:grid;grid-template-columns:1.6fr 1fr;gap:18pt;align-items:end;",
+  });
+  html = replaceFirstDivBlockByClass(html, "flow-footer", flowFooterHtml);
 
-  const headerHtml = applyBrandTokens(headerTemplate).replace(
-    "{{QR_WEBSITE}}",
-    qrWebsite,
+  const pdfPath = join(OUTPUT_DIR, "safety-manual-letterhead.pdf");
+  // Page-1 chrome is absolutely positioned to the full Letter sheet, so
+  // PDF margins must be 0; CSS owns all spacing. If the body overflows,
+  // it paginates onto plain follow-on pages with the signature pushed
+  // to whatever page it lands on.
+  await renderHtmlToPdf(
+    html,
+    pdfPath,
+    { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
+    "manuals/_tmp_letterhead.html",
   );
-  const footerHtml = applyBrandTokens(footerTemplate);
-
-  const cleanHtml = `
-    <!doctype html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <style>
-          * { margin: 0; padding: 0; box-sizing: border-box; print-color-adjust: exact; }
-          @page { size: letter portrait; margin: 0; }
-          html, body {
-            width: 8.5in;
-            font-family: "DIN 2014", Helvetica, Arial, sans-serif;
-            color: #12231b;
-            background: #fff;
-          }
-          .sheet {
-            position: relative;
-            width: 8.5in;
-            height: 11in;
-            overflow: hidden;
-            page-break-after: always;
-            break-after: page;
-          }
-          .sheet:last-child {
-            page-break-after: auto;
-            break-after: auto;
-          }
-          .sheet::before {
-            content: "";
-            position: absolute;
-            inset: 0.22in;
-            border: 1.2pt solid #1E392C;
-          }
-          .sheet::after {
-            content: "";
-            position: absolute;
-            inset: 0.33in;
-            border: 0.6pt solid #BD9264;
-          }
-          .left-ribbon {
-            position: absolute;
-            top: 0.45in;
-            bottom: 0.45in;
-            left: 0.45in;
-            width: 0.28in;
-            background: linear-gradient(180deg, #1E392C 0%, #386851 68%, #BD9264 100%);
-          }
-          .identity {
-            position: absolute;
-            top: 0.62in;
-            left: 0.92in;
-            width: calc(8.5in - 0.92in - 0.90in);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 7.2pt;
-            font-weight: 700;
-            letter-spacing: 0.11em;
-            text-transform: uppercase;
-            color: #1E392C;
-          }
-          .identity .dot { color: #BD9264; margin: 0 7pt; }
-          .header {
-            position: absolute;
-            top: 0.90in;
-            left: 0.92in;
-            width: calc(8.5in - 0.92in - 0.90in);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 14pt;
-            border-bottom: 1.2pt solid #1E392C;
-          }
-          .header::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -3.5pt;
-            height: 0.6pt;
-            background: #BD9264;
-          }
-          .header .logo { width: 1.95in; height: auto; }
-          .qr-card {
-            display: flex;
-            align-items: center;
-            gap: 9pt;
-            border: 0.8pt solid #BD9264;
-            background: #fff;
-            padding: 7pt 10pt;
-          }
-          .qr-card img { width: 0.78in; height: 0.78in; display: block; }
-          .qr-text { max-width: 1.52in; }
-          .qr-label {
-            font-size: 6.8pt;
-            font-weight: 800;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: #8A6B49;
-            margin: 0 0 2pt;
-          }
-          .qr-headline {
-            font-family: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Helvetica Neue", Arial, sans-serif;
-            font-size: 11pt;
-            font-weight: 900;
-            color: #1E392C;
-            line-height: 1.05;
-          }
-          .qr-url { margin-top: 2pt; font-size: 7.4pt; color: #12231b; }
-          .body-page1 {
-            position: absolute;
-            top: 2.25in;
-            left: 1.15in;
-            width: calc(8.5in - 1.15in - 1.05in);
-          }
-          .memo-row {
-            display: flex;
-            align-items: center;
-            min-height: 0.34in;
-          }
-          .memo-key {
-            flex: 0 0 0.72in;
-            font-size: 8.5pt;
-            font-weight: 800;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: #8A6B49;
-          }
-          .memo-val {
-            flex: 1;
-            min-height: 0.24in;
-            border-bottom: 0.5pt solid #1E392C;
-          }
-          .memo-divider {
-            border: none;
-            border-top: 0.5pt solid #1E392C;
-            margin: 0.16in 0 0.18in;
-            position: relative;
-          }
-          .memo-divider::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: -3pt;
-            height: 0.3pt;
-            background: #BD9264;
-          }
-          .typing-box {
-            border: none;
-            background: #fff;
-            overflow: hidden;
-          }
-          .typing-box.page-1 { height: 4.3in; }
-          .cont-title {
-            position: absolute;
-            top: 2.08in;
-            left: 1.15in;
-            width: calc(8.5in - 1.15in - 1.05in);
-            font-size: 7.2pt;
-            font-weight: 800;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: #8A6B49;
-          }
-          .body-cont {
-            position: absolute;
-            top: 2.34in;
-            left: 1.15in;
-            width: calc(8.5in - 1.15in - 1.05in);
-          }
-          .typing-box.page-cont { height: 6.5in; }
-          .footer {
-            position: absolute;
-            left: 0.92in;
-            width: calc(8.5in - 0.92in - 0.90in);
-            bottom: 0.62in;
-            padding-top: 9pt;
-            border-top: 1.2pt solid #1E392C;
-            display: grid;
-            grid-template-columns: 1.45fr 1fr;
-            gap: 0.25in;
-            align-items: end;
-          }
-          .footer::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 2.5pt;
-            height: 0.6pt;
-            background: #BD9264;
-          }
-          .contact { font-size: 7.8pt; line-height: 1.45; color: #12231b; }
-          .footer .label {
-            color: #8A6B49;
-            font-size: 6.6pt;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            font-weight: 800;
-            margin-bottom: 3pt;
-          }
-          .contact .name { font-weight: 800; color: #1E392C; font-size: 8.2pt; }
-          .contact .licenses { margin-top: 4pt; font-size: 7.2pt; color: #8A6B49; font-weight: 700; }
-          .trust { text-align: right; }
-          .logos { display: flex; justify-content: flex-end; align-items: flex-end; gap: 9pt; }
-          .logo-agc { height: 0.36in; width: auto; }
-          .logo-bbb { height: 0.39in; width: auto; }
-          .logo-vob { height: 0.5in; width: auto; }
-          .chambers {
-            margin-top: 6pt;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 10pt;
-            padding-top: 6pt;
-            border-top: 0.4pt solid #D9BD93;
-          }
-          .chambers img { height: 0.3in; width: auto; }
-          .veteran-strip {
-            position: absolute;
-            left: 0.92in;
-            width: calc(8.5in - 0.92in - 0.90in);
-            bottom: 0.42in;
-            text-align: center;
-            font-size: 6.6pt;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            font-weight: 800;
-            color: #8A6B49;
-          }
-          .veteran-strip .sep { color: #BD9264; margin: 0 6pt; }
-        </style>
-      </head>
-      <body>
-        <section class="sheet" aria-label="Letter page 1">
-          <div class="left-ribbon"></div>
-          <div class="identity">
-            <div>{{BRAND_COMPANY_SHORT}}<span class="dot">•</span>{{BRAND_ADDRESS_CITYSTATEZIP}}</div>
-            <div>{{BRAND_VETERAN}}</div>
-          </div>
-          <header class="header">
-            <img class="logo" src="{{BRAND_LOGO_COLOR}}" alt="MH Construction logo" />
-            <div class="qr-card">
-              <img src="{{QR_WEBSITE}}" alt="QR code" />
-              <div class="qr-text">
-                <div class="qr-label">SCAN FOR</div>
-                <div class="qr-headline">MHCGC.COM</div>
-                <div class="qr-url">{{BRAND_WEBSITE}}</div>
-              </div>
-            </div>
-          </header>
-
-          <main class="body-page1">
-            <div class="memo-row"><span class="memo-key">Date</span><span class="memo-val"></span></div>
-            <div class="memo-row"><span class="memo-key">To</span><span class="memo-val"></span></div>
-            <div class="memo-row"><span class="memo-key">Attn</span><span class="memo-val"></span></div>
-            <div class="memo-row"><span class="memo-key">From</span><span class="memo-val"></span></div>
-            <div class="memo-row"><span class="memo-key">Re</span><span class="memo-val"></span></div>
-            <hr class="memo-divider" />
-            <div class="typing-box page-1"></div>
-          </main>
-
-          <footer class="footer">
-            <div class="contact">
-              <div class="label">Company Contact</div>
-              <div class="name">{{BRAND_COMPANY_NAME}}</div>
-              {{BRAND_ADDRESS_STREET}}<br />
-              {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
-              <strong>{{BRAND_PHONE}}</strong> &middot; {{BRAND_WEBSITE}}<br />
-              {{BRAND_EMAIL}}
-              <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
-            </div>
-            <div class="trust">
-              <div class="label">Accreditation &amp; Trust</div>
-              <div class="logos">
-                <img class="logo-agc" src="{{BRAND_AGC_HORIZONTAL}}" alt="AGC" />
-                <img class="logo-bbb" src="{{BRAND_BBB_SEAL}}" alt="BBB" />
-                <img class="logo-vob" src="{{BRAND_WA_VOB_LOGO}}" alt="WA VOB" />
-              </div>
-              <div class="chambers">
-                <img src="{{BRAND_CHAMBER_PASCO}}" alt="Pasco Chamber" />
-                <img src="{{BRAND_CHAMBER_KENNEWICK}}" alt="Tri-City Regional Chamber" />
-                <img src="{{BRAND_CHAMBER_RICHLAND}}" alt="Richland Chamber" />
-              </div>
-            </div>
-          </footer>
-          <div class="veteran-strip">Veteran-Owned <span class="sep">★</span> Mission-First <span class="sep">★</span> Built on Honor, Integrity &amp; Trust</div>
-        </section>
-
-        <section class="sheet" aria-label="Letter page 2">
-          <div class="left-ribbon"></div>
-          <div class="identity">
-            <div>{{BRAND_COMPANY_SHORT}}<span class="dot">•</span>{{BRAND_ADDRESS_CITYSTATEZIP}}</div>
-            <div>{{BRAND_VETERAN}}</div>
-          </div>
-          <header class="header">
-            <img class="logo" src="{{BRAND_LOGO_COLOR}}" alt="MH Construction logo" />
-            <div class="qr-card">
-              <img src="{{QR_WEBSITE}}" alt="QR code" />
-              <div class="qr-text">
-                <div class="qr-label">SCAN FOR</div>
-                <div class="qr-headline">MHCGC.COM</div>
-                <div class="qr-url">{{BRAND_WEBSITE}}</div>
-              </div>
-            </div>
-          </header>
-          <div class="cont-title">Continuation — Page 2</div>
-          <main class="body-cont"><div class="typing-box page-cont"></div></main>
-          <footer class="footer">
-            <div class="contact">
-              <div class="label">Company Contact</div>
-              <div class="name">{{BRAND_COMPANY_NAME}}</div>
-              {{BRAND_ADDRESS_STREET}}<br />
-              {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
-              <strong>{{BRAND_PHONE}}</strong> &middot; {{BRAND_WEBSITE}}<br />
-              {{BRAND_EMAIL}}
-              <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
-            </div>
-            <div class="trust">
-              <div class="label">Accreditation &amp; Trust</div>
-              <div class="logos">
-                <img class="logo-agc" src="{{BRAND_AGC_HORIZONTAL}}" alt="AGC" />
-                <img class="logo-bbb" src="{{BRAND_BBB_SEAL}}" alt="BBB" />
-                <img class="logo-vob" src="{{BRAND_WA_VOB_LOGO}}" alt="WA VOB" />
-              </div>
-              <div class="chambers">
-                <img src="{{BRAND_CHAMBER_PASCO}}" alt="Pasco Chamber" />
-                <img src="{{BRAND_CHAMBER_KENNEWICK}}" alt="Tri-City Regional Chamber" />
-                <img src="{{BRAND_CHAMBER_RICHLAND}}" alt="Richland Chamber" />
-              </div>
-            </div>
-          </footer>
-          <div class="veteran-strip">Veteran-Owned <span class="sep">★</span> Mission-First <span class="sep">★</span> Built on Honor, Integrity &amp; Trust</div>
-        </section>
-
-        <section class="sheet" aria-label="Letter page 3">
-          <div class="left-ribbon"></div>
-          <div class="identity">
-            <div>{{BRAND_COMPANY_SHORT}}<span class="dot">•</span>{{BRAND_ADDRESS_CITYSTATEZIP}}</div>
-            <div>{{BRAND_VETERAN}}</div>
-          </div>
-          <header class="header">
-            <img class="logo" src="{{BRAND_LOGO_COLOR}}" alt="MH Construction logo" />
-            <div class="qr-card">
-              <img src="{{QR_WEBSITE}}" alt="QR code" />
-              <div class="qr-text">
-                <div class="qr-label">SCAN FOR</div>
-                <div class="qr-headline">MHCGC.COM</div>
-                <div class="qr-url">{{BRAND_WEBSITE}}</div>
-              </div>
-            </div>
-          </header>
-          <div class="cont-title">Continuation — Page 3</div>
-          <main class="body-cont"><div class="typing-box page-cont"></div></main>
-          <footer class="footer">
-            <div class="contact">
-              <div class="label">Company Contact</div>
-              <div class="name">{{BRAND_COMPANY_NAME}}</div>
-              {{BRAND_ADDRESS_STREET}}<br />
-              {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
-              <strong>{{BRAND_PHONE}}</strong> &middot; {{BRAND_WEBSITE}}<br />
-              {{BRAND_EMAIL}}
-              <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
-            </div>
-            <div class="trust">
-              <div class="label">Accreditation &amp; Trust</div>
-              <div class="logos">
-                <img class="logo-agc" src="{{BRAND_AGC_HORIZONTAL}}" alt="AGC" />
-                <img class="logo-bbb" src="{{BRAND_BBB_SEAL}}" alt="BBB" />
-                <img class="logo-vob" src="{{BRAND_WA_VOB_LOGO}}" alt="WA VOB" />
-              </div>
-              <div class="chambers">
-                <img src="{{BRAND_CHAMBER_PASCO}}" alt="Pasco Chamber" />
-                <img src="{{BRAND_CHAMBER_KENNEWICK}}" alt="Tri-City Regional Chamber" />
-                <img src="{{BRAND_CHAMBER_RICHLAND}}" alt="Richland Chamber" />
-              </div>
-            </div>
-          </footer>
-          <div class="veteran-strip">Veteran-Owned <span class="sep">★</span> Mission-First <span class="sep">★</span> Built on Honor, Integrity &amp; Trust</div>
-        </section>
-
-        <section class="sheet" aria-label="Letter page 4">
-          <div class="left-ribbon"></div>
-          <div class="identity">
-            <div>{{BRAND_COMPANY_SHORT}}<span class="dot">•</span>{{BRAND_ADDRESS_CITYSTATEZIP}}</div>
-            <div>{{BRAND_VETERAN}}</div>
-          </div>
-          <header class="header">
-            <img class="logo" src="{{BRAND_LOGO_COLOR}}" alt="MH Construction logo" />
-            <div class="qr-card">
-              <img src="{{QR_WEBSITE}}" alt="QR code" />
-              <div class="qr-text">
-                <div class="qr-label">SCAN FOR</div>
-                <div class="qr-headline">MHCGC.COM</div>
-                <div class="qr-url">{{BRAND_WEBSITE}}</div>
-              </div>
-            </div>
-          </header>
-          <div class="cont-title">Continuation — Page 4</div>
-          <main class="body-cont"><div class="typing-box page-cont"></div></main>
-          <footer class="footer">
-            <div class="contact">
-              <div class="label">Company Contact</div>
-              <div class="name">{{BRAND_COMPANY_NAME}}</div>
-              {{BRAND_ADDRESS_STREET}}<br />
-              {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
-              <strong>{{BRAND_PHONE}}</strong> &middot; {{BRAND_WEBSITE}}<br />
-              {{BRAND_EMAIL}}
-              <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
-            </div>
-            <div class="trust">
-              <div class="label">Accreditation &amp; Trust</div>
-              <div class="logos">
-                <img class="logo-agc" src="{{BRAND_AGC_HORIZONTAL}}" alt="AGC" />
-                <img class="logo-bbb" src="{{BRAND_BBB_SEAL}}" alt="BBB" />
-                <img class="logo-vob" src="{{BRAND_WA_VOB_LOGO}}" alt="WA VOB" />
-              </div>
-              <div class="chambers">
-                <img src="{{BRAND_CHAMBER_PASCO}}" alt="Pasco Chamber" />
-                <img src="{{BRAND_CHAMBER_KENNEWICK}}" alt="Tri-City Regional Chamber" />
-                <img src="{{BRAND_CHAMBER_RICHLAND}}" alt="Richland Chamber" />
-              </div>
-            </div>
-          </footer>
-          <div class="veteran-strip">Veteran-Owned <span class="sep">★</span> Mission-First <span class="sep">★</span> Built on Honor, Integrity &amp; Trust</div>
-        </section>
-
-        <section class="sheet" aria-label="Letter page 5">
-          <div class="left-ribbon"></div>
-          <div class="identity">
-            <div>{{BRAND_COMPANY_SHORT}}<span class="dot">•</span>{{BRAND_ADDRESS_CITYSTATEZIP}}</div>
-            <div>{{BRAND_VETERAN}}</div>
-          </div>
-          <header class="header">
-            <img class="logo" src="{{BRAND_LOGO_COLOR}}" alt="MH Construction logo" />
-            <div class="qr-card">
-              <img src="{{QR_WEBSITE}}" alt="QR code" />
-              <div class="qr-text">
-                <div class="qr-label">SCAN FOR</div>
-                <div class="qr-headline">MHCGC.COM</div>
-                <div class="qr-url">{{BRAND_WEBSITE}}</div>
-              </div>
-            </div>
-          </header>
-          <div class="cont-title">Continuation — Page 5</div>
-          <main class="body-cont"><div class="typing-box page-cont"></div></main>
-          <footer class="footer">
-            <div class="contact">
-              <div class="label">Company Contact</div>
-              <div class="name">{{BRAND_COMPANY_NAME}}</div>
-              {{BRAND_ADDRESS_STREET}}<br />
-              {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
-              <strong>{{BRAND_PHONE}}</strong> &middot; {{BRAND_WEBSITE}}<br />
-              {{BRAND_EMAIL}}
-              <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
-            </div>
-            <div class="trust">
-              <div class="label">Accreditation &amp; Trust</div>
-              <div class="logos">
-                <img class="logo-agc" src="{{BRAND_AGC_HORIZONTAL}}" alt="AGC" />
-                <img class="logo-bbb" src="{{BRAND_BBB_SEAL}}" alt="BBB" />
-                <img class="logo-vob" src="{{BRAND_WA_VOB_LOGO}}" alt="WA VOB" />
-              </div>
-              <div class="chambers">
-                <img src="{{BRAND_CHAMBER_PASCO}}" alt="Pasco Chamber" />
-                <img src="{{BRAND_CHAMBER_KENNEWICK}}" alt="Tri-City Regional Chamber" />
-                <img src="{{BRAND_CHAMBER_RICHLAND}}" alt="Richland Chamber" />
-              </div>
-            </div>
-          </footer>
-          <div class="veteran-strip">Veteran-Owned <span class="sep">★</span> Mission-First <span class="sep">★</span> Built on Honor, Integrity &amp; Trust</div>
-        </section>
-      </body>
-    </html>
-  `;
-
-  const pdfOpts = {
-    margin: { top: 0, right: 0, bottom: 0, left: 0 },
-    displayHeaderFooter: false,
-    printBackground: true,
-  };
-
-  const tmpPath = join(DOCS_DIR, "letterhead/_tmp_letterhead_headers.html");
-  const themedHtml = applyBrandTokens(cleanHtml).replace(
-    /\{\{QR_WEBSITE\}\}/g,
-    qrWebsite,
-  );
-  await writeFile(tmpPath, themedHtml, "utf-8");
-  await renderPdf(tmpPath, pdfPath, pdfOpts);
-  if (!process.env.DEBUG_KEEP_HTML) unlinkSync(tmpPath);
-
   await addFillableFieldsToLetterhead(pdfPath);
-
-  // Also emit the Word (.docx) version. Word's layout engine auto-paginates
-  // body text onto page 2/3/N — something AcroForm fields cannot do — so the
-  // .docx is the recommended deliverable for any letter longer than a few
-  // paragraphs. The PDF stays as a quick-fill option for short notes.
-  const docxPath = join(OUTPUT_DIR, "MHC-company-letterhead.docx");
-  const { generateLetterheadDocx } =
-    await import("./generate-letterhead-docx.mjs");
-  // Build the QR PNG buffer (matches the PDF's QR panel — same target URL,
-  // same hunter-green/white color scheme).
-  const qrPngBuffer = await QRCode.toBuffer(websiteUrl, {
-    type: "png",
-    width: 300,
-    margin: 1,
-    color: { dark: BRAND.colors.primary, light: "#ffffff" },
-    errorCorrectionLevel: "M",
-  });
-  await generateLetterheadDocx({
-    outPath: docxPath,
-    brand: BRAND,
-    docsDir: DOCS_DIR,
-    qrPngBuffer,
-  });
-  console.log(`  ✓  ${relative(ROOT, docxPath)}`);
 }
 
 // ── Template: Spine ───────────────────────────────────────────────────────────
@@ -2398,28 +1737,6 @@ async function generateSpine() {
     pdfPath,
     { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
     "manuals/_tmp_spine.html",
-  );
-}
-
-// ── Template: Operations Hub / Dashboard Access Guide ───────────────────────
-async function generateOperationsHubGuide() {
-  console.log("\n🧭 Generating operations hub/dashboard access guide…");
-  await ensureDir(OUTPUT_DIR);
-  const raw = await readFile(
-    join(DOCS_DIR, "manuals/operations-hub-dashboard-access-guide.html"),
-    "utf-8",
-  );
-  const websiteUrl = BRAND.website?.startsWith("http")
-    ? BRAND.website
-    : `https://${BRAND.website}`;
-  const qrWebsite = await buildQrDataUrl(websiteUrl);
-  const html = applyBrandTokens(raw).replace("{{QR_WEBSITE}}", qrWebsite);
-  const pdfPath = join(OUTPUT_DIR, "operations-hub-dashboard-access-guide.pdf");
-  await renderHtmlToPdf(
-    html,
-    pdfPath,
-    { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
-    "manuals/_tmp_operations_hub_dashboard_access_guide.html",
   );
 }
 
@@ -2490,10 +1807,22 @@ async function generateToc() {
     .replaceAll("{{TOC_CLUSTERS_HTML}}", () => tocClustersHtml)
     .replace("{{QR_TOC_URL}}", tocQrDataUrl);
 
+  const tocFooterHtml = buildCanonicalFormsFooterHtml({
+    tag: "footer",
+    className: "bottom",
+    style:
+      "margin-top:auto;padding-top:0.08in;display:grid;grid-template-columns:1.6fr 1fr;" +
+      "gap:18pt;align-items:end;",
+  });
+  const htmlWithCanonicalFooter = html.replace(
+    /<footer class="bottom">[\s\S]*?<\/footer>/,
+    tocFooterHtml,
+  );
+
   // ── 3. Render to PDF ────────────────────────────────────────────────────
   const pdfPath = join(OUTPUT_DIR, "safety-manual-toc.pdf");
   await renderHtmlToPdf(
-    html,
+    htmlWithCanonicalFooter,
     pdfPath,
     {
       displayHeaderFooter: false,
@@ -2550,6 +1879,16 @@ async function generateTabs() {
     const qrDataUrl = await buildQrDataUrl(sectionUrl);
     html = html.replaceAll(token, qrDataUrl);
   }
+
+  const tabsFooterHtml = buildCanonicalFormsFooterHtml({
+    tag: "div",
+    className: "tab-footer",
+    style:
+      "flex:0 0 auto;order:10;margin-top:auto;display:grid;" +
+      "grid-template-columns:1.6fr 1fr;gap:18pt;align-items:end;" +
+      "padding:0 0.9in 0.62in 0.92in;background:white;position:relative;z-index:10;",
+  });
+  html = replaceTabFooterBlocks(html, tabsFooterHtml);
 
   // ── Apply remaining brand tokens ─────────────────────────────────────────
   html = applyBrandTokens(html);
@@ -2618,13 +1957,19 @@ function buildContentsPdfHtml(sections) {
       table {
         width: 100%;
         border-collapse: collapse;
-      }
-      tr {
+        const inset = widgetInsets[f.type] || widgetInsets.text;
+        const widgetX = x + inch(inset.left);
+        const widgetW = Math.max(8, w - inch(inset.left + inset.right));
+        const widgetTop = f.y + inset.top;
+        const widgetH = Math.max(
+          f.type === "multiline" ? 18 : 8.64,
+          h - inch(inset.top + inset.bottom),
+        );
         border-bottom: 1px solid #e5e7eb;
       }
-      td {
-        padding: 0.1in 0;
-        vertical-align: top;
+          x: widgetX,
+          y: ph - inch(widgetTop) - widgetH,
+          width: widgetW,
       }
       .num {
         width: 1.15in;
@@ -2684,49 +2029,120 @@ function buildReferencePdfHtml(sections) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Safety Manual Reference Guide</title>
     <style>
-      @page { size: Letter; margin: 0.65in 0.5in 0.65in 0.5in; }
+      @page { size: Letter; margin: 0.42in 0.5in 0.42in 0.5in; }
+      :root {
+        --brand-primary: {{BRAND_COLOR_PRIMARY}};
+        --brand-secondary: {{BRAND_COLOR_SECONDARY}};
+        --paper: #ffffff;
+        --muted: #f6f8f7;
+      }
       body {
         font-family: "DIN 2014", "Segoe UI", Arial, sans-serif;
         color: #1f2937;
         font-size: 9.5pt;
         line-height: 1.3;
+        margin: 0;
+        padding: 0;
+        background: var(--paper);
+      }
+      .reference-page {
+        position: relative;
+        min-height: 10.16in;
+        padding: 0.45in 0.48in 0.18in 0.88in;
+        background: var(--paper);
+        overflow: hidden;
+      }
+      .reference-page::before {
+        content: "";
+        position: absolute;
+        inset: 0.22in;
+        border: 1.2pt solid var(--brand-primary);
+        pointer-events: none;
+      }
+      .reference-page::after {
+        content: "";
+        position: absolute;
+        inset: 0.33in;
+        border: 0.6pt solid var(--brand-secondary);
+        pointer-events: none;
+      }
+      .reference-ribbon {
+        position: absolute;
+        top: 0.45in;
+        bottom: 0.45in;
+        left: 0.45in;
+        width: 0.28in;
+        background: linear-gradient(
+          180deg,
+          var(--brand-primary) 0%,
+          var(--brand-primary) 70%,
+          var(--brand-secondary) 100%
+        );
       }
       .header {
-        margin-bottom: 0.25in;
-        padding-bottom: 0.1in;
-        border-bottom: 2px solid {{BRAND_COLOR_PRIMARY}};
+        position: relative;
+        z-index: 1;
+        margin-bottom: 0.14in;
+        padding: 0 0 0.12in;
+        border-bottom: 1.2pt solid var(--brand-primary);
+        text-align: center;
       }
       .brand {
         font-size: 9pt;
         color: #4b5563;
         margin-bottom: 0.04in;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
       }
       h1 {
         font-family: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Segoe UI", Arial, sans-serif;
         font-size: 17pt;
         margin: 0;
         color: {{BRAND_COLOR_PRIMARY}};
+        text-transform: uppercase;
       }
       .meta {
         margin-top: 0.06in;
         font-size: 8pt;
         color: #6b7280;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .program-chip {
+        width: fit-content;
+        margin: 0 auto 0.05in;
+        background: var(--brand-primary);
+        border: 0.8pt solid var(--brand-secondary);
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-family: "DIN 2014", "Segoe UI", Arial, sans-serif;
+        font-size: 6.5pt;
+        font-weight: 800;
+        padding: 2pt 10pt;
+        border-radius: 1.5pt;
+        box-shadow: inset 0 -1pt 0 var(--brand-secondary);
       }
       table {
+        position: relative;
+        z-index: 1;
         width: 100%;
         border-collapse: collapse;
+        background: #ffffff;
+        border: 0.75pt solid var(--brand-secondary);
       }
       thead th {
         text-align: left;
         font-size: 8pt;
-        letter-spacing: 0.01em;
-        color: #374151;
-        border-bottom: 1px solid #9ca3af;
-        padding: 0.06in 0.04in;
+        letter-spacing: 0.08em;
+        color: #ffffff;
+        background: var(--brand-primary);
+        border-bottom: 0.75pt solid var(--brand-secondary);
+        padding: 0.08in 0.05in;
       }
       tbody td {
         border-bottom: 1px solid #e5e7eb;
-        padding: 0.06in 0.04in;
+        padding: 0.07in 0.05in;
         vertical-align: top;
       }
       .num {
@@ -2755,26 +2171,30 @@ function buildReferencePdfHtml(sections) {
     </style>
   </head>
   <body>
-    <div class="header">
-      <div class="brand">{{BRAND_COMPANY_NAME}}</div>
-      <h1>Safety Manual Reference Guide</h1>
-      <div class="meta">Generated ${generatedOn} • Revision {{BRAND_REVISION_NUMBER}} ({{BRAND_REVISION_DATE}})</div>
-    </div>
+    <div class="reference-page">
+      <div class="reference-ribbon" aria-hidden="true"></div>
+      <div class="header">
+        <div class="brand">{{BRAND_COMPANY_NAME}}</div>
+        <div class="program-chip">MISH Program Reference</div>
+        <h1>Safety Manual Reference Guide</h1>
+        <div class="meta">Generated ${generatedOn} • Revision {{BRAND_REVISION_NUMBER}} ({{BRAND_REVISION_DATE}})</div>
+      </div>
 
-    <table aria-label="Safety manual reference index">
-      <thead>
-        <tr>
-          <th>MISH</th>
-          <th>Section Title</th>
-          <th>Category</th>
-          <th>OSHA Ref</th>
-          <th>Pages</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${rows}
-      </tbody>
-    </table>
+      <table aria-label="Safety manual reference index">
+        <thead>
+          <tr>
+            <th>MISH</th>
+            <th>Section Title</th>
+            <th>Category</th>
+            <th>OSHA Ref</th>
+            <th>Pages</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows}
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>`;
 }
@@ -2951,7 +2371,7 @@ async function generateForms() {
  *   {{FORM_REVISION}}        e.g. "2026-01"
  *   {{FORM_EFFECTIVE_DATE}}  e.g. "April 2026"
  *   {{FORM_MANUAL_SECTION}}  e.g. "MISH 09" or "—"
- *   {{FORM_OWNER}}           e.g. "Safety Director"
+ *   {{FORM_OWNER}}           e.g. "Safety Officer (Matt Ramsey)"
  */
 async function generateFormCovers() {
   const forms = await loadFormsManifest().catch(() => []);
@@ -3052,7 +2472,7 @@ async function renderFormCover(form, brandedTemplate, coversDir) {
     "{{FORM_REVISION}}": escapeHtml(form.revision || "—"),
     "{{FORM_EFFECTIVE_DATE}}": escapeHtml(form.effectiveDate || "—"),
     "{{FORM_MANUAL_SECTION}}": escapeHtml(sectionLabels),
-    "{{FORM_OWNER}}": escapeHtml(form.owner || "Safety Director"),
+    "{{FORM_OWNER}}": escapeHtml(form.owner || "Safety Officer (Matt Ramsey)"),
     "{{QR_STRIP_HTML}}": qrStripHtml,
   };
   let html = brandedTemplate;
@@ -4976,11 +4396,6 @@ async function main() {
         break;
       case "letterhead":
         await generateLetterhead();
-        break;
-      case "operations-hub-guide":
-      case "hub-dashboard-guide":
-      case "operations-guide":
-        await generateOperationsHubGuide();
         break;
       case "form-02-c":
       case "form02c":

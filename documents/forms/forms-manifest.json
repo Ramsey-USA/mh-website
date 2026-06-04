@@ -12,9 +12,9 @@
       "categoryIcon": "👤",
       "manualSection": null,
       "docxPath": "MHC-cat1-onboarding/FORM-01-A_Employment-Offer-Letter.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 01-B",
@@ -25,9 +25,9 @@
       "categoryIcon": "👤",
       "manualSection": null,
       "docxPath": "MHC-cat1-onboarding/FORM-01-B_New-Hire-Checklist.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 01-C",
@@ -38,9 +38,9 @@
       "categoryIcon": "👤",
       "manualSection": null,
       "docxPath": "MHC-cat1-onboarding/FORM-01-C_Employee-Information-Sheet.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 01-D",
@@ -51,9 +51,9 @@
       "categoryIcon": "👤",
       "manualSection": null,
       "docxPath": "MHC-cat1-onboarding/FORM-01-D_Direct-Deposit-Authorization.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 01-E",
@@ -64,9 +64,9 @@
       "categoryIcon": "👤",
       "manualSection": null,
       "docxPath": "MHC-cat1-onboarding/FORM-01-E_Emergency-Contact-Form.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 01-F",
@@ -77,9 +77,9 @@
       "categoryIcon": "👤",
       "manualSection": null,
       "docxPath": "MHC-cat1-onboarding/FORM-01-F_Employee-Handbook-Acknowledgment.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 01-G",
@@ -90,9 +90,9 @@
       "categoryIcon": "👤",
       "manualSection": null,
       "docxPath": "MHC-cat1-onboarding/FORM-01-G_WA-New-Hire-Reporting.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 01-H",
@@ -103,9 +103,9 @@
       "categoryIcon": "👤",
       "manualSection": null,
       "docxPath": "MHC-cat1-onboarding/FORM-01-H_WA-PFML-WACares-Notice.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 02-A",
@@ -116,9 +116,9 @@
       "categoryIcon": "🛡",
       "manualSection": ["MISH 04", "MISH 06"],
       "docxPath": "MHC-cat2-safety/FORM-02-A_Toolbox-Talk-Sign-In-Log.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form02a",
         "pages": [
@@ -127,7 +127,7 @@
             "sections": [
               {
                 "type": "refNote",
-                "html": "Document each pre-shift toolbox talk. Record attendance for every worker present. Filed with the project safety binder; copy to Safety Director within <strong>48 hours</strong>. Reference: OSHA 29 CFR 1926.21 &middot; MISH 04 &middot; MISH 06"
+                "html": "Document each pre-shift toolbox talk. Record attendance for every worker present. Filed with the project safety binder; copy to Safety Officer (Matt Ramsey) within <strong>48 hours</strong>. Reference: OSHA 29 CFR 1926.21 &middot; MISH 04 &middot; MISH 06"
               },
               {
                 "type": "fieldGrid",
@@ -260,9 +260,9 @@
       "categoryIcon": "🛡",
       "manualSection": ["MISH 05"],
       "docxPath": "MHC-cat2-safety/FORM-02-B_Job-Hazard-Analysis.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form02b",
         "pages": [
@@ -445,9 +445,9 @@
       "categoryIcon": "🛡",
       "manualSection": ["MISH 15", "MISH 16", "MISH 17"],
       "docxPath": "MHC-cat2-safety/FORM-02-C_Incident-Accident-Report.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form02c",
         "pages": [
@@ -790,9 +790,9 @@
       "categoryIcon": "🛡",
       "manualSection": ["MISH 15", "MISH 16"],
       "docxPath": "MHC-cat2-safety/FORM-02-D_Near-Miss-Report.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form02d",
         "pages": [
@@ -996,7 +996,7 @@
               {
                 "type": "signatures",
                 "title": "Signatures & Authorization",
-                "refNote": "Near-miss reports are reviewed by the Safety Director within 5 business days. Trends are shared anonymously in the next monthly safety meeting per <strong>WAC 296-27-031</strong>.",
+                "refNote": "Near-miss reports are reviewed by the Safety Officer (Matt Ramsey) within 5 business days. Trends are shared anonymously in the next monthly safety meeting per <strong>WAC 296-27-031</strong>.",
                 "blocks": [
                   {
                     "role": "Supervisor",
@@ -1023,9 +1023,9 @@
       "categoryIcon": "🛡",
       "manualSection": ["MISH 09"],
       "docxPath": "MHC-cat2-safety/FORM-02-E_Daily-Site-Safety-Inspection.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form02e",
         "pages": [
@@ -1227,9 +1227,9 @@
       "categoryIcon": "🛡",
       "manualSection": ["MISH 04"],
       "docxPath": "MHC-cat2-safety/FORM-02-F_Safety-Orientation-Sign-Off.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form02f",
         "pages": [
@@ -1238,7 +1238,7 @@
             "sections": [
               {
                 "type": "refNote",
-                "html": "Required onboarding acknowledgment for every worker before performing work on an MH Construction site. Retain in the project safety binder; copy to Safety Director within <strong>24 hours</strong>. Reference: OSHA 29 CFR 1926.21(b)(2) &middot; MISH 04"
+                "html": "Required onboarding acknowledgment for every worker before performing work on an MH Construction site. Retain in the project safety binder; copy to Safety Officer (Matt Ramsey) within <strong>24 hours</strong>. Reference: OSHA 29 CFR 1926.21(b)(2) &middot; MISH 04"
               },
               {
                 "type": "fieldGrid",
@@ -1405,9 +1405,9 @@
       "categoryIcon": "🛡",
       "manualSection": ["MISH 17"],
       "docxPath": "MHC-cat2-safety/FORM-02-G_OSHA-300-Log-Cover-Sheet.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form02g",
         "pages": [
@@ -1549,13 +1549,12 @@
                 "refNote": "By signing, the company executive certifies that the information is true, accurate, and complete (29 CFR 1904.32).",
                 "blocks": [
                   {
-                    "role": "Safety Director",
+                    "role": "Safety Officer (Matt Ramsey)",
                     "name": "sdSig"
                   },
                   {
                     "role": "Company Executive",
-                    "name": "execSig",
-                    "wide": true
+                    "name": "execSig"
                   }
                 ]
               }
@@ -1573,9 +1572,9 @@
       "categoryIcon": "🛡",
       "manualSection": ["MISH 17"],
       "docxPath": "MHC-cat2-safety/FORM-02-H_WA-LI-ROA-Cover-Sheet.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form02h",
         "pages": [
@@ -1667,13 +1666,12 @@
                 "title": "Submission",
                 "blocks": [
                   {
-                    "role": "Safety Director",
+                    "role": "Safety Officer (Matt Ramsey)",
                     "name": "sdSig"
                   },
                   {
                     "role": "HR Coordinator",
-                    "name": "hrSig",
-                    "wide": true
+                    "name": "hrSig"
                   }
                 ]
               }
@@ -1691,9 +1689,9 @@
       "categoryIcon": "🛡",
       "manualSection": ["MISH 04", "MISH 06"],
       "docxPath": "MHC-cat2-safety/FORM-02-I_Employee-Safety-Training-Record.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form02i",
         "pages": [
@@ -1858,7 +1856,7 @@
                     "name": "empSig"
                   },
                   {
-                    "role": "Safety Director",
+                    "role": "Safety Officer (Matt Ramsey)",
                     "name": "sdSig",
                     "wide": true
                   }
@@ -1878,9 +1876,9 @@
       "categoryIcon": "🛡",
       "manualSection": ["MISH 09", "MISH 10"],
       "docxPath": "MHC-cat2-safety/FORM-02-J_Pre-Task-Safety-Plan.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form02j",
         "pages": [
@@ -2095,8 +2093,150 @@
                   },
                   {
                     "role": "Safety Officer — Matt Ramsey",
-                    "name": "so",
-                    "wide": true
+                    "name": "so"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FORM 02-K",
+      "slug": "form-02-k_service-interruption-notice",
+      "title": "Service Interruption Notice",
+      "category": "MHC-cat2-safety",
+      "categoryLabel": "Safety & Incident",
+      "categoryIcon": "🛡",
+      "manualSection": ["MISH 48"],
+      "docxPath": "MHC-cat2-safety/FORM-02-K_Service-Interruption-Notice.docx",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
+      "fillable": {
+        "namespace": "form02k",
+        "pages": [
+          {
+            "kind": "first",
+            "sections": [
+              {
+                "type": "refNote",
+                "html": "Issue this notice <strong>as soon as an interruption is known</strong> so impacted crews can coordinate safe sequencing and restart controls. Reference: OSHA 29 CFR 1926.20(b) &middot; WAC 296-155-110 &middot; MISH 48"
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Notice Information",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "noticeDate",
+                    "label": "Notice Date"
+                  },
+                  {
+                    "name": "noticeTime",
+                    "label": "Notice Time"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "projectName",
+                    "label": "Project Name"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Location / Area"
+                  },
+                  {
+                    "name": "reportedBy",
+                    "label": "Reported By"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Interruption Type",
+                "subtitle": "Check all that apply",
+                "columns": 4,
+                "items": [
+                  {
+                    "name": "planned",
+                    "label": "Planned Shutdown"
+                  },
+                  {
+                    "name": "unplanned",
+                    "label": "Unplanned Outage"
+                  },
+                  {
+                    "name": "weather",
+                    "label": "Weather Delay"
+                  },
+                  {
+                    "name": "utility",
+                    "label": "Utility Interruption"
+                  },
+                  {
+                    "name": "equipment",
+                    "label": "Equipment Failure"
+                  },
+                  {
+                    "name": "material",
+                    "label": "Material / Delivery Delay"
+                  },
+                  {
+                    "name": "safetyHold",
+                    "label": "Safety Hold"
+                  },
+                  {
+                    "name": "ownerDirected",
+                    "label": "Owner / Client Directed"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Impact Window",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "startDateTime",
+                    "label": "Interruption Start (Date / Time)"
+                  },
+                  {
+                    "name": "estRestore",
+                    "label": "Estimated Restore (Date / Time)"
+                  },
+                  {
+                    "name": "affectedCrews",
+                    "label": "Affected Crews / Trades"
+                  },
+                  {
+                    "name": "affectedSystems",
+                    "label": "Affected Systems / Operations"
+                  }
+                ]
+              },
+              {
+                "type": "narrative",
+                "title": "Interruption Details & Safe Work Controls",
+                "subtitle": "Cause, immediate controls, communication, restart criteria",
+                "name": "details",
+                "height": "0.95in"
+              },
+              {
+                "type": "signatures",
+                "title": "Authorization",
+                "refNote": "Notify impacted supervisors and client contacts before work resumes. Retain with project safety documentation.",
+                "blocks": [
+                  {
+                    "role": "Site Supervisor",
+                    "name": "siteSup"
+                  },
+                  {
+                    "role": "Safety Officer",
+                    "name": "safetyOfficer"
                   }
                 ]
               }
@@ -2114,9 +2254,9 @@
       "categoryIcon": "💊",
       "manualSection": ["MISH 06"],
       "docxPath": "MHC-cat3-drug-alcohol/FORM-03-A_Pre-Employment-Drug-Screen-Consent.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form03a",
         "pages": [
@@ -2263,9 +2403,9 @@
       "categoryIcon": "💊",
       "manualSection": "MISH 06",
       "docxPath": "MHC-cat3-drug-alcohol/FORM-03-B_Random-Drug-Test-Log.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 03-C",
@@ -2276,9 +2416,9 @@
       "categoryIcon": "💊",
       "manualSection": ["MISH 06", "MISH 17"],
       "docxPath": "MHC-cat3-drug-alcohol/FORM-03-C_Post-Accident-Test-Authorization.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form03c",
         "pages": [
@@ -2417,7 +2557,7 @@
                     "name": "supSig"
                   },
                   {
-                    "role": "Safety Director",
+                    "role": "Safety Officer (Matt Ramsey)",
                     "name": "sdSig",
                     "wide": true
                   }
@@ -2437,9 +2577,9 @@
       "categoryIcon": "💊",
       "manualSection": ["MISH 06"],
       "docxPath": "MHC-cat3-drug-alcohol/FORM-03-D_Reasonable-Suspicion-Checklist.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form03d",
         "pages": [
@@ -2608,7 +2748,7 @@
                     "name": "sup2Sig"
                   },
                   {
-                    "role": "Safety Director",
+                    "role": "Safety Officer (Matt Ramsey)",
                     "name": "sdSig",
                     "wide": true
                   }
@@ -2628,9 +2768,9 @@
       "categoryIcon": "💊",
       "manualSection": "MISH 06",
       "docxPath": "MHC-cat3-drug-alcohol/FORM-03-E_Return-to-Work-Agreement-Drug.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 04-A",
@@ -2641,9 +2781,9 @@
       "categoryIcon": "🚛",
       "manualSection": ["MISH 18"],
       "docxPath": "MHC-cat4-vehicle-equipment/FORM-04-A_Driver-Authorization-MVR-Request.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form04a",
         "pages": [
@@ -2797,9 +2937,9 @@
       "categoryIcon": "🚛",
       "manualSection": ["MISH 18"],
       "docxPath": "MHC-cat4-vehicle-equipment/FORM-04-B_Vehicle-Pre-Trip-Inspection.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form04b",
         "pages": [
@@ -3011,9 +3151,9 @@
       "categoryIcon": "🚛",
       "manualSection": ["MISH 17", "MISH 18"],
       "docxPath": "MHC-cat4-vehicle-equipment/FORM-04-C_Vehicle-Accident-Report.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form04c",
         "pages": [
@@ -3248,11 +3388,18 @@
                 "subtitle": "Describe damage to MH vehicle, other vehicles, and property",
                 "name": "damage",
                 "height": "1.10in"
-              },
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Vehicle Accident Report (signatures)",
+            "pageLabel": "Page 3",
+            "sections": [
               {
                 "type": "signatures",
                 "title": "Signatures & Authorization",
-                "refNote": "Attach photos, police report, and other-party insurance card to this form. Forward immediately to the Safety Director per <strong>WAC 296-27-031</strong>.",
+                "refNote": "Attach photos, police report, and other-party insurance card to this form. Forward immediately to the Safety Officer (Matt Ramsey) per <strong>WAC 296-27-031</strong>.",
                 "blocks": [
                   {
                     "role": "Driver",
@@ -3283,9 +3430,9 @@
       "categoryIcon": "🚛",
       "manualSection": ["MISH 19", "MISH 20", "MISH 42"],
       "docxPath": "MHC-cat4-vehicle-equipment/FORM-04-D_Heavy-Equipment-Inspection-Log.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form04d",
         "pages": [
@@ -3496,9 +3643,9 @@
       "categoryIcon": "🚛",
       "manualSection": null,
       "docxPath": "MHC-cat4-vehicle-equipment/FORM-04-E_Distracted-Driving-Acknowledgment.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 04-F",
@@ -3509,9 +3656,9 @@
       "categoryIcon": "🚛",
       "manualSection": null,
       "docxPath": "MHC-cat4-vehicle-equipment/FORM-04-F_Annual-MVR-Review-Log.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 05-A",
@@ -3522,9 +3669,9 @@
       "categoryIcon": "🤝",
       "manualSection": ["MISH 46"],
       "docxPath": "MHC-cat5-subcontractor/FORM-05-A_Subcontractor-Pre-Qualification.docx",
-      "revision": "1.0",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director",
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)",
       "fillable": {
         "namespace": "form05a",
         "pages": [
@@ -3767,9 +3914,9 @@
       "categoryIcon": "🤝",
       "manualSection": "MISH 46",
       "docxPath": "MHC-cat5-subcontractor/FORM-05-B_Subcontractor-Insurance-Verification.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 05-C",
@@ -3780,9 +3927,9 @@
       "categoryIcon": "🤝",
       "manualSection": "MISH 46",
       "docxPath": "MHC-cat5-subcontractor/FORM-05-C_Subcontractor-Safety-Acknowledgment.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 05-D",
@@ -3793,9 +3940,9 @@
       "categoryIcon": "🤝",
       "manualSection": "MISH 46",
       "docxPath": "MHC-cat5-subcontractor/FORM-05-D_Conditional-Lien-Waiver.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 05-E",
@@ -3806,9 +3953,9 @@
       "categoryIcon": "🤝",
       "manualSection": "MISH 46",
       "docxPath": "MHC-cat5-subcontractor/FORM-05-E_Subcontractor-Daily-Work-Log.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 05-F",
@@ -3819,9 +3966,9 @@
       "categoryIcon": "🤝",
       "manualSection": "MISH 46",
       "docxPath": "MHC-cat5-subcontractor/FORM-05-F_Subcontractor-Closeout-Checklist.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 06-A",
@@ -3832,9 +3979,9 @@
       "categoryIcon": "📋",
       "manualSection": null,
       "docxPath": "MHC-cat6-project-admin/FORM-06-A_Daily-Construction-Report.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 06-B",
@@ -3845,9 +3992,9 @@
       "categoryIcon": "📋",
       "manualSection": null,
       "docxPath": "MHC-cat6-project-admin/FORM-06-B_Request-for-Information-RFI.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 06-C",
@@ -3858,9 +4005,9 @@
       "categoryIcon": "📋",
       "manualSection": null,
       "docxPath": "MHC-cat6-project-admin/FORM-06-C_Change-Order-Request.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 06-D",
@@ -3871,9 +4018,9 @@
       "categoryIcon": "📋",
       "manualSection": null,
       "docxPath": "MHC-cat6-project-admin/FORM-06-D_Project-Punch-List.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 06-E",
@@ -3884,9 +4031,9 @@
       "categoryIcon": "📋",
       "manualSection": null,
       "docxPath": "MHC-cat6-project-admin/FORM-06-E_Project-Closeout-Checklist.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 06-F",
@@ -3897,9 +4044,9 @@
       "categoryIcon": "📋",
       "manualSection": null,
       "docxPath": "MHC-cat6-project-admin/FORM-06-F_Meeting-Minutes.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 06-G",
@@ -3910,9 +4057,9 @@
       "categoryIcon": "📋",
       "manualSection": null,
       "docxPath": "MHC-cat6-project-admin/FORM-06-G_Material-Submittal-Log.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 06-H",
@@ -3923,9 +4070,9 @@
       "categoryIcon": "📋",
       "manualSection": null,
       "docxPath": "MHC-cat6-project-admin/FORM-06-H_Pay-Application-Cover-Sheet.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 07-A",
@@ -3936,9 +4083,9 @@
       "categoryIcon": "📑",
       "manualSection": null,
       "docxPath": "MHC-cat7-hr-disciplinary/FORM-07-A_Employee-Performance-Review.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 07-B",
@@ -3949,9 +4096,9 @@
       "categoryIcon": "📑",
       "manualSection": null,
       "docxPath": "MHC-cat7-hr-disciplinary/FORM-07-B_Written-Warning-Disciplinary-Notice.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 07-C",
@@ -3962,9 +4109,9 @@
       "categoryIcon": "📑",
       "manualSection": null,
       "docxPath": "MHC-cat7-hr-disciplinary/FORM-07-C_Employee-Termination-Checklist.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     },
     {
       "id": "FORM 07-D",
@@ -3975,9 +4122,9 @@
       "categoryIcon": "📑",
       "manualSection": null,
       "docxPath": "MHC-cat7-hr-disciplinary/FORM-07-D_Return-to-Work-Medical-Clearance.docx",
-      "revision": "2026-01",
-      "effectiveDate": "April 2026",
-      "owner": "Safety Director"
+      "revision": "1.1",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
     }
   ]
 }

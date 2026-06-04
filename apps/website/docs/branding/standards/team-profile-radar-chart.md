@@ -397,5 +397,5 @@ interface TeamMemberSkills {
 
 **Last Review Date**: March 15, 2026  
 **Next Review Date**: June 15, 2026  
-**Document Owner**: Marketing/HR Department  
+**Document Owner**: Safety Officer (Matt Ramsey)  
 **Technical Contact**: Development Team

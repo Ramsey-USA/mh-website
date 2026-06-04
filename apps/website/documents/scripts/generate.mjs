@@ -38,7 +38,7 @@ import { join, resolve, dirname, extname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const SITE_URL = "https://www.mhc-gc.com";
-const PDF_METADATA_AUTHOR = "Matt Ramsey, Editor-in-Chief";
+const PDF_METADATA_AUTHOR = "Matt Ramsey, Safety Officer";
 const PDF_METADATA_CREATOR = "MH Construction Document Pipeline";
 const PDF_METADATA_SUBJECT = "Accident · Injury · Safety · Health Program";
 
@@ -638,42 +638,34 @@ function buildSectionFooterHtml() {
   const bbbLogo = BBB_LOGO_DATA_URL || BRAND_TOKENS["{{BRAND_BBB_SEAL}}"];
   const vobLogo = BRAND_TOKENS["{{BRAND_WA_VOB_LOGO}}"];
 
-  // Cover-matching ribbon: same gradient + 0.22in height (proportional to a running footer)
-  const ribbonBar = [
-    `<div style="width:100%;height:0.22in;flex-shrink:0;`,
-    `background:linear-gradient(90deg,${BRAND_COLORS.primaryDark} 0%,${BRAND_COLORS.primary} 68%,${BRAND_COLORS.secondary} 100%);`,
-    `-webkit-print-color-adjust:exact;print-color-adjust:exact;"></div>`,
-  ].join("");
-
-  // Cover footer grid: Company Contact (left 57%) | Accreditation & Trust (right)
-  // Logo heights scaled from cover (AGC 0.38in→22pt, BBB 0.41in→24pt, VOB 0.55in→28pt)
+  // Footer metrics mirror the form cover/footer chrome.
   const contentRow = [
-    `<div style="width:100%;display:grid;grid-template-columns:1.35fr 1fr;align-items:end;`,
-    `gap:10pt;padding:4pt 0.75in 5pt 1.25in;background:#ffffff;box-sizing:border-box;">`,
+    `<div style="width:100%;display:grid;grid-template-columns:1.6fr 1fr;align-items:end;`,
+    `gap:18pt;padding:0 0.9in 0 0.92in;background:#ffffff;box-sizing:border-box;">`,
 
     // LEFT — Company Contact
-    `<div style="min-width:0;font-family:${font};line-height:1.3;color:${BRAND_COLORS.primaryDark};">`,
-    `<div style="font-size:6pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;color:${BRAND_COLORS.secondaryText};margin-bottom:2pt;">${contactMeta}</div>`,
-    `<div style="font-size:7.5pt;font-weight:800;color:${BRAND_COLORS.primaryDark};white-space:nowrap;">${BRAND.companyName}</div>`,
+    `<div style="min-width:0;font-family:${font};line-height:1.42;color:${BRAND_COLORS.primaryDark};">`,
+    `<div style="font-size:7pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;color:${BRAND_COLORS.secondaryText};margin-bottom:4pt;">${contactMeta}</div>`,
+    `<div style="font-size:8.4pt;font-weight:800;color:${BRAND_COLORS.primaryDark};white-space:nowrap;">${BRAND.companyName}</div>`,
     `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.addressStreet}</div>`,
     `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.addressCityStateZip}</div>`,
     `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.phone} \u00b7 ${BRAND.website}</div>`,
-    `<div style="font-size:6.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND_LICENSES_INLINE}</div>`,
+    `<div style="font-size:7.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;margin-top:5pt;">${BRAND_LICENSES_INLINE}</div>`,
     `</div>`,
 
     // CENTER-RIGHT — Accreditation & Trust (mirrors cover .trust block)
-    `<div style="min-width:0;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;gap:3pt;font-family:${font};">`,
-    `<div style="font-size:6pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;color:${BRAND_COLORS.secondaryText};text-align:right;white-space:nowrap;">${trustMeta}</div>`,
+    `<div style="min-width:0;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;gap:5pt;font-family:${font};">`,
+    `<div style="font-size:7pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;color:${BRAND_COLORS.secondaryText};text-align:right;white-space:nowrap;margin-bottom:5pt;">${trustMeta}</div>`,
     `<div style="display:flex;align-items:flex-end;justify-content:flex-end;gap:9pt;">`,
     agcLogo
-      ? `<img src="${agcLogo}" alt="AGC membership" style="height:22pt;width:auto;display:block;" />`
-      : `<span style="font-size:6pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">AGC</span>`,
+      ? `<img src="${agcLogo}" alt="AGC membership" style="height:0.38in;width:auto;display:block;" />`
+      : `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">AGC</span>`,
     bbbLogo
-      ? `<img src="${bbbLogo}" alt="BBB accredited business" style="height:24pt;width:auto;display:block;" />`
-      : `<span style="font-size:6pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">BBB</span>`,
+      ? `<img src="${bbbLogo}" alt="BBB accredited business" style="height:0.41in;width:auto;display:block;" />`
+      : `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">BBB</span>`,
     vobLogo
-      ? `<img src="${vobLogo}" alt="Washington certified veteran owned business" style="height:28pt;width:auto;display:block;" />`
-      : `<span style="font-size:6pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">VOB</span>`,
+      ? `<img src="${vobLogo}" alt="Washington certified veteran owned business" style="height:0.55in;width:auto;display:block;" />`
+      : `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">VOB</span>`,
     `</div>`,
     `</div>`,
 
@@ -684,7 +676,6 @@ function buildSectionFooterHtml() {
     `<div style="width:100%;height:100%;font-family:${font};`,
     `box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;`,
     `display:flex;flex-direction:column;justify-content:flex-end;">`,
-    ribbonBar,
     contentRow,
     `</div>`,
   ].join("");
@@ -1926,49 +1917,120 @@ function buildReferencePdfHtml(sections) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Safety Manual Reference Guide</title>
     <style>
-      @page { size: Letter; margin: 0.65in 0.5in 0.65in 0.5in; }
+      @page { size: Letter; margin: 0.42in 0.5in 0.42in 0.5in; }
+      :root {
+        --brand-primary: {{BRAND_COLOR_PRIMARY}};
+        --brand-secondary: {{BRAND_COLOR_SECONDARY}};
+        --paper: #ffffff;
+        --muted: #f6f8f7;
+      }
       body {
         font-family: "DIN 2014", "Segoe UI", Arial, sans-serif;
         color: #1f2937;
         font-size: 9.5pt;
         line-height: 1.3;
+        margin: 0;
+        padding: 0;
+        background: var(--paper);
+      }
+      .reference-page {
+        position: relative;
+        min-height: 10.16in;
+        padding: 0.45in 0.48in 0.18in 0.88in;
+        background: var(--paper);
+        overflow: hidden;
+      }
+      .reference-page::before {
+        content: "";
+        position: absolute;
+        inset: 0.22in;
+        border: 1.2pt solid var(--brand-primary);
+        pointer-events: none;
+      }
+      .reference-page::after {
+        content: "";
+        position: absolute;
+        inset: 0.33in;
+        border: 0.6pt solid var(--brand-secondary);
+        pointer-events: none;
+      }
+      .reference-ribbon {
+        position: absolute;
+        top: 0.45in;
+        bottom: 0.45in;
+        left: 0.45in;
+        width: 0.28in;
+        background: linear-gradient(
+          180deg,
+          var(--brand-primary) 0%,
+          var(--brand-primary) 70%,
+          var(--brand-secondary) 100%
+        );
       }
       .header {
-        margin-bottom: 0.25in;
-        padding-bottom: 0.1in;
-        border-bottom: 2px solid {{BRAND_COLOR_PRIMARY}};
+        position: relative;
+        z-index: 1;
+        margin-bottom: 0.14in;
+        padding: 0 0 0.12in;
+        border-bottom: 1.2pt solid var(--brand-primary);
+        text-align: center;
       }
       .brand {
         font-size: 9pt;
         color: #4b5563;
         margin-bottom: 0.04in;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
       }
       h1 {
         font-family: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Segoe UI", Arial, sans-serif;
         font-size: 17pt;
         margin: 0;
         color: {{BRAND_COLOR_PRIMARY}};
+        text-transform: uppercase;
       }
       .meta {
         margin-top: 0.06in;
         font-size: 8pt;
         color: #6b7280;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .program-chip {
+        width: fit-content;
+        margin: 0 auto 0.05in;
+        background: var(--brand-primary);
+        border: 0.8pt solid var(--brand-secondary);
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-family: "DIN 2014", "Segoe UI", Arial, sans-serif;
+        font-size: 6.5pt;
+        font-weight: 800;
+        padding: 2pt 10pt;
+        border-radius: 1.5pt;
+        box-shadow: inset 0 -1pt 0 var(--brand-secondary);
       }
       table {
+        position: relative;
+        z-index: 1;
         width: 100%;
         border-collapse: collapse;
+        background: #ffffff;
+        border: 0.75pt solid var(--brand-secondary);
       }
       thead th {
         text-align: left;
         font-size: 8pt;
-        letter-spacing: 0.01em;
-        color: #374151;
-        border-bottom: 1px solid #9ca3af;
-        padding: 0.06in 0.04in;
+        letter-spacing: 0.08em;
+        color: #ffffff;
+        background: var(--brand-primary);
+        border-bottom: 0.75pt solid var(--brand-secondary);
+        padding: 0.08in 0.05in;
       }
       tbody td {
         border-bottom: 1px solid #e5e7eb;
-        padding: 0.06in 0.04in;
+        padding: 0.07in 0.05in;
         vertical-align: top;
       }
       .num {
@@ -1997,26 +2059,30 @@ function buildReferencePdfHtml(sections) {
     </style>
   </head>
   <body>
-    <div class="header">
-      <div class="brand">{{BRAND_COMPANY_NAME}}</div>
-      <h1>Safety Manual Reference Guide</h1>
-      <div class="meta">Generated ${generatedOn} • Revision {{BRAND_REVISION_NUMBER}} ({{BRAND_REVISION_DATE}})</div>
-    </div>
+    <div class="reference-page">
+      <div class="reference-ribbon" aria-hidden="true"></div>
+      <div class="header">
+        <div class="brand">{{BRAND_COMPANY_NAME}}</div>
+        <div class="program-chip">MISH Program Reference</div>
+        <h1>Safety Manual Reference Guide</h1>
+        <div class="meta">Generated ${generatedOn} • Revision {{BRAND_REVISION_NUMBER}} ({{BRAND_REVISION_DATE}})</div>
+      </div>
 
-    <table aria-label="Safety manual reference index">
-      <thead>
-        <tr>
-          <th>MISH</th>
-          <th>Section Title</th>
-          <th>Category</th>
-          <th>OSHA Ref</th>
-          <th>Pages</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${rows}
-      </tbody>
-    </table>
+      <table aria-label="Safety manual reference index">
+        <thead>
+          <tr>
+            <th>MISH</th>
+            <th>Section Title</th>
+            <th>Category</th>
+            <th>OSHA Ref</th>
+            <th>Pages</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows}
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>`;
 }
@@ -2193,7 +2259,7 @@ async function generateForms() {
  *   {{FORM_REVISION}}        e.g. "2026-01"
  *   {{FORM_EFFECTIVE_DATE}}  e.g. "April 2026"
  *   {{FORM_MANUAL_SECTION}}  e.g. "MISH 09" or "—"
- *   {{FORM_OWNER}}           e.g. "Safety Director"
+ *   {{FORM_OWNER}}           e.g. "Safety Officer (Matt Ramsey)"
  */
 async function generateFormCovers() {
   const forms = await loadFormsManifest().catch(() => []);
@@ -2294,7 +2360,7 @@ async function renderFormCover(form, brandedTemplate, coversDir) {
     "{{FORM_REVISION}}": escapeHtml(form.revision || "—"),
     "{{FORM_EFFECTIVE_DATE}}": escapeHtml(form.effectiveDate || "—"),
     "{{FORM_MANUAL_SECTION}}": escapeHtml(sectionLabels),
-    "{{FORM_OWNER}}": escapeHtml(form.owner || "Safety Director"),
+    "{{FORM_OWNER}}": escapeHtml(form.owner || "Safety Officer (Matt Ramsey)"),
     "{{QR_STRIP_HTML}}": qrStripHtml,
   };
   let html = brandedTemplate;
