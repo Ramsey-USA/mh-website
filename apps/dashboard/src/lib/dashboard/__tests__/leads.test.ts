@@ -206,7 +206,9 @@ describe("leads helpers", () => {
           project_description: "Hilti guess: 247; BBQ vote: River City Q",
         }),
       ]);
-      expect(rows[0][8]).toBe("Hilti guess: 247; BBQ vote: River City Q");
+      expect(rows).toHaveLength(1);
+      expect(rows[0]).toHaveLength(LEADS_CSV_HEADERS.length);
+      expect(rows[0]?.[8]).toBe("Hilti guess: 247; BBQ vote: River City Q");
     });
     it("falls back to 0/empty for nullable fields", () => {
       const rows = leadsCsvRows([
