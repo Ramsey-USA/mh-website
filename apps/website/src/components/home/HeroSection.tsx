@@ -28,14 +28,14 @@ const HOME_HERO_WEBM = "/videos/home-hero.webm";
 const HOME_HERO_MP4 = "/videos/home-hero.mp4";
 const HOME_HERO_POSTER = "/images/home-hero-poster.jpg";
 
-function hasHomeHeroVideoAssets() {
+const HAS_HOME_HERO_VIDEO_ASSETS = (() => {
   const appPublicPath = join(process.cwd(), "public");
   return (
     existsSync(join(appPublicPath, HOME_HERO_WEBM.slice(1))) &&
     existsSync(join(appPublicPath, HOME_HERO_MP4.slice(1))) &&
     existsSync(join(appPublicPath, HOME_HERO_POSTER.slice(1)))
   );
-}
+})();
 
 /**
  * Homepage Hero Section
@@ -45,7 +45,7 @@ export function HeroSection({
   locale: _locale = "en",
   copy = DEFAULT_EN_COPY,
 }: Readonly<HeroSectionProps>) {
-  const useVideoHero = hasHomeHeroVideoAssets();
+  const useVideoHero = HAS_HOME_HERO_VIDEO_ASSETS;
 
   return (
     <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">

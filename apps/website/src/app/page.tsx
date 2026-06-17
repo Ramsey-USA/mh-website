@@ -18,7 +18,8 @@ import {
   WhyPartnerSection,
 } from "@/components/home";
 import { ServicesShowcaseDeferred } from "@/components/home/ServicesShowcaseDeferred";
-import type { TimelineStep } from "@/components/ui/Timeline";
+import { TestimonialsSectionDeferred } from "@/components/home/TestimonialsSectionDeferred";
+import { TimelineDeferred } from "@/components/home/TimelineDeferred";
 
 const CompanyStats = dynamic(
   () =>
@@ -27,24 +28,10 @@ const CompanyStats = dynamic(
     })),
   { ssr: true },
 );
-const TestimonialsSection = dynamic(
-  () =>
-    import("@/components/shared-sections").then((mod) => ({
-      default: mod.TestimonialsSection,
-    })),
-  { ssr: true },
-);
 const NextStepsSection = dynamic(
   () =>
     import("@/components/shared-sections").then((mod) => ({
       default: mod.NextStepsSection,
-    })),
-  { ssr: true },
-);
-const Timeline = dynamic(
-  () =>
-    import("@/components/ui/Timeline").then((mod) => ({
-      default: mod.Timeline,
     })),
   { ssr: true },
 );
@@ -117,35 +104,6 @@ export const metadata: Metadata = withGeoMetadata({
   },
 });
 
-const processStepMeta: Array<Pick<TimelineStep, "num" | "icon" | "position">> =
-  [
-    {
-      num: 1,
-      icon: "engineering",
-      position: "left",
-    },
-    {
-      num: 2,
-      icon: "payments",
-      position: "right",
-    },
-    {
-      num: 3,
-      icon: "verified",
-      position: "left",
-    },
-    {
-      num: 4,
-      icon: "forum",
-      position: "right",
-    },
-    {
-      num: 5,
-      icon: "task_alt",
-      position: "left",
-    },
-  ];
-
 export default async function Home() {
   // Analytics tracking remains client-only while page rendering stays server-first
 
@@ -179,10 +137,14 @@ export default async function Home() {
         type: "client",
       }) as Testimonial,
   );
-  const processSteps: TimelineStep[] = processStepMeta.map((step, index) => ({
-    ...step,
-    title: homeCopy.process.steps[index]?.title ?? "",
-    desc: homeCopy.process.steps[index]?.desc ?? "",
+  const processSteps = homeCopy.process.steps.map((step, index) => ({
+    num: index + 1,
+    icon:
+      ["engineering", "payments", "verified", "forum", "task_alt"][index] ??
+      "timeline",
+    title: step.title,
+    desc: step.desc,
+    position: index % 2 === 0 ? ("left" as const) : ("right" as const),
   }));
   const isProduction = process.env.NODE_ENV === "production";
   const requestHeaders = await headers();
@@ -232,7 +194,7 @@ export default async function Home() {
       />
 
       {/* Enhanced Client Partner Testimonials - Social proof after trust and stats */}
-      <TestimonialsSection
+      <TestimonialsSectionDeferred
         id="testimonials"
         subtitle={homeCopy.testimonials.subtitle}
         title={homeCopy.testimonials.title}
@@ -242,7 +204,7 @@ export default async function Home() {
       />
 
       {/* Our Process Timeline Section - Reinforce confidence before conversion */}
-      <Timeline
+      <TimelineDeferred
         id="our-process"
         icon="timeline"
         subtitle={homeCopy.process.subtitle}

@@ -52,7 +52,6 @@ function getRoleIcon(role: string): string {
   if (role.toLowerCase().includes("project")) return "engineering";
   if (role.toLowerCase().includes("estimat")) return "calculate";
   if (role.toLowerCase().includes("superintend")) return "construction";
-  if (role.toLowerCase().includes("foreman")) return "build";
   if (role.toLowerCase().includes("safety")) return "security";
   if (
     role.toLowerCase().includes("ceo") ||

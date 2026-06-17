@@ -1,0 +1,56 @@
+import openNextWorker from "./.open-next/worker.js";
+
+const CUTOFF_CRON_UTC = "30 20 * * *";
+
+function isCutoffCronExpression(cron: string): boolean {
+  const parts = cron.trim().split(/\s+/);
+  return parts.length === 5 && parts[0] === "30" && parts[1] === "20";
+}
+
+interface WorkerEnv {
+  NEXT_PUBLIC_SITE_URL?: string;
+  CRON_SECRET?: string;
+}
+
+interface ScheduledController {
+  cron: string;
+}
+
+interface ExecutionContext {
+  waitUntil(promise: Promise<unknown>): void;
+}
+
+export default {
+  fetch: openNextWorker.fetch,
+
+  async scheduled(
+    controller: ScheduledController,
+    env: WorkerEnv,
+    ctx: ExecutionContext,
+  ): Promise<void> {
+    if (!isCutoffCronExpression(controller.cron)) {
+      return;
+    }
+
+    const origin = env.NEXT_PUBLIC_SITE_URL ?? "https://www.mhc-gc.com";
+    const headers: Record<string, string> = {};
+
+    if (env.CRON_SECRET) {
+      headers.Authorization = `Bearer ${env.CRON_SECRET}`;
+    }
+
+    const request = new Request(`${origin}/api/event/cutoff-notify`, {
+      method: "GET",
+      headers,
+    });
+
+    const responsePromise = openNextWorker.fetch(
+      request,
+      env as Parameters<typeof openNextWorker.fetch>[1],
+      ctx as Parameters<typeof openNextWorker.fetch>[2],
+    );
+
+    ctx.waitUntil(responsePromise);
+    await responsePromise;
+  },
+};

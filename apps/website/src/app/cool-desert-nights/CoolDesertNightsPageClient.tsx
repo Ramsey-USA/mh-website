@@ -13,6 +13,7 @@ import { Button } from "@/components/ui";
 import { StripedBackground } from "@/components/ui/StripedBackground";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { useSmokeBossCampaignStatus } from "@/hooks";
+import { EventWizard } from "./EventWizard";
 
 const NextStepsSection = dynamic(
   () =>
@@ -498,6 +499,28 @@ export function CoolDesertNightsPageClient() {
                 </div>
               </div>
             </section>
+            {/* ── Booth Entry Wizard ─────────────────────────────────── */}
+            <section
+              id="booth-entry"
+              className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16"
+            >
+              <div className={`${panelClass} p-6 sm:p-8`}>
+                <div className="mb-6">
+                  <p className="text-xs font-black uppercase tracking-widest text-brand-secondary">
+                    Booth Entry
+                  </p>
+                  <h2 className="mt-1 text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
+                    Sign In, Guess &amp; Vote
+                  </h2>
+                  <p className="mt-2 max-w-2xl text-sm text-gray-600 dark:text-white/70">
+                    Three quick steps — claim your swag, enter the Hilti
+                    fastener challenge, and cast your People's Choice BBQ vote.
+                  </p>
+                </div>
+                <EventWizard />
+              </div>
+            </section>
+
             <NextStepsSection />
           </div>
         </StripedBackground>

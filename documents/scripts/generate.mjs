@@ -680,7 +680,9 @@ function replaceTabFooterBlocks(html, replacementHtml) {
       const nextOpen = html.indexOf("<div", i);
       const nextClose = html.indexOf("</div>", i);
       if (nextClose === -1) {
-        throw new Error("Malformed tabs template while replacing footer blocks");
+        throw new Error(
+          "Malformed tabs template while replacing footer blocks",
+        );
       }
       if (nextOpen !== -1 && nextOpen < nextClose) {
         depth += 1;
@@ -1208,13 +1210,12 @@ function renderSection(section, ns) {
         : "";
       const cells = (section.blocks || [])
         .map((b) => {
-          const sigName = fqName(ns, `${b.name}.sig`);
           const printName = fqName(ns, `${b.name}.print`);
           const dateName = fqName(ns, `${b.name}.date`);
           const wide = b.wide ? " sig-wide" : "";
           return `<div class="sig-cell${wide}">
               <div class="sig-role">${escapeHtml(b.role || "")}</div>
-              <div class="sig-line" data-field="${escapeAttr(sigName)}"></div>
+              <div class="sig-line"></div>
               <div class="sig-meta">
                 <div class="field-cell"><label class="field-label">Print Name</label><div class="field-line-stub" data-field="${escapeAttr(printName)}"></div></div>
                 <div class="field-cell"><label class="field-label">Date</label><div class="field-line-stub" data-field="${escapeAttr(dateName)}"></div></div>
@@ -1697,7 +1698,10 @@ async function generateLetterhead() {
       "position:fixed;left:0.92in;right:0.9in;bottom:0.62in;z-index:100;" +
       "display:grid;grid-template-columns:1.6fr 1fr;gap:18pt;align-items:end;background:var(--paper);",
   });
-  html = html.replace(/<footer class="footer">[\s\S]*?<\/footer>/, fixedFooterHtml);
+  html = html.replace(
+    /<footer class="footer">[\s\S]*?<\/footer>/,
+    fixedFooterHtml,
+  );
 
   const flowFooterHtml = buildCanonicalFormsFooterHtml({
     tag: "div",

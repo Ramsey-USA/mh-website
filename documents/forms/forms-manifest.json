@@ -241,8 +241,16 @@
                     "name": "presenterSig"
                   },
                   {
-                    "role": "Site Supervisor",
+                    "role": "Project Superintendent (Site Supervisor)",
                     "name": "supSig"
+                  },
+                  {
+                    "role": "Project Manager",
+                    "name": "pmSig"
+                  },
+                  {
+                    "role": "Safety Officer",
+                    "name": "soSig"
                   }
                 ]
               }
@@ -296,7 +304,7 @@
                   },
                   {
                     "name": "crewLead",
-                    "label": "Crew Lead"
+                    "label": "Project Superintendent"
                   },
                   {
                     "name": "crewSize",
@@ -417,12 +425,12 @@
                 "refNote": "By signing, crew members acknowledge they have reviewed this JHA and understand the hazards and controls.",
                 "blocks": [
                   {
-                    "role": "Crew Lead",
+                    "role": "Project Superintendent",
                     "name": "leadSig"
                   },
                   {
-                    "role": "Site Supervisor",
-                    "name": "supSig"
+                    "role": "Project Manager",
+                    "name": "pmSig"
                   },
                   {
                     "role": "Safety Officer",
@@ -766,13 +774,16 @@
                     "name": "sup"
                   },
                   {
-                    "role": "Safety Officer — Matt Ramsey",
+                    "role": "Project Manager",
+                    "name": "pm"
+                  },
+                  {
+                    "role": "Safety Officer",
                     "name": "so"
                   },
                   {
                     "role": "President — Jeremy Thamert",
-                    "name": "pres",
-                    "wide": true
+                    "name": "pres"
                   }
                 ]
               }
@@ -1003,7 +1014,11 @@
                     "name": "sup"
                   },
                   {
-                    "role": "Safety Officer — Matt Ramsey",
+                    "role": "Project Manager",
+                    "name": "pm"
+                  },
+                  {
+                    "role": "Safety Officer",
                     "name": "so",
                     "wide": true
                   }
@@ -1207,9 +1222,16 @@
                     "name": "inspectorSig"
                   },
                   {
-                    "role": "Site Supervisor",
-                    "name": "supSig",
-                    "wide": true
+                    "role": "Project Superintendent (Site Supervisor)",
+                    "name": "supSig"
+                  },
+                  {
+                    "role": "Project Manager",
+                    "name": "pmSig"
+                  },
+                  {
+                    "role": "Safety Officer",
+                    "name": "soSig"
                   }
                 ]
               }
@@ -1381,13 +1403,20 @@
                 "title": "Verification",
                 "blocks": [
                   {
-                    "role": "Orientator",
+                    "role": "Presenter",
                     "name": "orientatorSig"
                   },
                   {
-                    "role": "Site Supervisor",
-                    "name": "supSig",
-                    "wide": true
+                    "role": "Project Superintendent (Site Supervisor)",
+                    "name": "supSig"
+                  },
+                  {
+                    "role": "Project Manager",
+                    "name": "pmSig"
+                  },
+                  {
+                    "role": "Safety Officer",
+                    "name": "soSig"
                   }
                 ]
               }
@@ -1549,7 +1578,7 @@
                 "refNote": "By signing, the company executive certifies that the information is true, accurate, and complete (29 CFR 1904.32).",
                 "blocks": [
                   {
-                    "role": "Safety Officer (Matt Ramsey)",
+                    "role": "Safety Officer",
                     "name": "sdSig"
                   },
                   {
@@ -1666,7 +1695,7 @@
                 "title": "Submission",
                 "blocks": [
                   {
-                    "role": "Safety Officer (Matt Ramsey)",
+                    "role": "Safety Officer",
                     "name": "sdSig"
                   },
                   {
@@ -1803,7 +1832,7 @@
                     "width": "22%"
                   }
                 ],
-                "rows": 7
+                "rows": 13
               }
             ]
           },
@@ -1856,7 +1885,11 @@
                     "name": "empSig"
                   },
                   {
-                    "role": "Safety Officer (Matt Ramsey)",
+                    "role": "Chief Superintendent",
+                    "name": "chiefSupSig"
+                  },
+                  {
+                    "role": "Safety Officer",
                     "name": "sdSig",
                     "wide": true
                   }
@@ -2001,20 +2034,6 @@
                 ]
               },
               {
-                "type": "narrative",
-                "title": "Permits / Special Procedures Required",
-                "subtitle": "List any hot-work, confined-space, excavation, or LOTO permits in effect",
-                "name": "permits",
-                "height": "1.00in"
-              }
-            ]
-          },
-          {
-            "kind": "cont",
-            "title": "Pre-Task Safety Plan (continued)",
-            "pageLabel": "Page 2",
-            "sections": [
-              {
                 "type": "dataTable",
                 "title": "Job Hazard Analysis (JHA)",
                 "name": "jha",
@@ -2034,6 +2053,20 @@
                 ],
                 "rows": 6
               },
+              {
+                "type": "narrative",
+                "title": "Permits / Special Procedures Required",
+                "subtitle": "List any hot-work, confined-space, excavation, or LOTO permits in effect",
+                "name": "permits",
+                "height": "1.00in"
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Pre-Task Safety Plan (continued)",
+            "pageLabel": "Page 2",
+            "sections": [
               {
                 "type": "fieldGrid",
                 "title": "Emergency Information",
@@ -2088,11 +2121,19 @@
                 "refNote": "This PTSP must be re-evaluated whenever conditions, scope, or crew changes. Retain with the daily site safety inspection per <strong>WAC 296-155-110</strong>.",
                 "blocks": [
                   {
-                    "role": "Foreman / Lead",
-                    "name": "foreman"
+                    "role": "Project Superintendent",
+                    "name": "projectSuperintendent"
                   },
                   {
-                    "role": "Safety Officer — Matt Ramsey",
+                    "role": "Chief Superintendent",
+                    "name": "chiefSuperintendent"
+                  },
+                  {
+                    "role": "Project Manager",
+                    "name": "projectManager"
+                  },
+                  {
+                    "role": "Safety Officer",
                     "name": "so"
                   }
                 ]
@@ -2130,6 +2171,10 @@
                 "columns": 3,
                 "items": [
                   {
+                    "name": "noticeId",
+                    "label": "Notice ID"
+                  },
+                  {
                     "name": "noticeDate",
                     "label": "Notice Date"
                   },
@@ -2151,7 +2196,11 @@
                   },
                   {
                     "name": "reportedBy",
-                    "label": "Reported By"
+                    "label": "Reported By (MH Internal)"
+                  },
+                  {
+                    "name": "clientContact",
+                    "label": "Client Contact (Owner/Client)"
                   }
                 ]
               },
@@ -2192,6 +2241,18 @@
                   {
                     "name": "ownerDirected",
                     "label": "Owner / Client Directed"
+                  },
+                  {
+                    "name": "trafficControl",
+                    "label": "Traffic Control"
+                  },
+                  {
+                    "name": "accessRestriction",
+                    "label": "Access Restriction"
+                  },
+                  {
+                    "name": "permitDelay",
+                    "label": "Permit / Inspection Delay"
                   }
                 ]
               },
@@ -2215,6 +2276,14 @@
                   {
                     "name": "affectedSystems",
                     "label": "Affected Systems / Operations"
+                  },
+                  {
+                    "name": "downtimeEstimate",
+                    "label": "Estimated Downtime (hrs)"
+                  },
+                  {
+                    "name": "restartAuthorizedBy",
+                    "label": "Restart Authorized By (MH Internal Approver)"
                   }
                 ]
               },
@@ -2223,7 +2292,132 @@
                 "title": "Interruption Details & Safe Work Controls",
                 "subtitle": "Cause, immediate controls, communication, restart criteria",
                 "name": "details",
-                "height": "0.95in"
+                "height": "1.35in"
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "title": "Service Interruption Notice (Authorization)",
+            "pageLabel": "Page 2",
+            "sections": [
+              {
+                "type": "dataTable",
+                "title": "Notification Log",
+                "name": "notifyLog",
+                "columns": [
+                  {
+                    "header": "Stakeholder / Team",
+                    "width": "34%"
+                  },
+                  {
+                    "header": "Method",
+                    "width": "20%"
+                  },
+                  {
+                    "header": "Time Notified",
+                    "width": "23%"
+                  },
+                  {
+                    "header": "Acknowledged (Y/N)",
+                    "width": "23%"
+                  }
+                ],
+                "rows": 4
+              },
+              {
+                "type": "checkGrid",
+                "title": "Service Restoration Checklist",
+                "subtitle": "Confirm each item before restart",
+                "columns": 4,
+                "items": [
+                  {
+                    "name": "chkHazardControls",
+                    "label": "Hazard controls in place"
+                  },
+                  {
+                    "name": "chkAreaInspected",
+                    "label": "Work area inspected and clear"
+                  },
+                  {
+                    "name": "chkPermitStatus",
+                    "label": "Permits reviewed / closed"
+                  },
+                  {
+                    "name": "chkUtilitiesTested",
+                    "label": "Utilities tested and stable"
+                  },
+                  {
+                    "name": "chkCrewBriefed",
+                    "label": "Affected crews briefed"
+                  },
+                  {
+                    "name": "chkAccessRestored",
+                    "label": "Access controls restored"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Traffic Control Plan Details",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "tcpPlanRef",
+                    "label": "Traffic Control Plan Ref #"
+                  },
+                  {
+                    "name": "tcpSupervisor",
+                    "label": "Traffic Control Supervisor"
+                  },
+                  {
+                    "name": "tcpSetupStart",
+                    "label": "Setup Start (Date / Time)"
+                  },
+                  {
+                    "name": "tcpSetupEnd",
+                    "label": "Setup End (Date / Time)"
+                  },
+                  {
+                    "name": "tcpLaneImpact",
+                    "label": "Lane/Area Affected"
+                  },
+                  {
+                    "name": "tcpDetourFlagging",
+                    "label": "Detour / Flagging Required"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Closeout Verification",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "actualRestore",
+                    "label": "Actual Restore (Date / Time)"
+                  },
+                  {
+                    "name": "downtimeActual",
+                    "label": "Actual Downtime (hrs)"
+                  },
+                  {
+                    "name": "followupOwner",
+                    "label": "Follow-Up Action Owner"
+                  },
+                  {
+                    "name": "followupDue",
+                    "label": "Follow-Up Due Date"
+                  },
+                  {
+                    "name": "clientNotifiedAt",
+                    "label": "Client Notified (Date / Time)"
+                  },
+                  {
+                    "name": "documentationFiledBy",
+                    "label": "Documentation Filed By"
+                  }
+                ]
               },
               {
                 "type": "signatures",
@@ -2231,12 +2425,27 @@
                 "refNote": "Notify impacted supervisors and client contacts before work resumes. Retain with project safety documentation.",
                 "blocks": [
                   {
-                    "role": "Site Supervisor",
+                    "role": "Project Superintendent (Site Supervisor)",
                     "name": "siteSup"
                   },
                   {
+                    "role": "Project Manager",
+                    "name": "projectManager"
+                  }
+                ]
+              },
+              {
+                "type": "signatures",
+                "title": "Final Verification",
+                "refNote": "Complete this section after service is restored and closeout checks are finished.",
+                "blocks": [
+                  {
                     "role": "Safety Officer",
                     "name": "safetyOfficer"
+                  },
+                  {
+                    "role": "Project Engineer",
+                    "name": "projectEngineer"
                   }
                 ]
               }
@@ -2374,13 +2583,69 @@
                 "height": "1.4in"
               },
               {
+                "type": "checkGrid",
+                "title": "Applicant Acknowledgments",
+                "subtitle": "Check each statement to confirm understanding",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "ackConsentVoluntary",
+                    "label": "I understand testing is required for conditional employment"
+                  },
+                  {
+                    "name": "ackRefusal",
+                    "label": "I understand refusal may disqualify employment"
+                  },
+                  {
+                    "name": "ackMedicationDisclosure",
+                    "label": "I have disclosed medications that may affect results"
+                  },
+                  {
+                    "name": "ackReleaseResults",
+                    "label": "I authorize release of results to MH Construction HR"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Review & Disposition",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "mroName",
+                    "label": "MRO / Reviewer Name"
+                  },
+                  {
+                    "name": "mroContact",
+                    "label": "MRO Contact"
+                  },
+                  {
+                    "name": "resultStatus",
+                    "label": "Result Status (Negative / Pending / Non-Negative)"
+                  },
+                  {
+                    "name": "reviewDate",
+                    "label": "Review Date"
+                  },
+                  {
+                    "name": "hrDecision",
+                    "label": "HR Disposition"
+                  },
+                  {
+                    "name": "startEligibility",
+                    "label": "Start Eligibility Date"
+                  }
+                ]
+              },
+              {
                 "type": "signatures",
                 "title": "Consent & Authorization",
                 "refNote": "By signing, applicant consents to substance testing as a condition of employment and authorizes release of results to MH Construction HR.",
                 "blocks": [
                   {
                     "role": "Applicant",
-                    "name": "applicantSig"
+                    "name": "applicantSig",
+                    "wide": true
                   },
                   {
                     "role": "Witness (HR)",
@@ -2514,12 +2779,7 @@
                     "label": "Crew"
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "kind": "cont",
-            "sections": [
+              },
               {
                 "type": "fieldGrid",
                 "title": "Collection Site & Time",
@@ -2544,6 +2804,113 @@
                 ]
               },
               {
+                "type": "checkGrid",
+                "title": "Authorized Test Scope",
+                "subtitle": "Check all tests authorized for this event",
+                "columns": 3,
+                "items": [
+                  {
+                    "name": "scopeDrug",
+                    "label": "Drug Screen"
+                  },
+                  {
+                    "name": "scopeAlcohol",
+                    "label": "Alcohol (BAT)"
+                  },
+                  {
+                    "name": "scopeObserved",
+                    "label": "Observed Collection"
+                  },
+                  {
+                    "name": "scopeDot",
+                    "label": "DOT Protocol"
+                  },
+                  {
+                    "name": "scopeNondot",
+                    "label": "Non-DOT Protocol"
+                  },
+                  {
+                    "name": "scopeSplit",
+                    "label": "Split Sample Requested"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "sections": [
+              {
+                "type": "fieldGrid",
+                "title": "Custody & Transport",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "chainCustody",
+                    "label": "Chain of Custody Form #"
+                  },
+                  {
+                    "name": "transportBy",
+                    "label": "Transported By"
+                  },
+                  {
+                    "name": "arrivalTime",
+                    "label": "Arrival Time at Collection Site"
+                  },
+                  {
+                    "name": "testStatus",
+                    "label": "Test Status (Completed / Refused / Pending)"
+                  }
+                ]
+              },
+              {
+                "type": "checkGrid",
+                "title": "Timeline Compliance",
+                "subtitle": "Document required post-incident testing windows",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "within2h",
+                    "label": "Collection started within 2 hours"
+                  },
+                  {
+                    "name": "within8h",
+                    "label": "Drug test completed within 8 hours"
+                  },
+                  {
+                    "name": "within32h",
+                    "label": "Alcohol test completed within 32 hours"
+                  },
+                  {
+                    "name": "delayExplained",
+                    "label": "Any delay documented and explained"
+                  }
+                ]
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Result & Disposition Tracking",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "labResult",
+                    "label": "Lab Result (Negative / Non-Negative / Pending)"
+                  },
+                  {
+                    "name": "resultDate",
+                    "label": "Result Received Date"
+                  },
+                  {
+                    "name": "mroName",
+                    "label": "MRO / Reviewer Name"
+                  },
+                  {
+                    "name": "hrDisposition",
+                    "label": "HR Disposition"
+                  }
+                ]
+              },
+              {
                 "type": "signatures",
                 "title": "Authorization",
                 "refNote": "By signing, the employee consents to post-accident testing per the MH Construction substance abuse policy. Refusal is grounds for termination per policy.",
@@ -2553,13 +2920,20 @@
                     "name": "empSig"
                   },
                   {
-                    "role": "Site Supervisor",
+                    "role": "Project Superintendent (Site Supervisor)",
                     "name": "supSig"
                   },
                   {
-                    "role": "Safety Officer (Matt Ramsey)",
-                    "name": "sdSig",
-                    "wide": true
+                    "role": "Project Manager",
+                    "name": "pmSig"
+                  },
+                  {
+                    "role": "Safety Officer",
+                    "name": "sdSig"
+                  },
+                  {
+                    "role": "HR Representative",
+                    "name": "hrSig"
                   }
                 ]
               }
@@ -2721,12 +3095,30 @@
                     "label": "Odor of Alcohol / Cannabis"
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "kind": "cont",
-            "sections": [
+              },
+              {
+                "type": "fieldGrid",
+                "title": "Contemporaneous Witness",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "witnessName",
+                    "label": "Witness Name"
+                  },
+                  {
+                    "name": "witnessTitle",
+                    "label": "Witness Title / Role"
+                  },
+                  {
+                    "name": "witnessContact",
+                    "label": "Witness Contact"
+                  },
+                  {
+                    "name": "witnessStatementTaken",
+                    "label": "Witness Statement Taken (Y/N)"
+                  }
+                ]
+              },
               {
                 "type": "narrative",
                 "title": "Specific Articulable Facts",
@@ -2735,9 +3127,40 @@
                 "height": "1.6in"
               },
               {
+                "type": "checkGrid",
+                "title": "Immediate Safety Actions",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "actRemovedDuty",
+                    "label": "Employee removed from safety-sensitive duty"
+                  },
+                  {
+                    "name": "actEscorted",
+                    "label": "Employee escorted from active work area"
+                  },
+                  {
+                    "name": "actNoDrive",
+                    "label": "Employee prohibited from driving"
+                  },
+                  {
+                    "name": "actHrNotified",
+                    "label": "HR notified"
+                  },
+                  {
+                    "name": "actPmNotified",
+                    "label": "Project manager notified"
+                  },
+                  {
+                    "name": "actSafetyNotified",
+                    "label": "Safety officer notified"
+                  }
+                ]
+              },
+              {
                 "type": "signatures",
-                "title": "Verification",
-                "refNote": "Two trained supervisors should concur where practical.",
+                "title": "Verification and Review",
+                "refNote": "Two trained supervisors should concur where practical; PM and HR sign to acknowledge review of the referral and disposition.",
                 "blocks": [
                   {
                     "role": "Observing Supervisor",
@@ -2748,9 +3171,48 @@
                     "name": "sup2Sig"
                   },
                   {
-                    "role": "Safety Officer (Matt Ramsey)",
-                    "name": "sdSig",
-                    "wide": true
+                    "role": "Safety Officer",
+                    "name": "sdSig"
+                  },
+                  {
+                    "role": "Project Manager Review",
+                    "name": "pmSig"
+                  },
+                  {
+                    "role": "HR Review",
+                    "name": "hrSig"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "sections": [
+              {
+                "type": "signatures",
+                "title": "Verification and Review",
+                "refNote": "Two trained supervisors should concur where practical; PM and HR sign to acknowledge review of the referral and disposition.",
+                "blocks": [
+                  {
+                    "role": "Observing Supervisor",
+                    "name": "sup1Sig"
+                  },
+                  {
+                    "role": "Concurring Supervisor",
+                    "name": "sup2Sig"
+                  },
+                  {
+                    "role": "Safety Officer",
+                    "name": "sdSig"
+                  },
+                  {
+                    "role": "Project Manager Review",
+                    "name": "pmSig"
+                  },
+                  {
+                    "role": "HR Review",
+                    "name": "hrSig"
                   }
                 ]
               }
@@ -2918,8 +3380,15 @@
                   },
                   {
                     "role": "Fleet Manager",
-                    "name": "fmSig",
-                    "wide": true
+                    "name": "fmSig"
+                  },
+                  {
+                    "role": "Senior Superintendent",
+                    "name": "ssSig"
+                  },
+                  {
+                    "role": "HR Representative",
+                    "name": "hrSig"
                   }
                 ]
               }
@@ -3410,7 +3879,7 @@
                     "name": "sup"
                   },
                   {
-                    "role": "Safety Officer — Matt Ramsey",
+                    "role": "Safety Officer",
                     "name": "so",
                     "wide": true
                   }
@@ -3623,7 +4092,7 @@
                     "name": "operatorSig"
                   },
                   {
-                    "role": "Site Supervisor",
+                    "role": "Project Superintendent (Site Supervisor)",
                     "name": "supSig",
                     "wide": true
                   }

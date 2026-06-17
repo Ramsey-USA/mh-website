@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-11T00:12:34.288Z",
+  "generatedAt": "2026-06-17T01:40:40.642Z",
   "baseUrl": "https://www.mhc-gc.com",
   "outputDirectory": "public/images/qr-codes",
   "folders": [
@@ -8,6 +8,7 @@
     "rfq",
     "safety",
     "social",
+    "events",
     "safety-sections",
     "safety-forms",
     "team"
@@ -812,6 +813,28 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/safety/hub",
       "description": "Safety Hub (Employee Operations)",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "cdn-booth-entry",
+      "filename": "qr-cdn-booth-entry-color.png",
+      "relativePath": "events/qr-cdn-booth-entry-color.png",
+      "folder": "events",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/cool-desert-nights#booth-entry",
+      "description": "Cool Desert Nights 2026 — Booth Entry Wizard",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "cdn-booth-entry",
+      "filename": "qr-cdn-booth-entry-bw.png",
+      "relativePath": "events/qr-cdn-booth-entry-bw.png",
+      "folder": "events",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/cool-desert-nights#booth-entry",
+      "description": "Cool Desert Nights 2026 — Booth Entry Wizard",
       "success": true,
       "error": null
     },

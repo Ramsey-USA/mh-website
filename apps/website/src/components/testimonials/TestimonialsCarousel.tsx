@@ -52,7 +52,7 @@ export function TestimonialsCarousel({
   if (testimonials.length === 0) {
     return (
       <div className={`relative mx-auto max-w-5xl ${className}`}>
-        <div className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center min-h-[400px]">
+        <div className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center min-h-100">
           <MaterialIcon
             icon="construction"
             size="4xl"

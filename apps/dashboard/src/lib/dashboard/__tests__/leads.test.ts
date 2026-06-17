@@ -122,6 +122,9 @@ describe("leads helpers", () => {
     it("uses friendly label when known", () => {
       expect(getSourceLabel("contact_form")).toBe("Contact Form");
     });
+    it("labels booth event leads for csv exports", () => {
+      expect(getSourceLabel("event_booth")).toBe("Event Booth");
+    });
     it("falls back to raw source when unknown", () => {
       expect(getSourceLabel("zapier")).toBe("zapier");
     });
@@ -196,6 +199,14 @@ describe("leads helpers", () => {
       const rows = leadsCsvRows([makeLead()]);
       expect(rows).toHaveLength(1);
       expect(rows[0]).toHaveLength(LEADS_CSV_HEADERS.length);
+    });
+    it("includes project description in the csv row", () => {
+      const rows = leadsCsvRows([
+        makeLead({
+          project_description: "Hilti guess: 247; BBQ vote: River City Q",
+        }),
+      ]);
+      expect(rows[0][8]).toBe("Hilti guess: 247; BBQ vote: River City Q");
     });
     it("falls back to 0/empty for nullable fields", () => {
       const rows = leadsCsvRows([

@@ -1137,13 +1137,12 @@ function renderSection(section, ns) {
         : "";
       const cells = (section.blocks || [])
         .map((b) => {
-          const sigName = fqName(ns, `${b.name}.sig`);
           const printName = fqName(ns, `${b.name}.print`);
           const dateName = fqName(ns, `${b.name}.date`);
           const wide = b.wide ? " sig-wide" : "";
           return `<div class="sig-cell${wide}">
               <div class="sig-role">${escapeHtml(b.role || "")}</div>
-              <div class="sig-line" data-field="${escapeAttr(sigName)}"></div>
+              <div class="sig-line"></div>
               <div class="sig-meta">
                 <div class="field-cell"><label class="field-label">Print Name</label><div class="field-line-stub" data-field="${escapeAttr(printName)}"></div></div>
                 <div class="field-cell"><label class="field-label">Date</label><div class="field-line-stub" data-field="${escapeAttr(dateName)}"></div></div>

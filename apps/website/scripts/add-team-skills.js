@@ -27,10 +27,7 @@ function generateSkills(member) {
     role.includes("project") ||
     role.includes("estimat") ||
     role.includes("manager");
-  const isField =
-    role.includes("superintend") ||
-    role.includes("foreman") ||
-    role.includes("field");
+  const isField = role.includes("superintend") || role.includes("field");
   const isAdmin = role.includes("admin") || role.includes("coordinator");
 
   // Base experience factor (scales 60-95 based on years)

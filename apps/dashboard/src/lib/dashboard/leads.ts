@@ -87,6 +87,7 @@ export const SOURCE_LABELS: Readonly<Record<string, string>> = {
   phone_call: "Phone Call",
   referral: "Referral",
   walk_in: "Walk-in",
+  event_booth: "Event Booth",
 };
 
 export interface AssigneeOption {
@@ -243,6 +244,7 @@ export const LEADS_CSV_HEADERS = [
   "Source",
   "Project Type",
   "Project Location",
+  "Project Description",
   "Status",
   "Priority",
   "Estimated Value",
@@ -265,6 +267,7 @@ export function leadsCsvRows(
     getSourceLabel(l.source),
     l.project_type ?? "",
     l.project_location ?? "",
+    l.project_description ?? "",
     STATUS_LABELS[l.status],
     l.priority,
     l.estimated_value ?? 0,

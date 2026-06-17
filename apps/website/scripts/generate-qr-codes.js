@@ -384,6 +384,15 @@ const QR_CODES = [
     description: "Safety Hub (Employee Operations)",
     label: "SAFETY HUB",
   },
+
+  // Events
+  {
+    name: "cdn-booth-entry",
+    url: `${BASE_URL}/cool-desert-nights#booth-entry`,
+    description: "Cool Desert Nights 2026 — Booth Entry Wizard",
+    label: "CDN 2026 BOOTH ENTRY",
+    folder: "events",
+  },
 ];
 
 // Safety Manual sections — loaded from canonical JSON so the QR pipeline,
@@ -484,6 +493,7 @@ function getFolderForQR(name) {
   ) {
     return "contact";
   }
+  if (name.startsWith("cdn-") || name.startsWith("event-")) return "events";
   return "core";
 }
 

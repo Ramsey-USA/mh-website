@@ -1,13 +1,13 @@
 # QR Codes for MH Construction
 
-Generated: 5/11/2026, 12:12:34 AM
+Generated: 6/17/2026, 1:40:40 AM
 
 ## Summary
 
-- **Total QR Codes:** 228
-- **Successfully Generated:** 228
+- **Total QR Codes:** 230
+- **Successfully Generated:** 230
 - **Location:** `public/images/qr-codes`
-- **Folders:** `core`, `contact`, `rfq`, `safety`, `social`, `safety-sections`, `safety-forms`, `team`
+- **Folders:** `core`, `contact`, `rfq`, `safety`, `social`, `events`, `safety-sections`, `safety-forms`, `team`
 
 ## Available QR Codes
 
@@ -430,6 +430,18 @@ Generated: 5/11/2026, 12:12:34 AM
 - **Name:** `safety-dashboard`
 - **File:** `safety/qr-safety-dashboard-bw.png`
 - **URL:** <https://www.mhc-gc.com/safety/hub>
+
+### ✅ Cool Desert Nights 2026 — Booth Entry Wizard
+
+- **Name:** `cdn-booth-entry`
+- **File:** `events/qr-cdn-booth-entry-color.png`
+- **URL:** <https://www.mhc-gc.com/cool-desert-nights#booth-entry>
+
+### ✅ Cool Desert Nights 2026 — Booth Entry Wizard
+
+- **Name:** `cdn-booth-entry`
+- **File:** `events/qr-cdn-booth-entry-bw.png`
+- **URL:** <https://www.mhc-gc.com/cool-desert-nights#booth-entry>
 
 ### ✅ Safety Manual Section 01: Safety Health Program Overview
 
