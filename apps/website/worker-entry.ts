@@ -1,7 +1,5 @@
 import openNextWorker from "./.open-next/worker.js";
 
-const CUTOFF_CRON_UTC = "30 20 * * *";
-
 function isCutoffCronExpression(cron: string): boolean {
   const parts = cron.trim().split(/\s+/);
   return parts.length === 5 && parts[0] === "30" && parts[1] === "20";
@@ -36,7 +34,7 @@ export default {
     const headers: Record<string, string> = {};
 
     if (env.CRON_SECRET) {
-      headers.Authorization = `Bearer ${env.CRON_SECRET}`;
+      headers["Authorization"] = `Bearer ${env.CRON_SECRET}`;
     }
 
     const request = new Request(`${origin}/api/event/cutoff-notify`, {

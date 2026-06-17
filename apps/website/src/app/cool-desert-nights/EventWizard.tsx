@@ -53,7 +53,6 @@ const BBQ_CONTESTANTS = CDN_TEAM_OPTIONS.map((team) => ({
 
 // ── Validation helpers ──────────────────────────────────────────────────────
 
-const PHONE_RE = /^\d{10}$/;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 function validatePhone(v: string): string {
@@ -164,7 +163,7 @@ function StepIndicator({ current }: { current: 1 | 2 | 3 }) {
 interface FieldProps {
   label: string;
   id: string;
-  error?: string;
+  error?: string | undefined;
   hint?: string;
   children: React.ReactNode;
 }
@@ -532,6 +531,8 @@ export function EventWizard() {
     email: false,
     hiltiguess: false,
     bbqVote: false,
+    hiltiContactOptIn: false,
+    mhcProjectInquiryOptIn: false,
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -833,6 +834,8 @@ export function EventWizard() {
                 email: true,
                 hiltiguess: false,
                 bbqVote: false,
+                hiltiContactOptIn: false,
+                mhcProjectInquiryOptIn: false,
               });
               if (step1Valid) setStep(2);
             }}
