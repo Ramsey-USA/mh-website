@@ -78,6 +78,7 @@ binding = "ASSETS"
 # the dashboard setting is redundant but still recommended for clarity.
 [vars]
 NEXT_PUBLIC_SITE_URL = "https://www.mhc-gc.com"
+CDN26_EVENT_DATE_PT = "2026-06-18"
 # Google Analytics measurement ID — replace with the real G-XXXXXXXXXX value.
 # NEXT_PUBLIC_* vars are baked into the client bundle at build time; they must be
 # present here (or in the CF dashboard) before running `wrangler deploy`.
