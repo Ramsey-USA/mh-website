@@ -1,7 +1,7 @@
 # Project Documentation
 
 **Category:** Project - Overview  
-**Last Updated:** May 15, 2026
+**Last Updated:** June 21, 2026
 
 ## Overview
 
@@ -9,6 +9,12 @@ High-level project architecture, audit history, and the cross-surface congruency
 the website, PWA, and operational documents.
 
 All project documentation should preserve the same brand voice, trust framing, and SEO naming used in the canonical branding and development standards.
+
+## Current Snapshot
+
+- Platform remains production-live on Cloudflare Workers with OpenNext deployment flow.
+- Current app stack in repo: Next.js 16.2.9, React 19.2.7, Tailwind CSS 4.3.1, TypeScript 6.0.3.
+- Latest structural release update: June 21, 2026 hero-to-navigation spacing standardization (see changelog).
 
 **Brand Congruency:** Project planning and architecture updates must also keep typography and color guidance aligned with canonical MH standards.
 

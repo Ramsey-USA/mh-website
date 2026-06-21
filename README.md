@@ -66,28 +66,27 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ---
 
-## Project Status (May 15, 2026)
+## Project Status (June 21, 2026)
 
 **Branding Congruency:** All public-facing copy in this repository must stay aligned with the canonical branding, trust, accessibility, and SEO naming standards in the docs.
 
 ### Production-Ready Platform
 
-| Metric               | Status    | Details                                                                                                                                                                                           |
-| -------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Build**            | Passing   | ~33s compilation, zero errors                                                                                                                                                                     |
-| **Deployed**         | Live      | Cloudflare Workers — mhc-gc.com                                                                                                                                                                   |
-| **TypeScript**       | Strict    | Zero type errors                                                                                                                                                                                  |
-| **ESLint**           | Clean     | Zero lint warnings, zero errors                                                                                                                                                                   |
-| **Tests**            | Passing   | CI and focused safety/hub suites green                                                                                                                                                            |
-| **Coverage**         | Strong    | Maintained via `pnpm --filter @mhc/website run test:coverage`                                                                                                                                     |
-| **Nightly Coverage** | Monitored | [![Nightly Coverage](https://github.com/Ramsey-USA/mh-website/actions/workflows/nightly-coverage.yml/badge.svg)](https://github.com/Ramsey-USA/mh-website/actions/workflows/nightly-coverage.yml) |
-| **SEO**              | External  | Audit via external tools                                                                                                                                                                          |
-| **Lighthouse**       | External  | Audit via PageSpeed/DevTools                                                                                                                                                                      |
-| **Bundle Size**      | 240 kB    | Production optimized                                                                                                                                                                              |
-| **Dark Mode**        | Complete  | Full theme support                                                                                                                                                                                |
-| **PWA**              | PWA-first | Offline-ready, 5-layer caching, PWA-only sections via `usePWA` + `PWAOnly`                                                                                                                        |
-| **Analytics**        | Live      | 100% page coverage, dashboard active                                                                                                                                                              |
-| **Documentation**    | Optimized | Indexed under [docs/index.md](docs/index.md), zero bloat                                                                                                                                          |
+- **Build:** Active — OpenNext Cloudflare build pipeline (`pnpm --filter @mhc/website build`)
+- **Deployed:** Live — Cloudflare Workers (`mhc-gc.com`)
+- **Framework Stack:** Current — Next.js 16.2.9, React 19.2.7, Tailwind CSS 4.3.1, TypeScript 6.0.3
+- **TypeScript:** Strict — `type-check` workflow maintained in scripts and CI gate
+- **ESLint:** Enforced — lint commands are part of local and CI quality gates
+- **Tests:** Active — Jest suites for website and dashboard remain in CI workflows
+- **Coverage:** Monitored — `pnpm --filter @mhc/website run test:coverage`
+- **Nightly Coverage:** Monitored — [![Nightly Coverage](https://github.com/Ramsey-USA/mh-website/actions/workflows/nightly-coverage.yml/badge.svg)](https://github.com/Ramsey-USA/mh-website/actions/workflows/nightly-coverage.yml)
+- **SEO:** External validation via external tools
+- **Lighthouse:** Tracked via committed artifacts in `lighthouse-results/*.json` and `lighthouse-results/retest-2026-05-17-all-final/`
+- **Bundle Size:** Measured with `pnpm --filter @mhc/website run bundle:report`
+- **Dark Mode:** Complete
+- **PWA:** PWA-first — offline-ready, 5-layer caching, PWA-only sections via `usePWA` + `PWAOnly`
+- **Analytics:** Live — dashboard and event tracking active
+- **Documentation:** Optimized — indexed under [docs/index.md](docs/index.md)
 
 ### Recent Changes
 
@@ -102,6 +101,10 @@ monitors (Health API, Twilio, Resend, Cloudflare Status); D1 preview database
 routing bug fixed; tj-actions CVE remediated (v44 → v46.0.1); observability
 (logs + traces, 100% sampling) enabled. Documentation audit (earlier): brand
 consistency fixes across all markdown files.
+
+**Jun 21 highlights:** Hero-to-navigation spacing standardization completed across
+shared hero components and route-level hero banners with reusable safe-area
+utilities in `apps/website/src/app/globals.css`.
 
 **Apr 18 highlights:** Safety and Operational Hub congruency normalization complete
 around canonical `/hub` routing (with active backward-compat redirect from
@@ -748,5 +751,5 @@ Jeremy Thamert, continuing 16 years of construction excellence with renewed vete
 
 ---
 
-**Last Updated:** May 4, 2026  
-**Documentation Version:** 4.1 (docs index hierarchy added)
+**Last Updated:** June 21, 2026  
+**Documentation Version:** 4.2 (status and platform snapshot refresh)

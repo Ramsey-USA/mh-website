@@ -168,7 +168,7 @@ Release validation pattern:
 
 Use this worksheet for each release:
 
-- [apps/website/docs/performance/performance-triage-template.md](../performance/performance-triage-template.md)
+- [docs/performance/performance-triage-template.md](../performance/performance-triage-template.md)
 
 ---
 
@@ -564,35 +564,15 @@ For questions, contact the development team.
 
 ### Components Created
 
-1. **AdminSignInModal Component** (`apps/website/src/components/ui/modals/AdminSignInModal.tsx`)
-   - Secure authentication modal
-   - Form validation
-   - Error handling
-   - JWT token management
+1. **AdminSignInModal Component** (`apps/website/src/components/ui/modals/AdminSignInModal.tsx`) - Secure authentication modal with form validation, error handling, and JWT token management.
 
-2. **Dashboard Page** (`apps/dashboard/src/app/dashboard/page.tsx`)
-   - Comprehensive analytics visualization
-   - Real-time data updates
-   - Protected route with authentication check
-   - Responsive design for mobile/desktop
+1. **Dashboard Page** (`apps/dashboard/src/app/dashboard/page.tsx`) - Comprehensive analytics visualization with real-time updates, protected-route auth checks, and responsive layout support.
 
-3. **Admin Login API** (`apps/dashboard/src/app/api/auth/admin-login/route.ts`)
-   - JWT token generation
-   - Credential verification
-   - Security logging
-   - Rate limiting via middleware
+1. **Admin Login API** (`apps/dashboard/src/app/api/auth/admin-login/route.ts`) - JWT token generation, credential verification, security logging, and middleware rate limiting.
 
-4. **Analytics Dashboard API** (`apps/dashboard/src/app/api/analytics/dashboard/route.ts`)
+1. **Analytics Dashboard API** (`apps/dashboard/src/app/api/analytics/dashboard/route.ts`) - Admin analytics retrieval with role-based access, 30-second Worker Cache support, and graceful KV fallback.
 
-- Dashboard analytics retrieval for admin views
-- Role-based access control
-- 30-second Worker Cache for repeated admin refreshes
-- Falls back gracefully when KV unavailable
-
-5. **Google Analytics Integration** (`src/components/analytics/GoogleAnalytics.tsx`)
-
-- `gtag` initialization and page-level event dispatch
-- GA-compatible custom event tracking hooks/components
+1. **Google Analytics Integration** (`src/components/analytics/GoogleAnalytics.tsx`) - `gtag` initialization plus GA-compatible page and custom event tracking.
 
 ### Security Features
 

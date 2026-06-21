@@ -29,7 +29,7 @@ All website pages must include a hero section.
 - A page is non-compliant if it omits a hero entirely.
 - Preferred implementation is a root `hero-section` that follows Home baseline posture.
 - Shared hero wrappers are allowed only when they preserve Home baseline typography,
-  spacing envelope, and bottom-navigation framing behavior.
+  spacing envelope, icon strategy, and bottom-navigation framing behavior.
 - Any missing hero page is a release-blocking FAIL for hero congruency checks.
 
 ## Global Header Relationship
@@ -119,13 +119,14 @@ recognition and accessibility.
 5. **Veteran Messaging**: Emphasize veteran-owned, honest communication, proven craftsmanship
 6. **Header/Nav Framing Envelope**: Hero content wrapper preserves spacing that clears header above and nav below:
 
-- `mb-4 sm:mb-4 md:mb-4 lg:mb-4`
+- `mb-32 sm:mb-36 md:mb-40 lg:mb-44`
 - `mr-4 sm:mr-6 lg:mr-8 xl:mr-12`
 - `ml-auto max-w-2xl pointer-events-none pb-2`
 
 1. **PageNavigation at Bottom**: Keep navigation pinned to `absolute bottom-0 left-0 right-0`.
 2. **Six-Cell Home Nav Pattern**: Home hero navigation row must render six equal cells (Home, Services, Projects, About, Contact, More).
 3. **More Overlay Pattern**: `More` opens a full-screen overlay (backdrop + centered panel), not an inline dropdown.
+4. **Single Mission Icon Treatment**: Use one intentional icon container aligned with Home-style emphasis.
 
 ### ❌ MUST NOT INCLUDE
 
@@ -134,8 +135,7 @@ recognition and accessibility.
 3. **NO Stats**: 30+ years, 100+ projects, satisfaction rate displays
 4. **NO Trust Indicators**: Icons with project counts or ratings
 5. **NO Contact Buttons**: Quick contact or phone buttons inside the hero; use the global header phone CTA instead
-6. **NO Hero Icons**: Do not place icon containers, badge icons, or emblem blocks inside hero content areas
-7. **NO Additional Elements**: Keep it clean - title, subtitle, description only
+6. **NO Additional Elements**: Keep it clean - title, subtitle, description only
 
 ---
 
@@ -159,7 +159,14 @@ visual element. This creates a more impactful first impression where imagery spe
   </div>
 
   {/* Header Text - Bottom Right (Allows visual to dominate) */}
-  <div className="relative z-30 mb-4 sm:mb-4 md:mb-4 lg:mb-4 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+  <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+    {/* Mission Icon - Single container only */}
+    <div className="flex justify-end mb-4">
+      <div className="relative p-4 bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
+        <AmericanFlag size="4xl" animated={true} />
+      </div>
+    </div>
+
     <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
       {/* DUAL NAMING - Military → Civilian (Required) */}
       <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
@@ -167,7 +174,7 @@ visual element. This creates a more impactful first impression where imagery spe
       </span>
       {/* PAGE-SPECIFIC MANTRA */}
       <span className="block text-brand-secondary">
-        Relationship-first construction across WA, OR, and ID
+        Your Tri-State Construction Command Center
       </span>
       <span className="block text-brand-primary">
         Mission-Focused Execution
@@ -220,7 +227,8 @@ Use this checklist when creating or reviewing any page's hero section:
 - [ ] Every website page in scope includes a hero section (missing hero is automatic FAIL)
 - [ ] Hero root posture matches Home baseline (`hero-section relative flex items-end justify-end text-white overflow-hidden`)
 - [ ] Background gradient with overlay
-- [ ] Content wrapper uses Home spacing envelope (`mb-4 sm:mb-4 md:mb-4 lg:mb-4`, `mr-4 sm:mr-6 lg:mr-8 xl:mr-12`, `ml-auto max-w-2xl pointer-events-none pb-2`)
+- [ ] Content wrapper uses Home spacing envelope (`mb-32 sm:mb-36 md:mb-40 lg:mb-44`, `mr-4 sm:mr-6 lg:mr-8 xl:mr-12`, `ml-auto max-w-2xl pointer-events-none pb-2`)
+- [ ] Single mission icon container above H1 (Home-style glass/outline treatment)
 - [ ] **Dual naming format at top** (e.g., "Base HQ → Home")
 - [ ] **Page-specific mantra** included for SEO and engagement
 - [ ] Title with Home-parity responsive classes (`text-lg` through `xl:text-5xl`, `font-black`, right-aligned)
@@ -246,8 +254,8 @@ Use this checklist when creating or reviewing any page's hero section:
 
 ```tsx
 <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
-  {/* baseline spacing and text-first hero layout */}
-  <div className="relative z-30 mb-4 sm:mb-4 md:mb-4 lg:mb-4 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+  {/* baseline spacing and single mission icon */}
+  <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
     <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
       ...
     </h1>
