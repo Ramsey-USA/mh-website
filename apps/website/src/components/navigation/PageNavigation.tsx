@@ -182,8 +182,8 @@ export function PageNavigation({
         return;
       }
 
-      const firstElement = focusableElements[0];
-      const lastElement = focusableElements[focusableElements.length - 1];
+      const firstElement = focusableElements[0]!;
+      const lastElement = focusableElements[focusableElements.length - 1]!;
       const activeElement =
         document.activeElement instanceof HTMLElement
           ? document.activeElement
