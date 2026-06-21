@@ -164,20 +164,35 @@
                 "type": "fieldGrid",
                 "title": "Topic",
                 "columns": 1,
-                "name": "actPmNotified",
-                "label": "Project manager notified"
+                "items": [
+                  {
+                    "name": "topic",
+                    "label": "Toolbox Topic"
+                  }
+                ]
               },
               {
-                "name": "actSafetyNotified",
-                "label": "Safety officer notified"
+                "type": "checkGrid",
+                "title": "Referral & Disposition",
+                "columns": 2,
+                "items": [
+                  {
+                    "name": "actPmNotified",
+                    "label": "Project manager notified"
+                  },
+                  {
+                    "name": "actSafetyNotified",
+                    "label": "Safety officer notified"
+                  }
+                ]
               }
             ]
           },
           {
-            "type": "fieldGrid",
-            "title": "Referral & Disposition",
-            "columns": 2,
-            "items": [
+            "kind": "cont",
+            "title": "Toolbox Talk Sign In Log (continued)",
+            "pageLabel": "Page 2",
+            "sections": [
               {
                 "type": "dataTable",
                 "title": "Attendance Roster (continued)",
