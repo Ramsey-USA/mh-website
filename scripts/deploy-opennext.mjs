@@ -197,7 +197,7 @@ if (buildCurrent) {
 runPreflightChecks();
 pruneTempAssets();
 
-run("pnpm", ["exec", "wrangler", "deploy", "--yes"], {
+run("pnpm", ["exec", "wrangler", "deploy"], {
   WRANGLER_SEND_METRICS: "false",
   CLOUDFLARE_API_TOKEN:
     process.env.CLOUDFLARE_API_TOKEN ?? process.env.CF_API_TOKEN,
