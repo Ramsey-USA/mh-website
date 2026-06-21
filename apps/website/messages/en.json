@@ -168,7 +168,7 @@
     "culture": {
       "subtitle": "Our Partnership",
       "title": "Company Culture",
-      "description": "All for one, one for all is how we partner, grow, and succeed together. Our people-centered culture supports clients, communities, and one another with safety, quality, and transparent communication.",
+      "description": "All for one, one for all is how we partner, grow, and succeed together. Our people-centered culture supports Client Partners, communities, and one another with safety, quality, and transparent communication.",
       "cards": {
         "teamUnity": {
           "title": "Team Unity",
@@ -1070,7 +1070,7 @@
       },
       "localImpact": {
         "title": "Local Impact",
-        "descriptionPrefix": "Weekend programming includes Party in the Park, live music, food vendors, and a Saturday awards ceremony. MH Construction support extends to the Richland Kiwanis Pancake Breakfast,",
+        "descriptionPrefix": "Weekend programming includes Party in the Park, live music, food exhibitors, and a Saturday awards ceremony. MH Construction support extends to the Richland Kiwanis Pancake Breakfast,",
         "linkLabel": "Kiwanis programming",
         "descriptionSuffix": ", and the Party in the Park weekend draw."
       }
@@ -1106,7 +1106,7 @@
       "items": {
         "fridayCruise": "Friday Cruise: Classic cars cruise along George Washington Way.",
         "partyInPark": "Party in the Park: Live music and community activities.",
-        "saturdayShow": "Saturday Show 'n Shine: Vehicle displays, kids' zone, vendors, and awards ceremony."
+        "saturdayShow": "Saturday Show 'n Shine: Vehicle displays, kids' zone, exhibitors, and awards ceremony."
       }
     },
     "action": {

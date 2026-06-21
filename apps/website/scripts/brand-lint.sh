@@ -9,6 +9,7 @@
 # Exclusions:
 # - docs/project/* (planning/audit history)
 # - docs/branding/* (guidelines include intentional "incorrect" examples)
+# - documents/content/* (generated extracts from legal/regulatory documents)
 # - lines containing LINT-EXEMPT
 set -euo pipefail
 
@@ -21,7 +22,7 @@ is_text_target() {
 
 is_excluded_file() {
   local file="$1"
-  [[ "$file" == docs/project/* ]] || [[ "$file" == docs/branding/* ]]
+  [[ "$file" == docs/project/* ]] || [[ "$file" == docs/branding/* ]] || [[ "$file" == documents/content/* ]]
 }
 
 collect_files() {
