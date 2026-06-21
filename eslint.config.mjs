@@ -82,6 +82,9 @@ const eslintConfig = [
 
       // GitHub tooling
       ".github/**",
+
+      // Wrangler entry point — only consumed by wrangler, not by Next.js/tsc
+      "**/worker-entry.ts",
     ],
   },
 
