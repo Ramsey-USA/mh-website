@@ -24,14 +24,15 @@ export const serviceRoutes: ServiceRouteData[] = [
       "Plan and deliver commercial construction with a disciplined partner that keeps scope, budget, safety, and schedule aligned from kickoff through closeout.",
     ogImage: "/images/og/services/commercial-construction.webp",
     summary:
-      "MH Construction plans and delivers commercial projects with disciplined coordination, clear communication, and a practical focus on schedule control.",
+      "MH Construction plans and delivers commercial and industrial projects through disciplined project management in Procore, clear communication, practical schedule control, and AI-assisted research support from our field and preconstruction teams.",
     category: "Commercial Construction",
     overview:
-      "Use this service line for office buildings, tenant improvements, retail space, light industrial facilities, and other commercial projects that need direct coordination and steady execution.",
+      "Use this service for office buildings, tenant improvements, retail space, light industrial facilities, and other commercial projects that need direct coordination and steady execution. Our core service model is project management in Procore, and residential work is considered only for uniquely challenging, large-scale, multi-million-dollar projects.",
     focusAreas: [
       "Preconstruction planning and scope alignment",
       "Permitting and consultant coordination",
       "Commercial shell and interior build-outs",
+      "Winery pond liner installation for sludge control",
       "Owner communication and schedule control",
     ],
     technicalPriorities: [
@@ -102,10 +103,10 @@ export const serviceRoutes: ServiceRouteData[] = [
       "Deliver drywall and interior build-outs with crisp coordination, clean finishes, and efficient sequencing for occupied or fast-track spaces.",
     ogImage: "/images/og/services/drywall-interiors.webp",
     summary:
-      "MH Construction delivers drywall and interior scopes with clean finish standards, fast sequencing, and dependable trade coordination.",
+      "MH Construction delivers drywall and interior scopes with clean finish standards, fast sequencing, and dependable trade coordination for commercial and industrial facilities.",
     category: "Drywall & Interiors",
     overview:
-      "Use this service line for tenant improvements, interior partitions, finish carpentry, insulation, and interior repairs that need tight detailing.",
+      "Use this service for commercial tenant improvements, interior partitions, finish carpentry, insulation, and interior repairs that need tight detailing. This is a commercial remodel focus, with residential remodel work considered only for exceptional, high-complexity, multi-million-dollar scopes.",
     focusAreas: [
       "Metal stud framing and drywall installation",
       "Interior finish coordination",
@@ -144,7 +145,7 @@ export const serviceRoutes: ServiceRouteData[] = [
       "MH Construction restores and remodels spaces with practical field planning, measured sequencing, and strong communication after damage or disruption.",
     category: "Restoration & Remodeling",
     overview:
-      "Use this service line for repair work, tenant recovery, occupied remodels, and phased improvements where continuity matters as much as finish quality.",
+      "Use this service for repair work, tenant recovery, occupied remodels, and phased improvements where continuity matters as much as finish quality, with delivery focused on commercial and industrial facilities.",
     focusAreas: [
       "Damage assessment and recovery planning",
       "Occupied remodel sequencing",

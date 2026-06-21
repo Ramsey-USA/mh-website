@@ -1034,10 +1034,8 @@
     "communityLeadership": {
       "kicker": "Community Leadership",
       "overline": "Trust | Command Alignment",
-      "title": "MH Construction Owner Jeremy Thamert will serve as an official BBQ judge alongside Richland Mayor Theresa Richardson.",
-      "descriptionPrefix": "Local leadership alignment is coordinated with the",
-      "linkLabel": "Richland Mayor's Office",
-      "descriptionSuffix": "and event leadership to support coordinated community participation and clear communication."
+      "title": "MH Construction Owner Jeremy Thamert will serve on the official BBQ judging panel with his closest friends.",
+      "description": "Local leadership alignment supports coordinated community participation and clear communication with event leadership."
     },
     "values": {
       "title": "Service-Earned Values In Action",
@@ -1509,19 +1507,19 @@
     "services": {
       "hero": {
         "sectionTitle": "Construction Services Built on Trust",
-        "sectionSubtitle": "Operations -> Services",
-        "sectionTagline": "No gimmicks. No shortcuts. Just quality work done right.",
-        "sectionDescription": "Commercial, industrial, and public-sector delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters."
+        "sectionSubtitle": "Services -> Operations",
+        "sectionTagline": "Transparent planning. Disciplined execution. Trusted results.",
+        "sectionDescription": "Commercial, industrial, and public-sector delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters. We primarily focus on commercial and industrial work, and only consider unique, highly complex, multi-million-dollar residential projects."
       },
       "core": {
         "sectionTitle": "Core Services",
         "sectionSubtitle": "Built for Partnership Success",
-        "sectionDescription": "Primary construction services delivered with transparent communication and disciplined execution."
+        "sectionDescription": "Our core service is project management powered by Procore, delivering commercial and industrial construction with transparent communication, tenant improvement specialization, and ground-up commercial build execution. Every service is supported by our experienced team using AI-assisted workflows and advanced research techniques to improve planning and result accuracy."
       },
       "specialty": {
         "sectionTitle": "Specialty Services",
         "sectionSubtitle": "Expanded Delivery Capabilities",
-        "sectionDescription": "Specialized support for complex project scopes, schedules, and operational requirements."
+        "sectionDescription": "Specialized support for complex project scopes, schedules, and operational requirements, including winery pond liner installation for sludge control."
       },
       "government": {
         "sectionTitle": "Government and Grant-Funded Projects",
@@ -1557,14 +1555,12 @@
       "expertise": {
         "sectionTitle": "Construction Expertise",
         "sectionSubtitle": "Partnership-Focused Leadership",
-        "sectionDescription": "Experienced leadership, disciplined systems, and clear communication to keep every project aligned and accountable.",
-        "priorityHeading": "Our Partnership Priority:",
-        "priorityDescription": "Delivering an exceptional partnership experience from start to finish. Our commitment to thorough communication ensures you're never in the dark about your project's status or details."
+        "sectionDescription": "Experienced leadership, disciplined systems, and clear communication to keep every project aligned and accountable. We deliver an exceptional partnership experience from start to finish, so you are never in the dark about your project's status or details. Our team also uses AI-assisted analysis and advanced research to validate assumptions, reduce risk, and improve decision accuracy."
       },
       "process": {
         "sectionTitle": "Our Process",
         "sectionSubtitle": "Simple and Transparent",
-        "sectionDescription": "Clear milestones from first contact through close-out with honest communication at each step.",
+        "sectionDescription": "Clear milestones from first contact through close-out, led by disciplined project management in Procore with honest communication at each step.",
         "steps": [
           {
             "title": "Initial Consultation",
@@ -1591,7 +1587,7 @@
           },
           {
             "title": "Construction Execution",
-            "description": "Our Senior Superintendent oversees on-site operations with award-winning safety standards. We provide regular progress updates, coordinate subcontractors, manage quality inspections, and address issues immediately.",
+            "description": "Our Senior Superintendent oversees on-site operations with award-winning safety standards. We manage daily project execution in Procore, provide regular progress updates, coordinate subcontractors, track RFIs and submittals, manage quality inspections, and address issues immediately.",
             "tags": ["Daily Updates", ".64 EMR Safety", "Quality Control"]
           },
           {

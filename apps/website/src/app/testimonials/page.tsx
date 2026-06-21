@@ -248,7 +248,7 @@ export default async function TestimonialsPage(props?: {
         ))}
         <StructuredData data={faqSchema} />
 
-        <section className="hero-section relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 py-20 sm:py-24 lg:py-28 text-white">
+        <section className="hero-section hero-safe-top relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 pb-20 text-white sm:pb-24 lg:pb-28">
           <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight">
               Service-Earned Commendations From Client Partners
@@ -302,7 +302,7 @@ export default async function TestimonialsPage(props?: {
         <BrandColorBlobs />
 
         {/* Content - Centered for standard pages */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+        <div className="hero-safe-top hero-safe-bottom relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
             {/* Icon with decorative lines */}
             <div className="flex items-center justify-center mb-8 gap-4">

@@ -4,10 +4,10 @@ import { ServicesHero } from "../ServicesHero";
 jest.mock("next-intl", () => ({
   useTranslations: () => {
     const messages: Record<string, string> = {
-      "services.hero.sectionSubtitle": "Operations -> Services",
+      "services.hero.sectionSubtitle": "Services -> Operations",
       "services.hero.sectionTitle": "Construction Services Built on Trust",
       "services.hero.sectionTagline":
-        "No gimmicks. No shortcuts. Just quality work done right.",
+        "Transparent planning. Disciplined execution. Trusted results.",
       "services.hero.sectionDescription":
         "Commercial, industrial, and public-sector delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters.",
     };
@@ -49,14 +49,14 @@ describe("ServicesHero", () => {
     render(<ServicesHero />);
     expect(
       screen.getByText(
-        "No gimmicks. No shortcuts. Just quality work done right.",
+        "Transparent planning. Disciplined execution. Trusted results.",
       ),
     ).toBeInTheDocument();
   });
 
   it("renders the Operations breadcrumb text", () => {
     render(<ServicesHero />);
-    expect(screen.getByText("Operations -> Services")).toBeInTheDocument();
+    expect(screen.getByText("Services -> Operations")).toBeInTheDocument();
   });
 
   it("renders the mission statement", () => {

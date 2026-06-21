@@ -74,7 +74,7 @@ export default async function LocationsPage() {
       <StructuredData data={locationsSchema} />
 
       <main className="min-h-screen bg-white dark:bg-gray-950">
-        <section className="hero-section border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 py-14 text-white sm:px-6 lg:px-8">
+        <section className="hero-section hero-safe-top-lg border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 pb-14 text-white sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
             <Breadcrumbs
               items={[

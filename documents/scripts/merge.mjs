@@ -450,12 +450,16 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
         "❌  Forms appendix requires MISH mapping for every form package.",
       );
       for (const pkg of unmapped) {
-        console.error(`    - ${pkg.id} (${pkg.file}) is missing manualSection in documents/forms/forms-manifest.json`);
+        console.error(
+          `    - ${pkg.id} (${pkg.file}) is missing manualSection in documents/forms/forms-manifest.json`,
+        );
       }
       process.exit(1);
     }
 
-    console.log(`  ✓  Forms mapped to MISH sections: ${formPackages.length}/${formPackages.length}`);
+    console.log(
+      `  ✓  Forms mapped to MISH sections: ${formPackages.length}/${formPackages.length}`,
+    );
 
     const formsTocPages = paginateFormEntries(formPackages).length;
     let nextFormPage = merged.getPageCount() + formsTocPages + 1;

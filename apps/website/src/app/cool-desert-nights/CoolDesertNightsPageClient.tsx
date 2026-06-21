@@ -27,7 +27,6 @@ const chamberScheduleUrl =
   "https://www.richlandchamber.org/cool-desert-nights/";
 const eventbriteUrl =
   "https://www.eventbrite.com/e/2026-cool-desert-nights-tickets-1984588946964";
-const mayorOfficeUrl = "https://www.ci.richland.wa.us/government/city-council";
 const kiwanisUrl = "https://kiwanisrichland.org/";
 const panelClass =
   "rounded-2xl border border-gray-200 bg-white/92 shadow-xl backdrop-blur-sm dark:border-white/20 dark:bg-white/5 dark:shadow-2xl";
@@ -54,7 +53,7 @@ export function CoolDesertNightsPageClient() {
         >
           <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900" />
           <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80" />
-          <div className="relative mx-auto grid max-w-7xl gap-8 px-4 pt-32 pb-28 sm:px-6 sm:pt-36 sm:pb-32 md:pt-40 md:pb-36 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:pt-44 lg:pb-40">
+          <div className="hero-safe-top hero-safe-bottom relative mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary/90">
@@ -210,16 +209,7 @@ export function CoolDesertNightsPageClient() {
                   {t("communityLeadership.title")}
                 </p>
                 <p className="mt-3 text-gray-700 dark:text-white/85">
-                  {t("communityLeadership.descriptionPrefix")}{" "}
-                  <Link
-                    href={mayorOfficeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={inlineLinkClass}
-                  >
-                    {t("communityLeadership.linkLabel")}
-                  </Link>{" "}
-                  {t("communityLeadership.descriptionSuffix")}
+                  {t("communityLeadership.description")}
                 </p>
               </div>
             </section>

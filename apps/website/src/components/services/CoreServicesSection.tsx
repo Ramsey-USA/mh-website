@@ -78,7 +78,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
           size="xl"
           showVeteranBadge={false}
           backdropAriaLabel="Close core service details modal"
-          panelClassName="max-w-3xl rounded-3xl border-0 dark:bg-gray-800"
+          panelClassName="max-w-3xl rounded-3xl border border-brand-primary/20 bg-white dark:bg-gray-800 shadow-2xl"
           contentClassName="p-0"
           renderHeader={({ titleId, onClose }) => (
             <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-secondary p-6 sm:p-8 text-white">
@@ -105,6 +105,9 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
                   />
                 </div>
                 <div className="flex-1 pt-1">
+                  <p className="mb-2 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white/80">
+                    Core Service Detail
+                  </p>
                   <h2
                     id={titleId}
                     className="text-white text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-2 drop-shadow-lg"
@@ -125,7 +128,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
             </p>
 
             {/* Features */}
-            <div className="mb-6">
+            <div className="mb-6 rounded-2xl border border-brand-primary/20 bg-brand-primary/5 dark:bg-brand-primary/10 p-5">
               <div className="flex items-center gap-2 mb-4">
                 <MaterialIcon
                   icon="checklist"
@@ -158,7 +161,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
             </div>
 
             {/* Benefits */}
-            <div className="mb-6">
+            <div className="mb-6 rounded-2xl border border-brand-secondary/20 bg-brand-secondary/5 dark:bg-brand-secondary/10 p-5">
               <div className="flex items-center gap-2 mb-4">
                 <MaterialIcon
                   icon="military_tech"
@@ -192,7 +195,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
 
             {/* CTA Text */}
             {currentService.ctaText && (
-              <div className="bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-4 rounded-xl border-l-4 border-brand-primary mb-6">
+              <div className="bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-4 rounded-xl border border-brand-primary/30 mb-6">
                 <p className="text-gray-800 dark:text-gray-200 text-sm sm:text-base leading-relaxed font-medium">
                   <MaterialIcon
                     icon="phone"

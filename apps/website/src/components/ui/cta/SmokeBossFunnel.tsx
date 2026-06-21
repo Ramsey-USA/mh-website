@@ -56,9 +56,9 @@ export function SmokeBossFunnel() {
           </h2>
           <p className="max-w-4xl text-sm leading-relaxed text-gray-200 sm:text-base">
             MH Construction is hosting the Smoke &amp; Shine BBQ Showdown this
-            June. Jeremy Thamert is judging alongside Kennewick&apos;s Mayor.
-            Visit our booth near the BBQ competition to meet the team and get
-            event updates.
+            June. The judging panel will be Jeremy Thamert and his closest
+            friends. Visit our booth near the BBQ competition to meet the team
+            and get event updates.
           </p>
 
           <Link href="/events" className="inline-flex max-w-full">

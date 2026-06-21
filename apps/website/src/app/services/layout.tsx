@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { getServicesSEO } from "@/lib/seo/page-seo-utils";
 import { StructuredData } from "@/components/seo/SeoMeta";
-import { serviceRoutes } from "@/lib/data/service-routes";
-import { SectionShell } from "@/components/layout";
 
 // Enhanced SEO metadata for Services
 const seoData = getServicesSEO();
@@ -21,17 +19,7 @@ export default function ServicesLayout({
   return (
     <>
       {showSchema ? <StructuredData data={schemas} /> : null}
-      <SectionShell
-        navTitle="Service Lines"
-        navLabel="Service lines"
-        navItems={serviceRoutes.map((service) => ({
-          href: `/services/${service.slug}`,
-          label: service.title,
-        }))}
-        navNote="Use this rail to move between service lines without losing the project context."
-      >
-        {children}
-      </SectionShell>
+      {children}
     </>
   );
 }

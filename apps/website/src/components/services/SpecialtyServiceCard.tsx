@@ -22,7 +22,9 @@ export function SpecialtyServiceCard(
         className={getCardClassName(
           "static",
           `rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden h-full flex flex-col cursor-pointer ${
-            isExpanded ? "ring-2 ring-brand-secondary" : ""
+            isExpanded
+              ? "ring-2 ring-brand-secondary border-brand-secondary/40"
+              : ""
           }`,
         )}
         onClick={() => setIsExpanded(!isExpanded)}
@@ -56,17 +58,20 @@ export function SpecialtyServiceCard(
                 </p>
               </div>
             </div>
-            <button
-              className="shrink-0 text-brand-secondary dark:text-brand-secondary-light hover:scale-110 transition-transform"
-              aria-label={isExpanded ? "Collapse" : "Expand"}
-              type="button"
+            <span
+              className="shrink-0 text-brand-secondary dark:text-brand-secondary-light transition-transform"
+              aria-hidden="true"
             >
               <MaterialIcon
                 icon={isExpanded ? "expand_less" : "expand_more"}
                 size="xl"
                 className="transition-transform duration-300"
               />
-            </button>
+            </span>
+          </div>
+
+          <div className="mt-3 inline-flex items-center rounded-full border border-brand-secondary/30 bg-brand-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-secondary dark:border-brand-secondary/40 dark:bg-brand-secondary/15">
+            {isExpanded ? "Details Open" : "Tap for Details"}
           </div>
         </CardHeader>
 
@@ -88,7 +93,7 @@ export function SpecialtyServiceCard(
 
         {/* Expanded Content */}
         {isExpanded && (
-          <CardContent className="grow pt-0 px-4 sm:px-5 lg:px-6 pb-4 sm:pb-5 lg:pb-6 animate-in slide-in-from-top duration-300 overflow-y-auto">
+          <CardContent className="grow pt-0 px-4 sm:px-5 lg:px-6 pb-4 sm:pb-5 lg:pb-6 animate-in slide-in-from-top duration-300">
             <p className="mb-4 text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed wrap-break-word">
               {service.description}
             </p>

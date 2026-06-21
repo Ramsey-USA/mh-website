@@ -1,6 +1,6 @@
 /**
  * Government & Grant-Funded Projects Section
- * Specialized section for government and grant-funded construction projects
+ * Streamlined summary block that routes users to the dedicated public-sector pages
  */
 
 import Link from "next/link";
@@ -30,299 +30,51 @@ export function GovernmentProjectsSection({
       }}
     >
       <FadeInWhenVisible>
-        <div className="mx-auto max-w-5xl">
-          {/* Main Government Services Card */}
-          <Card className="relative bg-linear-to-br from-white via-white to-brand-primary/5 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 border-2 border-brand-primary shadow-xl hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-500 mb-8 overflow-hidden group">
-            {/* Decorative background pattern */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/5 dark:bg-brand-primary/10 rounded-full blur-3xl transform translate-x-32 -translate-y-32 group-hover:scale-150 transition-transform duration-1000"></div>
-
-            <CardContent className="relative p-8 lg:p-12">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="shrink-0 w-16 h-16 lg:w-20 lg:h-20 bg-linear-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+        <div className="mx-auto max-w-4xl">
+          <Card className="relative bg-linear-to-br from-white via-white to-brand-primary/5 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 border-2 border-brand-primary shadow-xl overflow-hidden">
+            <CardContent className="relative p-6 sm:p-8 lg:p-10">
+              <div className="mb-5 flex items-center gap-3">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-brand-primary to-brand-secondary shadow-lg">
                   <MaterialIcon
                     icon="account_balance"
-                    size="2xl"
+                    size="lg"
                     className="text-white"
                   />
                 </div>
-                <h3 className="font-black text-gray-900 dark:text-white text-xl sm:text-2xl lg:text-3xl leading-tight wrap-break-word">
-                  Comprehensive Government Project Management
+                <h3 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white leading-tight">
+                  Public and Government Projects
                 </h3>
               </div>
 
-              <p className="mb-8 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                From federal buildings to state facilities and local municipal
-                projects, our team navigates complex government requirements
-                with{" "}
-                <span className="text-brand-primary dark:text-brand-primary-light font-semibold">
-                  precision and efficiency.
-                </span>
-                {
-                  " We specialize in grant documentation, compliance management,"
-                }
-                and public sector communication standards.
+              <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                We support government and grant-funded projects with disciplined
+                planning, documentation control, and compliance-focused
+                delivery. For complete capability details, procurement pathways,
+                and public-sector workflow guidance, use our dedicated Public
+                Sector pages.
               </p>
 
-              {/* Government Project Types Grid */}
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="relative bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-gray-800 dark:to-gray-800/80 p-6 rounded-2xl border border-brand-primary/20 dark:border-gray-700 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 group/card">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex items-center justify-center group-hover/card:scale-110 transition-transform duration-300">
-                      <MaterialIcon
-                        icon="gavel"
-                        size="lg"
-                        className="text-brand-primary"
-                      />
-                    </div>
-                    <h4 className="font-bold text-gray-900 dark:text-white text-xl">
-                      Federal Projects
-                    </h4>
-                  </div>
-                  <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                    <li className="flex items-start gap-2 hover:translate-x-1 transition-transform duration-200">
-                      <MaterialIcon
-                        icon="check_circle"
-                        size="sm"
-                        className="text-brand-secondary mt-1 shrink-0"
-                      />
-                      <span>GSA Facilities & Federal Buildings</span>
-                    </li>
-                    <li className="flex items-start gap-2 hover:translate-x-1 transition-transform duration-200">
-                      <MaterialIcon
-                        icon="check_circle"
-                        size="sm"
-                        className="text-brand-secondary mt-1 shrink-0"
-                      />
-                      <span>Military Base Construction & Renovations</span>
-                    </li>
-                    <li className="flex items-start gap-2 hover:translate-x-1 transition-transform duration-200">
-                      <MaterialIcon
-                        icon="check_circle"
-                        size="sm"
-                        className="text-brand-secondary mt-1 shrink-0"
-                      />
-                      <span>Federal Grant-Funded Projects</span>
-                    </li>
-                    <li className="flex items-start gap-2 hover:translate-x-1 transition-transform duration-200">
-                      <MaterialIcon
-                        icon="check_circle"
-                        size="sm"
-                        className="text-brand-secondary mt-1 shrink-0"
-                      />
-                      <span>Veterans Affairs Facilities</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="relative bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-gray-800 dark:to-gray-800/80 p-6 rounded-2xl border border-brand-primary/20 dark:border-gray-700 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 group/card">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex items-center justify-center group-hover/card:scale-110 transition-transform duration-300">
-                      <MaterialIcon
-                        icon="location_city"
-                        size="lg"
-                        className="text-brand-primary"
-                      />
-                    </div>
-                    <h4 className="font-bold text-gray-900 dark:text-white text-xl">
-                      State & Local Projects
-                    </h4>
-                  </div>
-                  <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                    <li className="flex items-start gap-2 hover:translate-x-1 transition-transform duration-200">
-                      <MaterialIcon
-                        icon="check_circle"
-                        size="sm"
-                        className="text-brand-secondary mt-1 shrink-0"
-                      />
-                      <span>Municipal Buildings & City Halls</span>
-                    </li>
-                    <li className="flex items-start gap-2 hover:translate-x-1 transition-transform duration-200">
-                      <MaterialIcon
-                        icon="check_circle"
-                        size="sm"
-                        className="text-brand-secondary mt-1 shrink-0"
-                      />
-                      <span>Educational Facilities & Schools</span>
-                    </li>
-                    <li className="flex items-start gap-2 hover:translate-x-1 transition-transform duration-200">
-                      <MaterialIcon
-                        icon="check_circle"
-                        size="sm"
-                        className="text-brand-secondary mt-1 shrink-0"
-                      />
-                      <span>Public Safety & Emergency Services</span>
-                    </li>
-                    <li className="flex items-start gap-2 hover:translate-x-1 transition-transform duration-200">
-                      <MaterialIcon
-                        icon="check_circle"
-                        size="sm"
-                        className="text-brand-secondary mt-1 shrink-0"
-                      />
-                      <span>State Grant-Funded Infrastructure</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Grant Documentation Expertise */}
-              <div className="relative bg-linear-to-r from-brand-secondary/10 via-brand-secondary/15 to-brand-secondary/10 dark:from-gray-800 dark:via-gray-800/90 dark:to-gray-800 p-6 lg:p-8 rounded-2xl mb-6 border border-brand-secondary/20 dark:border-gray-700 hover:shadow-lg transition-all duration-300 overflow-hidden group/grant">
-                {/* Decorative accent */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-secondary/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16 group-hover/grant:scale-150 transition-transform duration-700"></div>
-
-                <div className="relative flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-brand-secondary/20 dark:bg-brand-secondary/30 rounded-xl flex items-center justify-center group-hover/grant:scale-110 transition-transform duration-300">
-                    <MaterialIcon
-                      icon="description"
-                      size="lg"
-                      className="text-brand-secondary"
-                    />
-                  </div>
-                  <h4 className="font-bold text-gray-900 dark:text-white text-xl">
-                    Grant Documentation & Compliance
-                  </h4>
-                </div>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                  Our team excels at navigating complex grant requirements,
-                  ensuring your project meets all documentation standards and
-                  compliance mandates. We manage:
-                </p>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  <div className="flex items-center gap-2">
-                    <MaterialIcon
-                      icon="verified"
-                      size="sm"
-                      className="text-brand-secondary"
-                    />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      Complete documentation services
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MaterialIcon
-                      icon="verified"
-                      size="sm"
-                      className="text-brand-secondary"
-                    />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      Regulatory compliance management
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MaterialIcon
-                      icon="verified"
-                      size="sm"
-                      className="text-brand-secondary"
-                    />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      Audit preparation & support
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MaterialIcon
-                      icon="verified"
-                      size="sm"
-                      className="text-brand-secondary"
-                    />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      Progress reporting systems
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* CTA */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/contact" className="w-full sm:w-auto">
+              <div className="mt-6">
+                <Link
+                  href="/public-sector"
+                  className="inline-flex w-full sm:w-auto"
+                >
                   <Button
                     variant="primary"
                     size="lg"
-                    className="w-full sm:w-auto hover:scale-105 transition-transform duration-300 group"
+                    className="w-full sm:w-auto"
                   >
                     <MaterialIcon
-                      icon="event"
+                      icon="account_balance"
                       size="md"
-                      className="mr-2 group-hover:scale-110 transition-transform duration-300"
+                      className="mr-2"
                     />
-                    Discuss Government Project
-                  </Button>
-                </Link>
-                <Link href="/contact" className="w-full sm:w-auto">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="w-full sm:w-auto hover:scale-105 transition-transform duration-300 group"
-                  >
-                    <MaterialIcon
-                      icon="mail"
-                      size="md"
-                      className="mr-2 group-hover:scale-110 transition-transform duration-300"
-                    />
-                    Request Project Information
+                    View Public/Government Services
                   </Button>
                 </Link>
               </div>
             </CardContent>
           </Card>
-
-          {/* Why Choose Us for Government Work */}
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-linear-to-br from-white to-brand-primary/5 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-brand-primary/10 hover:-translate-y-2 transition-all duration-300 group">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-linear-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <MaterialIcon
-                    icon="military_tech"
-                    size="xl"
-                    className="text-white"
-                  />
-                </div>
-                <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-2">
-                  Veteran-Owned Advantage
-                </h4>
-                <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                  Military background provides unique understanding of
-                  government standards and protocols
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-linear-to-br from-white to-brand-primary/5 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-brand-primary/10 hover:-translate-y-2 transition-all duration-300 group">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-linear-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <MaterialIcon
-                    icon="workspace_premium"
-                    size="xl"
-                    className="text-white"
-                  />
-                </div>
-                <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-2">
-                  Licensed in 3 States
-                </h4>
-                <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                  Qualified for government projects across Washington, Oregon,
-                  and Idaho
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-linear-to-br from-white to-brand-primary/5 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-brand-primary/10 hover:-translate-y-2 transition-all duration-300 group">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-linear-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <MaterialIcon
-                    icon="verified"
-                    size="xl"
-                    className="text-white"
-                  />
-                </div>
-                <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-2">
-                  Compliance Expertise
-                </h4>
-                <p className="text-gray-700 dark:text-gray-300 text-sm">
-                  Deep experience with federal, state, and local compliance
-                  requirements
-                </p>
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </FadeInWhenVisible>
     </BrandedContentSection>

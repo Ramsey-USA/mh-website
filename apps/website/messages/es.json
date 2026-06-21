@@ -1034,10 +1034,8 @@
     "communityLeadership": {
       "kicker": "Liderazgo comunitario",
       "overline": "Confianza | Alineacion de mando",
-      "title": "El propietario de MH Construction, Jeremy Thamert, sera juez oficial de BBQ junto a la alcaldesa de Richland, Theresa Richardson.",
-      "descriptionPrefix": "La coordinacion del liderazgo local se realiza con la",
-      "linkLabel": "Oficina de la Alcaldesa de Richland",
-      "descriptionSuffix": "y el liderazgo del evento para apoyar la participacion comunitaria coordinada y una comunicacion clara."
+      "title": "El propietario de MH Construction, Jeremy Thamert, formara parte del panel oficial de jueces de BBQ con sus amigos mas cercanos.",
+      "description": "La coordinacion del liderazgo local apoya la participacion comunitaria coordinada y una comunicacion clara con el liderazgo del evento."
     },
     "values": {
       "title": "Valores ganados en servicio en accion",
@@ -1510,12 +1508,12 @@
       "hero": {
         "sectionTitle": "Servicios Basados en la Confianza",
         "sectionSubtitle": "Construccion de Espectro Completo",
-        "sectionDescription": "Desde la planificacion hasta la entrega, cada proyecto refleja nuestros valores centrales-honestidad, integridad, profesionalismo y minuciosidad."
+        "sectionDescription": "Entrega comercial, industrial y del sector publico en Washington, Oregon e Idaho desde nuestra sede en Tri-Cities. Nos enfocamos principalmente en trabajo comercial e industrial y solo consideramos proyectos residenciales unicos, de alta complejidad y de varios millones de dolares."
       },
       "core": {
         "sectionTitle": "Servicios Principales",
         "sectionSubtitle": "Disenados para Asociaciones Exitosas",
-        "sectionDescription": "Servicios de construccion esenciales ejecutados con comunicacion transparente y disciplina operativa."
+        "sectionDescription": "Nuestro servicio central es la gestion de proyectos con Procore, enfocado en construccion comercial e industrial con comunicacion transparente, especializacion en tenant improvements y ejecucion de obra comercial desde cero. El trabajo residencial solo se considera cuando es unico, altamente complejo y de varios millones de dolares."
       },
       "specialty": {
         "sectionTitle": "Servicios Especializados",
@@ -1556,9 +1554,7 @@
       "expertise": {
         "sectionTitle": "Experiencia en Construccion",
         "sectionSubtitle": "Liderazgo Enfocado en la Asociacion",
-        "sectionDescription": "Liderazgo experimentado, sistemas disciplinados y comunicacion clara para mantener cada proyecto alineado y bajo control.",
-        "priorityHeading": "Nuestra prioridad de asociacion:",
-        "priorityDescription": "Brindar una experiencia de asociacion excepcional de principio a fin. Nuestro compromiso con la comunicacion completa garantiza que nunca este a oscuras sobre el estado o los detalles de su proyecto."
+        "sectionDescription": "Liderazgo experimentado, sistemas disciplinados y comunicacion clara para mantener cada proyecto alineado y bajo control. Brindamos una experiencia de asociacion excepcional de principio a fin, para que nunca este a oscuras sobre el estado o los detalles de su proyecto."
       },
       "process": {
         "sectionTitle": "Nuestro Proceso",

@@ -442,6 +442,60 @@ export const locations: Record<string, LocationData> = {
       "99208",
     ],
   },
+  tacoma: {
+    slug: "tacoma",
+    city: "Tacoma",
+    state: "WA",
+    county: "Pierce County",
+    militaryTitle: "Regional Command → Tacoma",
+    tagline: "Puget Sound Construction Coverage with Veteran-Led Discipline",
+    description:
+      "Serving Tacoma with Veteran-Owned construction services built on Honesty, Integrity, Professionalism, and Thoroughness.",
+    ...LOCATION_CONTACT,
+    coordinates: {
+      latitude: 47.2529,
+      longitude: -122.4443,
+    },
+    seo: {
+      title:
+        "Regional Command → Tacoma | General Contractor Tacoma WA | MH Construction",
+      metaDescription:
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Tacoma WA. Commercial, industrial, and public-sector construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+      keywords: [
+        "Regional Command Tacoma construction",
+        "general contractor Tacoma WA",
+        "general contractor Tacoma",
+        "construction company Tacoma",
+        "commercial contractor Tacoma Washington",
+        "Tacoma construction services",
+        "Veteran-Owned contractor Tacoma",
+        "Pierce County general contractor",
+        "Tacoma WA builder",
+        "construction management Tacoma",
+        "public sector construction Tacoma",
+      ],
+      openGraphDescription:
+        "Regional Command → Tacoma: Puget Sound construction coverage with Veteran-Owned discipline and relationship-first execution across commercial, industrial, and public-sector projects.",
+      twitterDescription:
+        "Professional construction services in Tacoma, WA. Veteran-Owned, partnership-driven approach.",
+    },
+    breadcrumbKey: "locationTacoma",
+    localExpertise: {
+      title: "Serving Tacoma and Pierce County",
+      description: [
+        "Tacoma and the greater Pierce County market require disciplined planning, clear communication, and reliable execution across commercial and public-facing projects. MH Construction brings a Veteran-Owned, relationship-first operating model to every Tacoma engagement.",
+        "Licensed in Washington, Oregon, and Idaho, our team supports Tacoma clients with transparent preconstruction, proactive coordination, and accountability through close-out.",
+      ],
+    },
+    servicePriorities: [
+      "Commercial tenant improvement delivery",
+      "Public-sector and municipal coordination",
+      "Industrial and logistics facility planning",
+    ],
+    nearbyAreas: ["Tacoma", "Pierce County", "Lakewood", "Puyallup"],
+    serviceZipCodes: ["98402", "98403", "98404", "98405", "98406"],
+    publicSectorHighlight: true,
+  },
   "west-richland": {
     slug: "west-richland",
     city: "West Richland",

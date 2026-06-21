@@ -60,10 +60,16 @@ export function Navigation() {
   const [menuTopOffset, setMenuTopOffset] = useState(0);
 
   useEffect(() => {
+    const root = document.documentElement;
+
     const updateOffset = () => {
       if (headerRef.current) {
         const rect = headerRef.current.getBoundingClientRect();
         setMenuTopOffset(rect.bottom);
+        root.style.setProperty(
+          "--mh-nav-offset",
+          `${Math.ceil(rect.bottom)}px`,
+        );
       }
     };
     updateOffset();
@@ -74,7 +80,10 @@ export function Navigation() {
 
     const observer = new ResizeObserverImpl(updateOffset);
     observer.observe(headerRef.current);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      root.style.removeProperty("--mh-nav-offset");
+    };
   }, []);
 
   const navText = isEs

@@ -21,15 +21,22 @@ describe("HeroSection", () => {
 
   it("renders the main heading text", () => {
     render(<HeroSection />);
-    expect(
-      screen.getByText(/Veteran-Owned Since January 2025/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Base HQ -> Home/i)).toBeInTheDocument();
   });
 
   it("renders the mission statement", () => {
     render(<HeroSection />);
     expect(
-      screen.getAllByText(/Building projects for the Client/i)[0],
+      screen.getByText(/Building projects for the Client/i),
+    ).toBeInTheDocument();
+  });
+
+  it("renders the relationship-first supporting line", () => {
+    render(<HeroSection />);
+    expect(
+      screen.getByText(
+        /Relationship-first construction across WA, OR, and ID/i,
+      ),
     ).toBeInTheDocument();
   });
 
@@ -41,7 +48,7 @@ describe("HeroSection", () => {
   it("renders the service area text", () => {
     render(<HeroSection />);
     expect(
-      screen.getByText(/Serving WA, OR, and ID from the Tri-Cities/i),
+      screen.getByText(/Tri-Cities HQ \(Pasco, Richland, Kennewick\)/i),
     ).toBeInTheDocument();
   });
 });

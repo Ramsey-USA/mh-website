@@ -10,6 +10,12 @@ import { useTranslations } from "next-intl";
 
 export function PartnershipTypesSection() {
   const t = useTranslations("home");
+  const clientItems =
+    (t.raw("services.partnership.clientCard.items") as string[]).slice(0, 3) ??
+    [];
+  const tradeItems =
+    (t.raw("services.partnership.tradeCard.items") as string[]).slice(0, 3) ??
+    [];
 
   return (
     <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
@@ -85,66 +91,23 @@ export function PartnershipTypesSection() {
                     {t("services.partnership.clientCard.listTitle")}
                   </h4>
                   <ul className="space-y-3">
-                    <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                      <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary"
-                        />
-                      </div>
-                      <span className="text-gray-700 dark:text-gray-300">
-                        {t("services.partnership.clientCard.items.0")}
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                      <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary"
-                        />
-                      </div>
-                      <span className="text-gray-700 dark:text-gray-300">
-                        {t("services.partnership.clientCard.items.1")}
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                      <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary"
-                        />
-                      </div>
-                      <span className="text-gray-700 dark:text-gray-300">
-                        {t("services.partnership.clientCard.items.2")}
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                      <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary"
-                        />
-                      </div>
-                      <span className="text-gray-700 dark:text-gray-300">
-                        {t("services.partnership.clientCard.items.3")}
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                      <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary"
-                        />
-                      </div>
-                      <span className="text-gray-700 dark:text-gray-300">
-                        {t("services.partnership.clientCard.items.4")}
-                      </span>
-                    </li>
+                    {clientItems.map((item) => (
+                      <li
+                        key={`client-item-${item}`}
+                        className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200"
+                      >
+                        <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
+                          <MaterialIcon
+                            icon="check_circle"
+                            size="sm"
+                            className="text-brand-primary"
+                          />
+                        </div>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
@@ -161,22 +124,6 @@ export function PartnershipTypesSection() {
                         className="mr-2 group-hover:scale-110 transition-transform duration-300"
                       />
                       {t("services.partnership.clientCard.buttons.viewWork")}
-                    </Button>
-                  </Link>
-                  <Link href="/contact" className="block">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="w-full hover:scale-105 transition-transform duration-300 group"
-                    >
-                      <MaterialIcon
-                        icon="phone"
-                        size="md"
-                        className="mr-2 group-hover:scale-110 transition-transform duration-300"
-                      />
-                      {t(
-                        "services.partnership.clientCard.buttons.scheduleConsultation",
-                      )}
                     </Button>
                   </Link>
                   <p className="text-center text-gray-600 dark:text-gray-300 text-sm">
@@ -230,66 +177,23 @@ export function PartnershipTypesSection() {
                     {t("services.partnership.tradeCard.listTitle")}
                   </h4>
                   <ul className="space-y-3">
-                    <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                      <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-secondary"
-                        />
-                      </div>
-                      <span className="text-gray-700 dark:text-gray-300">
-                        {t("services.partnership.tradeCard.items.0")}
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                      <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-secondary"
-                        />
-                      </div>
-                      <span className="text-gray-700 dark:text-gray-300">
-                        {t("services.partnership.tradeCard.items.1")}
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                      <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-secondary"
-                        />
-                      </div>
-                      <span className="text-gray-700 dark:text-gray-300">
-                        {t("services.partnership.tradeCard.items.2")}
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                      <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-secondary"
-                        />
-                      </div>
-                      <span className="text-gray-700 dark:text-gray-300">
-                        {t("services.partnership.tradeCard.items.3")}
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                      <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-secondary"
-                        />
-                      </div>
-                      <span className="text-gray-700 dark:text-gray-300">
-                        {t("services.partnership.tradeCard.items.4")}
-                      </span>
-                    </li>
+                    {tradeItems.map((item) => (
+                      <li
+                        key={`trade-item-${item}`}
+                        className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200"
+                      >
+                        <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
+                          <MaterialIcon
+                            icon="check_circle"
+                            size="sm"
+                            className="text-brand-secondary"
+                          />
+                        </div>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
@@ -308,22 +212,6 @@ export function PartnershipTypesSection() {
                       {t("services.partnership.tradeCard.buttons.joinNetwork")}
                     </Button>
                   </Link>
-                  <Link href="/allies#vendor-application" className="block">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="w-full hover:scale-105 transition-transform duration-300 group"
-                    >
-                      <MaterialIcon
-                        icon="description"
-                        size="md"
-                        className="mr-2 group-hover:scale-110 transition-transform duration-300"
-                      />
-                      {t(
-                        "services.partnership.tradeCard.buttons.downloadPackage",
-                      )}
-                    </Button>
-                  </Link>
                   <p className="text-center text-gray-600 dark:text-gray-300 text-sm">
                     <MaterialIcon
                       icon="phone"
@@ -339,19 +227,26 @@ export function PartnershipTypesSection() {
           </div>
         </div>
 
-        <div className="mt-16 lg:mt-20 text-center max-w-3xl mx-auto">
-          <div className="relative bg-linear-to-r from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-850 dark:to-gray-800 p-6 lg:p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg">
-            <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-              <MaterialIcon
-                icon="info"
-                size="md"
-                className="inline mr-2 text-brand-primary align-text-bottom"
-              />
-              <span className="font-medium">
-                {t("services.partnership.bottomNote.title")}
-              </span>{" "}
-              {t("services.partnership.bottomNote.description")}
-            </p>
+        <div className="mt-16 lg:mt-20 mx-auto max-w-4xl">
+          <div className="relative overflow-hidden rounded-2xl border-2 border-brand-primary/30 bg-white dark:bg-gray-900 p-6 lg:p-8 shadow-xl">
+            <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brand-primary/10 blur-3xl"></div>
+            <div className="relative flex items-start gap-4">
+              <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-primary/10 dark:bg-brand-primary/20">
+                <MaterialIcon
+                  icon="info"
+                  size="md"
+                  className="text-brand-primary"
+                />
+              </div>
+              <div>
+                <p className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white leading-tight">
+                  {t("services.partnership.bottomNote.title")}
+                </p>
+                <p className="mt-2 text-base sm:text-lg text-gray-800 dark:text-gray-200 leading-relaxed">
+                  {t("services.partnership.bottomNote.description")}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

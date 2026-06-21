@@ -185,7 +185,7 @@ export async function generateMetadata({
     return {
       title: "Services | MH Construction",
       description:
-        "Explore MH Construction service lines across commercial construction, municipal work, drywall interiors, and restoration remodeling.",
+        "Explore MH Construction services across commercial construction, municipal work, drywall interiors, and restoration remodeling.",
       robots: { index: false, follow: false },
     };
   }
@@ -204,7 +204,7 @@ export async function generateMetadata({
       images: [
         {
           url: `${SITE_URL}${service.ogImage}`,
-          alt: `${service.title} service line overview`,
+          alt: `${service.title} service overview`,
         },
       ],
     },
@@ -244,7 +244,7 @@ export default async function ServicePage({
       <StructuredData data={serviceSchema} />
 
       <main className="bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 min-h-screen">
-        <section className="hero-section border-b border-gray-200 bg-white/95 px-4 py-14 sm:px-6 lg:px-8 dark:border-gray-800 dark:bg-gray-950/80">
+        <section className="hero-section hero-safe-top-lg border-b border-gray-200 bg-white/95 px-4 pb-14 sm:px-6 lg:px-8 dark:border-gray-800 dark:bg-gray-950/80">
           <div className="mx-auto max-w-5xl">
             <Breadcrumbs
               items={[
@@ -257,7 +257,7 @@ export default async function ServicePage({
 
             <div className="max-w-3xl">
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-primary dark:text-brand-primary-light">
-                Service Line
+                Service Overview
               </p>
               <h1 className="text-3xl font-black tracking-tight text-gray-900 sm:text-5xl dark:text-white">
                 {service.title}

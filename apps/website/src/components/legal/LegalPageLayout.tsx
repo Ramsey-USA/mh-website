@@ -30,7 +30,6 @@ export function LegalPageLayout({
         title={title}
         highlight={`Last Updated ${lastUpdated}`}
         description="Clear policies and transparent standards for every Client Partner."
-        icon="gavel"
       />
 
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">

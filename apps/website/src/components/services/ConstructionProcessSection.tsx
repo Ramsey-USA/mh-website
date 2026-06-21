@@ -31,12 +31,16 @@ export function ConstructionProcessSection({
   description,
   steps,
   cta,
+  showTags = true,
+  compactCta = false,
 }: Readonly<{
   title: string;
   subtitle: string;
   description: string;
   steps: ProcessStep[];
   cta: ProcessCta;
+  showTags?: boolean;
+  compactCta?: boolean;
 }>) {
   const stepIconByIndex = [
     "contact_phone",
@@ -137,16 +141,18 @@ export function ConstructionProcessSection({
                       {step.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-2">
-                      {step.tags.map((tag) => (
-                        <span
-                          key={`${step.title}-${tag}`}
-                          className={`rounded-full px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${badgeClass}`}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                    {showTags && (
+                      <div className="flex flex-wrap gap-2">
+                        {step.tags.map((tag) => (
+                          <span
+                            key={`${step.title}-${tag}`}
+                            className={`rounded-full px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${badgeClass}`}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               </div>
@@ -156,29 +162,37 @@ export function ConstructionProcessSection({
 
         {/* CTA Section */}
         <FadeInWhenVisible>
-          <div className="bg-linear-to-br from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 shadow-xl mx-auto mt-16 p-8 lg:p-12 border-2 border-brand-primary dark:border-brand-primary/50 rounded-2xl max-w-4xl text-center">
+          <div
+            className={`bg-linear-to-br from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 shadow-xl mx-auto border-2 border-brand-primary dark:border-brand-primary/50 rounded-2xl max-w-4xl text-center ${
+              compactCta ? "mt-10 p-6 lg:p-8" : "mt-16 p-8 lg:p-12"
+            }`}
+          >
             <MaterialIcon
               icon="handshake"
-              size="4xl"
-              className="mb-6 text-brand-primary"
+              size={compactCta ? "3xl" : "4xl"}
+              className={
+                compactCta
+                  ? "mb-4 text-brand-primary"
+                  : "mb-6 text-brand-primary"
+              }
             />
-            <h3 className="mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl">
+            <h3
+              className={`font-black text-gray-900 dark:text-white ${
+                compactCta
+                  ? "mb-3 text-xl sm:text-2xl"
+                  : "mb-4 text-2xl sm:text-3xl"
+              }`}
+            >
               {cta.title}
             </h3>
-            <p className="mb-8 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+            <p
+              className={`text-gray-700 dark:text-gray-300 leading-relaxed ${
+                compactCta ? "mb-5 text-base" : "mb-8 text-lg"
+              }`}
+            >
               {cta.description}
             </p>
-            <div className="flex sm:flex-row flex-col justify-center gap-6">
-              <Link href="/contact">
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="transition-all duration-300 min-w-65"
-                >
-                  <MaterialIcon icon="phone" size="lg" className="mr-3" />
-                  <span className="font-medium">{cta.contactButton}</span>
-                </Button>
-              </Link>
+            <div className="flex justify-center">
               <Link href="/projects">
                 <Button
                   variant="secondary"

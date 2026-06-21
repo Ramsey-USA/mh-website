@@ -46,11 +46,13 @@ export const coreServices: CoreService[] = [
   {
     iconName: "engineering",
     title: "Commercial Construction Management",
-    subtitle:
-      "Streamline Your Project Success with Partnership-Focused CM Services",
+    subtitle: "Project Management Leadership Powered by Procore",
     description:
-      "Planning a new commercial building demands intricate details and expert partnership oversight. Put your project in the right hands with comprehensive Construction Management (CM) services across our Tri-State licensed footprint. From our Tri-Cities headquarters (Pasco, Richland, Kennewick), our priority is delivering an exceptional partnership experience from concept through completion, built on trust and proven excellence. We believe meticulous Master Planning and thorough communication are critical to streamlining the process in later stages, which is why we minimize 'on-the-fly' decisions. Trust our experienced team to manage the intricate details, allowing you to focus on your vision's success.",
+      "Planning a new commercial building demands intricate details and expert partnership oversight. Put your project in the right hands with comprehensive project management and Construction Management (CM) services across our Tri-State licensed footprint. From our Tri-Cities headquarters (Pasco, Richland, Kennewick), our priority is delivering an exceptional partnership experience from concept through completion, built on trust and proven excellence. Our team uses Procore to keep RFIs, submittals, schedules, and field communication aligned in one source of truth. We primarily focus on commercial and industrial construction, and we only entertain unique, highly complex, multi-million-dollar residential projects when the scope is a strong strategic fit. We believe meticulous Master Planning and thorough communication are critical to streamlining the process in later stages, which is why we minimize 'on-the-fly' decisions. Trust our experienced team to manage the intricate details, allowing you to focus on your vision's success.",
     features: [
+      "Procore-based project management and documentation control",
+      "AI-assisted planning support and advanced research workflows",
+      "RFI, submittal, and change management workflows",
       "Commercial Businesses (Retail Stores, Office Buildings)",
       "Medical Facilities & Healthcare Centers",
       "Industrial Buildings & Manufacturing Centers",
@@ -60,6 +62,8 @@ export const coreServices: CoreService[] = [
       "Educational Buildings (Schools, Training Centers)",
     ],
     benefits: [
+      "One source of truth through Procore for team and Client Partner visibility",
+      "More accurate planning and decision support through AI-assisted research",
       "Exceptional partnership experience from start to finish",
       "Thorough communication and upfront collaboration",
       "Streamlined process preventing costly on-the-fly decisions",
@@ -184,7 +188,7 @@ export const specialtyServices: SpecialtyService[] = [
     title: "Markets We Serve",
     subtitle: "Diverse Business Solutions Across WA, OR, ID",
     description:
-      "At MH Construction, we complete projects for a wide range of businesses throughout our Tri-State licensed region and the wider Pacific Northwest. Headquartered in the Tri-Cities (Kennewick, Richland, Pasco), we bring over 150 years of combined construction experience to your unique vision—from specialty religious facilities to complex industrial centers, from boutique wineries to large-scale medical facilities. We serve diverse markets across Washington, Idaho, and Oregon with the same commitment to quality and partnership excellence.",
+      "At MH Construction, we complete projects for a wide range of businesses throughout our Tri-State licensed region and the wider Pacific Northwest. Headquartered in the Tri-Cities (Kennewick, Richland, Pasco), we bring over 150 years of combined construction experience to your unique vision—from specialty religious facilities to complex industrial centers, from boutique wineries to large-scale medical facilities. We are primarily a commercial and industrial contractor. We selectively consider unique, highly complex, multi-million-dollar residential projects when the size and challenge justify our team allocation. We also support winery operations with pond liner installation for sludge control and containment. We serve diverse markets across Washington, Idaho, and Oregon with the same commitment to quality and partnership excellence.",
     markets: [
       "Religious Facilities (Churches, Community Centers)",
       "Commercial Buildings (Retail Stores, Office Buildings)",
@@ -192,6 +196,7 @@ export const specialtyServices: SpecialtyService[] = [
       "Educational Buildings (Schools, Training Centers)",
       "Medical Centers, Clinics, and Healthcare Facilities",
       "Wineries, Vineyards, and Specialty Agricultural",
+      "Winery Pond Liner Installation for Sludge Control",
       "Industrial Facilities and Manufacturing Centers",
     ],
   },
@@ -200,7 +205,7 @@ export const specialtyServices: SpecialtyService[] = [
     title: "Tenant Improvements",
     subtitle: "Transform Your Commercial Space Across Our Tri-State Footprint",
     description:
-      "If you've recently purchased a commercial building in the Tri-Cities area (Kennewick, Richland, Pasco, WA) or elsewhere in our Tri-State licensed footprint, MH Construction can help you transform it into your vision. We have decades of experience providing professional Tenant Improvement (TI) Services and are fully licensed to complete commercial renovation projects throughout Washington, Oregon, and Idaho. Whether you need a complete build-out or focused renovations, we'll help you bring your vision to life quickly and efficiently with expert craftsmanship. Our team understands the urgency of getting your business operational—we work diligently to minimize downtime while delivering exceptional results.",
+      "If you've recently purchased a commercial building in the Tri-Cities area (Kennewick, Richland, Pasco, WA) or elsewhere in our Tri-State licensed footprint, MH Construction can help you transform it into your vision. We have decades of experience providing professional Tenant Improvement (TI) Services and are fully licensed to complete commercial renovation projects throughout Washington, Oregon, and Idaho. Whether you need a complete build-out or focused renovations, we'll help you bring your vision to life quickly and efficiently with expert craftsmanship. Our team understands the urgency of getting your business operational—we work diligently to minimize downtime while delivering exceptional results. Tenant improvements remain a core commercial specialty, with residential remodel work considered only for exceptional, high-complexity, multi-million-dollar scopes.",
     capabilities: [
       "Complete commercial space transformation and renovation",
       "Licensed throughout Washington, Oregon, and Idaho",
@@ -216,13 +221,14 @@ export const specialtyServices: SpecialtyService[] = [
   {
     iconName: "location_city",
     title: "Commercial New Build-Outs",
-    subtitle: "Build Your Business Right from the Ground Up",
+    subtitle: "Ground-Up Commercial Builds Done Right",
     description:
-      "Looking for a committed, quality construction partner for your new commercial building? We offer comprehensive Commercial Construction Services to business owners throughout Kennewick, WA, the Tri-Cities headquarters market, and our full Tri-State licensed footprint. Whether you need a small professional office or a large automotive dealership, we construct functional spaces where your business can thrive. With over 150 years of combined experience, our crew uses top-grade materials and partners with the best architects in the Pacific Northwest to ensure your building meets your exact specifications and supports your business success. Every project is built with quality craftsmanship—construction excellence that serves your business for generations.",
+      "Looking for a committed, quality construction partner for your new commercial building? We offer comprehensive ground-up Commercial Construction Services to business owners throughout Kennewick, WA, the Tri-Cities headquarters market, and our full Tri-State licensed footprint. Whether you need a small professional office or a large automotive dealership, we construct functional spaces where your business can thrive. With over 150 years of combined experience, our crew uses top-grade materials and partners with the best architects in the Pacific Northwest to ensure your building meets your exact specifications and supports your business success. Every project is built with quality craftsmanship—construction excellence that serves your business for generations. We primarily build commercial projects and only consider residential ground-up work when it is uniquely challenging, large-scale, and multi-million-dollar.",
     buildTypes: [
       "Retail Construction (Stores, Shopping Centers)",
       "Medical Office Construction (Clinics, Healthcare)",
       "Winery Construction (Tasting Rooms, Production Facilities)",
+      "Ground-Up Commercial Office and Shell Construction",
       "Automotive Dealership Construction",
       "Professional Office Buildings",
       "Boutique & Specialty Retail Spaces",
@@ -312,6 +318,7 @@ export const serviceAreas: ServiceArea[] = [
     areas: [
       "Spokane, WA",
       "Yakima, WA",
+      "Tacoma, WA",
       "Walla Walla, WA",
       "Omak, WA",
       "Hermiston, OR",
@@ -321,6 +328,7 @@ export const serviceAreas: ServiceArea[] = [
     links: [
       "/locations/spokane",
       "/locations/yakima",
+      "/locations/tacoma",
       "/locations/walla-walla",
       "/locations/omak",
       "/locations/hermiston",

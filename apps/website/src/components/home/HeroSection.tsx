@@ -18,10 +18,11 @@ interface HeroSectionProps {
 
 const DEFAULT_EN_COPY: HeroSectionCopy = {
   baseLabel: "Base HQ -> Home",
-  founded: "Founded 2010",
-  tagline: "Veteran-Owned Since January 2025",
+  founded: "Founded 2010 • Veteran-Owned Since January 2025 • BABAA Supporter",
+  tagline: "Relationship-first construction across WA, OR, and ID",
   mission: "Building projects for the Client, NOT the Dollar",
-  serving: "Serving WA, OR, and ID from the Tri-Cities",
+  serving:
+    "Tri-Cities HQ (Pasco, Richland, Kennewick) | Licensed in WA, OR, ID",
 };
 
 const HOME_HERO_WEBM = "/videos/home-hero.webm";
@@ -74,14 +75,21 @@ export function HeroSection({
       <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
 
       {/* Header Text - Bottom Right */}
-      <div className="relative z-10 max-w-2xl ml-auto mr-4 sm:mr-6 lg:mr-8 xl:mr-12 mb-32 sm:mb-36 md:mb-40 lg:mb-44 pointer-events-none">
+      <div className="hero-safe-top hero-safe-bottom relative z-10 max-w-2xl ml-auto mr-4 sm:mr-6 lg:mr-8 xl:mr-12 mb-4 sm:mb-4 md:mb-4 lg:mb-4 pointer-events-none">
         <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
           <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+            {copy.baseLabel}
+          </span>
+          <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl mb-1">
             {copy.tagline}
           </span>
-          <span className="block text-brand-primary">{copy.mission}</span>
+          <span className="block text-brand-primary">
+            Building projects for the Client,{" "}
+            <span className="font-black italic text-brand-secondary">NOT</span>{" "}
+            the Dollar
+          </span>
           <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
-            {copy.serving}
+            {copy.founded} | {copy.serving}
           </span>
         </h1>
       </div>

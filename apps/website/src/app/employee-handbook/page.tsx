@@ -29,7 +29,6 @@ export default async function EmployeeHandbookPage() {
         title={t("employeeHandbook.hero.title")}
         highlight={t("employeeHandbook.hero.highlight")}
         description={t("employeeHandbook.hero.description")}
-        icon="menu_book"
       />
 
       <section className="bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-14 sm:px-6">

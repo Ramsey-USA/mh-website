@@ -4,6 +4,10 @@ All notable changes to the MH Construction website are documented here.
 
 ---
 
+## June 2026
+
+- **Jun 21:** Hero-to-navigation spacing standardization — normalized hero spacing across shared hero components and route-level hero banners so heading copy, breadcrumbs, and CTAs consistently clear the global navigation header and any pinned page-navigation rail on Home, Contact, Team, FAQ, Veterans, Safety, Careers, Projects, Public Sector, Allies, Testimonials, Cool Desert Nights, Locations, service detail, project case study, FAQ category, and public-sector subpages; added dynamic CSS variables for measured header and page-nav height, plus reusable `hero-safe-top`, `hero-safe-top-lg`, and `hero-safe-bottom` utilities in `apps/website/src/app/globals.css`.
+
 ## January 2025
 
 - **Jan:** Navigation icon standardization — created centralized `/src/lib/constants/navigation-icons.ts`

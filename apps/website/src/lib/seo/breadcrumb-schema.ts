@@ -140,6 +140,11 @@ export const breadcrumbPatterns = {
     { name: "Locations", url: "https://www.mhc-gc.com/locations" },
     { name: "Spokane, WA", url: "https://www.mhc-gc.com/locations/spokane" },
   ],
+  locationTacoma: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Locations", url: "https://www.mhc-gc.com/locations" },
+    { name: "Tacoma, WA", url: "https://www.mhc-gc.com/locations/tacoma" },
+  ],
   locationWestRichland: [
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "Locations", url: "https://www.mhc-gc.com/locations" },

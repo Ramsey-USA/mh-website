@@ -105,6 +105,7 @@ export function PageNavigation({
 }: PageNavigationProps) {
   const pathname = usePathname();
   const locale = useLocale();
+  const navRef = useRef<HTMLElement>(null);
   const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false);
   const moreButtonRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -144,6 +145,37 @@ export function PageNavigation({
     isActive
       ? "border-brand-primary bg-brand-primary/5 text-brand-primary dark:bg-brand-primary/15"
       : "border-transparent text-gray-600 hover:bg-gray-50 hover:text-brand-secondary dark:text-gray-300 dark:hover:bg-gray-800/60 dark:hover:text-brand-secondary";
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const updateNavHeight = () => {
+      if (!navRef.current) {
+        return;
+      }
+
+      root.style.setProperty(
+        "--mh-page-nav-height",
+        `${Math.ceil(navRef.current.getBoundingClientRect().height)}px`,
+      );
+    };
+
+    updateNavHeight();
+
+    const ResizeObserverImpl = globalThis.ResizeObserver;
+    if (!ResizeObserverImpl || !navRef.current) {
+      return () => {
+        root.style.removeProperty("--mh-page-nav-height");
+      };
+    }
+
+    const observer = new ResizeObserverImpl(updateNavHeight);
+    observer.observe(navRef.current);
+
+    return () => {
+      observer.disconnect();
+      root.style.removeProperty("--mh-page-nav-height");
+    };
+  }, []);
 
   useEffect(() => {
     if (!isMoreMenuOpen) {
@@ -224,6 +256,7 @@ export function PageNavigation({
 
   return (
     <nav
+      ref={navRef}
       className={`page-navigation border-y border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 shadow-sm ${className}`}
       aria-label="Page navigation"
     >

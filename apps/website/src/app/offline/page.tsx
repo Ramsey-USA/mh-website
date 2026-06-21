@@ -21,7 +21,6 @@ export default function OfflinePage() {
         title="Offline Hub"
         highlight="You are offline"
         description="Critical resources remain available from cache while connectivity is restored."
-        icon="wifi_off"
       />
 
       <div className="mx-auto max-w-lg w-full text-center px-4 pb-16 -mt-8 relative z-20">

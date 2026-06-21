@@ -72,6 +72,7 @@ const LOCATION_SERVICE_MAP: Record<string, string[]> = {
   richland: ["restoration-remodeling", "commercial-construction"],
   yakima: ["municipal-government", "commercial-construction"],
   spokane: ["drywall-interiors", "commercial-construction"],
+  tacoma: ["municipal-government", "commercial-construction"],
   "west-richland": ["restoration-remodeling", "commercial-construction"],
   "walla-walla": ["commercial-construction", "restoration-remodeling"],
   hermiston: ["municipal-government", "commercial-construction"],
@@ -276,7 +277,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
 
       <main className="min-h-screen flex flex-col">
         {/* Hero Section - Location Specific */}
-        <section className="hero-section relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 text-white py-20 sm:py-28 md:py-36 lg:py-44">
+        <section className="hero-section hero-safe-top-lg relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 text-white pb-20 sm:pb-28 md:pb-36 lg:pb-44">
           <SectionContainer padding="compact">
             <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
               <Breadcrumbs
