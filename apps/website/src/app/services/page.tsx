@@ -10,7 +10,6 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { AccreditationsLogoRow } from "@/components/shared-sections";
-import { COMPANY_INFO } from "@/lib/constants/company";
 import { useTranslations } from "next-intl";
 import type { Testimonial } from "@/lib/data/testimonials";
 import {
