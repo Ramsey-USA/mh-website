@@ -25,12 +25,7 @@ export interface ProjectPortfolio {
   id: string;
   title: string;
   description: string;
-  category:
-    | "residential"
-    | "commercial"
-    | "renovation"
-    | "custom"
-    | "industrial";
+  category: "commercial" | "renovation" | "custom" | "industrial";
   subcategory?: string; // e.g., "Kitchen Remodel", "Office Building", etc.
   status: "completed" | "in-progress" | "planned";
   location: {

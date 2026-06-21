@@ -2973,7 +2973,7 @@ const REF_FALL_TRIGGER_HEIGHTS = buildDataContainer({
     ["General Construction", "6 ft (1.8 m)", "29 CFR 1926.501"],
     ["Steel Erection", "15 ft (4.6 m)", "29 CFR 1926.760"],
     ["Scaffolding", "10 ft (3.0 m)", "29 CFR 1926.451"],
-    ["Residential Construction", "6 ft (1.8 m)", "29 CFR 1926.501(b)(13)"],
+    ["Subpart M Example Case", "6 ft (1.8 m)", "29 CFR 1926.501(b)(13)"],
     ["Stairways &amp; Ladders", "4 ft (1.2 m)", "29 CFR 1926.1052"],
     ["Excavation Edge", "6 ft (1.8 m)", "29 CFR 1926.501(b)(7)"],
     ["Hoist Areas", "Any height with opening", "29 CFR 1926.501(b)(3)"],

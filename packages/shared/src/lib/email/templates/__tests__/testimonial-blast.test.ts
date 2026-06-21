@@ -11,7 +11,7 @@ const baseData = {
   quote: "Great work by the whole team!",
   clientName: "John D.",
   location: "Richland, WA",
-  project: "Custom Home Remodel",
+  project: "Commercial Office Remodel",
   rating: 5,
   pageUrl: "https://www.mhc-gc.com/testimonials",
 };
@@ -37,7 +37,7 @@ describe("generateTestimonialBlast()", () => {
   it("includes the location and project type", () => {
     const { html } = generateTestimonialBlast(baseData);
     expect(html).toContain("Richland, WA");
-    expect(html).toContain("Custom Home Remodel");
+    expect(html).toContain("Commercial Office Remodel");
   });
 
   it("uses personalised greeting when subscriberName is provided", () => {

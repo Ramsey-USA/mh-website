@@ -1489,7 +1489,7 @@ Hi {customer_name},
 
 We just wrapped up {project_type} at {address} and would love to hear how it went.
 
-If you have 2 minutes, a Google review helps other homeowners find quality contractors:
+If you have 2 minutes, a Google review helps other business owners find quality contractors:
 → [Leave a Review](https://g.page/r/...)
 
 Thank you for trusting MH Construction!

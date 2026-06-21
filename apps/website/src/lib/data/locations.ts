@@ -124,7 +124,7 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "High-end residential production",
+      "Commercial tenant improvement delivery",
       "Site facilitation",
       "Municipal inspections",
     ],
@@ -203,7 +203,7 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "High-end residential production",
+      "Commercial tenant improvement delivery",
       "Site facilitation",
       "Municipal inspections",
     ],
@@ -489,7 +489,7 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "High-end residential production",
+      "Commercial tenant improvement delivery",
       "Site facilitation",
       "Municipal inspections",
     ],

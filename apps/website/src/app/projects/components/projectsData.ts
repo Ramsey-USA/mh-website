@@ -6,7 +6,6 @@
 // Category definitions
 export const categories = [
   { id: "all", label: "All Projects", icon: "grid_view" },
-  { id: "residential", label: "Residential", icon: "home" },
   { id: "commercial", label: "Commercial", icon: "business" },
   { id: "industrial", label: "Industrial", icon: "factory" },
   { id: "renovation", label: "Renovations", icon: "construction" },

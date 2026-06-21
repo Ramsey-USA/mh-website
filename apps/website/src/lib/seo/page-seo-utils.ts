@@ -701,7 +701,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Bagley Landscape Construction, Inc.",
       description:
-        "Landscaping contractor in the MH Construction Trade Partner network. Commercial & residential landscape design, irrigation, hydroseeding, retaining walls, hardscaping, maintenance, spraying, and snow & ice services from the Tri-Cities headquarters region across the broader footprint.",
+        "Landscaping contractor in the MH Construction Trade Partner network. Commercial and industrial landscape design, irrigation, hydroseeding, retaining walls, hardscaping, maintenance, spraying, and snow & ice services from the Tri-Cities headquarters region across the broader footprint.",
       telephone: "(509) 546-2449",
       email: "office@bagleylandscape.com",
       address: {
@@ -721,7 +721,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "McKinney Glass",
       description:
-        "Glass and glazing contractor in the MH Construction Trade Partner network. Auto glass, residential windows & skylights, commercial storefronts, automatic doors, fire-rated specialty doors, and interior partitions. Union Gap WA.",
+        "Glass and glazing contractor in the MH Construction Trade Partner network. Auto glass fleet support, commercial storefronts, automatic doors, fire-rated specialty doors, and interior partitions. Union Gap WA.",
       telephone: "(509) 248-2770",
       address: {
         "@type": "PostalAddress",
@@ -811,7 +811,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Viking Plumbing & Mechanical",
       description:
-        "Plumbing and mechanical contractor in the MH Construction Trade Partner network. Commercial & industrial new construction plumbing, residential plumbing, drain cleaning, hydro jetting, water heater services, sewer line repair, and water filtration. Yakima WA.",
+        "Plumbing and mechanical contractor in the MH Construction Trade Partner network. Commercial and industrial new construction plumbing, drain cleaning, hydro jetting, water heater services, sewer line repair, and water filtration. Yakima WA.",
       telephone: "(509) 450-0485",
       email: "info@vikingplumbingandmechanical.com",
       address: {
@@ -835,7 +835,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Core Cabinet Production",
       description:
-        "Cabinetry Trade Partner in the MH Construction network. Custom-designed and in-house fabricated kitchen, bathroom, home office, closet, storage, and commercial office cabinets. Richland WA.",
+        "Cabinetry Trade Partner in the MH Construction network. Custom-designed and in-house fabricated commercial casework, office cabinetry, storage systems, and specialty millwork. Richland WA.",
       telephone: "(509) 375-7900",
       email: "admin@corecabinetproduction.com",
       address: {

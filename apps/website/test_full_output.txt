@@ -3487,7 +3487,7 @@ FAIL src/app/locations/__tests__/locations-index-page.test.tsx
                       [36m<span[39m
                         [33mclass[39m=[32m"text-sm leading-6 text-gray-700 dark:text-gray-300"[39m
                       [36m>[39m
-                        [0mHigh-end residential production[0m
+                        [0mCommercial and industrial project delivery[0m
                       [36m</span>[39m
                     [36m</div>[39m
                     [36m<div[39m

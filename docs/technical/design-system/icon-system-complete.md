@@ -616,7 +616,7 @@ import { SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
 
 - `construction` - Construction work, vendor services (concept)
 - `business` - Commercial projects, business services
-- `home` - Residential projects, homeowner services
+- `home` - Office/homepage navigation and general wayfinding
 - `factory` - Industrial projects, manufacturing facilities
 
 ### Navigation & UI Icons

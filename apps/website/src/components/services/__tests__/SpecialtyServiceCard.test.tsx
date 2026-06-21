@@ -50,25 +50,25 @@ jest.mock("@/lib/styles/card-variants", () => ({
 
 const service: SpecialtyService = {
   iconName: "home_work",
-  title: "Residential Renovation",
-  subtitle: "Full-Home Remodels",
-  description: "Expert residential renovation services.",
-  markets: ["Single-family homes", "Condos"],
-  buildTypes: ["Kitchen remodels", "Bathroom remodels"],
+  title: "Commercial Renovation",
+  subtitle: "Office & Facility Remodels",
+  description: "Expert commercial renovation services.",
+  markets: ["Office campuses", "Medical facilities"],
+  buildTypes: ["Lobby remodels", "Tenant improvements"],
   features: ["Licensed contractors", "5-year warranty"],
 };
 
 describe("SpecialtyServiceCard", () => {
   it("renders service title and subtitle", () => {
     render(<SpecialtyServiceCard service={service} />);
-    expect(screen.getByText("Residential Renovation")).toBeInTheDocument();
-    expect(screen.getByText("Full-Home Remodels")).toBeInTheDocument();
+    expect(screen.getByText("Commercial Renovation")).toBeInTheDocument();
+    expect(screen.getByText("Office & Facility Remodels")).toBeInTheDocument();
   });
 
   it("shows collapsed state by default", () => {
     render(<SpecialtyServiceCard service={service} />);
     const card = screen.getByRole("button", {
-      name: /Expand Residential Renovation details/i,
+      name: /Expand Commercial Renovation details/i,
     });
     expect(card).toHaveAttribute("aria-expanded", "false");
     expect(screen.getByText("Click to view details")).toBeInTheDocument();
@@ -79,13 +79,13 @@ describe("SpecialtyServiceCard", () => {
     render(<SpecialtyServiceCard service={service} />);
 
     const card = screen.getByRole("button", {
-      name: /Expand Residential Renovation details/i,
+      name: /Expand Commercial Renovation details/i,
     });
     await user.click(card);
 
     expect(card).toHaveAttribute("aria-expanded", "true");
-    expect(screen.getByText("Single-family homes")).toBeInTheDocument();
-    expect(screen.getByText("Kitchen remodels")).toBeInTheDocument();
+    expect(screen.getByText("Office campuses")).toBeInTheDocument();
+    expect(screen.getByText("Lobby remodels")).toBeInTheDocument();
   });
 
   it("collapses on second click", async () => {
@@ -93,18 +93,18 @@ describe("SpecialtyServiceCard", () => {
     render(<SpecialtyServiceCard service={service} />);
 
     const card = screen.getByRole("button", {
-      name: /Expand Residential Renovation details/i,
+      name: /Expand Commercial Renovation details/i,
     });
     await user.click(card);
     await user.click(
       screen.getByRole("button", {
-        name: /Collapse Residential Renovation details/i,
+        name: /Collapse Commercial Renovation details/i,
       }),
     );
 
     expect(
       screen.getByRole("button", {
-        name: /Expand Residential Renovation details/i,
+        name: /Expand Commercial Renovation details/i,
       }),
     ).toHaveAttribute("aria-expanded", "false");
     expect(screen.getByText("Click to view details")).toBeInTheDocument();
@@ -115,7 +115,7 @@ describe("SpecialtyServiceCard", () => {
     render(<SpecialtyServiceCard service={service} />);
 
     const card = screen.getByRole("button", {
-      name: /Expand Residential Renovation details/i,
+      name: /Expand Commercial Renovation details/i,
     });
     card.focus();
     await user.keyboard("{Enter}");
@@ -128,7 +128,7 @@ describe("SpecialtyServiceCard", () => {
     render(<SpecialtyServiceCard service={service} />);
 
     const card = screen.getByRole("button", {
-      name: /Expand Residential Renovation details/i,
+      name: /Expand Commercial Renovation details/i,
     });
     card.focus();
     await user.keyboard(" ");
@@ -141,7 +141,7 @@ describe("SpecialtyServiceCard", () => {
     render(<SpecialtyServiceCard service={service} />);
 
     const card = screen.getByRole("button", {
-      name: /Expand Residential Renovation details/i,
+      name: /Expand Commercial Renovation details/i,
     });
     await user.click(card);
     expect(screen.getByText("Licensed contractors")).toBeInTheDocument();

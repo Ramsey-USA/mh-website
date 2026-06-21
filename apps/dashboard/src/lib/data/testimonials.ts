@@ -23,7 +23,7 @@ export interface Testimonial {
   /** Pre-sized social card (1080×1080 px) — /images/social/testimonials/[id].webp */
   socialCard?: string;
   type: "client" | "employee" | "veteran";
-  category?: string; // commercial, residential, healthcare, etc.
+  category?: string; // commercial, industrial, healthcare, etc.
   featured?: boolean;
   date?: string; // When testimonial was given
   veteranStatus?: boolean; // For veteran-specific testimonials

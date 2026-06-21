@@ -321,13 +321,13 @@ export interface Testimonial {
      id: "client-023",
      name: "First L.",
      location: "Richland, WA",
-     project: "Custom Home Remodel",
+    project: "Commercial Office Remodel",
      rating: 5,
      quote: "…",
      image: "/images/testimonials/client-023.webp",
      projectPhoto: "/images/projects/richland-remodel-2026/hero.webp",
      type: "client",
-     category: "residential",
+    category: "commercial",
      featured: true,
      date: "2026-04",
    }
@@ -423,7 +423,7 @@ The endpoint validates the session, looks up the testimonial in
     "id": "client-023",
     "quote": "…",
     "clientName": "First L.",
-    "projectType": "Custom Home Remodel",
+    "projectType": "Commercial Office Remodel",
     "location": "Richland, WA",
     "rating": 5,
     "imageUrl": "https://www.mhc-gc.com/images/social/testimonials/client-023.webp",
@@ -568,7 +568,7 @@ Create `src/lib/email/templates/testimonial-blast.tsx`:
 │  "This is the quote from the client…"  │
 │  ★★★★★                                  │
 │  — First L., Richland, WA               │
-│    Custom Home Remodel                  │
+│    Commercial Office Remodel            │
 │                                         │
 │  [Project photo — 600 px wide]          │
 │                                         │
@@ -665,7 +665,7 @@ import { OptimizedVideo } from "@/components/ui/media";
 <OptimizedVideo
   src="/videos/testimonials/client-001.mp4"
   poster="/videos/testimonials/client-001-poster.webp"
-  alt="Client testimonial video — John D., Kennewick WA custom home"
+  alt="Client testimonial video — John D., Kennewick WA commercial build-out"
   title="Client Testimonial — John D."
   autoPlay={false}
   controls
@@ -678,7 +678,7 @@ import { OptimizedVideo } from "@/components/ui/media";
 {
   "@type": "VideoObject",
   "name": "Client Testimonial — John D., Kennewick WA",
-  "description": "John D. shares his experience with MH Construction after completing a custom home build in Kennewick, WA.",
+  "description": "John D. shares his experience with MH Construction after completing a commercial build-out in Kennewick, WA.",
   "thumbnailUrl": "https://www.mhc-gc.com/videos/testimonials/client-001-poster.webp",
   "uploadDate": "2026-04-15",
   "contentUrl": "https://www.mhc-gc.com/videos/testimonials/client-001.mp4",

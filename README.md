@@ -132,7 +132,7 @@ improvements.
 - **Values:** Honesty, Integrity, Professionalism, Thoroughness
 - **Approach:** Face-to-face consultation, transparent pricing, veteran priority scheduling
 - **Service Area:** Tri-Cities HQ (Pasco, Richland, Kennewick) with Tri-State licensed coverage (WA, OR, ID), including Yakima, Spokane, and Walla Walla
-- **Specialties:** Commercial construction, residential, public sector, master planning
+- **Specialties:** Commercial construction, industrial, public sector, master planning
 
 ### Business Philosophy
 
@@ -317,14 +317,14 @@ Use these slash prompts for standardized compliance checks before merge or relea
 Use Google Analytics for behavior signal and Lighthouse for technical signal.
 
 1. **Collect behavior truth (GA):** validate high-value events (CTA clicks, form submits, key page views) in GA Realtime/DebugView.
-2. **Collect performance truth (Lighthouse):** measure target pages and capture Performance + Core Web Vitals indicators.
-3. **Correlate results:**
+1. **Collect performance truth (Lighthouse):** measure target pages and capture Performance + Core Web Vitals indicators.
+1. **Correlate results:**
 
 - High traffic + poor Lighthouse score = highest fix priority.
 - High conversions + poor score = protect conversion path immediately.
 - Low traffic + poor score = optimize after high-impact routes.
 
-4. **Re-test after fixes:** compare Lighthouse before/after and watch GA conversion trends over the next release window.
+1. **Re-test after fixes:** compare Lighthouse before/after and watch GA conversion trends over the next release window.
 
 Recommended cadence:
 

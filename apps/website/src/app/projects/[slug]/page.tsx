@@ -57,7 +57,7 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
       label: "Pasco Market",
     },
   },
-  "richland-residential-custom-home": {
+  "richland-corporate-office-tenant-improvement": {
     primaryService: {
       href: "/services/restoration-remodeling",
       label: "Restoration and Remodeling",
@@ -85,7 +85,7 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
       label: "Spokane Market",
     },
   },
-  "west-richland-multi-family-complex": {
+  "west-richland-light-industrial-flex-facility": {
     primaryService: {
       href: "/services/commercial-construction",
       label: "Commercial Construction",
@@ -143,7 +143,7 @@ export async function generateMetadata({
     return {
       title: "Projects | MH Construction",
       description:
-        "Review completed MH Construction projects and case studies across commercial, industrial, residential, and public-sector work.",
+        "Review completed MH Construction projects and case studies across commercial, industrial, and public-sector work.",
       robots: { index: false, follow: false },
     };
   }

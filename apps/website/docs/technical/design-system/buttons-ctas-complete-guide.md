@@ -408,7 +408,7 @@ Always include veteran-owned and safety credentials when using government button
 
 ### Client CTAs
 
-**Audience:** Homeowners, businesses hiring MH for projects  
+**Audience:** Business owners, facility managers, and organizations hiring MH for projects  
 **Icon:** `handshake`  
 **Color:** Hunter Green (#386851)  
 **Variant:** `primary`  

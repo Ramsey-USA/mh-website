@@ -56,7 +56,7 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 **Marketing Insights:**
 
 ```text
-✓ "Commercial vs Residential interest" → Click comparison
+✓ "Commercial vs Industrial interest" → Click comparison
 ✓ "Which service converts best?" → Service-to-contact correlation
 ✓ "Master Planning popularity" → Engagement metrics
 ✓ "Emergency services demand" → After-hours clicks

@@ -1,8 +1,11 @@
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { useTranslations } from "next-intl";
 
 export function ServicesHero() {
+  const t = useTranslations("home");
+
   return (
     <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
       {/* Background - Ready for photo or video */}
@@ -26,17 +29,16 @@ export function ServicesHero() {
         </div>
         <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
           <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-            Operations → Services
+            {t("services.hero.sectionSubtitle")}
           </span>
           <span className="block text-brand-secondary">
-            Construction Services
+            {t("services.hero.sectionTitle")}
           </span>
           <span className="block text-brand-primary">
-            Your project deserves expert oversight
+            {t("services.hero.sectionTagline")}
           </span>
           <span className="block text-white/90">
-            Commercial, industrial, and public-sector delivery across the
-            Pacific Northwest
+            {t("services.hero.sectionDescription")}
           </span>
         </h1>
       </div>

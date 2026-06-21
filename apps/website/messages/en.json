@@ -1508,9 +1508,10 @@
     },
     "services": {
       "hero": {
-        "sectionTitle": "Services Built on Trust",
-        "sectionSubtitle": "Full-Spectrum Construction",
-        "sectionDescription": "From planning to completion, every project reflects our core values-honesty, integrity, professionalism, and thoroughness."
+        "sectionTitle": "Construction Services Built on Trust",
+        "sectionSubtitle": "Operations -> Services",
+        "sectionTagline": "No gimmicks. No shortcuts. Just quality work done right.",
+        "sectionDescription": "Commercial, industrial, and public-sector delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters."
       },
       "core": {
         "sectionTitle": "Core Services",
@@ -1806,7 +1807,7 @@
       "portfolio": {
         "subtitle": "Our Construction",
         "title": "Portfolio",
-        "description": "Explore completed projects that showcase quality craftsmanship across commercial, residential, and government sectors.",
+        "description": "Explore completed projects that showcase quality craftsmanship across commercial, industrial, and government sectors.",
         "button": "View Complete Portfolio",
         "note": "Detailed portfolio with High-Level CRM integration coming soon"
       },

@@ -70,7 +70,7 @@ export const ALLIES: AllyInfo[] = [
     name: "McKinney Glass",
     role: "Glass & Glazing Contractor",
     description:
-      "Full-service auto, residential, and commercial glass solutions — from windshield repair and energy-efficient windows to commercial storefronts.",
+      "Full-service auto, commercial, and industrial glass solutions — from fleet windshield repair and glazing systems to commercial storefronts.",
     highlights: [
       "Commercial Storefronts & Automatic Doors",
       "Energy Efficient Windows",
@@ -101,7 +101,7 @@ export const ALLIES: AllyInfo[] = [
     name: "D-Fence Fencing Company",
     role: "Fencing Contractor",
     description:
-      "Residential and commercial fencing solutions across Eastern Washington — chain link, vinyl, cedar privacy, ornamental, and automated gates.",
+      "Commercial and industrial fencing solutions across Eastern Washington — chain link, vinyl, ornamental, and automated gates.",
     highlights: [
       "Chain Link & Vinyl Fencing",
       "Cedar Privacy Fencing",
@@ -131,7 +131,7 @@ export const ALLIES: AllyInfo[] = [
     name: "Viking Plumbing & Mechanical",
     role: "Plumbing & Mechanical Contractor",
     description:
-      "Full-service commercial, industrial, and residential plumbing — new construction, renovations, drain cleaning, and water systems.",
+      "Full-service commercial and industrial plumbing — new construction, renovations, drain cleaning, and water systems.",
     highlights: [
       "Commercial & Industrial Plumbing",
       "Drain Cleaning & Hydro Jetting",
@@ -147,10 +147,10 @@ export const ALLIES: AllyInfo[] = [
     name: "Core Cabinet Production",
     role: "Cabinetry Partner",
     description:
-      "Custom-designed, in-house fabricated cabinets for residential and commercial applications — kitchens, bathrooms, offices, and closets.",
+      "Custom-designed, in-house fabricated cabinetry for commercial and industrial applications — office casework, storage systems, and specialty millwork.",
     highlights: [
-      "Kitchen & Bathroom Cabinets",
-      "Home Offices & Closets",
+      "Commercial Casework",
+      "Industrial Storage Systems",
       "Commercial Offices",
       "Custom Fabrication",
     ],
@@ -168,7 +168,7 @@ export const ALLIES: AllyInfo[] = [
       "Drywall Installation",
       "Taping & Finishing",
       "Interior Construction",
-      "Commercial & Residential Scope",
+      "Commercial & Industrial Scope",
     ],
     phone: "(509) 492-5208",
     email: "office@hd-drywall.net",

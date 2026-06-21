@@ -1,6 +1,21 @@
 import { render, screen } from "@testing-library/react";
 import { ServicesHero } from "../ServicesHero";
 
+jest.mock("next-intl", () => ({
+  useTranslations: () => {
+    const messages: Record<string, string> = {
+      "services.hero.sectionSubtitle": "Operations -> Services",
+      "services.hero.sectionTitle": "Construction Services Built on Trust",
+      "services.hero.sectionTagline":
+        "No gimmicks. No shortcuts. Just quality work done right.",
+      "services.hero.sectionDescription":
+        "Commercial, industrial, and public-sector delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters.",
+    };
+
+    return (key: string) => messages[key] ?? key;
+  },
+}));
+
 jest.mock("@/components/navigation/PageNavigation", () => ({
   PageNavigation: () => (
     <nav data-testid="page-nav" aria-label="Page navigation" />
@@ -25,26 +40,30 @@ describe("ServicesHero", () => {
 
   it("renders construction services heading", () => {
     render(<ServicesHero />);
-    expect(screen.getByText("Construction Services")).toBeInTheDocument();
+    expect(
+      screen.getByText("Construction Services Built on Trust"),
+    ).toBeInTheDocument();
   });
 
   it("renders the strategic excellence heading", () => {
     render(<ServicesHero />);
     expect(
-      screen.getByText("Your project deserves expert oversight"),
+      screen.getByText(
+        "No gimmicks. No shortcuts. Just quality work done right.",
+      ),
     ).toBeInTheDocument();
   });
 
   it("renders the Operations breadcrumb text", () => {
     render(<ServicesHero />);
-    expect(screen.getByText("Operations → Services")).toBeInTheDocument();
+    expect(screen.getByText("Operations -> Services")).toBeInTheDocument();
   });
 
   it("renders the mission statement", () => {
     render(<ServicesHero />);
     expect(
       screen.getByText(
-        /Commercial, industrial, and public-sector delivery across the Pacific Northwest/i,
+        /Commercial, industrial, and public-sector delivery across Washington, Oregon, and Idaho/i,
       ),
     ).toBeInTheDocument();
   });

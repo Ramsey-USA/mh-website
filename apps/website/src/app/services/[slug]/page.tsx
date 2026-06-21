@@ -42,8 +42,8 @@ const SERVICE_POWER_CENTER: Record<string, ServicePowerCenter> = {
         label: "Pasco industrial warehouse build-out",
       },
       {
-        href: "/projects/west-richland-multi-family-complex",
-        label: "West Richland multi-family complex",
+        href: "/projects/west-richland-light-industrial-flex-facility",
+        label: "West Richland light industrial flex facility",
       },
     ],
     locations: [
@@ -114,8 +114,8 @@ const SERVICE_POWER_CENTER: Record<string, ServicePowerCenter> = {
         label: "Kennewick office interior renovation",
       },
       {
-        href: "/projects/richland-residential-custom-home",
-        label: "Richland custom interior finish package",
+        href: "/projects/richland-corporate-office-tenant-improvement",
+        label: "Richland corporate interior finish package",
       },
     ],
     locations: [
@@ -138,11 +138,11 @@ const SERVICE_POWER_CENTER: Record<string, ServicePowerCenter> = {
   "restoration-remodeling": {
     projects: [
       {
-        href: "/projects/richland-residential-custom-home",
-        label: "Richland phased restoration project",
+        href: "/projects/richland-corporate-office-tenant-improvement",
+        label: "Richland phased office restoration project",
       },
       {
-        href: "/projects/west-richland-multi-family-complex",
+        href: "/projects/west-richland-light-industrial-flex-facility",
         label: "West Richland phased occupancy delivery",
       },
       {

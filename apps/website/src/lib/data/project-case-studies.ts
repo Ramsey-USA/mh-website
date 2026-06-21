@@ -89,25 +89,25 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     ],
   },
   {
-    slug: "richland-residential-custom-home",
+    slug: "richland-corporate-office-tenant-improvement",
     projectId: "proj-003",
-    title: "Richland Residential Custom Home",
-    metaTitle: "Richland Residential Custom Home | MH Construction",
+    title: "Richland Corporate Office Tenant Improvement",
+    metaTitle: "Richland Corporate Office Tenant Improvement | MH Construction",
     metaDescription:
-      "A 3,800 sq ft custom home in Richland, WA designed for accessible living, efficient systems, and careful finish detailing.",
+      "A 3,800 sq ft corporate office tenant improvement in Richland, WA designed for accessible circulation, efficient systems, and careful finish detailing.",
     ogImage: "/images/projects/richland-custom-home.webp",
     description:
-      "MH Construction delivered a custom home with universal design principles, premium finishes, and a clear delivery plan for the owner family.",
+      "MH Construction delivered a corporate office tenant improvement with universal accessibility principles, premium finishes, and a clear delivery plan for daily operations.",
     location: { city: "Richland", state: "WA" },
     yearCompleted: 2024,
-    category: "Residential",
+    category: "Commercial",
     technicalSpecs: {
       squareFootage: 3800,
-      deliveryMethod: "Custom home",
+      deliveryMethod: "Tenant improvement",
       primaryScope: [
-        "Open-concept living",
-        "Chef's kitchen",
-        "Three-car garage",
+        "Open collaboration zones",
+        "Executive briefing room",
+        "Fleet access upgrades",
       ],
       finishPackage: [
         "Stone countertops",
@@ -122,8 +122,8 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Final punch-list review with the owner",
     ],
     results: [
-      "Delivered a custom residence that matched the owner brief.",
-      "Kept the finish schedule aligned with the family timeline.",
+      "Delivered a commercial workspace aligned to the operations brief.",
+      "Kept the finish schedule aligned with client move-in milestones.",
       "Balanced quality, efficiency, and durable material selection.",
     ],
   },
@@ -163,26 +163,29 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     ],
   },
   {
-    slug: "west-richland-multi-family-complex",
+    slug: "west-richland-light-industrial-flex-facility",
     projectId: "proj-005",
-    title: "West Richland Multi-Family Residential Complex",
-    metaTitle:
-      "West Richland Multi-Family Residential Complex | MH Construction",
+    title: "West Richland Light Industrial Flex Facility",
+    metaTitle: "West Richland Light Industrial Flex Facility | MH Construction",
     metaDescription:
-      "A 16-unit multi-family residential complex in West Richland, WA built with energy-efficient systems and durable shared amenities.",
+      "A 16-suite light industrial flex facility in West Richland, WA built with energy-efficient systems and durable shared infrastructure.",
     ogImage: "/images/projects/west-richland-multifamily.webp",
     description:
-      "MH Construction completed a multi-family project with controlled sequencing, shared amenity planning, and energy-conscious detailing.",
+      "MH Construction completed a light industrial project with controlled sequencing, shared logistics planning, and energy-conscious detailing.",
     location: { city: "West Richland", state: "WA" },
     yearCompleted: 2024,
-    category: "Residential",
+    category: "Industrial",
     technicalSpecs: {
       squareFootage: 18000,
-      deliveryMethod: "Multi-family new build",
-      primaryScope: ["Sixteen units", "Community room", "Covered parking"],
+      deliveryMethod: "Light industrial new build",
+      primaryScope: [
+        "Sixteen configurable suites",
+        "Shared operations core",
+        "Covered loading",
+      ],
       finishPackage: [
         "Fiber cement siding",
-        "Architectural shingles",
+        "Industrial-grade roofing",
         "Low-E windows",
       ],
     },
@@ -193,9 +196,9 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Final inspection walkthrough for common areas and units",
     ],
     results: [
-      "Delivered a functional housing asset with durable finishes.",
-      "Kept the unit-by-unit rollout controlled and repeatable.",
-      "Built shared amenities that support long-term resident use.",
+      "Delivered a functional industrial asset with durable finishes.",
+      "Kept the suite-by-suite rollout controlled and repeatable.",
+      "Built shared infrastructure that supports long-term tenant operations.",
     ],
   },
 ];

@@ -84,7 +84,7 @@ const vendors: Vendor[] = [
     description:
       "Bagley Landscape Construction, Inc. delivers comprehensive landscape design, installation, hardscaping, maintenance, and snow & ice services across the Tri-Cities (Pasco, Richland, Kennewick) and our broader Pacific Northwest project footprint. Their local expertise and full-service capabilities support MH Construction projects from groundbreaking to year-round upkeep.",
     highlights: [
-      "Commercial & Residential Landscape Design & Installation",
+      "Commercial & Industrial Landscape Design & Installation",
       "Irrigation Systems & Hydroseeding",
       "Landscape Lighting",
       "Retaining Walls — Block, Boulder & Rock",
@@ -115,12 +115,12 @@ const vendors: Vendor[] = [
     icon: "kitchen",
     accentColor: "from-orange-500 to-orange-700",
     description:
-      "Core Cabinet Production specializes in custom-designed, in-house fabricated cabinets for residential and commercial applications on MH Construction projects. From kitchen and bathroom cabinets to full commercial office builds, Core Cabinet delivers precision craftsmanship.",
+      "Core Cabinet Production specializes in custom-designed, in-house fabricated cabinetry and millwork for commercial and industrial applications on MH Construction projects. From office casework to specialty storage systems, Core Cabinet delivers precision craftsmanship.",
     highlights: [
-      "Kitchen Cabinets",
-      "Bathroom Cabinets",
-      "Home Offices",
-      "Closets",
+      "Commercial Casework",
+      "Industrial Storage Systems",
+      "Office Millwork",
+      "Specialty Cabinets",
       "Storage & Bookcases",
       "Commercial Offices",
     ],
@@ -145,7 +145,7 @@ const vendors: Vendor[] = [
     icon: "fence",
     accentColor: "from-red-600 to-red-800",
     description:
-      "D-Fence Fencing Company delivers residential and commercial fencing solutions across Eastern Washington on MH Construction projects. From galvanized chain link to ornamental and cedar privacy fencing, D-Fence brings craftsmanship and reliability to every project.",
+      "D-Fence Fencing Company delivers commercial and industrial fencing solutions across Eastern Washington on MH Construction projects. From galvanized chain link to ornamental and high-security perimeter systems, D-Fence brings craftsmanship and reliability to every project.",
     highlights: [
       "Galvanized & Black Chain Link",
       "Vinyl Fencing",
@@ -253,11 +253,11 @@ const vendors: Vendor[] = [
     icon: "construction",
     accentColor: "from-sky-700 to-sky-900",
     description:
-      "High Desert Drywall, Inc. delivers expert drywall installation, taping, and finishing on MH Construction projects. Their commitment to quality and precision makes them a valued partner for interior builds across the Pacific Northwest.",
+      "High Desert Drywall, Inc. delivers expert drywall installation, taping, and finishing on MH Construction projects. Their commitment to quality and precision makes them a valued partner for commercial and industrial interior builds across the Pacific Northwest.",
     highlights: [
       "Drywall Installation",
       "Taping & Finishing",
-      "Commercial & Residential Interior Scope",
+      "Commercial & Industrial Interior Scope",
       "Interior Construction Specialists",
     ],
     portfolio: [],
@@ -315,7 +315,7 @@ const vendors: Vendor[] = [
     icon: "window",
     accentColor: "from-sky-500 to-sky-700",
     description:
-      "McKinney Glass provides full-service auto, residential, and commercial glass solutions for MH Construction projects. Based in the Yakima Valley, their expertise spans windshield repair, energy-efficient windows, commercial storefronts, and fire-rated specialty doors.",
+      "McKinney Glass provides full-service auto, commercial, and industrial glass solutions for MH Construction projects. Based in the Yakima Valley, their expertise spans fleet windshield repair, glazing systems, commercial storefronts, and fire-rated specialty doors.",
     highlights: [
       "Auto Glass — Windshield Repair/Replacement & Rock Chip Repair",
       "RV, Bus & Heavy Equipment Glass",
@@ -402,10 +402,10 @@ const vendors: Vendor[] = [
     icon: "plumbing",
     accentColor: "from-yellow-500 to-yellow-700",
     description:
-      "Viking Plumbing & Mechanical delivers full-service commercial, industrial, and residential plumbing across the Pacific Northwest on MH Construction projects. From new construction to complex renovations, Viking brings the expertise and reliability our projects demand.",
+      "Viking Plumbing & Mechanical delivers full-service commercial and industrial plumbing across the Pacific Northwest on MH Construction projects. From new construction to complex renovations, Viking brings the expertise and reliability our projects demand.",
     highlights: [
       "Commercial & Industrial New Construction Plumbing",
-      "Residential New Construction & Remodeling",
+      "Commercial Renovation & Tenant Improvements",
       "Drain Cleaning & Hydro Jetting",
       "Water Heater Services",
       "Sewer Line Inspection, Repair & Replacement",

@@ -18,10 +18,10 @@ jest.mock("@/lib/services/portfolio-service", () => ({
       const projects = [
         {
           id: "1",
-          title: "Residential Build",
-          description: "A house project",
-          category: "residential",
-          subcategory: "custom",
+          title: "Industrial Build",
+          description: "A light industrial project",
+          category: "industrial",
+          subcategory: "warehouse",
           location: { city: "Kennewick" },
           tags: ["wood-frame"],
         },
@@ -90,9 +90,9 @@ describe("useProjectsSearch", () => {
   });
 
   it("reads category param from URL on mount", () => {
-    window.history.replaceState({}, "", "/projects?category=residential");
+    window.history.replaceState({}, "", "/projects?category=industrial");
     const { result } = renderHook(() => useProjectsSearch());
-    expect(result.current.selectedCategory).toBe("residential");
+    expect(result.current.selectedCategory).toBe("industrial");
   });
 
   it("updates searchQuery", () => {
@@ -106,14 +106,14 @@ describe("useProjectsSearch", () => {
   it("filters projects by searchQuery (title match)", () => {
     const { result } = renderHook(() => useProjectsSearch());
     act(() => {
-      result.current.setSearchQuery("Residential");
+      result.current.setSearchQuery("Industrial");
     });
     expect(
       result.current.projects.every(
         (p) =>
-          p.title.toLowerCase().includes("residential") ||
-          p.description.toLowerCase().includes("residential") ||
-          p.location.city.toLowerCase().includes("residential"),
+          p.title.toLowerCase().includes("industrial") ||
+          p.description.toLowerCase().includes("industrial") ||
+          p.location.city.toLowerCase().includes("industrial"),
       ),
     ).toBe(true);
   });
@@ -150,7 +150,7 @@ describe("useProjectsSearch", () => {
     const { result } = renderHook(() => useProjectsSearch());
     act(() => {
       result.current.setSearchQuery("test");
-      result.current.setSelectedCategory("residential");
+      result.current.setSelectedCategory("industrial");
     });
     act(() => {
       result.current.clearSearch();

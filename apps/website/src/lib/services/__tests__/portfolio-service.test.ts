@@ -75,7 +75,7 @@ describe("PortfolioService", () => {
 
     expect(related.length).toBeGreaterThan(0);
     expect(related.every((p) => p.id !== "proj-003")).toBe(true);
-    expect(related.every((p) => p.category === "residential")).toBe(true);
+    expect(related.every((p) => p.category === "commercial")).toBe(true);
   });
 
   it("returns an empty array when asking for related projects for an unknown id", () => {

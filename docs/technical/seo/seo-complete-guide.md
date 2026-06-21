@@ -335,7 +335,7 @@ All lead-path pages follow the **Universal Page Flow Standard** — **Discover �
 
 - ✅ "Services | MH Construction" (30 chars)
 - ✅ "About Us | MH Construction" (28 chars)
-- ❌ "Construction Services Including Residential, Commercial, and Government | MH Construction" (91 chars - TOO LONG)
+- ❌ "Construction Services Including Commercial, Industrial, and Government | MH Construction" (90 chars - TOO LONG)
 
 ### Description Optimization
 
@@ -628,8 +628,8 @@ export default function YourPage() {
 
 ```typescript
 generateServiceSchema({
-  name: "Residential Construction",
-  description: "Custom home building and renovation services",
+  name: "Commercial Construction",
+  description: "Commercial and industrial building and renovation services",
   category: "Construction Services",
   provider: "MH Construction",
   areaServed: ["Washington", "Oregon", "Idaho"],

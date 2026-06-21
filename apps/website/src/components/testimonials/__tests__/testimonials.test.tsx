@@ -67,7 +67,7 @@ const clientTestimonial: Testimonial = {
   id: "test-client-1",
   name: "Jane Smith",
   location: "Richland, WA",
-  project: "Custom Home",
+  project: "Commercial Office Build-Out",
   rating: 5,
   quote: "Outstanding service and professionalism throughout the project.",
   type: "client",

@@ -11,5 +11,6 @@ export { SpecialtyServicesSection } from "./SpecialtyServicesSection";
 export { GovernmentProjectsSection } from "./GovernmentProjectsSection";
 export { ServiceAreasSection } from "./ServiceAreasSection";
 export { ConstructionProcessSection } from "./ConstructionProcessSection";
+export { PartnershipTypesSection } from "./PartnershipTypesSection";
 
 export * from "./servicesData";

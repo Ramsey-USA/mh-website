@@ -82,7 +82,7 @@ const DYNAMIC_ROUTE_SAMPLES = {
   "/projects/[slug]": [
     "/projects/kennewick-commercial-office-renovation",
     "/projects/pasco-industrial-warehouse-build-out",
-    "/projects/richland-residential-custom-home",
+    "/projects/richland-corporate-office-tenant-improvement",
   ],
   "/services/[slug]": [
     "/services/commercial-construction",

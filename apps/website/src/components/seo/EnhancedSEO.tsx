@@ -250,7 +250,6 @@ export function generateEnhancedOrganizationSchema() {
       },
     ],
     serviceType: [
-      "Residential Construction",
       "Commercial Construction",
       "Industrial Construction",
       "Government Construction Projects",

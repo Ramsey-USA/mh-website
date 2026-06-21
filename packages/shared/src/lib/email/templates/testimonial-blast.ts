@@ -17,7 +17,7 @@ export interface TestimonialBlastData {
   clientName: string;
   /** City, State — e.g. "Richland, WA" */
   location: string;
-  /** Project type — e.g. "Custom Home Remodel" */
+  /** Project type — e.g. "Commercial Office Remodel" */
   project: string;
   /** Star rating 1-5 */
   rating: number;
