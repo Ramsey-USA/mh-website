@@ -115,6 +115,8 @@
   "exclude": [
     "node_modules",
     ".next",
+    ".open-next",
+    "worker-entry.ts",
     "out",
     "build",
     "dist",
