@@ -28,12 +28,12 @@ async function requestPersistentStorage() {
   return false;
 }
 
-const _CACHE_NAME = "mh-construction-v4.0.0";
-const STATIC_CACHE_NAME = "mh-construction-static-v4.0.0";
-const DYNAMIC_CACHE_NAME = "mh-construction-dynamic-v4.0.0";
-const IMAGE_CACHE_NAME = "mh-construction-images-v4.0.0";
-const API_CACHE_NAME = "mh-construction-api-v4.0.0";
-const CDN_CACHE_NAME = "mh-construction-cdn-v4.0.0";
+const _CACHE_NAME = "mh-construction-v4.0.1";
+const STATIC_CACHE_NAME = "mh-construction-static-v4.0.1";
+const DYNAMIC_CACHE_NAME = "mh-construction-dynamic-v4.0.1";
+const IMAGE_CACHE_NAME = "mh-construction-images-v4.0.1";
+const API_CACHE_NAME = "mh-construction-api-v4.0.1";
+const CDN_CACHE_NAME = "mh-construction-cdn-v4.0.1";
 
 // Cache duration settings (in milliseconds) - optimized for CDN
 const CACHE_DURATION = {
@@ -183,7 +183,7 @@ self.addEventListener("activate", (event) => {
             .filter((cacheName) => {
               return (
                 cacheName.startsWith("mh-construction-") &&
-                !cacheName.includes("v4.0.0")
+                !cacheName.includes("v4.0.1")
               );
             })
             .map((cacheName) => {
@@ -443,7 +443,12 @@ self.addEventListener("fetch", (event) => {
       event.respondWith(handleStaticRequest(request, strategy));
     } else {
       // Page requests - network first with fallback
-      event.respondWith(handlePageRequest(request, strategy));
+      event.respondWith(
+        handlePageRequest(request, {
+          strategy,
+          preloadResponse: event.preloadResponse,
+        }),
+      );
     }
   } else {
     // External requests (CDN, APIs, Cloudflare, etc.) - optimized for each
@@ -565,10 +570,25 @@ async function handleStaticRequest(request) {
 }
 
 // Handle page requests with network-first strategy and offline fallback
-async function handlePageRequest(request) {
+async function handlePageRequest(request, options = {}) {
+  const { preloadResponse } = options;
   const cacheName = DYNAMIC_CACHE_NAME;
 
   try {
+    // Use navigation preload when available to avoid startup races where
+    // service worker boot timing can make a same-origin navigation appear
+    // as a transient network failure.
+    if (preloadResponse) {
+      const preloaded = await preloadResponse;
+      if (preloaded) {
+        if (preloaded.ok) {
+          const cache = await caches.open(cacheName);
+          cache.put(request, preloaded.clone());
+        }
+        return preloaded;
+      }
+    }
+
     // Try network first
     const networkResponse = await fetch(request);
 
@@ -579,6 +599,22 @@ async function handlePageRequest(request) {
 
     return networkResponse;
   } catch (_error) {
+    // Retry once with no-store for transient edge/CDN handshake failures.
+    // This avoids falling back to stale cache for brief upstream blips.
+    try {
+      const retryRequest = new Request(request, { cache: "no-store" });
+      const retryResponse = await fetch(retryRequest);
+
+      if (retryResponse.ok) {
+        const cache = await caches.open(cacheName);
+        cache.put(request, retryResponse.clone());
+      }
+
+      return retryResponse;
+    } catch (_retryError) {
+      // Continue with cache/offline fallback below.
+    }
+
     console.info(
       "[SW] Network failed for page request, trying cache:",
       request.url,
