@@ -32,6 +32,10 @@ test-results/
 # === Generated documents / assets ===
 documents/output/
 documents/content/safety-manual.json
+
+# === Script-managed config files (own their formatting) ===
+apps/website/config/seo/route-indexing-policy.json
+config/seo/route-indexing-policy.json
 public/docs/
 public/sw.js
 seo-audit-report.json

@@ -31,7 +31,9 @@
         "/veterans",
         "/veterans/public-sector-construction"
       ],
-      "patterns": ["^/resources/safety-manual/\\[cluster\\]$"]
+      "patterns": [
+        "^/resources/safety-manual/\\[cluster\\]$"
+      ]
     },
     "noindex": {
       "exact": [
@@ -57,23 +59,38 @@
   "dynamicSitemapCoverage": [
     {
       "pattern": "^/resources/safety-manual/\\[cluster\\]$",
-      "requiresAny": ["ALL_CLUSTER_SLUGS", "SAFETY_CLUSTER_PAGES"]
+      "requiresAny": [
+        "ALL_CLUSTER_SLUGS",
+        "SAFETY_CLUSTER_PAGES"
+      ]
     },
     {
       "pattern": "^/services/\\[slug\\]$",
-      "requiresAny": ["getServiceRouteSlugs", "serviceEntries"]
+      "requiresAny": [
+        "getServiceRouteSlugs",
+        "serviceEntries"
+      ]
     },
     {
       "pattern": "^/projects/\\[slug\\]$",
-      "requiresAny": ["getProjectCaseStudySlugs", "projectEntries"]
+      "requiresAny": [
+        "getProjectCaseStudySlugs",
+        "projectEntries"
+      ]
     },
     {
       "pattern": "^/faq/\\[category\\]$",
-      "requiresAny": ["getFAQCategorySlugs", "faqEntries"]
+      "requiresAny": [
+        "getFAQCategorySlugs",
+        "faqEntries"
+      ]
     },
     {
       "pattern": "^/locations/\\[city\\]$",
-      "requiresAny": ["getLocationSlugs", "LOCATION_PAGES"]
+      "requiresAny": [
+        "getLocationSlugs",
+        "LOCATION_PAGES"
+      ]
     }
   ],
   "pendingClassification": []
