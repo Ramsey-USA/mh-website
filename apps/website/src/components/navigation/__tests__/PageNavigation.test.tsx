@@ -1,12 +1,7 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { PageNavigation } from "../PageNavigation";
 import type { NavigationItem } from "../navigationConfigs";
 
-// jsdom does not implement navigation for non-hash hrefs — it logs
-// "Not implemented: navigation (except hash changes)" asynchronously when an
-// <a href="/services"> is rendered and the browser timer fires.  Suppress that
-// known-harmless warning for this test file.
 let _navErrorSpy: jest.SpyInstance;
 beforeAll(() => {
   _navErrorSpy = jest
@@ -28,48 +23,36 @@ jest.mock("next/link", () => ({
   default: ({
     children,
     href,
-    onClick,
     ...rest
   }: {
     children: React.ReactNode;
     href: string;
-    onClick?: React.MouseEventHandler<HTMLAnchorElement>;
     [key: string]: unknown;
   }) => (
-    <a href={href} onClick={onClick} {...rest}>
+    <a href={href} {...rest}>
       {children}
     </a>
   ),
 }));
 
-jest.mock("@/components/icons/MaterialIcon", () => ({
-  MaterialIcon: ({ icon }: { icon: string }) => <span>{icon}</span>,
-}));
-
-jest.mock("@/hooks/use-breakpoint", () => ({
-  useIsMobile: () => false,
-}));
-
 const mockLocale = jest.fn<"en" | "es", []>(() => "en");
+const mockPathname = jest.fn<string, []>(() => "/");
+
+jest.mock("next/navigation", () => ({
+  usePathname: () => mockPathname(),
+}));
 
 jest.mock("@/hooks/useLocale", () => ({
   useLocale: () => mockLocale(),
 }));
 
-const items: NavigationItem[] = [
-  { href: "#core-values", label: "Core Values", icon: "shield" },
-  { href: "/services", label: "Services", icon: "build" },
-  {
-    href: "#why-partner",
-    label: "Why Partner",
-    mobileLabel: "Why Us",
-    icon: "handshake",
-  },
-];
+// items prop is accepted but ignored — nav always shows the top 5 page links
+const items: NavigationItem[] = [];
 
 describe("PageNavigation", () => {
   beforeEach(() => {
     mockLocale.mockReturnValue("en");
+    mockPathname.mockReturnValue("/");
   });
 
   it("renders a navigation landmark", () => {
@@ -79,26 +62,22 @@ describe("PageNavigation", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders an anchor for each item with correct href", () => {
-    const { container } = render(<PageNavigation items={items} />);
-    const links = container.querySelectorAll("a");
-    const hrefs = Array.from(links).map((a) => a.getAttribute("href"));
-    expect(hrefs).toContain("#core-values");
-    expect(hrefs).toContain("/services");
-  });
-
-  it("renders the full label on desktop", () => {
+  it("renders exactly the top 5 page links", () => {
     render(<PageNavigation items={items} />);
-    expect(screen.getByText("Why Partner")).toBeInTheDocument();
+    const links = screen.getAllByRole("link");
+    expect(links).toHaveLength(5);
+    expect(links[0]).toHaveAttribute("href", "/");
+    expect(links[1]).toHaveAttribute("href", "/services");
+    expect(links[2]).toHaveAttribute("href", "/projects");
+    expect(links[3]).toHaveAttribute("href", "/about");
+    expect(links[4]).toHaveAttribute("href", "/contact");
   });
 
-  it("renders translated labels in spanish locale", () => {
+  it("renders localized labels in spanish locale", () => {
     mockLocale.mockReturnValue("es");
-
     render(<PageNavigation items={items} />);
-
-    expect(screen.getByText("Por que asociarse")).toBeInTheDocument();
-    expect(screen.getByText("Valores centrales")).toBeInTheDocument();
+    expect(screen.getByText("Inicio")).toBeInTheDocument();
+    expect(screen.getByText("Nosotros")).toBeInTheDocument();
     expect(screen.getByText("Servicios")).toBeInTheDocument();
   });
 
@@ -109,92 +88,64 @@ describe("PageNavigation", () => {
     ).toHaveClass("bottom-nav");
   });
 
-  it("renders icon text for each item", () => {
+  it("marks current route with aria-current", () => {
+    mockPathname.mockReturnValue("/services");
     render(<PageNavigation items={items} />);
-    expect(screen.getByText("shield")).toBeInTheDocument();
-    expect(screen.getByText("build")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Services" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
+    expect(screen.getByRole("link", { name: "About Us" })).not.toHaveAttribute(
+      "aria-current",
+    );
   });
 
-  it("handles click on non-hash link without preventing default", async () => {
-    const user = userEvent.setup();
-    const { container } = render(<PageNavigation items={items} />);
-    // /services link — no hash, should not throw
-    const link = container.querySelector('a[href="/services"]') as HTMLElement;
-    await user.click(link);
-    expect(link).toBeInTheDocument();
-  });
-});
-
-describe("PageNavigation — mobile label", () => {
-  beforeEach(() => {
-    jest.resetModules();
+  it("shows a More overlay trigger when enabled", () => {
+    render(<PageNavigation items={items} showRemainingPagesOverlay />);
+    expect(
+      screen.getByRole("button", {
+        name: /more/i,
+      }),
+    ).toBeInTheDocument();
   });
 
-  it("shows mobile label when isMobile is true", () => {
-    jest.doMock("@/hooks/use-breakpoint", () => ({
-      useIsMobile: () => true,
-    }));
-    // Re-importing after mock reset would require dynamic import;
-    // ensure the desktop path is covered by the default mock above.
-    render(<PageNavigation items={items} />);
-    // With the default mock (isMobile=false) we see the full label
-    expect(screen.getByText("Why Partner")).toBeInTheDocument();
-  });
-});
+  it("renders remaining pages inside overlay when opened", () => {
+    render(<PageNavigation items={items} showRemainingPagesOverlay />);
 
-describe("PageNavigation — hash link scroll handling", () => {
-  const scrollItems: NavigationItem[] = [
-    { href: "#section-a", label: "Section A", icon: "flag" },
-    { href: "/other-page#section-b", label: "Other Page", icon: "link" },
-    { href: "#", label: "Empty Hash", icon: "tag" },
-  ];
+    fireEvent.click(screen.getByRole("button", { name: /more/i }));
 
-  let originalHash: string;
-
-  beforeEach(() => {
-    originalHash = globalThis.location.hash;
+    expect(
+      screen.getByRole("dialog", { name: /more pages/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("menu", { name: /more pages/i }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("menuitem", { name: "Events" })).toHaveAttribute(
+      "href",
+      "/events",
+    );
+    expect(screen.getByRole("menuitem", { name: "Team Hub" })).toHaveAttribute(
+      "href",
+      "/hub",
+    );
   });
 
-  afterEach(() => {
-    globalThis.location.hash = originalHash;
-  });
+  it("closes overlay on Escape and restores focus to trigger", () => {
+    render(<PageNavigation items={items} showRemainingPagesOverlay />);
 
-  it("prevents default and scrolls for same-page hash links", async () => {
-    const user = userEvent.setup();
-    const mockScrollIntoView = jest.fn();
-    const mockElement = document.createElement("div");
-    mockElement.scrollIntoView = mockScrollIntoView;
-    mockElement.id = "section-a";
-    document.body.appendChild(mockElement);
+    const trigger = screen.getByRole("button", { name: /more/i });
+    trigger.focus();
+    fireEvent.click(trigger);
 
-    const { container } = render(<PageNavigation items={scrollItems} />);
-    const link = container.querySelector('a[href="#section-a"]') as HTMLElement;
-    await user.click(link);
+    expect(
+      screen.getByRole("dialog", { name: /more pages/i }),
+    ).toBeInTheDocument();
 
-    expect(mockScrollIntoView).toHaveBeenCalled();
-    expect(globalThis.location.hash).toBe("#section-a");
+    fireEvent.keyDown(window, { key: "Escape" });
 
-    mockElement.remove();
-  });
-
-  it("does not scroll when hash element does not exist", async () => {
-    const user = userEvent.setup();
-    const { container } = render(<PageNavigation items={scrollItems} />);
-    const link = container.querySelector('a[href="#section-a"]') as HTMLElement;
-    await user.click(link);
-
-    expect(globalThis.location.hash).toBe("");
-  });
-
-  it("does not call pushState for hash links with different page path", async () => {
-    const user = userEvent.setup();
-    // pathname is "/" by default in jsdom, so "/other-page" !== "/"
-    const { container } = render(<PageNavigation items={scrollItems} />);
-    const link = container.querySelector(
-      'a[href="/other-page#section-b"]',
-    ) as HTMLElement;
-    await user.click(link);
-
-    expect(globalThis.location.hash).toBe("");
+    expect(
+      screen.queryByRole("dialog", { name: /more pages/i }),
+    ).not.toBeInTheDocument();
+    expect(trigger).toHaveFocus();
   });
 });

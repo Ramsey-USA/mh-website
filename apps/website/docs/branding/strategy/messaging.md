@@ -101,14 +101,14 @@ these core values in hierarchical order:
 - "Reviews" / "Commendations" - Client testimonials
 - "Contact" / "Rally Point" - Get in touch
 
-**Documentation**: Section-based navigation implemented site-wide.
+**Documentation**: Global hero navigation system implemented site-wide.
 
 **Current Implementation (Dec 2025)**:
 
-- **Section-Based Navigation**: All PageNavigation items use `#section-id` anchors within pages
-- **No Cross-Page Links**: PageNavigation only navigates to sections on same page
+- **Global Top Row**: PageNavigation uses a shared 6-cell row (Home, Services, Projects, About, Contact, More)
+- **More Overlay**: `More` opens a modal overlay with remaining pages and short descriptions
 - **Hamburger Menu**: Handles cross-page navigation and social media links
-- **Dual Labels**: Full label for desktop, mobile label for mobile devices
+- **Dual Labels**: Military/civilian naming remains supported in broader navigation language system
 - **Material Icons**: All navigation items include semantic icons
 
 ### Military-Themed Section Framing Standard (MANDATORY - Apr 19, 2026)

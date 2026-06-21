@@ -56,60 +56,41 @@ export function ThemeToggle({
     },
   ];
 
-  const sizeClasses = {
-    sm: "h-8 w-20",
-    md: "h-10 w-24",
-    lg: "h-12 w-28",
+  const compactSizeClasses = {
+    sm: "w-10 h-10 max-[360px]:w-9 max-[360px]:h-9",
+    md: "w-11 h-11",
+    lg: "w-12 h-12",
   };
 
   if (compact) {
     // Compact toggle for mobile/header use
     return (
-      <div className={`flex items-center ${className}`}>
+      <div className="flex items-center">
         <button
           onClick={handleThemeToggle}
           className={cn(
             "relative inline-flex items-center justify-center",
-            sizeClasses[size],
-            "rounded-full",
-            "bg-linear-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600",
+            compactSizeClasses[size],
+            "rounded-lg sm:rounded-xl",
+            "bg-linear-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600",
             "border-2 border-gray-300 dark:border-gray-500",
             "transition-all duration-300 ease-in-out",
             "hover:shadow-lg hover:shadow-brand-primary/20",
             "focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2",
-            "overflow-hidden pointer-events-auto cursor-pointer",
+            "pointer-events-auto cursor-pointer",
+            className,
           )}
           aria-label={`Switch to ${isDarkMode ? "light" : "dark"} mode`}
           type="button"
         >
-          {/* Sliding Background */}
-          <div
-            className={`
-              absolute inset-1 rounded-full 
-              bg-linear-to-r from-brand-primary to-brand-primary-dark
-              transition-transform duration-300 ease-in-out
-              ${isDarkMode ? "translate-x-0" : "translate-x-full"}
-            `}
-            style={{ width: "40%" }}
+          <MaterialIcon
+            icon={isDarkMode ? "dark_mode" : "light_mode"}
+            size={size}
+            className={cn(
+              "transition-colors duration-300",
+              isDarkMode ? "text-brand-primary" : "text-brand-secondary",
+            )}
           />
-
-          {/* Icons */}
-          <div className="relative flex justify-between items-center px-2 w-full">
-            <MaterialIcon
-              icon="dark_mode"
-              size={size}
-              className={`transition-colors duration-300 ${
-                isDarkMode ? "text-white" : "text-gray-500"
-              }`}
-            />
-            <MaterialIcon
-              icon="light_mode"
-              size={size}
-              className={`transition-colors duration-300 ${
-                !isDarkMode ? "text-white" : "text-gray-500"
-              }`}
-            />
-          </div>
         </button>
 
         {showLabel && (

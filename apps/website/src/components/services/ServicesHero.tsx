@@ -44,6 +44,7 @@ export function ServicesHero() {
       {/* Page-Specific Navigation Bar */}
       <PageNavigation
         items={navigationConfigs.services}
+        showRemainingPagesOverlay
         className="absolute bottom-0 left-0 right-0"
       />
     </section>

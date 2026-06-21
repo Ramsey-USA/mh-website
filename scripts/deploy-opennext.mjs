@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 
-import { existsSync, readdirSync, readFileSync, rmSync, statSync } from "node:fs";
+import {
+  existsSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  statSync,
+} from "node:fs";
 import { join, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
 
@@ -111,7 +117,9 @@ function pruneTempAssets() {
   }
 
   if (removed > 0) {
-    console.log(`🧹 Removed ${removed} temporary form asset(s) from deploy bundle.`);
+    console.log(
+      `🧹 Removed ${removed} temporary form asset(s) from deploy bundle.`,
+    );
   }
 }
 

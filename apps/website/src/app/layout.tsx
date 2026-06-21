@@ -307,10 +307,7 @@ export default async function RootLayout({
         <ScrollProgress />
         {enableRuntimeEnhancements ? <DeferredPerformanceEnhancements /> : null}
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider
-            defaultTheme="light"
-            storageKey="mh-construction-theme"
-          >
+          <ThemeProvider defaultTheme="dark" storageKey="mh-construction-theme">
             <ErrorBoundary>
               <AppShell>{children}</AppShell>
               {isProduction ? <ChatWidgetLazy /> : null}

@@ -1,7 +1,7 @@
 # MH Construction — Architecture Documentation
 
 **Category:** Project - Architecture  
-**Last Updated:** May 15, 2026  
+**Last Updated:** June 20, 2026  
 **Version:** 1.3.0  
 **Status:** ✅ Active
 
@@ -54,7 +54,7 @@
 ### Advanced Platform Features
 
 - ✅ **SEO Optimization** - Complete sitemap, meta tags, and structured data
-- ✅ **Navigation System** - Responsive navigation with adaptive grid layout
+- ✅ **Navigation System** - Unified responsive header with dominant MH logo, bilingual language toggle, phone CTA, compact theme toggle, and hamburger overlay menu
 - ✅ **MaterialIcon System** - Universal icon system with Google Material Icons
 - ✅ **Theme System** - Dark/Light mode support with seamless switching
 - ✅ **Analytics Integration** - Enhanced tracking and performance monitoring
@@ -169,7 +169,7 @@ src/
 │   ├── icons/
 │   │   └── MaterialIcon.tsx        # Universal icon system
 │   ├── layout/
-│   │   ├── Navigation.tsx          # Responsive navigation
+│   │   ├── Navigation.tsx          # Unified header system with logo-first mobile layout, phone CTA, tooltips, and overlay menu
 │   │   └── Footer.tsx              # Footer UI, analytics links, and private admin shortcut listener
 │   ├── locations/                  # Location page components
 │   ├── navigation/                 # Navigation config & utilities

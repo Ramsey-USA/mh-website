@@ -1,87 +1,346 @@
 "use client";
 
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { type NavigationItem, getNavigationLabel } from "./navigationConfigs";
-// import { useIsMobile } from "@/hooks/use-breakpoint";
 import { useLocale } from "@/hooks/useLocale";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import type { NavigationItem } from "./navigationConfigs";
 
-/**
- * Page-Specific Sectional Navigation Component
- *
- * Provides contextual navigation for specific sections within a page and related pages.
- * This component should be placed after the hero section on each page and configured
- * with page-specific navigation items.
- *
- * Features:
- * - Horizontal scrolling navigation bar
- * - Material Design icons with smooth hover effects
- * - Responsive design with touch-friendly targets
- * - Backdrop blur background with brand accent border
- * - Dark/light theme support
- */
 interface PageNavigationProps {
   items: NavigationItem[];
   className?: string;
+  showRemainingPagesOverlay?: boolean;
+  /** @deprecated Use showRemainingPagesOverlay instead. */
+  showRemainingPagesDropdown?: boolean;
 }
 
-export function PageNavigation({ items, className = "" }: PageNavigationProps) {
+const TOP_PAGES_EN = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/projects", label: "Projects" },
+  { href: "/about", label: "About Us" },
+  { href: "/contact", label: "Contact" },
+] as const;
+
+const TOP_PAGES_ES = [
+  { href: "/", label: "Inicio" },
+  { href: "/services", label: "Servicios" },
+  { href: "/projects", label: "Proyectos" },
+  { href: "/about", label: "Nosotros" },
+  { href: "/contact", label: "Contacto" },
+] as const;
+
+const ALL_SITE_PAGES_EN = [
+  { href: "/", label: "Home", description: "Base HQ" },
+  { href: "/about", label: "About Us", description: "Our Oath" },
+  { href: "/services", label: "Services", description: "Operations" },
+  { href: "/projects", label: "Projects", description: "Portfolio" },
+  { href: "/contact", label: "Contact", description: "Rally Point" },
+  { href: "/events", label: "Events", description: "Upcoming Missions" },
+  {
+    href: "/testimonials",
+    label: "Reviews",
+    description: "Commendations",
+  },
+  { href: "/team", label: "Our Team", description: "Chain of Command" },
+  { href: "/careers", label: "Careers", description: "Enlist" },
+  { href: "/veterans", label: "Veterans", description: "Service First" },
+  { href: "/allies", label: "Partners", description: "Allies" },
+  {
+    href: "/public-sector",
+    label: "Government",
+    description: "Public Sector",
+  },
+  { href: "/safety", label: "Safety", description: "Force Protection" },
+  { href: "/resources", label: "Resources", description: "Field Intel" },
+  { href: "/faq", label: "Help/FAQ", description: "Intel Brief" },
+  { href: "/hub", label: "Team Hub", description: "Operations Hub" },
+] as const;
+
+const ALL_SITE_PAGES_ES = [
+  { href: "/", label: "Inicio", description: "Base central" },
+  { href: "/about", label: "Nosotros", description: "Nuestro compromiso" },
+  { href: "/services", label: "Servicios", description: "Operaciones" },
+  { href: "/projects", label: "Proyectos", description: "Portafolio" },
+  { href: "/contact", label: "Contacto", description: "Punto de reunion" },
+  { href: "/events", label: "Eventos", description: "Misiones proximas" },
+  { href: "/testimonials", label: "Reseñas", description: "Reconocimientos" },
+  {
+    href: "/team",
+    label: "Nuestro equipo",
+    description: "Cadena de mando",
+  },
+  { href: "/careers", label: "Carreras", description: "Únete" },
+  { href: "/veterans", label: "Veteranos", description: "Servicio primero" },
+  { href: "/allies", label: "Aliados", description: "Socios" },
+  {
+    href: "/public-sector",
+    label: "Gobierno",
+    description: "Sector público",
+  },
+  {
+    href: "/safety",
+    label: "Seguridad",
+    description: "Protección operativa",
+  },
+  { href: "/resources", label: "Recursos", description: "Intel de campo" },
+  {
+    href: "/faq",
+    label: "Ayuda/Preguntas",
+    description: "Informe rápido",
+  },
+  {
+    href: "/hub",
+    label: "Hub del equipo",
+    description: "Centro de operaciones",
+  },
+] as const;
+
+export function PageNavigation({
+  items: _items,
+  className = "",
+  showRemainingPagesOverlay,
+  showRemainingPagesDropdown = false,
+}: PageNavigationProps) {
   const pathname = usePathname();
-  // const isMobile = useIsMobile();
   const locale = useLocale();
+  const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false);
+  const moreButtonRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const lastFocusedElementRef = useRef<HTMLElement | null>(null);
 
-  const handleHashNavigation = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
-  ) => {
-    if (!href.includes("#")) return;
+  const pages = locale === "es" ? TOP_PAGES_ES : TOP_PAGES_EN;
+  const allPages = locale === "es" ? ALL_SITE_PAGES_ES : ALL_SITE_PAGES_EN;
 
-    const [path, hashPart] = href.split("#");
-    const hash = hashPart?.trim();
-    if (!hash) return;
+  const remainingPages = useMemo(
+    () =>
+      allPages.filter((page) => !pages.some((top) => top.href === page.href)),
+    [allPages, pages],
+  );
 
-    const isSamePageHash = path === "" || path === pathname;
-    if (!isSamePageHash) return;
+  const isActivePath = (href: string) =>
+    href === "/"
+      ? pathname === "/"
+      : pathname === href || pathname.startsWith(`${href}/`);
 
-    event.preventDefault();
+  const isRemainingPageActive = remainingPages.some((page) =>
+    isActivePath(page.href),
+  );
 
-    const target = document.getElementById(hash);
-    if (!target) return;
+  const isRemainingPagesMenuEnabled =
+    showRemainingPagesOverlay ?? showRemainingPagesDropdown;
 
-    target.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-    globalThis.history.pushState(null, "", `#${hash}`);
-  };
+  const moreLabel = locale === "es" ? "Más" : "More";
+  const morePagesLabel = locale === "es" ? "Más páginas" : "More pages";
+  const overlayEyebrow = locale === "es" ? "Informe de campo" : "Field Brief";
+  const overlayTitle =
+    locale === "es" ? "Navegación del sitio" : "Site Navigation";
+  const closeMenuLabel = locale === "es" ? "Cerrar menú" : "Close menu";
+  const navItemBaseClass =
+    "w-full border-b-2 px-3 py-2 text-center text-xs font-semibold tracking-wide whitespace-nowrap transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-secondary/70 sm:px-4 sm:py-3 sm:text-base";
+  const getNavItemStateClass = (isActive: boolean) =>
+    isActive
+      ? "border-brand-primary bg-brand-primary/5 text-brand-primary dark:bg-brand-primary/15"
+      : "border-transparent text-gray-600 hover:bg-gray-50 hover:text-brand-secondary dark:text-gray-300 dark:hover:bg-gray-800/60 dark:hover:text-brand-secondary";
+
+  useEffect(() => {
+    if (!isMoreMenuOpen) {
+      return;
+    }
+
+    lastFocusedElementRef.current =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+
+    const previousOverflow = document.body.style.overflow;
+    const onEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMoreMenuOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const dialogElement = dialogRef.current;
+      if (!dialogElement) {
+        return;
+      }
+
+      const focusableElements = Array.from(
+        dialogElement.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+
+      if (focusableElements.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+      const activeElement =
+        document.activeElement instanceof HTMLElement
+          ? document.activeElement
+          : null;
+
+      if (event.shiftKey) {
+        if (
+          !activeElement ||
+          activeElement === firstElement ||
+          !dialogElement.contains(activeElement)
+        ) {
+          event.preventDefault();
+          lastElement.focus();
+        }
+        return;
+      }
+
+      if (
+        !activeElement ||
+        activeElement === lastElement ||
+        !dialogElement.contains(activeElement)
+      ) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onEscape);
+    (closeButtonRef.current ?? dialogRef.current)?.focus();
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onEscape);
+      lastFocusedElementRef.current?.focus();
+    };
+  }, [isMoreMenuOpen]);
 
   return (
     <nav
-      className={`page-navigation flex overflow-x-auto backdrop-blur-md border-t border-brand-primary/30 ${className}`}
-      aria-label="Page Navigation"
+      className={`page-navigation border-y border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 shadow-sm ${className}`}
+      aria-label="Page navigation"
     >
-      {items.map((item) => (
-        <Link
-          key={item.href}
-          href={item.href}
-          onClick={(event) => handleHashNavigation(event, item.href)}
-          className={`flex items-center px-4 py-2 text-sm sm:text-base font-medium transition-colors duration-200 ${
-            pathname === item.href
-              ? "text-brand-primary"
-              : "text-gray-500 hover:text-brand-secondary"
-          }`}
-        >
-          {item.icon && (
-            <MaterialIcon
-              icon={item.icon}
-              className="mr-2 text-lg sm:text-xl"
-              aria-hidden="true"
-            />
-          )}
-          {getNavigationLabel(item, false, locale)}
-        </Link>
-      ))}
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="grid grid-cols-6 items-stretch divide-x divide-gray-200 dark:divide-gray-700">
+          {pages.map((page) => {
+            const isActive = isActivePath(page.href);
+            return (
+              <Link
+                key={page.href}
+                href={page.href}
+                aria-current={isActive ? "page" : undefined}
+                className={`${navItemBaseClass} ${getNavItemStateClass(isActive)}`}
+              >
+                {page.label}
+              </Link>
+            );
+          })}
+
+          {isRemainingPagesMenuEnabled && remainingPages.length > 0 ? (
+            <button
+              type="button"
+              ref={moreButtonRef}
+              aria-haspopup="menu"
+              aria-expanded={isMoreMenuOpen}
+              aria-controls="page-nav-more-menu"
+              onClick={() => setIsMoreMenuOpen((open) => !open)}
+              className={`${navItemBaseClass} ${getNavItemStateClass(
+                isMoreMenuOpen || isRemainingPageActive,
+              )}`}
+            >
+              {moreLabel}
+            </button>
+          ) : null}
+        </div>
+      </div>
+
+      {isRemainingPagesMenuEnabled &&
+      remainingPages.length > 0 &&
+      isMoreMenuOpen ? (
+        <>
+          <button
+            type="button"
+            className="fixed inset-0 z-90 bg-linear-to-br from-brand-primary/25 via-gray-900/70 to-black/70 backdrop-blur-sm"
+            onClick={() => setIsMoreMenuOpen(false)}
+            aria-label={closeMenuLabel}
+          />
+          <div className="fixed inset-0 z-95 flex items-center justify-center p-4 sm:p-6">
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-label={morePagesLabel}
+              ref={dialogRef}
+              tabIndex={-1}
+              className="flex max-h-[min(78vh,640px)] w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-brand-secondary/40 bg-linear-to-b from-white/98 via-white to-brand-primary/5 p-2 shadow-2xl dark:border-brand-secondary/35 dark:from-gray-900/98 dark:via-gray-900 dark:to-brand-primary/18"
+            >
+              <div className="h-1 rounded-full bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary" />
+              <div className="mb-1 flex items-center justify-between border-b border-brand-secondary/30 px-2 py-2 dark:border-brand-secondary/35">
+                <div>
+                  <p className="text-[11px] font-semibold tracking-[0.12em] text-brand-secondary-text uppercase dark:text-brand-secondary-light">
+                    {overlayEyebrow} - {morePagesLabel}
+                  </p>
+                  <h3 className="font-heading text-sm font-bold tracking-wide text-brand-primary dark:text-brand-secondary-light sm:text-base">
+                    {overlayTitle}
+                  </h3>
+                </div>
+                <button
+                  type="button"
+                  ref={closeButtonRef}
+                  className="rounded-md border border-brand-secondary/35 bg-white/80 p-1.5 text-brand-primary transition-colors hover:bg-brand-primary/10 hover:text-brand-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/70 dark:border-brand-secondary/45 dark:bg-gray-900/80 dark:text-brand-secondary-light dark:hover:bg-brand-secondary/15"
+                  aria-label={closeMenuLabel}
+                  onClick={() => setIsMoreMenuOpen(false)}
+                >
+                  <MaterialIcon
+                    icon="close"
+                    size="sm"
+                    className="leading-none"
+                  />
+                </button>
+              </div>
+
+              <div
+                id="page-nav-more-menu"
+                role="menu"
+                aria-label={morePagesLabel}
+                className="min-h-0 flex-1 overflow-y-auto px-1 pb-1"
+              >
+                {remainingPages.map((page) => {
+                  const isActive = isActivePath(page.href);
+                  return (
+                    <Link
+                      key={page.href}
+                      href={page.href}
+                      role="menuitem"
+                      aria-label={page.label}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`block rounded-md px-3 py-2 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/70 ${
+                        isActive
+                          ? "bg-brand-primary/10 text-brand-primary dark:bg-brand-primary/20"
+                          : "text-gray-700 hover:bg-gray-100 hover:text-brand-secondary dark:text-gray-200 dark:hover:bg-gray-800"
+                      }`}
+                      onClick={() => setIsMoreMenuOpen(false)}
+                    >
+                      <span className="block text-sm font-semibold">
+                        {page.label}
+                      </span>
+                      <span className="block text-xs text-gray-600 dark:text-gray-400">
+                        {page.description}
+                      </span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </>
+      ) : null}
     </nav>
   );
 }

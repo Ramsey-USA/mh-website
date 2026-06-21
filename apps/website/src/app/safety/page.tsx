@@ -418,6 +418,7 @@ export default function SafetyPage() {
         {/* Page Navigation Bar */}
         <PageNavigation
           items={navigationConfigs.safety}
+          showRemainingPagesOverlay
           className="absolute bottom-0 left-0 right-0"
         />
       </section>

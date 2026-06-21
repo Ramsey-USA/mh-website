@@ -1,6 +1,6 @@
 # MH Website Testing Suite
 
-**Last Updated:** April 15, 2026  
+**Last Updated:** June 20, 2026  
 **Status:** ✅ Active
 
 Automated testing for the MH Construction website quality assurance.
@@ -128,6 +128,16 @@ npm run quality:check    # Full quality scan
 ## Visual Testing
 
 - **`testing/dark-mode-visual-test.html`** — Open in browser for manual dark mode visual verification
+
+## Header System Coverage
+
+The global header system is validated in `src/components/layout/__tests__/Navigation.test.tsx`.
+
+- Verifies the dominant MH logo still routes to `/`
+- Verifies the phone CTA renders `tel:+15093086489` and exposes `(509) 308-6489`
+- Verifies the language selector, compact theme toggle, and menu button all render together
+- Verifies the tooltip copy for the logo, language selector, and phone CTA remains available to the DOM
+- Verifies the full-screen menu overlay still closes via toggle, backdrop, escape, and navigation link selection
 
 ## Test Coverage
 

@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Navigation } from "../Navigation";
 
@@ -40,7 +40,30 @@ jest.mock("next/image", () => ({
 }));
 
 jest.mock("@/components/ui/layout/ThemeToggle", () => ({
-  ThemeToggle: () => <button type="button">Theme toggle</button>,
+  ThemeToggle: ({ className, compact, size }: any) => (
+    <button
+      type="button"
+      aria-label="Switch to light mode"
+      className={className}
+      data-compact={compact ? "true" : "false"}
+      data-size={size}
+    >
+      Theme toggle
+    </button>
+  ),
+}));
+
+jest.mock("@/components/ui/LanguageToggle", () => ({
+  LanguageToggle: ({ className }: any) => (
+    <div className={className} aria-label="Language selector">
+      <button type="button">EN</button>
+      <button type="button">ES</button>
+    </div>
+  ),
+}));
+
+jest.mock("@/hooks/useLocale", () => ({
+  useLocale: () => "en",
 }));
 
 jest.mock("@/components/icons/MaterialIcon", () => ({
@@ -150,6 +173,42 @@ describe("Navigation", () => {
     const eventLink = screen.getByRole("link", { name: /events/i });
     expect(eventLink).toBeInTheDocument();
     expect(eventLink).toHaveAttribute("href", "/events");
+  });
+
+  it("renders the unified header controls with home logo, phone CTA, language toggle, theme toggle, and menu", () => {
+    render(<Navigation />);
+
+    const homeLinks = screen.getAllByRole("link", { name: /mh construction/i });
+    expect(homeLinks[0]).toHaveAttribute("href", "/");
+
+    const phoneLink = screen.getByRole("link", {
+      name: /call mh construction/i,
+    });
+    expect(phoneLink).toHaveAttribute("href", "tel:+15093086489");
+    expect(within(phoneLink).getByText("(509) 308-6489")).toBeInTheDocument();
+    expect(screen.getByText(/tap to call our team/i)).toBeInTheDocument();
+
+    expect(screen.getByRole("button", { name: "EN" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "ES" })).toBeInTheDocument();
+
+    const themeButton = screen.getByRole("button", {
+      name: /switch to light mode/i,
+    });
+    expect(themeButton).toHaveAttribute("data-compact", "true");
+    expect(themeButton).toHaveAttribute("data-size", "sm");
+
+    expect(
+      screen.getByRole("button", { name: /open menu/i }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders header tooltip copy for the home logo and language controls", () => {
+    render(<Navigation />);
+
+    expect(screen.getByText(/return to homepage/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/switch between spanish and english/i),
+    ).toBeInTheDocument();
   });
 
   it("closes the menu after clicking each social media link", async () => {

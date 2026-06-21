@@ -178,6 +178,7 @@ export function CoolDesertNightsPageClient() {
           </div>
           <PageNavigation
             items={navigationConfigs.coolDesertNights}
+            showRemainingPagesOverlay
             className="absolute bottom-0 left-0 right-0"
           />
         </section>

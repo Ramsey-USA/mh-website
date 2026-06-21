@@ -242,12 +242,14 @@ All components in `src/components/ui/base/` have dark mode:
 ```tsx
 import { ThemeToggle } from "@/components/ui/layout/ThemeToggle";
 
-// Compact (mobile/header)
+// Compact global header control (sits beside the phone CTA and menu)
 <ThemeToggle compact size="sm" />
 
 // Full (settings page)
 <ThemeToggle showLabel size="lg" />
 ```
+
+In the unified header system, keep the compact toggle visually subordinate to the MH logo and phone CTA while preserving contrast in both color modes.
 
 ---
 

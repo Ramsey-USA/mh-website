@@ -366,7 +366,7 @@
 
 ### ❌ Mistake #13: Missing Section IDs
 
-**Problem:** PageNavigation can't scroll to sections
+**Problem:** In-page jump links and deep links cannot target sections
 
 **Wrong:**
 
@@ -389,7 +389,7 @@
 </section>
 ```
 
-**Why:** PageNavigation uses `href="#section-id"` - sections MUST have IDs.
+**Why:** Internal links and deep-link targets rely on unique section IDs.
 
 ---
 

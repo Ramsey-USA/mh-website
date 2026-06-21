@@ -108,57 +108,47 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 dark:bg-gray-950">
-      <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-gray-900/95">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
-          <Link
-            href="/hub"
-            prefetch={false}
-            className="inline-flex items-center gap-2 rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2 text-sm font-bold text-brand-primary transition-colors hover:bg-brand-primary/10"
-          >
-            <MaterialIcon icon="construction" size="sm" />
-            Operations Hub
-          </Link>
+    <>
+      <Navigation />
+      <div className="flex min-h-screen flex-col bg-white dark:bg-gray-900">
+        <header className="border-b border-brand-secondary/20 bg-white/90 px-4 py-3 backdrop-blur-sm dark:bg-gray-900/90 sm:px-6">
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-2">
+            <Link
+              href="/hub"
+              prefetch={false}
+              className="inline-flex items-center gap-2 self-start rounded-full border border-brand-secondary/60 bg-brand-secondary/12 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-brand-secondary"
+            >
+              <MaterialIcon icon="construction" size="sm" />
+              PWA Command Deck
+            </Link>
 
-          <nav
-            aria-label="PWA quick actions"
-            className="flex items-center gap-1 sm:gap-2"
-          >
-            {QUICK_ACTIONS.map((action) => (
-              <Link
-                key={action.href}
-                href={action.href}
-                prefetch={false}
-                className="inline-flex items-center gap-1 rounded-lg px-2 py-2 text-xs font-semibold text-slate-600 transition-colors hover:bg-slate-100 hover:text-brand-primary dark:text-slate-300 dark:hover:bg-slate-800"
-              >
-                <MaterialIcon icon={action.icon} size="sm" />
-                <span className="hidden sm:inline">{action.label}</span>
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </header>
+            <nav
+              aria-label="PWA quick actions"
+              className="grid grid-cols-2 gap-2 sm:grid-cols-4"
+            >
+              {QUICK_ACTIONS.map((action) => (
+                <Link
+                  key={action.href}
+                  href={action.href}
+                  prefetch={false}
+                  className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl border border-brand-primary/20 bg-brand-primary/5 px-3 py-2 text-xs font-semibold text-brand-primary transition-all duration-300 hover:border-brand-secondary/60 hover:bg-brand-secondary/10 hover:text-brand-secondary"
+                >
+                  <MaterialIcon icon={action.icon} size="sm" />
+                  <span>{action.label}</span>
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </header>
 
-      <main id="main-content" className="grow">
-        {children}
-        <SmokeBossAfterHeroSlot />
-      </main>
+        <main id="main-content" className="grow">
+          {children}
+          <SmokeBossAfterHeroSlot />
+        </main>
 
-      <footer className="border-t border-slate-200 bg-white px-4 py-3 text-xs text-slate-600 dark:border-slate-800 dark:bg-gray-900 dark:text-slate-300">
-        <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-2">
-          <p className="font-semibold">
-            MH Construction, Inc. · Veteran-Owned Since January 2025
-          </p>
-          <Link
-            href="/safety"
-            prefetch={false}
-            className="inline-flex items-center gap-1 rounded-md border border-brand-primary/25 px-2 py-1 font-semibold text-brand-primary hover:bg-brand-primary/10"
-          >
-            <MaterialIcon icon="verified_user" size="sm" />
-            Safety Credentials
-          </Link>
-        </div>
-      </footer>
-    </div>
+        <SemiquincentennialBanner />
+        <Footer />
+      </div>
+    </>
   );
 }

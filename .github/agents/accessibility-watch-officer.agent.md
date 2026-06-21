@@ -19,6 +19,7 @@ Ensure brand-compliant accessibility outcomes before merge.
 - Semantic structure and readable hierarchy
 - Accessible labels and control descriptions
 - Focus visibility and keyboard navigation
+- Modal overlay focus management (focus trap, Escape close, focus restoration) for components such as the `PageNavigation` More overlay
 - Contrast-safe styling in light and dark contexts
 - Layout-shell parity across website and dashboard surfaces (for example: skip links and landmark reachability)
 

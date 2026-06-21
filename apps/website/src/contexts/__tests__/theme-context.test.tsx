@@ -52,13 +52,13 @@ describe("ThemeProvider", () => {
     expect(screen.getByTestId("child")).toBeInTheDocument();
   });
 
-  it("provides the default theme (system)", () => {
+  it("provides dark as the default theme", () => {
     render(
-      <ThemeProvider defaultTheme="system">
+      <ThemeProvider>
         <ThemeConsumer />
       </ThemeProvider>,
     );
-    expect(screen.getByTestId("theme").textContent).toBe("system");
+    expect(screen.getByTestId("theme").textContent).toBe("dark");
   });
 
   it("setTheme changes the active theme", async () => {
@@ -142,8 +142,8 @@ describe("useTheme outside ThemeProvider", () => {
       return <span data-testid="t">{theme}</span>;
     }
     render(<NoProvider />);
-    // Default context value has theme = "system"
-    expect(screen.getByTestId("t").textContent).toBe("system");
+    // Default context value has theme = "dark"
+    expect(screen.getByTestId("t").textContent).toBe("dark");
   });
 
   it("throws when useContext returns undefined for the theme context", () => {

@@ -10,7 +10,7 @@ const mockUsePWA = jest.fn();
 
 jest.mock("next/link", () => ({
   __esModule: true,
-  default: ({ children, href, ...props }: any) => (
+  default: ({ children, href, prefetch: _prefetch, ...props }: any) => (
     <a href={typeof href === "string" ? href : "/"} {...props}>
       {children}
     </a>
@@ -66,7 +66,7 @@ describe("AppShell", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("renders slim standalone shell with quick actions and trust link in PWA mode", () => {
+  it("renders standalone shell with global navigation and quick actions in PWA mode", () => {
     mockUsePWA.mockReturnValue({
       isStandalone: true,
       isInstallable: false,
@@ -79,11 +79,12 @@ describe("AppShell", () => {
       </AppShell>,
     );
 
-    expect(screen.queryByTestId("site-navigation")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("site-footer")).not.toBeInTheDocument();
+    expect(screen.getByTestId("site-navigation")).toBeInTheDocument();
+    expect(screen.getByTestId("semiquincentennial-banner")).toBeInTheDocument();
+    expect(screen.getByTestId("site-footer")).toBeInTheDocument();
 
     expect(
-      screen.getByRole("link", { name: /Operations Hub/i }),
+      screen.getByRole("link", { name: /PWA Command Deck/i }),
     ).toHaveAttribute("href", "/hub");
     const quickActionsNav = screen.getByRole("navigation", {
       name: /PWA quick actions/i,
@@ -103,12 +104,6 @@ describe("AppShell", () => {
       within(quickActionsNav).getByRole("link", { name: /Resources/i }),
     ).toHaveAttribute("href", "/resources");
 
-    expect(
-      screen.getByRole("link", { name: /Safety Credentials/i }),
-    ).toHaveAttribute("href", "/safety");
-    expect(
-      screen.getByText(/Veteran-Owned Since January 2025/i),
-    ).toBeInTheDocument();
     expect(screen.getByText("Page Content")).toBeInTheDocument();
   });
 

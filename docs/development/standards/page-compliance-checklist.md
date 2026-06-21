@@ -1,8 +1,8 @@
 # Page Compliance Checklist
 
 **Purpose:** Systematic audit tool to verify page compliance with MH standards  
-**Version:** 1.3.0  
-**Last Updated:** April 19, 2026  
+**Version:** 1.4.0  
+**Last Updated:** June 20, 2026  
 **Use Case:** Run this checklist on any page to ensure consistency
 
 **Brand Congruency:** This checklist is a required gate for typography, color, voice, trust content, accessibility, and naming alignment.
@@ -27,13 +27,25 @@
 - [ ] Full viewport height with `h-screen flex items-center justify-center`
 - [ ] Uses one of three approved hero patterns (see unified-component-standards.md)
 - [ ] Brand color emphasis on title (`text-brand-secondary` for hero titles)
+- [ ] Hero does not duplicate global-header contact actions or phone CTA controls
 - [ ] PageNavigation component at bottom (`absolute bottom-0 left-0 right-0`)
+- [ ] PageNavigation enables `showRemainingPagesOverlay` on hero bar
+- [ ] Hero nav row renders 6 cells (Home, Services, Projects, About, Contact, More)
+- [ ] `More` opens centered modal overlay with backdrop and close controls
 - [ ] Responsive padding: `pt-16 sm:pt-24 md:pt-32 lg:pt-40` and `pb-12 sm:pb-16 md:pb-20 lg:pb-28`
+
+### Global Header
+
+- [ ] Global header remains logo-first at all breakpoints
+- [ ] MH logo is visually dominant over adjacent header controls on phone widths
+- [ ] Phone CTA lives in the global header and exposes the business number
+- [ ] Header renders language toggle, compact theme toggle, and hamburger menu together
+- [ ] Header tooltip or accessible helper copy remains available for key controls
 
 ### Section Structure
 
-- [ ] All sections have unique `id` attributes for anchor links
-- [ ] Section IDs use kebab-case (e.g., `id="core-values"`)
+- [ ] Section IDs are present when referenced by internal jump links/deep links
+- [ ] Section IDs use kebab-case when present (e.g., `id="core-values"`)
 - [ ] Sections use standard class: `relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden`
 - [ ] Content wrapped in: `relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl`
 - [ ] Major section framing uses dual-label military pattern (clear primary label + military-themed secondary sublabel)

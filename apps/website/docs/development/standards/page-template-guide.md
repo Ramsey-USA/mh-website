@@ -1,7 +1,7 @@
 # Page Template Guide
 
 **Category:** Development - Page Scaffolding  
-**Last Updated:** April 18, 2026  
+**Last Updated:** June 20, 2026  
 **Status:** ✅ Active
 **Canonical Sources:**
 
@@ -73,6 +73,15 @@ developers don't code the same thing 26 times.
 ---
 
 ## Mandatory Page Architecture
+
+## Global Header Rule
+
+All new pages inherit the unified global header from `Navigation.tsx`.
+
+- Do not add phone/contact CTA buttons to hero content areas unless a documented exception is approved.
+- Keep hero layouts visually compatible with the logo-first global header experience on phones.
+- Assume the MH logo must remain the dominant header element at narrow widths.
+- Use hero content for orientation and value proposition, not redundant header controls.
 
 Every page body must follow the MH universal page flow standard:
 
@@ -210,6 +219,7 @@ export default function YourPageName() {
           {/* Page Navigation - REQUIRED at bottom */}
           <PageNavigation
             items={navigationConfigs.yourpage} // Add to navigationConfigs.ts
+            showRemainingPagesOverlay
             className="absolute bottom-0 left-0 right-0"
           />
         </section>
@@ -352,7 +362,7 @@ export const navigationConfigs = {
   // ... existing configs
   yourpage: [
     {
-      href: "#first-section",
+      href: "#first-section", // Legacy compatibility for section maps
       label: "First Section",
       mobileLabel: "First",
       icon: "verified",
@@ -403,7 +413,8 @@ Before deploying your new page:
 - [ ] Test on mobile device (actual device, not just DevTools)
 - [ ] Test dark mode toggle
 - [ ] Verify all links work
-- [ ] Check PageNavigation anchors scroll to correct sections
+- [ ] Verify hero nav shows global 6-cell row (Home, Services, Projects, About, Contact, More)
+- [ ] Verify `More` opens modal overlay and all close behaviors work
 - [ ] Verify SEO metadata appears correctly
 - [ ] Test with screen reader
 - [ ] Validate no TypeScript errors
@@ -421,7 +432,7 @@ Use the canonical mistakes catalog with wrong/correct examples:
 Template-specific checks:
 
 1. First body section must serve the Discover stage.
-1. Keep section IDs in kebab-case for PageNavigation anchors.
+1. Keep section IDs in kebab-case for internal jump links and deep-link targets.
 1. Keep `NextStepsSection` as the final major section.
 1. Keep below-fold sections dynamically imported where appropriate.
 1. Split oversized pages when they serve multiple audiences or multiple action paths.

@@ -43,7 +43,7 @@ export function LanguageToggle({ className = "" }: LanguageToggleProps) {
   return (
     <div
       className={[
-        "relative inline-flex items-center overflow-hidden rounded-lg sm:rounded-xl border-2 border-brand-secondary bg-brand-primary shadow-lg outline outline-2 outline-offset-2 outline-brand-secondary/50 transition-shadow duration-300",
+        "relative inline-flex items-center overflow-hidden rounded-lg sm:rounded-xl max-[360px]:rounded-md border-2 border-brand-secondary bg-brand-primary shadow-lg outline-2 outline-offset-2 outline-brand-secondary/50 transition-shadow duration-300",
         className,
       ]
         .filter(Boolean)
@@ -58,7 +58,7 @@ export function LanguageToggle({ className = "" }: LanguageToggleProps) {
           disabled={isPending}
           aria-pressed={locale === currentLocale}
           className={[
-            "min-w-[40px] min-h-[40px] xs:min-w-[44px] xs:min-h-[44px] sm:min-w-[48px] sm:min-h-[48px] px-2 xs:px-2.5 text-xs xs:text-sm font-bold transition-all duration-300 touch-manipulation disabled:opacity-70 disabled:cursor-wait",
+            "min-w-9.5 min-h-9.5 max-[360px]:min-w-8.5 max-[360px]:min-h-8.5 xs:min-w-11 xs:min-h-11 sm:min-w-12 sm:min-h-12 px-2 max-[360px]:px-1.5 xs:px-2.5 text-xs xs:text-sm font-bold transition-all duration-300 touch-manipulation disabled:opacity-70 disabled:cursor-wait",
             i > 0 ? "border-l-2 border-brand-secondary/70" : "",
             locale === currentLocale
               ? "bg-brand-secondary text-brand-primary"

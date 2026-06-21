@@ -72,6 +72,7 @@ Typography and color treatment on homepage-inspired pages must stay within the c
 ### Key Features
 
 - **Full-screen hero** with American Flag and dual-label navigation
+- **Unified global header** with a logo-first mobile layout, bilingual controls, phone CTA, compact theme toggle, and hamburger menu
 - **Performance optimized** with lazy-loaded below-the-fold content
 - **SEO Validation:** Use external audits and rich-result validators
 - **PWA Support** with install banner and offline functionality
@@ -99,6 +100,7 @@ The homepage follows the **Universal Page Flow Standard**: **Discover → Trust 
 - **Template Pattern:** Full-screen hero with icon, dual-label title, brand messaging, page navigation
 - **Reused Across Pages:** Hero layout structure, navigation bar positioning
 - **Page-Specific Content:** Icon choice, headlines, messaging
+- **Header Relationship:** Contact actions live in the global header so the hero headline stays focused on value proposition and service geography
 - **Homepage Specifics:**
   - American Flag icon with animation
   - "Base HQ → Home" dual-label
@@ -604,11 +606,13 @@ export default function Home() {
 
 ### Navigation Integration
 
-The homepage uses section-based navigation with the `PageNavigation` component:
+The homepage hero uses `PageNavigation` with a 6-cell top row and modal overlay support:
 
 - Configuration: `/src/components/navigation/navigationConfigs.ts`
-- All sections have unique `id` attributes for anchor links
-- Dual-label format: full label (desktop) + mobile label
+- Layout: six equal cells (Home, Services, Projects, About, Contact, More)
+- `More` behavior: opens full-screen modal overlay with backdrop and centered panel
+- Overlay close controls: backdrop click, Escape key, close button, and link click
+- Accessibility/UX: body scroll locks while overlay is open
 
 ### Dark Mode Support
 

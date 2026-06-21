@@ -437,13 +437,13 @@ export default function PageName() {
 }
 ```
 
-**Navigation Pattern (Dec 2025):**
+**Navigation Pattern (Current Standard):**
 
-- ✅ **Section-Based Navigation**: All PageNavigation items use `#section-id` anchors
-- ✅ **Hero Integration**: PageNavigation placed at bottom of hero section
-- ✅ **Hamburger Menu**: Handles cross-page navigation and social media links
-- ✅ **Section IDs Required**: Each navigable section must have unique `id` attribute
-- ✅ **Mobile Responsive**: Uses dual-label pattern (full/mobile labels)
+- ✅ **Global Hero Navigation**: `PageNavigation` renders the shared 6-cell row (Home, Services, Projects, About, Contact, More)
+- ✅ **Hero Integration**: `PageNavigation` placed at bottom of hero section
+- ✅ **More Overlay**: `More` opens a full-screen modal overlay with backdrop and centered panel
+- ✅ **Close Behaviors**: Backdrop click, Escape key, close button, and link click close the overlay
+- ✅ **Mobile Responsive**: Top row remains consistent and routes to global pages
 
 ### Hero Section Patterns
 
@@ -472,21 +472,22 @@ export default function PageName() {
     </h1>
   </div>
 
-  {/* Page Navigation - Section Anchors Only */}
+  {/* Page Navigation - Global 6-cell row + More overlay */}
   <PageNavigation
     items={navigationConfigs.page}
+    showRemainingPagesOverlay
     className="absolute bottom-0 left-0 right-0"
   />
 </section>
 ```
 
-**Navigation Config Pattern:**
+**Navigation Config Pattern (Legacy-compatible):**
 
 ```typescript
 // navigationConfigs.ts
 pageName: [
   {
-    href: "#section-id", // MUST be section anchor, not cross-page link
+    href: "#section-id", // Optional internal deep-link target for section jumps
     label: "Full Label", // Desktop label
     mobileLabel: "Short", // Mobile label
     icon: "material_icon", // Material icon name

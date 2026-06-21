@@ -1,8 +1,8 @@
 # MH Construction Hero Section Standards
 
 **Category:** Branding - Standards  
-**Last Updated:** May 16, 2026  
-**Version:** 7.1.0  
+**Last Updated:** June 20, 2026  
+**Version:** 7.2.0  
 **Status:** ✅ Active
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
@@ -31,6 +31,19 @@ All website pages must include a hero section.
 - Shared hero wrappers are allowed only when they preserve Home baseline typography,
   spacing envelope, icon strategy, and bottom-navigation framing behavior.
 - Any missing hero page is a release-blocking FAIL for hero congruency checks.
+
+## Global Header Relationship
+
+The hero section now operates with a unified global header system anchored in
+`apps/website/src/components/layout/Navigation.tsx`.
+
+- Contact actions belong in the global header, not inside the hero content area.
+- The global header owns the MH logo, language toggle, phone CTA, compact theme toggle,
+  and hamburger menu.
+- On phone screens, the MH logo must remain the dominant header element even when
+  the phone CTA text stays visible.
+- Hero spacing must continue to clear the fixed visual envelope created by the
+  global header above and the page navigation bar below.
 
 ## 🎯 Tagline Strategy Update (December 14, 2025)
 
@@ -110,16 +123,18 @@ recognition and accessibility.
 - `mr-4 sm:mr-6 lg:mr-8 xl:mr-12`
 - `ml-auto max-w-2xl pointer-events-none pb-2`
 
-1. **PageNavigation at Bottom**: Section-based navigation using `#section-id` anchors (Dec 2025 standard)
-2. **Single Mission Icon Treatment**: Use one intentional icon container aligned with Home-style emphasis.
+1. **PageNavigation at Bottom**: Keep navigation pinned to `absolute bottom-0 left-0 right-0`.
+2. **Six-Cell Home Nav Pattern**: Home hero navigation row must render six equal cells (Home, Services, Projects, About, Contact, More).
+3. **More Overlay Pattern**: `More` opens a full-screen overlay (backdrop + centered panel), not an inline dropdown.
+4. **Single Mission Icon Treatment**: Use one intentional icon container aligned with Home-style emphasis.
 
 ### ❌ MUST NOT INCLUDE
 
-1. **NO Hero Clutter**: No decorative badge clusters, stat chips, or competing icon groups in hero copy area
+1. **NO Hero Clutter**: No decorative badge clusters, stat chips, or competing icon groups in the hero content area
 2. **NO CTA Buttons**: Schedule Consultation, Get Estimate, Contact buttons
 3. **NO Stats**: 30+ years, 100+ projects, satisfaction rate displays
 4. **NO Trust Indicators**: Icons with project counts or ratings
-5. **NO Contact Buttons**: Quick contact or phone buttons
+5. **NO Contact Buttons**: Quick contact or phone buttons inside the hero; use the global header phone CTA instead
 6. **NO Additional Elements**: Keep it clean - title, subtitle, description only
 
 ---
@@ -176,6 +191,7 @@ visual element. This creates a more impactful first impression where imagery spe
   {/* Page-Specific Navigation Bar - ALWAYS AT BOTTOM */}
   <PageNavigation
     items={navigationConfigs.home}
+    showRemainingPagesOverlay
     className="absolute bottom-0 left-0 right-0"
   />
 </section>
@@ -219,8 +235,9 @@ Use this checklist when creating or reviewing any page's hero section:
 - [ ] Title uses `text-brand-secondary` color
 - [ ] Subtitle with proper responsive classes
 - [ ] Description includes company tagline
-- [ ] PageNavigation at `absolute bottom-0 left-0 right-0` with section anchors only
-- [ ] Navigation config uses `#section-id` format (no cross-page links)
+- [ ] PageNavigation at `absolute bottom-0 left-0 right-0`
+- [ ] Home nav row renders six equal cells including `More`
+- [ ] `More` opens centered modal overlay with backdrop, Escape close, and body scroll lock
 - [ ] All navigable sections have unique `id` attributes
 - [ ] **NO** decorative badge clusters or competing icon groups in hero
 - [ ] **NO** CTA buttons in hero
@@ -243,7 +260,10 @@ Use this checklist when creating or reviewing any page's hero section:
       ...
     </h1>
   </div>
-  <PageNavigation className="absolute bottom-0 left-0 right-0" />
+  <PageNavigation
+    showRemainingPagesOverlay
+    className="absolute bottom-0 left-0 right-0"
+  />
 </section>
 ```
 

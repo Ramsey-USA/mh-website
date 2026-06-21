@@ -156,6 +156,7 @@ export default function ContactPageClient({
           {/* Page Navigation */}
           <PageNavigation
             items={navigationConfigs.contact}
+            showRemainingPagesOverlay
             className="absolute bottom-0 left-0 right-0"
           />
         </section>

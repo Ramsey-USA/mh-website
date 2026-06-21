@@ -1,8 +1,8 @@
 # MH Construction Unified Component & Typography Standards
 
 **Category:** Branding - Standards  
-**Version:** 7.1.0  
-**Last Updated:** April 19, 2026  
+**Version:** 7.2.0  
+**Last Updated:** June 20, 2026  
 **Status:** ✅ Official Standard - Consolidated Documentation  
 **Previous Versions:** Replaces typography.md v5.0.0 and component-standards.md v6.0.0
 
@@ -23,7 +23,7 @@ Color usage inside components must continue to pull from the approved MH color s
 
 - **MERGED:** Typography standards and component standards into single document
 - **RESOLVED:** Gradient text policy conflict (gradient text IS approved for section headers)
-- **RESOLVED:** Hero section requirements conflict (modern components with CTAs are allowed)
+- **RESOLVED:** Hero section requirements conflict by separating hero messaging from header-owned contact CTAs
 - **CLARIFIED:** Emergency and government color schemes are contextual additions, not replacements
 - **UNIFIED:** All spacing, sizing, and responsive standards in one place
 - **DEPRECATED:** Separate typography.md and component-standards.md files
@@ -90,6 +90,17 @@ The gradient text in section headers, as implemented across all pages, is the co
 - Do not remove or hide accreditations in redesigns, experiments, or A/B variants without stakeholder approval.
 - Accreditation visibility is a trust requirement and part of brand consistency.
 - **WA Veteran Owned Business badge:** Use the `WaVobBadge` component (`src/components/ui/WaVobBadge.tsx`) in every accreditation/affiliations section. Its red-to-blue gradient border is an **approved color exception** for Veteran Owned certification materials. See [Color System §Veteran Owned Badge Exception](./color-system.md#veteran-owned-badge-exception).
+
+#### 3) Unified Header Hierarchy Is Required
+
+- The global header must remain logo-first, with the MH logo visually dominant over
+  adjacent controls on mobile and desktop.
+- The header control set is: logo, language toggle, phone CTA, compact theme toggle,
+  and hamburger menu.
+- Contact actions should be consolidated into the global header phone CTA rather than
+  duplicated inside hero content areas.
+- Tooltip copy and bilingual control labels are part of the global header system and should
+  not be removed during refinements unless replaced by an approved accessible equivalent.
 
 ---
 
@@ -442,6 +453,9 @@ All page sections MUST follow this standardized background:
 - ✅ Clean typography: Title, subtitle, description
 - ✅ Brand color emphasis: `text-brand-secondary` on hero titles
 - ✅ PageNavigation at bottom: `absolute bottom-0 left-0 right-0`
+- ✅ Homepage PageNavigation row uses a 6-cell grid (Home, Services, Projects, About, Contact, More)
+- ✅ `More` opens a modal overlay pattern (backdrop + centered panel), not an inline dropdown
+- ✅ `More` uses the same padding/typography/border attributes as the other 5 nav cells
 - ✅ Modern components: CTAs, badges, and stats ARE allowed when appropriate
 - ✅ Responsive padding: Top `pt-16` to `lg:pt-40`, Bottom `pb-12` to `lg:pb-28`
 
@@ -470,10 +484,23 @@ All page sections MUST follow this standardized background:
 
   <PageNavigation
     items={navigationConfigs.pageName}
+    showRemainingPagesOverlay
     className="absolute bottom-0 left-0 right-0"
   />
 </section>
 ```
+
+### PageNavigation Overlay Pattern (Homepage)
+
+- Grid container must render six equal columns for the top row.
+- The first five cells are primary destinations; the sixth cell is `More`.
+- `More` must use a full-screen overlay pattern with:
+  - Backdrop click-to-close behavior
+  - Escape key close behavior
+  - Body scroll lock while open
+  - Centered modal panel with brand-congruent colors and typography
+- Overlay menu items list remaining site pages as direct links.
+- Keep interactive elements keyboard reachable with visible focus rings.
 
 ---
 

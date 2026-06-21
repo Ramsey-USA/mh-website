@@ -89,6 +89,7 @@ export function HeroSection({
       {/* Page-Specific Navigation Bar */}
       <PageNavigation
         items={navigationConfigs.home}
+        showRemainingPagesOverlay
         className="absolute bottom-0 left-0 right-0"
       />
     </section>

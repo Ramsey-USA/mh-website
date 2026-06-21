@@ -428,6 +428,7 @@ export default async function TestimonialsPage(props?: {
         {!isLighthouseAudit && (
           <PageNavigation
             items={navigationConfigs.testimonials}
+            showRemainingPagesOverlay
             className="absolute bottom-0 left-0 right-0"
           />
         )}

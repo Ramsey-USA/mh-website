@@ -194,6 +194,7 @@ export default async function VeteransPage() {
           {/* Page-Specific Navigation Bar */}
           <PageNavigation
             items={navigationConfigs.veterans}
+            showRemainingPagesOverlay
             className="absolute bottom-0 left-0 right-0"
           />
         </section>
