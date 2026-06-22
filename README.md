@@ -14,6 +14,7 @@ honest communication, and proven craftsmanship.
 
 **New to this project?** Follow this exact path:
 
+0. **[⚙️ Local Development Setup](.github/DEVELOPMENT_SETUP.md)** - **START HERE** if you're about to commit code. Learn what pre-commit hooks check, why commits fail, and how to fix common issues (duplicate imports, commit format, type errors).
 1. **Read this README** (you're here) - Project overview, tech stack, setup
 2. **Study the [Homepage](src/app/page.tsx)** as your reference standard - See
    [Homepage Documentation](docs/technical/homepage.md) for complete breakdown

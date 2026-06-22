@@ -49,15 +49,64 @@ git push origin feature/feature-name
 # Then open a Pull Request
 ```
 
-### Commit Message Convention
+### Local Pre-Commit Quality Checks (MUST RUN BEFORE COMMITTING)
+
+**These checks run automatically in the pre-commit hook, but running them locally first prevents blocking:**
+
+```bash
+# 1. Lint check — catches duplicate imports, formatting, unused variables, etc.
+npm run lint
+
+# 2. Type check — catches TypeScript errors (runs again on pre-push)
+npm run type-check
+
+# 3. Build test — catches compilation issues early
+npm run build
+
+# 4. Unit tests — run relevant tests
+npm run test
+```
+
+**Common Issues & Fixes:**
+
+| Issue                         | Cause                                              | Fix                                                         |
+| ----------------------------- | -------------------------------------------------- | ----------------------------------------------------------- |
+| `no-duplicate-imports` error  | Two import statements for same module              | Merge imports: `import { a, b } from 'module'`              |
+| `'React' is already declared` | Duplicate React imports from different statements  | Combine: `import { useState, type ReactNode } from 'react'` |
+| TypeScript errors on pre-push | Skipped local type-check                           | Run `npm run type-check` before committing                  |
+| Commitlint format error       | Commit message doesn't follow Conventional Commits | Use proper format (see examples below)                      |
+
+### Commit Message Convention (Conventional Commits)
+
+**Format:** `<type>: <subject>` (lowercase, max 72 chars)
+
+**Examples:**
+
+```bash
+# ✅ Good examples
+git commit -m "feat: add sticky header navigation on all pages"
+git commit -m "fix: resolve TypeScript undefined prop forwarding"
+git commit -m "docs: update contributing guide with pre-commit workflow"
+git commit -m "refactor: consolidate hero section height calculation"
+git commit -m "test: add layout component coverage"
+git commit -m "chore: update eslint dependencies"
+
+# ❌ Bad examples (will be rejected)
+git commit -m "Update stuff"  # Too vague
+git commit -m "Fixed bug"     # Capitalized, missing type
+git commit -m "Feat: new nav" # Capitalized type
+```
+
+**Supported Types:**
 
 ```text
-feat:     new feature
-fix:      bug fix
-docs:     documentation only
-refactor: code change with no behavior change
-test:     adding or updating tests
-chore:    dependency updates, config changes
+feat:     New feature or functionality
+fix:      Bug fix (resolves an issue)
+docs:     Documentation only (README, guides, comments)
+refactor: Code restructuring without behavior change
+test:     Adding/updating tests or test utilities
+chore:    Dependency updates, config changes, tooling
+style:    Formatting or minor style adjustments
 ```
 
 ### Image Upload Naming (Enforced)
