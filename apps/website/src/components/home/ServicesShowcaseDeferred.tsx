@@ -70,7 +70,7 @@ export function ServicesShowcaseDeferred({
         <ServicesShowcase
           sectionVariant="white"
           className={className}
-          maxVisibleCards={maxVisibleCards}
+          {...(typeof maxVisibleCards === "number" ? { maxVisibleCards } : {})}
         />
       ) : (
         <section className="bg-white py-20 lg:py-32 xl:py-40" id="services">
