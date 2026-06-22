@@ -99,12 +99,16 @@ const eslintConfig = [
   reactHooksPlugin.configs.flat.recommended,
 
   // === TYPESCRIPT-ESLINT RECOMMENDED ===
+  // Note: Removed 'project' from parserOptions for performance
+  // Type-aware rules require full project parsing which slows ESLint significantly (~14s per file).
+  // The npm run type-check command handles comprehensive TypeScript checking instead.
   {
     files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {
       parser: tsEslintParser,
       parserOptions: {
-        project: path.join(__dirname, "tsconfig.json"),
+        ecmaVersion: 2024,
+        sourceType: "module",
       },
     },
     plugins: {
