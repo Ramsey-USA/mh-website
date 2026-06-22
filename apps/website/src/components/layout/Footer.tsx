@@ -36,6 +36,16 @@ type FooterUtilityLinkItem = {
   label: string;
 };
 
+type FooterSectionHeaderProps = {
+  icon: string;
+  headingId: string;
+  title: string;
+  subtitle: string;
+  tooltipTitle: string;
+  tooltipDescription: string;
+  tooltipAlign?: "left" | "center" | "right";
+};
+
 type SocialLinkItem = {
   href: string;
   icon: string;
@@ -533,6 +543,70 @@ function FooterActionCardContent(props: {
   );
 }
 
+function FooterSectionHeader(props: FooterSectionHeaderProps) {
+  const {
+    icon,
+    headingId,
+    title,
+    subtitle,
+    tooltipTitle,
+    tooltipDescription,
+    tooltipAlign = "left",
+  } = props;
+
+  const tooltipAlignmentClasses =
+    tooltipAlign === "center"
+      ? "left-1/2 -translate-x-1/2"
+      : tooltipAlign === "right"
+        ? "right-0"
+        : "left-0";
+
+  const tooltipArrowClasses =
+    tooltipAlign === "center"
+      ? "left-1/2 -translate-x-1/2"
+      : tooltipAlign === "right"
+        ? "right-6"
+        : "left-6";
+
+  return (
+    <div className="relative overflow-visible group/footer-section">
+      <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
+        <MaterialIcon icon={icon} size="sm" className="text-brand-primary" />
+        <div className="flex flex-col leading-tight">
+          <h3
+            id={headingId}
+            className="font-semibold text-brand-primary text-sm uppercase tracking-wide"
+          >
+            {title}
+          </h3>
+          <span className="text-[10px] uppercase tracking-wide text-brand-secondary/80">
+            {subtitle}
+          </span>
+        </div>
+      </div>
+
+      <div
+        className={`absolute top-full mt-2 z-50 w-[min(92vw,16rem)] max-w-[calc(100vw-1rem)] transition-all duration-300 opacity-0 scale-95 pointer-events-none group-hover/footer-section:opacity-100 group-hover/footer-section:scale-100 group-hover/footer-section:pointer-events-auto group-focus-within/footer-section:opacity-100 group-focus-within/footer-section:scale-100 group-focus-within/footer-section:pointer-events-auto ${tooltipAlignmentClasses}`}
+      >
+        <div className="relative">
+          <div className="absolute inset-0 -z-10 rounded-xl bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary blur-md opacity-35" />
+          <div className="px-5 py-3 bg-linear-to-br from-brand-primary/95 via-gray-900/95 to-brand-primary/95 dark:from-gray-900/98 dark:via-gray-800/98 dark:to-gray-900/98 border-2 border-brand-secondary rounded-xl shadow-2xl backdrop-blur-sm">
+            <p className="text-center text-sm sm:text-base font-bold text-white drop-shadow-lg">
+              {tooltipTitle}
+            </p>
+            <p className="text-center text-xs sm:text-sm text-brand-secondary/90 mt-2 font-medium leading-relaxed">
+              {tooltipDescription}
+            </p>
+          </div>
+          <div
+            className={`absolute -top-1.5 ${tooltipArrowClasses} w-3 h-3 bg-linear-to-br from-brand-primary/95 to-brand-primary/95 dark:from-gray-900/98 dark:to-gray-900/98 border border-brand-secondary rotate-45`}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function LicenseBadge() {
   return (
     <div className="rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2 text-sm transition-all duration-300 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10 dark:hover:border-brand-primary/50 dark:hover:bg-brand-primary/20">
@@ -692,13 +766,22 @@ export default function Footer() {
             leaveGoogleReview: "Deja una resena en Google",
             servingPnw: "Sirviendo al Pacifico Noroeste",
             mainNavLabel: "Navegacion principal",
-            servicesHeading: "Servicios",
-            missionExecution: "Ejecucion de mision",
+            servicesHeading: "Enlaces rapidos",
+            missionExecution: "Paginas principales",
+            servicesTooltipTitle: "Enlaces rapidos",
+            servicesTooltipDescription:
+              "Ir directamente a las paginas principales y de servicios.",
             companyInfoLabel: "Informacion de la compania",
-            companyHeading: "Compania",
-            ourForces: "Nuestras fuerzas",
+            companyHeading: "Compania y alianzas",
+            ourForces: "Equipo y alianzas",
+            companyTooltipTitle: "Compania y alianzas",
+            companyTooltipDescription:
+              "Conocer al equipo, las afiliaciones y la experiencia del sector publico.",
             contactHeading: "Contacto",
-            commandCenter: "Centro de mando",
+            commandCenter: "Opciones de contacto",
+            contactTooltipTitle: "Contacto",
+            contactTooltipDescription:
+              "Solicitudes, llamadas, correo, visitas y boletin informativo.",
             joinTeamEyebrow: "Unete al equipo",
             quickApplication: "Solicitud rapida",
             callUsEyebrow: "Llamenos",
@@ -707,6 +790,10 @@ export default function Footer() {
             stayUpdated: "Mantengase al dia",
             joinNewsletter: "Unase a nuestro boletin",
             emailAddress: "Correo electronico",
+            accreditationsHeading: "Acreditaciones y afiliaciones",
+            accreditationsTooltipTitle: "Acreditaciones y afiliaciones",
+            accreditationsTooltipDescription:
+              "Membresias, certificaciones y sellos de terceros que respaldan la confianza.",
             legalLinksLabel: "Enlaces legales y utilitarios",
             backToTopAria: "Volver arriba",
             backToTopLabel: "Arriba",
@@ -719,13 +806,22 @@ export default function Footer() {
             leaveGoogleReview: "Leave a Google Review",
             servingPnw: "Serving the Pacific Northwest",
             mainNavLabel: "Main navigation",
-            servicesHeading: "Services",
-            missionExecution: "Mission Execution",
+            servicesHeading: "Quick Links",
+            missionExecution: "Main pages",
+            servicesTooltipTitle: "Quick Links",
+            servicesTooltipDescription:
+              "Jump straight to our core pages and service areas.",
             companyInfoLabel: "Company information",
-            companyHeading: "Company",
-            ourForces: "Our Forces",
+            companyHeading: "Company & Partnerships",
+            ourForces: "Team & Partners",
+            companyTooltipTitle: "Company & Partnerships",
+            companyTooltipDescription:
+              "Learn about the team, affiliations, and public-sector experience.",
             contactHeading: "Contact",
-            commandCenter: "Command Center",
+            commandCenter: "Contact options",
+            contactTooltipTitle: "Contact",
+            contactTooltipDescription:
+              "Start an application, call, email, visit, or subscribe.",
             joinTeamEyebrow: "Join the Team",
             quickApplication: "Quick Application",
             callUsEyebrow: "Call Us",
@@ -734,6 +830,10 @@ export default function Footer() {
             stayUpdated: "Stay Updated",
             joinNewsletter: "Join Our Newsletter",
             emailAddress: "Email address",
+            accreditationsHeading: "Accreditations and Affiliations",
+            accreditationsTooltipTitle: "Accreditations and Affiliations",
+            accreditationsTooltipDescription:
+              "Third-party memberships, certifications, and partner seals that reinforce trust.",
             legalLinksLabel: "Legal and utility links",
             backToTopAria: "Back to top",
             backToTopLabel: "Top",
@@ -870,21 +970,14 @@ export default function Footer() {
               className="h-full space-y-3 xs:space-y-4"
               aria-label={copy.mainNavLabel}
             >
-              <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
-                <MaterialIcon
-                  icon="explore"
-                  size="sm"
-                  className="text-brand-primary"
-                />
-                <div className="flex flex-col leading-tight">
-                  <h3 className="font-semibold text-brand-primary text-sm uppercase tracking-wide">
-                    {copy.servicesHeading}
-                  </h3>
-                  <span className="text-[10px] uppercase tracking-wide text-brand-secondary/80">
-                    {copy.missionExecution}
-                  </span>
-                </div>
-              </div>
+              <FooterSectionHeader
+                icon="explore"
+                headingId="footer-quick-links-heading"
+                title={copy.servicesHeading}
+                subtitle={copy.missionExecution}
+                tooltipTitle={copy.servicesTooltipTitle}
+                tooltipDescription={copy.servicesTooltipDescription}
+              />
               <div className="flex h-[calc(100%-2.75rem)] flex-col justify-evenly">
                 {localizedNavCol1Links.map((link) => (
                   <FooterNavLink key={`${link.href}-${link.label}`} {...link} />
@@ -897,21 +990,15 @@ export default function Footer() {
               className="h-full space-y-3 xs:space-y-4"
               aria-label={copy.companyInfoLabel}
             >
-              <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
-                <MaterialIcon
-                  icon="groups"
-                  size="sm"
-                  className="text-brand-primary"
-                />
-                <div className="flex flex-col leading-tight">
-                  <h3 className="font-semibold text-brand-primary text-sm uppercase tracking-wide">
-                    {copy.companyHeading}
-                  </h3>
-                  <span className="text-[10px] uppercase tracking-wide text-brand-secondary/80">
-                    {copy.ourForces}
-                  </span>
-                </div>
-              </div>
+              <FooterSectionHeader
+                icon="groups"
+                headingId="footer-company-heading"
+                title={copy.companyHeading}
+                subtitle={copy.ourForces}
+                tooltipTitle={copy.companyTooltipTitle}
+                tooltipDescription={copy.companyTooltipDescription}
+                tooltipAlign="right"
+              />
               <div className="flex h-[calc(100%-2.75rem)] flex-col justify-evenly">
                 {localizedNavCol2Links.map((link) => (
                   <FooterNavLink key={`${link.href}-${link.label}`} {...link} />
@@ -924,24 +1011,15 @@ export default function Footer() {
               className="space-y-3 xs:space-y-4"
               aria-labelledby="contact-heading"
             >
-              <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
-                <MaterialIcon
-                  icon="share"
-                  size="sm"
-                  className="text-brand-primary"
-                />
-                <div className="flex flex-col leading-tight">
-                  <h3
-                    id="contact-heading"
-                    className="font-semibold text-brand-primary text-sm uppercase tracking-wide"
-                  >
-                    {copy.contactHeading}
-                  </h3>
-                  <span className="text-[10px] uppercase tracking-wide text-brand-secondary/80">
-                    {copy.commandCenter}
-                  </span>
-                </div>
-              </div>
+              <FooterSectionHeader
+                icon="share"
+                headingId="contact-heading"
+                title={copy.contactHeading}
+                subtitle={copy.commandCenter}
+                tooltipTitle={copy.contactTooltipTitle}
+                tooltipDescription={copy.contactTooltipDescription}
+                tooltipAlign="right"
+              />
 
               {/* Contact Info */}
               <div
@@ -1100,7 +1178,22 @@ export default function Footer() {
           </div>
 
           {/* Accreditations Row */}
-          <div className="pt-6 pb-2 border-t border-gray-700/50">
+          <section
+            className="pt-6 pb-2 border-t border-gray-700/50"
+            aria-labelledby="footer-accreditations-heading"
+          >
+            <div className="mx-auto mb-4 flex w-full max-w-6xl justify-center px-4 text-center">
+              <FooterSectionHeader
+                icon="verified"
+                headingId="footer-accreditations-heading"
+                title={copy.accreditationsHeading}
+                subtitle={isEs ? "Socios verificados" : "Verified partners"}
+                tooltipTitle={copy.accreditationsTooltipTitle}
+                tooltipDescription={copy.accreditationsTooltipDescription}
+                tooltipAlign="center"
+              />
+            </div>
+
             <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center justify-items-center gap-4 md:grid-cols-[1fr_auto_1fr] md:items-stretch md:gap-5">
               <div className="grid w-full max-w-lg grid-cols-2 justify-items-center gap-3">
                 {/* AGC Washington */}
@@ -1249,7 +1342,7 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-          </div>
+          </section>
 
           {/* Bottom Bar - Enhanced Design */}
           <div className="pt-8 pb-6 border-t border-gray-700/50 dark:border-gray-600/50">

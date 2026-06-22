@@ -1,4 +1,6 @@
-import type { CSSProperties } from "react";
+"use client";
+
+import { useState, type CSSProperties } from "react";
 import Image from "next/image";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
@@ -56,13 +58,18 @@ export function CoreValuesSection({
   className = "",
   animated = false,
   locale = "en",
+  condensed = false,
 }: {
   sectionVariant?: "white" | "gray";
   className?: string;
   animated?: boolean;
   locale?: SupportedLocale;
+  condensed?: boolean;
 }) {
   const t = locale === "es" ? es.coreValues : en.coreValues;
+  const [expandedValues, setExpandedValues] = useState<Record<string, boolean>>(
+    {},
+  );
 
   const coreValues = coreValuesBase.map((item, i) => ({
     ...item,
@@ -71,6 +78,10 @@ export function CoreValuesSection({
     description: t.values[i]?.description ?? item.description,
     stats: t.values[i]?.stats ?? item.stats,
   }));
+
+  const readMoreLabel =
+    locale === "es" ? "Leer estandar completo" : "Read full standard";
+  const showLessLabel = locale === "es" ? "Mostrar menos" : "Show less";
 
   return (
     <BrandedContentSection
@@ -104,9 +115,14 @@ export function CoreValuesSection({
         ),
       }}
     >
-      <div className="space-y-12 lg:space-y-16">
+      <div
+        className={
+          condensed ? "space-y-8 lg:space-y-10" : "space-y-12 lg:space-y-16"
+        }
+      >
         {coreValues.map((item, index) => {
           const isEven = index % 2 === 0;
+          const isExpanded = Boolean(expandedValues[item.value]);
           return (
             <div
               key={item.value}
@@ -117,7 +133,7 @@ export function CoreValuesSection({
                 className={`flex flex-col lg:grid lg:grid-cols-2 bg-white dark:bg-gray-800 ${cornerRadius.card} shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:scale-[1.02]`}
               >
                 <div
-                  className={`relative h-64 sm:h-80 lg:h-full lg:min-h-125 overflow-hidden ${
+                  className={`relative ${condensed ? "h-52 sm:h-64 lg:h-full lg:min-h-96" : "h-64 sm:h-80 lg:h-full lg:min-h-125"} overflow-hidden ${
                     isEven ? "lg:order-1" : "lg:order-2"
                   }`}
                 >
@@ -153,11 +169,17 @@ export function CoreValuesSection({
                 </div>
 
                 <div
-                  className={`p-6 sm:p-8 lg:p-10 flex flex-col justify-center ${
+                  className={`p-6 sm:p-7 ${condensed ? "lg:p-8" : "lg:p-10"} flex flex-col justify-center ${
                     isEven ? "lg:order-2" : "lg:order-1"
                   }`}
                 >
-                  <div className="space-y-4 lg:space-y-5">
+                  <div
+                    className={
+                      condensed
+                        ? "space-y-3 lg:space-y-4"
+                        : "space-y-4 lg:space-y-5"
+                    }
+                  >
                     <div>
                       <h3 className="font-black text-gray-900 dark:text-gray-100 text-xl sm:text-2xl leading-tight tracking-tight mb-2">
                         {item.value}
@@ -167,9 +189,42 @@ export function CoreValuesSection({
                       </p>
                     </div>
 
-                    <p className="font-normal text-gray-700 dark:text-gray-300 text-sm sm:text-base lg:text-base leading-relaxed">
-                      {item.description}
-                    </p>
+                    <div className="relative">
+                      <p
+                        className={`font-normal text-gray-700 dark:text-gray-300 text-sm sm:text-base lg:text-base leading-relaxed ${
+                          condensed && !isExpanded
+                            ? "max-h-20 overflow-hidden"
+                            : ""
+                        }`}
+                      >
+                        {item.description}
+                      </p>
+                      {condensed && !isExpanded ? (
+                        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-linear-to-b from-transparent to-white dark:to-gray-800" />
+                      ) : null}
+                    </div>
+
+                    {condensed ? (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setExpandedValues((prev) => ({
+                            ...prev,
+                            [item.value]: !prev[item.value],
+                          }))
+                        }
+                        className="inline-flex w-fit items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 px-3 py-2 text-sm font-semibold text-gray-900 dark:text-gray-100 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                        aria-expanded={isExpanded}
+                      >
+                        <MaterialIcon
+                          icon={isExpanded ? "expand_less" : "expand_more"}
+                          size="sm"
+                          className="text-current"
+                          ariaLabel=""
+                        />
+                        {isExpanded ? showLessLabel : readMoreLabel}
+                      </button>
+                    ) : null}
 
                     <div className="flex items-center gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
                       <div

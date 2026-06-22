@@ -27,7 +27,13 @@ const ServicesShowcase = dynamic(
   },
 );
 
-export function ServicesShowcaseDeferred() {
+export function ServicesShowcaseDeferred({
+  className = "",
+  maxVisibleCards,
+}: {
+  className?: string;
+  maxVisibleCards?: number;
+}) {
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const [shouldRender, setShouldRender] = useState(false);
 
@@ -61,7 +67,11 @@ export function ServicesShowcaseDeferred() {
   return (
     <div ref={triggerRef}>
       {shouldRender ? (
-        <ServicesShowcase sectionVariant="white" />
+        <ServicesShowcase
+          sectionVariant="white"
+          className={className}
+          maxVisibleCards={maxVisibleCards}
+        />
       ) : (
         <section className="bg-white py-20 lg:py-32 xl:py-40" id="services">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">

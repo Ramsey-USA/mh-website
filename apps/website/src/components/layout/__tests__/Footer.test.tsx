@@ -7,6 +7,7 @@ import {
   waitFor,
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import Footer from "../Footer";
 
 jest.mock("next/link", () => ({
@@ -20,17 +21,30 @@ jest.mock("next/link", () => ({
 
 jest.mock("@/components/analytics/TrackedContactLinks", () => ({
   TrackedPhoneLink: ({ children, trackId, trackProperties, ...props }: any) => (
-    <a {...props}>{children}</a>
+    <a href={`tel:${COMPANY_INFO.phone.tel}`} {...props}>
+      {children}
+    </a>
   ),
   TrackedEmailLink: ({ children, trackId, trackProperties, ...props }: any) => (
-    <a {...props}>{children}</a>
+    <a href={`mailto:${COMPANY_INFO.email.main}`} {...props}>
+      {children}
+    </a>
   ),
   TrackedLocationLink: ({
     children,
     trackId,
     trackProperties,
     ...props
-  }: any) => <a {...props}>{children}</a>,
+  }: any) => (
+    <a
+      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+        COMPANY_INFO.address.full,
+      )}`}
+      {...props}
+    >
+      {children}
+    </a>
+  ),
 }));
 
 jest.mock("@/components/ui/modals/AdminSignInModal", () => ({
@@ -127,6 +141,77 @@ describe("Footer", () => {
       name: "Map showing Washington, Oregon, and Idaho - MH Construction service area",
     });
     expect(mapImage).toBeInTheDocument();
+  });
+
+  it("renders the footer links with the expected destinations", () => {
+    const { container } = render(<Footer />);
+
+    const hrefs = Array.from(container.querySelectorAll("a")).map((link) =>
+      link.getAttribute("href"),
+    );
+
+    [
+      "/",
+      "/contact",
+      "/services",
+      "/projects",
+      "/about",
+      "/careers?apply=true&entryPoint=Footer%20Application",
+      `tel:${COMPANY_INFO.phone.tel}`,
+      `mailto:${COMPANY_INFO.email.main}`,
+      "/privacy",
+      "/terms",
+      "/accessibility",
+      "/sitemap.xml",
+      "https://www.agc.org/babaa-resource-hub",
+    ].forEach((href) => {
+      expect(hrefs).toContain(href);
+    });
+  });
+
+  it("uses a distinct footer heading for the main navigation column", () => {
+    render(<Footer />);
+
+    expect(screen.getByRole("heading", { name: "Quick Links" })).toBeVisible();
+    expect(screen.getByText("Main pages")).toBeVisible();
+    expect(
+      screen.getByRole("heading", { name: "Company & Partnerships" }),
+    ).toBeVisible();
+    expect(screen.getByText("Team & Partners")).toBeVisible();
+    expect(screen.getByText("Contact options")).toBeVisible();
+    expect(screen.getByRole("link", { name: /services/i })).toHaveAttribute(
+      "href",
+      "/services",
+    );
+  });
+
+  it("renders a header for the accreditations and affiliations section", () => {
+    render(<Footer />);
+
+    expect(
+      screen.getByRole("heading", {
+        name: "Accreditations and Affiliations",
+      }),
+    ).toBeVisible();
+    expect(screen.getByText("Verified partners")).toBeVisible();
+  });
+
+  it("includes hover descriptions for the footer section headers", () => {
+    render(<Footer />);
+
+    expect(
+      screen.getByText("Jump straight to our core pages and service areas."),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "Learn about the team, affiliations, and public-sector experience.",
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "Third-party memberships, certifications, and partner seals that reinforce trust.",
+      ),
+    ).toBeInTheDocument();
   });
 
   it("submits the newsletter form with accessible status feedback", async () => {

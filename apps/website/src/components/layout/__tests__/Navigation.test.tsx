@@ -205,6 +205,10 @@ describe("Navigation", () => {
   it("renders header tooltip copy for the home logo and language controls", () => {
     render(<Navigation />);
 
+    const siteHeader = screen.getByRole("banner");
+    expect(siteHeader).toHaveClass("fixed");
+    expect(siteHeader).toHaveClass("top-0");
+
     expect(screen.getByText(/return to homepage/i)).toBeInTheDocument();
     expect(
       screen.getByText(/switch between spanish and english/i),

@@ -90,6 +90,10 @@ describe("AppShell", () => {
       name: /PWA quick actions/i,
     });
     expect(quickActionsNav).toBeInTheDocument();
+    expect(quickActionsNav.closest("header")).toHaveClass("fixed");
+    expect(quickActionsNav.closest("header")).toHaveClass(
+      "top-[var(--mh-nav-offset, 0px)]",
+    );
 
     expect(
       within(quickActionsNav).getByRole("link", { name: /Hub/i }),

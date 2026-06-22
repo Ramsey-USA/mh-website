@@ -165,20 +165,26 @@ export default async function Home() {
       <HeroSection locale={locale} copy={homeCopy.hero} />
 
       {/* Showcase of Services Section - Primary discovery path */}
-      <ServicesShowcaseDeferred />
+      <ServicesShowcaseDeferred
+        className="py-10 sm:py-12 lg:py-14 xl:py-16"
+        maxVisibleCards={2}
+      />
 
       {/* Why Partner With MH Construction Section - Partnership philosophy */}
       <WhyPartnerSection
         sectionVariant="white"
-        className="pt-0 pb-0"
+        className="py-8 sm:py-10 lg:py-12"
+        condensed
+        condensedVisibleCount={2}
         locale={locale}
       />
 
       {/* Core Values Section - Trust foundation after differentiator */}
       <CoreValuesSection
         sectionVariant="gray"
-        className="pt-0 pb-0"
+        className="py-8 sm:py-10 lg:py-12"
         animated={false}
+        condensed
         locale={locale}
       />
 
@@ -189,7 +195,7 @@ export default async function Home() {
         title={homeCopy.companyStats.title}
         description={homeCopy.companyStats.description}
         variant="primary"
-        className="bg-gray-50 dark:bg-gray-800 pt-0"
+        className="bg-gray-50 dark:bg-gray-800 py-8 sm:py-10 lg:py-12"
         animated={false}
       />
 
@@ -200,6 +206,7 @@ export default async function Home() {
         title={homeCopy.testimonials.title}
         description={homeCopy.testimonials.description}
         testimonials={clientTestimonials}
+        className="py-8 sm:py-10 lg:py-12"
         animated={false}
       />
 
@@ -223,7 +230,15 @@ export default async function Home() {
           </>
         }
         steps={processSteps}
-        className="bg-gray-50 dark:bg-gray-800"
+        compact
+        initiallyVisibleSteps={3}
+        expandStepsLabel={
+          locale === "es" ? "Ver los 5 pasos" : "View all 5 steps"
+        }
+        collapseStepsLabel={
+          locale === "es" ? "Mostrar menos pasos" : "Show fewer steps"
+        }
+        className="bg-gray-50 dark:bg-gray-800 py-8 sm:py-10 lg:py-12"
       />
 
       {/* Next Steps Section */}

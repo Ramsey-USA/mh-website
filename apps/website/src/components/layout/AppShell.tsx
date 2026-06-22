@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -90,13 +90,54 @@ function SmokeBossAfterHeroSlot() {
 
 export function AppShell({ children }: Readonly<AppShellProps>) {
   const { isStandalone } = usePWA();
+  const pwaHeaderRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!isStandalone) {
+      return;
+    }
+
+    const root = document.documentElement;
+
+    const updateOffset = () => {
+      if (!pwaHeaderRef.current) {
+        return;
+      }
+
+      const rect = pwaHeaderRef.current.getBoundingClientRect();
+      root.style.setProperty(
+        "--mh-pwa-nav-offset",
+        `${Math.ceil(rect.height)}px`,
+      );
+    };
+
+    updateOffset();
+
+    const ResizeObserverImpl = globalThis.ResizeObserver;
+    if (!ResizeObserverImpl || !pwaHeaderRef.current) {
+      return () => {
+        root.style.removeProperty("--mh-pwa-nav-offset");
+      };
+    }
+
+    const observer = new ResizeObserverImpl(updateOffset);
+    observer.observe(pwaHeaderRef.current);
+
+    return () => {
+      observer.disconnect();
+      root.style.removeProperty("--mh-pwa-nav-offset");
+    };
+  }, [isStandalone]);
 
   if (!isStandalone) {
     return (
       <>
         <Navigation />
         <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
-          <main id="main-content" className="grow">
+          <main
+            id="main-content"
+            className="grow pt-[calc(var(--mh-nav-offset,6.5rem)+1rem)]"
+          >
             {children}
             <SmokeBossAfterHeroSlot />
           </main>
@@ -111,7 +152,10 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
     <>
       <Navigation />
       <div className="flex min-h-screen flex-col bg-white dark:bg-gray-900">
-        <header className="border-b border-brand-secondary/20 bg-white/90 px-4 py-3 backdrop-blur-sm dark:bg-gray-900/90 sm:px-6">
+        <header
+          ref={pwaHeaderRef}
+          className="fixed top-[var(--mh-nav-offset, 0px)] left-0 right-0 z-60 bg-white/80 px-4 py-3 backdrop-blur-sm dark:bg-gray-900/80 sm:px-6"
+        >
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-2">
             <Link
               href="/hub"
@@ -141,7 +185,10 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
           </div>
         </header>
 
-        <main id="main-content" className="grow">
+        <main
+          id="main-content"
+          className="grow pt-[calc(var(--mh-nav-offset,6.5rem)+var(--mh-pwa-nav-offset,0px)+1rem)]"
+        >
           {children}
           <SmokeBossAfterHeroSlot />
         </main>

@@ -48,10 +48,22 @@ nav[aria-label="Navegacion de ruta"] {
 @layer utilities {
   /* Mobile viewport fixes */
   .hero-section {
-    height: 100vh;
-    height: 100dvh; /* Dynamic viewport height for mobile */
-    min-height: 100vh;
-    min-height: 100dvh;
+    height: calc(
+      100vh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
+        1rem
+    );
+    height: calc(
+      100dvh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
+        1rem
+    ); /* Dynamic viewport height for mobile */
+    min-height: calc(
+      100vh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
+        1rem
+    );
+    min-height: calc(
+      100dvh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
+        1rem
+    );
   }
 
   .hero-safe-top {

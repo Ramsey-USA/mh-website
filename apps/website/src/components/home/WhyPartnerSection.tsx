@@ -1,3 +1,6 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
@@ -99,12 +102,33 @@ export function WhyPartnerSection({
   sectionVariant = "white",
   locale = "en",
   className = "",
+  condensed = false,
+  condensedVisibleCount = 4,
 }: {
   sectionVariant?: "white" | "gray";
   locale?: SupportedLocale;
   className?: string;
+  condensed?: boolean;
+  condensedVisibleCount?: number;
 }) {
   const t = locale === "es" ? es.whyPartner : en.whyPartner;
+  const [showAllStandards, setShowAllStandards] = useState(false);
+  const visibleCount = Math.max(1, condensedVisibleCount);
+  const valuesToRender = useMemo(() => {
+    if (!condensed || showAllStandards) {
+      return t.values || [];
+    }
+
+    return (t.values || []).slice(0, visibleCount);
+  }, [condensed, showAllStandards, t.values, visibleCount]);
+  const hasHiddenValues = condensed && (t.values || []).length > visibleCount;
+
+  const revealButtonLabel =
+    locale === "es"
+      ? `Ver los ${(t.values || []).length} estandares`
+      : `View all ${(t.values || []).length} standards`;
+  const collapseButtonLabel = locale === "es" ? "Mostrar menos" : "Show fewer";
+
   return (
     <BrandedContentSection
       id="why-partner"
@@ -137,7 +161,7 @@ export function WhyPartnerSection({
       }}
     >
       {/* Core Philosophy Callout */}
-      <div className="flex justify-center mb-16">
+      <div className="flex justify-center mb-10 sm:mb-12">
         <div className="relative group">
           <div className="absolute -inset-1 bg-linear-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-3xl blur-sm opacity-40 group-hover:opacity-70 transition duration-500"></div>
           <div className="relative bg-white dark:bg-gray-800 px-8 py-6 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg">
@@ -149,8 +173,8 @@ export function WhyPartnerSection({
       </div>
 
       {/* Modern Grid Cards with Unique Hover Effects */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
-        {(t.values || []).map((value: WhyPartnerValue, idx: number) => {
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 mb-10 sm:mb-12">
+        {valuesToRender.map((value: WhyPartnerValue, idx: number) => {
           const iconData = partnershipIcons[idx] ?? partnershipIcons[0]!;
           const displayStat = resolveDisplayStat(value);
           const statAccentClass = getStatAccentClass(iconData.accentColor);
@@ -158,10 +182,7 @@ export function WhyPartnerSection({
             iconData.accentColor,
           );
           return (
-            <div
-              key={value.title}
-              className="group relative flex h-full min-h-130"
-            >
+            <div key={value.title} className="group relative flex h-full">
               {/* Colored Border Glow - Visible on hover */}
               <div
                 className={`absolute -inset-1 bg-linear-to-br ${iconData.iconBgGradient} rounded-3xl opacity-15 group-hover:opacity-35 blur-lg transition-all duration-500`}
@@ -173,7 +194,7 @@ export function WhyPartnerSection({
                   className={`h-1 bg-linear-to-r ${iconData.iconBgGradient}`}
                 ></div>
 
-                <div className="p-6 sm:p-8 flex flex-col flex-1">
+                <div className="p-6 sm:p-7 flex flex-col flex-1">
                   {/* Icon and Stat Section */}
                   <div className="flex items-start justify-between mb-5">
                     {/* Enhanced Icon with Header Style */}
@@ -225,9 +246,20 @@ export function WhyPartnerSection({
                   </p>
 
                   {/* Description */}
-                  <p className="mb-6 text-gray-700 dark:text-gray-200 text-sm sm:text-base leading-relaxed flex-1">
-                    {value.description}
-                  </p>
+                  <div className="relative mb-5 flex-1">
+                    <p
+                      className={`text-gray-700 dark:text-gray-200 text-sm sm:text-base leading-relaxed ${
+                        condensed && !showAllStandards
+                          ? "max-h-20 overflow-hidden"
+                          : ""
+                      }`}
+                    >
+                      {value.description}
+                    </p>
+                    {condensed && !showAllStandards ? (
+                      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-linear-to-b from-transparent to-white dark:to-gray-800" />
+                    ) : null}
+                  </div>
 
                   {/* Key Highlights with Custom Icons */}
                   <div className="space-y-2 pt-4 border-t border-gray-200 dark:border-gray-700 mt-auto">
@@ -257,8 +289,28 @@ export function WhyPartnerSection({
         })}
       </div>
 
+      {hasHiddenValues ? (
+        <div className="mb-10 sm:mb-12 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setShowAllStandards((prev) => !prev)}
+            className="inline-flex items-center gap-2 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-5 py-3 text-sm sm:text-base font-semibold text-gray-900 dark:text-gray-100 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+            aria-expanded={showAllStandards}
+            aria-controls="why-partner"
+          >
+            <MaterialIcon
+              icon={showAllStandards ? "expand_less" : "expand_more"}
+              size="sm"
+              className="text-current"
+              ariaLabel=""
+            />
+            {showAllStandards ? collapseButtonLabel : revealButtonLabel}
+          </button>
+        </div>
+      ) : null}
+
       {/* Trade Partner CTA */}
-      <div className="mt-4 flex justify-center">
+      <div className="mt-2 flex justify-center">
         <div className="relative group max-w-2xl w-full">
           <div className="absolute -inset-1 bg-linear-to-r from-brand-secondary to-bronze-600 rounded-3xl blur-sm opacity-35 group-hover:opacity-65 transition duration-500" />
           <div className="relative flex flex-col sm:flex-row items-center justify-between gap-4 bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg px-8 py-5">

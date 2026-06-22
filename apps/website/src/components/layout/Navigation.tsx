@@ -138,7 +138,7 @@ export function Navigation() {
       {/* Main Header - Unified controls and logo layout */}
       <header
         ref={headerRef}
-        className="top-0 left-0 right-0 z-70 absolute bg-transparent pointer-events-none"
+        className="fixed top-0 left-0 right-0 z-70 bg-white/80 backdrop-blur-md dark:bg-gray-900/80 pointer-events-none"
       >
         <div className="mx-auto px-2 xs:px-3 sm:px-4 lg:px-6 pt-2 xs:pt-3 sm:pt-4 max-w-7xl">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-1.5 max-[768px]:grid-cols-1 max-[360px]:gap-1 xs:gap-2 sm:gap-2.5">

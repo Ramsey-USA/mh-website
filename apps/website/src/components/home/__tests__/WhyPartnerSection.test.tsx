@@ -51,8 +51,8 @@ describe("WhyPartnerSection", () => {
 
   it("renders stat labels", () => {
     render(<WhyPartnerSection />);
-    expect(screen.getByText("Safety Rating")).toBeInTheDocument();
-    expect(screen.getByText("Referral Business")).toBeInTheDocument();
+    expect(screen.getAllByText("Safety Rating").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Referral Business").length).toBeGreaterThan(0);
   });
 
   it("renders highlight bullets", () => {

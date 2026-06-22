@@ -1,10 +1,12 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
-import type { ReactNode, CSSProperties } from "react";
+import { useMemo, useState, type ReactNode, type CSSProperties } from "react";
 
 export interface TimelineStep {
   num: number;
@@ -23,6 +25,10 @@ export interface TimelineProps {
   description: string | ReactNode;
   steps: TimelineStep[];
   className?: string;
+  compact?: boolean;
+  initiallyVisibleSteps?: number;
+  expandStepsLabel?: string;
+  collapseStepsLabel?: string;
 }
 
 /**
@@ -52,6 +58,10 @@ export function Timeline({
   description,
   steps,
   className = "",
+  compact = false,
+  initiallyVisibleSteps = 3,
+  expandStepsLabel = "View all steps",
+  collapseStepsLabel = "Show fewer steps",
 }: TimelineProps) {
   // Color mapping for icon backgrounds
   const iconBgColors = {
@@ -66,6 +76,17 @@ export function Timeline({
     secondary: "from-brand-secondary/30 to-bronze-700/30",
     bronze: "from-bronze-700/40 to-bronze-800/40",
   };
+
+  const visibleStepCount = Math.max(1, initiallyVisibleSteps);
+  const hasHiddenSteps = compact && steps.length > visibleStepCount;
+  const [showAllSteps, setShowAllSteps] = useState(!compact);
+  const renderedSteps = useMemo(() => {
+    if (!compact || showAllSteps) {
+      return steps;
+    }
+
+    return steps.slice(0, visibleStepCount);
+  }, [compact, showAllSteps, steps, visibleStepCount]);
 
   return (
     <section
@@ -129,8 +150,12 @@ export function Timeline({
           <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-linear-to-b from-brand-primary/30 via-brand-secondary to-brand-primary/30"></div>
 
           {/* Timeline Steps */}
-          <div className="space-y-12 lg:space-y-20">
-            {steps.map((step, index) => (
+          <div
+            className={
+              compact ? "space-y-8 lg:space-y-12" : "space-y-12 lg:space-y-20"
+            }
+          >
+            {renderedSteps.map((step, index) => (
               <div
                 key={step.num}
                 className="relative group scroll-reveal"
@@ -218,14 +243,14 @@ export function Timeline({
                     <div
                       className={cn(
                         "w-16 h-16 rounded-full flex items-center justify-center text-white font-black text-2xl shadow-xl border-4 border-white dark:border-gray-900 relative z-10",
-                        step.num === steps.length
+                        index === renderedSteps.length - 1
                           ? "bg-linear-to-br from-brand-secondary to-brand-secondary-dark"
                           : "bg-linear-to-br from-brand-primary to-brand-primary-dark",
                       )}
                     >
                       {step.num}
                     </div>
-                    {index < steps.length - 1 && (
+                    {index < renderedSteps.length - 1 && (
                       <div className="w-1 flex-1 bg-linear-to-b from-brand-primary to-brand-secondary mt-2 min-h-15"></div>
                     )}
                   </div>
@@ -237,7 +262,7 @@ export function Timeline({
                         <div
                           className={cn(
                             "shrink-0 w-14 h-14 rounded-xl flex items-center justify-center shadow-lg",
-                            step.num === steps.length
+                            index === renderedSteps.length - 1
                               ? "bg-linear-to-br from-brand-secondary to-brand-secondary-dark"
                               : "bg-linear-to-br from-brand-primary to-brand-primary-dark",
                           )}
@@ -261,6 +286,26 @@ export function Timeline({
               </div>
             ))}
           </div>
+
+          {hasHiddenSteps ? (
+            <div className="mt-8 sm:mt-10 flex justify-center">
+              <button
+                type="button"
+                onClick={() => setShowAllSteps((prev) => !prev)}
+                className="inline-flex items-center gap-2 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-5 py-3 text-sm sm:text-base font-semibold text-gray-900 dark:text-gray-100 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                aria-expanded={showAllSteps}
+                aria-controls={id}
+              >
+                <MaterialIcon
+                  icon={showAllSteps ? "expand_less" : "expand_more"}
+                  size="sm"
+                  className="text-current"
+                  ariaLabel=""
+                />
+                {showAllSteps ? collapseStepsLabel : expandStepsLabel}
+              </button>
+            </div>
+          ) : null}
         </div>
       </div>
     </section>

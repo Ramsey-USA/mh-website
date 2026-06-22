@@ -85,12 +85,17 @@ const serviceIcons = [
  */
 export function ServicesShowcase({
   sectionVariant = "white",
+  className = "",
+  maxVisibleCards,
 }: {
   sectionVariant?: "white" | "gray";
+  className?: string;
+  maxVisibleCards?: number;
 }) {
   const locale = useLocale();
   const t = locale === "es" ? es.services : en.services;
   const [selectedService, setSelectedService] = useState<number | null>(null);
+  const [showAllServices, setShowAllServices] = useState(false);
 
   // Build services array from translations with icon metadata
   const services = useMemo(
@@ -108,6 +113,26 @@ export function ServicesShowcase({
       })),
     [t.items],
   );
+
+  const visibleLimit =
+    typeof maxVisibleCards === "number" ? Math.max(1, maxVisibleCards) : null;
+
+  const visibleServices = useMemo(() => {
+    if (visibleLimit === null || showAllServices) {
+      return services;
+    }
+
+    return services.slice(0, visibleLimit);
+  }, [services, showAllServices, visibleLimit]);
+
+  const hasHiddenServices =
+    visibleLimit !== null && services.length > visibleLimit;
+  const revealServicesLabel =
+    locale === "es"
+      ? `Ver los ${services.length} servicios`
+      : `View all ${services.length} services`;
+  const collapseServicesLabel =
+    locale === "es" ? "Mostrar menos" : "Show fewer";
 
   // Memoize the selected service data to prevent unnecessary recalculations
   const currentService = useMemo(
@@ -129,6 +154,7 @@ export function ServicesShowcase({
     <BrandedContentSection
       id="services"
       variant={sectionVariant}
+      className={className}
       header={{
         icon: "explore",
         iconVariant: "bronze",
@@ -157,7 +183,7 @@ export function ServicesShowcase({
     >
       {/* Service Cards Grid */}
       <div className={gridPresets.cards3("md")}>
-        {services.map((service, index) => (
+        {visibleServices.map((service, index) => (
           <button
             type="button"
             key={service.title}
@@ -233,6 +259,26 @@ export function ServicesShowcase({
           </button>
         ))}
       </div>
+
+      {hasHiddenServices ? (
+        <div className="mt-8 sm:mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setShowAllServices((prev) => !prev)}
+            className="inline-flex items-center gap-2 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-5 py-3 text-sm sm:text-base font-semibold text-gray-900 dark:text-gray-100 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+            aria-expanded={showAllServices}
+            aria-controls="services"
+          >
+            <MaterialIcon
+              icon={showAllServices ? "expand_less" : "expand_more"}
+              size="sm"
+              className="text-current"
+              ariaLabel=""
+            />
+            {showAllServices ? collapseServicesLabel : revealServicesLabel}
+          </button>
+        </div>
+      ) : null}
 
       {/* Service Detail Modal */}
       {currentService && (
