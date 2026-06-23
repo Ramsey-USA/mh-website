@@ -216,9 +216,3 @@ database_id = "98ad144a-cfe2-4f19-a55c-c43140279840"
 # preview_database_id is intentionally omitted — Cloudflare's Build system uses it
 # over database_id, routing live traffic to the wrong database. Local dev can use
 # wrangler dev --local (no remote D1 needed) or set it in .dev.vars instead.
-
-# Cron Triggers — Cool Desert Nights cutoff winner notifications at 1:30 PM Pacific (20:30 UTC)
-# - Test run: June 18, 2026
-# - Event run: June 27, 2026
-[triggers]
-crons = ["30 20 18 6 *", "30 20 27 6 *"]
