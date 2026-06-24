@@ -49,7 +49,16 @@ function normalizeSlug(value) {
 }
 
 function parseFormOrder(source) {
-  const idMatch = /^FORM\s+(\d+)-([A-Z])$/i.exec(String(source || "").trim());
+  const trimmed = String(source || "").trim();
+  const mishMatch = /^(?:FORM\s+)?MISH\s*(\d{1,2})$/i.exec(trimmed);
+  if (mishMatch) {
+    return {
+      num: Number.parseInt(mishMatch[1], 10),
+      letter: "A",
+    };
+  }
+
+  const idMatch = /^FORM\s+(\d+)-([A-Z])$/i.exec(trimmed);
   if (idMatch) {
     return {
       num: Number.parseInt(idMatch[1], 10),
@@ -57,11 +66,19 @@ function parseFormOrder(source) {
     };
   }
 
-  const fileMatch = /^form-(\d+)-([a-z])(?:-|$)/i.exec(String(source || ""));
+  const fileMatch = /^form-mish-(\d{1,2})(?:-|$)/i.exec(trimmed);
   if (fileMatch) {
     return {
       num: Number.parseInt(fileMatch[1], 10),
-      letter: fileMatch[2].toUpperCase(),
+      letter: "A",
+    };
+  }
+
+  const legacyFileMatch = /^form-(\d+)-([a-z])(?:-|$)/i.exec(trimmed);
+  if (legacyFileMatch) {
+    return {
+      num: Number.parseInt(legacyFileMatch[1], 10),
+      letter: legacyFileMatch[2].toUpperCase(),
     };
   }
 
@@ -72,16 +89,24 @@ function parseFormOrder(source) {
 }
 
 function fallbackFormIdFromFilename(fileName) {
-  const match = /^form-(\d+)-([a-z])(?:-|$)/i.exec(fileName);
-  if (!match) {
-    return fileName.replace(/\.pdf$/i, "").toUpperCase();
+  const mishMatch = /form-mish-(\d{1,2})/i.exec(fileName);
+  if (mishMatch) {
+    return `MISH ${String(Number.parseInt(mishMatch[1], 10)).padStart(2, "0")}`;
   }
-  return `FORM ${match[1]}-${match[2].toUpperCase()}`;
+
+  const match = /^form-(\d+)-([a-z])(?:-|$)/i.exec(fileName);
+  if (match) {
+    return `FORM ${match[1]}-${match[2].toUpperCase()}`;
+  }
+
+  return fileName.replace(/\.pdf$/i, "").toUpperCase();
 }
 
 function fallbackFormTitleFromFilename(fileName) {
   const base = fileName.replace(/\.pdf$/i, "");
-  const trimmed = base.replace(/^form-\d+-[a-z]-/i, "");
+  const trimmed = base
+    .replace(/^form-mish-\d+-/i, "")
+    .replace(/^form-\d+-[a-z]-/i, "");
   return trimmed
     .split("-")
     .filter(Boolean)
@@ -181,7 +206,7 @@ async function buildFormsTocPdf(entries) {
       color: rgb(0.75, 0.79, 0.84),
     });
 
-    page.drawText("FORM", {
+    page.drawText("FORM ID", {
       x: colIdX,
       y: tableTopY,
       size: 9,

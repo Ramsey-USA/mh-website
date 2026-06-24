@@ -388,6 +388,7 @@ const TOC_CLUSTERS = [
  * Add or remove numbers here to change which entries are highlighted.
  */
 const TOC_CALLOUT_ITEMS = new Set([21, 48]);
+const TOC_CONTINUATION_START = 21;
 
 /**
  * Fallback MISH title map.
@@ -529,6 +530,19 @@ function buildTocClustersHtml(titleMap, presentNums) {
   if (overflowHtml) parts.push(overflowHtml);
 
   return parts.join("\n");
+}
+
+function splitTocNumsByPage(presentNums) {
+  const page1 = new Set();
+  const page2 = new Set();
+  for (const n of presentNums) {
+    if (n < TOC_CONTINUATION_START) {
+      page1.add(n);
+      continue;
+    }
+    page2.add(n);
+  }
+  return { page1, page2 };
 }
 
 // ── Puppeteer header / footer templates ────────────────────────────────────
@@ -1796,7 +1810,9 @@ async function generateToc() {
   }
 
   // ── 2. Build cluster HTML and inject into template ──────────────────────
-  const tocClustersHtml = buildTocClustersHtml(titleMap, presentNums);
+  const { page1, page2 } = splitTocNumsByPage(presentNums);
+  const tocPage1Html = buildTocClustersHtml(titleMap, page1);
+  const tocPage2Html = buildTocClustersHtml(titleMap, page2);
   // QR code pointing to the public web TOC page (not the full manual)
   const tocQrDataUrl = await buildQrDataUrl(BRAND.qrCodes.tableOfContents);
   const raw = await readFile(
@@ -1808,38 +1824,119 @@ async function generateToc() {
   // comment. Function form also prevents $ in the replacement being interpreted
   // as a special pattern (e.g. $& would re-insert the match).
   const html = applyBrandTokens(raw)
-    .replaceAll("{{TOC_CLUSTERS_HTML}}", () => tocClustersHtml)
+    .replaceAll("{{TOC_CLUSTERS_PAGE_1_HTML}}", () => tocPage1Html)
+    .replaceAll("{{TOC_CLUSTERS_PAGE_2_HTML}}", () => tocPage2Html)
     .replace("{{QR_TOC_URL}}", tocQrDataUrl);
-
-  const tocFooterHtml = buildCanonicalFormsFooterHtml({
-    tag: "footer",
-    className: "bottom",
-    style:
-      "margin-top:auto;padding-top:0.08in;display:grid;grid-template-columns:1.6fr 1fr;" +
-      "gap:18pt;align-items:end;",
-  });
-  const htmlWithCanonicalFooter = html.replace(
-    /<footer class="bottom">[\s\S]*?<\/footer>/,
-    tocFooterHtml,
-  );
 
   // ── 3. Render to PDF ────────────────────────────────────────────────────
   const pdfPath = join(OUTPUT_DIR, "safety-manual-toc.pdf");
   await renderHtmlToPdf(
-    htmlWithCanonicalFooter,
+    html,
     pdfPath,
     {
       displayHeaderFooter: false,
-      margin: {
-        top: "0.42in",
-        right: "0.5in",
-        bottom: "0.42in",
-        left: "0.5in",
-      },
+      margin: { top: 0, right: 0, bottom: 0, left: 0 },
     },
     "manuals/_tmp_toc.html",
   );
   return pdfPath;
+}
+
+function assertGuardrailRegex(issues, source, regex, message) {
+  if (!regex.test(source)) {
+    issues.push(message);
+  }
+}
+
+function validateTemplateGuardrails(templateLabel, source, checks) {
+  const issues = [];
+  for (const check of checks) {
+    assertGuardrailRegex(issues, source, check.regex, check.message);
+  }
+  if (issues.length === 0) return;
+  const details = issues.map((issue) => `  - ${issue}`).join("\n");
+  throw new Error(
+    `Guardrail validation failed for ${templateLabel}:\n${details}`,
+  );
+}
+
+function validateFormFillableTemplateGuardrails(templateHtml, templatePath) {
+  validateTemplateGuardrails(
+    `form-fillable template (${templatePath})`,
+    templateHtml,
+    [
+      {
+        regex:
+          /\.sheet::before[\s\S]*?top:\s*0\.22in[\s\S]*?left:\s*0\.22in[\s\S]*?right:\s*0\.22in/i,
+        message:
+          "Missing canonical outer frame metrics (top/left/right 0.22in)",
+      },
+      {
+        regex:
+          /\.sheet::after[\s\S]*?top:\s*0\.33in[\s\S]*?left:\s*0\.33in[\s\S]*?right:\s*0\.33in/i,
+        message:
+          "Missing canonical inner frame metrics (top/left/right 0.33in)",
+      },
+      {
+        regex:
+          /\.left-ribbon[\s\S]*?top:\s*0\.45in[\s\S]*?left:\s*0\.45in[\s\S]*?width:\s*0\.28in/i,
+        message:
+          "Missing canonical ribbon metrics (top/left 0.45in, width 0.28in)",
+      },
+      {
+        regex:
+          /\.footer[\s\S]*?bottom:\s*0\.62in[\s\S]*?grid-template-columns:\s*1\.45fr\s+1fr/i,
+        message:
+          "Missing canonical footer metrics (bottom 0.62in, grid 1.45fr 1fr)",
+      },
+    ],
+  );
+}
+
+function validateTocTemplateGuardrails(templateHtml, templatePath) {
+  validateTemplateGuardrails(`TOC template (${templatePath})`, templateHtml, [
+    {
+      regex:
+        /\.toc-page::before[\s\S]*?(?:inset:\s*0\.22in|top:\s*0\.22in[\s\S]*?left:\s*0\.22in[\s\S]*?right:\s*0\.22in[\s\S]*?height:\s*10\.56in)/i,
+      message: "Missing canonical TOC outer frame inset (0.22in)",
+    },
+    {
+      regex:
+        /\.toc-page::after[\s\S]*?(?:inset:\s*0\.33in|top:\s*0\.33in[\s\S]*?left:\s*0\.33in[\s\S]*?right:\s*0\.33in[\s\S]*?height:\s*10\.34in)/i,
+      message: "Missing canonical TOC inner frame inset (0.33in)",
+    },
+    {
+      regex:
+        /\.toc-ribbon[\s\S]*?top:\s*0\.45in[\s\S]*?left:\s*0\.45in[\s\S]*?height:\s*10\.10in[\s\S]*?width:\s*0\.28in/i,
+      message:
+        "Missing canonical TOC ribbon metrics (top/left 0.45in, width 0.28in)",
+    },
+    {
+      regex:
+        /(?:\.bottom|\.toc-footer-row)[\s\S]*?bottom:\s*0\.62in[\s\S]*?grid-template-columns:\s*1\.45fr\s+1fr/i,
+      message:
+        "Missing canonical TOC footer metrics (bottom 0.62in, grid 1.45fr 1fr)",
+    },
+  ]);
+}
+
+async function runGuardrailsCheck() {
+  console.log("\n🛡️  Running document guardrails check…");
+  const formTemplatePath = join(DOCS_DIR, "manuals/form-fillable.html");
+  if (!existsSync(formTemplatePath)) {
+    throw new Error(`Form template not found: ${formTemplatePath}`);
+  }
+  const formTemplate = await readFile(formTemplatePath, "utf-8");
+  validateFormFillableTemplateGuardrails(formTemplate, formTemplatePath);
+  console.log("  ✓  Form template guardrails verified");
+
+  const tocTemplatePath = join(DOCS_DIR, "manuals/safety-manual-toc.html");
+  if (!existsSync(tocTemplatePath)) {
+    throw new Error(`TOC template not found: ${tocTemplatePath}`);
+  }
+  const tocTemplate = await readFile(tocTemplatePath, "utf-8");
+  validateTocTemplateGuardrails(tocTemplate, tocTemplatePath);
+  console.log("  ✓  TOC template guardrails verified");
 }
 
 // ── Template: Tab Dividers ────────────────────────────────────────────────────
@@ -4440,6 +4537,9 @@ async function main() {
         break;
       case "toc":
         await generateToc();
+        break;
+      case "guardrails-check":
+        await runGuardrailsCheck();
         break;
       case "sections":
         await generateSections();

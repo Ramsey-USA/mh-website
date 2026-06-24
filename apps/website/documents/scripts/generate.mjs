@@ -32,10 +32,18 @@
 import puppeteer from "puppeteer";
 import QRCode from "qrcode";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
-import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
+import {
+  readFile,
+  writeFile,
+  mkdir,
+  readdir,
+  copyFile,
+} from "node:fs/promises";
 import { readFileSync, existsSync, unlinkSync } from "node:fs";
+import { createRequire } from "node:module";
 import { join, resolve, dirname, extname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { createCanvas } from "@napi-rs/canvas";
 
 const SITE_URL = "https://www.mhc-gc.com";
 const PDF_METADATA_AUTHOR = "Matt Ramsey, Safety Officer";
@@ -107,6 +115,19 @@ const DOCS_DIR = join(ROOT, "documents");
 const OUTPUT_DIR = join(DOCS_DIR, "output");
 const MANIFEST = join(DOCS_DIR, "content/safety-manual.json");
 const FORMS_DIR = join(DOCS_DIR, "forms");
+const CANONICAL_DOCS_DIR = resolve(__dirname, "../../../../documents");
+const CANONICAL_OUTPUT_DIR = join(CANONICAL_DOCS_DIR, "output");
+const CANONICAL_TOC_TEMPLATE_PATH = join(
+  CANONICAL_DOCS_DIR,
+  "manuals/safety-manual-toc.html",
+);
+const require = createRequire(import.meta.url);
+const PDFJS_STANDARD_FONT_DATA_URL = pathToFileURL(
+  resolve(
+    dirname(require.resolve("pdfjs-dist/package.json")),
+    "standard_fonts",
+  ),
+).href.replace(/([^/])$/, "$1/");
 
 // ── Argument parsing ──────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -388,6 +409,7 @@ const TOC_CLUSTERS = [
  * Add or remove numbers here to change which entries are highlighted.
  */
 const TOC_CALLOUT_ITEMS = new Set([21, 48]);
+const TOC_CONTINUATION_START = 21;
 
 /**
  * Fallback MISH title map.
@@ -529,6 +551,19 @@ function buildTocClustersHtml(titleMap, presentNums) {
   if (overflowHtml) parts.push(overflowHtml);
 
   return parts.join("\n");
+}
+
+function splitTocNumsByPage(presentNums) {
+  const page1 = new Set();
+  const page2 = new Set();
+  for (const n of presentNums) {
+    if (n < TOC_CONTINUATION_START) {
+      page1.add(n);
+      continue;
+    }
+    page2.add(n);
+  }
+  return { page1, page2 };
 }
 
 // ── Puppeteer header / footer templates ────────────────────────────────────
@@ -1668,6 +1703,7 @@ async function generateSpine() {
 async function generateToc() {
   console.log("\n📋 Generating MISH Table of Contents…");
   await ensureDir(OUTPUT_DIR);
+  await ensureDir(CANONICAL_OUTPUT_DIR);
 
   // ── 1. Resolve section titles ───────────────────────────────────────────
   let titleMap = new Map(FALLBACK_MISH_TITLES);
@@ -1701,38 +1737,261 @@ async function generateToc() {
   }
 
   // ── 2. Build cluster HTML and inject into template ──────────────────────
-  const tocClustersHtml = buildTocClustersHtml(titleMap, presentNums);
+  const { page1, page2 } = splitTocNumsByPage(presentNums);
+  const tocPage1Html = buildTocClustersHtml(titleMap, page1);
+  const tocPage2Html = buildTocClustersHtml(titleMap, page2);
   // QR code pointing to the public web TOC page (not the full manual)
   const tocQrDataUrl = await buildQrDataUrl(BRAND.qrCodes.tableOfContents);
-  const raw = await readFile(
-    join(DOCS_DIR, "manuals/safety-manual-toc.html"),
-    "utf-8",
-  );
+  const raw = await readFile(CANONICAL_TOC_TEMPLATE_PATH, "utf-8");
   // Use replaceAll with function form: the template has the placeholder in both
   // the developer comment and the <main> body — .replace() would only hit the
   // comment. Function form also prevents $ in the replacement being interpreted
   // as a special pattern (e.g. $& would re-insert the match).
   const html = applyBrandTokens(raw)
-    .replaceAll("{{TOC_CLUSTERS_HTML}}", () => tocClustersHtml)
+    .replaceAll("{{TOC_CLUSTERS_PAGE_1_HTML}}", () => tocPage1Html)
+    .replaceAll("{{TOC_CLUSTERS_PAGE_2_HTML}}", () => tocPage2Html)
     .replace("{{QR_TOC_URL}}", tocQrDataUrl);
 
   // ── 3. Render to PDF ────────────────────────────────────────────────────
-  const pdfPath = join(OUTPUT_DIR, "safety-manual-toc.pdf");
+  const pdfPath = join(CANONICAL_OUTPUT_DIR, "safety-manual-toc.pdf");
   await renderHtmlToPdf(
     html,
     pdfPath,
     {
       displayHeaderFooter: false,
-      margin: {
-        top: "0.42in",
-        right: "0.5in",
-        bottom: "0.42in",
-        left: "0.5in",
-      },
+      margin: { top: 0, right: 0, bottom: 0, left: 0 },
     },
     "manuals/_tmp_toc.html",
   );
+  const appPdfPath = join(OUTPUT_DIR, "safety-manual-toc.pdf");
+  if (appPdfPath !== pdfPath) {
+    await copyFile(pdfPath, appPdfPath);
+  }
   return pdfPath;
+}
+
+function assertGuardrailRegex(issues, source, regex, message) {
+  if (!regex.test(source)) {
+    issues.push(message);
+  }
+}
+
+function validateTemplateGuardrails(templateLabel, source, checks) {
+  const issues = [];
+  for (const check of checks) {
+    assertGuardrailRegex(issues, source, check.regex, check.message);
+  }
+  if (issues.length === 0) return;
+  const details = issues.map((issue) => `  - ${issue}`).join("\n");
+  throw new Error(
+    `Guardrail validation failed for ${templateLabel}:\n${details}`,
+  );
+}
+
+function validateFormFillableTemplateGuardrails(templateHtml, templatePath) {
+  validateTemplateGuardrails(
+    `form-fillable template (${templatePath})`,
+    templateHtml,
+    [
+      {
+        regex:
+          /\.sheet::before[\s\S]*?top:\s*0\.22in[\s\S]*?left:\s*0\.22in[\s\S]*?right:\s*0\.22in/i,
+        message:
+          "Missing canonical outer frame metrics (top/left/right 0.22in)",
+      },
+      {
+        regex:
+          /\.sheet::after[\s\S]*?top:\s*0\.33in[\s\S]*?left:\s*0\.33in[\s\S]*?right:\s*0\.33in/i,
+        message:
+          "Missing canonical inner frame metrics (top/left/right 0.33in)",
+      },
+      {
+        regex:
+          /\.left-ribbon[\s\S]*?top:\s*0\.45in[\s\S]*?left:\s*0\.45in[\s\S]*?width:\s*0\.28in/i,
+        message:
+          "Missing canonical ribbon metrics (top/left 0.45in, width 0.28in)",
+      },
+      {
+        regex:
+          /\.footer[\s\S]*?bottom:\s*0\.62in[\s\S]*?grid-template-columns:\s*1\.45fr\s+1fr/i,
+        message:
+          "Missing canonical footer metrics (bottom 0.62in, grid 1.45fr 1fr)",
+      },
+    ],
+  );
+}
+
+function validateTocTemplateGuardrails(templateHtml, templatePath) {
+  validateTemplateGuardrails(`TOC template (${templatePath})`, templateHtml, [
+    {
+      regex:
+        /\.toc-page::before[\s\S]*?(?:inset:\s*0\.22in|top:\s*0\.22in[\s\S]*?left:\s*0\.22in[\s\S]*?right:\s*0\.22in[\s\S]*?height:\s*10\.56in)/i,
+      message: "Missing canonical TOC outer frame inset (0.22in)",
+    },
+    {
+      regex:
+        /\.toc-page::after[\s\S]*?(?:inset:\s*0\.33in|top:\s*0\.33in[\s\S]*?left:\s*0\.33in[\s\S]*?right:\s*0\.33in[\s\S]*?height:\s*10\.34in)/i,
+      message: "Missing canonical TOC inner frame inset (0.33in)",
+    },
+    {
+      regex:
+        /\.toc-ribbon[\s\S]*?top:\s*0\.45in[\s\S]*?left:\s*0\.45in[\s\S]*?height:\s*10\.10in[\s\S]*?width:\s*0\.28in/i,
+      message:
+        "Missing canonical TOC ribbon metrics (top/left 0.45in, width 0.28in)",
+    },
+    {
+      regex:
+        /(?:\.bottom|\.toc-footer-row)[\s\S]*?bottom:\s*0\.62in[\s\S]*?grid-template-columns:\s*1\.45fr\s+1fr/i,
+      message:
+        "Missing canonical TOC footer metrics (bottom 0.62in, grid 1.45fr 1fr)",
+    },
+  ]);
+}
+
+async function runGuardrailsCheck() {
+  console.log("\n🛡️  Running document guardrails check…");
+  const formTemplatePath = join(DOCS_DIR, "manuals/form-fillable.html");
+  if (!existsSync(formTemplatePath)) {
+    throw new Error(`Form template not found: ${formTemplatePath}`);
+  }
+  const formTemplate = await readFile(formTemplatePath, "utf-8");
+  validateFormFillableTemplateGuardrails(formTemplate, formTemplatePath);
+  console.log("  ✓  Form template guardrails verified");
+
+  if (!existsSync(CANONICAL_TOC_TEMPLATE_PATH)) {
+    throw new Error(`TOC template not found: ${CANONICAL_TOC_TEMPLATE_PATH}`);
+  }
+  const tocTemplate = await readFile(CANONICAL_TOC_TEMPLATE_PATH, "utf-8");
+  validateTocTemplateGuardrails(tocTemplate, CANONICAL_TOC_TEMPLATE_PATH);
+  console.log("  ✓  TOC template guardrails verified");
+
+  await generateLetterhead();
+  await generateToc();
+  await validateRenderedPdfParity(
+    join(OUTPUT_DIR, "safety-manual-letterhead.pdf"),
+    join(OUTPUT_DIR, "safety-manual-toc.pdf"),
+  );
+  console.log("  ✓  TOC/letterhead rendered parity verified");
+}
+
+function pixelsForInches(inches, scale) {
+  return Math.max(1, Math.round(inches * 72 * scale));
+}
+
+async function renderPdfPage(pdfPath, pageNumber = 1, scale = 2) {
+  const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
+  const data = new Uint8Array(await readFile(pdfPath));
+  const document = await pdfjs.getDocument({
+    data,
+    useWorkerFetch: false,
+    isEvalSupported: false,
+    disableFontFace: false,
+    standardFontDataUrl: PDFJS_STANDARD_FONT_DATA_URL,
+  }).promise;
+  const page = await document.getPage(pageNumber);
+  const viewport = page.getViewport({ scale });
+  const canvas = createCanvas(
+    Math.ceil(viewport.width),
+    Math.ceil(viewport.height),
+  );
+  const context = canvas.getContext("2d");
+  await page.render({ canvasContext: context, viewport }).promise;
+  return { canvas, viewport };
+}
+
+function compareImageBands(label, leftPixels, rightPixels) {
+  if (leftPixels.length !== rightPixels.length) {
+    throw new Error(
+      `${label} parity failed: image buffer sizes differ (${leftPixels.length} vs ${rightPixels.length})`,
+    );
+  }
+  for (let index = 0; index < leftPixels.length; index++) {
+    if (leftPixels[index] !== rightPixels[index]) {
+      throw new Error(
+        `${label} parity failed: pixel mismatch at byte offset ${index}`,
+      );
+    }
+  }
+}
+
+async function validateRenderedPdfParity(letterheadPdfPath, tocPdfPath) {
+  const scale = 2;
+  const letterhead = await renderPdfPage(letterheadPdfPath, 1, scale);
+  const toc = await renderPdfPage(tocPdfPath, 1, scale);
+  const { canvas: letterheadCanvas } = letterhead;
+  const { canvas: tocCanvas } = toc;
+
+  if (
+    letterheadCanvas.width !== tocCanvas.width ||
+    letterheadCanvas.height !== tocCanvas.height
+  ) {
+    throw new Error(
+      `Rendered parity failed: page sizes differ (${letterheadCanvas.width}x${letterheadCanvas.height} vs ${tocCanvas.width}x${tocCanvas.height})`,
+    );
+  }
+
+  const regions = [
+    {
+      label: "top outer border",
+      x: 0,
+      y: pixelsForInches(0.18, scale),
+      w: letterheadCanvas.width,
+      h: pixelsForInches(0.08, scale),
+    },
+    {
+      label: "top inner border",
+      x: 0,
+      y: pixelsForInches(0.29, scale),
+      w: letterheadCanvas.width,
+      h: pixelsForInches(0.08, scale),
+    },
+    {
+      label: "left border",
+      x: pixelsForInches(0.18, scale),
+      y: 0,
+      w: pixelsForInches(0.08, scale),
+      h: letterheadCanvas.height,
+    },
+    {
+      label: "right border",
+      x: letterheadCanvas.width - pixelsForInches(0.26, scale),
+      y: 0,
+      w: pixelsForInches(0.08, scale),
+      h: letterheadCanvas.height,
+    },
+    {
+      label: "ribbon strip",
+      x: pixelsForInches(0.42, scale),
+      y: 0,
+      w: pixelsForInches(0.38, scale),
+      h: letterheadCanvas.height,
+    },
+    {
+      label: "footer band",
+      x: 0,
+      y: letterheadCanvas.height - pixelsForInches(0.85, scale),
+      w: letterheadCanvas.width,
+      h: pixelsForInches(0.85, scale),
+    },
+  ];
+
+  const letterheadContext = letterheadCanvas.getContext("2d");
+  const tocContext = tocCanvas.getContext("2d");
+  for (const region of regions) {
+    const letterheadPixels = letterheadContext.getImageData(
+      region.x,
+      region.y,
+      region.w,
+      region.h,
+    ).data;
+    const tocPixels = tocContext.getImageData(
+      region.x,
+      region.y,
+      region.w,
+      region.h,
+    ).data;
+    compareImageBands(region.label, letterheadPixels, tocPixels);
+  }
 }
 
 // ── Template: Tab Dividers ────────────────────────────────────────────────────
@@ -4323,6 +4582,9 @@ async function main() {
         break;
       case "toc":
         await generateToc();
+        break;
+      case "guardrails-check":
+        await runGuardrailsCheck();
         break;
       case "sections":
         await generateSections();

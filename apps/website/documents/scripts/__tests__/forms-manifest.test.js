@@ -1,13 +1,8 @@
 /**
- * Forms manifest schema regression test
+ * DOCX-backed forms manifest regression test
  *
- * Locks the structural shape of every fillable schema in
- * documents/forms/forms-manifest.json so accidental edits
- * (missing namespace, malformed section, dropped field) fail loudly.
- *
- * Also pins page counts (number of "first" + extra pages) and total
- * named-field counts per form so a regression in the renderer can be
- * detected without rebuilding PDFs.
+ * Locks the structural shape of the MISH form manifest so accidental
+ * edits to ids, manual section mappings, or source DOCX paths fail loudly.
  */
 
 const fs = require("fs");
@@ -20,116 +15,114 @@ const manifestPath = path.resolve(
   "forms",
   "forms-manifest.json",
 );
+const sourceDir = path.resolve(
+  __dirname,
+  "..",
+  "..",
+  "forms",
+  "MHC-MISH-47-Forms",
+);
 
 const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+const sourceDocxFiles = fs
+  .readdirSync(sourceDir)
+  .filter((name) => name.toLowerCase().endsWith(".docx"))
+  .sort((a, b) => a.localeCompare(b));
 
-// Locked baseline: { id: { pages, fields } }
-// Update intentionally when adding/removing form fields.
-// Counts are SCHEMA fields, not rendered AcroForm widgets (which include
-// auto-injected page-N "Initial" boxes and other chrome).
-const BASELINE = {
-  "FORM 02-A": { pages: 2, fields: 14 },
-  "FORM 02-B": { pages: 2, fields: 21 },
-  "FORM 02-C": { pages: 3, fields: 43 },
-  "FORM 02-D": { pages: 2, fields: 33 },
-  "FORM 02-E": { pages: 2, fields: 30 },
-  "FORM 02-F": { pages: 2, fields: 22 },
-  "FORM 02-G": { pages: 1, fields: 28 },
-  "FORM 02-H": { pages: 1, fields: 17 },
-  "FORM 02-I": { pages: 2, fields: 21 },
-  "FORM 02-J": { pages: 2, fields: 33 },
-  "FORM 03-A": { pages: 2, fields: 31 },
-  "FORM 03-C": { pages: 2, fields: 43 },
-  "FORM 03-D": { pages: 2, fields: 42 },
-  "FORM 04-A": { pages: 2, fields: 25 },
-  "FORM 04-B": { pages: 2, fields: 36 },
-  "FORM 04-C": { pages: 3, fields: 41 },
-  "FORM 04-D": { pages: 2, fields: 30 },
-  "FORM 05-A": { pages: 2, fields: 37 },
-};
-
-function countNamedFields(section) {
-  if (!section || typeof section !== "object") return 0;
-  let n = 0;
-  if (Array.isArray(section.items)) {
-    n += section.items.filter((i) => i && typeof i.name === "string").length;
-  }
-  if (Array.isArray(section.blocks)) {
-    n += section.blocks.filter((b) => b && typeof b.name === "string").length;
-  }
-  if (typeof section.name === "string") n += 1;
-  if (Array.isArray(section.rows) && Array.isArray(section.cols)) {
-    n += section.rows.length * section.cols.length;
-  }
-  return n;
-}
-
-const VALID_SECTION_TYPES = new Set([
-  "refNote",
-  "checkGrid",
-  "fieldGrid",
-  "narrative",
-  "dataTable",
-  "regTable",
-  "signatures",
-]);
-
-describe("forms-manifest fillable schemas", () => {
-  const fillableEntries = manifest.forms.filter((f) => f.fillable);
+describe("forms-manifest DOCX sources", () => {
+  const forms = Array.isArray(manifest.forms) ? manifest.forms : [];
 
   test("manifest is non-empty and well-formed", () => {
     expect(Array.isArray(manifest.forms)).toBe(true);
-    expect(manifest.forms.length).toBeGreaterThan(0);
-    expect(fillableEntries.length).toBeGreaterThan(0);
+    expect(forms.length).toBeGreaterThan(0);
+    expect(forms.length).toBe(sourceDocxFiles.length);
   });
 
-  test.each(fillableEntries.map((f) => [f.id, f]))(
-    "%s has required schema shape",
+  test.each(forms.map((entry) => [entry.id, entry]))(
+    "%s has required DOCX-backed shape",
     (_id, entry) => {
+      expect(typeof entry.id).toBe("string");
+      expect(entry.id).toMatch(/^MISH\s\d{2}$/);
       expect(typeof entry.slug).toBe("string");
-      expect(entry.slug.length).toBeGreaterThan(0);
+      expect(entry.slug).toMatch(/^form-mish-\d{2}-/);
       expect(typeof entry.title).toBe("string");
-      expect(typeof entry.fillable.namespace).toBe("string");
-      expect(entry.fillable.namespace).toMatch(/^[a-z0-9]+$/i);
-      expect(Array.isArray(entry.fillable.pages)).toBe(true);
-      expect(entry.fillable.pages.length).toBeGreaterThan(0);
-
-      // manualSection must be array (for QR rendering loop)
-      if (entry.manualSection !== null && entry.manualSection !== undefined) {
-        expect(Array.isArray(entry.manualSection)).toBe(true);
-        entry.manualSection.forEach((s) => expect(typeof s).toBe("string"));
-      }
-
-      entry.fillable.pages.forEach((page, pi) => {
-        expect(["first", "cont", "extra"]).toContain(page.kind);
-        expect(Array.isArray(page.sections)).toBe(true);
-        expect(page.sections.length).toBeGreaterThan(0);
-        page.sections.forEach((sec, si) => {
-          expect(VALID_SECTION_TYPES.has(sec.type)).toBe(true);
-        });
-      });
+      expect(entry.title.length).toBeGreaterThan(0);
+      expect(entry.category).toBe("MHC-cat2-safety");
+      expect(entry.categoryLabel).toBe("Safety Forms");
+      expect(entry.categoryIcon).toBe("🛡");
+      expect(Array.isArray(entry.manualSection)).toBe(true);
+      expect(entry.manualSection).toEqual([entry.id]);
+      expect(typeof entry.docxPath).toBe("string");
+      expect(entry.docxPath).toMatch(/^MHC-MISH-47-Forms\/FORM-MISH-/);
+      expect(entry.fillable).toBeUndefined();
+      expect(entry.revision).toBe("1.0");
+      expect(entry.effectiveDate).toBe("June 2026");
+      expect(entry.owner).toBe("Safety Officer (Matt Ramsey)");
     },
   );
 
-  test.each(Object.keys(BASELINE).map((id) => [id]))(
-    "%s page + field counts match locked baseline",
-    (id) => {
-      const entry = manifest.forms.find((f) => f.id === id);
-      expect(entry).toBeDefined();
-      expect(entry.fillable).toBeDefined();
+  test("manifest ids match the uploaded DOCX set", () => {
+    const manifestDocxFiles = forms
+      .map((entry) => path.basename(entry.docxPath || ""))
+      .sort((a, b) => a.localeCompare(b));
 
-      const pages = entry.fillable.pages.length;
-      const fields = entry.fillable.pages.reduce(
-        (sum, page) =>
-          sum + page.sections.reduce((s, sec) => s + countNamedFields(sec), 0),
-        0,
-      );
+    expect(manifestDocxFiles).toEqual(sourceDocxFiles);
+  });
 
-      const baseline = BASELINE[id];
-      // Strict equality: regressions in the schema fail loudly.
-      // Update BASELINE intentionally when adding/removing fields.
-      expect(pages).toBe(baseline.pages);
-      expect(fields).toBe(baseline.fields);
-    },
-  );
+  test("forms are ordered by MISH number", () => {
+    const ids = forms.map((entry) => entry.id);
+    expect(ids).toEqual([
+      "MISH 01",
+      "MISH 02",
+      "MISH 03",
+      "MISH 04",
+      "MISH 05",
+      "MISH 06",
+      "MISH 08",
+      "MISH 09",
+      "MISH 10",
+      "MISH 11",
+      "MISH 12",
+      "MISH 13",
+      "MISH 14",
+      "MISH 15",
+      "MISH 16",
+      "MISH 17",
+      "MISH 18",
+      "MISH 19",
+      "MISH 20",
+      "MISH 21",
+      "MISH 22",
+      "MISH 23",
+      "MISH 24",
+      "MISH 25",
+      "MISH 26",
+      "MISH 27",
+      "MISH 28",
+      "MISH 29",
+      "MISH 30",
+      "MISH 32",
+      "MISH 33",
+      "MISH 34",
+      "MISH 35",
+      "MISH 36",
+      "MISH 37",
+      "MISH 38",
+      "MISH 39",
+      "MISH 40",
+      "MISH 41",
+      "MISH 42",
+      "MISH 43",
+      "MISH 44",
+      "MISH 46",
+      "MISH 47",
+      "MISH 48",
+      "MISH 49",
+      "MISH 50",
+    ]);
+  });
+
+  test("no legacy fillable schemas remain", () => {
+    expect(forms.some((entry) => entry.fillable)).toBe(false);
+  });
 });

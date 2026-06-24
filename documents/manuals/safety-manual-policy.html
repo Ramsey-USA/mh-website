@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MH Construction — Statement of Safety Policy</title>
+    <style>
+      :root {
+        /* MH brand colors */
+        --brand-primary: {{BRAND_COLOR_PRIMARY}};
+        --brand-primary-dark: {{BRAND_COLOR_PRIMARY_DARK}};
+        --brand-primary-darker: {{BRAND_COLOR_PRIMARY_DARKER}};
+        --brand-secondary: {{BRAND_COLOR_SECONDARY}};
+        --brand-secondary-light: {{BRAND_COLOR_SECONDARY_LIGHT}};
+        --brand-secondary-text: {{BRAND_COLOR_SECONDARY_TEXT}};
+        --ink: #12231b;
+        --paper: #ffffff;
+        --muted: #f6f8f7;
+        /* MH brand fonts */
+        --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Helvetica Neue", Arial, sans-serif;
+        --font-body:
+          "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      @page {
+        size: letter portrait;
+        margin: 0;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: var(--font-body);
+        background: white;
+      }
+
+      /* ── Policy Page ──────────────────────────────────────────────────── */
+      .policy-page {
+        width: 8.5in;
+        height: 11in;
+        page-break-after: always;
+        break-after: page;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        background: white;
+      }
+
+      .policy-page:last-child {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      /* ── Outer & Inner Borders ──────────────────────────────────────── */
+      .policy-page::before {
+        content: "";
+        position: absolute;
+        inset: 0.22in;
+        border: 1.2pt solid var(--brand-primary);
+        pointer-events: none;
+        z-index: 20;
+      }
+
+      .policy-page::after {
+        content: "";
+        position: absolute;
+        inset: 0.33in;
+        border: 0.6pt solid var(--brand-secondary);
+        pointer-events: none;
+        z-index: 20;
+      }
+
+      /* ── Left gradient ribbon ──────────────────────────────────────── */
+      .policy-ribbon {
+        position: absolute;
+        top: 0.45in;
+        bottom: 0.45in;
+        left: 0.45in;
+        width: 0.28in;
+        background: linear-gradient(
+          180deg,
+          var(--brand-primary) 0%,
+          var(--brand-primary) 68%,
+          var(--brand-secondary) 100%
+        );
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      /* ── Header ──────────────────────────────────────────────────── */
+      .policy-header {
+        padding: 0.62in 0.9in 0 0.92in;
+        position: relative;
+        z-index: 5;
+      }
+
+      .policy-header-logo {
+        height: 0.98in;
+        width: auto;
+        margin-bottom: 12pt;
+        display: block;
+      }
+
+      .policy-header-title {
+        font-family: var(--font-heading);
+        font-size: 15pt;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--brand-primary);
+        margin: 0 0 4pt;
+        line-height: 1.1;
+      }
+
+      .policy-header-subtitle {
+        font-size: 7.6pt;
+        color: var(--brand-secondary);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin: 0;
+      }
+
+      /* ── Body Content ──────────────────────────────────────────── */
+      .policy-content {
+        padding: 0.42in 0.92in 0 0.92in;
+        flex: 1;
+        overflow: hidden;
+        z-index: 2;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 2.25in;
+      }
+
+      .policy-statement {
+        font-size: 10pt;
+        line-height: 1.65;
+        color: var(--ink);
+        margin: 0 0 14pt;
+      }
+
+      .policy-statement p {
+        margin: 0 0 10pt;
+      }
+
+      .policy-statement p:last-child {
+        margin-bottom: 0;
+      }
+
+      .policy-statement strong {
+        font-weight: 800;
+        color: var(--brand-primary);
+      }
+
+      .policy-statement em {
+        font-style: italic;
+        color: var(--brand-primary-darker);
+      }
+
+      /* ── Signature Section ──────────────────────────────────────── */
+      .policy-signatures {
+        margin-top: auto;
+        padding-bottom: 0;
+        z-index: 2;
+        position: relative;
+      }
+
+      .policy-sig-label {
+        font-size: 6.6pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--brand-secondary);
+        font-weight: 800;
+        margin-bottom: 8pt;
+        display: block;
+      }
+
+      .policy-sig-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4in;
+      }
+
+      .policy-sig-cell {
+        display: flex;
+        flex-direction: column;
+        gap: 2pt;
+      }
+
+      .policy-sig-name {
+        font-size: 9pt;
+        font-weight: 800;
+        color: var(--brand-primary);
+      }
+
+      .policy-sig-title {
+        font-size: 6.8pt;
+        color: var(--brand-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 600;
+        margin-bottom: 8pt;
+      }
+
+      .policy-sig-lines {
+        display: grid;
+        grid-template-columns: 2fr 1.2fr;
+        gap: 14pt;
+        margin-bottom: 2pt;
+      }
+
+      .policy-sig-line-pair {
+        display: flex;
+        flex-direction: column;
+        gap: 1pt;
+      }
+
+      .policy-sig-line {
+        height: 1pt;
+        border-bottom: 1pt solid var(--brand-primary);
+        min-height: 16pt;
+      }
+
+      .policy-sig-field-label {
+        font-size: 6pt;
+        color: var(--brand-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+      }
+
+      /* ── Footer (letterhead style) ────────────────────────────────── */
+      .policy-footer {
+        position: absolute;
+        left: 0.92in;
+        right: 0.56in;
+        bottom: 0.62in;
+        padding-top: 6pt;
+        border-top: 1.2pt solid var(--brand-primary);
+        display: grid;
+        grid-template-columns: 1.45fr 1fr;
+        gap: 0.18in;
+        align-items: end;
+        z-index: 2;
+      }
+
+      .policy-footer::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 2.5pt;
+        height: 0.6pt;
+        background: var(--brand-secondary);
+      }
+
+      .policy-footer .contact {
+        font-size: 7.2pt;
+        line-height: 1.3;
+        color: var(--brand-primary-darker);
+      }
+
+      .policy-footer .contact .label {
+        color: var(--brand-secondary);
+        font-size: 6.1pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 2pt;
+      }
+
+      .policy-footer .contact .name {
+        font-weight: 800;
+        color: var(--brand-primary);
+        font-size: 7.7pt;
+      }
+
+      .policy-footer .licenses {
+        margin-top: 2pt;
+        font-size: 6.6pt;
+        color: var(--brand-secondary);
+        font-weight: 700;
+      }
+
+      .policy-footer .trust {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        text-align: right;
+      }
+
+      .policy-footer .trust .label {
+        color: var(--brand-secondary);
+        font-size: 6.1pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 3pt;
+        white-space: nowrap;
+        width: 100%;
+      }
+
+      .policy-footer .logos {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 7pt;
+      }
+
+      .policy-footer .logos img {
+        display: block;
+        width: auto;
+      }
+
+      .logo-agc {
+        height: 0.31in;
+      }
+
+      .logo-bbb {
+        height: 0.34in;
+      }
+
+      .logo-vob {
+        height: 0.42in;
+      }
+
+      .policy-footer .chambers {
+        margin-top: 4pt;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8pt;
+        padding-top: 4pt;
+        border-top: 0.4pt solid var(--brand-secondary);
+      }
+
+      .policy-footer .chambers img {
+        display: block;
+        width: auto;
+        height: 0.24in;
+      }
+
+      /* ── Revision strip (bottom) ────────────────────────────────── */
+      .policy-revision {
+        position: absolute;
+        left: 0.92in;
+        right: 0.56in;
+        bottom: 0.42in;
+        font-size: 5.6pt;
+        color: var(--brand-secondary);
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-top: 3pt;
+        padding-top: 3pt;
+        border-top: 0.8pt solid var(--brand-primary);
+        z-index: 2;
+        line-height: 1.2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="policy-page">
+      <div class="policy-ribbon" aria-hidden="true"></div>
+
+      <!-- Header -->
+      <header class="policy-header">
+        <img
+          class="policy-header-logo"
+          src="{{BRAND_LOGO_COLOR}}"
+          alt="MH Construction"
+        />
+        <h1 class="policy-header-title">Statement of Safety Policy</h1>
+        <p class="policy-header-subtitle">
+          Safety Manual Revision {{BRAND_REVISION_NUMBER}}
+        </p>
+      </header>
+
+      <!-- Body -->
+      <main class="policy-content">
+        <div class="policy-statement">
+          <p>
+            <strong>MH Construction, Inc.</strong> recognizes that the safety
+            and health of our employees, subcontractors, and the general public
+            is of paramount importance. We are committed to maintaining a safe
+            and healthful workplace by complying with all applicable federal,
+            state, and local safety regulations and standards.
+          </p>
+          <p>
+            This Safety Manual outlines our commitment to safety excellence and
+            provides comprehensive guidance for all personnel working on MH
+            Construction projects. Every employee, subcontractor, and visitor is
+            responsible for maintaining a safe work environment and reporting
+            hazardous conditions immediately.
+          </p>
+          <p>
+            Our safety program is designed to prevent workplace injuries and
+            illnesses through hazard identification, risk assessment, proper
+            training, and continuous improvement. We believe that safety is not
+            just a regulatory requirement, but a core value that reflects our
+            commitment to protecting the well-being of everyone on our projects.
+          </p>
+          <p>
+            This policy is effective as of
+            <strong>{{BRAND_REVISION_DATE}}</strong> and applies to all MH
+            Construction operations and personnel.
+          </p>
+        </div>
+
+        <!-- Signatures -->
+        <section class="policy-signatures">
+          <span class="policy-sig-label">Authorization &amp; Approval</span>
+          <div class="policy-sig-row">
+            <!-- Jeremy Thamert -->
+            <div class="policy-sig-cell">
+              <div class="policy-sig-name">Jeremy Thamert</div>
+              <div class="policy-sig-title">President &amp; Owner</div>
+              <div class="policy-sig-lines">
+                <div class="policy-sig-line-pair">
+                  <div class="policy-sig-line"></div>
+                  <div class="policy-sig-field-label">Signature</div>
+                </div>
+                <div class="policy-sig-line-pair">
+                  <div class="policy-sig-line"></div>
+                  <div class="policy-sig-field-label">Date</div>
+                </div>
+              </div>
+            </div>
+            <!-- Matt Ramsey -->
+            <div class="policy-sig-cell">
+              <div class="policy-sig-name">Matt Ramsey</div>
+              <div class="policy-sig-title">Safety Officer</div>
+              <div class="policy-sig-lines">
+                <div class="policy-sig-line-pair">
+                  <div class="policy-sig-line"></div>
+                  <div class="policy-sig-field-label">Signature</div>
+                </div>
+                <div class="policy-sig-line-pair">
+                  <div class="policy-sig-line"></div>
+                  <div class="policy-sig-field-label">Date</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer (letterhead style) -->
+      <footer class="policy-footer">
+        <div class="contact">
+          <div class="label">Company Contact</div>
+          <div class="name">{{BRAND_COMPANY_NAME}}</div>
+          {{BRAND_ADDRESS_STREET}}<br />
+          {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
+          {{BRAND_PHONE}} &middot; {{BRAND_WEBSITE}}
+          <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
+        </div>
+        <div class="trust">
+          <div class="label">Accreditation and Trust</div>
+          <div class="logos">
+            <img
+              class="logo-bbb"
+              src="{{BRAND_BBB_SEAL}}"
+              alt="BBB Accredited"
+            />
+            <img
+              class="logo-agc"
+              src="{{BRAND_AGC_HORIZONTAL}}"
+              alt="AGC Member"
+            />
+            <img
+              class="logo-vob"
+              src="{{BRAND_WA_VOB_LOGO}}"
+              alt="WA Veteran Owned"
+            />
+          </div>
+          <div class="chambers" aria-label="Chamber of Commerce memberships">
+            <img
+              src="{{BRAND_CHAMBER_PASCO}}"
+              alt="Pasco Chamber of Commerce member"
+            />
+            <img
+              src="{{BRAND_CHAMBER_KENNEWICK}}"
+              alt="Tri-City Regional Chamber of Commerce member"
+            />
+            <img
+              src="{{BRAND_CHAMBER_RICHLAND}}"
+              alt="Richland Chamber of Commerce member"
+            />
+          </div>
+        </div>
+      </footer>
+
+      <!-- Revision strip -->
+      <div class="policy-revision">
+        Revision {{BRAND_REVISION_NUMBER}} — Effective {{BRAND_REVISION_DATE}} —
+        Authorized by {{BRAND_AUTHOR}}
+      </div>
+    </div>
+  </body>
+</html>
