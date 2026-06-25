@@ -188,7 +188,7 @@ jobs:
             apps/website/.next/cache
             apps/website/.open-next/cache
           key: nextjs-website-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{
-            hashFiles('apps/website/src/**', 'packages/shared/src/**') }}
+            hashFiles('apps/website/src/**', 'packages/shared/src/**', 'next.config.js', 'open-next.config.ts') }}
           restore-keys: |
             nextjs-website-cache-${{ hashFiles('pnpm-lock.yaml') }}-
             nextjs-website-cache-
@@ -232,7 +232,7 @@ jobs:
             apps/dashboard/.next/cache
             apps/dashboard/.open-next/cache
           key: nextjs-dashboard-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{
-            hashFiles('apps/dashboard/src/**', 'packages/shared/src/**') }}
+            hashFiles('apps/dashboard/src/**', 'packages/shared/src/**', 'next.config.js', 'open-next.config.ts') }}
           restore-keys: |
             nextjs-dashboard-cache-${{ hashFiles('pnpm-lock.yaml') }}-
             nextjs-dashboard-cache-
