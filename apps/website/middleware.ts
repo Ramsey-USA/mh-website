@@ -81,6 +81,7 @@ export const config = {
      *   - fonts/              Self-hosted woff2 files
      *   - icons/              PWA icons
      *   - images/             Optimised WebP/AVIF images
+     *   - videos/             Optimized media assets (range requests)
      *
      * Cloudflare-native / internal endpoints
      *   - api/health          Service health check — skip auth & rate-limit overhead
@@ -91,6 +92,6 @@ export const config = {
      *   - _headers            Custom response headers file
      *   - _redirects          Redirect rules file
      */
-    "/((?!api/health|api/security/status|api/cf-|_next|favicon\\.ico|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|sitemap-index\\.xml|llms\\.txt|google[a-z0-9]+\\.html|_headers|_redirects|fonts|icons|images).*)",
+    "/((?!api/health|api/security/status|api/cf-|_next|favicon\\.ico|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|sitemap-index\\.xml|llms\\.txt|google[a-z0-9]+\\.html|_headers|_redirects|fonts|icons|images|videos).*)",
   ],
 };

@@ -68,6 +68,7 @@ const SECURITY_BYPASS_PATHS = [
   "/favicon.ico",
   "/_next/",
   "/images/",
+  "/videos/",
   "/icons/",
   "/sw.js",
   "/manifest.json",
