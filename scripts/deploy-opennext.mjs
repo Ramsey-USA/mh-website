@@ -249,6 +249,8 @@ if (buildCurrent) {
   });
 }
 
+run("npm", ["run", "check:hero-commercials"]);
+
 runPreflightChecks();
 pruneTempAssets();
 assertWorkersAssetLimit();

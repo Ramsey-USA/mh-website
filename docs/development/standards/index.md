@@ -15,6 +15,7 @@ pages must align with these documents to maintain homepage-level cohesiveness.
 - **[Development Standards](./development-standards.md)** — Core code patterns and conventions
 - **[Consistency Guide](./consistency-guide.md)** — **MANDATORY** site-wide consistency rules
 - **[Common Mistakes](./common-mistakes.md)** — 22 recurring errors to avoid
+- **[Hero Commercial Video Guardrails](./hero-commercial-video-guardrails.md)** — Required media build and validation gates for hero ads
 
 ## Page Construction
 

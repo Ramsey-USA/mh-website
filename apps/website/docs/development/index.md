@@ -38,6 +38,7 @@ See **[Standards Index](./standards/index.md)** for the full standards library, 
 - **[JSDoc Standards](./JSDOC_STANDARDS.md)** — Component documentation conventions
 - **[Performance Optimization Strategy](./PERFORMANCE_OPTIMIZATION_STRATEGY.md)** — Page-level
   performance playbook
+- **[Hero Commercial Video Guardrails](./standards/hero-commercial-video-guardrails.md)** — Canonical build and validation rules for hero videos
 - **[Large Component Refactoring](./LARGE_COMPONENT_REFACTORING.md)** — Decomposition guide
 - **[Codebase Analysis](./codebase-analysis.md)** — Comprehensive structural analysis
 - **[Test Coverage — Next Steps](./testing-coverage-next-steps.md)** — Coverage audit roadmap

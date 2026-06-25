@@ -130,6 +130,10 @@ jobs:
         working-directory: apps/website
         run: npm run check:asset-budgets
 
+      - name: Check hero commercial guardrails
+        working-directory: apps/website
+        run: npm run check:hero-commercials
+
       - name: Check for unused dependencies — website
         working-directory: apps/website
         run: npm run deps:check

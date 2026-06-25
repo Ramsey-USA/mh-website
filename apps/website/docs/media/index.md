@@ -13,6 +13,7 @@ Photo and video strategy guidance for the MH Construction website and supporting
 
 - **[Media Strategy](./media-strategy.md)** — Photo/video roadmap, capture priorities, and asset
   governance.
+- **[Hero Commercial Video Guardrails](../development/standards/hero-commercial-video-guardrails.md)** — Required build and validation workflow for hero ads.
 
 ## Quick Links
 
