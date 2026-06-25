@@ -97,7 +97,9 @@ function groupByFolder(entries: QrCodeEntry[]) {
       groups[entry.folder] = [];
     }
 
-    groups[entry.folder].push(entry);
+    const folderEntries = groups[entry.folder] ?? [];
+    folderEntries.push(entry);
+    groups[entry.folder] = folderEntries;
     return groups;
   }, {});
 }
@@ -162,7 +164,9 @@ export default async function QrCodesPage() {
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                 Files are stored in{" "}
-                <span className="font-semibold">public/images/qr-codes</span>
+                <span className="font-semibold">
+                  apps/website/public/images/qr-codes
+                </span>
                 and served from{" "}
                 <span className="font-semibold">/images/qr-codes</span>.
               </p>
@@ -203,26 +207,34 @@ export default async function QrCodesPage() {
             {folders.map((folder) => (
               <section key={folder}>
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-9 h-9 bg-brand-primary rounded-xl flex items-center justify-center shadow-sm">
-                    <MaterialIcon
-                      icon="qr_code_2"
-                      size="sm"
-                      className="text-white"
-                    />
-                  </div>
-                  <div>
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                      {folderLabel(folder)}
-                    </h2>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {groupedQrCodes[folder].length} QR code
-                      {groupedQrCodes[folder].length === 1 ? "" : "s"}
-                    </p>
-                  </div>
+                  {(() => {
+                    const folderEntries = groupedQrCodes[folder] ?? [];
+
+                    return (
+                      <>
+                        <div className="w-9 h-9 bg-brand-primary rounded-xl flex items-center justify-center shadow-sm">
+                          <MaterialIcon
+                            icon="qr_code_2"
+                            size="sm"
+                            className="text-white"
+                          />
+                        </div>
+                        <div>
+                          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                            {folderLabel(folder)}
+                          </h2>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">
+                            {folderEntries.length} QR code
+                            {folderEntries.length === 1 ? "" : "s"}
+                          </p>
+                        </div>
+                      </>
+                    );
+                  })()}
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                  {groupedQrCodes[folder].map((entry) => {
+                  {(groupedQrCodes[folder] ?? []).map((entry) => {
                     const imageHref = `/images/qr-codes/${entry.relativePath}`;
 
                     return (
