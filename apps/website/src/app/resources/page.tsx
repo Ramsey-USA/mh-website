@@ -202,19 +202,28 @@ export default function ResourcesPage() {
             <div className="grid gap-5">
               <StaggeredFadeIn>
                 {manuals.map((doc) => (
-                  // Safety manual keeps its interactive index route; other manuals
-                  // open directly to their published PDF when available.
+                  // Safety manual and employee handbook keep interactive index
+                  // routes; other manuals open directly to their published PDF
+                  // when available.
                   <Link
                     key={doc.id}
                     href={
                       doc.id === "safety-manual"
                         ? "/safety"
-                        : (doc.pdfPath ?? `/resources/${doc.id}`)
+                        : doc.id === "employee-handbook"
+                          ? "/employee-handbook"
+                          : (doc.pdfPath ?? `/resources/${doc.id}`)
                     }
                     className="group flex items-start gap-5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 sm:p-6 hover:border-brand-primary dark:hover:border-brand-secondary hover:shadow-lg transition-all duration-300"
-                    target={doc.id === "safety-manual" ? undefined : "_blank"}
+                    target={
+                      doc.id === "safety-manual" ||
+                      doc.id === "employee-handbook"
+                        ? undefined
+                        : "_blank"
+                    }
                     rel={
-                      doc.id === "safety-manual"
+                      doc.id === "safety-manual" ||
+                      doc.id === "employee-handbook"
                         ? undefined
                         : "noopener noreferrer"
                     }
@@ -264,7 +273,9 @@ export default function ResourcesPage() {
                         <span>
                           {doc.id === "safety-manual"
                             ? "View all sections"
-                            : "Open manual PDF"}
+                            : doc.id === "employee-handbook"
+                              ? "View handbook index"
+                              : "Open manual PDF"}
                         </span>
                         <MaterialIcon
                           icon="arrow_forward"

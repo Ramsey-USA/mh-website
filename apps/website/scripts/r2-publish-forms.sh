@@ -2,17 +2,18 @@
 # ──────────────────────────────────────────────────────────────────────────────
 # scripts/r2-publish-forms.sh
 #
-# Upload locally generated Safety Program form package PDFs to the FILE_ASSETS R2 bucket
-# (mh-construction-assets) under the "docs/safety/forms/" key prefix.
+# Upload locally generated current-form package PDFs to the FILE_ASSETS R2 bucket
+# (mh-construction-assets) under the canonical safety and employee handbook
+# key prefixes.
 #
 # Run AFTER:
 #   npm run docs:generate:forms   (creates documents/output/form-packages/*.pdf)
 #
 # Resulting R2 keys (served via /docs/** Workers proxy):
-#   docs/safety/forms/form-02-a-toolbox-talk-sign-in-log.pdf
-#   docs/safety/forms/form-02-b-job-hazard-analysis.pdf
-#   docs/safety/forms/form-02-c-incident-accident-report.pdf
-#   ...remaining packaged forms from the manifest
+#   docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf
+#   docs/safety/forms/form-mish-50-return-to-work-program-agreement-ack.pdf
+#   docs/employee/forms/form-handbook-01-company-vehicle-acknowledgement.pdf
+#   docs/employee/forms/form-handbook-07-client-photo-release-form.pdf
 #
 # Prerequisites:
 #   wrangler CLI installed and authenticated:
@@ -25,7 +26,8 @@
 set -euo pipefail
 
 BUCKET="mh-construction-assets"
-R2_PREFIX="docs/safety/forms"
+SAFETY_PREFIX="docs/safety/forms"
+EMPLOYEE_PREFIX="docs/employee/forms"
 FORMS_DIR="documents/output/form-packages"
 
 echo "🔍  Checking for generated form package PDFs in $FORMS_DIR …"
@@ -43,12 +45,27 @@ if [ "$PDF_COUNT" -eq 0 ]; then
 fi
 
 echo ""
-echo "📤  Uploading $PDF_COUNT form package PDFs to R2 ($R2_PREFIX/) …"
+echo "📤  Uploading $PDF_COUNT current form package PDFs to R2 …"
 
 TOTAL=0
 find "$FORMS_DIR" -name "*.pdf" -type f | sort | while read -r pdf_path; do
   pdf_name="$(basename "$pdf_path")"
-  KEY="$R2_PREFIX/$pdf_name"
+  case "$pdf_name" in
+    form-mish-51-*)
+      echo "  ↷ skip $pdf_name (not part of website inventory)"
+      continue
+      ;;
+    form-mish-*)
+      KEY="$SAFETY_PREFIX/$pdf_name"
+      ;;
+    form-handbook-*)
+      KEY="$EMPLOYEE_PREFIX/$pdf_name"
+      ;;
+    *)
+      echo "  ↷ skip $pdf_name (unknown form family)"
+      continue
+      ;;
+  esac
   echo "  ↑ $KEY"
   wrangler r2 object put "$BUCKET/$KEY" \
     --file "$pdf_path" \
@@ -59,9 +76,10 @@ done
 echo ""
 echo "✅  Form package PDFs published to R2."
 echo "    Bucket  : $BUCKET"
-echo "    Prefix  : $R2_PREFIX/"
+echo "    Prefixes: $SAFETY_PREFIX/ and $EMPLOYEE_PREFIX/"
 echo ""
 echo "    Live URLs (via /docs/** proxy):"
-echo "    https://www.mhc-gc.com/docs/safety/forms/form-02-a-toolbox-talk-sign-in-log.pdf"
-echo "    https://www.mhc-gc.com/docs/safety/forms/form-02-b-job-hazard-analysis.pdf"
-echo "    https://www.mhc-gc.com/docs/safety/forms/form-02-c-incident-accident-report.pdf"
+echo "    https://www.mhc-gc.com/docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf"
+echo "    https://www.mhc-gc.com/docs/safety/forms/form-mish-50-return-to-work-program-agreement-ack.pdf"
+echo "    https://www.mhc-gc.com/docs/employee/forms/form-handbook-01-company-vehicle-acknowledgement.pdf"
+echo "    https://www.mhc-gc.com/docs/employee/forms/form-handbook-07-client-photo-release-form.pdf"

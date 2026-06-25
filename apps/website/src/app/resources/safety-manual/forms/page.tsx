@@ -5,7 +5,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { forms } from "@/lib/data/documents";
+import { safetyForms } from "@/lib/data/documents";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
@@ -97,7 +97,7 @@ export default function SafetyManualFormsPage() {
       {/* ── Form cards ────────────────────────────────────────────── */}
       <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
         <div className="grid gap-5 sm:grid-cols-2">
-          {forms.map((form) => (
+          {safetyForms.map((form) => (
             <article
               key={form.id}
               id={formAnchor(form.id)}

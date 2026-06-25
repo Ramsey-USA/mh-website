@@ -9,6 +9,11 @@
  */
 
 import mhcBrand from "../../../documents/brands/mhc.json";
+import employeeHandbookJson from "../../../documents/content/employee-handbook.json";
+import safetyManualPublicJson from "../../../documents/content/safety-manual-public.json";
+import formsManifestJson from "../../../documents/forms/forms-manifest.json";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 
 const SAFETY_PROGRAM_TITLE =
   mhcBrand.safetyProgramTitle || "MISH — Safety & Health Program";
@@ -92,7 +97,7 @@ export interface DocumentEntry {
 
 // ── Manuals ───────────────────────────────────────────────────────────────────
 
-export const manuals: DocumentEntry[] = [
+const legacyManuals: DocumentEntry[] = [
   {
     id: "safety-manual",
     title: SAFETY_PROGRAM_TITLE,
@@ -806,281 +811,347 @@ export const manuals: DocumentEntry[] = [
 
 // ── Standalone Forms ──────────────────────────────────────────────────────────
 
-export const forms: DocumentEntry[] = [
-  {
-    id: "safety-form-toolbox-talk",
-    title: "FORM 02-A — Toolbox Talk Sign-In Log",
-    subtitle: "MISH 04 / 06 field briefing record",
-    description:
-      "Pre-shift safety meeting sign-in and briefing form used to document daily field communication.",
-    category: "form",
-    icon: "record_voice_over",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-02-a-toolbox-talk-sign-in-log.pdf",
-    r2Key: "docs/safety/forms/form-02-a-toolbox-talk-sign-in-log.pdf",
-    tags: ["safety", "toolbox", "field"],
-  },
-  {
-    id: "safety-form-jha",
-    title: "FORM 02-B — Job Hazard Analysis (JHA)",
-    subtitle: "MISH 05 pre-task planning",
-    description:
-      "Task-level hazard identification and mitigation planning form completed before critical work starts.",
-    category: "form",
-    icon: "fact_check",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-02-b-job-hazard-analysis.pdf",
-    r2Key: "docs/safety/forms/form-02-b-job-hazard-analysis.pdf",
-    tags: ["safety", "jha", "risk"],
-  },
-  {
-    id: "safety-form-incident-report",
-    title: "FORM 02-C — Incident / Accident Report",
-    subtitle: "MISH 15 / 16 / 17 reporting form",
-    description:
-      "Incident and accident documentation form used for immediate reporting and follow-up investigation. Cover sheet links back to the applicable MISH sections via QR.",
-    category: "form",
-    icon: "report",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-02-c-incident-accident-report.pdf",
-    r2Key: "docs/safety/forms/form-02-c-incident-accident-report.pdf",
-    tags: ["safety", "incident", "compliance"],
-  },
-  {
-    id: "safety-form-near-miss-report",
-    title: "FORM 02-D — Near-Miss Report",
-    subtitle: "MISH 15 / 16 near-miss documentation",
-    description:
-      "Non-disciplinary near-miss event form used to document precursor hazards and corrective actions before injury occurs.",
-    category: "form",
-    icon: "report_problem",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-02-d-near-miss-report.pdf",
-    r2Key: "docs/safety/forms/form-02-d-near-miss-report.pdf",
-    tags: ["safety", "near-miss", "prevention"],
-  },
-  {
-    id: "safety-form-daily-site-inspection",
-    title: "FORM 02-E — Daily Site Safety Inspection",
-    subtitle: "MISH 09 inspection checklist",
-    description:
-      "Daily site walk checklist used to verify compliance, identify hazards, and assign corrective actions.",
-    category: "form",
-    icon: "search",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-02-e-daily-site-safety-inspection.pdf",
-    r2Key: "docs/safety/forms/form-02-e-daily-site-safety-inspection.pdf",
-    tags: ["safety", "inspection", "field"],
-  },
-  {
-    id: "safety-form-orientation-signoff",
-    title: "FORM 02-F — Safety Orientation Sign-Off",
-    subtitle: "MISH 04 onboarding acknowledgment",
-    description:
-      "Orientation acknowledgment form confirming workers received required site safety orientation.",
-    category: "form",
-    icon: "assignment_turned_in",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-02-f-safety-orientation-sign-off.pdf",
-    r2Key: "docs/safety/forms/form-02-f-safety-orientation-sign-off.pdf",
-    tags: ["safety", "orientation", "onboarding"],
-  },
-  {
-    id: "safety-form-training-record",
-    title: "FORM 02-I — Employee Safety Training Record",
-    subtitle: "MISH 04 / 06 training transcript",
-    description:
-      "Training record form used to log completed safety coursework and field competency milestones.",
-    category: "form",
-    icon: "school",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-02-i-employee-safety-training-record.pdf",
-    r2Key: "docs/safety/forms/form-02-i-employee-safety-training-record.pdf",
-    tags: ["safety", "training", "records"],
-  },
-  {
-    id: "safety-form-pre-task-plan",
-    title: "FORM 02-J — Pre-Task Safety Plan",
-    subtitle: "MISH 05 planning worksheet",
-    description:
-      "Pre-task planning worksheet used to identify controls, PPE, and sequencing before critical work begins.",
-    category: "form",
-    icon: "playlist_add_check",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-02-j-pre-task-safety-plan.pdf",
-    r2Key: "docs/safety/forms/form-02-j-pre-task-safety-plan.pdf",
-    tags: ["safety", "planning", "pre-task"],
-  },
-  {
-    id: "safety-form-pre-employment-drug-screen",
-    title: "FORM 03-A — Pre-Employment Drug Screen Consent",
-    subtitle: "MISH 06 substance testing consent",
-    description:
-      "Pre-employment substance testing consent and authorization form. Documents test panel, collection site, and applicant medication disclosure as a condition of hire.",
-    category: "form",
-    icon: "science",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath:
-      "/docs/safety/forms/form-03-a-pre-employment-drug-screen-consent.pdf",
-    r2Key: "docs/safety/forms/form-03-a-pre-employment-drug-screen-consent.pdf",
-    tags: ["safety", "drug-alcohol", "hiring"],
-  },
-  {
-    id: "safety-form-post-accident-test",
-    title: "FORM 03-C — Post-Accident Test Authorization",
-    subtitle: "MISH 06 / 17 post-incident testing",
-    description:
-      "Post-accident substance testing authorization triggered by recordable incidents. Captures trigger criteria, employee, and collection site detail to meet 2-hour testing window.",
-    category: "form",
-    icon: "biotech",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath:
-      "/docs/safety/forms/form-03-c-post-accident-test-authorization.pdf",
-    r2Key: "docs/safety/forms/form-03-c-post-accident-test-authorization.pdf",
-    tags: ["safety", "drug-alcohol", "post-accident"],
-  },
-  {
-    id: "safety-form-reasonable-suspicion",
-    title: "FORM 03-D — Reasonable Suspicion Checklist",
-    subtitle: "MISH 06 supervisor for-cause documentation",
-    description:
-      "Trained-supervisor checklist documenting specific articulable observations of appearance, behavior, speech, and coordination supporting for-cause testing.",
-    category: "form",
-    icon: "fact_check",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-03-d-reasonable-suspicion-checklist.pdf",
-    r2Key: "docs/safety/forms/form-03-d-reasonable-suspicion-checklist.pdf",
-    tags: ["safety", "drug-alcohol", "supervisor"],
-  },
-  {
-    id: "safety-form-driver-authorization",
-    title: "FORM 04-A — Driver Authorization & MVR Request",
-    subtitle: "MISH 18 fleet driver onboarding",
-    description:
-      "Driver authorization and Motor Vehicle Record release form for company driver list. Captures license, endorsements, vehicle classes, and self-disclosed history.",
-    category: "form",
-    icon: "badge",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath:
-      "/docs/safety/forms/form-04-a-driver-authorization-mvr-request.pdf",
-    r2Key: "docs/safety/forms/form-04-a-driver-authorization-mvr-request.pdf",
-    tags: ["safety", "fleet", "driver"],
-  },
-  {
-    id: "safety-form-vehicle-pre-trip",
-    title: "FORM 04-B — Vehicle Pre-Trip Inspection",
-    subtitle: "MISH 18 daily DVIR",
-    description:
-      "Pre-shift vehicle inspection covering exterior, mechanical/fluids, and cab safety items. Required before each shift for company vehicles and CDL-class trucks.",
-    category: "form",
-    icon: "build",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-04-b-vehicle-pre-trip-inspection.pdf",
-    r2Key: "docs/safety/forms/form-04-b-vehicle-pre-trip-inspection.pdf",
-    tags: ["safety", "vehicle", "inspection"],
-  },
-  {
-    id: "safety-form-vehicle-accident-report",
-    title: "FORM 04-C — Vehicle Accident Report",
-    subtitle: "MISH 16 / 18 motor-vehicle incident",
-    description:
-      "Motor-vehicle accident reporting form for company and rented vehicles. Captures driver, vehicle, scene, and other-party detail for insurance and OSHA recordability review.",
-    category: "form",
-    icon: "directions_car",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-04-c-vehicle-accident-report.pdf",
-    r2Key: "docs/safety/forms/form-04-c-vehicle-accident-report.pdf",
-    tags: ["safety", "vehicle", "incident"],
-  },
-  {
-    id: "safety-form-equipment-checklist",
-    title: "FORM 04-D — Heavy Equipment Inspection Log",
-    subtitle: "MISH 19 / 20 / 42 pre-use",
-    description:
-      "Pre-use equipment and mobile machinery inspection form for documenting safe operating condition.",
-    category: "form",
-    icon: "checklist",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-04-d-heavy-equipment-inspection-log.pdf",
-    r2Key: "docs/safety/forms/form-04-d-heavy-equipment-inspection-log.pdf",
-    tags: ["safety", "equipment", "inspection"],
-  },
-  {
-    id: "safety-form-sub-prequal",
-    title: "FORM 05-A — Subcontractor Pre-Qualification",
-    subtitle: "MISH 46 vetting form",
-    description:
-      "Subcontractor pre-qualification form to verify safety credentials and project readiness before onboarding.",
-    category: "form",
-    icon: "verified",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-05-a-subcontractor-pre-qualification.pdf",
-    r2Key: "docs/safety/forms/form-05-a-subcontractor-pre-qualification.pdf",
-    tags: ["safety", "subcontractor", "compliance"],
-  },
-  {
-    id: "safety-form-osha-300-cover",
-    title: "FORM 02-G — OSHA 300 Log Cover Sheet",
-    subtitle: "MISH 17 — incident log packet cover",
-    description:
-      "Cover sheet used when compiling OSHA 300-series documentation packets for records and review.",
-    category: "form",
-    icon: "folder_shared",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-02-g-osha-300-log-cover-sheet.pdf",
-    r2Key: "docs/safety/forms/form-02-g-osha-300-log-cover-sheet.pdf",
-    tags: ["safety", "osha", "records"],
-  },
-  {
-    id: "safety-form-wa-li-roa-cover",
-    title: "FORM 02-H — WA L&I ROA Cover Sheet",
-    subtitle: "MISH 17 — Washington claim packet cover",
-    description:
-      "Washington L&I report cover sheet used to package required claim and injury documentation.",
-    category: "form",
-    icon: "description",
-    revisionYear: 2026,
-    revisionNumber: "1.0",
-    revisionDate: "04/2026",
-    pdfPath: "/docs/safety/forms/form-02-h-wa-li-roa-cover-sheet.pdf",
-    r2Key: "docs/safety/forms/form-02-h-wa-li-roa-cover-sheet.pdf",
-    tags: ["safety", "washington", "lni"],
-  },
-];
+type SafetyManualPublicSection = {
+  id: string;
+  number: number;
+  numberStr: string;
+  key: string;
+  title: string;
+  slug: string;
+  previewHtml: string;
+};
+
+type SafetyManualPublicShape = {
+  document?: {
+    title?: string;
+    revisionYear?: number;
+    revisionDate?: string;
+    totalSections?: number;
+  };
+  sections?: SafetyManualPublicSection[];
+};
+
+type EmployeeHandbookShape = {
+  document?: {
+    title?: string;
+    subtitle?: string;
+    revisionYear?: number;
+    revisionDate?: string;
+    revisionVersion?: string;
+    totalPages?: number;
+  };
+  sections?: Array<{
+    number: number;
+    title: string;
+    subtitle?: string;
+    pages?: string;
+    forms?: Array<{
+      id: string;
+      slug: string;
+      title: string;
+      purpose?: string;
+    }>;
+  }>;
+};
+
+type FormManifestEntry = {
+  id: string;
+  slug: string;
+  title: string;
+  category?: string;
+  categoryLabel?: string;
+  effectiveDate?: string;
+  revision?: string;
+  owner?: string;
+  manualSection?: string[];
+};
+
+type FormsManifestShape = {
+  forms?: FormManifestEntry[];
+};
+
+const safetyManualPublic = safetyManualPublicJson as SafetyManualPublicShape;
+const employeeHandbook = employeeHandbookJson as EmployeeHandbookShape;
+const formsManifest = formsManifestJson as FormsManifestShape;
+
+const legacySafetyManual = legacyManuals.find(
+  (doc) => doc.id === "safety-manual",
+);
+const legacySafetySectionsByNumber = new Map(
+  (legacySafetyManual?.sections ?? []).map((section) => [
+    Number(section.number),
+    section,
+  ]),
+);
+
+function toDisplayTitle(value: string): string {
+  return value
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w+/g, (word) => {
+      const upper = word.toUpperCase();
+      if (
+        ["JHA", "PPE", "OSHA", "WISHA", "DOT", "AGC", "MVR"].includes(upper)
+      ) {
+        return upper;
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    });
+}
+
+function stripHtml(value: string): string {
+  return value
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function previewSummary(previewHtml: string, fallback: string): string {
+  const text = stripHtml(previewHtml);
+  if (!text) return fallback;
+  return text.length > 220 ? `${text.slice(0, 217).trimEnd()}...` : text;
+}
+
+function formatIsoDate(value: string | undefined, fallback: string): string {
+  if (!value) return fallback;
+  const iso = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!iso) return fallback;
+  return `${iso[2]}/${iso[3]}/${iso[1]}`;
+}
+
+function inferRevisionYear(effectiveDate: string | undefined): number {
+  const year = effectiveDate?.match(/(20\d{2})/);
+  return year ? Number(year[1]) : SAFETY_PROGRAM_REVISION_YEAR;
+}
+
+function mishSectionNumbers(entry: FormManifestEntry): number[] {
+  return (entry.manualSection ?? [])
+    .map((section) => section.match(/^MISH\s+(\d+)$/i)?.[1])
+    .filter((value): value is string => Boolean(value))
+    .map((value) => Number(value));
+}
+
+function publicPdfDetails(
+  relativePath: string,
+): { pdfPath: string; r2Key: string } | null {
+  const normalized = relativePath.replace(/^\/+/, "");
+  const absolute = join(
+    process.cwd(),
+    "public",
+    normalized.replace(/^docs\//, "docs/"),
+  );
+  if (!existsSync(absolute)) return null;
+  return {
+    pdfPath: `/${normalized}`,
+    r2Key: normalized,
+  };
+}
+
+function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function safetyFormSubtitle(entry: FormManifestEntry): string {
+  const sections = entry.manualSection?.join(" / ") ?? "MISH";
+  return `${sections} blank template`;
+}
+
+function safetyFormDescription(entry: FormManifestEntry): string {
+  const sections =
+    entry.manualSection?.join(", ") ?? "the current safety manual";
+  const owner = entry.owner ? ` Maintained by ${entry.owner}.` : "";
+  return `Blank field form aligned to ${sections}. Public download remains restricted until the current form package is published.${owner}`;
+}
+
+function safetyFormIcon(entry: FormManifestEntry): string {
+  const haystack = `${entry.title} ${entry.slug}`.toLowerCase();
+  if (haystack.includes("incident") || haystack.includes("accident")) {
+    return "report";
+  }
+  if (haystack.includes("inspection") || haystack.includes("checklist")) {
+    return "fact_check";
+  }
+  if (haystack.includes("meeting") || haystack.includes("toolbox")) {
+    return "record_voice_over";
+  }
+  if (haystack.includes("permit") || haystack.includes("authorization")) {
+    return "verified_user";
+  }
+  return "description";
+}
+
+function handbookFormSubtitle(entry: FormManifestEntry): string {
+  const sections = entry.manualSection?.join(" / ") ?? "Employee Handbook";
+  return `${sections} acknowledgment or policy form`;
+}
+
+function handbookFormDescription(entry: FormManifestEntry): string {
+  const sections = entry.manualSection?.join(", ") ?? "the employee handbook";
+  const owner = entry.owner ? ` Maintained by ${entry.owner}.` : "";
+  return `Employee handbook form aligned to ${sections}. Public download remains restricted until the current handbook form package is published.${owner}`;
+}
+
+function handbookFormIcon(entry: FormManifestEntry): string {
+  const haystack = `${entry.title} ${entry.slug}`.toLowerCase();
+  if (haystack.includes("vehicle")) return "directions_car";
+  if (haystack.includes("photo") || haystack.includes("release")) {
+    return "photo_camera";
+  }
+  if (haystack.includes("computer") || haystack.includes("electronics")) {
+    return "computer";
+  }
+  if (
+    haystack.includes("work-from-home") ||
+    haystack.includes("work from home")
+  ) {
+    return "home_work";
+  }
+  return "description";
+}
+
+const currentSafetySections: DocumentSection[] = (
+  safetyManualPublic.sections ?? []
+).map((section) => {
+  const legacy = legacySafetySectionsByNumber.get(section.number);
+  return {
+    number: section.numberStr,
+    title: toDisplayTitle(section.title),
+    slug: section.slug,
+    summary: previewSummary(
+      section.previewHtml,
+      legacy?.summary ??
+        "Public preview available to credentialed parties upon request.",
+    ),
+    category: legacy?.category ?? "Planning & Administration",
+    ...(legacy?.pages !== undefined ? { pages: legacy.pages } : {}),
+    ...(legacy?.oshaRef ? { oshaRef: legacy.oshaRef } : {}),
+    ...(legacy?.pmbok ? { pmbok: legacy.pmbok } : {}),
+    ...(legacy?.priority ? { priority: legacy.priority } : {}),
+    ...(legacy?.qrCodeUrl ? { qrCodeUrl: legacy.qrCodeUrl } : {}),
+    ...(legacy?.r2Key ? { r2Key: legacy.r2Key } : {}),
+  };
+});
+
+const currentEmployeeHandbookSections: DocumentSection[] = (
+  employeeHandbook.sections ?? []
+).map((section) => {
+  const pages = section.pages ? `Pages ${section.pages}` : "Section summary";
+  const subtitle = section.subtitle ? `${section.subtitle}. ` : "";
+  return {
+    number: String(section.number).padStart(2, "0"),
+    title: section.title,
+    slug: slugify(section.title),
+    summary: `${subtitle}${pages}`.trim(),
+    category: "Personnel & Policy",
+  };
+});
+
+export const manuals: DocumentEntry[] = legacyManuals.map((doc) => {
+  if (doc.id === "safety-manual") {
+    return {
+      ...doc,
+      title: SAFETY_PROGRAM_TITLE,
+      subtitle: SAFETY_PROGRAM_SUBTITLE,
+      totalSections:
+        safetyManualPublic.document?.totalSections ??
+        currentSafetySections.length,
+      sections: currentSafetySections,
+    };
+  }
+
+  if (doc.id === "employee-handbook") {
+    return {
+      ...doc,
+      title: employeeHandbook.document?.title ?? doc.title,
+      ...((employeeHandbook.document?.subtitle ?? doc.subtitle)
+        ? { subtitle: employeeHandbook.document?.subtitle ?? doc.subtitle }
+        : {}),
+      revisionYear: employeeHandbook.document?.revisionYear ?? doc.revisionYear,
+      ...((employeeHandbook.document?.revisionVersion ?? doc.revisionNumber)
+        ? {
+            revisionNumber:
+              employeeHandbook.document?.revisionVersion ?? doc.revisionNumber,
+          }
+        : {}),
+      revisionDate: formatIsoDate(
+        employeeHandbook.document?.revisionDate,
+        doc.revisionDate ?? EMPLOYEE_HANDBOOK_REVISION_DATE,
+      ),
+      ...((employeeHandbook.document?.totalPages ?? doc.totalPages)
+        ? {
+            totalPages: employeeHandbook.document?.totalPages ?? doc.totalPages,
+          }
+        : {}),
+      ...((employeeHandbook.sections?.length ?? doc.totalSections)
+        ? {
+            totalSections:
+              employeeHandbook.sections?.length ?? doc.totalSections,
+          }
+        : {}),
+      sections: currentEmployeeHandbookSections,
+    };
+  }
+
+  return doc;
+});
+
+export const safetyForms: DocumentEntry[] = (formsManifest.forms ?? [])
+  .filter((entry) => {
+    const mishNumbers = mishSectionNumbers(entry);
+    return mishNumbers.some(
+      (sectionNumber) => sectionNumber >= 1 && sectionNumber <= 50,
+    );
+  })
+  .map((entry) => {
+    const displayTitle = toDisplayTitle(entry.title);
+    const publishedPdf = publicPdfDetails(
+      `docs/safety/forms/${entry.slug}.pdf`,
+    );
+    return {
+      id: `safety-form-${entry.slug.replace(/^form-/, "")}`,
+      title: displayTitle,
+      subtitle: safetyFormSubtitle(entry),
+      description: safetyFormDescription(entry),
+      category: "form",
+      icon: safetyFormIcon(entry),
+      revisionYear: inferRevisionYear(entry.effectiveDate),
+      ...(publishedPdf ?? {}),
+      ...(entry.revision ? { revisionNumber: entry.revision } : {}),
+      ...(entry.effectiveDate ? { revisionDate: entry.effectiveDate } : {}),
+      tags: ["safety", "mish", "field"],
+    };
+  });
+
+export const handbookForms: DocumentEntry[] = (formsManifest.forms ?? [])
+  .filter((entry) =>
+    entry.manualSection?.some((section) => /^HANDBOOK\b/i.test(section)),
+  )
+  .map((entry) => {
+    const publishedPdf = publicPdfDetails(
+      `docs/employee/forms/${entry.slug}.pdf`,
+    );
+    return {
+      id: `handbook-form-${entry.slug.replace(/^form-/, "")}`,
+      title: toDisplayTitle(entry.title),
+      subtitle: handbookFormSubtitle(entry),
+      description: handbookFormDescription(entry),
+      category: "form",
+      icon: handbookFormIcon(entry),
+      revisionYear: inferRevisionYear(entry.effectiveDate),
+      ...(publishedPdf ?? {}),
+      ...(entry.revision ? { revisionNumber: entry.revision } : {}),
+      ...(entry.effectiveDate ? { revisionDate: entry.effectiveDate } : {}),
+      tags: ["employee", "handbook", "policy"],
+    };
+  });
+
+export const forms: DocumentEntry[] = [...safetyForms, ...handbookForms];
 
 export const employeeManualSections: DocumentEntry[] = [];
 

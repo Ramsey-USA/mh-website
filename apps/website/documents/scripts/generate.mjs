@@ -1510,6 +1510,155 @@ async function generateAllFillableForms() {
   }
 }
 
+function slugForForm(formEntry) {
+  return (formEntry.slug || formEntry.id || "form")
+    .toLowerCase()
+    .replaceAll(/[^a-z0-9]+/g, "-")
+    .replaceAll(/^-+|-+$/g, "");
+}
+
+function cleanFormDocxHtml(html) {
+  if (!html || typeof html !== "string") {
+    return "<p><em>No form body content was extracted.</em></p>";
+  }
+
+  return html
+    .replace(/\sstyle=("[^"]*"|'[^']*')/gi, "")
+    .replace(/\sclass=("[^"]*"|'[^']*')/gi, "")
+    .replace(/<p>\s*<\/p>/gi, "")
+    .trim();
+}
+
+async function generateDocxBackedFormPdf(formEntry) {
+  if (!formEntry?.docxPath) return null;
+
+  const slug = slugForForm(formEntry);
+  const sourceDocx = join(DOCS_DIR, "forms", formEntry.docxPath);
+  if (!existsSync(sourceDocx)) {
+    console.warn(`⚠️  DOCX source missing for ${formEntry.id}: ${sourceDocx}`);
+    return null;
+  }
+
+  let mammoth;
+  try {
+    mammoth = await import("mammoth");
+  } catch (err) {
+    throw new Error(
+      `Missing optional dependency 'mammoth' required for DOCX-backed forms: ${err instanceof Error ? err.message : String(err)}`,
+    );
+  }
+
+  const result = await mammoth.convertToHtml({ path: sourceDocx });
+  const bodyHtml = cleanFormDocxHtml(result.value);
+
+  const html = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>${escapeHtml(String(formEntry.id || "Form"))}</title>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #0f172a;
+        background: #ffffff;
+      }
+      main {
+        padding: 0.35in 0.15in 0.2in;
+      }
+      .form-meta {
+        border-bottom: 2px solid ${BRAND.colors.primary};
+        padding-bottom: 0.14in;
+        margin-bottom: 0.18in;
+      }
+      .form-kicker {
+        font-size: 9pt;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: ${BRAND.colors.secondary};
+        margin: 0 0 0.06in;
+      }
+      .form-title {
+        font-size: 18pt;
+        font-weight: 800;
+        margin: 0 0 0.06in;
+      }
+      .form-subtitle {
+        font-size: 10.5pt;
+        color: #475569;
+        margin: 0;
+      }
+      p, li, td, th {
+        font-size: 10.5pt;
+        line-height: 1.45;
+      }
+      p { margin: 0 0 0.12in; }
+      h1, h2, h3, h4 {
+        color: ${BRAND.colors.primary};
+        margin: 0.18in 0 0.08in;
+        line-height: 1.2;
+      }
+      h1 { font-size: 15pt; }
+      h2 { font-size: 13pt; }
+      h3, h4 { font-size: 11.5pt; }
+      ul, ol {
+        margin: 0 0 0.14in 0.24in;
+        padding: 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0.14in 0 0.18in;
+      }
+      td, th {
+        border: 1px solid #cbd5e1;
+        padding: 0.08in;
+        vertical-align: top;
+      }
+      th {
+        background: #eff6ff;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="form-meta">
+        <p class="form-kicker">MH Construction Employee/Field Form</p>
+        <h1 class="form-title">${escapeHtml(String(formEntry.title || formEntry.id || "Form"))}</h1>
+        <p class="form-subtitle">${escapeHtml((formEntry.manualSection || []).join(" / ") || "Policy form")}</p>
+      </section>
+      ${bodyHtml}
+    </main>
+  </body>
+</html>`;
+
+  const formsDir = join(OUTPUT_DIR, "form-bodies");
+  await ensureDir(formsDir);
+  const pdfPath = join(formsDir, `${slug}.pdf`);
+  await renderHtmlToPdf(
+    html,
+    pdfPath,
+    {
+      margin: {
+        top: "0.55in",
+        right: "0.6in",
+        bottom: "0.55in",
+        left: "0.6in",
+      },
+    },
+    `manuals/_tmp_docx_form_${slug}.html`,
+  );
+
+  return pdfPath;
+}
+
 // ── Cover + Fillable bundle ──────────────────────────────────────────────────
 /**
  * Build the deliverable form package (cover sheet + fillable body) for a
@@ -1519,33 +1668,33 @@ async function generateAllFillableForms() {
  * `documents/output/form-packages/{slug}.pdf`.
  */
 async function generateFormPackage(formEntry) {
-  const slug = (formEntry.slug || formEntry.id || "form")
-    .toLowerCase()
-    .replaceAll(/[^a-z0-9]+/g, "-")
-    .replaceAll(/^-+|-+$/g, "");
+  const slug = slugForForm(formEntry);
 
   console.log(`\n📦 Building form package: ${formEntry.id} → ${slug}.pdf`);
 
   // 1. Ensure the cover exists (regenerate just this one for freshness).
   await generateFormCoverFor(formEntry);
 
-  // 2. Ensure the fillable body exists.
-  if (!formEntry.fillable?.pages?.length) {
+  const coverPath = join(OUTPUT_DIR, "form-covers", `${slug}_cover.pdf`);
+  let bodyPath = null;
+  if (formEntry.fillable?.pages?.length) {
+    await generateFillableForm(formEntry);
+    bodyPath = join(OUTPUT_DIR, "form-fillables", `${slug}.pdf`);
+  } else if (formEntry.docxPath) {
+    bodyPath = await generateDocxBackedFormPdf(formEntry);
+  } else {
     console.warn(
-      `⚠️  ${formEntry.id} has no fillable.pages; skipping package.`,
+      `⚠️  ${formEntry.id} has neither fillable.pages nor docxPath; skipping package.`,
     );
     return;
   }
-  await generateFillableForm(formEntry);
 
-  const coverPath = join(OUTPUT_DIR, "form-covers", `${slug}_cover.pdf`);
-  const fillablePath = join(OUTPUT_DIR, "form-fillables", `${slug}.pdf`);
   if (!existsSync(coverPath)) {
     console.error(`❌  Cover PDF missing: ${coverPath}`);
     return;
   }
-  if (!existsSync(fillablePath)) {
-    console.error(`❌  Fillable PDF missing: ${fillablePath}`);
+  if (!bodyPath || !existsSync(bodyPath)) {
+    console.error(`❌  Body PDF missing: ${bodyPath}`);
     return;
   }
 
@@ -1554,7 +1703,7 @@ async function generateFormPackage(formEntry) {
   // front. pdf-lib's copyPages preserves widget annotations on copied
   // pages, and because the destination IS the original fillable doc,
   // the AcroForm root and field references stay intact.
-  const merged = await PDFDocument.load(await readFile(fillablePath));
+  const merged = await PDFDocument.load(await readFile(bodyPath));
   const coverDoc = await PDFDocument.load(await readFile(coverPath));
 
   const coverPages = await merged.copyPages(
@@ -1590,9 +1739,11 @@ async function generateFormPackageById(key) {
 
 async function generateAllFormPackages() {
   const forms = await loadFormsManifest();
-  const eligible = forms.filter((f) => f.fillable?.pages?.length);
+  const eligible = forms.filter((f) => f.fillable?.pages?.length || f.docxPath);
   if (eligible.length === 0) {
-    console.log("ℹ️  No forms with `fillable` schema in the manifest.");
+    console.log(
+      "ℹ️  No forms with fillable schema or DOCX sources in the manifest.",
+    );
     return;
   }
   console.log(`\n📦  Building ${eligible.length} form package(s)…`);
@@ -1616,21 +1767,65 @@ async function publishFormPackages() {
     );
     process.exit(1);
   }
-  const publicDir = join(ROOT, "public/docs/safety/forms");
-  await ensureDir(publicDir);
+  const safetyPublicDir = join(ROOT, "public/docs/safety/forms");
+  const handbookPublicDir = join(ROOT, "public/docs/employee/forms");
+  await ensureDir(safetyPublicDir);
+  await ensureDir(handbookPublicDir);
 
   const { readdir, copyFile } = await import("node:fs/promises");
   const files = (await readdir(packagesDir)).filter((f) => f.endsWith(".pdf"));
-  if (files.length === 0) {
-    console.log("ℹ️  No package PDFs to publish.");
+  const safetyFiles = files.filter(
+    (f) => f.startsWith("form-mish-") && !f.startsWith("form-mish-51-"),
+  );
+  const handbookFiles = files.filter((f) => f.startsWith("form-handbook-"));
+
+  const handbookStaticSources = [
+    {
+      src: join(OUTPUT_DIR, "forms", "form-employee-photo-release.pdf"),
+      dest: join(
+        handbookPublicDir,
+        "form-handbook-06-employee-photo-release-form.pdf",
+      ),
+    },
+    {
+      src: join(OUTPUT_DIR, "forms", "form-client-photo-release.pdf"),
+      dest: join(
+        handbookPublicDir,
+        "form-handbook-07-client-photo-release-form.pdf",
+      ),
+    },
+  ].filter(
+    ({ src, dest }) =>
+      existsSync(src) &&
+      !existsSync(dest) &&
+      !handbookFiles.includes(dest.split("/").pop()),
+  );
+
+  if (
+    safetyFiles.length === 0 &&
+    handbookFiles.length === 0 &&
+    handbookStaticSources.length === 0
+  ) {
+    console.log("ℹ️  No current form PDFs to publish.");
     return;
   }
-  console.log(`\n🚚  Publishing ${files.length} form package(s) to public/…`);
-  for (const f of files) {
+
+  console.log("\n🚚  Publishing current form PDFs to public/…");
+  for (const f of safetyFiles) {
     const src = join(packagesDir, f);
-    const dst = join(publicDir, f);
+    const dst = join(safetyPublicDir, f);
     await copyFile(src, dst);
     console.log(`  ✓  ${dst.replace(ROOT + "/", "")}`);
+  }
+  for (const f of handbookFiles) {
+    const src = join(packagesDir, f);
+    const dst = join(handbookPublicDir, f);
+    await copyFile(src, dst);
+    console.log(`  ✓  ${dst.replace(ROOT + "/", "")}`);
+  }
+  for (const { src, dest } of handbookStaticSources) {
+    await copyFile(src, dest);
+    console.log(`  ✓  ${dest.replace(ROOT + "/", "")}`);
   }
 }
 
