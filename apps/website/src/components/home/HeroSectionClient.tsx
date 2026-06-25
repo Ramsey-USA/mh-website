@@ -141,7 +141,7 @@ export function HeroSectionClient({
           <>
             <video
               ref={videoRef}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
+              className={`absolute inset-0 h-full w-full object-contain object-[center_58%] min-[430px]:object-cover min-[430px]:object-[center_60%] sm:object-cover transition-opacity duration-300 ${
                 isVideoReady ? "opacity-100" : "opacity-0"
               }`}
               autoPlay
