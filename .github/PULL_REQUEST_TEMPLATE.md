@@ -17,6 +17,7 @@
 
 - [ ] Tested locally
 - [ ] All quality checks pass (type-check, lint, tests, build)
+- [ ] If hero commercial media changed: updated `apps/website/config/hero-commercials.json` and ran `npm run check:hero-commercials`
 
 ## Master at Arms Compliance
 
