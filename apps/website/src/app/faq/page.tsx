@@ -169,7 +169,10 @@ export default function FAQPage() {
 
       <div className="bg-white dark:bg-gray-900 min-h-screen">
         {/* Hero Section */}
-        <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
+        <section
+          className="hero-section relative flex items-end justify-end text-white overflow-hidden"
+          style={{ height: "calc(100vh - var(--mh-nav-offset, 6.5rem))" }}
+        >
           {/* Background - Dark gradient */}
           <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
             {/* Overlay for text readability */}
@@ -177,23 +180,25 @@ export default function FAQPage() {
           </div>
 
           {/* Header Text - Bottom Right */}
-          <div className="hero-safe-top hero-safe-bottom relative z-30 mb-4 sm:mb-4 md:mb-4 lg:mb-4 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
-            <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
-              <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                Intel Brief → FAQ
-              </span>
-              <span className="block text-brand-secondary">
-                Your Questions,
-              </span>
-              <span className="block text-brand-primary">
-                Our Honest Answers
-              </span>
-              <span className="block text-white/90">
-                Building projects for the Client,{" "}
-                <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the Dollar
-              </span>
-            </h1>
+          <div className="hero-safe-top hero-safe-bottom relative z-30 mx-3 sm:ml-auto sm:mr-5 lg:mr-7 xl:mr-10 mb-4 pointer-events-none transition-opacity duration-300 sm:w-[min(88vw,44rem)] sm:max-w-176">
+            <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
+              <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
+                <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+                  Intel Brief → FAQ
+                </span>
+                <span className="block text-brand-secondary">
+                  Direct Answers. Clear Guidance. Mission-Ready Information.
+                </span>
+                <span className="block text-brand-primary">
+                  Mission Intelligence - Your Construction Questions Answered
+                </span>
+                <span className="block text-white/90">
+                  Building projects for the Client,{" "}
+                  <span className="font-black italic text-bronze-300">NOT</span>{" "}
+                  the Dollar
+                </span>
+              </h1>
+            </div>
           </div>
 
           {/* Page-Specific Navigation Bar */}

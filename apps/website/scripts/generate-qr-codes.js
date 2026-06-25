@@ -19,7 +19,11 @@ const BASE_URL = "https://www.mhc-gc.com";
 
 // Output directory
 const OUTPUT_DIR = path.join(__dirname, "../public/images/qr-codes");
-const TEAM_DATA_PATH = path.join(__dirname, "../src/lib/data/team-data.json");
+const TEAM_DATA_PATHS = [
+  path.join(__dirname, "../src/lib/data/team-data.json"),
+  path.join(__dirname, "../src/data/team-data.json"),
+];
+const TEAM_DATA_DIR = path.join(__dirname, "../src/lib/data/team");
 
 // Logo paths
 const LOGO_COLOR = path.join(__dirname, "../public/images/logo/mh-logo.png");
@@ -30,6 +34,7 @@ const HUNTER_GREEN = "#386851";
 const LEATHER_TAN = "#BD9264";
 const WHITE = "#FFFFFF";
 const BLACK = "#000000";
+const ENABLE_COLOR_FINDER_TINT = false;
 
 const SOCIAL_QR_NAMES = new Set([
   "linkedin",
@@ -404,6 +409,11 @@ const SAFETY_MANUAL_PATHS = [
   path.join(__dirname, "../../../documents/content/safety-manual-public.json"),
 ];
 
+const SAFETY_FORMS_MANIFEST_PATHS = [
+  path.join(__dirname, "../documents/forms/forms-manifest.json"),
+  path.join(__dirname, "../../../documents/forms/forms-manifest.json"),
+];
+
 function loadSafetyManualJson() {
   const manifestPath = SAFETY_MANUAL_PATHS.find((candidate) =>
     fs.existsSync(candidate),
@@ -454,9 +464,8 @@ function clusterHrefForSection(numeric) {
   return `${BASE_URL}/resources/safety-manual/${cluster.slug}#mish-${anchor}`;
 }
 
-// Safety Forms — keep in sync with `forms[]` in src/lib/data/documents.ts.
-// Each form QR deep-links to the grouped forms index page anchor.
-const SAFETY_MANUAL_FORMS = [
+// Fallback list for safety forms when forms-manifest.json is unavailable.
+const FALLBACK_SAFETY_MANUAL_FORMS = [
   { id: "toolbox-talk", title: "Toolbox Talk (Blank)" },
   { id: "jha", title: "JHA - Job Hazard Analysis" },
   { id: "incident-report", title: "Incident / Accident Report" },
@@ -472,12 +481,104 @@ const SAFETY_MANUAL_FORMS = [
   { id: "wa-li-roa-cover", title: "WA L&I ROA Cover Sheet" },
 ];
 
+function loadSafetyManualForms() {
+  const manifestPath = SAFETY_FORMS_MANIFEST_PATHS.find((candidate) =>
+    fs.existsSync(candidate),
+  );
+
+  if (!manifestPath) {
+    console.warn(
+      "⚠ Could not load forms manifest; using fallback safety form QR metadata.",
+    );
+    return FALLBACK_SAFETY_MANUAL_FORMS;
+  }
+
+  try {
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
+    const forms = Array.isArray(manifest.forms) ? manifest.forms : [];
+
+    const mishForms = forms
+      .filter((entry) => {
+        const sections = Array.isArray(entry.manualSection)
+          ? entry.manualSection
+          : [];
+
+        return sections.some((section) => {
+          const match = String(section).match(/^MISH\s+(\d{1,2})$/i);
+          if (!match) return false;
+          const sectionNumber = Number.parseInt(match[1], 10);
+          return sectionNumber >= 1 && sectionNumber <= 50;
+        });
+      })
+      .map((entry) => ({
+        id: String(entry.slug || "").replace(/^form-/, ""),
+        title: String(entry.title || entry.slug || "Safety Form"),
+      }))
+      .filter((entry) => entry.id.length > 0);
+
+    if (mishForms.length === 0) {
+      console.warn(
+        "⚠ Forms manifest had no MISH form entries; using fallback safety form QR metadata.",
+      );
+      return FALLBACK_SAFETY_MANUAL_FORMS;
+    }
+
+    return mishForms;
+  } catch (error) {
+    console.warn(
+      `⚠ Could not parse forms manifest at ${manifestPath}; using fallback safety form QR metadata. ${error instanceof Error ? error.message : String(error)}`,
+    );
+    return FALLBACK_SAFETY_MANUAL_FORMS;
+  }
+}
+
+function loadHandbookForms() {
+  const manifestPath = SAFETY_FORMS_MANIFEST_PATHS.find((candidate) =>
+    fs.existsSync(candidate),
+  );
+
+  if (!manifestPath) {
+    console.warn(
+      "⚠ Could not load forms manifest; skipping handbook form QR metadata.",
+    );
+    return [];
+  }
+
+  try {
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
+    const forms = Array.isArray(manifest.forms) ? manifest.forms : [];
+
+    return forms
+      .filter((entry) => {
+        const sections = Array.isArray(entry.manualSection)
+          ? entry.manualSection
+          : [];
+        return sections.some((section) => /^HANDBOOK\b/i.test(String(section)));
+      })
+      .map((entry) => ({
+        id: String(entry.slug || "").replace(/^form-/, ""),
+        slug: String(entry.slug || ""),
+        title: String(entry.title || entry.slug || "Handbook Form"),
+      }))
+      .filter((entry) => entry.id.length > 0 && entry.slug.length > 0);
+  } catch (error) {
+    console.warn(
+      `⚠ Could not parse forms manifest at ${manifestPath}; skipping handbook form QR metadata. ${error instanceof Error ? error.message : String(error)}`,
+    );
+    return [];
+  }
+}
+
+const SAFETY_MANUAL_FORMS = loadSafetyManualForms();
+const HANDBOOK_FORMS = loadHandbookForms();
+
 function getFolderForQR(name) {
   if (name.startsWith("team-")) return "team";
   if (SOCIAL_QR_NAMES.has(name)) return "social";
   if (name.startsWith("traho-")) return "rfq";
   if (name.startsWith("safety-section-")) return "safety-sections";
   if (name.startsWith("safety-form-")) return "safety-forms";
+  if (name.startsWith("handbook-form-")) return "handbook-forms";
   if (
     name.startsWith("safety-") ||
     name === "hub" ||
@@ -497,30 +598,61 @@ function getFolderForQR(name) {
   return "core";
 }
 
+function buildTeamQRCodes(teamData) {
+  return teamData
+    .filter((member) => member?.active && member?.slug)
+    .map((member) => ({
+      name: `team-${member.slug}`,
+      url: `${BASE_URL}/team#${member.slug}`,
+      description: `${member.name} - ${member.role || "Team Member"}`,
+      label: String(member.name || "TEAM MEMBER").toUpperCase(),
+      folder: "team",
+    }));
+}
+
 function loadTeamQRCodes() {
   const fallbackTeamCodes = QR_CODES.filter((qr) =>
     qr.name.startsWith("team-"),
   );
 
-  try {
-    const teamDataRaw = fs.readFileSync(TEAM_DATA_PATH, "utf8");
-    const teamData = JSON.parse(teamDataRaw);
+  for (const candidate of TEAM_DATA_PATHS) {
+    if (!fs.existsSync(candidate)) continue;
 
-    return teamData
-      .filter((member) => member?.active && member?.slug)
-      .map((member) => ({
-        name: `team-${member.slug}`,
-        url: `${BASE_URL}/team#${member.slug}`,
-        description: `${member.name} - ${member.role || "Team Member"}`,
-        label: String(member.name || "TEAM MEMBER").toUpperCase(),
-        folder: "team",
-      }));
-  } catch (error) {
-    console.warn(
-      `⚠ Could not load team data from ${TEAM_DATA_PATH}; using fallback team QR list. ${error instanceof Error ? error.message : String(error)}`,
-    );
-    return fallbackTeamCodes.map((qr) => ({ ...qr, folder: "team" }));
+    try {
+      const teamDataRaw = fs.readFileSync(candidate, "utf8");
+      const teamData = JSON.parse(teamDataRaw);
+
+      if (Array.isArray(teamData)) {
+        return buildTeamQRCodes(teamData);
+      }
+    } catch (error) {
+      console.warn(
+        `⚠ Could not load team data from ${candidate}. ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
   }
+
+  if (fs.existsSync(TEAM_DATA_DIR)) {
+    try {
+      const teamData = fs
+        .readdirSync(TEAM_DATA_DIR)
+        .filter((file) => file.endsWith(".json"))
+        .map((file) =>
+          JSON.parse(fs.readFileSync(path.join(TEAM_DATA_DIR, file), "utf8")),
+        );
+
+      return buildTeamQRCodes(teamData);
+    } catch (error) {
+      console.warn(
+        `⚠ Could not load team data from ${TEAM_DATA_DIR}. ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
+  }
+
+  console.warn(
+    "⚠ Could not load active team data; using fallback team QR list.",
+  );
+  return fallbackTeamCodes.map((qr) => ({ ...qr, folder: "team" }));
 }
 
 function buildFinalQRCodeList() {
@@ -550,10 +682,20 @@ function buildFinalQRCodeList() {
     folder: "safety-forms",
   }));
 
+  // Build employee handbook form entries — deep-link to published handbook PDFs.
+  const handbookFormCodes = HANDBOOK_FORMS.map((f) => ({
+    name: `handbook-form-${f.id}`,
+    url: `${BASE_URL}/docs/employee/forms/${f.slug}.pdf`,
+    description: `Employee Handbook Form: ${f.title}`,
+    label: `HANDBOOK ${f.id.toUpperCase()}`,
+    folder: "handbook-forms",
+  }));
+
   const merged = [
     ...withoutStaticTeams,
     ...safetySectionCodes,
     ...safetyFormCodes,
+    ...handbookFormCodes,
     ...loadTeamQRCodes(),
   ].map((qr) => ({
     ...qr,
@@ -577,6 +719,43 @@ function ensureOutputDir() {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
     console.info(`✓ Created directory: ${OUTPUT_DIR}`);
   }
+}
+
+function listQrFilesRecursive(dir, baseDir = dir) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  const results = [];
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      results.push(...listQrFilesRecursive(fullPath, baseDir));
+      continue;
+    }
+
+    if (
+      entry.isFile() &&
+      entry.name.startsWith("qr-") &&
+      entry.name.endsWith(".png")
+    ) {
+      results.push(path.relative(baseDir, fullPath).replace(/\\/g, "/"));
+    }
+  }
+
+  return results;
+}
+
+function pruneStaleQRCodes(results) {
+  const expected = new Set(results.map((result) => result.relativePath));
+  const existing = listQrFilesRecursive(OUTPUT_DIR);
+  const stale = existing.filter((relativePath) => !expected.has(relativePath));
+
+  stale.forEach((relativePath) => {
+    fs.unlinkSync(path.join(OUTPUT_DIR, relativePath));
+    console.info(`ℹ Removed stale QR file: ${relativePath}`);
+  });
+
+  return stale.length;
 }
 
 /**
@@ -714,7 +893,7 @@ async function generateQRCode(qrData, variant = "color") {
   // Select appropriate logo and QR options based on variant
   const logoPath = variant === "color" ? LOGO_COLOR : LOGO_BW;
   const qrOptions = variant === "color" ? QR_OPTIONS_COLOR : QR_OPTIONS_BW;
-  const shouldColorFinders = variant === "color"; // Only color finders for color variant
+  const shouldColorFinders = variant === "color" && ENABLE_COLOR_FINDER_TINT;
 
   try {
     // Step 1: Generate base QR code to temporary file
@@ -876,8 +1055,7 @@ function generateManifest(results) {
     folders,
     variants: {
       color: {
-        description:
-          "Color QR codes with MH brand colors (Hunter Green & Leather Tan)",
+        description: "Color QR codes with MH brand green and centered logo",
         qrOptions: QR_OPTIONS_COLOR,
         logo: "mh-logo.png",
       },
@@ -1016,6 +1194,11 @@ async function main() {
   }
 
   const results = await Promise.all(allTasks);
+
+  const removedStaleCount = pruneStaleQRCodes(results);
+  if (removedStaleCount > 0) {
+    console.info(`ℹ Removed ${removedStaleCount} stale QR file(s).`);
+  }
 
   // Generate manifest and documentation
   const manifest = generateManifest(results);

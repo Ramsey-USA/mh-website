@@ -133,6 +133,7 @@ export function HeroSectionClient({
     <section
       data-page-hero="true"
       className="hero-section relative flex items-end justify-end text-white overflow-hidden"
+      style={{ height: "calc(100vh - var(--mh-nav-offset, 6.5rem))" }}
     >
       {/* Background - Video Support */}
       <div className="absolute inset-0">
@@ -184,24 +185,28 @@ export function HeroSectionClient({
 
       {/* Header Text - Bottom Right */}
       <div
-        className={`hero-safe-top hero-safe-bottom relative z-10 ml-auto mr-3 sm:mr-5 lg:mr-7 xl:mr-10 mb-4 pointer-events-none transition-opacity duration-300 w-[min(92vw,44rem)] max-w-176 ${isVideoPlaying ? "opacity-0" : "opacity-100"}`}
+        className={`hero-safe-top hero-safe-bottom relative z-10 mx-3 sm:ml-auto sm:mr-5 lg:mr-7 xl:mr-10 mb-4 pointer-events-none transition-opacity duration-300 sm:w-[min(88vw,44rem)] sm:max-w-176 ${isVideoPlaying ? "opacity-0" : "opacity-100"}`}
       >
-        <h1 className="text-right text-[clamp(1.45rem,3.7vw,2.75rem)] font-black text-white drop-shadow-2xl leading-[1.12] tracking-tight text-balance">
-          <span className="mb-1 block text-brand-secondary text-[clamp(0.9rem,1.95vw,1.45rem)] leading-[1.2]">
-            {copy.baseLabel}
-          </span>
-          <span className="mb-1 block text-brand-secondary/90 text-[clamp(0.8rem,1.65vw,1.2rem)] leading-[1.25]">
-            {copy.tagline}
-          </span>
-          <span className="block text-brand-primary">
-            Building projects for the Client,{" "}
-            <span className="font-black italic text-brand-secondary">NOT</span>{" "}
-            the Dollar
-          </span>
-          <span className="mt-1.5 block text-brand-secondary/90 text-[clamp(0.75rem,1.3vw,1rem)] leading-[1.25]">
-            {copy.founded} | {copy.serving}
-          </span>
-        </h1>
+        <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
+          <h1 className="text-right text-[clamp(1.35rem,3.5vw,2.75rem)] font-black text-white leading-[1.12] tracking-tight text-balance">
+            <span className="mb-1 block text-brand-secondary text-[clamp(0.8rem,1.8vw,1.4rem)] leading-[1.2]">
+              {copy.baseLabel}
+            </span>
+            <span className="mb-1 block text-brand-secondary/90 text-[clamp(0.75rem,1.5vw,1.15rem)] leading-[1.25]">
+              {copy.tagline}
+            </span>
+            <span className="block text-white">
+              Building projects for the Client,{" "}
+              <span className="font-black italic text-brand-secondary">
+                NOT
+              </span>{" "}
+              the Dollar
+            </span>
+            <span className="mt-1.5 block text-brand-secondary/75 text-[clamp(0.65rem,1.1vw,0.9rem)] leading-[1.4]">
+              {copy.founded} | {copy.serving}
+            </span>
+          </h1>
+        </div>
       </div>
 
       {/* Playback Controls - Positioned above page navigation */}

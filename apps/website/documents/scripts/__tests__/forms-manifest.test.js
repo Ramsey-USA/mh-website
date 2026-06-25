@@ -26,17 +26,36 @@ const sourceDir = path.resolve(
 const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 const sourceDocxFiles = fs
   .readdirSync(sourceDir)
-  .filter((name) => name.toLowerCase().endsWith(".docx"))
+  .filter(
+    (name) =>
+      name.toLowerCase().endsWith(".docx") &&
+      name !== "FORM-MISH-51-Purchase-Approval-General-Expense.docx",
+  )
   .sort((a, b) => a.localeCompare(b));
 
 describe("forms-manifest DOCX sources", () => {
   const forms = Array.isArray(manifest.forms) ? manifest.forms : [];
   const mishForms = forms.filter((entry) => /^MISH\s\d{2}$/.test(entry.id));
+  const handbookForm08 = forms.find((entry) => entry.id === "HANDBOOK-FORM-08");
 
   test("manifest is non-empty and well-formed", () => {
     expect(Array.isArray(manifest.forms)).toBe(true);
     expect(forms.length).toBeGreaterThan(0);
     expect(mishForms.length).toBe(sourceDocxFiles.length);
+    expect(handbookForm08).toBeDefined();
+  });
+
+  test("reclassified purchase approval form is handbook-owned", () => {
+    expect(handbookForm08).toBeDefined();
+    expect(handbookForm08.slug).toBe(
+      "form-handbook-08-purchase-approval-general-expense",
+    );
+    expect(handbookForm08.category).toBe("MHC-cat3-employee");
+    expect(handbookForm08.manualSection).toEqual(["HANDBOOK 08"]);
+    expect(handbookForm08.docxPath).toBe(
+      "MHC-HANDBOOK-FORMS/HANDBOOK-FORM-08_purchase-approval-general-expense.docx",
+    );
+    expect(handbookForm08.owner).toBe("Human Resources");
   });
 
   test.each(mishForms.map((entry) => [entry.id, entry]))(
@@ -120,7 +139,6 @@ describe("forms-manifest DOCX sources", () => {
       "MISH 48",
       "MISH 49",
       "MISH 50",
-      "MISH 51",
     ]);
   });
 

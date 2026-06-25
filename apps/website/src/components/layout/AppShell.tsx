@@ -144,7 +144,7 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
         <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
           <main
             id="main-content"
-            className="grow pt-[calc(var(--mh-nav-offset,6.5rem)+1rem)]"
+            className="grow pt-[var(--mh-nav-offset,6.5rem)]"
           >
             {children}
             <SmokeBossAfterHeroSlot />

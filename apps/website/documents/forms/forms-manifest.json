@@ -615,17 +615,17 @@
       "owner": "Safety Officer (Matt Ramsey)"
     },
     {
-      "id": "MISH 51",
-      "slug": "form-mish-51-purchase-approval-general-expense",
+      "id": "HANDBOOK-FORM-08",
+      "slug": "form-handbook-08-purchase-approval-general-expense",
       "title": "Purchase Approval General Expense",
-      "category": "MHC-cat2-safety",
-      "categoryLabel": "Safety Forms",
-      "categoryIcon": "🛡",
-      "manualSection": ["MISH 51"],
-      "docxPath": "MHC-MISH-47-Forms/FORM-MISH-51-Purchase-Approval-General-Expense.docx",
+      "category": "MHC-cat3-employee",
+      "categoryLabel": "Employee Handbook Forms",
+      "categoryIcon": "📋",
+      "manualSection": ["HANDBOOK 08"],
+      "docxPath": "MHC-HANDBOOK-FORMS/HANDBOOK-FORM-08_purchase-approval-general-expense.docx",
       "revision": "1.0",
       "effectiveDate": "June 2026",
-      "owner": "Safety Officer (Matt Ramsey)"
+      "owner": "Human Resources"
     },
     {
       "id": "HANDBOOK-FORM-01",
