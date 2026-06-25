@@ -18,7 +18,7 @@ const { PNG } = require("pngjs");
 const jsQR = require("jsqr");
 
 // Paths
-const QR_DIR = path.join(__dirname, "../public/images/qr-codes");
+const QR_DIR = path.join(__dirname, "../apps/website/public/images/qr-codes");
 const MANIFEST_PATH = path.join(QR_DIR, "qr-codes-manifest.json");
 
 function listQrFilesRecursive(dir, baseDir = dir) {

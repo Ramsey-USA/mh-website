@@ -27,6 +27,7 @@ const chamberScheduleUrl =
   "https://www.richlandchamber.org/cool-desert-nights/";
 const eventbriteUrl =
   "https://www.eventbrite.com/e/2026-cool-desert-nights-tickets-1984588946964";
+const boothEntryQrCode = "/images/qr-codes/events/qr-cdn-booth-entry-color.png";
 const kiwanisUrl = "https://kiwanisrichland.org/";
 const panelClass =
   "rounded-2xl border border-gray-200 bg-white/92 shadow-xl backdrop-blur-sm dark:border-white/20 dark:bg-white/5 dark:shadow-2xl";
@@ -522,6 +523,68 @@ export function CoolDesertNightsPageClient() {
                     Three quick steps — claim your swag, enter the Hilti
                     fastener challenge, and cast your People's Choice BBQ vote.
                   </p>
+                </div>
+                <div className="mb-6 grid gap-5 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:items-center">
+                  <div className="rounded-2xl border border-brand-primary/20 bg-white p-4 shadow-sm dark:border-white/15 dark:bg-white/5">
+                    <a
+                      href={boothEntryQrCode}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Open Cool Desert Nights booth entry QR code"
+                      className="block"
+                    >
+                      <div className="relative aspect-square overflow-hidden rounded-xl border border-gray-100 bg-white shadow-inner dark:border-white/10">
+                        <Image
+                          src={boothEntryQrCode}
+                          alt="Cool Desert Nights booth entry QR code"
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 18rem"
+                          className="object-contain p-4"
+                        />
+                      </div>
+                    </a>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      <a
+                        href={boothEntryQrCode}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-brand-primary px-3 py-2 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary/10"
+                      >
+                        <MaterialIcon
+                          icon="visibility"
+                          size="sm"
+                          className="text-brand-primary"
+                        />
+                        Open QR
+                      </a>
+                      <a
+                        href={boothEntryQrCode}
+                        download="qr-cdn-booth-entry-color.png"
+                        className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-brand-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-primary-dark"
+                      >
+                        <MaterialIcon
+                          icon="download"
+                          size="sm"
+                          className="text-white"
+                        />
+                        Download QR
+                      </a>
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm text-gray-700 dark:text-white/80">
+                    <p className="font-semibold uppercase tracking-[0.14em] text-brand-secondary">
+                      QR Access
+                    </p>
+                    <p>
+                      Use this booth-entry QR code to open the event check-in,
+                      and download the PNG if you need to print or distribute
+                      it.
+                    </p>
+                    <p>
+                      The same QR is also available in the QR code gallery under
+                      the Events folder.
+                    </p>
+                  </div>
                 </div>
                 <EventWizard />
               </div>

@@ -2,11 +2,16 @@
 
 Generated: 5/11/2026, 12:12:05 AM
 
+> [!NOTE]
+> This root-level copy is legacy. The canonical QR asset set now lives in
+> [apps/website/public/images/qr-codes](../../../../apps/website/public/images/qr-codes).
+> Use that folder for the current black/white and color PNGs.
+
 ## Summary
 
 - **Total QR Codes:** 228
 - **Successfully Generated:** 228
-- **Location:** `public/images/qr-codes`
+- **Location:** `apps/website/public/images/qr-codes`
 - **Folders:** `core`, `contact`, `rfq`, `safety`, `social`, `safety-sections`, `safety-forms`, `team`
 
 ## Available QR Codes

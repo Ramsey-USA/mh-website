@@ -1348,6 +1348,19 @@ export function TeamProfileSection({
                   {member.name.split(" ")[0]}
                 </span>
               </p>
+              <a
+                href={member.qrCode}
+                download={member.qrCode.split("/").pop() || "qr-code.png"}
+                className={TEAM_PROFILE_SECTION_THEME.contactButton}
+                aria-label={`Download QR code for ${member.name}`}
+              >
+                <MaterialIcon
+                  icon="download"
+                  size="sm"
+                  className="text-white"
+                />
+                Download QR Code
+              </a>
             </div>
           )}
         </div>

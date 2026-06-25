@@ -12,7 +12,7 @@ const ROOT = resolve(__dirname, "../..");
 const DOCS_DIR = join(ROOT, "documents");
 const BRAND_DIR = join(DOCS_DIR, "brands");
 const VENDORS_DIR = join(ROOT, "public/images/vendors");
-const QR_DIR = join(ROOT, "public/images/qr-codes");
+const QR_DIR = join(ROOT, "apps/website/public/images/qr-codes");
 const DEFAULT_OUT_DIR = join(DOCS_DIR, "output/rfq-preview");
 
 function getArg(flag) {

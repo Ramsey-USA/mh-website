@@ -146,6 +146,30 @@ describe("TeamProfileSection", () => {
     ).toBeInTheDocument();
   });
 
+  it("shows a QR code download link in the full profile modal", async () => {
+    const user = userEvent.setup();
+    const memberWithQrCode: VintageTeamMember = {
+      ...baseMember,
+      qrCode: "/images/qr-codes/team/qr-team-alex-builder-color.png",
+    };
+
+    render(<TeamProfileSection member={memberWithQrCode} index={1} />);
+
+    await user.click(
+      screen.getByRole("button", { name: /view full profile/i }),
+    );
+
+    expect(
+      screen.getByRole("link", { name: /download qr code for alex builder/i }),
+    ).toHaveAttribute(
+      "href",
+      "/images/qr-codes/team/qr-team-alex-builder-color.png",
+    );
+    expect(
+      screen.getByRole("link", { name: /download qr code for alex builder/i }),
+    ).toHaveAttribute("download", "qr-team-alex-builder-color.png");
+  });
+
   it("updates chart theme for dark mode and falls back to an icon avatar on image error", () => {
     const { rerender } = render(
       <TeamProfileSection member={baseMember} index={0} />,

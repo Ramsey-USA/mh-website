@@ -66,7 +66,9 @@ async function addQRCodesToTeamData() {
   console.log(`   Skipped: ${skippedCount} members`);
   console.log(`\n📋 Next steps:`);
   console.log(`   1. Run: node scripts/generate-qr-codes.js`);
-  console.log(`   2. QR codes will be generated in public/images/qr-codes/`);
+  console.log(
+    `   2. QR codes will be generated in apps/website/public/images/qr-codes/`,
+  );
   console.log(`   3. Team profiles will automatically display QR codes`);
 }
 

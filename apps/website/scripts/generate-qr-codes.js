@@ -4,7 +4,7 @@
  * QR Code Generator for MH Construction Website
  *
  * Generates QR codes for all major pages and social media links.
- * Saves images to public/images/qr-codes/
+ * Saves images to apps/website/public/images/qr-codes/
  *
  * Usage: node scripts/generate-qr-codes.js
  */
@@ -18,7 +18,10 @@ const path = require("node:path");
 const BASE_URL = "https://www.mhc-gc.com";
 
 // Output directory
-const OUTPUT_DIR = path.join(__dirname, "../public/images/qr-codes");
+const OUTPUT_DIR = path.join(
+  __dirname,
+  "../apps/website/public/images/qr-codes",
+);
 const TEAM_DATA_PATHS = [
   path.join(__dirname, "../src/lib/data/team-data.json"),
   path.join(__dirname, "../src/data/team-data.json"),
@@ -1051,7 +1054,7 @@ function generateManifest(results) {
   const manifest = {
     generatedAt: new Date().toISOString(),
     baseUrl: BASE_URL,
-    outputDirectory: "public/images/qr-codes",
+    outputDirectory: "apps/website/public/images/qr-codes",
     folders,
     variants: {
       color: {

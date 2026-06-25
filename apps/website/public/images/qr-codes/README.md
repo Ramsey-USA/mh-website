@@ -6,7 +6,7 @@ Generated: 6/25/2026, 5:41:18 PM
 
 - **Total QR Codes:** 314
 - **Successfully Generated:** 314
-- **Location:** `public/images/qr-codes`
+- **Location:** `apps/website/public/images/qr-codes`
 - **Folders:** `core`, `contact`, `rfq`, `safety`, `social`, `events`, `safety-sections`, `safety-forms`, `handbook-forms`, `team`
 
 ## Available QR Codes

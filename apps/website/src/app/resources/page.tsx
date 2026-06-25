@@ -137,6 +137,34 @@ export default function ResourcesPage() {
             />
           </Link>
 
+          <Link
+            href="/qr-codes"
+            className="group flex items-start sm:items-center gap-5 bg-linear-to-r from-brand-secondary/8 to-brand-secondary/4 dark:from-brand-secondary/20 dark:to-brand-secondary/10 border border-brand-secondary/25 dark:border-brand-secondary/40 rounded-2xl p-5 sm:p-6 mb-10 hover:border-brand-secondary hover:shadow-lg transition-all duration-300"
+          >
+            <div className="shrink-0 w-12 h-12 bg-brand-secondary rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
+              <MaterialIcon icon="qr_code_2" size="md" className="text-white" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 flex-wrap mb-1">
+                <h2 className="text-base font-bold text-brand-secondary dark:text-brand-secondary-light">
+                  QR Code Library
+                </h2>
+                <span className="text-xs font-semibold bg-brand-secondary text-white rounded-full px-2.5 py-0.5">
+                  Browse
+                </span>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                Open every individual QR code at full size and download the PNG
+                directly from one central gallery.
+              </p>
+            </div>
+            <MaterialIcon
+              icon="arrow_forward"
+              size="md"
+              className="text-brand-secondary shrink-0 group-hover:translate-x-1 transition-transform duration-200 hidden sm:block"
+            />
+          </Link>
+
           {/* Manuals */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
