@@ -28,12 +28,12 @@ async function requestPersistentStorage() {
   return false;
 }
 
-const _CACHE_NAME = "mh-construction-v4.0.1";
-const STATIC_CACHE_NAME = "mh-construction-static-v4.0.1";
-const DYNAMIC_CACHE_NAME = "mh-construction-dynamic-v4.0.1";
-const IMAGE_CACHE_NAME = "mh-construction-images-v4.0.1";
-const API_CACHE_NAME = "mh-construction-api-v4.0.1";
-const CDN_CACHE_NAME = "mh-construction-cdn-v4.0.1";
+const _CACHE_NAME = "mh-construction-v4.0.2";
+const STATIC_CACHE_NAME = "mh-construction-static-v4.0.2";
+const DYNAMIC_CACHE_NAME = "mh-construction-dynamic-v4.0.2";
+const IMAGE_CACHE_NAME = "mh-construction-images-v4.0.2";
+const API_CACHE_NAME = "mh-construction-api-v4.0.2";
+const CDN_CACHE_NAME = "mh-construction-cdn-v4.0.2";
 
 // Cache duration settings (in milliseconds) - optimized for CDN
 const CACHE_DURATION = {
@@ -183,7 +183,7 @@ self.addEventListener("activate", (event) => {
             .filter((cacheName) => {
               return (
                 cacheName.startsWith("mh-construction-") &&
-                !cacheName.includes("v4.0.1")
+                !cacheName.includes("v4.0.2")
               );
             })
             .map((cacheName) => {
@@ -435,6 +435,9 @@ self.addEventListener("fetch", (event) => {
     if (url.pathname.startsWith("/api/")) {
       // API requests - use intelligent caching based on endpoint
       event.respondWith(handleApiRequest(request, strategy));
+    } else if (isMediaRequest(request)) {
+      // Media requests - network first, preserve byte-range behavior
+      event.respondWith(handleMediaRequest(request));
     } else if (isImageRequest(request)) {
       // Image requests - aggressive caching for performance
       event.respondWith(handleImageRequest(request, strategy));
@@ -454,11 +457,33 @@ self.addEventListener("fetch", (event) => {
     // External requests (CDN, APIs, Cloudflare, etc.) - optimized for each
     if (isCloudflareAsset(new URL(request.url))) {
       event.respondWith(handleCloudflareRequest(request));
-    } else {
-      event.respondWith(handleExternalRequest(request));
     }
   }
 });
+
+// Handle media requests with network-first strategy and limited cache fallback.
+// Videos often use range requests; cache.put() is avoided for partial responses.
+async function handleMediaRequest(request) {
+  const cacheName = STATIC_CACHE_NAME;
+
+  try {
+    const networkResponse = await fetch(request);
+
+    if (networkResponse.ok && !request.headers.has("range")) {
+      const cache = await caches.open(cacheName);
+      cache.put(request, networkResponse.clone());
+    }
+
+    return networkResponse;
+  } catch (_error) {
+    const cachedResponse = await caches.match(request);
+    if (cachedResponse) {
+      return cachedResponse;
+    }
+
+    throw _error;
+  }
+}
 
 // Enhanced API request handler with intelligent caching strategies
 async function handleApiRequest(request) {
@@ -647,17 +672,6 @@ async function handlePageRequest(request, options = {}) {
   }
 }
 
-// Handle external requests
-async function handleExternalRequest(request) {
-  try {
-    const networkResponse = await fetch(request);
-    return networkResponse;
-  } catch (_error) {
-    console.info("[SW] External request failed:", request.url);
-    throw _error;
-  }
-}
-
 // Enhanced Cloudflare request handler with edge optimization
 async function handleCloudflareRequest(request) {
   const cacheName = CDN_CACHE_NAME;
@@ -722,6 +736,14 @@ function isImageRequest(request) {
   return (
     request.destination === "image" ||
     /\.(jpg|jpeg|png|gif|webp|svg|ico)$/i.test(request.url)
+  );
+}
+
+function isMediaRequest(request) {
+  return (
+    request.destination === "video" ||
+    request.destination === "audio" ||
+    /\.(mp4|webm|ogg|mp3|wav|m4a)$/i.test(request.url)
   );
 }
 

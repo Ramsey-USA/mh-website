@@ -113,11 +113,16 @@ binding = "ASSETS"
 
 ### Optional Environment Variables
 
-| Variable                        | Value             | Notes                       |
-| ------------------------------- | ----------------- | --------------------------- |
-| `CLOUDFLARE_ACCOUNT_ID`         | `your_account_id` | For manual Wrangler deploys |
-| `CLOUDFLARE_API_TOKEN`          | `your_api_token`  | For manual Wrangler deploys |
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-XXXXXXXXXX`    | Google Analytics (optional) |
+| Variable                        | Value             | Notes                                             |
+| ------------------------------- | ----------------- | ------------------------------------------------- |
+| `CLOUDFLARE_ACCOUNT_ID`         | `your_account_id` | For manual Wrangler deploys                       |
+| `CLOUDFLARE_API_TOKEN`          | `your_api_token`  | For manual Wrangler deploys                       |
+| `PUPPETEER_SKIP_DOWNLOAD`       | `true`            | Skips Chrome binary download during deploy builds |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-XXXXXXXXXX`    | Google Analytics (optional)                       |
+
+Set `PUPPETEER_SKIP_DOWNLOAD=true` in Cloudflare Workers project variables when
+browser automation is not required in deploy-time scripts. This reduces install
+time and avoids unnecessary postinstall network work.
 
 > **Note:** D1, KV, and R2 resource IDs are configured as bindings in
 > `wrangler.toml`, not as dashboard environment variables. Do not add
