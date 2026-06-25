@@ -55,13 +55,21 @@ function SmokeBossAfterHeroSlot() {
         (node) => node.tagName !== "SCRIPT" && node.tagName !== "TEMPLATE",
       ) as HTMLElement | undefined;
 
-      const anchor = heroLikeSection ?? firstRenderableChild ?? null;
+      // Prefer true hero anchors. Fallback only after retries so campaign
+      // content does not jump above hero during hydration.
+      let anchor = heroLikeSection ?? null;
 
-      if (!anchor?.parentElement) {
+      if (!anchor) {
         attempts += 1;
         if (attempts < 40) {
           timeoutId = globalThis.setTimeout(placeSlot, 50);
+          return;
         }
+        anchor = firstRenderableChild ?? null;
+      }
+
+      if (!anchor?.parentElement) {
+        timeoutId = globalThis.setTimeout(placeSlot, 50);
         return;
       }
 

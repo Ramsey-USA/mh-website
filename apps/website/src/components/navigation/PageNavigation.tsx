@@ -260,7 +260,7 @@ export function PageNavigation({
       className={`page-navigation border-y border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 shadow-sm ${className}`}
       aria-label="Page navigation"
     >
-      <div className="mx-auto w-full max-w-7xl">
+      <div className="w-full">
         <div className="grid grid-cols-6 items-stretch divide-x divide-gray-200 dark:divide-gray-700">
           {pages.map((page) => {
             const isActive = isActivePath(page.href);

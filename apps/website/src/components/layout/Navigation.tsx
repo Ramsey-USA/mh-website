@@ -138,10 +138,10 @@ export function Navigation() {
       {/* Main Header - Unified controls and logo layout */}
       <header
         ref={headerRef}
-        className="fixed top-0 left-0 right-0 z-70 bg-white/80 backdrop-blur-md dark:bg-gray-900/80 pointer-events-none"
+        className="fixed top-0 left-0 right-0 z-70 bg-linear-to-br from-gray-900/92 via-brand-primary/88 to-gray-900/92 backdrop-blur-md pointer-events-none"
       >
-        <div className="mx-auto px-2 xs:px-3 sm:px-4 lg:px-6 pt-2 xs:pt-3 sm:pt-4 max-w-7xl">
-          <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-1.5 max-[768px]:grid-cols-1 max-[360px]:gap-1 xs:gap-2 sm:gap-2.5">
+        <div className="w-full px-1.5 xs:px-2.5 sm:px-3 lg:px-4 xl:px-5 py-2 xs:py-3 sm:py-4">
+          <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-1.5 max-[768px]:grid-cols-1 max-[360px]:gap-1 xs:gap-2 sm:gap-2.5">
             <div className="flex items-center min-w-0 max-[768px]:justify-start">
               {/* Logo - anchored at the left edge */}
               <div className="shrink-0 pointer-events-auto relative group/logo">
@@ -183,9 +183,9 @@ export function Navigation() {
             </div>
 
             {/* Right-side controls */}
-            <div className="pointer-events-auto justify-self-end flex items-center gap-2 max-[360px]:gap-1.5 xs:gap-2 sm:gap-3 shrink-0 max-[768px]:grid max-[768px]:grid-cols-[auto_minmax(0,1fr)_auto_auto] max-[768px]:items-center max-[768px]:justify-self-stretch max-[768px]:gap-2.5 max-[768px]:pt-1">
-              <div className="order-1 relative group/language max-[768px]:justify-self-start">
-                <LanguageToggle className="order-1" />
+            <div className="pointer-events-auto justify-self-end flex items-center gap-2 max-[360px]:gap-1.5 xs:gap-2 sm:gap-3 shrink-0 max-[768px]:grid max-[768px]:grid-cols-[minmax(0,1fr)_auto_auto_auto] max-[768px]:items-center max-[768px]:justify-self-stretch max-[768px]:gap-2.5 max-[768px]:pt-1">
+              <div className="order-4 relative group/language max-[768px]:justify-self-end">
+                <LanguageToggle className="order-4" />
 
                 {/* Hover Tooltip - Language Toggle */}
                 <div className="absolute top-full mt-2 right-0 z-50 transition-all duration-300 w-[min(92vw,14rem)] max-w-[calc(100vw-1rem)] opacity-0 scale-95 pointer-events-none group-hover/language:opacity-100 group-hover/language:scale-100 group-hover/language:pointer-events-auto group-focus-within/language:opacity-100 group-focus-within/language:scale-100 group-focus-within/language:pointer-events-auto max-[768px]:hidden">
@@ -249,7 +249,7 @@ export function Navigation() {
                 </div>
               </div>
 
-              <div className="order-2 relative group/theme max-[768px]:justify-self-center">
+              <div className="order-3 relative group/theme max-[768px]:justify-self-center">
                 <ThemeToggle
                   compact
                   size="sm"
@@ -275,7 +275,7 @@ export function Navigation() {
                 </div>
               </div>
 
-              <div className="order-3 relative group/menu max-[768px]:justify-self-end">
+              <div className="order-2 relative group/menu max-[768px]:justify-self-center">
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className={`${controlButtonClassName}`}
