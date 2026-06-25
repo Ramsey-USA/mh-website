@@ -36,6 +36,7 @@ export function HeroSectionClient({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isVideoReady, setIsVideoReady] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const showLegacyBackdrop = !isVideoReady;
 
   useEffect(() => {
@@ -78,6 +79,8 @@ export function HeroSectionClient({
     }
 
     if (video.paused || video.ended) {
+      video.muted = false;
+      setIsMuted(false);
       void video
         .play()
         .then(() => setIsVideoPlaying(true))
@@ -96,6 +99,8 @@ export function HeroSectionClient({
     }
 
     video.currentTime = 0;
+    video.muted = false;
+    setIsMuted(false);
     void video
       .play()
       .then(() => setIsVideoPlaying(true))
@@ -113,6 +118,17 @@ export function HeroSectionClient({
     setIsVideoPlaying(false);
   };
 
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) {
+      return;
+    }
+
+    const nextMuted = !video.muted;
+    video.muted = nextMuted;
+    setIsMuted(nextMuted);
+  };
+
   return (
     <section
       data-page-hero="true"
@@ -128,7 +144,7 @@ export function HeroSectionClient({
                 isVideoReady ? "opacity-100" : "opacity-0"
               }`}
               autoPlay
-              muted
+              muted={isMuted}
               playsInline
               preload="metadata"
               poster={hasPoster ? posterSrc : undefined}
@@ -214,6 +230,14 @@ export function HeroSectionClient({
             aria-label="Stop hero video"
           >
             Stop
+          </button>
+          <button
+            type="button"
+            onClick={toggleMute}
+            className="rounded px-2 py-1 text-[10px] font-semibold text-white/85 transition-colors hover:bg-black/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/70"
+            aria-label={isMuted ? "Unmute hero video" : "Mute hero video"}
+          >
+            {isMuted ? "Unmute" : "Mute"}
           </button>
         </div>
       ) : null}
