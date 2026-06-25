@@ -3,41 +3,41 @@
 
 # Static JavaScript chunks
 /_next/static/chunks/*.js
-	Content-Type: application/javascript; charset=utf-8
-	Cache-Control: public, max-age=31536000, immutable
-	X-Content-Type-Options: nosniff
+  Content-Type: application/javascript; charset=utf-8
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
 
 # CSS files
 /_next/static/css/*.css
-	Content-Type: text/css; charset=utf-8
-	Cache-Control: public, max-age=31536000, immutable
-	X-Content-Type-Options: nosniff
+  Content-Type: text/css; charset=utf-8
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
 
 # Media files
 /_next/static/media/*
-	Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable
 
 # Next.js image optimization
 /_next/image*
-	Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable
 
 # Static assets
 /images/*
-	Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable
 
 /fonts/*
-	Cache-Control: public, max-age=31536000, immutable
-	Access-Control-Allow-Origin: *
-	X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+  X-Content-Type-Options: nosniff
 
 # Security headers for all responses
 /*
-	X-Frame-Options: DENY
-	X-Content-Type-Options: nosniff
-	Referrer-Policy: strict-origin-when-cross-origin
-	Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
-	X-XSS-Protection: 0
-	Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  X-XSS-Protection: 0
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
 # Early Hints are enabled in Cloudflare, but no global preload hints are
 # declared here because route-agnostic preloads can trigger

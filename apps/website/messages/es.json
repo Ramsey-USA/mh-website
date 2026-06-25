@@ -1107,6 +1107,15 @@
         "fridayCruise": "Crucero del viernes: Autos clasicos recorren George Washington Way.",
         "partyInPark": "Party in the Park: Musica en vivo y actividades comunitarias.",
         "saturdayShow": "Show 'n Shine del sabado: Exhibicion de vehiculos, zona infantil, vendedores y ceremonia de premiacion."
+      },
+      "earlyMorningNotes": {
+        "title": "Notas de la madrugada",
+        "subtitle": "Detalles de llegada y desayuno para el inicio de la manana",
+        "items": {
+          "cars": "Los autos clasicos comienzan a llegar a las 6:00 AM para los espacios con sombra en Jefferson Park.",
+          "registration": "La inscripcion tardia del auto show abre a las 7:00 AM en la carpa del lado de Jadwin en el centro comercial Uptown y cierra a las 10:00 AM.",
+          "pancakeFeed": "El Richland Kiwanis Pancake Feed se realiza de 7:00 AM a 11:00 AM en Jefferson Park. Solo efectivo: $5 ninos, $7 adultos."
+        }
       }
     },
     "action": {

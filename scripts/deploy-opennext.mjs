@@ -15,6 +15,7 @@ const repoRoot = resolve(appRoot, "../..");
 const openNextRoot = join(appRoot, ".open-next");
 const openNextWorker = join(openNextRoot, "worker.js");
 const openNextAssets = join(openNextRoot, "assets");
+const headersConfigPath = join(appRoot, "public", "_headers");
 
 const SOURCE_PATHS = [
   "package.json",
@@ -60,6 +61,72 @@ const wranglerConfigPath = join(repoRoot, "wrangler.toml");
 function fail(message) {
   console.error(`✖ ${message}`);
   process.exit(1);
+}
+
+function validateHeadersConfig() {
+  if (!existsSync(headersConfigPath)) {
+    return;
+  }
+
+  const lines = readFileSync(headersConfigPath, "utf8").split(/\r?\n/);
+  let currentPath = null;
+  let headersForCurrentPath = 0;
+
+  const flushPath = () => {
+    if (currentPath && headersForCurrentPath === 0) {
+      fail(
+        `Invalid _headers configuration: path "${currentPath}" has no headers declared.`,
+      );
+    }
+  };
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const lineNumber = index + 1;
+    const rawLine = lines[index] ?? "";
+    const trimmed = rawLine.trim();
+
+    if (trimmed === "" || trimmed.startsWith("#")) {
+      continue;
+    }
+
+    const isIndented = /^\s/.test(rawLine);
+
+    if (!isIndented) {
+      flushPath();
+
+      if (!trimmed.startsWith("/")) {
+        fail(
+          `Invalid _headers configuration at line ${lineNumber}: expected a path starting with '/'.`,
+        );
+      }
+
+      currentPath = trimmed;
+      headersForCurrentPath = 0;
+      continue;
+    }
+
+    if (!currentPath) {
+      fail(
+        `Invalid _headers configuration at line ${lineNumber}: header declared before any path.`,
+      );
+    }
+
+    const separatorIndex = trimmed.indexOf(":");
+    if (
+      separatorIndex <= 0 ||
+      separatorIndex === trimmed.length - 1 ||
+      !trimmed.slice(0, separatorIndex).trim() ||
+      !trimmed.slice(separatorIndex + 1).trim()
+    ) {
+      fail(
+        `Invalid _headers configuration at line ${lineNumber}: expected a colon-separated header pair.`,
+      );
+    }
+
+    headersForCurrentPath += 1;
+  }
+
+  flushPath();
 }
 
 function runPreflightChecks() {
@@ -251,6 +318,7 @@ if (buildCurrent) {
 
 run("npm", ["run", "check:hero-commercials"]);
 
+validateHeadersConfig();
 runPreflightChecks();
 pruneTempAssets();
 assertWorkersAssetLimit();

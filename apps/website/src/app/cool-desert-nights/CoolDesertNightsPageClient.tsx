@@ -408,6 +408,21 @@ export function CoolDesertNightsPageClient() {
                   <p>{t("timeline.items.partyInPark")}</p>
                   <p>{t("timeline.items.saturdayShow")}</p>
                 </div>
+                <div className={`${subPanelClass} mt-5 p-5`}>
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary/90">
+                    {t("timeline.earlyMorningNotes.title")}
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">
+                    {t("timeline.earlyMorningNotes.subtitle")}
+                  </p>
+                  <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-white/85">
+                    <li>{t("timeline.earlyMorningNotes.items.cars")}</li>
+                    <li>
+                      {t("timeline.earlyMorningNotes.items.registration")}
+                    </li>
+                    <li>{t("timeline.earlyMorningNotes.items.pancakeFeed")}</li>
+                  </ul>
+                </div>
               </div>
             </section>
 

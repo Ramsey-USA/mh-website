@@ -4,7 +4,7 @@
  * EventWizard — Cool Desert Nights 2026 Booth Entry
  *
  * Three-step gated form:
- *   Step 1 → MHC Swag Clearance (lead capture)
+ *   Step 1 → Community Review Sign-In (lead capture)
  *   Step 2 → Hilti Fastener Jar Challenge (numeric guess)
  *   Step 3 → People's Choice BBQ Tasting Poll (radio card vote)
  *
@@ -92,7 +92,7 @@ interface FormData {
 
 function StepIndicator({ current }: { current: 1 | 2 | 3 }) {
   const steps = [
-    { n: 1, label: "Swag Sign-In" },
+    { n: 1, label: "Review Sign-In" },
     { n: 2, label: "Hilti Guess" },
     { n: 3, label: "BBQ Vote" },
   ] as const;
@@ -395,9 +395,8 @@ function AdminPanel() {
         ⚙ Admin — Data Export Module
       </p>
       <p className="mb-4 text-sm text-amber-800 dark:text-amber-300">
-        Hard cut-off: <strong>1330 hrs</strong>. Final People's Choice result is
-        delivered to Announcing Judge Jeremy while fastener counting is
-        performed live for crowd transparency.
+        Final People's Choice results are delivered after voting closes while
+        fastener counting is performed live for crowd transparency.
       </p>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
@@ -514,6 +513,8 @@ export function EventWizard() {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [submitted, setSubmitted] = useState(false);
   const [isAdminMode, setIsAdminMode] = useState(false);
+  const googleReviewUrl =
+    "https://search.google.com/local/writereview?placeid=234677025037995169";
 
   const [form, setForm] = useState<FormData>({
     fullName: "",
@@ -547,6 +548,14 @@ export function EventWizard() {
       setIsAdminMode(true);
     }
   }, []);
+
+  useEffect(() => {
+    if (!submitted || submitStatus !== "success") {
+      return;
+    }
+
+    window.location.assign(googleReviewUrl);
+  }, [googleReviewUrl, submitted, submitStatus]);
 
   // ── Derived validation ────────────────────────────────────────────────────
 
@@ -685,10 +694,11 @@ export function EventWizard() {
         </div>
         <div>
           <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
-            Entry Secured!
+            Vote Submitted!
           </h2>
           <p className="mt-2 text-base text-gray-700 dark:text-white/80">
-            Collect your swag at the counter.
+            Please, Support our Mission to Sponsor more Local Events with a
+            Google Review!
           </p>
         </div>
         <div className="w-full max-w-sm rounded-2xl border border-gray-200 bg-white/92 p-5 shadow-lg dark:border-white/20 dark:bg-white/8">
@@ -743,10 +753,13 @@ export function EventWizard() {
               Step 1 of 3
             </p>
             <h3 className="mt-1 text-xl font-black text-gray-900 dark:text-white sm:text-2xl">
-              MHC Swag Clearance
+              Hilti Prize Entry
             </h3>
             <p className="mt-1 text-sm text-gray-600 dark:text-white/65">
-              Sign in to claim your free MH Construction swag bag.
+              Enter your contact info to qualify for the Hilti Prize and help
+              power a true community campaign. We’d appreciate a Google review
+              to grow our digital footprint and help us sponsor more local
+              events.
             </p>
           </div>
 
@@ -901,8 +914,9 @@ export function EventWizard() {
             </p>
             <p className="mt-1 text-xs text-gray-600 dark:text-white/65">
               Your contact info is used internally only for event follow-up and
-              our upcoming monthly MHC Newsletter (in development). NO third
-              parties.
+              prize coordination. If you leave a Google review, you help grow
+              our digital footprint and make it easier to sponsor more community
+              events. NO third parties.
             </p>
             <div className="mt-3 grid gap-3">
               <button

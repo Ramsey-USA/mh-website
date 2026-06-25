@@ -1107,6 +1107,15 @@
         "fridayCruise": "Friday Cruise: Classic cars cruise along George Washington Way.",
         "partyInPark": "Party in the Park: Live music and community activities.",
         "saturdayShow": "Saturday Show 'n Shine: Vehicle displays, kids' zone, exhibitors, and awards ceremony."
+      },
+      "earlyMorningNotes": {
+        "title": "Early Morning Notes",
+        "subtitle": "Arrival and breakfast details for the morning kickoff",
+        "items": {
+          "cars": "Classic cars begin arriving at 6:00 AM for shaded spots at Jefferson Park.",
+          "registration": "Late car show registration opens at 7:00 AM at the Jadwin-side tent at the Uptown shopping center and closes at 10:00 AM.",
+          "pancakeFeed": "The Richland Kiwanis Pancake Feed runs from 7:00 AM to 11:00 AM at Jefferson Park. Cash only: $5 kids, $7 adults."
+        }
       }
     },
     "action": {
