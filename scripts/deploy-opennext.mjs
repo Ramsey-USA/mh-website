@@ -53,6 +53,8 @@ const TEMP_ASSET_BASENAMES = new Set([
   "tmp-form03d-pdf-wait.png",
 ]);
 
+const WORKERS_MAX_ASSET_BYTES = 25 * 1024 * 1024;
+
 const wranglerConfigPath = join(repoRoot, "wrangler.toml");
 
 function fail(message) {
@@ -121,6 +123,59 @@ function pruneTempAssets() {
       `🧹 Removed ${removed} temporary form asset(s) from deploy bundle.`,
     );
   }
+}
+
+function listOversizedAssets(directory, root = directory, acc = []) {
+  if (!existsSync(directory)) {
+    return acc;
+  }
+
+  const entries = readdirSync(directory, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = join(directory, entry.name);
+    if (entry.isDirectory()) {
+      listOversizedAssets(fullPath, root, acc);
+      continue;
+    }
+
+    if (!entry.isFile()) {
+      continue;
+    }
+
+    const size = statSync(fullPath).size;
+    if (size > WORKERS_MAX_ASSET_BYTES) {
+      acc.push({
+        fullPath,
+        relativePath: fullPath.replace(`${root}/`, ""),
+        size,
+      });
+    }
+  }
+
+  return acc;
+}
+
+function assertWorkersAssetLimit() {
+  const oversizedAssets = listOversizedAssets(openNextAssets).sort(
+    (a, b) => b.size - a.size,
+  );
+
+  if (oversizedAssets.length === 0) {
+    return;
+  }
+
+  const maxMiB = (WORKERS_MAX_ASSET_BYTES / 1024 / 1024).toFixed(0);
+  console.error(
+    `✖ Found ${oversizedAssets.length} asset(s) in .open-next/assets exceeding Cloudflare Workers ${maxMiB} MiB limit:`,
+  );
+  for (const asset of oversizedAssets) {
+    const sizeMiB = (asset.size / 1024 / 1024).toFixed(2);
+    console.error(`  - ${sizeMiB} MiB  ${asset.relativePath}`);
+  }
+  console.error(
+    "Move large media out of public assets (for example to R2 or another CDN) before deploy.",
+  );
+  process.exit(1);
 }
 
 function latestMtimeForPath(targetPath) {
@@ -196,6 +251,7 @@ if (buildCurrent) {
 
 runPreflightChecks();
 pruneTempAssets();
+assertWorkersAssetLimit();
 
 run("pnpm", ["exec", "wrangler", "deploy"], {
   WRANGLER_SEND_METRICS: "false",
