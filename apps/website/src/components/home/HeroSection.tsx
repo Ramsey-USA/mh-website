@@ -23,7 +23,7 @@ const DEFAULT_EN_COPY: HeroSectionCopy = {
 };
 
 const HOME_HERO_WEBM = "/videos/hero-commercials/home-hero-optimized.webm";
-const HOME_HERO_MP4 = "/videos/hero-commercials/home-hero-optimized.mp4";
+const HOME_HERO_MP4 = "/videos/hero-commercials/home-hero-optimized-audio.mp4";
 const HOME_HERO_POSTER = "/images/home-hero-poster.jpg";
 
 /**
