@@ -146,7 +146,7 @@ export function HeroSectionClient({
               autoPlay
               muted={isMuted}
               playsInline
-              preload="metadata"
+              preload="auto"
               poster={hasPoster ? posterSrc : undefined}
               aria-label="MH Construction homepage hero video"
               onPlay={() => setIsVideoPlaying(true)}
@@ -163,8 +163,8 @@ export function HeroSectionClient({
                 setIsVideoPlaying(false);
               }}
             >
-              {hasWebm ? <source src={webmSrc} type="video/webm" /> : null}
               {hasMp4 ? <source src={mp4Src} type="video/mp4" /> : null}
+              {hasWebm ? <source src={webmSrc} type="video/webm" /> : null}
             </video>
 
             <div
