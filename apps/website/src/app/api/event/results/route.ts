@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
     }
     for (const row of rows) {
       if (row.bbq_vote in tallyMap) {
-        tallyMap[row.bbq_vote]++;
+        tallyMap[row.bbq_vote] = (tallyMap[row.bbq_vote] ?? 0) + 1;
       }
     }
     const bbqTallies = CDN_TEAM_OPTIONS.map((team) => ({
