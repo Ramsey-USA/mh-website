@@ -21,6 +21,7 @@ env:
   NODE_VERSION: "22"
   NEXT_PUBLIC_SITE_URL: https://www.mhc-gc.com
   HUSKY: "0"
+  PUPPETEER_SKIP_DOWNLOAD: "true"
 
 jobs:
   # ──────────────────────────────────────────────────────────────
@@ -188,7 +189,7 @@ jobs:
             apps/website/.next/cache
             apps/website/.open-next/cache
           key: nextjs-website-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{
-            hashFiles('apps/website/src/**', 'packages/shared/src/**', 'next.config.js', 'open-next.config.ts') }}
+            hashFiles('apps/website/src/**', 'packages/shared/src/**', 'apps/website/next.config.js', 'apps/website/open-next.config.ts') }}
           restore-keys: |
             nextjs-website-cache-${{ hashFiles('pnpm-lock.yaml') }}-
             nextjs-website-cache-
@@ -232,7 +233,7 @@ jobs:
             apps/dashboard/.next/cache
             apps/dashboard/.open-next/cache
           key: nextjs-dashboard-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{
-            hashFiles('apps/dashboard/src/**', 'packages/shared/src/**', 'next.config.js', 'open-next.config.ts') }}
+            hashFiles('apps/dashboard/src/**', 'packages/shared/src/**', 'apps/dashboard/next.config.js', 'apps/dashboard/open-next.config.ts') }}
           restore-keys: |
             nextjs-dashboard-cache-${{ hashFiles('pnpm-lock.yaml') }}-
             nextjs-dashboard-cache-

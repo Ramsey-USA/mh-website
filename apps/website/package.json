@@ -179,7 +179,7 @@
     "prettier": "^3.8.4",
     "sanitize-html": "^2.17.5",
     "typescript": "^6.0.3",
-    "wrangler": "4.103.0"
+    "wrangler": "4.105.0"
   },
   "optionalDependencies": {
     "@napi-rs/canvas": "^1.0.0",
