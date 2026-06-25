@@ -202,14 +202,22 @@ export default function ResourcesPage() {
             <div className="grid gap-5">
               <StaggeredFadeIn>
                 {manuals.map((doc) => (
+                  // Safety manual keeps its interactive index route; other manuals
+                  // open directly to their published PDF when available.
                   <Link
                     key={doc.id}
                     href={
                       doc.id === "safety-manual"
                         ? "/safety"
-                        : `/resources/${doc.id}`
+                        : (doc.pdfPath ?? `/resources/${doc.id}`)
                     }
                     className="group flex items-start gap-5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 sm:p-6 hover:border-brand-primary dark:hover:border-brand-secondary hover:shadow-lg transition-all duration-300"
+                    target={doc.id === "safety-manual" ? undefined : "_blank"}
+                    rel={
+                      doc.id === "safety-manual"
+                        ? undefined
+                        : "noopener noreferrer"
+                    }
                   >
                     {doc.id === "safety-manual" && (
                       <span className="sr-only">Safety Manual</span>
@@ -253,7 +261,11 @@ export default function ResourcesPage() {
                         {doc.description}
                       </p>
                       <div className="flex items-center gap-1.5 mt-3 text-brand-primary dark:text-brand-secondary text-sm font-semibold">
-                        <span>View all sections</span>
+                        <span>
+                          {doc.id === "safety-manual"
+                            ? "View all sections"
+                            : "Open manual PDF"}
+                        </span>
                         <MaterialIcon
                           icon="arrow_forward"
                           size="sm"

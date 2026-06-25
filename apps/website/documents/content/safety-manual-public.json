@@ -4,6 +4,9 @@
     "title": "Safety Manual",
     "revisionYear": 2026,
     "revisionDate": "2026-01-01",
+    "revisionVersion": "3.0",
+    "author": "Matt Ramsey (Safety Officer)",
+    "authorizedBy": "Jeremy Thamert (Owner)",
     "derivedAt": "2026-06-22T15:04:05.208Z",
     "derivedFrom": "documents/content/safety-manual.json",
     "totalSections": 50

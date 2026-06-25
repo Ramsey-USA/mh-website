@@ -3,13 +3,13 @@
 /**
  * documents/scripts/extract-word.mjs
  *
- * Extracts section text from DOCX files under documents/content/safety-manual-word/
+ * Extracts section text from DOCX files under documents/content/MHC-MISH-APP-50-Sections/
  * and writes a structured manifest to documents/content/safety-manual.json.
  *
  * Usage:
  *   npm run docs:extract-word
  *   node documents/scripts/extract-word.mjs
- *   node documents/scripts/extract-word.mjs --input documents/content/safety-manual-word
+ *   node documents/scripts/extract-word.mjs --input documents/content/MHC-MISH-APP-50-Sections
  */
 
 import { readdir, writeFile } from "fs/promises";
@@ -21,7 +21,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
 const DEFAULT_INPUT_DIR = join(
   ROOT,
-  "documents/content/safety-manual-word/2026-MHC-MISH-Safety-Program-v3-Word-Docs",
+  "documents/content/MHC-MISH-APP-50-Sections",
 );
 const OUTPUT = join(ROOT, "documents/content/safety-manual.json");
 

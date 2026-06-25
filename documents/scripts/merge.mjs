@@ -28,15 +28,44 @@ const OUTPUT_DIR = join(ROOT, "documents/output");
 const SECTIONS = join(OUTPUT_DIR, "sections");
 const FORM_PACKAGES_DIR = join(OUTPUT_DIR, "form-packages");
 const FORMS_MANIFEST_PATH = join(ROOT, "documents/forms/forms-manifest.json");
-const OUT_FILE = join(OUTPUT_DIR, "safety-manual-complete.pdf");
-const OUT_FILE_DIGITAL = join(OUTPUT_DIR, "safety-manual-digital.pdf");
-const PDF_METADATA_AUTHOR = "Matt Ramsey, Safety Officer";
-const PDF_METADATA_CREATOR = "MH Construction Document Pipeline";
-const PDF_METADATA_SUBJECT = "Accident · Injury · Safety · Health Program";
 
 // ── CLI flags ─────────────────────────────────────────────────────────────
+const manualIndex = process.argv.indexOf("--manual");
+const manualArg = manualIndex !== -1 && manualIndex + 1 < process.argv.length
+  ? process.argv[manualIndex + 1]
+  : process.argv
+      .find((arg) => arg.startsWith("--manual="))
+      ?.split("=")[1] || "safety";
+const isEmployeeHandbook =
+  manualArg === "employee" ||
+  manualArg === "employee-handbook" ||
+  manualArg === "handbook";
 const noTabs = process.argv.includes("--no-tabs");
 const noForms = process.argv.includes("--no-forms");
+
+const MANUAL_LABEL = isEmployeeHandbook ? "Employee Handbook" : "Safety Manual";
+const COVER_FILE = isEmployeeHandbook
+  ? "employee-handbook-cover.pdf"
+  : "safety-manual-cover.pdf";
+const TOC_FILE = isEmployeeHandbook
+  ? "employee-handbook-toc.pdf"
+  : "safety-manual-toc.pdf";
+const TABS_FILE = isEmployeeHandbook
+  ? "employee-handbook-tabs.pdf"
+  : "safety-manual-tabs.pdf";
+const OUT_FILE = isEmployeeHandbook
+  ? join(OUTPUT_DIR, "employee-handbook-complete.pdf")
+  : join(OUTPUT_DIR, "safety-manual-complete.pdf");
+const OUT_FILE_DIGITAL = isEmployeeHandbook
+  ? join(OUTPUT_DIR, "employee-handbook-digital.pdf")
+  : join(OUTPUT_DIR, "safety-manual-digital.pdf");
+const PDF_METADATA_AUTHOR = isEmployeeHandbook
+  ? "MH Construction Human Resources"
+  : "Matt Ramsey, Safety Officer";
+const PDF_METADATA_CREATOR = "MH Construction Document Pipeline";
+const PDF_METADATA_SUBJECT = isEmployeeHandbook
+  ? "Employee Handbook · Policies · Procedures"
+  : "Accident · Injury · Safety · Health Program";
 
 const FORMS_TOC_ROWS_FIRST_PAGE = 28;
 const FORMS_TOC_ROWS_OTHER_PAGES = 34;
@@ -49,7 +78,16 @@ function normalizeSlug(value) {
 }
 
 function parseFormOrder(source) {
-  const idMatch = /^FORM\s+(\d+)-([A-Z])$/i.exec(String(source || "").trim());
+  const trimmed = String(source || "").trim();
+  const mishMatch = /^(?:FORM\s+)?MISH\s*(\d{1,2})$/i.exec(trimmed);
+  if (mishMatch) {
+    return {
+      num: Number.parseInt(mishMatch[1], 10),
+      letter: "A",
+    };
+  }
+
+  const idMatch = /^FORM\s+(\d+)-([A-Z])$/i.exec(trimmed);
   if (idMatch) {
     return {
       num: Number.parseInt(idMatch[1], 10),
@@ -57,11 +95,19 @@ function parseFormOrder(source) {
     };
   }
 
-  const fileMatch = /^form-(\d+)-([a-z])(?:-|$)/i.exec(String(source || ""));
+  const fileMatch = /^form-mish-(\d{1,2})(?:-|$)/i.exec(trimmed);
   if (fileMatch) {
     return {
       num: Number.parseInt(fileMatch[1], 10),
-      letter: fileMatch[2].toUpperCase(),
+      letter: "A",
+    };
+  }
+
+  const legacyFileMatch = /^form-(\d+)-([a-z])(?:-|$)/i.exec(trimmed);
+  if (legacyFileMatch) {
+    return {
+      num: Number.parseInt(legacyFileMatch[1], 10),
+      letter: legacyFileMatch[2].toUpperCase(),
     };
   }
 
@@ -72,16 +118,24 @@ function parseFormOrder(source) {
 }
 
 function fallbackFormIdFromFilename(fileName) {
-  const match = /^form-(\d+)-([a-z])(?:-|$)/i.exec(fileName);
-  if (!match) {
-    return fileName.replace(/\.pdf$/i, "").toUpperCase();
+  const mishMatch = /form-mish-(\d{1,2})/i.exec(fileName);
+  if (mishMatch) {
+    return `MISH ${String(Number.parseInt(mishMatch[1], 10)).padStart(2, "0")}`;
   }
-  return `FORM ${match[1]}-${match[2].toUpperCase()}`;
+
+  const match = /^form-(\d+)-([a-z])(?:-|$)/i.exec(fileName);
+  if (match) {
+    return `FORM ${match[1]}-${match[2].toUpperCase()}`;
+  }
+
+  return fileName.replace(/\.pdf$/i, "").toUpperCase();
 }
 
 function fallbackFormTitleFromFilename(fileName) {
   const base = fileName.replace(/\.pdf$/i, "");
-  const trimmed = base.replace(/^form-\d+-[a-z]-/i, "");
+  const trimmed = base
+    .replace(/^form-mish-\d+-/i, "")
+    .replace(/^form-\d+-[a-z]-/i, "");
   return trimmed
     .split("-")
     .filter(Boolean)
@@ -181,7 +235,7 @@ async function buildFormsTocPdf(entries) {
       color: rgb(0.75, 0.79, 0.84),
     });
 
-    page.drawText("FORM", {
+    page.drawText("FORM ID", {
       x: colIdX,
       y: tableTopY,
       size: 9,
@@ -322,30 +376,30 @@ async function getFormPackages() {
  */
 async function merge({ includeTabs, includeForms, outFile, title }) {
   console.log(
-    `📦 MH Construction — Safety Manual Merge${includeTabs ? "" : " (Digital — no tabs)"}`,
+    `📦 MH Construction — ${MANUAL_LABEL} Merge${includeTabs ? "" : " (Digital — no tabs)"}`,
   );
   console.log("==========================================\n");
 
   // ── Validate required inputs exist ──────────────────────────────────────
-  const coverPath = join(OUTPUT_DIR, "safety-manual-cover.pdf");
-  const tocPath = join(OUTPUT_DIR, "safety-manual-toc.pdf");
-  const tabsPath = join(OUTPUT_DIR, "safety-manual-tabs.pdf");
+  const coverPath = join(OUTPUT_DIR, COVER_FILE);
+  const tocPath = join(OUTPUT_DIR, TOC_FILE);
+  const tabsPath = join(OUTPUT_DIR, TABS_FILE);
 
   if (!existsSync(coverPath)) {
     console.error(
-      "❌  Cover PDF not found. Run `npm run docs:generate` first.",
+      `❌  Cover PDF not found: ${COVER_FILE}. Run \`npm run docs:generate\` first.`,
     );
     process.exit(1);
   }
-  if (!existsSync(tocPath)) {
-    console.error("❌  TOC PDF not found. Run `npm run docs:generate` first.");
+  if (!isEmployeeHandbook && !existsSync(tocPath)) {
+    console.error(`❌  TOC PDF not found. Run \`npm run docs:generate\` first.`);
     process.exit(1);
   }
   if (includeTabs && !existsSync(tabsPath)) {
-    console.error("❌  Tabs PDF not found. Run `npm run docs:generate` first.");
+    console.error(`❌  Tabs PDF not found. Run \`npm run docs:generate\` first.`);
     process.exit(1);
   }
-  if (!existsSync(SECTIONS)) {
+  if (!isEmployeeHandbook && !existsSync(SECTIONS)) {
     console.error(
       "❌  Sections directory not found. Run `npm run docs:generate` first.",
     );
@@ -359,31 +413,39 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
   }
 
   // ── Discover section PDFs in numeric order ──────────────────────────────
-  const files = await readdir(SECTIONS);
-  const sectionFiles = files
-    .filter((f) => f.endsWith(".pdf"))
-    .sort((a, b) => {
-      const numA = parseInt(a.split("-")[0], 10);
-      const numB = parseInt(b.split("-")[0], 10);
-      return numA - numB;
-    });
+  let sectionFiles = [];
+  if (!isEmployeeHandbook) {
+    const files = await readdir(SECTIONS);
+    sectionFiles = files
+      .filter((f) => f.endsWith(".pdf"))
+      .sort((a, b) => {
+        const numA = parseInt(a.split("-")[0], 10);
+        const numB = parseInt(b.split("-")[0], 10);
+        return numA - numB;
+      });
 
-  if (sectionFiles.length === 0) {
-    console.error("❌  No section PDFs found in documents/output/sections/.");
-    process.exit(1);
+    if (sectionFiles.length === 0) {
+      console.error("❌  No section PDFs found in documents/output/sections/.");
+      process.exit(1);
+    }
   }
 
-  console.log(`  Cover:    safety-manual-cover.pdf`);
-  console.log(`  TOC:      safety-manual-toc.pdf`);
+  console.log(`  Cover:    ${COVER_FILE}`);
+  if (!isEmployeeHandbook) {
+    console.log(`  TOC:      ${TOC_FILE}`);
+  }
   if (includeTabs) {
-    console.log(`  Tabs:     safety-manual-tabs.pdf`);
+    console.log(`  Tabs:     ${TABS_FILE}`);
   }
   if (includeForms) {
     console.log(`  Forms:    form-packages/*.pdf (with appendix TOC)`);
   }
-  console.log(
-    `  Sections: ${sectionFiles.length} PDFs (${sectionFiles[0]} … ${sectionFiles.at(-1)})\n`,
-  );
+  if (sectionFiles.length > 0) {
+    console.log(
+      `  Sections: ${sectionFiles.length} PDFs (${sectionFiles[0]} … ${sectionFiles.at(-1)})`,
+    );
+  }
+  console.log("");
 
   // ── Create merged document ──────────────────────────────────────────────
   const merged = await PDFDocument.create();
@@ -420,66 +482,86 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
   // 1. Cover page
   await appendPdf("Cover", coverPath);
 
-  // 2. Table of contents
-  await appendPdf("Table of Contents", tocPath);
+  // 2. Table of contents (MISH only)
+  if (!isEmployeeHandbook) {
+    await appendPdf("Table of Contents", tocPath);
+  }
 
   // 3. Tab dividers (skip for digital/no-tabs variant)
   if (includeTabs) {
     await appendPdf("Tab Dividers", tabsPath);
   }
 
-  // 4. All section PDFs in order (01–50)
-  for (const file of sectionFiles) {
-    const num = file.split("-")[0];
-    await appendPdf(`Section ${num}`, join(SECTIONS, file));
+  // 4. All section PDFs in order (01–50) — MISH only
+  if (!isEmployeeHandbook) {
+    for (const file of sectionFiles) {
+      const num = file.split("-")[0];
+      await appendPdf(`Section ${num}`, join(SECTIONS, file));
+    }
   }
 
   // 5. Forms appendix with dedicated TOC page(s)
   if (includeForms) {
     const formPackages = await getFormPackages();
     if (formPackages.length === 0) {
-      console.error(
-        "❌  No form packages found in documents/output/form-packages/. Run `npm run docs:generate:forms` first.",
-      );
-      process.exit(1);
-    }
-
-    const unmapped = formPackages.filter((pkg) => !pkg.manualSection);
-    if (unmapped.length > 0) {
-      console.error(
-        "❌  Forms appendix requires MISH mapping for every form package.",
-      );
-      for (const pkg of unmapped) {
+      if (!isEmployeeHandbook) {
         console.error(
-          `    - ${pkg.id} (${pkg.file}) is missing manualSection in documents/forms/forms-manifest.json`,
+          "❌  No form packages found in documents/output/form-packages/. Run `npm run docs:generate:forms` first.",
         );
+        process.exit(1);
+      } else {
+        console.log(`  ℹ  No form packages found (handbook uses DOCX form templates)`);
       }
-      process.exit(1);
-    }
+    } else {
+      // Filter to include only MISH forms for MISH merge, only handbook forms for handbook merge
+      const filtered = isEmployeeHandbook
+        ? formPackages.filter((pkg) => pkg.id.includes("HANDBOOK"))
+        : formPackages.filter((pkg) => pkg.id.includes("MISH"));
 
-    console.log(
-      `  ✓  Forms mapped to MISH sections: ${formPackages.length}/${formPackages.length}`,
-    );
+      if (filtered.length === 0) {
+        console.log(
+          `  ℹ  No ${isEmployeeHandbook ? "handbook" : "MISH"} form packages found`,
+        );
+      } else {
+        const unmapped = filtered.filter((pkg) => !pkg.manualSection);
+        if (unmapped.length > 0) {
+          console.warn(
+            `  ⚠  ${unmapped.length} form(s) missing manualSection mapping (will skip)`,
+          );
+          filtered.splice(
+            0,
+            filtered.length,
+            ...filtered.filter((pkg) => pkg.manualSection),
+          );
+        }
 
-    const formsTocPages = paginateFormEntries(formPackages).length;
-    let nextFormPage = merged.getPageCount() + formsTocPages + 1;
+        if (filtered.length > 0) {
+          console.log(
+            `  ✓  Forms mapped: ${filtered.length}/${filtered.length}`,
+          );
 
-    const tocEntries = formPackages.map((pkg) => {
-      const entry = {
-        id: pkg.id,
-        title: pkg.title,
-        manualSection: pkg.manualSection,
-        pageStart: nextFormPage,
-      };
-      nextFormPage += pkg.pageCount;
-      return entry;
-    });
+          const formsTocPages = paginateFormEntries(filtered).length;
+          let nextFormPage = merged.getPageCount() + formsTocPages + 1;
 
-    const formsTocBytes = await buildFormsTocPdf(tocEntries);
-    await appendPdfBytes("Forms Appendix TOC", formsTocBytes);
+          const tocEntries = filtered.map((pkg) => {
+            const entry = {
+              id: pkg.id,
+              title: pkg.title,
+              manualSection: pkg.manualSection,
+              pageStart: nextFormPage,
+            };
+            nextFormPage += pkg.pageCount;
+            return entry;
+          });
 
-    for (const pkg of formPackages) {
-      await appendPdfBytes(`${pkg.id} — ${pkg.title}`, pkg.bytes);
+          const formsTocBytes = await buildFormsTocPdf(tocEntries);
+          await appendPdfBytes("Forms Appendix TOC", formsTocBytes);
+
+          for (const pkg of filtered) {
+            await appendPdfBytes(`${pkg.id} — ${pkg.title}`, pkg.bytes);
+          }
+        }
+      }
     }
   }
 
@@ -497,20 +579,26 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
 
 async function main() {
   if (noTabs) {
-    // Digital variant: cover + TOC + sections (+ forms unless --no-forms)
+    // Digital variant: cover + sections (+ TOC for MISH, + forms unless --no-forms)
+    const title = isEmployeeHandbook
+      ? "MH Construction Employee Handbook — Digital"
+      : "MH Construction Safety Manual — Digital";
     await merge({
       includeTabs: false,
       includeForms: !noForms,
       outFile: OUT_FILE_DIGITAL,
-      title: "MH Construction Safety Manual — Digital",
+      title,
     });
   } else {
     // Default: complete binder version (cover + TOC + tabs + sections + forms)
+    const title = isEmployeeHandbook
+      ? "MH Construction Employee Handbook — Complete"
+      : "MH Construction Safety Manual — Complete";
     await merge({
       includeTabs: true,
       includeForms: !noForms,
       outFile: OUT_FILE,
-      title: "MH Construction Safety Manual — Complete",
+      title,
     });
   }
 }

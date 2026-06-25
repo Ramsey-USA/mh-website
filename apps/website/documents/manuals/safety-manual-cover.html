@@ -227,78 +227,127 @@
         font-weight: 800;
       }
 
-      .bottom {
+      .footer {
         position: absolute;
         left: 0.92in;
         right: 0.9in;
         bottom: 0.62in;
+        padding-top: 9pt;
+        border-top: 1.2pt solid var(--brand-primary);
         display: grid;
-        grid-template-columns: 1.6fr 1fr;
-        gap: 18pt;
+        grid-template-columns: 1.45fr 1fr;
+        gap: 0.25in;
         align-items: end;
       }
 
-      .contact {
-        font-size: 8pt;
-        line-height: 1.42;
+      .footer::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 2.5pt;
+        height: 0.6pt;
+        background: var(--brand-secondary);
+      }
+
+      .footer .contact {
+        font-size: 7.8pt;
+        line-height: 1.45;
         color: var(--brand-primary-darker);
       }
 
-      .contact .name {
-        font-size: 8.4pt;
+      .footer .contact .name {
+        font-size: 8.2pt;
         font-weight: 800;
         color: var(--brand-primary);
       }
 
-      .contact .meta {
+      .footer .contact .label {
         color: var(--brand-secondary);
-        font-size: 7pt;
-        letter-spacing: 0.13em;
+        font-size: 6.6pt;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
         font-weight: 800;
-        margin-bottom: 4pt;
+        margin-bottom: 3pt;
       }
 
-      .licenses {
-        margin-top: 5pt;
-        font-size: 7.5pt;
+      .footer .licenses {
+        margin-top: 4pt;
+        font-size: 7.2pt;
+        color: var(--brand-secondary);
+        font-weight: 700;
       }
 
-      .trust {
+      .footer .trust {
         text-align: right;
       }
 
-      .trust .meta {
+      .footer .trust .label {
         color: var(--brand-secondary);
-        font-size: 7pt;
-        letter-spacing: 0.13em;
+        font-size: 6.6pt;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
         font-weight: 800;
         margin-bottom: 5pt;
       }
 
-      .logos {
+      .footer .logos {
         display: flex;
         justify-content: flex-end;
         align-items: flex-end;
         gap: 9pt;
       }
 
-      .logos img {
+      .footer .logos img {
         display: block;
         width: auto;
       }
 
       .logo-agc {
-        height: 0.38in;
+        height: 0.36in;
       }
 
       .logo-bbb {
-        height: 0.41in;
+        height: 0.39in;
       }
 
       .logo-vob {
-        height: 0.55in;
+        height: 0.5in;
+      }
+
+      .footer .chambers {
+        margin-top: 6pt;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10pt;
+        padding-top: 6pt;
+        border-top: 0.4pt solid var(--brand-secondary);
+      }
+
+      .footer .chambers img {
+        display: block;
+        width: auto;
+        height: 0.3in;
+      }
+
+      .veteran-strip {
+        position: absolute;
+        left: 0.92in;
+        right: 0.9in;
+        bottom: 0.42in;
+        text-align: center;
+        font-size: 6.6pt;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: var(--brand-secondary);
+        z-index: 2;
+      }
+
+      .veteran-strip .sep {
+        color: var(--brand-secondary);
+        margin: 0 6pt;
       }
     </style>
   </head>
@@ -320,54 +369,54 @@
           src="{{BRAND_LOGO_COLOR}}"
           alt="MH Construction logo"
         />
-        <div class="program-chip">MHC-APP</div>
-        <h1 class="title">Accident<br />Prevention<br />Program</h1>
-        <p class="subtitle">MHC Industrial Safety and Health Program (MISH)</p>
+        <div class="program-chip">MISH Safety Manual</div>
+        <h1 class="title">Safety<br />Manual</h1>
+        <p class="subtitle">Accident Prevention Program for Field Operations</p>
       </section>
 
       <aside class="summary-card" aria-label="manual scope overview">
-        <div class="summary-head">Field Use Overview</div>
+        <div class="summary-head">Program Snapshot</div>
         <ul class="summary-list">
           <li>
-            <strong>Purpose:</strong> Site-ready safety requirements for all
-            active projects.
+            <strong>Purpose:</strong> Unified safety framework for pre-task
+            planning, hazard controls, and incident prevention.
           </li>
           <li>
-            <strong>Audience:</strong> Supervisors, Project Superintendents,
+            <strong>Audience:</strong> Project managers, superintendents, field
             employees, and subcontractors.
           </li>
           <li>
-            <strong>Structure:</strong> 8 operational chapters and 50 MISH
-            sections.
+            <strong>Structure:</strong> 50 MISH sections organized by
+            operational clusters, plus a complete forms appendix.
           </li>
           <li>
-            <strong>Project Role Chain:</strong> Estimator handoff to Project
-            Manager; PM coordinates logistics with Senior Superintendent (Steve)
-            and Safety Officer (Matt Ramsey); Project Superintendent is
-            assigned; Project Engineer supports PM and Project Superintendent
-            during execution.
+            <strong>Use Standard:</strong> Required for onboarding, daily
+            operations, and post-incident corrective actions.
           </li>
           <li>
             <strong>Standards:</strong> OSHA 29 CFR 1926, WAC 296-155, AGC, and
             Travelers risk control.
           </li>
-          <li><strong>Revision:</strong> {{BRAND_REVISION_YEAR}}</li>
+          <li>
+            <strong>Revision:</strong> {{BRAND_REVISION_DATE}} (Rev
+            {{BRAND_REVISION_NUMBER}})
+          </li>
         </ul>
       </aside>
 
       <aside class="qr-card" aria-label="digital manual access">
-        <p class="qr-head">Digital Access</p>
+        <p class="qr-head">Safety Manual Online</p>
         <img
           class="qr-img"
           src="{{QR_DIGITAL_MANUAL}}"
           alt="QR code to digital safety manual"
         />
-        <div class="qr-label">Scan for latest edition</div>
+        <div class="qr-label">Scan for current MISH edition</div>
       </aside>
 
-      <footer class="bottom">
+      <footer class="footer">
         <div class="contact">
-          <div class="meta">Company Contact</div>
+          <div class="label">Company Contact</div>
           <div class="name">{{BRAND_COMPANY_NAME}}</div>
           {{BRAND_ADDRESS_STREET}}<br />
           {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
@@ -376,7 +425,7 @@
         </div>
 
         <div class="trust">
-          <div class="meta">Accreditation and Trust</div>
+          <div class="label">Accreditation and Trust</div>
           <div class="logos">
             <img
               class="logo-agc"
@@ -394,8 +443,27 @@
               alt="Washington certified veteran owned business"
             />
           </div>
+          <div class="chambers" aria-label="Chamber of Commerce memberships">
+            <img
+              src="{{BRAND_CHAMBER_PASCO}}"
+              alt="Pasco Chamber of Commerce member"
+            />
+            <img
+              src="{{BRAND_CHAMBER_KENNEWICK}}"
+              alt="Tri-City Regional Chamber of Commerce member"
+            />
+            <img
+              src="{{BRAND_CHAMBER_RICHLAND}}"
+              alt="Richland Chamber of Commerce member"
+            />
+          </div>
         </div>
       </footer>
+
+      <div class="veteran-strip">
+        Veteran-Owned <span class="sep">&#9733;</span> Mission-First
+        <span class="sep">&#9733;</span> Built on Honor, Integrity &amp; Trust
+      </div>
     </div>
   </body>
 </html>

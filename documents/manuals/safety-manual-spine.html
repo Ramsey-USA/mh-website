@@ -28,6 +28,9 @@
         width: 8.5in; height: 11in;
         font-family: var(--font-body);
         background: white;
+        overflow: hidden;
+        font-size: 0;
+        line-height: 0;
       }
       .page {
         width: 8.5in; height: 11in;
@@ -35,6 +38,8 @@
         align-items: center;
         justify-content: center;
         background: var(--muted);
+        page-break-after: avoid;
+        break-after: avoid;
       }
       .crop-area {
         position: relative;
@@ -104,7 +109,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0.06in;
+        gap: 0.1in;
         padding: 0.24in 0.16in 0.14in;
         flex-shrink: 0;
         position: relative;
@@ -178,6 +183,14 @@
         color: var(--brand-secondary-text);
         flex-shrink: 0;
       }
+      .spine-revision {
+        font-size: 6.2pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--brand-secondary-text);
+        flex-shrink: 0;
+      }
       .spine-badges {
         display: flex;
         flex-direction: column;
@@ -211,6 +224,7 @@
               alt="MH Construction"
             />
             <span class="spine-year">{{BRAND_REVISION_YEAR}}</span>
+            <span class="spine-revision">Revision 3.0</span>
           </div>
 
           <div class="spine-divider"></div>
@@ -218,7 +232,7 @@
           <div class="spine-text">
             <span class="spine-company">{{BRAND_COMPANY_SHORT}}</span>
             <div class="spine-rule-sm"></div>
-            <span class="spine-title">MISH · Accident Prevention Program</span>
+            <span class="spine-title">MISH Safety Manual</span>
           </div>
 
           <div class="spine-divider"></div>

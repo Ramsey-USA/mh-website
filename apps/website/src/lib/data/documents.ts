@@ -23,6 +23,12 @@ const SAFETY_PROGRAM_LAST_SECTION = String(
 const SAFETY_PROGRAM_REVISION_YEAR = Number(mhcBrand.revisionYear) || 2026;
 const SAFETY_PROGRAM_REVISION_NUMBER = mhcBrand.revisionNumber || "3";
 const SAFETY_PROGRAM_REVISION_DATE = mhcBrand.revisionDate || "04/07/2026";
+const EMPLOYEE_HANDBOOK_TITLE = "Employee Handbook";
+const EMPLOYEE_HANDBOOK_SUBTITLE =
+  "MH Construction Employee Policies and Procedures";
+const EMPLOYEE_HANDBOOK_REVISION_YEAR = 2026;
+const EMPLOYEE_HANDBOOK_REVISION_NUMBER = "1.0";
+const EMPLOYEE_HANDBOOK_REVISION_DATE = "05/01/2026";
 
 export type SectionCategory =
   | "Personnel & Policy"
@@ -778,6 +784,23 @@ export const manuals: DocumentEntry[] = [
           "/images/qr-codes/safety-sections/qr-safety-section-50-color.png",
       },
     ],
+  },
+  {
+    id: "employee-handbook",
+    title: EMPLOYEE_HANDBOOK_TITLE,
+    subtitle: EMPLOYEE_HANDBOOK_SUBTITLE,
+    description:
+      "Company employment policies, conduct expectations, workplace standards, benefits, and onboarding guidance. This handbook is maintained as a separate manual from MISH while using the same shared forms ecosystem where applicable.",
+    category: "employee-manual",
+    icon: "book",
+    revisionYear: EMPLOYEE_HANDBOOK_REVISION_YEAR,
+    revisionNumber: EMPLOYEE_HANDBOOK_REVISION_NUMBER,
+    revisionDate: EMPLOYEE_HANDBOOK_REVISION_DATE,
+    totalPages: 37,
+    pdfPath: "/docs/employee/employee-handbook-2026.pdf",
+    r2Key: "docs/employee/employee-handbook-2026.pdf",
+    tags: ["employee", "handbook", "hr", "policies", "onboarding"],
+    qrCodeUrl: "/images/qr-codes/safety/qr-employee-handbook-color.png",
   },
 ];
 

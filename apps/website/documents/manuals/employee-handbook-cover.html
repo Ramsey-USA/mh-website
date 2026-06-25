@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MH Construction Employee Handbook - Cover</title>
+    <style>
+      :root {
+        --brand-primary: {{BRAND_COLOR_PRIMARY}};
+        --brand-primary-dark: {{BRAND_COLOR_PRIMARY_DARK}};
+        --brand-primary-darker: {{BRAND_COLOR_PRIMARY_DARKER}};
+        --brand-secondary: {{BRAND_COLOR_SECONDARY}};
+        --brand-secondary-light: {{BRAND_COLOR_SECONDARY_LIGHT}};
+        --brand-secondary-text: {{BRAND_COLOR_SECONDARY_TEXT}};
+        --ink: #12231b;
+        --paper: #ffffff;
+        --muted: #f6f8f7;
+        /* MH brand fonts */
+        --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Helvetica Neue", Arial, sans-serif;
+        --font-body: "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans",
+          sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      @page {
+        size: letter portrait;
+        margin: 0;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 8.5in;
+        height: 11in;
+        font-family: var(--font-body);
+        background: var(--paper);
+      }
+
+      .cover {
+        position: relative;
+        width: 8.5in;
+        height: 11in;
+        overflow: hidden;
+        color: var(--ink);
+        background: var(--paper);
+      }
+
+      .cover::before {
+        content: "";
+        position: absolute;
+        inset: 0.22in;
+        border: 1.2pt solid var(--brand-primary);
+      }
+
+      .cover::after {
+        content: "";
+        position: absolute;
+        inset: 0.33in;
+        border: 0.6pt solid var(--brand-secondary);
+      }
+
+      .left-ribbon {
+        position: absolute;
+        top: 0.45in;
+        bottom: 0.45in;
+        left: 0.45in;
+        width: 0.28in;
+        background: linear-gradient(
+          180deg,
+          var(--brand-primary) 0%,
+          var(--brand-primary) 68%,
+          var(--brand-secondary) 100%
+        );
+      }
+
+      .identity {
+        position: absolute;
+        top: 0.62in;
+        left: 0.92in;
+        right: 0.9in;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 7.2pt;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: var(--brand-primary);
+      }
+
+      .identity .dot {
+        color: var(--brand-secondary);
+        margin: 0 7pt;
+      }
+
+      .hero {
+        position: absolute;
+        top: 1.35in;
+        left: 1.02in;
+        right: 1.02in;
+      }
+
+      .logo {
+        width: 2.85in;
+        height: auto;
+        display: block;
+        margin: 0 auto 0.28in;
+      }
+
+      .program-chip {
+        width: fit-content;
+        margin: 0 auto 0.18in;
+        background: var(--muted);
+        border: 0.8pt solid var(--brand-secondary);
+        color: var(--brand-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 8pt;
+        font-weight: 800;
+        padding: 5pt 14pt;
+      }
+
+      .title {
+        margin: 0;
+        text-align: center;
+        text-transform: uppercase;
+        color: var(--brand-primary);
+        font-size: 48pt;
+        line-height: 0.9;
+        letter-spacing: 0.01em;
+        font-weight: 900;
+      }
+
+      .subtitle {
+        margin: 0.16in 0 0;
+        text-align: center;
+        color: var(--brand-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 10pt;
+        font-weight: 700;
+      }
+
+      .summary-card {
+        position: absolute;
+        left: 1.02in;
+        right: 2.95in;
+        bottom: 2.35in;
+        background: #ffffff;
+        border: 1pt solid #d7e3dc;
+        padding: 11pt 13pt 10pt;
+      }
+
+      .summary-head {
+        font-size: 7.2pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--brand-secondary);
+        font-weight: 800;
+        margin-bottom: 6pt;
+      }
+
+      .summary-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 9pt;
+        line-height: 1.45;
+        color: var(--brand-primary-darker);
+      }
+
+      .summary-list li {
+        margin: 0 0 3pt;
+      }
+
+      .summary-list li:last-child {
+        margin-bottom: 0;
+      }
+
+      .summary-list strong {
+        color: var(--brand-primary);
+        font-weight: 800;
+      }
+
+      .qr-card {
+        position: absolute;
+        right: 1.02in;
+        bottom: 2.35in;
+        width: 1.75in;
+        border: 1pt solid var(--brand-secondary);
+        background: #fff;
+        padding: 8pt;
+        text-align: center;
+      }
+
+      .qr-head {
+        margin: 0 0 5pt;
+        font-size: 6.8pt;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.17em;
+        color: var(--brand-primary);
+      }
+
+      .qr-img {
+        width: 1.36in;
+        height: 1.36in;
+        display: block;
+        margin: 0 auto;
+        border: 0.6pt solid #d6d6d6;
+      }
+
+      .qr-label {
+        margin-top: 6pt;
+        font-size: 6.6pt;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--brand-secondary);
+        font-weight: 800;
+      }
+
+      .footer {
+        position: absolute;
+        left: 0.92in;
+        right: 0.9in;
+        bottom: 0.62in;
+        padding-top: 9pt;
+        border-top: 1.2pt solid var(--brand-primary);
+        display: grid;
+        grid-template-columns: 1.45fr 1fr;
+        gap: 0.25in;
+        align-items: end;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 2.5pt;
+        height: 0.6pt;
+        background: var(--brand-secondary);
+      }
+
+      .footer .contact {
+        font-size: 7.8pt;
+        line-height: 1.45;
+        color: var(--brand-primary-darker);
+      }
+      .footer .contact .label {
+        color: var(--brand-secondary);
+        font-size: 6.6pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 3pt;
+      }
+      .footer .contact .name {
+        font-weight: 800;
+        color: var(--brand-primary);
+        font-size: 8.2pt;
+      }
+      .footer .licenses {
+        margin-top: 4pt;
+        font-size: 7.2pt;
+        color: var(--brand-secondary);
+        font-weight: 700;
+      }
+
+      .footer .trust {
+        text-align: right;
+      }
+      .footer .trust .label {
+        color: var(--brand-secondary);
+        font-size: 6.6pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 5pt;
+      }
+      .footer .logos {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 9pt;
+      }
+
+      .footer .logos img {
+        display: block;
+        width: auto;
+      }
+
+      .logo-agc {
+        height: 0.36in;
+      }
+
+      .logo-bbb {
+        height: 0.39in;
+      }
+
+      .logo-vob {
+        height: 0.5in;
+      }
+
+      .footer .chambers {
+        margin-top: 6pt;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10pt;
+        padding-top: 6pt;
+        border-top: 0.4pt solid var(--brand-secondary);
+      }
+
+      .footer .chambers img {
+        display: block;
+        width: auto;
+        height: 0.3in;
+      }
+
+      .veteran-strip {
+        position: absolute;
+        left: 0.92in;
+        right: 0.9in;
+        bottom: 0.42in;
+        text-align: center;
+        font-size: 6.6pt;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: var(--brand-secondary);
+        z-index: 2;
+      }
+
+      .veteran-strip .sep {
+        color: var(--brand-secondary);
+        margin: 0 6pt;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cover">
+      <div class="left-ribbon"></div>
+
+      <div class="identity">
+        <div>
+          {{BRAND_COMPANY_SHORT}}<span class="dot">•</span
+          >{{BRAND_ADDRESS_CITYSTATEZIP}}
+        </div>
+        <div>{{BRAND_VETERAN}}</div>
+      </div>
+
+      <section class="hero">
+        <img
+          class="logo"
+          src="{{BRAND_LOGO_COLOR}}"
+          alt="MH Construction logo"
+        />
+        <div class="program-chip">Employee Handbook</div>
+        <h1 class="title">Employee<br />Handbook</h1>
+        <p class="subtitle">
+          Workplace Policies, Standards, and Employee Expectations
+        </p>
+      </section>
+
+      <aside class="summary-card" aria-label="manual scope overview">
+        <div class="summary-head">Handbook Snapshot</div>
+        <ul class="summary-list">
+          <li>
+            <strong>Purpose:</strong> Company-wide policy guide for conduct, pay
+            practices, benefits, and employment expectations.
+          </li>
+          <li>
+            <strong>Audience:</strong> All employees, supervisors, and people
+            leaders.
+          </li>
+          <li>
+            <strong>Structure:</strong> Table of contents plus 6 chapters, from
+            Introduction through Miscellaneous.
+          </li>
+          <li>
+            <strong>Core Topics:</strong> Employment basics, compensation,
+            employee benefits, and workplace policy standards.
+          </li>
+          <li>
+            <strong>Use Standard:</strong> Primary policy reference for
+            onboarding, supervision, and acknowledgment workflows.
+          </li>
+          <li>
+            <strong>Revision:</strong> {{BRAND_REVISION_DATE}} (Rev
+            {{BRAND_REVISION_NUMBER}})
+          </li>
+        </ul>
+      </aside>
+
+      <aside class="qr-card" aria-label="digital manual access">
+        <p class="qr-head">Handbook Online</p>
+        <img
+          class="qr-img"
+          src="{{QR_DIGITAL_MANUAL}}"
+          alt="QR code to digital employee handbook"
+        />
+        <div class="qr-label">Scan for latest handbook</div>
+      </aside>
+
+      <footer class="footer">
+        <div class="contact">
+          <div class="label">Company Contact</div>
+          <div class="name">{{BRAND_COMPANY_NAME}}</div>
+          {{BRAND_ADDRESS_STREET}}<br />
+          {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
+          {{BRAND_PHONE}} · {{BRAND_WEBSITE}}
+          <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
+        </div>
+
+        <div class="trust">
+          <div class="label">Accreditation and Trust</div>
+          <div class="logos">
+            <img
+              class="logo-agc"
+              src="{{BRAND_AGC_HORIZONTAL}}"
+              alt="AGC membership"
+            />
+            <img
+              class="logo-bbb"
+              src="{{BRAND_BBB_SEAL}}"
+              alt="BBB accredited business"
+            />
+            <img
+              class="logo-vob"
+              src="{{BRAND_WA_VOB_LOGO}}"
+              alt="Washington certified veteran owned business"
+            />
+          </div>
+          <div class="chambers" aria-label="Chamber of Commerce memberships">
+            <img
+              src="{{BRAND_CHAMBER_PASCO}}"
+              alt="Pasco Chamber of Commerce member"
+            />
+            <img
+              src="{{BRAND_CHAMBER_KENNEWICK}}"
+              alt="Tri-City Regional Chamber of Commerce member"
+            />
+            <img
+              src="{{BRAND_CHAMBER_RICHLAND}}"
+              alt="Richland Chamber of Commerce member"
+            />
+          </div>
+        </div>
+      </footer>
+
+      <div class="veteran-strip">
+        Veteran-Owned <span class="sep">&#9733;</span> Mission-First
+        <span class="sep">&#9733;</span> Built on Honor, Integrity &amp; Trust
+      </div>
+    </div>
+  </body>
+</html>

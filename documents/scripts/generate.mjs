@@ -11,6 +11,7 @@
  *   npm run docs:generate -- --template spine      # spine only
  *   npm run docs:generate -- --template letterhead # official letterhead
  *   npm run docs:generate -- --template tabs       # all tab dividers
+ *   npm run docs:generate -- --template spine-guardrails # spine guardrails only
  *   npm run docs:generate -- --template sections   # all 44 section PDFs
  *   npm run docs:generate -- --template section --section 11  # single section
  *   npm run docs:generate -- --template toolbox-talk          # standalone form
@@ -32,10 +33,18 @@
 import puppeteer from "puppeteer";
 import QRCode from "qrcode";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
-import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
+import {
+  readFile,
+  writeFile,
+  mkdir,
+  readdir,
+  copyFile,
+} from "node:fs/promises";
 import { readFileSync, existsSync, unlinkSync } from "node:fs";
+import { createRequire } from "node:module";
 import { join, resolve, dirname, extname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { createCanvas } from "@napi-rs/canvas";
 
 const SITE_URL = "https://www.mhc-gc.com";
 const PDF_METADATA_AUTHOR = "Matt Ramsey, Safety Officer";
@@ -105,8 +114,29 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
 const DOCS_DIR = join(ROOT, "documents");
 const OUTPUT_DIR = join(DOCS_DIR, "output");
-const MANIFEST = join(DOCS_DIR, "content/safety-manual.json");
+let MANIFEST = join(DOCS_DIR, "content/safety-manual.json");
 const FORMS_DIR = join(DOCS_DIR, "forms");
+const CANONICAL_DOCS_DIR = resolve(__dirname, "../../../../documents");
+const CANONICAL_OUTPUT_DIR = join(CANONICAL_DOCS_DIR, "output");
+const CANONICAL_TOC_TEMPLATE_PATH = join(
+  CANONICAL_DOCS_DIR,
+  "manuals/safety-manual-toc.html",
+);
+const SAFETY_LETTERHEAD_TEMPLATE_PATH = join(
+  DOCS_DIR,
+  "manuals/safety-manual-letterhead.html",
+);
+const HANDBOOK_LETTERHEAD_TEMPLATE_PATH = join(
+  DOCS_DIR,
+  "manuals/employee-handbook-letterhead.html",
+);
+const require = createRequire(import.meta.url);
+const PDFJS_STANDARD_FONT_DATA_URL = pathToFileURL(
+  resolve(
+    dirname(require.resolve("pdfjs-dist/package.json")),
+    "standard_fonts",
+  ),
+).href.replace(/([^/])$/, "$1/");
 
 // ── Argument parsing ──────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -120,6 +150,27 @@ const sectionNo = getArg("--section");
 const formArg = getArg("--form"); // e.g. "form-02-c" or "FORM 02-C"
 const revDateArg = getArg("--rev-date"); // e.g. "04/07/2026"
 const revNumArg = getArg("--rev-number"); // e.g. "2"
+const manualArg = (getArg("--manual") || "safety").trim().toLowerCase();
+const isEmployeeHandbook =
+  manualArg === "employee" ||
+  manualArg === "employee-handbook" ||
+  manualArg === "handbook";
+
+if (!isEmployeeHandbook && manualArg !== "safety") {
+  console.error(
+    `❌  Unsupported manual '${manualArg}'. Use --manual safety or --manual employee-handbook`,
+  );
+  process.exit(1);
+}
+
+const ACTIVE_MANUAL = isEmployeeHandbook
+  ? "employee-handbook"
+  : "safety-manual";
+const ACTIVE_MANUAL_LABEL = isEmployeeHandbook
+  ? "Employee Handbook"
+  : "Safety Manual (MISH)";
+
+MANIFEST = join(DOCS_DIR, `content/${ACTIVE_MANUAL}.json`);
 
 // ── Brand loader ──────────────────────────────────────────────────────────────
 const brandId = getArg("--brand") || "mhc";
@@ -140,6 +191,11 @@ const ENFORCED_REVISION_DATE = "04/07/2026";
 const ENFORCED_REVISION_NUMBER = "3";
 BRAND.revisionDate = ENFORCED_REVISION_DATE;
 BRAND.revisionNumber = ENFORCED_REVISION_NUMBER;
+
+const ACTIVE_MANUAL_DIGITAL_URL = isEmployeeHandbook
+  ? `${SITE_URL}/docs/employee/employee-handbook-2026.pdf`
+  : BRAND?.qrCodes?.digitalManual ||
+    `${SITE_URL}/docs/safety/safety-manual-complete.pdf`;
 
 // ── Logo base64 (used in Puppeteer header templates which need data URLs) ──────
 const _logoPath = join(DOCS_DIR, BRAND.logo.color.replace(/^\.\.\//, ""));
@@ -388,7 +444,7 @@ const TOC_CLUSTERS = [
  * Add or remove numbers here to change which entries are highlighted.
  */
 const TOC_CALLOUT_ITEMS = new Set([21, 48]);
-const TOC_CONTINUATION_START = 21;
+const TOC_CONTINUATION_START = 20;
 
 /**
  * Fallback MISH title map.
@@ -460,26 +516,109 @@ const FALLBACK_MISH_TITLES = new Map([
 function buildTocEntryHtml(num, title) {
   const code = `MISH ${String(num).padStart(2, "0")}`;
   const mishRef = sectionToMishRef(num);
+  const displayTitle = normalizeTocTitle(title);
   const isCallout = TOC_CALLOUT_ITEMS.has(num);
   const cls = isCallout ? "mish-entry callout" : "mish-entry";
   return (
     `<li class="${cls}">` +
     `<span class="mish-code">${escapeHtml(code)}</span>` +
     `<span class="mish-wbs">MISH ${escapeHtml(mishRef)}</span>` +
-    `<span class="mish-title">${escapeHtml(title)}</span>` +
+    `<span class="mish-title">${escapeHtml(displayTitle)}</span>` +
     `</li>`
   );
+}
+
+/**
+ * Build a TOC entry for a form. Forms are listed by ID and title.
+ * Forms are typically in the appendix rather than the main section numbering.
+ */
+function buildTocFormEntryHtml(formId, formTitle) {
+  const displayTitle = normalizeTocTitle(formTitle);
+  // Convert form ID to FORM XX numbering (e.g., MISH 01 -> FORM 01)
+  const formNum = String(formId || "").match(/\d+/)?.[0] || "";
+  const formCode = formNum
+    ? `FORM ${String(formNum).padStart(2, "0")}`
+    : formId;
+  return (
+    `<li class="mish-entry mish-form">` +
+    `<span class="mish-code">${escapeHtml(formCode)}</span>` +
+    `<span class="mish-wbs"></span>` +
+    `<span class="mish-title">${escapeHtml(displayTitle)}</span>` +
+    `</li>`
+  );
+}
+
+function normalizeTocTitle(value) {
+  const text = String(value || "").trim();
+  if (!text) return text;
+
+  const acronyms = new Set([
+    "app",
+    "bbb",
+    "cfr",
+    "coi",
+    "ems",
+    "epa",
+    "jha",
+    "jsa",
+    "mish",
+    "mvr",
+    "osha",
+    "ppe",
+    "sds",
+    "wac",
+  ]);
+
+  const lowerWords = new Set([
+    "a",
+    "an",
+    "and",
+    "as",
+    "at",
+    "by",
+    "for",
+    "from",
+    "in",
+    "of",
+    "on",
+    "or",
+    "the",
+    "to",
+    "via",
+    "with",
+  ]);
+
+  const words = text.toLowerCase().split(/\s+/);
+  return words
+    .map((word, index) => {
+      if (acronyms.has(word)) return word.toUpperCase();
+      if (index > 0 && lowerWords.has(word)) return word;
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
 }
 
 /**
  * Render one <div class="cluster"> block.
  * Empty clusters (no live sections) are omitted.
  */
-function buildClusterHtml(clusterName, nums, titleMap) {
+function buildClusterHtml(clusterName, nums, titleMap, formsMap = null) {
   if (nums.length === 0) return "";
-  const rows = nums.map((n) =>
-    buildTocEntryHtml(n, titleMap.get(n) || `Section ${n}`),
-  );
+  const rows = [];
+
+  for (const n of nums) {
+    const title = titleMap.get(n) || `Section ${n}`;
+    rows.push(buildTocEntryHtml(n, title));
+
+    // Add any forms corresponding to this section
+    if (formsMap && formsMap.has(n)) {
+      const sectionForms = formsMap.get(n);
+      for (const form of sectionForms) {
+        rows.push(buildTocFormEntryHtml(form.id, form.title));
+      }
+    }
+  }
+
   return (
     `<div class="cluster">` +
     `<h2 class="cluster-head">${escapeHtml(clusterName)}</h2>` +
@@ -502,7 +641,7 @@ function buildClusterHtml(clusterName, nums, titleMap) {
  * @param {Set<number>}  presentNums       Section numbers present in manifest
  * @returns {string} HTML injected into {{TOC_CLUSTERS_HTML}}
  */
-function buildTocClustersHtml(titleMap, presentNums) {
+function buildTocClustersHtml(titleMap, presentNums, formsMap = null) {
   const parts = [];
   const assignedNums = new Set();
 
@@ -514,7 +653,7 @@ function buildTocClustersHtml(titleMap, presentNums) {
         assignedNums.add(n);
       }
     }
-    const html = buildClusterHtml(cluster.name, nums, titleMap);
+    const html = buildClusterHtml(cluster.name, nums, titleMap, formsMap);
     if (html) parts.push(html);
   }
 
@@ -526,6 +665,7 @@ function buildTocClustersHtml(titleMap, presentNums) {
     "Additional Programs",
     overflow,
     titleMap,
+    formsMap,
   );
   if (overflowHtml) parts.push(overflowHtml);
 
@@ -632,115 +772,6 @@ function buildSectionHeaderHtml(
   ].join("");
 }
 
-const FORMS_FOOTER_FONT = `'DIN 2014','Helvetica Neue',Arial,sans-serif`;
-
-function buildCanonicalFormsFooterHtml({
-  tag = "div",
-  className = "",
-  style = "",
-}) {
-  const agcLogo = BRAND_TOKENS["{{BRAND_AGC_HORIZONTAL}}"];
-  const bbbLogo = BBB_LOGO_DATA_URL || BRAND_TOKENS["{{BRAND_BBB_SEAL}}"];
-  const vobLogo = BRAND_TOKENS["{{BRAND_WA_VOB_LOGO}}"];
-  const safeTag = tag || "div";
-  const classAttr = className ? ` class=\"${className}\"` : "";
-  const styleAttr = style ? ` style=\"${style}\"` : "";
-
-  return [
-    `<${safeTag}${classAttr}${styleAttr}>`,
-    `<div style=\"font-size:8pt;line-height:1.42;color:${BRAND_COLORS.primaryDark};font-family:${FORMS_FOOTER_FONT};\">`,
-    `<div style=\"color:${BRAND_COLORS.secondary};font-size:7pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;margin-bottom:4pt;\">Company Contact</div>`,
-    `<div style=\"font-size:8.4pt;font-weight:800;color:${BRAND_COLORS.primary};\">${BRAND.companyName}</div>`,
-    `${BRAND.addressStreet}<br />`,
-    `${BRAND.addressCityStateZip}<br />`,
-    `${BRAND.phone} &middot; ${BRAND.website}`,
-    `<div style=\"margin-top:5pt;font-size:7.5pt;\">${BRAND_LICENSES_INLINE}</div>`,
-    `</div>`,
-    `<div style=\"text-align:right;font-family:${FORMS_FOOTER_FONT};\">`,
-    `<div style=\"color:${BRAND_COLORS.secondary};font-size:7pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;margin-bottom:5pt;\">Accreditation and Trust</div>`,
-    `<div style=\"display:flex;justify-content:flex-end;align-items:flex-end;gap:9pt;\">`,
-    agcLogo
-      ? `<img src=\"${agcLogo}\" alt=\"AGC membership\" style=\"display:block;width:auto;height:0.38in;\" />`
-      : "",
-    bbbLogo
-      ? `<img src=\"${bbbLogo}\" alt=\"BBB accredited business\" style=\"display:block;width:auto;height:0.41in;\" />`
-      : "",
-    vobLogo
-      ? `<img src=\"${vobLogo}\" alt=\"Washington certified veteran owned business\" style=\"display:block;width:auto;height:0.55in;\" />`
-      : "",
-    `</div>`,
-    `</div>`,
-    `</${safeTag}>`,
-  ].join("");
-}
-
-function replaceTabFooterBlocks(html, replacementHtml) {
-  const marker = '<div class="tab-footer"';
-  let cursor = 0;
-  let output = "";
-
-  while (cursor < html.length) {
-    const start = html.indexOf(marker, cursor);
-    if (start === -1) {
-      output += html.slice(cursor);
-      break;
-    }
-
-    output += html.slice(cursor, start);
-
-    let i = start;
-    let depth = 0;
-    while (i < html.length) {
-      const nextOpen = html.indexOf("<div", i);
-      const nextClose = html.indexOf("</div>", i);
-      if (nextClose === -1) {
-        throw new Error(
-          "Malformed tabs template while replacing footer blocks",
-        );
-      }
-      if (nextOpen !== -1 && nextOpen < nextClose) {
-        depth += 1;
-        i = nextOpen + 4;
-        continue;
-      }
-      depth -= 1;
-      i = nextClose + 6;
-      if (depth === 0) break;
-    }
-
-    output += replacementHtml;
-    cursor = i;
-  }
-
-  return output;
-}
-
-function replaceFirstDivBlockByClass(html, className, replacementHtml) {
-  const marker = `<div class="${className}"`;
-  const start = html.indexOf(marker);
-  if (start === -1) return html;
-
-  let i = start;
-  let depth = 0;
-  while (i < html.length) {
-    const nextOpen = html.indexOf("<div", i);
-    const nextClose = html.indexOf("</div>", i);
-    if (nextClose === -1) {
-      throw new Error(`Malformed template while replacing ${className} block`);
-    }
-    if (nextOpen !== -1 && nextOpen < nextClose) {
-      depth += 1;
-      i = nextOpen + 4;
-      continue;
-    }
-    depth -= 1;
-    i = nextClose + 6;
-    if (depth === 0) break;
-  }
-
-  return html.slice(0, start) + replacementHtml + html.slice(i);
-}
-
 /**
  * Build the per-section footer HTML rendered by Puppeteer on EVERY printed page.
  *
@@ -752,15 +783,51 @@ function replaceFirstDivBlockByClass(html, className, replacementHtml) {
  * document context with no access to components.css.
  */
 function buildSectionFooterHtml() {
-  const contentRow = buildCanonicalFormsFooterHtml({
-    tag: "div",
-    style:
-      "width:100%;display:grid;grid-template-columns:1.6fr 1fr;align-items:end;" +
-      "gap:18pt;padding:0 0.9in 0 0.92in;background:#ffffff;box-sizing:border-box;",
-  });
+  const font = `'DIN 2014','Helvetica Neue',Arial,sans-serif`;
+  const contactMeta = "Company Contact";
+  const trustMeta = "Accreditation and Trust";
+  // Use precomputed base64 data URLs from BRAND_TOKENS — file:// cannot load in
+  // Puppeteer's isolated header/footer context.
+  const agcLogo = BRAND_TOKENS["{{BRAND_AGC_HORIZONTAL}}"];
+  const bbbLogo = BBB_LOGO_DATA_URL || BRAND_TOKENS["{{BRAND_BBB_SEAL}}"];
+  const vobLogo = BRAND_TOKENS["{{BRAND_WA_VOB_LOGO}}"];
+
+  // Footer metrics mirror the form cover/footer chrome.
+  const contentRow = [
+    `<div style="width:100%;display:grid;grid-template-columns:1.6fr 1fr;align-items:end;`,
+    `gap:18pt;padding:0 0.9in 0 0.92in;background:#ffffff;box-sizing:border-box;">`,
+
+    // LEFT — Company Contact
+    `<div style="min-width:0;font-family:${font};line-height:1.42;color:${BRAND_COLORS.primaryDark};">`,
+    `<div style="font-size:7pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;color:${BRAND_COLORS.secondaryText};margin-bottom:4pt;">${contactMeta}</div>`,
+    `<div style="font-size:8.4pt;font-weight:800;color:${BRAND_COLORS.primaryDark};white-space:nowrap;">${BRAND.companyName}</div>`,
+    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.addressStreet}</div>`,
+    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.addressCityStateZip}</div>`,
+    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.phone} \u00b7 ${BRAND.website}</div>`,
+    `<div style="font-size:7.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;margin-top:5pt;">${BRAND_LICENSES_INLINE}</div>`,
+    `</div>`,
+
+    // CENTER-RIGHT — Accreditation & Trust (mirrors cover .trust block)
+    `<div style="min-width:0;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;gap:5pt;font-family:${font};">`,
+    `<div style="font-size:7pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;color:${BRAND_COLORS.secondaryText};text-align:right;white-space:nowrap;margin-bottom:5pt;">${trustMeta}</div>`,
+    `<div style="display:flex;align-items:flex-end;justify-content:flex-end;gap:9pt;">`,
+    agcLogo
+      ? `<img src="${agcLogo}" alt="AGC membership" style="height:0.38in;width:auto;display:block;" />`
+      : `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">AGC</span>`,
+    bbbLogo
+      ? `<img src="${bbbLogo}" alt="BBB accredited business" style="height:0.41in;width:auto;display:block;" />`
+      : `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">BBB</span>`,
+    vobLogo
+      ? `<img src="${vobLogo}" alt="Washington certified veteran owned business" style="height:0.55in;width:auto;display:block;" />`
+      : `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">VOB</span>`,
+    `</div>`,
+    `</div>`,
+
+    `</div>`,
+  ].join("");
 
   return [
-    `<div style="width:100%;height:100%;font-family:${FORMS_FOOTER_FONT};`,
+    `<div style="width:100%;height:100%;font-family:${font};`,
     `box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;`,
     `display:flex;flex-direction:column;justify-content:flex-end;">`,
     contentRow,
@@ -1666,18 +1733,25 @@ async function renderPdf(htmlPath, pdfPath, pageOpts = {}) {
 
 // ── Template: Cover ───────────────────────────────────────────────────────────
 async function generateCover() {
-  console.log("\n📄 Generating cover…");
+  console.log(`\n📄 Generating ${ACTIVE_MANUAL_LABEL} cover…`);
   await ensureDir(OUTPUT_DIR);
+  await validateManualCoverCohesionGuardrails();
+  const templateName = isEmployeeHandbook
+    ? "employee-handbook-cover.html"
+    : "safety-manual-cover.html";
   const raw = await readFile(
-    join(DOCS_DIR, "manuals/safety-manual-cover.html"),
+    join(DOCS_DIR, `manuals/${templateName}`),
     "utf-8",
   );
-  const qrDataUrl = await buildQrDataUrl(BRAND.qrCodes.digitalManual);
+  const qrDataUrl = await buildQrDataUrl(ACTIVE_MANUAL_DIGITAL_URL);
   const html = applyBrandTokens(raw).replace(
     "{{QR_DIGITAL_MANUAL}}",
     qrDataUrl,
   );
-  const pdfPath = join(OUTPUT_DIR, "safety-manual-cover.pdf");
+  const coverFileName = isEmployeeHandbook
+    ? "employee-handbook-cover.pdf"
+    : "safety-manual-cover.pdf";
+  const pdfPath = join(OUTPUT_DIR, coverFileName);
   await renderHtmlToPdf(
     html,
     pdfPath,
@@ -1693,40 +1767,27 @@ async function generateCover() {
  * lives inside the same brand system as the safety manual.
  */
 async function generateLetterhead() {
-  console.log("\n✉️  Generating letterhead…");
+  console.log(`\n✉️  Generating ${ACTIVE_MANUAL_LABEL} letterhead…`);
   await ensureDir(OUTPUT_DIR);
+  if (isEmployeeHandbook) {
+    await validateHandbookLetterheadFooterParity();
+  }
+  const templateName = isEmployeeHandbook
+    ? "employee-handbook-letterhead.html"
+    : "safety-manual-letterhead.html";
   const raw = await readFile(
-    join(DOCS_DIR, "manuals/safety-manual-letterhead.html"),
+    join(DOCS_DIR, `manuals/${templateName}`),
     "utf-8",
   );
   const websiteUrl = BRAND.website?.startsWith("http")
     ? BRAND.website
     : `https://${BRAND.website}`;
   const qrWebsite = await buildQrDataUrl(websiteUrl);
-  let html = applyBrandTokens(raw).replace("{{QR_WEBSITE}}", qrWebsite);
-
-  const fixedFooterHtml = buildCanonicalFormsFooterHtml({
-    tag: "footer",
-    className: "footer",
-    style:
-      "position:fixed;left:0.92in;right:0.9in;bottom:0.62in;z-index:100;" +
-      "display:grid;grid-template-columns:1.6fr 1fr;gap:18pt;align-items:end;background:var(--paper);",
-  });
-  html = html.replace(
-    /<footer class="footer">[\s\S]*?<\/footer>/,
-    fixedFooterHtml,
-  );
-
-  const flowFooterHtml = buildCanonicalFormsFooterHtml({
-    tag: "div",
-    className: "flow-footer",
-    style:
-      "display:none;margin-top:18pt;break-inside:avoid;page-break-inside:avoid;" +
-      "display:grid;grid-template-columns:1.6fr 1fr;gap:18pt;align-items:end;",
-  });
-  html = replaceFirstDivBlockByClass(html, "flow-footer", flowFooterHtml);
-
-  const pdfPath = join(OUTPUT_DIR, "safety-manual-letterhead.pdf");
+  const html = applyBrandTokens(raw).replace("{{QR_WEBSITE}}", qrWebsite);
+  const letterheadFileName = isEmployeeHandbook
+    ? "employee-handbook-letterhead.pdf"
+    : "safety-manual-letterhead.pdf";
+  const pdfPath = join(OUTPUT_DIR, letterheadFileName);
   // Page-1 chrome is absolutely positioned to the full Letter sheet, so
   // PDF margins must be 0; CSS owns all spacing. If the body overflows,
   // it paginates onto plain follow-on pages with the signature pushed
@@ -1742,14 +1803,21 @@ async function generateLetterhead() {
 
 // ── Template: Spine ───────────────────────────────────────────────────────────
 async function generateSpine() {
-  console.log("\n📐 Generating spine…");
+  console.log(`\n📐 Generating ${ACTIVE_MANUAL_LABEL} spine…`);
   await ensureDir(OUTPUT_DIR);
+  await validateSpineTemplateGuardrails();
+  const templateName = isEmployeeHandbook
+    ? "employee-handbook-spine.html"
+    : "safety-manual-spine.html";
   const raw = await readFile(
-    join(DOCS_DIR, "manuals/safety-manual-spine.html"),
+    join(DOCS_DIR, `manuals/${templateName}`),
     "utf-8",
   );
   const html = applyBrandTokens(raw);
-  const pdfPath = join(OUTPUT_DIR, "safety-manual-spine.pdf");
+  const spineFileName = isEmployeeHandbook
+    ? "employee-handbook-spine.pdf"
+    : "safety-manual-spine.pdf";
+  const pdfPath = join(OUTPUT_DIR, spineFileName);
   await renderHtmlToPdf(
     html,
     pdfPath,
@@ -1775,8 +1843,16 @@ async function generateSpine() {
  * Output: documents/output/safety-manual-toc.pdf
  */
 async function generateToc() {
+  if (isEmployeeHandbook) {
+    console.log(
+      "\n📋 Skipping Table of Contents (handbook uses simple section listing)",
+    );
+    return;
+  }
+
   console.log("\n📋 Generating MISH Table of Contents…");
   await ensureDir(OUTPUT_DIR);
+  await ensureDir(CANONICAL_OUTPUT_DIR);
 
   // ── 1. Resolve section titles ───────────────────────────────────────────
   let titleMap = new Map(FALLBACK_MISH_TITLES);
@@ -1811,25 +1887,115 @@ async function generateToc() {
 
   // ── 2. Build cluster HTML and inject into template ──────────────────────
   const { page1, page2 } = splitTocNumsByPage(presentNums);
-  const tocPage1Html = buildTocClustersHtml(titleMap, page1);
-  const tocPage2Html = buildTocClustersHtml(titleMap, page2);
+
+  // Load forms and build formsMap keyed by section number
+  let formsMap = new Map();
+  try {
+    const forms = await loadFormsManifest();
+    const mishForms = forms.filter((f) =>
+      String(f.id || "").startsWith("MISH "),
+    );
+
+    // Sort forms by ID numerically
+    mishForms.sort((a, b) => {
+      const numA = Number(String(a.id || "").match(/\d+/)?.[0] || 0);
+      const numB = Number(String(b.id || "").match(/\d+/)?.[0] || 0);
+      return numA - numB;
+    });
+
+    // Map forms by section number (e.g., MISH 01 → section 1)
+    for (const form of mishForms) {
+      const sectionNum = Number(String(form.id || "").match(/\d+/)?.[0] || 0);
+      if (sectionNum > 0) {
+        if (!formsMap.has(sectionNum)) {
+          formsMap.set(sectionNum, []);
+        }
+        formsMap.get(sectionNum).push(form);
+      }
+    }
+
+    console.log(`  ℹ  Added ${mishForms.length} MISH form(s) to TOC sections`);
+  } catch (err) {
+    console.warn(`  ⚠  Could not load forms manifest: ${err.message}`);
+  }
+
+  const tocPage1Html = buildTocClustersHtml(titleMap, page1, formsMap);
+  const tocPage2Html = buildTocClustersHtml(titleMap, page2, formsMap);
+
+  // Page 3 is now disabled since forms are integrated into TOC
+  let tocPage3Html = "";
+  let hasPage3 = false;
+
   // QR code pointing to the public web TOC page (not the full manual)
   const tocQrDataUrl = await buildQrDataUrl(BRAND.qrCodes.tableOfContents);
-  const raw = await readFile(
-    join(DOCS_DIR, "manuals/safety-manual-toc.html"),
-    "utf-8",
-  );
+  const raw = await readFile(CANONICAL_TOC_TEMPLATE_PATH, "utf-8");
   // Use replaceAll with function form: the template has the placeholder in both
   // the developer comment and the <main> body — .replace() would only hit the
   // comment. Function form also prevents $ in the replacement being interpreted
   // as a special pattern (e.g. $& would re-insert the match).
-  const html = applyBrandTokens(raw)
+  let html = applyBrandTokens(raw)
     .replaceAll("{{TOC_CLUSTERS_PAGE_1_HTML}}", () => tocPage1Html)
     .replaceAll("{{TOC_CLUSTERS_PAGE_2_HTML}}", () => tocPage2Html)
+    .replaceAll("{{TOC_CLUSTERS_PAGE_3_HTML}}", () => {
+      if (process.env.DEBUG_TOC) {
+        console.log(
+          `  📋 Injecting page 3 HTML, length: ${tocPage3Html.length}`,
+        );
+      }
+      return tocPage3Html;
+    })
     .replace("{{QR_TOC_URL}}", tocQrDataUrl);
 
+  if (process.env.DEBUG_TOC) {
+    const page3HtmlCount = (html.match(/mish-entry/g) || []).length;
+    console.log(`  📋 Total mish-entry elements in HTML: ${page3HtmlCount}`);
+    const page3Exists = html.includes('id="toc-page-3"');
+    console.log(`  📋 Page 3 div exists: ${page3Exists}`);
+    const page3ClusterExists = html.includes(
+      '<div class="cluster">' +
+        '<h2 class="cluster-head">MISH Forms Appendix</h2>',
+    );
+    console.log(`  📋 Page 3 cluster exists: ${page3ClusterExists}`);
+  }
+
+  // Conditionally show/hide page 3 based on whether forms exist
+  if (hasPage3) {
+    const before = html;
+    html = html.replace(
+      'id="toc-page-3" style="display: none;"',
+      'id="toc-page-3"',
+    );
+    if (before !== html) {
+      console.log(`  ✓  Page 3 made visible`);
+    } else {
+      console.warn(
+        `  ⚠  Failed to make page 3 visible (replacement string not found)`,
+      );
+    }
+  }
+
+  // Debug: write intermediate HTML to check forms are present
+  if (process.env.DEBUG_TOC) {
+    const debugPath = join(CANONICAL_OUTPUT_DIR, "_toc_debug.html");
+    await writeFile(debugPath, html, "utf-8");
+    console.log(`  📝 Debug HTML written to: ${debugPath}`);
+  }
+
   // ── 3. Render to PDF ────────────────────────────────────────────────────
-  const pdfPath = join(OUTPUT_DIR, "safety-manual-toc.pdf");
+  const pdfPath = join(CANONICAL_OUTPUT_DIR, "safety-manual-toc.pdf");
+
+  // Additional debug: verify page 3 is visible in HTML before rendering
+  if (html.includes('id="toc-page-3"')) {
+    const page3Match = html.match(/id="toc-page-3"[^>]*/);
+    if (page3Match) {
+      console.log(`  📋 Page 3 tag: ${page3Match[0]}`);
+    } else {
+      console.log(`  ⚠  Page 3 id found but no tag match`);
+    }
+  } else {
+    console.log(`  ⚠  Page 3 id NOT found in HTML`);
+  }
+
   await renderHtmlToPdf(
     html,
     pdfPath,
@@ -1839,6 +2005,10 @@ async function generateToc() {
     },
     "manuals/_tmp_toc.html",
   );
+  const appPdfPath = join(OUTPUT_DIR, "safety-manual-toc.pdf");
+  if (appPdfPath !== pdfPath) {
+    await copyFile(pdfPath, appPdfPath);
+  }
   return pdfPath;
 }
 
@@ -1913,11 +2083,666 @@ function validateTocTemplateGuardrails(templateHtml, templatePath) {
     },
     {
       regex:
-        /(?:\.bottom|\.toc-footer-row)[\s\S]*?bottom:\s*0\.62in[\s\S]*?grid-template-columns:\s*1\.45fr\s+1fr/i,
+        /(?:\.footer|\.bottom|\.toc-footer-row)[\s\S]*?bottom:\s*0\.62in[\s\S]*?grid-template-columns:\s*1\.45fr\s+1fr/i,
       message:
         "Missing canonical TOC footer metrics (bottom 0.62in, grid 1.45fr 1fr)",
     },
   ]);
+}
+
+function normalizeParityBlock(source) {
+  return source.replace(/\r\n/g, "\n").replace(/\s+/g, " ").trim();
+}
+
+function extractLetterheadFooterCssBlock(source, templatePath) {
+  const match = source.match(
+    /\/\*\s*── Footer \(page-1 absolute\)[\s\S]*?\.veteran-strip \.sep \{[\s\S]*?\}/,
+  );
+  if (!match) {
+    throw new Error(
+      `Guardrail validation failed: could not locate footer CSS block in ${templatePath}`,
+    );
+  }
+  return match[0];
+}
+
+function extractFirstLetterheadFooterMarkup(source, templatePath) {
+  const match = source.match(/<footer class="footer">[\s\S]*?<\/footer>/);
+  if (!match) {
+    throw new Error(
+      `Guardrail validation failed: could not locate footer markup block in ${templatePath}`,
+    );
+  }
+  return match[0];
+}
+
+async function validateHandbookLetterheadFooterParity() {
+  if (!existsSync(SAFETY_LETTERHEAD_TEMPLATE_PATH)) {
+    throw new Error(
+      `Letterhead template not found: ${SAFETY_LETTERHEAD_TEMPLATE_PATH}`,
+    );
+  }
+  if (!existsSync(HANDBOOK_LETTERHEAD_TEMPLATE_PATH)) {
+    throw new Error(
+      `Letterhead template not found: ${HANDBOOK_LETTERHEAD_TEMPLATE_PATH}`,
+    );
+  }
+
+  const [safetyHtml, handbookHtml] = await Promise.all([
+    readFile(SAFETY_LETTERHEAD_TEMPLATE_PATH, "utf-8"),
+    readFile(HANDBOOK_LETTERHEAD_TEMPLATE_PATH, "utf-8"),
+  ]);
+
+  const safetyCss = normalizeParityBlock(
+    extractLetterheadFooterCssBlock(
+      safetyHtml,
+      SAFETY_LETTERHEAD_TEMPLATE_PATH,
+    ),
+  );
+  const handbookCss = normalizeParityBlock(
+    extractLetterheadFooterCssBlock(
+      handbookHtml,
+      HANDBOOK_LETTERHEAD_TEMPLATE_PATH,
+    ),
+  );
+
+  if (safetyCss !== handbookCss) {
+    throw new Error(
+      "Guardrail validation failed: employee-handbook-letterhead footer CSS must match safety-manual-letterhead footer CSS exactly.",
+    );
+  }
+
+  const safetyFooter = normalizeParityBlock(
+    extractFirstLetterheadFooterMarkup(
+      safetyHtml,
+      SAFETY_LETTERHEAD_TEMPLATE_PATH,
+    ),
+  );
+  const handbookFooter = normalizeParityBlock(
+    extractFirstLetterheadFooterMarkup(
+      handbookHtml,
+      HANDBOOK_LETTERHEAD_TEMPLATE_PATH,
+    ),
+  );
+
+  if (safetyFooter !== handbookFooter) {
+    throw new Error(
+      "Guardrail validation failed: employee-handbook-letterhead footer markup must match safety-manual-letterhead footer markup exactly.",
+    );
+  }
+}
+
+async function validateCanonicalFooterClassUsage() {
+  const manualsDir = join(DOCS_DIR, "manuals");
+  const entries = await readdir(manualsDir, { withFileTypes: true });
+  const htmlFiles = entries
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".html"))
+    .map((entry) => join(manualsDir, entry.name));
+
+  const violations = [];
+  for (const templatePath of htmlFiles) {
+    const html = await readFile(templatePath, "utf-8");
+    if (/class="(?:bottom|policy-footer|tab-footer)"/i.test(html)) {
+      violations.push(
+        `${templatePath}: found legacy footer class in markup (bottom/policy-footer/tab-footer)`,
+      );
+    }
+    if (/\.(?:bottom|policy-footer|tab-footer)\b[\s\S]*?\{/i.test(html)) {
+      violations.push(
+        `${templatePath}: found legacy footer selector in CSS (.bottom/.policy-footer/.tab-footer)`,
+      );
+    }
+  }
+
+  if (violations.length > 0) {
+    throw new Error(
+      `Guardrail validation failed: only canonical footer classes are allowed in manuals templates.\n  - ${violations.join("\n  - ")}`,
+    );
+  }
+}
+
+async function validateHandbookCoverTabsFooterGuardrails() {
+  await validateCanonicalFooterClassUsage();
+
+  const handbookCoverPath = join(
+    DOCS_DIR,
+    "manuals/employee-handbook-cover.html",
+  );
+  const handbookTabsPath = join(
+    DOCS_DIR,
+    "manuals/employee-handbook-tabs.html",
+  );
+
+  if (!existsSync(handbookCoverPath)) {
+    throw new Error(`Template not found: ${handbookCoverPath}`);
+  }
+  if (!existsSync(handbookTabsPath)) {
+    throw new Error(`Template not found: ${handbookTabsPath}`);
+  }
+
+  const [coverHtml, tabsHtml] = await Promise.all([
+    readFile(handbookCoverPath, "utf-8"),
+    readFile(handbookTabsPath, "utf-8"),
+  ]);
+
+  validateTemplateGuardrails(
+    `handbook cover footer (${handbookCoverPath})`,
+    coverHtml,
+    [
+      {
+        regex: /class="chambers"[\s\S]*?\{\{BRAND_CHAMBER_PASCO\}\}/i,
+        message: "Cover footer must include Pasco chamber logo",
+      },
+      {
+        regex: /\{\{BRAND_CHAMBER_KENNEWICK\}\}/i,
+        message: "Cover footer must include Kennewick chamber logo",
+      },
+      {
+        regex: /\{\{BRAND_CHAMBER_RICHLAND\}\}/i,
+        message: "Cover footer must include Richland chamber logo",
+      },
+      {
+        regex: /class="veteran-strip"/i,
+        message: "Cover footer must include veteran strip",
+      },
+      {
+        regex:
+          /\.footer[\s\S]*?border-top:\s*1\.2pt\s+solid\s+var\(--brand-primary\)[\s\S]*?grid-template-columns:\s*1\.45fr\s+1fr/i,
+        message:
+          "Cover footer must use canonical letterhead geometry and top border",
+      },
+    ],
+  );
+
+  validateTemplateGuardrails(
+    `handbook tabs footer (${handbookTabsPath})`,
+    tabsHtml,
+    [
+      {
+        regex:
+          /\.tab-page::before[\s\S]*?inset:\s*0\.22in[\s\S]*?border:\s*1\.2pt\s+solid\s+var\(--brand-primary\)/i,
+        message:
+          "Tabs page must keep canonical outer frame (inset 0.22in, 1.2pt primary border)",
+      },
+      {
+        regex:
+          /\.tab-page::after[\s\S]*?inset:\s*0\.33in[\s\S]*?border:\s*0\.6pt\s+solid\s+var\(--brand-secondary\)/i,
+        message:
+          "Tabs page must keep canonical inner frame (inset 0.33in, 0.6pt secondary border)",
+      },
+      {
+        regex:
+          /\.tab-ribbon[\s\S]*?top:\s*0\.45in[\s\S]*?bottom:\s*0\.45in[\s\S]*?left:\s*0\.45in[\s\S]*?width:\s*0\.28in/i,
+        message:
+          "Tabs page must keep canonical ribbon metrics (top/bottom 0.45in, left 0.45in, width 0.28in)",
+      },
+      {
+        regex:
+          /\.tab-hero[\s\S]*?padding:\s*0\.22in\s+0\.42in\s+2\.15in\s+0\.42in/i,
+        message:
+          "Tabs hero must reserve canonical bottom clearance so footer and veteran strip remain visible",
+      },
+      {
+        regex:
+          /\.footer[\s\S]*?border-top:\s*1\.2pt\s+solid\s+var\(--brand-primary\)[\s\S]*?grid-template-columns:\s*1\.45fr\s+1fr/i,
+        message:
+          "Tabs footer must use canonical letterhead geometry and top border",
+      },
+      {
+        regex:
+          /\.footer[\s\S]*?position:\s*absolute[\s\S]*?left:\s*0\.92in[\s\S]*?right:\s*0\.9in[\s\S]*?bottom:\s*0\.62in/i,
+        message:
+          "Tabs footer must stay inset from the ribbon (absolute at left 0.92in, right 0.9in, bottom 0.62in)",
+      },
+      {
+        regex: /class="chambers"[\s\S]*?\{\{BRAND_CHAMBER_PASCO\}\}/i,
+        message: "Tabs footer must include Pasco chamber logo row",
+      },
+      {
+        regex: /\{\{BRAND_CHAMBER_KENNEWICK\}\}/i,
+        message: "Tabs footer must include Kennewick chamber logo",
+      },
+      {
+        regex: /\{\{BRAND_CHAMBER_RICHLAND\}\}/i,
+        message: "Tabs footer must include Richland chamber logo",
+      },
+      {
+        regex: /class="veteran-strip"/i,
+        message: "Tabs pages must include veteran strip markup",
+      },
+      {
+        regex:
+          /\.veteran-strip[\s\S]*?position:\s*absolute[\s\S]*?left:\s*0\.92in[\s\S]*?right:\s*0\.9in[\s\S]*?bottom:\s*0\.42in/i,
+        message:
+          "Tabs veteran strip must use canonical placement (left 0.92in, right 0.9in, bottom 0.42in)",
+      },
+      {
+        regex:
+          /Introduction[\s\S]*?Company Policies[\s\S]*?Employment Basics[\s\S]*?Compensation[\s\S]*?Employee Benefits[\s\S]*?Miscellaneous/i,
+        message:
+          "Employee handbook tabs must include handbook chapter titles (Introduction through Miscellaneous)",
+      },
+      {
+        regex:
+          /\.tab-section-title[\s\S]*?margin-bottom:\s*0\.16in[\s\S]*?width:\s*100%/i,
+        message:
+          "Tabs title block must reserve canonical spacing (margin-bottom 0.16in, width 100%)",
+      },
+      {
+        regex:
+          /\.tab-signature[\s\S]*?align-self:\s*stretch[\s\S]*?margin-left:\s*0\.5in[\s\S]*?margin-right:\s*0\.5in/i,
+        message:
+          "Tabs signature block must use canonical full-lane inset alignment",
+      },
+      {
+        regex:
+          /\.tab-sig-lines[\s\S]*?grid-template-columns:\s*1\.5fr\s+0\.85fr/i,
+        message:
+          "Tabs signature lines must preserve standard ratio (long signature, shorter date)",
+      },
+      {
+        regex: /aria-label="Approval signature verification"/i,
+        message: "Tabs signature block must use canonical approval aria-label",
+      },
+      {
+        regex: /<div class="tab-sig-name">Jeremy Thamert<\/div>/i,
+        message: "Tabs signature block must include Jeremy Thamert",
+      },
+      {
+        regex: /<div class="tab-sig-role">President\s*&amp;\s*Owner<\/div>/i,
+        message:
+          "Tabs signature block must include the President & Owner signer role",
+      },
+    ],
+  );
+
+  const safetyCarryover =
+    /\bMISH\b|Injury-Free Workplace Plan|Drug-Free Workplace|Program Policy and Requirements|Safety and Health Meetings\s*\/\s*Inspections/i;
+  if (safetyCarryover.test(tabsHtml)) {
+    throw new Error(
+      "Guardrail validation failed: employee-handbook tabs contain safety-manual section language. Tabs must remain employee-handbook chapters only.",
+    );
+  }
+
+  if (/src="data:image\/png;base64,/i.test(tabsHtml)) {
+    throw new Error(
+      "Guardrail validation failed: handbook tabs template contains inline base64 QR image. Remove inline QR assets from the canonical footer.",
+    );
+  }
+
+  if (
+    /<div class="tab-section-title">(?:(?!<\/div>).)*<div\s+class="tab-signature"/is.test(
+      tabsHtml,
+    )
+  ) {
+    throw new Error(
+      "Guardrail validation failed: handbook tab signature block must be a sibling placed below .tab-section-title, not nested inside it.",
+    );
+  }
+
+  if (
+    /Matt Ramsey|QC Verification|Quality control signature verification|tab-sig-date-row|tab-sig-date-label|tab-sig-header/i.test(
+      tabsHtml,
+    )
+  ) {
+    throw new Error(
+      "Guardrail validation failed: handbook tabs contain legacy signature/QC patterns. Use the standardized single-signer approval block.",
+    );
+  }
+}
+
+async function validateManualCoverCohesionGuardrails() {
+  await validateCanonicalFooterClassUsage();
+
+  const safetyCoverPath = join(DOCS_DIR, "manuals/safety-manual-cover.html");
+  const handbookCoverPath = join(
+    DOCS_DIR,
+    "manuals/employee-handbook-cover.html",
+  );
+
+  if (!existsSync(safetyCoverPath)) {
+    throw new Error(`Template not found: ${safetyCoverPath}`);
+  }
+  if (!existsSync(handbookCoverPath)) {
+    throw new Error(`Template not found: ${handbookCoverPath}`);
+  }
+
+  const [safetyCoverHtml, handbookCoverHtml] = await Promise.all([
+    readFile(safetyCoverPath, "utf-8"),
+    readFile(handbookCoverPath, "utf-8"),
+  ]);
+
+  const sharedCoverChecks = [
+    {
+      regex:
+        /\.cover::before[\s\S]*?inset:\s*0\.22in[\s\S]*?border:\s*1\.2pt\s+solid\s+var\(--brand-primary\)/i,
+      message:
+        "Cover must keep canonical outer frame (inset 0.22in, 1.2pt primary border)",
+    },
+    {
+      regex:
+        /\.cover::after[\s\S]*?inset:\s*0\.33in[\s\S]*?border:\s*0\.6pt\s+solid\s+var\(--brand-secondary\)/i,
+      message:
+        "Cover must keep canonical inner frame (inset 0.33in, 0.6pt secondary border)",
+    },
+    {
+      regex:
+        /\.left-ribbon[\s\S]*?top:\s*0\.45in[\s\S]*?bottom:\s*0\.45in[\s\S]*?left:\s*0\.45in[\s\S]*?width:\s*0\.28in/i,
+      message:
+        "Cover must keep canonical ribbon metrics (top/bottom 0.45in, left 0.45in, width 0.28in)",
+    },
+    {
+      regex:
+        /\.footer[\s\S]*?position:\s*absolute[\s\S]*?left:\s*0\.92in[\s\S]*?right:\s*0\.9in[\s\S]*?bottom:\s*0\.62in/i,
+      message:
+        "Cover footer must use canonical inset placement (left 0.92in, right 0.9in, bottom 0.62in)",
+    },
+    {
+      regex: /class="summary-card"/i,
+      message: "Cover must include a summary card block",
+    },
+    {
+      regex: /class="qr-card"/i,
+      message: "Cover must include a QR card block",
+    },
+    {
+      regex: /class="veteran-strip"/i,
+      message: "Cover must include veteran strip markup",
+    },
+    {
+      regex:
+        /\{\{BRAND_REVISION_DATE\}\}[\s\S]*?\{\{BRAND_REVISION_NUMBER\}\}/i,
+      message: "Cover must display revision date and revision number tokens",
+    },
+  ];
+
+  validateTemplateGuardrails(
+    `safety cover cohesion (${safetyCoverPath})`,
+    safetyCoverHtml,
+    [
+      ...sharedCoverChecks,
+      {
+        regex: /<div class="program-chip">MISH Safety Manual<\/div>/i,
+        message: "Safety cover must use the MISH Safety Manual chip label",
+      },
+      {
+        regex: /<h1 class="title">Safety<br\s*\/?>Manual<\/h1>/i,
+        message: "Safety cover must use the Safety Manual title",
+      },
+      {
+        regex: /Accident Prevention Program for Field Operations/i,
+        message: "Safety cover must retain safety-specific subtitle",
+      },
+      {
+        regex: /Program Snapshot/i,
+        message: "Safety cover must use Program Snapshot summary heading",
+      },
+      {
+        regex: /Safety Manual Online/i,
+        message: "Safety cover QR heading must be Safety Manual Online",
+      },
+      {
+        regex: /Scan for current MISH edition/i,
+        message: "Safety cover QR label must reference current MISH edition",
+      },
+    ],
+  );
+
+  validateTemplateGuardrails(
+    `handbook cover cohesion (${handbookCoverPath})`,
+    handbookCoverHtml,
+    [
+      ...sharedCoverChecks,
+      {
+        regex: /<div class="program-chip">Employee Handbook<\/div>/i,
+        message: "Handbook cover must use Employee Handbook chip label",
+      },
+      {
+        regex: /<h1 class="title">Employee<br\s*\/?>Handbook<\/h1>/i,
+        message: "Handbook cover must use the Employee Handbook title",
+      },
+      {
+        regex: /Workplace Policies, Standards, and Employee Expectations/i,
+        message: "Handbook cover must retain handbook-specific subtitle",
+      },
+      {
+        regex: /Handbook Snapshot/i,
+        message: "Handbook cover must use Handbook Snapshot summary heading",
+      },
+      {
+        regex: /Handbook Online/i,
+        message: "Handbook cover QR heading must be Handbook Online",
+      },
+      {
+        regex: /Scan for latest handbook/i,
+        message: "Handbook cover QR label must reference latest handbook",
+      },
+    ],
+  );
+
+  if (/Employee Handbook/i.test(safetyCoverHtml)) {
+    throw new Error(
+      "Guardrail validation failed: safety cover contains employee handbook language.",
+    );
+  }
+
+  if (
+    /MISH Safety Manual|Scan for current MISH edition/i.test(handbookCoverHtml)
+  ) {
+    throw new Error(
+      "Guardrail validation failed: handbook cover contains safety-manual language.",
+    );
+  }
+}
+
+async function validateSafetyTabsVisualStandardGuardrails() {
+  const safetyTabsPath = join(DOCS_DIR, "manuals/safety-manual-tabs.html");
+  if (!existsSync(safetyTabsPath)) {
+    throw new Error(`Template not found: ${safetyTabsPath}`);
+  }
+
+  const tabsHtml = await readFile(safetyTabsPath, "utf-8");
+  validateTemplateGuardrails(
+    `safety tabs standard (${safetyTabsPath})`,
+    tabsHtml,
+    [
+      {
+        regex:
+          /\.tab-page::before[\s\S]*?inset:\s*0\.22in[\s\S]*?border:\s*1\.2pt\s+solid\s+var\(--brand-primary\)/i,
+        message:
+          "Safety tabs must keep canonical outer frame (inset 0.22in, 1.2pt primary border)",
+      },
+      {
+        regex:
+          /\.tab-page::after[\s\S]*?inset:\s*0\.33in[\s\S]*?border:\s*0\.6pt\s+solid\s+var\(--brand-secondary\)/i,
+        message:
+          "Safety tabs must keep canonical inner frame (inset 0.33in, 0.6pt secondary border)",
+      },
+      {
+        regex:
+          /\.tab-ribbon[\s\S]*?top:\s*0\.45in[\s\S]*?bottom:\s*0\.45in[\s\S]*?left:\s*0\.45in[\s\S]*?width:\s*0\.28in/i,
+        message:
+          "Safety tabs must keep canonical ribbon metrics (top/bottom 0.45in, left 0.45in, width 0.28in)",
+      },
+      {
+        regex:
+          /\.tab-hero[\s\S]*?padding:\s*0\.22in\s+0\.42in\s+2\.15in\s+0\.42in/i,
+        message:
+          "Safety tabs hero must reserve canonical bottom clearance so footer and veteran strip remain visible",
+      },
+      {
+        regex:
+          /\.footer[\s\S]*?position:\s*absolute[\s\S]*?left:\s*0\.92in[\s\S]*?right:\s*0\.9in[\s\S]*?bottom:\s*0\.62in/i,
+        message:
+          "Safety tabs footer must stay inset from ribbon (absolute at left 0.92in, right 0.9in, bottom 0.62in)",
+      },
+      {
+        regex:
+          /\.veteran-strip[\s\S]*?position:\s*absolute[\s\S]*?left:\s*0\.92in[\s\S]*?right:\s*0\.9in[\s\S]*?bottom:\s*0\.42in/i,
+        message:
+          "Safety tabs veteran strip must use canonical placement (left 0.92in, right 0.9in, bottom 0.42in)",
+      },
+      {
+        regex:
+          /\.tab-section-title[\s\S]*?margin-bottom:\s*0\.16in[\s\S]*?width:\s*100%/i,
+        message:
+          "Safety tabs title block must reserve canonical spacing (margin-bottom 0.16in, width 100%)",
+      },
+      {
+        regex:
+          /\.tab-signature[\s\S]*?align-self:\s*stretch[\s\S]*?margin-left:\s*0\.5in[\s\S]*?margin-right:\s*0\.5in/i,
+        message:
+          "Safety tabs signature block must use canonical full-lane inset alignment",
+      },
+      {
+        regex:
+          /\.tab-sig-lines[\s\S]*?grid-template-columns:\s*1\.5fr\s+0\.85fr/i,
+        message:
+          "Safety tabs signature lines must preserve standard ratio (long signature, shorter date)",
+      },
+      {
+        regex: /aria-label="Approval signature verification"/i,
+        message:
+          "Safety tabs signature block must use canonical approval aria-label",
+      },
+      {
+        regex: /<div class="tab-sig-name">Jeremy Thamert<\/div>/i,
+        message: "Safety tabs signature block must include Jeremy Thamert",
+      },
+      {
+        regex: /<div class="tab-sig-role">President\s*&amp;\s*Owner<\/div>/i,
+        message:
+          "Safety tabs signature block must include the President & Owner signer role",
+      },
+      {
+        regex: /\bMISH\b/i,
+        message: "Safety tabs must preserve MISH labeling",
+      },
+    ],
+  );
+
+  if (
+    /<div class="tab-section-title">(?:(?!<\/div>).)*<div\s+class="tab-signature"/is.test(
+      tabsHtml,
+    )
+  ) {
+    throw new Error(
+      "Guardrail validation failed: safety tab signature block must be a sibling placed below .tab-section-title, not nested inside it.",
+    );
+  }
+
+  if (
+    /Matt Ramsey|QC Verification|Quality control signature verification|tab-sig-date-row|tab-sig-date-label|tab-sig-header/i.test(
+      tabsHtml,
+    )
+  ) {
+    throw new Error(
+      "Guardrail validation failed: safety tabs contain legacy signature/QC patterns. Use the standardized single-signer approval block.",
+    );
+  }
+}
+
+async function validateSpineTemplateGuardrails() {
+  const safetySpinePath = join(DOCS_DIR, "manuals/safety-manual-spine.html");
+  const handbookSpinePath = join(
+    DOCS_DIR,
+    "manuals/employee-handbook-spine.html",
+  );
+
+  if (!existsSync(safetySpinePath)) {
+    throw new Error(`Template not found: ${safetySpinePath}`);
+  }
+  if (!existsSync(handbookSpinePath)) {
+    throw new Error(`Template not found: ${handbookSpinePath}`);
+  }
+
+  const [safetySpineHtml, handbookSpineHtml] = await Promise.all([
+    readFile(safetySpinePath, "utf-8"),
+    readFile(handbookSpinePath, "utf-8"),
+  ]);
+
+  const sharedSpineChecks = [
+    {
+      regex: /@page\s*\{[\s\S]*?size:\s*letter\s+portrait[\s\S]*?margin:\s*0/i,
+      message:
+        "Spine must keep canonical page setup (letter portrait, zero margin)",
+    },
+    {
+      regex:
+        /html,\s*body\s*\{[\s\S]*?width:\s*8\.5in[\s\S]*?height:\s*11in[\s\S]*?overflow:\s*hidden[\s\S]*?font-size:\s*0[\s\S]*?line-height:\s*0/i,
+      message:
+        "Spine must keep one-page root clamp (8.5in x 11in, overflow hidden, zero root text metrics)",
+    },
+    {
+      regex:
+        /\.page\s*\{[\s\S]*?page-break-after:\s*avoid[\s\S]*?break-after:\s*avoid/i,
+      message:
+        "Spine must enforce no trailing page break (page-break-after/break-after set to avoid)",
+    },
+    {
+      regex: /\.spine-logo-wrap\s*\{[\s\S]*?gap:\s*0\.1in/i,
+      message:
+        "Spine logo block must keep expanded logo-to-year spacing (gap 0.1in)",
+    },
+    {
+      regex: /\.spine-year\s*\{[\s\S]*?\}[\s\S]*?\.spine-revision\s*\{/i,
+      message:
+        "Spine must include both year and revision style blocks in the logo stack",
+    },
+    {
+      regex:
+        /<div class="spine-logo-wrap">[\s\S]*?<span class="spine-year">\{\{BRAND_REVISION_YEAR\}\}<\/span>[\s\S]*?<span class="spine-revision">Revision 3\.0<\/span>/i,
+      message:
+        "Spine logo stack must show revision year followed by Revision 3.0",
+    },
+    {
+      regex:
+        /\{\{BRAND_AGC_STACKED\}\}[\s\S]*?\{\{BRAND_BBB_SEAL\}\}[\s\S]*?\{\{BRAND_WA_VOB_LOGO\}\}/i,
+      message: "Spine must include AGC, BBB, and Veteran Owned badge tokens",
+    },
+  ];
+
+  validateTemplateGuardrails(
+    `safety spine standard (${safetySpinePath})`,
+    safetySpineHtml,
+    [
+      ...sharedSpineChecks,
+      {
+        regex: /<span class="spine-title">MISH Safety Manual<\/span>/i,
+        message: "Safety spine title must be MISH Safety Manual",
+      },
+    ],
+  );
+
+  validateTemplateGuardrails(
+    `employee-handbook spine standard (${handbookSpinePath})`,
+    handbookSpineHtml,
+    [
+      ...sharedSpineChecks,
+      {
+        regex: /<span class="spine-title">Employee Handbook<\/span>/i,
+        message: "Employee handbook spine title must be Employee Handbook",
+      },
+    ],
+  );
+
+  if (/Employee Handbook/i.test(safetySpineHtml)) {
+    throw new Error(
+      "Guardrail validation failed: safety spine contains employee handbook title language.",
+    );
+  }
+
+  if (/MISH Safety Manual/i.test(handbookSpineHtml)) {
+    throw new Error(
+      "Guardrail validation failed: employee handbook spine contains safety manual title language.",
+    );
+  }
+}
+
+async function runSpineGuardrailsCheck() {
+  console.log("\n🛡️  Running spine guardrails check…");
+  await validateSpineTemplateGuardrails();
+  console.log("  ✓  Spine layout and labeling guardrails verified");
 }
 
 async function runGuardrailsCheck() {
@@ -1930,13 +2755,158 @@ async function runGuardrailsCheck() {
   validateFormFillableTemplateGuardrails(formTemplate, formTemplatePath);
   console.log("  ✓  Form template guardrails verified");
 
-  const tocTemplatePath = join(DOCS_DIR, "manuals/safety-manual-toc.html");
-  if (!existsSync(tocTemplatePath)) {
-    throw new Error(`TOC template not found: ${tocTemplatePath}`);
+  if (!existsSync(CANONICAL_TOC_TEMPLATE_PATH)) {
+    throw new Error(`TOC template not found: ${CANONICAL_TOC_TEMPLATE_PATH}`);
   }
-  const tocTemplate = await readFile(tocTemplatePath, "utf-8");
-  validateTocTemplateGuardrails(tocTemplate, tocTemplatePath);
+  const tocTemplate = await readFile(CANONICAL_TOC_TEMPLATE_PATH, "utf-8");
+  validateTocTemplateGuardrails(tocTemplate, CANONICAL_TOC_TEMPLATE_PATH);
   console.log("  ✓  TOC template guardrails verified");
+
+  await validateHandbookLetterheadFooterParity();
+  console.log("  ✓  Handbook letterhead footer parity verified");
+
+  await validateCanonicalFooterClassUsage();
+  console.log("  ✓  Canonical footer class usage verified");
+
+  await validateManualCoverCohesionGuardrails();
+  console.log("  ✓  Cover cohesion guardrails verified");
+
+  await validateHandbookCoverTabsFooterGuardrails();
+  console.log("  ✓  Handbook cover/tabs footer guardrails verified");
+
+  await validateSafetyTabsVisualStandardGuardrails();
+  console.log("  ✓  Safety tabs visual standard guardrails verified");
+
+  await validateSpineTemplateGuardrails();
+  console.log("  ✓  Spine layout and labeling guardrails verified");
+
+  await generateLetterhead();
+  await generateToc();
+  await validateRenderedPdfParity(
+    join(OUTPUT_DIR, "safety-manual-letterhead.pdf"),
+    join(OUTPUT_DIR, "safety-manual-toc.pdf"),
+  );
+  console.log("  ✓  TOC/letterhead rendered parity verified");
+}
+
+function pixelsForInches(inches, scale) {
+  return Math.max(1, Math.round(inches * 72 * scale));
+}
+
+async function renderPdfPage(pdfPath, pageNumber = 1, scale = 2) {
+  const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
+  const data = new Uint8Array(await readFile(pdfPath));
+  const document = await pdfjs.getDocument({
+    data,
+    useWorkerFetch: false,
+    isEvalSupported: false,
+    disableFontFace: false,
+    standardFontDataUrl: PDFJS_STANDARD_FONT_DATA_URL,
+  }).promise;
+  const page = await document.getPage(pageNumber);
+  const viewport = page.getViewport({ scale });
+  const canvas = createCanvas(
+    Math.ceil(viewport.width),
+    Math.ceil(viewport.height),
+  );
+  const context = canvas.getContext("2d");
+  await page.render({ canvasContext: context, viewport }).promise;
+  return { canvas, viewport };
+}
+
+function compareImageBands(label, leftPixels, rightPixels) {
+  if (leftPixels.length !== rightPixels.length) {
+    throw new Error(
+      `${label} parity failed: image buffer sizes differ (${leftPixels.length} vs ${rightPixels.length})`,
+    );
+  }
+  for (let index = 0; index < leftPixels.length; index++) {
+    if (leftPixels[index] !== rightPixels[index]) {
+      throw new Error(
+        `${label} parity failed: pixel mismatch at byte offset ${index}`,
+      );
+    }
+  }
+}
+
+async function validateRenderedPdfParity(letterheadPdfPath, tocPdfPath) {
+  const scale = 2;
+  const letterhead = await renderPdfPage(letterheadPdfPath, 1, scale);
+  const toc = await renderPdfPage(tocPdfPath, 1, scale);
+  const { canvas: letterheadCanvas } = letterhead;
+  const { canvas: tocCanvas } = toc;
+
+  if (
+    letterheadCanvas.width !== tocCanvas.width ||
+    letterheadCanvas.height !== tocCanvas.height
+  ) {
+    throw new Error(
+      `Rendered parity failed: page sizes differ (${letterheadCanvas.width}x${letterheadCanvas.height} vs ${tocCanvas.width}x${tocCanvas.height})`,
+    );
+  }
+
+  const regions = [
+    {
+      label: "top outer border",
+      x: 0,
+      y: pixelsForInches(0.18, scale),
+      w: letterheadCanvas.width,
+      h: pixelsForInches(0.08, scale),
+    },
+    {
+      label: "top inner border",
+      x: 0,
+      y: pixelsForInches(0.29, scale),
+      w: letterheadCanvas.width,
+      h: pixelsForInches(0.08, scale),
+    },
+    {
+      label: "left border",
+      x: pixelsForInches(0.18, scale),
+      y: 0,
+      w: pixelsForInches(0.08, scale),
+      h: letterheadCanvas.height,
+    },
+    {
+      label: "right border",
+      x: letterheadCanvas.width - pixelsForInches(0.26, scale),
+      y: 0,
+      w: pixelsForInches(0.08, scale),
+      h: letterheadCanvas.height,
+    },
+    {
+      label: "ribbon strip",
+      x: pixelsForInches(0.42, scale),
+      y: 0,
+      w: pixelsForInches(0.38, scale),
+      h: letterheadCanvas.height,
+    },
+    {
+      label: "footer band",
+      x: 0,
+      y: letterheadCanvas.height - pixelsForInches(0.85, scale),
+      w: letterheadCanvas.width,
+      h: pixelsForInches(0.85, scale),
+    },
+  ];
+
+  const letterheadContext = letterheadCanvas.getContext("2d");
+  const tocContext = tocCanvas.getContext("2d");
+  for (const region of regions) {
+    const letterheadPixels = letterheadContext.getImageData(
+      region.x,
+      region.y,
+      region.w,
+      region.h,
+    ).data;
+    const tocPixels = tocContext.getImageData(
+      region.x,
+      region.y,
+      region.w,
+      region.h,
+    ).data;
+    compareImageBands(region.label, letterheadPixels, tocPixels);
+  }
 }
 
 // ── Template: Tab Dividers ────────────────────────────────────────────────────
@@ -1951,50 +2921,55 @@ async function runGuardrailsCheck() {
  * Tab 01–44 QR → individual section page URL
  */
 async function generateTabs() {
-  console.log("\n🗂  Generating tab dividers…");
+  console.log(`\n🗂  Generating ${ACTIVE_MANUAL_LABEL} tab dividers…`);
   await ensureDir(OUTPUT_DIR);
-  let html = await readFile(
-    join(DOCS_DIR, "manuals/safety-manual-tabs.html"),
-    "utf-8",
-  );
+  if (isEmployeeHandbook) {
+    await validateHandbookCoverTabsFooterGuardrails();
+  } else {
+    await validateSafetyTabsVisualStandardGuardrails();
+  }
+  const templateName = isEmployeeHandbook
+    ? "employee-handbook-tabs.html"
+    : "safety-manual-tabs.html";
+  let html = await readFile(join(DOCS_DIR, `manuals/${templateName}`), "utf-8");
 
   // ── Replace dashboard QR placeholder in footer (shared across all tabs) ──
   const dashboardQrDataUrl = await buildQrDataUrl(BRAND.qrCodes.dashboard);
   html = html.replaceAll("{{BRAND_QR_DASHBOARD}}", dashboardQrDataUrl);
 
   // ── Generate and inject per-tab section QR codes ─────────────────────────
-  // Tabs 00–44 map to public section URLs; tab 00 = TOC landing page.
+  // For MISH: Tabs 00–44 map to public section URLs; tab 00 = TOC landing page.
+  // For Employee Handbook: handbook currently publishes as a single PDF, so all
+  // tab QR codes route to the canonical public handbook document.
   for (let n = 0; n <= 44; n++) {
     const nn = String(n).padStart(2, "0");
     const token = `{{QR_TAB_${nn}}}`;
     if (!html.includes(token)) continue;
 
-    // Tab 00 → standalone Table of Contents page.
-    // Tabs 01–44 → cluster page anchored to that section's MISH id.
-    const sectionUrl =
-      n === 0
-        ? `${SITE_URL}/resources/safety-manual/contents`
-        : clusterUrlForSection(n) ||
-          `${SITE_URL}/resources/safety-manual/contents`;
+    let sectionUrl;
+    if (isEmployeeHandbook) {
+      sectionUrl = ACTIVE_MANUAL_DIGITAL_URL;
+    } else {
+      // Tab 00 → standalone Table of Contents page.
+      // Tabs 01–44 → cluster page anchored to that section's MISH id.
+      sectionUrl =
+        n === 0
+          ? `${SITE_URL}/resources/safety-manual/contents`
+          : clusterUrlForSection(n) ||
+            `${SITE_URL}/resources/safety-manual/contents`;
+    }
 
     const qrDataUrl = await buildQrDataUrl(sectionUrl);
     html = html.replaceAll(token, qrDataUrl);
   }
 
-  const tabsFooterHtml = buildCanonicalFormsFooterHtml({
-    tag: "div",
-    className: "tab-footer",
-    style:
-      "flex:0 0 auto;order:10;margin-top:auto;display:grid;" +
-      "grid-template-columns:1.6fr 1fr;gap:18pt;align-items:end;" +
-      "padding:0 0.9in 0.62in 0.92in;background:white;position:relative;z-index:10;",
-  });
-  html = replaceTabFooterBlocks(html, tabsFooterHtml);
-
   // ── Apply remaining brand tokens ─────────────────────────────────────────
   html = applyBrandTokens(html);
 
-  const pdfPath = join(OUTPUT_DIR, "safety-manual-tabs.pdf");
+  const tabsFileName = isEmployeeHandbook
+    ? "employee-handbook-tabs.pdf"
+    : "safety-manual-tabs.pdf";
+  const pdfPath = join(OUTPUT_DIR, tabsFileName);
   await renderHtmlToPdf(
     html,
     pdfPath,
@@ -2302,10 +3277,21 @@ function buildReferencePdfHtml(sections) {
 
 // ── Template: Section PDFs ────────────────────────────────────────────────────
 async function generateSections(filter = null) {
-  if (!existsSync(MANIFEST)) {
-    console.error(
-      "\n❌  safety-manual.json not found. Run `npm run docs:extract` first.",
+  if (isEmployeeHandbook) {
+    console.log(
+      "\n📑 Skipping section PDF generation (handbook sections are in DOCX format)",
     );
+    return;
+  }
+
+  if (!existsSync(MANIFEST)) {
+    const manifestName = isEmployeeHandbook
+      ? "employee-handbook.json"
+      : "safety-manual.json";
+    console.error(`\n❌  ${manifestName} not found.`);
+    if (!isEmployeeHandbook) {
+      console.error("  Run `npm run docs:extract` first.");
+    }
     process.exit(1);
   }
 
@@ -2321,8 +3307,11 @@ async function generateSections(filter = null) {
 
   console.log(`\n📑 Generating ${targets.length} section PDF(s)…`);
 
+  const templateName = isEmployeeHandbook
+    ? "employee-handbook-section.html"
+    : "safety-manual-section.html";
   const templateHtml = await readFile(
-    join(DOCS_DIR, "manuals/safety-manual-section.html"),
+    join(DOCS_DIR, `manuals/${templateName}`),
     "utf-8",
   );
 
@@ -2392,17 +3381,19 @@ async function generateSections(filter = null) {
   }
 
   if (filter === null) {
-    // Generate the TOC from the static template
-    await generateToc();
+    // Generate the TOC from the static template (MISH only)
+    if (!isEmployeeHandbook) {
+      await generateToc();
 
-    const referenceTarget = join(OUTPUT_DIR, "safety-manual-reference.pdf");
-    const referenceHtml = applyBrandTokens(buildReferencePdfHtml(sections));
-    await renderHtmlToPdf(
-      referenceHtml,
-      referenceTarget,
-      {},
-      "manuals/_tmp_safety_manual_reference.html",
-    );
+      const referenceTarget = join(OUTPUT_DIR, "safety-manual-reference.pdf");
+      const referenceHtml = applyBrandTokens(buildReferencePdfHtml(sections));
+      await renderHtmlToPdf(
+        referenceHtml,
+        referenceTarget,
+        {},
+        "manuals/_tmp_safety_manual_reference.html",
+      );
+    }
   }
 }
 
@@ -2462,7 +3453,7 @@ async function generateForms() {
  * `safety-manual-cover.html` (frame, ribbon, identity bar, accreditation
  * footer, ★ VETERAN OWNED ★ tagline) plus a section-header-style
  * Form-Identification-and-Control card. Source `.docx` files in
- * `documents/forms/2026-MHC-Company-Forms-Library/` remain editable in
+ * `documents/forms/MHC-MISH-47-Forms/` are the canonical editable source
  * Word and are bound behind their cover at print/collation time.
  *
  * Tokens consumed by `documents/manuals/form-cover.html`:
@@ -4540,6 +5531,9 @@ async function main() {
         break;
       case "guardrails-check":
         await runGuardrailsCheck();
+        break;
+      case "spine-guardrails":
+        await runSpineGuardrailsCheck();
         break;
       case "sections":
         await generateSections();

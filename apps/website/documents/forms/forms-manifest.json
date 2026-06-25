@@ -1,7 +1,7 @@
 {
   "brand": "mhc",
-  "generatedAt": "2026-06-24T00:33:59.630Z",
-  "notes": "DOCX-backed safety forms manifest used by generate.mjs and merge.mjs. Keep ids aligned with the uploaded MISH form source files.",
+  "generatedAt": "2026-06-24T15:21:49.951Z",
+  "notes": "DOCX-backed forms manifest used by generate.mjs and merge.mjs for both MISH and Employee Handbook form sets.",
   "forms": [
     {
       "id": "MISH 01",
@@ -613,6 +613,110 @@
       "revision": "1.0",
       "effectiveDate": "June 2026",
       "owner": "Safety Officer (Matt Ramsey)"
+    },
+    {
+      "id": "MISH 51",
+      "slug": "form-mish-51-purchase-approval-general-expense",
+      "title": "Purchase Approval General Expense",
+      "category": "MHC-cat2-safety",
+      "categoryLabel": "Safety Forms",
+      "categoryIcon": "🛡",
+      "manualSection": ["MISH 51"],
+      "docxPath": "MHC-MISH-47-Forms/FORM-MISH-51-Purchase-Approval-General-Expense.docx",
+      "revision": "1.0",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
+    },
+    {
+      "id": "HANDBOOK-FORM-01",
+      "slug": "form-handbook-01-company-vehicle-acknowledgement",
+      "title": "Company Vehicle Policies and Procedures Acknowledgement",
+      "category": "MHC-cat3-employee",
+      "categoryLabel": "Employee Handbook Forms",
+      "categoryIcon": "📋",
+      "manualSection": ["HANDBOOK 02"],
+      "docxPath": "MHC-HANDBOOK-FORMS/HANDBOOK-FORM-01_company-vehicle-policies-and-procedures-acknowledgement.docx",
+      "revision": "1.0",
+      "effectiveDate": "June 2026",
+      "owner": "Human Resources"
+    },
+    {
+      "id": "HANDBOOK-FORM-02",
+      "slug": "form-handbook-02-handbook-receipt-acknowledgment",
+      "title": "Employee Handbook Receipt Acknowledgment",
+      "category": "MHC-cat3-employee",
+      "categoryLabel": "Employee Handbook Forms",
+      "categoryIcon": "📋",
+      "manualSection": ["HANDBOOK 01"],
+      "docxPath": "MHC-HANDBOOK-FORMS/HANDBOOK-FORM-02_employee-handbook-receipt-acknowledgment.docx",
+      "revision": "1.0",
+      "effectiveDate": "June 2026",
+      "owner": "Human Resources"
+    },
+    {
+      "id": "HANDBOOK-FORM-03",
+      "slug": "form-handbook-03-safety-policy-acknowledgement",
+      "title": "Employee Safety Policy Acknowledgement Form",
+      "category": "MHC-cat3-employee",
+      "categoryLabel": "Employee Handbook Forms",
+      "categoryIcon": "📋",
+      "manualSection": ["HANDBOOK 06"],
+      "docxPath": "MHC-HANDBOOK-FORMS/HANDBOOK-FORM-03_employee-safety-policy-acknowledgement-form.docx",
+      "revision": "1.0",
+      "effectiveDate": "June 2026",
+      "owner": "Safety Officer (Matt Ramsey)"
+    },
+    {
+      "id": "HANDBOOK-FORM-04",
+      "slug": "form-handbook-04-work-from-home-agreement",
+      "title": "Temporary Work From Home Application/Agreement",
+      "category": "MHC-cat3-employee",
+      "categoryLabel": "Employee Handbook Forms",
+      "categoryIcon": "📋",
+      "manualSection": ["HANDBOOK 02"],
+      "docxPath": "MHC-HANDBOOK-FORMS/HANDBOOK-FORM-04_temporary-work-from-home-application-agreement.docx",
+      "revision": "1.0",
+      "effectiveDate": "June 2026",
+      "owner": "Human Resources"
+    },
+    {
+      "id": "HANDBOOK-FORM-05",
+      "slug": "form-handbook-05-computer-electronics-use-agreement",
+      "title": "Employee Acknowledgment and Agreement of Computer and Electronics Use Policy",
+      "category": "MHC-cat3-employee",
+      "categoryLabel": "Employee Handbook Forms",
+      "categoryIcon": "📋",
+      "manualSection": ["HANDBOOK 02"],
+      "docxPath": "MHC-HANDBOOK-FORMS/HANDBOOK-FORM-05_employee-acknowledgment-and-agreement-of-computer-and-electronics-use-policy.docx",
+      "revision": "1.0",
+      "effectiveDate": "June 2026",
+      "owner": "Human Resources"
+    },
+    {
+      "id": "HANDBOOK-FORM-06",
+      "slug": "form-handbook-06-employee-photo-release-form",
+      "title": "Employee Photo Release Form",
+      "category": "MHC-cat3-employee",
+      "categoryLabel": "Employee Handbook Forms",
+      "categoryIcon": "📋",
+      "manualSection": ["HANDBOOK 06"],
+      "docxPath": "MHC-HANDBOOK-FORMS/HANDBOOK-FORM-06_employee-photo-release-form.docx",
+      "revision": "1.0",
+      "effectiveDate": "June 2026",
+      "owner": "Human Resources"
+    },
+    {
+      "id": "HANDBOOK-FORM-07",
+      "slug": "form-handbook-07-client-photo-release-form",
+      "title": "Client Photo Release Form",
+      "category": "MHC-cat3-employee",
+      "categoryLabel": "Employee Handbook Forms",
+      "categoryIcon": "📋",
+      "manualSection": ["HANDBOOK 06"],
+      "docxPath": "MHC-HANDBOOK-FORMS/HANDBOOK-FORM-07-client-photo-release-form.docx",
+      "revision": "1.0",
+      "effectiveDate": "June 2026",
+      "owner": "Human Resources"
     }
   ]
 }

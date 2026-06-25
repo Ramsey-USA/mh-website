@@ -119,7 +119,7 @@
         display: flex;
         flex-direction: column;
         min-height: 11in;
-        padding: 2.55in 1.05in 2.0in 1.15in;
+        padding: 1.5in 1.05in 1.86in 1.15in;
       }
 
       /* ── Page Header ─────────────────────────────────────── */
@@ -167,10 +167,27 @@
       }
 
       .toc-logo {
-        height: 1.82in;
+        height: 1.7in;
         width: auto;
         display: block;
-        margin: 0 auto 0.1in;
+        margin: 0 auto;
+      }
+
+      .toc-logo-wrap {
+        background: var(--muted);
+        border: 1pt solid var(--brand-secondary);
+        border-radius: 6pt;
+        padding: 0.08in 0.18in;
+        margin: 0 auto 0.12in;
+        width: fit-content;
+      }
+
+      .toc-rule {
+        width: 2.2in;
+        height: 2pt;
+        background: linear-gradient(90deg, transparent, var(--brand-secondary), transparent);
+        border-radius: 1pt;
+        margin: 0 auto 0.12in;
       }
 
       /* Program chip — mirrors cover's MHC-APP chip */
@@ -192,10 +209,10 @@
 
       .toc-title {
         font-family: var(--font-heading);
-        font-size: 20pt;
+        font-size: 21pt;
         font-weight: 900;
         color: var(--brand-primary);
-        margin: 0.06in 0 0.02in;
+        margin: 0.03in 0 0.02in;
         letter-spacing: 0.01em;
         line-height: 1.05;
         text-transform: uppercase;
@@ -215,7 +232,7 @@
       .toc-body {
         position: relative;
         z-index: 1;
-        margin-top: 1.35in;
+        margin-top: 0.4in;
         columns: 2;
         column-gap: 0.28in;
         column-fill: balance;
@@ -229,31 +246,35 @@
         margin-top: 0;
       }
 
+      #toc-page-3 .toc-body {
+        columns: 1;
+        column-fill: auto;
+      }
+
       /* Each operational cluster stays together in one column */
       .cluster {
         break-inside: avoid;
-        margin-bottom: 0.06in;
-        padding: 0.06in 0.08in 0.05in;
-        background: var(--muted);
-        border: 0.75pt solid var(--brand-secondary);
-        border-radius: 2pt;
+        margin-bottom: 0.18in;
+        padding: 0;
+        background: transparent;
+        border: none;
+        border-radius: 0;
       }
 
-      /* Cluster heading — Mendl Sans Dusk Medium */
+      /* Cluster heading — simple outline style */
       .cluster-head {
         font-family: var(--font-heading);
-        font-size: 7pt;
-        font-weight: 500;
-        color: #ffffff;
+        font-size: 7.5pt;
+        font-weight: 700;
+        color: var(--brand-primary);
         text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin: -0.06in -0.08in 4pt;
-        padding: 3pt 8pt 2pt;
-        border-bottom: 0.75pt solid var(--brand-secondary);
-        background: var(--brand-primary);
-        border-left: 3pt solid var(--brand-secondary);
-        border-radius: 2pt 2pt 0 0;
-        box-shadow: inset 0 -1pt 0 var(--brand-secondary);
+        letter-spacing: 0.12em;
+        margin: 0 0 0.08in 0;
+        padding: 0 0 5pt 0;
+        border-bottom: 1.5pt solid var(--brand-primary);
+        background: transparent;
+        border-left: none;
+        border-radius: 0;
       }
 
       /* MISH entry list */
@@ -265,51 +286,54 @@
 
       .mish-entry {
         display: flex;
-        align-items: baseline;
-        gap: 6pt;
-        padding: 1pt 0;
-        /* DIN 2014 for legibility in high-stress environments */
+        align-items: flex-start;
+        gap: 0.12in;
+        padding: 3pt 0;
         font-family: var(--font-body);
-        font-size: 8.9pt;
-        line-height: 1.22;
+        line-height: 1.25;
         color: #000000;
       }
 
-      .mish-code {
+      .mish-entry .mish-code {
+        display: block;
         flex-shrink: 0;
-        width: 0.8in;
+        width: auto;
+        min-width: 0.55in;
         font-family: var(--font-heading);
-        font-size: 7.5pt;
-        font-weight: 700;
-        color: #ffffff;
-        background: var(--brand-primary);
-        border: 0.75pt solid var(--brand-secondary);
-        border-radius: 1.5pt;
-        box-shadow: inset 0 -1pt 0 var(--brand-secondary);
-        padding: 1pt 5pt 0.5pt;
-        text-align: center;
+        font-size: 8pt;
+        font-weight: 800;
+        color: var(--brand-primary);
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+        text-align: left;
+        line-height: 1.25;
       }
 
       .mish-wbs {
         display: none;
       }
 
-      .mish-title {
+      .mish-entry .mish-title {
         flex: 1;
         color: #000000;
-        font-size: 8.6pt;
-        line-height: 1.18;
+        font-size: 8.5pt;
+        line-height: 1.25;
         text-wrap: pretty;
         hyphens: auto;
+        word-break: break-word;
       }
 
       /* Callout — Tan Leather highlight for critical safety protocols */
       .mish-entry.callout {
         background: #fff8f2;
-        border-left: 1.75pt solid var(--brand-secondary);
-        padding-left: 4pt;
-        margin-left: -4pt;
-        border-radius: 0 1pt 1pt 0;
+        border: 0.5pt solid var(--brand-secondary-light);
+        border-left: 2pt solid var(--brand-secondary);
+        padding-left: 5pt;
+        margin-left: -3pt;
+        border-radius: 0 2pt 2pt 0;
       }
 
       .mish-entry.callout .mish-code {
@@ -322,8 +346,32 @@
         font-weight: 700;
       }
 
+      /* Form entries — simple, left-indented */
+      .mish-entry.mish-form {
+        opacity: 1;
+        padding: 2pt 0 2pt 0.65in;
+      }
+
+      .mish-entry.mish-form .mish-code {
+        background: transparent;
+        color: var(--brand-secondary);
+        font-weight: 600;
+        font-size: 7.5pt;
+        border: none;
+        box-shadow: none;
+        min-width: 0.48in;
+        padding: 0;
+      }
+
+      .mish-entry.mish-form .mish-title {
+        font-style: italic;
+        color: #555555;
+        font-size: 8pt;
+        line-height: 1.23;
+      }
+
       /* Footer — aligned to safety-manual-letterhead */
-      .bottom {
+      .footer {
         position: absolute;
         left: 0.92in;
         right: 0.9in;
@@ -337,7 +385,7 @@
         gap: 0.25in;
         align-items: end;
       }
-      .bottom::before {
+      .footer::before {
         content: "";
         position: absolute;
         left: 0;
@@ -351,7 +399,7 @@
         line-height: 1.45;
         color: var(--brand-primary-darker);
       }
-      .contact .meta {
+      .contact .label {
         color: var(--brand-secondary);
         font-size: 6.6pt;
         letter-spacing: 0.16em;
@@ -373,7 +421,7 @@
       .trust {
         text-align: right;
       }
-      .trust .meta {
+      .trust .label {
         color: var(--brand-secondary);
         font-size: 6.6pt;
         letter-spacing: 0.16em;
@@ -443,11 +491,14 @@
       <div class="toc-content">
         <!-- ── Header ─────────────────────────────────────────── -->
         <header class="toc-header">
-          <img
-            class="toc-logo"
-            src="{{BRAND_LOGO_COLOR}}"
-            alt="MH Construction, Inc."
-          />
+          <div class="toc-logo-wrap">
+            <img
+              class="toc-logo"
+              src="{{BRAND_LOGO_COLOR}}"
+              alt="MH Construction, Inc."
+            />
+          </div>
+          <div class="toc-rule" aria-hidden="true"></div>
           <div class="toc-program-chip">MISH Program Index</div>
           <h1 class="toc-title">MISH Program Table of Contents</h1>
           <p class="toc-subtitle">
@@ -461,9 +512,9 @@
         <main class="toc-body">{{TOC_CLUSTERS_PAGE_1_HTML}}</main>
 
         <!-- ── Footer ─────────────────────────────────────────── -->
-        <footer class="bottom">
+        <footer class="footer">
           <div class="contact">
-            <div class="meta">Company Contact</div>
+            <div class="label">Company Contact</div>
             <div class="name">{{BRAND_COMPANY_NAME}}</div>
             {{BRAND_ADDRESS_STREET}}<br />
             {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
@@ -471,7 +522,7 @@
             <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
           </div>
           <div class="trust">
-            <div class="meta">Accreditation and Trust</div>
+            <div class="label">Accreditation and Trust</div>
             <div class="logos">
               <img
                 class="logo-agc"
@@ -528,9 +579,9 @@
 
         <main class="toc-body">{{TOC_CLUSTERS_PAGE_2_HTML}}</main>
 
-        <footer class="bottom">
+        <footer class="footer">
           <div class="contact">
-            <div class="meta">Company Contact</div>
+            <div class="label">Company Contact</div>
             <div class="name">{{BRAND_COMPANY_NAME}}</div>
             {{BRAND_ADDRESS_STREET}}<br />
             {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
@@ -538,7 +589,7 @@
             <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
           </div>
           <div class="trust">
-            <div class="meta">Accreditation and Trust</div>
+            <div class="label">Accreditation and Trust</div>
             <div class="logos">
               <img
                 class="logo-agc"

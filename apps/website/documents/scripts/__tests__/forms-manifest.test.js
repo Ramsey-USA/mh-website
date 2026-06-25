@@ -31,14 +31,15 @@ const sourceDocxFiles = fs
 
 describe("forms-manifest DOCX sources", () => {
   const forms = Array.isArray(manifest.forms) ? manifest.forms : [];
+  const mishForms = forms.filter((entry) => /^MISH\s\d{2}$/.test(entry.id));
 
   test("manifest is non-empty and well-formed", () => {
     expect(Array.isArray(manifest.forms)).toBe(true);
     expect(forms.length).toBeGreaterThan(0);
-    expect(forms.length).toBe(sourceDocxFiles.length);
+    expect(mishForms.length).toBe(sourceDocxFiles.length);
   });
 
-  test.each(forms.map((entry) => [entry.id, entry]))(
+  test.each(mishForms.map((entry) => [entry.id, entry]))(
     "%s has required DOCX-backed shape",
     (_id, entry) => {
       expect(typeof entry.id).toBe("string");
@@ -62,7 +63,7 @@ describe("forms-manifest DOCX sources", () => {
   );
 
   test("manifest ids match the uploaded DOCX set", () => {
-    const manifestDocxFiles = forms
+    const manifestDocxFiles = mishForms
       .map((entry) => path.basename(entry.docxPath || ""))
       .sort((a, b) => a.localeCompare(b));
 
@@ -70,7 +71,7 @@ describe("forms-manifest DOCX sources", () => {
   });
 
   test("forms are ordered by MISH number", () => {
-    const ids = forms.map((entry) => entry.id);
+    const ids = mishForms.map((entry) => entry.id);
     expect(ids).toEqual([
       "MISH 01",
       "MISH 02",
@@ -119,6 +120,7 @@ describe("forms-manifest DOCX sources", () => {
       "MISH 48",
       "MISH 49",
       "MISH 50",
+      "MISH 51",
     ]);
   });
 

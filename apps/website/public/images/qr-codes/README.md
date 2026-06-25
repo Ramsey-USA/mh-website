@@ -1,6 +1,6 @@
 # QR Codes for MH Construction
 
-Generated: 6/17/2026, 1:40:40 AM
+Generated: 6/24/2026, 4:51:02 PM
 
 ## Summary
 
@@ -231,13 +231,13 @@ Generated: 6/17/2026, 1:40:40 AM
 
 - **Name:** `safety-manual`
 - **File:** `safety/qr-safety-manual-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual>
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/contents>
 
 ### ✅ Safety Manual
 
 - **Name:** `safety-manual`
 - **File:** `safety/qr-safety-manual-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual>
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/contents>
 
 ### ✅ Safety Manual — Table of Contents (Public)
 
@@ -315,13 +315,13 @@ Generated: 6/17/2026, 1:40:40 AM
 
 - **Name:** `employee-handbook`
 - **File:** `safety/qr-employee-handbook-color.png`
-- **URL:** <https://www.mhc-gc.com/employee-handbook>
+- **URL:** <https://www.mhc-gc.com/docs/employee/employee-handbook-2026.pdf>
 
 ### ✅ Employee Handbook
 
 - **Name:** `employee-handbook`
 - **File:** `safety/qr-employee-handbook-bw.png`
-- **URL:** <https://www.mhc-gc.com/employee-handbook>
+- **URL:** <https://www.mhc-gc.com/docs/employee/employee-handbook-2026.pdf>
 
 ### ✅ Call Us: (509) 308-6489
 
@@ -443,601 +443,601 @@ Generated: 6/17/2026, 1:40:40 AM
 - **File:** `events/qr-cdn-booth-entry-bw.png`
 - **URL:** <https://www.mhc-gc.com/cool-desert-nights#booth-entry>
 
-### ✅ Safety Manual Section 01: Safety Health Program Overview
+### ✅ Safety Manual Section 01: injury free workplace plan
 
 - **Name:** `safety-section-01`
 - **File:** `safety-sections/qr-safety-section-01-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-01>
 
-### ✅ Safety Manual Section 01: Safety Health Program Overview
+### ✅ Safety Manual Section 01: injury free workplace plan
 
 - **Name:** `safety-section-01`
 - **File:** `safety-sections/qr-safety-section-01-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-01>
 
-### ✅ Safety Manual Section 02: Injury Free Workplace Commitment
+### ✅ Safety Manual Section 02: drug free work place
 
 - **Name:** `safety-section-02`
 - **File:** `safety-sections/qr-safety-section-02-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-02>
 
-### ✅ Safety Manual Section 02: Injury Free Workplace Commitment
+### ✅ Safety Manual Section 02: drug free work place
 
 - **Name:** `safety-section-02`
 - **File:** `safety-sections/qr-safety-section-02-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-02>
 
-### ✅ Safety Manual Section 03: Safety Roles Responsibilities
+### ✅ Safety Manual Section 03: program policy and requirements
 
 - **Name:** `safety-section-03`
 - **File:** `safety-sections/qr-safety-section-03-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-03>
 
-### ✅ Safety Manual Section 03: Safety Roles Responsibilities
+### ✅ Safety Manual Section 03: program policy and requirements
 
 - **Name:** `safety-section-03`
 - **File:** `safety-sections/qr-safety-section-03-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-03>
 
-### ✅ Safety Manual Section 04: Safety Health Orientation
+### ✅ Safety Manual Section 04: safety and health orientation
 
 - **Name:** `safety-section-04`
 - **File:** `safety-sections/qr-safety-section-04-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-04>
 
-### ✅ Safety Manual Section 04: Safety Health Orientation
+### ✅ Safety Manual Section 04: safety and health orientation
 
 - **Name:** `safety-section-04`
 - **File:** `safety-sections/qr-safety-section-04-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-04>
 
-### ✅ Safety Manual Section 05: Safety Bulletin Boards Communication
+### ✅ Safety Manual Section 05: pre job safety planning
 
 - **Name:** `safety-section-05`
 - **File:** `safety-sections/qr-safety-section-05-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-05>
 
-### ✅ Safety Manual Section 05: Safety Bulletin Boards Communication
+### ✅ Safety Manual Section 05: pre job safety planning
 
 - **Name:** `safety-section-05`
 - **File:** `safety-sections/qr-safety-section-05-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-05>
 
-### ✅ Safety Manual Section 06: Drug Alcohol Policy Testing
+### ✅ Safety Manual Section 06: emergency response
 
 - **Name:** `safety-section-06`
 - **File:** `safety-sections/qr-safety-section-06-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-06>
 
-### ✅ Safety Manual Section 06: Drug Alcohol Policy Testing
+### ✅ Safety Manual Section 06: emergency response
 
 - **Name:** `safety-section-06`
 - **File:** `safety-sections/qr-safety-section-06-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-06>
 
-### ✅ Safety Manual Section 07: Drug Alcohol Field Operations
+### ✅ Safety Manual Section 07: safety bulletin boards
 
 - **Name:** `safety-section-07`
 - **File:** `safety-sections/qr-safety-section-07-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-07>
 
-### ✅ Safety Manual Section 07: Drug Alcohol Field Operations
+### ✅ Safety Manual Section 07: safety bulletin boards
 
 - **Name:** `safety-section-07`
 - **File:** `safety-sections/qr-safety-section-07-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-07>
 
-### ✅ Safety Manual Section 08: Short Service Employee Program
+### ✅ Safety Manual Section 08: event reporting of incidents accidents and near misses
 
 - **Name:** `safety-section-08`
 - **File:** `safety-sections/qr-safety-section-08-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-08>
 
-### ✅ Safety Manual Section 08: Short Service Employee Program
+### ✅ Safety Manual Section 08: event reporting of incidents accidents and near misses
 
 - **Name:** `safety-section-08`
 - **File:** `safety-sections/qr-safety-section-08-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-08>
 
-### ✅ Safety Manual Section 09: Pre Job Safety Plan
+### ✅ Safety Manual Section 09: safety and health meetings inspections
 
 - **Name:** `safety-section-09`
 - **File:** `safety-sections/qr-safety-section-09-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-09>
 
-### ✅ Safety Manual Section 09: Pre Job Safety Plan
+### ✅ Safety Manual Section 09: safety and health meetings inspections
 
 - **Name:** `safety-section-09`
 - **File:** `safety-sections/qr-safety-section-09-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-09>
 
-### ✅ Safety Manual Section 10: Safety Health Meetings Inspections
+### ✅ Safety Manual Section 10: personal protective equipment
 
 - **Name:** `safety-section-10`
 - **File:** `safety-sections/qr-safety-section-10-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-10>
 
-### ✅ Safety Manual Section 10: Safety Health Meetings Inspections
+### ✅ Safety Manual Section 10: personal protective equipment
 
 - **Name:** `safety-section-10`
 - **File:** `safety-sections/qr-safety-section-10-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-10>
 
-### ✅ Safety Manual Section 11: Accident Reporting Investigation
+### ✅ Safety Manual Section 11: fall protection
 
 - **Name:** `safety-section-11`
 - **File:** `safety-sections/qr-safety-section-11-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-11>
 
-### ✅ Safety Manual Section 11: Accident Reporting Investigation
+### ✅ Safety Manual Section 11: fall protection
 
 - **Name:** `safety-section-11`
 - **File:** `safety-sections/qr-safety-section-11-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-11>
 
-### ✅ Safety Manual Section 12: Personal Protective Equipment
+### ✅ Safety Manual Section 12: flammable and combustible liquids
 
 - **Name:** `safety-section-12`
 - **File:** `safety-sections/qr-safety-section-12-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-12>
 
-### ✅ Safety Manual Section 12: Personal Protective Equipment
+### ✅ Safety Manual Section 12: flammable and combustible liquids
 
 - **Name:** `safety-section-12`
 - **File:** `safety-sections/qr-safety-section-12-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-12>
 
-### ✅ Safety Manual Section 13: HAZCOM Program
+### ✅ Safety Manual Section 13: fire prevention
 
 - **Name:** `safety-section-13`
 - **File:** `safety-sections/qr-safety-section-13-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-13>
 
-### ✅ Safety Manual Section 13: HAZCOM Program
+### ✅ Safety Manual Section 13: fire prevention
 
 - **Name:** `safety-section-13`
 - **File:** `safety-sections/qr-safety-section-13-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-13>
 
-### ✅ Safety Manual Section 14: Industrial Hygiene Program
+### ✅ Safety Manual Section 14: welding cutting and heating operations
 
 - **Name:** `safety-section-14`
 - **File:** `safety-sections/qr-safety-section-14-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-14>
 
-### ✅ Safety Manual Section 14: Industrial Hygiene Program
+### ✅ Safety Manual Section 14: welding cutting and heating operations
 
 - **Name:** `safety-section-14`
 - **File:** `safety-sections/qr-safety-section-14-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-14>
 
-### ✅ Safety Manual Section 15: Heat Stress
+### ✅ Safety Manual Section 15: lock and tag
 
 - **Name:** `safety-section-15`
 - **File:** `safety-sections/qr-safety-section-15-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-15>
 
-### ✅ Safety Manual Section 15: Heat Stress
+### ✅ Safety Manual Section 15: lock and tag
 
 - **Name:** `safety-section-15`
 - **File:** `safety-sections/qr-safety-section-15-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-15>
 
-### ✅ Safety Manual Section 16: Respiratory Protection
+### ✅ Safety Manual Section 16: confined space entry
 
 - **Name:** `safety-section-16`
 - **File:** `safety-sections/qr-safety-section-16-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-16>
 
-### ✅ Safety Manual Section 16: Respiratory Protection
+### ✅ Safety Manual Section 16: confined space entry
 
 - **Name:** `safety-section-16`
 - **File:** `safety-sections/qr-safety-section-16-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-16>
 
-### ✅ Safety Manual Section 17: Silica Safety Program
+### ✅ Safety Manual Section 17: use and care of ladders
 
 - **Name:** `safety-section-17`
 - **File:** `safety-sections/qr-safety-section-17-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-17>
 
-### ✅ Safety Manual Section 17: Silica Safety Program
+### ✅ Safety Manual Section 17: use and care of ladders
 
 - **Name:** `safety-section-17`
 - **File:** `safety-sections/qr-safety-section-17-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-17>
 
-### ✅ Safety Manual Section 18: Bloodborne Pathogens
+### ✅ Safety Manual Section 18: motor vehicle safety program
 
 - **Name:** `safety-section-18`
 - **File:** `safety-sections/qr-safety-section-18-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-18>
 
-### ✅ Safety Manual Section 18: Bloodborne Pathogens
+### ✅ Safety Manual Section 18: motor vehicle safety program
 
 - **Name:** `safety-section-18`
 - **File:** `safety-sections/qr-safety-section-18-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-18>
 
-### ✅ Safety Manual Section 19: Housekeeping
+### ✅ Safety Manual Section 19: equipment maintenance and inspection
 
 - **Name:** `safety-section-19`
 - **File:** `safety-sections/qr-safety-section-19-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-19>
 
-### ✅ Safety Manual Section 19: Housekeeping
+### ✅ Safety Manual Section 19: equipment maintenance and inspection
 
 - **Name:** `safety-section-19`
 - **File:** `safety-sections/qr-safety-section-19-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-19>
 
-### ✅ Safety Manual Section 20: Signs Signals Barricades
+### ✅ Safety Manual Section 20: aerial lifts and elevating work platforms
 
 - **Name:** `safety-section-20`
 - **File:** `safety-sections/qr-safety-section-20-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-20>
 
-### ✅ Safety Manual Section 20: Signs Signals Barricades
+### ✅ Safety Manual Section 20: aerial lifts and elevating work platforms
 
 - **Name:** `safety-section-20`
 - **File:** `safety-sections/qr-safety-section-20-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-20>
 
-### ✅ Safety Manual Section 21: Fall Protection
+### ✅ Safety Manual Section 21: crane suspended work platforms
 
 - **Name:** `safety-section-21`
 - **File:** `safety-sections/qr-safety-section-21-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-21>
 
-### ✅ Safety Manual Section 21: Fall Protection
+### ✅ Safety Manual Section 21: crane suspended work platforms
 
 - **Name:** `safety-section-21`
 - **File:** `safety-sections/qr-safety-section-21-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-21>
 
-### ✅ Safety Manual Section 22: Scaffolding Use Handling
+### ✅ Safety Manual Section 22: use and handling of scaffolds
 
 - **Name:** `safety-section-22`
 - **File:** `safety-sections/qr-safety-section-22-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-22>
 
-### ✅ Safety Manual Section 22: Scaffolding Use Handling
+### ✅ Safety Manual Section 22: use and handling of scaffolds
 
 - **Name:** `safety-section-22`
 - **File:** `safety-sections/qr-safety-section-22-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-22>
 
-### ✅ Safety Manual Section 23: Ladder Use Care
+### ✅ Safety Manual Section 23: industrial hygiene program
 
 - **Name:** `safety-section-23`
 - **File:** `safety-sections/qr-safety-section-23-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-23>
 
-### ✅ Safety Manual Section 23: Ladder Use Care
+### ✅ Safety Manual Section 23: industrial hygiene program
 
 - **Name:** `safety-section-23`
 - **File:** `safety-sections/qr-safety-section-23-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-23>
 
-### ✅ Safety Manual Section 24: Open Floors Holes
+### ✅ Safety Manual Section 24: contractor hazard communication program
 
 - **Name:** `safety-section-24`
 - **File:** `safety-sections/qr-safety-section-24-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-24>
 
-### ✅ Safety Manual Section 24: Open Floors Holes
+### ✅ Safety Manual Section 24: contractor hazard communication program
 
 - **Name:** `safety-section-24`
 - **File:** `safety-sections/qr-safety-section-24-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-24>
 
-### ✅ Safety Manual Section 25: Excavation Trenching Shoring
+### ✅ Safety Manual Section 25: heat related illness prevention
 
 - **Name:** `safety-section-25`
 - **File:** `safety-sections/qr-safety-section-25-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-25>
 
-### ✅ Safety Manual Section 25: Excavation Trenching Shoring
+### ✅ Safety Manual Section 25: heat related illness prevention
 
 - **Name:** `safety-section-25`
 - **File:** `safety-sections/qr-safety-section-25-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-25>
 
-### ✅ Safety Manual Section 26: Confined Space Entry
+### ✅ Safety Manual Section 26: excavation trenching and shoring
 
 - **Name:** `safety-section-26`
 - **File:** `safety-sections/qr-safety-section-26-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-26>
 
-### ✅ Safety Manual Section 26: Confined Space Entry
+### ✅ Safety Manual Section 26: excavation trenching and shoring
 
 - **Name:** `safety-section-26`
 - **File:** `safety-sections/qr-safety-section-26-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-26>
 
-### ✅ Safety Manual Section 27: Lockout Tagout
+### ✅ Safety Manual Section 27: construction equipment modifications and fabrication
 
 - **Name:** `safety-section-27`
 - **File:** `safety-sections/qr-safety-section-27-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-27>
 
-### ✅ Safety Manual Section 27: Lockout Tagout
+### ✅ Safety Manual Section 27: construction equipment modifications and fabrication
 
 - **Name:** `safety-section-27`
 - **File:** `safety-sections/qr-safety-section-27-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-27>
 
-### ✅ Safety Manual Section 28: Electrical Safety
+### ✅ Safety Manual Section 28: housekeeping
 
 - **Name:** `safety-section-28`
 - **File:** `safety-sections/qr-safety-section-28-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-28>
 
-### ✅ Safety Manual Section 28: Electrical Safety
+### ✅ Safety Manual Section 28: housekeeping
 
 - **Name:** `safety-section-28`
 - **File:** `safety-sections/qr-safety-section-28-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-28>
 
-### ✅ Safety Manual Section 29: Welding Cutting Heating
+### ✅ Safety Manual Section 29: electrical safety
 
 - **Name:** `safety-section-29`
 - **File:** `safety-sections/qr-safety-section-29-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-29>
 
-### ✅ Safety Manual Section 29: Welding Cutting Heating
+### ✅ Safety Manual Section 29: electrical safety
 
 - **Name:** `safety-section-29`
 - **File:** `safety-sections/qr-safety-section-29-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-29>
 
-### ✅ Safety Manual Section 30: Flammable Combustible Liquids
+### ✅ Safety Manual Section 30: signs signals and barricades
 
 - **Name:** `safety-section-30`
 - **File:** `safety-sections/qr-safety-section-30-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-30>
 
-### ✅ Safety Manual Section 30: Flammable Combustible Liquids
+### ✅ Safety Manual Section 30: signs signals and barricades
 
 - **Name:** `safety-section-30`
 - **File:** `safety-sections/qr-safety-section-30-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-30>
 
-### ✅ Safety Manual Section 31: Fire Prevention
+### ✅ Safety Manual Section 31: miscellaneous construction requirements
 
 - **Name:** `safety-section-31`
 - **File:** `safety-sections/qr-safety-section-31-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-31>
 
-### ✅ Safety Manual Section 31: Fire Prevention
+### ✅ Safety Manual Section 31: miscellaneous construction requirements
 
 - **Name:** `safety-section-31`
 - **File:** `safety-sections/qr-safety-section-31-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-31>
 
-### ✅ Safety Manual Section 32: Compressed Gas Air
+### ✅ Safety Manual Section 32: respiratory protection
 
 - **Name:** `safety-section-32`
 - **File:** `safety-sections/qr-safety-section-32-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-32>
 
-### ✅ Safety Manual Section 32: Compressed Gas Air
+### ✅ Safety Manual Section 32: respiratory protection
 
 - **Name:** `safety-section-32`
 - **File:** `safety-sections/qr-safety-section-32-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-32>
 
-### ✅ Safety Manual Section 33: Motor Vehicle Safety Program
+### ✅ Safety Manual Section 33: floor openings open sided surfaces and ramps
 
 - **Name:** `safety-section-33`
 - **File:** `safety-sections/qr-safety-section-33-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-33>
 
-### ✅ Safety Manual Section 33: Motor Vehicle Safety Program
+### ✅ Safety Manual Section 33: floor openings open sided surfaces and ramps
 
 - **Name:** `safety-section-33`
 - **File:** `safety-sections/qr-safety-section-33-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-33>
 
-### ✅ Safety Manual Section 34: Distracted Driving Mobile Device Policy
+### ✅ Safety Manual Section 34: compressed gas compressed air
 
 - **Name:** `safety-section-34`
 - **File:** `safety-sections/qr-safety-section-34-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-34>
 
-### ✅ Safety Manual Section 34: Distracted Driving Mobile Device Policy
+### ✅ Safety Manual Section 34: compressed gas compressed air
 
 - **Name:** `safety-section-34`
 - **File:** `safety-sections/qr-safety-section-34-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-34>
 
-### ✅ Safety Manual Section 35: Motor Vehicle Records Program
+### ✅ Safety Manual Section 35: rigging
 
 - **Name:** `safety-section-35`
 - **File:** `safety-sections/qr-safety-section-35-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-35>
 
-### ✅ Safety Manual Section 35: Motor Vehicle Records Program
+### ✅ Safety Manual Section 35: rigging
 
 - **Name:** `safety-section-35`
 - **File:** `safety-sections/qr-safety-section-35-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-35>
 
-### ✅ Safety Manual Section 36: Equipment Maintenance Inspection
+### ✅ Safety Manual Section 36: hand and portable power tools
 
 - **Name:** `safety-section-36`
 - **File:** `safety-sections/qr-safety-section-36-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-36>
 
-### ✅ Safety Manual Section 36: Equipment Maintenance Inspection
+### ✅ Safety Manual Section 36: hand and portable power tools
 
 - **Name:** `safety-section-36`
 - **File:** `safety-sections/qr-safety-section-36-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-36>
 
-### ✅ Safety Manual Section 37: Aerial Lifts Elevated Work Platforms
+### ✅ Safety Manual Section 37: concrete and masonry construction
 
 - **Name:** `safety-section-37`
 - **File:** `safety-sections/qr-safety-section-37-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-37>
 
-### ✅ Safety Manual Section 37: Aerial Lifts Elevated Work Platforms
+### ✅ Safety Manual Section 37: concrete and masonry construction
 
 - **Name:** `safety-section-37`
 - **File:** `safety-sections/qr-safety-section-37-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-37>
 
-### ✅ Safety Manual Section 38: Crane Suspended Work Platforms
+### ✅ Safety Manual Section 38: commercial drivers drug and prevention program
 
 - **Name:** `safety-section-38`
 - **File:** `safety-sections/qr-safety-section-38-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-38>
 
-### ✅ Safety Manual Section 38: Crane Suspended Work Platforms
+### ✅ Safety Manual Section 38: commercial drivers drug and prevention program
 
 - **Name:** `safety-section-38`
 - **File:** `safety-sections/qr-safety-section-38-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-38>
 
-### ✅ Safety Manual Section 39: Rigging Procedures
+### ✅ Safety Manual Section 39: silica
 
 - **Name:** `safety-section-39`
 - **File:** `safety-sections/qr-safety-section-39-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-39>
 
-### ✅ Safety Manual Section 39: Rigging Procedures
+### ✅ Safety Manual Section 39: silica
 
 - **Name:** `safety-section-39`
 - **File:** `safety-sections/qr-safety-section-39-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-39>
 
-### ✅ Safety Manual Section 40: Forklift Power Industrial Truck Safety
+### ✅ Safety Manual Section 40: forklift powered industrial truck safety
 
 - **Name:** `safety-section-40`
 - **File:** `safety-sections/qr-safety-section-40-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-40>
 
-### ✅ Safety Manual Section 40: Forklift Power Industrial Truck Safety
+### ✅ Safety Manual Section 40: forklift powered industrial truck safety
 
 - **Name:** `safety-section-40`
 - **File:** `safety-sections/qr-safety-section-40-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-40>
 
-### ✅ Safety Manual Section 41: Construction Equipment Modification Fabrication
+### ✅ Safety Manual Section 41: distracted driving and fleet safety policy
 
 - **Name:** `safety-section-41`
 - **File:** `safety-sections/qr-safety-section-41-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-41>
 
-### ✅ Safety Manual Section 41: Construction Equipment Modification Fabrication
+### ✅ Safety Manual Section 41: distracted driving and fleet safety policy
 
 - **Name:** `safety-section-41`
 - **File:** `safety-sections/qr-safety-section-41-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-41>
 
-### ✅ Safety Manual Section 42: Hand Power Tools
+### ✅ Safety Manual Section 42: cold weather and winter operations safety
 
 - **Name:** `safety-section-42`
 - **File:** `safety-sections/qr-safety-section-42-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-42>
 
-### ✅ Safety Manual Section 42: Hand Power Tools
+### ✅ Safety Manual Section 42: cold weather and winter operations safety
 
 - **Name:** `safety-section-42`
 - **File:** `safety-sections/qr-safety-section-42-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-42>
 
-### ✅ Safety Manual Section 43: General Waste Management
+### ✅ Safety Manual Section 43: general waste management
 
 - **Name:** `safety-section-43`
 - **File:** `safety-sections/qr-safety-section-43-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-43>
 
-### ✅ Safety Manual Section 43: General Waste Management
+### ✅ Safety Manual Section 43: general waste management
 
 - **Name:** `safety-section-43`
 - **File:** `safety-sections/qr-safety-section-43-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-43>
 
-### ✅ Safety Manual Section 44: Concrete Masonry
+### ✅ Safety Manual Section 44: struck by and caught in between hazard prevention
 
 - **Name:** `safety-section-44`
 - **File:** `safety-sections/qr-safety-section-44-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-44>
 
-### ✅ Safety Manual Section 44: Concrete Masonry
+### ✅ Safety Manual Section 44: struck by and caught in between hazard prevention
 
 - **Name:** `safety-section-44`
 - **File:** `safety-sections/qr-safety-section-44-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-44>
 
-### ✅ Safety Manual Section 45: Miscellaneous Safety Requirements
+### ✅ Safety Manual Section 45: miscellaneous safety requirements
 
 - **Name:** `safety-section-45`
 - **File:** `safety-sections/qr-safety-section-45-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-45>
 
-### ✅ Safety Manual Section 45: Miscellaneous Safety Requirements
+### ✅ Safety Manual Section 45: miscellaneous safety requirements
 
 - **Name:** `safety-section-45`
 - **File:** `safety-sections/qr-safety-section-45-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-45>
 
-### ✅ Safety Manual Section 46: Subcontractor Management Plan
+### ✅ Safety Manual Section 46: subcontractor management plan
 
 - **Name:** `safety-section-46`
 - **File:** `safety-sections/qr-safety-section-46-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-46>
 
-### ✅ Safety Manual Section 46: Subcontractor Management Plan
+### ✅ Safety Manual Section 46: subcontractor management plan
 
 - **Name:** `safety-section-46`
 - **File:** `safety-sections/qr-safety-section-46-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-46>
 
-### ✅ Safety Manual Section 47: Insurance Requirements Contractual Risk Transfer
+### ✅ Safety Manual Section 47: insurance requirements contractual risk transfer
 
 - **Name:** `safety-section-47`
 - **File:** `safety-sections/qr-safety-section-47-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-47>
 
-### ✅ Safety Manual Section 47: Insurance Requirements Contractual Risk Transfer
+### ✅ Safety Manual Section 47: insurance requirements contractual risk transfer
 
 - **Name:** `safety-section-47`
 - **File:** `safety-sections/qr-safety-section-47-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-47>
 
-### ✅ Safety Manual Section 48: Emergency Response Plan
+### ✅ Safety Manual Section 48: emergency response plan
 
 - **Name:** `safety-section-48`
 - **File:** `safety-sections/qr-safety-section-48-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-48>
 
-### ✅ Safety Manual Section 48: Emergency Response Plan
+### ✅ Safety Manual Section 48: emergency response plan
 
 - **Name:** `safety-section-48`
 - **File:** `safety-sections/qr-safety-section-48-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-48>
 
-### ✅ Safety Manual Section 49: Incident Investigation Root Cause Analysis
+### ✅ Safety Manual Section 49: incident investigation root cause analysis
 
 - **Name:** `safety-section-49`
 - **File:** `safety-sections/qr-safety-section-49-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-49>
 
-### ✅ Safety Manual Section 49: Incident Investigation Root Cause Analysis
+### ✅ Safety Manual Section 49: incident investigation root cause analysis
 
 - **Name:** `safety-section-49`
 - **File:** `safety-sections/qr-safety-section-49-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-49>
 
-### ✅ Safety Manual Section 50: Return to Work Program
+### ✅ Safety Manual Section 50: return to work program
 
 - **Name:** `safety-section-50`
 - **File:** `safety-sections/qr-safety-section-50-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-50>
 
-### ✅ Safety Manual Section 50: Return to Work Program
+### ✅ Safety Manual Section 50: return to work program
 
 - **Name:** `safety-section-50`
 - **File:** `safety-sections/qr-safety-section-50-bw.png`

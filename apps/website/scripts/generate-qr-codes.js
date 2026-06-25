@@ -178,9 +178,9 @@ const QR_CODES = [
   },
   {
     name: "safety-manual",
-    url: `${BASE_URL}/resources/safety-manual`,
+    url: `${BASE_URL}/resources/safety-manual/contents`,
     description: "Safety Manual",
-    label: "www.mhc-gc.com/resources/safety-manual",
+    label: "www.mhc-gc.com/resources/safety-manual/contents",
   },
   {
     name: "safety-manual-contents",
@@ -220,9 +220,9 @@ const QR_CODES = [
   },
   {
     name: "employee-handbook",
-    url: `${BASE_URL}/employee-handbook`,
+    url: `${BASE_URL}/docs/employee/employee-handbook-2026.pdf`,
     description: "Employee Handbook",
-    label: "www.mhc-gc.com/employee-handbook",
+    label: "www.mhc-gc.com/docs/employee/employee-handbook-2026.pdf",
   },
 
   // Contact methods

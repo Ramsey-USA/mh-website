@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T01:40:40.642Z",
+  "generatedAt": "2026-06-24T16:51:02.809Z",
   "baseUrl": "https://www.mhc-gc.com",
   "outputDirectory": "public/images/qr-codes",
   "folders": [
@@ -448,7 +448,7 @@
       "relativePath": "safety/qr-safety-manual-color.png",
       "folder": "safety",
       "variant": "color",
-      "url": "https://www.mhc-gc.com/resources/safety-manual",
+      "url": "https://www.mhc-gc.com/resources/safety-manual/contents",
       "description": "Safety Manual",
       "success": true,
       "error": null
@@ -459,7 +459,7 @@
       "relativePath": "safety/qr-safety-manual-bw.png",
       "folder": "safety",
       "variant": "bw",
-      "url": "https://www.mhc-gc.com/resources/safety-manual",
+      "url": "https://www.mhc-gc.com/resources/safety-manual/contents",
       "description": "Safety Manual",
       "success": true,
       "error": null
@@ -602,7 +602,7 @@
       "relativePath": "safety/qr-employee-handbook-color.png",
       "folder": "safety",
       "variant": "color",
-      "url": "https://www.mhc-gc.com/employee-handbook",
+      "url": "https://www.mhc-gc.com/docs/employee/employee-handbook-2026.pdf",
       "description": "Employee Handbook",
       "success": true,
       "error": null
@@ -613,7 +613,7 @@
       "relativePath": "safety/qr-employee-handbook-bw.png",
       "folder": "safety",
       "variant": "bw",
-      "url": "https://www.mhc-gc.com/employee-handbook",
+      "url": "https://www.mhc-gc.com/docs/employee/employee-handbook-2026.pdf",
       "description": "Employee Handbook",
       "success": true,
       "error": null
@@ -845,7 +845,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-01",
-      "description": "Safety Manual Section 01: Safety Health Program Overview",
+      "description": "Safety Manual Section 01: injury free workplace plan",
       "success": true,
       "error": null
     },
@@ -856,7 +856,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-01",
-      "description": "Safety Manual Section 01: Safety Health Program Overview",
+      "description": "Safety Manual Section 01: injury free workplace plan",
       "success": true,
       "error": null
     },
@@ -867,7 +867,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-02",
-      "description": "Safety Manual Section 02: Injury Free Workplace Commitment",
+      "description": "Safety Manual Section 02: drug free work place",
       "success": true,
       "error": null
     },
@@ -878,7 +878,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-02",
-      "description": "Safety Manual Section 02: Injury Free Workplace Commitment",
+      "description": "Safety Manual Section 02: drug free work place",
       "success": true,
       "error": null
     },
@@ -889,7 +889,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-03",
-      "description": "Safety Manual Section 03: Safety Roles Responsibilities",
+      "description": "Safety Manual Section 03: program policy and requirements",
       "success": true,
       "error": null
     },
@@ -900,7 +900,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-03",
-      "description": "Safety Manual Section 03: Safety Roles Responsibilities",
+      "description": "Safety Manual Section 03: program policy and requirements",
       "success": true,
       "error": null
     },
@@ -911,7 +911,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-04",
-      "description": "Safety Manual Section 04: Safety Health Orientation",
+      "description": "Safety Manual Section 04: safety and health orientation",
       "success": true,
       "error": null
     },
@@ -922,7 +922,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-04",
-      "description": "Safety Manual Section 04: Safety Health Orientation",
+      "description": "Safety Manual Section 04: safety and health orientation",
       "success": true,
       "error": null
     },
@@ -933,7 +933,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-05",
-      "description": "Safety Manual Section 05: Safety Bulletin Boards Communication",
+      "description": "Safety Manual Section 05: pre job safety planning",
       "success": true,
       "error": null
     },
@@ -944,7 +944,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-05",
-      "description": "Safety Manual Section 05: Safety Bulletin Boards Communication",
+      "description": "Safety Manual Section 05: pre job safety planning",
       "success": true,
       "error": null
     },
@@ -955,7 +955,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-06",
-      "description": "Safety Manual Section 06: Drug Alcohol Policy Testing",
+      "description": "Safety Manual Section 06: emergency response",
       "success": true,
       "error": null
     },
@@ -966,7 +966,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-06",
-      "description": "Safety Manual Section 06: Drug Alcohol Policy Testing",
+      "description": "Safety Manual Section 06: emergency response",
       "success": true,
       "error": null
     },
@@ -977,7 +977,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-07",
-      "description": "Safety Manual Section 07: Drug Alcohol Field Operations",
+      "description": "Safety Manual Section 07: safety bulletin boards",
       "success": true,
       "error": null
     },
@@ -988,7 +988,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-07",
-      "description": "Safety Manual Section 07: Drug Alcohol Field Operations",
+      "description": "Safety Manual Section 07: safety bulletin boards",
       "success": true,
       "error": null
     },
@@ -999,7 +999,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-08",
-      "description": "Safety Manual Section 08: Short Service Employee Program",
+      "description": "Safety Manual Section 08: event reporting of incidents accidents and near misses",
       "success": true,
       "error": null
     },
@@ -1010,7 +1010,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-08",
-      "description": "Safety Manual Section 08: Short Service Employee Program",
+      "description": "Safety Manual Section 08: event reporting of incidents accidents and near misses",
       "success": true,
       "error": null
     },
@@ -1021,7 +1021,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-09",
-      "description": "Safety Manual Section 09: Pre Job Safety Plan",
+      "description": "Safety Manual Section 09: safety and health meetings inspections",
       "success": true,
       "error": null
     },
@@ -1032,7 +1032,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-09",
-      "description": "Safety Manual Section 09: Pre Job Safety Plan",
+      "description": "Safety Manual Section 09: safety and health meetings inspections",
       "success": true,
       "error": null
     },
@@ -1043,7 +1043,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-10",
-      "description": "Safety Manual Section 10: Safety Health Meetings Inspections",
+      "description": "Safety Manual Section 10: personal protective equipment",
       "success": true,
       "error": null
     },
@@ -1054,7 +1054,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-10",
-      "description": "Safety Manual Section 10: Safety Health Meetings Inspections",
+      "description": "Safety Manual Section 10: personal protective equipment",
       "success": true,
       "error": null
     },
@@ -1065,7 +1065,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-11",
-      "description": "Safety Manual Section 11: Accident Reporting Investigation",
+      "description": "Safety Manual Section 11: fall protection",
       "success": true,
       "error": null
     },
@@ -1076,7 +1076,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-11",
-      "description": "Safety Manual Section 11: Accident Reporting Investigation",
+      "description": "Safety Manual Section 11: fall protection",
       "success": true,
       "error": null
     },
@@ -1087,7 +1087,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-12",
-      "description": "Safety Manual Section 12: Personal Protective Equipment",
+      "description": "Safety Manual Section 12: flammable and combustible liquids",
       "success": true,
       "error": null
     },
@@ -1098,7 +1098,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-12",
-      "description": "Safety Manual Section 12: Personal Protective Equipment",
+      "description": "Safety Manual Section 12: flammable and combustible liquids",
       "success": true,
       "error": null
     },
@@ -1109,7 +1109,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-13",
-      "description": "Safety Manual Section 13: HAZCOM Program",
+      "description": "Safety Manual Section 13: fire prevention",
       "success": true,
       "error": null
     },
@@ -1120,7 +1120,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-13",
-      "description": "Safety Manual Section 13: HAZCOM Program",
+      "description": "Safety Manual Section 13: fire prevention",
       "success": true,
       "error": null
     },
@@ -1131,7 +1131,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-14",
-      "description": "Safety Manual Section 14: Industrial Hygiene Program",
+      "description": "Safety Manual Section 14: welding cutting and heating operations",
       "success": true,
       "error": null
     },
@@ -1142,7 +1142,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-14",
-      "description": "Safety Manual Section 14: Industrial Hygiene Program",
+      "description": "Safety Manual Section 14: welding cutting and heating operations",
       "success": true,
       "error": null
     },
@@ -1153,7 +1153,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-15",
-      "description": "Safety Manual Section 15: Heat Stress",
+      "description": "Safety Manual Section 15: lock and tag",
       "success": true,
       "error": null
     },
@@ -1164,7 +1164,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-15",
-      "description": "Safety Manual Section 15: Heat Stress",
+      "description": "Safety Manual Section 15: lock and tag",
       "success": true,
       "error": null
     },
@@ -1175,7 +1175,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-16",
-      "description": "Safety Manual Section 16: Respiratory Protection",
+      "description": "Safety Manual Section 16: confined space entry",
       "success": true,
       "error": null
     },
@@ -1186,7 +1186,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-16",
-      "description": "Safety Manual Section 16: Respiratory Protection",
+      "description": "Safety Manual Section 16: confined space entry",
       "success": true,
       "error": null
     },
@@ -1197,7 +1197,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-17",
-      "description": "Safety Manual Section 17: Silica Safety Program",
+      "description": "Safety Manual Section 17: use and care of ladders",
       "success": true,
       "error": null
     },
@@ -1208,7 +1208,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-17",
-      "description": "Safety Manual Section 17: Silica Safety Program",
+      "description": "Safety Manual Section 17: use and care of ladders",
       "success": true,
       "error": null
     },
@@ -1219,7 +1219,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-18",
-      "description": "Safety Manual Section 18: Bloodborne Pathogens",
+      "description": "Safety Manual Section 18: motor vehicle safety program",
       "success": true,
       "error": null
     },
@@ -1230,7 +1230,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-18",
-      "description": "Safety Manual Section 18: Bloodborne Pathogens",
+      "description": "Safety Manual Section 18: motor vehicle safety program",
       "success": true,
       "error": null
     },
@@ -1241,7 +1241,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-19",
-      "description": "Safety Manual Section 19: Housekeeping",
+      "description": "Safety Manual Section 19: equipment maintenance and inspection",
       "success": true,
       "error": null
     },
@@ -1252,7 +1252,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-19",
-      "description": "Safety Manual Section 19: Housekeeping",
+      "description": "Safety Manual Section 19: equipment maintenance and inspection",
       "success": true,
       "error": null
     },
@@ -1263,7 +1263,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-20",
-      "description": "Safety Manual Section 20: Signs Signals Barricades",
+      "description": "Safety Manual Section 20: aerial lifts and elevating work platforms",
       "success": true,
       "error": null
     },
@@ -1274,7 +1274,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-20",
-      "description": "Safety Manual Section 20: Signs Signals Barricades",
+      "description": "Safety Manual Section 20: aerial lifts and elevating work platforms",
       "success": true,
       "error": null
     },
@@ -1285,7 +1285,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-21",
-      "description": "Safety Manual Section 21: Fall Protection",
+      "description": "Safety Manual Section 21: crane suspended work platforms",
       "success": true,
       "error": null
     },
@@ -1296,7 +1296,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-21",
-      "description": "Safety Manual Section 21: Fall Protection",
+      "description": "Safety Manual Section 21: crane suspended work platforms",
       "success": true,
       "error": null
     },
@@ -1307,7 +1307,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-22",
-      "description": "Safety Manual Section 22: Scaffolding Use Handling",
+      "description": "Safety Manual Section 22: use and handling of scaffolds",
       "success": true,
       "error": null
     },
@@ -1318,7 +1318,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-22",
-      "description": "Safety Manual Section 22: Scaffolding Use Handling",
+      "description": "Safety Manual Section 22: use and handling of scaffolds",
       "success": true,
       "error": null
     },
@@ -1329,7 +1329,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-23",
-      "description": "Safety Manual Section 23: Ladder Use Care",
+      "description": "Safety Manual Section 23: industrial hygiene program",
       "success": true,
       "error": null
     },
@@ -1340,7 +1340,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-23",
-      "description": "Safety Manual Section 23: Ladder Use Care",
+      "description": "Safety Manual Section 23: industrial hygiene program",
       "success": true,
       "error": null
     },
@@ -1351,7 +1351,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-24",
-      "description": "Safety Manual Section 24: Open Floors Holes",
+      "description": "Safety Manual Section 24: contractor hazard communication program",
       "success": true,
       "error": null
     },
@@ -1362,7 +1362,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-24",
-      "description": "Safety Manual Section 24: Open Floors Holes",
+      "description": "Safety Manual Section 24: contractor hazard communication program",
       "success": true,
       "error": null
     },
@@ -1373,7 +1373,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-25",
-      "description": "Safety Manual Section 25: Excavation Trenching Shoring",
+      "description": "Safety Manual Section 25: heat related illness prevention",
       "success": true,
       "error": null
     },
@@ -1384,7 +1384,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-25",
-      "description": "Safety Manual Section 25: Excavation Trenching Shoring",
+      "description": "Safety Manual Section 25: heat related illness prevention",
       "success": true,
       "error": null
     },
@@ -1395,7 +1395,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-26",
-      "description": "Safety Manual Section 26: Confined Space Entry",
+      "description": "Safety Manual Section 26: excavation trenching and shoring",
       "success": true,
       "error": null
     },
@@ -1406,7 +1406,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-26",
-      "description": "Safety Manual Section 26: Confined Space Entry",
+      "description": "Safety Manual Section 26: excavation trenching and shoring",
       "success": true,
       "error": null
     },
@@ -1417,7 +1417,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-27",
-      "description": "Safety Manual Section 27: Lockout Tagout",
+      "description": "Safety Manual Section 27: construction equipment modifications and fabrication",
       "success": true,
       "error": null
     },
@@ -1428,7 +1428,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-27",
-      "description": "Safety Manual Section 27: Lockout Tagout",
+      "description": "Safety Manual Section 27: construction equipment modifications and fabrication",
       "success": true,
       "error": null
     },
@@ -1439,7 +1439,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-28",
-      "description": "Safety Manual Section 28: Electrical Safety",
+      "description": "Safety Manual Section 28: housekeeping",
       "success": true,
       "error": null
     },
@@ -1450,7 +1450,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-28",
-      "description": "Safety Manual Section 28: Electrical Safety",
+      "description": "Safety Manual Section 28: housekeeping",
       "success": true,
       "error": null
     },
@@ -1461,7 +1461,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-29",
-      "description": "Safety Manual Section 29: Welding Cutting Heating",
+      "description": "Safety Manual Section 29: electrical safety",
       "success": true,
       "error": null
     },
@@ -1472,7 +1472,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-29",
-      "description": "Safety Manual Section 29: Welding Cutting Heating",
+      "description": "Safety Manual Section 29: electrical safety",
       "success": true,
       "error": null
     },
@@ -1483,7 +1483,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-30",
-      "description": "Safety Manual Section 30: Flammable Combustible Liquids",
+      "description": "Safety Manual Section 30: signs signals and barricades",
       "success": true,
       "error": null
     },
@@ -1494,7 +1494,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-30",
-      "description": "Safety Manual Section 30: Flammable Combustible Liquids",
+      "description": "Safety Manual Section 30: signs signals and barricades",
       "success": true,
       "error": null
     },
@@ -1505,7 +1505,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-31",
-      "description": "Safety Manual Section 31: Fire Prevention",
+      "description": "Safety Manual Section 31: miscellaneous construction requirements",
       "success": true,
       "error": null
     },
@@ -1516,7 +1516,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-31",
-      "description": "Safety Manual Section 31: Fire Prevention",
+      "description": "Safety Manual Section 31: miscellaneous construction requirements",
       "success": true,
       "error": null
     },
@@ -1527,7 +1527,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-32",
-      "description": "Safety Manual Section 32: Compressed Gas Air",
+      "description": "Safety Manual Section 32: respiratory protection",
       "success": true,
       "error": null
     },
@@ -1538,7 +1538,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-32",
-      "description": "Safety Manual Section 32: Compressed Gas Air",
+      "description": "Safety Manual Section 32: respiratory protection",
       "success": true,
       "error": null
     },
@@ -1549,7 +1549,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-33",
-      "description": "Safety Manual Section 33: Motor Vehicle Safety Program",
+      "description": "Safety Manual Section 33: floor openings open sided surfaces and ramps",
       "success": true,
       "error": null
     },
@@ -1560,7 +1560,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-33",
-      "description": "Safety Manual Section 33: Motor Vehicle Safety Program",
+      "description": "Safety Manual Section 33: floor openings open sided surfaces and ramps",
       "success": true,
       "error": null
     },
@@ -1571,7 +1571,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-34",
-      "description": "Safety Manual Section 34: Distracted Driving Mobile Device Policy",
+      "description": "Safety Manual Section 34: compressed gas compressed air",
       "success": true,
       "error": null
     },
@@ -1582,7 +1582,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-34",
-      "description": "Safety Manual Section 34: Distracted Driving Mobile Device Policy",
+      "description": "Safety Manual Section 34: compressed gas compressed air",
       "success": true,
       "error": null
     },
@@ -1593,7 +1593,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-35",
-      "description": "Safety Manual Section 35: Motor Vehicle Records Program",
+      "description": "Safety Manual Section 35: rigging",
       "success": true,
       "error": null
     },
@@ -1604,7 +1604,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-35",
-      "description": "Safety Manual Section 35: Motor Vehicle Records Program",
+      "description": "Safety Manual Section 35: rigging",
       "success": true,
       "error": null
     },
@@ -1615,7 +1615,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-36",
-      "description": "Safety Manual Section 36: Equipment Maintenance Inspection",
+      "description": "Safety Manual Section 36: hand and portable power tools",
       "success": true,
       "error": null
     },
@@ -1626,7 +1626,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-36",
-      "description": "Safety Manual Section 36: Equipment Maintenance Inspection",
+      "description": "Safety Manual Section 36: hand and portable power tools",
       "success": true,
       "error": null
     },
@@ -1637,7 +1637,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-37",
-      "description": "Safety Manual Section 37: Aerial Lifts Elevated Work Platforms",
+      "description": "Safety Manual Section 37: concrete and masonry construction",
       "success": true,
       "error": null
     },
@@ -1648,7 +1648,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-37",
-      "description": "Safety Manual Section 37: Aerial Lifts Elevated Work Platforms",
+      "description": "Safety Manual Section 37: concrete and masonry construction",
       "success": true,
       "error": null
     },
@@ -1659,7 +1659,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-38",
-      "description": "Safety Manual Section 38: Crane Suspended Work Platforms",
+      "description": "Safety Manual Section 38: commercial drivers drug and prevention program",
       "success": true,
       "error": null
     },
@@ -1670,7 +1670,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-38",
-      "description": "Safety Manual Section 38: Crane Suspended Work Platforms",
+      "description": "Safety Manual Section 38: commercial drivers drug and prevention program",
       "success": true,
       "error": null
     },
@@ -1681,7 +1681,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-39",
-      "description": "Safety Manual Section 39: Rigging Procedures",
+      "description": "Safety Manual Section 39: silica",
       "success": true,
       "error": null
     },
@@ -1692,7 +1692,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-39",
-      "description": "Safety Manual Section 39: Rigging Procedures",
+      "description": "Safety Manual Section 39: silica",
       "success": true,
       "error": null
     },
@@ -1703,7 +1703,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-40",
-      "description": "Safety Manual Section 40: Forklift Power Industrial Truck Safety",
+      "description": "Safety Manual Section 40: forklift powered industrial truck safety",
       "success": true,
       "error": null
     },
@@ -1714,7 +1714,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-40",
-      "description": "Safety Manual Section 40: Forklift Power Industrial Truck Safety",
+      "description": "Safety Manual Section 40: forklift powered industrial truck safety",
       "success": true,
       "error": null
     },
@@ -1725,7 +1725,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-41",
-      "description": "Safety Manual Section 41: Construction Equipment Modification Fabrication",
+      "description": "Safety Manual Section 41: distracted driving and fleet safety policy",
       "success": true,
       "error": null
     },
@@ -1736,7 +1736,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-41",
-      "description": "Safety Manual Section 41: Construction Equipment Modification Fabrication",
+      "description": "Safety Manual Section 41: distracted driving and fleet safety policy",
       "success": true,
       "error": null
     },
@@ -1747,7 +1747,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-42",
-      "description": "Safety Manual Section 42: Hand Power Tools",
+      "description": "Safety Manual Section 42: cold weather and winter operations safety",
       "success": true,
       "error": null
     },
@@ -1758,7 +1758,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-42",
-      "description": "Safety Manual Section 42: Hand Power Tools",
+      "description": "Safety Manual Section 42: cold weather and winter operations safety",
       "success": true,
       "error": null
     },
@@ -1769,7 +1769,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-43",
-      "description": "Safety Manual Section 43: General Waste Management",
+      "description": "Safety Manual Section 43: general waste management",
       "success": true,
       "error": null
     },
@@ -1780,7 +1780,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-43",
-      "description": "Safety Manual Section 43: General Waste Management",
+      "description": "Safety Manual Section 43: general waste management",
       "success": true,
       "error": null
     },
@@ -1791,7 +1791,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-44",
-      "description": "Safety Manual Section 44: Concrete Masonry",
+      "description": "Safety Manual Section 44: struck by and caught in between hazard prevention",
       "success": true,
       "error": null
     },
@@ -1802,7 +1802,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-44",
-      "description": "Safety Manual Section 44: Concrete Masonry",
+      "description": "Safety Manual Section 44: struck by and caught in between hazard prevention",
       "success": true,
       "error": null
     },
@@ -1813,7 +1813,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-45",
-      "description": "Safety Manual Section 45: Miscellaneous Safety Requirements",
+      "description": "Safety Manual Section 45: miscellaneous safety requirements",
       "success": true,
       "error": null
     },
@@ -1824,7 +1824,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-45",
-      "description": "Safety Manual Section 45: Miscellaneous Safety Requirements",
+      "description": "Safety Manual Section 45: miscellaneous safety requirements",
       "success": true,
       "error": null
     },
@@ -1835,7 +1835,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-46",
-      "description": "Safety Manual Section 46: Subcontractor Management Plan",
+      "description": "Safety Manual Section 46: subcontractor management plan",
       "success": true,
       "error": null
     },
@@ -1846,7 +1846,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-46",
-      "description": "Safety Manual Section 46: Subcontractor Management Plan",
+      "description": "Safety Manual Section 46: subcontractor management plan",
       "success": true,
       "error": null
     },
@@ -1857,7 +1857,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-47",
-      "description": "Safety Manual Section 47: Insurance Requirements Contractual Risk Transfer",
+      "description": "Safety Manual Section 47: insurance requirements contractual risk transfer",
       "success": true,
       "error": null
     },
@@ -1868,7 +1868,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-47",
-      "description": "Safety Manual Section 47: Insurance Requirements Contractual Risk Transfer",
+      "description": "Safety Manual Section 47: insurance requirements contractual risk transfer",
       "success": true,
       "error": null
     },
@@ -1879,7 +1879,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-48",
-      "description": "Safety Manual Section 48: Emergency Response Plan",
+      "description": "Safety Manual Section 48: emergency response plan",
       "success": true,
       "error": null
     },
@@ -1890,7 +1890,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-48",
-      "description": "Safety Manual Section 48: Emergency Response Plan",
+      "description": "Safety Manual Section 48: emergency response plan",
       "success": true,
       "error": null
     },
@@ -1901,7 +1901,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-49",
-      "description": "Safety Manual Section 49: Incident Investigation Root Cause Analysis",
+      "description": "Safety Manual Section 49: incident investigation root cause analysis",
       "success": true,
       "error": null
     },
@@ -1912,7 +1912,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-49",
-      "description": "Safety Manual Section 49: Incident Investigation Root Cause Analysis",
+      "description": "Safety Manual Section 49: incident investigation root cause analysis",
       "success": true,
       "error": null
     },
@@ -1923,7 +1923,7 @@
       "folder": "safety-sections",
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-50",
-      "description": "Safety Manual Section 50: Return to Work Program",
+      "description": "Safety Manual Section 50: return to work program",
       "success": true,
       "error": null
     },
@@ -1934,7 +1934,7 @@
       "folder": "safety-sections",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-50",
-      "description": "Safety Manual Section 50: Return to Work Program",
+      "description": "Safety Manual Section 50: return to work program",
       "success": true,
       "error": null
     },
