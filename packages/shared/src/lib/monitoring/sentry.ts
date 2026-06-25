@@ -25,14 +25,16 @@ let isInitialized = false;
 let _sentry: SentryModule | null = null;
 let initPromise: Promise<void> | null = null;
 
-const FALLBACK_SENTRY_DSN =
-  "https://4bcf174e0a1db00489a4d0cde0b290de@o4511220420050944.ingest.us.sentry.io/4511220427980800";
-
 /**
  * Initialize Sentry for client-side error tracking
  * Call this once in your app initialization
  */
 export async function initSentry(): Promise<void> {
+  const configuredDsn = process.env["NEXT_PUBLIC_SENTRY_DSN"];
+  if (!configuredDsn) {
+    return;
+  }
+
   if (isInitialized) {
     return;
   }
@@ -61,7 +63,6 @@ export async function initSentry(): Promise<void> {
         return;
       }
 
-      const dsn = process.env["NEXT_PUBLIC_SENTRY_DSN"] || FALLBACK_SENTRY_DSN;
       let tracingIntegration: ReturnType<
         SentryModule["browserTracingIntegration"]
       > | null = null;
@@ -78,7 +79,7 @@ export async function initSentry(): Promise<void> {
       );
 
       _sentry.init({
-        dsn,
+        dsn: configuredDsn,
         environment: process.env.NODE_ENV || "production",
         release: process.env["NEXT_PUBLIC_APP_VERSION"] || "unknown",
 

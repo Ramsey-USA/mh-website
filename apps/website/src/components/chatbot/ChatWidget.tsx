@@ -282,13 +282,13 @@ export function ChatWidget() {
     <>
       {/* ── Floating trigger button ─────────────────────────────────────── */}
       {!isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+        <div className="fixed left-6 z-50 flex flex-col items-start gap-2 bottom-[calc(var(--mh-page-nav-height,3.5rem)+var(--mh-pwa-nav-offset,0px)+env(safe-area-inset-bottom,0px)+0.75rem)]">
           {/* Proactive prompt bubble */}
           {showPrompt && (
             <div
               role="status"
               aria-live="polite"
-              className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-3 max-w-[260px] animate-fadeSlideIn"
+              className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-3 max-w-65 animate-fadeSlideIn"
             >
               <button
                 onClick={dismissPrompt}
@@ -311,7 +311,7 @@ export function ChatWidget() {
                 {copy.promptAction}
               </button>
               {/* Tail pointing to button */}
-              <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white dark:bg-gray-800 border-r border-b border-gray-200 dark:border-gray-700 rotate-45" />
+              <div className="absolute -bottom-2 left-6 w-4 h-4 bg-white dark:bg-gray-800 border-r border-b border-gray-200 dark:border-gray-700 rotate-45" />
             </div>
           )}
 
@@ -332,7 +332,7 @@ export function ChatWidget() {
           open
           ref={panelRef}
           aria-label={copy.dialogLabel}
-          className="fixed z-50 flex flex-col bg-white dark:bg-gray-900 shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[calc(100vw-3rem)] sm:max-w-md sm:h-[min(32rem,calc(100vh-6rem))] sm:rounded-2xl"
+          className="fixed z-50 flex flex-col bg-white dark:bg-gray-900 shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden inset-0 sm:inset-auto sm:left-6 sm:bottom-[calc(var(--mh-page-nav-height,3.5rem)+var(--mh-pwa-nav-offset,0px)+env(safe-area-inset-bottom,0px)+0.75rem)] sm:w-[calc(100vw-3rem)] sm:max-w-md sm:h-[min(32rem,calc(100vh-6rem))] sm:rounded-2xl"
           style={{
             animation: "chatSlideIn 200ms ease-out",
             paddingTop: "env(safe-area-inset-top, 0px)",

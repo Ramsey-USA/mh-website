@@ -143,8 +143,8 @@ export function PageNavigation({
     "w-full border-b-2 px-3 py-2 text-center text-xs font-semibold tracking-wide whitespace-nowrap transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-secondary/70 sm:px-4 sm:py-3 sm:text-base";
   const getNavItemStateClass = (isActive: boolean) =>
     isActive
-      ? "border-brand-primary bg-brand-primary/5 text-brand-primary dark:bg-brand-primary/15"
-      : "border-transparent text-gray-600 hover:bg-gray-50 hover:text-brand-secondary dark:text-gray-300 dark:hover:bg-gray-800/60 dark:hover:text-brand-secondary";
+      ? "border-brand-secondary bg-gray-800/70 text-white"
+      : "border-transparent text-gray-300 hover:bg-gray-800/60 hover:text-white";
 
   useEffect(() => {
     const root = document.documentElement;
@@ -257,7 +257,7 @@ export function PageNavigation({
   return (
     <nav
       ref={navRef}
-      className={`page-navigation border-y border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 shadow-sm ${className}`}
+      className={`page-navigation border-y border-gray-700 bg-gray-900/95 shadow-sm ${className}`}
       aria-label="Page navigation"
     >
       <div className="w-full">

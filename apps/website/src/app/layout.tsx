@@ -238,14 +238,6 @@ export default async function RootLayout({
             crossOrigin="anonymous"
           />
         </noscript>
-        {/* Preload self-hosted Material Icons font for optimal performance */}
-        <link
-          rel="preload"
-          href="/fonts/MaterialIcons-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
         <Script
           id="set-html-lang-from-cookie"
           strategy="beforeInteractive"
@@ -310,7 +302,7 @@ export default async function RootLayout({
           <ThemeProvider defaultTheme="dark" storageKey="mh-construction-theme">
             <ErrorBoundary>
               <AppShell>{children}</AppShell>
-              {isProduction ? <ChatWidgetLazy /> : null}
+              {!isLighthouseAudit ? <ChatWidgetLazy /> : null}
             </ErrorBoundary>
           </ThemeProvider>
         </NextIntlClientProvider>

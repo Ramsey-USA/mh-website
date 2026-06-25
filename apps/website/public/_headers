@@ -1,47 +1,19 @@
-# Cloudflare Workers Headers Configuration
-# Ensures proper MIME types and caching for Next.js assets
-
-# Static JavaScript chunks - with preload hints
-/_next/static/chunks/*.js
-  Content-Type: application/javascript; charset=utf-8
-  Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
-
-# CSS files - with early hints
-/_next/static/css/*.css
-  Content-Type: text/css; charset=utf-8
-  Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
-
-# Media files
-/_next/static/media/*
-  Cache-Control: public, max-age=31536000, immutable
-
-# Next.js image optimization
-/_next/image*
-  Cache-Control: public, max-age=31536000, immutable
-
-# Static assets
-/images/*
-  Cache-Control: public, max-age=31536000, immutable
-
-/fonts/*
-  Cache-Control: public, max-age=31536000, immutable
-  Access-Control-Allow-Origin: *
-  X-Content-Type-Options: nosniff
-
-# Security headers for all responses
-/*
-  X-Frame-Options: DENY
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
-  X-XSS-Protection: 0
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
-# Early Hints — Cloudflare caches these Link headers and sends them as 103
-# responses on subsequent requests, starting downloads during TLS negotiation.
-# Enable in CF dashboard: Speed → Optimization → Content Optimization → Early Hints.
-# These match the <link rel="preload"> tags in src/app/layout.tsx.
-/
-  Link: </fonts/MaterialIcons-Regular.woff2>; rel=preload; as=font; type=font/woff2; crossorigin
+# Cloudflare Workers Headers Configuration # Ensures proper MIME types and
+caching for Next.js assets # Static JavaScript chunks - with preload hints
+/_next/static/chunks/*.js Content-Type: application/javascript; charset=utf-8
+Cache-Control: public, max-age=31536000, immutable X-Content-Type-Options:
+nosniff # CSS files - with early hints /_next/static/css/*.css Content-Type:
+text/css; charset=utf-8 Cache-Control: public, max-age=31536000, immutable
+X-Content-Type-Options: nosniff # Media files /_next/static/media/*
+Cache-Control: public, max-age=31536000, immutable # Next.js image optimization
+/_next/image* Cache-Control: public, max-age=31536000, immutable # Static assets
+/images/* Cache-Control: public, max-age=31536000, immutable /fonts/*
+Cache-Control: public, max-age=31536000, immutable Access-Control-Allow-Origin:
+* X-Content-Type-Options: nosniff # Security headers for all responses /*
+X-Frame-Options: DENY X-Content-Type-Options: nosniff Referrer-Policy:
+strict-origin-when-cross-origin Permissions-Policy: accelerometer=(), camera=(),
+geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+X-XSS-Protection: 0 Strict-Transport-Security: max-age=31536000;
+includeSubDomains; preload # Early Hints are enabled in Cloudflare, but no
+global preload hints are # declared here because route-agnostic preloads can
+trigger # "preloaded but not used" warnings on pages that do not need the asset.

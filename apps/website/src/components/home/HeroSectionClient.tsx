@@ -181,7 +181,7 @@ export function HeroSectionClient({
       </div>
 
       {/* Overlay for text readability */}
-      <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-brand-primary/15 via-gray-900/35 to-gray-900/50"></div>
 
       {/* Header Text - Bottom Right */}
       <div
@@ -239,7 +239,11 @@ export function HeroSectionClient({
           <button
             type="button"
             onClick={toggleMute}
-            className="rounded px-2 py-1 text-[10px] font-semibold text-white/85 transition-colors hover:bg-black/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/70"
+            className={`rounded px-2 py-1 text-[10px] font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/70 ${
+              isMuted
+                ? "bg-brand-secondary text-gray-950 shadow-md shadow-brand-secondary/45 ring-1 ring-brand-secondary/80 hover:bg-brand-secondary/90"
+                : "text-white/85 hover:bg-black/30 hover:text-white"
+            }`}
             aria-label={isMuted ? "Unmute hero video" : "Mute hero video"}
           >
             {isMuted ? "Unmute" : "Mute"}
