@@ -64,11 +64,6 @@ const ACTIVE_PAGES = [
 
   // Priority 0.75 - Resources hub
   { path: "/resources", priority: 0.75, changeFreq: "monthly" as const },
-  {
-    path: "/employee-handbook",
-    priority: 0.72,
-    changeFreq: "monthly" as const,
-  },
 
   // Priority 0.72 - Safety manual index pages
   {

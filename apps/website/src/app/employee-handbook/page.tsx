@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     canonical: "https://www.mhc-gc.com/employee-handbook",
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
   },
   openGraph: {
