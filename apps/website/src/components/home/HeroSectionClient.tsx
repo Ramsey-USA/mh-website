@@ -35,7 +35,8 @@ export function HeroSectionClient({
 }: Readonly<HeroSectionClientProps>) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const showLegacyBackdrop = !isVideoPlaying;
+  const [isVideoReady, setIsVideoReady] = useState(false);
+  const showLegacyBackdrop = !isVideoReady;
 
   useEffect(() => {
     if (!useVideoHero) {
@@ -51,6 +52,17 @@ export function HeroSectionClient({
       setIsVideoPlaying(!video.paused && !video.ended);
     };
 
+    const attemptInitialPlayback = async () => {
+      try {
+        await video.play();
+      } catch {
+        // Autoplay can be blocked by client/browser policy; keep poster/frame visible.
+      } finally {
+        syncPlaybackState();
+      }
+    };
+
+    void attemptInitialPlayback();
     syncPlaybackState();
     const timer = globalThis.setInterval(syncPlaybackState, 250);
 
@@ -66,8 +78,10 @@ export function HeroSectionClient({
     }
 
     if (video.paused || video.ended) {
-      setIsVideoPlaying(true);
-      void video.play();
+      void video
+        .play()
+        .then(() => setIsVideoPlaying(true))
+        .catch(() => setIsVideoPlaying(false));
       return;
     }
 
@@ -82,8 +96,10 @@ export function HeroSectionClient({
     }
 
     video.currentTime = 0;
-    setIsVideoPlaying(true);
-    void video.play();
+    void video
+      .play()
+      .then(() => setIsVideoPlaying(true))
+      .catch(() => setIsVideoPlaying(false));
   };
 
   const stopVideo = () => {
@@ -109,7 +125,7 @@ export function HeroSectionClient({
             <video
               ref={videoRef}
               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
-                isVideoPlaying ? "opacity-100" : "opacity-0"
+                isVideoReady ? "opacity-100" : "opacity-0"
               }`}
               autoPlay
               muted
@@ -119,11 +135,17 @@ export function HeroSectionClient({
               aria-label="MH Construction homepage hero video"
               onPlay={() => setIsVideoPlaying(true)}
               onPlaying={() => setIsVideoPlaying(true)}
-              onLoadedData={(event) =>
-                setIsVideoPlaying(!event.currentTarget.paused)
-              }
+              onCanPlay={() => setIsVideoReady(true)}
+              onLoadedData={(event) => {
+                setIsVideoReady(true);
+                setIsVideoPlaying(!event.currentTarget.paused);
+              }}
               onPause={() => setIsVideoPlaying(false)}
               onEnded={() => setIsVideoPlaying(false)}
+              onError={() => {
+                setIsVideoReady(false);
+                setIsVideoPlaying(false);
+              }}
             >
               {hasWebm ? <source src={webmSrc} type="video/webm" /> : null}
               {hasMp4 ? <source src={mp4Src} type="video/mp4" /> : null}
