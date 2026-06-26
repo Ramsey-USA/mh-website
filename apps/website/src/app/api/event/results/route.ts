@@ -80,36 +80,40 @@ async function loadFallbackEntries(
   client: ReturnType<typeof createDbClient>,
 ): Promise<BoothRow[]> {
   try {
-    const leads = await client.query<EventLeadRow>(
-      `SELECT id, contact_name, email, phone, metadata, created_at
-       FROM leads
-       WHERE source = 'event_booth'
-       ORDER BY created_at ASC`,
-    );
-
-    const seenPhone = new Set<string>();
-    return leads
-      .map((lead) => {
-        const meta = parseLeadMetadata(lead.metadata);
-        return {
-          full_name: String(
-            meta["full_name"] ?? lead.contact_name ?? "",
-          ).trim(),
-          phone: String(meta["phone"] ?? lead.phone ?? "").trim(),
-          hilti_guess: Number(meta["hilti_guess"] ?? 0),
-          bbq_vote: String(meta["bbq_vote"] ?? ""),
-          submitted_at: lead.created_at,
-        } satisfies BoothRow;
-      })
-      .filter((row) => {
-        if (!row.phone || seenPhone.has(row.phone)) return false;
-        seenPhone.add(row.phone);
-        return true;
-      });
+    return await loadLeadEntries(client);
   } catch (error) {
     logger.warn("EventResults: leads fallback unavailable", error);
     return [];
   }
+}
+
+async function loadLeadEntries(
+  client: ReturnType<typeof createDbClient>,
+): Promise<BoothRow[]> {
+  const leads = await client.query<EventLeadRow>(
+    `SELECT id, contact_name, email, phone, metadata, created_at
+     FROM leads
+     WHERE source = 'event_booth'
+     ORDER BY created_at ASC`,
+  );
+
+  const seenPhone = new Set<string>();
+  return leads
+    .map((lead) => {
+      const meta = parseLeadMetadata(lead.metadata);
+      return {
+        full_name: String(meta["full_name"] ?? lead.contact_name ?? "").trim(),
+        phone: String(meta["phone"] ?? lead.phone ?? "").trim(),
+        hilti_guess: Number(meta["hilti_guess"] ?? 0),
+        bbq_vote: String(meta["bbq_vote"] ?? ""),
+        submitted_at: lead.created_at,
+      } satisfies BoothRow;
+    })
+    .filter((row) => {
+      if (!row.phone || seenPhone.has(row.phone)) return false;
+      seenPhone.add(row.phone);
+      return true;
+    });
 }
 
 function timingSafeEqual(a: string, b: string): boolean {
@@ -161,24 +165,37 @@ export async function POST(request: NextRequest) {
     const hasSmokeVote = boothColumns.has("smoke_n_shine_vote");
     const hasLegacyVote = boothColumns.has("bbq_vote");
 
-    if (!hasSmokeVote && !hasLegacyVote) {
-      rows = await loadFallbackEntries(client);
-    } else {
-      const voteColumn = hasSmokeVote ? "smoke_n_shine_vote" : "bbq_vote";
+    const boothRows =
+      hasSmokeVote || hasLegacyVote
+        ? await client.query<BoothRow>(
+            `SELECT b.full_name, b.phone, b.hilti_guess,
+                    b.${hasSmokeVote ? "smoke_n_shine_vote" : "bbq_vote"} AS bbq_vote,
+                    b.submitted_at
+             FROM booth_entries b
+             INNER JOIN (
+               SELECT phone, MIN(id) AS min_id
+               FROM booth_entries
+               GROUP BY phone
+             ) dedup ON b.id = dedup.min_id
+             ORDER BY b.submitted_at ASC`,
+          )
+        : [];
 
-      // Deduplicate by phone (first entry wins), same logic as admin-export
-      rows = await client.query<BoothRow>(
-        `SELECT b.full_name, b.phone, b.hilti_guess,
-                b.${voteColumn} AS bbq_vote,
-                b.submitted_at
-         FROM booth_entries b
-         INNER JOIN (
-           SELECT phone, MIN(id) AS min_id
-           FROM booth_entries
-           GROUP BY phone
-         ) dedup ON b.id = dedup.min_id
-         ORDER BY b.submitted_at ASC`,
-      );
+    const leadRows = await loadLeadEntries(client);
+
+    if (boothRows.length > 0) {
+      const seenPhone = new Set<string>();
+      rows = [...boothRows, ...leadRows].filter((row) => {
+        if (!row.phone || seenPhone.has(row.phone)) return false;
+        seenPhone.add(row.phone);
+        return true;
+      });
+    } else {
+      rows = leadRows;
+    }
+
+    if (rows.length === 0) {
+      rows = await loadFallbackEntries(client);
     }
 
     // BBQ tallies
