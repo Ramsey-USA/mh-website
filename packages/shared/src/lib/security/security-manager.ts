@@ -104,8 +104,9 @@ const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
           "https://www.googletagmanager.com",
           "https://www.google-analytics.com",
         ],
-        "style-src": ["'self'", "'unsafe-inline'"],
-        "font-src": ["'self'"],
+        "style-src": ["'self'", "'unsafe-inline'", "https://use.typekit.net"],
+        "style-src-elem": ["'self'", "https://use.typekit.net"],
+        "font-src": ["'self'", "https://use.typekit.net"],
         "img-src": ["'self'", "data:", "https:", "blob:"],
         "connect-src": [
           "'self'",
