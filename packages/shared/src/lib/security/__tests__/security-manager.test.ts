@@ -113,6 +113,16 @@ describe("SecurityManager", () => {
     expect(result.response?.status).toBe(403);
   });
 
+  it("allows event api POSTs without a csrf token", async () => {
+    const manager = new SecurityManager(makeConfig());
+
+    const result = await manager.processRequest(
+      makeRequest("/api/event/results", { method: "POST" }),
+    );
+
+    expect(result.allowed).toBe(true);
+  });
+
   it("allows state-changing requests with matching csrf cookie and header", async () => {
     const manager = new SecurityManager(makeConfig());
     const token = "csrf-token-123";

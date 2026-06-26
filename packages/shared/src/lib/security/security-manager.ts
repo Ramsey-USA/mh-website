@@ -104,9 +104,23 @@ const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
           "https://www.googletagmanager.com",
           "https://www.google-analytics.com",
         ],
-        "style-src": ["'self'", "'unsafe-inline'", "https://use.typekit.net"],
-        "style-src-elem": ["'self'", "https://use.typekit.net"],
-        "font-src": ["'self'", "https://use.typekit.net"],
+        "style-src": [
+          "'self'",
+          "'unsafe-inline'",
+          "https://use.typekit.net",
+          "https://p.typekit.net",
+        ],
+        "style-src-elem": [
+          "'self'",
+          "'unsafe-inline'",
+          "https://use.typekit.net",
+          "https://p.typekit.net",
+        ],
+        "font-src": [
+          "'self'",
+          "https://use.typekit.net",
+          "https://p.typekit.net",
+        ],
         "img-src": ["'self'", "data:", "https:", "blob:"],
         "connect-src": [
           "'self'",
@@ -681,8 +695,16 @@ export class SecurityManager {
       return { allowed: false, response };
     }
 
+    // Event endpoints use password/bearer-token auth and are called from
+    // same-origin browser forms without a CSRF header, so they bypass the
+    // cookie-backed CSRF check used by session-authenticated routes.
+    const isEventApi = requestUrl.pathname.startsWith("/api/event/");
+
     // CSRF protection for state-changing requests
-    if (["POST", "PUT", "DELETE", "PATCH"].includes(request.method)) {
+    if (
+      !isEventApi &&
+      ["POST", "PUT", "DELETE", "PATCH"].includes(request.method)
+    ) {
       const csrfToken = request.headers.get("X-CSRF-Token");
       if (
         !csrfToken ||
