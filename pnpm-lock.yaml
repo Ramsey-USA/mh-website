@@ -344,6 +344,9 @@ importers:
       jest-environment-jsdom:
         specifier: ^30.4.1
         version: 30.4.1
+      lighthouse:
+        specifier: ^13.4.0
+        version: 13.4.0
       prettier:
         specifier: ^3.8.4
         version: 3.8.4
@@ -366,9 +369,6 @@ importers:
       jsqr:
         specifier: ^1.4.0
         version: 1.4.0
-      lighthouse:
-        specifier: ^13.4.0
-        version: 13.4.0
       mammoth:
         specifier: ^1.12.0
         version: 1.12.0
@@ -8635,12 +8635,10 @@ snapshots:
       '@formatjs/intl-localematcher': 0.6.2
       decimal.js: 10.6.0
       tslib: 2.8.1
-    optional: true
 
   '@formatjs/fast-memoize@2.2.7':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@formatjs/fast-memoize@3.1.6': {}
 
@@ -8649,7 +8647,6 @@ snapshots:
       '@formatjs/ecma402-abstract': 2.3.6
       '@formatjs/icu-skeleton-parser': 1.8.16
       tslib: 2.8.1
-    optional: true
 
   '@formatjs/icu-messageformat-parser@3.5.11':
     dependencies:
@@ -8659,14 +8656,12 @@ snapshots:
     dependencies:
       '@formatjs/ecma402-abstract': 2.3.6
       tslib: 2.8.1
-    optional: true
 
   '@formatjs/icu-skeleton-parser@2.1.10': {}
 
   '@formatjs/intl-localematcher@0.6.2':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@formatjs/intl-localematcher@0.8.10':
     dependencies:
@@ -9436,21 +9431,17 @@ snapshots:
   '@opentelemetry/api-logs@0.57.2':
     dependencies:
       '@opentelemetry/api': 1.9.1
-    optional: true
 
-  '@opentelemetry/api@1.9.1':
-    optional: true
+  '@opentelemetry/api@1.9.1': {}
 
   '@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.1)':
     dependencies:
       '@opentelemetry/api': 1.9.1
-    optional: true
 
   '@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.1)':
     dependencies:
       '@opentelemetry/api': 1.9.1
       '@opentelemetry/semantic-conventions': 1.28.0
-    optional: true
 
   '@opentelemetry/instrumentation-amqplib@0.46.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9460,7 +9451,6 @@ snapshots:
       '@opentelemetry/semantic-conventions': 1.41.1
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-connect@0.43.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9471,7 +9461,6 @@ snapshots:
       '@types/connect': 3.4.38
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-dataloader@0.16.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9479,7 +9468,6 @@ snapshots:
       '@opentelemetry/instrumentation': 0.57.2(@opentelemetry/api@1.9.1)
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-express@0.47.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9489,7 +9477,6 @@ snapshots:
       '@opentelemetry/semantic-conventions': 1.41.1
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-fs@0.19.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9498,7 +9485,6 @@ snapshots:
       '@opentelemetry/instrumentation': 0.57.2(@opentelemetry/api@1.9.1)
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-generic-pool@0.43.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9506,7 +9492,6 @@ snapshots:
       '@opentelemetry/instrumentation': 0.57.2(@opentelemetry/api@1.9.1)
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-graphql@0.47.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9514,7 +9499,6 @@ snapshots:
       '@opentelemetry/instrumentation': 0.57.2(@opentelemetry/api@1.9.1)
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-hapi@0.45.2(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9524,7 +9508,6 @@ snapshots:
       '@opentelemetry/semantic-conventions': 1.41.1
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-http@0.57.2(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9536,7 +9519,6 @@ snapshots:
       semver: 7.8.5
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-ioredis@0.47.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9546,7 +9528,6 @@ snapshots:
       '@opentelemetry/semantic-conventions': 1.41.1
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-kafkajs@0.7.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9555,7 +9536,6 @@ snapshots:
       '@opentelemetry/semantic-conventions': 1.41.1
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-knex@0.44.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9564,7 +9544,6 @@ snapshots:
       '@opentelemetry/semantic-conventions': 1.41.1
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-koa@0.47.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9574,7 +9553,6 @@ snapshots:
       '@opentelemetry/semantic-conventions': 1.41.1
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-lru-memoizer@0.44.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9582,7 +9560,6 @@ snapshots:
       '@opentelemetry/instrumentation': 0.57.2(@opentelemetry/api@1.9.1)
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-mongodb@0.52.0(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9591,7 +9568,6 @@ snapshots:
       '@opentelemetry/semantic-conventions': 1.41.1
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-mongoose@0.46.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9601,7 +9577,6 @@ snapshots:
       '@opentelemetry/semantic-conventions': 1.41.1
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-mysql2@0.45.2(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9611,7 +9586,6 @@ snapshots:
       '@opentelemetry/sql-common': 0.40.1(@opentelemetry/api@1.9.1)
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-mysql@0.45.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9621,7 +9595,6 @@ snapshots:
       '@types/mysql': 2.15.26
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-pg@0.51.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9634,7 +9607,6 @@ snapshots:
       '@types/pg-pool': 2.0.6
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-redis-4@0.46.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9644,7 +9616,6 @@ snapshots:
       '@opentelemetry/semantic-conventions': 1.41.1
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-tedious@0.18.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9654,7 +9625,6 @@ snapshots:
       '@types/tedious': 4.0.14
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation-undici@0.10.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9663,7 +9633,6 @@ snapshots:
       '@opentelemetry/instrumentation': 0.57.2(@opentelemetry/api@1.9.1)
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@opentelemetry/instrumentation@0.57.2(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9676,17 +9645,14 @@ snapshots:
       shimmer: 1.2.1
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
-  '@opentelemetry/redis-common@0.36.2':
-    optional: true
+  '@opentelemetry/redis-common@0.36.2': {}
 
   '@opentelemetry/resources@1.30.1(@opentelemetry/api@1.9.1)':
     dependencies:
       '@opentelemetry/api': 1.9.1
       '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.1)
       '@opentelemetry/semantic-conventions': 1.28.0
-    optional: true
 
   '@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.1)':
     dependencies:
@@ -9694,19 +9660,15 @@ snapshots:
       '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.1)
       '@opentelemetry/resources': 1.30.1(@opentelemetry/api@1.9.1)
       '@opentelemetry/semantic-conventions': 1.28.0
-    optional: true
 
-  '@opentelemetry/semantic-conventions@1.28.0':
-    optional: true
+  '@opentelemetry/semantic-conventions@1.28.0': {}
 
-  '@opentelemetry/semantic-conventions@1.41.1':
-    optional: true
+  '@opentelemetry/semantic-conventions@1.41.1': {}
 
   '@opentelemetry/sql-common@0.40.1(@opentelemetry/api@1.9.1)':
     dependencies:
       '@opentelemetry/api': 1.9.1
       '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.1)
-    optional: true
 
   '@parcel/watcher-android-arm64@2.5.6':
     optional: true
@@ -9772,7 +9734,6 @@ snapshots:
     dependencies:
       legacy-javascript: 0.0.1
       third-party-web: 0.29.2
-    optional: true
 
   '@pdf-lib/standard-fonts@1.0.0':
     dependencies:
@@ -9807,13 +9768,11 @@ snapshots:
       '@opentelemetry/instrumentation': 0.57.2(@opentelemetry/api@1.9.1)
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@puppeteer/browsers@3.0.4':
     dependencies:
       modern-tar: 0.7.6
       yargs: 17.7.3
-    optional: true
 
   '@radix-ui/primitive@1.1.4': {}
 
@@ -9984,8 +9943,7 @@ snapshots:
       '@sentry/types': 8.9.2
       '@sentry/utils': 8.9.2
 
-  '@sentry/core@9.47.1':
-    optional: true
+  '@sentry/core@9.47.1': {}
 
   '@sentry/feedback@10.59.0':
     dependencies:
@@ -10003,7 +9961,6 @@ snapshots:
       '@sentry/core': 9.47.1
       '@sentry/opentelemetry': 9.47.1(@opentelemetry/api@1.9.1)(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.1))(@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.1))(@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.1))(@opentelemetry/semantic-conventions@1.41.1)
       import-in-the-middle: 1.15.0
-    optional: true
 
   '@sentry/node@9.47.1':
     dependencies:
@@ -10044,7 +10001,6 @@ snapshots:
       minimatch: 9.0.9
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@sentry/opentelemetry@9.47.1(@opentelemetry/api@1.9.1)(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.1))(@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.1))(@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.1))(@opentelemetry/semantic-conventions@1.41.1)':
     dependencies:
@@ -10054,7 +10010,6 @@ snapshots:
       '@opentelemetry/sdk-trace-base': 1.30.1(@opentelemetry/api@1.9.1)
       '@opentelemetry/semantic-conventions': 1.41.1
       '@sentry/core': 9.47.1
-    optional: true
 
   '@sentry/replay-canvas@10.59.0':
     dependencies:
@@ -10508,7 +10463,6 @@ snapshots:
   '@types/connect@3.4.38':
     dependencies:
       '@types/node': 26.0.0
-    optional: true
 
   '@types/d3-array@3.2.2': {}
 
@@ -10576,7 +10530,6 @@ snapshots:
   '@types/mysql@2.15.26':
     dependencies:
       '@types/node': 26.0.0
-    optional: true
 
   '@types/node-fetch@2.6.13':
     dependencies:
@@ -10600,14 +10553,12 @@ snapshots:
   '@types/pg-pool@2.0.6':
     dependencies:
       '@types/pg': 8.6.1
-    optional: true
 
   '@types/pg@8.6.1':
     dependencies:
       '@types/node': 26.0.0
       pg-protocol: 1.15.0
       pg-types: 2.2.0
-    optional: true
 
   '@types/qrcode@1.5.6':
     dependencies:
@@ -10625,15 +10576,13 @@ snapshots:
     dependencies:
       htmlparser2: 10.1.0
 
-  '@types/shimmer@1.2.0':
-    optional: true
+  '@types/shimmer@1.2.0': {}
 
   '@types/stack-utils@2.0.3': {}
 
   '@types/tedious@4.0.14':
     dependencies:
       '@types/node': 26.0.0
-    optional: true
 
   '@types/tough-cookie@4.0.5': {}
 
@@ -10857,7 +10806,6 @@ snapshots:
   acorn-import-attributes@1.9.5(acorn@8.17.0):
     dependencies:
       acorn: 8.17.0
-    optional: true
 
   acorn-jsx@5.3.2(acorn@8.17.0):
     dependencies:
@@ -11024,7 +10972,6 @@ snapshots:
     dependencies:
       stubborn-fs: 2.0.0
       when-exit: 2.1.5
-    optional: true
 
   autoprefixer@10.5.0(postcss@8.5.15):
     dependencies:
@@ -11043,8 +10990,7 @@ snapshots:
 
   axe-core@4.11.3: {}
 
-  axe-core@4.12.1:
-    optional: true
+  axe-core@4.12.1: {}
 
   axobject-query@4.1.0: {}
 
@@ -11218,19 +11164,16 @@ snapshots:
       lighthouse-logger: 2.0.2
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   chromium-bidi@16.0.1(devtools-protocol@0.0.1624250):
     dependencies:
       devtools-protocol: 0.0.1624250
       mitt: 3.0.1
       zod: 3.25.76
-    optional: true
 
   ci-info@4.4.0: {}
 
-  cjs-module-lexer@1.4.3:
-    optional: true
+  cjs-module-lexer@1.4.3: {}
 
   cjs-module-lexer@2.2.0: {}
 
@@ -11328,7 +11271,6 @@ snapshots:
       dot-prop: 9.0.0
       graceful-fs: 4.2.11
       xdg-basedir: 5.1.0
-    optional: true
 
   content-disposition@1.1.0: {}
 
@@ -11394,8 +11336,7 @@ snapshots:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  csp_evaluator@1.1.8:
-    optional: true
+  csp_evaluator@1.1.8: {}
 
   css.escape@1.5.1: {}
 
@@ -11506,8 +11447,7 @@ snapshots:
       es-errors: 1.3.0
       gopd: 1.2.0
 
-  define-lazy-prop@2.0.0:
-    optional: true
+  define-lazy-prop@2.0.0: {}
 
   define-properties@1.2.1:
     dependencies:
@@ -11561,11 +11501,9 @@ snapshots:
     dependencies:
       dequal: 2.0.3
 
-  devtools-protocol@0.0.1624250:
-    optional: true
+  devtools-protocol@0.0.1624250: {}
 
-  devtools-protocol@0.0.1625959:
-    optional: true
+  devtools-protocol@0.0.1625959: {}
 
   dijkstrajs@1.0.3:
     optional: true
@@ -11615,7 +11553,6 @@ snapshots:
   dot-prop@9.0.0:
     dependencies:
       type-fest: 4.41.0
-    optional: true
 
   dotenv@16.6.1: {}
 
@@ -12269,8 +12206,7 @@ snapshots:
       node-domexception: 1.0.0
       web-streams-polyfill: 4.0.0-beta.3
 
-  forwarded-parse@2.1.2:
-    optional: true
+  forwarded-parse@2.1.2: {}
 
   forwarded@0.2.0: {}
 
@@ -12495,8 +12431,7 @@ snapshots:
       statuses: 2.0.2
       toidentifier: 1.0.1
 
-  http-link-header@1.1.3:
-    optional: true
+  http-link-header@1.1.3: {}
 
   http-proxy-agent@7.0.2:
     dependencies:
@@ -12539,8 +12474,7 @@ snapshots:
 
   ignore@7.0.5: {}
 
-  image-ssim@0.2.0:
-    optional: true
+  image-ssim@0.2.0: {}
 
   immediate@3.0.6: {}
 
@@ -12559,7 +12493,6 @@ snapshots:
       acorn-import-attributes: 1.9.5(acorn@8.17.0)
       cjs-module-lexer: 1.4.3
       module-details-from-path: 1.0.4
-    optional: true
 
   import-local@3.2.0:
     dependencies:
@@ -12595,7 +12528,6 @@ snapshots:
       '@formatjs/fast-memoize': 2.2.7
       '@formatjs/icu-messageformat-parser': 2.11.4
       tslib: 2.8.1
-    optional: true
 
   intl-messageformat@11.2.8:
     dependencies:
@@ -12663,8 +12595,7 @@ snapshots:
 
   is-decimal@2.0.1: {}
 
-  is-docker@2.2.1:
-    optional: true
+  is-docker@2.2.1: {}
 
   is-document.all@1.0.0:
     dependencies:
@@ -12772,7 +12703,6 @@ snapshots:
   is-wsl@2.2.0:
     dependencies:
       is-docker: 2.2.1
-    optional: true
 
   isarray@1.0.0: {}
 
@@ -13202,11 +13132,9 @@ snapshots:
 
   jose@6.2.3: {}
 
-  jpeg-js@0.4.4:
-    optional: true
+  jpeg-js@0.4.4: {}
 
-  js-library-detector@6.7.0:
-    optional: true
+  js-library-detector@6.7.0: {}
 
   js-tokens@4.0.0: {}
 
@@ -13309,8 +13237,7 @@ snapshots:
     dependencies:
       dayjs: 1.11.21
 
-  legacy-javascript@0.0.1:
-    optional: true
+  legacy-javascript@0.0.1: {}
 
   leven@3.1.0: {}
 
@@ -13329,10 +13256,8 @@ snapshots:
       marky: 1.3.0
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
-  lighthouse-stack-packs@1.12.3:
-    optional: true
+  lighthouse-stack-packs@1.12.3: {}
 
   lighthouse@13.4.0:
     dependencies:
@@ -13367,7 +13292,6 @@ snapshots:
       - proxy-agent
       - supports-color
       - utf-8-validate
-    optional: true
 
   lightningcss-android-arm64@1.32.0:
     optional: true
@@ -13452,8 +13376,7 @@ snapshots:
     dependencies:
       p-locate: 5.0.0
 
-  lodash-es@4.18.1:
-    optional: true
+  lodash-es@4.18.1: {}
 
   lodash@4.18.1: {}
 
@@ -13465,8 +13388,7 @@ snapshots:
       strip-ansi: 7.2.0
       wrap-ansi: 9.0.2
 
-  lookup-closest-locale@6.2.0:
-    optional: true
+  lookup-closest-locale@6.2.0: {}
 
   loose-envify@1.4.0:
     dependencies:
@@ -13556,8 +13478,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  marky@1.3.0:
-    optional: true
+  marky@1.3.0: {}
 
   math-intrinsics@1.1.0: {}
 
@@ -13822,8 +13743,7 @@ snapshots:
 
   minipass@7.1.3: {}
 
-  mitt@3.0.1:
-    optional: true
+  mitt@3.0.1: {}
 
   mkdirp@1.0.4: {}
 
@@ -13831,11 +13751,9 @@ snapshots:
     dependencies:
       obliterator: 1.6.1
 
-  modern-tar@0.7.6:
-    optional: true
+  modern-tar@0.7.6: {}
 
-  module-details-from-path@1.0.4:
-    optional: true
+  module-details-from-path@1.0.4: {}
 
   mrmime@2.0.1: {}
 
@@ -13997,7 +13915,6 @@ snapshots:
       define-lazy-prop: 2.0.0
       is-docker: 2.2.1
       is-wsl: 2.2.0
-    optional: true
 
   opencollective-postinstall@2.0.3:
     optional: true
@@ -14126,11 +14043,9 @@ snapshots:
       '@napi-rs/canvas': 1.0.0
     optional: true
 
-  pg-int8@1.0.1:
-    optional: true
+  pg-int8@1.0.1: {}
 
-  pg-protocol@1.15.0:
-    optional: true
+  pg-protocol@1.15.0: {}
 
   pg-types@2.2.0:
     dependencies:
@@ -14139,7 +14054,6 @@ snapshots:
       postgres-bytea: 1.0.1
       postgres-date: 1.0.7
       postgres-interval: 1.2.0
-    optional: true
 
   picocolors@1.1.1: {}
 
@@ -14182,19 +14096,15 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  postgres-array@2.0.0:
-    optional: true
+  postgres-array@2.0.0: {}
 
-  postgres-bytea@1.0.1:
-    optional: true
+  postgres-bytea@1.0.1: {}
 
-  postgres-date@1.0.7:
-    optional: true
+  postgres-date@1.0.7: {}
 
   postgres-interval@1.2.0:
     dependencies:
       xtend: 4.0.2
-    optional: true
 
   prelude-ls@1.2.1: {}
 
@@ -14248,7 +14158,6 @@ snapshots:
       - bufferutil
       - proxy-agent
       - utf-8-validate
-    optional: true
 
   puppeteer@25.1.0:
     dependencies:
@@ -14391,7 +14300,6 @@ snapshots:
       resolve: 1.22.12
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   require-main-filename@2.0.0:
     optional: true
@@ -14454,8 +14362,7 @@ snapshots:
 
   rfdc@1.4.1: {}
 
-  robots-parser@3.0.1:
-    optional: true
+  robots-parser@3.0.1: {}
 
   router@2.2.0:
     dependencies:
@@ -14646,8 +14553,7 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shimmer@1.2.1:
-    optional: true
+  shimmer@1.2.1: {}
 
   side-channel-list@1.0.1:
     dependencies:
@@ -14722,7 +14628,6 @@ snapshots:
       '@types/node': 26.0.0
       image-ssim: 0.2.0
       jpeg-js: 0.4.4
-    optional: true
 
   sprintf-js@1.0.3: {}
 
@@ -14861,10 +14766,8 @@ snapshots:
   stubborn-fs@2.0.0:
     dependencies:
       stubborn-utils: 1.0.2
-    optional: true
 
-  stubborn-utils@1.0.2:
-    optional: true
+  stubborn-utils@1.0.2: {}
 
   styled-jsx@5.1.6(@babel/core@7.29.7)(react@19.2.7):
     dependencies:
@@ -14928,8 +14831,7 @@ snapshots:
       glob: 7.2.3
       minimatch: 3.1.5
 
-  third-party-web@0.29.2:
-    optional: true
+  third-party-web@0.29.2: {}
 
   tiny-invariant@1.3.3: {}
 
@@ -14942,13 +14844,11 @@ snapshots:
 
   tldts-core@6.1.86: {}
 
-  tldts-core@7.4.3:
-    optional: true
+  tldts-core@7.4.3: {}
 
   tldts-icann@7.4.3:
     dependencies:
       tldts-core: 7.4.3
-    optional: true
 
   tldts@6.1.86:
     dependencies:
@@ -15005,8 +14905,7 @@ snapshots:
 
   type-fest@0.21.3: {}
 
-  type-fest@4.41.0:
-    optional: true
+  type-fest@4.41.0: {}
 
   type-is@2.1.0:
     dependencies:
@@ -15047,8 +14946,7 @@ snapshots:
       possible-typed-array-names: 1.1.0
       reflect.getprototypeof: 1.0.10
 
-  typed-query-selector@2.12.2:
-    optional: true
+  typed-query-selector@2.12.2: {}
 
   typescript-eslint@8.61.1(eslint@10.5.0(jiti@2.7.0))(typescript@6.0.3):
     dependencies:
@@ -15180,15 +15078,13 @@ snapshots:
   wasm-feature-detect@1.8.0:
     optional: true
 
-  web-features@3.31.0:
-    optional: true
+  web-features@3.31.0: {}
 
   web-streams-polyfill@4.0.0-beta.3: {}
 
   web-vitals@5.3.0: {}
 
-  webdriver-bidi-protocol@0.4.2:
-    optional: true
+  webdriver-bidi-protocol@0.4.2: {}
 
   webidl-conversions@3.0.1: {}
 
@@ -15229,8 +15125,7 @@ snapshots:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
 
-  when-exit@2.1.5:
-    optional: true
+  when-exit@2.1.5: {}
 
   which-boxed-primitive@1.1.1:
     dependencies:
@@ -15380,8 +15275,7 @@ snapshots:
 
   ws@8.21.0: {}
 
-  xdg-basedir@5.1.0:
-    optional: true
+  xdg-basedir@5.1.0: {}
 
   xml-js@1.6.11:
     dependencies:
@@ -15398,8 +15292,7 @@ snapshots:
 
   xmlchars@2.2.0: {}
 
-  xtend@4.0.2:
-    optional: true
+  xtend@4.0.2: {}
 
   y18n@4.0.3:
     optional: true
