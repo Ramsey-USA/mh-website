@@ -24,6 +24,15 @@ interface BoothRow {
   submitted_at: string;
 }
 
+interface EventLeadRow {
+  id: string;
+  contact_name: string | null;
+  email: string | null;
+  phone: string | null;
+  metadata: string | null;
+  created_at: string;
+}
+
 function isMissingColumnError(error: unknown): boolean {
   const message = error instanceof Error ? error.message : String(error);
   return (
@@ -35,6 +44,21 @@ function isMissingColumnError(error: unknown): boolean {
 function isMissingTableError(error: unknown): boolean {
   const message = error instanceof Error ? error.message : String(error);
   return message.includes("no such table");
+}
+
+function parseLeadMetadata(
+  metadata: string | null,
+): Record<string, string | number | boolean | null> {
+  if (!metadata) return {};
+
+  try {
+    return JSON.parse(metadata) as Record<
+      string,
+      string | number | boolean | null
+    >;
+  } catch {
+    return {};
+  }
 }
 
 function timingSafeEqual(a: string, b: string): boolean {
@@ -77,6 +101,35 @@ export async function POST(request: NextRequest) {
   try {
     const client = createDbClient({ DB: db });
 
+    async function loadFallbackEntries(): Promise<BoothRow[]> {
+      const leads = await client.query<EventLeadRow>(
+        `SELECT id, contact_name, email, phone, metadata, created_at
+         FROM leads
+         WHERE source = 'event_booth'
+         ORDER BY created_at ASC`,
+      );
+
+      const seenPhone = new Set<string>();
+      return leads
+        .map((lead) => {
+          const meta = parseLeadMetadata(lead.metadata);
+          return {
+            full_name: String(
+              meta["full_name"] ?? lead.contact_name ?? "",
+            ).trim(),
+            phone: String(meta["phone"] ?? lead.phone ?? "").trim(),
+            hilti_guess: Number(meta["hilti_guess"] ?? 0),
+            bbq_vote: String(meta["bbq_vote"] ?? ""),
+            submitted_at: lead.created_at,
+          } satisfies BoothRow;
+        })
+        .filter((row) => {
+          if (!row.phone || seenPhone.has(row.phone)) return false;
+          seenPhone.add(row.phone);
+          return true;
+        });
+    }
+
     // Deduplicate by phone (first entry wins), same logic as admin-export
     let rows: BoothRow[];
     try {
@@ -101,16 +154,24 @@ export async function POST(request: NextRequest) {
         throw queryError;
       }
 
-      rows = await client.query<BoothRow>(
-        `SELECT b.full_name, b.phone, b.hilti_guess, b.bbq_vote, b.submitted_at
-         FROM booth_entries b
-         INNER JOIN (
-           SELECT phone, MIN(id) AS min_id
-           FROM booth_entries
-           GROUP BY phone
-         ) dedup ON b.id = dedup.min_id
-         ORDER BY b.submitted_at ASC`,
-      );
+      try {
+        rows = await client.query<BoothRow>(
+          `SELECT b.full_name, b.phone, b.hilti_guess, b.bbq_vote, b.submitted_at
+           FROM booth_entries b
+           INNER JOIN (
+             SELECT phone, MIN(id) AS min_id
+             FROM booth_entries
+             GROUP BY phone
+           ) dedup ON b.id = dedup.min_id
+           ORDER BY b.submitted_at ASC`,
+        );
+      } catch (fallbackError) {
+        if (!isMissingTableError(fallbackError)) {
+          throw fallbackError;
+        }
+
+        rows = await loadFallbackEntries();
+      }
     }
 
     // BBQ tallies
