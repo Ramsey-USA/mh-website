@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { CDN_TEAM_OPTIONS } from "@/lib/events/cool-desert-nights";
 
 interface BbqTally {
   id: string;
@@ -19,6 +20,97 @@ interface Results {
   totalEntries: number;
   bbqTallies: BbqTally[];
   hiltiEntries: HiltiEntry[];
+}
+
+interface CachedEventEntry {
+  fullName?: string;
+  phone?: string;
+  email?: string;
+  hiltiguess?: number;
+  bbqVote?: string;
+  cachedAt?: string;
+}
+
+const LS_ENTRY_PREFIX = "cdn26_entry_";
+
+function normalizeVoteId(value: string): string {
+  const trimmed = value.trim();
+  if (!trimmed) return "";
+  if (CDN_TEAM_OPTIONS.some((team) => team.id === trimmed)) return trimmed;
+  const matched = CDN_TEAM_OPTIONS.find((team) => team.label === trimmed);
+  return matched?.id ?? trimmed;
+}
+
+function readCachedEntries(): CachedEventEntry[] {
+  if (typeof window === "undefined") return [];
+
+  const entries: CachedEventEntry[] = [];
+  for (let index = 0; index < localStorage.length; index++) {
+    const key = localStorage.key(index) ?? "";
+    if (!key.startsWith(LS_ENTRY_PREFIX)) continue;
+
+    try {
+      const raw = localStorage.getItem(key);
+      if (!raw) continue;
+      const parsed = JSON.parse(raw) as CachedEventEntry;
+      entries.push(parsed);
+    } catch {
+      // Ignore malformed cache entries.
+    }
+  }
+  return entries;
+}
+
+function mergeResultsWithCache(
+  results: Results,
+  cachedEntries: CachedEventEntry[],
+): Results {
+  if (cachedEntries.length === 0) return results;
+
+  const bbqCounts = new Map<string, number>();
+  for (const tally of results.bbqTallies) {
+    bbqCounts.set(tally.id, tally.count);
+  }
+
+  const seenPhone = new Set<string>();
+  const mergedHilti: HiltiEntry[] = [...results.hiltiEntries];
+  for (const entry of results.hiltiEntries) {
+    if (entry.phone) seenPhone.add(entry.phone);
+  }
+
+  for (const cached of cachedEntries) {
+    const phone = String(cached.phone ?? "").trim();
+    if (!phone || seenPhone.has(phone)) continue;
+
+    const voteId = normalizeVoteId(String(cached.bbqVote ?? ""));
+    if (voteId) {
+      bbqCounts.set(voteId, (bbqCounts.get(voteId) ?? 0) + 1);
+    }
+
+    const guess = Number(cached.hiltiguess ?? 0);
+    if (Number.isFinite(guess) && guess > 0) {
+      mergedHilti.push({
+        name: String(cached.fullName ?? "").trim() || "Cached entry",
+        phone,
+        guess,
+      });
+      seenPhone.add(phone);
+    }
+  }
+
+  const mergedTallies = CDN_TEAM_OPTIONS.map((team) => ({
+    id: team.id,
+    label: team.label,
+    count: bbqCounts.get(team.id) ?? 0,
+  })).sort((a, b) => b.count - a.count);
+
+  mergedHilti.sort((a, b) => a.guess - b.guess);
+
+  return {
+    totalEntries: Math.max(results.totalEntries, mergedHilti.length),
+    bbqTallies: mergedTallies,
+    hiltiEntries: mergedHilti,
+  };
 }
 
 export default function EventResultsPage() {
@@ -49,7 +141,9 @@ export default function EventResultsPage() {
         return;
       }
       const data = (await res.json()) as Results;
-      setResults(data);
+
+      const cachedEntries = readCachedEntries();
+      setResults(mergeResultsWithCache(data, cachedEntries));
     } catch {
       setError("Network error — check your connection.");
     } finally {
