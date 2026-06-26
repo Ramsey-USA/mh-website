@@ -259,7 +259,7 @@ export default async function TestimonialsPage(props?: {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <Link
-                href="https://search.google.com/local/writereview?placeid=234677025037995169"
+                href="https://g.page/r/CVdv3YZLzJvdEAI/review"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-lg bg-brand-secondary px-6 py-3 font-bold text-gray-900"
@@ -393,7 +393,7 @@ export default async function TestimonialsPage(props?: {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-10">
               <Link
-                href="https://search.google.com/local/writereview?placeid=234677025037995169"
+                href="https://g.page/r/CVdv3YZLzJvdEAI/review"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-2xl font-bold text-lg"
@@ -1452,7 +1452,7 @@ export default async function TestimonialsPage(props?: {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="https://search.google.com/local/writereview?placeid=234677025037995169"
+                href="https://g.page/r/CVdv3YZLzJvdEAI/review"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-xl font-bold text-lg"

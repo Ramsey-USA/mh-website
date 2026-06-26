@@ -918,7 +918,7 @@ export default function Footer() {
 
                 {/* Google Review Card */}
                 <a
-                  href="https://g.page/r/CVdv3YZLzJvdEBM/review"
+                  href="https://g.page/r/CVdv3YZLzJvdEAI/review"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${primaryActionCardClassName} mt-4`}

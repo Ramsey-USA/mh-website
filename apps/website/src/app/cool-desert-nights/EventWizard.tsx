@@ -36,8 +36,7 @@ const ADMIN_EXPORT_ENDPOINT = "/api/event/admin-export";
 const WINNERS_TEXT_ENDPOINT = "/api/event/winners-text";
 const SUBMIT_TIMEOUT_MS = 8_000;
 const REVIEW_REDIRECT_DELAY_MS = 1_500;
-const GOOGLE_REVIEW_URL =
-  "https://search.google.com/local/writereview?placeid=234677025037995169";
+const GOOGLE_REVIEW_URL = "https://g.page/r/CVdv3YZLzJvdEAI/review";
 
 const TEAM_EMOJIS: Record<CdnTeamId, string> = {
   alpha: "🅰️",
