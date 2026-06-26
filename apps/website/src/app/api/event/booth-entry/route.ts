@@ -30,12 +30,8 @@ interface BoothEntryRequest {
   cachedLocally?: boolean;
 }
 
-function isMissingColumnError(error: unknown): boolean {
-  const message = error instanceof Error ? error.message : String(error);
-  return (
-    message.includes("no such column") ||
-    message.includes("has no column named")
-  );
+interface SqliteTableInfoRow {
+  name: string;
 }
 
 function isMissingTableError(error: unknown): boolean {
@@ -57,6 +53,17 @@ function captureServerExceptionSafe(
           : String(captureError),
       route: context.route,
     });
+  }
+}
+
+async function getBoothEntryColumns(client: ReturnType<typeof createDbClient>) {
+  try {
+    const tableInfo = await client.query<SqliteTableInfoRow>(
+      `PRAGMA table_info(booth_entries)`,
+    );
+    return new Set(tableInfo.map((row) => row.name));
+  } catch {
+    return new Set<string>();
   }
 }
 
@@ -120,43 +127,50 @@ async function handlePOST(request: NextRequest) {
     const client = createDbClient({ DB: db });
     const hiltiContactOptIn = data.hiltiContactOptIn === true;
     const mhcProjectInquiryOptIn = data.mhcProjectInquiryOptIn === true;
+    const boothColumns = await getBoothEntryColumns(client);
+    const voteColumn = boothColumns.has("smoke_n_shine_vote")
+      ? "smoke_n_shine_vote"
+      : boothColumns.has("bbq_vote")
+        ? "bbq_vote"
+        : null;
+    const hasBoothTable = boothColumns.size > 0;
 
     let boothEntryId: string | null = null;
     let boothEntryStored = false;
-    try {
-      boothEntryId = await client.insert("booth_entries", {
-        full_name: data.fullName,
-        phone: data.phone,
-        email: data.email,
-        hilti_guess: data.hiltiguess,
-        bbq_vote: data.bbqVote,
-        hilti_contact_opt_in: hiltiContactOptIn ? 1 : 0,
-        mhc_project_inquiry_opt_in: mhcProjectInquiryOptIn ? 1 : 0,
-        cached_locally: data.cachedLocally ? 1 : 0,
-      });
-      boothEntryStored = true;
-    } catch (entryError) {
-      if (isMissingTableError(entryError)) {
-        logger.warn(
-          "BoothEntry: booth_entries table missing; will store lead mirror only",
-        );
-      } else if (!isMissingColumnError(entryError)) {
-        throw entryError;
-      } else {
-        // Backward-compatible path for environments where migration 0019
-        // has not been applied yet.
-        logger.warn(
-          "BoothEntry: opt-in columns missing in booth_entries; storing without opt-in columns",
-        );
-        boothEntryId = await client.insert("booth_entries", {
+    if (!hasBoothTable || !voteColumn) {
+      logger.warn(
+        "BoothEntry: booth_entries table missing or vote column unavailable; will store lead mirror only",
+      );
+    } else {
+      try {
+        const boothEntry: Record<string, unknown> = {
           full_name: data.fullName,
           phone: data.phone,
           email: data.email,
           hilti_guess: data.hiltiguess,
-          bbq_vote: data.bbqVote,
+          [voteColumn]: data.bbqVote,
           cached_locally: data.cachedLocally ? 1 : 0,
-        });
+        };
+
+        if (boothColumns.has("hilti_contact_opt_in")) {
+          boothEntry["hilti_contact_opt_in"] = hiltiContactOptIn ? 1 : 0;
+        }
+        if (boothColumns.has("mhc_project_inquiry_opt_in")) {
+          boothEntry["mhc_project_inquiry_opt_in"] = mhcProjectInquiryOptIn
+            ? 1
+            : 0;
+        }
+
+        boothEntryId = await client.insert("booth_entries", boothEntry);
         boothEntryStored = true;
+      } catch (entryError) {
+        if (isMissingTableError(entryError)) {
+          logger.warn(
+            "BoothEntry: booth_entries table missing; will store lead mirror only",
+          );
+        } else {
+          throw entryError;
+        }
       }
     }
 
