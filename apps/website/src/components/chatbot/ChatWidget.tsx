@@ -4,6 +4,11 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { useLocale } from "@/hooks/useLocale";
 import { getChatFallbackResponse } from "@/lib/chatbot/fallback";
+import { COMPANY_INFO } from "@/lib/constants/company";
+
+const CHAT_PHONE_DISPLAY = COMPANY_INFO.phone.display;
+const CHAT_PHONE_TEL = COMPANY_INFO.phone.tel;
+const CHAT_EMAIL = COMPANY_INFO.email.main;
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -73,10 +78,10 @@ function getApiFallbackReply(message: string, isEs: boolean): string {
 
 function getConnectionErrorReply(isEs: boolean): string {
   if (isEs) {
-    return "No puedo comunicarme con nuestro servicio de chat en este momento. Para ayuda inmediata, llame al (509) 308-6489 o escriba a office@mhc-gc.com. También puede intentarlo de nuevo en un momento.";
+    return `No puedo comunicarme con nuestro servicio de chat en este momento. Para ayuda inmediata, llame al ${CHAT_PHONE_DISPLAY} o escriba a ${CHAT_EMAIL}. También puede intentarlo de nuevo en un momento.`;
   }
 
-  return "I am not able to reach our chat service right now. For immediate help, call (509) 308-6489 or email office@mhc-gc.com. You can also try your question again in a moment.";
+  return `I am not able to reach our chat service right now. For immediate help, call ${CHAT_PHONE_DISPLAY} or email ${CHAT_EMAIL}. You can also try your question again in a moment.`;
 }
 
 function getMobileScrollUnlock(isOpen: boolean): (() => void) | undefined {
@@ -236,6 +241,7 @@ export function ChatWidget() {
           body: JSON.stringify({
             message: trimmed,
             history: messages.slice(-8),
+            locale: copy.locale,
           }),
         });
 
@@ -498,10 +504,10 @@ export function ChatWidget() {
             <p className="text-[10px] text-gray-400 dark:text-gray-500">
               {copy.disclaimerText}{" "}
               <a
-                href="tel:+15093086489"
+                href={`tel:${CHAT_PHONE_TEL}`}
                 className="text-brand-primary dark:text-brand-primary-light hover:underline"
               >
-                (509) 308-6489
+                {CHAT_PHONE_DISPLAY}
               </a>
             </p>
           </div>

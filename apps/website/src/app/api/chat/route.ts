@@ -35,6 +35,7 @@ interface ChatMessage {
 interface ChatPayload {
   message: string;
   history?: ChatMessage[];
+  locale: "en" | "es";
 }
 
 // ── Validation ───────────────────────────────────────────────────────────────
@@ -65,7 +66,9 @@ function validatePayload(body: unknown): ChatPayload | null {
     }
   }
 
-  return { message, history };
+  const locale = obj["locale"] === "es" ? "es" : "en";
+
+  return { message, history, locale };
 }
 
 // ── Cloudflare Workers AI interface ──────────────────────────────────────────
@@ -106,8 +109,16 @@ async function handler(request: NextRequest): Promise<Response> {
         | undefined;
 
       if (ai) {
+        const localeInstruction =
+          payload.locale === "es"
+            ? "\n## RESPONSE LANGUAGE\n- Respond in Spanish. Keep URLs, phone numbers, and proper names exactly as written."
+            : "";
+
         const messages: Array<{ role: string; content: string }> = [
-          { role: "system", content: buildSystemPrompt() },
+          {
+            role: "system",
+            content: `${buildSystemPrompt()}${localeInstruction}`,
+          },
           ...(payload.history ?? []).map((m) => ({
             role: m.role,
             content: m.content,
@@ -132,14 +143,33 @@ async function handler(request: NextRequest): Promise<Response> {
       });
     }
 
-    const response = aiResponse ?? getChatFallbackResponse(payload.message);
+    const response =
+      aiResponse ?? getChatFallbackResponse(payload.message, payload.locale);
 
     return NextResponse.json({ response });
   } catch (_error) {
+    const errorMessage = _error instanceof Error ? _error.message : "unknown";
+
     logger.error("Chat API error", {
-      error: _error instanceof Error ? _error.message : "unknown",
+      error: errorMessage,
     });
-    captureServerException(_error, { request, route: "/api/chat" });
+
+    try {
+      captureServerException(_error, { request, route: "/api/chat" });
+    } catch (_captureError) {
+      logger.warn("Chat API capture failed", {
+        error:
+          _captureError instanceof Error ? _captureError.message : "unknown",
+      });
+    }
+
+    if (process.env.NODE_ENV !== "production") {
+      return NextResponse.json(
+        { error: "Internal server error", detail: errorMessage },
+        { status: 500 },
+      );
+    }
+
     return internalServerError(
       "Something went wrong. Please try again or call (509) 308-6489.",
     );

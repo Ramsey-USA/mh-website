@@ -7,8 +7,8 @@
     "serving": "Sede en Tri-Cities (Pasco, Richland, Kennewick) | Licencia Tri-State en WA, OR, ID"
   },
   "coreValues": {
-    "sectionSubtitle": "Marco de Decision",
-    "sectionTitle": "Cuatro Valores en la Practica",
+    "sectionSubtitle": "Marco de Decisión",
+    "sectionTitle": "Cuatro Valores en la Práctica",
     "sectionDescription": "Estos valores definen cómo tomamos decisiones sobre alcance, presupuesto y cronograma mientras protegemos la calidad y la rendición de cuentas.",
     "keyMetric": "Métrica Clave",
     "values": [
@@ -41,7 +41,7 @@
   "companyStats": {
     "subtitle": "Resumen de Rendimiento",
     "title": "Cifras que Puede Verificar",
-    "description": "Vista rapida del rendimiento en seguridad, profundidad del equipo, volumen de entrega y cobertura de licencias en Washington, Oregon e Idaho.",
+    "description": "Vista rápida del rendimiento en seguridad, profundidad del equipo, volumen de entrega y cobertura de licencias en Washington, Oregon e Idaho.",
     "labels": {
       "safety": "EMR de Seguridad Galardonado",
       "experience": "Años de Experiencia Combinada",
@@ -51,7 +51,7 @@
   },
   "services": {
     "sectionSubtitle": "Frentes de Servicio por Fase",
-    "sectionTitle": "De la Planificacion al Cierre",
+    "sectionTitle": "De la Planificación al Cierre",
     "sectionDescription": "Conozca cada frente de servicio desde la preconstrucción hasta la ejecución y el cierre de obra.",
     "clickForDetails": "Haga clic para detalles completos",
     "viewDetailsAriaPrefix": "Ver detalles de",
@@ -174,7 +174,7 @@
   },
   "whyPartner": {
     "sectionSubtitle": "Por Que los Equipos Siguen con MH",
-    "sectionTitle": "Estandares que Protegen Resultados",
+    "sectionTitle": "Estándares que Protegen Resultados",
     "sectionDescription": "Revise los estándares operativos detrás de cada alianza con clientes: liderazgo en seguridad, procesos transparentes y confiabilidad medible en cada fase.",
     "philosophy": "Tu palabra es tu compromiso; la nuestra también. Punto.",
     "theROI": "EL ROI ES LA RELACIÓN",
@@ -266,7 +266,7 @@
     "description": "Lea testimonios de valiosos Clientes en todo el Noroeste del Pacífico que han experimentado nuestra excelencia colaborativa de primera mano."
   },
   "process": {
-    "subtitle": "Hoja de Ruta de Ejecucion",
+    "subtitle": "Hoja de Ruta de Ejecución",
     "title": "Modelo de Entrega en Cinco Pasos",
     "descriptionPart1": "Cinco pasos claros desde el",
     "descriptionPart2": "primer contacto hasta la finalización del proyecto",

@@ -10,65 +10,59 @@
 const fs = require("fs");
 const path = require("path");
 
-// Import SEO utilities (would need proper setup in real implementation)
-const ACTIVE_PAGES = [
-  "/",
-  "/about",
-  "/services",
-  "/projects",
-  "/team",
-  "/contact",
-  "/veterans",
-  "/faq",
-  "/public-sector",
-  "/testimonials",
-  "/allies",
-  "/careers",
-  "/privacy",
-  "/terms",
-  "/accessibility",
-  "/locations/richland",
-  "/locations/kennewick",
-  "/locations/pasco",
-  "/locations/yakima",
-  "/locations/spokane",
-  "/locations/walla-walla",
-  "/locations/west-richland",
-  "/locations/hermiston",
-  "/locations/pendleton",
-  "/locations/coeur-d-alene",
-  "/locations/omak",
-];
-
 const SEO_RULES = {
   title: { minLength: 30, maxLength: 60, optimal: 50 },
   description: { minLength: 120, maxLength: 160, optimal: 150 },
   keywords: { min: 3, max: 15, optimal: 7 },
 };
 
+// Keep this list aligned with src/lib/seo/geo-metadata.ts route strategy.
+const COMPLIANCE_ROUTE_PREFIXES = [
+  "/privacy",
+  "/terms",
+  "/accessibility",
+  "/offline",
+  "/not-found",
+];
+
 function generateSEOAudit() {
+  const activePages = buildActivePages();
+
   console.log("\n🔍 SEO AUDIT REPORT");
   console.log("=".repeat(80));
   console.log(`Generated: ${new Date().toISOString()}`);
-  console.log(`Total Pages: ${ACTIVE_PAGES.length}\n`);
+  console.log(`Total Pages: ${activePages.length}\n`);
 
   const results = {
-    totalPages: ACTIVE_PAGES.length,
+    totalPages: activePages.length,
     passing: 0,
     warnings: 0,
     errors: 0,
     pages: [],
+    routeInventory: [],
+    keywordProfileSummary: {
+      commercial: 0,
+      foundational: 0,
+    },
   };
 
-  ACTIVE_PAGES.forEach((page) => {
+  activePages.forEach((page) => {
     const pageResults = auditPage(page);
     results.pages.push(pageResults);
+    results.routeInventory.push({
+      pathname: pageResults.pathname,
+      sourceType: pageResults.routeSource.sourceType,
+      sourceRegistry: pageResults.routeSource.sourceRegistry,
+      sourceFile: pageResults.routeSource.sourceFile,
+    });
+    results.keywordProfileSummary[pageResults.keywordProfile]++;
 
     if (pageResults.score >= 90) results.passing++;
     else if (pageResults.score >= 70) results.warnings++;
     else results.errors++;
 
     console.log(`\n📄 ${page}`);
+    console.log(`   Keyword Profile: ${pageResults.keywordProfile}`);
     console.log(
       `   Score: ${pageResults.score}/100 ${getScoreEmoji(pageResults.score)}`,
     );
@@ -105,6 +99,36 @@ function generateSEOAudit() {
     console.log("⚠️  Status: NEEDS IMPROVEMENT - Action recommended");
   else console.log("❌ Status: POOR - Immediate action required");
 
+  console.log("\nKEYWORD PROFILE DISTRIBUTION");
+  console.log("-".repeat(80));
+  console.log(
+    `🧭 Commercial Profile: ${results.keywordProfileSummary.commercial} pages`,
+  );
+  console.log(
+    `📘 Foundational Profile: ${results.keywordProfileSummary.foundational} pages`,
+  );
+
+  const profileRows = results.pages
+    .map((page) => ({ pathname: page.pathname, profile: page.keywordProfile }))
+    .sort((a, b) => a.pathname.localeCompare(b.pathname));
+
+  profileRows.forEach((row) => {
+    console.log(`   ${row.profile.padEnd(13)} ${row.pathname}`);
+  });
+
+  console.log("\nROUTE INVENTORY");
+  console.log("-".repeat(80));
+  results.routeInventory.forEach((route) => {
+    const sourceLabel = route.sourceRegistry
+      ? `${route.sourceType} · ${route.sourceRegistry}`
+      : route.sourceType;
+
+    console.log(`   ${sourceLabel.padEnd(34)} ${route.pathname}`);
+    if (route.sourceFile) {
+      console.log(`      ${route.sourceFile}`);
+    }
+  });
+
   console.log("\n");
 
   // Write JSON report
@@ -115,12 +139,144 @@ function generateSEOAudit() {
   return results;
 }
 
+function buildActivePages() {
+  const pages = new Set([
+    "/",
+    "/about",
+    "/services",
+    "/projects",
+    "/team",
+    "/contact",
+    "/veterans",
+    "/faq",
+    "/public-sector",
+    "/testimonials",
+    "/allies",
+    "/careers",
+    "/privacy",
+    "/terms",
+    "/accessibility",
+    "/locations",
+  ]);
+
+  const sitemapPath = path.join(__dirname, "..", "src", "app", "sitemap.ts");
+  addPathsFromSourceFile(sitemapPath, /path:\s*"([^"]+)"/g, pages);
+
+  const locationDataPath = path.join(
+    __dirname,
+    "..",
+    "src",
+    "lib",
+    "data",
+    "locations.ts",
+  );
+  addPrefixedSlugsFromSourceFile(
+    locationDataPath,
+    /slug:\s*"([^"]+)"/g,
+    "/locations",
+    pages,
+  );
+
+  const serviceRoutesPath = path.join(
+    __dirname,
+    "..",
+    "src",
+    "lib",
+    "data",
+    "service-routes.ts",
+  );
+  addPrefixedSlugsFromSourceFile(
+    serviceRoutesPath,
+    /slug:\s*"([^"]+)"/g,
+    "/services",
+    pages,
+  );
+
+  const projectCaseStudiesPath = path.join(
+    __dirname,
+    "..",
+    "src",
+    "lib",
+    "data",
+    "project-case-studies.ts",
+  );
+  addPrefixedSlugsFromSourceFile(
+    projectCaseStudiesPath,
+    /slug:\s*"([^"]+)"/g,
+    "/projects",
+    pages,
+  );
+
+  const faqDataPath = path.join(
+    __dirname,
+    "..",
+    "src",
+    "lib",
+    "data",
+    "faq-data.ts",
+  );
+  addPrefixedSlugsFromSourceFile(
+    faqDataPath,
+    /id:\s*"([^"]+)"/g,
+    "/faq",
+    pages,
+  );
+
+  const safetyClustersPath = path.join(
+    __dirname,
+    "..",
+    "src",
+    "lib",
+    "data",
+    "safety-manual-clusters.ts",
+  );
+  addPrefixedSlugsFromSourceFile(
+    safetyClustersPath,
+    /slug:\s*"([^"]+)"/g,
+    "/resources/safety-manual",
+    pages,
+  );
+
+  return Array.from(pages).sort((a, b) => a.localeCompare(b));
+}
+
+function addPathsFromSourceFile(filePath, regex, pages) {
+  try {
+    const content = fs.readFileSync(filePath, "utf-8");
+    for (const match of content.matchAll(regex)) {
+      const routePath = match[1];
+      if (routePath) {
+        pages.add(routePath);
+      }
+    }
+  } catch {
+    // ignore missing source files in audit generation
+  }
+}
+
+function addPrefixedSlugsFromSourceFile(filePath, regex, prefix, pages) {
+  try {
+    const content = fs.readFileSync(filePath, "utf-8");
+    for (const match of content.matchAll(regex)) {
+      const slug = match[1];
+      if (slug) {
+        pages.add(`${prefix}/${slug}`);
+      }
+    }
+  } catch {
+    // ignore missing source files in audit generation
+  }
+}
+
 function auditPage(pathname) {
   const issues = [];
   let score = 100;
+  const keywordProfile = getKeywordProfileForPath(pathname);
+  const dynamicRoute = getDynamicRouteInfo(pathname);
+  const routeSource = getRouteSourceInfo(pathname, dynamicRoute);
 
   // Check if page has metadata file or uses layout metadata
-  const hasMetadata = checkMetadataExists(pathname);
+  const hasMetadata = checkMetadataExists(pathname, dynamicRoute);
   if (!hasMetadata) {
     issues.push({
       type: "warning",
@@ -131,7 +287,7 @@ function auditPage(pathname) {
   }
 
   // Check sitemap inclusion
-  const inSitemap = checkSitemapInclusion(pathname);
+  const inSitemap = checkSitemapInclusion(pathname, dynamicRoute);
   if (!inSitemap) {
     issues.push({
       type: "error",
@@ -141,7 +297,7 @@ function auditPage(pathname) {
   }
 
   // Check page file exists
-  const pageExists = checkPageExists(pathname);
+  const pageExists = checkPageExists(pathname, dynamicRoute);
   if (!pageExists) {
     issues.push({
       type: "error",
@@ -152,6 +308,8 @@ function auditPage(pathname) {
 
   return {
     pathname,
+    keywordProfile,
+    routeSource,
     score: Math.max(0, score),
     issues,
     hasMetadata,
@@ -160,7 +318,31 @@ function auditPage(pathname) {
   };
 }
 
-function checkMetadataExists(pathname) {
+function getKeywordProfileForPath(pathname) {
+  const isComplianceRoute = COMPLIANCE_ROUTE_PREFIXES.some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+  );
+
+  return isComplianceRoute ? "foundational" : "commercial";
+}
+
+function checkMetadataExists(pathname, dynamicRoute) {
+  if (dynamicRoute) {
+    if (
+      !dynamicRoute.existsInRegistry ||
+      !fs.existsSync(dynamicRoute.pageFile)
+    ) {
+      return false;
+    }
+
+    const content = fs.readFileSync(dynamicRoute.pageFile, "utf-8");
+    return (
+      content.includes("export const metadata") ||
+      content.includes("export function generateMetadata") ||
+      content.includes("export async function generateMetadata")
+    );
+  }
+
   // Check for page-specific metadata in page.tsx
   const pagePath = path.join(
     __dirname,
@@ -208,17 +390,31 @@ function checkMetadataExists(pathname) {
   }
 }
 
-function checkSitemapInclusion(pathname) {
+function checkSitemapInclusion(pathname, dynamicRoute) {
   try {
     const sitemapPath = path.join(__dirname, "..", "src", "app", "sitemap.ts");
     const content = fs.readFileSync(sitemapPath, "utf-8");
+
+    if (dynamicRoute) {
+      return (
+        dynamicRoute.existsInRegistry &&
+        content.includes(dynamicRoute.registryMarker)
+      );
+    }
+
     return content.includes(`"${pathname}"`);
   } catch {
     return false;
   }
 }
 
-function checkPageExists(pathname) {
+function checkPageExists(pathname, dynamicRoute) {
+  if (dynamicRoute) {
+    return (
+      dynamicRoute.existsInRegistry && fs.existsSync(dynamicRoute.pageFile)
+    );
+  }
+
   const pagePath = path.join(
     __dirname,
     "..",
@@ -227,6 +423,194 @@ function checkPageExists(pathname) {
     pathname === "/" ? "page.tsx" : `${pathname}/page.tsx`,
   );
   return fs.existsSync(pagePath);
+}
+
+function getDynamicRouteInfo(pathname) {
+  const staticSafetyManualPaths = new Set([
+    "/resources/safety-manual/contents",
+    "/resources/safety-manual/forms",
+  ]);
+
+  if (staticSafetyManualPaths.has(pathname)) {
+    return null;
+  }
+
+  const routeConfigs = [
+    {
+      prefix: "/locations/",
+      pageFile: path.join(
+        __dirname,
+        "..",
+        "src",
+        "app",
+        "locations",
+        "[city]",
+        "page.tsx",
+      ),
+      dataFile: path.join(
+        __dirname,
+        "..",
+        "src",
+        "lib",
+        "data",
+        "locations.ts",
+      ),
+      registryMarker: "getLocationSlugs",
+    },
+    {
+      prefix: "/services/",
+      pageFile: path.join(
+        __dirname,
+        "..",
+        "src",
+        "app",
+        "services",
+        "[slug]",
+        "page.tsx",
+      ),
+      dataFile: path.join(
+        __dirname,
+        "..",
+        "src",
+        "lib",
+        "data",
+        "service-routes.ts",
+      ),
+      registryMarker: "getServiceRouteSlugs",
+    },
+    {
+      prefix: "/projects/",
+      pageFile: path.join(
+        __dirname,
+        "..",
+        "src",
+        "app",
+        "projects",
+        "[slug]",
+        "page.tsx",
+      ),
+      dataFile: path.join(
+        __dirname,
+        "..",
+        "src",
+        "lib",
+        "data",
+        "project-case-studies.ts",
+      ),
+      registryMarker: "getProjectCaseStudySlugs",
+    },
+    {
+      prefix: "/faq/",
+      pageFile: path.join(
+        __dirname,
+        "..",
+        "src",
+        "app",
+        "faq",
+        "[category]",
+        "page.tsx",
+      ),
+      dataFile: path.join(__dirname, "..", "src", "lib", "data", "faq-data.ts"),
+      registryMarker: "getFAQCategorySlugs",
+    },
+    {
+      prefix: "/resources/safety-manual/",
+      pageFile: path.join(
+        __dirname,
+        "..",
+        "src",
+        "app",
+        "resources",
+        "safety-manual",
+        "[cluster]",
+        "page.tsx",
+      ),
+      dataFile: path.join(
+        __dirname,
+        "..",
+        "src",
+        "lib",
+        "data",
+        "safety-manual-clusters.ts",
+      ),
+      registryMarker: "ALL_CLUSTER_SLUGS",
+    },
+  ];
+
+  for (const config of routeConfigs) {
+    if (!pathname.startsWith(config.prefix)) {
+      continue;
+    }
+
+    const slug = pathname.slice(config.prefix.length);
+    if (!slug || slug.includes("/")) {
+      continue;
+    }
+
+    const existsInRegistry = hasSlugInSourceFile(config.dataFile, slug);
+    return {
+      pageFile: config.pageFile,
+      existsInRegistry,
+      registryMarker: config.registryMarker,
+    };
+  }
+
+  return null;
+}
+
+function getRouteSourceInfo(pathname, dynamicRoute) {
+  if (dynamicRoute) {
+    return {
+      sourceType: "dynamic route",
+      sourceRegistry: dynamicRoute.registryMarker,
+      sourceFile: dynamicRoute.pageFile,
+    };
+  }
+
+  const staticRouteSource = getStaticRouteSourceInfo(pathname);
+  return staticRouteSource;
+}
+
+function getStaticRouteSourceInfo(pathname) {
+  const staticRouteFiles = {
+    "/": "src/app/page.tsx",
+    "/about": "src/app/about/layout.tsx",
+    "/services": "src/app/services/layout.tsx",
+    "/projects": "src/app/projects/layout.tsx",
+    "/team": "src/app/team/layout.tsx",
+    "/contact": "src/app/contact/layout.tsx",
+    "/veterans": "src/app/veterans/layout.tsx",
+    "/faq": "src/app/faq/layout.tsx",
+    "/public-sector": "src/app/public-sector/layout.tsx",
+    "/testimonials": "src/app/testimonials/layout.tsx",
+    "/allies": "src/app/allies/layout.tsx",
+    "/careers": "src/app/careers/layout.tsx",
+    "/privacy": "src/app/privacy/layout.tsx",
+    "/terms": "src/app/terms/layout.tsx",
+    "/accessibility": "src/app/accessibility/layout.tsx",
+    "/locations": "src/app/locations/page.tsx",
+    "/safety": "src/app/safety/layout.tsx",
+    "/resources": "src/app/resources/page.tsx",
+    "/cool-desert-nights": "src/app/cool-desert-nights/page.tsx",
+  };
+
+  const sourceFile = staticRouteFiles[pathname];
+  return {
+    sourceType: "static route",
+    sourceRegistry: sourceFile ? "src/app" : null,
+    sourceFile: sourceFile ? sourceFile : null,
+  };
+}
+
+function hasSlugInSourceFile(filePath, slug) {
+  try {
+    const content = fs.readFileSync(filePath, "utf-8");
+    return (
+      content.includes(`slug: "${slug}"`) || content.includes(`id: "${slug}"`)
+    );
+  } catch {
+    return false;
+  }
 }
 
 function getScoreEmoji(score) {
@@ -252,4 +636,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { generateSEOAudit, auditPage };
+module.exports = { generateSEOAudit, auditPage, getKeywordProfileForPath };

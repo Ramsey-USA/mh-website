@@ -299,9 +299,12 @@ export function withSecurity<
             }
 
             // Replace request body with sanitized data
+            const sanitizedHeaders = new Headers(request.headers);
+            sanitizedHeaders.delete("content-length");
+
             request = new NextRequest(request.url, {
               method: request.method,
-              headers: request.headers,
+              headers: sanitizedHeaders,
               body: JSON.stringify(validation.sanitizedData),
             });
           } catch {
@@ -344,16 +347,18 @@ export function withSecurity<
         securityResult.csrfToken,
       );
 
-      // Log API access
-      await auditLogger.logDataAccess(
-        pathname,
-        request.method,
-        undefined, // No user ID in this context
-        "success",
-        {
-          statusCode: securedResponse.status,
-          userAgent,
-        },
+      // Log API access in the background so logging failures do not break API responses.
+      deferAudit(
+        auditLogger.logDataAccess(
+          pathname,
+          request.method,
+          undefined, // No user ID in this context
+          "success",
+          {
+            statusCode: securedResponse.status,
+            userAgent,
+          },
+        ),
       );
 
       return securedResponse;

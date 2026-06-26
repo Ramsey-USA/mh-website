@@ -159,6 +159,12 @@ function detectImageFilenameViolation(path) {
     return null;
   }
 
+  // Deleted files can still appear in git diff output; ignore them so cleanup
+  // renames/deletions of legacy names are not blocked.
+  if (!fs.existsSync(path)) {
+    return null;
+  }
+
   const filename = path.split("/").pop() || "";
   if (IMAGE_KEBAB_FILENAME.test(filename)) {
     return null;

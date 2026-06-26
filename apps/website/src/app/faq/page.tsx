@@ -20,7 +20,11 @@ import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
-import { faqCategories, type FAQQuestion } from "@/lib/data/faq-data";
+import {
+  faqCategories,
+  totalFAQCount,
+  type FAQQuestion,
+} from "@/lib/data/faq-data";
 
 // NextStepsSection uses useLocale (client hook) and sits at the bottom of the
 // page. Dynamic import keeps its JS out of the page's critical bundle.
@@ -233,11 +237,7 @@ export default function FAQPage() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
                 <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
                   <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
-                    {faqCategories.reduce(
-                      (sum, cat) => sum + cat.questions.length,
-                      0,
-                    )}
-                    +
+                    {totalFAQCount}+
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     Questions Answered

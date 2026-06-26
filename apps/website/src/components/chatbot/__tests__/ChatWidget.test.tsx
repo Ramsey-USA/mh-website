@@ -195,6 +195,11 @@ describe("ChatWidget", () => {
       headers: { "Content-Type": "application/json" },
       body: expect.stringContaining("What do you do?"),
     });
+
+    const requestInit = mockFetch.mock.calls[0]?.[1] as
+      | { body?: string }
+      | undefined;
+    expect(requestInit?.body).toContain('"locale":"en"');
   });
 
   it("shows error message when fetch fails", async () => {

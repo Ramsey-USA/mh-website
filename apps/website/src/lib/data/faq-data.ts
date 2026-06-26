@@ -35,7 +35,7 @@ export const faqCategories: FAQCategory[] = [
         question:
           "What makes MH Construction different from other construction companies?",
         answer:
-          "We're built on a four-value professional foundation system: Honesty, Integrity, Professionalism, and Thoroughness-all culminating in Trust as our ultimate goal. Founded in 2010, we became Veteran-Owned in January 2025 when Army veteran Jeremy Thamert purchased the company, combining our 15-year heritage with disciplined execution and partnership-driven construction management. Our philosophy is simple: Building projects for the Client, NOT the Dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
+          "We're built on a four-value professional foundation system: Honesty, Integrity, Professionalism, and Thoroughness - all culminating in Trust as our ultimate goal. Founded in 2010, we became Veteran-Owned in January 2025 when Army veteran Jeremy Thamert purchased the company, combining our 15-year heritage with disciplined execution and partnership-driven construction management. Our philosophy is simple: Building projects for the Client, NOT the Dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
       },
       {
         question: "Where are you licensed and what areas do you serve?",
@@ -50,7 +50,16 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Are you really Veteran-Owned?",
         answer:
-          "Yes! MH Construction was founded in 2010 and became Veteran-Owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our military background brings discipline, attention to detail, and a commitment to follow-through to every project. We understand the value of keeping promises and meeting commitments-values that directly translate to construction excellence.",
+          "Yes! MH Construction was founded in 2010 and became Veteran-Owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our military background brings discipline, attention to detail, and a commitment to follow-through to every project. We understand the value of keeping promises and meeting commitments - values that directly translate to construction excellence.",
+      },
+      {
+        question: "Are you BBB accredited?",
+        answer:
+          "Yes. MH Construction is Better Business Bureau accredited with an A+ rating (accredited April 7, 2026). That accreditation reflects our commitment to trust, transparency, and ethical business practices in every client partnership.",
+        link: {
+          text: "View BBB Business Profile →",
+          href: "https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036",
+        },
       },
     ],
   },
@@ -163,6 +172,15 @@ export const faqCategories: FAQCategory[] = [
           "Simply provide proof of military service (DD-214 or VA card) during our initial consultation. Combat veterans receive our discount at the ready, and all veterans receive priority scheduling. We're honored to serve those who served our nation.",
       },
       {
+        question: "Are you certified as a Veteran-Owned business?",
+        answer:
+          "Yes. MH Construction is a certified Washington State Veteran Owned Business (WA DVA, certified in 2026). We are also actively pursuing additional federal and private-sector veteran certifications, including SBA VetCert, to expand procurement pathways for public and corporate projects.",
+        link: {
+          text: "Verify WA Veteran Owned Business status →",
+          href: "https://pr-webs-vendor.des.wa.gov/VendorSearch.aspx",
+        },
+      },
+      {
         question: "Do you work on government projects?",
         answer:
           "Yes. We have extensive experience with government contracts and understand federal compliance requirements. We are a dedicated supporter of the Build America, Buy America Act (BABAA), which is a federal domestic-content requirement for certain federally funded infrastructure projects. Our disciplined planning, careful documentation, and regulatory expertise make us well-suited for government facility projects.",
@@ -212,7 +230,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Is MH Construction a certified Veteran-Owned business?",
         answer:
-          "Yes, MH Construction is a Veteran-Owned business. Founded in 2010 by Mike Holstein, the company was purchased in January 2025 by U.S. Army Veteran Jeremy Thamert. We operate with an 'Old School' mentality where your word is your bond, living by the slogan: 'Building projects for the Client, NOT the Dollar.'",
+          "Yes. MH Construction has been Veteran-Owned since January 2025 and is certified as a Washington State Veteran Owned Business (WA DVA, 2026). Founded in 2010 by Mike Holstein, the company was purchased by U.S. Army veteran Jeremy Thamert. We operate with an 'Old School' mentality where your word is your bond, living by the slogan: 'Building projects for the Client, NOT the Dollar.'",
       },
       {
         question:

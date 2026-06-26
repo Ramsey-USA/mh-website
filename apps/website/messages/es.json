@@ -57,42 +57,42 @@
         "sectionDescription": "Manténgase al día con nuestros últimos proyectos, asociaciones y conocimientos de la industria—hitos de nuestro equipo veterano.",
         "cards": {
           "crm": {
-            "category": "Tecnologia",
-            "title": "Plataforma Integrada de CRM y Gestion de Proyectos",
-            "description": "La implementacion de High-Level CRM esta en marcha para brindar comunicacion fluida, actualizaciones en tiempo real y una mejor experiencia del cliente.",
+            "category": "Tecnología",
+            "title": "Plataforma Integrada de CRM y Gestión de Proyectos",
+            "description": "La implementación de High-Level CRM esta en marcha para brindar comunicación fluida, actualizaciones en tiempo real y una mejor experiencia del cliente.",
             "date": "Mar 2026",
             "linkText": "Conocer Mas"
           },
           "trade": {
-            "category": "Asociacion",
-            "title": "Expansion de la Red de Socios Comerciales",
-            "description": "Estamos ampliando nuestra red de profesionales de oficios para servir mejor a nuestros socios cliente en todo el Pacifico Noroeste.",
+            "category": "Asociación",
+            "title": "Expansión de la Red de Socios Comerciales",
+            "description": "Estamos ampliando nuestra red de profesionales de oficios para servir mejor a nuestros socios cliente en todo el Pacífico Noroeste.",
             "date": "Oct 2025",
             "linkText": "Conviertase en Socio"
           },
           "safety": {
             "category": "Reconocimiento",
             "title": "Historial de Seguridad Galardonado",
-            "description": "Nuestro compromiso con la seguridad es reconocido por organizaciones del sector con estandares medibles y cumplimiento disciplinado.",
+            "description": "Nuestro compromiso con la seguridad es reconocido por organizaciones del sector con estándares medibles y cumplimiento disciplinado.",
             "date": "Sep 2025",
-            "linkText": "Estandares de Seguridad"
+            "linkText": "Estándares de Seguridad"
           },
           "insight": {
             "category": "Perspectiva de la Industria",
-            "title": "Mejores Practicas para Proyectos Comerciales",
-            "description": "A partir de anos de experiencia en campo, compartimos guias practicas sobre planificacion, comunicacion y ejecucion centrada en la asociacion.",
+            "title": "Mejores Prácticas para Proyectos Comerciales",
+            "description": "A partir de años de experiencia en campo, compartimos guias prácticas sobre planificación, comunicación y ejecución centrada en la asociación.",
             "date": "Aug 2025",
             "linkText": "Nuestros Servicios"
           },
           "veteran": {
             "category": "Iniciativa Veterana",
             "title": "Apoyo a Empresas de Veteranos",
-            "description": "Como empresa veterana, priorizamos asociaciones con otras empresas de veteranos y apoyamos su transicion hacia carreras civiles.",
+            "description": "Como empresa veterana, priorizamos asociaciones con otras empresas de veteranos y apoyamos su transición hacia carreras civiles.",
             "date": "Jul 2025",
             "linkText": "Nuestros Valores"
           }
         },
-        "footerNote": "Integracion completa del blog con la plataforma High-Level CRM en progreso"
+        "footerNote": "Integración completa del blog con la plataforma High-Level CRM en progreso"
       },
       "nextSteps": {
         "sectionTitle": "Próximos Pasos",
@@ -127,57 +127,57 @@
     "overview": {
       "subtitle": "Conozca a Nuestro",
       "title": "Equipo de Elite",
-      "description": "Conozca al equipo de liderazgo veterano de todas las ramas en quien confian nuestros socios en el Pacifico Noroeste. La disciplina ganada en servicio, la comunicacion transparente y la ejecucion centrada en la asociacion guian cada proyecto."
+      "description": "Conozca al equipo de liderazgo veterano de todas las ramas en quien confian nuestros socios en el Pacífico Noroeste. La disciplina ganada en servicio, la comunicación transparente y la ejecución centrada en la asociación guían cada proyecto."
     },
     "departments": {
       "upperBrass": {
         "subtitle": "Alta",
-        "title": "Direccion",
-        "description": "Liderazgo de mando que establece la direccion estrategica y mantiene estandares disciplinados y confiables en todas las operaciones."
+        "title": "Dirección",
+        "description": "Liderazgo de mando que establece la dirección estratégica y mantiene estándares disciplinados y confiables en todas las operaciones."
       },
       "missionCommanders": {
         "subtitle": "Comandantes de",
-        "title": "Mision",
-        "description": "Planificacion y ejecucion de mision con estimacion precisa, programacion estrategica y coordinacion tactica de proyectos."
+        "title": "Misión",
+        "description": "Planificación y ejecución de misión con estimación precisa, programación estratégica y coordinación tactica de proyectos."
       },
       "fieldOfficers": {
         "subtitle": "Oficiales de",
         "title": "Campo",
-        "description": "Operaciones de primera linea que entregan calidad con ejecucion disciplinada y excelencia en seguridad."
+        "description": "Operaciones de primera línea que entregan calidad con ejecución disciplinada y excelencia en seguridad."
       },
       "specialOperations": {
         "subtitle": "Operaciones",
         "title": "Especiales",
-        "description": "Operaciones especializadas en mercadeo, seguridad e iniciativas estrategicas que fortalecen resultados a largo plazo."
+        "description": "Operaciones especializadas en mercadeo, seguridad e iniciativas estratégicas que fortalecen resultados a largo plazo."
       },
       "logisticsCommand": {
         "subtitle": "Comando de",
         "title": "Logistica",
-        "description": "Operaciones base que brindan soporte logistico, de comunicacion y administrativo para el exito de cada mision."
+        "description": "Operaciones base que brindan soporte logistico, de comunicación y administrativo para el exito de cada misión."
       },
       "emptyState": {
         "title": "Actualizacion de personal en progreso.",
-        "description": "Esta seccion se completara cuando se finalicen las asignaciones."
+        "description": "Esta sección se completará cuando se finalicen las asignaciones."
       }
     },
     "employeeTestimonials": {
       "subtitle": "Lo Que Dice Nuestro Equipo",
       "title": "Sobre Nosotros",
-      "description": "Escuche directamente a los profesionales que viven nuestra filosofia de asociacion cada dia con ejecucion confiable y valores ganados en servicio."
+      "description": "Escuche directamente a los profesionales que viven nuestra filosofia de asociación cada dia con ejecución confiable y valores ganados en servicio."
     },
     "culture": {
       "subtitle": "Nuestra",
       "title": "Cultura Empresarial",
-      "description": "Uno para todos y todos para uno define como colaboramos, crecemos y triunfamos juntos. Nuestra cultura centrada en las personas apoya a clientes, comunidades y al equipo con seguridad, calidad y comunicacion transparente.",
+      "description": "Uno para todos y todos para uno define como colaboramos, crecemos y triunfamos juntos. Nuestra cultura centrada en las personas apoya a clientes, comunidades y al equipo con seguridad, calidad y comunicación transparente.",
       "cards": {
         "teamUnity": {
           "title": "Unidad de Equipo",
-          "description": "De veteranos a civiles y de oficina a campo, operamos como un solo equipo con valores compartidos de disciplina y excelencia en construccion."
+          "description": "De veteranos a civiles y de oficina a campo, operamos como un solo equipo con valores compartidos de disciplina y excelencia en construcción."
         },
         "mutualSupport": {
           "iconAria": "Apoyo mutuo",
           "title": "Apoyo Mutuo",
-          "description": "Nos guiamos entre nosotros, compartimos conocimiento y aseguramos que nadie enfrente desafios solo mientras el equipo crece unido."
+          "description": "Nos guiamos entre nosotros, compartimos conocimiento y aseguramos que nadie enfrente desafíos solo mientras el equipo crece unido."
         },
         "sharedSuccess": {
           "title": "Exito Compartido",
@@ -191,27 +191,27 @@
         "items": {
           "veteranDiscipline": {
             "title": "Disciplina de Empresa Veterana",
-            "description": "El liderazgo veterano combina ejecucion estructurada y resolucion practica para entregar resultados confiables en cada fase."
+            "description": "El liderazgo veterano combina ejecución estructurada y resolución práctica para entregar resultados confiables en cada fase."
           },
           "communication": {
-            "title": "Comunicacion Abierta y Transparencia",
+            "title": "Comunicación Abierta y Transparencia",
             "description": "Cada voz importa, con actualizaciones claras y expectativas transparentes que reducen sorpresas y fortalecen la confianza."
           },
           "safety": {
             "title": "Seguridad Primero con Reconocimiento",
-            "description": "El liderazgo en seguridad sostiene nuestro historial comprobado mediante estandares disciplinados y responsabilidad constante en campo."
+            "description": "El liderazgo en seguridad sostiene nuestro historial comprobado mediante estándares disciplinados y responsabilidad constante en campo."
           },
           "community": {
             "title": "Enfoque Comunitario y Raices Regionales",
-            "description": "Fortalecemos comunidades locales con calidad, relaciones duraderas e inversion en nuestra region de servicio Tri-State."
+            "description": "Fortalecemos comunidades locales con calidad, relaciones duraderas e inversión en nuestra region de servicio Tri-State."
           },
           "balance": {
             "title": "Balance Vida-Trabajo",
             "description": "Apoyamos a las familias y al bienestar personal mientras mantenemos excelencia en proyectos con expectativas claras y respeto mutuo."
           },
           "relationships": {
-            "title": "Mentalidad de Relacion a Largo Plazo",
-            "description": "Nuestro modelo de asociacion se diseña para el exito sostenido, con relaciones que continúan mas alla de la entrega del proyecto."
+            "title": "Mentalidad de Relación a Largo Plazo",
+            "description": "Nuestro modelo de asociación se diseña para el exito sostenido, con relaciones que continúan mas alla de la entrega del proyecto."
           }
         }
       },
@@ -223,56 +223,56 @@
     "careerGrowth": {
       "subtitle": "Desarrollo Profesional y",
       "title": "Crecimiento de Carrera",
-      "description": "Invertimos en el crecimiento desde el primer dia mediante capacitacion estructurada, mentoria y rutas claras de avance para construir carreras de largo plazo.",
+      "description": "Invertimos en el crecimiento desde el primer dia mediante capacitación estructurada, mentoria y rutas claras de avance para construir carreras de largo plazo.",
       "cards": {
         "continuousTraining": {
-          "title": "Capacitacion Continua",
-          "description": "La formacion constante en tecnicas, seguridad y herramientas emergentes mantiene al equipo listo para nuevas exigencias."
+          "title": "Capacitación Continua",
+          "description": "La formación constante en tecnicas, seguridad y herramientas emergentes mantiene al equipo listo para nuevas exigencias."
         },
         "crossTraining": {
-          "iconAria": "Capacitacion cruzada",
-          "title": "Programas de Capacitacion Cruzada",
+          "iconAria": "Capacitación cruzada",
+          "title": "Programas de Capacitación Cruzada",
           "description": "Los miembros amplian habilidades entre especialidades para aumentar versatilidad, resiliencia y valor en cada proyecto."
         },
         "mentorship": {
           "iconAria": "Mentoria",
           "title": "Mentoria Estructurada",
-          "description": "Lideres con experiencia guian a nuevos talentos mediante acompanamiento practico y planes de crecimiento sostenido."
+          "description": "Lideres con experiencia guían a nuevos talentos mediante acompañamiento práctico y planes de crecimiento sostenido."
         },
         "careerPaths": {
           "title": "Rutas Claras de Ascenso",
-          "description": "Marcos de progreso transparentes ayudan a avanzar de funciones de campo a liderazgo con base en merito y desempeno."
+          "description": "Marcos de progreso transparentes ayudan a avanzar de funciones de campo a liderazgo con base en merito y desempeño."
         },
         "leadershipDevelopment": {
           "iconAria": "Desarrollo de liderazgo",
           "title": "Desarrollo de Liderazgo",
-          "description": "Los lideres emergentes reciben formacion enfocada en gestion de proyectos, relaciones con clientes y ejecucion operativa."
+          "description": "Los lideres emergentes reciben formación enfocada en gestión de proyectos, relaciones con clientes y ejecución operativa."
         },
         "industryInvolvement": {
-          "iconAria": "Participacion en la industria",
-          "title": "Participacion en la Industria",
-          "description": "La participacion activa en organizaciones del sector mantiene al equipo alineado con mejores practicas y estandares."
+          "iconAria": "Participación en la industria",
+          "title": "Participación en la Industria",
+          "description": "La participación activa en organizaciones del sector mantiene al equipo alineado con mejores prácticas y estándares."
         }
       },
       "investment": {
-        "iconAria": "Crecimiento de inversion",
+        "iconAria": "Crecimiento de inversión",
         "headingSubtitle": "Nuestro Compromiso",
-        "headingTitle": "Inversion en Su Exito",
+        "headingTitle": "Inversión en Su Exito",
         "stats": {
           "experience": {
-            "line1": "Anos de Experiencia",
+            "line1": "Años de Experiencia",
             "line2": "Combinada"
           },
           "trainingFunding": {
             "line1": "Financiamiento",
-            "line2": "de Capacitacion"
+            "line2": "de Capacitación"
           },
           "awards": {
             "line1": "Premios Top EMR",
-            "line2": "(Multiples Anos)"
+            "line2": "(Multiples Años)"
           },
           "yearsBusiness": {
-            "line1": "Anos en Operacion",
+            "line1": "Años en Operación",
             "line2": "Desde 2010"
           }
         }
@@ -280,23 +280,23 @@
     },
     "careersCta": {
       "subtitle": "Interesado en Unirse a la",
-      "title": "Cadena de Mando?",
-      "description": "Explore oportunidades de carrera y descubra por que MH Construction es un gran lugar para trabajar, desde una cultura de seguridad reconocida hasta iniciativas de contratacion de veteranos y desarrollo profesional continuo.",
+      "title": "¿Cadena de Mando?",
+      "description": "Explore oportunidades de carrera y descubra por que MH Construction es un gran lugar para trabajar, desde una cultura de seguridad reconocida hasta iniciativas de contratación de veteranos y desarrollo profesional continuo.",
       "button": "Ver Oportunidades de Carrera"
     },
     "founderTribute": {
       "subtitle": "Homenaje al",
       "title": "Fundador",
-      "description": "Honramos la base de liderazgo que dio origen a MH Construction y definio los estandares de asociacion que mantenemos hoy.",
+      "description": "Honramos la base de liderazgo que dio origen a MH Construction y definio los estándares de asociación que mantenemos hoy.",
       "founderLabel": "Fundador",
-      "tributeStatementTitle": "Declaracion de Homenaje",
-      "tributeStatementBody": "Mike Holstein fundo MH Construction en 2010 y establecio el estandar original de integridad, disciplina y ejecucion centrada en el cliente. Su liderazgo establecio la base operativa que guia cada mision hoy.",
+      "tributeStatementTitle": "Declaración de Homenaje",
+      "tributeStatementBody": "Mike Holstein fundó MH Construction en 2010 y estableció el estándar original de integridad, disciplina y ejecución centrada en el cliente. Su liderazgo estableció la base operativa que guía cada misión hoy.",
       "milestonesTitle": "Proyectos Destacados e Hitos de Legado"
     },
     "nextSteps": {
-      "sectionTitle": "Listo para el Siguiente Paso?",
+      "sectionTitle": "¿Listo para el Siguiente Paso?",
       "sectionSubtitle": "Conecte con Nuestro Equipo",
-      "sectionDescription": "Ya sea para explorar carreras, planificar un proyecto o buscar un socio de construccion confiable, nuestro equipo esta listo para ayudar."
+      "sectionDescription": "Ya sea para explorar carreras, planificar un proyecto o buscar un socio de construcción confiable, nuestro equipo esta listo para ayudar."
     }
   },
   "hub": {
@@ -532,41 +532,41 @@
   },
   "allies": {
     "hero": {
-      "iconAria": "Red estrategica de socios",
+      "iconAria": "Red estratégica de socios",
       "kicker": "Aliados -> Socios",
       "titleLine1": "Alianzas Estratégicas Construidas en Confianza, Rendimiento y Éxito Mutuo",
       "titleLine2": "Alianzas Verificadas - Construyendo Éxito a Través de Socios de Confianza",
       "titleLine3Prefix": "Construyendo proyectos para el Cliente, ",
       "notWord": "NO",
-      "titleLine3Suffix": "por el Dolar",
+      "titleLine3Suffix": "por el Dólar",
       "breadcrumbHome": "Inicio",
-      "breadcrumbCurrent": "Aliados en Accion"
+      "breadcrumbCurrent": "Aliados en Acción"
     },
     "partnership": {
       "iconAria": "Por que asociarse con MH Construction",
       "subtitle": "Por que construir con",
       "title": "MH Construction",
-      "quote": "\"EL ROI ES LA RELACION - y lo demostramos.\"",
-      "descriptionPrefix": "Desde 2010, MH Construction ha construido una reputacion de comunicacion honesta, pagos puntuales y una cultura de seguridad sin igual",
+      "quote": "\"EL ROI ES LA RELACIÓN - y lo demostramos.\"",
+      "descriptionPrefix": "Desde 2010, MH Construction ha construido una reputacion de comunicación honesta, pagos puntuales y una cultura de seguridad sin igual",
       "metric": "(.64 EMR - 40% mas seguro que el promedio de la industria)",
-      "descriptionSuffix": "El liderazgo de empresa veterana desde enero de 2025 significa que nuestros socios reciben el mismo codigo de conducta que define el servicio militar: honor, responsabilidad y cumplimiento de cada compromiso.",
+      "descriptionSuffix": "El liderazgo de empresa veterana desde enero de 2025 significa que nuestros socios reciben el mismo código de conducta que define el servicio militar: honor, responsabilidad y cumplimiento de cada compromiso.",
       "cite": "- Equipo de liderazgo de MH Construction",
       "values": {
         "handshakes": {
-          "title": "Donde los apretones de manos aun importan",
+          "title": "Donde los apretones de manos aún importan",
           "description": "Su palabra es su compromiso. Tratamos a nuestros socios comerciales con la misma integridad y respeto que damos a nuestros clientes: confianza cara a cara, respeto mutuo y un compromiso compartido de hacer lo correcto."
         },
         "scheduling": {
-          "title": "Programacion confiable y comunicacion abierta",
-          "description": "La comunicacion transparente de libro abierto y los cronogramas confiables ayudan a nuestros socios comerciales a planificar con confianza y gestionar sus recursos de forma efectiva. Usted controla, nosotros gestionamos, juntos."
+          "title": "Programación confiable y comunicación abierta",
+          "description": "La comunicación transparente de libro abierto y los cronogramas confiables ayudan a nuestros socios comerciales a planificar con confianza y gestionar sus recursos de forma efectiva. Usted controla, nosotros gestionamos, juntos."
         },
         "payment": {
           "title": "Pago justo y puntual",
-          "description": "La compensacion competitiva y los calendarios de pago confiables respaldan la salud financiera y el crecimiento de cada socio comercial. Construir para el Cliente, NO para el Dolar, significa tratar a los socios con la misma equidad."
+          "description": "La compensación competitiva y los calendarios de pago confiables respaldan la salud financiera y el crecimiento de cada socio comercial. Construir para el Cliente, NO para el Dólar, significa tratar a los socios con la misma equidad."
         },
         "safety": {
           "title": "Cultura de seguridad galardonada",
-          "description": "Nuestro historial de seguridad .64 EMR es 40% mejor que el promedio de la industria. Todos regresan a casa seguros, todos los dias. Los socios en nuestros sitios operan dentro de una cultura de responsabilidad y excelencia."
+          "description": "Nuestro historial de seguridad .64 EMR es 40% mejor que el promedio de la industria. Todos regresan a casa seguros, todos los días. Los socios en nuestros sitios operan dentro de una cultura de responsabilidad y excelencia."
         }
       }
     },
@@ -576,39 +576,39 @@
       "title": "Red de Socios Comerciales",
       "descriptionPrefix": "Empresas verificadas agrupadas por especialidad y listadas",
       "descriptionEmphasis": "alfabeticamente dentro de cada categoria",
-      "descriptionMiddle": "Los socios se seleccionan por licencia, alineacion con seguridad, historial de desempeno y valores compartidos -",
-      "descriptionStrong": "revisados trimestralmente para asegurar una representacion justa y actualizada",
+      "descriptionMiddle": "Los socios se seleccionan por licencia, alineación con seguridad, historial de desempeño y valores compartidos -",
+      "descriptionStrong": "revisados trimestralmente para asegurar una representación justa y actualizada",
       "criteria": {
         "aria": "Criterios de listado",
         "label": "Criterios de Listado",
         "item1": "Con licencia y seguro",
         "item2": "Alineados con la cultura de seguridad",
         "item3": "Huella activa de proyectos",
-        "item4": "Historial comprobado de desempeno",
-        "item5": "Estandar de comunicacion honesta",
-        "item6": "Revision trimestral"
+        "item4": "Historial comprobado de desempeño",
+        "item5": "Estándar de comunicación honesta",
+        "item6": "Revisión trimestral"
       }
     },
     "cta": {
       "iconAria": "Conviertase en aliado",
       "subtitle": "Conviertase en",
-      "title": "Aliado en Accion",
-      "descriptionPrefix": "Listo para hacer crecer su negocio con un",
-      "descriptionEmphasis": "lider de construccion de empresa veterana desde enero de 2025",
-      "descriptionMiddle": "Buscamos activamente socios comerciales confiables y calificados que valoren la calidad, la comunicacion honesta y",
+      "title": "Aliado en Acción",
+      "descriptionPrefix": "¿Listo para hacer crecer su negocio con un",
+      "descriptionEmphasis": "lider de construcción de empresa veterana desde enero de 2025",
+      "descriptionMiddle": "Buscamos activamente socios comerciales confiables y calificados que valoren la calidad, la comunicación honesta y",
       "descriptionStrong": "relaciones comerciales sostenibles basadas en el exito mutuo",
       "buttonPrimaryAria": "Solicitar",
-      "buttonPrimary": "Iniciar conversacion de asociacion",
+      "buttonPrimary": "Iniciar conversación de asociación",
       "buttonSecondaryAria": "Portafolio",
       "buttonSecondary": "Ver nuestro portafolio",
-      "phoneAria": "Telefono",
+      "phoneAria": "Teléfono",
       "phoneLabel": "Consultas de alianzas comerciales:",
       "hours": "7:00 AM - 4:00 PM PST",
       "emailAria": "Correo"
     },
     "accreditations": {
       "kicker": "Acreditado y Certificado",
-      "title": "Asociese con un contratista general de confianza",
+      "title": "Asóciese con un contratista general de confianza",
       "description": "Nuestras acreditaciones reflejan nuestro compromiso con la calidad, la etica y la seguridad"
     }
   },
@@ -631,22 +631,22 @@
     "breadcrumb": {
       "home": "Inicio",
       "veterans": "Veteranos",
-      "current": "Construccion del Sector Publico"
+      "current": "Construcción del Sector Público"
     },
     "hero": {
       "kicker": "Puente para Veteranos",
-      "title": "Ruta de Construccion del Sector Publico Liderada por Veteranos",
-      "description": "Esta pagina conecta valores centrados en veteranos con requisitos de proyectos gubernamentales para que agencias publicas y equipos orientados a la mision puedan avanzar de la intencion a la ejecucion con una planificacion clara."
+      "title": "Ruta de Construcción del Sector Público Liderada por Veteranos",
+      "description": "Esta página conecta valores centrados en veteranos con requisitos de proyectos gubernamentales para que agencias públicas y equipos orientados a la misión puedan avanzar de la intención a la ejecución con una planificación clara."
     },
     "cards": {
       "delivery": {
-        "title": "Entrega del Sector Publico",
-        "text": "Revisa como el flujo de entrega gubernamental se alinea con la ejecucion de proyectos liderada por veteranos.",
-        "cta": "Explorar pagina del sector publico"
+        "title": "Entrega del Sector Público",
+        "text": "Revisa como el flujo de entrega gubernamental se alinea con la ejecución de proyectos liderada por veteranos.",
+        "cta": "Explorar página del sector público"
       },
       "compliance": {
         "title": "Flujo de Cumplimiento",
-        "text": "Consulta una ruta practica de cumplimiento para preconstruccion, documentacion y preparacion de adquisiciones.",
+        "text": "Consulta una ruta práctica de cumplimiento para preconstrucción, documentación y preparación de adquisiciones.",
         "cta": "Revisar ruta de cumplimiento"
       },
       "triState": {
@@ -656,24 +656,24 @@
       }
     },
     "cta": {
-      "heading": "Listo para definir el alcance de un proyecto gubernamental?",
-      "description": "Comienza con una conversacion directa de planificacion y alinea el alcance, la ruta de cumplimiento y la secuencia de entrega.",
+      "heading": "¿Listo para definir el alcance de un proyecto gubernamental?",
+      "description": "Comienza con una conversación directa de planificación y alinea el alcance, la ruta de cumplimiento y la secuencia de entrega.",
       "buttonContact": "Contactar al equipo",
-      "buttonServiceLine": "Linea de servicio municipal y gubernamental",
-      "buttonYakima": "Mercado del sector publico de Yakima",
-      "buttonPendleton": "Mercado de ejecucion gubernamental de Pendleton"
+      "buttonServiceLine": "Línea de servicio municipal y gubernamental",
+      "buttonYakima": "Mercado del sector público de Yakima",
+      "buttonPendleton": "Mercado de ejecución gubernamental de Pendleton"
     }
   },
   "veteransPage": {
     "hero": {
       "kicker": "Servicio Primero -> Veteranos",
-      "titleLine1": "Apoyando a Quienes Sirvieron - Una Comunidad, Una Mision",
+      "titleLine1": "Apoyando a Quienes Sirvieron - Una Comunidad, Una Misión",
       "titleLine2": "Honrando a Quienes Sirvieron",
       "titleLine3": "Todas las Ramas, Todos los Valores",
       "titleLine4": "Descuento para Veteranos de Combate Disponible",
       "titleLine5Prefix": "Construyendo proyectos para el Cliente, ",
       "notWord": "NO",
-      "titleLine5Suffix": "por el Dolar"
+      "titleLine5Suffix": "por el Dólar"
     },
     "breadcrumb": {
       "home": "Inicio",
@@ -684,8 +684,8 @@
       "title": "Valores de Empresa Veterana y Rendimiento Comprobado",
       "description": {
         "prefix": "Donde",
-        "highlight1": "la disciplina militar se encuentra con el liderazgo honesto en construccion",
-        "middle": "- los valores ganados en el servicio de honestidad, integridad y compromiso relacional guian",
+        "highlight1": "la disciplina militar se encuentra con el liderazgo honesto en construcción",
+        "middle": "- los valores ganados en el servicio de honestidad, integridad y compromiso relacional guían",
         "highlight2": "cada proyecto y alianza",
         "suffix": "que construimos."
       },
@@ -693,55 +693,55 @@
         "leadership": {
           "title": "Liderazgo de Empresa Veterana",
           "subtitle": "Excelencia Ganada en el Servicio",
-          "description": "El propietario veterano del Ejercito Jeremy Thamert aporta mas de 15 anos de experiencia en aviacion militar y disciplina operativa. El veterano de la Marina Matt Ramsey aplica ejecucion disciplinada a las operaciones digitales. El liderazgo veterano combinado garantiza seguimiento confiable y comunicacion clara en cada proyecto.",
+          "description": "El propietario veterano del Ejército Jeremy Thamert aporta más de 15 años de experiencia en aviación militar y disciplina operativa. El veterano de la Marina Matt Ramsey aplica ejecución disciplinada a las operaciones digitales. El liderazgo veterano combinado garantiza seguimiento confiable y comunicación clara en cada proyecto.",
           "highlights": [
-            "Equipo veterano de Ejercito + Marina",
+            "Equipo veterano de Ejército + Marina",
             "Disciplina operativa militar",
-            "Ejecucion confiable"
+            "Ejecución confiable"
           ],
           "statLabel": "Lideres Veteranos"
         },
         "safety": {
           "title": "EMR .64 - Seguridad Lista para Combate",
           "subtitle": "Cada Miembro del Equipo Regresa a Casa",
-          "description": "Protocolos de seguridad de nivel militar con EMR .64, un 40% mejor que el promedio de la industria. Mas de 3 anos sin lesiones con tiempo perdido. Designacion OSHA VPP Star. No dejar a nadie atras no es solo militar, es estandar de construccion.",
+          "description": "Protocolos de seguridad de nivel militar con EMR .64, un 40% mejor que el promedio de la industria. Más de 3 años sin lesiones con tiempo perdido. Designación OSHA VPP Star. No dejar a nadie atrás no es solo militar, es estándar de construcción.",
           "highlights": [
             "EMR .64 (40% mejor)",
-            "Mas de 3 anos sin tiempo perdido",
-            "Certificacion OSHA VPP Star"
+            "Más de 3 años sin tiempo perdido",
+            "Certificación OSHA VPP Star"
           ],
-          "statLabel": "Calificacion EMR"
+          "statLabel": "Calificación EMR"
         },
         "experience": {
-          "title": "Mas de 150 Anos de Experiencia Combinada",
+          "title": "Más de 150 Años de Experiencia Combinada",
           "subtitle": "Excelencia Veterana + Civil",
-          "description": "Veteranos y civiles trabajando juntos con mas de 150 anos de experiencia combinada en construccion. La disciplina militar se integra con la artesania generacional: metodos probados refinados por servicio y experiencia.",
+          "description": "Veteranos y civiles trabajando juntos con más de 150 años de experiencia combinada en construcción. La disciplina militar se integra con la artesania generacional: metodos probados refinados por servicio y experiencia.",
           "highlights": [
-            "Mas de 150 anos de experiencia",
-            "Colaboracion veterano-civil",
-            "Metodos de construccion comprobados"
+            "Más de 150 años de experiencia",
+            "Colaboración veterano-civil",
+            "Metodos de construcción comprobados"
           ],
-          "statLabel": "Anos de Experiencia"
+          "statLabel": "Años de Experiencia"
         },
         "transparency": {
           "title": "100% Transparencia",
           "subtitle": "Cero Sorpresas, Confianza Total",
-          "description": "Precios de libro abierto con transparencia de nivel militar. Visibilidad completa de cada costo, cronograma y decision. Su palabra es su compromiso; la nuestra tambien. Evaluaciones honestas, actualizaciones en tiempo real y cero costos ocultos.",
+          "description": "Precios de libro abierto con transparencia de nivel militar. Visibilidad completa de cada costo, cronograma y decisión. Su palabra es su compromiso; la nuestra también. Evaluaciones honestas, actualizaciones en tiempo real y cero costos ocultos.",
           "highlights": [
             "Precios de libro abierto",
             "Actualizaciones en tiempo real",
-            "Comunicacion honesta"
+            "Comunicación honesta"
           ],
           "statLabel": "Transparencia"
         },
         "missions": {
-          "title": "Mas de 650 Misiones Exitosas",
+          "title": "Más de 650 Misiones Exitosas",
           "subtitle": "Excelencia Operativa Comprobada",
-          "description": "Mas de 650 proyectos completados exitosamente desde 2010. El liderazgo veterano aporta planificacion de mision, ejecucion bajo presion y resultados consistentes. Ya sea rutinario o urgente, cumplimos sin importar los desafios.",
+          "description": "Más de 650 proyectos completados exitosamente desde 2010. El liderazgo veterano aporta planificación de misión, ejecución bajo presión y resultados consistentes. Ya sea rutinario o urgente, cumplimos sin importar los desafíos.",
           "highlights": [
-            "Mas de 650 proyectos completados",
-            "Planificacion disciplinada",
-            "Ejecucion consistente"
+            "Más de 650 proyectos completados",
+            "Planificación disciplinada",
+            "Ejecución consistente"
           ],
           "statLabel": "Proyectos Completados"
         },
@@ -760,16 +760,16 @@
     },
     "leadership": {
       "jeremy": {
-        "aria": "Liderazgo Veterano del Ejercito",
+        "aria": "Liderazgo Veterano del Ejército",
         "name": "Jeremy Thamert",
-        "role": "Propietario y Presidente | Veterano del Ejercito",
-        "bio": "Mas de 15 anos de experiencia en aviacion del Ejercito aportan disciplina operativa y liderazgo firme. Su palabra es su compromiso, y la nuestra tambien: la integridad ganada en servicio guia cada alianza que construimos."
+        "role": "Propietario y Presidente | Veterano del Ejército",
+        "bio": "Más de 15 años de experiencia en aviación del Ejército aportan disciplina operativa y liderazgo firme. Su palabra es su compromiso, y la nuestra también: la integridad ganada en servicio guía cada alianza que construimos."
       },
       "matt": {
         "aria": "Veterano de la Marina",
         "name": "Matt Ramsey",
         "role": "Gerente de Marketing Digital / Oficial de Seguridad | Veterano de la Marina",
-        "bio": "Veterano de la Marina que aporta disciplina militar a la excelencia digital. Confianza ganada con accion constante y compromiso genuino: principios que guian nuestras iniciativas de alcance para veteranos."
+        "bio": "Veterano de la Marina que aporta disciplina militar a la excelencia digital. Confianza ganada con acción constante y compromiso genuino: principios que guían nuestras iniciativas de alcance para veteranos."
       }
     },
     "combat": {
@@ -777,61 +777,61 @@
       "title": "Descuento para Veteranos de Combate Disponible",
       "description": {
         "highlight1": "Todas las ramas, todos los rangos, todas las epocas",
-        "middle": "- Ejercito, Marina, Fuerza Aerea, Marines, Guardia Costera y Fuerza Espacial. Si sirvio en combate, honramos ese servicio con",
-        "highlight2": "precios preferenciales en todos los servicios de construccion",
-        "suffix": ". Cada descuento se determina mediante nuestro proceso de evaluacion segun el alcance del proyecto, historial de servicio y necesidades especificas. Sin letra pequena. Sin trucos. Su servicio importa."
+        "middle": "- Ejército, Marina, Fuerza Aerea, Marines, Guardia Costera y Fuerza Espacial. Si sirvio en combate, honramos ese servicio con",
+        "highlight2": "precios preferenciales en todos los servicios de construcción",
+        "suffix": ". Cada descuento se determina mediante nuestro proceso de evaluación segun el alcance del proyecto, historial de servicio y necesidades especificas. Sin letra pequena. Sin trucos. Su servicio importa."
       },
       "cards": {
         "allBranches": {
           "aria": "Todas las Ramas Militares",
           "title": "Todas las Ramas Son Bienvenidas",
-          "description": "Ejercito, Marina, Fuerza Aerea, Marines, Guardia Costera y Fuerza Espacial: honramos cada rama que defendio nuestra nacion en zonas de combate. Todos los veteranos de combate califican para evaluacion."
+          "description": "Ejército, Marina, Fuerza Aerea, Marines, Guardia Costera y Fuerza Espacial: honramos cada rama que defendio nuestra nación en zonas de combate. Todos los veteranos de combate califican para evaluación."
         },
         "tailoredService": {
-          "aria": "Evaluacion Caso por Caso",
+          "aria": "Evaluación Caso por Caso",
           "title": "Adaptado a Su Servicio",
-          "description": "Cada situacion de veterano es unica. Los montos de descuento se determinan caso por caso mediante nuestro proceso de evaluacion, considerando alcance del proyecto, historial de servicio y circunstancias individuales."
+          "description": "Cada situación de veterano es unica. Los montos de descuento se determinan caso por caso mediante nuestro proceso de evaluación, considerando alcance del proyecto, historial de servicio y circunstancias individuales."
         }
       },
       "timeline": {
-        "title": "Proceso de Evaluacion del Descuento para Veteranos de Combate",
-        "description": "Nuestro proceso claro de evaluacion garantiza una revision justa y respetuosa de cada solicitud de veterano de combate.",
+        "title": "Proceso de Evaluación del Descuento para Veteranos de Combate",
+        "description": "Nuestro proceso claro de evaluación garantiza una revisión justa y respetuosa de cada solicitud de veterano de combate.",
         "steps": {
           "initialConsultation": {
             "title": "Consulta Inicial",
-            "description": "Contactenos al {phone} o por nuestra pagina de contacto. Mencione su servicio militar durante la conversacion inicial. Programaremos una consulta presencial o virtual para revisar el alcance y requisitos de su proyecto."
+            "description": "Contáctenos al {phone} o por nuestra página de contacto. Mencione su servicio militar durante la conversación inicial. Programaremos una consulta presencial o virtual para revisar el alcance y requisitos de su proyecto."
           },
           "serviceVerification": {
-            "title": "Verificacion de Servicio",
-            "description": "Presente comprobante de servicio en combate (DD-214, tarjeta VA o identificacion militar con despliegue en combate). Manejamos toda la documentacion con confidencialidad y respeto de nivel militar. Su privacidad es prioridad."
+            "title": "Verificación de Servicio",
+            "description": "Presente comprobante de servicio en combate (DD-214, tarjeta VA o identificacion militar con despliegue en combate). Manejamos toda la documentación con confidencialidad y respeto de nivel militar. Su privacidad es prioridad."
           },
           "projectAssessment": {
-            "title": "Evaluacion del Proyecto",
-            "description": "Evaluamos el alcance, cronograma y necesidades especificas de construccion de su proyecto. Los factores incluyen tamano, complejidad, materiales requeridos, intensidad de mano de obra y restricciones presupuestarias."
+            "title": "Evaluación del Proyecto",
+            "description": "Evaluamos el alcance, cronograma y necesidades especificas de construcción de su proyecto. Los factores incluyen tamano, complejidad, materiales requeridos, intensidad de mano de obra y restricciones presupuestarias."
           },
           "discountDetermination": {
-            "title": "Determinacion del Descuento",
-            "description": "Con base en su historial de servicio y detalles del proyecto, determinamos un descuento apropiado. Consideramos duracion del servicio en combate, condecoraciones, situacion financiera actual y urgencia del proyecto. Cada caso es unico."
+            "title": "Determinación del Descuento",
+            "description": "Con base en su historial de servicio y detalles del proyecto, determinamos un descuento apropiado. Consideramos duración del servicio en combate, condecoraciones, situación financiera actual y urgencia del proyecto. Cada caso es único."
           },
           "transparentProposal": {
             "title": "Propuesta Transparente",
-            "description": "Reciba una propuesta detallada y transparente con precio estandar, descuento para veterano aplicado y costo final del proyecto. Sin cargos ocultos. Sin sorpresas. Sin vencimiento del descuento: aplica a cada proyecto que haga con nosotros."
+            "description": "Reciba una propuesta detallada y transparente con precio estándar, descuento para veterano aplicado y costo final del proyecto. Sin cargos ocultos. Sin sorpresas. Sin vencimiento del descuento: aplica a cada proyecto que haga con nosotros."
           }
         }
       },
       "commitment": {
         "title": "Nuestro Compromiso",
-        "description": "Esto no es un truco de marketing ni una promocion de una sola vez. Como empresa veterana, honrar el servicio en combate es parte de nuestro ADN. Su palabra es su compromiso, y la nuestra tambien. Cada veterano de combate recibe consideracion justa, trato respetuoso y precios significativos que reflejan el sacrificio hecho por nuestra nacion."
+        "description": "Esto no es un truco de marketing ni una promoción de una sola vez. Como empresa veterana, honrar el servicio en combate es parte de nuestro ADN. Su palabra es su compromiso, y la nuestra también. Cada veterano de combate recibe consideración justa, trato respetuoso y precios significativos que reflejan el sacrificio hecho por nuestra nación."
       },
       "cta": {
         "aria": "Contactar ahora",
         "button": "Llame al {phone} - Mencione su servicio",
-        "note": "Linea directa con liderazgo de empresa veterana. Sin sistemas automatizados ni intermediarios; solo una conversacion honesta con alguien que entiende."
+        "note": "Línea directa con liderazgo de empresa veterana. Sin sistemas automatizados ni intermediarios; solo una conversación honesta con alguien que entiende."
       }
     },
     "support": {
-      "subtitle": "Compromiso de Mision",
-      "title": "Programas de Apoyo a Veteranos Todo el Ano",
+      "subtitle": "Compromiso de Misión",
+      "title": "Programas de Apoyo a Veteranos Todo el Año",
       "description": {
         "prefix": "Como",
         "highlight1": "empresa veterana desde enero de 2025",
@@ -842,18 +842,18 @@
       "stats": {
         "hiringPriority": {
           "value": "100%",
-          "label": "Prioridad de Contratacion de Veteranos",
-          "description": "Todos los veteranos calificados reciben consideracion prioritaria"
+          "label": "Prioridad de Contratación de Veteranos",
+          "description": "Todos los veteranos calificados reciben consideración prioritaria"
         },
         "veteranLeaders": {
           "value": "2",
           "label": "Lideres Veteranos",
-          "description": "Veteranos del Ejercito y la Marina en puestos de liderazgo"
+          "description": "Veteranos del Ejército y la Marina en puestos de liderazgo"
         },
         "apprenticeship": {
           "value": "Activo",
           "label": "Programas de Aprendizaje",
-          "description": "Programas de capacitacion para miembros en transicion"
+          "description": "Programas de capacitación para miembros en transición"
         },
         "network": {
           "value": "En crecimiento",
@@ -863,9 +863,9 @@
       },
       "programs": {
         "hiring": {
-          "aria": "Prioridad de contratacion de veteranos",
-          "title": "Prioridad de Contratacion de Veteranos",
-          "description": "Veteranos calificados de todas las ramas reciben consideracion prioritaria para todas las posiciones. Estamos desplegando programas tacticos de aprendizaje para miembros en transicion mientras fortalecemos nuestra red operativa de apoyo a veteranos. Su experiencia militar se traduce en excelencia en construccion.",
+          "aria": "Prioridad de contratación de veteranos",
+          "title": "Prioridad de Contratación de Veteranos",
+          "description": "Veteranos calificados de todas las ramas reciben consideración prioritaria para todas las posiciones. Estamos desplegando programas tácticos de aprendizaje para miembros en transición mientras fortalecemos nuestra red operativa de apoyo a veteranos. Su experiencia militar se traduce en excelencia en construcción.",
           "link": "Ver Oportunidades Laborales"
         },
         "allies": {
@@ -875,16 +875,16 @@
           "link": "Conviertase en Aliado"
         },
         "training": {
-          "aria": "Programas de capacitacion y educacion",
-          "title": "Capacitacion y Educacion",
-          "description": "Desarrollamos programas para veteranos que buscan oficios de construccion, incluidas oportunidades de pasantias y participacion en aprendizajes del GI Bill mientras ampliamos nuestra red de apoyo a veteranos.",
+          "aria": "Programas de capacitación y educación",
+          "title": "Capacitación y Educación",
+          "description": "Desarrollamos programas para veteranos que buscan oficios de construcción, incluidas oportunidades de pasantias y participación en aprendizajes del GI Bill mientras ampliamos nuestra red de apoyo a veteranos.",
           "link": "Conozca Nuestros Valores"
         }
       }
     },
     "partnerships": {
       "subtitle": "Construyendo Relaciones",
-      "title": "Alianzas Estrategicas con Organizaciones de Veteranos",
+      "title": "Alianzas Estratégicas con Organizaciones de Veteranos",
       "description": {
         "prefix": "Nos asociamos con",
         "highlight1": "organizaciones de veteranos selectivas",
@@ -897,34 +897,34 @@
           "aria": "Estatus de ONG Verificado - Operaciones Transparentes",
           "title": "Estatus de ONG Verificado",
           "tagline": "Operaciones Transparentes",
-          "description": "Estatus 501(c)(3) verificado con finanzas transparentes y responsabilidad publica. Libros abiertos, mision clara y metricas de impacto documentadas. Organizaciones que operan con la misma honestidad e integridad que exigimos de nosotros mismos.",
+          "description": "Estatus 501(c)(3) verificado con finanzas transparentes y responsabilidad publica. Libros abiertos, misión clara y métricas de impacto documentadas. Organizaciones que operan con la misma honestidad e integridad que exigimos de nosotros mismos.",
           "stats": "501(c)(3) Requerido"
         },
         "mission": {
-          "aria": "Mision Enfocada en Veteranos - Servicio Primero",
-          "title": "Mision Enfocada en Veteranos",
+          "aria": "Misión Enfocada en Veteranos - Servicio Primero",
+          "title": "Misión Enfocada en Veteranos",
           "tagline": "Miembros de Servicio Primero",
-          "description": "Mision principal dedicada a servir a veteranos, personal activo o familias militares. No organizaciones que traten a los veteranos como un recurso de marketing. Programas diseniados por veteranos, para veteranos, con comprension comprobada de la cultura militar.",
-          "stats": "Enfoque Guiado por Mision"
+          "description": "Misión principal dedicada a servir a veteranos, personal activo o familias militares. No organizaciones que traten a los veteranos como un recurso de marketing. Programas diseniados por veteranos, para veteranos, con comprensión comprobada de la cultura militar.",
+          "stats": "Enfoque Guiado por Misión"
         },
         "regional": {
           "aria": "Presencia e Impacto Regional - Presencia Local",
           "title": "Presencia e Impacto Regional",
           "tagline": "Presencia Local Real",
-          "description": "Fuerte presencia en el Pacifico Noroeste con programas activos en Washington, Oregon o Idaho. Organizaciones locales que entienden a la poblacion veterana regional y las necesidades de Tri-Cities. Impacto local medible por encima de sedes nacionales distantes.",
+          "description": "Fuerte presencia en el Pacífico Noroeste con programas activos en Washington, Oregon o Idaho. Organizaciones locales que entienden a la población veterana regional y las necesidades de Tri-Cities. Impacto local medible por encima de sedes nacionales distantes.",
           "stats": "Programas Enfocados en PNW"
         },
         "collaborative": {
-          "aria": "Enfoque Colaborativo - Alianza Sobre Transaccion",
+          "aria": "Enfoque Colaborativo - Alianza Sobre Transacción",
           "title": "Enfoque Colaborativo",
-          "tagline": "Alianza por Encima de Transaccion",
-          "description": "Organizaciones que buscan alianzas genuinas, no solo cheques de donacion. Planificacion colaborativa, apoyo mutuo y compromiso compartido con el bienestar veterano. Comunicacion abierta, valores alineados y disposicion a trabajar juntos en iniciativas de largo plazo.",
+          "tagline": "Alianza por Encima de Transacción",
+          "description": "Organizaciones que buscan alianzas genuinas, no solo cheques de donacion. Planificación colaborativa, apoyo mutuo y compromiso compartido con el bienestar veterano. Comunicación abierta, valores alineados y disposición a trabajar juntos en iniciativas de largo plazo.",
           "stats": "Relaciones de Largo Plazo"
         }
       },
       "cta": {
         "title": "Consultas de Alianzas con Organizaciones",
-        "description": "Si su organizacion de veteranos cumple estos criterios y busca oportunidades de alianza genuina, contactenos. Revisamos todas las propuestas con cuidado y respondemos a organizaciones calificadas en un plazo de 2 dias habiles.",
+        "description": "Si su organización de veteranos cumple estos criterios y busca oportunidades de alianza genuina, contáctenos. Revisamos todas las propuestas con cuidado y respondemos a organizaciones calificadas en un plazo de 2 días hábiles.",
         "button": "Enviar Consulta de Alianza"
       }
     },
@@ -932,17 +932,17 @@
       "kicker": "Acreditado y Certificado"
     },
     "bridgePaths": {
-      "title": "Rutas Puente del Sector Publico",
-      "description": "Pase de valores enfocados en veteranos a la planificacion de proyectos gubernamentales con rutas directas para cumplimiento, estrategia regional y alcance del proyecto.",
+      "title": "Rutas Puente del Sector Público",
+      "description": "Pase de valores enfocados en veteranos a la planificación de proyectos gubernamentales con rutas directas para cumplimiento, estrategia regional y alcance del proyecto.",
       "openPathway": "Abrir ruta",
       "items": {
         "publicSector": {
-          "title": "Ruta Liderada por Veteranos para Sector Publico",
-          "description": "Conecte valores de veteranos con la planificacion de ejecucion del sector publico."
+          "title": "Ruta Liderada por Veteranos para Sector Público",
+          "description": "Conecte valores de veteranos con la planificación de ejecución del sector público."
         },
         "compliance": {
           "title": "Flujo de Cumplimiento",
-          "description": "Revise la secuencia de cumplimiento desde el ingreso hasta la ejecucion."
+          "description": "Revise la secuencia de cumplimiento desde el ingreso hasta la ejecución."
         },
         "triState": {
           "title": "Estrategia Gubernamental Triestatal",
@@ -952,28 +952,28 @@
     },
     "nextSteps": {
       "title": "Construyamos Juntos",
-      "subtitle": "Asociese con un equipo veterano orientado a relaciones donde honestidad, integridad, profesionalismo y minuciosidad guian cada decision. Su palabra es su compromiso, la nuestra tambien."
+      "subtitle": "Asóciese con un equipo veterano orientado a relaciones donde honestidad, integridad, profesionalismo y minuciosidad guían cada decisión. Su palabra es su compromiso, la nuestra también."
     }
   },
   "employeeHandbook": {
     "hero": {
       "eyebrow": "Recurso Operativo",
       "title": "Manual del Empleado",
-      "highlight": "Publicacion en progreso",
-      "description": "El flujo de carga y publicacion esta listo para la entrega versionada del manual."
+      "highlight": "Publicación en progreso",
+      "description": "El flujo de carga y publicación esta listo para la entrega versionada del manual."
     },
     "badge": "Recurso Operativo",
     "placeholder": {
       "title": "Marcador del Manual del Empleado",
-      "description": "Esta seccion esta activa y lista para su flujo de carga del manual. Cuando se proporcione el archivo fuente en Word, podremos procesarlo con el generador de PDF y publicar aqui el paquete final del manual."
+      "description": "Esta sección esta activa y lista para su flujo de carga del manual. Cuando se proporcione el archivo fuente en Word, podremos procesarlo con el generador de PDF y publicar aquí el paquete final del manual."
     },
     "status": {
       "title": "Estado Actual",
-      "description": "Aun no se ha cargado ningun archivo del manual. Este marcador conserva la navegacion del Hub de Operaciones y mantiene estable el destino para una futura publicacion."
+      "description": "Aun no se ha cargado ningun archivo del manual. Este marcador conserva la navegación del Hub de Operaciones y mantiene estable el destino para una futura publicación."
     },
     "nextStep": {
       "title": "Siguiente Paso",
-      "description": "Cargue el archivo fuente del manual en Word y lo conectaremos al proceso existente de generacion de documentos para publicar un PDF versionado."
+      "description": "Cargue el archivo fuente del manual en Word y lo conectaremos al proceso existente de generación de documentos para publicar un PDF versionado."
     },
     "cta": {
       "backToHub": "Volver al Hub de Operaciones",
@@ -981,17 +981,17 @@
     }
   },
   "projectsPageShell": {
-    "languageActive": "Idioma espanol activo",
+    "languageActive": "Idioma español activo",
     "breadcrumb": {
       "home": "Inicio",
       "current": "Proyectos"
     },
     "testimonials": {
-      "subtitle": "Exito en la Asociacion",
+      "subtitle": "Exito en la Asociación",
       "title": "Historias",
-      "description": "Experiencias reales de Socios Clientes que han visto nuestros cuatro valores en accion-construimos para el Cliente, NO para el Dolar.",
+      "description": "Experiencias reales de Socios Clientes que han visto nuestros cuatro valores en acción-construimos para el Cliente, NO para el Dólar.",
       "clientPartnerLabel": "Socio Cliente",
-      "starRatingAriaSuffix": "calificacion de estrellas"
+      "starRatingAriaSuffix": "calificación de estrellas"
     }
   },
   "coolDesertNightsPage": {
@@ -999,8 +999,8 @@
       "kicker": "Base Central - Eventos | Informe de Campo",
       "titleComplete": "Base Central - Eventos: Cool Desert Nights 2026 Resumen",
       "titleBriefing": "Base Central - Eventos: Cool Desert Nights 2026 Informe",
-      "descriptionComplete": "Gracias a la comunidad de Richland y Kennewick, al liderazgo del evento y a los Socios Clientes que hicieron posible el exito de este evento mediante una ejecucion coordinada.",
-      "descriptionBriefing": "Cool Desert Nights 2026 esta programado para el 26 y 27 de junio en Richland, WA, con autos clasicos, un crucero nocturno el viernes y una exhibicion Show 'n Shine el sabado en Uptown Shopping Center.",
+      "descriptionComplete": "Gracias a la comunidad de Richland y Kennewick, al liderazgo del evento y a los Socios Clientes que hicieron posible el exito de este evento mediante una ejecución coordinada.",
+      "descriptionBriefing": "Cool Desert Nights 2026 esta programado para el 26 y 27 de junio en Richland, WA, con autos clasicos, un crucero nocturno el viernes y una exhibición Show 'n Shine el sábado en Uptown Shopping Center.",
       "stats": {
         "eventWindow": {
           "label": "Fechas del Evento",
@@ -1033,13 +1033,13 @@
     },
     "communityLeadership": {
       "kicker": "Liderazgo comunitario",
-      "overline": "Confianza | Alineacion de mando",
+      "overline": "Confianza | Alineación de mando",
       "title": "El propietario de MH Construction, Jeremy Thamert, formara parte del panel oficial de jueces de BBQ con sus amigos mas cercanos.",
-      "description": "La coordinacion del liderazgo local apoya la participacion comunitaria coordinada y una comunicacion clara con el liderazgo del evento."
+      "description": "La coordinación del liderazgo local apoya la participación comunitaria coordinada y una comunicación clara con el liderazgo del evento."
     },
     "values": {
-      "title": "Valores ganados en servicio en accion",
-      "description": "La coordinacion del evento sigue el mismo estandar operativo que cada proyecto de MH Construction: Honestidad, Integridad, Profesionalismo y Minuciosidad.",
+      "title": "Valores ganados en servicio en acción",
+      "description": "La coordinación del evento sigue el mismo estándar operativo que cada proyecto de MH Construction: Honestidad, Integridad, Profesionalismo y Minuciosidad.",
       "cards": {
         "honesty": {
           "title": "Honestidad",
@@ -1051,27 +1051,27 @@
         },
         "professionalism": {
           "title": "Profesionalismo",
-          "description": "Liderazgo y comunicacion con socios coordinados."
+          "description": "Liderazgo y comunicación con socios coordinados."
         },
         "thoroughness": {
           "title": "Minuciosidad",
-          "description": "Detalles gestionados desde la programacion hasta el cierre."
+          "description": "Detalles gestionados desde la programación hasta el cierre."
         }
       }
     },
     "overview": {
       "competition": {
         "title": "Resumen de la competencia",
-        "description": "Cool Desert Nights es un evento veraniego destacado en Tri-Cities con autos clasicos, un crucero nocturno el viernes por George Washington Way y una exhibicion Show 'n Shine el sabado en Uptown Shopping Center de Richland."
+        "description": "Cool Desert Nights es un evento veraniego destacado en Tri-Cities con autos clasicos, un crucero nocturno el viernes por George Washington Way y una exhibición Show 'n Shine el sábado en Uptown Shopping Center de Richland."
       },
       "presence": {
         "title": "Presencia de MH Construction",
-        "description": "El Show 'n Shine del sabado incluye cientos de autos en exhibicion, ademas de actividades familiares con zona infantil, puestos de vendedores y puntos de acceso comunitario en todo el recinto."
+        "description": "El Show 'n Shine del sábado incluye cientos de autos en exhibición, además de actividades familiares con zona infantil, puestos de vendedores y puntos de acceso comunitario en todo el recinto."
       },
       "localImpact": {
         "title": "Impacto local",
-        "descriptionPrefix": "La programacion del fin de semana incluye Party in the Park, musica en vivo, puestos de comida y una ceremonia de premiacion el sabado. El apoyo de MH Construction se extiende al desayuno de pancakes de Kiwanis de Richland,",
-        "linkLabel": "programacion Kiwanis",
+        "descriptionPrefix": "La programación del fin de semana incluye Party in the Park, música en vivo, puestos de comida y una ceremonia de premiación el sábado. El apoyo de MH Construction se extiende al desayuno de pancakes de Kiwanis de Richland,",
+        "linkLabel": "programación Kiwanis",
         "descriptionSuffix": ", y el sorteo de Party in the Park."
       }
     },
@@ -1088,7 +1088,7 @@
     "boothMap": {
       "title": "Mapa digital del stand",
       "subtitle": "Reconocimiento del sitio",
-      "description": "Nuestro stand se ubica cerca del carril de la competencia de BBQ para acceso directo al flujo del evento y al area de exhibicion.",
+      "description": "Nuestro stand se ubica cerca del carril de la competencia de BBQ para acceso directo al flujo del evento y al area de exhibición.",
       "cards": {
         "boothId": {
           "title": "ID del stand",
@@ -1102,29 +1102,29 @@
     },
     "timeline": {
       "title": "Cronograma del evento",
-      "subtitle": "Prueba | Cronograma posterior a la accion",
+      "subtitle": "Prueba | Cronograma posterior a la acción",
       "items": {
         "fridayCruise": "Crucero del viernes: Autos clasicos recorren George Washington Way.",
-        "partyInPark": "Party in the Park: Musica en vivo y actividades comunitarias.",
-        "saturdayShow": "Show 'n Shine del sabado: Exhibicion de vehiculos, zona infantil, vendedores y ceremonia de premiacion."
+        "partyInPark": "Party in the Park: Música en vivo y actividades comunitarias.",
+        "saturdayShow": "Show 'n Shine del sábado: Exhibición de vehículos, zona infantil, vendedores y ceremonia de premiación."
       },
       "earlyMorningNotes": {
         "title": "Notas de la madrugada",
         "subtitle": "Detalles de llegada y desayuno para el inicio de la manana",
         "items": {
           "cars": "Los autos clasicos comienzan a llegar a las 6:00 AM para los espacios con sombra en Jefferson Park.",
-          "registration": "La inscripcion tardia del auto show abre a las 7:00 AM en la carpa del lado de Jadwin en el centro comercial Uptown y cierra a las 10:00 AM.",
+          "registration": "La inscripción tardia del auto show abre a las 7:00 AM en la carpa del lado de Jadwin en el centro comercial Uptown y cierra a las 10:00 AM.",
           "pancakeFeed": "El Richland Kiwanis Pancake Feed se realiza de 7:00 AM a 11:00 AM en Jefferson Park. Solo efectivo: $5 ninos, $7 adultos."
         }
       }
     },
     "action": {
-      "kicker": "Coordinacion de eventos",
-      "overline": "Accion | Punto de encuentro",
-      "title": "Conecte con el equipo antes de la proxima ventana del evento",
-      "description1": "El registro anticipado en linea para autos, camionetas y motocicletas esta disponible a traves de la Camara de Richland. Tambien se estan aceptando solicitudes de proveedores para 2026 a traves de la camara, y los detalles completos estan disponibles en Eventbrite.",
+      "kicker": "Coordinación de eventos",
+      "overline": "Acción | Punto de encuentro",
+      "title": "Conecte con el equipo antes de la próxima ventana del evento",
+      "description1": "El registro anticipado en línea para autos, camionetas y motocicletas esta disponible a traves de la Camara de Richland. También se están aceptando solicitudes de proveedores para 2026 a traves de la camara, y los detalles completos están disponibles en Eventbrite.",
       "description2Prefix": "Comience con la",
-      "description2Link": "pagina del evento de la Camara de Comercio de Richland",
+      "description2Link": "página del evento de la Camara de Comercio de Richland",
       "description2Suffix": "y revise abajo los detalles de Eventbrite.",
       "cta": {
         "coordinate": "Coordinar con MH",
@@ -1141,37 +1141,37 @@
       "titleLine2": "Únase a la Misión - Su Carrera en Construcción Comienza Aquí",
       "titleLine3Prefix": "Construyendo proyectos para el Cliente,",
       "titleLine3Not": "NO",
-      "titleLine3Suffix": "por el Dolar",
-      "titleLine4": "EL ROI ES LA RELACION"
+      "titleLine3Suffix": "por el Dólar",
+      "titleLine4": "EL ROI ES LA RELACIÓN"
     },
     "breadcrumb": {
       "home": "Inicio",
       "current": "Especialidades ocupacionales"
     },
     "whyChoose": {
-      "headingPrefix": "Por que elegir",
+      "headingPrefix": "Por qué elegir",
       "headingTitle": "MH Construction",
       "description": {
-        "prefix": "Este no es un embudo de contratacion generico. Es una",
+        "prefix": "Este no es un embudo de contratación generico. Es una",
         "highlight1": "ruta directa a un equipo de propiedad veterana.",
-        "middle": "Invertimos en personas que valoran la comunicacion honesta, el profesionalismo y el crecimiento constante a traves de",
+        "middle": "Invertimos en personas que valoran la comunicación honesta, el profesionalismo y el crecimiento constante a traves de",
         "highlight2": "trabajo significativo, mentoria y relaciones de largo plazo.",
         "suffix": "Cada miembro del equipo debe saber que se espera, de quien puede aprender y como seguir mejorando."
       },
       "callout": {
-        "quote": "\"EL ROI ES LA RELACION\"",
+        "quote": "\"EL ROI ES LA RELACIÓN\"",
         "subtitle": "Donde las alianzas superan los proyectos y su crecimiento es nuestro exito"
       },
       "stats": {
-        "experience": "Anos de experiencia combinada",
-        "safety": "Calificacion EMR de seguridad",
+        "experience": "Años de experiencia combinada",
+        "safety": "Calificación EMR de seguridad",
         "mentorship": "Programa de mentoria",
         "referral": "Negocio por referencias"
       },
       "coreValueTagline": "Valor central {index}",
       "showcase": {
         "title": "MH Construction",
-        "subtitle": "Por que elegir"
+        "subtitle": "Por qué elegir"
       }
     },
     "benefits": {
@@ -1179,9 +1179,9 @@
       "headingTitle": "y Ventajas",
       "description": {
         "highlight1": "Construya su futuro con un equipo de propiedad veterana que valora la lealtad.",
-        "middle": "Su bienestar y exito importan aqui: ofrecemos pago competitivo y beneficios integrales porque sabemos que esta construyendo una vida, no solo una carrera. Desde cobertura de salud hasta",
-        "highlight2": "desarrollo profesional, planificacion para el retiro y bonos por desempeno",
-        "suffix": "invertimos en su exito total como parte de nuestra mision."
+        "middle": "Su bienestar y exito importan aquí: ofrecemos pago competitivo y beneficios integrales porque sabemos que esta construyendo una vida, no solo una carrera. Desde cobertura de salud hasta",
+        "highlight2": "desarrollo profesional, planificación para el retiro y bonos por desempeño",
+        "suffix": "invertimos en su exito total como parte de nuestra misión."
       }
     },
     "testimonials": {
@@ -1189,7 +1189,7 @@
       "headingTitle": "miembros del equipo",
       "description": {
         "prefix": "No tome solo nuestra palabra: escuche directamente a",
-        "highlight1": "las personas que trabajan aqui todos los dias.",
+        "highlight1": "las personas que trabajan aquí todos los días.",
         "middle": "Historias reales de miembros reales del equipo sobre",
         "highlight2": "crecimiento profesional, cultura laboral y apoyo de liderazgo.",
         "suffix": "No son testimonios guionados; son voces autenticas."
@@ -1200,15 +1200,15 @@
       "headingTitle": "veteranos",
       "description": {
         "highlight1": "Empresa de propiedad veterana desde enero de 2025, liderada por veteranos y orgullosa de serlo",
-        "middle": "Su experiencia militar se traduce directamente en excelencia en construccion: la disciplina se vuelve precision, el trabajo en equipo se vuelve alianza. No solo contratamos veteranos:",
+        "middle": "Su experiencia militar se traduce directamente en excelencia en construcción: la disciplina se vuelve precisión, el trabajo en equipo se vuelve alianza. No solo contratamos veteranos:",
         "highlight2": "celebramos su servicio, honramos sus habilidades y construimos carreras",
-        "suffix": "que coinciden con su dedicacion."
+        "suffix": "que coinciden con su dedicación."
       },
       "callout": "BIENVENIDO A CASA, HERMANO. BIENVENIDA A CASA, HERMANA.",
       "stats": {
         "priority": {
           "value": "Prioridad",
-          "label": "Consideracion",
+          "label": "Consideración",
           "note": "Todas las posiciones"
         },
         "militaryFriendly": {
@@ -1217,14 +1217,14 @@
         },
         "branches": {
           "value": "Todas las ramas",
-          "label": "Bienvenidas aqui",
-          "note": "Ejercito - Marina - Marines - Fuerza Aerea - Guardia Costera - Fuerza Espacial"
+          "label": "Bienvenidas aquí",
+          "note": "Ejército - Marina - Marines - Fuerza Aerea - Guardia Costera - Fuerza Espacial"
         }
       },
       "cta": {
-        "title": "Los veteranos reciben consideracion prioritaria",
+        "title": "Los veteranos reciben consideración prioritaria",
         "descriptionLine1": "Su servicio importa. Sus habilidades se traducen. Su experiencia es valorada.",
-        "descriptionLine2": "Inicie su proxima mision con nosotros.",
+        "descriptionLine2": "Inicie su próxima misión con nosotros.",
         "applyAria": "Solicitud de veterano",
         "applyButton": "Postular como veterano",
         "initiativeAria": "Iniciativa de veteranos",
@@ -1237,25 +1237,25 @@
       "description": {
         "prefix": "Siempre buscamos personas motivadas que reflejen nuestro compromiso con nuestros",
         "highlight1": "4 Valores Centrales: Honestidad, Integridad, Profesionalismo y Minuciosidad.",
-        "middle": "Incluso cuando no contratamos para un rol especifico, siempre estamos abiertos a consultas de",
-        "highlight2": "profesionales calificados que quieran aportar a un entorno operativo de alto estandar.",
+        "middle": "Incluso cuando no contratamos para un rol específico, siempre estamos abiertos a consultas de",
+        "highlight2": "profesionales calificados que quieran aportar a un entorno operativo de alto estándar.",
         "suffix": "Ya sea que sea un gerente de proyecto con experiencia o un especialista de campo dedicado, queremos saber de usted."
       }
     },
     "readyToJoin": {
-      "heading": "Listo para unirte a nuestro equipo?",
-      "description": "Comience con lo esencial. Comparta su informacion de contacto, cuentenos donde puede contribuir y adjunte un curriculum si tiene uno listo. Si hay compatibilidad, nos comunicaremos directamente.",
+      "heading": "¿Listo para unirte a nuestro equipo?",
+      "description": "Comience con lo esencial. Comparta su información de contacto, cuentenos donde puede contribuir y adjunte un curriculum si tiene uno listo. Si hay compatibilidad, nos comunicaremos directamente.",
       "startApplication": "Iniciar solicitud",
       "callButton": "Llamar {phone}",
-      "veteransPriority": "Los veteranos reciben consideracion prioritaria",
+      "veteransPriority": "Los veteranos reciben consideración prioritaria",
       "enoughToBegin": "Nombre, correo y rol son suficientes para comenzar."
     },
     "journey": {
       "prefix": "Tu viaje para",
       "highlight": "unirte a nuestro equipo",
-      "lead": "Pasos claros. Comunicacion directa. Respeto por tu tiempo.",
+      "lead": "Pasos claros. Comunicación directa. Respeto por tu tiempo.",
       "description": "Nuestro proceso comienza con una solicitud breve y avanza solo cuando hay una verdadera compatibilidad. Mantenemos el proceso enfocado y te informamos que sigue.",
-      "goal": "El objetivo es una buena relacion de trabajo, no pasos innecesarios.",
+      "goal": "El objetivo es una buena relación de trabajo, no pasos innecesarios.",
       "timeline": {
         "steps": {
           "submit": {
@@ -1263,45 +1263,45 @@
             "description": "Comience con lo esencial: su nombre, correo y el rol u oficio que quiere discutir. Agregue curriculum o antecedentes si ayuda."
           },
           "review": {
-            "title": "Revision del equipo",
-            "description": "Revisamos su solicitud frente a necesidades actuales del proyecto, roles abiertos y los estandares que mantenemos en toda la empresa."
+            "title": "Revisión del equipo",
+            "description": "Revisamos su solicitud frente a necesidades actuales del proyecto, roles abiertos y los estándares que mantenemos en toda la empresa."
           },
           "conversation": {
-            "title": "Conversacion directa",
+            "title": "Conversación directa",
             "description": "Si hay compatibilidad, nos comunicamos directamente para hablar de su experiencia, el trabajo por delante y lo que ambas partes necesitan del rol."
           },
           "interview": {
-            "title": "Entrevista y verificacion",
+            "title": "Entrevista y verificación",
             "description": "Para candidatos fuertes, programamos entrevista y verificamos los detalles requeridos para el puesto, incluyendo referencias, certificaciones o requisitos de sitio."
           },
           "offer": {
-            "title": "Oferta e incorporacion",
-            "description": "Cuando ambas partes estan alineadas, avanzamos a oferta, documentacion, expectativas de seguridad y un plan de incorporacion claro."
+            "title": "Oferta e incorporación",
+            "description": "Cuando ambas partes están alineadas, avanzamos a oferta, documentación, expectativas de seguridad y un plan de incorporación claro."
           }
         }
       },
       "details": {
         "title": "Cronograma esperado",
         "fastTrack": {
-          "title": "Inicio rapido cuando se necesita",
-          "prefix": "Cuando el tiempo del proyecto y la alineacion del rol son claros, los candidatos fuertes pueden avanzar en",
+          "title": "Inicio rápido cuando se necesita",
+          "prefix": "Cuando el tiempo del proyecto y la alineación del rol son claros, los candidatos fuertes pueden avanzar en",
           "highlight": "menos pasos"
         },
         "typical": {
-          "title": "Ritmo tipico de revision",
-          "prefix": "El tiempo depende de necesidades de contratacion, carga de proyectos y ajuste del rol, pero el proceso se mantiene",
+          "title": "Ritmo típico de revisión",
+          "prefix": "El tiempo depende de necesidades de contratación, carga de proyectos y ajuste del rol, pero el proceso se mantiene",
           "highlight": "directo y transparente",
           "suffix": "desde el primer contacto"
         },
         "transparent": {
           "title": "Siempre transparente",
-          "prefix": "No agregamos pasos por apariencia. Mantenemos comunicacion clara y seguimos disponibles para sus",
+          "prefix": "No agregamos pasos por apariencia. Mantenemos comunicación clara y seguimos disponibles para sus",
           "highlight": "preguntas"
         }
       },
       "cta": {
-        "title": "Listo para iniciar una conversacion directa con MH Construction?",
-        "subtitle": "EL ROI ES LA RELACION - Construya su carrera sobre una base de confianza",
+        "title": "¿Listo para iniciar una conversación directa con MH Construction?",
+        "subtitle": "EL ROI ES LA RELACIÓN - Construya su carrera sobre una base de confianza",
         "sendAria": "Enviar consulta",
         "startApplication": "Iniciar solicitud",
         "emailAria": "Enviar curriculum por correo",
@@ -1310,22 +1310,22 @@
     },
     "noRole": {
       "prefix": "No ve el",
-      "highlight": "Rol perfecto?",
-      "intro": "El rol correcto podria no estar publicado aun, pero la relacion correcta puede comenzar ahora. Si trae",
+      "highlight": "¿Rol perfecto?",
+      "intro": "El rol correcto podría no estar publicado aún, pero la relación correcta puede comenzar ahora. Si trae",
       "values": "los valores correctos, etica de trabajo y mentalidad de oficio",
-      "middle": "queremos escucharte. Siempre estamos abiertos a candidatos fuertes que compartan nuestros estandares de",
+      "middle": "queremos escucharte. Siempre estamos abiertos a candidatos fuertes que compartan nuestros estándares de",
       "standards": "honestidad, profesionalismo y trabajo minucioso",
       "outro": "Cuentanos donde puedes contribuir.",
       "submitApplication": "Enviar solicitud",
       "contactHr": "Contactar a RRHH",
-      "hrHotline": "Linea de RRHH:",
+      "hrHotline": "Línea de RRHH:",
       "submitAria": "Enviar solicitud",
       "contactAria": "Contactar a RRHH",
-      "phoneAria": "Telefono de RRHH"
+      "phoneAria": "Teléfono de RRHH"
     },
     "contactCta": {
-      "questions": "Preguntas sobre carreras?",
-      "support": "Contacta a nuestro equipo para obtener informacion sobre empleos, beneficios, proceso de contratacion y oportunidades de crecimiento",
+      "questions": "¿Preguntas sobre carreras?",
+      "support": "Contacta a nuestro equipo para obtener información sobre empleos, beneficios, proceso de contratación y oportunidades de crecimiento",
       "call": "Llamar {phone}"
     },
     "accreditations": {
@@ -1345,17 +1345,17 @@
         {
           "icon": "health_and_safety",
           "title": "Cobertura de salud integral",
-          "description": "Seguro medico, dental y de vision con primas competitivas y deducibles bajos para apoyar su bienestar y el de su familia."
+          "description": "Seguro médico, dental y de visión con primas competitivas y deducibles bajos para apoyar su bienestar y el de su familia."
         },
         {
           "icon": "savings",
-          "title": "Planificacion para el retiro",
+          "title": "Planificación para el retiro",
           "description": "Plan 401(k) con aportes de la empresa para fortalecer su futuro financiero a largo plazo."
         },
         {
           "icon": "military_tech",
           "title": "Desarrollo profesional y aprendizaje continuo",
-          "description": "Capacitacion continua, certificaciones y desarrollo de liderazgo con mentoria, entrenamiento cruzado y mejora constante."
+          "description": "Capacitación continua, certificaciones y desarrollo de liderazgo con mentoria, entrenamiento cruzado y mejora constante."
         },
         {
           "icon": "schedule",
@@ -1365,39 +1365,39 @@
         {
           "icon": "verified_user",
           "title": "Cultura de seguridad galardonada",
-          "description": "Registro de seguridad .64 EMR, premios AGC-WA, designacion OSHA VPP Star y anos consecutivos sin lesiones con tiempo perdido."
+          "description": "Registro de seguridad .64 EMR, premios AGC-WA, designación OSHA VPP Star y años consecutivos sin lesiones con tiempo perdido."
         }
       ],
       "veteranBenefits": [
         {
           "icon": "military_tech",
-          "title": "Prioridad de contratacion para veteranos",
-          "description": "Iniciativa activa de contratacion con consideracion prioritaria para veteranos militares calificados."
+          "title": "Prioridad de contratación para veteranos",
+          "description": "Iniciativa activa de contratación con consideración prioritaria para veteranos militares calificados."
         },
         {
           "icon": "diversity_3",
           "title": "Transferencia de habilidades militares",
-          "description": "Apoyo estructurado para aplicar habilidades militares como operacion de equipos, coordinacion y planificacion en roles de construccion."
+          "description": "Apoyo estructurado para aplicar habilidades militares como operación de equipos, coordinación y planificación en roles de construcción."
         },
         {
           "icon": "military_tech",
-          "title": "Apoyo GI Bill y capacitacion",
-          "description": "Soporte para usar beneficios GI Bill en aprendizajes y formacion continua."
+          "title": "Apoyo GI Bill y capacitación",
+          "description": "Soporte para usar beneficios GI Bill en aprendizajes y formación continua."
         },
         {
           "icon": "diversity_3",
           "title": "Programa de mentoria para veteranos",
-          "description": "Conecte con lideres veteranos que comprenden la transicion de vida militar a civil."
+          "description": "Conecte con lideres veteranos que comprenden la transición de vida militar a civil."
         },
         {
           "icon": "workspace_premium",
           "title": "Reconocimiento al servicio",
-          "description": "Honramos su servicio y valores militares como disciplina, precision y enfoque en la mision."
+          "description": "Honramos su servicio y valores militares como disciplina, precisión y enfoque en la misión."
         },
         {
           "icon": "volunteer_activism",
-          "title": "Asistencia en la transicion",
-          "description": "Integracion inicial para veteranos con apoyo en terminologia, cultura laboral civil y planificacion de carrera."
+          "title": "Asistencia en la transición",
+          "description": "Integración inicial para veteranos con apoyo en terminologia, cultura laboral civil y planificación de carrera."
         }
       ],
       "cultureValues": [
@@ -1409,20 +1409,20 @@
         },
         {
           "icon": "diversity_3",
-          "title": "Unidad de equipo y ejecucion disciplinada",
-          "description": "Veteranos y civiles trabajan como un solo equipo con valores compartidos y ejecucion confiable.",
+          "title": "Unidad de equipo y ejecución disciplinada",
+          "description": "Veteranos y civiles trabajan como un solo equipo con valores compartidos y ejecución confiable.",
           "color": "from-brand-secondary to-brand-secondary-dark"
         },
         {
           "icon": "trending_up",
           "title": "Excelencia y crecimiento continuo",
-          "description": "Buscamos mejora continua mediante mentoria, entrenamiento cruzado y desarrollo constante en seguridad, tecnica y tecnologia.",
+          "description": "Buscamos mejora continua mediante mentoria, entrenamiento cruzado y desarrollo constante en seguridad, tecnica y tecnología.",
           "color": "from-brand-secondary to-bronze-700"
         },
         {
           "icon": "volunteer_activism",
           "title": "Impacto comunitario y seguridad primero",
-          "description": "La seguridad y calidad de ejecucion fortalecen comunidades mediante relaciones de proyecto duraderas.",
+          "description": "La seguridad y calidad de ejecución fortalecen comunidades mediante relaciones de proyecto duraderas.",
           "color": "from-brand-primary-light to-brand-primary"
         }
       ],
@@ -1431,7 +1431,7 @@
           "id": "emp-001",
           "name": "Carlos R.",
           "title": "Gerente Senior de Proyectos",
-          "role": "Gestion de Proyectos",
+          "role": "Gestión de Proyectos",
           "rating": 5,
           "quote": "Trabajar en MH Construction significa formar parte de un equipo que realmente se preocupa por el oficio, por las personas y por la comunidad.",
           "featured": true,
@@ -1442,9 +1442,9 @@
           "id": "emp-002",
           "name": "Tamara W.",
           "title": "Estimadora",
-          "role": "Preconstruccion",
+          "role": "Preconstrucción",
           "rating": 5,
-          "quote": "MH Construction toma en serio la inclusion y el desarrollo profesional, con responsabilidad real desde el primer dia.",
+          "quote": "MH Construction toma en serio la inclusión y el desarrollo profesional, con responsabilidad real desde el primer dia.",
           "featured": true,
           "date": "2024-03"
         },
@@ -1454,7 +1454,7 @@
           "title": "Carpintero Lider",
           "role": "Operaciones de Campo",
           "rating": 5,
-          "quote": "La cultura en cada sitio de trabajo es segura, respetuosa y enfocada, con liderazgo que marca estandares claros para cada cuadrilla.",
+          "quote": "La cultura en cada sitio de trabajo es segura, respetuosa y enfocada, con liderazgo que marca estándares claros para cada cuadrilla.",
           "featured": false,
           "date": "2023-11",
           "veteranStatus": true
@@ -1515,14 +1515,15 @@
     },
     "services": {
       "hero": {
-        "sectionTitle": "Servicios Basados en la Confianza",
-        "sectionSubtitle": "Construccion de Espectro Completo",
-        "sectionDescription": "Entrega comercial, industrial y del sector publico en Washington, Oregon e Idaho desde nuestra sede en Tri-Cities. Nos enfocamos principalmente en trabajo comercial e industrial y solo consideramos proyectos residenciales unicos, de alta complejidad y de varios millones de dolares."
+        "sectionTitle": "El Plan de Batalla - Excelencia Estratégica en Construcción",
+        "sectionSubtitle": "Operaciones → Servicios",
+        "sectionTagline": "Su Misión de Construcción Merece Supervisión Experta con Liderazgo Veterano",
+        "sectionDescription": "Entrega comercial, industrial y del sector público en Washington, Oregon e Idaho desde nuestra sede en Tri-Cities. Nos enfocamos principalmente en trabajo comercial e industrial y solo consideramos proyectos residenciales únicos, de alta complejidad y de varios millones de dólares."
       },
       "core": {
         "sectionTitle": "Servicios Principales",
-        "sectionSubtitle": "Disenados para Asociaciones Exitosas",
-        "sectionDescription": "Nuestro servicio central es la gestion de proyectos con Procore, enfocado en construccion comercial e industrial con comunicacion transparente, especializacion en tenant improvements y ejecucion de obra comercial desde cero. El trabajo residencial solo se considera cuando es unico, altamente complejo y de varios millones de dolares."
+        "sectionSubtitle": "Diseñados para Asociaciones Exitosas",
+        "sectionDescription": "Nuestro servicio central es la gestión de proyectos con Procore, enfocado en construcción comercial e industrial con comunicación transparente, especialización en tenant improvements y ejecución de obra comercial desde cero. El trabajo residencial solo se considera cuando es único, altamente complejo y de varios millones de dólares."
       },
       "specialty": {
         "sectionTitle": "Servicios Especializados",
@@ -1531,23 +1532,23 @@
       },
       "government": {
         "sectionTitle": "Proyectos Gubernamentales y con Fondos",
-        "sectionSubtitle": "Obra Publica con Enfoque de Cumplimiento",
-        "sectionDescription": "Disciplina veterana y planificacion orientada al cumplimiento para proyectos publicos e infraestructura financiada."
+        "sectionSubtitle": "Obra Pública con Enfoque de Cumplimiento",
+        "sectionDescription": "Disciplina veterana y planificación orientada al cumplimiento para proyectos públicos e infraestructura financiada."
       },
       "areas": {
-        "sectionTitle": "Areas de Servicio",
+        "sectionTitle": "Áreas de Servicio",
         "sectionSubtitle": "Cobertura Triestatal",
-        "sectionDescription": "Con licencia y operacion activa en Washington, Oregon e Idaho con soporte desde la sede de Tri-Cities."
+        "sectionDescription": "Con licencia y operación activa en Washington, Oregon e Idaho con soporte desde la sede de Tri-Cities."
       },
       "whyChooseUs": {
-        "sectionTitle": "Por que Elegir MH Construction",
-        "sectionSubtitle": "Ejecucion Centrada en la Relacion",
-        "sectionDescription": "Confianza ganada con transparencia, seguridad comprobada y un modelo de asociacion que supera la entrega del proyecto."
+        "sectionTitle": "Por Qué Elegir MH Construction",
+        "sectionSubtitle": "Ejecución Centrada en la Relación",
+        "sectionDescription": "Confianza ganada con transparencia, seguridad comprobada y un modelo de asociación que supera la entrega del proyecto."
       },
       "testimonials": {
         "sectionTitle": "Lo que Dicen Nuestros Clientes",
         "sectionSubtitle": "Confiado por Nuestros Socios",
-        "sectionDescription": "Lea testimonios de Socios Clientes del Noroeste del Pacifico que han vivido nuestra excelencia colaborativa de primera mano."
+        "sectionDescription": "Lea testimonios de Socios Clientes del Noroeste del Pacífico que han vivido nuestra excelencia colaborativa de primera mano."
       },
       "sectionSubtitle": "Construcción de Espectro Completo",
       "sectionTitle": "Servicios Basados en la Confianza",
@@ -1561,18 +1562,18 @@
       "learnMoreFallback": "Saber Más",
       "contactCta": "Comenzar",
       "expertise": {
-        "sectionTitle": "Experiencia en Construccion",
-        "sectionSubtitle": "Liderazgo Enfocado en la Asociacion",
-        "sectionDescription": "Liderazgo experimentado, sistemas disciplinados y comunicacion clara para mantener cada proyecto alineado y bajo control. Brindamos una experiencia de asociacion excepcional de principio a fin, para que nunca este a oscuras sobre el estado o los detalles de su proyecto."
+        "sectionTitle": "Experiencia en Construcción",
+        "sectionSubtitle": "Liderazgo Enfocado en la Asociación",
+        "sectionDescription": "Liderazgo experimentado, sistemas disciplinados y comunicación clara para mantener cada proyecto alineado y bajo control. Brindamos una experiencia de asociación excepcional de principio a fin, para que nunca esté a oscuras sobre el estado o los detalles de su proyecto."
       },
       "process": {
         "sectionTitle": "Nuestro Proceso",
         "sectionSubtitle": "Simple y Transparente",
-        "sectionDescription": "Hitos claros desde el primer contacto hasta el cierre, con comunicacion honesta en cada etapa.",
+        "sectionDescription": "Hitos claros desde el primer contacto hasta el cierre, con comunicación honesta en cada etapa.",
         "steps": [
           {
             "title": "Consulta Inicial",
-            "description": "Comenzamos escuchando su vision, entendiendo sus necesidades y definiendo los objetivos del proyecto. Ya sea que tenga planos detallados o una idea inicial, trabajamos con usted para aclarar alcance, cronograma y presupuesto.",
+            "description": "Comenzamos escuchando su visión, entendiendo sus necesidades y definiendo los objetivos del proyecto. Ya sea que tenga planos detallados o una idea inicial, trabajamos con usted para aclarar alcance, cronograma y presupuesto.",
             "tags": [
               "Consulta Gratuita",
               "Sin Compromiso",
@@ -1580,26 +1581,26 @@
             ]
           },
           {
-            "title": "Estimacion y Planificacion Detallada",
+            "title": "Estimación y Planificación Detallada",
             "description": "Nuestro estimador principal entrega un desglose de costos completo y transparente, sin cargos ocultos. Analizamos variables, identificamos riesgos y construimos un cronograma realista para que conozca cada aspecto del costo desde el inicio.",
             "tags": [
               "Precios Transparentes",
-              "Mas de 20 Anos de Experiencia",
+              "Más de 20 Años de Experiencia",
               "Sin Sorpresas"
             ]
           },
           {
-            "title": "Contrato y Preconstruccion",
+            "title": "Contrato y Preconstrucción",
             "description": "Formalizamos contratos claros, gestionamos permisos, coordinamos aliados de oficio y programamos materiales. Nuestro gerente de proyecto administra documentos, submittals y RFIs mientras lo mantiene informado en cada fase.",
             "tags": [
               "Contratos Claros",
-              "Gestion de Permisos",
-              "Coordinacion Total"
+              "Gestión de Permisos",
+              "Coordinación Total"
             ]
           },
           {
-            "title": "Ejecucion de Construccion",
-            "description": "Nuestro superintendente senior supervisa las operaciones en obra con estandares de seguridad premiados. Entregamos actualizaciones frecuentes, coordinamos subcontratistas, controlamos calidad y resolvemos incidencias de inmediato.",
+            "title": "Ejecución de Construcción",
+            "description": "Nuestro superintendente senior supervisa las operaciones en obra con estándares de seguridad premiados. Entregamos actualizaciones frecuentes, coordinamos subcontratistas, controlamos calidad y resolvemos incidencias de inmediato.",
             "tags": [
               "Actualizaciones Diarias",
               "Seguridad .64 EMR",
@@ -1608,27 +1609,27 @@
           },
           {
             "title": "Inspecciones de Calidad y Cumplimiento",
-            "description": "Las inspecciones multipunto en cada fase garantizan cumplimiento normativo y excelencia en la ejecucion. Inspecciones de terceros, coordinacion institucional y documentacion completa aseguran trazabilidad total.",
+            "description": "Las inspecciones multipunto en cada fase garantizan cumplimiento normativo y excelencia en la ejecución. Inspecciones de terceros, coordinación institucional y documentación completa aseguran trazabilidad total.",
             "tags": [
-              "Cumplimiento de Codigo",
+              "Cumplimiento de Código",
               "Controles de Calidad",
-              "Documentacion Completa"
+              "Documentación Completa"
             ]
           },
           {
             "title": "Cierre del Proyecto y Seguimiento",
-            "description": "La inspeccion final, cierre de pendientes, documentacion de garantia y soporte posterior aseguran satisfaccion completa. Seguimos presentes despues de la entrega con acompanamiento de largo plazo.",
+            "description": "La inspección final, cierre de pendientes, documentación de garantía y soporte posterior aseguran satisfacción completa. Seguimos presentes después de la entrega con acompañamiento de largo plazo.",
             "tags": [
-              "Inspeccion Final",
-              "Soporte de Garantia",
-              "Asociacion Continua"
+              "Inspección Final",
+              "Soporte de Garantía",
+              "Asociación Continua"
             ]
           }
         ],
         "cta": {
-          "title": "Listo para iniciar su proyecto?",
-          "description": "Conversemos sobre sus necesidades de construccion y creemos un plan juntos. Consulta gratuita, precios transparentes y colaboracion enfocada en la asociacion desde el primer dia.",
-          "contactButton": "Contactenos Hoy",
+          "title": "¿Listo para Iniciar su Proyecto?",
+          "description": "Conversemos sobre sus necesidades de construcción y creemos un plan juntos. Consulta gratuita, precios transparentes y colaboración enfocada en la asociación desde el primer día.",
+          "contactButton": "Contáctenos Hoy",
           "projectsButton": "Ver Nuestro Trabajo"
         }
       },
@@ -1744,20 +1745,20 @@
       ],
       "partnership": {
         "sectionSubtitle": "Dos Caminos hacia",
-        "sectionTitle": "Excelencia en la Asociacion",
-        "sectionDescription": "Ya sea socio cliente planificando un proyecto o socio comercial buscando oportunidades, MH Construction ofrece rutas claras de colaboracion y exito.",
+        "sectionTitle": "Excelencia en la Asociación",
+        "sectionDescription": "Ya sea socio cliente planificando un proyecto o socio comercial buscando oportunidades, MH Construction ofrece rutas claras de colaboración y éxito.",
         "callLabel": "Llamar",
         "clientCard": {
           "title": "Relaciones con Socios Cliente",
-          "subtitle": "Colaboracion de Proyecto",
-          "description": "Para socios cliente que planifican proyectos en el Pacifico Noroeste. Trabajamos con usted para convertir su vision en realidad con gestion experta y colaboracion enfocada en la asociacion.",
+          "subtitle": "Colaboración de Proyecto",
+          "description": "Para socios cliente que planifican proyectos en el Pacífico Noroeste. Trabajamos con usted para convertir su visión en realidad con gestión experta y colaboración enfocada en la asociación.",
           "listTitle": "Lo Que Ofrecemos a Socios Cliente:",
           "items": [
             "Consultas y evaluaciones de proyecto sin costo",
-            "Planificacion por fases con alcance y cronograma alineados",
+            "Planificación por fases con alcance y cronograma alineados",
             "Precios transparentes y enfoque de libro abierto",
-            "Gestion integral de construccion",
-            "Planificacion maestra y servicios de preconstruccion"
+            "Gestión integral de construcción",
+            "Planificación maestra y servicios de preconstrucción"
           ],
           "buttons": {
             "viewWork": "Ver Nuestro Trabajo",
@@ -1767,14 +1768,14 @@
         "tradeCard": {
           "title": "Alianzas Comerciales",
           "subtitle": "Red de Socios Comerciales",
-          "description": "Para subcontratistas, proveedores y profesionales de oficios que buscan oportunidades consistentes con un lider veterano en construccion del Pacifico Noroeste.",
+          "description": "Para subcontratistas, proveedores y profesionales de oficios que buscan oportunidades consistentes con un líder veterano en construcción del Pacífico Noroeste.",
           "listTitle": "Lo Que Ofrecemos a Socios Comerciales:",
           "items": [
             "Oportunidades de proyecto constantes",
             "Crecimiento profesional en una red establecida",
-            "Participacion temprana en planificacion de proyectos",
-            "Aviso anticipado para planificacion de compras",
-            "Asociacion con empresa veterana"
+            "Participación temprana en planificación de proyectos",
+            "Aviso anticipado para planificación de compras",
+            "Asociación con empresa veterana"
           ],
           "buttons": {
             "joinNetwork": "Unirse a la Red de Socios",
@@ -1783,19 +1784,19 @@
         },
         "bottomNote": {
           "title": "Diferentes caminos, mismo compromiso con la excelencia.",
-          "description": "Ya sea construyendo su proyecto o su negocio, MH Construction valora cada relacion de asociacion."
+          "description": "Ya sea construyendo su proyecto o su negocio, MH Construction valora cada relación de asociación."
         }
       },
       "deepNextSteps": {
         "subtitle": "Construyamos Algo",
         "title": "Grande Juntos",
-        "description": "De el siguiente paso para hacer realidad su vision con precios transparentes, orientacion experta y confiabilidad de empresa veterana.",
+        "description": "Dé el siguiente paso para hacer realidad su visión con precios transparentes, orientación experta y confiabilidad de empresa veterana.",
         "cards": {
           "estimate": {
-            "badge": "Empiece Aqui",
-            "title": "Obtenga una Estimacion Experta",
-            "description": "Reciba una estimacion detallada y transparente con precios por partida en 3 a 5 dias habiles.",
-            "button": "Contactenos Hoy"
+            "badge": "Empiece Aquí",
+            "title": "Obtenga una Estimación Experta",
+            "description": "Reciba una estimación detallada y transparente con precios por partida en 3 a 5 días hábiles.",
+            "button": "Contáctenos Hoy"
           },
           "projects": {
             "title": "Vea Nuestros Proyectos",
@@ -1803,38 +1804,38 @@
             "button": "Ver Nuestros Proyectos"
           },
           "contact": {
-            "title": "Contactenos",
-            "description": "Tiene preguntas? Contactenos por telefono, correo o formulario para apoyo inmediato.",
-            "button": "Pongase en Contacto"
+            "title": "Contáctenos",
+            "description": "¿Tiene preguntas? Contáctenos por teléfono, correo o formulario para apoyo inmediato.",
+            "button": "Póngase en Contacto"
           }
         },
         "stats": {
-          "experience": "Anos de Experiencia Combinada",
+          "experience": "Años de Experiencia Combinada",
           "safety": "Seguridad Galardonada",
-          "turnaround": "Tiempo de Estimacion",
+          "turnaround": "Tiempo de Estimación",
           "referral": "Tasa de Referencia"
         }
       },
       "contactCta": {
-        "heading": "Preguntas Sobre Nuestros Servicios?",
+        "heading": "¿Preguntas Sobre Nuestros Servicios?",
         "description": "Contacte a nuestro equipo para resolver dudas sobre servicios, precios, tiempos y capacidades.",
         "primaryButton": "Contactar al Equipo"
       },
       "portfolio": {
         "subtitle": "Nuestro",
-        "title": "Portafolio de Construccion",
+        "title": "Portafolio de Construcción",
         "description": "Explore proyectos completados que muestran calidad en sectores comerciales, residenciales y gubernamentales.",
         "button": "Ver Portafolio Completo",
-        "note": "Portafolio detallado con integracion de CRM High-Level proximamente"
+        "note": "Portafolio detallado con integración de CRM High-Level próximamente"
       },
       "accreditations": {
         "title": "Acreditado y Certificado",
         "licensed": "Licenciado en WA · OR · ID"
       },
       "finalNextSteps": {
-        "sectionTitle": "Listo para Iniciar su Proyecto?",
-        "sectionSubtitle": "Asociese con MH Construction",
-        "sectionDescription": "Conecte con nuestro equipo para planificar su proximo proyecto con comunicacion clara, ejecucion disciplinada y una asociacion de confianza."
+        "sectionTitle": "¿Listo para Iniciar su Proyecto?",
+        "sectionSubtitle": "Asóciese con MH Construction",
+        "sectionDescription": "Conecte con nuestro equipo para planificar su próximo proyecto con comunicación clara, ejecución disciplinada y una asociación de confianza."
       }
     },
     "whyPartner": {
@@ -1964,9 +1965,9 @@
   },
   "testimonialGrid": {
     "defaultTitle": "Lo Que Dice La Gente",
-    "comingSoonTitle": "Proximamente",
-    "comingSoonDescription": "Los testimonios estaran disponibles pronto. Estamos comprometidos a compartir comentarios autenticos de nuestros valiosos socios y miembros del equipo.",
-    "viewAllReviews": "Ver Todas Las Resenas"
+    "comingSoonTitle": "Próximamente",
+    "comingSoonDescription": "Los testimonios estarán disponibles pronto. Estamos comprometidos a compartir comentarios auténticos de nuestros valiosos socios y miembros del equipo.",
+    "viewAllReviews": "Ver Todas Las Reseñas"
   },
   "testimonialsData": {
     "clientTestimonials": [
@@ -1975,9 +1976,9 @@
         "name": "Capitan de Proyectos Especiales",
         "company": "Yakima County Fire District 5",
         "location": "Zillah, WA",
-        "project": "Remodelacion del Centro Administrativo y de Despacho y de la Estacion de Bomberos 10",
+        "project": "Remodelación del Centro Administrativo y de Despacho y de la Estación de Bomberos 10",
         "rating": 5,
-        "quote": "MH Construction define como debe desempenarse un contratista profesional. Excelente etica empresarial y responsabilidad fiscal, con conocimiento de construccion por encima de sus pares.",
+        "quote": "MH Construction define como debe desempenarse un contratista profesional. Excelente etica empresarial y responsabilidad fiscal, con conocimiento de construcción por encima de sus pares.",
         "category": "government",
         "featured": true
       },
@@ -1985,7 +1986,7 @@
         "id": "client-007",
         "name": "Jesse Dunagan",
         "company": "Lutheran Community Services NW",
-        "project": "Remodelacion de mas de 40,000 pies cuadrados para nueva base operativa",
+        "project": "Remodelación de más de 40,000 pies cuadrados para nueva base operativa",
         "rating": 5,
         "quote": "El equipo de MH Construction ha sido un verdadero placer para asociarnos. Valoramos su etica, curiosidad, compromiso, honestidad, humildad, seguridad, calidad y enfoque en soluciones objetivas.",
         "category": "commercial",
@@ -1997,7 +1998,7 @@
         "company": "Windermere Pasco",
         "project": "Mejora de inquilino",
         "rating": 5,
-        "quote": "MH realizo una mejora de inquilino para nosotros y no podriamos estar mas satisfechos. Facilitaron diseno, permisos y construccion con gran profesionalismo.",
+        "quote": "MH realizo una mejora de inquilino para nosotros y no podriamos estar mas satisfechos. Facilitaron diseno, permisos y construcción con gran profesionalismo.",
         "category": "commercial",
         "featured": true
       },
@@ -2007,7 +2008,7 @@
         "company": "Christensen - Fuel and Lubricants Service",
         "project": "Multiples proyectos comerciales",
         "rating": 5,
-        "quote": "Hemos trabajado con MH Construction en varios proyectos comerciales y estamos muy satisfechos con su calidad, comunicacion y cumplimiento.",
+        "quote": "Hemos trabajado con MH Construction en varios proyectos comerciales y estamos muy satisfechos con su calidad, comunicación y cumplimiento.",
         "category": "commercial",
         "featured": true
       },
@@ -2015,7 +2016,7 @@
         "id": "client-010",
         "name": "Samantha Schuster",
         "company": "Summer's Hub Pasco and Kennewick",
-        "project": "Proyectos de asociacion comercial",
+        "project": "Proyectos de asociación comercial",
         "rating": 5,
         "quote": "Estamos agradecidos de ser socios cliente de MH Construction y muy satisfechos con la calidad y profesionalismo de su trabajo. Su atencion al detalle y resultados confiables superaron nuestras expectativas.",
         "category": "commercial",
@@ -2025,9 +2026,9 @@
         "id": "client-011",
         "name": "Blake Still",
         "company": "Baskin-Robbins of Kennewick",
-        "project": "Construccion comercial",
+        "project": "Construcción comercial",
         "rating": 5,
-        "quote": "No podriamos estar mas contentos con la calidad de la ejecucion. Todd nos mantuvo informados durante toda la obra.",
+        "quote": "No podriamos estar mas contentos con la calidad de la ejecución. Todd nos mantuvo informados durante toda la obra.",
         "category": "commercial",
         "featured": true
       }

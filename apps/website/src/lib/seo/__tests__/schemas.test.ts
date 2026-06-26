@@ -203,6 +203,59 @@ describe("withGeoMetadata()", () => {
     expect(result.other?.["custom-tag"]).toBe("custom-value");
     expect(result.other?.["geo.region"]).toBeDefined();
   });
+
+  it("normalizes PageHub phrase casing and punctuation in keywords", () => {
+    const result = withGeoMetadata({
+      title: "Test",
+      keywords: [
+        "general contractor Pasco WA",
+        "commercial construction services",
+        "industrial facility construction",
+        "office remodeling and renovation",
+        "construction management solutions",
+      ],
+    });
+
+    const keywords = (result.keywords as string[]) || [];
+    expect(keywords).toContain("general contractor Pasco, WA");
+    expect(keywords).toContain("Commercial Construction Services");
+    expect(keywords).toContain("Industrial Facility Construction");
+    expect(keywords).toContain("Office Remodeling And Renovation");
+    expect(keywords).toContain("Construction Management Solutions");
+    expect(keywords).not.toContain("general contractor Pasco WA");
+  });
+
+  it("applies foundational keyword profile for compliance routes", () => {
+    const result = withGeoMetadata({
+      title: "Privacy Policy",
+      alternates: {
+        canonical: "https://www.mhc-gc.com/privacy",
+      },
+      keywords: ["data protection policy"],
+    });
+
+    const keywords = (result.keywords as string[]) || [];
+    expect(keywords).toContain("general contractor Pasco, WA");
+    expect(keywords).toContain("Pacific Northwest construction");
+    expect(keywords).toContain("data protection policy");
+    expect(keywords).not.toContain("Commercial Construction Services");
+  });
+
+  it("applies full PageHub keyword profile for commercial routes", () => {
+    const result = withGeoMetadata({
+      title: "Services",
+      alternates: {
+        canonical: "https://www.mhc-gc.com/services",
+      },
+      keywords: ["custom services keyword"],
+    });
+
+    const keywords = (result.keywords as string[]) || [];
+    expect(keywords).toContain("general contractor Pasco, WA");
+    expect(keywords).toContain("Commercial Construction Services");
+    expect(keywords).toContain("Industrial Facility Construction");
+    expect(keywords).toContain("custom services keyword");
+  });
 });
 
 // ── location-metadata ─────────────────────────────────────────────────────────

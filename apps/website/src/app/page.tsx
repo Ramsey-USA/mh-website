@@ -50,6 +50,15 @@ export const metadata: Metadata = withGeoMetadata({
   description:
     "Base HQ → Home: Your Tri-State Construction Command Center serving Washington, Oregon, and Idaho across the Pacific Northwest. Headquartered in the Tri-Cities (Pasco, Richland, Kennewick). Veteran-Owned Since January 2025. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations. Service-earned values: Honesty, Integrity, Professionalism, Thoroughness. Montana expansion coming soon.",
   keywords: [
+    "general contractor Pasco, WA",
+    "commercial construction services",
+    "industrial facility construction",
+    "office remodeling and renovation",
+    "construction management solutions",
+    "construction project management",
+    "commercial renovation",
+    "building addition contractor",
+    "construction design",
     "general contractor Tri-State",
     "Veteran-Owned contractor Pacific Northwest",
     "Richland general contractor",

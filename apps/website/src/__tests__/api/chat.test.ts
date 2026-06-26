@@ -124,6 +124,27 @@ describe("POST /api/chat", () => {
     expect(body.response).toBe("AI generated answer");
   });
 
+  it("adds Spanish locale instruction when locale is es", async () => {
+    const mockAi = {
+      run: jest.fn().mockResolvedValue({ response: "Respuesta en espanol" }),
+    };
+    mockGetCloudflareContext.mockReturnValue({ env: { AI: mockAi } });
+
+    const res = await POST(
+      makeRequest({ message: "Necesito ayuda", locale: "es" }),
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toBe("Respuesta en espanol");
+
+    expect(mockAi.run).toHaveBeenCalled();
+    const [, aiInput] = mockAi.run.mock.calls[0] as [
+      string,
+      { messages: Array<{ role: string; content: string }> },
+    ];
+    expect(aiInput.messages[0]?.content).toContain("Respond in Spanish");
+  });
+
   it("falls back to knowledge base when AI binding throws", async () => {
     const mockAi = {
       run: jest.fn().mockRejectedValue(new Error("AI unavailable")),
@@ -217,6 +238,16 @@ describe("POST /api/chat", () => {
     const body = await res.json();
     // Should get a fallback response, not empty
     expect(body.response.length).toBeGreaterThan(0);
+  });
+
+  it("returns Spanish fallback when locale is es", async () => {
+    const res = await POST(
+      makeRequest({ message: "Necesito su telefono", locale: "es" }),
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("Puede comunicarse con MH Construction");
+    expect(body.response).toContain("(509) 308-6489");
   });
 
   it("returns 500 for malformed JSON body", async () => {
@@ -317,7 +348,7 @@ describe("POST /api/chat", () => {
     const res = await POST(makeRequest({ message: "can you build a fence" }));
     expect(res.status).toBe(200);
     const body = await res.json();
-    expect(body.response).toContain("D-Fence");
+    expect(body.response).toContain("Frontier Fencing");
   });
 
   it("returns trade info for insulation", async () => {
@@ -334,6 +365,31 @@ describe("POST /api/chat", () => {
     expect(res.status).toBe(200);
     const body = await res.json();
     expect(body.response).toContain("Core Cabinet");
+  });
+
+  it("returns trade info for drywall keywords", async () => {
+    const res = await POST(
+      makeRequest({ message: "Do you handle drywall finishing" }),
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("High Desert Drywall");
+  });
+
+  it("returns procurement guidance for unmapped trades like roofing", async () => {
+    const res = await POST(makeRequest({ message: "can you do roofing" }));
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("project-specific procurement");
+    expect(body.response).toContain("(509) 308-6489");
+  });
+
+  it("returns business hours info", async () => {
+    const res = await POST(makeRequest({ message: "what are your hours" }));
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("Monday through Friday");
+    expect(body.response).toContain("7:00 AM - 4:00 PM");
   });
 
   it("returns default fallback for unrecognized queries", async () => {

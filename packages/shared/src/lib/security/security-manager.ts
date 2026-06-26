@@ -714,8 +714,15 @@ export class SecurityManager {
     // Apply security headers
     this.securityHeaders.applyHeaders(response);
 
-    // Apply rate limit headers
-    if (rateLimitInfo) {
+    // Apply rate limit headers only when the expected fields are present.
+    if (
+      rateLimitInfo &&
+      typeof rateLimitInfo === "object" &&
+      "remaining" in rateLimitInfo &&
+      "resetTime" in rateLimitInfo &&
+      typeof (rateLimitInfo as { remaining: unknown }).remaining === "number" &&
+      typeof (rateLimitInfo as { resetTime: unknown }).resetTime === "number"
+    ) {
       this.rateLimiter.applyHeaders(response, rateLimitInfo);
     }
 

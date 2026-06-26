@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 interface BbqTally {
@@ -132,9 +133,18 @@ export default function EventResultsPage() {
 
         {/* BBQ Vote Tallies */}
         <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg dark:border-white/20 dark:bg-white/5">
-          <h2 className="text-xl font-black text-brand-secondary">
-            People's Choice BBQ Vote
-          </h2>
+          <div className="flex items-center justify-between gap-3">
+            <h2 className="text-xl font-black text-brand-secondary">
+              People's Choice BBQ Vote
+            </h2>
+            <Image
+              src="/images/vendors/sunshine-cleaners-logo.webp"
+              alt="Sunshine Cleaning Services logo"
+              width={132}
+              height={40}
+              className="h-auto w-24 sm:w-32"
+            />
+          </div>
           <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-white/50">
             Deduplicated by phone — first entry wins
           </p>
@@ -178,9 +188,18 @@ export default function EventResultsPage() {
 
         {/* Hilti Winner Finder */}
         <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg dark:border-white/20 dark:bg-white/5">
-          <h2 className="text-xl font-black text-brand-secondary">
-            Hilti Fastener Jar Challenge
-          </h2>
+          <div className="flex items-center justify-between gap-3">
+            <h2 className="text-xl font-black text-brand-secondary">
+              Hilti Fastener Jar Challenge
+            </h2>
+            <Image
+              src="/images/vendors/hilti-logo-red-text.webp"
+              alt="Hilti red logo"
+              width={120}
+              height={32}
+              className="h-auto w-24 sm:w-28"
+            />
+          </div>
           <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-white/50">
             Enter the actual count to find the closest guess
           </p>

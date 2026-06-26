@@ -8,6 +8,26 @@
 
 **Current implementation:** GEO optimization is active across titles, location data, schema, and sitemap media discovery.
 
+**PageHub Strategy (Current):**
+
+- Primary search phrase: `general contractor Pasco, WA`
+- Search phrases:
+  - `Commercial Construction Services`
+  - `Industrial Facility Construction`
+  - `Office Remodeling And Renovation`
+  - `Construction Management Solutions`
+- Core keyword set:
+  - `general contractor`
+  - `commercial construction`
+  - `industrial construction`
+  - `construction management`
+  - `construction project management`
+  - `office remodeling`
+  - `commercial renovation`
+  - `building addition contractor`
+  - `construction design`
+  - `industrial facility construction`
+
 **Related Documentation:**
 
 - [Browser Titles Inventory](./docs/technical/browser-tab-titles-inventory.md) - Complete title system

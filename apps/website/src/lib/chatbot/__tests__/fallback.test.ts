@@ -44,6 +44,28 @@ describe("Chatbot Fallback", () => {
     expect(response).toContain("Trade Partners");
   });
 
+  it("returns drywall trade partner guidance for drywall keywords", () => {
+    const response = getChatFallbackResponse(
+      "Do you handle drywall finishing?",
+    );
+
+    expect(response).toContain("High Desert Drywall");
+  });
+
+  it("returns consultation guidance for an unmapped trade like roofing", () => {
+    const response = getChatFallbackResponse("Do you do roofing work?");
+
+    expect(response).toContain("project-specific procurement");
+    expect(response).toContain("(509) 308-6489");
+  });
+
+  it("returns business hours when asked", () => {
+    const response = getChatFallbackResponse("What are your business hours?");
+
+    expect(response).toContain("Monday through Friday");
+    expect(response).toContain("7:00 AM - 4:00 PM");
+  });
+
   it("matches Spanish service questions with accented characters", () => {
     const response = getChatFallbackResponse("¿Qué servicios ofrecen?", "es");
 
@@ -55,5 +77,12 @@ describe("Chatbot Fallback", () => {
 
     expect(response).toContain("office@mhc-gc.com");
     expect(response).toContain("(509) 308-6489");
+  });
+
+  it("matches Spanish business-hours questions", () => {
+    const response = getChatFallbackResponse("¿Cuál es su horario?", "es");
+
+    expect(response).toContain("lunes a viernes");
+    expect(response).toContain("7:00 AM - 4:00 PM");
   });
 });
