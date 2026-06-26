@@ -2,7 +2,10 @@ import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
-import { CDN_TEAM_OPTIONS } from "@/lib/events/cool-desert-nights";
+import {
+  CDN_TEAM_LABELS,
+  CDN_TEAM_OPTIONS,
+} from "@/lib/events/cool-desert-nights";
 
 export const dynamic = "force-dynamic";
 
@@ -64,6 +67,20 @@ function parseLeadMetadata(
   }
 }
 
+function normalizeVoteId(value: string): string {
+  const trimmed = value.trim();
+  if (!trimmed) return "";
+
+  if (trimmed in CDN_TEAM_LABELS) {
+    return trimmed;
+  }
+
+  const matched = Object.entries(CDN_TEAM_LABELS).find(
+    ([, label]) => label === trimmed,
+  );
+  return matched?.[0] ?? trimmed;
+}
+
 function buildEmptyResults() {
   return {
     totalEntries: 0,
@@ -105,7 +122,7 @@ async function loadLeadEntries(
         full_name: String(meta["full_name"] ?? lead.contact_name ?? "").trim(),
         phone: String(meta["phone"] ?? lead.phone ?? "").trim(),
         hilti_guess: Number(meta["hilti_guess"] ?? 0),
-        bbq_vote: String(meta["bbq_vote"] ?? ""),
+        bbq_vote: normalizeVoteId(String(meta["bbq_vote"] ?? "")),
         submitted_at: lead.created_at,
       } satisfies BoothRow;
     })
@@ -204,8 +221,9 @@ export async function POST(request: NextRequest) {
       tallyMap[team.id] = 0;
     }
     for (const row of rows) {
-      if (row.bbq_vote in tallyMap) {
-        tallyMap[row.bbq_vote] = (tallyMap[row.bbq_vote] ?? 0) + 1;
+      const voteId = normalizeVoteId(row.bbq_vote);
+      if (voteId in tallyMap) {
+        tallyMap[voteId] = (tallyMap[voteId] ?? 0) + 1;
       }
     }
     const bbqTallies = CDN_TEAM_OPTIONS.map((team) => ({
