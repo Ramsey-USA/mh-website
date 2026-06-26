@@ -24,6 +24,18 @@ interface BoothRow {
   submitted_at: string;
 }
 
+interface BbqTally {
+  id: string;
+  label: string;
+  count: number;
+}
+
+interface HiltiEntry {
+  name: string;
+  phone: string;
+  guess: number;
+}
+
 interface EventLeadRow {
   id: string;
   contact_name: string | null;
@@ -52,33 +64,52 @@ function parseLeadMetadata(
   }
 }
 
+function buildEmptyResults() {
+  return {
+    totalEntries: 0,
+    bbqTallies: CDN_TEAM_OPTIONS.map((team) => ({
+      id: team.id,
+      label: team.label,
+      count: 0,
+    })) satisfies BbqTally[],
+    hiltiEntries: [] as HiltiEntry[],
+  };
+}
+
 async function loadFallbackEntries(
   client: ReturnType<typeof createDbClient>,
 ): Promise<BoothRow[]> {
-  const leads = await client.query<EventLeadRow>(
-    `SELECT id, contact_name, email, phone, metadata, created_at
-     FROM leads
-     WHERE source = 'event_booth'
-     ORDER BY created_at ASC`,
-  );
+  try {
+    const leads = await client.query<EventLeadRow>(
+      `SELECT id, contact_name, email, phone, metadata, created_at
+       FROM leads
+       WHERE source = 'event_booth'
+       ORDER BY created_at ASC`,
+    );
 
-  const seenPhone = new Set<string>();
-  return leads
-    .map((lead) => {
-      const meta = parseLeadMetadata(lead.metadata);
-      return {
-        full_name: String(meta["full_name"] ?? lead.contact_name ?? "").trim(),
-        phone: String(meta["phone"] ?? lead.phone ?? "").trim(),
-        hilti_guess: Number(meta["hilti_guess"] ?? 0),
-        bbq_vote: String(meta["bbq_vote"] ?? ""),
-        submitted_at: lead.created_at,
-      } satisfies BoothRow;
-    })
-    .filter((row) => {
-      if (!row.phone || seenPhone.has(row.phone)) return false;
-      seenPhone.add(row.phone);
-      return true;
-    });
+    const seenPhone = new Set<string>();
+    return leads
+      .map((lead) => {
+        const meta = parseLeadMetadata(lead.metadata);
+        return {
+          full_name: String(
+            meta["full_name"] ?? lead.contact_name ?? "",
+          ).trim(),
+          phone: String(meta["phone"] ?? lead.phone ?? "").trim(),
+          hilti_guess: Number(meta["hilti_guess"] ?? 0),
+          bbq_vote: String(meta["bbq_vote"] ?? ""),
+          submitted_at: lead.created_at,
+        } satisfies BoothRow;
+      })
+      .filter((row) => {
+        if (!row.phone || seenPhone.has(row.phone)) return false;
+        seenPhone.add(row.phone);
+        return true;
+      });
+  } catch (error) {
+    logger.warn("EventResults: leads fallback unavailable", error);
+    return [];
+  }
 }
 
 function timingSafeEqual(a: string, b: string): boolean {
@@ -182,6 +213,6 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     logger.error("EventResults: query error", error);
-    return NextResponse.json({ error: "Query failed" }, { status: 500 });
+    return NextResponse.json(buildEmptyResults());
   }
 }
