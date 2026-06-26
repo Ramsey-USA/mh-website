@@ -24,6 +24,19 @@ interface BoothRow {
   submitted_at: string;
 }
 
+function isMissingColumnError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error);
+  return (
+    message.includes("no such column") ||
+    message.includes("has no column named")
+  );
+}
+
+function isMissingTableError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error);
+  return message.includes("no such table");
+}
+
 function timingSafeEqual(a: string, b: string): boolean {
   if (a.length !== b.length) return false;
   let diff = 0;
@@ -65,16 +78,40 @@ export async function POST(request: NextRequest) {
     const client = createDbClient({ DB: db });
 
     // Deduplicate by phone (first entry wins), same logic as admin-export
-    const rows = await client.query<BoothRow>(
-      `SELECT b.full_name, b.phone, b.hilti_guess, b.bbq_vote, b.submitted_at
-       FROM booth_entries b
-       INNER JOIN (
-         SELECT phone, MIN(id) AS min_id
-         FROM booth_entries
-         GROUP BY phone
-       ) dedup ON b.id = dedup.min_id
-       ORDER BY b.submitted_at ASC`,
-    );
+    let rows: BoothRow[];
+    try {
+      rows = await client.query<BoothRow>(
+        `SELECT b.full_name, b.phone, b.hilti_guess,
+                COALESCE(b.smoke_n_shine_vote, b.bbq_vote) AS bbq_vote,
+                b.submitted_at
+         FROM booth_entries b
+         INNER JOIN (
+           SELECT phone, MIN(id) AS min_id
+           FROM booth_entries
+           GROUP BY phone
+         ) dedup ON b.id = dedup.min_id
+         ORDER BY b.submitted_at ASC`,
+      );
+    } catch (queryError) {
+      if (isMissingTableError(queryError)) {
+        throw queryError;
+      }
+
+      if (!isMissingColumnError(queryError)) {
+        throw queryError;
+      }
+
+      rows = await client.query<BoothRow>(
+        `SELECT b.full_name, b.phone, b.hilti_guess, b.bbq_vote, b.submitted_at
+         FROM booth_entries b
+         INNER JOIN (
+           SELECT phone, MIN(id) AS min_id
+           FROM booth_entries
+           GROUP BY phone
+         ) dedup ON b.id = dedup.min_id
+         ORDER BY b.submitted_at ASC`,
+      );
+    }
 
     // BBQ tallies
     const tallyMap: Record<string, number> = {};
