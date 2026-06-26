@@ -299,7 +299,7 @@ describe("Translation Files — Spanish Punctuation (es.json)", () => {
    * or strings intentionally used as labels/kickers without full sentences.
    * We also skip ALL-CAPS acronyms (e.g. "EMR?").
    */
-  const QUESTION_EXCEPTIONS = new Set([
+  const QUESTION_EXCEPTIONS = new Set<string>([
     // Intentional single-word or short label patterns that don't need ¿
   ]);
 
