@@ -55,7 +55,7 @@ For field definitions and full examples, use the canonical guide:
 node scripts/seo-audit.js
 
 # Before deploying
-npm run build && node scripts/seo-audit.js
+pnpm run build && node scripts/seo-audit.js
 ```
 
 ---
@@ -85,12 +85,12 @@ npm run build && node scripts/seo-audit.js
 node scripts/seo-audit.js     # Run full audit + generate report
 
 # Build & Test
-npm run build              # Production build
-npm run dev                # Development mode
+pnpm run build              # Production build
+pnpm run dev                # Development mode
 
 # Quality Checks
-npm run lint               # Lint code
-npm run type-check         # TypeScript check
+pnpm run lint               # Lint code
+pnpm run type-check         # TypeScript check
 ```
 
 ---
@@ -107,7 +107,7 @@ npm run type-check         # TypeScript check
 → One line is all you need!
 
 **Build failing?**
-→ Run `npm run type-check`
+→ Run `pnpm run type-check`
 → Fix any TypeScript errors
 
 ---

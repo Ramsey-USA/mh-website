@@ -93,7 +93,7 @@ If a file exceeds 500 KB after respecting max-width, lower WebP quality in steps
    - Verify output is ≤ 500 KB; if not, reduce quality in steps of 5 until it fits.
    - Switch references to WebP.
    - Remove the uploaded JPG/JPEG only when matching WebP exists and is referenced.
-5. For any existing `.webp` touched in this session, check: if > 500 KB or wider than category max-width, re-pack in-place using `scripts/optimization/optimize-images.js` (`npm run optimize:images -- --force`) or an equivalent sharp pipeline.
+5. For any existing `.webp` touched in this session, check: if > 500 KB or wider than category max-width, re-pack in-place using `scripts/optimization/optimize-images.js` (`pnpm --filter @mhc/website run optimize:images -- --force`) or an equivalent sharp pipeline.
 6. Validate no broken references remain in changed files.
 7. Re-run discovery to confirm normalization is complete and stable.
 

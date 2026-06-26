@@ -59,7 +59,7 @@ For the full specification table, refer to `form-development-officer` Gold Stand
 
 ### 4. PNG preview after every regeneration
 
-After every `npm run docs:generate*` run, render a PNG preview of the affected page(s) for visual confirmation:
+After every `pnpm --filter @mhc/website run docs:generate*` run, render a PNG preview of the affected page(s) for visual confirmation:
 ```
 pdftoppm -r 150 -png -f 1 -l 1 documents/output/<artifact>.pdf /tmp/<artifact>-preview
 ```
@@ -124,9 +124,9 @@ Display the PNG to the user before marking the step complete. For multi-page art
 - Cover sheets are the brand-cohesion bridge between the safety manual chrome and the .docx forms (forms remain Word-authored; covers carry the MH chrome).
 - Cover MUST carry the same brand chrome as section pages: double-rule frame, vertical green→tan ribbon (matches `safety-manual-cover.html` and `MHC-company-letterhead.html`), MH+VETERAN OWNED logo, brand-secondary FORM ID badge + category chip, brand heading-face uppercase title (`var(--font-heading)` → Mendl Sans Dusk), MISH-program designator subtitle, brand-secondary form-identification card (Form Number / Category / Revision / Effective Date / Owning Manual Section / Document Owner), ★ field-use briefing, full WA/OR/ID licenses, AGC → BBB → VOB accreditation footer.
 - Manifest schema (`forms-manifest.json` → `forms[]`): `id`, `slug`, `title`, `category`, `categoryLabel`, `categoryIcon`, `manualSection` (nullable; renders as `—`), `docxPath`, `revision`, `effectiveDate`, `owner`. The `manualSection` field is opt-in — SMEs populate as MISH cross-references are confirmed; the `—` placeholder is the canonical "not yet linked" signal and is acceptable in production.
-- Adding a new form: drop the `.docx` into `documents/forms/MHC-MISH-47-Forms/`, append a manifest entry, run `npm run docs:generate -- --template form-covers`. Do NOT hand-edit cover PDFs.
+- Adding a new form: drop the `.docx` into `documents/forms/MHC-MISH-47-Forms/`, append a manifest entry, run `pnpm --filter @mhc/website run docs:generate -- --template form-covers`. Do NOT hand-edit cover PDFs.
 - Tokens consumed by `form-cover.html` follow the same `{{BRAND_*}}` substitution scheme as the section/letterhead templates — never hard-code colors or logo paths.
-- CLI: `npm run docs:generate -- --template form-covers` (one-shot all 47). Output dir: `documents/output/form-covers/`.
+- CLI: `pnpm --filter @mhc/website run docs:generate -- --template form-covers` (one-shot all 47). Output dir: `documents/output/form-covers/`.
 
 ### 12. Verification workflow (mandatory after edits)
 

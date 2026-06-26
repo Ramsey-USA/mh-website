@@ -4,7 +4,7 @@ description: Ensures all safety forms use canonical border alignment and footer 
 applyTo: "**/documents/scripts/generate.mjs", "**/documents/forms/**/*.{html,mjs}"
 ---
 
-# Forms Branding Guardrail
+## Forms Branding Guardrail
 
 ## Purpose
 
@@ -206,8 +206,8 @@ If a form deviates:
 
 1. Identify violation: `node documents/scripts/generate.mjs --validate-forms`
 2. Update form HTML or use `applyFormBrandingChrome()` wrapper
-3. Regenerate: `npm run docs:generate:forms-all`
-4. Verify: `npm run test:forms-branding`
+3. Regenerate: `pnpm --filter @mhc/website run docs:generate:forms`
+4. Verify guardrails: `pnpm --filter @mhc/website run docs:guardrails:check`
 
 ## Examples
 

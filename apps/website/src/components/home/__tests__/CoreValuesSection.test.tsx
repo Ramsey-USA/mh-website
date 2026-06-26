@@ -41,10 +41,14 @@ describe("CoreValuesSection", () => {
     expect(screen.getByText("Unwavering Ethics")).toBeInTheDocument();
   });
 
-  it("renders images for each value", () => {
+  it("renders value media (video/image) for each value", () => {
     render(<CoreValuesSection />);
+    const mediaCount =
+      document.querySelectorAll("video").length +
+      document.querySelectorAll("img").length;
+    expect(mediaCount).toBe(4);
     expect(
-      screen.getByAltText("Honesty - Clear Communication Every Time"),
+      screen.getByAltText("Integrity - Doing What's Right"),
     ).toBeInTheDocument();
   });
 

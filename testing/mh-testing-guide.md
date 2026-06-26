@@ -12,10 +12,10 @@ The primary test suite uses Jest 30 with Testing Library for React component and
 ### Running Tests
 
 ```bash
-npm run test             # Run all 1734 tests
-npm run test:watch       # Run in watch mode (re-runs on file changes)
-npm run test:coverage    # Run with coverage report
-npm run test:ci          # CI mode (coverage + limited workers)
+pnpm run test                                 # Run website tests from repo root
+pnpm --filter @mhc/website run test:watch     # Run in watch mode (re-runs on file changes)
+pnpm --filter @mhc/website run test:coverage  # Run with coverage report
+pnpm run test:ci                              # CI mode (website suite)
 ```
 
 ### Test File Locations
@@ -112,7 +112,7 @@ src/
 ## PWA Tests
 
 ```bash
-npm run test:pwa         # PWA functionality tests (scripts/test-pwa.js)
+pnpm --filter @mhc/website run test:pwa  # PWA functionality tests (scripts/test-pwa.js)
 ```
 
 Tests service worker registration, caching layers, offline support, and installability.
@@ -120,9 +120,9 @@ Tests service worker registration, caching layers, offline support, and installa
 ## Additional Quality Tools
 
 ```bash
-npm run type-check       # TypeScript strict validation (zero errors)
-npm run lint             # ESLint 10 (zero warnings, zero errors)
-npm run quality:check    # Full quality scan
+pnpm run type-check                           # TypeScript strict validation (zero errors)
+pnpm run lint                                 # ESLint 10 (zero warnings, zero errors)
+pnpm --filter @mhc/website run quality:check  # Full quality scan
 ```
 
 ## Visual Testing

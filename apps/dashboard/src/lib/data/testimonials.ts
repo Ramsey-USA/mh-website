@@ -155,26 +155,7 @@ export const employeeTestimonials: Testimonial[] = [
   },
 ];
 
-// CONVENIENCE FUNCTIONS - Filter testimonials by category
-export function getClientTestimonials(featured?: boolean): Testimonial[] {
-  return featured
-    ? clientTestimonials.filter((t) => t.featured)
-    : clientTestimonials;
-}
-
-export function getEmployeeTestimonials(featured?: boolean): Testimonial[] {
-  return featured
-    ? employeeTestimonials.filter((t) => t.featured)
-    : employeeTestimonials;
-}
-
 export function getAllTestimonials(featured?: boolean): Testimonial[] {
   const all = [...clientTestimonials, ...employeeTestimonials];
   return featured ? all.filter((t) => t.featured) : all;
-}
-
-export function getVeteranTestimonials(): Testimonial[] {
-  return [...clientTestimonials, ...employeeTestimonials].filter(
-    (t) => t.veteranStatus,
-  );
 }

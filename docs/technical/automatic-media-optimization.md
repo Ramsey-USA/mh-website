@@ -71,13 +71,13 @@ You can also run optimization locally:
 
 ```bash
 # Optimize all images
-npm run optimize:images
+pnpm --filter @mhc/website run optimize:images
 
 # Optimize all videos
-npm run optimize:videos
+pnpm --filter @mhc/website run optimize:videos
 
 # Audit images for opportunities
-npm run audit:images
+pnpm --filter @mhc/website run audit:images
 ```
 
 ### Using Optimized Images
@@ -228,8 +228,8 @@ The workflow supports CI flags for silent operation:
 
 ```bash
 # Silent mode (no color output)
-npm run optimize:images -- --ci
-npm run optimize:videos -- --ci
+pnpm --filter @mhc/website run optimize:images -- --ci
+pnpm --filter @mhc/website run optimize:videos -- --ci
 ```
 
 ## Skipping Optimization
@@ -263,7 +263,7 @@ Track optimization in:
 
 - **GitHub Actions**: Actions tab → "Optimize Images & Videos"
 - **Commit History**: Auto-commits show optimization stats
-- **Build Logs**: npm run build shows image optimization
+- **Build Logs**: pnpm run build shows image optimization
 
 ## Future Enhancements
 

@@ -56,6 +56,7 @@ const ACTIVE_PAGES = [
     priority: 0.82,
     changeFreq: "weekly" as const,
   },
+  { path: "/qr-codes", priority: 0.7, changeFreq: "monthly" as const },
 
   // Priority 0.7 - Supporting pages
   { path: "/team", priority: 0.7, changeFreq: "monthly" as const },

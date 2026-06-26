@@ -27,18 +27,18 @@ Run locally before creating a PR:
 
 ```bash
 npm ci
-npm run ci:gate
+pnpm --filter @mhc/website run ci:gate
 ```
 
 Equivalent command-by-command gate run:
 
 ```bash
-npm run type-check
-npm run lint
-npm run format:check
-npm run test:ci
-npm run audit:ci
-npm run build
+pnpm run type-check
+pnpm run lint
+pnpm run format:check
+pnpm run test:ci
+pnpm run audit:ci
+pnpm run build
 ```
 
 ## Security Rules
@@ -115,14 +115,14 @@ Setup and first-run instructions are in:
 Local smoke run command:
 
 ```bash
-npm run smoke:safety
+pnpm --filter @mhc/website run smoke:safety
 ```
 
 Optional strict public-page mode (for environments where CI is allowlisted at
 the edge and public pages should return 200/3xx):
 
 ```bash
-SAFETY_SMOKE_STRICT_PUBLIC_200=true npm run smoke:safety
+SAFETY_SMOKE_STRICT_PUBLIC_200=true pnpm --filter @mhc/website run smoke:safety
 ```
 
 Optional authenticated API checks can be enabled with one of the following,
@@ -149,13 +149,13 @@ Example local run (recommended approach):
 SAFETY_SMOKE_FIELD_PASSCODE=your_field_passcode \
 SAFETY_SMOKE_ADMIN_EMAIL=your_admin_email \
 SAFETY_SMOKE_ADMIN_PASSWORD=your_admin_password \
-npm run smoke:safety
+pnpm --filter @mhc/website run smoke:safety
 ```
 
 Fallback local run:
 
 ```bash
-SAFETY_SMOKE_JWT_SECRET=your_jwt_secret npm run smoke:safety
+SAFETY_SMOKE_JWT_SECRET=your_jwt_secret pnpm --filter @mhc/website run smoke:safety
 ```
 
 ## Escalation Path
@@ -164,7 +164,7 @@ If a gate fails in CI:
 
 1. Stop deployment.
 2. Fix root cause in branch.
-3. Re-run full gate (`npm run ci:gate`).
+3. Re-run full gate (`pnpm --filter @mhc/website run ci:gate`).
 4. Merge only after all gates pass.
 
 ---

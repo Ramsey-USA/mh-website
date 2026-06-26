@@ -665,16 +665,16 @@ available without exposing an obvious public footer trigger.
 
 ```bash
 # PWA tests
-npm run test:pwa
+pnpm --filter @mhc/website run test:pwa
 
 # Dark mode visual test
 open testing/dark-mode-visual-test.html
 
 # Type checking
-npm run type-check
+pnpm run type-check
 
 # Linting
-npm run lint
+pnpm run lint
 ```
 
 ### Testing Documentation
@@ -695,9 +695,9 @@ npm run lint
 
 ### Pull Request Guidelines
 
-- Run `npm run type-check` (must pass)
-- Run `npm run lint` (must pass)
-- Test locally with `npm run build`
+- Run `pnpm run type-check` (must pass)
+- Run `pnpm run lint` (must pass)
+- Test locally with `pnpm run build`
 - Update documentation if needed
 - Follow commit message conventions
 - Ensure added/renamed image files use lowercase kebab-case names (enforced by pre-commit)

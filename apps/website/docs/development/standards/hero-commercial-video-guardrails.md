@@ -78,7 +78,7 @@ ffmpeg -hide_banner -loglevel error -nostats -y \
 
 The following validator is now mandatory:
 
-- `npm run check:hero-commercials`
+- `pnpm --filter @mhc/website run check:hero-commercials`
 
 Validator path:
 
@@ -111,11 +111,11 @@ A failing guardrail blocks deploy.
 4. Run:
 
 ```bash
-npm run check:hero-commercials
-npm run build
+pnpm --filter @mhc/website run check:hero-commercials
+pnpm run build
 ```
 
-5. Verify in browser:
+1. Verify in browser:
 
 - Video appears quickly on first load
 - Audio plays after user interaction

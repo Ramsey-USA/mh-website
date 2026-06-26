@@ -23,19 +23,25 @@ Your development environment automatically runs quality checks **before you comm
 
 **Common failures & fixes:**
 
-| Error                                            | Root Cause                                      | Fix                                                                                                                                                         |
-| ------------------------------------------------ | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `'react' import is duplicated`                   | Two separate import statements from same module | **Merge imports:** Change `import { useState } from 'react'; import type { ReactNode } from 'react';` → `import { useState, type ReactNode } from 'react';` |
-| `Parsing error: The keyword 'await' is reserved` | Missing `async` keyword on function             | Add `async` before the function: `async function myFunc() { await ... }`                                                                                    |
-| `prettier` formatting failure                    | Code doesn't match project style                | Run `npm run lint:fix` to auto-format                                                                                                                       |
-| `Image filename not kebab-case`                  | Added/renamed image with invalid name           | Rename file to lowercase kebab-case: `MyTeamPhoto.jpg` → `my-team-photo.webp`                                                                               |
+- Error: `'react' import is duplicated`
+  Root cause: Two separate import statements from the same module.
+  Fix: Merge imports. Change `import { useState } from 'react'; import type { ReactNode } from 'react';` to `import { useState, type ReactNode } from 'react';`.
+- Error: `Parsing error: The keyword 'await' is reserved`
+  Root cause: Missing `async` keyword on a function.
+  Fix: Add `async` before the function, for example `async function myFunc() { await ... }`.
+- Error: `prettier` formatting failure
+  Root cause: Code does not match project style.
+  Fix: Run `pnpm run lint:fix` to auto-format.
+- Error: `Image filename not kebab-case`
+  Root cause: Added or renamed image with an invalid filename.
+  Fix: Rename to lowercase kebab-case, for example `MyTeamPhoto.jpg` to `my-team-photo.webp`.
 
 **How to avoid (pre-commit):**
 
 ```bash
 # Before you `git add`, fix issues locally
-npm run lint:fix          # Auto-fixes formatting + simple issues
-npm run lint              # Shows remaining issues to fix manually
+pnpm run lint:fix          # Auto-fixes formatting + simple issues
+pnpm run lint              # Shows remaining issues to fix manually
 git add .                 # Now safe to add
 git commit -m "feat: ..."  # Pre-commit hook will pass
 ```
@@ -96,13 +102,13 @@ git commit -m "FEAT: Add Header"     # Uppercase type
 
 ```bash
 # Run type-check locally BEFORE pushing
-npm run type-check
+pnpm run type-check
 
 # If it passes, push is safe
 git push origin main
 
 # If it fails, fix issues then retry
-npm run type-check      # Validate fixes
+pnpm run type-check      # Validate fixes
 git push origin main    # Now safe
 ```
 
@@ -144,7 +150,7 @@ git push origin main    # Now safe
 
 ```mermaid
 graph TD
-    A["Start: Make Changes"] --> B["Run: npm run lint:fix"]
+    A["Start: Make Changes"] --> B["Run: pnpm run lint:fix"]
     B --> C{"Linting Issues Remain?"}
     C -->|Yes| D["Fix Manually + Review"]
     D --> B
@@ -158,7 +164,7 @@ graph TD
     J --> F
     I -->|Passes| K["Push: git push origin main"]
     K --> L{"Pre-Push Type-Check Runs"}
-    L -->|Fails| M["Run: npm run type-check<br/>Fix Issues"]
+    L -->|Fails| M["Run: pnpm run type-check<br/>Fix Issues"]
     M --> K
     L -->|Passes| N["✅ Pushed to Remote"]
 ```
@@ -172,18 +178,18 @@ graph TD
 git pull origin main
 
 # Work on feature
-npm run dev              # Start dev server
+pnpm run dev              # Start dev server
 # Make changes in your editor
 # (ESLint + Prettier run automatically)
 
 # Before lunch: Commit work
-npm run lint:fix        # Clean up formatting
-npm run type-check      # Catch type errors early
+pnpm run lint:fix        # Clean up formatting
+pnpm run type-check      # Catch type errors early
 git add .
 git commit -m "feat: implement new feature"
 
 # End of day: Push when ready for review
-npm run build           # Final build test
+pnpm run build           # Final build test
 git push origin main    # Pre-push hook validates
 # If pre-push hook fails, type-check locally, fix, retry
 ```
@@ -199,8 +205,8 @@ git push origin main    # Pre-push hook validates
 3. **Make the change**
 4. **Re-run the local check** that failed:
    ```bash
-   npm run lint:fix       # For ESLint issues
-   npm run type-check     # For TypeScript issues
+   pnpm run lint:fix       # For ESLint issues
+   pnpm run type-check     # For TypeScript issues
    ```
 5. **Retry the commit/push**:
    ```bash
@@ -230,7 +236,7 @@ git push --no-verify origin main
 
 - **ESLint rule unclear?** → See [eslint.config.mjs](../eslint.config.mjs) comments
 - **Commit format questions?** → [Conventional Commits](https://www.conventionalcommits.org/)
-- **TypeScript errors?** → Run `npm run type-check` for details; use [TypeScript handbook](https://www.typescriptlang.org/docs/)
+- **TypeScript errors?** → Run `pnpm run type-check` for details; use [TypeScript handbook](https://www.typescriptlang.org/docs/)
 - **Still stuck?** → Check [Contributing Guide](../contributing.md) for full workflow
 
 Happy coding! 🚀

@@ -442,7 +442,7 @@ BEFORE_SIZE=$(wc -c < .next/static/**/*.js | head -1)
 echo "Before: $BEFORE_SIZE bytes"
 
 # After optimization
-npm run build
+pnpm run build
 AFTER_SIZE=$(wc -c < .next/static/**/*.js | head -1)
 echo "After: $AFTER_SIZE bytes"
 
@@ -451,7 +451,7 @@ IMPROVEMENT=$(( (BEFORE_SIZE - AFTER_SIZE) * 100 / BEFORE_SIZE ))
 echo "Improvement: $IMPROVEMENT%"
 
 # Run Lighthouse
-npm run lighthouse:guide
+pnpm --filter @mhc/website run lighthouse:guide
 ```
 
 ### 6.2 Target Metrics
@@ -499,8 +499,8 @@ npm run lighthouse:guide
 
 ### Before Deployment
 
-- [ ] Run full test suite: `npm run test:ci`
-- [ ] Check bundle size locally: `npm run build:analyze`
+- [ ] Run full test suite: `pnpm run test:ci`
+- [ ] Check bundle size locally: `pnpm --filter @mhc/website run build:analyze`
 - [ ] Profile with DevTools Lighthouse
 - [ ] Test on 4G network throttling
 - [ ] Test on slow mobile device
@@ -522,9 +522,9 @@ npm run lighthouse:guide
 ### Monthly Performance Review
 
 ```bash
-npm run lighthouse:guide
-npm run check-bundle-size
-npm run profile-slow-operations
+pnpm --filter @mhc/website run lighthouse:guide
+pnpm --filter @mhc/website run bundle:size
+pnpm --filter @mhc/website run test:performance
 ```
 
 ### Set up Continuous Monitoring
@@ -546,9 +546,9 @@ if ("web-vital" in window) {
 ## Related Documentation
 
 - [Large Component Refactoring Guide](./LARGE_COMPONENT_REFACTORING.md)
-- [Image Optimization Best Practices](./images-optimization.md)
-- [Bundle Analysis & Optimization](./bundle-analysis.md)
-- [Testing Performance Benchmarks](./performance-testing.md)
+- [Image Optimization Best Practices](../technical/automatic-media-optimization.md)
+- [Bundle Analysis & Optimization](../performance/page-performance-audit.md)
+- [Testing Performance Benchmarks](./testing-coverage-next-steps.md)
 
 ---
 

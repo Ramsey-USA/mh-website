@@ -168,9 +168,9 @@ grep -r "Card" src/components/
 **After making changes**:
 
 ```bash
-npm run type-check  # Verify TypeScript
-npm run lint        # Verify ESLint rules
-npm run dev         # Test in browser
+pnpm run type-check  # Verify TypeScript
+pnpm run lint        # Verify ESLint rules
+pnpm run dev         # Test in browser
 ```
 
 ### ❌ NEVER DO
@@ -423,7 +423,7 @@ import { Button } from "../../components/ui";
 **Prevention**:
 
 - Use `@/` imports everywhere
-- Run `npm run type-check` after refactoring
+- Run `pnpm run type-check` after refactoring
 
 ### Bug Pattern 3: Hydration Mismatches
 

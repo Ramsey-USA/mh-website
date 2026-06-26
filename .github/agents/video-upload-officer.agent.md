@@ -82,7 +82,7 @@ CRF by 6 (max VP9: 63, max H.264: 51) and re-encode until it fits.
    - Re-encode the MP4 in-place if it exceeds 15 MB.
    - Generate `poster-{name}.jpg`.
 6. For any existing `.webm` or `.mp4` touched in this session: re-pack if over budget
-   using `npm run optimize:videos -- --force` or an equivalent FFmpeg pipeline.
+   using `pnpm --filter @mhc/website run optimize:videos -- --force` or an equivalent FFmpeg pipeline.
 7. Validate no broken references remain in changed files.
 8. Re-run discovery to confirm normalization is complete and stable.
 

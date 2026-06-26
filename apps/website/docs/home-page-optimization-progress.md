@@ -7,7 +7,7 @@
 - Latest committed Lighthouse artifacts are split between:
   - top-level baseline snapshots in `lighthouse-results/*.json` (April 16, 2026)
   - extended retest bundle in `lighthouse-results/retest-2026-05-17-all-final/`
-- For a fresh current-state Home score, run `npm run lighthouse:home:local` from `apps/website` and append the resulting report paths here.
+- For a fresh current-state Home score, run `pnpm --filter @mhc/website run lighthouse:home:local` from `apps/website` and append the resulting report paths here.
 
 ## Overview
 
@@ -234,11 +234,11 @@ This file tracks the progress of optimizations made to the Home page of the webs
 
 ### Working Commands
 
-- Build: `npm run build`
-- One-command local run (starts server, runs Home audit, stops server): `npm run lighthouse:home:local`
-- Home median benchmark (3 repeated runs + median summary): `npm run lighthouse:home:median`
-- Direct audit (server already running): `npm run lighthouse:home`
-- LHCI single URL collect: `npm run lhci:collect:home`
+- Build: `pnpm run build`
+- One-command local run (starts server, runs Home audit, stops server): `pnpm --filter @mhc/website run lighthouse:home:local`
+- Home median benchmark (3 repeated runs + median summary): `pnpm --filter @mhc/website run lighthouse:home:median`
+- Direct audit (server already running): `pnpm --filter @mhc/website run lighthouse:home`
+- LHCI single URL collect: `pnpm --filter @mhc/website run lhci:collect:home`
 
 ## Pending Tasks
 

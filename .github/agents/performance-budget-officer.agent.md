@@ -34,8 +34,8 @@ Protect loading speed and interaction quality by enforcing practical performance
 
 ## Required Checks
 
-- Image Size Budget: verify every WebP in `public/images/` is ≤ 500 KB. Run `find public/images -name "*.webp" -size +500k` to detect violations. Any file over the limit must be re-packed via `npm run optimize:images -- --force` before the PR is merged.
-- Video Size Budget: verify every WebM in `public/videos/` is ≤ 10 MB and every MP4 is ≤ 15 MB. Run `find public/videos -name "*.webm" -size +10M` and `find public/videos -name "*.mp4" -size +15M` to detect violations. Re-encode via `npm run optimize:videos -- --force`.
+- Image Size Budget: verify every WebP in `public/images/` is ≤ 500 KB. Run `find public/images -name "*.webp" -size +500k` to detect violations. Any file over the limit must be re-packed via `pnpm --filter @mhc/website run optimize:images -- --force` before the PR is merged.
+- Video Size Budget: verify every WebM in `public/videos/` is ≤ 10 MB and every MP4 is ≤ 15 MB. Run `find public/videos -name "*.webm" -size +10M` and `find public/videos -name "*.mp4" -size +15M` to detect violations. Re-encode via `pnpm --filter @mhc/website run optimize:videos -- --force`.
 - Payload Risk: identify large media and non-critical asset impact.
 - Bundle Risk: identify dependency or module changes that increase shipped JS.
 - CWV Risk: identify likely impacts to LCP, INP, and CLS.

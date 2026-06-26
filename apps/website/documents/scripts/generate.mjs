@@ -3750,6 +3750,17 @@ async function renderFormCover(form, brandedTemplate, coversDir) {
       ? mishTargets.map((t) => t.label).join(" · ")
       : form.manualSection || "—";
 
+  const ownerLabel =
+    form.category === "mhc-cat6-project-admin"
+      ? "Owner (Jeremy Thamert)"
+      : form.owner || "Safety Officer (Matt Ramsey)";
+
+  const retentionLabel =
+    form.category === "mhc-cat6-project-admin"
+      ? "Forward original to Project Engineer; retain a controlled copy in the project office file."
+      : form.retention ||
+        "Retain completed form per project and company records policy.";
+
   const tokens = {
     "{{FORM_ID}}": escapeHtml(form.id || "FORM"),
     "{{FORM_TITLE}}": escapeHtml(form.title || "Untitled Form"),
@@ -3759,7 +3770,8 @@ async function renderFormCover(form, brandedTemplate, coversDir) {
     "{{FORM_REVISION}}": escapeHtml(form.revision || "—"),
     "{{FORM_EFFECTIVE_DATE}}": escapeHtml(form.effectiveDate || "—"),
     "{{FORM_MANUAL_SECTION}}": escapeHtml(sectionLabels),
-    "{{FORM_OWNER}}": escapeHtml(form.owner || "Safety Officer (Matt Ramsey)"),
+    "{{FORM_OWNER}}": escapeHtml(ownerLabel),
+    "{{FORM_RETENTION}}": escapeHtml(retentionLabel),
     "{{QR_STRIP_HTML}}": qrStripHtml,
   };
   let html = brandedTemplate;

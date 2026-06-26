@@ -857,13 +857,13 @@ grep -L "xs:text-" src/app/*/page.tsx
 
 ```bash
 # Run type checking
-npm run type-check
+pnpm run type-check
 
 # Run linting
-npm run lint
+pnpm run lint
 
 # Build test
-npm run build
+pnpm run build
 
 # Branding compliance check
 ./scripts/validation/check-branding-compliance.sh

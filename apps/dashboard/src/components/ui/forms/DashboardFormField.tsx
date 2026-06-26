@@ -29,10 +29,6 @@ export const DASHBOARD_LABEL_CLASS =
 export const DASHBOARD_SECTION_HEADER_CLASS =
   "text-sm font-black text-brand-secondary uppercase tracking-wider";
 
-/** Table header styling */
-export const DASHBOARD_TABLE_HEADER_CLASS =
-  "text-xs font-black text-gray-400 uppercase tracking-wider";
-
 // ─── DashboardFormField Component ─────────────────────────────────────────────
 
 interface DashboardFormFieldProps extends InputHTMLAttributes<HTMLInputElement> {

@@ -400,9 +400,8 @@ export default async function SafetyManualClusterPage({
                 {previewHtml ? (
                   <div
                     className="safety-manual-preview prose prose-sm max-w-none text-gray-700 dark:prose-invert dark:text-gray-300"
-                    // Allowlisted server-extracted HTML — see
-                    // src/lib/data/safety-manual-preview.ts for the strict
-                    // heading allowlist + attribute stripping.
+                    // Allowlisted server-extracted HTML from
+                    // documents/scripts/build-safety-manual-public.mjs.
                     dangerouslySetInnerHTML={{ __html: previewHtml }}
                   />
                 ) : (

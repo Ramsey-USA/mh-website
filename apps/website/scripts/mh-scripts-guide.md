@@ -5,7 +5,7 @@
 
 Selected automation scripts for the MH Construction website development workflow.
 
-Use `package.json` as the canonical source for `npm run ...` entry points. This guide focuses on the most useful direct-run scripts and the current folder layout.
+Use `package.json` as the canonical source for `pnpm run ...` entry points. This guide focuses on the most useful direct-run scripts and the current folder layout.
 
 ## Directory Structure
 
@@ -89,13 +89,13 @@ Use `package.json` as the canonical source for `npm run ...` entry points. This 
 bash scripts/analysis/analyze-content-quality.sh
 
 # cleanup-operations
-npm run clean
+pnpm --filter @mhc/website run clean
 
 # markdown-processing
-npm run lint:markdown:fix
+pnpm --filter @mhc/website run lint:markdown:fix
 
 # image-optimization
-npm run optimize:images
+pnpm --filter @mhc/website run optimize:images
 
 # domain-setup-check
 bash scripts/utilities/check-domain-setup.sh
@@ -108,18 +108,20 @@ bash scripts/validation/health-check-final.sh
 
 Access these scripts via npm:
 
-- `npm run qr:generate` - Generate all QR codes (color & B&W variants)
-- `npm run qr:test` - Test QR code output
-- `npm run qr:check` - Verify QR code presence
-- `npm run clean` - Run cleanup script
-- `npm run optimize:images` - Optimize images
-- `npm run optimize:videos` - Optimize videos
-- `npm run audit:images` - Audit image optimization opportunities
-- `npm run lint:markdown` - Lint markdown files
-- `npm run lint:markdown:fix` - Auto-fix markdown issues
-- `npm run quality:check` - Run full quality scan
-- `npm run check:translations` - Validate translations
-- `npm run docs:release` - Generate, merge, and publish document bundles
+Access these scripts via pnpm:
+
+- `pnpm --filter @mhc/website run qr:generate` - Generate all QR codes (color & B&W variants)
+- `pnpm --filter @mhc/website run qr:test` - Test QR code output
+- `pnpm --filter @mhc/website run qr:check` - Verify QR code presence
+- `pnpm --filter @mhc/website run clean` - Run cleanup script
+- `pnpm --filter @mhc/website run optimize:images` - Optimize images
+- `pnpm --filter @mhc/website run optimize:videos` - Optimize videos
+- `pnpm --filter @mhc/website run audit:images` - Audit image optimization opportunities
+- `pnpm run lint:markdown` - Lint markdown files
+- `pnpm --filter @mhc/website run lint:markdown:fix` - Auto-fix markdown issues
+- `pnpm --filter @mhc/website run quality:check` - Run full quality scan
+- `pnpm --filter @mhc/website run check:translations` - Validate translations
+- `pnpm --filter @mhc/website run docs:release` - Generate, merge, and publish document bundles
 
 Scripts without npm aliases (run directly):
 

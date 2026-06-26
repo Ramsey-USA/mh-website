@@ -1063,25 +1063,10 @@ export const employeeManualSections: DocumentEntry[] = [];
 
 export const joiningProgramDocs: DocumentEntry[] = [];
 
-export const allHubDocuments: DocumentEntry[] = [
-  ...manuals,
-  ...forms,
-  ...employeeManualSections,
-  ...joiningProgramDocs,
-];
-
 // ── Combined export ───────────────────────────────────────────────────────────
 
 export const allDocuments: DocumentEntry[] = [...manuals, ...forms];
 
 export function getDocumentById(id: string): DocumentEntry | undefined {
   return allDocuments.find((d) => d.id === id);
-}
-
-export function getSectionBySlug(
-  documentId: string,
-  slug: string,
-): DocumentSection | undefined {
-  const doc = getDocumentById(documentId);
-  return doc?.sections?.find((s) => s.slug === slug);
 }

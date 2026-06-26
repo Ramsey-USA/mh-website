@@ -27,6 +27,8 @@ const customJestConfig = {
 
   // Module name mapping (path aliases)
   moduleNameMapper: {
+    "^@opennextjs/cloudflare$":
+      "<rootDir>/apps/website/test/mocks/opennext-cloudflare.js",
     "^next-intl$": "<rootDir>/apps/website/test/mocks/next-intl.js",
     "^next-intl/server$":
       "<rootDir>/apps/website/test/mocks/next-intl-server.js",

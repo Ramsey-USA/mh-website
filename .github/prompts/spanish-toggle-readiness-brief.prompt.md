@@ -15,7 +15,7 @@ Required workflow:
 3. Verify global-header labels and helper copy (language toggle, phone CTA, theme/menu copy where applicable) present expected Spanish content when locale is es.
 4. Verify navigation, key CTA text, and trust/accreditation content present expected Spanish content when locale is es.
 5. Verify factual veteran-owned framing remains consistent in both languages where ownership status is referenced.
-6. Run npm run check:translations and report any missing or fallback keys as blocking findings.
+6. Run pnpm --filter @mhc/website run check:translations and report any missing or fallback keys as blocking findings.
 7. Verify accessibility integrity for language controls and localized labels.
 
 Output exactly this report format:

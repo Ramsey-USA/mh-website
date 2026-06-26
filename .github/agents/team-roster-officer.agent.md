@@ -228,5 +228,5 @@ credential pathways.
 - [ ] Member appears in `vintageTeamMembers` array in `vintage-team.ts`
 - [ ] `certifications` contains only real credentials (no placeholder labels like `Cert A-E`)
 - [ ] Team profile section color changes are made through `TEAM_PROFILE_SECTION_THEME` in `TeamProfileSection.tsx`
-- [ ] Run `npm run type-check` — no TypeScript errors
-- [ ] Run `npm run lint` — no lint errors
+- [ ] Run `pnpm run type-check` — no TypeScript errors
+- [ ] Run `pnpm run lint` — no lint errors

@@ -11,10 +11,10 @@
 
 ```bash
 # Test PWA functionality
-npm run test:pwa
+pnpm --filter @mhc/website run test:pwa
 
 # Open Lighthouse PWA audit guidance
-npm run lighthouse:guide
+pnpm --filter @mhc/website run lighthouse:guide
 
 # Check service worker status
 # Open DevTools → Application → Service Workers
@@ -94,7 +94,7 @@ Then check browser console for `[SW]` prefixed logs.
 ### Pre-Deployment
 
 - [ ] Update cache version numbers
-- [ ] Run `npm run test:pwa` (should pass 50/50)
+- [ ] Run `pnpm --filter @mhc/website run test:pwa` (should pass 50/50)
 - [ ] Test offline mode (DevTools → Network → Offline)
 - [ ] Test installation prompt
 - [ ] Test update notification
@@ -296,7 +296,7 @@ Caution: Only use for critical issues!
 
 ---
 
-**Need Help?** Check the service worker at `public/sw.js` or run `npm run test:pwa`
+**Need Help?** Check the service worker at `public/sw.js` or run `pnpm --filter @mhc/website run test:pwa`
 
 ---
 

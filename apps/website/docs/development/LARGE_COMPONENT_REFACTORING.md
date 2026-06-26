@@ -599,7 +599,7 @@ export function CareersPageClient() {
 ### Bundle Size Impact
 
 ```bash
-npm run bundle:size
+pnpm --filter @mhc/website run bundle:size
 ```
 
 **Target:**
@@ -611,8 +611,8 @@ npm run bundle:size
 ### Performance Impact
 
 ```bash
-npm run build:profile
-npm run lighthouse:guide
+pnpm --filter @mhc/website run build:profile
+pnpm --filter @mhc/website run lighthouse:guide
 ```
 
 **Expected Improvements:**
@@ -625,7 +625,8 @@ npm run lighthouse:guide
 ### Maintainability Metrics
 
 ```bash
-npm run complexity-check  # if configured
+pnpm run type-check
+pnpm run lint
 ```
 
 **Expected:**
@@ -668,10 +669,9 @@ src/app/careers/
 
 ## Related Documentation
 
-- [Performance Optimization](./performance-optimization.md)
-- [Component Patterns](./patterns/component-pattern-strategy.md)
+- [Performance Optimization](./PERFORMANCE_OPTIMIZATION_STRATEGY.md)
+- [Component Patterns](../technical/patterns/component-pattern-strategy.md)
 - [Testing Guide](./testing-coverage-next-steps.md)
-- [Code Organization](./code-organization.md)
 
 ---
 

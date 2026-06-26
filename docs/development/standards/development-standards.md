@@ -758,8 +758,8 @@ Before committing code, ensure:
   - [ ] Cards use `getCardClassName()` from `@/lib/styles/card-variants`
   - [ ] Grids use `gridPresets` from `@/lib/styles/layout-variants`
   - [ ] Sections use `Section` and `SectionHeader` components
-- [ ] `npm run lint` passes with no errors
-- [ ] `npm run type-check` passes
+- [ ] `pnpm run lint` passes with no errors
+- [ ] `pnpm run type-check` passes
 - [ ] Added or renamed image files use lowercase kebab-case filenames (pre-commit enforced)
 - [ ] Responsive design tested (mobile, tablet, desktop)
 - [ ] Animations respect `prefers-reduced-motion`

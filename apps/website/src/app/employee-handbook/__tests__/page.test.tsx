@@ -43,32 +43,30 @@ describe("EmployeeHandbookPage", () => {
   it("renders the main heading", async () => {
     await renderPage();
     expect(
-      screen.getByRole("heading", {
-        name: /employeeHandbook.placeholder.title/i,
-      }),
+      screen.getByRole("heading", { level: 1, name: /employee handbook/i }),
     ).toBeInTheDocument();
   });
 
-  it("renders the status and next step sections", async () => {
+  it("renders handbook sections and forms blocks", async () => {
     await renderPage();
     expect(
-      screen.getByRole("heading", { name: /employeeHandbook.status.title/i }),
+      screen.getByRole("heading", { name: /handbook sections/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /employeeHandbook.nextStep.title/i }),
+      screen.getByRole("heading", { name: /handbook forms/i }),
     ).toBeInTheDocument();
   });
 
-  it("links back to Operations Hub and Field Resources", async () => {
+  it("links to handbook PDF and back to resources", async () => {
     await renderPage();
     expect(
       screen.getByRole("link", {
-        name: /employeeHandbook.cta.backToHub/i,
+        name: /download handbook pdf/i,
       }),
-    ).toHaveAttribute("href", "/hub");
+    ).toHaveAttribute("href", "/docs/employee/employee-handbook-2026.pdf");
     expect(
       screen.getByRole("link", {
-        name: /employeeHandbook.cta.viewResources/i,
+        name: /back to resources/i,
       }),
     ).toHaveAttribute("href", "/resources");
   });

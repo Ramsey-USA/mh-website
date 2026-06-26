@@ -3,7 +3,7 @@ title: Forms Branding Guardrail — Implementation Guide
 description: Complete guide to enforcing letterhead-aligned branding across all form PDFs
 ---
 
-# Forms Branding Guardrail — Implementation Guide
+## Forms Branding Guardrail — Implementation Guide
 
 ## Overview
 

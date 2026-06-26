@@ -78,7 +78,7 @@ pnpm install --frozen-lockfile
 ### Step 2: Type Checking
 
 ```bash
-npm run type-check
+pnpm run type-check
 ```
 
 **Command:** `tsc --noEmit`
@@ -94,7 +94,7 @@ npm run type-check
 ### Step 3: Linting
 
 ```bash
-npm run lint
+pnpm run lint
 ```
 
 **Command:** `eslint . --max-warnings 0`
@@ -112,7 +112,7 @@ npm run lint
 ### Step 4: Code Formatting
 
 ```bash
-npm run format:check
+pnpm run format:check
 ```
 
 **Command:** `prettier . --check`
@@ -122,7 +122,7 @@ npm run format:check
 ### Step 5: Build Compilation
 
 ```bash
-npm run build:lowmem
+pnpm --filter @mhc/website run build:lowmem
 ```
 
 **Environment Variables:**
@@ -148,7 +148,7 @@ npm run build:lowmem
 ### Step 6: Artifact Staging
 
 ```bash
-npm run build:profile  # Optional: Profile bundle size
+pnpm --filter @mhc/website run build:profile  # Optional: Profile bundle size
 ```
 
 Uploads build artifacts to GitHub for analysis.
@@ -160,7 +160,7 @@ Uploads build artifacts to GitHub for analysis.
 ### Unit Tests
 
 ```bash
-npm run test:ci
+pnpm run test:ci
 ```
 
 **Configuration:**
@@ -215,7 +215,7 @@ If tests fail:
 ### 1. Dependency Audit
 
 ```bash
-npm audit --audit-level=moderate
+pnpm run audit:ci
 ```
 
 **Checks:**
@@ -229,7 +229,7 @@ npm audit --audit-level=moderate
 ### 2. Type Safety Audit
 
 ```bash
-npm run type-check
+pnpm run type-check
 ```
 
 **Checks:**
@@ -283,7 +283,7 @@ Detects:
 #### 1. Build Optimization
 
 ```bash
-npm run build:lowmem
+pnpm --filter @mhc/website run build:lowmem
 ```
 
 Generates optimized build for Cloudflare Workers.
@@ -312,7 +312,7 @@ npx wrangler deploy
 - `SAFETY_INTAKE` - R2 bucket (safety docs)
 - `RESUMES` - R2 bucket (job applications)
 
-#### 3. Verifyth Deployment
+#### 3. Verify Deployment
 
 ```bash
 wrangler deployments list
@@ -428,21 +428,21 @@ Automatically run before each commit:
 
 ```bash
 # .husky/pre-commit
-npm run format:fix
-npm run lint:fix
-npm run type-check
+pnpm run format
+pnpm run lint:fix
+pnpm run type-check
 ```
 
 Install hooks:
 
 ```bash
-npm run prepare
+pnpm run prepare
 ```
 
 ### Development Build
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Starts:
@@ -454,20 +454,20 @@ Starts:
 ### Production Build (Local)
 
 ```bash
-npm run build
-npm run preview  # Run production build locally
+pnpm run build
+pnpm --filter @mhc/website run start  # Run production build locally
 ```
 
 Useful for:
 
-- Testing production buils locally
+- Testing production builds locally
 - Debugging build issues
 - Performance profiling
 
 ### Lighthouse Testing
 
 ```bash
-npm run lighthouse:guide
+pnpm --filter @mhc/website run lighthouse:guide
 ```
 
 Generates:
@@ -490,7 +490,7 @@ Results saved to `./lighthouse-results/`
 If local build fails:
 
 ```bash
-NODE_OPTIONS=--max-old-space-size=4096 npm run build
+NODE_OPTIONS=--max-old-space-size=4096 pnpm run build
 ```
 
 ### Tests Fail in CI but Pass Locally
@@ -506,7 +506,7 @@ NODE_OPTIONS=--max-old-space-size=4096 npm run build
 ```bash
 # Use same environment as CI
 node --version   # Match GitHub Actions version
-npm test -- --verbose
+pnpm run test -- --verbose
 ```
 
 ### Deployment Hangs
@@ -526,7 +526,7 @@ Reduce build scope:
 
 ```bash
 # Build specific entrypoint only
-npm run build -- --target=edge
+pnpm --filter @mhc/website run build:next
 ```
 
 ---
@@ -544,7 +544,7 @@ npm run build -- --target=edge
 ### Bundle Size
 
 ```bash
-npm run bundle:size
+pnpm --filter @mhc/website run bundle:size
 ```
 
 Current breakdown:
@@ -563,7 +563,7 @@ Current breakdown:
    - Rotate keys regularly
 
 2. ✅ **Review dependencies**
-   - `npm audit` before merge
+   - `pnpm run audit:ci` before merge
    - Pin versions in lock file
 
 3. ✅ **Enforce branch protection**
@@ -583,9 +583,9 @@ Current breakdown:
 ## Related Documentation
 
 - [README - Quick Start](../../README.md)
-- [Testing Guide](./testing-coverage-next-steps.md)
-- [Development Standards](./standards/README.md)
-- [Security Policy](../../SECURITY.md)
+- [Testing Guide](../development/testing-coverage-next-steps.md)
+- [Development Standards](../development/standards/index.md)
+- [Security Standards](../technical/form-security-standards.md)
 
 ---
 

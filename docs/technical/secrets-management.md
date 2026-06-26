@@ -98,7 +98,7 @@ nano .env.local
 git status  # Should NOT appear
 
 # 4. Test the application
-npm run dev
+pnpm run dev
 ```
 
 ### Step 2: Staging/Production
@@ -348,7 +348,7 @@ export default {
 
 ```bash
 # Verify environment variables are loaded
-npm run dev
+pnpm run dev
 
 
 # Check console for any missing variables

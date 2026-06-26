@@ -36,7 +36,7 @@ Ensure complete, reliable Spanish toggle behavior across the MH website with pag
 - Page Inventory Integrity: build an explicit list of user-facing routes under apps/website/src/app that should support bilingual content.
 - Locale Wiring Integrity: verify locale cookie and request-level message loading align for en/es.
 - Toggle Runtime Integrity: verify UI controls switch locale and refresh localized content on each route in the page inventory.
-- Translation Coverage Integrity: run npm run check:translations from apps/website and report missing keys.
+- Translation Coverage Integrity: run pnpm --filter @mhc/website run check:translations from apps/website and report missing keys.
 - UX Language Integrity: verify nav labels, key CTA copy, and trust surfaces render expected language on each route.
 - Accessibility Integrity: verify toggle controls expose clear accessible labels in both languages.
 - Metadata Integrity: verify page title/description and major structured content are language-consistent where localization is expected.
@@ -44,7 +44,7 @@ Ensure complete, reliable Spanish toggle behavior across the MH website with pag
 ## Standard Procedure
 
 1. Discover routes from apps/website/src/app and create a page inventory table.
-2. Run translation parity validation: npm run check:translations (from apps/website).
+2. Run translation parity validation: pnpm --filter @mhc/website run check:translations (from apps/website).
 3. For each route, validate toggle availability and EN/ES rendering status.
 4. Record page-level results in a Coverage Matrix with PASS, FAIL, or N/A (with reason).
 5. Propose concrete remediation for every FAIL item.

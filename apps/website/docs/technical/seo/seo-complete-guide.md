@@ -807,7 +807,7 @@ export default function ServicesPage() {
 node scripts/seo-audit.js
 
 # Build and check SEO
-npm run build && node scripts/seo-audit.js
+pnpm run build && node scripts/seo-audit.js
 ```
 
 ### SEO Utility Functions
@@ -870,7 +870,7 @@ node scripts/seo-audit.js > monthly-seo-report.txt
 
 Before deploying changes:
 
-- [ ] Run `npm run build` (must succeed)
+- [ ] Run `pnpm run build` (must succeed)
 - [ ] Run `node scripts/seo-audit.js` (all pages >70 score)
 - [ ] Check sitemap includes all new pages
 - [ ] Verify metadata on new pages

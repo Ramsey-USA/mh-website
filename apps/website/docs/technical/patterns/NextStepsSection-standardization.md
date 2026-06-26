@@ -228,7 +228,7 @@ Potential improvements to consider:
 
 1. Make changes in `/src/components/shared-sections/NextStepsSection.tsx`
 2. Test on all pages using the component (listed above)
-3. Run build to verify: `npm run build`
+3. Run build to verify: `pnpm run build`
 4. Update this documentation if props or usage patterns change
 
 ### Adding to New Pages

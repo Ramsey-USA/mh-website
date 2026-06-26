@@ -53,7 +53,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 - [x] Replace the 4 repeated `<Image fill>` cards in "Strategic Veteran Partnerships" with a single section-level CSS background or distinct images
 - [x] Replace section-level `FadeInWhenVisible` wrappers with `.scroll-reveal` CSS class — keep FIW only on individual stat cards and CTAs (aim: ≤5 FIW total)
 - [x] Verify no Lighthouse LCP regression after changes — Apr 17 run: **Perf 96 / A11y 97 / BP 77 / SEO 100** ✓
-- [x] Build passes: `npm run build:next`
+- [x] Build passes: `pnpm --filter @mhc/website run build:next`
 
 ---
 
@@ -76,7 +76,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 - [x] Reduce `DiagonalStripePattern` + `BrandColorBlobs` to once per page at layout level, not per-section
 - [x] Replace section-level FadeInWhenVisible with `.scroll-reveal` CSS (aim: ≤6 FIW total)
 - [ ] Confirm modal open/close still works after extraction
-- [x] Build passes: `npm run build:next`
+- [x] Build passes: `pnpm --filter @mhc/website run build:next`
 - ⚠️ Apr 17 Lighthouse run: **Perf 60** (below 90 target)
   - Root causes identified Apr 17: **CLS 1.030** (TestimonialGrid injected client-side, pushing footer) + `errors-in-console` (geolocation API 500 + SW registration 403)
   - **Fixed Apr 17:** `TestimonialGrid` changed to `ssr: true` to eliminate CLS; geolocation API catch-all changed to 200 fallback; SW registration now probes `/sw.js` before registering (avoids 403 console error)
@@ -98,7 +98,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 - [x] Replace section-level FadeInWhenVisible with `.scroll-reveal` CSS (aim: ≤5 FIW)
 - [x] Audit the 10 dynamic imports — `AboutHero` is static; all dynamic imports are below-fold sections ✓
 - [x] Check whether DiagonalStripePattern/BrandColorBlobs are used 4× or consolidated
-- [x] Build passes: `npm run build:next`
+- [x] Build passes: `pnpm --filter @mhc/website run build:next`
 
 ---
 
@@ -116,7 +116,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 - [x] Hero is CSS gradient — no `<Image>` above fold; 7 images are vendor logos rendered below the fold, no `priority` needed
 - [x] Replace section-level FadeInWhenVisible with `.scroll-reveal` CSS (aim: ≤4 FIW)
 - [x] Consolidate background decorators — render once per section max
-- [x] Build passes: `npm run build:next`
+- [x] Build passes: `pnpm --filter @mhc/website run build:next`
 
 ---
 
@@ -132,7 +132,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 
 - [x] Replace section-level FadeInWhenVisible with `.scroll-reveal` CSS (aim: ≤3 FIW)
 - [x] Consolidate background decorators
-- [x] Build passes: `npm run build:next`
+- [x] Build passes: `pnpm --filter @mhc/website run build:next`
 
 ---
 
@@ -159,7 +159,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 **Audit checklist:**
 
 - [x] Replace section-level FadeInWhenVisible with `.scroll-reveal` CSS (aim: ≤3 FIW)
-- [x] Build passes: `npm run build:next`
+- [x] Build passes: `pnpm --filter @mhc/website run build:next`
 
 ---
 
@@ -178,7 +178,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 - [x] Consolidate background decorators — 10× is excessive, render once at section level
 - [x] Replace section-level FadeInWhenVisible with `.scroll-reveal` CSS (aim: ≤3 FIW)
 - [x] Confirmed the `priority` image (safety-culture.webp) is in the hero section at the very top of the page — correctly placed
-- [x] Build passes: `npm run build:next`
+- [x] Build passes: `pnpm --filter @mhc/website run build:next`
 
 ---
 
@@ -196,7 +196,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 - [x] Hero is `ServicesHero` component (CSS gradient only, no `<Image>`) — no `priority` needed
 - [x] Audit 10 dynamic imports — `ServicesHero` is static; all dynamic imports are below-fold sections ✓
 - [x] Replace section-level FadeInWhenVisible with `.scroll-reveal` CSS (aim: ≤3 FIW)
-- [x] Build passes: `npm run build:next`
+- [x] Build passes: `pnpm --filter @mhc/website run build:next`
 
 ---
 
@@ -212,7 +212,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 
 - [x] Inspect dynamic components for images — hero is CSS gradient, no `<Image>` tags above fold
 - [x] Consolidate background decorators
-- [x] Build passes: `npm run build:next`
+- [x] Build passes: `pnpm --filter @mhc/website run build:next`
 
 ---
 
@@ -229,7 +229,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 
 - [x] Hero is CSS gradient — no `<Image>` above fold; vendor logos below fold don't need priority
 - [x] Consolidate background decorators — removed 2 section-level pairs + hero FIW
-- [x] Build passes: `npm run build:next`
+- [x] Build passes: `pnpm --filter @mhc/website run build:next`
 
 ---
 
@@ -245,7 +245,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 
 - [x] Confirm `useSearchParams` is wrapped in `<Suspense>` (App Router requirement) — uses `window.location` in `useEffect`, no `useSearchParams` hook present
 - [x] No other action needed — dynamic imports are correctly structured
-- [x] Build passes: `npm run build:next`
+- [x] Build passes: `pnpm --filter @mhc/website run build:next`
 
 ---
 
@@ -259,7 +259,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 **Audit checklist:**
 
 - [x] Audit `src/app/contact/ContactPageClient.tsx` — map iframe should lazy-load on user interaction (facade pattern) — `MapFacade` component already implemented
-- [x] Build passes: `npm run build:next`
+- [x] Build passes: `pnpm --filter @mhc/website run build:next`
 
 ---
 
@@ -289,7 +289,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 
 - [x] Confirm `HeroSection` and `CoreValuesSection` (static imports) contain the LCP image with `priority` — hero is CSS-only gradient, no `<Image>`, LCP is text ✓
 - [x] No FIW directly in page — verify sub-components are not overusing it
-- [x] Build passes: `npm run build:next`
+- [x] Build passes: `pnpm --filter @mhc/website run build:next`
 
 ---
 

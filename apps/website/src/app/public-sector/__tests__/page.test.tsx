@@ -179,7 +179,9 @@ describe("PublicSectorPage", () => {
   it("displays the Government hero tagline", async () => {
     await renderPublicSectorPage();
     expect(
-      screen.getByText("Mission-Ready, Compliance-Driven"),
+      screen.getByText(
+        "Mission-Ready Construction Operations - Federal Compliance-Driven",
+      ),
     ).toBeInTheDocument();
   });
 

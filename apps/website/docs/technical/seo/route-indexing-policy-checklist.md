@@ -166,15 +166,15 @@ export default function LegacyRoutePage() {
 Run from `apps/website`:
 
 ```bash
-npm run seo:routes:sync
-npm run seo:routes:check
+pnpm --filter @mhc/website run seo:routes:sync
+pnpm --filter @mhc/website run seo:routes:check
 npm test -- src/app/__tests__/sitemap.test.ts
 ```
 
 CI also runs:
 
 ```bash
-npm run seo:routes:sync:check
+pnpm --filter @mhc/website run seo:routes:sync:check
 ```
 
 If it fails, run `seo:routes:sync`, classify any pending routes in

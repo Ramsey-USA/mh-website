@@ -88,8 +88,8 @@ When copy, forms, manuals, or platform behavior changes:
 
 Recommended checks:
 
-- `npm run lint:markdown`
-- `npm run lint:brand`
+- `pnpm run lint:markdown`
+- `pnpm run lint:brand`
 
 ---
 

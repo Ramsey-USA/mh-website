@@ -38,6 +38,7 @@ const customJestConfig = {
   testEnvironment: "jest-environment-jsdom",
 
   moduleNameMapper: {
+    "^@opennextjs/cloudflare$": "<rootDir>/test/mocks/opennext-cloudflare.js",
     // Shared lib resolves from packages/shared
     ...sharedModuleMap,
     // App-specific

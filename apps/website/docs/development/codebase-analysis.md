@@ -849,16 +849,16 @@ export function ServiceCard({ service, isCompact = false }: ServiceCardProps) {
 
 ### Build Gate (ci:gate)
 
-- Type checking: `npm run type-check`
-- Linting: `npm run lint`
-- Tests: `npm run test:ci`
-- Security: `npm run audit:ci`
-- Build: `npm run build`
+- Type checking: `pnpm run type-check`
+- Linting: `pnpm run lint`
+- Tests: `pnpm run test:ci`
+- Security: `pnpm run audit:ci`
+- Build: `pnpm run build`
 
 ### Deployment (wrangler)
 
 - Prerequisites: GitHub secrets configured
-- Command: `npm run deploy`
+- Command: `pnpm run deploy`
 - Target: Cloudflare Pages + Workers
 ```
 
@@ -907,13 +907,13 @@ jest.mock("@/lib/constants/company", () => ({
 **Available:**
 
 ```bash
-npm run dev                    # Development server
-npm run build                  # Production build
-npm run build:profile         # Profile build performance
-npm run build:analyze         # Bundle size analysis
-npm run test:performance      # Performance test
-npm run lighthouse:guide      # Lighthouse audit
-npm run bundle:size           # Show largest chunks
+pnpm run dev                    # Development server
+pnpm run build                  # Production build
+pnpm --filter @mhc/website run build:profile         # Profile build performance
+pnpm --filter @mhc/website run build:analyze         # Bundle size analysis
+pnpm --filter @mhc/website run test:performance      # Performance test
+pnpm --filter @mhc/website run lighthouse:guide      # Lighthouse audit
+pnpm --filter @mhc/website run bundle:size           # Show largest chunks
 ```
 
 **Status:** ✅ Excellent tooling

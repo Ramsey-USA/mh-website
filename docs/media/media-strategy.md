@@ -149,11 +149,11 @@ real photo exists. Replace them one category at a time.
 **How to swap a placeholder:**
 
 1. Drop the new `.webp` in the correct folder (see §1).
-2. Run `npm run optimize:images` — it skips existing WebP; use `--force`
+2. Run `pnpm --filter @mhc/website run optimize:images` — it skips existing WebP; use `--force`
    only when replacing an existing WebP with a higher-quality source.
 3. Reference the new path in the data file (e.g., `testimonials.ts`) or
    component prop.
-4. Check `npm run check:image-sizes` — no file should exceed 1920 px wide
+4. Check `pnpm --filter @mhc/website run check:image-sizes` — no file should exceed 1920 px wide
    (800 px for avatars/cards).
 
 ---
@@ -175,16 +175,16 @@ These apply to every image added to the project.
 **Always run before committing new images:**
 
 ```bash
-npm run optimize:images       # converts JPG/PNG → WebP, resizes to category max
-npm run check:image-sizes     # confirms no WebP exceeds 1920 px
-npm run audit:images          # full report with format counts and large-file list
+pnpm --filter @mhc/website run optimize:images       # converts JPG/PNG → WebP, resizes to category max
+pnpm --filter @mhc/website run check:image-sizes     # confirms no WebP exceeds 1920 px
+pnpm --filter @mhc/website run audit:images          # full report with format counts and large-file list
 ```
 
 **`--force` flag** — use only when replacing an existing WebP from a better
 source file:
 
 ```bash
-npm run optimize:images -- --force
+pnpm --filter @mhc/website run optimize:images -- --force
 ```
 
 ---
@@ -313,7 +313,7 @@ export interface Testimonial {
    ├── public/images/testimonials/[id].jpg     ← client photo
    └── public/images/projects/[slug]/hero.jpg  ← project photo (if new)
 
-4. Run: npm run optimize:images
+4. Run: pnpm --filter @mhc/website run optimize:images
    → Creates .webp counterparts at correct dimensions
 
 5. Add the entry to src/lib/data/testimonials.ts:
@@ -335,7 +335,7 @@ export interface Testimonial {
 6. Create a social card (1080×1080 px):
    ├── Use the Canva template in /documents/brands/
    ├── Export as PNG → drop in public/images/social/testimonials/client-023.png
-   └── Run: npm run optimize:images -- --force
+   └── Run: pnpm --filter @mhc/website run optimize:images -- --force
        → Creates client-023.webp at 1080 px
 
 7. Set socialCard: "/images/social/testimonials/client-023.webp" in the entry.
@@ -368,7 +368,7 @@ Capture and distribute "Safety Snapshots" — job-site images that visibly demon
    public/images/safety/snapshots/[YYYY-MM-DD]-[site-slug]-[nn].jpg
    └── Example: 2026-04-15-kennewick-office-01.jpg
 
-4. Run: npm run optimize:images
+4. Run: pnpm --filter @mhc/website run optimize:images
    → Creates .webp at safety category dimensions (1200 px, 85 WebP)
 
 5. Create a LinkedIn-optimized post card (1200 × 627 px) using the
@@ -654,7 +654,7 @@ ffmpeg -i source.mov \
 
 # Poster frame (first frame)
 ffmpeg -i output.mp4 -vframes 1 -q:v 2 output-poster.jpg
-# Then convert poster to WebP via: npm run optimize:images -- --force
+# Then convert poster to WebP via: pnpm --filter @mhc/website run optimize:images -- --force
 ```
 
 ### 10c. Usage in components
@@ -696,8 +696,8 @@ Use this checklist every time photos or videos are added.
 
 - [ ] Source file is min 1200 px wide (min 1080 px for social cards)
 - [ ] Dropped into correct folder per §1 with correct filename per §2
-- [ ] `npm run optimize:images` run (or `--force` for replacement)
-- [ ] `npm run check:image-sizes` — passes with no oversized WebP
+- [ ] `pnpm --filter @mhc/website run optimize:images` run (or `--force` for replacement)
+- [ ] `pnpm --filter @mhc/website run check:image-sizes` — passes with no oversized WebP
 - [ ] `alt` text written following the formula in §5a
 - [ ] `sizes` attribute set correctly per §5d
 - [ ] `priority` added if this is the LCP image for the page
@@ -769,7 +769,7 @@ Priority: complete before Phase 2. These tasks directly address findings from th
 ### Phase 2 — Testimonial Photos
 
 1. ☐ Collect photos + written consent for top 3 featured testimonials (`client-001`, `client-002`, `client-003`)
-2. ☐ Drop source JPG/PNG into `public/images/testimonials/`; run `npm run optimize:images`
+2. ☐ Drop source JPG/PNG into `public/images/testimonials/`; run `pnpm --filter @mhc/website run optimize:images`
 3. ☐ Update data entries in `testimonials.ts` with `image:` field
 4. ☐ Verify testimonial cards display photos (run dev server, check `/testimonials`)
 
@@ -782,7 +782,7 @@ Priority: complete before Phase 2. These tasks directly address findings from th
 ### Phase 4 — OG Images
 
 1. ☐ Design and export OG images for the 8 priority pages (§9) at 1200×630 px
-2. ☐ Drop into `public/images/og/`; run `npm run optimize:images`
+2. ☐ Drop into `public/images/og/`; run `pnpm --filter @mhc/website run optimize:images`
 3. ☐ Update `page-seo-utils.ts` and relevant `layout.tsx` metadata per page
 
 ### Phase 5 — Social + Email Automation

@@ -38,10 +38,10 @@ All contributions must preserve MH branding congruency: factual veteran-owned fr
 git checkout -b feature/feature-name
 
 # Make changes, then quality-check before committing:
-npm run lint
-npm run type-check
-npm run test
-npm run build
+pnpm run lint
+pnpm run type-check
+pnpm run test
+pnpm run build
 
 git add .
 git commit -m "feat: describe what changed"
@@ -55,16 +55,16 @@ git push origin feature/feature-name
 
 ```bash
 # 1. Lint check — catches duplicate imports, formatting, unused variables, etc.
-npm run lint
+pnpm run lint
 
 # 2. Type check — catches TypeScript errors (runs again on pre-push)
-npm run type-check
+pnpm run type-check
 
 # 3. Build test — catches compilation issues early
-npm run build
+pnpm run build
 
 # 4. Unit tests — run relevant tests
-npm run test
+pnpm run test
 ```
 
 **Common Issues & Fixes:**
@@ -73,7 +73,7 @@ npm run test
 | ----------------------------- | -------------------------------------------------- | ----------------------------------------------------------- |
 | `no-duplicate-imports` error  | Two import statements for same module              | Merge imports: `import { a, b } from 'module'`              |
 | `'React' is already declared` | Duplicate React imports from different statements  | Combine: `import { useState, type ReactNode } from 'react'` |
-| TypeScript errors on pre-push | Skipped local type-check                           | Run `npm run type-check` before committing                  |
+| TypeScript errors on pre-push | Skipped local type-check                           | Run `pnpm run type-check` before committing                 |
 | Commitlint format error       | Commit message doesn't follow Conventional Commits | Use proper format (see examples below)                      |
 
 ### Commit Message Convention (Conventional Commits)
@@ -122,10 +122,10 @@ style:    Formatting or minor style adjustments
 
 Before submitting a PR, confirm:
 
-- [ ] `npm run type-check` passes (zero errors)
-- [ ] `npm run lint` passes (zero warnings)
-- [ ] `npm run build` succeeds
-- [ ] `npm test` passes (all tests green)
+- [ ] `pnpm run type-check` passes (zero errors)
+- [ ] `pnpm run lint` passes (zero warnings)
+- [ ] `pnpm run build` succeeds
+- [ ] `pnpm run test` passes (all tests green)
 - [ ] Docs updated if the change affects documented behavior
 - [ ] No `.env` secrets, `*.bak`, or generated output committed
 - [ ] Page-level changes pass the [Page Compliance Checklist](./docs/development/standards/page-compliance-checklist.md)

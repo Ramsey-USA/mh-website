@@ -27,21 +27,21 @@ Ensure every QR code image in `public/images/qr-codes/` is present on disk, enco
 
 - `safety/qr-safety-manual-contents-color.png` → `https://www.mhc-gc.com/resources/safety-manual/contents`
 - `safety/qr-safety-manual-contents-bw.png` → same URL
-- These are registered in `qr-codes-manifest.json` and `scripts/generate-qr-codes.js` but the PNG files have not yet been generated. Run `npm run qr:generate` to produce them.
+- These are registered in `qr-codes-manifest.json` and `scripts/generate-qr-codes.js` but the PNG files have not yet been generated. Run `pnpm --filter @mhc/website run qr:generate` to produce them.
 
 ## Guardrails
 
 - Never remove a QR entry without confirming its target route has been permanently retired.
-- When a route changes, regenerate only the affected QR image via `npm run qr:generate`, then re-run `npm run qr:test` to verify.
+- When a route changes, regenerate only the affected QR image via `pnpm --filter @mhc/website run qr:generate`, then re-run `pnpm --filter @mhc/website run qr:test` to verify.
 - Use the branding congruency checklist as a final gate for QR labels, destination naming, and trust-facing route updates.
 - Do not encode auth-gated or internal-only routes (e.g., `/dashboard`) in publicly distributed QR codes.
 - All team member QR paths in `team-data.json` must reference the `-color` variant file, not a bare or `-bw` filename.
 
 ## Required Checks
 
-- **File Health**: run `npm run qr:check` — must exit 0 with no MISSING or TOO SMALL entries.
-- **URL Accuracy**: run `npm run qr:test` — must exit 0 with all QR images decoding to their expected manifest URL.
-- **Image Size Budget**: verify every PNG in `public/images/qr-codes/` is ≤ 200 KB. Run `find public/images/qr-codes -name "*.png" -size +200k` to detect violations. Regenerate via `npm run qr:generate`.
+- **File Health**: run `pnpm --filter @mhc/website run qr:check` — must exit 0 with no MISSING or TOO SMALL entries.
+- **URL Accuracy**: run `pnpm --filter @mhc/website run qr:test` — must exit 0 with all QR images decoding to their expected manifest URL.
+- **Image Size Budget**: verify every PNG in `public/images/qr-codes/` is ≤ 200 KB. Run `find public/images/qr-codes -name "*.png" -size +200k` to detect violations. Regenerate via `pnpm --filter @mhc/website run qr:generate`.
 - **Manifest/Route Parity**: for every entry in `public/images/qr-codes/qr-codes-manifest.json`, confirm the encoded URL resolves to a real, non-redirected app route in `src/app/`.
 - **Team Data References**: verify all `qrCode` values in `src/data/team-data.json` end in `-color.png` and that the referenced files exist on disk.
 - **Orphan Detection**: confirm no PNG files exist in `public/images/qr-codes/` without a corresponding manifest entry (excluding `qr-codes-manifest.json` and `README.md`).

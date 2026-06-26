@@ -39,12 +39,12 @@
 
 ```text
 git push → Cloudflare Workers CI picks up the commit
-         → Runs build command:   npm run build
+         → Runs build command:   pnpm run build
          → Runs deploy command:  WRANGLER_SEND_METRICS=false npx wrangler deploy
          → Output: .open-next/worker.js + .open-next/assets deployed as a Worker
 ```
 
-The `opennextjs-cloudflare build` command (invoked by `npm run build`):
+The `opennextjs-cloudflare build` command (invoked by `pnpm run build`):
 
 1. Runs `next build` internally
 2. Packages the Next.js App Router output into a Cloudflare Worker + static assets
@@ -74,9 +74,9 @@ binding = "ASSETS"
 
 | Field               | Value                                             | Notes                                      |
 | ------------------- | ------------------------------------------------- | ------------------------------------------ |
-| **Build command**   | `npm run build`                                   | Runs `opennextjs-cloudflare build`         |
+| **Build command**   | `pnpm run build`                                  | Runs `opennextjs-cloudflare build`         |
 | **Deploy command**  | `WRANGLER_SEND_METRICS=false npx wrangler deploy` | Deploys Worker; reads `wrangler.toml` auto |
-| **Version command** | `npx wrangler versions upload`                    | Optional — for gradual/versioned rollouts  |
+| **Version command** | `npx wrangler versions upload`                    | Optional - for gradual/versioned rollouts  |
 | **Root directory**  | `/`                                               | Repo root                                  |
 
 > ⚠️ **`npx wrangler pages deploy .open-next/assets` is WRONG here.** That is the
@@ -183,8 +183,8 @@ binding and `/docs/**` proxy path. Public Safety uploads should use a dedicated
 
 Current publish workflow for approved artifacts:
 
-- `npm run docs:publish:safety` → uploads manual artifacts to `docs/safety/` and section PDFs to `docs/safety/sections/`
-- `npm run docs:publish:forms` → uploads form package PDFs from `documents/output/form-packages/` to `docs/safety/forms/`
+- `pnpm --filter @mhc/website run docs:publish:safety` → uploads manual artifacts to `docs/safety/` and section PDFs to `docs/safety/sections/`
+- `pnpm --filter @mhc/website run docs:publish:forms` → uploads form package PDFs from `documents/output/form-packages/` to `docs/safety/forms/`
 
 ---
 
@@ -210,14 +210,14 @@ RESEND_API_KEY=re_xxxxx
 ### Development Server
 
 ```bash
-npm run dev          # http://localhost:3000
-npm run dev:turbo    # Turbopack mode (faster, experimental)
+pnpm run dev          # http://localhost:3000
+pnpm --filter @mhc/website run dev:turbo    # Turbopack mode (faster, experimental)
 ```
 
 ### Production Build (Local Test)
 
 ```bash
-npm run build
+pnpm run build
 # Runs: opennextjs-cloudflare build
 # Output: .open-next/assets
 ```
@@ -229,7 +229,7 @@ npm run build
 npx wrangler login
 
 # Build + deploy to Workers
-npm run deploy
+pnpm run deploy
 # Equivalent to: WRANGLER_SEND_METRICS=false opennextjs-cloudflare build && WRANGLER_SEND_METRICS=false npx wrangler deploy
 ```
 
@@ -237,7 +237,7 @@ npm run deploy
 
 ## Build Output Explained
 
-After `npm run build`, the output structure is:
+After `pnpm run build`, the output structure is:
 
 ```text
 .open-next/
@@ -442,8 +442,8 @@ Monitor weekly in Dashboard → Analytics → Cache.
 
 **Cause:** Running `wrangler deploy` without building first.
 
-**Fix:** Always use `npm run deploy` (which runs `WRANGLER_SEND_METRICS=false opennextjs-cloudflare build && WRANGLER_SEND_METRICS=false npx wrangler deploy`),
-or run `npm run build` before `WRANGLER_SEND_METRICS=false npx wrangler deploy` manually.
+**Fix:** Always use `pnpm run deploy` (which runs `WRANGLER_SEND_METRICS=false opennextjs-cloudflare build && WRANGLER_SEND_METRICS=false npx wrangler deploy`),
+or run `pnpm run build` before `WRANGLER_SEND_METRICS=false npx wrangler deploy` manually.
 
 ---
 
@@ -460,7 +460,7 @@ or run `npm run build` before `WRANGLER_SEND_METRICS=false npx wrangler deploy` 
 **Cause:** Two conflicting adapters running. `@cloudflare/next-on-pages` requires
 `export const runtime = "edge"` on all dynamic routes and conflicts with OpenNext.
 
-**Fix:** Build command must be `npm run build` only — do **not** append
+**Fix:** Build command must be `pnpm run build` only — do **not** append
 `npx @cloudflare/next-on-pages` as a second step.
 
 ---
@@ -536,10 +536,10 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 ### Before Pushing
 
 ```bash
-npm run type-check   # zero type errors
-npm run lint         # zero lint warnings/errors
+pnpm run type-check   # zero type errors
+pnpm run lint         # zero lint warnings/errors
 npm test             # all tests passing
-npm run build        # local build succeeds
+pnpm run build        # local build succeeds
 ```
 
 ---

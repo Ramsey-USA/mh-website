@@ -436,12 +436,14 @@ Generated: 6/25/2026, 5:41:18 PM
 - **Name:** `cdn-booth-entry`
 - **File:** `events/qr-cdn-booth-entry-color.png`
 - **URL:** <https://www.mhc-gc.com/cool-desert-nights#booth-entry>
+- **Behavior Note:** After the participant completes all voting steps and submits, the flow now auto-redirects to the MH Construction Google review form.
 
 ### ✅ Cool Desert Nights 2026 — Booth Entry Wizard
 
 - **Name:** `cdn-booth-entry`
 - **File:** `events/qr-cdn-booth-entry-bw.png`
 - **URL:** <https://www.mhc-gc.com/cool-desert-nights#booth-entry>
+- **Behavior Note:** After the participant completes all voting steps and submits, the flow now auto-redirects to the MH Construction Google review form.
 
 ### ✅ Safety Manual Section 01: injury free workplace plan
 

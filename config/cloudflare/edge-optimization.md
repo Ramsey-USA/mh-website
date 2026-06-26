@@ -96,7 +96,7 @@ After deployment, verify with:
 curl -I https://www.mhc-gc.com/_next/static/chunks/main.js
 
 # Open Lighthouse audit guidance
-npm run lighthouse:guide
+pnpm --filter @mhc/website run lighthouse:guide
 
 # Run authoritative audits in PageSpeed Insights or Chrome DevTools
 

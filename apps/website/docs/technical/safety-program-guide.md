@@ -82,16 +82,16 @@ revision has been reviewed against the applicable state rules.
 ```text
 documents/content/MHC-MISH-APP-50-Sections/         ← Canonical Word source bundle (.docx MISH sections)
            │
-           ▼  npm run docs:extract-word
+           ▼  pnpm --filter @mhc/website run docs:extract-word
 documents/content/safety-manual.json                ← Auto-generated manifest (50 sections)
            │
-           ▼  npm run docs:generate + npm run docs:generate:forms
+           ▼  pnpm --filter @mhc/website run docs:generate + pnpm --filter @mhc/website run docs:generate:forms
 documents/output/sections/                          ← 50 generated PDFs served to field staff
 documents/output/form-packages/                     ← Generated form package PDFs (cover + fillable)
 documents/output/safety-manual-contents.pdf         ← Standalone table-of-contents PDF
 documents/output/safety-manual-reference.pdf        ← Standalone section reference guide PDF
            │
-           ▼  npm run docs:merge + R2 publish
+           ▼  pnpm --filter @mhc/website run docs:merge + R2 publish
 documents/output/safety-manual-complete.pdf         ← Complete bonding-company manual
            │
            ▼  Manual update
@@ -223,7 +223,7 @@ Edit **`documents/brands/mhc.json`**:
 ### Step 3 — Re-extract document content
 
 ```bash
-npm run docs:extract-word
+pnpm --filter @mhc/website run docs:extract-word
 ```
 
 This reads the `.docx` files and regenerates `documents/content/safety-manual.json` with
@@ -244,8 +244,8 @@ node documents/scripts/extract-word.mjs --input documents/content/MHC-MISH-APP-5
 ### Step 4 — Regenerate all print PDFs
 
 ```bash
-npm run docs:generate
-npm run docs:generate:forms
+pnpm --filter @mhc/website run docs:generate
+pnpm --filter @mhc/website run docs:generate:forms
 ```
 
 This rebuilds all manual PDFs (cover, spine, tabs, sections) plus form package PDFs into
@@ -254,7 +254,7 @@ This rebuilds all manual PDFs (cover, spine, tabs, sections) plus form package P
 For a single-command full rebuild, use:
 
 ```bash
-npm run docs:all
+pnpm --filter @mhc/website run docs:all
 ```
 
 Each section PDF is expected to include QR access back to its digital route for field use.
@@ -276,7 +276,7 @@ node documents/scripts/generate.mjs --template spine --rev-date "MM/DD/YYYY" --r
 ### Step 4b — Rebuild the complete bonding manual
 
 ```bash
-npm run docs:merge
+pnpm --filter @mhc/website run docs:merge
 ```
 
 This assembles the complete manual PDF used for bonding-company and insurer review.
@@ -288,9 +288,9 @@ bucket so they can be served through the `/docs/**` route. Keep unreviewed publi
 uploads in `SAFETY_INTAKE` until admin review is complete.
 
 ```bash
-npm run docs:publish:safety
-npm run docs:publish:forms
-npm run docs:publish:employee-handbook
+pnpm --filter @mhc/website run docs:publish:safety
+pnpm --filter @mhc/website run docs:publish:forms
+pnpm --filter @mhc/website run docs:publish:employee-handbook
 ```
 
 `docs:publish:safety` uploads manual artifacts and `docs/safety/sections/*.pdf`.
@@ -335,7 +335,7 @@ If any form's content changed (new checklist items, renamed fields, changed inpu
 ### Step 8 — Verify the build
 
 ```bash
-npm run type-check && npm run lint && npm run build
+pnpm run type-check && pnpm run lint && pnpm run build
 ```
 
 ---
@@ -344,27 +344,27 @@ npm run type-check && npm run lint && npm run build
 
 ### Safety Manual (MISH) Commands
 
-- `npm run docs:extract`: Extract PDF text to `safety-manual.json` (falls back to Word source if PDF source path is missing)
-- `npm run docs:extract-word`: Extract Word docs to `safety-manual.json` (preferred)
-- `npm run docs:generate`: Generate MISH manual PDFs (cover, spine, tabs, all sections)
-- `npm run docs:generate:forms`: Generate form package PDFs in `documents/output/form-packages/` from manifest fillable forms
-- `npm run docs:all`: Generate MISH manual PDFs + form packages, then merge complete manuals
-- `npm run docs:generate:cover`: Generate MISH cover PDF
-- `npm run docs:generate:spine`: Generate MISH spine PDF
-- `npm run docs:generate:tabs`: Generate MISH tab dividers
-- `npm run docs:generate:sections`: Generate all 50 MISH section PDFs
-- `npm run docs:merge`: Assemble complete MISH manual PDF
-- `npm run docs:merge:digital`: Assemble digital MISH manual (no tabs)
-- `npm run docs:publish:safety`: Publish MISH PDFs to R2 FILE_ASSETS bucket
+- `pnpm run docs:extract`: Extract PDF text to `safety-manual.json` (falls back to Word source if PDF source path is missing)
+- `pnpm --filter @mhc/website run docs:extract-word`: Extract Word docs to `safety-manual.json` (preferred)
+- `pnpm --filter @mhc/website run docs:generate`: Generate MISH manual PDFs (cover, spine, tabs, all sections)
+- `pnpm --filter @mhc/website run docs:generate:forms`: Generate form package PDFs in `documents/output/form-packages/` from manifest fillable forms
+- `pnpm --filter @mhc/website run docs:all`: Generate MISH manual PDFs + form packages, then merge complete manuals
+- `pnpm --filter @mhc/website run docs:generate:cover`: Generate MISH cover PDF
+- `pnpm --filter @mhc/website run docs:generate:spine`: Generate MISH spine PDF
+- `pnpm --filter @mhc/website run docs:generate:tabs`: Generate MISH tab dividers
+- `pnpm --filter @mhc/website run docs:generate:sections`: Generate all 50 MISH section PDFs
+- `pnpm --filter @mhc/website run docs:merge`: Assemble complete MISH manual PDF
+- `pnpm --filter @mhc/website run docs:merge:digital`: Assemble digital MISH manual (no tabs)
+- `pnpm --filter @mhc/website run docs:publish:safety`: Publish MISH PDFs to R2 FILE_ASSETS bucket
 
 ### Employee Handbook Commands
 
-- `npm run docs:generate:handbook`: Generate all handbook artifacts (cover, spine, tabs)
-- `npm run docs:generate:handbook:cover`: Generate handbook cover PDF
-- `npm run docs:generate:handbook:spine`: Generate handbook spine PDF
-- `npm run docs:generate:handbook:tabs`: Generate handbook tab dividers
-- `npm run docs:dissect:handbook`: Create 6 handbook section DOCX files from TOC structure
-- `npm run docs:publish:employee-handbook`: Publish handbook PDF to R2 FILE_ASSETS bucket
+- `pnpm --filter @mhc/website run docs:generate:handbook`: Generate all handbook artifacts (cover, spine, tabs)
+- `pnpm --filter @mhc/website run docs:generate:handbook:cover`: Generate handbook cover PDF
+- `pnpm --filter @mhc/website run docs:generate:handbook:spine`: Generate handbook spine PDF
+- `pnpm --filter @mhc/website run docs:generate:handbook:tabs`: Generate handbook tab dividers
+- `pnpm --filter @mhc/website run docs:dissect:handbook`: Create 6 handbook section DOCX files from TOC structure
+- `pnpm --filter @mhc/website run docs:publish:employee-handbook`: Publish handbook PDF to R2 FILE_ASSETS bucket
 
 ### General Commands
 
@@ -390,7 +390,7 @@ The Employee Handbook PDF is dissected into structured sections for pipeline con
 1. **Generate section DOCX files:**
 
    ```bash
-   npm run docs:dissect:handbook
+   pnpm --filter @mhc/website run docs:dissect:handbook
    ```
 
    Creates 6 sections in `documents/content/MHC-Employee-Handbook-Sections/`:
@@ -407,9 +407,9 @@ The Employee Handbook PDF is dissected into structured sections for pipeline con
 
 3. **Generate handbook print artifacts:**
    ```bash
-   npm run docs:generate:handbook:cover
-   npm run docs:generate:handbook:spine
-   npm run docs:generate:handbook:tabs
+   pnpm --filter @mhc/website run docs:generate:handbook:cover
+   pnpm --filter @mhc/website run docs:generate:handbook:spine
+   pnpm --filter @mhc/website run docs:generate:handbook:tabs
    ```
 
 ### Handbook Generation Flow
@@ -417,20 +417,20 @@ The Employee Handbook PDF is dissected into structured sections for pipeline con
 ```text
 MH Employee Handbook 2026.pdf
            │
-           ▼  npm run docs:dissect:handbook
+           ▼  pnpm --filter @mhc/website run docs:dissect:handbook
 documents/content/MHC-Employee-Handbook-Sections/
            │
            ▼  documents/content/employee-handbook.json (manifest)
-           ├─► npm run docs:generate:handbook:cover
-           ├─► npm run docs:generate:handbook:spine
-           └─► npm run docs:generate:handbook:tabs
+           ├─► pnpm --filter @mhc/website run docs:generate:handbook:cover
+           ├─► pnpm --filter @mhc/website run docs:generate:handbook:spine
+           └─► pnpm --filter @mhc/website run docs:generate:handbook:tabs
            │
            ▼  documents/output/
                employee-handbook-cover.pdf
                employee-handbook-spine.pdf
                employee-handbook-tabs.pdf
            │
-           ▼  npm run docs:publish:employee-handbook
+           ▼  pnpm --filter @mhc/website run docs:publish:employee-handbook
            (R2 FILE_ASSETS bucket)
            https://www.mhc-gc.com/docs/employee/employee-handbook-2026.pdf
 ```

@@ -35,6 +35,9 @@ const API_ENDPOINT = "/api/event/booth-entry";
 const ADMIN_EXPORT_ENDPOINT = "/api/event/admin-export";
 const WINNERS_TEXT_ENDPOINT = "/api/event/winners-text";
 const SUBMIT_TIMEOUT_MS = 8_000;
+const REVIEW_REDIRECT_DELAY_MS = 1_500;
+const GOOGLE_REVIEW_URL =
+  "https://search.google.com/local/writereview?placeid=234677025037995169";
 
 const TEAM_EMOJIS: Record<CdnTeamId, string> = {
   alpha: "🅰️",
@@ -513,8 +516,6 @@ export function EventWizard() {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [submitted, setSubmitted] = useState(false);
   const [isAdminMode, setIsAdminMode] = useState(false);
-  const googleReviewUrl =
-    "https://search.google.com/local/writereview?placeid=234677025037995169";
 
   const [form, setForm] = useState<FormData>({
     fullName: "",
@@ -550,12 +551,16 @@ export function EventWizard() {
   }, []);
 
   useEffect(() => {
-    if (!submitted || submitStatus !== "success") {
+    if (!submitted || isAdminMode) {
       return;
     }
 
-    window.location.assign(googleReviewUrl);
-  }, [googleReviewUrl, submitted, submitStatus]);
+    const timer = window.setTimeout(() => {
+      window.location.assign(GOOGLE_REVIEW_URL);
+    }, REVIEW_REDIRECT_DELAY_MS);
+
+    return () => window.clearTimeout(timer);
+  }, [isAdminMode, submitted]);
 
   // ── Derived validation ────────────────────────────────────────────────────
 

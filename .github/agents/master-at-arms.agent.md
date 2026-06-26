@@ -94,8 +94,8 @@ Required branding corpus (read all):
    - SEO/navigation surfaces: preserve plain-language labels.
    - Marketing-heavy pages: retain relationship-first framing.
 5. Run quality checks when code changed:
-   - npm run type-check
-   - npm run lint
+   - pnpm run type-check
+   - pnpm run lint
    - Verify the branding congruency checklist before completion
 6. Produce a Branding Compliance Report.
 7. If exception is needed, record it in .github/branding-exceptions.json with owner, ticket, and expiration.

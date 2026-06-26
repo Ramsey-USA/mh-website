@@ -19,6 +19,7 @@
         "/public-sector",
         "/public-sector/tri-state-government-construction",
         "/public-sector/veteran-led-compliance",
+        "/qr-codes",
         "/resources",
         "/resources/safety-manual/contents",
         "/resources/safety-manual/forms",
@@ -38,6 +39,7 @@
     "noindex": {
       "exact": [
         "/careers/print",
+        "/cool-desert-nights/results",
         "/employee-handbook",
         "/offline",
         "/safety/incident-report",

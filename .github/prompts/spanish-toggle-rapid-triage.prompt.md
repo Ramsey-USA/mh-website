@@ -15,7 +15,7 @@ Triage workflow:
 3. Verify changed UI surfaces render expected language when Spanish is active.
 4. Verify touched global-header labels and helper copy (language toggle, phone CTA, theme/menu copy where applicable) render expected Spanish content.
 5. Verify touched trust/accreditation and veteran-owned content remains present and correctly localized.
-6. Run translation coverage check when translation files changed: npm run check:translations.
+6. Run translation coverage check when translation files changed: pnpm --filter @mhc/website run check:translations.
 
 Output exactly this format:
 

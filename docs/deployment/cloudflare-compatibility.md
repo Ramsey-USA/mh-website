@@ -288,19 +288,19 @@ Before running `wrangler deploy` after upgrades:
 
 ```bash
 # 1. Verify build output sizes
-npm run build:lowmem
+pnpm --filter @mhc/website run build:lowmem
 du -sh .open-next/worker.js          # Should be ~2.8-3.0 MiB
 du -sh .open-next/assets/            # Should be <25 MiB
 
 # 2. Test local deployment simulation
-npm run build:lowmem
+pnpm --filter @mhc/website run build:lowmem
 npx wrangler deploy --dry-run         # Simulates upload without deploying
 
 # 3. Check for asset warnings
 ls -lh .open-next/assets/ | grep -E '^\S+\s+[0-9]{2,}M'
 
 # 4. Verify middleware + Cloudflare context
-npm run test:ci                       # Tests mock @opennextjs/cloudflare
+pnpm run test:ci                       # Tests mock @opennextjs/cloudflare
 
 # 5. Test actual deployment to staging
 npx wrangler deploy --env staging     # If you have a staging route
@@ -319,7 +319,7 @@ npm install next@15.5.15 eslint-config-next@15.5.15 \
   @next/bundle-analyzer@15.5.15 @next/swc-linux-x64-gnu@15.5.15
 
 # 3. Rebuild
-npm run build:lowmem
+pnpm --filter @mhc/website run build:lowmem
 npx wrangler deploy
 
 # 4. Monitor Cloudflare Workers logs (Tail in dashboard)

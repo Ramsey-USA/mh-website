@@ -57,6 +57,7 @@ const customJestConfig = {
 
   // Module name mapping (path aliases)
   moduleNameMapper: {
+    "^@opennextjs/cloudflare$": "<rootDir>/test/mocks/opennext-cloudflare.js",
     "^next-intl$": "<rootDir>/test/mocks/next-intl.js",
     "^next-intl/server$": "<rootDir>/test/mocks/next-intl-server.js",
     // Shared lib resolves from packages/shared (mirrors tsconfig paths + webpack aliases)

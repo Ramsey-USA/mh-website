@@ -5,15 +5,7 @@
  * import from `@/lib/admin-auth/api` directly.
  */
 
-import {
-  adminFetch,
-  refreshAdminSession,
-  type AdminSession,
-  type AdminUser,
-} from "@/lib/admin-auth/api";
-
-export type HubAdminUser = AdminUser;
-export type HubAdminSession = AdminSession;
+import { adminFetch, refreshAdminSession } from "@/lib/admin-auth/api";
 
 export const refreshHubAdminSession = refreshAdminSession;
 export const hubFetch = adminFetch;
