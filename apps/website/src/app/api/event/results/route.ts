@@ -120,6 +120,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const client = createDbClient({ DB: db });
+    let rows: BoothRow[];
 
     const tableInfo = await client.query<SqliteTableInfoRow>(
       `PRAGMA table_info(booth_entries)`,
