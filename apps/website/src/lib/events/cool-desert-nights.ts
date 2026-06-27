@@ -1,9 +1,9 @@
 export const CDN_TEAM_OPTIONS = [
-  { id: "alpha", label: "Team Alpha" },
-  { id: "bravo", label: "Team Bravo" },
-  { id: "charlie", label: "Team Charlie" },
-  { id: "delta", label: "Team Delta" },
-  { id: "echo", label: "Team Echo" },
+  { id: "alpha", label: "Smokin' Fools BBQ" },
+  { id: "bravo", label: "Pork Daddy's" },
+  { id: "charlie", label: "Hallmark's BBQ" },
+  { id: "delta", label: "Army National Guard" },
+  { id: "echo", label: "Classic Grill - Tim Fought" },
   { id: "foxtrot", label: "Team Foxtrot" },
   { id: "golf", label: "Team Golf" },
 ] as const;
