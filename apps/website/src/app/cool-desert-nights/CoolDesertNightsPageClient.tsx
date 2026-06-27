@@ -543,12 +543,12 @@ export function CoolDesertNightsPageClient() {
                         />
                       </div>
                     </a>
-                    <div className="mt-4 flex flex-wrap gap-2">
+                    <div className="mt-4 flex flex-col gap-2 sm:flex-row">
                       <a
                         href={boothEntryQrCode}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-brand-primary px-3 py-2 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary/10"
+                        className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg border border-brand-primary px-3 py-2 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary/10 sm:flex-1"
                       >
                         <MaterialIcon
                           icon="visibility"
@@ -560,7 +560,7 @@ export function CoolDesertNightsPageClient() {
                       <a
                         href={boothEntryQrCode}
                         download="qr-cdn-booth-entry-color.png"
-                        className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-brand-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-primary-dark"
+                        className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-brand-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-primary-dark sm:flex-1"
                       >
                         <MaterialIcon
                           icon="download"

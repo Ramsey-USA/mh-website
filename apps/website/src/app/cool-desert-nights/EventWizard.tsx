@@ -746,7 +746,7 @@ export function EventWizard() {
   // ── Render: wizard steps ───────────────────────────────────────────────────
 
   return (
-    <div className="w-full">
+    <div className="mx-auto w-full max-w-3xl">
       <StepIndicator current={step} />
 
       {/* ── Step 1: Lead Capture ── */}
@@ -962,11 +962,11 @@ export function EventWizard() {
             </div>
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col-reverse gap-3 sm:flex-row">
             <button
               type="button"
               onClick={() => setStep(1)}
-              className="min-h-[3.25rem] flex-none rounded-xl border-2 border-gray-300 bg-white px-5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 active:scale-95 touch-manipulation dark:border-white/25 dark:bg-white/8 dark:text-white"
+              className="min-h-[3.25rem] w-full rounded-xl border-2 border-gray-300 bg-white px-5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 active:scale-95 touch-manipulation sm:w-auto sm:flex-none dark:border-white/25 dark:bg-white/8 dark:text-white"
             >
               ← Back
             </button>
@@ -1044,7 +1044,7 @@ export function EventWizard() {
                     </span>
                     <span
                       className={[
-                        "flex-1 text-base font-semibold",
+                        "flex-1 break-words text-base font-semibold",
                         selected
                           ? "text-brand-secondary dark:text-brand-secondary"
                           : "text-gray-800 dark:text-white",
@@ -1074,11 +1074,11 @@ export function EventWizard() {
             </div>
           </fieldset>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col-reverse gap-3 sm:flex-row">
             <button
               type="button"
               onClick={() => setStep(2)}
-              className="min-h-[3.25rem] flex-none rounded-xl border-2 border-gray-300 bg-white px-5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 active:scale-95 touch-manipulation dark:border-white/25 dark:bg-white/8 dark:text-white"
+              className="min-h-[3.25rem] w-full rounded-xl border-2 border-gray-300 bg-white px-5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 active:scale-95 touch-manipulation sm:w-auto sm:flex-none dark:border-white/25 dark:bg-white/8 dark:text-white"
             >
               ← Back
             </button>
