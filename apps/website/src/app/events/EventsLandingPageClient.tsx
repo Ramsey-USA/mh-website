@@ -57,7 +57,7 @@ export function EventsLandingPageClient() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const activeImage = useMemo(
-    () => EVENT_GALLERY_IMAGES[activeSlide],
+    () => EVENT_GALLERY_IMAGES[activeSlide] ?? EVENT_GALLERY_IMAGES[0],
     [activeSlide],
   );
 
