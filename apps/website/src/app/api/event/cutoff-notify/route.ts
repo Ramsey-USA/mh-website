@@ -8,6 +8,7 @@ import { sendEmail, type EmailAttachment } from "@/lib/email/email-service";
 import {
   CDN_TEAM_LABELS,
   CDN_TEAM_OPTIONS,
+  normalizeCdnVoteId,
 } from "@/lib/events/cool-desert-nights";
 
 export const dynamic = "force-dynamic";
@@ -177,8 +178,10 @@ function computePeopleChoice(entries: BoothRow[]): {
 } {
   const counts = new Map<string, number>();
   for (const entry of entries) {
-    const next = (counts.get(entry.bbq_vote) ?? 0) + 1;
-    counts.set(entry.bbq_vote, next);
+    const voteId = normalizeCdnVoteId(entry.bbq_vote);
+    if (!voteId) continue;
+    const next = (counts.get(voteId) ?? 0) + 1;
+    counts.set(voteId, next);
   }
 
   const breakdown = CDN_TEAM_OPTIONS.map((team) => ({
@@ -228,7 +231,9 @@ function buildSortedGuessCsv(entries: BoothRow[]): string {
       csvEscape(row.phone),
       csvEscape(row.email),
       csvEscape(row.bbq_vote),
-      csvEscape(CDN_TEAM_LABELS[row.bbq_vote] ?? row.bbq_vote),
+      csvEscape(
+        CDN_TEAM_LABELS[normalizeCdnVoteId(row.bbq_vote)] ?? row.bbq_vote,
+      ),
       csvEscape(row.submitted_at),
     ].join(","),
   );

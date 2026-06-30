@@ -3,8 +3,8 @@ import { logger } from "@/lib/utils/logger";
 import { createDbClient } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
 import {
-  CDN_TEAM_LABELS,
   CDN_TEAM_OPTIONS,
+  normalizeCdnVoteId,
 } from "@/lib/events/cool-desert-nights";
 
 export const dynamic = "force-dynamic";
@@ -67,20 +67,6 @@ function parseLeadMetadata(
   }
 }
 
-function normalizeVoteId(value: string): string {
-  const trimmed = value.trim();
-  if (!trimmed) return "";
-
-  if (trimmed in CDN_TEAM_LABELS) {
-    return trimmed;
-  }
-
-  const matched = Object.entries(CDN_TEAM_LABELS).find(
-    ([, label]) => label === trimmed,
-  );
-  return matched?.[0] ?? trimmed;
-}
-
 function buildEmptyResults() {
   return {
     totalEntries: 0,
@@ -122,7 +108,7 @@ async function loadLeadEntries(
         full_name: String(meta["full_name"] ?? lead.contact_name ?? "").trim(),
         phone: String(meta["phone"] ?? lead.phone ?? "").trim(),
         hilti_guess: Number(meta["hilti_guess"] ?? 0),
-        bbq_vote: normalizeVoteId(String(meta["bbq_vote"] ?? "")),
+        bbq_vote: normalizeCdnVoteId(String(meta["bbq_vote"] ?? "")),
         submitted_at: lead.created_at,
       } satisfies BoothRow;
     })
@@ -181,12 +167,18 @@ export async function POST(request: NextRequest) {
 
     const hasSmokeVote = boothColumns.has("smoke_n_shine_vote");
     const hasLegacyVote = boothColumns.has("bbq_vote");
+    const voteColumnSql =
+      hasSmokeVote && hasLegacyVote
+        ? "COALESCE(NULLIF(b.smoke_n_shine_vote, ''), b.bbq_vote)"
+        : hasSmokeVote
+          ? "b.smoke_n_shine_vote"
+          : "b.bbq_vote";
 
     const boothRows =
       hasSmokeVote || hasLegacyVote
         ? await client.query<BoothRow>(
             `SELECT b.full_name, b.phone, b.hilti_guess,
-                    b.${hasSmokeVote ? "smoke_n_shine_vote" : "bbq_vote"} AS bbq_vote,
+                    ${voteColumnSql} AS bbq_vote,
                     b.submitted_at
              FROM booth_entries b
              INNER JOIN (
@@ -221,7 +213,7 @@ export async function POST(request: NextRequest) {
       tallyMap[team.id] = 0;
     }
     for (const row of rows) {
-      const voteId = normalizeVoteId(row.bbq_vote);
+      const voteId = normalizeCdnVoteId(row.bbq_vote);
       if (voteId in tallyMap) {
         tallyMap[voteId] = (tallyMap[voteId] ?? 0) + 1;
       }

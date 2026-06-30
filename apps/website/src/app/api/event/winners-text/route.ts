@@ -7,6 +7,7 @@ import { ALERT_RECIPIENTS, sendSms } from "@/lib/notifications/twilio-sms";
 import {
   CDN_TEAM_LABELS,
   CDN_TEAM_OPTIONS,
+  normalizeCdnVoteId,
 } from "@/lib/events/cool-desert-nights";
 import { badRequest, createSuccessResponse } from "@/lib/api/responses";
 
@@ -174,8 +175,10 @@ function pickBbqWinner(entries: BoothRow[]): {
 } {
   const counts = new Map<string, number>();
   for (const entry of entries) {
-    const next = (counts.get(entry.bbq_vote) ?? 0) + 1;
-    counts.set(entry.bbq_vote, next);
+    const voteId = normalizeCdnVoteId(entry.bbq_vote);
+    if (!voteId) continue;
+    const next = (counts.get(voteId) ?? 0) + 1;
+    counts.set(voteId, next);
   }
 
   let topId = "";

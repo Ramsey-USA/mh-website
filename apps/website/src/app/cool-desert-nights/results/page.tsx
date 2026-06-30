@@ -2,7 +2,10 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { CDN_TEAM_OPTIONS } from "@/lib/events/cool-desert-nights";
+import {
+  CDN_TEAM_OPTIONS,
+  normalizeCdnVoteId,
+} from "@/lib/events/cool-desert-nights";
 
 interface BbqTally {
   id: string;
@@ -32,14 +35,6 @@ interface CachedEventEntry {
 }
 
 const LS_ENTRY_PREFIX = "cdn26_entry_";
-
-function normalizeVoteId(value: string): string {
-  const trimmed = value.trim();
-  if (!trimmed) return "";
-  if (CDN_TEAM_OPTIONS.some((team) => team.id === trimmed)) return trimmed;
-  const matched = CDN_TEAM_OPTIONS.find((team) => team.label === trimmed);
-  return matched?.id ?? trimmed;
-}
 
 function readCachedEntries(): CachedEventEntry[] {
   if (typeof window === "undefined") return [];
@@ -82,7 +77,7 @@ function mergeResultsWithCache(
     const phone = String(cached.phone ?? "").trim();
     if (!phone || seenPhone.has(phone)) continue;
 
-    const voteId = normalizeVoteId(String(cached.bbqVote ?? ""));
+    const voteId = normalizeCdnVoteId(String(cached.bbqVote ?? ""));
     if (voteId) {
       bbqCounts.set(voteId, (bbqCounts.get(voteId) ?? 0) + 1);
     }
