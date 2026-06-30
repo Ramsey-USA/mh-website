@@ -37,7 +37,7 @@ in ways that resonate with its specific audience.
 
 ### Core Principle
 
-**"Building projects for the Client, NOT the Dollar"** is our PRIMARY SLOGAN and should be prominently
+**"Clear planning. Accountable delivery."** is our PRIMARY SLOGAN and should be prominently
 featured across the site. However, each page group also has freedom to create and use
 supplementary messaging that speaks to its unique purpose while always reflecting our four core values.
 
@@ -60,7 +60,7 @@ For **page section ordering**, all lead-path pages must follow the
 ### Group 1: Veteran Foundation
 
 **Pages:** Home, About, Veterans  
-**Core Theme:** Honesty-first, service over self, military precision  
+**Core Theme:** Honesty-first, service over self, execution discipline  
 **Key Message:** Your word is your bond — so is ours. Period.
 
 ### Group 2: Professional Services
@@ -73,7 +73,7 @@ For **page section ordering**, all lead-path pages must follow the
 
 **Pages:** Team, Careers, Trade Partners  
 **Core Theme:** Building lasting relationships through trust  
-**Key Message:** THE ROI IS THE RELATIONSHIP (exclusive to this group)
+**Key Message:** Built on communication and follow-through (exclusive to this group)
 
 ### Group 4: Direct Communication
 
@@ -114,7 +114,7 @@ For **page section ordering**, all lead-path pages must follow the
 
 **Foundation Slogan (Always Featured):**
 
-- "Building projects for the Client, NOT the Dollar"
+- "Clear planning. Accountable delivery."
 
 **Dual-Label Slogans (Military / Construction):**
 
@@ -209,7 +209,7 @@ appropriately.
 
 **Foundation Slogan:**
 
-- "Building projects for the Client, NOT the Dollar" (always applies)
+- "Clear planning. Accountable delivery." (always applies)
 
 **Dual-Label Slogans (Military / Construction):**
 
@@ -223,7 +223,7 @@ appropriately.
 
 - "No gimmicks. No shortcuts. Just quality work done right."
 - "Proven expertise. Thorough execution. Real results."
-- "Your project deserves expert oversight and military precision."
+- "Your project deserves expert oversight and execution discipline."
 
 **Project-Specific Slogans:**
 
@@ -268,7 +268,7 @@ appropriately.
 
 ### Voice & Tone (Group 3)
 
-- **Relationship-Focused:** THE ROI IS THE RELATIONSHIP (exclusive to this group)
+- **Relationship-Focused:** Built on communication and follow-through (exclusive to this group)
 - **Long-Term:** Building partnerships that outlast projects
 - **Mutual Respect:** Two-way commitment, shared success
 - **Values-Aligned:** Seeking partners who share our principles
@@ -283,13 +283,13 @@ appropriately.
 - **Professionalism** - Excellence in every interaction
 - **Thoroughness** - Complete support and development
 
-**EXCLUSIVE MESSAGING:** This is the ONLY group that uses "THE ROI IS THE RELATIONSHIP" as primary messaging.
+**EXCLUSIVE MESSAGING:** This is the ONLY group that uses "Built on communication and follow-through" as primary messaging.
 
 ### Primary Messaging
 
 **Foundation Slogan:**
 
-- "Building projects for the Client, NOT the Dollar" (always applies)
+- "Clear planning. Accountable delivery." (always applies)
 
 **Dual-Label Slogans (Military / Construction):**
 
@@ -301,7 +301,7 @@ appropriately.
 
 **ROI-Relationship Messaging (EXCLUSIVE TO GROUP 3):**
 
-- "THE ROI IS THE RELATIONSHIP" (primary for this group only)
+- "Built on communication and follow-through" (primary for this group only)
 - "Where partnerships outlast projects"
 - "Built on mutual respect, sustained through shared success"
 
@@ -327,7 +327,7 @@ appropriately.
 
 ### Key Phrases (Group 3)
 
-- "THE ROI IS THE RELATIONSHIP - built on four core values"
+- "Built on communication and follow-through - built on four core values"
 - "Partnerships that outlast projects, relationships that outlast buildings"
 - "Your success is our success - that's what partnership means"
 - "Join a veteran-owned team where integrity matters"
@@ -369,7 +369,7 @@ appropriately.
 
 **Foundation Slogan:**
 
-- "Building projects for the Client, NOT the Dollar" (always applies)
+- "Clear planning. Accountable delivery." (always applies)
 
 **Dual-Label Slogans (Military / Construction):**
 
@@ -424,7 +424,7 @@ appropriately.
 
 1. **Identify the page group** before writing any content
 2. **Lead with the appropriate voice and tone** for that group
-3. **Use "Building projects for the Client, NOT the Dollar"** as the primary slogan across all pages
+3. **Use "Clear planning. Accountable delivery."** as the primary slogan across all pages
 4. **Integrate group-specific slogans** as secondary messaging
 5. **Maintain consistency** within each page group
 6. **Test messaging** against the characteristics for that group
@@ -480,7 +480,7 @@ appropriately.
 - Honesty eliminates doubt, Integrity builds credibility
 - Military precision in every detail, no shortcuts taken
 - Face-to-face consultation prioritized over automation
-- "THE ROI IS THE RELATIONSHIP" exclusive to Group 3 (Partnership & Team)
+- "Built on communication and follow-through" exclusive to Group 3 (Partnership & Team)
 
 ### Version 2.0.0 - November 20, 2025
 
@@ -515,6 +515,6 @@ appropriately.
 ## 📞 Questions or Suggestions?
 
 Contact the Marketing & Brand Team with messaging questions or suggestions.
-**Special Message:** THE ROI IS THE RELATIONSHIP (exclusive to Group 3 - Partnership & Team)  
+**Special Message:** Built on communication and follow-through (exclusive to Group 3 - Partnership & Team)  
 **Brand Identity:** Veteran-owned. Veteran-operated. Veteran values in every project.  
 **Measurable Trust:** 98% satisfaction rate | 70% referral rate | Combat Veteran Discount at the Ready

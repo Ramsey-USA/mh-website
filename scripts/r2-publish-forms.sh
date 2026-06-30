@@ -2,19 +2,19 @@
 # ──────────────────────────────────────────────────────────────────────────────
 # scripts/r2-publish-forms.sh
 #
-# Upload locally generated Safety Program form PDFs to the FILE_ASSETS R2 bucket
-# (mh-construction-assets) under the "docs/forms/" key prefix.
+# Upload locally generated current-form package PDFs to the FILE_ASSETS R2 bucket
+# (mh-construction-assets) under the canonical safety and employee handbook
+# key prefixes.
 #
 # Run AFTER:
-#   npm run docs:generate   (creates documents/output/forms/*.pdf)
+#   npm run docs:generate:forms   (creates documents/output/form-packages/*.pdf)
 #
 # Resulting R2 keys (served via /docs/** Workers proxy):
-#   docs/forms/toolbox-talk.pdf
-#   docs/forms/jha.pdf
-#   docs/forms/incident-report.pdf
-#   docs/forms/site-inspection.pdf
-#   docs/forms/equipment-checklist.pdf
-#   docs/forms/signin-log.pdf
+#   docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf
+#   docs/safety/forms/form-mish-50-return-to-work-program-agreement-ack.pdf
+#   docs/employee/forms/form-handbook-01-company-vehicle-acknowledgement.pdf
+#   docs/employee/forms/form-handbook-07-client-photo-release-form.pdf
+#   docs/employee/forms/form-handbook-company-letterhead.pdf
 #
 # Prerequisites:
 #   wrangler CLI installed and authenticated:
@@ -27,13 +27,14 @@
 set -euo pipefail
 
 BUCKET="mh-construction-assets"
-R2_PREFIX="docs/forms"
-FORMS_DIR="documents/output/forms"
+SAFETY_PREFIX="docs/safety/forms"
+EMPLOYEE_PREFIX="docs/employee/forms"
+FORMS_DIR="documents/output/form-packages"
 
-echo "🔍  Checking for generated form PDFs in $FORMS_DIR …"
+echo "🔍  Checking for generated form package PDFs in $FORMS_DIR …"
 
 if [ ! -d "$FORMS_DIR" ]; then
-  echo "❌  $FORMS_DIR not found. Run 'npm run docs:generate' first."
+  echo "❌  $FORMS_DIR not found. Run 'npm run docs:generate:forms' first."
   exit 1
 fi
 
@@ -45,12 +46,27 @@ if [ "$PDF_COUNT" -eq 0 ]; then
 fi
 
 echo ""
-echo "📤  Uploading $PDF_COUNT form PDFs to R2 ($R2_PREFIX/) …"
+echo "📤  Uploading $PDF_COUNT current safety and handbook form package PDFs to R2 …"
 
 TOTAL=0
 find "$FORMS_DIR" -name "*.pdf" -type f | sort | while read -r pdf_path; do
   pdf_name="$(basename "$pdf_path")"
-  KEY="$R2_PREFIX/$pdf_name"
+  case "$pdf_name" in
+    form-mish-51-*)
+      echo "  ↷ skip $pdf_name (not part of website inventory)"
+      continue
+      ;;
+    form-mish-*)
+      KEY="$SAFETY_PREFIX/$pdf_name"
+      ;;
+    form-handbook-*)
+      KEY="$EMPLOYEE_PREFIX/$pdf_name"
+      ;;
+    *)
+      echo "  ↷ skip $pdf_name (unknown form family)"
+      continue
+      ;;
+  esac
   echo "  ↑ $KEY"
   wrangler r2 object put "$BUCKET/$KEY" \
     --file "$pdf_path" \
@@ -59,17 +75,13 @@ find "$FORMS_DIR" -name "*.pdf" -type f | sort | while read -r pdf_path; do
 done
 
 echo ""
-echo "✅  Form PDFs published to R2."
+echo "✅  Form package PDFs published to R2."
 echo "    Bucket  : $BUCKET"
-echo "    Prefix  : $R2_PREFIX/"
+echo "    Prefixes: $SAFETY_PREFIX/ and $EMPLOYEE_PREFIX/"
 echo ""
 echo "    Live URLs (via /docs/** proxy):"
-echo "    https://www.mhc-gc.com/docs/forms/toolbox-talk.pdf"
-echo "    https://www.mhc-gc.com/docs/forms/jha.pdf"
-echo "    https://www.mhc-gc.com/docs/forms/incident-report.pdf"
-echo "    https://www.mhc-gc.com/docs/forms/site-inspection.pdf"
-echo "    https://www.mhc-gc.com/docs/forms/equipment-checklist.pdf"
-echo "    https://www.mhc-gc.com/docs/forms/signin-log.pdf"
-echo ""
-echo "    Verify:"
-echo "    wrangler r2 object list $BUCKET --prefix $R2_PREFIX/ | head -20"
+echo "    https://www.mhc-gc.com/docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf"
+echo "    https://www.mhc-gc.com/docs/safety/forms/form-mish-50-return-to-work-program-agreement-ack.pdf"
+echo "    https://www.mhc-gc.com/docs/employee/forms/form-handbook-01-company-vehicle-acknowledgement.pdf"
+echo "    https://www.mhc-gc.com/docs/employee/forms/form-handbook-07-client-photo-release-form.pdf"
+echo "    https://www.mhc-gc.com/docs/employee/forms/form-handbook-company-letterhead.pdf"

@@ -46,15 +46,6 @@ const TestimonialGrid = dynamic(
   },
 );
 
-// Standardized final CTA section
-const NextStepsSection = dynamic(
-  () =>
-    import("@/components/shared-sections").then((mod) => ({
-      default: mod.NextStepsSection,
-    })),
-  { ssr: true },
-);
-
 const getCultureIconBg = (color: string) => {
   if (color.includes("primary")) {
     return "bg-brand-primary";
@@ -1425,9 +1416,6 @@ export default function CareersPageClient() {
             </div>
           </section>
         </PWAOnly>
-
-        {/* Next Steps Section - Standardized Final CTA */}
-        <NextStepsSection />
 
         {/* Job Application Modal */}
         <JobApplicationModal

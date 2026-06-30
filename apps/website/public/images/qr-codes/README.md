@@ -1,11 +1,11 @@
 # QR Codes for MH Construction
 
-Generated: 6/25/2026, 5:41:18 PM
+Generated: 6/30/2026, 9:21:39 PM
 
 ## Summary
 
-- **Total QR Codes:** 314
-- **Successfully Generated:** 314
+- **Total QR Codes:** 312
+- **Successfully Generated:** 312
 - **Location:** `apps/website/public/images/qr-codes`
 - **Folders:** `core`, `contact`, `rfq`, `safety`, `social`, `events`, `safety-sections`, `safety-forms`, `handbook-forms`, `team`
 
@@ -239,18 +239,6 @@ Generated: 6/25/2026, 5:41:18 PM
 - **File:** `safety/qr-safety-manual-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/contents>
 
-### ✅ Safety Manual — Table of Contents (Public)
-
-- **Name:** `safety-manual-contents`
-- **File:** `safety/qr-safety-manual-contents-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/contents>
-
-### ✅ Safety Manual — Table of Contents (Public)
-
-- **Name:** `safety-manual-contents`
-- **File:** `safety/qr-safety-manual-contents-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/contents>
-
 ### ✅ Accessibility Statement
 
 - **Name:** `accessibility`
@@ -423,27 +411,25 @@ Generated: 6/25/2026, 5:41:18 PM
 
 - **Name:** `safety-dashboard`
 - **File:** `safety/qr-safety-dashboard-color.png`
-- **URL:** <https://www.mhc-gc.com/safety/hub>
+- **URL:** <https://www.mhc-gc.com/safety>
 
 ### ✅ Safety Hub (Employee Operations)
 
 - **Name:** `safety-dashboard`
 - **File:** `safety/qr-safety-dashboard-bw.png`
-- **URL:** <https://www.mhc-gc.com/safety/hub>
+- **URL:** <https://www.mhc-gc.com/safety>
 
 ### ✅ Cool Desert Nights 2026 — Booth Entry Wizard
 
 - **Name:** `cdn-booth-entry`
 - **File:** `events/qr-cdn-booth-entry-color.png`
 - **URL:** <https://www.mhc-gc.com/cool-desert-nights#booth-entry>
-- **Behavior Note:** After the participant completes all voting steps and submits, the flow now auto-redirects to the MH Construction Google review form: <https://g.page/r/CVdv3YZLzJvdEAI/review>.
 
 ### ✅ Cool Desert Nights 2026 — Booth Entry Wizard
 
 - **Name:** `cdn-booth-entry`
 - **File:** `events/qr-cdn-booth-entry-bw.png`
 - **URL:** <https://www.mhc-gc.com/cool-desert-nights#booth-entry>
-- **Behavior Note:** After the participant completes all voting steps and submits, the flow now auto-redirects to the MH Construction Google review form: <https://g.page/r/CVdv3YZLzJvdEAI/review>.
 
 ### ✅ Safety Manual Section 01: injury free workplace plan
 

@@ -1,9 +1,9 @@
 {
   "hero": {
-    "baseLabel": "Base HQ → Home",
-    "founded": "Founded 2010, Veteran-Owned Since January 2025 • BABAA (Build America, Buy America Act) Supporter",
-    "tagline": "Your Tri-State Construction Command Center",
-    "mission": "Building projects for the Client, NOT the Dollar",
+    "baseLabel": "Home",
+    "founded": "Founded 2010 • Veteran-Owned Since January 2025 • BABAA (Build America, Buy America Act) Supporter",
+    "tagline": "Accountable construction across WA, OR, and ID",
+    "mission": "Clear planning. Accountable delivery.",
     "serving": "Tri-Cities HQ (Pasco, Richland, Kennewick) | Tri-State Licensed in WA, OR, ID"
   },
   "coreValues": {
@@ -15,25 +15,25 @@
       {
         "value": "Honesty",
         "tagline": "Clear Communication Every Time",
-        "description": "Full transparency—truthful assessments, open communication, honest intel. Upfront discussion of challenges and obstacles. Real-time updates on timeline or budget changes. Honest assessment when a project isn't the right fit. Complete cost breakdown before starting. Straight talk, no jargon.",
+        "description": "Transparent pricing, direct communication, and real-time updates on scope, budget, and schedule. We flag risks early and say when a project is not the right fit.",
         "stats": "100% Transparent Pricing"
       },
       {
         "value": "Integrity",
         "tagline": "Doing What's Right",
-        "description": "Strong ethics—doing what's right even when no one's watching. Using specified materials and methods without substitutions. Comprehensive warranties—we stand behind our work. Making decisions that benefit client partners, not just our bottom line. Following through on commitments even when circumstances change. No shortcuts, period.",
+        "description": "We follow specified materials and methods, honor commitments, and stand behind the work with clear warranties. No shortcuts.",
         "stats": "Unwavering Ethics"
       },
       {
         "value": "Professionalism",
         "tagline": "Excellence in Action",
-        "description": "On time, prepared, and ready—zero excuses. Arriving on time and prepared. Clear communication in all interactions. Proper site management and organization. Treating your property with respect. Maintaining industry credentials and continuous improvement.",
+        "description": "We show up prepared, communicate clearly, run organized sites, and treat people and property with respect.",
         "stats": "Expert Service Standards"
       },
       {
         "value": "Thoroughness",
         "tagline": "No Detail Left Behind",
-        "description": "Meticulous planning and execution—complete documentation, zero surprises. Detailed site analysis and planning. Precision measurements and calculations. Systematic quality checkpoints at every phase. Complete documentation with photo records. Comprehensive final review with detailed punch lists.",
+        "description": "We plan in detail, document each phase, run quality checkpoints, and close with complete punch and turnover records.",
         "stats": "Zero Details Missed"
       }
     ]
@@ -50,9 +50,9 @@
     }
   },
   "services": {
-    "sectionSubtitle": "Service Lanes by Project Phase",
-    "sectionTitle": "From Planning to Close-Out",
-    "sectionDescription": "Understand each delivery lane from preconstruction planning through active build and close-out.",
+    "sectionSubtitle": "Market Outcome Lanes",
+    "sectionTitle": "Start with Your Project Type",
+    "sectionDescription": "See how we deliver AG and winery projects, commercial tenant improvements, and municipal builds with clear ownership, Procore visibility, and closeout-ready controls. MH Construction prides itself on being the answer before the problem through Professional Pre-Construction and Handoff Procedures. Every complex project presents a minefield of operational risks—MHC neutralizes the variables and secures your delivery. Every build introduces unique structural and regulatory challenges. MHC provides the precise project management required to navigate them on time and within scope.",
     "clickForDetails": "Click for Full Details",
     "viewDetailsAriaPrefix": "View details for",
     "closeDetailsBackdropAria": "Close service details modal",
@@ -63,32 +63,32 @@
     "contactCta": "Get Started",
     "items": [
       {
-        "title": "Construction Management",
-        "subtitle": "Complete Project Oversight",
-        "description": "Complete oversight from concept through completion. Your project objectives executed with clear communication and proven expertise.",
+        "title": "AG and Winery Communities",
+        "subtitle": "Agricultural and Winery Project Delivery",
+        "description": "Project delivery for AG and winery communities with Procore visibility, safety-first field controls, and handoff-ready closeout, including pond liner systems for wastewater and sludge runoff.",
         "features": [
-          "Complete project oversight & coordination",
-          "Master Planning & Pre-Construction",
-          "Budget control & cost management",
-          "Quality assurance & safety protocols"
+          "Winery pond liner installation for wastewater and sludge runoff containment",
+          "AG facility coordination with stainless-steel implications",
+          "Major silo integration and sequencing",
+          "Proven delivery context from projects like Darigold Plant in Pasco"
         ],
         "benefits": [
           "Eliminate costly last-minute decisions",
           "Proven reliability",
           "Complete transparency",
-          "150+ years combined experience"
+          "Cross-discipline field and management experience"
         ],
         "cta": "Explore Services"
       },
       {
-        "title": "Master Planning",
-        "subtitle": "Comprehensive Pre-Construction",
-        "description": "Transform your vision into actionable plans. Strategic coordination of every component from initial assessment through execution.",
+        "title": "Commercial Tenant Improvements",
+        "subtitle": "Occupied-Space TI with Door/Hardware Scope",
+        "description": "Commercial TI execution with phased coordination, door and hardware installation, and schedule controls that protect active operations.",
         "features": [
-          "Detailed project scope & parameters",
-          "Budget & timeline forecasting",
-          "Constructability analysis & risk assessment",
-          "Vendor & material coordination"
+          "Scope definition and responsibility matrix",
+          "Budget and schedule forecasting",
+          "Constructability and risk controls",
+          "Vendor and material coordination"
         ],
         "benefits": [
           "Prevent scope creep",
@@ -99,14 +99,14 @@
         "cta": "Learn More"
       },
       {
-        "title": "Commercial Buildings",
-        "subtitle": "Commercial Facilities with Owner-First Delivery",
-        "description": "Commercial construction for offices, retail, medical facilities, and religious spaces. Licensed across WA, OR, and ID—quality craftsmanship over profit margins.",
+        "title": "Municipal Builds",
+        "subtitle": "Public-Sector Delivery with Compliance Controls",
+        "description": "Municipal project delivery with approval traceability, Procore-based reporting, and agency-ready documentation from kickoff through closeout.",
         "features": [
-          "Professional offices & retail spaces",
-          "Medical facilities & clinics",
-          "Religious & community buildings",
-          "Auto dealerships & showrooms"
+          "Public facility and civic renovation scopes",
+          "Agency reporting and approval traceability",
+          "Occupied-site safety and continuity controls",
+          "Closeout documentation ready for audit"
         ],
         "benefits": [
           "3-state licensing (WA, OR, ID)",
@@ -119,7 +119,7 @@
       {
         "title": "Procurement & Trade Partnerships",
         "subtitle": "Supply Chain Management",
-        "description": "Expert supply chain coordination—sourcing quality materials and managing our network of trusted trade partners. No coordination headaches, just reliable execution.",
+        "description": "Supply-chain coordination for quality materials and vetted trade partners with fewer delays and clearer accountability.",
         "features": [
           "Material sourcing & procurement",
           "Vendor coordination & management",
@@ -137,7 +137,7 @@
       {
         "title": "Light Industrial",
         "subtitle": "Durable, High-Performance Infrastructure",
-        "description": "Safe, durable industrial construction with 16+ years proven experience. Warehouses to processing plants built to exacting specifications with industry-leading safety standards.",
+        "description": "Safe, durable industrial construction for warehouses and processing facilities with practical layouts and code-ready turnover.",
         "features": [
           "Warehouse & distribution centers",
           "Manufacturing & processing plants",
@@ -154,13 +154,13 @@
       },
       {
         "title": "Tenant Improvements",
-        "subtitle": "Efficient Space Transformations",
-        "description": "Transform your commercial space quickly and efficiently with expert craftsmanship. Minimal downtime, maximum results.",
+        "subtitle": "Commercial TI and Door/Hardware Installation",
+        "description": "Commercial tenant improvements with door and hardware installation that minimize downtime and protect active operations.",
         "features": [
           "Office space renovations",
           "Retail store buildouts",
-          "Restaurant & hospitality TI",
-          "Medical office improvements"
+          "Door and hardware installation",
+          "Restaurant, hospitality, and medical TI"
         ],
         "benefits": [
           "Fast, efficient completion",
@@ -173,11 +173,11 @@
     ]
   },
   "whyPartner": {
-    "sectionSubtitle": "Why Teams Stay With MH",
-    "sectionTitle": "Standards That Protect Outcomes",
-    "sectionDescription": "Review the operating standards behind every client partnership: safety leadership, transparent process controls, and measurable reliability across every phase.",
+    "sectionSubtitle": "Operational Accountability",
+    "sectionTitle": "Who Owns What at Every Stage",
+    "sectionDescription": "Review our ownership model, escalation path, and approval controls so decisions stay clear from kickoff through post-closeout support.",
     "philosophy": "Your word is your bond — so is ours. Period.",
-    "theROI": "THE ROI IS THE RELATIONSHIP",
+    "theROI": "Built on communication and follow-through",
     "tradeCta": {
       "prompt": "Are you a trade contractor?",
       "highlight": "Join our Ally network.",
@@ -202,7 +202,7 @@
         "subtitle": "Proven Construction Expertise",
         "description": "Our team brings 150+ years of combined construction expertise. Veterans and civilians working together, leveraging proven methods refined through generations. Deep experience you can trust.",
         "highlights": [
-          "150+ years combined expertise",
+          "Cross-discipline field and management expertise",
           "Veteran + civilian team excellence",
           "Proven methods & practices",
           "Multi-generational experience"
@@ -212,7 +212,7 @@
       {
         "title": "Complete Transparency",
         "subtitle": "Zero Surprises",
-        "description": "Open-book pricing with complete visibility on every cost, timeline, and decision. You control the project, we execute it with full transparency. No hidden costs, honest assessments at every phase. Your word is your bond—so is ours.",
+        "description": "Open-book pricing with visibility into cost, timeline, and decisions. No hidden costs, and honest assessments at every phase.",
         "highlights": [
           "Open-book pricing",
           "Real-time project updates",
@@ -224,37 +224,37 @@
       {
         "title": "Long-Term Partnerships",
         "subtitle": "Relationships That Outlast Projects",
-        "description": "70% of our business comes from referrals and repeat partners—trust earned through action, not words. Our commitment doesn't end when the project completes. We're in it for the long haul, building relationships that matter.",
+        "description": "70% of our business comes from referrals and repeat partners. We earn trust through consistent delivery and stay engaged after closeout.",
         "highlights": [
-          "70% referral & repeat business",
-          "Lifelong partnership commitment",
-          "Ongoing support & service",
-          "Community-focused relationships"
+          "70% referral and repeat business",
+          "Long-term partnership focus",
+          "Post-closeout support",
+          "Community-based delivery"
         ],
         "statLabel": "Referral Business"
       },
       {
         "title": "650+ Successful Projects",
         "subtitle": "Proven Track Record",
-        "description": "650+ successfully completed projects demonstrate proven reliability. Veteran leadership brings discipline, planning under pressure, and consistent execution. Whether routine or urgent—we deliver results no matter the challenges.",
+        "description": "650+ completed projects show reliable execution. Veteran leadership brings discipline, calm planning under pressure, and consistent follow-through.",
         "highlights": [
           "650+ completed projects",
-          "Veteran-Owned Since January 2025",
-          "Dedicated BABAA (Build America, Buy America Act) supporter",
+          "Veteran-owned since January 2025",
+          "BABAA-aligned delivery",
           "Disciplined execution",
-          "Service-earned values"
+          "Reliable follow-through"
         ],
         "statLabel": "Successful Projects"
       },
       {
         "title": "3-State Licensing",
         "subtitle": "Licensed Across the Pacific Northwest",
-        "description": "Fully licensed general contractor across Washington, Oregon, and Idaho. Comprehensive insurance and bonding provide complete protection for every project. Credentials maintained with precision—continuous compliance, zero compromises.",
+        "description": "Fully licensed across Washington, Oregon, and Idaho with comprehensive insurance and bonding. Credentials are maintained through continuous compliance.",
         "highlights": [
           "Licensed in WA, OR, and ID",
-          "Full insurance & bonding coverage",
-          "Complete compliance assurance",
-          "Maintained with precision"
+          "Full insurance and bonding",
+          "Continuous compliance",
+          "Credentials kept current"
         ],
         "statLabel": "States Licensed"
       }
@@ -263,36 +263,40 @@
   "testimonials": {
     "subtitle": "Client Partner Voices",
     "title": "Field-Tested Relationships",
-    "description": "Read testimonials from valued Client Partners across the Pacific Northwest who have experienced our collaborative excellence firsthand."
+    "description": "Proof from AG/winery, commercial TI, and municipal-facing Client Partners across the Pacific Northwest."
   },
   "process": {
     "subtitle": "Execution Roadmap",
-    "title": "Five-Step Delivery Model",
-    "descriptionPart1": "Five clear steps from",
-    "descriptionPart2": "first contact to project completion",
-    "descriptionPart3": ". No surprises, just",
-    "descriptionPart4": "honest communication and proven results",
+    "title": "Six-Stage Operating Model",
+    "descriptionPart1": "Six clear stages from",
+    "descriptionPart2": "intake through post-closeout support",
+    "descriptionPart3": ". Ownership, escalation, and approvals stay visible with",
+    "descriptionPart4": "Procore-backed controls and handoff-ready documentation",
     "descriptionPart5": ".",
     "steps": [
       {
-        "title": "Pre-Construction Planning",
-        "desc": "Comprehensive site assessment, detailed scope development, and strategic planning to identify challenges before they arise."
+        "title": "Intake and Qualification",
+        "desc": "Define fit, goals, and constraints upfront so the right delivery path is clear for AG, Winery, and Municipal work."
       },
       {
-        "title": "Budget Transparency",
-        "desc": "Clear, itemized pricing with complete cost breakdown. No hidden fees, no surprises—just honest numbers you can trust."
+        "title": "Preconstruction Planning",
+        "desc": "Estimators lead budget intelligence, scope planning, and risk controls before field mobilization."
       },
       {
-        "title": "Quality Execution",
-        "desc": "Expert craftsmanship with systematic quality checkpoints at every phase. Precision execution backed by 150+ years combined experience."
+        "title": "Execution Control",
+        "desc": "Superintendents lead field execution while PMs manage delivery controls. Costs above $5,000 require COO approval; above $25,000 add CFO approval."
       },
       {
-        "title": "Proactive Communication",
-        "desc": "Regular updates keep you informed throughout the project. Real-time notifications of any changes—you're never in the dark."
+        "title": "Quality and Safety Validation",
+        "desc": "Quality checkpoints and safety enforcement are continuous. Superintendents hold stop-work authority with defined escalation through PM, Safety Officer, COO, and Owner."
       },
       {
-        "title": "Seamless Close-Out",
-        "desc": "Comprehensive final walkthrough and complete documentation. Our commitment to your satisfaction extends beyond project completion."
+        "title": "Handoff and Closeout",
+        "desc": "Verify closeout packages, punch-list completion, and turnover readiness before handoff. Owner and President provides final closeout sign-off."
+      },
+      {
+        "title": "Post-Closeout Support",
+        "desc": "The original PM owns warranty handling with COO authorization. Marketing and Estimation teams maintain follow-up after turnover."
       }
     ]
   }

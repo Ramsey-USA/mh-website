@@ -9,7 +9,7 @@ const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 export const metadata: Metadata = {
   title: "Tri-State Government Construction | Public Sector | MH Construction",
   description:
-    "Regional strategy page for government construction across Washington, Oregon, and Idaho, aligned to location coverage and service pathways.",
+    "Regional strategy for government construction across Washington, Oregon, and Idaho, aligned to location coverage and service pathways.",
   alternates: {
     canonical: `${SITE_URL}/public-sector/tri-state-government-construction`,
   },

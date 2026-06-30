@@ -38,10 +38,8 @@ describe("Chatbot Knowledge Base", () => {
       expect(prompt).toContain("Veteran-Owned");
       expect(prompt).toContain("Build America, Buy America Act (BABAA)");
       expect(prompt).toContain("agc.org/babaa-resource-hub");
-      expect(prompt).toContain("THE ROI IS THE RELATIONSHIP");
-      expect(prompt).toContain(
-        "Building projects for the Client, NOT the Dollar",
-      );
+      expect(prompt).toContain("clear planning, accountable delivery");
+      expect(prompt).toContain("long-term partnership support");
     });
 
     it("includes all ally names", () => {

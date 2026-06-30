@@ -195,13 +195,7 @@ export function HeroSectionClient({
             <span className="mb-1 block text-brand-secondary/90 text-[clamp(0.75rem,1.5vw,1.15rem)] leading-[1.25]">
               {copy.tagline}
             </span>
-            <span className="block text-white">
-              Building projects for the Client,{" "}
-              <span className="font-black italic text-brand-secondary">
-                NOT
-              </span>{" "}
-              the Dollar
-            </span>
+            <span className="block text-white">{copy.mission}</span>
             <span className="mt-1.5 block text-brand-secondary/75 text-[clamp(0.65rem,1.1vw,0.9rem)] leading-[1.4]">
               {copy.founded} | {copy.serving}
             </span>

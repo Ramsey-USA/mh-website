@@ -141,7 +141,7 @@ function getApplicationContext(entryPoint?: string): ApplicationContext {
   if (normalizedEntryPoint.includes("veteran")) {
     return {
       badge: "Veteran Application",
-      title: "Enlist With Us",
+      title: "Join Our Team",
       description:
         "Service recognizes service. Veterans receive priority consideration—your military experience matters here. Share the basics and we will follow up directly.",
     };
@@ -152,7 +152,7 @@ function getApplicationContext(entryPoint?: string): ApplicationContext {
       badge: "Career Inquiry",
       title: "Start the Conversation",
       description:
-        "THE ROI IS THE RELATIONSHIP. Send your name, email, and the role you want to discuss. Build your career with a company that keeps its word.",
+        "Bring your experience and goals. Send your name, email, and the role you want to discuss, and our team will follow up directly.",
     };
   }
 
@@ -446,7 +446,7 @@ export function JobApplicationModal({
                 ? "Gracias por contactar a MH Construction. Nuestro equipo ya tiene su información y la revisará según las necesidades actuales de contratación y el trabajo próximo. Creemos que"
                 : "Thank you for reaching out to MH Construction. Our team has your information and will review it against current hiring needs and upcoming work. We believe"}{" "}
               <span className="font-semibold text-brand-primary dark:text-brand-secondary">
-                THE ROI IS THE RELATIONSHIP
+                clear communication builds strong teams
               </span>
               {isEs ? " y aquí comienza." : "—and that starts here."}
             </p>

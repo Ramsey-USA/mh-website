@@ -19,14 +19,14 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${enhancedSEO.siteUrl}/#webpage`,
     url: enhancedSEO.siteUrl,
-    name: "Base HQ → Home | MH Construction",
+    name: "Home | MH Construction",
     description:
-      "Your Tri-State Construction Command Center. Founded 2010, Veteran-Owned Since January 2025. General contractor serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla.",
+      "Commercial, industrial, and public-sector construction from MH Construction's Tri-Cities headquarters, serving Washington, Oregon, and Idaho.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${enhancedSEO.siteUrl}/images/og/og-home.webp`,
+      url: `${enhancedSEO.siteUrl}/images/og-default.webp`,
       width: 1200,
       height: 630,
     },
@@ -44,11 +44,11 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: "Base HQ → Home | Building Projects for the Client, NOT the Dollar",
+    title: "Home | Commercial, Industrial, and Public-Sector Construction",
     description:
-      "Base HQ → Home: Your Tri-State Construction Command Center serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla. Founded 2010, Veteran-Owned Since January 2025. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication. Dual-label approach: Military Operations → Construction Services. Licensed in WA, OR, ID.",
+      "MH Construction delivers AG and winery facilities, commercial tenant improvements, and municipal projects with clear planning, disciplined field coordination, and licensed coverage across WA, OR, and ID.",
     keywords: [
-      "Base HQ Home construction command center",
+      "MH Construction home",
       "veteran-owned contractor Pacific Northwest",
       "general contractor Pasco, WA",
       "general contractor Tri-State",
@@ -56,9 +56,15 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
       "Pasco general contractor",
       "Kennewick general contractor",
       "commercial construction",
+      "agricultural community construction",
+      "winery community construction",
+      "municipal construction services",
       "industrial construction",
       "construction management",
+      "Procore construction project management",
       "construction project management",
+      "pole building contractor",
+      "door and hardware installation contractor",
       "office remodeling",
       "commercial renovation",
       "building addition contractor",
@@ -102,7 +108,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
       "veteran construction values",
     ],
     canonicalUrl: enhancedSEO.siteUrl,
-    ogImage: `${enhancedSEO.siteUrl}/images/og/og-home.webp`,
+    ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
     schemas: [
       generateConstructionFAQSchema(),
       generateLocalBusinessSchema(),
@@ -126,9 +132,9 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
     "@type": "AboutPage",
     "@id": `${aboutUrl}#webpage`,
     url: aboutUrl,
-    name: "Our Oath → About Us | MH Construction",
+    name: "About Us | MH Construction",
     description:
-      "Founded 2010, Veteran-Owned Since January 2025. 650+ projects, 70% referral rate, AGC-WA Top EMR Awards & OSHA VPP Star. Serving Tri-State WA, OR, ID, Yakima, Spokane, Walla Walla, Hermiston OR, Coeur d'Alene ID, Omak WA, and Pendleton OR. Licensed WA, OR, ID.",
+      "Learn MH Construction's company history, leadership transition, and operating approach across commercial, industrial, and public-sector projects in Washington, Oregon, and Idaho.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${aboutUrl}#breadcrumb` },
@@ -174,10 +180,10 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
         "Government Construction Projects",
         "Safety Excellence",
         "Partnership-Driven Construction",
-        "Chain of Command Approach",
+        "Structured Leadership Approach",
       ],
       slogan: "We Work WITH You, Not FOR You",
-      mission: "Building projects for the Client, NOT the Dollar",
+      mission: "Clear planning. Accountable delivery.",
       areaServed: [
         {
           "@type": "City",
@@ -275,15 +281,15 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: "Our Oath → About Us | Service-Earned Values, Honest Relationships",
+    title: "About Us | Service-Earned Values, Honest Relationships",
     description:
-      "Founded 2010, Veteran-Owned Since January 2025. BBB Accredited A+ Rating. Pasco, Richland & Tri-City Regional Chamber of Commerce member. 650+ projects, 70% referral rate, AGC-WA Top EMR Awards & OSHA VPP Star. Licensed WA, OR, ID.",
+      "Explore MH Construction's history, leadership, and trust foundations including BBB accreditation, regional chamber membership, and licensed operations across WA, OR, and ID.",
     keywords: [
       "veteran-owned construction company Tri-State WA OR ID",
       "MH Construction company history",
       "Jeremy Thamert Army veteran owner",
       "Arnold Garcia VP construction",
-      "Chain of Command construction approach",
+      "structured leadership construction approach",
       "650+ completed projects Pacific Northwest",
       "70 percent referral rate contractor",
       "AGC Washington Top EMR Award",
@@ -315,7 +321,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
       "Pacific Northwest general contractor about",
     ],
     canonicalUrl: aboutUrl,
-    ogImage: `${enhancedSEO.siteUrl}/images/og/og-about.webp`,
+    ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
     schemas: [companyHistorySchema],
   });
 }
@@ -328,7 +334,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     {
       name: "Commercial Construction",
       description:
-        "Commercial buildings, renovations, and business projects with transparent pricing and proven craftsmanship across the Pacific Northwest",
+        "Commercial buildings, renovations, and business projects for AG and winery communities with transparent pricing and proven craftsmanship across the Pacific Northwest",
       category: "Commercial Services",
     },
     {
@@ -340,13 +346,13 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     {
       name: "Tenant Improvements",
       description:
-        "Interior buildouts and tenant improvement projects for commercial and industrial facilities throughout Eastern Washington",
+        "Commercial tenant improvements, interior buildouts, and door and hardware installation for occupied facilities throughout Eastern Washington",
       category: "Tenant Improvement Services",
     },
     {
       name: "Light Industrial Construction",
       description:
-        "Small to mid-size industrial facility expansions, renovations, and new builds with veteran-led operational discipline",
+        "Small to mid-size industrial facility expansions, renovations, new builds, and pole buildings with veteran-led operational discipline",
       category: "Industrial Services",
     },
     {
@@ -358,7 +364,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     {
       name: "Construction Management",
       description:
-        "Full-service construction management with transparent communication, open-book pricing, and systematic quality control",
+        "Full-service project management in Procore with transparent communication, open-book pricing, and systematic quality control",
       category: "Project Management",
     },
   ];
@@ -374,7 +380,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     url: servicesUrl,
     name: "Services | MH Construction",
     description:
-      "Commercial construction, master planning, tenant improvements, light industrial, and government projects across our Tri-State licensed footprint, with strong delivery in Yakima, Spokane, and Walla Walla.",
+      "AG and winery community construction, commercial tenant improvements, and municipal projects across our WA-OR-ID licensed footprint with Procore project management.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${servicesUrl}#breadcrumb` },
@@ -394,11 +400,18 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: "Services | Commercial and Industrial Construction Services",
     description:
-      "Commercial construction, master planning, tenant improvements, light industrial & government projects. Founded 2010, Veteran-Owned Since January 2025. Headquartered in the Tri-Cities (Pasco, Richland, Kennewick). Licensed WA, OR, ID. Transparent pricing.",
+      "Explore MH Construction services for AG and winery facilities, commercial tenant improvements, municipal work, and light industrial scopes across WA, OR, and ID, supported by Procore project controls.",
     keywords: [
       "commercial construction Tri-State WA OR ID",
       "master planning preconstruction services",
       "tenant improvement contractor",
+      "commercial tenant improvements",
+      "AG construction contractor",
+      "winery construction contractor",
+      "municipal construction contractor",
+      "pole building construction",
+      "door and hardware installation",
+      "Procore project management",
       "light industrial construction Pacific Northwest",
       "government construction veteran-owned",
       "construction management services",
@@ -420,7 +433,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
       "grant-funded construction projects",
     ],
     canonicalUrl: servicesUrl,
-    ogImage: `${enhancedSEO.siteUrl}/images/og/og-services.webp`,
+    ogImage: `${enhancedSEO.siteUrl}/images/og/services/commercial-construction.webp`,
     schemas: [...serviceSchemas, webPageSchema, breadcrumbSchema],
   });
 }
@@ -490,9 +503,9 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${teamUrl}#webpage`,
     url: teamUrl,
-    name: "Chain of Command → Our Team | MH Construction",
+    name: "Our Team | MH Construction",
     description:
-      "Meet the MH Construction team: 150+ years combined expertise across all service branches. Founded 2010, Veteran-Owned Since January 2025. Serving Tri-State WA, OR, ID and the Pacific Northwest.",
+      "Meet MH Construction's leadership and field management team serving Washington, Oregon, and Idaho with accountable planning and delivery.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${teamUrl}#breadcrumb` },
@@ -502,10 +515,9 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title:
-      "Chain of Command → Our Team | 150+ Years Combined Military-Grade Expertise",
+    title: "Our Team | Leadership and Field Management",
     description:
-      "Meet MH Construction's veteran-led team: 150+ years combined expertise across all service branches. Jeremy Thamert (Army), Arnold Garcia VP. Serving Tri-State WA, OR, ID. Licensed WA, OR, ID.",
+      "Meet MH Construction's leadership team, including Jeremy Thamert and Arnold Garcia, guiding commercial, industrial, and public-sector work across WA, OR, and ID.",
     keywords: [
       "MH Construction team leadership",
       "veteran-owned construction team Tri-State WA OR ID",
@@ -537,14 +549,14 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${enhancedSEO.siteUrl}/public-sector#webpage`,
     url: `${enhancedSEO.siteUrl}/public-sector`,
-    name: "Public Sector → Government | MH Construction",
+    name: "Public Sector Construction | MH Construction",
     description:
       "Veteran-owned Tri-State contractor for government & public sector construction. Dedicated supporter of the Build America, Buy America Act (BABAA), grant support, and $8M+ bonding capacity. Pasco, WA.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${enhancedSEO.siteUrl}/images/og-default.jpg`,
+      url: `${enhancedSEO.siteUrl}/images/og/services/municipal-government.webp`,
       width: 1200,
       height: 630,
     },
@@ -554,8 +566,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title:
-      "Public Sector → Government | Veteran-Owned, Relationship-First Government Construction",
+    title: "Public Sector Construction | Veteran-Owned, Accountable Delivery",
     description:
       "Veteran-owned Tri-State contractor for government & public sector construction. Dedicated supporter of the Build America, Buy America Act (BABAA), grant support, and $8M+ bonding capacity. Pasco, WA.",
     keywords: [
@@ -591,14 +602,14 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${enhancedSEO.siteUrl}/veterans#webpage`,
     url: `${enhancedSEO.siteUrl}/veterans`,
-    name: "Allied Forces → Veterans | MH Construction",
+    name: "Veterans | MH Construction",
     description:
-      "Tri-State construction firm founded 2010, Veteran-Owned Since January 2025, with Army & Navy leadership. Combat Veteran Discount, 100% veteran hiring priority & apprenticeships. Pasco, WA.",
+      "Veteran-focused MH Construction programs include combat veteran discounts, community support, and leadership pathways connected to commercial, industrial, and public-sector work across WA, OR, and ID.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${enhancedSEO.siteUrl}/images/og/og-veterans.webp`,
+      url: `${enhancedSEO.siteUrl}/images/og-default.webp`,
       width: 1200,
       height: 630,
     },
@@ -608,10 +619,9 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title:
-      "Allied Forces → Veterans | Combat Veteran Discount, Year-Round Support",
+    title: "Veterans | Combat Veteran Discount, Year-Round Support",
     description:
-      "Tri-State construction firm founded 2010, Veteran-Owned Since January 2025, with Army & Navy leadership. Combat Veteran Discount, 100% veteran hiring priority & apprenticeships. Pasco, WA.",
+      "Learn how MH Construction supports veterans through combat veteran discounts, hiring initiatives, apprenticeships, and long-term community partnerships across the Pacific Northwest.",
     keywords: [
       "veteran-owned construction Tri-State",
       "combat veteran discount",
@@ -621,12 +631,12 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
       "veteran-owned Trade Partners",
       "Pacific Northwest veteran contractor",
       "Group 1 Veteran Foundation",
-      "disciplined execution construction",
+      "construction leadership standards",
       "veteran support programs",
-      "service-earned values",
+      "values-driven leadership",
       "veteran partnerships",
-      "Jeremy Ramsey Army veteran",
-      "Matt Hunzeker Navy veteran",
+      "Jeremy Thamert Army veteran",
+      "Matt Ramsey Navy veteran",
       "all-branch veterans",
       "veteran discount screening",
       "military construction services",
@@ -634,7 +644,7 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
       "veteran-owned business Washington",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/veterans`,
-    ogImage: `${enhancedSEO.siteUrl}/images/og/og-veterans.webp`,
+    ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
     schemas: [webPageSchema, generateLocalBusinessSchema()],
   });
 }
@@ -647,14 +657,14 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${enhancedSEO.siteUrl}/allies#webpage`,
     url: `${enhancedSEO.siteUrl}/allies`,
-    name: "Allies → Partners | MH Construction",
+    name: "Trade Partners | MH Construction",
     description:
-      "Join MH Construction's Trade Partner network. Founded 2010, Veteran-Owned Since January 2025. Trusted Trade Partners include Diamond Electric, Mustang Signs, Bagley Landscape Construction, McKinney Glass, Dupree Building Specialties, Frontier Fencing, IWI Insulation, Viking Plumbing & Mechanical, and Core Cabinet Production.",
+      "Join MH Construction's Trade Partner network serving commercial, industrial, and public-sector projects across WA, OR, and ID with vetted specialty contractors.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${enhancedSEO.siteUrl}/images/og-default.jpg`,
+      url: `${enhancedSEO.siteUrl}/images/og-default.webp`,
       width: 1200,
       height: 630,
     },
@@ -885,7 +895,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
     title:
       "Trade Partner Opportunities | Allied Trade Partner Network | MH Construction",
     description:
-      "MH Construction's trusted Trade Partner network: Diamond Electric, Mustang Signs, Bagley Landscape Construction, McKinney Glass, Dupree Building Specialties, Frontier Fencing, IWI Insulation, Viking Plumbing & Mechanical, Core Cabinet Production, and High Desert Drywall. Subcontractor opportunities with a Pacific Northwest GC founded 2010, Veteran-Owned Since January 2025.",
+      "MH Construction's Trade Partner network includes electrical, signage, landscaping, glazing, specialties, fencing, insulation, plumbing, cabinetry, and drywall teams supporting projects throughout the Pacific Northwest.",
     keywords: [
       "construction subcontractor opportunities Tri-State WA OR ID",
       "trade partner network Pacific Northwest",
@@ -955,7 +965,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
             name: "What are the benefits of being an MH Construction Ally?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Allies receive consistent project volume, prompt payment, and a collaborative partnership with a GC founded 2010 and Veteran-Owned Since January 2025, with a .64 EMR safety rating and 70% repeat/referral business. THE ROI IS THE RELATIONSHIP.",
+              text: "Allies receive consistent project volume, prompt payment, and collaborative planning with clear scope expectations, safety coordination, and reliable field communication from bid through closeout.",
             },
           },
         ],
@@ -972,14 +982,14 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
     "@type": "CollectionPage",
     "@id": `${enhancedSEO.siteUrl}/testimonials#webpage`,
     url: `${enhancedSEO.siteUrl}/testimonials`,
-    name: "Commendations \u2192 Reviews | MH Construction",
+    name: "Client Reviews | MH Construction",
     description:
-      "Verified client testimonials from commercial, industrial & public-sector partners across our Tri-State licensed footprint and the Pacific Northwest. Veteran-owned MH Construction.",
+      "Verified client testimonials from commercial, industrial, and public-sector partners across MH Construction's WA, OR, and ID service area.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${enhancedSEO.siteUrl}/images/og/og-testimonials.webp`,
+      url: `${enhancedSEO.siteUrl}/images/og-default.webp`,
       width: 1200,
       height: 630,
     },
@@ -989,9 +999,9 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: "Commendations \u2192 Reviews | Trusted Partner Testimonials",
+    title: "Client Reviews | Trusted Partner Testimonials",
     description:
-      "Verified client testimonials from commercial, industrial & public-sector partners across our Tri-State licensed footprint and the Pacific Northwest. Veteran-owned MH Construction.",
+      "Verified client testimonials from commercial, industrial, and public-sector partners across MH Construction's WA, OR, and ID service area.",
     keywords: [
       "construction testimonials",
       "client reviews MH Construction",
@@ -1003,7 +1013,7 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
       "verified contractor reviews",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/testimonials`,
-    ogImage: `${enhancedSEO.siteUrl}/images/og/og-testimonials.webp`,
+    ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
     schemas: [collectionPageSchema, generateLocalBusinessSchema()],
   });
 }
@@ -1016,14 +1026,14 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${enhancedSEO.siteUrl}/careers#webpage`,
     url: `${enhancedSEO.siteUrl}/careers`,
-    name: "Enlist → Careers | MH Construction",
+    name: "Careers | MH Construction",
     description:
-      "Build your future with a Tri-State construction team. Founded 2010, Veteran-Owned Since January 2025. General career inquiries welcome — Honesty, Integrity, Professionalism, Thoroughness. Veterans prioritized.",
+      "Build your future with MH Construction through general career inquiries, mentorship-minded growth, and opportunities across commercial, industrial, and public-sector work in WA, OR, and ID.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${enhancedSEO.siteUrl}/images/og/og-careers.webp`,
+      url: `${enhancedSEO.siteUrl}/images/og-default.webp`,
       width: 1200,
       height: 630,
     },
@@ -1033,11 +1043,11 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: "Enlist → Careers | Build Your Future with MH Construction",
+    title: "Careers | Build Your Future with MH Construction",
     description:
-      "Build your future with a Tri-State construction team. Founded 2010, Veteran-Owned Since January 2025. General career inquiries welcome — Honesty, Integrity, Professionalism, Thoroughness. Veterans prioritized.",
+      "Submit a general career inquiry to MH Construction and connect with a team that values honesty, integrity, professionalism, and thoroughness across WA, OR, and ID operations.",
     keywords: [
-      "Enlist Careers build your future MH Construction",
+      "MH Construction careers",
       "join the mission construction career",
       "veteran-owned construction careers Pacific Northwest",
       "honest construction employer Pacific Northwest",
@@ -1065,7 +1075,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
       "veteran priority consideration construction jobs",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/careers`,
-    ogImage: `${enhancedSEO.siteUrl}/images/og/og-careers.webp`,
+    ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
     schemas: [
       webPageSchema,
       generateEnhancedOrganizationSchema(),
@@ -1200,7 +1210,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
     url: projectsUrl,
     name: "Projects | MH Construction Portfolio",
     description:
-      "650+ completed commercial, industrial, light industrial, and government construction projects across our Tri-State licensed footprint, including Yakima, Spokane, and Walla Walla.",
+      "Browse MH Construction's commercial, industrial, light industrial, and government project portfolio across Washington, Oregon, and Idaho.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${projectsUrl}#breadcrumb` },
@@ -1216,9 +1226,9 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title:
-      "Portfolio → Projects | Completed Commercial and Industrial Construction Projects",
+      "Projects | Completed Commercial and Industrial Construction Projects",
     description:
-      "650+ completed commercial, industrial & government projects across our Tri-State licensed footprint, including Yakima, Spokane, and Walla Walla. Veteran-Owned Since January 2025. 70% referral rate. Licensed WA, OR, ID.",
+      "Explore MH Construction's completed commercial, industrial, and government projects delivered across WA, OR, and ID, including work in Yakima, Spokane, and Walla Walla.",
     keywords: [
       "construction portfolio Tri-State WA OR ID",
       "650 completed construction projects",
@@ -1241,7 +1251,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
       "WA OR ID construction portfolio",
     ],
     canonicalUrl: projectsUrl,
-    ogImage: `${enhancedSEO.siteUrl}/images/og/og-projects.webp`,
+    ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
     schemas: [
       portfolioListSchema,
       webPageSchema,
@@ -1261,12 +1271,12 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/contact`,
     name: "Contact | MH Construction",
     description:
-      "Get a free consultation with MH Construction — founded 2010, Veteran-Owned Since January 2025. Tri-State licensed general contractor headquartered in the Tri-Cities (Pasco, WA). Serving WA, OR, ID throughout the Pacific Northwest. Call (509) 308-6489.",
+      "Contact MH Construction for a consultation on commercial, industrial, or public-sector projects across WA, OR, and ID. Headquarters: Pasco, WA. Call (509) 308-6489.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${enhancedSEO.siteUrl}/images/og/og-contact.webp`,
+      url: `${enhancedSEO.siteUrl}/images/og-default.webp`,
       width: 1200,
       height: 630,
     },
@@ -1276,10 +1286,9 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title:
-      "Contact → Consultation | Your Project. Honest Guidance. Let's Connect.",
+    title: "Contact | Your Project. Honest Guidance. Let's Connect.",
     description:
-      "Get a free consultation with MH Construction — founded 2010, Veteran-Owned Since January 2025. Tri-State licensed general contractor headquartered in the Tri-Cities (Pasco, WA). Serving WA, OR, ID throughout the Pacific Northwest. Call (509) 308-6489.",
+      "Schedule a consultation with MH Construction for commercial, industrial, or public-sector work. We are headquartered in Pasco, WA and licensed across WA, OR, and ID. Call (509) 308-6489.",
     keywords: [
       "contact construction consultation",
       "clear consultation process",
@@ -1287,7 +1296,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
       "veteran-owned construction contact",
       "Pacific Northwest construction company",
       "construction consultation Tri-State",
-      "disciplined execution construction contact",
+      "construction project consultation",
       "Richland general contractor contact",
       "Pasco general contractor",
       "Kennewick contractor contact",
@@ -1296,7 +1305,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
       "Tri-State general contractor contact",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/contact`,
-    ogImage: `${enhancedSEO.siteUrl}/images/og/og-contact.webp`,
+    ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
     schemas: [contactPageSchema, generateLocalBusinessSchema()],
   });
 }
@@ -1309,14 +1318,14 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${enhancedSEO.siteUrl}/faq#webpage`,
     url: `${enhancedSEO.siteUrl}/faq`,
-    name: "Intel Brief → FAQ | MH Construction",
+    name: "FAQ | MH Construction",
     description:
-      "Pacific Northwest construction FAQ from MH Construction. Founded 2010, Veteran-Owned Since January 2025. Open-book pricing, 0.64 EMR safety, Design-Build, PEMB metal buildings, and free consultation. Serving Tri-State licensed markets across Yakima, Spokane, Walla Walla, and more.",
+      "Construction FAQ from MH Construction covering planning, delivery methods, safety practices, project controls, and consultations across WA, OR, and ID service areas.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${enhancedSEO.siteUrl}/images/og-default.jpg`,
+      url: `${enhancedSEO.siteUrl}/images/og/faq/general-information.webp`,
       width: 1200,
       height: 630,
     },
@@ -1326,12 +1335,11 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title:
-      "Intel Brief → FAQ | Direct Answers. Clear Guidance. Mission-Ready Information.",
+    title: "FAQ | Direct Answers. Clear Guidance.",
     description:
-      "Pacific Northwest construction FAQ from MH Construction. Founded 2010, Veteran-Owned Since January 2025. Open-book pricing, 0.64 EMR safety, Design-Build, PEMB metal buildings, and free consultation. Serving Tri-State licensed markets across Yakima, Spokane, Walla Walla, and more.",
+      "Get direct answers on project planning, delivery methods, pricing visibility, safety expectations, and consultation workflow for MH Construction projects across WA, OR, and ID.",
     keywords: [
-      "Intel Brief FAQ mission intelligence",
+      "MH Construction FAQ",
       "direct answers construction guidance",
       "construction FAQ",
       "construction management questions",
@@ -1361,6 +1369,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
       "government construction projects",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/faq`,
+    ogImage: `${enhancedSEO.siteUrl}/images/og/faq/general-information.webp`,
     schemas: [webPageSchema, generateConstructionFAQSchema()],
   });
 }

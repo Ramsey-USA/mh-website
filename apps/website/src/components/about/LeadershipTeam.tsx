@@ -1,6 +1,6 @@
 /**
  * Leadership Team Teaser Section for About Page
- * Explains Chain of Command concept and drives users to full Teams page
+ * Explains leadership structure and drives users to full Teams page
  */
 
 import Link from "next/link";
@@ -8,7 +8,7 @@ import { Card, CardContent, Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
 
-// Team specialties that make up our "Chain of Command" approach
+// Team specialties that make up our leadership approach
 const teamSpecialties = [
   {
     icon: "military_tech",
@@ -32,19 +32,19 @@ const teamSpecialties = [
     icon: "handshake",
     title: "Client Partnership",
     description:
-      "70% referral rate through service-earned trust and transparent communication",
+      "70% referral rate through earned trust and transparent communication",
   },
   {
     icon: "verified",
     title: "Quality Assurance",
     description:
-      "Service-proven standards ensuring first-time-right execution on every mission",
+      "Proven standards supporting first-time-right execution on every project",
   },
   {
     icon: "groups",
     title: "Team Cohesion",
     description:
-      "Individual specialists united under shared mission: Building projects for the Client, NOT the Dollar",
+      "Individual specialists aligned around scope clarity, execution discipline, and measurable project outcomes",
   },
 ];
 
@@ -145,7 +145,7 @@ export function LeadershipTeam({
         <div className="text-center">
           <div className="inline-block bg-linear-to-r from-brand-primary/10 via-brand-secondary/10 to-bronze-600/10 dark:from-brand-primary/20 dark:via-brand-secondary/20 dark:to-bronze-600/20 rounded-2xl p-8 lg:p-12 border-2 border-brand-primary/30 dark:border-brand-primary/50">
             <h3 className="text-2xl lg:text-3xl font-black text-gray-900 dark:text-white mb-4">
-              Meet Your Chain of Command
+              Meet Your Leadership Team
             </h3>
             <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
               Discover the leaders, specialists, and field professionals who

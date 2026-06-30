@@ -17,8 +17,8 @@ const translations = {
     title: "Employment Application",
     subtitle: "MH Construction, Inc.",
     tagline: "Veteran-Owned Since January 2025 General Contractor",
-    brandSlogan: "Building projects for the Client, NOT the Dollar",
-    roiMessage: "THE ROI IS THE RELATIONSHIP",
+    brandSlogan: "Clear planning. Accountable delivery.",
+    roiMessage: "Built on communication and follow-through",
     instructions: "Instructions",
     instructionsList: [
       "Please print clearly in black or blue ink.",

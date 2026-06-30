@@ -88,9 +88,7 @@ describe("CoreServicesSection", () => {
     expect(within(dialog).getByText("What's Included")).toBeInTheDocument();
     expect(within(dialog).getByText("Benefits")).toBeInTheDocument();
     expect(
-      within(dialog).getByText(
-        /Zero gaps in scope coverage during construction planning/i,
-      ),
+      within(dialog).getByText(/Clear scope ownership before procurement/i),
     ).toBeInTheDocument();
 
     await user.keyboard("{Escape}");

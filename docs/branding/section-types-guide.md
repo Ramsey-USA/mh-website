@@ -63,7 +63,7 @@ This does not mean every page uses the exact same sections. It means every page 
 
 **Example pages:**
 
-- Homepage hero (with "Building projects for the Client, NOT the Dollar")
+- Homepage hero (with "Clear planning. Accountable delivery.")
 - Services hero (with construction icon)
 - About hero (with team-related imagery)
 

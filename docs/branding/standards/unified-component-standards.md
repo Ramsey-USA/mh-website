@@ -476,8 +476,8 @@ All page sections MUST follow this standardized background:
       </p>
 
       <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-        "Building projects for the Client, NOT the Dollar" — Descriptive text
-        about page content.
+        "Clear planning. Accountable delivery." — Descriptive text about page
+        content.
       </p>
     </div>
   </div>

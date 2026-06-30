@@ -64,7 +64,7 @@ type LicenseDetail = {
 };
 
 const navCol1Links: FooterNavItem[] = [
-  { href: "/", icon: "home", label: "Home", sub: "Base HQ" },
+  { href: "/", icon: "home", label: "Home", sub: "Overview" },
   {
     href: "/contact",
     icon: "contact_phone",
@@ -93,20 +93,20 @@ const navCol1Links: FooterNavItem[] = [
     href: "/resources",
     icon: "folder_open",
     label: "Resources",
-    sub: "Field Intel",
+    sub: "Resources",
   },
   {
     href: "/safety",
     icon: "verified_user",
     label: "Safety",
-    sub: "Force Protection",
+    sub: "Safety",
   },
-  { href: "/faq", icon: "help", label: "Help/FAQ", sub: "Intel Brief" },
+  { href: "/faq", icon: "help", label: "Help/FAQ", sub: "FAQ" },
 ];
 
 const navCol2Links: FooterNavItem[] = [
-  { href: "/about", icon: "military_tech", label: "About Us", sub: "Our Oath" },
-  { href: "/team", icon: "groups", label: "Our Team", sub: "Chain of Command" },
+  { href: "/about", icon: "military_tech", label: "About Us", sub: "About" },
+  { href: "/team", icon: "groups", label: "Our Team", sub: "Leadership" },
   { href: "/allies", icon: "handshake", label: "Partners", sub: "Allies" },
   {
     href: "/public-sector",
@@ -118,14 +118,14 @@ const navCol2Links: FooterNavItem[] = [
     href: "/veterans",
     icon: "workspace_premium",
     label: "Veterans",
-    sub: "Service First",
+    sub: "Veterans",
   },
-  { href: "/careers", icon: "work", label: "Careers", sub: "Enlist" },
+  { href: "/careers", icon: "work", label: "Careers", sub: "Opportunities" },
   {
     href: "/testimonials",
     icon: "star",
     label: "Reviews",
-    sub: "Commendations",
+    sub: "Reviews",
   },
 ];
 

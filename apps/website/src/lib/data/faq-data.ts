@@ -35,22 +35,22 @@ export const faqCategories: FAQCategory[] = [
         question:
           "What makes MH Construction different from other construction companies?",
         answer:
-          "We're built on a four-value professional foundation system: Honesty, Integrity, Professionalism, and Thoroughness - all culminating in Trust as our ultimate goal. Founded in 2010, we became Veteran-Owned in January 2025 when Army veteran Jeremy Thamert purchased the company, combining our 15-year heritage with disciplined execution and partnership-driven construction management. Our philosophy is simple: Building projects for the Client, NOT the Dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
+          "We operate on four values: Honesty, Integrity, Professionalism, and Thoroughness. Founded in 2010 and veteran-owned since January 2025, we deliver AG and winery projects, commercial tenant improvements, and municipal builds with Procore-led controls, plus specialty scope in pole buildings and door/hardware installation.",
       },
       {
         question: "Where are you licensed and what areas do you serve?",
         answer:
-          "MH Construction is Tri-State licensed in Washington, Oregon, and Idaho. We're headquartered in the Tri-Cities — Pasco, WA (3111 N Capitol Ave), with deep roots in Richland and Kennewick — and serve the broader Pacific Northwest. Active operations span Yakima, Spokane, Walla Walla, Hermiston, Pendleton, Coeur d'Alene, and Omak, with Montana expansion coming soon.",
+          "MH Construction is licensed in Washington, Oregon, and Idaho. We are headquartered in Pasco, WA and actively serve Tri-Cities, Yakima, Spokane, Walla Walla, Hermiston, Pendleton, Coeur d'Alene, and Omak.",
       },
       {
         question: "What types of projects do you specialize in?",
         answer:
-          "With 650+ completed projects, we specialize in commercial, industrial, healthcare, public safety, education, and civic/nonprofit construction management. Our core services include Master Planning & Pre-Construction, Procurement & Ally Management, Constructability & Budget Control, and Project Modularization. We also deliver tenant improvements, religious facility construction, government projects, and Pre-Engineered Metal Buildings (PEMB).",
+          "We specialize in AG and winery facilities, commercial tenant improvements, and municipal builds. Core services include Procore project management, preconstruction planning, procurement coordination, and constructability controls. Specialty scopes include pole buildings, PEMB/post-frame applications, and door/hardware installation.",
       },
       {
         question: "Are you really Veteran-Owned?",
         answer:
-          "Yes! MH Construction was founded in 2010 and became Veteran-Owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our military background brings discipline, attention to detail, and a commitment to follow-through to every project. We understand the value of keeping promises and meeting commitments - values that directly translate to construction excellence.",
+          "Yes. MH Construction was founded in 2010 and became veteran-owned in January 2025. Veteran leadership brings structured planning, clear communication, and consistent follow-through.",
       },
       {
         question: "Are you BBB accredited?",
@@ -74,27 +74,27 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "How does your consultation process work?",
         answer:
-          "We believe in face-to-face consultation where trust begins. Our process starts with a personal, on-site assessment where we meet you, understand your vision, and provide honest, transparent guidance. We offer priority scheduling for veterans and ensure you're never left wondering what's happening with your project. You control it, we manage it—with full visibility into every decision.",
+          "We start with a direct consultation to review scope, site conditions, schedule targets, and budget constraints. You receive clear guidance, next steps, and visibility into key decisions.",
       },
       {
         question: "What is 'open-book pricing'?",
         answer:
-          "Open-book pricing means complete transparency—no hidden costs, no surprises. You see exactly where your investment goes with detailed cost breakdowns for materials, labor, and every aspect of your project. This honest approach is part of our core value of Honesty and ensures you can make informed decisions throughout the project.",
+          "Open-book pricing means visible cost breakdowns for labor, materials, and scope changes. There are no hidden fees, and you approve major cost-impact decisions before execution.",
       },
       {
         question: "How long does a typical project take?",
         answer:
-          "Project timelines vary based on scope, complexity, and your specific needs. During our initial consultation, we provide realistic timelines based on thorough planning and our 150+ years of combined team expertise. We're committed to meeting deadlines through reliable, military-honed discipline. We'll work WITH you to establish a timeline that balances quality, efficiency, and your business needs.",
+          "Timelines vary by scope, complexity, permitting, and procurement conditions. During consultation, we provide a realistic schedule with milestone checkpoints and update it as conditions change.",
       },
       {
         question: "Can I make changes during the project?",
         answer:
-          "Absolutely. Your vision guides our precision, and we understand that needs can evolve. Any changes are handled through transparent communication with immediate notification of cost and timeline impacts. Our thoroughness ensures that modifications are properly evaluated, documented, and executed without compromising quality or safety.",
+          "Yes. Change requests are documented with cost and schedule impacts before approval, then tracked through execution and closeout.",
       },
       {
         question: "How do you communicate project updates?",
         answer:
-          "Regular communication is part of our Partnership value. You'll receive consistent progress updates, access to our team for questions, and systematic reporting at key project milestones. We believe you should never be left wondering what's happening with your project—transparency and accessibility are non-negotiable.",
+          "We provide regular progress updates at milestone points, direct team communication, and documented decisions for scope, schedule, and risk controls.",
       },
     ],
   },
@@ -109,12 +109,12 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "What is your safety record?",
         answer:
-          "We maintain an industry-leading 0.64 EMR (Experience Modification Rate)—40% better than the industry average of 1.0. We've earned multiple AGC-WA Top EMR Awards, hold OSHA VPP Star designation, and have maintained 3+ consecutive years without time-loss injuries. Our team is OSHA 30-Hour Certified, and safety excellence is a core part of our Professionalism value.",
+          "We maintain a 0.64 EMR, about 40% better than a 1.0 baseline, with AGC-WA safety recognition and OSHA VPP Star designation. Safety controls are enforced through pre-task planning and field accountability.",
       },
       {
         question: "What quality standards do you follow?",
         answer:
-          "Quality is central to our core values of Professionalism and Thoroughness. We implement multiple quality control checkpoints throughout every project, use proven methods refined over 150+ years of combined team expertise, and build as if constructing for our own families. Our systematic approach includes detailed inspections, comprehensive documentation, and taking the time to do it right—never compromising standards.",
+          "Quality is managed through phase-based checkpoints, documented inspections, and scope verification before turnover. We prioritize durable methods and disciplined closeout standards.",
       },
       {
         question: "Do you have insurance and bonding?",
@@ -124,7 +124,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "What happens if something goes wrong?",
         answer:
-          "Our Integrity value means taking responsibility. If issues arise, we address them immediately with honest communication and ethical solutions. We stand behind our work with comprehensive warranties and systematic problem-solving. Our partnership approach means you can count on us to make things right, even when challenges occur.",
+          "If issues arise, we escalate quickly, communicate clearly, and implement corrective action with documented follow-through. Warranty and closeout support remain active after handoff.",
       },
     ],
   },
@@ -183,7 +183,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Do you work on government projects?",
         answer:
-          "Yes. We have extensive experience with government contracts and understand federal compliance requirements. We are a dedicated supporter of the Build America, Buy America Act (BABAA), which is a federal domestic-content requirement for certain federally funded infrastructure projects. Our disciplined planning, careful documentation, and regulatory expertise make us well-suited for government facility projects.",
+          "Yes. We have extensive experience with government contracts and municipal builds, and we understand federal compliance requirements. We are a dedicated supporter of the Build America, Buy America Act (BABAA), which is a federal domestic-content requirement for certain federally funded infrastructure projects. Our disciplined planning, Procore-based documentation, and regulatory expertise make us well-suited for public facility projects.",
         link: {
           text: "AGC BABAA Resource Hub →",
           href: "https://www.agc.org/babaa-resource-hub",
@@ -214,7 +214,7 @@ export const faqCategories: FAQCategory[] = [
         question:
           "Do you handle Pre-Engineered Metal Buildings (PEMB) for industrial projects?",
         answer:
-          "Yes, MH Construction specializes in Pre-Engineered Metal Buildings (PEMB). These are ideal for industrial facilities and warehouses throughout our Tri-State licensed footprint — from our Tri-Cities headquarters (Pasco, Richland, Kennewick) to projects across Washington, Oregon, and Idaho — as they are often 30-50% faster to erect and more cost-effective than traditional steel structures.",
+          "Yes. MH Construction delivers pole buildings, including Pre-Engineered Metal Buildings (PEMB), for industrial and agricultural applications. These systems are often 30-50% faster to erect and more cost-effective than traditional steel structures across our Tri-State licensed footprint.",
       },
       {
         question:
@@ -225,12 +225,12 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "What is MH Construction's service area?",
         answer:
-          "We are headquartered in Pasco, WA (3111 N Capitol Ave) in the heart of the Tri-Cities — Pasco, Richland, and Kennewick — and are Tri-State licensed across Washington, Oregon, and Idaho. We serve communities throughout the Pacific Northwest including Yakima, Spokane, Walla Walla, Hermiston (OR), Pendleton (OR), Coeur d'Alene (ID), and Omak. We are also equipped to handle government and industrial projects near the Hanford Site.",
+          "We are headquartered in Pasco, WA (3111 N Capitol Ave) in the heart of the Tri-Cities — Pasco, Richland, and Kennewick — and are Tri-State licensed across Washington, Oregon, and Idaho. We serve communities throughout the Pacific Northwest including Yakima, Spokane, Walla Walla, Hermiston (OR), Pendleton (OR), Coeur d'Alene (ID), and Omak. Across this footprint, our focus is AG and winery communities, commercial tenant improvements, and municipal builds.",
       },
       {
         question: "Is MH Construction a certified Veteran-Owned business?",
         answer:
-          "Yes. MH Construction has been Veteran-Owned since January 2025 and is certified as a Washington State Veteran Owned Business (WA DVA, 2026). Founded in 2010 by Mike Holstein, the company was purchased by U.S. Army veteran Jeremy Thamert. We operate with an 'Old School' mentality where your word is your bond, living by the slogan: 'Building projects for the Client, NOT the Dollar.'",
+          "Yes. MH Construction has been Veteran-Owned since January 2025 and is certified as a Washington State Veteran Owned Business (WA DVA, 2026). Founded in 2010 by Mike Holstein, the company was purchased by U.S. Army veteran Jeremy Thamert. We operate with clear planning, direct communication, and accountable project follow-through.",
       },
       {
         question:
@@ -245,7 +245,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Who supervises the job site daily?",
         answer:
-          "Every project is assigned a dedicated Superintendent to oversee daily operations, safety, and quality control. Our leadership team, including Vice President Arnold Garcia, ensures that all projects utilize professional management tools like Procore for real-time oversight.",
+          "Every project is assigned a dedicated Superintendent to oversee daily operations, safety, and quality control. Our leadership team, including Vice President Arnold Garcia, ensures each job is managed in Procore for real-time oversight, including tenant improvement coordination, municipal documentation, and door/hardware scope tracking.",
       },
       {
         question:

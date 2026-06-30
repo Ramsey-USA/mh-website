@@ -96,7 +96,7 @@ these core values in hierarchical order:
 - "Our Team" / "Chain of Command" - Leadership and personnel
   - **5-Tier Structure:** The Upper Brass (executives), Mission Commanders (project managers),
     Special Operations (marketing/safety), Logistics Command (admin), Field Officers (superintendents)
-  - **150+ years combined expertise** across all military branches
+  - **cross-discipline field and management expertise** across all military branches
   - **Clear accountability** from executive leadership to field operations
 - "Reviews" / "Commendations" - Client testimonials
 - "Contact" / "Rally Point" - Get in touch
@@ -141,7 +141,7 @@ these core values in hierarchical order:
 
 #### Professional yet Approachable
 
-Our voice balances military precision with partnership warmth, creating communications that are:
+Our voice balances execution discipline with partnership warmth, creating communications that are:
 
 - **Confident without being arrogant**
 - **Expert while remaining accessible**
@@ -163,7 +163,7 @@ Our voice balances military precision with partnership warmth, creating communic
 
 **Example**:
 
-> "Building projects for the Client, NOT the Dollar. Our veteran-owned team combines military
+> "Clear planning. Accountable delivery.. Our veteran-owned team combines military
 > precision with traditional business values to deliver exceptional results through honest
 > communication and proven craftsmanship for commercial projects throughout the Pacific Northwest."
 
@@ -213,7 +213,7 @@ Our messaging is structured around five interconnected pillars that flow from ou
 **Messaging Examples**:
 
 - "When we commit to something, we deliver"
-- "Building projects for the Client, NOT the Dollar"
+- "Clear planning. Accountable delivery."
 - "70% referral business proves our promise-keeping"
 
 ### 3. Expert Execution (Professionalism)
@@ -224,7 +224,7 @@ Our messaging is structured around five interconnected pillars that flow from ou
 
 - Licensed, insured, certified across 3 states
 - Industry-leading .64 EMR safety record
-- 150+ years combined team experience
+- deep field and management experience
 - Veteran-owned precision and discipline
 - BBB Accredited: A+ Rating since April 7, 2026
 
@@ -324,10 +324,10 @@ Our 4 Core Values aren't just words on a wall—they create 6 measurable differe
 
 When discussing our team structure, emphasize:
 
-**Military Precision with Construction Excellence:**
+**Execution Discipline with Construction Excellence:**
 
 - "Clear chain of command from The Upper Brass to Field Officers"
-- "150+ years combined military-grade expertise"
+- "Deep cross-discipline field and management expertise"
 - "All-branch veteran leadership" (Army, Navy, Air Force, Marines, Coast Guard, Space Force)
 - "Mission-focused accountability at every level"
 
@@ -358,11 +358,11 @@ every interaction.
 
 ### Core Brand Slogans
 
-#### Primary Slogan: "Building projects for the Client, NOT the Dollar"
+#### Primary Slogan: "Clear planning. Accountable delivery."
 
 Our foundational message emphasizing partnership over profit, client success over company gain.
 
-#### Relationship-Focused Slogan: "THE ROI IS THE RELATIONSHIP"
+#### Relationship-Focused Slogan: "Built on communication and follow-through"
 
 This powerful companion slogan reinforces our partnership-first philosophy. Use this for:
 
@@ -474,7 +474,7 @@ Our four-value professional foundation system guides all messaging and communica
 
 #### 5. Proven Craftsmanship - Experience You Can Trust
 
-**Core Message**: "150+ years combined expertise meets military precision"
+**Core Message**: "cross-discipline field and management expertise meets execution discipline"
 
 **Supporting Points**:
 
@@ -894,7 +894,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 - [ ] Partnership language used over transactional role labels
 - [ ] Four core values referenced appropriately (Honesty, Integrity, Professionalism, and Thoroughness)
 - [ ] Trust-centered philosophy incorporated
-- [ ] "THE ROI IS THE RELATIONSHIP" messaging present where appropriate
+- [ ] "Built on communication and follow-through" messaging present where appropriate
 - [ ] Military precision referenced appropriately
 - [ ] Veteran heritage mentioned authentically
 - [ ] Client benefits clearly communicated

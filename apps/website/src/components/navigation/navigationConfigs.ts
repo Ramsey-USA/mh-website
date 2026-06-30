@@ -20,7 +20,7 @@ const navigationLabelTranslations: Record<string, string> = {
   Benefits: "Beneficios",
   Capabilities: "Capacidades",
   "Career Growth": "Crecimiento profesional",
-  "Chain of Command": "Cadena de mando",
+  "Leadership Team": "Equipo de liderazgo",
   "Client Partners": "Socios clientes",
   "Client Stories": "Historias de clientes",
   "Client Testimonials": "Testimonios de clientes",
@@ -169,22 +169,16 @@ export const navigationConfigs = {
       icon: "handshake",
     },
     {
-      href: "#core-values",
-      label: "Core Values",
-      mobileLabel: "Values",
-      icon: "shield",
+      href: "#ownership-controls",
+      label: "Ownership Controls",
+      mobileLabel: "Controls",
+      icon: "account_tree",
     },
     {
       href: "#testimonials",
       label: "Testimonials",
       mobileLabel: "Reviews",
       icon: "verified",
-    },
-    {
-      href: "#stats",
-      label: "Track Record",
-      mobileLabel: "Stats",
-      icon: "analytics",
     },
     {
       href: "#our-process",
@@ -209,7 +203,7 @@ export const navigationConfigs = {
     },
     {
       href: "#team",
-      label: "Chain of Command",
+      label: "Leadership Team",
       mobileLabel: "Team",
       icon: "military_tech",
     },
@@ -242,12 +236,6 @@ export const navigationConfigs = {
       label: "Safety Excellence",
       mobileLabel: "Safety",
       icon: "shield",
-    },
-    {
-      href: "#testimonials",
-      label: "Client Partners",
-      mobileLabel: "Reviews",
-      icon: "forum",
     },
     {
       href: "#news",
@@ -283,12 +271,6 @@ export const navigationConfigs = {
       icon: "map",
     },
     {
-      href: "#expertise",
-      label: "Construction Expertise",
-      mobileLabel: "Expertise",
-      icon: "engineering",
-    },
-    {
       href: "#testimonials",
       label: "Trust In Action",
       mobileLabel: "Trust",
@@ -299,12 +281,6 @@ export const navigationConfigs = {
       label: "Our Process",
       mobileLabel: "Process",
       icon: "timeline",
-    },
-    {
-      href: "#next-steps",
-      label: "Get Started",
-      mobileLabel: "Start",
-      icon: "rocket_launch",
     },
   ],
 
@@ -355,16 +331,10 @@ export const navigationConfigs = {
       icon: "star",
     },
     {
-      href: "#service-areas",
-      label: "Service Areas",
-      mobileLabel: "Areas",
-      icon: "map",
-    },
-    {
-      href: "#testimonials-faq",
-      label: "Common Questions",
-      mobileLabel: "FAQ",
-      icon: "help",
+      href: "#trust-signals",
+      label: "Credentials",
+      mobileLabel: "Creds",
+      icon: "workspace_premium",
     },
     {
       href: "#leave-review",
@@ -460,40 +430,10 @@ export const navigationConfigs = {
 
   team: [
     {
-      href: "#upper-brass",
-      label: "The Upper Brass",
-      mobileLabel: "Leadership",
-      icon: "workspace_premium",
-    },
-    {
-      href: "#mission-commanders",
-      label: "Mission Commanders",
-      mobileLabel: "Commanders",
-      icon: "engineering",
-    },
-    {
       href: "#employee-testimonials",
       label: "Team Stories",
       mobileLabel: "Stories",
       icon: "star",
-    },
-    {
-      href: "#field-officers",
-      label: "Field Officers",
-      mobileLabel: "Field Ops",
-      icon: "construction",
-    },
-    {
-      href: "#special-operations",
-      label: "Special Operations",
-      mobileLabel: "Spec Ops",
-      icon: "military_tech",
-    },
-    {
-      href: "#logistics-command",
-      label: "Logistics Command",
-      mobileLabel: "Logistics",
-      icon: "support_agent",
     },
     {
       href: "#company-culture",
@@ -506,6 +446,12 @@ export const navigationConfigs = {
       label: "Career Growth",
       mobileLabel: "Growth",
       icon: "school",
+    },
+    {
+      href: "#founder-tribute",
+      label: "Founder Tribute",
+      mobileLabel: "Founder",
+      icon: "foundation",
     },
   ],
 
@@ -581,12 +527,6 @@ export const navigationConfigs = {
       label: "Our Services",
       mobileLabel: "Services",
       icon: "build",
-    },
-    {
-      href: "#compliance",
-      label: "Compliance",
-      mobileLabel: "Compliance",
-      icon: "fact_check",
     },
     {
       href: "#contact",

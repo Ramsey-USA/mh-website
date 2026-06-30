@@ -21,7 +21,7 @@ describe("HeroSection", () => {
 
   it("renders the main heading text", () => {
     render(<HeroSection />);
-    expect(screen.getByText(/Base HQ -> Home/i)).toBeInTheDocument();
+    expect(screen.getByText(/^Home$/i)).toBeInTheDocument();
   });
 
   it("renders the mission statement", () => {

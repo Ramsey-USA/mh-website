@@ -54,7 +54,7 @@ export default function OfflinePage() {
         </div>
 
         <p className="text-white/80 text-sm mb-4">
-          Building projects for the Client, NOT the Dollar.
+          Cached project resources remain available.
         </p>
 
         <p className="text-white/70 mb-8 leading-relaxed">

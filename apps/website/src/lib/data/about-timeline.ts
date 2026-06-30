@@ -106,8 +106,8 @@ export const aboutTimelineSteps: TimelineStep[] = [
   {
     num: 14,
     icon: "explore",
-    title: "Continued Relationship-First Growth",
-    desc: "Building projects for the Client, NOT the Dollar-where founding father's partnership philosophy meets veteran operational discipline, creating strong construction relationships and dependable results. (2026 & Beyond)",
+    title: "Continued Accountability-Focused Growth",
+    desc: "Clear planning and accountable delivery keep founding partnership principles aligned with veteran-led operational discipline, supporting durable construction relationships and dependable results. (2026 & Beyond)",
     position: "right",
   },
 ];

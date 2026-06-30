@@ -32,30 +32,30 @@ const TOP_PAGES_ES = [
 ] as const;
 
 const ALL_SITE_PAGES_EN = [
-  { href: "/", label: "Home", description: "Base HQ" },
-  { href: "/about", label: "About Us", description: "Our Oath" },
+  { href: "/", label: "Home", description: "Overview" },
+  { href: "/about", label: "About Us", description: "About" },
   { href: "/services", label: "Services", description: "Operations" },
   { href: "/projects", label: "Projects", description: "Portfolio" },
-  { href: "/contact", label: "Contact", description: "Rally Point" },
+  { href: "/contact", label: "Contact", description: "Contact" },
   { href: "/events", label: "Events", description: "Upcoming Events" },
   {
     href: "/testimonials",
     label: "Reviews",
-    description: "Commendations",
+    description: "Reviews",
   },
-  { href: "/team", label: "Our Team", description: "Chain of Command" },
-  { href: "/careers", label: "Careers", description: "Enlist" },
-  { href: "/veterans", label: "Veterans", description: "Service First" },
+  { href: "/team", label: "Our Team", description: "Leadership" },
+  { href: "/careers", label: "Careers", description: "Opportunities" },
+  { href: "/veterans", label: "Veterans", description: "Veterans" },
   { href: "/allies", label: "Partners", description: "Allies" },
   {
     href: "/public-sector",
     label: "Government",
     description: "Public Sector",
   },
-  { href: "/safety", label: "Safety", description: "Force Protection" },
-  { href: "/resources", label: "Resources", description: "Field Intel" },
-  { href: "/faq", label: "Help/FAQ", description: "Intel Brief" },
-  { href: "/hub", label: "Team Hub", description: "Operations Hub" },
+  { href: "/safety", label: "Safety", description: "Safety" },
+  { href: "/resources", label: "Resources", description: "Resources" },
+  { href: "/faq", label: "Help/FAQ", description: "FAQ" },
+  { href: "/hub", label: "Team Hub", description: "Staff Hub" },
 ] as const;
 
 const ALL_SITE_PAGES_ES = [
@@ -63,7 +63,7 @@ const ALL_SITE_PAGES_ES = [
   { href: "/about", label: "Nosotros", description: "Nuestro compromiso" },
   { href: "/services", label: "Servicios", description: "Operaciones" },
   { href: "/projects", label: "Proyectos", description: "Portafolio" },
-  { href: "/contact", label: "Contacto", description: "Punto de reunion" },
+  { href: "/contact", label: "Contacto", description: "Contacto" },
   { href: "/events", label: "Eventos", description: "Proximos eventos" },
   { href: "/testimonials", label: "Reseñas", description: "Reconocimientos" },
   {
@@ -72,7 +72,7 @@ const ALL_SITE_PAGES_ES = [
     description: "Cadena de mando",
   },
   { href: "/careers", label: "Carreras", description: "Únete" },
-  { href: "/veterans", label: "Veteranos", description: "Servicio primero" },
+  { href: "/veterans", label: "Veteranos", description: "Veteranos" },
   { href: "/allies", label: "Aliados", description: "Socios" },
   {
     href: "/public-sector",
@@ -82,9 +82,9 @@ const ALL_SITE_PAGES_ES = [
   {
     href: "/safety",
     label: "Seguridad",
-    description: "Protección operativa",
+    description: "Seguridad",
   },
-  { href: "/resources", label: "Recursos", description: "Intel de campo" },
+  { href: "/resources", label: "Recursos", description: "Recursos" },
   {
     href: "/faq",
     label: "Ayuda/Preguntas",
@@ -93,7 +93,7 @@ const ALL_SITE_PAGES_ES = [
   {
     href: "/hub",
     label: "Hub del equipo",
-    description: "Centro de operaciones",
+    description: "Portal del personal",
   },
 ] as const;
 

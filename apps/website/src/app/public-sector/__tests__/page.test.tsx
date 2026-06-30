@@ -173,15 +173,13 @@ describe("PublicSectorPage", () => {
 
   it("displays the Government hero naming format", async () => {
     await renderPublicSectorPage();
-    expect(screen.getByText("Public Sector → Government")).toBeInTheDocument();
+    expect(screen.getByText("Public Sector Construction")).toBeInTheDocument();
   });
 
   it("displays the Government hero tagline", async () => {
     await renderPublicSectorPage();
     expect(
-      screen.getByText(
-        "Mission-Ready Construction Operations - Federal Compliance-Driven",
-      ),
+      screen.getByText("Federal Compliance-Driven Delivery"),
     ).toBeInTheDocument();
   });
 

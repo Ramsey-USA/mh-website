@@ -74,13 +74,13 @@ export function PartnershipPhilosophy() {
       header={{
         icon: "diversity_3",
         iconVariant: "primary",
-        subtitle: "Service-Earned Partnership",
+        subtitle: "Values-Driven Partnership",
         title: "Philosophy",
         description: (
           <>
             At MH Construction, we believe in{" "}
             <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
-              service-earned business values
+              values-driven business standards
             </span>
             : where handshakes still matter, your word is your bond, and trust
             is earned through character and proven in the field. Since our
@@ -140,7 +140,7 @@ export function PartnershipPhilosophy() {
               <p className="text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed font-medium italic">
                 "To be the Pacific Northwest's most trusted Veteran-Owned
                 construction partner - renowned for proven craftsmanship and
-                service-earned integrity."
+                accountable integrity."
               </p>
             </PhilosophyCard>
           </div>

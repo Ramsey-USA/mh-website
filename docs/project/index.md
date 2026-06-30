@@ -1,7 +1,7 @@
 # Project Documentation
 
 **Category:** Project - Overview  
-**Last Updated:** June 21, 2026
+**Last Updated:** June 30, 2026
 
 ## Overview
 
@@ -15,6 +15,7 @@ All project documentation should preserve the same brand voice, trust framing, a
 - Platform remains production-live on Cloudflare Workers with OpenNext deployment flow.
 - Current app stack in repo: Next.js 16.2.9, React 19.2.7, Tailwind CSS 4.3.1, TypeScript 6.0.3.
 - Latest structural release update: June 21, 2026 hero-to-navigation spacing standardization (see changelog).
+- Latest congruency update: June 30, 2026 core-page and SEO metadata/schema de-dup sweep closure, with one intentional canonical mission-text exception retained for brand-source alignment.
 
 **Brand Congruency:** Project planning and architecture updates must also keep typography and color guidance aligned with canonical MH standards.
 

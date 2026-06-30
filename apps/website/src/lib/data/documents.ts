@@ -1128,28 +1128,46 @@ export const safetyForms: DocumentEntry[] = (formsManifest.forms ?? [])
     };
   });
 
-export const handbookForms: DocumentEntry[] = (formsManifest.forms ?? [])
-  .filter((entry) =>
-    entry.manualSection?.some((section) => /^HANDBOOK\b/i.test(section)),
-  )
-  .map((entry) => {
-    const publishedPdf = publicPdfDetails(
-      `docs/employee/forms/${entry.slug}.pdf`,
-    );
-    return {
-      id: `handbook-form-${entry.slug.replace(/^form-/, "")}`,
-      title: toDisplayTitle(entry.title),
-      subtitle: handbookFormSubtitle(entry),
-      description: handbookFormDescription(entry),
-      category: "form",
-      icon: handbookFormIcon(entry),
-      revisionYear: inferRevisionYear(entry.effectiveDate),
-      ...(publishedPdf ?? {}),
-      ...(entry.revision ? { revisionNumber: entry.revision } : {}),
-      ...(entry.effectiveDate ? { revisionDate: entry.effectiveDate } : {}),
-      tags: ["employee", "handbook", "policy"],
-    };
-  });
+export const handbookForms: DocumentEntry[] = [
+  ...(formsManifest.forms ?? [])
+    .filter((entry) =>
+      entry.manualSection?.some((section) => /^HANDBOOK\b/i.test(section)),
+    )
+    .map((entry) => {
+      const publishedPdf = publicPdfDetails(
+        `docs/employee/forms/${entry.slug}.pdf`,
+      );
+      return {
+        id: `handbook-form-${entry.slug.replace(/^form-/, "")}`,
+        title: toDisplayTitle(entry.title),
+        subtitle: handbookFormSubtitle(entry),
+        description: handbookFormDescription(entry),
+        category: "form",
+        icon: handbookFormIcon(entry),
+        revisionYear: inferRevisionYear(entry.effectiveDate),
+        ...(publishedPdf ?? {}),
+        ...(entry.revision ? { revisionNumber: entry.revision } : {}),
+        ...(entry.effectiveDate ? { revisionDate: entry.effectiveDate } : {}),
+        tags: ["employee", "handbook", "policy"],
+      };
+    }),
+  {
+    id: "handbook-form-company-letterhead",
+    title: "MH Construction Company Letterhead",
+    subtitle: "Employee Handbook blank company correspondence template",
+    description:
+      "Blank company letterhead aligned to the employee handbook forms pipeline for official correspondence.",
+    category: "form",
+    icon: "description",
+    revisionYear: EMPLOYEE_HANDBOOK_REVISION_YEAR,
+    revisionNumber: EMPLOYEE_HANDBOOK_REVISION_NUMBER,
+    revisionDate: EMPLOYEE_HANDBOOK_REVISION_DATE,
+    ...(publicPdfDetails(
+      "docs/employee/forms/form-handbook-company-letterhead.pdf",
+    ) ?? {}),
+    tags: ["employee", "handbook", "policy"],
+  },
+];
 
 export const forms: DocumentEntry[] = [...safetyForms, ...handbookForms];
 

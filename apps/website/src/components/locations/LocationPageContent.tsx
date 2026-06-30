@@ -41,7 +41,7 @@ const coreValues = [
 
 const trustIndicators = [
   { icon: "verified", label: "Licensed in WA, OR, ID" },
-  { icon: "military_tech", label: "Veteran-Owned Since January 2025" },
+  { icon: "military_tech", label: "Veteran-Owned Leadership" },
   { icon: "workspace_premium", label: "650+ Projects Completed" },
 ];
 
@@ -123,14 +123,16 @@ const LOCATION_BRIDGE_MAP: Record<string, BridgeDeepLink[]> = {
 export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
   usePageTracking(`Location - ${location.city}`);
   const priorityServices = location.servicePriorities || [];
+  const standardPositioningLine =
+    "Primary markets: AG and winery communities, commercial tenant improvements, and municipal builds. Core specialties: pole buildings, door and hardware installation, and project management powered by Procore.";
   const nearbyAreas = location.nearbyAreas || [];
   const locationTelephoneHref = `tel:${Array.from(location.telephone)
     .filter((char) => /\d/.test(char))
     .join("")}`;
   const heroPriorityLine =
     priorityServices.length > 0
-      ? `Priority focus in ${location.city}: ${priorityServices.slice(0, 2).join(" and ")}.`
-      : "Priority focus: commercial, industrial, and government construction delivery.";
+      ? `Priority focus in ${location.city}: ${priorityServices.slice(0, 2).join(" and ")}. ${standardPositioningLine}`
+      : standardPositioningLine;
 
   const serviceCards = [
     {
@@ -138,30 +140,30 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
       title: priorityServices[0] || "Commercial Construction",
       description:
         priorityServices.length > 0
-          ? `${priorityServices[0]} delivery tailored for ${location.city} and ${location.county}, with veteran-led execution and transparent project controls.`
-          : "Office buildings, retail spaces, restaurants, medical facilities, and religious facilities. Professional construction management from concept to completion.",
+          ? `${priorityServices[0]} delivery tailored for ${location.city} and ${location.county}, with Procore-based project controls and commercial tenant improvement planning for AG and winery community operations.`
+          : "Office buildings, retail spaces, and municipal facilities supported by Procore-based construction management from concept to completion.",
     },
     {
       icon: "factory",
       title: priorityServices[1] || "Industrial Construction",
       description:
         priorityServices.length > 1
-          ? `${priorityServices[1]} projects across ${location.city} with mission-ready crews, safety-forward operations, and predictable scheduling.`
-          : "Manufacturing facilities, warehouses, and pre-engineered metal buildings (PEMB). Engineered for durability and operational efficiency.",
+          ? `${priorityServices[1]} projects across ${location.city} with safety-forward operations, predictable scheduling, and specialty delivery for pole buildings.`
+          : "Manufacturing facilities, warehouses, and pole buildings (including PEMB/post-frame applications), engineered for durability and operational efficiency.",
     },
     {
       icon: "account_balance",
       title: priorityServices[2] || "Government Projects",
       description:
         priorityServices.length > 2
-          ? `${priorityServices[2]} solutions supporting public-sector standards and long-term lifecycle value in ${location.state}.`
-          : "Public sector construction with Veteran-Owned Since January 2025 business advantages. Experienced with government compliance and procurement processes.",
+          ? `${priorityServices[2]} solutions supporting municipal standards, government compliance, and long-term lifecycle value in ${location.state}.`
+          : "Municipal and public-sector construction supported by government compliance planning, procurement transparency, and experienced agency coordination.",
     },
     {
       icon: "home_repair_service",
       title: "Construction Management",
       description:
-        "End-to-end coordination from preconstruction through closeout, aligned to your mission scope, budget transparency, and local permitting needs.",
+        "End-to-end coordination from preconstruction through closeout, powered by Procore with budget transparency, door and hardware scope tracking, and local permitting alignment.",
     },
   ];
 
@@ -184,7 +186,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
     "@type": "LocalBusiness",
     "@id": `${enhancedSEO.siteUrl}/locations/${location.slug}#localbusiness`,
     name: `MH Construction - ${location.city}`,
-    description: `Founded 2010, Veteran-Owned Since January 2025 general contractor serving ${location.city}, ${location.state} with commercial, industrial, and government construction services.`,
+    description: `General contractor serving ${location.city}, ${location.state} with AG and winery community projects, commercial tenant improvements, and municipal builds. Specialties include pole buildings, door and hardware installation, and Procore project management.`,
     url: `${enhancedSEO.siteUrl}/locations/${location.slug}`,
     telephone: location.telephone,
     email: location.email,
@@ -216,7 +218,15 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
         addressCountry: "US",
       })),
     ],
-    knowsAbout: priorityServices,
+    knowsAbout: [
+      ...priorityServices,
+      "AG and winery community construction",
+      "Commercial tenant improvements",
+      "Municipal and government construction",
+      "Pole buildings",
+      "Door and hardware installation",
+      "Procore project management",
+    ],
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -234,18 +244,17 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
       "Financing Available",
     ],
     currenciesAccepted: "USD",
-    slogan: "Building projects for the Client, NOT the Dollar",
+    slogan: "Clear planning and accountable delivery",
     veteranOwned: true,
-    serviceType:
-      priorityServices.length > 0
+    serviceType: [
+      ...(priorityServices.length > 0
         ? priorityServices
-        : [
-            "General Contractor",
-            "Commercial Construction",
-            "Industrial Construction",
-            "Government Construction Projects",
-            "Construction Management",
-          ],
+        : ["Commercial Construction", "Municipal Construction"]),
+      "Commercial Tenant Improvements",
+      "Pole Building Construction",
+      "Door and Hardware Installation",
+      "Project Management powered by Procore",
+    ],
     // GEO-proof: surface verified completed projects in structured data so search engines
     // can associate MH Construction with specific named projects and categories in this city.
     ...(location.recentProjects && location.recentProjects.length > 0
@@ -317,7 +326,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
 
               {/* Core Slogan */}
               <p className="text-sm sm:text-base md:text-lg text-white/80 font-medium">
-                "Building projects for the Client, NOT the Dollar"
+                "Clear planning. Accountable delivery."
               </p>
 
               {/* CTA Buttons */}

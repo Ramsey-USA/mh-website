@@ -56,7 +56,7 @@ terminology blend** (December 2025 major update). This strategy:
 - **Blends Military Operations Terminology** - Mission brief, SITREP, recon, deployment, tactical operations
 - **Maintains Construction Expertise** - Technical capability, project delivery, quality craftsmanship
 - **Reduces Generic Repetition** - Avoids overuse of single phrases
-- **Reinforces Mission-First Philosophy** - "Building projects for the Client, NOT the Dollar"
+- **Reinforces Mission-First Philosophy** - "Clear planning. Accountable delivery."
 - **Improves Message Retention** - Variety helps visitors remember key messages
 - **Appeals to Veteran Clients** - Military-affiliated clients recognize authentic service language
 
@@ -69,8 +69,8 @@ terminology blend** (December 2025 major update). This strategy:
 - Honor all service branches (not just Army)
 - Reflect the specific page's purpose with tactical clarity
 - Keep taglines concise (5-12 words typically)
-- Align with service-earned brand values (honesty, integrity, professionalism, thoroughness)
-- Maintain core mission: "Building projects for the Client, NOT the Dollar"
+- Align with values-driven brand values (honesty, integrity, professionalism, thoroughness)
+- Maintain core mission: "Clear planning. Accountable delivery."
 - **Include unique page-specific mantra** for enhanced messaging and SEO
 
 **DON'T:**
@@ -85,7 +85,7 @@ terminology blend** (December 2025 major update). This strategy:
 ### Current Page-Specific Taglines (December 2025)
 
 **Strategic Focus:** Award-winning website that attracts professional veterans through authentic
-military-construction terminology and service-earned values.
+military-construction terminology and values-driven values.
 
 **Dual Naming Format:** Each page includes "Military Designation → Civilian Label" for veteran
 recognition and accessibility.

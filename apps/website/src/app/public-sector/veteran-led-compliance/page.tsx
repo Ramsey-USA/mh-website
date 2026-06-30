@@ -9,7 +9,7 @@ const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 export const metadata: Metadata = {
   title: "Veteran-Led Compliance Workflow | Public Sector | MH Construction",
   description:
-    "Review MH Construction's veteran-led compliance workflow for public-sector preconstruction, procurement readiness, and execution governance.",
+    "Review MH Construction's veteran-led workflow for public-sector preconstruction, procurement readiness, and execution oversight.",
   alternates: {
     canonical: `${SITE_URL}/public-sector/veteran-led-compliance`,
   },
@@ -21,13 +21,13 @@ const workflow = [
     icon: "search",
     title: "Scope and Requirement Intake",
     detail:
-      "Define project intent, constraints, and required agency documentation before planning begins.",
+      "Define project scope, constraints, and required agency documentation before planning begins.",
   },
   {
     icon: "assignment",
     title: "Compliance Path Mapping",
     detail:
-      "Map permitting, procurement, and documentation checkpoints into one delivery plan.",
+      "Map permitting, procurement, and documentation checkpoints into a unified delivery plan.",
   },
   {
     icon: "rule",
@@ -39,7 +39,7 @@ const workflow = [
     icon: "timeline",
     title: "Execution and Reporting",
     detail:
-      "Track milestone status with transparent communication and issue escalation protocols.",
+      "Track milestones with transparent communication and issue-escalation protocols.",
   },
 ];
 
@@ -63,9 +63,9 @@ export default function VeteranLedCompliancePage() {
             Veteran-Led Compliance Workflow
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-white/85">
-            A practical route from government project requirements to field
-            execution, designed for disciplined delivery and transparent
-            stakeholder alignment.
+            A practical route from government requirements to field execution,
+            designed for disciplined delivery and transparent stakeholder
+            alignment.
           </p>
         </div>
       </section>

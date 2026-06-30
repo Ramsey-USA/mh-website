@@ -17,16 +17,6 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { getTranslations } from "next-intl/server";
 
-// NextStepsSection uses useLocale (client hook) and sits at the very end of
-// the page (~line 1264). Dynamic import keeps its JS out of the critical path.
-const NextStepsSection = dynamic(
-  () =>
-    import("@/components/shared-sections").then((m) => ({
-      default: m.NextStepsSection,
-    })),
-  { ssr: true },
-);
-
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.veterans);
 
 /**
@@ -1262,13 +1252,6 @@ export default async function VeteransPage() {
               </div>
             </div>
           </section>
-
-          {/* Next Steps Section - Veteran-Specific Messaging */}
-          <NextStepsSection
-            title={t("veteransPage.nextSteps.title")}
-            subtitle={t("veteransPage.nextSteps.subtitle")}
-            noBackground={true}
-          />
         </div>
       </div>
     </div>

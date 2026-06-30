@@ -6,26 +6,24 @@ import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 // Enhanced company information
 export const enhancedSEO = {
   siteName: COMPANY_INFO.name,
-  defaultTitle:
-    "Base HQ → Home | Building projects for the Client, NOT the Dollar | MH Construction",
+  defaultTitle: "Home | Construction Planning and Delivery | MH Construction",
   defaultDescription:
-    "Base HQ → Home: Your Tri-State Construction Command Center. BBB Accredited A+. Pasco, Richland & Tri-City Regional Chamber of Commerce member. Construction management services since 2010, Veteran-Owned Since January 2025, with dual-label approach (Military Operations → Construction Services). Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction. Service-earned values—Honesty, Integrity, Professionalism, Thoroughness—building trust through clear transparency and structured leadership throughout the Pacific Northwest.",
+    "MH Construction delivers construction planning and execution across Washington, Oregon, and Idaho from Tri-Cities headquarters, including commercial, industrial, municipal, and public-sector work.",
   siteUrl: COMPANY_INFO.urls.getSiteUrl(),
   twitterHandle: COMPANY_INFO.social.twitterHandle,
   defaultKeywords: [
-    "Base HQ Home construction command center",
-    "dual-label military civilian construction",
+    "MH Construction home",
     "Veteran-Owned contractor",
-    "service-earned construction values",
-    "Chain of Command construction approach",
-    "military precision construction",
-    "Operations Services dual messaging",
+    "values-driven construction leadership",
+    "structured leadership construction approach",
+    "disciplined construction delivery",
+    "services overview",
     "Projects portfolio terminology",
     "Contact construction consultation",
     "clear construction communication",
     "proven construction excellence",
     "all-branch veteran leadership",
-    "150 years combined military-grade expertise",
+    "cross-discipline field and management experience",
     "general contractor",
     "general contractor Pasco, WA",
     "commercial construction",
@@ -48,7 +46,7 @@ export const enhancedSEO = {
     "partnership construction approach",
     "collaborative building relationships",
     "modern tools traditional values",
-    "military precision construction",
+    "execution-discipline construction",
     "Pacific Northwest builder",
     "long-term construction partnerships",
     "trust-based construction",
@@ -275,9 +273,9 @@ export function generateEnhancedOrganizationSchema() {
     ],
     veteranOwned: true,
     ownershipType: "Veteran-Owned Small Business",
-    slogan: "Building projects for the Client, NOT the Dollar",
+    slogan: "Clear planning and accountable delivery",
     mission:
-      "Building partnerships through traditional values, serving communities with face-to-face trust, creating lasting value in the Pacific Northwest",
+      "Build lasting value through clear planning, disciplined execution, and reliable partnership across the Pacific Northwest",
     hasCredential: [
       {
         "@type": "EducationalOccupationalCredential",
@@ -541,7 +539,7 @@ export function generateConstructionFAQSchema() {
       question:
         "What is the difference between preliminary planning and Expert Consultation?",
       answer:
-        "Our free Expert Consultation offers comprehensive on-site evaluations with detailed open-book pricing and personalized recommendations during business hours. This face-to-face approach is how we build trust and lasting partnerships. We believe the best projects start with honest conversation and a firm handshake.",
+        "Our free Expert Consultation includes an on-site evaluation, scope clarification, preliminary budget guidance, and recommended next steps during business hours.",
     },
     {
       question: "Do you offer veteran benefits and discounts?",
@@ -556,7 +554,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "What makes MH Construction different from other contractors?",
       answer:
-        "We're a Veteran-Owned construction company where traditional business values come first: handshakes matter, your word is your bond, and face-to-face trust defines every partnership. Founded in 2010 by Mike Holstein, purchased by Army veteran Jeremy Thamert in January 2025, we combine disciplined execution with transparent communication and authentic community relationships. Our motto: 'Building projects for the Client, NOT the Dollar.'",
+        "MH Construction combines veteran-led leadership, structured project controls, and direct communication. Founded in 2010 and veteran-owned since 2025, the team emphasizes planning discipline, schedule accountability, and long-term client partnerships.",
     },
     {
       question: "What safety record and awards does MH Construction hold?",
@@ -566,17 +564,17 @@ export function generateConstructionFAQSchema() {
     {
       question: "What types of construction services do you provide?",
       answer:
-        "MH Construction offers comprehensive construction services including commercial, industrial, and government projects. We specialize in general contracting, construction management, master planning and preconstruction, tenant improvements, light industrial construction, design-build, facility renovations, and public-sector builds. Each project is approached with disciplined planning and transparent open-book communication.",
+        "MH Construction provides commercial, industrial, and government project delivery, including general contracting, construction management, preconstruction planning, tenant improvements, light industrial builds, design-build, and facility renovations.",
     },
     {
       question: "How can I get started with my construction project?",
       answer:
-        "We recommend starting with a free expert consultation—schedule your on-site evaluation for comprehensive assessment and detailed open-book pricing. This face-to-face meeting is where partnerships begin. Contact us at (509) 308-6489 or visit our Contact page to get started.",
+        "Start with a free expert consultation to review site conditions, scope priorities, and planning assumptions. Contact us at (509) 308-6489 or visit our Contact page to schedule.",
     },
     {
       question: "Are you a Veteran-Owned business?",
       answer:
-        "Yes, MH Construction is a proud Veteran-Owned business certified by the U.S. Small Business Administration. We operate with disciplined execution, serve the veteran community with specialized benefits and recognition, and maintain authentic partnerships that strengthen Pacific Northwest communities.",
+        "Yes. MH Construction is a Veteran-Owned business certified by the U.S. Small Business Administration, with veteran-led leadership and active veteran hiring initiatives.",
     },
   ];
 

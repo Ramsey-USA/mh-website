@@ -59,16 +59,16 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     title: "Pasco Industrial Warehouse Build-Out",
     metaTitle: "Pasco Industrial Warehouse Build-Out | MH Construction",
     metaDescription:
-      "A 24,000 sq ft industrial warehouse build-out in Pasco, WA with loading docks, climate control, and durable concrete flooring.",
+      "A 24,000 sq ft industrial warehouse pole-building build-out in Pasco, WA with loading docks, climate control, and durable concrete flooring.",
     ogImage: "/images/projects/pasco-warehouse.webp",
     description:
-      "MH Construction built a distribution-ready warehouse with resilient materials, utility coordination, and a clear operational layout.",
+      "MH Construction built a distribution-ready warehouse with pole-building scope coordination, resilient materials, utility planning, and a clear operational layout managed in Procore.",
     location: { city: "Pasco", state: "WA" },
     yearCompleted: 2023,
     category: "Industrial",
     technicalSpecs: {
       squareFootage: 24000,
-      deliveryMethod: "New build-out",
+      deliveryMethod: "Pole-building build-out",
       primaryScope: ["Loading docks", "Reinforced slab", "Climate control"],
       finishPackage: [
         "Steel building system",
@@ -94,19 +94,20 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     title: "Richland Corporate Office Tenant Improvement",
     metaTitle: "Richland Corporate Office Tenant Improvement | MH Construction",
     metaDescription:
-      "A 3,800 sq ft corporate office tenant improvement in Richland, WA designed for accessible circulation, efficient systems, and careful finish detailing.",
+      "A 3,800 sq ft corporate office commercial tenant improvement in Richland, WA designed for accessible circulation, efficient systems, and careful finish detailing.",
     ogImage: "/images/projects/richland-custom-home.webp",
     description:
-      "MH Construction delivered a corporate office tenant improvement with universal accessibility principles, premium finishes, and a clear delivery plan for daily operations.",
+      "MH Construction delivered a corporate office commercial tenant improvement with universal accessibility principles, premium finishes, door and hardware installation, and a clear delivery plan managed in Procore.",
     location: { city: "Richland", state: "WA" },
     yearCompleted: 2024,
     category: "Commercial",
     technicalSpecs: {
       squareFootage: 3800,
-      deliveryMethod: "Tenant improvement",
+      deliveryMethod: "Commercial tenant improvement",
       primaryScope: [
         "Open collaboration zones",
         "Executive briefing room",
+        "Door and hardware installation",
         "Fleet access upgrades",
       ],
       finishPackage: [
@@ -136,14 +137,19 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "A 6,500 sq ft healthcare tenant improvement in Spokane, WA built for code compliance, patient flow, and durable clinic operations.",
     ogImage: "/images/projects/spokane-healthcare-clinic.webp",
     description:
-      "MH Construction coordinated a healthcare tenant improvement with clear patient flow, compliant finishes, and careful sequencing around occupied operations.",
+      "MH Construction coordinated a healthcare commercial tenant improvement with clear patient flow, compliant finishes, door and hardware installation, and careful sequencing around occupied operations.",
     location: { city: "Spokane", state: "WA" },
     yearCompleted: 2023,
     category: "Commercial",
     technicalSpecs: {
       squareFootage: 6500,
-      deliveryMethod: "Tenant improvement",
-      primaryScope: ["Exam rooms", "Procedure suites", "Reception area"],
+      deliveryMethod: "Commercial tenant improvement",
+      primaryScope: [
+        "Exam rooms",
+        "Procedure suites",
+        "Reception area",
+        "Door and hardware installation",
+      ],
       finishPackage: [
         "Antimicrobial wall panels",
         "Medical-grade cabinetry",

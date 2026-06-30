@@ -22,6 +22,8 @@ import fs from "fs";
 
 const MSG_DIR = path.resolve(__dirname, "../../../../../messages");
 const HOME_MSG_DIR = path.join(MSG_DIR, "home");
+const APP_MSG_DIR = path.resolve(__dirname, "../../../messages");
+const APP_HOME_MSG_DIR = path.join(APP_MSG_DIR, "home");
 
 function loadJson(filePath: string): Record<string, unknown> {
   const raw = fs.readFileSync(filePath, "utf-8");
@@ -271,6 +273,32 @@ describe("Translation Files — Home Namespace Completeness", () => {
   });
 });
 
+describe("Translation Files — Root/App Mirror Parity", () => {
+  test("messages/en.json mirrors apps/website/messages/en.json", () => {
+    const rootEn = loadJson(path.join(MSG_DIR, "en.json"));
+    const appEn = loadJson(path.join(APP_MSG_DIR, "en.json"));
+    expect(rootEn).toEqual(appEn);
+  });
+
+  test("messages/es.json mirrors apps/website/messages/es.json", () => {
+    const rootEs = loadJson(path.join(MSG_DIR, "es.json"));
+    const appEs = loadJson(path.join(APP_MSG_DIR, "es.json"));
+    expect(rootEs).toEqual(appEs);
+  });
+
+  test("messages/home/en.json mirrors apps/website/messages/home/en.json", () => {
+    const rootEnHome = loadJson(path.join(HOME_MSG_DIR, "en.json"));
+    const appEnHome = loadJson(path.join(APP_HOME_MSG_DIR, "en.json"));
+    expect(rootEnHome).toEqual(appEnHome);
+  });
+
+  test("messages/home/es.json mirrors apps/website/messages/home/es.json", () => {
+    const rootEsHome = loadJson(path.join(HOME_MSG_DIR, "es.json"));
+    const appEsHome = loadJson(path.join(APP_HOME_MSG_DIR, "es.json"));
+    expect(rootEsHome).toEqual(appEsHome);
+  });
+});
+
 describe("Translation Files — Spanish Accent Quality (es.json)", () => {
   const esRaw = fs.readFileSync(path.join(MSG_DIR, "es.json"), "utf-8");
 
@@ -355,7 +383,29 @@ describe("Translation Files — No Placeholder Keys Left in es.json", () => {
     "hub.login.travelerLabel",
     "hub.roleSelector.admin",
     "hub.roleSelector.traveler",
+    "safety.forms.jha.formNumber",
+    "contact.serviceAreas.extended.oregonLabel",
+    "contact.serviceAreas.extended.idahoLabel",
+    "allies.partnership.title",
+    "allies.cta.hours",
+    "veteransPage.leadership.jeremy.name",
+    "veteransPage.leadership.matt.name",
+    "veteransPage.support.stats.hiringPriority.value",
+    "veteransPage.support.stats.veteranLeaders.value",
+    "coolDesertNightsPage.hero.stats.location.value",
+    "coolDesertNightsPage.hero.logo.companyLabel",
+    "careersPage.whyChoose.headingTitle",
+    "careersPage.whyChoose.showcase.title",
   ]);
+
+  const ALLOWED_IDENTICAL_PATH_PATTERNS = [
+    /^common\.about\.news\.cards\.[^.]+\.date$/,
+    /^careersPage\.data\.companyBenefits\[\d+\]\.icon$/,
+    /^careersPage\.data\.veteranBenefits\[\d+\]\.icon$/,
+    /^careersPage\.data\.cultureValues\[\d+\]\.(icon|color)$/,
+    /^careersPage\.data\.employeeTestimonials\[\d+\]\.(id|name|date)$/,
+    /^testimonialsData\.clientTestimonials\[\d+\]\.(id|name|company|location|category)$/,
+  ];
 
   const ALLOWED_IDENTICAL_PATTERNS = [
     // Emails, URLs, phone numbers
@@ -379,6 +429,11 @@ describe("Translation Files — No Placeholder Keys Left in es.json", () => {
 
     for (const { path: keyPath, value: esValue } of esStrings) {
       if (ALLOWED_IDENTICAL_PATHS.has(keyPath)) continue;
+      if (
+        ALLOWED_IDENTICAL_PATH_PATTERNS.some((pattern) => pattern.test(keyPath))
+      ) {
+        continue;
+      }
       const enValue = enMap.get(keyPath);
       if (enValue === undefined) continue;
       if (esValue !== enValue) continue; // translated — good

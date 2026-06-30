@@ -21,7 +21,7 @@ import { DownloadGate } from "@/components/pwa";
 export const metadata: Metadata = {
   title: "Field Resources | MH Construction",
   description:
-    "Download MH Construction's Safety Manual, toolbox talk forms, JHA templates, equipment checklists, and all field documentation. Founded 2010, Veteran-Owned Since January 2025. Consistent branding on and off the job site.",
+    "Download MH Construction safety manuals, toolbox talk forms, JHA templates, and field documentation for crews, partners, and prequalification workflows.",
   alternates: {
     canonical: "https://www.mhc-gc.com/resources",
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Field Resources | MH Construction",
     description:
-      "Safety manuals, toolbox talks, and field forms from a Veteran-Owned Since January 2025 Tri-State licensed construction team with Tri-Cities headquarters — branded and ready to print.",
+      "Safety manuals, toolbox talks, and field forms from MH Construction, organized for fast field use and agency review.",
     url: "https://www.mhc-gc.com/resources",
     type: "website",
   },
@@ -79,18 +79,18 @@ export default function ResourcesPage() {
                   className="text-brand-primary"
                 />
                 <span className="text-brand-primary dark:text-brand-secondary text-sm font-semibold tracking-wide uppercase">
-                  Field Intel
+                  Resources
                 </span>
               </div>
               <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight tracking-tight">
-                Field{" "}
+                Project{" "}
                 <span className="bg-linear-to-r from-brand-primary to-brand-primary-light bg-clip-text text-transparent">
                   Resources
                 </span>
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                Every manual, form, and field document used by MH Construction —
-                branded, versioned, and ready to print or download.
+                Manuals, forms, and field documents for MH Construction, branded
+                and ready to print or download.
               </p>
             </div>
           </FadeInWhenVisible>
@@ -117,10 +117,9 @@ export default function ResourcesPage() {
                 </span>
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                View our OSHA 29 CFR 1926-compliant, AGC CSEA–aligned,
-                PMBOK-structured safety program overview — with compliance
-                credentials, section mapping, and direct PDF access for owner
-                pre-qualification and surety review.
+                View the OSHA 29 CFR 1926-compliant safety overview with
+                compliance credentials, section mapping, and direct PDF access
+                for pre-qualification and surety review.
               </p>
               <div className="flex flex-wrap gap-2 mt-3">
                 <SafetyComplianceBadge variant="osha" />

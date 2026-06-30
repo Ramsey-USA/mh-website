@@ -39,7 +39,7 @@ const SERVICE_POWER_CENTER: Record<string, ServicePowerCenter> = {
       },
       {
         href: "/projects/pasco-industrial-warehouse-build-out",
-        label: "Pasco industrial warehouse build-out",
+        label: "Pasco AG-support industrial build-out",
       },
       {
         href: "/projects/west-richland-light-industrial-flex-facility",
@@ -49,19 +49,19 @@ const SERVICE_POWER_CENTER: Record<string, ServicePowerCenter> = {
     locations: [
       { href: "/locations/kennewick", label: "Kennewick service market" },
       { href: "/locations/pasco", label: "Pasco service market" },
-      { href: "/locations/spokane", label: "Spokane service market" },
+      { href: "/locations/spokane", label: "Spokane commercial TI market" },
     ],
     faq: { href: "/faq/technical", label: "Technical project management FAQ" },
     safety: {
       href: "/resources/safety-manual/tools-and-materials",
-      label: "Tools and materials safety standards",
+      label: "Field tools, materials, and controls",
     },
   },
   "municipal-government": {
     projects: [
       {
         href: "/projects/pasco-industrial-warehouse-build-out",
-        label: "Pasco infrastructure-ready warehouse case study",
+        label: "Pasco public-ready warehouse case study",
       },
       {
         href: "/projects/spokane-healthcare-clinic-tenant-improvement",
@@ -86,7 +86,7 @@ const SERVICE_POWER_CENTER: Record<string, ServicePowerCenter> = {
     faq: { href: "/faq/veterans", label: "Veteran and government FAQ" },
     safety: {
       href: "/resources/safety-manual/program-compliance-and-continuity",
-      label: "Program compliance and continuity",
+      label: "Program compliance and continuity controls",
     },
     bridges: [
       {
@@ -115,14 +115,14 @@ const SERVICE_POWER_CENTER: Record<string, ServicePowerCenter> = {
       },
       {
         href: "/projects/richland-corporate-office-tenant-improvement",
-        label: "Richland corporate interior finish package",
+        label: "Richland tenant interior finish package",
       },
     ],
     locations: [
       { href: "/locations/spokane", label: "Spokane interior projects market" },
       {
         href: "/locations/kennewick",
-        label: "Kennewick interior delivery market",
+        label: "Kennewick tenant interiors market",
       },
       {
         href: "/locations/richland",
@@ -132,7 +132,7 @@ const SERVICE_POWER_CENTER: Record<string, ServicePowerCenter> = {
     faq: { href: "/faq/process", label: "Process and partnership FAQ" },
     safety: {
       href: "/resources/safety-manual/fall-and-access-safety",
-      label: "Fall and access safety standards",
+      label: "Fall, access, and occupied-site safety",
     },
   },
   "restoration-remodeling": {
@@ -147,14 +147,14 @@ const SERVICE_POWER_CENTER: Record<string, ServicePowerCenter> = {
       },
       {
         href: "/projects/kennewick-commercial-office-renovation",
-        label: "Kennewick occupied renovation sequencing",
+        label: "Kennewick occupied renovation sequencing case",
       },
     ],
     locations: [
       { href: "/locations/richland", label: "Richland restoration market" },
       {
         href: "/locations/west-richland",
-        label: "West Richland restoration market",
+        label: "West Richland occupied restoration market",
       },
       {
         href: "/locations/walla-walla",
@@ -164,7 +164,7 @@ const SERVICE_POWER_CENTER: Record<string, ServicePowerCenter> = {
     faq: { href: "/faq/safety", label: "Safety and quality FAQ" },
     safety: {
       href: "/resources/safety-manual/energy-and-fire-hazards",
-      label: "Energy and fire hazard controls",
+      label: "Energy isolation and fire hazard controls",
     },
   },
 };
@@ -257,7 +257,7 @@ export default async function ServicePage({
 
             <div className="max-w-3xl">
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-primary dark:text-brand-primary-light">
-                Service Overview
+                Market Service Brief
               </p>
               <h1 className="text-3xl font-black tracking-tight text-gray-900 sm:text-5xl dark:text-white">
                 {service.title}
@@ -324,11 +324,11 @@ export default async function ServicePage({
               {powerCenter ? (
                 <div className="mt-8 rounded-2xl border border-gray-200 bg-gray-50 p-5 dark:border-gray-800 dark:bg-gray-950">
                   <h2 className="text-lg font-bold text-gray-900 dark:text-white">
-                    Proof and Regional Fit
+                    Field Proof and Market Fit
                   </h2>
                   <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-300">
-                    Use field-proven examples and market pages to align your
-                    scope before kickoff.
+                    Compare similar scopes, operating markets, and compliance
+                    resources before finalizing your execution plan.
                   </p>
 
                   <div className="mt-5">
@@ -373,7 +373,7 @@ export default async function ServicePage({
             <aside className="space-y-6">
               <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
-                  Technical Priorities
+                  Execution Priorities
                 </p>
                 <div className="mt-4 space-y-3">
                   {service.technicalPriorities.map((priority) => (
@@ -396,7 +396,7 @@ export default async function ServicePage({
 
               <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
-                  Safety Commitments
+                  Safety and Controls
                 </p>
                 <ul className="mt-4 space-y-3">
                   {service.safetyCommitments.map((commitment) => (
@@ -417,27 +417,27 @@ export default async function ServicePage({
 
               <div className="rounded-3xl border border-brand-primary/20 bg-brand-primary/5 p-6 dark:border-brand-primary/30 dark:bg-brand-primary/10">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-brand-primary dark:text-brand-primary-light">
-                  Next Step
+                  Project Kickoff
                 </p>
                 <h2 className="mt-3 text-xl font-bold text-gray-900 dark:text-white">
-                  Keep the scope moving
+                  Align scope, schedule, and ownership
                 </h2>
                 <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-300">
                   {service.ctaText}.
                 </p>
                 <Button asChild className="mt-5 w-full">
-                  <Link href={service.ctaHref}>Contact the team</Link>
+                  <Link href={service.ctaHref}>Start project review</Link>
                 </Button>
               </div>
 
               {powerCenter ? (
                 <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
                   <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
-                    Trust Resources
+                    Decision Resources
                   </p>
                   <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-300">
-                    Validate decisions with category guidance and published
-                    safety standards.
+                    Validate scope decisions with focused FAQ guidance and
+                    published safety standards.
                   </p>
                   <div className="mt-4 space-y-3">
                     <Link

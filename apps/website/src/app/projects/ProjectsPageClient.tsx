@@ -46,34 +46,10 @@ const CapabilitiesSection = dynamic(
   },
 );
 
-const WhyChooseSection = dynamic(
-  () =>
-    import("./components/WhyChooseSection").then((mod) => ({
-      default: mod.WhyChooseSection,
-    })),
-  {
-    ssr: false,
-    loading: () => <SimpleSkeleton />,
-  },
-);
-
 const TestimonialsSection = dynamic(
   () =>
     import("./components/TestimonialsSection").then((mod) => ({
       default: mod.TestimonialsSection,
-    })),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
-    ),
-  },
-);
-
-const PartnershipProcessSection = dynamic(
-  () =>
-    import("./components/PartnershipProcessSection").then((mod) => ({
-      default: mod.PartnershipProcessSection,
     })),
   {
     ssr: false,
@@ -190,9 +166,6 @@ export default function ProjectsPageClient() {
         {/* Stats Section - Proof after portfolio visibility */}
         <ProjectsStatsSection />
 
-        {/* Why Choose MH Section */}
-        <WhyChooseSection />
-
         {/* Testimonials Section */}
         <TestimonialsSection
           testimonials={featuredClientTestimonials}
@@ -202,9 +175,6 @@ export default function ProjectsPageClient() {
           clientPartnerLabel={t("testimonials.clientPartnerLabel")}
           starRatingAriaSuffix={t("testimonials.starRatingAriaSuffix")}
         />
-
-        {/* Partnership Process Section */}
-        <PartnershipProcessSection />
 
         {/* Next Steps Section - Standardized Final CTA */}
         <NextStepsSection />

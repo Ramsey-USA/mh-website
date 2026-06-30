@@ -469,7 +469,7 @@ export default function SafetyIncidentReportPage() {
                 className="inline-flex items-center gap-2 rounded-xl border border-brand-primary px-5 py-3 text-sm font-bold text-brand-primary transition-colors hover:bg-brand-primary hover:text-white"
               >
                 <MaterialIcon icon="dashboard" size="sm" />
-                Back to Operations Hub
+                Back to Staff Hub
               </Link>
             </div>
           </form>

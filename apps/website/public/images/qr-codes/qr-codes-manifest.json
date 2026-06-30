@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-25T17:41:18.524Z",
+  "generatedAt": "2026-06-30T21:21:39.228Z",
   "baseUrl": "https://www.mhc-gc.com",
-  "outputDirectory": "public/images/qr-codes",
+  "outputDirectory": "apps/website/public/images/qr-codes",
   "folders": [
     "core",
     "contact",
@@ -466,28 +466,6 @@
       "error": null
     },
     {
-      "name": "safety-manual-contents",
-      "filename": "qr-safety-manual-contents-color.png",
-      "relativePath": "safety/qr-safety-manual-contents-color.png",
-      "folder": "safety",
-      "variant": "color",
-      "url": "https://www.mhc-gc.com/resources/safety-manual/contents",
-      "description": "Safety Manual — Table of Contents (Public)",
-      "success": true,
-      "error": null
-    },
-    {
-      "name": "safety-manual-contents",
-      "filename": "qr-safety-manual-contents-bw.png",
-      "relativePath": "safety/qr-safety-manual-contents-bw.png",
-      "folder": "safety",
-      "variant": "bw",
-      "url": "https://www.mhc-gc.com/resources/safety-manual/contents",
-      "description": "Safety Manual — Table of Contents (Public)",
-      "success": true,
-      "error": null
-    },
-    {
       "name": "accessibility",
       "filename": "qr-accessibility-color.png",
       "relativePath": "core/qr-accessibility-color.png",
@@ -801,7 +779,7 @@
       "relativePath": "safety/qr-safety-dashboard-color.png",
       "folder": "safety",
       "variant": "color",
-      "url": "https://www.mhc-gc.com/safety/hub",
+      "url": "https://www.mhc-gc.com/safety",
       "description": "Safety Hub (Employee Operations)",
       "success": true,
       "error": null
@@ -812,7 +790,7 @@
       "relativePath": "safety/qr-safety-dashboard-bw.png",
       "folder": "safety",
       "variant": "bw",
-      "url": "https://www.mhc-gc.com/safety/hub",
+      "url": "https://www.mhc-gc.com/safety",
       "description": "Safety Hub (Employee Operations)",
       "success": true,
       "error": null

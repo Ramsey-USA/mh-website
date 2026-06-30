@@ -14,10 +14,10 @@ interface HeroSectionProps {
 }
 
 const DEFAULT_EN_COPY: HeroSectionCopy = {
-  baseLabel: "Base HQ -> Home",
+  baseLabel: "Home",
   founded: "Founded 2010 • Veteran-Owned Since January 2025 • BABAA Supporter",
   tagline: "Relationship-first construction across WA, OR, and ID",
-  mission: "Building projects for the Client, NOT the Dollar",
+  mission: "Clear planning. Accountable delivery.",
   serving:
     "Tri-Cities HQ (Pasco, Richland, Kennewick) | Licensed in WA, OR, ID",
 };

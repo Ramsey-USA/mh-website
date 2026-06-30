@@ -219,7 +219,7 @@ const faqSchema = {
       name: "What makes MH Construction's leadership team unique?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "MH Construction's Chain of Command brings together 150+ years combined military-grade expertise from all service branches (Army, Navy, Air Force, Marines, Coast Guard, Space Force). Our leadership team has been Veteran-Owned Since January 2025 and combines military discipline with proven construction excellence.",
+        text: "MH Construction's leadership structure combines executive, project, safety, and field perspectives into one accountable delivery chain. The team balances disciplined controls with practical project decision-making.",
       },
     },
     {
@@ -227,15 +227,15 @@ const faqSchema = {
       name: "Who leads MH Construction?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "MH Construction is led by Owner & President Jeremy Thamert (35+ years construction experience, 15 years Army aviation), Vice President Arnold Garcia (40+ years construction experience), and Founder Mike Holstein who founded the company in 2010.",
+        text: "MH Construction is led by Owner & President Jeremy Thamert, Vice President Arnold Garcia, and Founder Mike Holstein.",
       },
     },
     {
       "@type": "Question",
-      name: "What is MH Construction's Chain of Command structure?",
+      name: "What is MH Construction's leadership structure?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our Chain of Command includes: The Upper Brass (executive leadership), Mission Commanders (project management and estimating), Special Operations (marketing and safety), Logistics Command (administration and support), and Field Officers (superintendents).",
+        text: "Our leadership structure includes executive leadership, project management, marketing and safety, administration, and field superintendents.",
       },
     },
     {
@@ -243,7 +243,7 @@ const faqSchema = {
       name: "Is MH Construction Veteran-Owned?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, MH Construction became Veteran-Owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our team honors all service branches with disciplined execution, direct communication, and service-earned values.",
+        text: "Yes, MH Construction became Veteran-Owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our team applies structured planning, direct communication, and accountable project follow-through.",
       },
     },
     {
@@ -291,7 +291,7 @@ export default async function TeamPage() {
     (member) => member.slug === "mike-holstein",
   );
 
-  // Define department order matching the Chain of Command structure
+  // Define department order matching the leadership structure
   const departmentOrder = [
     "The Upper Brass",
     "Mission Commanders",
@@ -1385,15 +1385,6 @@ export default async function TeamPage() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Next Steps CTA - Conversion Optimization */}
-            <div className="-mx-4 sm:-mx-6 lg:-mx-8">
-              <NextStepsSection
-                title={t("team.nextSteps.sectionTitle")}
-                subtitle={t("team.nextSteps.sectionSubtitle")}
-                description={t("team.nextSteps.sectionDescription")}
-              />
             </div>
 
             {/* Call to Action - Careers Link */}

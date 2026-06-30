@@ -50,7 +50,6 @@ jest.mock("@/lib/seo/page-seo-utils", () => ({
 
 jest.mock("@/components/home", () => ({
   HeroSection: () => <section data-testid="hero-section" />,
-  CoreValuesSection: () => <section data-testid="core-values-section" />,
   ServicesShowcase: () => <section data-testid="dynamic-home-section" />,
   WhyPartnerSection: () => <section data-testid="dynamic-home-section" />,
 }));
@@ -85,7 +84,6 @@ describe("Home page section rendering", () => {
       expect(screen.getByTestId("home-sentry-support")).toBeInTheDocument();
       expect(screen.getByTestId("structured-data")).toBeInTheDocument();
       expect(screen.getByTestId("hero-section")).toBeInTheDocument();
-      expect(screen.getByTestId("core-values-section")).toBeInTheDocument();
       expect(
         screen.getAllByTestId("dynamic-home-section").length,
       ).toBeGreaterThan(0);

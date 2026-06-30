@@ -13,13 +13,13 @@ const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 export const metadata: Metadata = {
   title: "Safety Manual — Forms Index | MH Construction",
   description:
-    "Index of MH Construction's MISH safety forms. Veteran-Owned Since January 2025. Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Authorized personnel may download blank forms; completed forms are restricted.",
+    "Index of MH Construction's MISH safety forms. Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Authorized personnel may download blank forms; completed forms are restricted.",
   alternates: { canonical: `${SITE_URL}/resources/safety-manual/forms` },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Safety Manual — Forms Index | MH Construction",
     description:
-      "Index of MISH safety forms. Veteran-Owned Since January 2025 Tri-State licensed general contractor. Authorized parties only.",
+      "Index of MISH safety forms with downloadable blank templates and restricted completion records.",
     type: "website",
     url: `${SITE_URL}/resources/safety-manual/forms`,
   },
@@ -71,7 +71,7 @@ export default function SafetyManualFormsPage() {
             written Safety &amp; Health Program.
           </p>
           <p className="mt-3 text-xs font-semibold text-brand-secondary">
-            Founded 2010, Veteran-Owned Since January 2025
+            Blank templates for field use and documentation control
           </p>
         </div>
       </section>

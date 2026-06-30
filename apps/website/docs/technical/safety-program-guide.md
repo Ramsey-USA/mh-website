@@ -295,7 +295,8 @@ pnpm --filter @mhc/website run docs:publish:employee-handbook
 
 `docs:publish:safety` uploads manual artifacts and `docs/safety/sections/*.pdf`.
 `docs:publish:forms` uploads package PDFs from `documents/output/form-packages/`
-to `docs/safety/forms/*.pdf`.
+to both `docs/safety/forms/*.pdf` and `docs/employee/forms/*.pdf`, including the
+consolidated handbook company letterhead.
 `docs:publish:employee-handbook` uploads the Employee Handbook PDF to
 `docs/employee/employee-handbook-2026.pdf`.
 
@@ -437,13 +438,13 @@ documents/content/MHC-Employee-Handbook-Sections/
 
 ### Handbook vs MISH Architecture Differences
 
-| Aspect           | MISH (safety-manual)       | Handbook (employee-handbook) |
-| ---------------- | -------------------------- | ---------------------------- |
-| Sections         | 50 (00–49) with QR codes   | 6 (01–06) no section QR      |
-| Digital routes   | `/resources/safety-manual` | Static PDF `/docs/employee/` |
-| Tab QR codes     | Per-section links          | Single handbook cover link   |
-| Forms included   | Yes (47 forms)             | Shared via forms-manifest    |
-| Merge complexity | Full 350+ page assembly    | Single handbook PDF          |
+| Aspect           | MISH (safety-manual)       | Handbook (employee-handbook)      |
+| ---------------- | -------------------------- | --------------------------------- |
+| Sections         | 50 (00–49) with QR codes   | 6 (01–06) no section QR           |
+| Digital routes   | `/resources/safety-manual` | Static PDF `/docs/employee/`      |
+| Tab QR codes     | Per-section links          | Single handbook cover link        |
+| Forms included   | Yes (47 safety forms)      | Yes (handbook forms + letterhead) |
+| Merge complexity | Full 350+ page assembly    | Single handbook PDF               |
 
 ---
 

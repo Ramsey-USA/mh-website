@@ -75,7 +75,7 @@ const NEXT_STEPS_COPY: Record<"en" | "es", NextStepsCopy> = {
     introPrefix: "Where ",
     introHighlightA: "your word is your bond",
     introMiddle: ", and ours is too. Partner with a ",
-    introHighlightB: "Veteran-Owned, relationship-first team",
+    introHighlightB: "relationship-first project team",
     introSuffix: "backed by proven values.",
     tag: "Most Popular",
     option2Title: "See Our Real Work",
@@ -103,7 +103,7 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
   const {
     title: _title = "Let's Build Your Vision Together",
     subtitle:
-      _subtitle = "Partner with a Veteran-Owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision.",
+      _subtitle = "Partner with a relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision.",
     className = "",
     noBackground: _noBackground = false,
     locale = "en",

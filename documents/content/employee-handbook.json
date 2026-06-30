@@ -110,6 +110,12 @@
           "slug": "form-handbook-07-client-photo-release-form",
           "title": "Client Photo Release Form",
           "purpose": "Captures client authorization for project photo and media use"
+        },
+        {
+          "id": "HANDBOOK-LETTERHEAD",
+          "slug": "form-handbook-company-letterhead",
+          "title": "MH Construction Company Letterhead",
+          "purpose": "Blank company letterhead for official handbook-aligned correspondence"
         }
       ]
     }

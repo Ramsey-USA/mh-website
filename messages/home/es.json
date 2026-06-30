@@ -1,39 +1,39 @@
 {
   "hero": {
     "baseLabel": "Base Central → Hogar",
-    "founded": "Fundado en 2010, Empresa Veterana Desde Enero de 2025 • Partidario de BABAA (Ley Build America, Buy America)",
-    "tagline": "Su Centro de Comando de Construcción Tri-State",
+    "founded": "Fundado en 2010 • Empresa veterana desde enero de 2025 • Partidario de BABAA (Ley Build America, Buy America)",
+    "tagline": "Construcción centrada en la relación en WA, OR e ID",
     "mission": "Construyendo proyectos para el Cliente, NO para el Dinero",
     "serving": "Sede en Tri-Cities (Pasco, Richland, Kennewick) | Licencia Tri-State en WA, OR, ID"
   },
   "coreValues": {
-    "sectionSubtitle": "Marco de Decision",
-    "sectionTitle": "Cuatro Valores en la Practica",
+    "sectionSubtitle": "Marco de Decisión",
+    "sectionTitle": "Cuatro Valores en la Práctica",
     "sectionDescription": "Estos valores definen cómo tomamos decisiones sobre alcance, presupuesto y cronograma mientras protegemos la calidad y la rendición de cuentas.",
     "keyMetric": "Métrica Clave",
     "values": [
       {
         "value": "Honestidad",
         "tagline": "Comunicación Clara en Todo Momento",
-        "description": "Transparencia total—evaluaciones verídicas, comunicación abierta, información honesta. Discusión directa de desafíos y obstáculos. Actualizaciones en tiempo real sobre cambios de cronograma o presupuesto. Evaluación honesta cuando un proyecto no es adecuado. Desglose completo de costos antes de comenzar. Hablar claro, sin tecnicismos.",
+        "description": "Precios transparentes, comunicacion directa y actualizaciones en tiempo real sobre alcance, presupuesto y cronograma. Avisamos riesgos temprano y decimos cuando un proyecto no es el ajuste correcto.",
         "stats": "Precios 100% Transparentes"
       },
       {
         "value": "Integridad",
         "tagline": "Haciendo lo Correcto",
-        "description": "Ética sólida—haciendo lo correcto incluso cuando nadie mira. Usando materiales y métodos especificados sin sustituciones. Garantías integrales—respaldamos nuestro trabajo. Tomando decisiones que beneficien a los clientes, no solo nuestros resultados. Cumpliendo compromisos incluso cuando las circunstancias cambian. Sin atajos, punto.",
+        "description": "Seguimos materiales y metodos especificados, cumplimos compromisos y respaldamos el trabajo con garantias claras. Sin atajos.",
         "stats": "Ética Inquebrantable"
       },
       {
         "value": "Profesionalismo",
         "tagline": "Excelencia en Acción",
-        "description": "A tiempo, preparados y listos—sin excusas. Llegando a tiempo y preparados. Comunicación clara en todas las interacciones. Gestión y organización adecuada del sitio. Tratando su propiedad con respeto. Manteniendo credenciales de la industria y mejora continua.",
+        "description": "Llegamos preparados, comunicamos con claridad, mantenemos el sitio organizado y tratamos a las personas y la propiedad con respeto.",
         "stats": "Estándares de Servicio Experto"
       },
       {
         "value": "Minuciosidad",
         "tagline": "Ningún Detalle Olvidado",
-        "description": "Planificación y ejecución meticulosas: documentación completa, cero sorpresas. Análisis y planificación detallada del sitio. Mediciones y cálculos de precisión. Puntos de control de calidad sistemáticos en cada fase. Documentación completa con registros fotográficos. Revisión final exhaustiva con listas de verificación detalladas.",
+        "description": "Planificamos con detalle, documentamos cada fase, aplicamos controles de calidad y cerramos con punch list y entrega completos.",
         "stats": "Cero Detalles Omitidos"
       }
     ]
@@ -41,7 +41,7 @@
   "companyStats": {
     "subtitle": "Resumen de Rendimiento",
     "title": "Cifras que Puede Verificar",
-    "description": "Vista rapida del rendimiento en seguridad, profundidad del equipo, volumen de entrega y cobertura de licencias en Washington, Oregon e Idaho.",
+    "description": "Vista rápida del rendimiento en seguridad, profundidad del equipo, volumen de entrega y cobertura de licencias en Washington, Oregon e Idaho.",
     "labels": {
       "safety": "EMR de Seguridad Galardonado",
       "experience": "Años de Experiencia Combinada",
@@ -50,9 +50,9 @@
     }
   },
   "services": {
-    "sectionSubtitle": "Frentes de Servicio por Fase",
-    "sectionTitle": "De la Planificacion al Cierre",
-    "sectionDescription": "Conozca cada frente de servicio desde la preconstrucción hasta la ejecución y el cierre de obra.",
+    "sectionSubtitle": "Frentes por Resultado",
+    "sectionTitle": "Comience por su Tipo de Proyecto",
+    "sectionDescription": "Vea cómo entregamos proyectos AG y de bodegas, tenant improvements comerciales y obra municipal con responsables claros, visibilidad en Procore y controles listos para cierre.",
     "clickForDetails": "Haga clic para detalles completos",
     "viewDetailsAriaPrefix": "Ver detalles de",
     "closeDetailsBackdropAria": "Cerrar modal de detalles del servicio",
@@ -63,14 +63,14 @@
     "contactCta": "Comenzar",
     "items": [
       {
-        "title": "Gestión de Construcción",
-        "subtitle": "Supervisión Completa del Proyecto",
-        "description": "Supervisión completa desde el concepto hasta la finalización. Sus objetivos de proyecto ejecutados con comunicación clara y experiencia comprobada.",
+        "title": "Comunidades AG y Bodegas",
+        "subtitle": "Entrega para Proyectos Agrícolas y de Bodega",
+        "description": "Entrega para comunidades AG y bodegas con visibilidad en Procore, controles de seguridad en campo y cierre listo para handoff, incluyendo sistemas de liner para aguas residuales y escorrentia de lodos.",
         "features": [
-          "Supervisión y coordinación completa del proyecto",
-          "Planificación Maestra y Pre-Construcción",
-          "Control de presupuesto y gestión de costos",
-          "Garantía de calidad y protocolos de seguridad"
+          "Instalacion de liner en bodegas para contencion de aguas residuales y lodos",
+          "Coordinacion de instalaciones AG con impacto en acero inoxidable",
+          "Integracion y secuenciacion de silos mayores",
+          "Contexto probado en proyectos como Darigold Plant en Pasco"
         ],
         "benefits": [
           "Elimine decisiones costosas de último momento",
@@ -81,14 +81,14 @@
         "cta": "Explorar Servicios"
       },
       {
-        "title": "Planificación Maestra",
-        "subtitle": "Pre-Construcción Integral",
-        "description": "Transforme su visión en planes accionables. Coordinación estratégica de cada componente desde la evaluación inicial hasta la ejecución.",
+        "title": "Tenant Improvements Comerciales",
+        "subtitle": "TI en Espacios Activos con Puertas y Herrajes",
+        "description": "Ejecución de TI comercial con coordinación por fases, instalación de puertas y herrajes, y control de cronograma para proteger operaciones activas.",
         "features": [
-          "Alcance detallado del proyecto y parámetros",
-          "Pronóstico de presupuesto y cronograma",
-          "Análisis de constructabilidad y evaluación de riesgos",
-          "Coordinación de proveedores y materiales"
+          "Definicion de alcance y matriz de responsables",
+          "Pronostico de presupuesto y cronograma",
+          "Controles de constructabilidad y riesgo",
+          "Coordinacion de proveedores y materiales"
         ],
         "benefits": [
           "Prevenga el aumento del alcance",
@@ -99,14 +99,14 @@
         "cta": "Saber Más"
       },
       {
-        "title": "Edificios Comerciales",
-        "subtitle": "Instalaciones comerciales con enfoque primero en el cliente",
-        "description": "Construcción comercial para oficinas, tiendas, instalaciones médicas y espacios religiosos. Con licencia en WA, OR e ID—calidad de artesanía sobre márgenes de ganancia.",
+        "title": "Obra Municipal",
+        "subtitle": "Entrega Pública con Controles de Cumplimiento",
+        "description": "Entrega municipal con trazabilidad de aprobaciones, reportes en Procore y documentación lista para agencia desde inicio hasta cierre.",
         "features": [
-          "Oficinas profesionales y espacios comerciales",
-          "Instalaciones médicas y clínicas",
-          "Edificios religiosos y comunitarios",
-          "Concesionarios de autos y salas de exhibición"
+          "Alcances de instalaciones publicas y renovacion civica",
+          "Trazabilidad de aprobaciones y reportes de agencia",
+          "Controles de seguridad y continuidad en sitios ocupados",
+          "Documentacion de cierre lista para auditoria"
         ],
         "benefits": [
           "Licencia en 3 estados (WA, OR, ID)",
@@ -119,7 +119,7 @@
       {
         "title": "Adquisición y Alianzas Comerciales",
         "subtitle": "Gestión de Cadena de Suministro",
-        "description": "Coordinación experta de la cadena de suministro—abastecimiento de materiales de calidad y gestión de nuestra red de proveedores de confianza. Sin dolores de cabeza de coordinación, solo ejecución confiable.",
+        "description": "Coordinacion de cadena de suministro para materiales de calidad y socios comerciales verificados, con menos retrasos y mayor trazabilidad.",
         "features": [
           "Abastecimiento y adquisición de materiales",
           "Coordinación y gestión de proveedores",
@@ -137,7 +137,7 @@
       {
         "title": "Industrial Ligero",
         "subtitle": "Infraestructura Duradera y de Alto Rendimiento",
-        "description": "Construcción industrial segura y duradera con más de 16 años de experiencia comprobada. Almacenes hasta plantas de procesamiento construidos con especificaciones exactas y estándares de seguridad líderes en la industria.",
+        "description": "Construccion industrial segura y durable para almacenes y plantas de proceso, con distribucion funcional y entrega lista para cumplimiento.",
         "features": [
           "Almacenes y centros de distribución",
           "Plantas de fabricación y procesamiento",
@@ -154,13 +154,13 @@
       },
       {
         "title": "Mejoras para Inquilinos",
-        "subtitle": "Transformaciones Eficientes de Espacios",
-        "description": "Transforme su espacio comercial rápida y eficientemente con artesanía experta. Tiempo de inactividad mínimo, resultados máximos.",
+        "subtitle": "TI Comercial e Instalación de Puertas y Herrajes",
+        "description": "Tenant improvements comerciales con instalacion de puertas y herrajes para minimizar tiempos muertos y proteger operaciones activas.",
         "features": [
           "Renovaciones de oficinas",
           "Habilitaciones de tiendas",
-          "Mejoras de restaurantes y hostelería",
-          "Mejoras de consultorios médicos"
+          "Instalación de puertas y herrajes",
+          "TI para restaurantes, hostelería y consultorios médicos"
         ],
         "benefits": [
           "Finalización rápida y eficiente",
@@ -173,9 +173,9 @@
     ]
   },
   "whyPartner": {
-    "sectionSubtitle": "Por Que los Equipos Siguen con MH",
-    "sectionTitle": "Estandares que Protegen Resultados",
-    "sectionDescription": "Revise los estándares operativos detrás de cada alianza con clientes: liderazgo en seguridad, procesos transparentes y confiabilidad medible en cada fase.",
+    "sectionSubtitle": "Responsabilidad Operativa",
+    "sectionTitle": "Quien Es Responsable en Cada Etapa",
+    "sectionDescription": "Revise nuestro modelo de responsables, ruta de escalamiento y controles de aprobacion para mantener decisiones claras desde el inicio hasta el soporte posterior al cierre.",
     "philosophy": "Tu palabra es tu compromiso; la nuestra también. Punto.",
     "theROI": "EL ROI ES LA RELACIÓN",
     "tradeCta": {
@@ -188,7 +188,7 @@
       {
         "title": ".64 EMR - Seguridad Líder en la Industria",
         "subtitle": "Cada Miembro del Equipo Regresa a Casa Seguro",
-        "description": "Múltiples premios AGC-WA Top EMR con .64 EMR—40% mejor que el promedio de la industria. Más de 3 años sin lesiones con pérdida de tiempo y designación OSHA VPP Star. Sin compromisos en seguridad, punto.",
+        "description": "Reconocimiento AGC-WA Top EMR con .64 EMR (40% mejor que la industria), más de 3 años sin lesiones con pérdida de tiempo y designación OSHA VPP Star. Sin compromisos en seguridad.",
         "highlights": [
           ".64 EMR (40% mejor que la industria)",
           "3+ años sin lesiones con pérdida de tiempo",
@@ -200,7 +200,7 @@
       {
         "title": "Más de 150 Años de Experiencia Combinada",
         "subtitle": "Experiencia Comprobada en Construcción",
-        "description": "Nuestro equipo aporta más de 150 años de experiencia combinada en construcción. Veteranos y civiles trabajando juntos, aprovechando métodos probados refinados a través de generaciones. Experiencia profunda en la que puede confiar.",
+        "description": "Nuestro equipo aporta más de 150 años de experiencia combinada. Veteranos y civiles trabajan juntos con métodos probados y refinados por generaciones.",
         "highlights": [
           "Más de 150 años de experiencia combinada",
           "Excelencia de equipo veterano + civil",
@@ -212,7 +212,7 @@
       {
         "title": "Transparencia Completa",
         "subtitle": "Cero Sorpresas",
-        "description": "Precios de libro abierto con visibilidad completa en cada costo, cronograma y decisión. Usted controla el proyecto, nosotros lo ejecutamos con total transparencia. Sin costos ocultos, evaluaciones honestas en cada fase. Su palabra es su compromiso—y la nuestra también.",
+        "description": "Precios de libro abierto con visibilidad en costos, cronograma y decisiones. Sin costos ocultos y con evaluaciones honestas en cada fase.",
         "highlights": [
           "Precios de libro abierto",
           "Actualizaciones del proyecto en tiempo real",
@@ -224,37 +224,37 @@
       {
         "title": "Asociaciones a Largo Plazo",
         "subtitle": "Relaciones que Superan los Proyectos",
-        "description": "El 70% de nuestro negocio proviene de referencias y socios habituales—confianza ganada a través de acciones, no palabras. Nuestro compromiso no termina cuando el proyecto se completa. Estamos por el largo plazo, construyendo relaciones que importan.",
+        "description": "El 70% del negocio proviene de referencias y socios recurrentes. Ganamos confianza con entregas consistentes y seguimos presentes despues del cierre.",
         "highlights": [
-          "70% de negocio por referencias y repetición",
-          "Compromiso de asociación de por vida",
-          "Apoyo y servicio continuo",
-          "Relaciones enfocadas en la comunidad"
+          "70% por referencia y repeticion",
+          "Enfoque en relaciones de largo plazo",
+          "Soporte despues del cierre",
+          "Entrega enfocada en comunidad"
         ],
         "statLabel": "Negocio por Referencias"
       },
       {
         "title": "Más de 650 Proyectos Exitosos",
         "subtitle": "Historial Comprobado",
-        "description": "Más de 650 proyectos completados exitosamente demuestran confiabilidad comprobada. El liderazgo veterano aporta disciplina, planificación bajo presión y ejecución consistente. Ya sea rutinario o urgente, entregamos resultados sin importar los desafíos.",
+        "description": "Mas de 650 proyectos completados demuestran ejecucion confiable. El liderazgo veterano aporta disciplina, planificacion bajo presion y seguimiento constante.",
         "highlights": [
           "Más de 650 proyectos completados",
-          "Empresa Veterana desde enero de 2025",
-          "Partidario dedicado de BABAA (Ley Build America, Buy America)",
+          "Empresa veterana desde enero de 2025",
+          "Entrega alineada con BABAA",
           "Ejecución disciplinada",
-          "Valores ganados en servicio"
+          "Seguimiento confiable"
         ],
         "statLabel": "Proyectos Exitosos"
       },
       {
         "title": "Licencia en 3 Estados",
         "subtitle": "Con Licencia en Todo el Noroeste del Pacífico",
-        "description": "Contratista general con licencia completa en Washington, Oregon e Idaho. Seguro y fianza integrales proporcionan protección completa para cada proyecto. Credenciales mantenidas con precisión—cumplimiento continuo, cero compromisos.",
+        "description": "Contratista general con licencia en Washington, Oregon e Idaho, con seguro y fianza integrales. Mantenemos credenciales con cumplimiento continuo.",
         "highlights": [
           "Con licencia en WA, OR e ID",
-          "Cobertura completa de seguro y fianza",
-          "Garantía de cumplimiento completo",
-          "Mantenida con precisión"
+          "Seguro y fianza completos",
+          "Cumplimiento continuo",
+          "Credenciales vigentes"
         ],
         "statLabel": "Estados con Licencia"
       }
@@ -263,36 +263,40 @@
   "testimonials": {
     "subtitle": "Voces de Clientes",
     "title": "Relaciones Probadas en Campo",
-    "description": "Lea testimonios de valiosos Clientes en todo el Noroeste del Pacífico que han experimentado nuestra excelencia colaborativa de primera mano."
+    "description": "Prueba de socios cliente en AG/bodegas, TI comercial y mercados municipales en todo el Noroeste del Pacífico."
   },
   "process": {
-    "subtitle": "Hoja de Ruta de Ejecucion",
-    "title": "Modelo de Entrega en Cinco Pasos",
-    "descriptionPart1": "Cinco pasos claros desde el",
-    "descriptionPart2": "primer contacto hasta la finalización del proyecto",
-    "descriptionPart3": ". Sin sorpresas, solo",
-    "descriptionPart4": "comunicación honesta y resultados comprobados",
+    "subtitle": "Hoja de Ruta de Ejecución",
+    "title": "Modelo Operativo de Seis Etapas",
+    "descriptionPart1": "Seis etapas claras desde",
+    "descriptionPart2": "la calificación inicial hasta el cierre",
+    "descriptionPart3": ". La propiedad de responsabilidades, el escalamiento y las aprobaciones se mantienen visibles con",
+    "descriptionPart4": "controles en Procore y documentación lista para entrega",
     "descriptionPart5": ".",
     "steps": [
       {
-        "title": "Planificación Pre-Construcción",
-        "desc": "Evaluación integral del sitio, desarrollo detallado del alcance y planificación estratégica para identificar desafíos antes de que surjan."
+        "title": "Ingreso y Calificacion",
+        "desc": "Desde el inicio se definen encaje, objetivos y restricciones para alinear la ruta de entrega en AG, bodegas y obra municipal."
       },
       {
-        "title": "Transparencia Presupuestaria",
-        "desc": "Precios claros y detallados con desglose completo de costos. Sin tarifas ocultas, sin sorpresas—solo números honestos en los que puede confiar."
+        "title": "Planificacion de Preconstruccion",
+        "desc": "Estimación lidera presupuesto previo, definición de alcance y controles de riesgo para validar rutas realistas antes de movilizar obra."
       },
       {
-        "title": "Ejecución de Calidad",
-        "desc": "Artesanía experta con puntos de control de calidad sistemáticos en cada fase. Ejecución de precisión respaldada por más de 150 años de experiencia combinada."
+        "title": "Control de Ejecucion",
+        "desc": "Superintendentes dirigen campo y PM gestionan controles de entrega. Impactos mayores a $5,000 requieren aprobación del COO; mayores a $25,000 requieren aprobación adicional del CFO."
       },
       {
-        "title": "Comunicación Proactiva",
-        "desc": "Actualizaciones regulares lo mantienen informado durante todo el proyecto. Notificaciones en tiempo real de cualquier cambio—nunca estará en la oscuridad."
+        "title": "Validacion de Calidad y Seguridad",
+        "desc": "Los controles de calidad y seguridad son continuos. El superintendente puede detener trabajo de inmediato, con escalamiento por PM, Safety Officer, COO y Owner según necesidad."
       },
       {
-        "title": "Cierre Sin Problemas",
-        "desc": "Recorrido final exhaustivo y documentación completa. Nuestro compromiso con su satisfacción se extiende más allá de la finalización del proyecto."
+        "title": "Entrega y Cierre",
+        "desc": "Antes del traspaso se verifica paquete de cierre, avance de punch list y preparación de entrega. Owner y President aprueban el cierre final."
+      },
+      {
+        "title": "Soporte Posterior al Cierre",
+        "desc": "El PM original gestiona garantía con autorización del COO. Marketing y Estimación mantienen seguimiento y continuidad de comunicación tras la entrega."
       }
     ]
   }

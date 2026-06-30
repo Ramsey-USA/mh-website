@@ -48,7 +48,7 @@ aligned with our veteran-owned, honesty-first brand identity.
 
 **Mission (Primary Slogan):**
 
-> "Building projects for the Client, NOT the Dollar"
+> "Clear planning. Accountable delivery."
 
 **Vision**: To be the Pacific Northwest's most trusted veteran-led construction partner — renowned for
 craftsmanship and character.
@@ -59,11 +59,11 @@ craftsmanship and character.
 
 **Primary Partnership Message:**
 
-> "Building projects for the Client, NOT the Dollar"
+> "Clear planning. Accountable delivery."
 
 **Relationship-Focused Message:**
 
-> "THE ROI IS THE RELATIONSHIP"
+> "Built on communication and follow-through"
 
 **Partnership Call-to-Action:**
 
@@ -297,7 +297,7 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
 
 1. **Visual Identity**: Use approved colors, typography, and icon systems
 2. **Messaging**: Maintain consistent voice and tone across all communications
-3. **Quality Standards**: Every touchpoint reflects military precision
+3. **Quality Standards**: Every touchpoint reflects execution discipline
 4. **Partnership Focus**: Emphasize collaboration in all client interactions
 
 ### Brand Applications
@@ -322,7 +322,7 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
 
 1. **Content Review**: Ensure messaging aligns with brand voice
 2. **Visual Review**: Verify design elements follow guidelines
-3. **Quality Check**: Confirm military precision in execution
+3. **Quality Check**: Confirm execution discipline in execution
 4. **Client Focus**: Validate partnership emphasis maintained
 
 ## Related Documentation

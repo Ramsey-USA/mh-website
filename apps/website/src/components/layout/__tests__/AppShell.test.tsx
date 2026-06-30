@@ -58,7 +58,7 @@ describe("AppShell", () => {
     );
 
     expect(screen.getByTestId("site-navigation")).toBeInTheDocument();
-    expect(screen.getByTestId("semiquincentennial-banner")).toBeInTheDocument();
+    expect(screen.getByTestId("events-hub-banner")).toBeInTheDocument();
     expect(screen.getByTestId("site-footer")).toBeInTheDocument();
     expect(screen.getByText("Page Content")).toBeInTheDocument();
     expect(
@@ -80,7 +80,7 @@ describe("AppShell", () => {
     );
 
     expect(screen.getByTestId("site-navigation")).toBeInTheDocument();
-    expect(screen.getByTestId("semiquincentennial-banner")).toBeInTheDocument();
+    expect(screen.getByTestId("events-hub-banner")).toBeInTheDocument();
     expect(screen.getByTestId("site-footer")).toBeInTheDocument();
 
     expect(
@@ -111,7 +111,7 @@ describe("AppShell", () => {
     expect(screen.getByText("Page Content")).toBeInTheDocument();
   });
 
-  it("places the event funnel after hero when a script precedes hero content", async () => {
+  it("places the July banner after hero when a script precedes hero content", async () => {
     mockUsePWA.mockReturnValue({
       isStandalone: false,
       isInstallable: true,
@@ -130,11 +130,30 @@ describe("AppShell", () => {
       </AppShell>,
     );
 
-    const funnel = await screen.findByTestId("events-hub-banner");
+    const banner = await screen.findByTestId("semiquincentennial-banner");
     const hero = screen.getByTestId("page-hero");
     const slotAfterHero = hero.nextElementSibling as HTMLElement | null;
 
     expect(slotAfterHero).not.toBeNull();
-    expect(slotAfterHero?.contains(funnel)).toBe(true);
+    expect(slotAfterHero?.contains(banner)).toBe(true);
+  });
+
+  it("places the events banner immediately before the footer", () => {
+    mockUsePWA.mockReturnValue({
+      isStandalone: false,
+      isInstallable: true,
+      isIOS: false,
+    });
+
+    render(
+      <AppShell>
+        <div>Page Content</div>
+      </AppShell>,
+    );
+
+    const footer = screen.getByTestId("site-footer");
+    const eventsBanner = screen.getByTestId("events-hub-banner");
+
+    expect(footer.previousElementSibling).toBe(eventsBanner);
   });
 });

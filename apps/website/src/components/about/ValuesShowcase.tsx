@@ -29,16 +29,16 @@ const valueCategories: ValueCategory[] = [
     shortDesc:
       "Predictable experience and long-term partnerships built on trust.",
     fullDescription:
-      "Our values create a predictable, consistent experience you can count on. Every project is backed by 150+ years combined military-grade expertise, ensuring peace of mind knowing your project is in capable hands. We don't just complete projects—we build long-term partnerships that extend beyond project completion.",
+      "Our values create a predictable, consistent experience you can count on. We focus on clear planning, accountable execution, and practical communication so your team can make decisions with confidence. We don't just complete projects; we build long-term partnerships that extend beyond project completion.",
     benefits: [
       "Predictable, consistent experience you can count on",
       "Peace of mind knowing your project is in capable hands",
       "Long-term partnership beyond project completion",
-      "True ROI—the return is the relationship",
+      "Long-term value built through repeatable delivery",
       "Transparent communication at every project phase",
-      "Service-proven standards ensuring first-time-right execution",
+      "Documented standards that support first-time-right execution",
       "70% referral rate demonstrates earned trust",
-      "Service-earned commitment to your success",
+      "Consistent commitment to your project's success",
     ],
     iconGradient:
       "from-brand-primary via-brand-primary-dark to-brand-primary-darker",
@@ -85,8 +85,8 @@ const valueCategories: ValueCategory[] = [
       "Being part of something larger than individual projects",
       "Zero-incident safety culture protecting every team member",
       "OSHA VPP Star certification demonstrates commitment",
-      "Veteran-Owned leadership with operational discipline",
-      "Chain of Command structure with unified mission",
+      "Leadership practices built around operational discipline",
+      "Leadership structure with unified mission",
     ],
     iconGradient: "from-brand-secondary via-bronze-700 to-bronze-800",
     accentGradient: "from-brand-secondary via-bronze-700 to-bronze-800",
@@ -132,17 +132,6 @@ export function ValuesShowcase({
     >
       <DiagonalStripePattern />
       <BrandColorBlobs />
-      <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-2">
-          {title}
-        </h2>
-        <div className="text-xl sm:text-2xl text-brand-primary dark:text-brand-primary-light font-semibold mb-2">
-          {subtitle}
-        </div>
-        <div className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-          {description}
-        </div>
-      </div>
 
       <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
@@ -163,30 +152,19 @@ export function ValuesShowcase({
             <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
           </div>
 
-          {/* Two-line gradient heading */}
+          {/* Single values header (title/subtitle/description passed from page) */}
           <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
             <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-              Why Our Values
+              {subtitle}
             </span>
             <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-              Matter
+              {title}
             </span>
           </h2>
 
-          {/* Description with colored keyword highlighting */}
+          {/* Description */}
           <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-            Our{" "}
-            <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              service-earned values—integrity, transparency, and excellence
-            </span>{" "}
-            drive every project decision and partnership we build. These
-            service-proven principles aren't just{" "}
-            <span className="font-bold text-gray-900 dark:text-white">
-              words on a wall
-            </span>
-            —they're the foundation of how we do business with 150+ years
-            combined military-grade expertise backing every promise we make to
-            every partner.
+            {description}
           </p>
 
           {/* Call to Action Hint */}
@@ -366,13 +344,13 @@ export function ValuesShowcase({
                     className="text-brand-primary"
                   />
                   <h5 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg">
-                    Veteran-Owned. Relationship-First.
+                    Built on Clear Standards
                   </h5>
                 </div>
                 <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-                  These values are backed by 150+ years combined military-grade
-                  expertise, ensuring operational discipline meets proven
-                  construction excellence in every project we undertake.
+                  These values are reinforced through practical planning,
+                  disciplined field execution, and transparent follow-through in
+                  every project we undertake.
                 </p>
               </div>
             </div>

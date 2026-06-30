@@ -60,7 +60,7 @@ Use `package.json` as the canonical source for `pnpm run ...` entry points. This
 
 ### 🎯 **Root Level - Core Operations**
 
-- `generate-qr-codes.js` - Generate QR codes (color & B&W variants with labels)
+- `pnpm --filter @mhc/website run qr:generate` - Generate QR codes (color & B&W variants with labels)
 - `add-team-qr-codes.js` - Add QR code references to team data
 - `add-team-skills.js` - Add skills to team data
 - `analyze-components.js` - Component analysis

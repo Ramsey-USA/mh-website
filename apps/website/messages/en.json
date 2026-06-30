@@ -2,19 +2,19 @@
   "common": {
     "about": {
       "hero": {
-        "sectionTitle": "Our Oath → About Us",
+        "sectionTitle": "About Us",
         "sectionSubtitle": "Service-Earned Values, Construction Excellence",
         "sectionDescription": "Battle-Tested Excellence Through Service-Earned Experience"
       },
       "partnershipPhilosophy": {
         "sectionTitle": "Partnership Philosophy",
-        "sectionSubtitle": "Relationship-First, Veteran-Owned",
-        "sectionDescription": "Our approach: trust, transparency, and long-term partnership—earned through service, not slogans."
+        "sectionSubtitle": "Veteran-Owned, Accountability-Focused",
+        "sectionDescription": "Our approach: trust, transparency, and long-term partnership. MH Construction prides itself on being the answer before the problem through Professional Pre-Construction and Handoff Procedures. Every complex project presents a minefield of operational risks—MHC neutralizes the variables and secures your delivery. Every build introduces unique structural and regulatory challenges. MHC provides the precise project management required to navigate them on time and within scope."
       },
       "leadershipTeam": {
         "sectionTitle": "Leadership Team",
-        "sectionSubtitle": "Chain of Command Excellence",
-        "sectionDescription": "Meet the leaders who set the standard for military-grade discipline and construction expertise."
+        "sectionSubtitle": "Leadership Excellence",
+        "sectionDescription": "Meet the leaders who set the standard for accountable planning and construction expertise."
       },
       "valuesShowcase": {
         "sectionTitle": "Why Values Matter",
@@ -54,45 +54,45 @@
       "news": {
         "sectionTitle": "Latest News & Achievements",
         "sectionSubtitle": "Mission Updates",
-        "sectionDescription": "Stay updated with our latest projects, partnerships, and industry insights—milestones from our veteran-owned team.",
+        "sectionDescription": "Quick updates on projects, partnerships, and field-tested insights from our veteran-owned team.",
         "cards": {
           "crm": {
             "category": "Technology",
             "title": "Integrated CRM & Project Management Platform",
-            "description": "High-Level CRM implementation underway, providing seamless communication, real-time project updates, and an enhanced client experience from first contact to close-out.",
+            "description": "High-Level CRM rollout is in progress to improve communication, real-time updates, and handoff continuity from first contact to close-out.",
             "date": "Mar 2026",
             "linkText": "Learn More"
           },
           "trade": {
             "category": "Partnership",
             "title": "Expanding Trade Partner Network",
-            "description": "We are actively growing our network of skilled trade professionals to better serve client partners across the Pacific Northwest.",
+            "description": "We are expanding our skilled trade network to improve delivery capacity across the Pacific Northwest.",
             "date": "Oct 2025",
             "linkText": "Become a Partner"
           },
           "safety": {
             "category": "Recognition",
             "title": "Award-Winning Safety Record",
-            "description": "Our commitment to safety excellence is recognized by industry organizations, with measurable standards and disciplined compliance.",
+            "description": "Industry-recognized safety performance backed by measurable standards and disciplined compliance.",
             "date": "Sep 2025",
             "linkText": "Safety Standards"
           },
           "insight": {
             "category": "Industry Insight",
             "title": "Best Practices for Commercial Construction Projects",
-            "description": "From years of field experience, we share practical guidance on planning, communication, and partnership-focused execution.",
+            "description": "Field-tested guidance on planning, communication, and partnership-focused execution.",
             "date": "Aug 2025",
             "linkText": "Our Services"
           },
           "veteran": {
             "category": "Veteran Initiative",
             "title": "Supporting Veteran-Owned Businesses",
-            "description": "As a veteran-owned company, we prioritize partnerships with fellow veteran businesses and support transition pathways into civilian careers.",
+            "description": "We prioritize partnerships with veteran-owned businesses and support transition pathways into civilian careers.",
             "date": "Jul 2025",
             "linkText": "Our Values"
           }
         },
-        "footerNote": "Full blog integration with High-Level CRM platform in progress"
+        "footerNote": "Full blog integration with High-Level CRM is in progress"
       },
       "nextSteps": {
         "sectionTitle": "Next Steps",
@@ -117,43 +117,43 @@
     "hero": {
       "iconAria": "Chain of command team",
       "imageAlt": "MH Construction team group photo, 2025",
-      "kicker": "Chain of Command -> Our Team",
-      "titleLine1": "All-Branch Veteran Leadership You Can Trust",
-      "titleLine2": "150+ Years Combined Military-Grade Expertise at Your Service",
-      "titleLine3Prefix": "Building projects for the Client,",
-      "titleLine3Suffix": "the Dollar",
-      "breadcrumb": "Chain of Command"
+      "kicker": "Leadership Team",
+      "titleLine1": "Veteran-Led Leadership You Can Trust",
+      "titleLine2": "150+ Years of Combined Construction Experience",
+      "titleLine3Prefix": "Clear planning. Accountable delivery.",
+      "titleLine3Suffix": "",
+      "breadcrumb": "Leadership Team"
     },
     "overview": {
       "subtitle": "Meet Our",
-      "title": "Elite Team",
-      "description": "Meet the all-branch veteran leadership team trusted across the Pacific Northwest. Service-earned discipline, transparent communication, and partnership-first execution guide every project and every client relationship."
+      "title": "Leadership Team",
+      "description": "Meet the veteran-led team serving AG and winery communities, commercial tenant improvements, and municipal builds across the Pacific Northwest."
     },
     "departments": {
       "upperBrass": {
         "subtitle": "The",
         "title": "Upper Brass",
-        "description": "Command leadership setting strategic direction and maintaining disciplined, dependable standards across all operations."
+        "description": "Leadership setting direction and accountability standards across operations."
       },
       "missionCommanders": {
         "subtitle": "Mission",
         "title": "Commanders",
-        "description": "Mission planning and execution with precision estimating, strategic scheduling, and tactical project coordination."
+        "description": "Project planning and execution with estimating, scheduling, and coordination discipline."
       },
       "fieldOfficers": {
         "subtitle": "Field",
         "title": "Officers",
-        "description": "Frontline operations delivering quality craftsmanship with disciplined execution and safety excellence."
+        "description": "Field execution focused on quality workmanship and safety performance."
       },
       "specialOperations": {
         "subtitle": "Special",
         "title": "Operations",
-        "description": "Specialized operations in marketing, safety, and strategic initiatives that strengthen long-term partner outcomes."
+        "description": "Specialized teams in safety, communications, and strategic initiatives."
       },
       "logisticsCommand": {
         "subtitle": "Logistics",
         "title": "Command",
-        "description": "Base operations providing critical logistics, communications, and administrative support for mission success."
+        "description": "Operations support covering logistics, communications, and administration."
       },
       "emptyState": {
         "title": "Personnel roster update in progress.",
@@ -163,25 +163,25 @@
     "employeeTestimonials": {
       "subtitle": "What Our Team Members",
       "title": "Say About Us",
-      "description": "Hear directly from the professionals who bring our partnership philosophy to life every day through dependable execution and service-earned values."
+      "description": "Hear directly from team members about daily work, standards, and support."
     },
     "culture": {
       "subtitle": "Our Partnership",
       "title": "Company Culture",
-      "description": "All for one, one for all is how we partner, grow, and succeed together. Our people-centered culture supports Client Partners, communities, and one another with safety, quality, and transparent communication.",
+      "description": "Our culture emphasizes safety, quality, direct communication, and long-term accountability.",
       "cards": {
         "teamUnity": {
           "title": "Team Unity",
-          "description": "From veterans to civilians and office to field, we operate as one team with shared values rooted in discipline and construction excellence."
+          "description": "Office and field teams operate as one unit with shared standards."
         },
         "mutualSupport": {
           "iconAria": "Mutual support",
           "title": "Mutual Support",
-          "description": "We mentor each other, share hard-earned knowledge, and make sure no one faces challenges alone as the team grows together."
+          "description": "We mentor across roles, share practical knowledge, and solve problems together."
         },
         "sharedSuccess": {
           "title": "Shared Success",
-          "description": "When our client partners win, we all win. We celebrate achievements, learn from setbacks, and build relationships that outlast project delivery."
+          "description": "Client outcomes, team growth, and durable relationships define success."
         }
       },
       "highlights": {
@@ -191,67 +191,67 @@
         "items": {
           "veteranDiscipline": {
             "title": "Veteran-Owned Discipline",
-            "description": "Veteran-owned leadership combines structured execution with practical problem-solving to deliver dependable results in every project phase."
+            "description": "Veteran-led leadership combines structured execution with practical problem-solving."
           },
           "communication": {
             "title": "Open Communication & Transparency",
-            "description": "Every voice matters, with clear updates, direct communication, and open-book expectations that reduce surprises and build trust."
+            "description": "Clear updates and direct communication reduce surprises and build trust."
           },
           "safety": {
             "title": "Award-Winning Safety First",
-            "description": "Safety leadership drives our proven record through disciplined standards, verified programs, and consistent field accountability."
+            "description": "Safety performance is maintained through disciplined standards and field accountability."
           },
           "community": {
             "title": "Community Focused & Regional Roots",
-            "description": "We strengthen local communities through quality craftsmanship, long-term relationships, and investment across our Tri-State service region."
+            "description": "We support local communities through quality work and long-term regional relationships."
           },
           "balance": {
             "title": "Work-Life Balance",
-            "description": "We support families and personal well-being while maintaining project excellence through predictable expectations and mutual respect."
+            "description": "Predictable expectations and mutual respect support both performance and personal well-being."
           },
           "relationships": {
             "title": "Long-Term Relationship Mindset",
-            "description": "Our partnership model is built for long-term success, with relationship continuity that extends beyond project completion."
+            "description": "Our partnership model is built for continuity beyond project completion."
           }
         }
       },
       "quote": {
-        "text": "When you join MH Construction, you are not just getting a job. You are joining a veteran-owned team built on integrity, transparency, and lasting relationships.",
+        "text": "Joining MH Construction means joining a veteran-led team built on integrity, transparency, and long-term relationships.",
         "author": "Jeremy Thamert, Owner & President"
       }
     },
     "careerGrowth": {
       "subtitle": "Professional Development &",
       "title": "Career Growth",
-      "description": "We invest in growth from day one through structured training, mentorship, and clear advancement paths so each team member can build a long-term career.",
+      "description": "We provide structured training, mentorship, and clear advancement pathways from day one.",
       "cards": {
         "continuousTraining": {
           "title": "Continuous Training",
-          "description": "Regular training on techniques, safety standards, and emerging tools keeps our teams ready for evolving project demands."
+          "description": "Regular training on methods, safety standards, and tools keeps teams project-ready."
         },
         "crossTraining": {
           "iconAria": "Cross training",
           "title": "Cross-Training Programs",
-          "description": "Team members expand skillsets across specialties to increase versatility, resilience, and value on every project."
+          "description": "Cross-training across specialties improves versatility and resilience."
         },
         "mentorship": {
           "iconAria": "Mentorship",
           "title": "Structured Mentorship",
-          "description": "Experienced leaders guide developing team members through practical coaching and long-term growth planning."
+          "description": "Experienced leaders provide practical coaching and growth planning."
         },
         "careerPaths": {
           "title": "Clear Advancement Paths",
-          "description": "Transparent progression frameworks help team members grow from field roles into leadership through merit and performance."
+          "description": "Transparent progression helps team members move from field roles into leadership."
         },
         "leadershipDevelopment": {
           "iconAria": "Leadership development",
           "title": "Leadership Development",
-          "description": "Emerging leaders receive focused development in project leadership, client relationships, and operational execution."
+          "description": "Emerging leaders develop project leadership, client management, and operational execution skills."
         },
         "industryInvolvement": {
           "iconAria": "Industry involvement",
           "title": "Industry Involvement",
-          "description": "Active engagement with industry groups keeps our team aligned with best practices, standards, and innovation."
+          "description": "Industry engagement keeps teams aligned with current standards and best practices."
         }
       },
       "investment": {
@@ -280,23 +280,23 @@
     },
     "careersCta": {
       "subtitle": "Interested in Joining",
-      "title": "Chain of Command?",
-      "description": "Explore career opportunities and discover what makes MH Construction a great place to work, from award-winning safety culture to veteran hiring initiatives and continuous professional development.",
+      "title": "Our Team?",
+      "description": "Explore career opportunities in AG and winery projects, commercial tenant improvements, and municipal work.",
       "button": "View Career Opportunities"
     },
     "founderTribute": {
       "subtitle": "Founder",
       "title": "Tribute",
-      "description": "Honoring the leadership foundation that launched MH Construction and shaped the partnership-first standards we carry forward today.",
+      "description": "Honoring the leadership foundation that shaped MH Construction standards.",
       "founderLabel": "Founder",
       "tributeStatementTitle": "Tribute Statement",
-      "tributeStatementBody": "Mike Holstein founded MH Construction in 2010 and set the original standard for integrity, discipline, and client-first execution. His leadership established the operational foundation that guides every mission today.",
+      "tributeStatementBody": "Mike Holstein founded MH Construction in 2010 and established standards for integrity, discipline, and client-first execution that still guide operations today.",
       "milestonesTitle": "Notable Projects & Legacy Milestones"
     },
     "nextSteps": {
       "sectionTitle": "Ready for the Next Step?",
       "sectionSubtitle": "Connect With Our Team",
-      "sectionDescription": "Whether you are exploring careers, planning a project, or seeking a trusted construction partner, our team is ready to connect."
+      "sectionDescription": "Whether you are exploring careers or planning a project, our team is ready to connect."
     }
   },
   "hub": {
@@ -394,18 +394,18 @@
   "contact": {
     "hero": {
       "iconAria": "Contact MH Construction",
-      "kicker": "Rally Point → Contact",
-      "titleLine1": "Your Project. Our Expertise. Let's Connect.",
-      "titleLine2": "Schedule Your Free Mission Brief - Start With SITREP-Level Clarity",
-      "titleLine3Prefix": "Building projects for the Client, ",
-      "notWord": "NOT",
-      "titleLine3Suffix": "the Dollar",
+      "kicker": "Contact",
+      "titleLine1": "Your Project. Clear Next Steps.",
+      "titleLine2": "Schedule a project briefing and align scope from day one.",
+      "titleLine3Prefix": "Clear planning. Accountable delivery.",
+      "notWord": "",
+      "titleLine3Suffix": "",
       "breadcrumb": "Introductions"
     },
     "quickContact": {
       "subtitle": "Connect With",
       "title": "Your Partnership Team",
-      "description": "Every great partnership begins with an honest conversation. Pick up the phone, send an email, or stop by our office in Pasco-we do business the old-fashioned way. Over 150 years combined experience, and we still believe in looking people in the eye and shaking hands.",
+      "description": "Call, email, or visit our Pasco office to align scope, schedule, and next steps with a direct response.",
       "accreditations": "Accredited & Certified:",
       "veteranOwnedBadge": "Veteran-Owned Since January 2025",
       "cards": {
@@ -435,32 +435,32 @@
     "pathways": {
       "subtitle": "Two Pathways to",
       "title": "Partnership Success",
-      "description": "Whether you're a Client Partner or an Ally, we have a pathway designed for you",
+      "description": "Choose the right path for Client Partner delivery or Ally engagement.",
       "shared": {
         "emailLabel": "Email"
       },
       "client": {
         "title": "For Client Partners",
-        "description": "Ready to begin your construction project? We're here to listen, collaborate, and bring your vision to life through professional construction management.",
+        "description": "Start with scope alignment, then move into disciplined delivery and closeout planning.",
         "callIconAria": "Client services phone",
         "contactServiceLabel": "Client Partner Services",
         "callAriaPrefix": "Call Client Partner services at",
         "emailIconAria": "Client services email",
         "emailAriaLabel": "Email office@mhc-gc.com for project inquiries",
-        "note": "For: Free estimates, consultations, and project discussions",
-        "ctaHeading": "Get Started:",
+        "note": "For estimates, planning, and project kickoff",
+        "ctaHeading": "Start Here:",
         "ctaContact": "Contact Us Today",
         "ctaServices": "Explore Services"
       },
       "allies": {
         "title": "For Allies",
-        "description": "Looking to grow your business with a Veteran-Owned Since January 2025 construction leader? Join our network of quality professionals serving the Pacific Northwest market.",
+        "description": "Join a vetted partner network focused on quality execution, safety, and reliable field coordination.",
         "callIconAria": "Ally inquiries phone",
         "contactServiceLabel": "Ally Inquiries",
         "callAriaPrefix": "Call Ally inquiries at",
         "emailIconAria": "Ally inquiries email",
         "emailAriaLabel": "Email office@mhc-gc.com for Ally inquiries",
-        "note": "For: Trade Partner applications, Ally relationships, and business opportunities",
+        "note": "For trade applications, Ally relationships, and bid opportunities",
         "ctaHeading": "Join Our Network:",
         "ctaApply": "Apply as Approved Trade Partner",
         "ctaBenefits": "View Ally Benefits"
@@ -469,14 +469,14 @@
     "office": {
       "subtitle": "Visit Our",
       "title": "Office Location",
-      "description": "Headquartered in the Tri-Cities (Pasco, Richland, Kennewick). Tri-State licensed across the Pacific Northwest",
+      "description": "Tri-Cities headquarters with licensed coverage across WA, OR, and ID.",
       "getDirections": "Get Directions",
       "getDirectionsAria": "Get directions to MH Construction office in Pasco, Washington"
     },
     "options": {
       "subtitle": "Explore Your",
       "title": "Partnership Options",
-      "description": "Discover how we can build together",
+      "description": "Choose your next step.",
       "learnMore": "Learn More",
       "cards": {
         "services": {
@@ -490,12 +490,12 @@
           "ariaLabel": "View completed projects and partnerships"
         },
         "team": {
-          "label": "Chain of Command",
+          "label": "Our Team",
           "description": "Your partnership team",
           "ariaLabel": "Meet the MH Construction partnership team"
         },
         "careers": {
-          "label": "Occupation Specialties",
+          "label": "Careers",
           "description": "Career opportunities",
           "ariaLabel": "Explore career opportunities at MH Construction"
         }
@@ -508,7 +508,7 @@
       "iconAria": "Service coverage areas",
       "triCities": {
         "title": "Tri-Cities Headquarters",
-        "description": "Pasco, Richland, and Kennewick - Immediate response available",
+        "description": "Pasco, Richland, and Kennewick with immediate response availability.",
         "headquartersTag": "Headquarters",
         "iconAria": "Primary service region",
         "pascoAria": "Navigate to Pasco page",
@@ -517,7 +517,7 @@
       },
       "extended": {
         "title": "Extended Coverage",
-        "description": "Tri-State Licensed - WA, OR, ID. Montana expansion coming soon",
+        "description": "Tri-State licensed in WA, OR, and ID. Montana expansion is planned.",
         "iconAria": "Extended service coverage",
         "spokaneAria": "Navigate to Spokane page",
         "yakimaAria": "Navigate to Yakima page",
@@ -533,40 +533,40 @@
   "allies": {
     "hero": {
       "iconAria": "Strategic partnership network",
-      "kicker": "Allies -> Partners",
+      "kicker": "Trade Partners",
       "titleLine1": "Strategic Partnerships Built on Trust, Performance, and Mutual Success",
-      "titleLine2": "Vetted Vendor Partnerships - Building Success Through Trusted Alliances",
-      "titleLine3Prefix": "Building projects for the Client, ",
-      "notWord": "NOT",
-      "titleLine3Suffix": "the Dollar",
+      "titleLine2": "Vetted Trade Partner Network Built on Trust and Performance",
+      "titleLine3Prefix": "Partnerships built for quality, ",
+      "notWord": "AND",
+      "titleLine3Suffix": "long-term follow-through",
       "breadcrumbHome": "Home",
-      "breadcrumbCurrent": "Allies in Force"
+      "breadcrumbCurrent": "Trade Partner Network"
     },
     "partnership": {
       "iconAria": "Why partner with MH Construction",
       "subtitle": "Why Build With",
       "title": "MH Construction",
-      "quote": "\"THE ROI IS THE RELATIONSHIP - and we prove it.\"",
-      "descriptionPrefix": "Since 2010, MH Construction has built a reputation for honest communication, prompt payment, and a safety culture second to none",
+      "quote": "\"The return is the relationship - proven over time.\"",
+      "descriptionPrefix": "Since 2010, MH Construction has built a reputation for honest communication, prompt payment, and disciplined safety standards",
       "metric": "(.64 EMR - 40% safer than industry average)",
-      "descriptionSuffix": "Veteran-Owned Since January 2025 leadership means our partners get the same code of conduct that defines military service: honor, accountability, and follow-through on every commitment.",
+      "descriptionSuffix": "Our leadership standards emphasize accountability, follow-through, and fair partnership expectations.",
       "cite": "- MH Construction Leadership Team",
       "values": {
         "handshakes": {
           "title": "Where Handshakes Still Matter",
-          "description": "Your word is your bond. We treat our Trade Partners with the same integrity and respect we give our Client Partners: face-to-face trust, mutual respect, and a shared commitment to doing what is right."
+          "description": "Your word is your bond. We treat Trade Partners with the same integrity and respect we give Client Partners."
         },
         "scheduling": {
           "title": "Reliable Scheduling and Open Communication",
-          "description": "Transparent, open-book communication and dependable project timelines help our trade partners plan confidently and manage their resources effectively. You control it, we manage it, together."
+          "description": "Open-book communication and dependable schedules help trade partners plan confidently and manage resources effectively."
         },
         "payment": {
           "title": "Fair and Prompt Payment",
-          "description": "Competitive compensation and reliable payment schedules support the financial health and growth of every trade partner. Building for the Client, NOT the Dollar, means treating partners with the same fairness."
+          "description": "Competitive compensation and reliable payment schedules support the financial health and growth of every trade partner."
         },
         "safety": {
           "title": "Award-Winning Safety Culture",
-          "description": "Our .64 EMR safety record is 40% better than the industry average. Everyone goes home safe, every single day. Partners on our sites operate within a culture of accountability and excellence."
+          "description": "Our .64 EMR safety record is 40% better than the industry average. Partners on our sites work in a culture of accountability and excellence."
         }
       }
     },
@@ -576,8 +576,8 @@
       "title": "Trade Partner Network",
       "descriptionPrefix": "Vetted companies grouped by trade and listed",
       "descriptionEmphasis": "alphabetically within each category",
-      "descriptionMiddle": "Partners are selected based on licensing, safety alignment, performance history, and shared values -",
-      "descriptionStrong": "reviewed quarterly to ensure fair and current representation",
+      "descriptionMiddle": "Partners are selected for licensing, safety alignment, performance history, and shared values -",
+      "descriptionStrong": "and reviewed quarterly for fair, current representation",
       "criteria": {
         "aria": "Listing criteria",
         "label": "Listing Criteria",
@@ -592,11 +592,11 @@
     "cta": {
       "iconAria": "Become an ally",
       "subtitle": "Become an",
-      "title": "Ally in Force",
+      "title": "Trade Partner",
       "descriptionPrefix": "Ready to grow your business with a",
-      "descriptionEmphasis": "Veteran-Owned Since January 2025 construction leader",
-      "descriptionMiddle": "We are actively seeking reliable, skilled trade partners who value quality workmanship, honest communication, and",
-      "descriptionStrong": "sustainable business relationships built on mutual success",
+      "descriptionEmphasis": "reliable regional general contractor",
+      "descriptionMiddle": "We are seeking reliable, skilled trade partners who value quality workmanship, honest communication, and",
+      "descriptionStrong": "long-term business relationships built on mutual success",
       "buttonPrimaryAria": "Apply",
       "buttonPrimary": "Begin Partnership Discussion",
       "buttonSecondaryAria": "Portfolio",
@@ -619,12 +619,12 @@
     },
     "hero": {
       "kicker": "Service Area Hub",
-      "title": "Regional coverage built for local decisions",
-      "description": "Review the markets MH Construction serves across Washington, Oregon, and Idaho. Pick a city, confirm the local proof, and move forward with scope that matches the market."
+      "title": "Regional Coverage. Local Execution.",
+      "description": "Review service markets across Washington, Oregon, and Idaho. Select a city to confirm local project proof for AG and winery work, commercial tenant improvements, and municipal delivery."
     },
     "card": {
       "verifiedProject": "verified project",
-      "reviewMarket": "Review {city} market"
+      "reviewMarket": "View {city} scope"
     }
   },
   "veteransBridge": {
@@ -636,28 +636,28 @@
     "hero": {
       "kicker": "Veteran Bridge",
       "title": "Veteran-Led Public Sector Construction Path",
-      "description": "This page connects veteran-centered values with government project requirements so public agencies and mission-driven teams can move from intent to execution with clear planning."
+      "description": "This page connects veteran-centered values with government requirements so agencies and mission-driven teams can move from intent to execution with clear planning."
     },
     "cards": {
       "delivery": {
         "title": "Public Sector Delivery",
-        "text": "Review how the government delivery workflow aligns with veteran-led project execution.",
+        "text": "Review how government delivery workflows align with veteran-led execution.",
         "cta": "Explore public sector page"
       },
       "compliance": {
         "title": "Compliance Workflow",
-        "text": "See a practical compliance pathway for preconstruction, documentation, and procurement readiness.",
+        "text": "See a practical compliance path for preconstruction, documentation, and procurement readiness.",
         "cta": "Review compliance pathway"
       },
       "triState": {
         "title": "Tri-State Market Coverage",
-        "text": "Map Washington, Oregon, and Idaho government opportunities to regional service coverage.",
+        "text": "Map Washington, Oregon, and Idaho government opportunities to regional coverage.",
         "cta": "View tri-state strategy"
       }
     },
     "cta": {
       "heading": "Ready to scope a government project?",
-      "description": "Start with a direct planning conversation and align the scope, compliance path, and delivery sequence.",
+      "description": "Start with a direct planning conversation and align scope, compliance, and delivery sequence.",
       "buttonContact": "Contact the team",
       "buttonServiceLine": "Municipal and government service line",
       "buttonYakima": "Yakima public-sector market",
@@ -666,18 +666,18 @@
   },
   "veteransPage": {
     "hero": {
-      "kicker": "Service First -> Veterans",
-      "titleLine1": "Supporting Those Who Served - One Community, One Mission",
+      "kicker": "Veterans",
+      "titleLine1": "Supporting Those Who Served",
       "titleLine2": "Honoring Those Who Served",
       "titleLine3": "All Branches, All Values",
       "titleLine4": "Combat Veteran Discount at the Ready",
-      "titleLine5Prefix": "Building projects for the Client, ",
-      "notWord": "NOT",
-      "titleLine5Suffix": "the Dollar"
+      "titleLine5Prefix": "Clear planning. Accountable delivery.",
+      "notWord": "",
+      "titleLine5Suffix": ""
     },
     "breadcrumb": {
       "home": "Home",
-      "current": "Service First -> Veterans"
+      "current": "Veterans"
     },
     "foundation": {
       "subtitle": "Our Foundation",
@@ -685,7 +685,7 @@
       "description": {
         "prefix": "Where",
         "highlight1": "military discipline meets honest construction leadership",
-        "middle": "- service-earned values of honesty, integrity, and relationship-first commitment guide",
+        "middle": "- values of honesty, integrity, and partnership guide",
         "highlight2": "every project and partnership",
         "suffix": "we build."
       },
@@ -693,7 +693,7 @@
         "leadership": {
           "title": "Veteran-Owned Leadership",
           "subtitle": "Service-Earned Excellence",
-          "description": "Army veteran owner Jeremy Thamert brings 15+ years military aviation experience and operational discipline. Navy veteran Matt Ramsey applies disciplined execution to digital operations. Combined veteran leadership ensures every project receives dependable follow-through and clear communication.",
+          "description": "Army veteran owner Jeremy Thamert brings 15+ years of military aviation experience and operational discipline. Navy veteran Matt Ramsey applies disciplined execution to digital operations. Together, veteran leadership supports dependable follow-through and clear communication.",
           "highlights": [
             "Army + Navy veteran team",
             "Military operational discipline",
@@ -704,7 +704,7 @@
         "safety": {
           "title": ".64 EMR - Combat-Ready Safety",
           "subtitle": "Every Team Member Returns Home",
-          "description": "Military-grade safety protocols with .64 EMR-40% better than industry average. 3+ years without time-loss injury. OSHA VPP Star designation. No one left behind isn't just military-it's construction standard.",
+          "description": "Disciplined safety protocols with a .64 EMR (40% better than industry average), 3+ years without a time-loss injury, and OSHA VPP Star designation.",
           "highlights": [
             ".64 EMR (40% better)",
             "3+ years zero time-loss",
@@ -713,11 +713,11 @@
           "statLabel": "EMR Safety Rating"
         },
         "experience": {
-          "title": "150+ Years Combined Experience",
+          "title": "Cross-Discipline Construction Experience",
           "subtitle": "Veteran + Civilian Excellence",
-          "description": "Veterans and civilians working together with 150+ years combined construction expertise. Military discipline merged with generational craftsmanship-proven methods refined through service and experience.",
+          "description": "Veterans and civilians work together using field-tested methods across commercial, industrial, and municipal projects.",
           "highlights": [
-            "150+ years expertise",
+            "Field-tested expertise",
             "Veteran-civilian collaboration",
             "Proven construction methods"
           ],
@@ -726,7 +726,7 @@
         "transparency": {
           "title": "100% Transparency",
           "subtitle": "Zero Surprises, Complete Trust",
-          "description": "Open-book pricing with military-grade transparency. Complete visibility on every cost, timeline, and decision. Your word is your bond-so is ours. Honest assessments, real-time updates, zero hidden costs.",
+          "description": "Open-book pricing with clear visibility into cost, schedule, and key decisions. Honest assessments, real-time updates, and zero hidden costs.",
           "highlights": [
             "Open-book pricing",
             "Real-time updates",
@@ -737,7 +737,7 @@
         "missions": {
           "title": "650+ Successful Missions",
           "subtitle": "Proven Operational Excellence",
-          "description": "650+ successfully completed projects since 2010. Veteran leadership brings mission planning, execution under pressure, and consistent results. Whether routine or urgent-we deliver no matter the challenges.",
+          "description": "650+ completed projects since 2010. Veteran leadership brings disciplined planning, execution under pressure, and consistent results.",
           "highlights": [
             "650+ completed projects",
             "Disciplined planning",
@@ -748,7 +748,7 @@
         "referrals": {
           "title": "70% Referral & Repeat Business",
           "subtitle": "Relationships That Outlast Projects",
-          "description": "70% of business from referrals and repeat partners-trust earned through action. Our commitment doesn't end when the project completes. Long-term partnerships built on service-earned values and proven integrity.",
+          "description": "70% of business comes from referrals and repeat partners. Commitment continues after close-out through long-term relationships built on integrity.",
           "highlights": [
             "70% referral business",
             "Long-term partnerships",
@@ -763,7 +763,7 @@
         "aria": "Army Veteran Leadership",
         "name": "Jeremy Thamert",
         "role": "Owner & President | Army Veteran",
-        "bio": "15+ years Army aviation experience brings operational discipline and steady leadership. Your word is your bond-service-earned integrity guides every partnership we build."
+        "bio": "15+ years Army aviation experience brings operational discipline and steady leadership. Your word is your bond-accountability guides every partnership we build."
       },
       "matt": {
         "aria": "Navy Veteran",
@@ -779,18 +779,18 @@
         "highlight1": "All branches, all ranks, all eras",
         "middle": "- Army, Navy, Air Force, Marines, Coast Guard, and Space Force. If you served in combat, we honor that service with",
         "highlight2": "preferential pricing on all construction services",
-        "suffix": ". Each discount is determined through our screening process based on your project scope, service record, and specific needs. No fine print. No gimmicks. Your service matters."
+        "suffix": ". Each discount is determined through a screening process based on project scope, service record, and specific needs. No fine print. Your service matters."
       },
       "cards": {
         "allBranches": {
           "aria": "All Military Branches",
           "title": "All Branches Welcome",
-          "description": "Army, Navy, Air Force, Marines, Coast Guard, Space Force-we honor every branch that defended our nation in combat zones. All combat veterans qualify for consideration."
+          "description": "Army, Navy, Air Force, Marines, Coast Guard, and Space Force - all combat veterans qualify for consideration."
         },
         "tailoredService": {
           "aria": "Case-by-Case Evaluation",
           "title": "Tailored to Your Service",
-          "description": "Every veteran's situation is unique. Discount amounts are determined case-by-case through our screening process, considering project scope, service record, and individual circumstances."
+          "description": "Every veteran's situation is unique. Discounts are determined case-by-case based on project scope, service record, and circumstances."
         }
       },
       "timeline": {
@@ -799,34 +799,34 @@
         "steps": {
           "initialConsultation": {
             "title": "Initial Consultation",
-            "description": "Contact us at {phone} or through our contact page. Mention your military service during the initial discussion. We'll schedule a face-to-face or virtual consultation to discuss your project scope and requirements."
+            "description": "Contact us at {phone} or through our contact page and mention military service. We schedule an in-person or virtual consultation to review scope and requirements."
           },
           "serviceVerification": {
             "title": "Service Verification",
-            "description": "Provide proof of combat service (DD-214, VA card, or military ID showing combat deployment). We handle all documentation with military-grade confidentiality and respect. Your privacy is our priority."
+            "description": "Provide proof of combat service (DD-214, VA card, or military ID showing deployment). We handle documentation with confidentiality and respect."
           },
           "projectAssessment": {
             "title": "Project Assessment",
-            "description": "We evaluate your project scope, timeline, and specific construction needs. Factors include project size, complexity, materials required, labor intensity, and your budget constraints."
+            "description": "We evaluate scope, schedule, and construction needs, including size, complexity, materials, labor, and budget constraints."
           },
           "discountDetermination": {
             "title": "Discount Determination",
-            "description": "Based on your service record and project details, we determine an appropriate discount. Considerations include combat service duration, decorations received, current financial situation, and project urgency. Every case is unique."
+            "description": "Based on service record and project details, we determine an appropriate discount and communicate it clearly."
           },
           "transparentProposal": {
             "title": "Transparent Proposal",
-            "description": "Receive a detailed, transparent proposal showing standard pricing, your veteran discount applied, and final project cost. No hidden fees. No surprises. No expiration on your discount-it applies to every project you do with us."
+            "description": "Receive a clear proposal showing standard pricing, veteran discount, and final project cost. No hidden fees and no surprises."
           }
         }
       },
       "commitment": {
         "title": "Our Commitment",
-        "description": "This isn't a marketing gimmick or one-time promotion. As a Veteran-Owned company, honoring combat service is part of our DNA. Your word is your bond-so is ours. Every combat veteran receives fair consideration, respectful treatment, and meaningful pricing that reflects the sacrifice made for our nation."
+        "description": "As a Veteran-Owned company, honoring combat service is a standing commitment. Every combat veteran receives fair consideration, respectful treatment, and meaningful pricing."
       },
       "cta": {
         "aria": "Contact now",
         "button": "Call {phone} - Mention Your Service",
-        "note": "Direct line to Veteran-Owned leadership. No automated systems, no gatekeepers-just honest conversation with someone who understands."
+        "note": "Direct line to Veteran-Owned leadership for a straightforward conversation."
       }
     },
     "support": {
@@ -865,19 +865,19 @@
         "hiring": {
           "aria": "Veteran hiring priority",
           "title": "Veteran Hiring Priority",
-          "description": "Qualified veterans from all branches receive priority consideration for all positions. We're deploying tactical apprenticeship programs for transitioning service members as we build our veteran support operational network. Your military experience translates to construction excellence.",
+          "description": "Qualified veterans from all branches receive priority consideration for open positions. We are building apprenticeship pathways for transitioning service members.",
           "link": "View Career Opportunities"
         },
         "allies": {
           "aria": "Veteran allies network",
           "title": "Veteran Allies",
-          "description": "Recruiting Veteran-Owned Trade Partners for our growing network. As we establish company longevity, we're building partnerships with preferential opportunities for Veteran-Owned businesses.",
+          "description": "We recruit Veteran-Owned Trade Partners into a growing network with preferential opportunities.",
           "link": "Become an Ally"
         },
         "training": {
           "aria": "Training and education programs",
           "title": "Training & Education",
-          "description": "Developing programs for veterans pursuing construction trades, including internship opportunities and GI Bill apprenticeship participation as we grow our veteran support network.",
+          "description": "We are developing trade pathways for veterans, including internships and GI Bill apprenticeship participation.",
           "link": "Learn About Our Values"
         }
       }
@@ -897,34 +897,34 @@
           "aria": "Verified Non-Profit Status - Transparent Operations",
           "title": "Verified Non-Profit Status",
           "tagline": "Transparent Operations",
-          "description": "Verified 501(c)(3) status with transparent financials and public accountability. Open books, clear mission statements, and documented impact metrics. Organizations that operate with the same honesty and integrity we expect from ourselves.",
+          "description": "Verified 501(c)(3) status with transparent financials and public accountability, including clear mission statements and documented impact metrics.",
           "stats": "501(c)(3) Required"
         },
         "mission": {
           "aria": "Veteran-Focused Mission - Service Members First",
           "title": "Veteran-Focused Mission",
           "tagline": "Service Members First",
-          "description": "Primary mission dedicated to serving veterans, active duty, or military families. Not organizations that treat veterans as an afterthought or marketing angle. Programs specifically designed by veterans, for veterans, with proven understanding of military culture.",
+          "description": "Primary mission must serve veterans, active duty, or military families through programs designed by veterans, for veterans.",
           "stats": "Mission-Driven Focus"
         },
         "regional": {
           "aria": "Regional Presence & Impact - Local Boots on Ground",
           "title": "Regional Presence & Impact",
           "tagline": "Local Boots on Ground",
-          "description": "Strong presence in Pacific Northwest with active programs in Washington, Oregon, or Idaho. Local organizations that understand regional veteran populations and Tri-Cities community needs. Measurable local impact over distant national headquarters.",
+          "description": "Strong Pacific Northwest presence with active programs in Washington, Oregon, or Idaho and measurable local impact.",
           "stats": "PNW-Focused Programs"
         },
         "collaborative": {
           "aria": "Collaborative Approach - Partnership Over Transactional",
           "title": "Collaborative Approach",
           "tagline": "Partnership Over Transactional",
-          "description": "Organizations seeking genuine partnerships, not just donation checks. Collaborative planning, mutual support, and shared commitment to veteran welfare. Open communication, aligned values, and willingness to work together on long-term initiatives.",
+          "description": "Organizations should seek genuine partnerships through collaborative planning, open communication, and long-term commitment to veteran welfare.",
           "stats": "Long-Term Relationships"
         }
       },
       "cta": {
         "title": "Organization Partnership Inquiries",
-        "description": "If your veteran organization meets these criteria and seeks genuine partnership opportunities, contact us. We review all partnership proposals carefully and respond to qualified organizations within 2 business days.",
+        "description": "If your veteran organization meets these criteria and seeks genuine partnership opportunities, contact us. We respond to qualified organizations within 2 business days.",
         "button": "Submit Partnership Inquiry"
       }
     },
@@ -952,7 +952,7 @@
     },
     "nextSteps": {
       "title": "Let's Build Together",
-      "subtitle": "Partner with a Veteran-Owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision. Your word is your bond, so is ours."
+      "subtitle": "Partner with a Veteran-Owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision."
     }
   },
   "employeeHandbook": {
@@ -969,14 +969,14 @@
     },
     "status": {
       "title": "Current Status",
-      "description": "No handbook file has been uploaded yet. This placeholder preserves the Operations Hub navigation and keeps the destination stable for future publishing."
+      "description": "No handbook file has been uploaded yet. This placeholder preserves Staff Hub navigation and keeps the destination stable for future publishing."
     },
     "nextStep": {
       "title": "Next Step",
       "description": "Upload the Word handbook source and we will connect it to the existing document generation process to publish a versioned PDF."
     },
     "cta": {
-      "backToHub": "Back to Operations Hub",
+      "backToHub": "Back to Staff Hub",
       "viewResources": "View Field Resources"
     }
   },
@@ -996,9 +996,9 @@
   },
   "coolDesertNightsPage": {
     "hero": {
-      "kicker": "Base HQ - Events | Field Brief",
-      "titleComplete": "Base HQ - Events: Cool Desert Nights 2026 Debrief",
-      "titleBriefing": "Base HQ - Events: Cool Desert Nights 2026 Briefing",
+      "kicker": "Events",
+      "titleComplete": "Events: Cool Desert Nights 2026 Debrief",
+      "titleBriefing": "Events: Cool Desert Nights 2026 Briefing",
       "descriptionComplete": "Thank you to the Richland and Kennewick community, event leadership, and Client Partners who made this event successful through coordinated execution.",
       "descriptionBriefing": "Cool Desert Nights 2026 is scheduled for June 26-27 in Richland, WA, featuring classic cars, a Friday night cruise, and a Saturday Show 'n Shine in the Uptown Shopping Center.",
       "stats": {
@@ -1120,7 +1120,7 @@
     },
     "action": {
       "kicker": "Events Coordination",
-      "overline": "Action | Rally Point",
+      "overline": "Action | Contact",
       "title": "Connect With the Team Before the Next Event Window",
       "description1": "Early online registration for cars, trucks, and motorcycles is available through the Richland Chamber. Vendor applications for 2026 are also being accepted through the chamber, and full listing details are available on Eventbrite.",
       "description2Prefix": "Start with the",
@@ -1136,13 +1136,13 @@
   "careersPage": {
     "hero": {
       "iconAria": "Occupation specialties - career opportunities",
-      "kicker": "Enlist -> Careers",
-      "titleLine1": "Build More Than Projects - Build Your Future",
-      "titleLine2": "Join the Mission - Your Construction Career Starts Here",
-      "titleLine3Prefix": "Building projects for the Client,",
-      "titleLine3Not": "NOT",
-      "titleLine3Suffix": "the Dollar",
-      "titleLine4": "THE ROI IS THE RELATIONSHIP"
+      "kicker": "Careers",
+      "titleLine1": "Build Projects. Build Your Future.",
+      "titleLine2": "Construction Careers with Clear Standards.",
+      "titleLine3Prefix": "Clear planning. Accountable delivery.",
+      "titleLine3Not": "",
+      "titleLine3Suffix": "",
+      "titleLine4": "Relationships Drive Results"
     },
     "breadcrumb": {
       "home": "Home",
@@ -1152,15 +1152,15 @@
       "headingPrefix": "Why Choose",
       "headingTitle": "MH Construction",
       "description": {
-        "prefix": "This is not a generic hiring funnel. It is a",
-        "highlight1": "direct path into a Veteran-Owned team.",
-        "middle": "We invest in people who value honest communication, professionalism, and steady growth through",
-        "highlight2": "meaningful work, mentorship, and long-term relationships.",
-        "suffix": "Every team member should know what is expected, who they can learn from, and how they can keep improving."
+        "prefix": "This is a",
+        "highlight1": "direct path into a veteran-owned team.",
+        "middle": "We hire people who value honest communication, professionalism, and steady growth through",
+        "highlight2": "real work, mentorship, and accountability.",
+        "suffix": "Expect clear standards, direct support, and room to improve."
       },
       "callout": {
-        "quote": "\"THE ROI IS THE RELATIONSHIP\"",
-        "subtitle": "Where partnerships outlast projects and your growth is our success"
+        "quote": "\"The relationship is the return\"",
+        "subtitle": "Partnership standards that support long-term growth"
       },
       "stats": {
         "experience": "Years Combined Experience",
@@ -1178,33 +1178,33 @@
       "headingPrefix": "Employee Benefits",
       "headingTitle": "& Perks",
       "description": {
-        "highlight1": "Build your future with a Veteran-Owned team that values loyalty.",
-        "middle": "Your well-being and success matter here-we offer competitive pay plus comprehensive benefits because we know you're building a life, not just a career. From health coverage to",
-        "highlight2": "professional development, retirement planning to performance bonuses",
-        "suffix": "we invest in your total success as part of our mission."
+        "highlight1": "Build your future with a veteran-owned team.",
+        "middle": "We provide competitive pay and practical benefits that support your life and work, from health coverage to",
+        "highlight2": "professional development and retirement planning",
+        "suffix": "with a focus on long-term retention."
       }
     },
     "testimonials": {
       "headingPrefix": "Hear From Our",
       "headingTitle": "Team Members",
       "description": {
-        "prefix": "Don't just take our word for it-hear directly from",
-        "highlight1": "the people who work here every day.",
-        "middle": "Real stories from real team members about",
-        "highlight2": "career growth, workplace culture, and leadership support.",
-        "suffix": "These aren't scripted testimonials-they're authentic voices."
+        "prefix": "Hear directly from",
+        "highlight1": "the people doing the work every day.",
+        "middle": "Real feedback on",
+        "highlight2": "growth, culture, and leadership support.",
+        "suffix": "Straightforward and unfiltered."
       }
     },
     "veterans": {
       "headingPrefix": "Supporting Our",
       "headingTitle": "Veterans",
       "description": {
-        "highlight1": "Veteran-Owned Since January 2025, Veteran-led, Veteran-proud",
-        "middle": "Your military experience translates directly to construction excellence: discipline becomes precision, teamwork becomes partnership. We don't just hire veterans-we",
-        "highlight2": "celebrate your service, honor your skills, and build careers",
-        "suffix": "that match your dedication."
+        "highlight1": "Veteran-owned since January 2025 and veteran-led in operations",
+        "middle": "Military experience translates well to construction execution, safety accountability, and team coordination. We",
+        "highlight2": "prioritize qualified veterans and support long-term career paths",
+        "suffix": "across field and office roles."
       },
-      "callout": "WELCOME HOME, BROTHER. WELCOME HOME, SISTER.",
+      "callout": "Welcome Home.",
       "stats": {
         "priority": {
           "value": "Priority",
@@ -1235,16 +1235,16 @@
       "headingPrefix": "Build Your",
       "headingTitle": "Future with MH Construction",
       "description": {
-        "prefix": "We are always looking for driven individuals who mirror our commitment to our",
+        "prefix": "We look for people who share our",
         "highlight1": "4 Core Values: Honesty, Integrity, Professionalism, and Thoroughness.",
-        "middle": "Even when we aren't hiring for a specific role, we are always open to inquiries from",
-        "highlight2": "skilled professionals who want to contribute to a high-standard operations environment.",
-        "suffix": "Whether you are a seasoned Project Manager or a dedicated Field Specialist, we want to hear from you."
+        "middle": "Even when roles are not posted, we welcome inquiries from",
+        "highlight2": "skilled professionals who can support AG and winery projects, commercial TI, and municipal work.",
+        "suffix": "Project management, field leadership, and specialty scopes are all in demand."
       }
     },
     "readyToJoin": {
       "heading": "Ready to Join Our Team?",
-      "description": "Start with the essentials. Share your contact information, tell us where you can contribute, and attach a resume if you have one ready. If there is a fit, we will follow up directly.",
+      "description": "Start with the essentials: contact info, role interest, and resume (if available). If there is a fit, we follow up directly.",
       "startApplication": "Start Application",
       "callButton": "Call {phone}",
       "veteransPriority": "Veterans receive priority consideration",
@@ -1254,8 +1254,8 @@
       "prefix": "Your Journey to",
       "highlight": "Join Our Team",
       "lead": "Clear steps. Direct communication. Respect for your time.",
-      "description": "Our process starts with a short application and moves forward only when there is a real fit. We keep the process focused and let you know what comes next.",
-      "goal": "The goal is a good working relationship, not unnecessary steps.",
+      "description": "The process starts with a short application and advances when role fit is clear. We keep communication direct at each step.",
+      "goal": "The goal is long-term fit, not extra steps.",
       "timeline": {
         "steps": {
           "submit": {
@@ -1284,24 +1284,24 @@
         "title": "What to Expect Timeline",
         "fastTrack": {
           "title": "Quick Start When Needed",
-          "prefix": "When project timing and role alignment are clear, strong candidates may move through the process in",
+          "prefix": "When project timing and role alignment are clear, strong candidates can move through",
           "highlight": "fewer steps"
         },
         "typical": {
           "title": "Typical Review Pace",
-          "prefix": "Timing depends on hiring needs, project load, and role fit, but the process stays",
+          "prefix": "Timing depends on hiring needs, project load, and role fit, but the process remains",
           "highlight": "direct and transparent",
-          "suffix": "from first contact forward"
+          "suffix": "from first contact"
         },
         "transparent": {
           "title": "Always Transparent",
-          "prefix": "We do not add steps for appearance. We keep communication clear and stay available for your",
+          "prefix": "We do not add steps for appearance. Communication stays clear, and we remain available for",
           "highlight": "questions"
         }
       },
       "cta": {
         "title": "Ready to start a direct conversation with MH Construction?",
-        "subtitle": "THE ROI IS THE RELATIONSHIP - Build your career on a foundation of trust",
+        "subtitle": "Build your career on clear standards and trusted relationships",
         "sendAria": "Send inquiry",
         "startApplication": "Start Application",
         "emailAria": "Email resume",
@@ -1313,9 +1313,9 @@
       "highlight": "Perfect Role?",
       "intro": "The right role might not be posted yet, but the right relationship can still begin now. If you bring",
       "values": "the right values, work ethic, and craft mindset",
-      "middle": "we want to hear from you. We are always open to strong candidates who share our standards for",
+      "middle": "we want to hear from you. We stay open to strong candidates who share our standards for",
       "standards": "honesty, professionalism, and thorough work",
-      "outro": "Tell us where you can contribute.",
+      "outro": "Tell us where you can contribute today.",
       "submitApplication": "Submit Application",
       "contactHr": "Contact HR",
       "hrHotline": "HR Hotline:",
@@ -1325,19 +1325,19 @@
     },
     "contactCta": {
       "questions": "Questions About Careers?",
-      "support": "Contact our team for information about jobs, benefits, hiring process, and growth opportunities",
+      "support": "Contact our team about openings, benefits, hiring steps, and growth paths.",
       "call": "Call {phone}"
     },
     "accreditations": {
       "kicker": "Join an Accredited Team",
       "title": "Work for a Trusted, Award-Winning Contractor",
-      "description": "Our reputation for quality, safety, and integrity makes MH Construction a great place to build your career",
+      "description": "Quality, safety, and integrity standards make MH Construction a strong place to build a long-term career.",
       "badgeAria": "Safety first",
       "badgeText": "Award-Winning Safety"
     },
     "pwaAlerts": {
       "title": "Get Notified About New Openings",
-      "description": "Enable job-alert notifications in the app and be the first to hear when a new driving or operations role is posted.",
+      "description": "Enable job alerts in the app to get notified when new driving or operations roles are posted.",
       "button": "Enable Job Alerts"
     },
     "data": {
@@ -1355,29 +1355,29 @@
         {
           "icon": "military_tech",
           "title": "Professional Development & Continuous Learning",
-          "description": "Continuing education, certifications, and training opportunities to advance your career. Regular training on new techniques, safety standards, technology, leadership development, structured mentorship, cross-training, and industry involvement."
+          "description": "Continuing education, certifications, and structured training across safety, leadership, technology, and field execution."
         },
         {
           "icon": "schedule",
           "title": "Work-Life Balance",
-          "description": "Flexible scheduling and time-off policies that respect your personal life and family commitments. We understand construction demands and support your well-being."
+          "description": "Flexible scheduling and time-off policies that respect personal and family commitments."
         },
         {
           "icon": "verified_user",
           "title": "Award-Winning Safety First Culture",
-          "description": "Industry-leading .64 EMR safety record, AGC-WA Top EMR awards, OSHA VPP Star designation, and 3+ years without time-loss injuries. Everyone goes home safe every day."
+          "description": "0.64 EMR performance, AGC-WA Top EMR recognition, OSHA VPP Star designation, and sustained no-time-loss periods."
         }
       ],
       "veteranBenefits": [
         {
           "icon": "military_tech",
           "title": "Veteran Hiring Priority",
-          "description": "Active veteran hiring initiative with priority consideration for qualified military veterans."
+          "description": "Priority consideration for qualified military veterans across open roles."
         },
         {
           "icon": "diversity_3",
           "title": "Military Skills Transfer",
-          "description": "Structured transition support to apply military skills like equipment operation, team coordination, and mission planning in construction roles."
+          "description": "Structured transition support to apply military skills in field and office construction roles."
         },
         {
           "icon": "military_tech",
@@ -1387,7 +1387,7 @@
         {
           "icon": "diversity_3",
           "title": "Veteran Mentorship Program",
-          "description": "Connect with veteran leaders who understand the military-to-civilian transition and provide guidance."
+          "description": "Connect with veteran leaders who understand military-to-civilian transition challenges."
         },
         {
           "icon": "workspace_premium",
@@ -1397,7 +1397,7 @@
         {
           "icon": "volunteer_activism",
           "title": "Transition Assistance",
-          "description": "Veteran-focused onboarding that includes terminology alignment, workplace transition support, and career-path planning."
+          "description": "Veteran-focused onboarding with workplace transition support and career-path planning."
         }
       ],
       "cultureValues": [
@@ -1416,7 +1416,7 @@
         {
           "icon": "trending_up",
           "title": "Excellence & Continuous Growth",
-          "description": "We pursue continuous improvement through mentorship, cross-training, and regular development in safety, techniques, and technology.",
+          "description": "Continuous improvement through mentorship, cross-training, and development in safety, techniques, and technology.",
           "color": "from-brand-secondary to-bronze-700"
         },
         {
@@ -1464,10 +1464,10 @@
   },
   "home": {
     "hero": {
-      "baseLabel": "Base HQ → Home",
+      "baseLabel": "Home",
       "founded": "Founded 2010, Veteran-Owned Since January 2025 • BABAA (Build America, Buy America Act) Supporter",
-      "tagline": "Your Tri-State Construction Command Center",
-      "mission": "Building projects for the Client, NOT the Dollar",
+      "tagline": "Your Tri-State Construction Planning Hub",
+      "mission": "Clear planning. Accountable delivery.",
       "serving": "Tri-Cities HQ (Pasco, Richland, Kennewick) | Tri-State Licensed in WA, OR, ID"
     },
     "coreValues": {
@@ -1479,25 +1479,25 @@
         {
           "value": "Honesty",
           "tagline": "Clear Communication Every Time",
-          "description": "Full transparency—truthful assessments, open communication, honest intel. Upfront discussion of challenges and obstacles. Real-time updates on timeline or budget changes. Honest assessment when a project isn't the right fit. Complete cost breakdown before starting. Straight talk, no jargon.",
+          "description": "Full transparency with truthful assessments, open communication, and real-time timeline or budget updates. We provide clear cost breakdowns and direct guidance when a project is not the right fit.",
           "stats": "100% Transparent Pricing"
         },
         {
           "value": "Integrity",
           "tagline": "Doing What's Right",
-          "description": "Strong ethics—doing what's right even when no one's watching. Using specified materials and methods without substitutions. Comprehensive warranties—we stand behind our work. Making decisions that benefit client partners, not just our bottom line. Following through on commitments even when circumstances change. No shortcuts, period.",
+          "description": "Strong ethics means doing what is right, using specified materials, honoring warranties, and making decisions that prioritize client outcomes over shortcuts.",
           "stats": "Unwavering Ethics"
         },
         {
           "value": "Professionalism",
           "tagline": "Excellence in Action",
-          "description": "On time, prepared, and ready—zero excuses. Arriving on time and prepared. Clear communication in all interactions. Proper site management and organization. Treating your property with respect. Maintaining industry credentials and continuous improvement.",
+          "description": "We show up on time, prepared, and accountable, with clear communication, organized site management, and ongoing professional development.",
           "stats": "Expert Service Standards"
         },
         {
           "value": "Thoroughness",
           "tagline": "No Detail Left Behind",
-          "description": "Meticulous planning and execution—complete documentation, zero surprises. Detailed site analysis and planning. Precision measurements and calculations. Systematic quality checkpoints at every phase. Complete documentation with photo records. Comprehensive final review with detailed punch lists.",
+          "description": "Meticulous planning and execution include detailed analysis, precision checks, documented quality control, and comprehensive final review with punch lists.",
           "stats": "Zero Details Missed"
         }
       ]
@@ -1505,7 +1505,7 @@
     "companyStats": {
       "subtitle": "Disciplined, Proven Results",
       "title": "Proven Track Record",
-      "description": "Measurable results from a Veteran-Owned team and dedicated Build America, Buy America Act (BABAA) supporter. BABAA is a federal domestic-content requirement for certain federally funded infrastructure projects, and we stay current on compliance-forward practices for government work.",
+      "description": "Measurable results from a Veteran-Owned team and dedicated BABAA supporter. We stay current on compliance-forward practices for federally funded government work.",
       "labels": {
         "safety": "Award-Winning Safety EMR",
         "experience": "Years Combined Experience",
@@ -1516,19 +1516,19 @@
     "services": {
       "hero": {
         "sectionTitle": "The Battle Plan - Strategic Construction Excellence",
-        "sectionSubtitle": "Operations → Services",
+        "sectionSubtitle": "Services",
         "sectionTagline": "Your Construction Mission Deserves Veteran-Led Expert Oversight",
         "sectionDescription": "Commercial, industrial, and public-sector delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters. We primarily focus on commercial and industrial work, and only consider unique, highly complex, multi-million-dollar residential projects."
       },
       "core": {
         "sectionTitle": "Core Services",
         "sectionSubtitle": "Built for Partnership Success",
-        "sectionDescription": "Our core service is project management powered by Procore, delivering commercial and industrial construction with transparent communication, tenant improvement specialization, and ground-up commercial build execution. Every service is supported by our experienced team using AI-assisted workflows and advanced research techniques to improve planning and result accuracy."
+        "sectionDescription": "Our core service is Procore-based project management for AG and winery community projects, commercial tenant improvements, and municipal builds. We align scope, schedule, and trade coordination while supporting specialty execution for pole buildings and door and hardware installation."
       },
       "specialty": {
         "sectionTitle": "Specialty Services",
         "sectionSubtitle": "Expanded Delivery Capabilities",
-        "sectionDescription": "Specialized support for complex project scopes, schedules, and operational requirements, including winery pond liner installation for sludge control."
+        "sectionDescription": "Specialized support for complex project scopes, schedules, and operational requirements, including winery pond liner installation, pole building delivery, and door and hardware installation."
       },
       "government": {
         "sectionTitle": "Government and Grant-Funded Projects",
@@ -1542,7 +1542,7 @@
       },
       "whyChooseUs": {
         "sectionTitle": "Why Choose MH Construction",
-        "sectionSubtitle": "Relationship-First Execution",
+        "sectionSubtitle": "Accountable Project Execution",
         "sectionDescription": "Trust earned through transparency, proven safety, and a partnership model that outlasts project delivery."
       },
       "testimonials": {
@@ -1564,7 +1564,7 @@
       "expertise": {
         "sectionTitle": "Construction Expertise",
         "sectionSubtitle": "Partnership-Focused Leadership",
-        "sectionDescription": "Experienced leadership, disciplined systems, and clear communication to keep every project aligned and accountable. We deliver an exceptional partnership experience from start to finish, so you are never in the dark about your project's status or details. Our team also uses AI-assisted analysis and advanced research to validate assumptions, reduce risk, and improve decision accuracy."
+        "sectionDescription": "Experienced leadership, disciplined systems, and clear communication keep every project aligned and accountable. You stay informed from start to finish, and our AI-assisted analysis helps validate assumptions, reduce risk, and improve decisions."
       },
       "process": {
         "sectionTitle": "Our Process",
@@ -1573,7 +1573,7 @@
         "steps": [
           {
             "title": "Initial Consultation",
-            "description": "We start by listening to your vision, understanding your needs, and discussing your project goals. Whether you have detailed plans or just an idea, we work with you to clarify scope, timeline, and budget expectations.",
+            "description": "We start by listening to your vision and goals, then align scope, timeline, and budget whether you have full plans or an early concept.",
             "tags": [
               "Free Consultation",
               "No Obligation",
@@ -1582,7 +1582,7 @@
           },
           {
             "title": "Detailed Estimation and Planning",
-            "description": "Our Lead Estimator provides a comprehensive, transparent cost breakdown with no hidden fees. We analyze all variables, identify potential risks, and create a realistic timeline so you understand every aspect of your project costs upfront.",
+            "description": "Our Lead Estimator provides a transparent cost breakdown with no hidden fees, plus risk review and a realistic schedule so you understand costs upfront.",
             "tags": [
               "Transparent Pricing",
               "20+ Years Experience",
@@ -1591,22 +1591,22 @@
           },
           {
             "title": "Contract and Pre-Construction",
-            "description": "We finalize contracts with clear terms, obtain permits, coordinate trade partners, and schedule materials. Our Project Manager handles paperwork, submittals, and RFIs while keeping you informed through each phase.",
+            "description": "We finalize clear contracts, secure permits, coordinate trade partners, and schedule materials. Your Project Manager handles submittals and RFIs while keeping you informed.",
             "tags": ["Clear Contracts", "Permit Handling", "Full Coordination"]
           },
           {
             "title": "Construction Execution",
-            "description": "Our Senior Superintendent oversees on-site operations with award-winning safety standards. We manage daily project execution in Procore, provide regular progress updates, coordinate subcontractors, track RFIs and submittals, manage quality inspections, and address issues immediately.",
+            "description": "Our Senior Superintendent leads on-site operations with award-winning safety standards. We manage execution in Procore, coordinate subs, track RFIs/submittals, run quality checks, and resolve issues quickly.",
             "tags": ["Daily Updates", ".64 EMR Safety", "Quality Control"]
           },
           {
             "title": "Quality Inspections and Compliance",
-            "description": "Multi-point quality inspections at every project phase ensure code compliance and craftsmanship excellence. Third-party inspections, department coordination, and complete documentation keep every milestone accountable.",
+            "description": "Multi-point inspections at every phase support code compliance and craftsmanship. Third-party checks, agency coordination, and documentation keep milestones accountable.",
             "tags": ["Code Compliance", "Quality Checks", "Full Documentation"]
           },
           {
             "title": "Project Close-Out and Follow-Up",
-            "description": "Final walkthrough, punch list completion, warranty documentation, and post-project support ensure complete satisfaction. We stay engaged beyond completion with long-term partnership support.",
+            "description": "Final walkthrough, punch-list completion, warranty documents, and post-project support close the project cleanly. We stay engaged for long-term partnership support.",
             "tags": [
               "Final Walkthrough",
               "Warranty Support",
@@ -1616,7 +1616,7 @@
         ],
         "cta": {
           "title": "Ready to Start Your Project?",
-          "description": "Let's discuss your construction needs and create a plan together. Free consultation, transparent pricing, and partnership-focused collaboration from day one.",
+          "description": "Discuss your construction needs and build a clear plan with free consultation, transparent pricing, and partnership-focused collaboration from day one.",
           "contactButton": "Contact Us Today",
           "projectsButton": "View Our Work"
         }
@@ -1636,7 +1636,7 @@
             "Eliminate costly last-minute decisions",
             "Proven reliability",
             "Complete transparency",
-            "150+ years combined experience"
+            "Cross-discipline field and management experience"
           ],
           "cta": "Explore Services"
         },
@@ -1739,7 +1739,7 @@
         "clientCard": {
           "title": "Client Partner Relationships",
           "subtitle": "Project Collaboration",
-          "description": "For client partners planning construction projects across the Pacific Northwest. We work with you to bring vision to life through expert construction management and partnership-focused collaboration.",
+          "description": "For client partners planning projects across the Pacific Northwest. We turn vision into delivery through expert construction management and partnership-focused collaboration.",
           "listTitle": "What We Offer Client Partners:",
           "items": [
             "Free consultations and project assessments",
@@ -1756,7 +1756,7 @@
         "tradeCard": {
           "title": "Trade Partnerships",
           "subtitle": "Trade Partner Network",
-          "description": "For subcontractors, suppliers, and trade professionals seeking consistent project opportunities with a veteran-owned construction leader in the Pacific Northwest.",
+          "description": "For subcontractors, suppliers, and trade professionals seeking consistent opportunities with a veteran-owned construction leader in the Pacific Northwest.",
           "listTitle": "What We Offer Trade Partners:",
           "items": [
             "Consistent project opportunities",
@@ -1772,18 +1772,18 @@
         },
         "bottomNote": {
           "title": "Different pathways, same commitment to excellence.",
-          "description": "Whether you are building a project or building your business, MH Construction values every partnership relationship."
+          "description": "Whether you are building a project or building your business, MH Construction values every partnership."
         }
       },
       "deepNextSteps": {
         "subtitle": "Let's Build Something",
         "title": "Great Together",
-        "description": "Take the next step toward bringing your construction vision to life with transparent pricing, expert guidance, and veteran-owned reliability.",
+        "description": "Take the next step with transparent pricing, expert guidance, and veteran-owned reliability.",
         "cards": {
           "estimate": {
             "badge": "Start Here",
             "title": "Get Expert Estimate",
-            "description": "Get a detailed, transparent estimate with line-item pricing within 3-5 business days.",
+            "description": "Get a transparent line-item estimate within 3-5 business days.",
             "button": "Contact Us Today"
           },
           "projects": {
@@ -1793,7 +1793,7 @@
           },
           "contact": {
             "title": "Contact Us",
-            "description": "Have questions? Reach out directly by phone, email, or contact form for immediate support.",
+            "description": "Have questions? Reach out by phone, email, or contact form for direct support.",
             "button": "Get In Touch"
           }
         },
@@ -1812,9 +1812,9 @@
       "portfolio": {
         "subtitle": "Our Construction",
         "title": "Portfolio",
-        "description": "Explore completed projects that showcase quality craftsmanship across commercial, industrial, and government sectors.",
+        "description": "Explore completed projects showcasing quality craftsmanship across commercial, industrial, and government sectors.",
         "button": "View Complete Portfolio",
-        "note": "Detailed portfolio with High-Level CRM integration coming soon"
+        "note": "Detailed portfolio and High-Level CRM integration coming soon"
       },
       "accreditations": {
         "title": "Accredited & Certified",
@@ -1823,15 +1823,15 @@
       "finalNextSteps": {
         "sectionTitle": "Ready to Start Your Project?",
         "sectionSubtitle": "Partner With MH Construction",
-        "sectionDescription": "Connect with our team to plan your next project with clear communication, disciplined execution, and trusted partnership."
+        "sectionDescription": "Connect with our team to define scope, sequencing, and coordination responsibilities for your next project."
       }
     },
     "whyPartner": {
-      "sectionSubtitle": "Veteran-Owned. BABAA-Supportive. Relationship-First.",
+      "sectionSubtitle": "Veteran-Owned. BABAA-Supportive. Accountability-Focused.",
       "sectionTitle": "Proven Performance & Earned Integrity",
       "sectionDescription": "Where discipline meets construction expertise—honest communication, proven craftsmanship, and earned integrity create partnerships built on trust.",
-      "philosophy": "Building projects for the Client, NOT the Dollar",
-      "theROI": "THE ROI IS THE RELATIONSHIP",
+      "philosophy": "Partnership over shortcuts",
+      "theROI": "The relationship is the return",
       "tradeCta": {
         "prompt": "Are you a trade contractor?",
         "highlight": "Join our Ally network.",
@@ -1842,7 +1842,7 @@
         {
           "title": ".64 EMR - Industry-Leading Safety",
           "subtitle": "Every Team Member Returns Home Safe",
-          "description": "Multiple AGC-WA Top EMR Awards with .64 EMR—40% better than industry average. 3+ years without time-loss injury and OSHA VPP Star designation. No compromises on safety, period.",
+          "description": "AGC-WA Top EMR recognition with a .64 EMR (40% better than industry average), 3+ years without a time-loss injury, and OSHA VPP Star designation. No compromises on safety.",
           "highlights": [
             ".64 EMR (40% better than industry)",
             "3+ years without time-loss injury",
@@ -1852,21 +1852,21 @@
           "statLabel": "Safety Rating"
         },
         {
-          "title": "150+ Years of Combined Experience",
+          "title": "Cross-Disciplinary Field Experience",
           "subtitle": "Proven Construction Expertise",
-          "description": "Our team brings 150+ years of combined construction expertise. Veterans and civilians working together, leveraging proven methods refined through generations. Deep experience you can trust.",
+          "description": "Our team combines veteran and civilian field experience across commercial, industrial, and municipal work with documented standards and repeatable methods.",
           "highlights": [
-            "150+ years combined expertise",
+            "Cross-discipline field expertise",
             "Veteran + civilian team excellence",
             "Proven methods & practices",
             "Multi-generational experience"
           ],
-          "statLabel": "Years Combined Experience"
+          "statLabel": "Field Experience"
         },
         {
           "title": "Complete Transparency",
           "subtitle": "Zero Surprises",
-          "description": "Open-book pricing with complete visibility on every cost, timeline, and decision. You control the project, we execute it with full transparency. No hidden costs, honest assessments at every phase. Your word is your bond—so is ours.",
+          "description": "Open-book pricing with visibility into cost, timeline, and decisions. No hidden costs and honest assessments at every phase.",
           "highlights": [
             "Open-book pricing",
             "Real-time project updates",
@@ -1878,7 +1878,7 @@
         {
           "title": "Long-Term Partnerships",
           "subtitle": "Relationships That Outlast Projects",
-          "description": "70% of our business comes from referrals and repeat partners—trust earned through action, not words. Our commitment doesn't end when the project completes. We're in it for the long haul, building relationships that matter. THE ROI IS THE RELATIONSHIP.",
+          "description": "70% of our business comes from referrals and repeat partners. Our commitment continues beyond close-out with long-term relationships that matter.",
           "highlights": [
             "70% referral & repeat business",
             "Lifelong partnership commitment",
@@ -1890,10 +1890,10 @@
         {
           "title": "650+ Successful Projects",
           "subtitle": "Proven Track Record",
-          "description": "650+ successfully completed projects demonstrate proven reliability. Veteran leadership brings discipline, planning under pressure, and consistent execution. Whether routine or urgent—we deliver results no matter the challenges.",
+          "description": "650+ completed projects reflect proven reliability. Veteran leadership brings disciplined planning, execution under pressure, and consistent results.",
           "highlights": [
             "650+ completed projects",
-            "Veteran-Owned Since January 2025",
+            "Owner-led accountability",
             "Dedicated BABAA (Build America, Buy America Act) supporter",
             "Disciplined execution",
             "Service-earned values"
@@ -1903,7 +1903,7 @@
         {
           "title": "3-State Licensing",
           "subtitle": "Licensed Across the Pacific Northwest",
-          "description": "Fully licensed general contractor across Washington, Oregon, and Idaho. Comprehensive insurance and bonding provide complete protection for every project. Credentials maintained with precision—continuous compliance, zero compromises.",
+          "description": "Fully licensed across Washington, Oregon, and Idaho with comprehensive insurance and bonding. Credentials are maintained through continuous compliance.",
           "highlights": [
             "Licensed in WA, OR, and ID",
             "Full insurance & bonding coverage",
@@ -1923,30 +1923,30 @@
       "subtitle": "Simple & Transparent",
       "title": "Our Process",
       "descriptionPart1": "Five clear steps from",
-      "descriptionPart2": "first contact to project completion",
+      "descriptionPart2": "first contact to close-out",
       "descriptionPart3": ". No surprises, just",
-      "descriptionPart4": "honest communication and proven results",
+      "descriptionPart4": "clear communication and proven results",
       "descriptionPart5": ".",
       "steps": [
         {
           "title": "Pre-Construction Planning",
-          "desc": "Comprehensive site assessment, detailed scope development, and strategic planning to identify challenges before they arise."
+          "desc": "Site assessment, scope development, and strategic planning to identify challenges early."
         },
         {
           "title": "Budget Transparency",
-          "desc": "Clear, itemized pricing with complete cost breakdown. No hidden fees, no surprises—just honest numbers you can trust."
+          "desc": "Clear, itemized pricing with full cost breakdown. No hidden fees, no surprises."
         },
         {
           "title": "Quality Execution",
-          "desc": "Expert craftsmanship with systematic quality checkpoints at every phase. Precision execution backed by 150+ years combined experience."
+          "desc": "Expert craftsmanship with systematic quality checkpoints at every phase and documented inspection standards."
         },
         {
           "title": "Proactive Communication",
-          "desc": "Regular updates keep you informed throughout the project. Real-time notifications of any changes—you're never in the dark."
+          "desc": "Regular updates and real-time change notices keep you informed throughout the project."
         },
         {
           "title": "Seamless Close-Out",
-          "desc": "Comprehensive final walkthrough and complete documentation. Our commitment to your satisfaction extends beyond project completion."
+          "desc": "Comprehensive final walkthrough and complete documentation, with support that continues beyond close-out."
         }
       ]
     }
@@ -1984,7 +1984,7 @@
         "id": "client-008",
         "name": "Keith Bjella",
         "company": "Windermere Pasco",
-        "project": "Tenant improvement",
+        "project": "Commercial tenant improvement",
         "rating": 5,
         "quote": "MH completed a tenant improvement for us and we could not be happier. They helped facilitate design, permitting, and construction while handling many stakeholders in stride.",
         "category": "commercial",
@@ -1994,7 +1994,7 @@
         "id": "client-009",
         "name": "Brandon Christensen",
         "company": "Christensen - Fuel and Lubricants Service",
-        "project": "Multiple commercial projects",
+        "project": "Multiple commercial and AG community projects",
         "rating": 5,
         "quote": "We have worked with MH Construction on several commercial projects over the years and have been very pleased with workmanship, communication, and timeliness.",
         "category": "commercial",
@@ -2014,7 +2014,7 @@
         "id": "client-011",
         "name": "Blake Still",
         "company": "Baskin-Robbins of Kennewick",
-        "project": "Commercial build",
+        "project": "Commercial tenant improvement build",
         "rating": 5,
         "quote": "We could not be happier with the quality of workmanship. Todd kept us informed throughout the build and delivered a strong outcome.",
         "category": "commercial",

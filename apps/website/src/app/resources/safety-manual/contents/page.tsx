@@ -16,7 +16,7 @@ const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 export const metadata: Metadata = {
   title: "Safety Manual — Table of Contents | MH Construction",
   description:
-    "Browse all 50 sections of MH Construction's MISH Safety & Health Program. Veteran-Owned Since January 2025. Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Full manual access requires login.",
+    "Browse all 50 sections of MH Construction's MISH Safety & Health Program. Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Full manual access requires login.",
   alternates: {
     canonical: `${siteUrl}/resources/safety-manual/contents`,
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Safety Manual — Table of Contents | MH Construction",
     description:
-      "50-section MISH Safety & Health Program index. Veteran-Owned Since January 2025 Tri-State licensed general contractor. Full manual available to credentialed parties upon login.",
+      "50-section MISH Safety & Health Program index with cluster navigation and credentialed access pathways.",
     type: "website",
     url: `${siteUrl}/resources/safety-manual/contents`,
   },
@@ -90,7 +90,7 @@ export default function SafetyManualContentsPage() {
                 Revision {revisionNumber} &middot; Effective {revisionDate}
               </p>
               <p className="mt-2 text-xs font-semibold text-brand-secondary">
-                Founded 2010, Veteran-Owned Since January 2025
+                Public index for section navigation and access requests
               </p>
             </div>
             <div className="flex gap-3 flex-wrap">
@@ -209,8 +209,8 @@ export default function SafetyManualContentsPage() {
           </h2>
           <p className="mb-4 text-sm text-gray-600 dark:text-gray-400 max-w-md mx-auto">
             The complete {manual?.totalSections ?? 50}-section MISH Safety
-            Manual is available to authorized personnel and credentialed
-            parties. Sign in or request access below.
+            Manual is available to authorized personnel. Sign in or request
+            access below.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
@@ -218,7 +218,7 @@ export default function SafetyManualContentsPage() {
               className="inline-flex items-center gap-2 rounded-lg bg-brand-primary px-5 py-2.5 text-sm font-bold text-white shadow hover:bg-brand-primary-dark transition-colors"
             >
               <MaterialIcon icon="login" size="sm" className="text-white" />
-              Sign In — Operations Hub
+              Sign In — Staff Hub
             </Link>
             <Link
               href="/contact"

@@ -24,7 +24,7 @@ const QUICK_ACTIONS = [
   { label: "Resources", href: "/resources", icon: "menu_book" },
 ] as const;
 
-function EventsHubAfterHeroSlot() {
+function SemiquincentennialAfterHeroSlot() {
   const pathname = usePathname();
   const [slot, setSlot] = useState<HTMLElement | null>(null);
 
@@ -74,7 +74,7 @@ function EventsHubAfterHeroSlot() {
       }
 
       createdSlot = document.createElement("div");
-      createdSlot.dataset["eventsHubAfterHero"] = "true";
+      createdSlot.dataset["semiquincentennialAfterHero"] = "true";
       anchor.after(createdSlot);
       setSlot(createdSlot);
     };
@@ -93,7 +93,7 @@ function EventsHubAfterHeroSlot() {
 
   if (!slot) return null;
 
-  return createPortal(<EventsHubBanner />, slot);
+  return createPortal(<SemiquincentennialBanner />, slot);
 }
 
 export function AppShell({ children }: Readonly<AppShellProps>) {
@@ -142,14 +142,11 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
       <>
         <Navigation />
         <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
-          <main
-            id="main-content"
-            className="grow pt-[var(--mh-nav-offset,6.5rem)]"
-          >
+          <main id="main-content" className="grow pt-(--mh-nav-offset,6.5rem)">
             {children}
-            <EventsHubAfterHeroSlot />
+            <SemiquincentennialAfterHeroSlot />
           </main>
-          <SemiquincentennialBanner />
+          <EventsHubBanner />
           <Footer />
         </div>
       </>
@@ -198,10 +195,10 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
           className="grow pt-[calc(var(--mh-nav-offset,6.5rem)+var(--mh-pwa-nav-offset,0px)+1rem)]"
         >
           {children}
-          <EventsHubAfterHeroSlot />
+          <SemiquincentennialAfterHeroSlot />
         </main>
 
-        <SemiquincentennialBanner />
+        <EventsHubBanner />
         <Footer />
       </div>
     </>

@@ -24,7 +24,7 @@ We're excited to start work on a new [PROJECT TYPE] in [CITY], WA this week! Our
 • Size: [Square Footage]
 • Timeline: [Duration]
 
-Building projects for the Client, NOT the Dollar.
+Clear planning. Accountable delivery..
 
 📞 (509) 308-6489
 🌐 www.mhc-gc.com

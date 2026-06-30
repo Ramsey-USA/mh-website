@@ -81,7 +81,7 @@ export const locations: Record<string, LocationData> = {
     state: "WA",
     county: "Benton County",
     militaryTitle: "Operations Base → Richland",
-    tagline: "Strategic Construction Operations in Benton County",
+    tagline: "AG, Winery, and TI Delivery in Benton County",
     description:
       "Founded 2010, Veteran-Owned Since January 2025. Construction excellence serving Richland with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
@@ -93,11 +93,11 @@ export const locations: Record<string, LocationData> = {
       title:
         "Operations Base → Richland | General Contractor Richland WA | MH Construction",
       metaDescription:
-        "Founded 2010, Veteran-Owned Since January 2025 GC serving Richland WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Richland WA. Commercial, industrial & government projects with accountable delivery. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Operations Base Richland strategic construction",
         "dual-label military construction Richland",
-        "service-earned construction values Richland",
+        "values-driven construction leadership Richland",
         "general contractor Richland WA",
         "general contractor Richland",
         "construction company Richland",
@@ -107,11 +107,11 @@ export const locations: Record<string, LocationData> = {
         "Benton County general contractor",
         "Richland WA builder",
         "construction management Richland",
-        "disciplined execution construction Richland",
+        "accountable delivery construction Richland",
         "proven construction excellence Richland",
       ],
       openGraphDescription:
-        "Operations Base → Richland: Strategic Construction Operations. Professional Veteran-Owned construction services with service-earned values, disciplined execution, and 150+ years combined expertise. Dual-label approach. Commercial, industrial & government projects.",
+        "Operations Base → Richland: Strategic Construction Operations. Professional Veteran-Owned construction services with values-driven standards, accountable delivery, and cross-discipline field and management expertise. Dual-label approach. Commercial, industrial & government projects.",
       twitterDescription:
         "Professional construction services in Richland, WA. Veteran-Owned, partnership-driven approach.",
     },
@@ -124,9 +124,9 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "Commercial tenant improvement delivery",
-      "Site facilitation",
-      "Municipal inspections",
+      "Commercial tenant improvements",
+      "AG and winery facility scope",
+      "Municipal project coordination",
     ],
     nearbyAreas: ["Richland", "Benton County"],
     serviceZipCodes: ["99352", "99354"],
@@ -160,9 +160,9 @@ export const locations: Record<string, LocationData> = {
     state: "WA",
     county: "Benton County",
     militaryTitle: "Forward Operating Base → Kennewick",
-    tagline: "Tactical Construction Excellence in Benton County",
+    tagline: "Commercial TI and Municipal Delivery in Kennewick",
     description:
-      "Professional Veteran-Owned construction services with service-earned values and all-branch veteran leadership. Clear, timely communication.",
+      "Professional Veteran-Owned construction services with values-driven standards and all-branch veteran leadership. Clear, timely communication.",
     ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.2112,
@@ -172,11 +172,11 @@ export const locations: Record<string, LocationData> = {
       title:
         "Forward Operating Base → Kennewick | General Contractor Kennewick WA | MH Construction",
       metaDescription:
-        "Founded 2010, Veteran-Owned Since January 2025 GC serving Kennewick WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Kennewick WA. Commercial, industrial & government projects with accountable delivery. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Forward Operating Base Kennewick tactical construction",
         "dual-label military construction Kennewick",
-        "service-earned construction values Kennewick",
+        "values-driven construction leadership Kennewick",
         "general contractor Kennewick WA",
         "general contractor Kennewick",
         "construction company Kennewick",
@@ -190,7 +190,7 @@ export const locations: Record<string, LocationData> = {
         "clear communication Kennewick",
       ],
       openGraphDescription:
-        "Forward Operating Base → Kennewick: Tactical Construction Excellence. Professional Veteran-Owned construction services with service-earned values and all-branch veteran leadership. Dual-label approach. Commercial, industrial & government projects.",
+        "Forward Operating Base → Kennewick: Tactical Construction Excellence. Professional Veteran-Owned construction services with values-driven standards and all-branch veteran leadership. Dual-label approach. Commercial, industrial & government projects.",
       twitterDescription:
         "Professional construction services in Kennewick, WA. Veteran-Owned, partnership-driven approach.",
     },
@@ -203,9 +203,9 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "Commercial tenant improvement delivery",
-      "Site facilitation",
-      "Municipal inspections",
+      "Commercial tenant improvements",
+      "AG and winery facility scope",
+      "Municipal project coordination",
     ],
     nearbyAreas: ["Kennewick", "Benton County"],
     serviceZipCodes: ["99336", "99337", "99338"],
@@ -239,7 +239,7 @@ export const locations: Record<string, LocationData> = {
     state: "WA",
     county: "Franklin County",
     militaryTitle: "Command Center → Pasco",
-    tagline: "Home Base Construction Excellence in Franklin County",
+    tagline: "Industrial, TI, and Municipal Delivery from Pasco",
     description:
       "Headquartered in Pasco since 2010, delivering Veteran-Owned construction excellence with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
@@ -255,7 +255,7 @@ export const locations: Record<string, LocationData> = {
       keywords: [
         "Command Center Pasco home base construction",
         "dual-label military construction Pasco",
-        "service-earned construction values Pasco",
+        "values-driven construction leadership Pasco",
         "general contractor Pasco WA",
         "general contractor Pasco",
         "construction company Pasco",
@@ -281,7 +281,8 @@ export const locations: Record<string, LocationData> = {
     },
     servicePriorities: [
       "Industrial builds",
-      "Administrative and office remodels",
+      "Commercial tenant improvements",
+      "Door and hardware installation",
     ],
     nearbyAreas: ["Pasco", "Franklin County", "Zillah"],
     serviceZipCodes: ["99301", "99302"],
@@ -316,7 +317,7 @@ export const locations: Record<string, LocationData> = {
     state: "WA",
     county: "Yakima County",
     militaryTitle: "Outpost → Yakima",
-    tagline: "Regional Construction Excellence in Yakima County",
+    tagline: "Public Works and TI Delivery in Yakima County",
     description:
       "Extending Veteran-Owned construction services to Yakima with the same Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
@@ -328,11 +329,11 @@ export const locations: Record<string, LocationData> = {
       title:
         "Outpost → Yakima | General Contractor Yakima WA | MH Construction",
       metaDescription:
-        "Founded 2010, Veteran-Owned Since January 2025 GC serving Yakima WA. Commercial, industrial & public-safety construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Yakima WA. Commercial, industrial & public-safety construction with accountable delivery. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Outpost Yakima regional construction",
         "dual-label military construction Yakima",
-        "service-earned construction values Yakima",
+        "values-driven construction leadership Yakima",
         "general contractor Yakima WA",
         "general contractor Yakima",
         "construction company Yakima",
@@ -357,8 +358,9 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
+      "Public works and municipal builds",
       "Fire station and emergency services remodeling",
-      "Public works infrastructure",
+      "Commercial tenant improvements",
     ],
     nearbyAreas: ["Yakima", "Yakima Valley", "Zillah"],
     serviceZipCodes: ["98901", "98902", "98903", "98908"],
@@ -386,7 +388,7 @@ export const locations: Record<string, LocationData> = {
     state: "WA",
     county: "Spokane County",
     militaryTitle: "Deployment Zone → Spokane",
-    tagline: "Eastern Washington Construction Excellence",
+    tagline: "Eastern Washington TI and Municipal Coverage",
     description:
       "Expanding Veteran-Owned construction excellence to Spokane with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
@@ -398,11 +400,11 @@ export const locations: Record<string, LocationData> = {
       title:
         "Deployment Zone → Spokane | General Contractor Spokane WA | MH Construction",
       metaDescription:
-        "Founded 2010, Veteran-Owned Since January 2025 GC serving Spokane WA. Commercial, industrial & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Spokane WA. Commercial, industrial & government construction with accountable delivery. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Deployment Zone Spokane construction",
         "dual-label military construction Spokane",
-        "service-earned construction values Spokane",
+        "values-driven construction leadership Spokane",
         "general contractor Spokane WA",
         "general contractor Spokane",
         "construction company Spokane",
@@ -427,8 +429,9 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "General contracting",
       "Commercial tenant improvements",
+      "Municipal project coordination",
+      "Door and hardware installation",
     ],
     nearbyAreas: ["Spokane", "Spokane County"],
     serviceZipCodes: [
@@ -448,7 +451,7 @@ export const locations: Record<string, LocationData> = {
     state: "WA",
     county: "Pierce County",
     militaryTitle: "Regional Command → Tacoma",
-    tagline: "Puget Sound Construction Coverage with Veteran-Led Discipline",
+    tagline: "Puget Sound TI and Public-Sector Coverage",
     description:
       "Serving Tacoma with Veteran-Owned construction services built on Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
@@ -460,7 +463,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Regional Command → Tacoma | General Contractor Tacoma WA | MH Construction",
       metaDescription:
-        "Founded 2010, Veteran-Owned Since January 2025 GC serving Tacoma WA. Commercial, industrial, and public-sector construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Tacoma WA. Commercial, industrial, and public-sector construction with accountable delivery. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Regional Command Tacoma construction",
         "general contractor Tacoma WA",
@@ -488,9 +491,9 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "Commercial tenant improvement delivery",
+      "Commercial tenant improvements",
       "Public-sector and municipal coordination",
-      "Industrial and logistics facility planning",
+      "Door and hardware installation",
     ],
     nearbyAreas: ["Tacoma", "Pierce County", "Lakewood", "Puyallup"],
     serviceZipCodes: ["98402", "98403", "98404", "98405", "98406"],
@@ -502,7 +505,7 @@ export const locations: Record<string, LocationData> = {
     state: "WA",
     county: "Benton County",
     militaryTitle: "Station → West Richland",
-    tagline: "Community-Focused Construction in Benton County",
+    tagline: "Benton County TI and Community Facility Delivery",
     description:
       "Serving West Richland with Veteran-Owned construction services built on Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
@@ -514,11 +517,11 @@ export const locations: Record<string, LocationData> = {
       title:
         "Station → West Richland | General Contractor West Richland WA | MH Construction",
       metaDescription:
-        "Founded 2010, Veteran-Owned Since January 2025 GC serving West Richland WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving West Richland WA. Commercial, industrial & government projects with accountable delivery. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Station West Richland community construction",
         "dual-label military construction West Richland",
-        "service-earned construction values West Richland",
+        "values-driven construction leadership West Richland",
         "general contractor West Richland WA",
         "general contractor West Richland",
         "construction company West Richland",
@@ -543,9 +546,9 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "Commercial tenant improvement delivery",
-      "Site facilitation",
-      "Municipal inspections",
+      "Commercial tenant improvements",
+      "AG and winery facility scope",
+      "Municipal project coordination",
     ],
     nearbyAreas: ["West Richland", "Benton County"],
     serviceZipCodes: ["99353"],
@@ -556,7 +559,7 @@ export const locations: Record<string, LocationData> = {
     state: "WA",
     county: "Walla Walla County",
     militaryTitle: "Forward Position → Walla Walla",
-    tagline: "Historic Valley Construction Excellence",
+    tagline: "Walla Walla Valley AG and Winery Construction",
     description:
       "Bringing Veteran-Owned construction expertise to Walla Walla with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
@@ -568,11 +571,11 @@ export const locations: Record<string, LocationData> = {
       title:
         "Forward Position → Walla Walla | General Contractor Walla Walla WA | MH Construction",
       metaDescription:
-        "Founded 2010, Veteran-Owned Since January 2025 GC serving Walla Walla WA. Commercial, industrial & specialty construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Walla Walla WA. Commercial, industrial & specialty construction with accountable delivery. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Forward Position Walla Walla construction",
         "dual-label military construction Walla Walla",
-        "service-earned construction values Walla Walla",
+        "values-driven construction leadership Walla Walla",
         "general contractor Walla Walla WA",
         "general contractor Walla Walla",
         "construction company Walla Walla",
@@ -597,9 +600,9 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "Land development",
-      "Private retreats",
-      "High-stakes land stewardship",
+      "AG and winery facility scope",
+      "Commercial tenant improvements",
+      "Land and site development support",
     ],
     nearbyAreas: ["Walla Walla", "Walla Walla County", "Dayton"],
     serviceZipCodes: ["99362"],
@@ -626,7 +629,7 @@ export const locations: Record<string, LocationData> = {
     state: "OR",
     county: "Umatilla County",
     militaryTitle: "Forward Base → Hermiston",
-    tagline: "Oregon Columbia Basin Construction Excellence",
+    tagline: "Oregon Basin AG, Industrial, and TI Delivery",
     description:
       "Bringing Veteran-Owned construction expertise to Hermiston and the Oregon Columbia Basin with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
@@ -638,7 +641,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Forward Base → Hermiston | General Contractor Hermiston OR | MH Construction",
       metaDescription:
-        "Founded 2010, Veteran-Owned Since January 2025 GC serving Hermiston OR. Commercial, industrial & agricultural construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Hermiston OR. Commercial, industrial & agricultural construction with accountable delivery. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Forward Base Hermiston Oregon construction",
         "general contractor Hermiston OR",
@@ -667,9 +670,9 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "Industrial and warehouse construction",
       "Agricultural facility builds",
-      "Commercial development",
+      "Industrial and warehouse construction",
+      "Commercial tenant improvements",
     ],
     nearbyAreas: ["Hermiston", "Umatilla County", "Boardman", "Irrigon"],
     serviceZipCodes: ["97838"],
@@ -680,7 +683,7 @@ export const locations: Record<string, LocationData> = {
     state: "OR",
     county: "Umatilla County",
     militaryTitle: "Tactical Position → Pendleton",
-    tagline: "Eastern Oregon Construction Excellence",
+    tagline: "Eastern Oregon Municipal and Commercial Delivery",
     description:
       "Delivering Veteran-Owned construction services to Pendleton and Eastern Oregon with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
@@ -692,7 +695,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Tactical Position → Pendleton | General Contractor Pendleton OR | MH Construction",
       metaDescription:
-        "Founded 2010, Veteran-Owned Since January 2025 GC serving Pendleton OR. Commercial, industrial & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Pendleton OR. Commercial, industrial & government construction with accountable delivery. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Tactical Position Pendleton Oregon construction",
         "general contractor Pendleton OR",
@@ -715,14 +718,14 @@ export const locations: Record<string, LocationData> = {
     localExpertise: {
       title: "Serving Eastern Oregon from Pendleton",
       description: [
-        "Pendleton anchors Eastern Oregon's commercial and government construction corridor. Our Veteran-Owned team brings the same disciplined execution that has served the Tri-Cities for 15+ years to every Pendleton and Umatilla County project.",
+        "Pendleton anchors Eastern Oregon's commercial and government construction corridor. Our Veteran-Owned team brings the same accountable delivery that has served the Tri-Cities for 15+ years to every Pendleton and Umatilla County project.",
         "Licensed in Oregon, Washington, and Idaho, MH Construction delivers commercial, industrial, and public-sector builds across Eastern Oregon with transparent communication and zero-surprise project delivery.",
       ],
     },
     servicePriorities: [
-      "Commercial construction",
-      "Industrial facility builds",
       "Government and municipal projects",
+      "Commercial tenant improvements",
+      "Industrial facility builds",
     ],
     nearbyAreas: [
       "Pendleton",
@@ -738,7 +741,7 @@ export const locations: Record<string, LocationData> = {
     state: "ID",
     county: "Kootenai County",
     militaryTitle: "Northern Operations → Coeur d'Alene",
-    tagline: "North Idaho Construction Excellence",
+    tagline: "North Idaho Commercial and Municipal Delivery",
     description:
       "Bringing Veteran-Owned construction expertise to Coeur d'Alene and North Idaho with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
@@ -750,7 +753,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Northern Operations → Coeur d'Alene | General Contractor Coeur d'Alene ID | MH Construction",
       metaDescription:
-        "Founded 2010, Veteran-Owned Since January 2025 GC serving Coeur d'Alene ID. Commercial, resort & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Coeur d'Alene ID. Commercial, resort & government construction with accountable delivery. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Northern Operations Coeur d'Alene Idaho construction",
         "general contractor Coeur d'Alene ID",
@@ -780,8 +783,8 @@ export const locations: Record<string, LocationData> = {
     },
     servicePriorities: [
       "Commercial and resort construction",
-      "Industrial builds",
       "Government and municipal projects",
+      "Door and hardware installation",
     ],
     nearbyAreas: ["Coeur d'Alene", "Kootenai County", "Post Falls", "Hayden"],
     serviceZipCodes: ["83814", "83815"],
@@ -792,7 +795,7 @@ export const locations: Record<string, LocationData> = {
     state: "WA",
     county: "Okanogan County",
     militaryTitle: "Remote Station → Omak",
-    tagline: "Okanogan Valley Construction Excellence",
+    tagline: "Okanogan Valley AG and Community Construction",
     description:
       "Delivering Veteran-Owned construction services to Omak and the Okanogan Valley with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
@@ -804,7 +807,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Remote Station → Omak | General Contractor Omak WA | MH Construction",
       metaDescription:
-        "Founded 2010, Veteran-Owned Since January 2025 GC serving Omak WA. Commercial, agricultural & community construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Omak WA. Commercial, agricultural & community construction with accountable delivery. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Remote Station Omak Washington construction",
         "general contractor Omak WA",
@@ -832,8 +835,8 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "Rural commercial construction",
       "Agricultural and industrial builds",
+      "Rural commercial construction",
       "Community infrastructure",
     ],
     nearbyAreas: ["Omak", "Okanogan County", "Okanogan", "Tonasket"],

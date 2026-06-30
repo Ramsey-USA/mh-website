@@ -264,7 +264,7 @@ describe("PageHero", () => {
       screen.getByText("Serving the Pacific Northwest since 2010"),
     ).toBeTruthy();
     expect(
-      screen.getByText("Building projects for the Client, NOT the Dollar"),
+      screen.getByText("Clear planning. Accountable delivery."),
     ).toBeTruthy();
   });
 });

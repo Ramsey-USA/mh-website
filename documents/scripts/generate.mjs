@@ -130,6 +130,13 @@ const HANDBOOK_LETTERHEAD_TEMPLATE_PATH = join(
   DOCS_DIR,
   "manuals/employee-handbook-letterhead.html",
 );
+const CONSOLIDATED_LETTERHEAD_FILE_NAME = "MHC-company-letterhead.pdf";
+const HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME =
+  "form-handbook-company-letterhead.pdf";
+const LEGACY_LETTERHEAD_FILE_NAMES = [
+  "employee-handbook-letterhead.pdf",
+  "safety-manual-letterhead.pdf",
+];
 const require = createRequire(import.meta.url);
 const PDFJS_STANDARD_FONT_DATA_URL = pathToFileURL(
   resolve(
@@ -1595,10 +1602,25 @@ async function generateAllFormPackages() {
     console.log("ℹ️  No forms with `fillable` schema in the manifest.");
     return;
   }
+  const packagesDir = join(OUTPUT_DIR, "form-packages");
+  await ensureDir(packagesDir);
+  const validPackageNames = new Set(
+    eligible.map((formEntry) => `${slugForForm(formEntry)}.pdf`),
+  );
+  validPackageNames.add(HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME);
+  for (const existingFile of await readdir(packagesDir)) {
+    if (!existingFile.endsWith(".pdf")) continue;
+    if (validPackageNames.has(existingFile)) continue;
+    unlinkSync(join(packagesDir, existingFile));
+    console.log(
+      `  ✓  Removed stale form package: documents/output/form-packages/${existingFile}`,
+    );
+  }
   console.log(`\n📦  Building ${eligible.length} form package(s)…`);
   for (const f of eligible) {
     await generateFormPackage(f);
   }
+  await syncConsolidatedLetterheadIntoHandbookForms(packagesDir);
 }
 
 // ── Publish form packages to public/ ─────────────────────────────────────────
@@ -1766,28 +1788,15 @@ async function generateCover() {
  * Mirrors the cover’s frame/ribbon/footer chrome so printed correspondence
  * lives inside the same brand system as the safety manual.
  */
-async function generateLetterhead() {
-  console.log(`\n✉️  Generating ${ACTIVE_MANUAL_LABEL} letterhead…`);
+async function renderSafetyLetterheadPdf(pdfPath) {
   await ensureDir(OUTPUT_DIR);
-  if (isEmployeeHandbook) {
-    await validateHandbookLetterheadFooterParity();
-  }
-  const templateName = isEmployeeHandbook
-    ? "employee-handbook-letterhead.html"
-    : "safety-manual-letterhead.html";
-  const raw = await readFile(
-    join(DOCS_DIR, `manuals/${templateName}`),
-    "utf-8",
-  );
+  await validateHandbookLetterheadFooterParity();
+  const raw = await readFile(SAFETY_LETTERHEAD_TEMPLATE_PATH, "utf-8");
   const websiteUrl = BRAND.website?.startsWith("http")
     ? BRAND.website
     : `https://${BRAND.website}`;
   const qrWebsite = await buildQrDataUrl(websiteUrl);
   const html = applyBrandTokens(raw).replace("{{QR_WEBSITE}}", qrWebsite);
-  const letterheadFileName = isEmployeeHandbook
-    ? "employee-handbook-letterhead.pdf"
-    : "safety-manual-letterhead.pdf";
-  const pdfPath = join(OUTPUT_DIR, letterheadFileName);
   // Page-1 chrome is absolutely positioned to the full Letter sheet, so
   // PDF margins must be 0; CSS owns all spacing. If the body overflows,
   // it paginates onto plain follow-on pages with the signature pushed
@@ -1799,6 +1808,27 @@ async function generateLetterhead() {
     "manuals/_tmp_letterhead.html",
   );
   await addFillableFieldsToLetterhead(pdfPath);
+  return pdfPath;
+}
+
+async function generateLetterhead() {
+  console.log("\n✉️  Generating consolidated company letterhead…");
+  const pdfPath = join(OUTPUT_DIR, CONSOLIDATED_LETTERHEAD_FILE_NAME);
+  await renderSafetyLetterheadPdf(pdfPath);
+  for (const legacyFileName of LEGACY_LETTERHEAD_FILE_NAMES) {
+    const legacyPath = join(OUTPUT_DIR, legacyFileName);
+    if (existsSync(legacyPath)) unlinkSync(legacyPath);
+  }
+  return pdfPath;
+}
+
+async function syncConsolidatedLetterheadIntoHandbookForms(packagesDir) {
+  const letterheadPath = await generateLetterhead();
+  const packagePath = join(packagesDir, HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME);
+  await copyFile(letterheadPath, packagePath);
+  console.log(
+    `  ✓  ${packagePath.replace(ROOT + "/", "")}  (consolidated letterhead)`,
+  );
 }
 
 // ── Template: Spine ───────────────────────────────────────────────────────────
@@ -2780,12 +2810,20 @@ async function runGuardrailsCheck() {
   await validateSpineTemplateGuardrails();
   console.log("  ✓  Spine layout and labeling guardrails verified");
 
-  await generateLetterhead();
-  await generateToc();
-  await validateRenderedPdfParity(
-    join(OUTPUT_DIR, "safety-manual-letterhead.pdf"),
-    join(OUTPUT_DIR, "safety-manual-toc.pdf"),
+  const parityLetterheadPath = join(
+    OUTPUT_DIR,
+    "_guardrail-safety-letterhead.pdf",
   );
+  await renderSafetyLetterheadPdf(parityLetterheadPath);
+  await generateToc();
+  try {
+    await validateRenderedPdfParity(
+      parityLetterheadPath,
+      join(OUTPUT_DIR, "safety-manual-toc.pdf"),
+    );
+  } finally {
+    if (existsSync(parityLetterheadPath)) unlinkSync(parityLetterheadPath);
+  }
   console.log("  ✓  TOC/letterhead rendered parity verified");
 }
 
@@ -2882,11 +2920,11 @@ async function validateRenderedPdfParity(letterheadPdfPath, tocPdfPath) {
       h: letterheadCanvas.height,
     },
     {
-      label: "footer band",
+      label: "footer top rule",
       x: 0,
-      y: letterheadCanvas.height - pixelsForInches(0.85, scale),
+      y: letterheadCanvas.height - pixelsForInches(0.82, scale),
       w: letterheadCanvas.width,
-      h: pixelsForInches(0.85, scale),
+      h: pixelsForInches(0.12, scale),
     },
   ];
 

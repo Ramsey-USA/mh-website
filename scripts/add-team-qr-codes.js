@@ -65,7 +65,7 @@ async function addQRCodesToTeamData() {
   console.log(`   Updated: ${updatedCount} members`);
   console.log(`   Skipped: ${skippedCount} members`);
   console.log(`\n📋 Next steps:`);
-  console.log(`   1. Run: node scripts/generate-qr-codes.js`);
+  console.log(`   1. Run: pnpm --filter @mhc/website run qr:generate`);
   console.log(
     `   2. QR codes will be generated in apps/website/public/images/qr-codes/`,
   );

@@ -66,19 +66,25 @@ describe("ServicesShowcase", () => {
     render(<ServicesShowcase />);
 
     await user.click(
-      screen.getByRole("button", { name: /View details for Master Planning/i }),
+      screen.getByRole("button", {
+        name: /View details for Commercial Tenant Improvements/i,
+      }),
     );
 
     const dialog = screen.getByRole("dialog");
     expect(dialog).toBeInTheDocument();
-    expect(within(dialog).getByText("Master Planning")).toBeInTheDocument();
     expect(
-      within(dialog).getByText(/Transform your vision into actionable plans/i),
+      within(dialog).getByText("Commercial Tenant Improvements"),
+    ).toBeInTheDocument();
+    expect(
+      within(dialog).getByText(
+        /Commercial TI execution with phased coordination/i,
+      ),
     ).toBeInTheDocument();
     expect(within(dialog).getByText("What's Included")).toBeInTheDocument();
     expect(within(dialog).getByText("Key Benefits")).toBeInTheDocument();
     expect(trackServiceInterest).toHaveBeenCalledWith(
-      "Master Planning",
+      "Commercial Tenant Improvements",
       "click",
       expect.objectContaining({
         location: "homepage-showcase",
@@ -98,7 +104,7 @@ describe("ServicesShowcase", () => {
 
     await user.click(
       screen.getByRole("button", {
-        name: /View details for Construction Management/i,
+        name: /View details for AG and Winery Communities/i,
       }),
     );
 
@@ -116,14 +122,14 @@ describe("ServicesShowcase", () => {
     render(<ServicesShowcase />);
 
     const card = screen.getByRole("button", {
-      name: /View details for Construction Management/i,
+      name: /View details for AG and Winery Communities/i,
     });
     card.focus();
     await user.keyboard("{Enter}");
 
     expect(screen.getByRole("dialog")).toBeInTheDocument();
     expect(trackServiceInterest).toHaveBeenCalledWith(
-      "Construction Management",
+      "AG and Winery Communities",
       "click",
       expect.objectContaining({
         location: "homepage-showcase",
@@ -135,7 +141,7 @@ describe("ServicesShowcase", () => {
   it("renders the updated commercial delivery subtitle", () => {
     render(<ServicesShowcase />);
     expect(
-      screen.getByText("Commercial Facilities with Owner-First Delivery"),
+      screen.getByText("Public-Sector Delivery with Compliance Controls"),
     ).toBeInTheDocument();
   });
 

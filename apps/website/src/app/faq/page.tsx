@@ -1,6 +1,5 @@
 import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
@@ -26,22 +25,12 @@ import {
   type FAQQuestion,
 } from "@/lib/data/faq-data";
 
-// NextStepsSection uses useLocale (client hook) and sits at the bottom of the
-// page. Dynamic import keeps its JS out of the page's critical bundle.
-const NextStepsSection = dynamic(
-  () =>
-    import("@/components/shared-sections").then((m) => ({
-      default: m.NextStepsSection,
-    })),
-  { ssr: true },
-);
-
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.faq);
 
 const howToSchema = generateHowToSchema({
   name: "How to Work with MH Construction",
   description:
-    "Step-by-step guide to our partnership-driven construction process from consultation to project completion",
+    "Step-by-step guide to our construction process from consultation to closeout.",
   totalTime: "P30D",
   steps: [
     {
@@ -50,7 +39,7 @@ const howToSchema = generateHowToSchema({
     },
     {
       name: "Planning Phase",
-      text: "Detailed proposal with open-book pricing, timeline development, and contract signing",
+      text: "Detailed proposal with open-book pricing, timeline, and contract execution",
     },
     {
       name: "Permitting Phase",
@@ -58,7 +47,7 @@ const howToSchema = generateHowToSchema({
     },
     {
       name: "Construction Phase",
-      text: "Regular progress updates, photo documentation, quality inspections, and Client Partner walkthroughs",
+      text: "Progress updates, quality inspections, and client walkthroughs",
     },
     {
       name: "Completion Phase",
@@ -81,37 +70,6 @@ const faqSchema = {
     })),
   ),
 };
-
-const intentRoutes = [
-  {
-    title: "Need scope and budget clarity",
-    description: "Move directly into planning and open-book scoping.",
-    href: "/services/commercial-construction",
-    cta: "Review commercial service line",
-    icon: "build",
-  },
-  {
-    title: "Need process and timeline confidence",
-    description: "Use a field-proven case study before your kickoff call.",
-    href: "/projects/kennewick-commercial-office-renovation",
-    cta: "Review phased delivery case study",
-    icon: "schedule",
-  },
-  {
-    title: "Need government project guidance",
-    description: "Start with public-sector requirements and pathways.",
-    href: "/public-sector",
-    cta: "Explore public sector services",
-    icon: "account_balance",
-  },
-  {
-    title: "Need a direct conversation",
-    description: "Talk with the team to convert answers into a plan.",
-    href: "/contact",
-    cta: "Schedule consultation",
-    icon: "support_agent",
-  },
-];
 
 /**
  * FAQ Accordion Component - Modern Card Design
@@ -188,16 +146,16 @@ export default function FAQPage() {
             <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
               <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
                 <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                  Intel Brief → FAQ
+                  FAQ
                 </span>
                 <span className="block text-brand-secondary">
-                  Direct Answers. Clear Guidance. Mission-Ready Information.
+                  Direct Answers. Clear Decisions.
                 </span>
                 <span className="block text-brand-primary">
-                  Mission Intelligence - Your Construction Questions Answered
+                  Construction Questions, Answered
                 </span>
                 <span className="block text-white/90">
-                  Building projects for the Client,{" "}
+                  Building for the Client,{" "}
                   <span className="font-black italic text-bronze-300">NOT</span>{" "}
                   the Dollar
                 </span>
@@ -224,12 +182,9 @@ export default function FAQPage() {
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center mb-16">
               <FadeInWhenVisible>
-                <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-10">
-                  We believe in transparency, honesty, and clear
-                  communication—core values that guide everything we do. Below
-                  you'll find answers to common questions about our services,
-                  process, and partnership approach. Can't find what you're
-                  looking for? We're always available for a conversation.
+                <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                  Clear answers on services, process, pricing, and execution. If
+                  your question is not listed, our team can help directly.
                 </p>
               </FadeInWhenVisible>
 
@@ -267,52 +222,6 @@ export default function FAQPage() {
                     States Licensed
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-10">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white tracking-tight">
-                  Choose Your Next Step
-                </h2>
-                <p className="mt-3 text-sm sm:text-base text-gray-600 dark:text-gray-300">
-                  Route this FAQ research into the right service, case study, or
-                  consultation path.
-                </p>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {intentRoutes.map((route) => (
-                  <Link
-                    key={route.href}
-                    href={route.href}
-                    className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-5 shadow-sm hover:shadow-md hover:border-brand-primary transition-all"
-                  >
-                    <div className="flex items-start gap-3">
-                      <MaterialIcon
-                        icon={route.icon}
-                        size="md"
-                        className="text-brand-primary mt-0.5"
-                      />
-                      <div>
-                        <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-gray-100">
-                          {route.title}
-                        </h3>
-                        <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                          {route.description}
-                        </p>
-                        <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-brand-primary dark:text-brand-primary-light">
-                          {route.cta}
-                          <MaterialIcon icon="arrow_forward" size="sm" />
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
               </div>
             </div>
           </div>
@@ -410,10 +319,8 @@ export default function FAQPage() {
                 </span>
               </h2>
               <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-                We're here to help. Our team is available for face-to-face
-                consultation where we can discuss your specific needs, answer
-                any questions, and start building a partnership based on trust
-                and transparency.
+                We are here to help. Schedule a face-to-face consultation to
+                review your goals, get direct answers, and plan next steps.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link href="/contact">
@@ -448,12 +355,6 @@ export default function FAQPage() {
             </div>
           </div>
         </section>
-
-        {/* Next Steps Section */}
-        <NextStepsSection
-          title="Ready to Start Your Project?"
-          subtitle="Let's build something exceptional together"
-        />
       </div>
     </>
   );

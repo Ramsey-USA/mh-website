@@ -178,7 +178,7 @@ export async function generateMetadata({
     cluster.max,
   ).padStart(2, "0")}`;
   const title = `${cluster.name} (${range}) — MISH Safety Manual | MH Construction`;
-  const description = `${cluster.description} Veteran-Owned Since January 2025. Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Full section detail available to credentialed parties upon login.`;
+  const description = `${cluster.description} Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Full section detail available to credentialed parties upon login.`;
   return {
     title,
     description,
@@ -273,7 +273,7 @@ export default async function SafetyManualClusterPage({
                 {cluster.description}
               </p>
               <p className="mt-3 text-xs font-semibold text-brand-secondary">
-                Founded 2010, Veteran-Owned Since January 2025
+                Public purpose and scope preview for this section cluster
               </p>
               <p className="mt-1 text-xs text-white/60">
                 Revision {REVISION_NUMBER} · Effective {REVISION_DATE} · Aligned

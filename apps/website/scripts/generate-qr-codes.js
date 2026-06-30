@@ -18,10 +18,7 @@ const path = require("node:path");
 const BASE_URL = "https://www.mhc-gc.com";
 
 // Output directory
-const OUTPUT_DIR = path.join(
-  __dirname,
-  "../apps/website/public/images/qr-codes",
-);
+const OUTPUT_DIR = path.join(__dirname, "../public/images/qr-codes");
 const TEAM_DATA_PATHS = [
   path.join(__dirname, "../src/lib/data/team-data.json"),
   path.join(__dirname, "../src/data/team-data.json"),
@@ -191,12 +188,6 @@ const QR_CODES = [
     label: "www.mhc-gc.com/resources/safety-manual/contents",
   },
   {
-    name: "safety-manual-contents",
-    url: `${BASE_URL}/resources/safety-manual/contents`,
-    description: "Safety Manual — Table of Contents (Public)",
-    label: "www.mhc-gc.com/resources/safety-manual/contents",
-  },
-  {
     name: "accessibility",
     url: `${BASE_URL}/accessibility`,
     description: "Accessibility Statement",
@@ -287,108 +278,10 @@ const QR_CODES = [
     label: "📍 LOCATION",
   },
 
-  // Team member profiles
-  {
-    name: "team-jeremy-thamert",
-    url: `${BASE_URL}/team#jeremy-thamert`,
-    description: "Jeremy Thamert - Owner & President",
-    label: "JEREMY THAMERT",
-  },
-  {
-    name: "team-mike-holstein",
-    url: `${BASE_URL}/team#mike-holstein`,
-    description: "Mike Holstein - Founder",
-    label: "MIKE HOLSTEIN",
-  },
-  {
-    name: "team-kim-thamert",
-    url: `${BASE_URL}/team#kim-thamert`,
-    description: "Kim Thamert - XO - Executive Officer",
-    label: "KIM THAMERT",
-  },
-  {
-    name: "team-gator",
-    url: `${BASE_URL}/team#gator`,
-    description: "Gator - Chief Moral Officer",
-    label: "GATOR",
-  },
-  {
-    name: "team-todd-schoeff",
-    url: `${BASE_URL}/team#todd-schoeff`,
-    description: "Todd Schoeff - VP of Field Operations",
-    label: "TODD SCHOEFF",
-  },
-  {
-    name: "team-brooks-morris",
-    url: `${BASE_URL}/team#brooks-morris`,
-    description: "Brooks Morris - Safety Director",
-    label: "BROOKS MORRIS",
-  },
-  {
-    name: "team-matt-ramsey",
-    url: `${BASE_URL}/team#matt-ramsey`,
-    description: "Matt Ramsey - Project Manager",
-    label: "MATT RAMSEY",
-  },
-  {
-    name: "team-porter-cline",
-    url: `${BASE_URL}/team#porter-cline`,
-    description: "Porter Cline - Project Manager",
-    label: "PORTER CLINE",
-  },
-  {
-    name: "team-derek-parks",
-    url: `${BASE_URL}/team#derek-parks`,
-    description: "Derek Parks - Chief Estimator",
-    label: "DEREK PARKS",
-  },
-  {
-    name: "team-ben-woodall",
-    url: `${BASE_URL}/team#ben-woodall`,
-    description: "Ben Woodall - Estimator",
-    label: "BEN WOODALL",
-  },
-  {
-    name: "team-steve-mcclary",
-    url: `${BASE_URL}/team#steve-mcclary`,
-    description: "Steve McClary - Senior Superintendent",
-    label: "STEVE MCCLARY",
-  },
-  {
-    name: "team-arnold-garcia",
-    url: `${BASE_URL}/team#arnold-garcia`,
-    description: "Arnold Garcia - Field Superintendent",
-    label: "ARNOLD GARCIA",
-  },
-  {
-    name: "team-lisa-kandle",
-    url: `${BASE_URL}/team#lisa-kandle`,
-    description: "Lisa Kandle - Office Manager",
-    label: "LISA KANDLE",
-  },
-  {
-    name: "team-reagan-massey",
-    url: `${BASE_URL}/team#reagan-massey`,
-    description: "Reagan Massey - Executive Assistant",
-    label: "REAGAN MASSEY",
-  },
-  {
-    name: "team-brittney-holstein",
-    url: `${BASE_URL}/team#brittney-holstein`,
-    description: "Brittney Holstein - Project Coordinator",
-    label: "BRITTNEY HOLSTEIN",
-  },
-  {
-    name: "team-jennifer-tene",
-    url: `${BASE_URL}/team#jennifer-tene`,
-    description: "Jennifer Tene - Payroll & HR Coordinator",
-    label: "JENNIFER TENE",
-  },
-
   // Safety Program & Dashboard
   {
     name: "safety-dashboard",
-    url: `${BASE_URL}/safety/hub`,
+    url: `${BASE_URL}/safety`,
     description: "Safety Hub (Employee Operations)",
     label: "SAFETY HUB",
   },
@@ -614,10 +507,6 @@ function buildTeamQRCodes(teamData) {
 }
 
 function loadTeamQRCodes() {
-  const fallbackTeamCodes = QR_CODES.filter((qr) =>
-    qr.name.startsWith("team-"),
-  );
-
   for (const candidate of TEAM_DATA_PATHS) {
     if (!fs.existsSync(candidate)) continue;
 
@@ -652,17 +541,12 @@ function loadTeamQRCodes() {
     }
   }
 
-  console.warn(
-    "⚠ Could not load active team data; using fallback team QR list.",
-  );
-  return fallbackTeamCodes.map((qr) => ({ ...qr, folder: "team" }));
+  console.warn("⚠ Could not load active team data; skipping team QR entries.");
+  return [];
 }
 
 function buildFinalQRCodeList() {
-  // Replace static team entries with live team-data driven entries.
-  const withoutStaticTeams = QR_CODES.filter(
-    (qr) => !qr.name.startsWith("team-"),
-  );
+  const baseCodes = QR_CODES;
 
   // Build safety manual section entries — deep-link to cluster anchor.
   const safetySectionCodes = SAFETY_MANUAL_SECTIONS.map((s) => {
@@ -695,7 +579,7 @@ function buildFinalQRCodeList() {
   }));
 
   const merged = [
-    ...withoutStaticTeams,
+    ...baseCodes,
     ...safetySectionCodes,
     ...safetyFormCodes,
     ...handbookFormCodes,

@@ -164,7 +164,7 @@ referring to subcontractors creates confusion.
 
 ```text
 ✅ "Founded 2010, Veteran-Owned Since January 2025"
-✅ "Army veteran leadership brings military precision"
+✅ "Army veteran leadership brings execution discipline"
 ✅ "Our veteran-owned team understands discipline"
 ✅ "Purchased by Army veteran Jeremy Thamert in January 2025"
 ```
@@ -189,7 +189,7 @@ referring to subcontractors creates confusion.
 
 **PREFERRED Phrases:**
 
-- "military precision"
+- "execution discipline"
 - "military discipline"
 - "tactical briefing/assessment/planning"
 - "mission-focused"
@@ -198,7 +198,7 @@ referring to subcontractors creates confusion.
 **Examples of Correct Usage:**
 
 ```text
-✅ "Award-winning team bringing military precision to construction"
+✅ "Award-winning team bringing execution discipline to construction"
 ✅ "Mission-focused project execution"
 ✅ "Military discipline meets construction excellence"
 ✅ "Veteran leadership brings proven expertise"
@@ -208,7 +208,7 @@ referring to subcontractors creates confusion.
 
 - Use military terminology respectfully and appropriately
 - Don't over-militarize everyday construction terms
-- Balance military precision language with partnership warmth
+- Balance execution discipline language with partnership warmth
 
 **AVOID:**
 
@@ -338,7 +338,7 @@ Pasco, WA 99301
 
 ```text
 ✅ "Veteran-Owned Excellence"
-✅ "Award-winning team bringing military precision"
+✅ "Award-winning team bringing execution discipline"
 ✅ "Quality craftsmanship in every build"
 ✅ "Construction excellence"
 ✅ "Collaborative excellence"
@@ -538,7 +538,7 @@ Pasco, WA 99301
 #### Primary Slogan (UNIVERSAL - USE EVERYWHERE)
 
 ```text
-"Building projects for the Client, NOT the Dollar"
+"Clear planning. Accountable delivery."
 ```
 
 **Usage Rules:**
@@ -552,9 +552,9 @@ Pasco, WA 99301
 **Examples in Context:**
 
 ```text
-✓ "Building projects for the Client, NOT the Dollar - Our Core Philosophy"
-✓ "Where talent meets opportunity • Building projects for the Client, NOT the Dollar"
-✓ "Building projects for the Client, NOT the Dollar means being available when you need us"
+✓ "Clear planning. Accountable delivery. - Our Core Philosophy"
+✓ "Where talent meets opportunity • Clear planning. Accountable delivery."
+✓ "Clear planning. Accountable delivery. means being available when you need us"
 ```
 
 ---
@@ -562,27 +562,27 @@ Pasco, WA 99301
 #### Secondary Slogan (SPECIFIC USAGE)
 
 ```text
-"THE ROI IS THE RELATIONSHIP"
+"Built on communication and follow-through"
 ```
 
 **Usage Rules:**
 
 - PRIMARY USE: Trade Partners page ONLY
-- All caps: "THE ROI IS THE RELATIONSHIP"
+- All caps: "Built on communication and follow-through"
 - Emphasizes business value and mutual benefit
 - B2B focused messaging
 
 **Examples in Context:**
 
 ```text
-✅ "THE ROI IS THE RELATIONSHIP - and we prove it" (Trade Partners)
+✅ "Built on communication and follow-through - and we prove it" (Trade Partners)
 ```
 
 **DO NOT use on:**
 
-- ❌ Homepage (use "Building projects for the Client, NOT the Dollar")
-- ❌ About page (use "Building projects for the Client, NOT the Dollar")
-- ❌ Services page (use "Building projects for the Client, NOT the Dollar")
+- ❌ Homepage (use "Clear planning. Accountable delivery.")
+- ❌ About page (use "Clear planning. Accountable delivery.")
+- ❌ Services page (use "Clear planning. Accountable delivery.")
 
 ---
 
@@ -626,7 +626,7 @@ Use these based on page context and messaging group:
 ### Homepage Example (Correct)
 
 ```text
-✓ Hero: "Building projects for the Client, NOT the Dollar"
+✓ Hero: "Clear planning. Accountable delivery."
 ✅ Values: "Where handshakes matter and your word is your bond"
 ✅ Testimonials: "What Our Client Partners Say"
 ✅ CTA: "Partner with veteran-owned excellence"
@@ -635,16 +635,16 @@ Use these based on page context and messaging group:
 ### Trade Partners Page (Correct)
 
 ```text
-✅ Hero: "THE ROI IS THE RELATIONSHIP"
+✅ Hero: "Built on communication and follow-through"
 ✅ Benefits: "We treat our Trade Partners with integrity and respect"
-✓ Values: "Building projects for the Client, NOT the Dollar means treating partners fairly"
+✓ Values: "Clear planning. Accountable delivery. means treating partners fairly"
 ✅ CTA: "Join our Trade Partner network"
 ```
 
 ### Services Page (Correct)
 
 ```text
-✓ Hero: "Your Vision, Our Precision • Building projects for the Client, NOT the Dollar"
+✓ Hero: "Your Vision, Our Precision • Clear planning. Accountable delivery."
 ✅ Process: "We work WITH you to achieve your vision"
 ✅ Benefits: "You control it, we manage it—full visibility into every decision"
 ✅ Testimonials: "What Our Client Partners Say About Our Services"
@@ -700,11 +700,11 @@ Use these based on page context and messaging group:
 ### 5. Slogan Misuse
 
 ```text
-❌ "THE ROI IS THE RELATIONSHIP" on homepage (wrong context)
-✓ "Building projects for the Client, NOT the Dollar" on homepage
+❌ "Built on communication and follow-through" on homepage (wrong context)
+✓ "Clear planning. Accountable delivery." on homepage
 
 ❌ "Building for the Trade Partner" (never alter the slogan)
-✓ "Building projects for the Client, NOT the Dollar" (unchanged, with Trade Partner context explained separately)
+✓ "Clear planning. Accountable delivery." (unchanged, with Trade Partner context explained separately)
 ```
 
 ---
@@ -717,8 +717,8 @@ Use these based on page context and messaging group:
 - [ ] Veteran status: "Veteran-Owned" (capitalized, hyphenated)?
 - [ ] Location: States listed as WA, OR, ID (in that order)?
 - [ ] Safety: "0.6 EMR" with context (40% better)?
-- [ ] Primary slogan: "Building projects for the Client, NOT the Dollar" included?
-- [ ] "THE ROI IS THE RELATIONSHIP" ONLY on Trade Partners page?
+- [ ] Primary slogan: "Clear planning. Accountable delivery." included?
+- [ ] "Built on communication and follow-through" ONLY on Trade Partners page?
 - [ ] "You control it, we manage it" used for client empowerment?
 - [ ] "Work WITH" (not "work FOR") phrasing?
 - [ ] Technology balanced with personal relationship emphasis?
@@ -780,7 +780,7 @@ These frequencies indicate well-established terminology that should be maintaine
 
 1. "Client Partner" vs "client" distinction
 2. "Trade Partner" vs "Client Partner" distinction
-3. Primary slogan usage ("Building projects for the Client, NOT the Dollar")
+3. Primary slogan usage ("Clear planning. Accountable delivery.")
 4. "work WITH" vs "work FOR"
 
 ### Phase 2: Brand Identity (High Priority)

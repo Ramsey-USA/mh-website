@@ -31,9 +31,7 @@ export function AboutHero({
             <span className="block text-brand-secondary">{subtitle}</span>
             <span className="block text-brand-primary">{description}</span>
             <span className="block text-white/90">
-              Building projects for the Client,{" "}
-              <span className="font-black italic text-bronze-300">NOT</span> the
-              Dollar
+              Clear planning. Accountable delivery.
             </span>
           </h1>
         </div>

@@ -74,31 +74,31 @@ Website: [www.mhc-gc.com](https://www.mhc-gc.com)
 
 ## Brand Messaging
 
-### Primary Slogan (Mission)
+### Primary Strategy Line (Mission)
 
 ```text
-Building projects for the Client, NOT the Dollar
+Clear planning. Accountable delivery.
 ```
 
-**CRITICAL:** Always capitalize "Client" — it emphasizes client-centricity.
+**CRITICAL:** Keep punctuation and capitalization exactly as shown.
 
 **Correct:**
 
-- ✅ "Building projects for the Client, NOT the Dollar"
+- ✅ "Clear planning. Accountable delivery."
 
 **Incorrect:**
 
-- ❌ "Building projects for the client, NOT the dollar"
-- ❌ "Building Projects for the Client, NOT the Dollar"
-- ❌ "Building projects for the Client, not the Dollar"
+- ❌ "clear planning. accountable delivery."
+- ❌ "Clear planning, accountable delivery"
+- ❌ "Clear planning and accountable delivery"
 
-### Secondary Slogan (Partnership)
+### Secondary Strategy Line (Partnership)
 
 ```text
-THE ROI IS THE RELATIONSHIP
+Built on communication and follow-through
 ```
 
-**Usage:** Supporting slogan for partnership-focused messaging.
+**Usage:** Supporting line for partnership-focused messaging.
 
 ### Vision Statement
 

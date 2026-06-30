@@ -39,7 +39,7 @@ const generalContractorSchema = {
     "@type": "State",
     name: "Washington",
   },
-  slogan: "Founded 2010, Veteran-Owned Since January 2025",
+  slogan: "Relationship-first planning with disciplined project delivery",
 };
 
 export default async function ContactPage() {

@@ -15,7 +15,7 @@ const SITE_URL = "https://www.mhc-gc.com";
 export const metadata: Metadata = withGeoMetadata({
   title: "Safety Program | 0.64 EMR | AGC-WA Award | MH Construction Tri-State",
   description:
-    "MH Construction's safety program — 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, and 50-section written safety program. Veteran-Owned Since January 2025. Tri-State licensed in WA, OR, and ID with Tri-Cities headquarters in Pasco, Richland, and Kennewick.",
+    "MH Construction's safety program — 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written safety program aligned for WA, OR, and ID operations.",
   keywords: [
     "MH Construction safety culture",
     "zero incident culture construction",
@@ -44,7 +44,7 @@ export const metadata: Metadata = withGeoMetadata({
   openGraph: {
     title: "Safety Program | 0.64 EMR, AGC-WA Award | MH Construction",
     description:
-      "Safety is a value, not a rule. 0.64 EMR (40% below industry avg), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written safety program. Veteran-Owned Since January 2025.",
+      "Safety is a value, not a rule. 0.64 EMR (40% below industry avg), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written safety program.",
     url: `${SITE_URL}/safety`,
     siteName: "MH Construction",
     type: "website",
@@ -64,7 +64,7 @@ export const metadata: Metadata = withGeoMetadata({
     creator: "@mhc_gc",
     title: "Safety Program | 0.64 EMR | MH Construction",
     description:
-      "0.64 EMR — 40% better than industry average. OSHA VPP Star designation. AGC-WA Top EMR Award. Veteran-Owned Since January 2025.",
+      "0.64 EMR — 40% better than industry average. OSHA VPP Star designation. AGC-WA Top EMR Award.",
     images: [`${SITE_URL}/images/safety/safety-culture.webp`],
   },
   robots: {
@@ -188,7 +188,7 @@ const safetyFaqSchema = {
       name: "What does veteran-owned mean for MH Construction's safety culture?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "MH Construction became Veteran-Owned in January 2025 under Army veteran Jeremy Thamert. Veteran leadership applies the military principle that consistent daily habits — not sporadic rules — are what keep people safe. This service-earned discipline is embedded in every toolbox talk, JHA, and site inspection we conduct.",
+        text: "MH Construction became Veteran-Owned in January 2025 under Army veteran Jeremy Thamert. Veteran leadership applies the military principle that consistent daily habits — not sporadic rules — are what keep people safe. This disciplined approach is embedded in every toolbox talk, JHA, and site inspection we conduct.",
       },
     },
   ],
@@ -397,7 +397,7 @@ export default function SafetyPage() {
                 Zero-Incident Operations | Mission-Critical Safety Culture
               </span>
               <span className="block text-white/90">
-                Building projects for the Client, NOT the Dollar
+                Field controls first. Production follows.
               </span>
             </h1>
           </div>

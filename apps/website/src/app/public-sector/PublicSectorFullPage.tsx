@@ -51,21 +51,13 @@ const InteractiveGrantSelector = dynamic(
     ),
   },
 );
-const NextStepsSection = dynamic(
-  () =>
-    import("@/components/shared-sections").then((mod) => ({
-      default: mod.NextStepsSection,
-    })),
-  { ssr: true },
-);
-
 // Federal contracting services
 const grantSupportServices = [
   {
     icon: "military_tech",
-    title: "Mission-Critical Cost Analysis",
+    title: "Cost Analysis",
     description:
-      "Military-grade accuracy in cost estimation ensuring reliable fiscal projections for federal procurement",
+      "Disciplined cost estimation for reliable fiscal projections in government procurement",
     features: [
       "Detailed line-item cost breakdowns per federal standards",
       "Material cost projections with supply chain risk analysis",
@@ -76,9 +68,9 @@ const grantSupportServices = [
   },
   {
     icon: "gps_fixed",
-    title: "Design & Operational Validation",
+    title: "Design Validation",
     description:
-      "Comprehensive technical assessment ensuring mission readiness and operational effectiveness",
+      "Technical assessment to confirm constructability, schedule realism, and execution readiness",
     features: [
       "Constructability review and tactical analysis",
       "Mission feasibility studies and site security assessments",
@@ -89,9 +81,9 @@ const grantSupportServices = [
   },
   {
     icon: "verified",
-    title: "Federal Compliance Assurance",
+    title: "Compliance Assurance",
     description:
-      "Navigate complex federal regulations with veteran expertise, disciplined planning, and clear documentation",
+      "Navigate public-sector requirements with disciplined planning and clear documentation",
     features: [
       "Federal acquisition regulation (FAR) compliance review",
       "Security clearance coordination and documentation",
@@ -121,7 +113,7 @@ const governmentProjects = [
       "Federal Office Buildings",
       "Emergency Operations Centers",
       "Administrative Command Centers",
-      "Secure Government Facilities",
+      "Secure Public Facilities",
     ],
   },
   {
@@ -141,7 +133,7 @@ const governmentProjects = [
       "Veterans Service Centers",
       "Public Health Command",
       "Emergency Response Centers",
-      "Mission Support Hubs",
+      "Support Hubs",
     ],
   },
   {
@@ -151,7 +143,7 @@ const governmentProjects = [
       "Utilities Command Centers",
       "Maintenance Operations",
       "Security Support Facilities",
-      "Emergency Construction Services",
+      "Emergency Facility Support",
     ],
   },
   {
@@ -161,7 +153,7 @@ const governmentProjects = [
       "Security Support Facilities",
       "Administrative Command Centers",
       "Operational Training Centers",
-      "Mission-Critical Safety Systems",
+      "Critical Safety Systems",
     ],
   },
 ];
@@ -191,7 +183,7 @@ const grantTypes = [
     ],
   },
   {
-    category: "Mission-Critical Projects",
+    category: "Critical Infrastructure Projects",
     icon: "star",
     programs: [
       "Security-Enhanced Facilities",
@@ -207,37 +199,34 @@ const grantTypes = [
 const processSteps = [
   {
     step: 1,
-    title: "Mission Assessment",
+    title: "Scope Assessment",
     description:
-      "Review federal requirements, assess operational feasibility, and establish command timeline",
+      "Review project requirements, feasibility, and timeline assumptions",
     icon: "campaign",
   },
   {
     step: 2,
-    title: "Tactical Cost Analysis",
-    description:
-      "Develop detailed cost projections and prepare comprehensive fiscal documentation",
+    title: "Cost Analysis",
+    description: "Develop detailed cost projections and fiscal documentation",
     icon: "military_tech",
   },
   {
     step: 3,
     title: "Technical Validation",
     description:
-      "Validate specifications and provide operational constructability analysis",
+      "Validate specifications and constructability before execution",
     icon: "gps_fixed",
   },
   {
     step: 4,
     title: "Compliance Verification",
-    description:
-      "Ensure all federal regulations and operational requirements are met",
+    description: "Confirm required regulations and documentation are complete",
     icon: "verified",
   },
   {
     step: 5,
-    title: "Mission Execution",
-    description:
-      "Final documentation review and operational deployment support",
+    title: "Execution Support",
+    description: "Finalize documentation and support project mobilization",
     icon: "rocket_launch",
   },
 ];
@@ -247,20 +236,19 @@ const hanfordCapabilities = [
   {
     icon: "verified_user",
     title: "Security Operations Coordination",
-    description:
-      "Clearance protocols and federal security compliance expertise",
+    description: "Clearance protocols and security compliance coordination",
   },
   {
     icon: "balance",
     title: "Federal Acquisition Compliance",
     description:
-      "Department of Energy and federal procurement regulation expertise",
+      "Department of Energy and public procurement compliance support",
   },
   {
     icon: "health_and_safety",
     title: "Award-Winning Safety Protocols",
     description:
-      ".64 EMR award-winning safety record (40% better than industry), OSHA VPP Star designation, and mission-specific safety system implementation",
+      ".64 EMR performance (40% better than industry), OSHA VPP Star designation, and disciplined safety system implementation",
   },
   {
     icon: "diversity_3",
@@ -277,7 +265,7 @@ const hanfordCapabilities = [
     icon: "workspace_premium",
     title: "Military-Grade Quality Assurance",
     description:
-      "Award-winning quality control exceeding federal standards with 150+ years combined team experience",
+      "Quality control aligned to strict public-sector standards and documented review workflows",
   },
 ];
 
@@ -285,27 +273,25 @@ const hanfordCapabilities = [
 const successFactors = [
   {
     icon: "description",
-    title: "Military-Grade Documentation",
-    description:
-      "Federal-standard formatting and complete operational specifications",
+    title: "Documentation Standards",
+    description: "Public-sector formatting and complete project specifications",
   },
   {
     icon: "schedule",
-    title: "Mission-Critical Timelines",
+    title: "Schedule Control",
     description:
-      "Operational schedules with tactical contingencies and detailed planning",
+      "Operational schedules with contingencies and detailed planning",
   },
   {
     icon: "verified_user",
     title: "Federal Compliance Verification",
-    description:
-      "All requirements thoroughly addressed with supporting documentation",
+    description: "Requirements addressed with supporting documentation",
   },
   {
     icon: "military_tech",
     title: "Veteran-Owned Qualified Contractor",
     description:
-      "Founded 2010, Veteran-Owned Since January 2025 when Army veteran Jeremy Thamert purchased the company, bringing proven federal contracting capabilities and 150+ years combined team experience",
+      "Veteran-led leadership with established public-sector controls, documented process discipline, and accountable delivery oversight",
   },
 ];
 
@@ -328,19 +314,17 @@ export default function PublicSectorFullPage() {
           <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
             <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                Public Sector → Government
+                Public Sector Construction
               </span>
               <span className="block text-brand-secondary">
-                Veteran-Owned Excellence for Government Construction Missions
+                Veteran-Owned Government Construction
               </span>
               <span className="block text-brand-primary">
-                Mission-Ready Construction Operations - Federal
-                Compliance-Driven
+                Federal Compliance-Driven Delivery
               </span>
               <span className="block text-white/90">
-                Building projects for the Client,{" "}
-                <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the dollar
+                Built for agency requirements, schedule discipline, and clear
+                reporting
               </span>
             </h1>
           </div>
@@ -398,18 +382,8 @@ export default function PublicSectorFullPage() {
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                 Army-veteran-led team
               </span>{" "}
-              delivers mission-critical construction services with unwavering
-              commitment to federal specifications, operational success,{" "}
-              <span className="font-bold text-gray-900 dark:text-white">
-                award-winning safety (.64 EMR)
-              </span>
-              {
-                ", and transparent open-book partnership throughout the application and execution process—Building projects for the client, "
-              }
-              <span className="font-black italic text-bronze-600 dark:text-bronze-400">
-                NOT
-              </span>{" "}
-              the dollar with 150+ years combined experience.
+              delivers compliance-ready construction with clear cost visibility,
+              .64 EMR safety performance, and documented controls.
             </p>
           </div>
 
@@ -483,7 +457,7 @@ export default function PublicSectorFullPage() {
             icon: "payments",
             tagline: "Federal Wage Standards",
             description:
-              "Full compliance with Davis-Bacon and Related Acts (DBRA) prevailing wage requirements for federal construction projects. Certified payroll documentation, wage determination expertise, and meticulous record-keeping ensure all federal labor standards are met with disciplined execution and complete transparency.",
+              "Compliance with Davis-Bacon and Related Acts (DBRA) prevailing wage requirements. Certified payroll documentation, wage determination support, and disciplined record-keeping keep labor standards on track.",
             image: "/images/compliance/prevailing-wage.webp",
             iconBg: "bg-brand-primary",
             stats: "100%",
@@ -495,7 +469,7 @@ export default function PublicSectorFullPage() {
             icon: "verified_user",
             tagline: "Financial Security Assurance",
             description:
-              "Comprehensive bonding capacity and insurance coverage meeting all federal requirements. Performance bonds, payment bonds, bid bonds, and professional liability insurance ensure complete financial protection for government projects. Our bonding relationships and insurance portfolio demonstrate financial stability and commitment to federal contracting excellence.",
+              "Bonding capacity and insurance coverage aligned to public-sector requirements. Performance, payment, and bid bonds plus liability coverage support financial protection for government projects.",
             image: "/images/compliance/bonding.webp",
             iconBg: "bg-brand-secondary",
             stats: "$8M+",
@@ -507,7 +481,7 @@ export default function PublicSectorFullPage() {
             icon: "health_and_safety",
             tagline: "OSHA VPP Star Designation",
             description:
-              ".64 EMR safety rating—40% better than industry average—with OSHA VPP Star designation and multiple AGC-WA Top EMR Awards. Zero time-loss injuries for 3+ consecutive years. Our military-grade safety protocols, comprehensive training programs, and daily safety briefings exceed all federal safety requirements and ensure mission-critical project execution without compromise.",
+              ".64 EMR safety rating (40% better than industry average), OSHA VPP Star designation, and multiple AGC-WA Top EMR Awards. Safety protocols, training programs, and daily briefings support compliant project execution.",
             image: "/images/compliance/safety.webp",
             iconBg: "bg-bronze-700",
             stats: ".64",
@@ -519,7 +493,7 @@ export default function PublicSectorFullPage() {
             icon: "military_tech",
             tagline: "Service-Earned Values",
             description:
-              "Veteran-Owned Since January 2025 when Army veteran Jeremy Thamert purchased the company, bringing 15+ years military aviation experience and operational discipline. We are a dedicated supporter of the Build America, Buy America Act (BABAA), a federal domestic-content requirement for certain federally funded infrastructure projects, and we stay current on compliance-forward practices through AGC resources. We also actively recruit veterans, offer veteran hiring initiatives, and maintain veteran preference in employment decisions. Our values translate to disciplined execution, transparent communication, and unwavering commitment to federal project success.",
+              "Veteran-led since January 2025 under Army veteran Jeremy Thamert, bringing 15+ years of military aviation experience and operational discipline. We support the Build America, Buy America Act (BABAA), stay current through AGC resources, and maintain veteran hiring initiatives with clear execution standards.",
             image: "/images/compliance/veteran-owned.webp",
             iconBg: "bg-brand-primary",
             stats: "2025",
@@ -535,17 +509,15 @@ export default function PublicSectorFullPage() {
         icon="verified"
         description={
           <>
-            Navigate complex federal regulations with{" "}
+            Navigate complex regulations with{" "}
             <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              Veteran-Owned expertise and disciplined execution
+              veteran-led oversight and disciplined execution
             </span>
-            . Our comprehensive compliance programs, award-winning safety
-            record, and{" "}
+            . Compliance programs, proven safety performance, and{" "}
             <span className="font-bold text-gray-900 dark:text-white">
-              proven federal contracting capabilities
+              demonstrated public-sector capabilities
             </span>{" "}
-            ensure every government project meets or exceeds all federal
-            requirements with complete transparency and accountability.
+            support transparent, accountable delivery.
           </>
         }
         sectionId="compliance"
@@ -594,14 +566,14 @@ export default function PublicSectorFullPage() {
                 <span className="font-bold text-brand-primary-light">
                   Proven operational excellence
                 </span>{" "}
-                in high-security DOE and Hanford environments with comprehensive
-                understanding of federal compliance requirements,{" "}
+                in high-security DOE and Hanford environments with clear
+                understanding of compliance requirements,{" "}
                 <span className="font-bold text-white">
-                  award-winning safety protocols (.64 EMR—40% better than
+                  award-winning safety protocols (.64 EMR - 40% better than
                   industry)
                 </span>
                 {
-                  ", mission-critical construction protocols, and Veteran-Owned reliability since January 2025."
+                  ", disciplined construction protocols, and Veteran-Owned reliability since January 2025."
                 }
               </p>
             </div>
@@ -665,12 +637,12 @@ export default function PublicSectorFullPage() {
                     </h3>
                     <div className="gap-4 grid md:grid-cols-2">
                       {[
-                        "Mission-critical facility construction",
+                        "Critical facility construction",
                         "Administrative facility security upgrades",
                         "Training facility operational development",
-                        "Infrastructure tactical improvements",
+                        "Infrastructure improvements",
                         "Safety system mission installations",
-                        "Emergency rapid response construction",
+                        "Emergency response construction",
                       ].map((item) => (
                         <div
                           key={item}
@@ -728,10 +700,9 @@ export default function PublicSectorFullPage() {
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                 Proven execution
               </span>{" "}
-              across federal, state, and mission-critical construction contracts
-              with{" "}
+              across federal, state, and critical infrastructure contracts with{" "}
               <span className="font-bold text-gray-900 dark:text-white">
-                Veteran-Owned expertise and award-winning safety record.
+                agency-focused controls and award-winning safety performance.
               </span>
             </p>
           </div>
@@ -773,11 +744,12 @@ export default function PublicSectorFullPage() {
 
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  Five-phase military approach
+                  Five-phase approach
                 </span>{" "}
-                to federal contract success backed by{" "}
+                to public-sector delivery backed by{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  Army veteran leadership and award-winning execution.
+                  defined controls, milestone reporting, and disciplined
+                  execution.
                 </span>
               </p>
             </div>
@@ -862,9 +834,10 @@ export default function PublicSectorFullPage() {
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                 Licensed and mission-ready
               </span>{" "}
-              across diverse federal and government facility projects with{" "}
+              across government facility project types with{" "}
               <span className="font-bold text-gray-900 dark:text-white">
-                Veteran-Owned precision and 150+ years combined team experience.
+                disciplined planning, scope clarity, and documented quality
+                controls.
               </span>
             </p>
           </div>
@@ -961,8 +934,8 @@ export default function PublicSectorFullPage() {
                 </span>{" "}
                 and how we deliver with{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  award-winning safety, Veteran-Owned leadership, and
-                  transparent open-book partnership.
+                  award-winning safety, veteran leadership, and accountable
+                  project controls.
                 </span>
               </p>
             </div>
@@ -1055,14 +1028,14 @@ export default function PublicSectorFullPage() {
               <p className="mx-auto max-w-5xl mb-8 font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 Partner with{" "}
                 <span className="font-bold text-brand-primary-light">
-                  Army veteran leadership
+                  veteran leadership
                 </span>{" "}
                 for{" "}
                 <span className="font-bold text-white">
                   clear planning and compliant delivery
                 </span>
                 {
-                  ". Contact our team to discuss your government construction requirements and next steps."
+                  ". Contact our team to discuss project requirements and next steps."
                 }
               </p>
             </div>
@@ -1167,7 +1140,7 @@ export default function PublicSectorFullPage() {
                   href: "/veterans/public-sector-construction",
                   title: "Veteran Public Sector Path",
                   detail:
-                    "Connect veteran-led values to government delivery planning.",
+                    "Connect veteran-led values to public-sector delivery planning.",
                 },
                 {
                   href: "/public-sector/veteran-led-compliance",
@@ -1179,7 +1152,7 @@ export default function PublicSectorFullPage() {
                   href: "/public-sector/tri-state-government-construction",
                   title: "Tri-State Coverage",
                   detail:
-                    "Align WA, OR, and ID market coverage with project strategy.",
+                    "Align WA, OR, and ID coverage with project strategy.",
                 },
               ].map((bridge) => (
                 <TrackedBridgeLink
@@ -1242,8 +1215,6 @@ export default function PublicSectorFullPage() {
           </AccreditationsLogoRow>
         </div>
       </section>
-      {/* Next Steps Section - Standardized Final CTA */}
-      <NextStepsSection />
     </div>
   );
 }
