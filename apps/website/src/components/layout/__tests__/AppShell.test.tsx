@@ -34,8 +34,8 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
 }));
 
 jest.mock("@/components/ui/cta", () => ({
-  SmokeBossFunnel: () => (
-    <aside data-testid="smoke-boss-funnel">Smoke Boss Funnel</aside>
+  EventsHubBanner: () => (
+    <aside data-testid="events-hub-banner">Events Hub Banner</aside>
   ),
 }));
 
@@ -130,7 +130,7 @@ describe("AppShell", () => {
       </AppShell>,
     );
 
-    const funnel = await screen.findByTestId("smoke-boss-funnel");
+    const funnel = await screen.findByTestId("events-hub-banner");
     const hero = screen.getByTestId("page-hero");
     const slotAfterHero = hero.nextElementSibling as HTMLElement | null;
 

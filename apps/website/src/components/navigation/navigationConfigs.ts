@@ -310,7 +310,7 @@ export const navigationConfigs = {
 
   coolDesertNights: [
     {
-      href: "#event-update",
+      href: "#event-overview",
       label: "Overview",
       mobileLabel: "Overview",
       icon: "event",

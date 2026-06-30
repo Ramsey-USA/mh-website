@@ -56,21 +56,21 @@ describe("SmokeBossFunnel", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Meet the Smoke Boss at Cool Desert Nights/i,
+        name: /Explore Sponsored and Hosted Events/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /View Event Briefing/i }),
+      screen.getByRole("link", { name: /Explore Events Hub/i }),
     ).toHaveAttribute("href", "/events");
   });
 
-  it("does not render after mission complete", () => {
+  it("does not render after campaign completion", () => {
     mockUseSmokeBossCampaignStatus.mockReturnValue({ isMissionComplete: true });
     const { container } = render(<SmokeBossFunnel />);
     expect(container).toBeEmptyDOMElement();
   });
 
-  it("does not render on the mission page route", () => {
+  it("does not render on the featured event route", () => {
     mockUsePathname.mockReturnValue("/cool-desert-nights");
     const { container } = render(<SmokeBossFunnel />);
     expect(container).toBeEmptyDOMElement();

@@ -8,39 +8,47 @@ import { CoolDesertNightsPageClient } from "./CoolDesertNightsPageClient";
 
 export const metadata: Metadata = withGeoMetadata({
   title:
-    "Base HQ - Events | Cool Desert Nights 2026 Briefing | MH Construction",
+    "Cool Desert Nights 2026 Archive | Smoke n Shine Placements | MH Construction",
   description:
-    "Base HQ - Events briefing for Cool Desert Nights 2026: official schedule links, leadership coordination, and relationship-first pathways backed by MH Construction's service-earned values.",
+    "Archive page for MH Construction's Cool Desert Nights 2026 participation, including Smoke n Shine placement highlights and event recap. For current and upcoming sponsored or hosted activities, visit the MH Construction Events hub.",
+  keywords: [
+    "Cool Desert Nights 2026",
+    "Smoke n Shine placements",
+    "MH Construction event archive",
+    "Tri-Cities community event recap",
+    "Pasco Richland Kennewick events",
+    "construction community events",
+  ],
   alternates: {
     canonical: "https://www.mhc-gc.com/cool-desert-nights",
   },
   openGraph: {
     title:
-      "Base HQ - Events | Cool Desert Nights 2026 Briefing | MH Construction",
+      "Cool Desert Nights 2026 Archive | Smoke n Shine Placements | MH Construction",
     description:
-      "Base HQ - Events briefing for Cool Desert Nights 2026 with official schedule links, leadership coordination, and relationship-first pathways.",
+      "Archive recap of Cool Desert Nights 2026 and Smoke n Shine placements from MH Construction. For current and upcoming events, visit the Events hub.",
     url: "https://www.mhc-gc.com/cool-desert-nights",
     images: [
       {
         url: "/images/events/cool-desert-nights/cool-desert-nights-2026.webp",
         width: 1200,
         height: 630,
-        alt: "MH Construction Cool Desert Nights 2026 event briefing",
+        alt: "MH Construction Cool Desert Nights 2026 archive highlights",
       },
       {
         url: "/images/og-default.webp",
         width: 1200,
         height: 630,
-        alt: "MH Construction at Cool Desert Nights 2026",
+        alt: "MH Construction community event archive",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Base HQ - Events | Cool Desert Nights 2026 Briefing | MH Construction",
+      "Cool Desert Nights 2026 Archive | Smoke n Shine Placements | MH Construction",
     description:
-      "Base HQ - Events briefing for Cool Desert Nights 2026 with official schedule links, leadership coordination, and relationship-first pathways.",
+      "Archive recap of Cool Desert Nights 2026 and Smoke n Shine placements from MH Construction.",
     images: [
       "/images/events/cool-desert-nights/cool-desert-nights-2026.webp",
       "/images/og-default.webp",

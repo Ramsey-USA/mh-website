@@ -45,6 +45,10 @@ export const breadcrumbPatterns = {
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "Contact", url: "https://www.mhc-gc.com/contact" },
   ],
+  events: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Events", url: "https://www.mhc-gc.com/events" },
+  ],
   // Removed: booking breadcrumb (feature deprecated Dec 2025)
   careers: [
     { name: "Home", url: "https://www.mhc-gc.com" },

@@ -10,7 +10,7 @@ import {
   SemiquincentennialBanner,
 } from "@/components/layout";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { SmokeBossFunnel } from "@/components/ui/cta";
+import { EventsHubBanner } from "@/components/ui/cta";
 import { usePWA } from "@/hooks/usePWA";
 
 interface AppShellProps {
@@ -24,7 +24,7 @@ const QUICK_ACTIONS = [
   { label: "Resources", href: "/resources", icon: "menu_book" },
 ] as const;
 
-function SmokeBossAfterHeroSlot() {
+function EventsHubAfterHeroSlot() {
   const pathname = usePathname();
   const [slot, setSlot] = useState<HTMLElement | null>(null);
 
@@ -74,7 +74,7 @@ function SmokeBossAfterHeroSlot() {
       }
 
       createdSlot = document.createElement("div");
-      createdSlot.dataset["smokeBossAfterHero"] = "true";
+      createdSlot.dataset["eventsHubAfterHero"] = "true";
       anchor.after(createdSlot);
       setSlot(createdSlot);
     };
@@ -93,7 +93,7 @@ function SmokeBossAfterHeroSlot() {
 
   if (!slot) return null;
 
-  return createPortal(<SmokeBossFunnel />, slot);
+  return createPortal(<EventsHubBanner />, slot);
 }
 
 export function AppShell({ children }: Readonly<AppShellProps>) {
@@ -147,7 +147,7 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
             className="grow pt-[var(--mh-nav-offset,6.5rem)]"
           >
             {children}
-            <SmokeBossAfterHeroSlot />
+            <EventsHubAfterHeroSlot />
           </main>
           <SemiquincentennialBanner />
           <Footer />
@@ -198,7 +198,7 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
           className="grow pt-[calc(var(--mh-nav-offset,6.5rem)+var(--mh-pwa-nav-offset,0px)+1rem)]"
         >
           {children}
-          <SmokeBossAfterHeroSlot />
+          <EventsHubAfterHeroSlot />
         </main>
 
         <SemiquincentennialBanner />

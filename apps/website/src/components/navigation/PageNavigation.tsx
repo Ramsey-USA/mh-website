@@ -37,7 +37,7 @@ const ALL_SITE_PAGES_EN = [
   { href: "/services", label: "Services", description: "Operations" },
   { href: "/projects", label: "Projects", description: "Portfolio" },
   { href: "/contact", label: "Contact", description: "Rally Point" },
-  { href: "/events", label: "Events", description: "Upcoming Missions" },
+  { href: "/events", label: "Events", description: "Upcoming Events" },
   {
     href: "/testimonials",
     label: "Reviews",
@@ -64,7 +64,7 @@ const ALL_SITE_PAGES_ES = [
   { href: "/services", label: "Servicios", description: "Operaciones" },
   { href: "/projects", label: "Proyectos", description: "Portafolio" },
   { href: "/contact", label: "Contacto", description: "Punto de reunion" },
-  { href: "/events", label: "Eventos", description: "Misiones proximas" },
+  { href: "/events", label: "Eventos", description: "Proximos eventos" },
   { href: "/testimonials", label: "Reseñas", description: "Reconocimientos" },
   {
     href: "/team",
@@ -135,7 +135,7 @@ export function PageNavigation({
 
   const moreLabel = locale === "es" ? "Más" : "More";
   const morePagesLabel = locale === "es" ? "Más páginas" : "More pages";
-  const overlayEyebrow = locale === "es" ? "Informe de campo" : "Field Brief";
+  const overlayEyebrow = locale === "es" ? "Acceso rápido" : "Quick Access";
   const overlayTitle =
     locale === "es" ? "Navegación del sitio" : "Site Navigation";
   const closeMenuLabel = locale === "es" ? "Cerrar menú" : "Close menu";

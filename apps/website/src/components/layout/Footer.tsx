@@ -87,7 +87,7 @@ const navCol1Links: FooterNavItem[] = [
     href: "/events",
     icon: "event",
     label: "Events",
-    sub: "Field Brief",
+    sub: "Community Events",
   },
   {
     href: "/resources",
@@ -276,7 +276,7 @@ const navCol1TranslationsEs: Record<string, { label: string; sub: string }> = {
   "/projects": { label: "Proyectos", sub: "Portafolio" },
   "/events": {
     label: "Eventos",
-    sub: "Informe de campo",
+    sub: "Eventos comunitarios",
   },
   "/resources": { label: "Recursos", sub: "Inteligencia de campo" },
   "/safety": { label: "Seguridad", sub: "Proteccion operativa" },

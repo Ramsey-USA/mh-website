@@ -29,7 +29,7 @@ export const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
     {
       href: "/events",
       label: "Events",
-      subLabel: "Field Brief",
+      subLabel: "Community Events",
       icon: "event",
     },
     {
@@ -122,7 +122,7 @@ export const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
     {
       href: "/events",
       label: "Eventos",
-      subLabel: "Informe de campo",
+      subLabel: "Eventos comunitarios",
       icon: "event",
     },
     {
