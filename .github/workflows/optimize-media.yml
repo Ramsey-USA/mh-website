@@ -3,15 +3,15 @@ name: Optimize Images & Videos
 on:
   push:
     paths:
-      - "public/images/**"
-      - "public/videos/**"
+      - "apps/website/public/images/**"
+      - "apps/website/public/videos/**"
     branches:
       - main
       - develop
   pull_request:
     paths:
-      - "public/images/**"
-      - "public/videos/**"
+      - "apps/website/public/images/**"
+      - "apps/website/public/videos/**"
 
 jobs:
   optimize:
@@ -52,21 +52,21 @@ jobs:
         uses: tj-actions/changed-files@v46.0.1
         with:
           files: |
-            public/images/**/*.{png,jpg,jpeg}
-            public/videos/**/*.{mp4,mov,avi,webm}
+            apps/website/public/images/**/*.{png,jpg,jpeg}
+            apps/website/public/videos/**/*.{mp4,mov,avi,webm}
 
       - name: Optimize Images
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
           echo "🖼️ Optimizing images..."
-          npm run optimize:images -- --ci
+          pnpm --filter @mhc/website run optimize:images -- --ci
           echo "✅ Image optimization complete"
 
       - name: Optimize Videos
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
           echo "🎥 Optimizing videos..."
-          npm run optimize:videos -- --ci
+          pnpm --filter @mhc/website run optimize:videos -- --ci
           echo "✅ Video optimization complete"
 
       - name: Check for changes
@@ -87,10 +87,10 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
           # Add all optimized files
-          git add public/images/**/*.webp || true
-          git add public/videos/**/*.webm || true
-          git add public/videos/**/*.mp4 || true
-          git add public/videos/**/poster-*.jpg || true
+          git add apps/website/public/images/**/*.webp || true
+          git add apps/website/public/videos/**/*.webm || true
+          git add apps/website/public/videos/**/*.mp4 || true
+          git add apps/website/public/videos/**/poster-*.jpg || true
 
           # Create detailed commit message
           OPTIMIZED_COUNT=$(git diff --cached --numstat | wc -l)
@@ -117,8 +117,8 @@ jobs:
       - name: Enforce video size budget
         run: |
           echo "📏 Checking video file size budgets (WebM ≤ 10 MB, MP4 ≤ 15 MB)..."
-          OVERSIZED_WEBM=$(find public/videos -name "*.webm" -size +10M 2>/dev/null)
-          OVERSIZED_MP4=$(find public/videos -name "*.mp4" -size +15M 2>/dev/null)
+          OVERSIZED_WEBM=$(find apps/website/public/videos -name "*.webm" -size +10M 2>/dev/null)
+          OVERSIZED_MP4=$(find apps/website/public/videos -name "*.mp4" -size +15M 2>/dev/null)
           FAIL=false
           if [ -n "$OVERSIZED_WEBM" ]; then
             echo "❌ WebM files exceeding the 10 MB limit:"
@@ -146,7 +146,7 @@ jobs:
       - name: Enforce 500 KB image size budget
         run: |
           echo "📏 Checking WebP file size budget (max 500 KB per file)..."
-          OVERSIZED=$(find public/images -name "*.webp" -size +500k 2>/dev/null)
+          OVERSIZED=$(find apps/website/public/images -name "*.webp" -size +500k 2>/dev/null)
           if [ -n "$OVERSIZED" ]; then
             echo "❌ The following WebP files exceed the 500 KB limit:"
             echo "$OVERSIZED" | while read f; do
@@ -165,9 +165,9 @@ jobs:
           echo "## 📊 Media Optimization Report" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Images Optimized" >> $GITHUB_STEP_SUMMARY
-          find public/images -type f -name "*.webp" 2>/dev/null | wc -l >> $GITHUB_STEP_SUMMARY || echo "0" >> $GITHUB_STEP_SUMMARY
+          find apps/website/public/images -type f -name "*.webp" 2>/dev/null | wc -l >> $GITHUB_STEP_SUMMARY || echo "0" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Videos Optimized" >> $GITHUB_STEP_SUMMARY
-          find public/videos -type f -name "*.webm" 2>/dev/null | wc -l >> $GITHUB_STEP_SUMMARY || echo "0" >> $GITHUB_STEP_SUMMARY
+          find apps/website/public/videos -type f -name "*.webm" 2>/dev/null | wc -l >> $GITHUB_STEP_SUMMARY || echo "0" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "✅ All media assets optimized for web delivery" >> $GITHUB_STEP_SUMMARY

@@ -2,14 +2,14 @@
 # ──────────────────────────────────────────────────────────────────────────────
 # scripts/r2-seed-pdfs.sh
 #
-# Migrate PDFs from public/docs/ to the FILE_ASSETS R2 bucket
+# Migrate PDFs from apps/website/public/docs/ to the FILE_ASSETS R2 bucket
 # (mh-construction-assets) under the "docs/" key prefix.
 #
 # This script:
-#   1. Uploads all PDFs from public/docs/ to R2
+#   1. Uploads all PDFs from apps/website/public/docs/ to R2
 #   2. Updates the CI workflow to upload to R2 instead of committing
-#   3. Adds public/docs/ to .gitignore
-#   4. Removes public/docs/ from git tracking
+#   3. Adds apps/website/public/docs/ to .gitignore
+#   4. Removes apps/website/public/docs/ from git tracking
 #
 # Prerequisites:
 #   - wrangler CLI installed and authenticated
@@ -21,8 +21,11 @@
 # ──────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
+ROOT_DIR="$(git rev-parse --show-toplevel)"
+cd "$ROOT_DIR"
+
 BUCKET="mh-construction-assets"
-SRC="public/docs"
+SRC="apps/website/public/docs"
 FULL_MIGRATION="${1:-}"
 
 if [ ! -d "$SRC" ]; then
@@ -65,16 +68,16 @@ if [ "$FULL_MIGRATION" != "--full" ]; then
 fi
 
 # ── Step 3: Remove from git ─────────────────────────────────────────────────
-echo "🗑️  Removing public/docs/ from git tracking..."
+echo "🗑️  Removing apps/website/public/docs/ from git tracking..."
 
 # Add to .gitignore if not already there
-if ! grep -q "^public/docs/" .gitignore 2>/dev/null; then
+if ! grep -q "^apps/website/public/docs/" .gitignore 2>/dev/null; then
   echo "" >> .gitignore
   echo "# PDFs served from R2 — no longer committed to the repo" >> .gitignore
-  echo "public/docs/" >> .gitignore
+  echo "apps/website/public/docs/" >> .gitignore
 fi
 
-git rm -r --cached public/docs/ 2>/dev/null || true
+git rm -r --cached apps/website/public/docs/ 2>/dev/null || true
 echo ""
 echo "✅ Migration complete."
 echo ""

@@ -61,9 +61,11 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 ### Documentation Source of Truth
 
 - `docs/` is the canonical source for project documentation.
-- `apps/website/docs/` is a synced copy used by the website app.
-- Run `pnpm docs:sync` after updating docs to refresh the app copy.
-- `pnpm lint:markdown` now runs `pnpm docs:sync:check` first and fails if the two trees drift.
+- `messages/` is the canonical source for localization messages.
+- `documents/` is the canonical source for document-generation templates and scripts.
+- `apps/website/docs/`, `apps/website/messages/`, and `apps/website/documents/` are synced copies used by the website app.
+- Run `pnpm docs:sync` after updating docs, messages, or documents to refresh app copies.
+- `pnpm lint:markdown` now runs `pnpm docs:sync:check` first and fails if synced trees drift.
 
 ---
 

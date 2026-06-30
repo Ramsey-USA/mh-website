@@ -46,6 +46,21 @@ scripts/output/
 backups/
 docs/.markdown-lint-backup-*/
 docs/.naming-backup-*/
+all_md_files.txt
+all_pages.txt
+audit_results.txt
+results.csv
+apps/website/report_old.json
+apps/website/report_new.json
+routes_list.txt
+sitemap_urls.txt
+files_with_marker.txt
+files_without_marker.txt
+pages_with_hero.txt
+pages_missing_hero.txt
+apps/website/docs/
+apps/website/messages/
+apps/website/documents/
 
 # === Documents pipeline (PDFs served from R2, generated locally) ===
 documents/output/
@@ -53,6 +68,7 @@ documents/content/safety-manual.json
 documents/_tmp_*
 documents/**/_tmp_*
 public/docs/
+apps/website/public/docs/
 
 # === Test files in wrong locations ===
 /public/test-*.html
