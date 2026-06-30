@@ -9,6 +9,42 @@ MESSAGES_TARGET_DIR="$ROOT_DIR/apps/website/messages/"
 DOCUMENTS_SOURCE_DIR="$ROOT_DIR/documents/"
 DOCUMENTS_TARGET_DIR="$ROOT_DIR/apps/website/documents/"
 
+sync_tree() {
+  local source_dir="$1"
+  local target_dir="$2"
+  shift 2
+  local excludes=("$@")
+
+  if command -v rsync >/dev/null 2>&1; then
+    local rsync_excludes=()
+    local exclude
+    for exclude in "${excludes[@]}"; do
+      rsync_excludes+=("--exclude" "$exclude")
+    done
+
+    rsync -a --delete "${rsync_excludes[@]}" "$source_dir" "$target_dir"
+    return
+  fi
+
+  echo "[docs:sync] rsync not found, using tar fallback for $source_dir" >&2
+
+  rm -rf "$target_dir"
+  mkdir -p "$target_dir"
+
+  local tar_excludes=()
+  for exclude in "${excludes[@]}"; do
+    tar_excludes+=("--exclude=$exclude")
+  done
+
+  (
+    cd "$source_dir"
+    tar -cf - "${tar_excludes[@]}" .
+  ) | (
+    cd "$target_dir"
+    tar -xf -
+  )
+}
+
 if [[ ! -d "$DOCS_SOURCE_DIR" ]]; then
   echo "Missing source docs directory: $DOCS_SOURCE_DIR" >&2
   exit 1
@@ -28,13 +64,14 @@ mkdir -p "$DOCS_TARGET_DIR"
 mkdir -p "$MESSAGES_TARGET_DIR"
 mkdir -p "$DOCUMENTS_TARGET_DIR"
 
-rsync -a --delete "$DOCS_SOURCE_DIR" "$DOCS_TARGET_DIR"
-rsync -a --delete "$MESSAGES_SOURCE_DIR" "$MESSAGES_TARGET_DIR"
-rsync -a --delete \
-  --exclude 'output/' \
-  --exclude '_tmp_*' \
-  --exclude 'content/safety-manual-public.json' \
-  "$DOCUMENTS_SOURCE_DIR" "$DOCUMENTS_TARGET_DIR"
+sync_tree "$DOCS_SOURCE_DIR" "$DOCS_TARGET_DIR"
+sync_tree "$MESSAGES_SOURCE_DIR" "$MESSAGES_TARGET_DIR"
+sync_tree \
+  "$DOCUMENTS_SOURCE_DIR" \
+  "$DOCUMENTS_TARGET_DIR" \
+  'output/' \
+  '_tmp_*' \
+  'content/safety-manual-public.json'
 
 echo "Synced docs from $DOCS_SOURCE_DIR to $DOCS_TARGET_DIR"
 echo "Synced messages from $MESSAGES_SOURCE_DIR to $MESSAGES_TARGET_DIR"
