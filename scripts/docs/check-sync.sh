@@ -59,14 +59,12 @@ fi
 if ! diff -qr \
   --exclude='output' \
   --exclude='_tmp_*' \
-  --exclude='safety-manual-public.json' \
   "$DOCUMENTS_SOURCE_DIR" "$DOCUMENTS_TARGET_DIR" > /dev/null; then
   echo "Documents are out of sync between $DOCUMENTS_SOURCE_DIR and $DOCUMENTS_TARGET_DIR" >&2
   echo "Run: pnpm docs:sync" >&2
   diff -qr \
     --exclude='output' \
     --exclude='_tmp_*' \
-    --exclude='safety-manual-public.json' \
     "$DOCUMENTS_SOURCE_DIR" "$DOCUMENTS_TARGET_DIR" | head -n 50 >&2
   exit 1
 fi

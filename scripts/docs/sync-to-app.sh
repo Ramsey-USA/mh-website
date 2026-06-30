@@ -70,8 +70,7 @@ sync_tree \
   "$DOCUMENTS_SOURCE_DIR" \
   "$DOCUMENTS_TARGET_DIR" \
   'output/' \
-  '_tmp_*' \
-  'content/safety-manual-public.json'
+  '_tmp_*'
 
 echo "Synced docs from $DOCS_SOURCE_DIR to $DOCS_TARGET_DIR"
 echo "Synced messages from $MESSAGES_SOURCE_DIR to $MESSAGES_TARGET_DIR"
