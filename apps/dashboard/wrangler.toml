@@ -31,7 +31,7 @@ id = "b6ecda1ca7a7463db0f8a3b5d9681131"
 
 [[kv_namespaces]]
 binding = "NEXT_CACHE_WORKERS_KV"
-id = "REPLACE_WITH_DASHBOARD_KV_ID"
+id = "c7473e6da0dc44d5874f3bd58032b43d"
 
 [[kv_namespaces]]
 binding = "ANALYTICS"
@@ -50,3 +50,48 @@ database_id = "98ad144a-cfe2-4f19-a55c-c43140279840"
 # Cron Triggers — daily driver license monitoring alerts at 7:00 AM Pacific (14:00 UTC)
 [triggers]
 crons = ["0 14 * * *"]
+
+# Explicit production routes for dashboard worker.
+[[routes]]
+pattern = "www.mhc-gc.com/dashboard*"
+zone_name = "mhc-gc.com"
+
+[[routes]]
+pattern = "www.mhc-gc.com/hub*"
+zone_name = "mhc-gc.com"
+
+[[routes]]
+pattern = "www.mhc-gc.com/api/auth/*"
+zone_name = "mhc-gc.com"
+
+[[routes]]
+pattern = "www.mhc-gc.com/api/safety/*"
+zone_name = "mhc-gc.com"
+
+[[routes]]
+pattern = "www.mhc-gc.com/api/drivers/*"
+zone_name = "mhc-gc.com"
+
+[[routes]]
+pattern = "www.mhc-gc.com/api/leads/*"
+zone_name = "mhc-gc.com"
+
+[[routes]]
+pattern = "www.mhc-gc.com/api/analytics/dashboard*"
+zone_name = "mhc-gc.com"
+
+[[routes]]
+pattern = "www.mhc-gc.com/api/testimonials/*"
+zone_name = "mhc-gc.com"
+
+[[routes]]
+pattern = "www.mhc-gc.com/api/team-profile/*"
+zone_name = "mhc-gc.com"
+
+[[routes]]
+pattern = "www.mhc-gc.com/api/functions/*"
+zone_name = "mhc-gc.com"
+
+[[routes]]
+pattern = "www.mhc-gc.com/api/security/*"
+zone_name = "mhc-gc.com"

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Button } from "@/components/ui";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { manuals } from "@/lib/data/documents";
@@ -281,24 +282,26 @@ export default async function SafetyManualClusterPage({
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link
-                href="/resources/safety-manual/contents"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
-              >
-                <MaterialIcon
-                  icon="menu_book"
-                  size="sm"
-                  className="text-white"
-                />
-                Full Table of Contents
-              </Link>
-              <Link
-                href="/safety"
-                className="inline-flex items-center gap-2 rounded-lg bg-brand-secondary px-4 py-2.5 text-sm font-bold text-white shadow hover:bg-brand-secondary/90 transition-colors"
-              >
-                <MaterialIcon icon="shield" size="sm" className="text-white" />
-                Safety Program
-              </Link>
+              <Button asChild variant="outline" size="lg">
+                <Link href="/resources/safety-manual/contents">
+                  <MaterialIcon
+                    icon="menu_book"
+                    size="sm"
+                    className="text-white"
+                  />
+                  Full Table of Contents
+                </Link>
+              </Button>
+              <Button asChild variant="secondary" size="lg">
+                <Link href="/safety">
+                  <MaterialIcon
+                    icon="shield"
+                    size="sm"
+                    className="text-white"
+                  />
+                  Safety Program
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

@@ -129,7 +129,7 @@ export default function FAQPage() {
       <StructuredData data={howToSchema} />
       <StructuredData data={faqSchema} />
 
-      <div className="bg-white dark:bg-gray-900 min-h-screen">
+      <div className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         {/* Hero Section */}
         <section
           className="hero-section relative flex items-end justify-end text-white overflow-hidden"
@@ -323,11 +323,8 @@ export default function FAQPage() {
                 review your goals, get direct answers, and plan next steps.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    className="bg-brand-primary hover:bg-brand-primary-dark text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
+                <Button asChild size="lg" variant="primary">
+                  <Link href="/contact">
                     <MaterialIcon
                       icon="diversity_3"
                       className="mr-2"
@@ -335,22 +332,18 @@ export default function FAQPage() {
                       ariaLabel="Schedule Face-to-Face Consultation"
                     />
                     Schedule Face-to-Face Consultation
-                  </Button>
-                </Link>
-                <a href="tel:+15093086489">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/10 dark:border-brand-primary-light dark:text-brand-primary-light dark:hover:bg-brand-primary-light/10 font-bold transition-all duration-300"
-                  >
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <a href="tel:+15093086489">
                     <MaterialIcon
                       icon="phone"
                       className="mr-2"
                       ariaLabel="Call Us"
                     />
                     (509) 308-6489
-                  </Button>
-                </a>
+                  </a>
+                </Button>
               </div>
             </div>
           </div>

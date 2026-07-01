@@ -38,7 +38,7 @@ export function ExportCsvButton({
       data-print-hide="true"
       className={
         className ??
-        "flex items-center gap-2 px-4 py-2 bg-black/60 hover:bg-black/80 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-brand-secondary rounded-lg text-white font-black uppercase text-xs transition-colors"
+        "flex items-center gap-2 px-4 py-2 bg-brand-primary-darker/70 hover:bg-brand-primary-dark disabled:opacity-50 disabled:cursor-not-allowed border-2 border-brand-secondary rounded-lg text-white font-black uppercase text-xs transition-colors"
       }
     >
       <MaterialIcon icon="download" size="sm" />

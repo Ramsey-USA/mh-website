@@ -3,7 +3,7 @@ import CareersPageClient from "./CareersPageClient";
 
 function CareersPageFallback() {
   return (
-    <div className="bg-white dark:bg-gray-900 min-h-screen">
+    <div className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="relative h-[55vh] min-h-105 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900" />
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-10 max-w-7xl">
         <div className="space-y-4 animate-pulse">

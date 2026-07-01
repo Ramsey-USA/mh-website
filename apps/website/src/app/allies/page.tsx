@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { type VendorPlatform } from "@/components/allies/VendorPlatformLink";
+import { Button, Card } from "@/components/ui";
 
 // TradeGroupCarousel is a 347-line interactive client component used deep
 // below the fold (line ~800). Dynamic import keeps it out of the critical path.
@@ -555,7 +556,7 @@ export default async function AlliesPage() {
   const t = await getTranslations({ locale });
 
   return (
-    <div className="bg-white dark:bg-gray-900 min-h-screen">
+    <div className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <PageTrackingClient pageName="Allies" />
       <StructuredData data={breadcrumbSchema} />
 
@@ -661,7 +662,7 @@ export default async function AlliesPage() {
               {partnershipValues.map((value) => (
                 <div key={value.key} className="group relative flex h-full">
                   <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse" />
-                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                     <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker" />
                     <div className="p-6 flex flex-col flex-1 text-center">
                       <div className="relative inline-block mx-auto mb-4">
@@ -688,7 +689,7 @@ export default async function AlliesPage() {
                         )}
                       </p>
                     </div>
-                  </div>
+                  </Card>
                 </div>
               ))}
             </StaggeredFadeIn>
@@ -906,27 +907,25 @@ export default async function AlliesPage() {
               </div>
 
               <div className="flex sm:flex-row flex-col justify-center gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-primary hover:bg-brand-primary-dark text-white font-bold rounded-xl shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl"
-                >
-                  <MaterialIcon
-                    icon="handshake"
-                    ariaLabel={t("allies.cta.buttonPrimaryAria")}
-                  />
-                  {t("allies.cta.buttonPrimary")}
-                </Link>
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-secondary hover:bg-brand-secondary-dark text-black font-bold rounded-xl shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl"
-                >
-                  <MaterialIcon
-                    icon="emoji_events"
-                    size="sm"
-                    ariaLabel={t("allies.cta.buttonSecondaryAria")}
-                  />
-                  {t("allies.cta.buttonSecondary")}
-                </Link>
+                <Button asChild variant="primary" size="lg">
+                  <Link href="/contact">
+                    <MaterialIcon
+                      icon="handshake"
+                      ariaLabel={t("allies.cta.buttonPrimaryAria")}
+                    />
+                    {t("allies.cta.buttonPrimary")}
+                  </Link>
+                </Button>
+                <Button asChild variant="secondary" size="lg">
+                  <Link href="/projects">
+                    <MaterialIcon
+                      icon="emoji_events"
+                      size="sm"
+                      ariaLabel={t("allies.cta.buttonSecondaryAria")}
+                    />
+                    {t("allies.cta.buttonSecondary")}
+                  </Link>
+                </Button>
               </div>
 
               <p className="mt-8 text-gray-500 dark:text-gray-300 text-sm">

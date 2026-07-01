@@ -129,7 +129,7 @@ export default function ProjectsPageClient() {
         }}
       />
 
-      <div className="relative bg-white dark:bg-gray-900 w-full min-h-screen overflow-x-hidden">
+      <div className="relative min-h-screen w-full overflow-x-hidden bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <span className="sr-only">{t("languageActive")}</span>
         {/* Hero Section */}
         <ProjectsHero />

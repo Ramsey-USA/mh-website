@@ -5,7 +5,7 @@ import { PageTrackingClient } from "@/components/analytics";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
-import { Button } from "@/components/ui";
+import { Button, Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { locations } from "@/lib/data/locations";
 import { getTranslations } from "next-intl/server";
@@ -73,7 +73,7 @@ export default async function LocationsPage() {
       <StructuredData data={generateBreadcrumbSchema(breadcrumbItems)} />
       <StructuredData data={locationsSchema} />
 
-      <main className="min-h-screen bg-white dark:bg-gray-950">
+      <main className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <section className="hero-section hero-safe-top-lg border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 pb-14 text-white sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
             <Breadcrumbs
@@ -102,9 +102,9 @@ export default async function LocationsPage() {
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {locationList.map((location) => (
-                <article
+                <Card
                   key={location.slug}
-                  className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition-transform hover:-translate-y-1 dark:border-gray-800 dark:bg-gray-900"
+                  className="border border-gray-200 bg-white p-6 shadow-sm transition-transform hover:-translate-y-1 dark:border-gray-800 dark:bg-gray-900"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -167,7 +167,7 @@ export default async function LocationsPage() {
                       })}
                     </Link>
                   </Button>
-                </article>
+                </Card>
               ))}
             </div>
           </div>

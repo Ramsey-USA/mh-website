@@ -13,11 +13,8 @@
   },
   "customizations": {
     "vscode": {
-      // Fix 6: Two heavy background-process extensions were removed from auto-install
-      // to reduce memory pressure on startup. Install them manually from the
-      // Extensions panel if you need them:
-      //   - Accessibility auditing: deque-systems.vscode-axe-linter
-      //   - Cloudflare Workers bindings UI: cloudflare.cloudflare-workers-bindings-extension
+      // Baseline extension set for AI-first development with strong local
+      // linting, formatting, testing, styling, docs, and PR workflows.
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
@@ -29,7 +26,8 @@
         "mikestead.dotenv",
         "streetsidesoftware.code-spell-checker",
         "davidanson.vscode-markdownlint",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "github.vscode-pull-request-github"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",

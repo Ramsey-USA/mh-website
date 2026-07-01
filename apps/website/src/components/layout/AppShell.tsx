@@ -141,7 +141,7 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
     return (
       <>
         <Navigation />
-        <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
+        <div className="flex min-h-screen flex-col bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
           <main id="main-content" className="grow pt-(--mh-nav-offset,6.5rem)">
             {children}
             <SemiquincentennialAfterHeroSlot />
@@ -156,7 +156,7 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
   return (
     <>
       <Navigation />
-      <div className="flex min-h-screen flex-col bg-white dark:bg-gray-900">
+      <div className="flex min-h-screen flex-col bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <header
           ref={pwaHeaderRef}
           className="fixed top-[var(--mh-nav-offset, 0px)] left-0 right-0 z-60 bg-white/80 px-4 py-3 backdrop-blur-sm dark:bg-gray-900/80 sm:px-6"

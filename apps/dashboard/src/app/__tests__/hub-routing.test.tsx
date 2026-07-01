@@ -43,6 +43,9 @@ jest.mock("@/lib/hub/resources", () => ({
   getHubSafetySummary: async () => ({
     sectionCount: 50,
     revisionNumber: "3",
+    handbookRevision: "1.0",
+    handbookSections: 6,
+    formCount: 54,
   }),
 }));
 
@@ -62,7 +65,7 @@ describe("Operations Hub page routing", () => {
     expect(incidentCard).toHaveAttribute("href", "/safety/incident-report");
   });
 
-  it("keeps Employee Handbook card mapped to placeholder route", async () => {
+  it("keeps Employee Handbook card mapped to handbook route", async () => {
     await renderHubPage();
 
     const handbookCard = screen.getByRole("link", {
@@ -77,6 +80,8 @@ describe("Operations Hub page routing", () => {
 
     expect(screen.getByText(/MISH Rev 3/i)).toBeInTheDocument();
     expect(screen.getByText(/50 sections/i)).toBeInTheDocument();
+    expect(screen.getByText(/Employee Handbook Rev 1.0/i)).toBeInTheDocument();
+    expect(screen.getByText(/54 current forms/i)).toBeInTheDocument();
   });
 
   it("renders admin tools section with review profile action", async () => {

@@ -16,14 +16,14 @@ import { cn } from "@/lib/utils";
 
 /** Base input styling for dashboard forms */
 export const DASHBOARD_INPUT_CLASS =
-  "w-full px-3 py-2 bg-gray-700/60 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50 focus:border-brand-secondary";
+  "w-full px-3 py-2 bg-brand-primary-darker/55 border border-brand-primary/35 rounded-lg text-sm text-white placeholder-brand-secondary-light/60 focus:outline-none focus:ring-2 focus:ring-brand-secondary/55 focus:border-brand-secondary";
 
 /** Select input styling (adds appearance-none for custom arrows) */
 export const DASHBOARD_SELECT_CLASS = `${DASHBOARD_INPUT_CLASS} appearance-none`;
 
 /** Label styling for dashboard forms */
 export const DASHBOARD_LABEL_CLASS =
-  "text-xs text-gray-400 font-semibold uppercase mb-1 block";
+  "text-xs text-brand-secondary-light/85 font-semibold uppercase mb-1 block";
 
 /** Section header styling */
 export const DASHBOARD_SECTION_HEADER_CLASS =

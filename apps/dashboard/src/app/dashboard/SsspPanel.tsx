@@ -213,7 +213,7 @@ export function SsspPanel({
   return (
     <div
       data-sssp-panel="true"
-      className="p-5 bg-gray-900/80 border-t-2 border-brand-primary/50"
+      className="p-5 bg-brand-primary-darker/65 border-t-2 border-brand-primary/50"
     >
       <div className="flex items-center gap-2 mb-4">
         <MaterialIcon
@@ -234,7 +234,7 @@ export function SsspPanel({
       </div>
 
       {loading && (
-        <div className="text-center py-6 text-gray-500">
+        <div className="text-center py-6 text-brand-secondary-light/70">
           <MaterialIcon
             icon="hourglass_empty"
             size="xl"
@@ -255,7 +255,7 @@ export function SsspPanel({
         <div className="space-y-5">
           {/* Source files */}
           <div>
-            <p className="text-xs font-black text-gray-400 uppercase tracking-wider mb-2">
+            <p className="text-xs font-black text-brand-secondary-light/85 uppercase tracking-wider mb-2">
               Project Plan Files
             </p>
 
@@ -264,15 +264,15 @@ export function SsspPanel({
                 {sourceFiles.map((f) => (
                   <li
                     key={f.id}
-                    className="flex items-center gap-2 text-xs text-gray-300"
+                    className="flex items-center gap-2 text-xs text-brand-secondary-light/85"
                   >
                     <MaterialIcon
                       icon="attach_file"
                       size="sm"
-                      className="text-gray-500 shrink-0"
+                      className="text-brand-secondary-light/65 shrink-0"
                     />
                     <span className="truncate">{f.original_filename}</span>
-                    <span className="text-gray-600 shrink-0">
+                    <span className="text-brand-secondary-light/65 shrink-0">
                       {formatSafetyDate(f.uploaded_at)}
                     </span>
                   </li>
@@ -290,10 +290,12 @@ export function SsspPanel({
                         <MaterialIcon
                           icon="hourglass_empty"
                           size="sm"
-                          className="text-blue-400 animate-pulse shrink-0"
+                          className="text-brand-secondary animate-pulse shrink-0"
                         />
-                        <span className="text-gray-400 truncate">{u.name}</span>
-                        <span className="text-blue-400 shrink-0">
+                        <span className="text-brand-secondary-light/75 truncate">
+                          {u.name}
+                        </span>
+                        <span className="text-brand-secondary shrink-0">
                           Uploading…
                         </span>
                       </>
@@ -305,7 +307,9 @@ export function SsspPanel({
                           size="sm"
                           className="text-green-400 shrink-0"
                         />
-                        <span className="text-gray-400 truncate">{u.name}</span>
+                        <span className="text-brand-secondary-light/75 truncate">
+                          {u.name}
+                        </span>
                       </>
                     )}
                     {u.state === "error" && (
@@ -326,7 +330,7 @@ export function SsspPanel({
             )}
 
             <div data-print-hide="true">
-              <label className="inline-flex items-center gap-2 cursor-pointer px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-gray-300 hover:text-white rounded-lg text-xs font-semibold transition-colors">
+              <label className="inline-flex items-center gap-2 cursor-pointer px-3 py-1.5 bg-brand-primary-dark/65 hover:bg-brand-primary-dark text-brand-secondary-light hover:text-white rounded-lg text-xs font-semibold transition-colors">
                 <MaterialIcon icon="upload_file" size="sm" />
                 Upload Plan File
                 <input
@@ -338,7 +342,7 @@ export function SsspPanel({
                   onChange={(e) => void handleFileChange(e)}
                 />
               </label>
-              <span className="text-xs text-gray-600 ml-2">
+              <span className="text-xs text-brand-secondary-light/65 ml-2">
                 PDF or image, up to 25 MB each
               </span>
             </div>
@@ -354,7 +358,7 @@ export function SsspPanel({
             )}
 
             {isGenerating ? (
-              <div className="flex items-center gap-2 text-blue-300 text-sm">
+              <div className="flex items-center gap-2 text-brand-secondary-light text-sm">
                 <MaterialIcon
                   icon="hourglass_empty"
                   size="sm"
@@ -381,7 +385,7 @@ export function SsspPanel({
                     : "Generate SSSP"}
                 </button>
                 {sourceFiles.length === 0 && (
-                  <p className="mt-1.5 text-xs text-gray-500">
+                  <p className="mt-1.5 text-xs text-brand-secondary-light/65">
                     Upload at least one project plan file to enable generation.
                   </p>
                 )}
@@ -407,7 +411,7 @@ export function SsspPanel({
                   href={`/api/safety/sssp/${encodeURIComponent(jobId)}/download`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 border border-gray-600 hover:border-brand-secondary text-gray-300 hover:text-white rounded-lg text-xs font-semibold transition-colors"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 border border-brand-primary/45 hover:border-brand-secondary text-brand-secondary-light hover:text-white rounded-lg text-xs font-semibold transition-colors"
                 >
                   <MaterialIcon icon="download" size="sm" />
                   Download SSSP
@@ -438,7 +442,7 @@ export function SsspPanel({
               {/* Print-visible download note */}
               <div
                 data-print-only="true"
-                className="text-xs text-gray-600 hidden"
+                className="text-xs text-brand-secondary-light/70 hidden"
               >
                 SSSP generated{" "}
                 {sssp.generated_at
@@ -449,7 +453,7 @@ export function SsspPanel({
 
               {/* Notes */}
               <div>
-                <p className="text-xs font-black text-gray-400 uppercase tracking-wider mb-1">
+                <p className="text-xs font-black text-brand-secondary-light/85 uppercase tracking-wider mb-1">
                   Admin Notes
                 </p>
                 <textarea
@@ -457,14 +461,14 @@ export function SsspPanel({
                   onChange={(e) => setNotes(e.target.value)}
                   rows={3}
                   placeholder="Internal notes about this SSSP…"
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50 resize-none"
+                  className="w-full px-3 py-2 bg-brand-primary-darker/60 border border-brand-primary/45 rounded-lg text-sm text-brand-secondary-light placeholder-brand-secondary-light/55 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50 resize-none"
                 />
                 <div data-print-hide="true" className="mt-1.5 flex gap-2">
                   <button
                     type="button"
                     onClick={() => void handleSaveNotes()}
                     disabled={savingNotes}
-                    className="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 disabled:opacity-50 text-gray-300 rounded-lg text-xs font-semibold transition-colors"
+                    className="px-3 py-1.5 bg-brand-primary-dark/65 hover:bg-brand-primary-dark disabled:opacity-50 text-brand-secondary-light rounded-lg text-xs font-semibold transition-colors"
                   >
                     {savingNotes ? "Saving…" : "Save Notes"}
                   </button>

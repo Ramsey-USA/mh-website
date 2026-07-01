@@ -38,7 +38,7 @@ const SafetyBarChart = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="h-40 rounded-lg border border-gray-700 bg-gray-900/30 animate-pulse" />
+      <div className="h-40 rounded-lg border border-brand-primary/35 bg-brand-primary-darker/55 animate-pulse" />
     ),
   },
 );
@@ -92,7 +92,7 @@ function NewJobForm({ token, onCreated, onCancel }: NewJobFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-gray-800/80 border border-brand-secondary/50 rounded-xl p-4 mb-4"
+      className="bg-brand-primary-darker/60 border border-brand-secondary/50 rounded-xl p-4 mb-4"
     >
       <h4 className="text-sm font-black text-brand-secondary uppercase tracking-wider mb-3">
         New Job
@@ -162,7 +162,7 @@ function NewJobForm({ token, onCreated, onCancel }: NewJobFormProps) {
         <button
           type="button"
           onClick={onCancel}
-          className="px-4 py-2 text-sm font-semibold text-gray-400 hover:text-white border border-gray-600 hover:border-gray-400 rounded-lg transition-colors"
+          className="px-4 py-2 text-sm font-semibold text-brand-secondary-light/80 hover:text-white border border-brand-primary/45 hover:border-brand-secondary rounded-lg transition-colors"
         >
           Cancel
         </button>
@@ -236,7 +236,8 @@ const PIPELINE_BADGES = [
   {
     key: "archived",
     label: "Archived",
-    color: "text-gray-400 border-gray-600 bg-gray-700/30",
+    color:
+      "text-brand-secondary-light/80 border-brand-primary/45 bg-brand-primary-darker/55",
   },
 ] as const;
 
@@ -266,7 +267,7 @@ function JobsTableContent({
 }: JobsTableContentProps) {
   if (jobsLoading && jobs.length === 0) {
     return (
-      <div className="py-12 text-center text-gray-500">
+      <div className="py-12 text-center text-brand-secondary-light/70">
         <MaterialIcon
           icon="hourglass_empty"
           size="xl"
@@ -279,7 +280,7 @@ function JobsTableContent({
 
   if (jobs.length === 0) {
     return (
-      <div className="py-12 text-center text-gray-500">
+      <div className="py-12 text-center text-brand-secondary-light/70">
         <MaterialIcon icon="work_off" size="xl" className="mx-auto mb-2" />
         <p className="text-sm">No jobs yet. Create the first job above.</p>
       </div>
@@ -288,21 +289,21 @@ function JobsTableContent({
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-sm">
+      <table className="w-full min-w-245 text-sm">
         <thead>
-          <tr className="border-b border-gray-700 bg-gray-900/50">
+          <tr className="border-b border-brand-primary/35 bg-brand-primary-darker/65">
             {JOB_TABLE_HEADERS.map((h) => (
               <th
                 key={h}
                 scope="col"
-                className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                className="text-left px-4 py-3 text-xs font-black text-brand-secondary-light/85 uppercase tracking-wider"
               >
                 {h}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-700/50">
+        <tbody className="divide-y divide-brand-primary/35">
           {jobs.map((job) => (
             <JobRow
               key={job.id}
@@ -339,7 +340,7 @@ function SubmissionsTableContent({
 }: SubmissionsTableContentProps) {
   if (subsLoading && submissions.length === 0) {
     return (
-      <div className="py-12 text-center text-gray-500">
+      <div className="py-12 text-center text-brand-secondary-light/70">
         <MaterialIcon
           icon="hourglass_empty"
           size="xl"
@@ -352,7 +353,7 @@ function SubmissionsTableContent({
 
   if (submissions.length === 0) {
     return (
-      <div className="py-12 text-center text-gray-500">
+      <div className="py-12 text-center text-brand-secondary-light/70">
         <MaterialIcon
           icon="assignment_late"
           size="xl"
@@ -365,21 +366,21 @@ function SubmissionsTableContent({
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-sm">
+      <table className="w-full min-w-245 text-sm">
         <thead>
-          <tr className="border-b border-gray-700 bg-gray-900/50">
+          <tr className="border-b border-brand-primary/35 bg-brand-primary-darker/65">
             {SUBMISSION_TABLE_HEADERS.map((h) => (
               <th
                 key={h}
                 scope="col"
-                className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                className="text-left px-4 py-3 text-xs font-black text-brand-secondary-light/85 uppercase tracking-wider"
               >
                 {h}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-700/50">
+        <tbody className="divide-y divide-brand-primary/35">
           {submissions.map((sub) => (
             <SubmissionRow
               key={sub.id}
@@ -407,7 +408,7 @@ function DownloadLogTableContent({
 }: DownloadLogTableContentProps) {
   if (downloadLogLoading && downloadLog.length === 0) {
     return (
-      <div className="py-12 text-center text-gray-500">
+      <div className="py-12 text-center text-brand-secondary-light/70">
         <MaterialIcon
           icon="hourglass_empty"
           size="xl"
@@ -420,7 +421,7 @@ function DownloadLogTableContent({
 
   if (downloadLog.length === 0) {
     return (
-      <div className="py-12 text-center text-gray-500">
+      <div className="py-12 text-center text-brand-secondary-light/70">
         <MaterialIcon icon="info_outline" size="xl" className="mx-auto mb-2" />
         <p className="text-sm">No downloads recorded yet.</p>
       </div>
@@ -429,51 +430,53 @@ function DownloadLogTableContent({
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-sm">
+      <table className="w-full min-w-245 text-sm">
         <thead>
-          <tr className="border-b border-gray-700 bg-gray-900/50">
+          <tr className="border-b border-brand-primary/35 bg-brand-primary-darker/65">
             {DOWNLOAD_TABLE_HEADERS.map((h) => (
               <th
                 key={h}
                 scope="col"
-                className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                className="text-left px-4 py-3 text-xs font-black text-brand-secondary-light/85 uppercase tracking-wider"
               >
                 {h}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-700/50">
+        <tbody className="divide-y divide-brand-primary/35">
           {downloadLog.map((entry) => (
             <tr
               key={entry.id}
-              className="hover:bg-gray-700/30 transition-colors"
+              className="hover:bg-brand-primary-dark/50 transition-colors"
             >
-              <td className="px-4 py-3 text-gray-400 whitespace-nowrap">
+              <td className="px-4 py-3 text-brand-secondary-light/85 whitespace-nowrap">
                 {formatSafetyDate(entry.downloaded_at)}
               </td>
               <td className="px-4 py-3">
                 <p className="text-white font-semibold text-xs">
                   {entry.section_title}
                 </p>
-                <p className="text-gray-500 text-xs font-mono">
+                <p className="text-brand-secondary-light/65 text-xs font-mono">
                   {entry.section_key}
                 </p>
               </td>
               <td className="px-4 py-3">
-                <span className="inline-block px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs font-mono">
+                <span className="inline-block px-2 py-0.5 bg-brand-primary-darker/70 text-brand-secondary-light/80 rounded text-xs font-mono">
                   {entry.download_type}
                 </span>
               </td>
-              <td className="px-4 py-3 text-gray-400">{entry.downloaded_by}</td>
-              <td className="px-4 py-3 text-gray-500 font-mono text-xs">
+              <td className="px-4 py-3 text-brand-secondary-light/85">
+                {entry.downloaded_by}
+              </td>
+              <td className="px-4 py-3 text-brand-secondary-light/65 font-mono text-xs">
                 {entry.job_id ?? "—"}
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className="px-4 py-3 border-t border-gray-700 text-xs text-gray-500">
+      <div className="px-4 py-3 border-t border-brand-primary/35 text-xs text-brand-secondary-light/70">
         {downloadLog.length} download
         {downloadLog.length === 1 ? "" : "s"} recorded
       </div>
@@ -626,12 +629,15 @@ export function SafetyTab({ token }: SafetyTabProps) {
             />
             ACTIVE JOBS
           </h2>
-          <div data-print-hide="true" className="flex items-center gap-2">
+          <div
+            data-print-hide="true"
+            className="flex flex-wrap items-center gap-2 w-full sm:w-auto"
+          >
             <button
               type="button"
               onClick={() => void jobsQuery.refetch()}
               disabled={jobsQuery.isFetching}
-              className="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-3 py-2 text-sm font-black uppercase tracking-wide text-gray-200 hover:border-brand-secondary hover:text-white disabled:opacity-50 transition-colors"
+              className="inline-flex items-center gap-2 rounded-lg border border-brand-primary/45 px-3 py-2 text-sm font-black uppercase tracking-wide text-brand-secondary-light hover:border-brand-secondary hover:text-white disabled:opacity-50 transition-colors"
             >
               <MaterialIcon
                 icon={jobsQuery.isFetching ? "hourglass_empty" : "refresh"}
@@ -661,7 +667,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
           />
         )}
 
-        <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
+        <div className="bg-brand-primary-darker/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
           <JobsTableContent
             jobsLoading={jobsLoading}
             jobs={jobs}
@@ -693,7 +699,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
               {outstanding.map((j) => (
                 <div
                   key={j.id}
-                  className="bg-gray-900/60 border border-amber-700/40 rounded-lg px-4 py-3"
+                  className="bg-brand-primary-darker/60 border border-amber-700/40 rounded-lg px-4 py-3"
                 >
                   <p className="font-mono text-amber-400 font-bold text-sm">
                     {j.job_number}
@@ -702,7 +708,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
                     {j.job_name}
                   </p>
                   {j.super_name && (
-                    <p className="text-gray-400 text-xs mt-1">
+                    <p className="text-brand-secondary-light/75 text-xs mt-1">
                       Super: {j.super_name}
                     </p>
                   )}
@@ -724,7 +730,10 @@ export function SafetyTab({ token }: SafetyTabProps) {
             />
             FORM SUBMISSIONS
           </h2>
-          <div data-print-hide="true" className="flex items-center gap-2">
+          <div
+            data-print-hide="true"
+            className="flex flex-wrap items-center gap-2 w-full sm:w-auto"
+          >
             <ExportCsvButton
               filename={`mh-safety-submissions-${new Date().toISOString().slice(0, 10)}.csv`}
               headers={SAFETY_SUBMISSIONS_CSV_HEADERS}
@@ -763,8 +772,8 @@ export function SafetyTab({ token }: SafetyTabProps) {
 
         {/* Submissions by type chart */}
         {!subsLoading && submissions.length > 0 && (
-          <div className="bg-gray-800/60 border border-gray-700 rounded-xl p-4 mb-4">
-            <p className="text-xs font-black text-gray-400 uppercase tracking-wider mb-3">
+          <div className="bg-brand-primary-darker/55 border border-brand-primary/35 rounded-xl p-4 mb-4">
+            <p className="text-xs font-black text-brand-secondary-light/85 uppercase tracking-wider mb-3">
               Submissions by Form Type
             </p>
             <SafetyBarChart data={[...chartData]} />
@@ -777,7 +786,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
             aria-label="Filter by job"
             value={filterJobId}
             onChange={(e) => setFilterJobId(e.target.value)}
-            className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
+            className="w-full sm:w-auto px-3 py-2 bg-brand-primary-darker/55 border border-brand-primary/35 rounded-lg text-sm text-brand-secondary-light focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
           >
             <option value="">All Jobs</option>
             {jobs.map((j) => (
@@ -791,7 +800,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
             aria-label="Filter by form type"
             value={filterFormType}
             onChange={(e) => setFilterFormType(e.target.value)}
-            className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
+            className="w-full sm:w-auto px-3 py-2 bg-brand-primary-darker/55 border border-brand-primary/35 rounded-lg text-sm text-brand-secondary-light focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
           >
             <option value="">All Form Types</option>
             {Object.entries(FORM_TYPE_LABELS).map(([id, label]) => (
@@ -805,7 +814,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
             aria-label="Filter by status"
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
+            className="w-full sm:w-auto px-3 py-2 bg-brand-primary-darker/55 border border-brand-primary/35 rounded-lg text-sm text-brand-secondary-light focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
           >
             <option value="">All Statuses</option>
             <option value="submitted">Submitted</option>
@@ -817,7 +826,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
             type="button"
             onClick={() => void submissionsQuery.refetch()}
             disabled={submissionsQuery.isFetching}
-            className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg text-sm transition-colors inline-flex items-center gap-1.5 disabled:opacity-50"
+            className="w-full sm:w-auto px-3 py-2 bg-brand-primary-dark/65 hover:bg-brand-primary-dark text-brand-secondary-light rounded-lg text-sm transition-colors inline-flex items-center justify-center gap-1.5 disabled:opacity-50"
           >
             <MaterialIcon
               icon={submissionsQuery.isFetching ? "hourglass_empty" : "refresh"}
@@ -827,7 +836,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
           </button>
         </div>
 
-        <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
+        <div className="bg-brand-primary-darker/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
           <SubmissionsTableContent
             subsLoading={subsLoading}
             submissions={submissions}
@@ -848,7 +857,10 @@ export function SafetyTab({ token }: SafetyTabProps) {
             />
             DOWNLOAD LOG
           </h2>
-          <div data-print-hide="true" className="flex items-center gap-2">
+          <div
+            data-print-hide="true"
+            className="flex flex-wrap items-center gap-2 w-full sm:w-auto"
+          >
             {ssspCsv.length > 0 && (
               <ExportCsvButton
                 filename={`mh-sssp-audit-${new Date().toISOString().slice(0, 10)}.csv`}
@@ -865,7 +877,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
               type="button"
               onClick={() => void downloadLogQuery.refetch()}
               disabled={downloadLogQuery.isFetching}
-              className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg text-sm transition-colors inline-flex items-center gap-1.5 disabled:opacity-50"
+              className="px-3 py-2 bg-brand-primary-dark/65 hover:bg-brand-primary-dark text-brand-secondary-light rounded-lg text-sm transition-colors inline-flex items-center gap-1.5 disabled:opacity-50"
             >
               <MaterialIcon
                 icon={
@@ -877,7 +889,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
             </button>
           </div>
         </div>
-        <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
+        <div className="bg-brand-primary-darker/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
           <DownloadLogTableContent
             downloadLogLoading={downloadLogLoading}
             downloadLog={downloadLog}
@@ -914,14 +926,20 @@ function JobRow({
 }: JobRowProps) {
   return (
     <>
-      <tr className="hover:bg-gray-700/30 transition-colors">
+      <tr className="hover:bg-brand-primary-dark/50 transition-colors">
         <td className="px-4 py-3 font-mono text-brand-secondary font-bold">
           {job.job_number}
         </td>
         <td className="px-4 py-3 text-white font-semibold">{job.job_name}</td>
-        <td className="px-4 py-3 text-gray-400">{job.location ?? "—"}</td>
-        <td className="px-4 py-3 text-gray-400">{job.pm_name ?? "—"}</td>
-        <td className="px-4 py-3 text-gray-400">{job.super_name ?? "—"}</td>
+        <td className="px-4 py-3 text-brand-secondary-light/80">
+          {job.location ?? "—"}
+        </td>
+        <td className="px-4 py-3 text-brand-secondary-light/80">
+          {job.pm_name ?? "—"}
+        </td>
+        <td className="px-4 py-3 text-brand-secondary-light/80">
+          {job.super_name ?? "—"}
+        </td>
         <td className="px-4 py-3">
           <span
             className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold border uppercase ${JOB_STATUS_COLORS[job.status] ?? ""}`}
@@ -940,7 +958,7 @@ function JobRow({
               className={`p-1.5 rounded-lg transition-colors ${
                 ssspExpanded
                   ? "text-brand-secondary bg-brand-primary/20"
-                  : "text-gray-400 hover:text-brand-secondary hover:bg-brand-primary/10"
+                  : "text-brand-secondary-light/70 hover:text-brand-secondary hover:bg-brand-primary/10"
               }`}
             >
               <MaterialIcon icon="description" size="sm" />
@@ -952,7 +970,7 @@ function JobRow({
                 disabled={updating}
                 title="Close job"
                 aria-label={`Close job ${job.job_number}`}
-                className="p-1.5 rounded-lg text-gray-400 hover:text-yellow-400 hover:bg-yellow-900/30 transition-colors disabled:opacity-40"
+                className="p-1.5 rounded-lg text-brand-secondary-light/70 hover:text-yellow-400 hover:bg-yellow-900/30 transition-colors disabled:opacity-40"
               >
                 <MaterialIcon icon="check_circle" size="sm" />
               </button>
@@ -964,7 +982,7 @@ function JobRow({
                 disabled={updating}
                 title="Reactivate job"
                 aria-label={`Reactivate job ${job.job_number}`}
-                className="p-1.5 rounded-lg text-gray-400 hover:text-green-400 hover:bg-green-900/30 transition-colors disabled:opacity-40"
+                className="p-1.5 rounded-lg text-brand-secondary-light/70 hover:text-green-400 hover:bg-green-900/30 transition-colors disabled:opacity-40"
               >
                 <MaterialIcon icon="play_circle" size="sm" />
               </button>
@@ -976,7 +994,7 @@ function JobRow({
                 disabled={updating}
                 title="Archive job"
                 aria-label={`Archive job ${job.job_number}`}
-                className="p-1.5 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-900/30 transition-colors disabled:opacity-40"
+                className="p-1.5 rounded-lg text-brand-secondary-light/70 hover:text-red-400 hover:bg-red-900/30 transition-colors disabled:opacity-40"
               >
                 <MaterialIcon icon="archive" size="sm" />
               </button>
@@ -988,7 +1006,7 @@ function JobRow({
         <tr>
           <td
             colSpan={JOB_TABLE_HEADERS.length}
-            className="p-0 border-b border-gray-700/50"
+            className="p-0 border-b border-brand-primary/35"
           >
             <SsspPanel
               token={token}
@@ -1020,8 +1038,8 @@ function SubmissionRow({
   onPatchStatus,
 }: SubmissionRowProps) {
   return (
-    <tr className="hover:bg-gray-700/30 transition-colors">
-      <td className="px-4 py-3 text-gray-400 whitespace-nowrap">
+    <tr className="hover:bg-brand-primary-dark/50 transition-colors">
+      <td className="px-4 py-3 text-brand-secondary-light/80 whitespace-nowrap">
         {formatSafetyDate(sub.created_at)}
       </td>
       <td className="px-4 py-3">
@@ -1029,14 +1047,20 @@ function SubmissionRow({
           <p className="text-brand-secondary font-mono font-bold text-xs">
             {sub.job_number}
           </p>
-          <p className="text-gray-400 text-xs">{sub.job_name}</p>
+          <p className="text-brand-secondary-light/75 text-xs">
+            {sub.job_name}
+          </p>
         </div>
       </td>
       <td className="px-4 py-3 text-white font-semibold whitespace-nowrap">
         {formatFormType(sub.form_type)}
       </td>
-      <td className="px-4 py-3 text-gray-400">{sub.submitted_by}</td>
-      <td className="px-4 py-3 text-center text-gray-400">{sub.print_count}</td>
+      <td className="px-4 py-3 text-brand-secondary-light/80">
+        {sub.submitted_by}
+      </td>
+      <td className="px-4 py-3 text-center text-brand-secondary-light/80">
+        {sub.print_count}
+      </td>
       <td className="px-4 py-3">
         <span
           className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold border uppercase ${STATUS_COLORS[sub.status] ?? ""}`}
@@ -1052,7 +1076,7 @@ function SubmissionRow({
             rel="noopener noreferrer"
             title="View &amp; Print"
             aria-label="View and print submission"
-            className="p-1.5 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-blue-900/30 transition-colors"
+            className="p-1.5 rounded-lg text-brand-secondary-light/70 hover:text-brand-secondary hover:bg-brand-primary/20 transition-colors"
           >
             <MaterialIcon icon="open_in_new" size="sm" />
           </a>
@@ -1063,7 +1087,7 @@ function SubmissionRow({
               disabled={updating}
               title="Mark Reviewed"
               aria-label="Mark submission reviewed"
-              className="p-1.5 rounded-lg text-gray-400 hover:text-green-400 hover:bg-green-900/30 transition-colors disabled:opacity-40"
+              className="p-1.5 rounded-lg text-brand-secondary-light/70 hover:text-green-400 hover:bg-green-900/30 transition-colors disabled:opacity-40"
             >
               <MaterialIcon icon="check_circle" size="sm" />
             </button>
@@ -1075,7 +1099,7 @@ function SubmissionRow({
               disabled={updating}
               title="Archive"
               aria-label="Archive submission"
-              className="p-1.5 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-900/30 transition-colors disabled:opacity-40"
+              className="p-1.5 rounded-lg text-brand-secondary-light/70 hover:text-red-400 hover:bg-red-900/30 transition-colors disabled:opacity-40"
             >
               <MaterialIcon icon="archive" size="sm" />
             </button>

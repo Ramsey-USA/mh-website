@@ -108,23 +108,24 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
   };
 
   const inputClass =
-    "w-full px-3 py-2 bg-gray-700/60 border border-gray-600 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-secondary/50 focus:border-brand-secondary";
+    "w-full px-3 py-2 bg-brand-primary-darker/60 border border-brand-primary/45 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-secondary/50 focus:border-brand-secondary";
   const selectClass = `${inputClass} appearance-none cursor-pointer`;
-  const labelClass = "text-xs text-gray-400 font-semibold uppercase mb-1 block";
+  const labelClass =
+    "text-xs text-brand-secondary-light/85 font-semibold uppercase mb-1 block";
 
   return (
     <div
       data-print-hide="true"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-3 sm:p-4 bg-brand-primary-darker/75 backdrop-blur-sm overflow-y-auto"
     >
-      <div className="bg-gray-800 border border-gray-700 rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl">
+      <div className="bg-brand-primary-dark border border-brand-primary/45 rounded-xl w-full max-w-2xl max-h-[92vh] overflow-y-auto shadow-2xl">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700 sticky top-0 bg-gray-800 z-10">
+        <div className="flex items-start sm:items-center justify-between gap-3 px-4 sm:px-6 py-4 border-b border-brand-primary/40 sticky top-0 bg-brand-primary-dark z-10">
           <div>
             <h3 className="text-xl font-black text-white">
               {lead.contact_name}
             </h3>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-brand-secondary-light/80">
               {lead.company && `${lead.company} • `}
               {getSourceLabel(lead.source)}
             </p>
@@ -132,7 +133,7 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
           <button
             type="button"
             onClick={onClose}
-            className="text-gray-400 hover:text-white transition-colors p-2"
+            className="text-brand-secondary-light/70 hover:text-white transition-colors p-2"
             aria-label="Close lead detail"
           >
             <MaterialIcon icon="close" size="md" />
@@ -140,9 +141,9 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6">
+        <div className="p-4 sm:p-6 space-y-6">
           {/* Contact Info */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <span className={labelClass}>Email</span>
               <p className="text-white">
@@ -178,22 +179,24 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
           {/* Project Info */}
           <div>
             <span className={labelClass}>Project Details</span>
-            <div className="bg-gray-700/40 rounded-lg p-4 space-y-2">
-              <div className="flex gap-4 text-sm">
-                <span className="text-gray-400">Type:</span>
+            <div className="bg-brand-primary-darker/55 rounded-lg p-4 space-y-2">
+              <div className="flex flex-col sm:flex-row gap-1 sm:gap-4 text-sm">
+                <span className="text-brand-secondary-light/75">Type:</span>
                 <span className="text-white">
                   {lead.project_type || "Not specified"}
                 </span>
               </div>
-              <div className="flex gap-4 text-sm">
-                <span className="text-gray-400">Location:</span>
+              <div className="flex flex-col sm:flex-row gap-1 sm:gap-4 text-sm">
+                <span className="text-brand-secondary-light/75">Location:</span>
                 <span className="text-white">
                   {lead.project_location || "Not specified"}
                 </span>
               </div>
               {lead.project_description && (
                 <div className="text-sm">
-                  <span className="text-gray-400">Description:</span>
+                  <span className="text-brand-secondary-light/75">
+                    Description:
+                  </span>
                   <p className="text-white mt-1">{lead.project_description}</p>
                 </div>
               )}
@@ -201,7 +204,7 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
           </div>
 
           {/* CRM Fields */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className={labelClass} htmlFor="lead-status">
                 Status
@@ -330,14 +333,16 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
             <span className={labelClass}>Notes ({lead.notes.length})</span>
             <div className="space-y-2 mb-3 max-h-40 overflow-y-auto">
               {lead.notes.length === 0 ? (
-                <p className="text-sm text-gray-500 italic">No notes yet</p>
+                <p className="text-sm text-brand-secondary-light/65 italic">
+                  No notes yet
+                </p>
               ) : (
                 [...lead.notes].reverse().map((note) => (
                   <div
                     key={`${note.timestamp}-${note.author}`}
-                    className="bg-gray-700/40 rounded-lg p-3 text-sm"
+                    className="bg-brand-primary-darker/55 rounded-lg p-3 text-sm"
                   >
-                    <div className="flex justify-between text-xs text-gray-400 mb-1">
+                    <div className="flex flex-wrap items-center gap-1 justify-between text-xs text-brand-secondary-light/75 mb-1">
                       <span className="font-semibold">{note.author}</span>
                       <span>{formatRelativeDate(note.timestamp)}</span>
                     </div>
@@ -346,7 +351,7 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
                 ))
               )}
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <input
                 type="text"
                 value={newNote}
@@ -359,7 +364,7 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
                 type="button"
                 onClick={handleAddNote}
                 disabled={!newNote.trim() || updating}
-                className="px-4 py-2 bg-brand-secondary text-white font-bold rounded-lg hover:bg-brand-secondary-dark disabled:opacity-50 transition-colors"
+                className="px-4 py-2 bg-brand-secondary text-white font-bold rounded-lg hover:bg-brand-secondary-dark disabled:opacity-50 transition-colors sm:self-auto"
                 aria-label="Add note"
               >
                 <MaterialIcon icon="add" size="sm" />
@@ -374,7 +379,7 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
             </p>
           )}
 
-          <div className="text-xs text-gray-500 pt-4 border-t border-gray-700 flex justify-between">
+          <div className="text-xs text-brand-secondary-light/70 pt-4 border-t border-brand-primary/40 flex flex-wrap gap-x-4 gap-y-1">
             <span>Created: {formatLeadDate(lead.created_at)}</span>
             <span>Updated: {formatLeadDate(lead.updated_at)}</span>
             {lead.closed_at && (
@@ -383,11 +388,11 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
           </div>
         </div>
 
-        <div className="flex justify-end gap-3 px-6 py-4 border-t border-gray-700 sticky bottom-0 bg-gray-800">
+        <div className="flex flex-col-reverse sm:flex-row sm:justify-end gap-3 px-4 sm:px-6 py-4 border-t border-brand-primary/40 sticky bottom-0 bg-brand-primary-dark">
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 text-sm font-semibold text-gray-400 hover:text-white border border-gray-600 hover:border-gray-400 rounded-lg transition-colors"
+            className="px-4 py-2 text-sm font-semibold text-brand-secondary-light/75 hover:text-white border border-brand-primary/45 hover:border-brand-secondary rounded-lg transition-colors w-full sm:w-auto"
           >
             Cancel
           </button>
@@ -395,7 +400,7 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
             type="button"
             onClick={handleSave}
             disabled={updating}
-            className="px-6 py-2 text-sm font-black text-white bg-brand-primary hover:bg-brand-primary-dark disabled:opacity-60 rounded-lg transition-colors inline-flex items-center gap-2"
+            className="px-6 py-2 text-sm font-black text-white bg-brand-primary hover:bg-brand-primary-dark disabled:opacity-60 rounded-lg transition-colors inline-flex items-center justify-center gap-2 w-full sm:w-auto"
           >
             {updating ? (
               <>
@@ -476,7 +481,7 @@ export function LeadsTab({ token }: LeadsTabProps) {
   const csvRows = useMemo(() => leadsCsvRows(filteredLeads), [filteredLeads]);
 
   const selectClass =
-    "px-3 py-2 bg-gray-700/60 border border-gray-600 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-secondary/50 cursor-pointer";
+    "px-3 py-2 bg-brand-primary-darker/60 border border-brand-primary/45 rounded-lg text-sm text-brand-secondary-light focus:outline-none focus:ring-2 focus:ring-brand-secondary/50 cursor-pointer";
 
   return (
     <div className="space-y-6">
@@ -485,8 +490,8 @@ export function LeadsTab({ token }: LeadsTabProps) {
         data-print-section="true"
         className="grid grid-cols-2 sm:grid-cols-4 gap-4"
       >
-        <div className="bg-gray-800/80 border border-gray-700 rounded-xl p-4">
-          <div className="flex items-center gap-2 text-xs text-gray-400 uppercase font-semibold mb-1">
+        <div className="bg-brand-primary-darker/60 border border-brand-primary/35 rounded-xl p-4">
+          <div className="flex items-center gap-2 text-xs text-brand-secondary-light/80 uppercase font-semibold mb-1">
             <MaterialIcon
               icon="attach_money"
               size="sm"
@@ -497,32 +502,32 @@ export function LeadsTab({ token }: LeadsTabProps) {
           <p className="text-2xl font-black text-white">
             {formatCurrency(pipelineValue)}
           </p>
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-brand-secondary-light/70">
             Weighted: {formatCurrency(weightedValue)}
           </p>
         </div>
-        <div className="bg-gray-800/80 border border-gray-700 rounded-xl p-4">
-          <div className="flex items-center gap-2 text-xs text-gray-400 uppercase font-semibold mb-1">
+        <div className="bg-brand-primary-darker/60 border border-brand-primary/35 rounded-xl p-4">
+          <div className="flex items-center gap-2 text-xs text-brand-secondary-light/80 uppercase font-semibold mb-1">
             <MaterialIcon
               icon="fiber_new"
               size="sm"
-              className="text-blue-400"
+              className="text-brand-secondary"
             />
             New Leads
           </div>
           <p className="text-2xl font-black text-white">
             {pipelineStats.new.count}
           </p>
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-brand-secondary-light/70">
             {formatCurrency(pipelineStats.new.value)}
           </p>
         </div>
-        <div className="bg-gray-800/80 border border-gray-700 rounded-xl p-4">
-          <div className="flex items-center gap-2 text-xs text-gray-400 uppercase font-semibold mb-1">
+        <div className="bg-brand-primary-darker/60 border border-brand-primary/35 rounded-xl p-4">
+          <div className="flex items-center gap-2 text-xs text-brand-secondary-light/80 uppercase font-semibold mb-1">
             <MaterialIcon
               icon="handshake"
               size="sm"
-              className="text-purple-400"
+              className="text-brand-secondary"
             />
             In Negotiation
           </div>
@@ -530,19 +535,23 @@ export function LeadsTab({ token }: LeadsTabProps) {
             {pipelineStats.estimate_sent.count +
               pipelineStats.negotiating.count}
           </p>
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-brand-secondary-light/70">
             {formatCurrency(
               pipelineStats.estimate_sent.value +
                 pipelineStats.negotiating.value,
             )}
           </p>
         </div>
-        <div className="bg-gray-800/80 border border-gray-700 rounded-xl p-4">
-          <div className="flex items-center gap-2 text-xs text-gray-400 uppercase font-semibold mb-1">
+        <div className="bg-brand-primary-darker/60 border border-brand-primary/35 rounded-xl p-4">
+          <div className="flex items-center gap-2 text-xs text-brand-secondary-light/80 uppercase font-semibold mb-1">
             <MaterialIcon
               icon="warning"
               size="sm"
-              className={overdueCount > 0 ? "text-red-400" : "text-gray-500"}
+              className={
+                overdueCount > 0
+                  ? "text-red-400"
+                  : "text-brand-secondary-light/65"
+              }
             />
             Overdue Follow-ups
           </div>
@@ -551,27 +560,29 @@ export function LeadsTab({ token }: LeadsTabProps) {
           >
             {overdueCount}
           </p>
-          <p className="text-xs text-gray-500">Require attention</p>
+          <p className="text-xs text-brand-secondary-light/70">
+            Require attention
+          </p>
         </div>
       </section>
 
       {/* Filters + Actions */}
       <div data-print-hide="true" className="flex flex-wrap gap-3 items-center">
-        <div className="flex-1 min-w-[200px]">
+        <div className="w-full sm:flex-1 min-w-0">
           <input
             type="search"
             placeholder="Search leads..."
             aria-label="Search leads"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-2 bg-gray-700/60 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
+            className="w-full px-4 py-2 bg-brand-primary-darker/60 border border-brand-primary/45 rounded-lg text-sm text-white placeholder-brand-secondary-light/65 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
           />
         </div>
         <select
           aria-label="Filter by status"
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value)}
-          className={selectClass}
+          className={`${selectClass} w-full sm:w-auto`}
         >
           <option value="active">Active Leads</option>
           <option value="">All Statuses</option>
@@ -586,7 +597,7 @@ export function LeadsTab({ token }: LeadsTabProps) {
           aria-label="Filter by assignee"
           value={filterAssignee}
           onChange={(e) => setFilterAssignee(e.target.value)}
-          className={selectClass}
+          className={`${selectClass} w-full sm:w-auto`}
         >
           {ASSIGNEES.map((a) => (
             <option key={a.value} value={a.value}>
@@ -598,7 +609,7 @@ export function LeadsTab({ token }: LeadsTabProps) {
           aria-label="Filter by priority"
           value={filterPriority}
           onChange={(e) => setFilterPriority(e.target.value)}
-          className={selectClass}
+          className={`${selectClass} w-full sm:w-auto`}
         >
           <option value="">All Priorities</option>
           <option value="urgent">Urgent</option>
@@ -615,7 +626,7 @@ export function LeadsTab({ token }: LeadsTabProps) {
           type="button"
           onClick={() => void refetch()}
           disabled={isFetching}
-          className="px-4 py-2 bg-brand-secondary text-white font-bold rounded-lg hover:bg-brand-secondary-dark disabled:opacity-50 transition-colors inline-flex items-center gap-2"
+          className="px-4 py-2 bg-brand-secondary text-white font-bold rounded-lg hover:bg-brand-secondary-dark disabled:opacity-50 transition-colors inline-flex items-center justify-center gap-2 w-full sm:w-auto"
         >
           <MaterialIcon
             icon="refresh"
@@ -629,22 +640,22 @@ export function LeadsTab({ token }: LeadsTabProps) {
       {/* Leads Table */}
       <section
         data-print-section="true"
-        className="bg-gray-800/80 border border-gray-700 rounded-xl overflow-hidden"
+        className="bg-brand-primary-darker/60 border border-brand-primary/35 rounded-xl overflow-hidden"
       >
         {isLoading && leads.length === 0 ? (
           <div className="p-4 space-y-2">
             {SKELETON_KEYS.map((k) => (
               <div
                 key={k}
-                className="h-12 bg-gray-700/40 rounded animate-pulse"
+                className="h-12 bg-brand-primary/25 rounded animate-pulse"
               />
             ))}
           </div>
         ) : filteredLeads.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-12 text-gray-400">
+          <div className="flex flex-col items-center justify-center py-12 text-brand-secondary-light/80">
             <MaterialIcon icon="inbox" size="lg" className="mb-2" />
             <p>No leads found</p>
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-brand-secondary-light/70 mt-1">
               {searchQuery
                 ? "Try a different search"
                 : "Leads will appear here when form submissions arrive"}
@@ -652,9 +663,9 @@ export function LeadsTab({ token }: LeadsTabProps) {
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full min-w-245 text-sm">
               <thead>
-                <tr className="border-b border-gray-700 text-left text-xs text-gray-400 uppercase">
+                <tr className="border-b border-brand-primary/35 text-left text-xs text-brand-secondary-light/80 uppercase">
                   <th scope="col" className="px-4 py-3 font-semibold">
                     Lead
                   </th>
@@ -678,12 +689,12 @@ export function LeadsTab({ token }: LeadsTabProps) {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700/50">
+              <tbody className="divide-y divide-brand-primary/35">
                 {filteredLeads.map((lead) => (
                   <tr
                     key={lead.id}
                     onClick={() => setSelectedLead(lead)}
-                    className="hover:bg-gray-700/30 cursor-pointer transition-colors"
+                    className="hover:bg-brand-primary-dark/50 cursor-pointer transition-colors"
                   >
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2">
@@ -696,7 +707,7 @@ export function LeadsTab({ token }: LeadsTabProps) {
                           <p className="font-semibold text-white">
                             {lead.contact_name}
                           </p>
-                          <p className="text-xs text-gray-400">
+                          <p className="text-xs text-brand-secondary-light/75">
                             {lead.company || lead.email || "—"}
                           </p>
                         </div>
@@ -704,7 +715,7 @@ export function LeadsTab({ token }: LeadsTabProps) {
                     </td>
                     <td className="px-4 py-3">
                       <p className="text-white">{lead.project_type || "—"}</p>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-brand-secondary-light/75">
                         {lead.project_location || "—"}
                       </p>
                     </td>
@@ -719,13 +730,13 @@ export function LeadsTab({ token }: LeadsTabProps) {
                       <p className="text-white font-medium">
                         {formatCurrency(lead.estimated_value)}
                       </p>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-brand-secondary-light/75">
                         {lead.probability}% prob.
                       </p>
                     </td>
                     <td className="px-4 py-3">
                       <span
-                        className={`capitalize ${lead.assigned_to ? "text-white" : "text-gray-500"}`}
+                        className={`capitalize ${lead.assigned_to ? "text-white" : "text-brand-secondary-light/65"}`}
                       >
                         {lead.assigned_to || "Unassigned"}
                       </span>
@@ -749,14 +760,14 @@ export function LeadsTab({ token }: LeadsTabProps) {
                           )}
                         </span>
                       ) : (
-                        <span className="text-gray-500">—</span>
+                        <span className="text-brand-secondary-light/65">—</span>
                       )}
                     </td>
                     <td className="px-4 py-3">
-                      <span className="text-gray-400 text-xs">
+                      <span className="text-brand-secondary-light/75 text-xs">
                         {getSourceLabel(lead.source)}
                       </span>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-brand-secondary-light/65">
                         {formatRelativeDate(lead.created_at)}
                       </p>
                     </td>

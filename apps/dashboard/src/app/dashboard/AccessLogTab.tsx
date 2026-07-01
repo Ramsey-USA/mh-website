@@ -75,18 +75,18 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
         {SKELETON_KEYS.map((key) => (
           <div
             key={key}
-            className="h-14 rounded-lg border border-gray-700 bg-gray-800/60 animate-pulse"
+            className="h-14 rounded-lg border border-brand-primary/35 bg-brand-primary-darker/55 animate-pulse"
           />
         ))}
       </div>
     );
   } else if (entries.length === 0) {
     content = (
-      <div className="rounded-xl border border-gray-700 bg-gray-800/60 p-10 text-center text-gray-400">
+      <div className="rounded-xl border border-brand-primary/35 bg-brand-primary-darker/55 p-10 text-center text-brand-secondary-light/80">
         <MaterialIcon
           icon="history_toggle_off"
           size="xl"
-          className="mx-auto mb-3 text-gray-500"
+          className="mx-auto mb-3 text-brand-secondary/70"
         />
         <p className="text-sm font-semibold">No access events yet</p>
       </div>
@@ -95,14 +95,14 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
     content = (
       <section
         data-print-section="true"
-        className="rounded-xl border border-gray-700 bg-gray-800/80 overflow-hidden"
+        className="rounded-xl border border-brand-primary/35 bg-brand-primary-darker/60 overflow-hidden"
       >
-        <div className="px-4 py-3 border-b border-gray-700 text-xs uppercase tracking-wider text-gray-400 font-bold">
+        <div className="px-4 py-3 border-b border-brand-primary/35 text-xs uppercase tracking-wider text-brand-secondary-light/85 font-bold">
           {total} event{total === 1 ? "" : "s"}
         </div>
         <div className="overflow-x-auto">
-          <table className="min-w-full text-sm">
-            <thead className="bg-gray-900/80 text-gray-400 uppercase tracking-wider text-xs">
+          <table className="min-w-275 w-full text-sm">
+            <thead className="bg-brand-primary-darker/75 text-brand-secondary-light/80 uppercase tracking-wider text-xs">
               <tr>
                 <th scope="col" className="px-4 py-3 text-left">
                   Time
@@ -127,11 +127,11 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-700">
+            <tbody className="divide-y divide-brand-primary/35">
               {entries.map((entry) => (
                 <tr
                   key={entry.id}
-                  className="hover:bg-gray-700/30 transition-colors text-gray-200"
+                  className="hover:bg-brand-primary-dark/50 transition-colors text-brand-secondary-light"
                 >
                   <td className="px-4 py-3 whitespace-nowrap">
                     {formatAccessTimestamp(entry.accessed_at)}
@@ -141,7 +141,7 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
                     <span
                       className={`inline-flex rounded-full px-2.5 py-1 text-xs font-black uppercase tracking-wide ${
                         ROLE_BADGE_CLASSES[entry.role] ??
-                        "bg-gray-600 text-white"
+                        "bg-brand-primary text-brand-secondary-light"
                       }`}
                     >
                       {entry.role}
@@ -150,13 +150,13 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
                   <td className="px-4 py-3">
                     {formatEventLabel(entry.event_type)}
                   </td>
-                  <td className="px-4 py-3 text-gray-300">
+                  <td className="px-4 py-3 text-brand-secondary-light/85">
                     {entry.resource_title ?? entry.resource_key ?? "-"}
                   </td>
-                  <td className="px-4 py-3 font-mono text-xs text-gray-300">
+                  <td className="px-4 py-3 font-mono text-xs text-brand-secondary-light/85">
                     {entry.ip_address ?? "-"}
                   </td>
-                  <td className="px-4 py-3 text-gray-300">
+                  <td className="px-4 py-3 text-brand-secondary-light/85">
                     {summarizeUserAgent(entry.user_agent)}
                   </td>
                 </tr>
@@ -172,7 +172,7 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
     <div className="space-y-6">
       <section
         data-print-section="true"
-        className="rounded-xl border border-gray-700 bg-gray-800/80 p-5"
+        className="rounded-xl border border-brand-primary/35 bg-brand-primary-darker/60 p-5"
       >
         <div className="flex items-center justify-between gap-4 flex-wrap mb-4">
           <div>
@@ -184,7 +184,7 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
               />
               Access Log
             </h2>
-            <p className="text-sm text-gray-400 mt-1">
+            <p className="text-sm text-brand-secondary-light/80 mt-1">
               Authenticated hub activity across login, downloads, forms, and
               compliance events.
             </p>
@@ -199,7 +199,7 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
               type="button"
               onClick={refreshAccessLog}
               disabled={isFetching}
-              className="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-4 py-2 text-sm font-black uppercase tracking-wide text-gray-200 hover:border-brand-secondary hover:text-white disabled:opacity-50 transition-colors"
+              className="inline-flex items-center gap-2 rounded-lg border border-brand-primary/45 px-4 py-2 text-sm font-black uppercase tracking-wide text-brand-secondary-light hover:border-brand-secondary hover:text-white disabled:opacity-50 transition-colors"
             >
               <MaterialIcon
                 icon={isFetching ? "hourglass_empty" : "refresh"}
@@ -214,12 +214,12 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
           data-print-hide="true"
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3"
         >
-          <label className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+          <label className="text-xs font-semibold uppercase tracking-wider text-brand-secondary-light/85">
             <span>Role</span>
             <select
               value={roleFilter}
               onChange={(event) => setRoleFilter(event.target.value)}
-              className="mt-1 w-full rounded-lg border border-gray-600 bg-gray-900 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
+              className="mt-1 w-full rounded-lg border border-brand-primary/45 bg-brand-primary-darker/60 px-3 py-2 text-sm text-brand-secondary-light focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
             >
               <option value="">All Roles</option>
               <option value="admin">Admin</option>
@@ -229,12 +229,12 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
             </select>
           </label>
 
-          <label className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+          <label className="text-xs font-semibold uppercase tracking-wider text-brand-secondary-light/85">
             <span>Event Type</span>
             <select
               value={eventTypeFilter}
               onChange={(event) => setEventTypeFilter(event.target.value)}
-              className="mt-1 w-full rounded-lg border border-gray-600 bg-gray-900 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
+              className="mt-1 w-full rounded-lg border border-brand-primary/45 bg-brand-primary-darker/60 px-3 py-2 text-sm text-brand-secondary-light focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
             >
               <option value="">All Events</option>
               {Object.keys(EVENT_LABELS).map((eventType) => (
@@ -245,23 +245,23 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
             </select>
           </label>
 
-          <label className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+          <label className="text-xs font-semibold uppercase tracking-wider text-brand-secondary-light/85">
             <span>From</span>
             <input
               type="date"
               value={fromDate}
               onChange={(event) => setFromDate(event.target.value)}
-              className="mt-1 w-full rounded-lg border border-gray-600 bg-gray-900 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
+              className="mt-1 w-full rounded-lg border border-brand-primary/45 bg-brand-primary-darker/60 px-3 py-2 text-sm text-brand-secondary-light focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
             />
           </label>
 
-          <label className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+          <label className="text-xs font-semibold uppercase tracking-wider text-brand-secondary-light/85">
             <span>To</span>
             <input
               type="date"
               value={toDate}
               onChange={(event) => setToDate(event.target.value)}
-              className="mt-1 w-full rounded-lg border border-gray-600 bg-gray-900 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
+              className="mt-1 w-full rounded-lg border border-brand-primary/45 bg-brand-primary-darker/60 px-3 py-2 text-sm text-brand-secondary-light focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
             />
           </label>
         </div>

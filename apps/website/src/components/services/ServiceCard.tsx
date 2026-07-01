@@ -1,7 +1,7 @@
 "use client";
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { IconContainer, GlowEffect } from "@/components/ui";
+import { IconContainer, GlowEffect, Card } from "@/components/ui";
 import type { CoreService } from "./servicesData";
 
 interface ServiceCardProps {
@@ -27,7 +27,7 @@ export function ServiceCard(props: Readonly<ServiceCardProps>) {
       {/* Animated Border Glow */}
       <GlowEffect gradient="primary-dark" />
 
-      <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+      <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
         {/* Top Accent Bar */}
         <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -104,7 +104,7 @@ export function ServiceCard(props: Readonly<ServiceCardProps>) {
             </div>
           </div>
         </div>
-      </div>
+      </Card>
     </button>
   );
 }

@@ -15,7 +15,7 @@
       {
         "value": "Honestidad",
         "tagline": "Comunicación Clara en Todo Momento",
-        "description": "Precios transparentes, comunicacion directa y actualizaciones en tiempo real sobre alcance, presupuesto y cronograma. Avisamos riesgos temprano y decimos cuando un proyecto no es el ajuste correcto.",
+        "description": "Precios transparentes, comunicación directa y actualizaciones en tiempo real sobre alcance, presupuesto y cronograma. Avisamos riesgos temprano y decimos cuando un proyecto no es el ajuste correcto.",
         "stats": "Precios 100% Transparentes"
       },
       {
@@ -65,11 +65,11 @@
       {
         "title": "Comunidades AG y Bodegas",
         "subtitle": "Entrega para Proyectos Agrícolas y de Bodega",
-        "description": "Entrega para comunidades AG y bodegas con visibilidad en Procore, controles de seguridad en campo y cierre listo para handoff, incluyendo sistemas de liner para aguas residuales y escorrentia de lodos.",
+        "description": "Entrega para comunidades AG y bodegas con visibilidad en Procore, controles de seguridad en campo y cierre listo para entrega, incluyendo sistemas de liner para aguas residuales y escorrentía de lodos.",
         "features": [
-          "Instalacion de liner en bodegas para contencion de aguas residuales y lodos",
-          "Coordinacion de instalaciones AG con impacto en acero inoxidable",
-          "Integracion y secuenciacion de silos mayores",
+          "Instalación de liner en bodegas para contención de aguas residuales y lodos",
+          "Coordinación de instalaciones AG con impacto en acero inoxidable",
+          "Integración y secuenciación de silos mayores",
           "Contexto probado en proyectos como Darigold Plant en Pasco"
         ],
         "benefits": [
@@ -85,10 +85,10 @@
         "subtitle": "TI en Espacios Activos con Puertas y Herrajes",
         "description": "Ejecución de TI comercial con coordinación por fases, instalación de puertas y herrajes, y control de cronograma para proteger operaciones activas.",
         "features": [
-          "Definicion de alcance y matriz de responsables",
-          "Pronostico de presupuesto y cronograma",
+          "Definición de alcance y matriz de responsables",
+          "Pronóstico de presupuesto y cronograma",
           "Controles de constructabilidad y riesgo",
-          "Coordinacion de proveedores y materiales"
+          "Coordinación de proveedores y materiales"
         ],
         "benefits": [
           "Prevenga el aumento del alcance",
@@ -103,10 +103,10 @@
         "subtitle": "Entrega Pública con Controles de Cumplimiento",
         "description": "Entrega municipal con trazabilidad de aprobaciones, reportes en Procore y documentación lista para agencia desde inicio hasta cierre.",
         "features": [
-          "Alcances de instalaciones publicas y renovacion civica",
+          "Alcances de instalaciones públicas y renovación cívica",
           "Trazabilidad de aprobaciones y reportes de agencia",
           "Controles de seguridad y continuidad en sitios ocupados",
-          "Documentacion de cierre lista para auditoria"
+          "Documentación de cierre lista para auditoría"
         ],
         "benefits": [
           "Licencia en 3 estados (WA, OR, ID)",
@@ -119,7 +119,7 @@
       {
         "title": "Adquisición y Alianzas Comerciales",
         "subtitle": "Gestión de Cadena de Suministro",
-        "description": "Coordinacion de cadena de suministro para materiales de calidad y socios comerciales verificados, con menos retrasos y mayor trazabilidad.",
+        "description": "Coordinación de cadena de suministro para materiales de calidad y socios comerciales verificados, con menos retrasos y mayor trazabilidad.",
         "features": [
           "Abastecimiento y adquisición de materiales",
           "Coordinación y gestión de proveedores",
@@ -137,7 +137,7 @@
       {
         "title": "Industrial Ligero",
         "subtitle": "Infraestructura Duradera y de Alto Rendimiento",
-        "description": "Construccion industrial segura y durable para almacenes y plantas de proceso, con distribucion funcional y entrega lista para cumplimiento.",
+        "description": "Construcción industrial segura y durable para almacenes y plantas de proceso, con distribución funcional y entrega lista para cumplimiento.",
         "features": [
           "Almacenes y centros de distribución",
           "Plantas de fabricación y procesamiento",
@@ -155,7 +155,7 @@
       {
         "title": "Mejoras para Inquilinos",
         "subtitle": "TI Comercial e Instalación de Puertas y Herrajes",
-        "description": "Tenant improvements comerciales con instalacion de puertas y herrajes para minimizar tiempos muertos y proteger operaciones activas.",
+        "description": "Tenant improvements comerciales con instalación de puertas y herrajes para minimizar tiempos muertos y proteger operaciones activas.",
         "features": [
           "Renovaciones de oficinas",
           "Habilitaciones de tiendas",
@@ -236,7 +236,7 @@
       {
         "title": "Más de 650 Proyectos Exitosos",
         "subtitle": "Historial Comprobado",
-        "description": "Mas de 650 proyectos completados demuestran ejecucion confiable. El liderazgo veterano aporta disciplina, planificacion bajo presion y seguimiento constante.",
+        "description": "Más de 650 proyectos completados demuestran ejecución confiable. El liderazgo veterano aporta disciplina, planificación bajo presión y seguimiento constante.",
         "highlights": [
           "Más de 650 proyectos completados",
           "Empresa veterana desde enero de 2025",
@@ -275,15 +275,15 @@
     "descriptionPart5": ".",
     "steps": [
       {
-        "title": "Ingreso y Calificacion",
+        "title": "Ingreso y Calificación",
         "desc": "Desde el inicio se definen encaje, objetivos y restricciones para alinear la ruta de entrega en AG, bodegas y obra municipal."
       },
       {
-        "title": "Planificacion de Preconstruccion",
+        "title": "Planificación de Preconstrucción",
         "desc": "Estimación lidera presupuesto previo, definición de alcance y controles de riesgo para validar rutas realistas antes de movilizar obra."
       },
       {
-        "title": "Control de Ejecucion",
+        "title": "Control de Ejecución",
         "desc": "Superintendentes dirigen campo y PM gestionan controles de entrega. Impactos mayores a $5,000 requieren aprobación del COO; mayores a $25,000 requieren aprobación adicional del CFO."
       },
       {

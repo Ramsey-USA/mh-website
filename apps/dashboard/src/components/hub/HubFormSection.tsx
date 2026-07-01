@@ -12,7 +12,7 @@ interface HubFormSectionProps {
 /**
  * Standard section wrapper used by Hub admin forms.
  *
- * Replaces the repeated `rounded-xl border border-gray-700 …` block +
+ * Replaces the repeated rounded border/surface wrapper block +
  * inline section heading that used to appear ~7 times in
  * `TeamProfileForm`.
  */
@@ -23,12 +23,14 @@ export function HubFormSection({
   children,
 }: HubFormSectionProps) {
   return (
-    <div className="rounded-xl border border-gray-700 bg-gray-800/60 p-5 space-y-4">
-      <div className="flex items-center gap-2 border-b border-gray-700 pb-2">
+    <div className="rounded-xl border border-brand-primary/35 bg-brand-primary-darker/60 p-5 space-y-4">
+      <div className="flex items-center gap-2 border-b border-brand-primary/35 pb-2">
         <MaterialIcon icon={icon} size="sm" className="text-brand-secondary" />
         <span className={DASHBOARD_SECTION_HEADER_CLASS}>{label}</span>
       </div>
-      {description && <p className="text-xs text-gray-500">{description}</p>}
+      {description && (
+        <p className="text-xs text-brand-secondary-light/70">{description}</p>
+      )}
       {children}
     </div>
   );

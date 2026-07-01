@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Card } from "@/components/ui";
 import type { Testimonial } from "@/lib/data/testimonials";
 
 interface TestimonialsCarouselProps {
@@ -52,7 +53,7 @@ export function TestimonialsCarousel({
   if (testimonials.length === 0) {
     return (
       <div className={`relative mx-auto max-w-5xl ${className}`}>
-        <div className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center min-h-100">
+        <Card className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center min-h-100">
           <MaterialIcon
             icon="construction"
             size="4xl"
@@ -65,7 +66,7 @@ export function TestimonialsCarousel({
             Client testimonials will be available soon. We're committed to
             sharing only authentic feedback from our valued partners.
           </p>
-        </div>
+        </Card>
       </div>
     );
   }
@@ -77,7 +78,7 @@ export function TestimonialsCarousel({
   return (
     <div className={`relative mx-auto max-w-5xl ${className}`}>
       {/* Main Carousel Card */}
-      <div className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-between">
+      <Card className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-between">
         {/* Quote Icon */}
         <div className="absolute top-6 right-6 sm:top-8 sm:right-8 flex justify-center items-center bg-brand-secondary/10 p-3 rounded-full w-14 h-14 sm:w-16 sm:h-16">
           <svg
@@ -160,7 +161,7 @@ export function TestimonialsCarousel({
             className="text-gray-900 dark:text-white w-6 h-6"
           />
         </button>
-      </div>
+      </Card>
 
       {/* Dots Indicator */}
       <div className="flex justify-center items-center gap-2 mt-8">

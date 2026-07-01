@@ -62,30 +62,30 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
     >
       <FadeInWhenVisible>
         <div className="mx-auto mb-8 grid max-w-4xl gap-3 sm:grid-cols-3">
-          <div className="rounded-xl border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80">
+          <Card className="rounded-xl border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80">
             <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Service Hubs
             </p>
             <p className="mt-1 text-2xl font-black text-gray-900 dark:text-white">
               {serviceAreas.length}
             </p>
-          </div>
-          <div className="rounded-xl border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80">
+          </Card>
+          <Card className="rounded-xl border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80">
             <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Coverage Points
             </p>
             <p className="mt-1 text-2xl font-black text-gray-900 dark:text-white">
               {totalAreas}
             </p>
-          </div>
-          <div className="rounded-xl border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80">
+          </Card>
+          <Card className="rounded-xl border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80">
             <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Location Guides
             </p>
             <p className="mt-1 text-2xl font-black text-gray-900 dark:text-white">
               {linkedAreas}
             </p>
-          </div>
+          </Card>
         </div>
 
         <StaggeredFadeIn

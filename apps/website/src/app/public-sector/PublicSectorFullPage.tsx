@@ -1,7 +1,7 @@
 import { PageTrackingClient, TrackedBridgeLink } from "@/components/analytics";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { Button, AlternatingShowcase } from "@/components/ui";
+import { Button, Card, AlternatingShowcase } from "@/components/ui";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -391,9 +391,9 @@ export default function PublicSectorFullPage() {
             className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
           >
             {grantSupportServices.map((service) => (
-              <div
+              <Card
                 key={service.title}
-                className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 overflow-hidden hover:-translate-y-1"
+                className="group relative overflow-hidden border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800"
               >
                 {/* Animated border glow */}
                 <div
@@ -443,7 +443,7 @@ export default function PublicSectorFullPage() {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </Card>
             ))}
           </StaggeredFadeIn>
         </div>
@@ -756,9 +756,9 @@ export default function PublicSectorFullPage() {
 
             <div className="space-y-6">
               {processSteps.map((process) => (
-                <div
+                <Card
                   key={process.step}
-                  className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 overflow-hidden"
+                  className="group relative overflow-hidden border border-gray-200 bg-white transition-all duration-300 hover:border-transparent hover:shadow-xl dark:border-gray-700 dark:bg-gray-800"
                 >
                   {/* Animated border glow */}
                   <div
@@ -793,7 +793,7 @@ export default function PublicSectorFullPage() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Card>
               ))}
             </div>
           </div>

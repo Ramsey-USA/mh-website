@@ -59,12 +59,14 @@ export const FORM_TYPE_LABELS: Readonly<Record<string, string>> = {
 export const STATUS_COLORS: Readonly<Record<SubmissionStatus, string>> = {
   submitted: "bg-yellow-900/50 text-yellow-300 border-yellow-600",
   reviewed: "bg-green-900/50 text-green-300 border-green-600",
-  archived: "bg-gray-700/50 text-gray-400 border-gray-600",
+  archived:
+    "bg-brand-primary-darker/60 text-brand-secondary-light/80 border-brand-primary/45",
 };
 
 export const JOB_STATUS_COLORS: Readonly<Record<JobStatus, string>> = {
   active: "bg-green-900/50 text-green-300 border-green-600",
-  closed: "bg-gray-700/50 text-gray-400 border-gray-600",
+  closed:
+    "bg-brand-primary-darker/60 text-brand-secondary-light/80 border-brand-primary/45",
   archived: "bg-red-900/50 text-red-400 border-red-700",
 };
 
@@ -243,8 +245,10 @@ export const SSSP_STATUS_LABELS: Readonly<Record<SsspStatus, string>> = {
 };
 
 export const SSSP_STATUS_COLORS: Readonly<Record<SsspStatus, string>> = {
-  draft: "bg-gray-700/50 text-gray-400 border-gray-600",
-  generating: "bg-blue-900/50 text-blue-300 border-blue-600",
+  draft:
+    "bg-brand-primary-darker/60 text-brand-secondary-light/80 border-brand-primary/45",
+  generating:
+    "bg-brand-primary-dark/65 text-brand-secondary-light border-brand-secondary/45",
   ready: "bg-yellow-900/50 text-yellow-300 border-yellow-600",
   approved: "bg-green-900/50 text-green-300 border-green-600",
 };

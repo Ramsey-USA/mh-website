@@ -4,6 +4,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PageTrackingClient } from "@/components/analytics";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/SeoMeta";
+import { Button } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getDocumentById, handbookForms } from "@/lib/data/documents";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
@@ -84,31 +85,31 @@ export default function EmployeeHandbookPage() {
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             {manual?.pdfPath && (
-              <a
-                href={manual.pdfPath}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-brand-secondary px-4 py-2.5 text-sm font-bold text-white shadow hover:bg-brand-secondary/90 transition-colors"
-              >
+              <Button asChild variant="secondary" size="lg">
+                <a
+                  href={manual.pdfPath}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MaterialIcon
+                    icon="download"
+                    size="sm"
+                    className="text-white"
+                  />
+                  Download Handbook PDF
+                </a>
+              </Button>
+            )}
+            <Button asChild variant="outline" size="lg">
+              <Link href="/resources">
                 <MaterialIcon
-                  icon="download"
+                  icon="folder_open"
                   size="sm"
                   className="text-white"
                 />
-                Download Handbook PDF
-              </a>
-            )}
-            <Link
-              href="/resources"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
-            >
-              <MaterialIcon
-                icon="folder_open"
-                size="sm"
-                className="text-white"
-              />
-              Back to Resources
-            </Link>
+                Back to Resources
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -233,32 +234,32 @@ export default function EmployeeHandbookPage() {
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {form.pdfPath ? (
-                      <a
-                        href={form.pdfPath}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-brand-secondary px-3 py-1.5 text-xs font-bold text-white shadow hover:bg-brand-secondary/90 transition-colors"
-                      >
-                        <MaterialIcon
-                          icon="download"
-                          size="sm"
-                          className="text-white"
-                        />
-                        Download PDF
-                      </a>
+                      <Button asChild variant="secondary" size="sm">
+                        <a
+                          href={form.pdfPath}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <MaterialIcon
+                            icon="download"
+                            size="sm"
+                            className="text-white"
+                          />
+                          Download PDF
+                        </a>
+                      </Button>
                     ) : (
                       <span className="inline-flex items-center gap-1.5 rounded-lg border border-gray-300 bg-gray-100 px-3 py-1.5 text-xs font-semibold text-gray-500 dark:border-gray-700 dark:bg-gray-900/50 dark:text-gray-400">
                         <MaterialIcon icon="hourglass_empty" size="sm" />
                         Coming soon
                       </span>
                     )}
-                    <Link
-                      href="/hub"
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-brand-primary/30 bg-white px-3 py-1.5 text-xs font-semibold text-brand-primary hover:bg-brand-primary/5 transition-colors dark:bg-transparent dark:text-brand-secondary dark:border-brand-secondary/30"
-                    >
-                      <MaterialIcon icon="login" size="sm" />
-                      Sign In
-                    </Link>
+                    <Button asChild variant="outline" size="sm">
+                      <Link href="/hub">
+                        <MaterialIcon icon="login" size="sm" />
+                        Sign In
+                      </Link>
+                    </Button>
                   </div>
                 </footer>
               </article>

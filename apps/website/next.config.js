@@ -46,6 +46,7 @@ const createNextIntlPlugin = require("next-intl/plugin");
 const path = require("node:path");
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const isLowMemoryBuild = process.env.LOW_MEMORY_BUILD === "true";
+const enableNextExperiments = process.env.NEXT_ENABLE_EXPERIMENTS === "true";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -59,18 +60,22 @@ const nextConfig = {
   // Target modern browsers to reduce polyfills
   // Matches browserslist: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
 
-  experimental: {
-    // Reduce build worker pressure in constrained containers.
-    webpackBuildWorker: !isLowMemoryBuild,
-    // CSS optimization - cssChunking defaults to true for better splitting
-    // Tree-shake large packages at compile time (experimental in Next.js 16)
-    optimizePackageImports: [
-      "@radix-ui/react-slot",
-      "@radix-ui/react-tabs",
-      "@radix-ui/react-progress",
-      "recharts",
-    ],
-  },
+  ...(enableNextExperiments
+    ? {
+        experimental: {
+          // Reduce build worker pressure in constrained containers.
+          webpackBuildWorker: !isLowMemoryBuild,
+          // CSS optimization - cssChunking defaults to true for better splitting
+          // Tree-shake large packages at compile time (experimental in Next.js 16)
+          optimizePackageImports: [
+            "@radix-ui/react-slot",
+            "@radix-ui/react-tabs",
+            "@radix-ui/react-progress",
+            "recharts",
+          ],
+        },
+      }
+    : {}),
 
   // Exclude build-tool node_modules from the trace step (~20s savings)
   outputFileTracingExcludes: {

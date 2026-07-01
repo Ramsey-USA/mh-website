@@ -240,13 +240,14 @@ describe("POST /api/team-profile/review", () => {
     expect(body.error).toMatch(/rejectionReason/i);
   });
 
-  it("returns 404 when slug is not a known team member", async () => {
+  it("allows review when slug is not in static roster but has a pending DB row", async () => {
     const req = makeAuthedRequest("POST", {
       slug: "unknown-person",
       action: "approve",
     });
     const res = await POST(req);
-    expect(res.status).toBe(404);
+    expect(res.status).toBe(200);
+    expect(mockExecute).toHaveBeenCalledTimes(1);
   });
 
   it("returns 404 when no DB row exists for the slug", async () => {

@@ -59,16 +59,16 @@
           "crm": {
             "category": "Tecnología",
             "title": "Plataforma Integrada de CRM y Gestión de Proyectos",
-            "description": "La implementación de High-Level CRM esta en marcha para brindar comunicación fluida, actualizaciones en tiempo real y una mejor experiencia del cliente.",
+            "description": "La implementación de High-Level CRM está en marcha para brindar comunicación fluida, actualizaciones en tiempo real y una mejor experiencia del cliente.",
             "date": "Mar 2026",
-            "linkText": "Conocer Mas"
+            "linkText": "Conocer Más"
           },
           "trade": {
             "category": "Asociación",
             "title": "Expansión de la Red de Socios Comerciales",
             "description": "Estamos ampliando nuestra red de profesionales de oficios para servir mejor a nuestros socios cliente en todo el Pacífico Noroeste.",
             "date": "Oct 2025",
-            "linkText": "Conviertase en Socio"
+            "linkText": "Conviértase en Socio"
           },
           "safety": {
             "category": "Reconocimiento",
@@ -80,7 +80,7 @@
           "insight": {
             "category": "Perspectiva de la Industria",
             "title": "Mejores Prácticas para Proyectos Comerciales",
-            "description": "A partir de años de experiencia en campo, compartimos guias prácticas sobre planificación, comunicación y ejecución centrada en la asociación.",
+            "description": "A partir de años de experiencia en campo, compartimos guías prácticas sobre planificación, comunicación y ejecución centrada en la asociación.",
             "date": "Aug 2025",
             "linkText": "Nuestros Servicios"
           },
@@ -152,11 +152,11 @@
       },
       "logisticsCommand": {
         "subtitle": "Comando de",
-        "title": "Logistica",
+        "title": "Logística",
         "description": "Soporte operativo en logística, comunicación y administración."
       },
       "emptyState": {
-        "title": "Actualizacion de personal en progreso.",
+        "title": "Actualización de personal en progreso.",
         "description": "Esta sección se completará cuando se finalicen las asignaciones."
       }
     },
@@ -180,7 +180,7 @@
           "description": "Nos guiamos entre roles, compartimos conocimiento práctico y resolvemos problemas juntos."
         },
         "sharedSuccess": {
-          "title": "Exito Compartido",
+          "title": "Éxito Compartido",
           "description": "Los resultados del cliente, el crecimiento del equipo y relaciones duraderas definen el éxito."
         }
       },
@@ -202,7 +202,7 @@
             "description": "El desempeño en seguridad se mantiene con estándares disciplinados y responsabilidad en campo."
           },
           "community": {
-            "title": "Enfoque Comunitario y Raices Regionales",
+            "title": "Enfoque Comunitario y Raíces Regionales",
             "description": "Fortalecemos comunidades locales con trabajo de calidad y relaciones regionales de largo plazo."
           },
           "balance": {
@@ -257,7 +257,7 @@
       "investment": {
         "iconAria": "Crecimiento de inversión",
         "headingSubtitle": "Nuestro Compromiso",
-        "headingTitle": "Inversión en Su Exito",
+        "headingTitle": "Inversión en Su Éxito",
         "stats": {
           "experience": {
             "line1": "Años de Experiencia",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/SeoMeta";
@@ -94,29 +95,33 @@ export default function SafetyManualContentsPage() {
               </p>
             </div>
             <div className="flex gap-3 flex-wrap">
-              <a
-                href={
-                  manual?.contentsPdfPath ??
-                  "/docs/safety/safety-manual-contents.pdf"
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-brand-secondary px-4 py-2.5 text-sm font-bold text-white shadow hover:bg-brand-secondary/90 transition-colors"
-              >
-                <MaterialIcon
-                  icon="download"
-                  size="sm"
-                  className="text-white"
-                />
-                Download TOC PDF
-              </a>
-              <Link
-                href="/safety"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
-              >
-                <MaterialIcon icon="shield" size="sm" className="text-white" />
-                Safety Program
-              </Link>
+              <Button asChild variant="secondary" size="lg">
+                <a
+                  href={
+                    manual?.contentsPdfPath ??
+                    "/docs/safety/safety-manual-contents.pdf"
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MaterialIcon
+                    icon="download"
+                    size="sm"
+                    className="text-white"
+                  />
+                  Download TOC PDF
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link href="/safety">
+                  <MaterialIcon
+                    icon="shield"
+                    size="sm"
+                    className="text-white"
+                  />
+                  Safety Program
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

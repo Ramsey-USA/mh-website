@@ -45,7 +45,7 @@ export const EVENT_LABELS: Readonly<Record<AccessEventType, string>> = {
 
 export const ROLE_BADGE_CLASSES: Readonly<Record<string, string>> = {
   admin: "bg-brand-primary text-white",
-  superintendent: "bg-blue-600 text-white",
+  superintendent: "bg-brand-secondary text-brand-primary-darker",
   worker: "bg-green-600 text-white",
   traveler: "bg-amber-500 text-white",
 };

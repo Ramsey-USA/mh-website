@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
@@ -811,20 +812,18 @@ export default function SafetyPage() {
             questions about compliance, EMR, or our written safety program.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="tel:+15093086489"
-              className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white font-bold px-8 py-4 rounded-xl transition-colors text-lg"
-            >
-              <MaterialIcon icon="phone" size="md" className="text-white" />
-              (509) 308-6489
-            </a>
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-2 border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-bold px-8 py-4 rounded-xl transition-colors text-lg"
-            >
-              <MaterialIcon icon="mail" size="md" />
-              Send a Message
-            </a>
+            <Button asChild size="lg" variant="primary">
+              <a href="tel:+15093086489">
+                <MaterialIcon icon="phone" size="md" className="text-white" />
+                (509) 308-6489
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <a href="/contact">
+                <MaterialIcon icon="mail" size="md" />
+                Send a Message
+              </a>
+            </Button>
           </div>
         </div>
       </section>

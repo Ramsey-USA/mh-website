@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "@/components/ui";
+import { Button, Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   DiagonalStripePattern,
@@ -57,7 +57,7 @@ export function PartnershipTypesSection() {
           <div className="group relative flex h-full">
             <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-            <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+            <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
               <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
               <div className="relative p-8 lg:p-10 flex flex-col flex-1">
@@ -137,13 +137,13 @@ export function PartnershipTypesSection() {
                   </p>
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
 
           <div className="group relative flex h-full">
             <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-            <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+            <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
               <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
               <div className="relative p-8 lg:p-10 flex flex-col flex-1">
@@ -223,12 +223,12 @@ export function PartnershipTypesSection() {
                   </p>
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
 
         <div className="mt-16 lg:mt-20 mx-auto max-w-4xl">
-          <div className="relative overflow-hidden rounded-2xl border-2 border-brand-primary/30 bg-white dark:bg-gray-900 p-6 lg:p-8 shadow-xl">
+          <Card className="relative overflow-hidden border-2 border-brand-primary/30 bg-white p-6 shadow-xl dark:bg-gray-900 lg:p-8">
             <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brand-primary/10 blur-3xl"></div>
             <div className="relative flex items-start gap-4">
               <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-primary/10 dark:bg-brand-primary/20">
@@ -247,7 +247,7 @@ export function PartnershipTypesSection() {
                 </p>
               </div>
             </div>
-          </div>
+          </Card>
         </div>
       </div>
     </section>

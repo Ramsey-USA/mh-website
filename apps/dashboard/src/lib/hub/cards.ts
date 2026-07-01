@@ -31,14 +31,15 @@ export const HUB_CARDS: readonly HubCardDefinition[] = [
   },
   {
     title: "Employee Handbook",
-    subtitle: "Placeholder ready for document upload and PDF publishing",
+    subtitle:
+      "Current handbook policies, acknowledgments, and onboarding references",
     href: "/employee-handbook",
     icon: "menu_book",
-    badge: "Placeholder",
+    badge: "Current",
   },
   {
     title: "Field Forms",
-    subtitle: "Toolbox talks, JHA, inspections, and safety forms",
+    subtitle: "Current MISH and handbook forms for field and office workflows",
     href: "/resources",
     icon: "description",
     badge: "Role-Gated Downloads",

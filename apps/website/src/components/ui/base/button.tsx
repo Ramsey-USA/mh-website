@@ -4,21 +4,21 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex justify-center items-center disabled:opacity-50 border-2 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 font-medium transition-all duration-300 disabled:pointer-events-none btn-lift btn-shine",
+  "inline-flex items-center justify-center gap-2 border-2 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 font-semibold transition-all duration-300 disabled:opacity-50 disabled:pointer-events-none btn-lift btn-shine",
   {
     variants: {
       variant: {
         // MH Construction Primary - Hunter Green
         primary:
-          "border-brand-primary bg-white dark:bg-gray-900 text-brand-primary dark:text-bronze-400 hover:bg-brand-primary hover:text-white hover:border-brand-secondary focus:ring-brand-primary shadow-[0_4px_16px_rgba(56,104,81,0.2)] hover:shadow-[0_8px_25px_rgba(56,104,81,0.35)]",
+          "border-brand-primary bg-brand-primary text-white hover:bg-brand-primary-dark hover:border-brand-primary-dark focus:ring-brand-primary shadow-[0_4px_16px_rgba(56,104,81,0.25)] hover:shadow-[0_8px_24px_rgba(56,104,81,0.35)]",
 
         // MH Construction Secondary - Leather Tan
         secondary:
-          "border-brand-secondary bg-white dark:bg-gray-900 text-brand-secondary dark:text-bronze-300 hover:bg-brand-secondary hover:text-white hover:border-bronze-700 focus:ring-brand-secondary shadow-[0_4px_16px_rgba(189,146,100,0.2)] hover:shadow-[0_8px_25px_rgba(189,146,100,0.35)]",
+          "border-brand-secondary bg-brand-secondary text-gray-900 hover:bg-brand-secondary-dark hover:border-brand-secondary-dark focus:ring-brand-secondary shadow-[0_4px_16px_rgba(189,146,100,0.25)] hover:shadow-[0_8px_24px_rgba(189,146,100,0.35)]",
 
         // MH Construction Outline — Bronze border for premium CTA feel
         outline:
-          "border-brand-bronze bg-transparent text-brand-primary dark:text-bronze-400 hover:bg-brand-bronze/5 dark:hover:bg-bronze-400/10 hover:border-brand-bronze-dark focus:ring-brand-bronze/50",
+          "border-brand-primary bg-transparent text-brand-primary dark:text-brand-primary-light hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 hover:border-brand-primary-dark focus:ring-brand-primary/50 shadow-none",
 
         // Neutral/Theme-aware
         neutral:
@@ -26,7 +26,7 @@ const buttonVariants = cva(
 
         // Standard utility variants
         default:
-          "border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 focus:ring-gray-500",
+          "border-brand-primary/25 bg-white dark:bg-gray-900 text-brand-primary dark:text-brand-primary-light hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 hover:border-brand-primary/40 focus:ring-brand-primary",
 
         destructive:
           "border-red-500 bg-white dark:bg-gray-900 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950 hover:border-red-600 dark:hover:border-red-300 focus:ring-red-500",
@@ -37,10 +37,10 @@ const buttonVariants = cva(
         link: "border-transparent bg-transparent text-brand-primary dark:text-bronze-400 underline-offset-4 hover:underline hover:text-brand-secondary dark:hover:text-bronze-300 focus:ring-brand-primary/50 hover:translate-y-0",
       },
       size: {
-        sm: "h-8 px-3 text-xs min-w-[72px]",
-        default: "h-10 px-4 text-sm min-w-[88px]",
-        lg: "h-12 px-6 text-base min-w-[104px]",
-        xl: "h-14 px-8 text-lg min-w-[120px]",
+        sm: "h-9 px-3.5 text-xs min-w-[76px]",
+        default: "h-11 px-4.5 text-sm min-w-[92px]",
+        lg: "h-12 px-6 text-base min-w-[108px]",
+        xl: "h-14 px-8 text-lg min-w-[124px]",
         icon: "h-10 w-10",
         "icon-sm": "h-8 w-8",
         "icon-lg": "h-12 w-12",

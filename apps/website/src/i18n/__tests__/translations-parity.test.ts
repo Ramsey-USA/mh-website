@@ -315,6 +315,43 @@ describe("Translation Files — Spanish Accent Quality (es.json)", () => {
   }
 });
 
+describe("Translation Files — Spanish Accent Quality (home/es.json)", () => {
+  const esRaw = fs.readFileSync(path.join(HOME_MSG_DIR, "es.json"), "utf-8");
+
+  const HOME_MISSING_ACCENT_PATTERNS: Array<[RegExp, string]> = [
+    [/\bcomunicacion\b/i, "comunicación"],
+    [/\bdefinicion\b/i, "definición"],
+    [/\bpronostico\b/i, "pronóstico"],
+    [/\bcoordinacion\b/i, "coordinación"],
+    [/\bintegracion\b/i, "integración"],
+    [/\bsecuenciacion\b/i, "secuenciación"],
+    [/\binstalacion\b/i, "instalación"],
+    [/\bcontencion\b/i, "contención"],
+    [/\bejecucion\b/i, "ejecución"],
+    [/\bplanificacion\b/i, "planificación"],
+    [/\bcalificacion\b/i, "calificación"],
+    [/\bexito\b/i, "éxito"],
+    [/\braices\b/i, "raíces"],
+    [/\blogistica\b/i, "logística"],
+    [/\bactualizacion\b/i, "actualización"],
+    [/\bconviertase\b/i, "conviértase"],
+    [/\bmas\b/i, "más"],
+    [/\besta\b/i, "está"],
+  ];
+
+  for (const [pattern, correctForm] of HOME_MISSING_ACCENT_PATTERNS) {
+    test(`no unaccented "${correctForm}" in home/es.json`, () => {
+      const matches = esRaw.match(new RegExp(pattern.source, "gi")) ?? [];
+      if (matches.length > 0) {
+        throw new Error(
+          `Found ${matches.length} unaccented occurrence(s) matching /${pattern.source}/i ` +
+            `(should be "${correctForm}"): ${[...new Set(matches)].join(", ")}`,
+        );
+      }
+    });
+  }
+});
+
 describe("Translation Files — Spanish Punctuation (es.json)", () => {
   const es = loadJson(path.join(MSG_DIR, "es.json"));
   const strings = collectStringValues(es);

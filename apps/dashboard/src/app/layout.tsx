@@ -37,7 +37,7 @@ export default function DashboardRootLayout(
       <head />
       <body
         suppressHydrationWarning
-        className="min-h-screen bg-slate-50 dark:bg-gray-950 font-body antialiased"
+        className="min-h-screen bg-brand-light/40 dark:bg-brand-primary-darker font-body antialiased"
       >
         <ThemeProvider>{children}</ThemeProvider>
       </body>

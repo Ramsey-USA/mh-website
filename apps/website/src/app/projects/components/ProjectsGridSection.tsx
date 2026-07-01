@@ -8,6 +8,7 @@ import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
+import { Card } from "@/components/ui";
 import { ProjectCard } from "./ProjectCard";
 import { categories } from "./projectsData";
 import type { ProjectPortfolio } from "@/lib/types";
@@ -65,7 +66,7 @@ export function ProjectsGridSection({
           </StaggeredFadeIn>
         ) : (
           <FadeInWhenVisible>
-            <div className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center min-h-[500px]">
+            <Card className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center min-h-125">
               <MaterialIcon
                 icon="construction"
                 size="4xl"
@@ -83,7 +84,7 @@ export function ProjectsGridSection({
                 Please check back soon or contact us to learn more about our
                 current and past projects.
               </p>
-            </div>
+            </Card>
           </FadeInWhenVisible>
         )}
       </div>

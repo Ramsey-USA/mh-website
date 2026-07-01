@@ -59,12 +59,12 @@ describe("HubCard", () => {
   it("applies primary accent styling by default", () => {
     render(<HubCard card={card} />);
     const link = screen.getByRole("link");
-    expect(link.className).toContain("hover:border-brand-primary/40");
+    expect(link.className).toContain("hover:border-brand-primary/45");
   });
 
   it("applies secondary accent styling when requested", () => {
     render(<HubCard card={card} accent="secondary" />);
     const link = screen.getByRole("link");
-    expect(link.className).toContain("hover:border-brand-secondary/50");
+    expect(link.className).toContain("hover:border-brand-secondary/55");
   });
 });

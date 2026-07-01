@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Card } from "@/components/ui";
 import type { Testimonial } from "@/lib/data/testimonials";
 
 const variantStyles = {
@@ -47,7 +48,7 @@ export function TestimonialCard({
   const styles = variantStyles[activeVariant] || variantStyles.default;
 
   return (
-    <div
+    <Card
       className={`group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl h-full transition-all duration-500 min-h-[280px] sm:min-h-[320px] ${styles.borderColor} border ${className}`}
     >
       {/* Quote Icon */}
@@ -168,6 +169,6 @@ export function TestimonialCard({
       <blockquote className="font-light text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl italic leading-relaxed tracking-wide">
         "{testimonial.quote}"
       </blockquote>
-    </div>
+    </Card>
   );
 }

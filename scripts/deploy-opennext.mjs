@@ -56,7 +56,9 @@ const TEMP_ASSET_BASENAMES = new Set([
 
 const WORKERS_MAX_ASSET_BYTES = 25 * 1024 * 1024;
 
-const wranglerConfigPath = join(repoRoot, "wrangler.toml");
+const wranglerConfigPath = existsSync(join(appRoot, "wrangler.toml"))
+  ? join(appRoot, "wrangler.toml")
+  : join(repoRoot, "wrangler.toml");
 
 function fail(message) {
   console.error(`✖ ${message}`);

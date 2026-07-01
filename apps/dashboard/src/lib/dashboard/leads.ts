@@ -59,16 +59,17 @@ export const STATUS_LABELS: Readonly<Record<LeadStatus, string>> = {
 };
 
 export const STATUS_COLORS: Readonly<Record<LeadStatus, string>> = {
-  new: "bg-blue-900/50 text-blue-300 border-blue-600",
+  new: "bg-brand-primary-darker/60 text-brand-secondary-light border-brand-secondary/45",
   contacted: "bg-yellow-900/50 text-yellow-300 border-yellow-600",
-  estimate_sent: "bg-purple-900/50 text-purple-300 border-purple-600",
+  estimate_sent:
+    "bg-brand-primary-dark/65 text-brand-secondary-light border-brand-primary/55",
   negotiating: "bg-orange-900/50 text-orange-300 border-orange-600",
   won: "bg-green-900/50 text-green-300 border-green-600",
   lost: "bg-red-900/50 text-red-400 border-red-700",
 };
 
 export const PRIORITY_COLORS: Readonly<Record<LeadPriority, string>> = {
-  low: "text-gray-400",
+  low: "text-brand-secondary-light/70",
   medium: "text-yellow-400",
   high: "text-orange-400",
   urgent: "text-red-400",

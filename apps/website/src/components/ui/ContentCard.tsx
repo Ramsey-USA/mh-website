@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Card } from "@/components/ui";
 
 export interface ContentCardProps {
   /** Card variant for different use cases */
@@ -124,9 +125,9 @@ export function ContentCard({
         aria-hidden="true"
       ></div>
 
-      <div
+      <Card
         className={cn(
-          "relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full",
+          "relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800",
           variant === "feature" && "group-hover:-translate-y-1",
         )}
       >
@@ -224,7 +225,7 @@ export function ContentCard({
             </Link>
           )}
         </div>
-      </div>
+      </Card>
     </div>
   );
 

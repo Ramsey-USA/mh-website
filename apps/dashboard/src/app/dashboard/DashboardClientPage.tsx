@@ -29,7 +29,7 @@ import type { DashboardData } from "@/lib/dashboard/types";
 import "@/styles/dashboard-print.css";
 
 const TAB_PLACEHOLDER = (
-  <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-6 animate-pulse h-64" />
+  <div className="rounded-xl border border-brand-primary/35 bg-brand-primary-darker/55 p-6 animate-pulse h-64" />
 );
 
 const SafetyTab = dynamic(
@@ -56,6 +56,13 @@ const BrandingTab = dynamic(
   () => import("./BrandingTab").then((m) => ({ default: m.BrandingTab })),
   { ssr: false, loading: () => TAB_PLACEHOLDER },
 );
+const TeamQuestionnaireTab = dynamic(
+  () =>
+    import("./TeamQuestionnaireTab").then((m) => ({
+      default: m.TeamQuestionnaireTab,
+    })),
+  { ssr: false, loading: () => TAB_PLACEHOLDER },
+);
 
 type DashboardTab =
   | "analytics"
@@ -64,7 +71,8 @@ type DashboardTab =
   | "drivers"
   | "access-log"
   | "rfq"
-  | "branding";
+  | "branding"
+  | "team-questionnaire";
 
 const DASHBOARD_TABS: ReadonlyArray<DashboardTab> = [
   "analytics",
@@ -74,6 +82,7 @@ const DASHBOARD_TABS: ReadonlyArray<DashboardTab> = [
   "access-log",
   "rfq",
   "branding",
+  "team-questionnaire",
 ];
 
 const TAB_CONFIG: Readonly<
@@ -86,6 +95,7 @@ const TAB_CONFIG: Readonly<
   "access-log": { icon: "verified_user", label: "Access Log" },
   rfq: { icon: "description", label: "RFQ Builder" },
   branding: { icon: "auto_fix_high", label: "Branding Studio" },
+  "team-questionnaire": { icon: "quiz", label: "Team Questionnaire" },
 };
 
 function renderTabContent(
@@ -114,6 +124,9 @@ function renderTabContent(
   }
   if (activeTab === "branding") {
     return <BrandingTab token={token} />;
+  }
+  if (activeTab === "team-questionnaire") {
+    return <TeamQuestionnaireTab token={token} />;
   }
 
   return (
@@ -201,16 +214,16 @@ export default function DashboardClientPage({
   return (
     <div
       data-print-scope="dashboard"
-      className="min-h-screen bg-linear-to-br from-gray-900 via-gray-800 to-black"
+      className="min-h-screen bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary"
     >
       <header
         data-print-hide="true"
         className="bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary border-b-4 border-brand-secondary shadow-2xl"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-center gap-4">
-              <div className="bg-black/40 backdrop-blur-sm p-3 rounded-xl border-2 border-brand-secondary">
+              <div className="bg-brand-primary-darker/50 backdrop-blur-sm p-3 rounded-xl border-2 border-brand-secondary">
                 <MaterialIcon
                   icon="dashboard"
                   size="lg"
@@ -218,23 +231,23 @@ export default function DashboardClientPage({
                 />
               </div>
               <div>
-                <h1 className="text-3xl font-black text-white tracking-tight">
+                <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
                   ANALYTICS DASHBOARD
                 </h1>
                 <p className="text-sm text-brand-secondary font-bold uppercase tracking-wider">
                   Welcome back, {userName} • Dashboard Active
                 </p>
-                <p className="text-xs text-white/80 font-semibold tracking-wide">
+                <p className="text-xs text-brand-secondary-light/90 font-semibold tracking-wide">
                   Veteran-Owned Since January 2025 • Founded 2010
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <button
                 type="button"
                 onClick={handleRefresh}
                 disabled={isRefreshing || !adminToken}
-                className="flex items-center gap-2 px-4 py-3 bg-black/60 hover:bg-black/80 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-brand-secondary rounded-lg text-white font-black uppercase text-xs transition-colors"
+                className="flex flex-1 sm:flex-none justify-center items-center gap-2 px-4 py-3 bg-brand-primary-darker/55 hover:bg-brand-primary-darker/75 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-brand-secondary rounded-lg text-white font-black uppercase text-xs transition-colors"
               >
                 {isRefreshing ? (
                   <MaterialIcon
@@ -250,7 +263,7 @@ export default function DashboardClientPage({
               <button
                 type="button"
                 onClick={handleLogout}
-                className="flex items-center gap-2 px-6 py-3 bg-black/60 hover:bg-black/80 border-2 border-brand-secondary rounded-lg text-white font-black uppercase text-sm transition-all hover:scale-105"
+                className="flex flex-1 sm:flex-none justify-center items-center gap-2 px-6 py-3 bg-brand-primary-darker/55 hover:bg-brand-primary-darker/75 border-2 border-brand-secondary rounded-lg text-white font-black uppercase text-sm transition-all hover:scale-105"
               >
                 <MaterialIcon icon="power_settings_new" size="sm" />
                 Sign Out
@@ -263,19 +276,19 @@ export default function DashboardClientPage({
       {/* Tab bar */}
       <div
         data-print-hide="true"
-        className="bg-gray-900/80 border-b border-gray-700"
+        className="bg-brand-primary-darker/70 border-b border-brand-primary/40"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-1 py-2">
+          <div className="flex gap-1 py-2 overflow-x-auto">
             {DASHBOARD_TABS.map((tab) => (
               <button
                 key={tab}
                 type="button"
                 onClick={() => setActiveTab(tab)}
-                className={`px-5 py-2 rounded-lg text-sm font-black uppercase tracking-wider transition-colors ${
+                className={`shrink-0 px-4 sm:px-5 py-2 rounded-lg text-xs sm:text-sm font-black uppercase tracking-wider transition-colors ${
                   activeTab === tab
                     ? "bg-brand-primary text-white"
-                    : "text-gray-400 hover:text-white hover:bg-gray-700"
+                    : "text-brand-secondary-light/70 hover:text-white hover:bg-brand-primary/45"
                 }`}
               >
                 <span className="flex items-center gap-2">
@@ -313,7 +326,7 @@ function PrintHeader({
       <h1 className="text-2xl font-bold text-black">
         MH Construction — Analytics Report
       </h1>
-      <p className="text-sm text-gray-700">
+      <p className="text-sm text-brand-primary-dark">
         Generated for {user?.name ?? "Admin"} on {new Date().toLocaleString()}
         {data?.pageviews?.lastUpdated
           ? ` · Data as of ${formatTimestamp(data.pageviews.lastUpdated)}`
@@ -411,7 +424,7 @@ function AnalyticsOverview({
               </h3>
               <p className="text-yellow-200 text-sm">
                 ANALYTICS KV namespace not provisioned. Run{" "}
-                <code className="bg-black/40 px-1 rounded">
+                <code className="bg-brand-primary-darker/70 px-1 rounded">
                   wrangler kv namespace create ANALYTICS
                 </code>{" "}
                 and update wrangler.toml to see cross-visitor data.
@@ -428,7 +441,7 @@ function AnalyticsOverview({
         <p className="text-xs text-brand-secondary-text font-bold uppercase tracking-wider">
           Last sync: {formatTimestamp(data?.pageviews?.lastUpdated)}
         </p>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
           <ExportCsvButton
             filename={`mh-analytics-clicks-${new Date().toISOString().slice(0, 10)}.csv`}
             headers={["Timestamp", "Element", "Page", "City", "State"]}
@@ -574,7 +587,7 @@ function AnalyticsOverview({
           />
           System Performance Status
         </h2>
-        <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
+        <div className="bg-brand-primary-darker/45 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <SystemStat
               icon="bar_chart"
@@ -614,7 +627,7 @@ const StatCard = function StatCard({
   trendUp: boolean;
 }>) {
   return (
-    <div className="bg-linear-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-xl border-2 border-brand-primary shadow-2xl p-6 hover:scale-105 transition-transform">
+    <div className="bg-linear-to-br from-brand-primary-darker/75 to-brand-primary-dark/80 backdrop-blur-sm rounded-xl border-2 border-brand-primary shadow-2xl p-6 hover:scale-105 transition-transform">
       <div className="flex items-start justify-between mb-4">
         <div className="bg-brand-secondary/20 p-3 rounded-lg border border-brand-secondary">
           <MaterialIcon
@@ -637,7 +650,7 @@ const StatCard = function StatCard({
       <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-xs mb-1">
         {label}
       </div>
-      <div className="text-gray-600 text-xs">{sublabel}</div>
+      <div className="text-brand-secondary-light/80 text-xs">{sublabel}</div>
     </div>
   );
 };
@@ -649,19 +662,19 @@ const METRIC_COLOR_CLASSES: Readonly<
   >
 > = {
   green: {
-    bg: "from-green-900/60 to-green-800/40",
-    border: "border-green-500",
-    text: "text-green-300",
+    bg: "from-brand-primary-dark/85 to-brand-primary/55",
+    border: "border-brand-primary",
+    text: "text-brand-secondary-light",
   },
   blue: {
-    bg: "from-blue-900/60 to-blue-800/40",
-    border: "border-blue-500",
-    text: "text-blue-300",
+    bg: "from-brand-secondary-dark/75 to-brand-secondary/45",
+    border: "border-brand-secondary",
+    text: "text-brand-secondary-light",
   },
   purple: {
-    bg: "from-purple-900/60 to-purple-800/40",
-    border: "border-purple-500",
-    text: "text-purple-300",
+    bg: "from-brand-primary-darker/90 to-brand-bronze-dark/60",
+    border: "border-brand-bronze",
+    text: "text-brand-secondary-light",
   },
 };
 
@@ -692,7 +705,7 @@ function MetricCard({
       >
         {label}
       </div>
-      <div className="text-gray-600 text-xs">{sublabel}</div>
+      <div className="text-brand-secondary-light/80 text-xs">{sublabel}</div>
     </div>
   );
 }
@@ -742,7 +755,7 @@ function GeographicHeatMap({
 }: Readonly<{ locations: ReadonlyArray<LocationAggregate> }>) {
   const maxCount = locations[0]?.count ?? 1;
   return (
-    <div className="bg-linear-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
+    <div className="bg-linear-to-br from-brand-primary-darker/75 to-brand-primary-dark/80 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
       <h3 className="text-xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-2">
         <MaterialIcon
           icon="location_on"
@@ -753,7 +766,7 @@ function GeographicHeatMap({
       </h3>
       <div className="space-y-3">
         {locations.length === 0 ? (
-          <div className="text-gray-600 text-center py-8">
+          <div className="text-brand-secondary-light/70 text-center py-8">
             <MaterialIcon
               icon="explore_off"
               size="2xl"
@@ -778,7 +791,7 @@ function GeographicHeatMap({
                     {loc.count} clicks
                   </span>
                 </div>
-                <div className="h-2 bg-gray-700/50 rounded-full overflow-hidden">
+                <div className="h-2 bg-brand-primary-darker/60 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-linear-to-r from-brand-primary to-brand-secondary rounded-full transition-all"
                     style={{ width: `${percentage}%` }}
@@ -801,7 +814,7 @@ function TopLocations({
   coverage: number;
 }>) {
   return (
-    <div className="bg-linear-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
+    <div className="bg-linear-to-br from-brand-primary-darker/75 to-brand-primary-dark/80 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
       <h3 className="text-xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-2">
         <MaterialIcon icon="flag" size="md" className="text-brand-secondary" />
         Target Market Status
@@ -815,7 +828,9 @@ function TopLocations({
           <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
             TARGET MARKET COVERAGE
           </div>
-          <div className="text-gray-600 text-xs mt-1">WA, OR, ID Coverage</div>
+          <div className="text-brand-secondary-light/80 text-xs mt-1">
+            WA, OR, ID Coverage
+          </div>
         </div>
       </div>
 
@@ -828,7 +843,7 @@ function TopLocations({
               className={`flex items-center justify-between p-3 rounded-lg ${
                 isTarget
                   ? "bg-brand-secondary/20 border border-brand-secondary"
-                  : "bg-gray-700/50"
+                  : "bg-brand-primary-darker/60"
               }`}
             >
               <span className="text-white font-bold flex items-center gap-2">
@@ -863,27 +878,27 @@ const CTA_BUCKETS: ReadonlyArray<{
     match: (id) => id.includes("phone"),
     title: "Phone Contacts",
     icon: "phone",
-    bg: "from-green-900/60 to-green-800/40",
-    border: "border-green-500",
-    text: "text-green-300",
+    bg: "from-brand-primary-dark/85 to-brand-primary/55",
+    border: "border-brand-primary",
+    text: "text-brand-secondary-light",
     emptyText: "No phone clicks yet",
   },
   {
     match: (id) => id.includes("email"),
     title: "Email Inquiries",
     icon: "mail",
-    bg: "from-blue-900/60 to-blue-800/40",
-    border: "border-blue-500",
-    text: "text-blue-300",
+    bg: "from-brand-secondary-dark/75 to-brand-secondary/45",
+    border: "border-brand-secondary",
+    text: "text-brand-secondary-light",
     emptyText: "No email clicks yet",
   },
   {
     match: (id) => id.includes("address"),
     title: "Address Requests",
     icon: "place",
-    bg: "from-purple-900/60 to-purple-800/40",
-    border: "border-purple-500",
-    text: "text-purple-300",
+    bg: "from-brand-primary-darker/90 to-brand-bronze-dark/60",
+    border: "border-brand-bronze",
+    text: "text-brand-secondary-light",
     emptyText: "No address clicks yet",
   },
 ];
@@ -912,12 +927,14 @@ function CTAPerformanceGrid({
             </div>
             <div className="space-y-2">
               {matched.length === 0 ? (
-                <p className="text-gray-600 text-sm">{bucket.emptyText}</p>
+                <p className="text-brand-secondary-light/80 text-sm">
+                  {bucket.emptyText}
+                </p>
               ) : (
                 matched.map((cta) => (
                   <div
                     key={cta.id}
-                    className="flex items-center justify-between bg-black/30 rounded-lg p-2"
+                    className="flex items-center justify-between bg-brand-primary-darker/55 rounded-lg p-2"
                   >
                     <span className={`${bucket.text} text-xs truncate`}>
                       {cta.id}

@@ -103,6 +103,10 @@ jobs:
         working-directory: apps/dashboard
         run: npm run lint
 
+      - name: Run dashboard deploy guardrails
+        working-directory: apps/dashboard
+        run: npm run guardrails:dashboard
+
       - name: Restore Prettier cache
         uses: actions/cache@v4
         with:
@@ -128,6 +132,10 @@ jobs:
       - name: Run tests — dashboard
         working-directory: apps/dashboard
         run: npm run test:ci
+
+      - name: Run dashboard route smoke test
+        working-directory: apps/dashboard
+        run: npm run smoke:routes:ci
 
       - name: Check public asset budgets
         working-directory: apps/website

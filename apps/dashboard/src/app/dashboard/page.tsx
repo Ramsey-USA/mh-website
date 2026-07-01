@@ -6,7 +6,7 @@ import DashboardClientPage from "./DashboardClientPage";
 export const dynamic = "force-dynamic";
 
 const FALLBACK_SHELL = (
-  <div className="min-h-screen bg-linear-to-br from-gray-900 via-gray-800 to-black" />
+  <div className="min-h-screen bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary" />
 );
 
 export default async function DashboardPage() {

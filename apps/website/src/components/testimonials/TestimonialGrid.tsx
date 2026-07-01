@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui";
+import { Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TestimonialCard } from "./TestimonialCard";
 import {
@@ -90,7 +91,7 @@ export function TestimonialGrid({
         {/* Testimonials Grid or Coming Soon Message */}
         {hasNoTestimonials ? (
           <FadeInWhenVisible>
-            <div className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center min-h-100">
+            <Card className="relative bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center min-h-100">
               <MaterialIcon
                 icon="construction"
                 size="4xl"
@@ -102,7 +103,7 @@ export function TestimonialGrid({
               <p className="max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
                 {t("comingSoonDescription")}
               </p>
-            </div>
+            </Card>
           </FadeInWhenVisible>
         ) : (
           <StaggeredFadeIn

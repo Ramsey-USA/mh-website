@@ -90,7 +90,25 @@ const INITIAL_LOAD_STATE: ProfileLoadState = {
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 
-export function TeamProfileForm() {
+interface TeamProfileFormProps {
+  readonly showBackToHubButton?: boolean;
+  readonly onSaved?: () => void;
+  readonly targetProfile?: {
+    readonly slug: string;
+    readonly fullName?: string;
+    readonly roleTitle?: string;
+    readonly department?: string;
+    readonly employeeEmail?: string;
+  };
+  readonly onProfileLoaded?: (profile: VintageTeamMember) => void;
+}
+
+export function TeamProfileForm({
+  showBackToHubButton = true,
+  onSaved,
+  targetProfile,
+  onProfileLoaded,
+}: TeamProfileFormProps) {
   const router = useRouter();
   const auth = useHubAdminAuth();
   const [load, setLoad] = useState<ProfileLoadState>(INITIAL_LOAD_STATE);
@@ -104,7 +122,22 @@ export function TeamProfileForm() {
 
     async function loadProfile(token: string) {
       try {
-        const res = await hubFetch(token, "/api/team-profile");
+        const params = new URLSearchParams();
+        if (targetProfile?.slug) params.set("slug", targetProfile.slug);
+        if (targetProfile?.fullName)
+          params.set("fullName", targetProfile.fullName);
+        if (targetProfile?.roleTitle) {
+          params.set("roleTitle", targetProfile.roleTitle);
+        }
+        if (targetProfile?.department) {
+          params.set("department", targetProfile.department);
+        }
+        if (targetProfile?.employeeEmail) {
+          params.set("employeeEmail", targetProfile.employeeEmail);
+        }
+        const query = params.toString();
+        const path = query ? `/api/team-profile?${query}` : "/api/team-profile";
+        const res = await hubFetch(token, path);
         if (cancelled) return;
 
         if (res.status === 404) {
@@ -130,6 +163,7 @@ export function TeamProfileForm() {
         if (cancelled) return;
 
         if (data.success && data.data) {
+          onProfileLoaded?.(data.data.profile);
           setLoad({
             profile: data.data.profile,
             form: memberToFormState(data.data.profile),
@@ -160,7 +194,7 @@ export function TeamProfileForm() {
     return () => {
       cancelled = true;
     };
-  }, [auth]);
+  }, [auth, onProfileLoaded, targetProfile]);
 
   // ─── Form mutators ─────────────────────────────────────────────────────────
 
@@ -237,7 +271,22 @@ export function TeamProfileForm() {
     try {
       const res = await hubFetch(auth.token, "/api/team-profile", {
         method: "PUT",
-        body: JSON.stringify(formStateToPayload(load.form)),
+        body: JSON.stringify({
+          ...formStateToPayload(load.form),
+          ...(targetProfile?.slug ? { slug: targetProfile.slug } : {}),
+          ...(targetProfile?.fullName
+            ? { fullName: targetProfile.fullName }
+            : {}),
+          ...(targetProfile?.roleTitle
+            ? { roleTitle: targetProfile.roleTitle }
+            : {}),
+          ...(targetProfile?.department
+            ? { department: targetProfile.department }
+            : {}),
+          ...(targetProfile?.employeeEmail
+            ? { employeeEmail: targetProfile.employeeEmail }
+            : {}),
+        }),
       });
 
       const data = (await res.json()) as {
@@ -249,6 +298,7 @@ export function TeamProfileForm() {
       if (res.ok && data.success) {
         setSaveStatus("saved");
         setSaveMessage(data.message ?? "Profile submitted successfully.");
+        onSaved?.();
         if (data.data?.status) {
           setLoad((prev) => ({
             ...prev,
@@ -266,7 +316,7 @@ export function TeamProfileForm() {
       setSaveStatus("error");
       setSaveMessage("Network error. Please try again.");
     }
-  }, [auth, load.form]);
+  }, [auth, load.form, onSaved, targetProfile]);
 
   // ─── Loading / error states ────────────────────────────────────────────────
 
@@ -294,14 +344,16 @@ export function TeamProfileForm() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="rounded-xl border border-gray-700 bg-gray-800/60 p-5">
+      <div className="rounded-xl border border-brand-primary/35 bg-brand-primary-darker/60 p-5">
         <div className="flex items-center gap-3">
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-primary/20 text-brand-secondary">
             <MaterialIcon icon="badge" size="lg" />
           </div>
           <div>
             <h2 className="text-lg font-black text-white">{profile.name}</h2>
-            <p className="text-sm text-gray-400">{profile.role}</p>
+            <p className="text-sm text-brand-secondary-light/80">
+              {profile.role}
+            </p>
           </div>
           {auth.userName && (
             <span className="ml-auto rounded-full border border-brand-secondary/30 bg-brand-secondary/10 px-3 py-1 text-xs font-semibold text-brand-secondary">
@@ -370,7 +422,7 @@ export function TeamProfileForm() {
           onChange={(e) => setField("bio", e.target.value)}
           maxLength={1200}
         />
-        <p className="text-xs text-gray-500">
+        <p className="text-xs text-brand-secondary-light/70">
           {form.bio.length}/1200 characters
         </p>
         <DashboardFormField
@@ -536,13 +588,17 @@ export function TeamProfileForm() {
 
       {/* Save button */}
       <div className="flex items-center justify-between gap-4 pb-8">
-        <button
-          type="button"
-          onClick={() => router.push("/hub")}
-          className="rounded-lg border border-gray-600 px-4 py-2 text-sm font-semibold text-gray-300 transition hover:border-gray-400 hover:text-white"
-        >
-          ← Back to Hub
-        </button>
+        {showBackToHubButton ? (
+          <button
+            type="button"
+            onClick={() => router.push("/hub")}
+            className="rounded-lg border border-brand-primary/45 px-4 py-2 text-sm font-semibold text-brand-secondary-light/80 transition hover:border-brand-secondary/60 hover:text-white"
+          >
+            ← Back to Hub
+          </button>
+        ) : (
+          <span />
+        )}
         <button
           type="button"
           disabled={saveStatus === "saving"}

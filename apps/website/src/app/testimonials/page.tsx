@@ -2,6 +2,26 @@ export const revalidate = 86400; // 24 h ISR
 export const dynamic = "force-dynamic";
 
 import nextDynamic from "next/dynamic";
+import { Card } from "@/components/ui";
+import { PageTrackingClient } from "@/components/analytics";
+import Link from "next/link";
+import { headers } from "next/headers";
+import {
+  DiagonalStripePattern,
+  BrandColorBlobs,
+} from "@/components/ui/backgrounds";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { StructuredData } from "@/components/seo/SeoMeta";
+import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
+import {
+  generateAggregateRatingSchema,
+  generateReviewSchema,
+} from "@/lib/seo/review-schema";
+import type { Testimonial } from "@/lib/data/testimonials";
+import { getTranslations } from "next-intl/server";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { COMPANY_INFO } from "@/lib/constants/company";
+import { CORE_VALUE_ICONS } from "@/lib/constants/navigation-icons";
 
 async function getIsLighthouseAudit(
   searchParamsPromise?: Promise<Record<string, string | string[] | undefined>>,
@@ -26,26 +46,6 @@ async function getIsLighthouseAudit(
     return false;
   }
 }
-import { PageTrackingClient } from "@/components/analytics";
-import Link from "next/link";
-import { headers } from "next/headers";
-import {
-  DiagonalStripePattern,
-  BrandColorBlobs,
-} from "@/components/ui/backgrounds";
-import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { StructuredData } from "@/components/seo/SeoMeta";
-import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
-import {
-  generateAggregateRatingSchema,
-  generateReviewSchema,
-} from "@/lib/seo/review-schema";
-import type { Testimonial } from "@/lib/data/testimonials";
-import { getTranslations } from "next-intl/server";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-import { COMPANY_INFO } from "@/lib/constants/company";
-import { CORE_VALUE_ICONS } from "@/lib/constants/navigation-icons";
-
 const Breadcrumb = nextDynamic(() =>
   import("@/components/navigation/Breadcrumb").then((m) => ({
     default: m.Breadcrumb,
@@ -151,20 +151,20 @@ function StaticTestimonialsSection({
                   />
                 ))}
               </div>
-              <blockquote className="text-gray-700 text-lg leading-relaxed italic">
+              <blockquote className="text-lg leading-relaxed italic text-gray-700">
                 "{testimonial.quote}"
               </blockquote>
               <div className="mt-6 border-t border-gray-100 pt-5">
-                <p className="font-black text-gray-900 text-lg">
+                <p className="text-lg font-black text-gray-900">
                   {testimonial.name}
                 </p>
                 {testimonial.location && (
-                  <p className="mt-1 text-gray-600 text-sm">
+                  <p className="mt-1 text-sm text-gray-600">
                     {testimonial.location}
                   </p>
                 )}
                 {testimonial.project && (
-                  <p className="mt-2 font-semibold text-brand-primary text-sm">
+                  <p className="mt-2 text-sm font-semibold text-brand-primary">
                     {testimonial.project}
                   </p>
                 )}
@@ -257,20 +257,18 @@ export default async function TestimonialsPage(props?: {
               Reviews from client partners across Washington, Oregon, and Idaho.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-              <Link
-                href="https://g.page/r/CVdv3YZLzJvdEAI/review"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-lg bg-brand-secondary px-6 py-3 font-bold text-gray-900"
-              >
-                Leave a Google Review
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-lg border border-white/60 px-6 py-3 font-bold text-white"
-              >
-                Start Your Project
-              </Link>
+              <Button asChild variant="secondary" size="lg">
+                <Link
+                  href="https://g.page/r/CVdv3YZLzJvdEAI/review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Leave a Google Review
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link href="/contact">Start Your Project</Link>
+              </Button>
             </div>
           </div>
         </section>
@@ -887,34 +885,26 @@ export default async function TestimonialsPage(props?: {
               construction team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="https://g.page/r/CVdv3YZLzJvdEAI/review"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-xl font-bold text-lg"
-                aria-label="Leave a Google review for MH Construction"
-              >
-                <MaterialIcon
-                  icon="star"
-                  size="md"
-                  className="group-hover:scale-110 transition-transform"
-                  ariaLabel=""
-                />
-                <span>{"Leave a Google Review"}</span>
-              </Link>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center justify-center gap-3 bg-brand-primary hover:bg-brand-primary-dark text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-brand-secondary shadow-xl font-bold text-lg"
-                aria-label="Start your construction project"
-              >
-                <MaterialIcon
-                  icon="contact_page"
-                  size="md"
-                  className="group-hover:scale-110 transition-transform"
-                  ariaLabel=""
-                />
-                <span>{"Start Your Project"}</span>
-              </Link>
+              <Button asChild variant="secondary" size="lg">
+                <Link
+                  href="https://g.page/r/CVdv3YZLzJvdEAI/review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Leave a Google review for MH Construction"
+                >
+                  <MaterialIcon icon="star" size="md" ariaLabel="" />
+                  <span>{"Leave a Google Review"}</span>
+                </Link>
+              </Button>
+              <Button asChild variant="primary" size="lg">
+                <Link
+                  href="/contact"
+                  aria-label="Start your construction project"
+                >
+                  <MaterialIcon icon="contact_page" size="md" ariaLabel="" />
+                  <span>{"Start Your Project"}</span>
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
@@ -941,32 +931,24 @@ export default async function TestimonialsPage(props?: {
             Construction for reliable delivery.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-2xl font-bold text-lg"
-              aria-label="Contact us to start your project"
-            >
-              <MaterialIcon
-                icon="contact_page"
-                size="md"
-                className="group-hover:scale-110 transition-transform"
-                ariaLabel=""
-              />
-              <span>{"Get Started Today"}</span>
-            </Link>
-            <Link
-              href="/services"
-              className="group inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-white/50 hover:border-white shadow-2xl font-bold text-lg"
-              aria-label="Learn about our construction services"
-            >
-              <MaterialIcon
-                icon="construction"
-                size="md"
-                className="group-hover:scale-110 transition-transform"
-                ariaLabel=""
-              />
-              <span>{"View Our Services"}</span>
-            </Link>
+            <Button asChild variant="secondary" size="lg">
+              <Link
+                href="/contact"
+                aria-label="Contact us to start your project"
+              >
+                <MaterialIcon icon="contact_page" size="md" ariaLabel="" />
+                <span>{"Get Started Today"}</span>
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link
+                href="/services"
+                aria-label="Learn about our construction services"
+              >
+                <MaterialIcon icon="arrow_forward" size="md" ariaLabel="" />
+                <span>{"Explore Services"}</span>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

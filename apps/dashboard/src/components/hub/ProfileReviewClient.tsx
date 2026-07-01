@@ -71,8 +71,12 @@ function FieldRow({
   if (value == null || value === "") return null;
   return (
     <div>
-      <dt className="text-xs font-semibold uppercase text-gray-500">{label}</dt>
-      <dd className="mt-0.5 text-sm text-gray-200">{String(value)}</dd>
+      <dt className="text-xs font-semibold uppercase text-brand-secondary-light/70">
+        {label}
+      </dt>
+      <dd className="mt-0.5 text-sm text-brand-secondary-light/90">
+        {String(value)}
+      </dd>
     </div>
   );
 }
@@ -158,25 +162,27 @@ function SubmissionCard({
       ? "border-green-600"
       : review.action === "reject"
         ? "border-red-600"
-        : "border-gray-700";
+        : "border-brand-primary/35";
 
   return (
     <div
-      className={`rounded-xl border bg-gray-800/60 p-5 space-y-4 transition-opacity ${
+      className={`rounded-xl border bg-brand-primary-darker/60 p-5 space-y-4 transition-opacity ${
         isDone ? "opacity-50" : ""
       } ${borderClass}`}
     >
       {/* Card header */}
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h3 className="text-base font-black text-white">{submission.name}</h3>
-          <p className="text-sm text-gray-400">{submission.role}</p>
+          <p className="text-sm text-brand-secondary-light/80">
+            {submission.role}
+          </p>
         </div>
-        <div className="text-right">
+        <div className="text-left sm:text-right">
           <span className="rounded-full border border-yellow-600 bg-yellow-900/30 px-3 py-1 text-xs font-semibold text-yellow-300">
             Pending Approval
           </span>
-          <p className="mt-1 text-xs text-gray-500">
+          <p className="mt-1 text-xs text-brand-secondary-light/70">
             Submitted {formatDate(submission.submittedAt)}
           </p>
         </div>
@@ -186,7 +192,7 @@ function SubmissionCard({
       <button
         type="button"
         onClick={() => setExpanded((v) => !v)}
-        className="flex w-full items-center justify-between text-xs font-semibold uppercase text-gray-500 hover:text-gray-300 transition"
+        className="flex w-full items-center justify-between text-xs font-semibold uppercase text-brand-secondary-light/75 hover:text-brand-secondary-light transition"
       >
         <span>Preview Changes</span>
         <MaterialIcon
@@ -196,7 +202,7 @@ function SubmissionCard({
       </button>
 
       {expanded && (
-        <dl className="grid gap-3 sm:grid-cols-2 rounded-lg border border-gray-700 bg-gray-900/40 p-4">
+        <dl className="grid gap-3 sm:grid-cols-2 rounded-lg border border-brand-primary/35 bg-brand-primary-darker/65 p-4">
           <FieldRow label="Bio" value={submission.bio} />
           <FieldRow label="Fun Fact" value={submission.funFact} />
           <FieldRow label="Nickname" value={submission.nickname} />
@@ -215,13 +221,16 @@ function SubmissionCard({
           {submission.careerHighlights &&
             submission.careerHighlights.length > 0 && (
               <div className="sm:col-span-2">
-                <dt className="text-xs font-semibold uppercase text-gray-500">
+                <dt className="text-xs font-semibold uppercase text-brand-secondary-light/70">
                   Career Highlights
                 </dt>
                 <dd className="mt-0.5">
                   <ul className="list-disc pl-4 space-y-0.5">
                     {submission.careerHighlights.map((h, i) => (
-                      <li key={i} className="text-sm text-gray-200">
+                      <li
+                        key={i}
+                        className="text-sm text-brand-secondary-light/90"
+                      >
                         {h}
                       </li>
                     ))}
@@ -231,14 +240,14 @@ function SubmissionCard({
             )}
           {submission.specialties && submission.specialties.length > 0 && (
             <div>
-              <dt className="text-xs font-semibold uppercase text-gray-500">
+              <dt className="text-xs font-semibold uppercase text-brand-secondary-light/70">
                 Specialties
               </dt>
               <dd className="mt-0.5 flex flex-wrap gap-1">
                 {submission.specialties.map((s, i) => (
                   <span
                     key={i}
-                    className="rounded-full border border-gray-600 bg-gray-700 px-2 py-0.5 text-xs text-gray-200"
+                    className="rounded-full border border-brand-primary/45 bg-brand-primary-dark/65 px-2 py-0.5 text-xs text-brand-secondary-light/85"
                   >
                     {s}
                   </span>
@@ -248,7 +257,7 @@ function SubmissionCard({
           )}
           {submission.skills && (
             <div className="sm:col-span-2">
-              <dt className="text-xs font-semibold uppercase text-gray-500 mb-1">
+              <dt className="text-xs font-semibold uppercase text-brand-secondary-light/70 mb-1">
                 Skills
               </dt>
               <dd className="grid grid-cols-2 gap-1">
@@ -258,7 +267,7 @@ function SubmissionCard({
                       className="h-1.5 rounded-full bg-brand-secondary"
                       style={{ width: `${v}%`, maxWidth: "80px" }}
                     />
-                    <span className="text-xs text-gray-400 capitalize">
+                    <span className="text-xs text-brand-secondary-light/75 capitalize">
                       {k}: <strong className="text-white">{v}</strong>
                     </span>
                   </div>
@@ -276,7 +285,7 @@ function SubmissionCard({
             review.status === "done"
               ? review.action === "approve"
                 ? "border-green-600 bg-green-900/30 text-green-300"
-                : "border-gray-600 bg-gray-700/30 text-gray-300"
+                : "border-brand-primary/45 bg-brand-primary-dark/60 text-brand-secondary-light/80"
               : "border-red-600 bg-red-900/30 text-red-300"
           }`}
         >
@@ -287,7 +296,7 @@ function SubmissionCard({
       {/* Rejection reason input */}
       {!isDone && (
         <div>
-          <label className="text-xs font-semibold uppercase text-gray-500 mb-1 block">
+          <label className="text-xs font-semibold uppercase text-brand-secondary-light/70 mb-1 block">
             Rejection Reason (required if rejecting)
           </label>
           <textarea
@@ -298,19 +307,19 @@ function SubmissionCard({
               setReview((r) => ({ ...r, rejectionReason: e.target.value }))
             }
             maxLength={500}
-            className="w-full px-3 py-2 bg-gray-700/60 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50 focus:border-brand-secondary resize-none"
+            className="w-full px-3 py-2 bg-brand-primary-darker/60 border border-brand-primary/45 rounded-lg text-sm text-white placeholder-brand-secondary-light/60 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50 focus:border-brand-secondary resize-none"
           />
         </div>
       )}
 
       {/* Action buttons */}
       {!isDone && (
-        <div className="flex items-center gap-3 pt-1">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
           <button
             type="button"
             disabled={isSubmitting}
             onClick={() => void handleDecision("approve")}
-            className="flex items-center gap-2 rounded-xl bg-green-700 px-5 py-2.5 text-sm font-black text-white shadow transition hover:bg-green-600 disabled:opacity-60"
+            className="flex items-center justify-center gap-2 rounded-xl bg-green-700 px-5 py-2.5 text-sm font-black text-white shadow transition hover:bg-green-600 disabled:opacity-60"
           >
             {isSubmitting && review.action === "approve" ? (
               <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
@@ -323,7 +332,7 @@ function SubmissionCard({
             type="button"
             disabled={isSubmitting}
             onClick={() => void handleDecision("reject")}
-            className="flex items-center gap-2 rounded-xl border border-red-600 px-5 py-2.5 text-sm font-black text-red-400 transition hover:bg-red-900/30 disabled:opacity-60"
+            className="flex items-center justify-center gap-2 rounded-xl border border-red-600 px-5 py-2.5 text-sm font-black text-red-400 transition hover:bg-red-900/30 disabled:opacity-60"
           >
             {isSubmitting && review.action === "reject" ? (
               <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
@@ -423,7 +432,7 @@ export function ProfileReviewClient() {
   return (
     <div className="space-y-6">
       {/* Summary bar */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <span className={DASHBOARD_SECTION_HEADER_CLASS}>
             Pending Submissions
@@ -435,7 +444,7 @@ export function ProfileReviewClient() {
         <button
           type="button"
           onClick={() => router.push("/hub")}
-          className="rounded-lg border border-gray-600 px-4 py-2 text-sm font-semibold text-gray-300 transition hover:border-gray-400 hover:text-white"
+          className="rounded-lg border border-brand-primary/45 px-4 py-2 text-sm font-semibold text-brand-secondary-light/80 transition hover:border-brand-secondary/60 hover:text-white"
         >
           ← Back to Hub
         </button>
@@ -443,13 +452,13 @@ export function ProfileReviewClient() {
 
       {/* Empty state */}
       {submissions.length === 0 && (
-        <div className="rounded-xl border border-gray-700 bg-gray-800/30 p-12 text-center text-gray-500">
+        <div className="rounded-xl border border-brand-primary/35 bg-brand-primary-darker/50 p-12 text-center text-brand-secondary-light/75">
           <MaterialIcon
             icon="check_circle"
             size="lg"
             className="mb-3 text-green-500"
           />
-          <p className="text-base font-semibold text-gray-300">
+          <p className="text-base font-semibold text-brand-secondary-light">
             All caught up!
           </p>
           <p className="text-sm mt-1">No pending profile submissions.</p>

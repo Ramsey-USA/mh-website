@@ -51,13 +51,13 @@ export function PNWStatesMap({
         />
       </div>
 
-      <span className="pointer-events-none absolute left-[25%] top-[16%] rounded-md bg-gray-900/70 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white">
+      <span className="pointer-events-none absolute left-[25%] top-[16%] rounded-md bg-brand-primary-darker/75 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white">
         WA
       </span>
-      <span className="pointer-events-none absolute left-[24%] top-[66%] rounded-md bg-gray-900/70 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white">
+      <span className="pointer-events-none absolute left-[24%] top-[66%] rounded-md bg-brand-primary-darker/75 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white">
         OR
       </span>
-      <span className="pointer-events-none absolute left-[73%] top-[50%] rounded-md bg-gray-900/70 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white">
+      <span className="pointer-events-none absolute left-[73%] top-[50%] rounded-md bg-brand-primary-darker/75 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white">
         ID
       </span>
 

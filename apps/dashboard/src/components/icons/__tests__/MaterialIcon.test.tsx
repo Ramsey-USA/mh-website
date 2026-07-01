@@ -22,7 +22,7 @@ describe("MaterialIcon", () => {
       <MaterialIcon
         icon="home"
         primaryColor="#ff0000"
-        className="text-blue-500"
+        className="text-brand-secondary"
         theme="default"
       />,
     );

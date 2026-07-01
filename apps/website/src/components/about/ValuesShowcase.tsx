@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useMemo } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Card } from "@/components/ui";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -193,7 +194,7 @@ export function ValuesShowcase({
               {/* Animated Border Glow */}
               <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-brand-primary dark:group-hover:border-brand-primary-light shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full group-hover:scale-[1.02]">
+              <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:scale-[1.02] group-hover:border-brand-primary group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 dark:group-hover:border-brand-primary-light">
                 {/* Top Accent Bar */}
                 <div
                   className={`h-2 bg-linear-to-r ${value.accentGradient}`}
@@ -240,7 +241,7 @@ export function ValuesShowcase({
                     </button>
                   </div>
                 </div>
-              </div>
+              </Card>
             </div>
           ))}
         </div>

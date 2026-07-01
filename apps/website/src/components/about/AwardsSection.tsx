@@ -6,6 +6,7 @@
 
 import type { CSSProperties } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Card } from "@/components/ui";
 import { BrandedContentSection } from "@/components/templates";
 
 const recognitionCards = [
@@ -152,7 +153,7 @@ export function AwardsSection() {
                 className={`absolute -inset-2 bg-linear-to-br ${card.glowFrom} ${card.glowTo} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
               ></div>
 
-              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden flex flex-col w-full">
+              <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 hover:scale-105 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                 {/* Top Accent Bar */}
                 <div
                   className={`h-2 bg-linear-to-r ${card.barFrom} ${card.barVia} ${card.barTo}`}
@@ -183,7 +184,7 @@ export function AwardsSection() {
                     {card.detail}
                   </p>
                 </div>
-              </div>
+              </Card>
             </div>
           ))}
         </div>
@@ -203,7 +204,7 @@ export function AwardsSection() {
               className="group scroll-reveal"
               style={{ "--delay": `${index * 0.1}s` } as CSSProperties}
             >
-              <div className="relative bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:border-brand-primary dark:hover:border-brand-primary-light h-full overflow-hidden">
+              <Card className="relative h-full overflow-hidden border-2 border-gray-200 bg-white p-6 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:border-brand-primary hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 dark:hover:border-brand-primary-light lg:p-8">
                 {/* Trophy Icon Background Watermark */}
                 <div className="absolute top-4 right-4 opacity-5 dark:opacity-10">
                   <MaterialIcon
@@ -268,7 +269,7 @@ export function AwardsSection() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </Card>
             </div>
           ))}
         </div>

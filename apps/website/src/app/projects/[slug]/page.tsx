@@ -6,7 +6,7 @@ import { PageTrackingClient } from "@/components/analytics";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
-import { Button } from "@/components/ui";
+import { Button, Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import {
   getProjectCaseStudyBySlug,
@@ -316,7 +316,7 @@ export default async function ProjectCaseStudyPage({
       <StructuredData data={generateBreadcrumbSchema(breadcrumbItems)} />
       <StructuredData data={[projectSchema, localBusinessSchema]} />
 
-      <main className="bg-white dark:bg-gray-950 min-h-screen">
+      <main className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <section className="hero-section hero-safe-top-lg border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 pb-14 text-white sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
             <Breadcrumbs
@@ -344,7 +344,7 @@ export default async function ProjectCaseStudyPage({
 
         <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,0.9fr)]">
-            <article className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+            <Card className="border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
               <div className="grid gap-4 sm:grid-cols-3">
                 <div className="rounded-2xl bg-gray-50 p-4 dark:bg-gray-950">
                   <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
@@ -405,10 +405,10 @@ export default async function ProjectCaseStudyPage({
                   ))}
                 </dl>
               </div>
-            </article>
+            </Card>
 
             <aside className="space-y-6">
-              <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+              <Card className="border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
                   Safety Milestones
                 </p>
@@ -427,9 +427,9 @@ export default async function ProjectCaseStudyPage({
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Card>
 
-              <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+              <Card className="border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
                   Results
                 </p>
@@ -448,9 +448,9 @@ export default async function ProjectCaseStudyPage({
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Card>
 
-              <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+              <Card className="border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
                   Related Service Paths
                 </p>
@@ -481,9 +481,9 @@ export default async function ProjectCaseStudyPage({
                     <MaterialIcon icon="arrow_forward" size="sm" />
                   </Link>
                 </div>
-              </div>
+              </Card>
 
-              <div className="rounded-3xl border border-brand-primary/20 bg-brand-primary/5 p-6 dark:border-brand-primary/30 dark:bg-brand-primary/10">
+              <Card className="border border-brand-primary/20 bg-brand-primary/5 p-6 dark:border-brand-primary/30 dark:bg-brand-primary/10">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-brand-primary dark:text-brand-primary-light">
                   Next Step
                 </p>
@@ -497,7 +497,7 @@ export default async function ProjectCaseStudyPage({
                 <Button asChild className="mt-5 w-full">
                   <Link href="/contact">Contact the team</Link>
                 </Button>
-              </div>
+              </Card>
             </aside>
           </div>
         </section>

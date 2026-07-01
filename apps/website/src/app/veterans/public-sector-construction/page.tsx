@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TrackedBridgeButton, TrackedBridgeLink } from "@/components/analytics";
+import { Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { getTranslations } from "next-intl/server";
@@ -78,9 +79,9 @@ export default async function VeteranPublicSectorConstructionPage() {
       <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
           {bridgeCards.map((item) => (
-            <article
+            <Card
               key={item.title}
-              className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900"
+              className="border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900"
             >
               <MaterialIcon
                 icon={item.icon}
@@ -101,11 +102,11 @@ export default async function VeteranPublicSectorConstructionPage() {
                 {item.cta}
                 <MaterialIcon icon="arrow_forward" size="sm" />
               </TrackedBridgeLink>
-            </article>
+            </Card>
           ))}
         </div>
 
-        <div className="mx-auto mt-10 max-w-5xl rounded-3xl border border-brand-primary/20 bg-brand-primary/5 p-6 dark:border-brand-primary/30 dark:bg-brand-primary/10">
+        <Card className="mx-auto mt-10 max-w-5xl border border-brand-primary/20 bg-brand-primary/5 p-6 dark:border-brand-primary/30 dark:bg-brand-primary/10">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white">
             {t("veteransBridge.cta.heading")}
           </h2>
@@ -141,7 +142,7 @@ export default async function VeteranPublicSectorConstructionPage() {
               {t("veteransBridge.cta.buttonPendleton")}
             </TrackedBridgeButton>
           </div>
-        </div>
+        </Card>
       </section>
     </main>
   );

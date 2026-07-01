@@ -185,7 +185,7 @@ export function RfqTab({ token: _token }: { token: string }) {
           <h2 className="text-2xl font-black text-white uppercase tracking-wide">
             RFQ Package Builder
           </h2>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-brand-secondary-light/80">
             Build a complete qualification package — PDF + cover email
           </p>
         </div>
@@ -193,7 +193,7 @@ export function RfqTab({ token: _token }: { token: string }) {
 
       {/* Step progress bar */}
       <div
-        className="bg-gray-800/50 rounded-xl border border-gray-700 p-4"
+        className="bg-brand-primary-darker/55 rounded-xl border border-brand-primary/35 p-4"
         data-print-hide="true"
       >
         <div className="flex gap-1">
@@ -207,7 +207,7 @@ export function RfqTab({ token: _token }: { token: string }) {
                   ? "bg-brand-primary text-white"
                   : idx < stepIndex
                     ? "bg-green-900/50 text-green-300 border border-green-700"
-                    : "text-gray-500 hover:text-gray-300"
+                    : "text-brand-secondary-light/70 hover:text-brand-secondary-light"
               }`}
             >
               <MaterialIcon icon={s.icon} size="sm" />
@@ -226,7 +226,7 @@ export function RfqTab({ token: _token }: { token: string }) {
 
       {/* Step content */}
       <div
-        className="bg-gray-800/50 rounded-xl border border-gray-700 p-6"
+        className="bg-brand-primary-darker/55 rounded-xl border border-brand-primary/35 p-6"
         data-print-section="true"
       >
         {step === "rfq-info" && (
@@ -286,12 +286,15 @@ export function RfqTab({ token: _token }: { token: string }) {
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between" data-print-hide="true">
+      <div
+        className="flex flex-col sm:flex-row gap-3 sm:justify-between"
+        data-print-hide="true"
+      >
         <button
           type="button"
           onClick={goBack}
           disabled={stepIndex === 0}
-          className="flex items-center gap-2 px-5 py-2.5 bg-gray-700 hover:bg-gray-600 disabled:opacity-40 disabled:cursor-not-allowed rounded-lg text-white font-bold uppercase text-sm transition-colors"
+          className="flex items-center justify-center gap-2 px-5 py-2.5 bg-brand-primary-dark/65 hover:bg-brand-primary-dark disabled:opacity-40 disabled:cursor-not-allowed rounded-lg text-white font-bold uppercase text-sm transition-colors w-full sm:w-auto"
         >
           <MaterialIcon icon="arrow_back" size="sm" />
           Back
@@ -301,7 +304,7 @@ export function RfqTab({ token: _token }: { token: string }) {
             type="button"
             onClick={goNext}
             disabled={!canProceed()}
-            className="flex items-center gap-2 px-5 py-2.5 bg-brand-primary hover:bg-brand-primary/80 disabled:opacity-40 disabled:cursor-not-allowed rounded-lg text-white font-bold uppercase text-sm transition-colors"
+            className="flex items-center justify-center gap-2 px-5 py-2.5 bg-brand-primary hover:bg-brand-primary/80 disabled:opacity-40 disabled:cursor-not-allowed rounded-lg text-white font-bold uppercase text-sm transition-colors w-full sm:w-auto"
           >
             Next
             <MaterialIcon icon="arrow_forward" size="sm" />
@@ -310,7 +313,7 @@ export function RfqTab({ token: _token }: { token: string }) {
           <button
             type="button"
             onClick={downloadConfig}
-            className="flex items-center gap-2 px-6 py-2.5 bg-green-700 hover:bg-green-600 rounded-lg text-white font-bold uppercase text-sm transition-colors"
+            className="flex items-center justify-center gap-2 px-6 py-2.5 bg-brand-secondary-dark hover:bg-brand-secondary rounded-lg text-white font-bold uppercase text-sm transition-colors w-full sm:w-auto"
           >
             <MaterialIcon icon="download" size="sm" />
             Download Config
@@ -364,7 +367,7 @@ function RfqInfoStep({
         <h3 className="text-lg font-black text-white uppercase tracking-wide mb-1">
           RFQ Information
         </h3>
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-brand-secondary-light/80">
           Basic project and recipient details. These populate the title page and
           cover email.
         </p>
@@ -422,8 +425,8 @@ function RfqInfoStep({
         </FormField>
       </div>
 
-      <div className="border-t border-gray-700 pt-5">
-        <h4 className="text-sm font-bold text-gray-300 uppercase tracking-wider mb-3">
+      <div className="border-t border-brand-primary/35 pt-5">
+        <h4 className="text-sm font-bold text-brand-secondary-light/85 uppercase tracking-wider mb-3">
           Recipient (for cover email &amp; title page)
         </h4>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -489,7 +492,7 @@ function EvalCriteriaStep({
         <h3 className="text-lg font-black text-white uppercase tracking-wide mb-1">
           Evaluation Criteria
         </h3>
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-brand-secondary-light/80">
           If the RFQ specifies evaluation criteria or factors, enter them here.
           They&apos;ll become the Table of Contents for the PDF.
         </p>
@@ -503,7 +506,7 @@ function EvalCriteriaStep({
             onChange={(e) => setHasEvalCriteria(e.target.checked)}
             className="w-4 h-4 rounded accent-brand-primary"
           />
-          <span className="text-sm font-bold text-gray-200">
+          <span className="text-sm font-bold text-brand-secondary-light/90">
             This RFQ includes Evaluation Criteria / Scoring Factors
           </span>
         </label>
@@ -512,7 +515,10 @@ function EvalCriteriaStep({
       {hasEvalCriteria && (
         <div className="space-y-3">
           {evalCriteria.map((criterion, idx) => (
-            <div key={idx} className="flex items-center gap-3">
+            <div
+              key={idx}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3"
+            >
               <span className="text-xs font-bold text-brand-secondary w-6 text-center">
                 {idx + 1}
               </span>
@@ -528,13 +534,13 @@ function EvalCriteriaStep({
                 value={criterion.weight}
                 onChange={(e) => updateCriterion(idx, "weight", e.target.value)}
                 placeholder="Weight (e.g. 25%)"
-                className={`${inputClass} w-28`}
+                className={`${inputClass} w-full sm:w-28`}
               />
               <button
                 type="button"
                 onClick={() => removeCriterion(idx)}
                 disabled={evalCriteria.length <= 1}
-                className="p-1.5 text-red-400 hover:text-red-300 disabled:opacity-30 disabled:cursor-not-allowed"
+                className="self-end sm:self-auto p-1.5 text-red-400 hover:text-red-300 disabled:opacity-30 disabled:cursor-not-allowed"
                 aria-label="Remove criterion"
               >
                 <MaterialIcon icon="close" size="sm" />
@@ -583,7 +589,7 @@ function SectionsStep({
         <h3 className="text-lg font-black text-white uppercase tracking-wide mb-1">
           Body Sections
         </h3>
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-brand-secondary-light/80">
           Select the sections to include in the qualification package. Required
           sections are always included.
         </p>
@@ -600,7 +606,7 @@ function SectionsStep({
                   ? "border-brand-primary/50 bg-brand-primary/10 cursor-default"
                   : isSelected
                     ? "border-brand-secondary/50 bg-brand-secondary/10"
-                    : "border-gray-700 bg-gray-800/30 hover:border-gray-600"
+                    : "border-brand-primary/35 bg-brand-primary-darker/45 hover:border-brand-primary/55"
               }`}
             >
               <input
@@ -622,7 +628,7 @@ function SectionsStep({
                     </span>
                   )}
                 </div>
-                <p className="text-xs text-gray-400 mt-0.5">
+                <p className="text-xs text-brand-secondary-light/75 mt-0.5">
                   {section.description}
                 </p>
               </div>
@@ -659,7 +665,7 @@ function ExhibitsStep({
         <h3 className="text-lg font-black text-white uppercase tracking-wide mb-1">
           Exhibits
         </h3>
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-brand-secondary-light/80">
           Some RFQs require exhibits — safety manual TOC, site compliance
           photos, or other documentation. Select what applies and provide any
           clarification below.
@@ -667,15 +673,15 @@ function ExhibitsStep({
       </div>
 
       {/* Workflow callout */}
-      <div className="bg-blue-900/30 border border-blue-700 rounded-lg p-4 text-sm text-blue-200">
+      <div className="bg-brand-primary-darker/60 border border-brand-secondary/45 rounded-lg p-4 text-sm text-brand-secondary-light/85">
         <MaterialIcon
           icon="info"
           size="sm"
-          className="inline mr-2 text-blue-400"
+          className="inline mr-2 text-brand-secondary"
         />
         <strong>How exhibits work:</strong> After downloading the config JSON,
         place your exhibit PDF files in a local folder and run the CLI with{" "}
-        <code className="bg-black/40 px-1 rounded text-blue-100">
+        <code className="bg-brand-primary-darker/80 px-1 rounded text-brand-secondary-light">
           --exhibits-dir ./your-exhibit-folder/
         </code>
         . The file names below must match exactly.
@@ -688,7 +694,7 @@ function ExhibitsStep({
             className={`rounded-lg border p-4 transition-colors ${
               exhibit.enabled
                 ? "border-brand-secondary/50 bg-brand-secondary/5"
-                : "border-gray-700 bg-gray-800/30"
+                : "border-brand-primary/35 bg-brand-primary-darker/45"
             }`}
           >
             <div className="flex items-start gap-3">
@@ -799,7 +805,7 @@ function ReviewStep({
         <h3 className="text-lg font-black text-white uppercase tracking-wide mb-1">
           Review &amp; Export
         </h3>
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-brand-secondary-light/80">
           Review the RFQ package configuration, then download the JSON config to
           run the PDF generator locally.
         </p>
@@ -809,28 +815,32 @@ function ReviewStep({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <ReviewBlock label="Project">
           <p className="text-white font-bold">{config.projectName || "—"}</p>
-          <p className="text-gray-400 text-sm">{config.issuingOrg || "—"}</p>
-          <p className="text-gray-400 text-sm">
+          <p className="text-brand-secondary-light/75 text-sm">
+            {config.issuingOrg || "—"}
+          </p>
+          <p className="text-brand-secondary-light/75 text-sm">
             RFQ: {config.rfqNumber || "—"}
           </p>
         </ReviewBlock>
         <ReviewBlock label="Dates">
-          <p className="text-gray-300 text-sm">Due: {config.dueDate || "—"}</p>
-          <p className="text-gray-300 text-sm">
+          <p className="text-brand-secondary-light/80 text-sm">
+            Due: {config.dueDate || "—"}
+          </p>
+          <p className="text-brand-secondary-light/80 text-sm">
             Submitted: {config.submissionDate || "—"}
           </p>
         </ReviewBlock>
         <ReviewBlock label="Recipient">
-          <p className="text-gray-300 text-sm">
+          <p className="text-brand-secondary-light/80 text-sm">
             {config.recipientName || "—"} — {config.recipientTitle || "—"}
           </p>
-          <p className="text-gray-300 text-sm">
+          <p className="text-brand-secondary-light/80 text-sm">
             {config.recipientEmail || "—"}
           </p>
         </ReviewBlock>
         <ReviewBlock label="TOC / Eval Criteria">
           {config.evaluationCriteria.length > 0 ? (
-            <ul className="text-gray-300 text-sm space-y-0.5">
+            <ul className="text-brand-secondary-light/80 text-sm space-y-0.5">
               {config.evaluationCriteria.map((c, i) => (
                 <li key={i}>
                   {i + 1}. {c.title}
@@ -839,11 +849,13 @@ function ReviewStep({
               ))}
             </ul>
           ) : (
-            <p className="text-gray-500 text-sm">No evaluation criteria</p>
+            <p className="text-brand-secondary-light/65 text-sm">
+              No evaluation criteria
+            </p>
           )}
         </ReviewBlock>
         <ReviewBlock label="Body Sections">
-          <ul className="text-gray-300 text-sm space-y-0.5">
+          <ul className="text-brand-secondary-light/80 text-sm space-y-0.5">
             {config.sections.map((id) => {
               const s = ALL_SECTIONS.find((sec) => sec.id === id);
               return <li key={id}>{s ? s.label : id}</li>;
@@ -852,7 +864,7 @@ function ReviewStep({
         </ReviewBlock>
         <ReviewBlock label="Exhibits">
           {enabledExhibits.length > 0 ? (
-            <ul className="text-gray-300 text-sm space-y-0.5">
+            <ul className="text-brand-secondary-light/80 text-sm space-y-0.5">
               {enabledExhibits.map((e) => (
                 <li key={e.id}>
                   Exhibit {e.id}: {e.label}
@@ -860,13 +872,13 @@ function ReviewStep({
               ))}
             </ul>
           ) : (
-            <p className="text-gray-500 text-sm">No exhibits</p>
+            <p className="text-brand-secondary-light/65 text-sm">No exhibits</p>
           )}
         </ReviewBlock>
       </div>
 
       {/* CLI instructions */}
-      <div className="bg-gray-900/60 border border-gray-600 rounded-xl p-5 space-y-3">
+      <div className="bg-brand-primary-darker/60 border border-brand-primary/45 rounded-xl p-5 space-y-3">
         <h4 className="text-sm font-black text-white uppercase tracking-wide flex items-center gap-2">
           <MaterialIcon
             icon="terminal"
@@ -875,33 +887,35 @@ function ReviewStep({
           />
           After Downloading — Run the Generator
         </h4>
-        <ol className="text-sm text-gray-300 space-y-2 list-decimal list-inside">
+        <ol className="text-sm text-brand-secondary-light/80 space-y-2 list-decimal list-inside">
           <li>
             Download the config JSON below and save it to your project folder.
           </li>
           {enabledExhibits.length > 0 && (
             <li>
               Place exhibit PDF files in a local folder (e.g.{" "}
-              <code className="bg-black/40 px-1 rounded">./exhibits/</code>
+              <code className="bg-brand-primary-darker/80 px-1 rounded">
+                ./exhibits/
+              </code>
               ). File names must match exactly what you entered above.
             </li>
           )}
           <li>
             In your terminal from the repo root, run:
-            <pre className="mt-1 bg-black/50 rounded p-2 text-xs text-green-300 overflow-x-auto">
+            <pre className="mt-1 bg-brand-primary-darker/80 rounded p-2 text-xs text-brand-secondary-light overflow-x-auto">
               {`npm run rfq:generate -- --config ./rfq-params-${slug}.json${enabledExhibits.length > 0 ? " --exhibits-dir ./exhibits/" : ""}`}
             </pre>
           </li>
           <li>
             Output will be in{" "}
-            <code className="bg-black/40 px-1 rounded">
+            <code className="bg-brand-primary-darker/80 px-1 rounded">
               documents/output/rfq/
             </code>
             :
-            <ul className="mt-1 ml-4 space-y-0.5 text-gray-400">
+            <ul className="mt-1 ml-4 space-y-0.5 text-brand-secondary-light/70">
               <li>
                 •{" "}
-                <code className="bg-black/40 px-1 rounded text-xs">
+                <code className="bg-brand-primary-darker/80 px-1 rounded text-xs">
                   rfq-
                   {slug}
                   .pdf
@@ -910,7 +924,7 @@ function ReviewStep({
               </li>
               <li>
                 •{" "}
-                <code className="bg-black/40 px-1 rounded text-xs">
+                <code className="bg-brand-primary-darker/80 px-1 rounded text-xs">
                   rfq-...-email.html
                 </code>{" "}
                 — cover email draft (open in browser, copy to Outlook)
@@ -925,13 +939,13 @@ function ReviewStep({
         <button
           type="button"
           onClick={onDownload}
-          className="flex items-center gap-3 px-8 py-3.5 bg-green-700 hover:bg-green-600 rounded-xl text-white font-black uppercase tracking-wide text-base transition-colors shadow-lg"
+          className="flex items-center gap-3 px-8 py-3.5 bg-brand-secondary-dark hover:bg-brand-secondary rounded-xl text-white font-black uppercase tracking-wide text-base transition-colors shadow-lg"
         >
           <MaterialIcon icon="download" size="lg" />
           Download RFQ Config JSON
         </button>
         {exported && (
-          <p className="text-green-400 text-sm flex items-center gap-1.5">
+          <p className="text-brand-secondary-light text-sm flex items-center gap-1.5">
             <MaterialIcon icon="check_circle" size="sm" />
             Config downloaded! Run the CLI command above to generate the PDF.
           </p>
@@ -944,10 +958,10 @@ function ReviewStep({
 // ─── Shared sub-components ────────────────────────────────────────────────────
 
 const inputClass =
-  "w-full bg-gray-900/60 border border-gray-600 rounded-lg px-3 py-2 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-brand-secondary transition-colors";
+  "w-full bg-brand-primary-darker/60 border border-brand-primary/45 rounded-lg px-3 py-2 text-white placeholder-brand-secondary-light/60 text-sm focus:outline-none focus:border-brand-secondary transition-colors";
 
 const labelClass =
-  "block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1";
+  "block text-xs font-bold text-brand-secondary-light/85 uppercase tracking-wider mb-1";
 
 function FormField({
   label,
@@ -974,7 +988,7 @@ function ReviewBlock({
   children: ReactNode;
 }) {
   return (
-    <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-4">
+    <div className="bg-brand-primary-darker/50 border border-brand-primary/35 rounded-lg p-4">
       <h5 className="text-xs font-bold text-brand-secondary uppercase tracking-wider mb-2">
         {label}
       </h5>

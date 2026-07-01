@@ -41,6 +41,12 @@ export const dynamic = "force-dynamic";
 
 interface TeamProfileRow {
   slug: string;
+  full_name: string | null;
+  role_title: string | null;
+  department: string | null;
+  position_title: string | null;
+  employee_email: string | null;
+  active: number | null;
   bio: string | null;
   fun_fact: string | null;
   certifications: string | null;
@@ -134,21 +140,97 @@ function resolveSlug(user: JWTUser): string | null {
   return ADMIN_EMAIL_TO_SLUG[email] ?? null;
 }
 
+function isValidSlug(slug: string): boolean {
+  return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug);
+}
+
+function createBlankProfile(
+  slug: string,
+  seed: {
+    fullName?: string;
+    roleTitle?: string;
+    department?: string;
+    employeeEmail?: string;
+  },
+): VintageTeamMember {
+  const name = seed.fullName?.trim() || slug.replaceAll("-", " ");
+  const role = seed.roleTitle?.trim() || "Team Member";
+  const department = seed.department?.trim() || "Mission Commanders";
+
+  return {
+    slug,
+    name,
+    role,
+    position: role,
+    department,
+    cardNumber: 999,
+    yearsWithCompany: 0,
+    skills: {
+      leadership: 0,
+      technical: 0,
+      communication: 0,
+      safety: 0,
+      problemSolving: 0,
+      teamwork: 0,
+      organization: 0,
+      innovation: 0,
+      passion: 0,
+      continuingEducation: 0,
+    },
+    currentYearStats: {
+      projectsCompleted: 0,
+      clientSatisfaction: 0,
+      safetyRecord: "",
+      teamCollaborations: 0,
+    },
+    careerStats: {
+      totalProjects: 0,
+      yearsExperience: 0,
+      specialtyAreas: 0,
+      mentorships: 0,
+    },
+    bio: "",
+    careerHighlights: [],
+    specialties: [],
+    active: true,
+    email: seed.employeeEmail?.trim() || undefined,
+    funFact: "",
+    certifications: "",
+    hobbies: "",
+    specialInterests: "",
+    hometown: "",
+    education: "",
+    nickname: "",
+  };
+}
+
+function hydrateDynamicMemberFromRow(row: TeamProfileRow): VintageTeamMember {
+  return createBlankProfile(row.slug, {
+    fullName: row.full_name ?? undefined,
+    roleTitle: row.role_title ?? undefined,
+    department: row.department ?? undefined,
+    employeeEmail: row.employee_email ?? undefined,
+  });
+}
+
 // ─── GET ──────────────────────────────────────────────────────────────────────
 
 async function handleGet(
-  _request: NextRequest,
+  request: NextRequest,
   user: JWTUser,
 ): Promise<NextResponse> {
-  const slug = resolveSlug(user);
+  const requestedSlug =
+    request.nextUrl.searchParams.get("slug")?.trim() || null;
+  const slug = requestedSlug || resolveSlug(user);
   if (!slug) {
     return notFound("No team profile associated with this account");
   }
 
-  const staticMember = vintageTeamMembers.find((m) => m.slug === slug);
-  if (!staticMember) {
-    return notFound("Team member not found");
+  if (!isValidSlug(slug)) {
+    return badRequest("Invalid slug format");
   }
+
+  const staticMember = vintageTeamMembers.find((m) => m.slug === slug);
 
   // Fetch DB row (non-fatal if DB unavailable)
   let row: TeamProfileRow | null = null;
@@ -168,15 +250,29 @@ async function handleGet(
     }
   }
 
-  // Only approved rows are merged into the public-facing profile
-  const approvedOverride =
-    row?.status === "approved" ? rowToOverride(row) : null;
-  const merged = applyProfileOverride(staticMember, approvedOverride);
+  const baseMember = staticMember
+    ? staticMember
+    : row
+      ? hydrateDynamicMemberFromRow(row)
+      : createBlankProfile(slug, {
+          fullName: request.nextUrl.searchParams.get("fullName") ?? undefined,
+          roleTitle: request.nextUrl.searchParams.get("roleTitle") ?? undefined,
+          department:
+            request.nextUrl.searchParams.get("department") ?? undefined,
+          employeeEmail:
+            request.nextUrl.searchParams.get("employeeEmail") ?? undefined,
+        });
+
+  // For editor UX, merge the latest saved row regardless of status.
+  const merged = applyProfileOverride(
+    baseMember,
+    row ? rowToOverride(row) : null,
+  );
 
   return createSuccessResponse({
     profile: merged,
-    hasOverride: approvedOverride !== null,
-    lastUpdated: approvedOverride?.updatedAt ?? null,
+    hasOverride: row?.status === "approved",
+    lastUpdated: row?.status === "approved" ? row.updated_at : null,
     // Submission status — lets the form show pending/rejected banners
     submissionStatus: row?.status ?? null,
     submittedAt: row?.submitted_at ?? null,
@@ -191,6 +287,30 @@ const MAX_BIO = 1200;
 const MAX_SHORT = 300;
 const MAX_ARRAY_ITEMS = 8;
 const MAX_ITEM_LEN = 200;
+const PROFANITY_PATTERNS: readonly RegExp[] = [
+  /\bfuck(?:ing|er|ed|s)?\b/i,
+  /\bshit(?:ty|s)?\b/i,
+  /\bbitch(?:es|y)?\b/i,
+  /\basshole(?:s)?\b/i,
+  /\bbastard(?:s)?\b/i,
+  /\bcrap(?:py)?\b/i,
+];
+
+function hasProfanity(value: string): boolean {
+  return PROFANITY_PATTERNS.some((pattern) => pattern.test(value));
+}
+
+function validateNoProfanity(
+  value: string,
+  fieldLabel: string,
+  errors: string[],
+): void {
+  if (hasProfanity(value)) {
+    errors.push(
+      `${fieldLabel} contains language not permitted by MH branding guidelines`,
+    );
+  }
+}
 
 function validateAndSanitize(
   body: unknown,
@@ -202,6 +322,40 @@ function validateAndSanitize(
   const errors: string[] = [];
   const src = body as Record<string, unknown>;
   const data: Record<string, unknown> = {};
+
+  // Identity fields for new employee onboarding
+  const identityFields: [string, string, number][] = [
+    ["fullName", "full_name", 120],
+    ["roleTitle", "role_title", 120],
+    ["department", "department", 120],
+    ["positionTitle", "position_title", 120],
+    ["employeeEmail", "employee_email", 160],
+  ];
+
+  for (const [srcKey, dbCol, maxLen] of identityFields) {
+    if (srcKey in src) {
+      const val = src[srcKey];
+      if (val === null || val === undefined || val === "") {
+        data[dbCol] = null;
+      } else if (typeof val !== "string") {
+        errors.push(`${srcKey} must be a string`);
+      } else if (val.length > maxLen) {
+        errors.push(`${srcKey} must be ${maxLen} characters or fewer`);
+      } else {
+        const trimmed = val.trim();
+        validateNoProfanity(trimmed, srcKey, errors);
+        data[dbCol] = trimmed;
+      }
+    }
+  }
+
+  if ("active" in src) {
+    if (typeof src["active"] !== "boolean") {
+      errors.push("active must be a boolean");
+    } else {
+      data["active"] = src["active"] ? 1 : 0;
+    }
+  }
 
   // String fields
   const strFields: [string, string, number][] = [
@@ -225,7 +379,9 @@ function validateAndSanitize(
       } else if (val.length > maxLen) {
         errors.push(`${srcKey} must be ${maxLen} characters or fewer`);
       } else {
-        data[dbCol] = val.trim();
+        const trimmed = val.trim();
+        validateNoProfanity(trimmed, srcKey, errors);
+        data[dbCol] = trimmed;
       }
     }
   }
@@ -253,6 +409,9 @@ function validateAndSanitize(
             `Each ${srcKey} item must be ${MAX_ITEM_LEN} characters or fewer`,
           );
         } else {
+          for (const item of items) {
+            validateNoProfanity(item, `${srcKey} item`, errors);
+          }
           data[dbCol] = JSON.stringify(items);
         }
       }
@@ -344,7 +503,9 @@ function validateAndSanitize(
             "currentYearStats.safetyRecord must be a string of 50 chars or fewer",
           );
         } else {
-          sanitized["safetyRecord"] = sr.trim();
+          const trimmed = sr.trim();
+          validateNoProfanity(trimmed, "currentYearStats.safetyRecord", errors);
+          sanitized["safetyRecord"] = trimmed;
         }
       }
       if (errors.length === 0) {
@@ -393,16 +554,6 @@ async function handlePut(
   request: NextRequest,
   user: JWTUser,
 ): Promise<NextResponse> {
-  const slug = resolveSlug(user);
-  if (!slug) {
-    return notFound("No team profile associated with this account");
-  }
-
-  const staticMember = vintageTeamMembers.find((m) => m.slug === slug);
-  if (!staticMember) {
-    return notFound("Team member not found");
-  }
-
   let body: unknown;
   try {
     body = await request.json();
@@ -410,9 +561,42 @@ async function handlePut(
     return badRequest("Invalid JSON body");
   }
 
+  const bodyObj =
+    typeof body === "object" && body !== null
+      ? (body as Record<string, unknown>)
+      : null;
+
+  const requestedSlug =
+    bodyObj && typeof bodyObj["slug"] === "string"
+      ? bodyObj["slug"].trim()
+      : null;
+
+  const slug = requestedSlug || resolveSlug(user);
+  if (!slug) {
+    return notFound("No team profile associated with this account");
+  }
+
+  if (!isValidSlug(slug)) {
+    return badRequest("Invalid slug format");
+  }
+
+  const staticMember = vintageTeamMembers.find((m) => m.slug === slug);
+
   const result = validateAndSanitize(body);
   if ("errors" in result) {
     return badRequest(result.errors.join("; "));
+  }
+
+  if (!staticMember) {
+    const hasIdentity =
+      typeof result.data["full_name"] === "string" &&
+      typeof result.data["role_title"] === "string" &&
+      typeof result.data["department"] === "string";
+    if (!hasIdentity) {
+      return badRequest(
+        "New employee submissions require fullName, roleTitle, and department",
+      );
+    }
   }
 
   if (Object.keys(result.data).length === 0) {

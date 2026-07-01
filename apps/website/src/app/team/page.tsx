@@ -4,7 +4,7 @@ import { PageTrackingClient } from "@/components/analytics";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { Button, IconContainer, GlowEffect } from "@/components/ui";
+import { Button, Card, IconContainer, GlowEffect } from "@/components/ui";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -71,6 +71,12 @@ function groupByDepartment(members: VintageTeamMember[]) {
 // DB row shape returned from team_profiles
 interface TeamProfileRow {
   slug: string;
+  full_name: string | null;
+  role_title: string | null;
+  department: string | null;
+  position_title: string | null;
+  employee_email: string | null;
+  active: number | null;
   bio: string | null;
   fun_fact: string | null;
   certifications: string | null;
@@ -86,6 +92,58 @@ interface TeamProfileRow {
   education: string | null;
   nickname: string | null;
   status: "pending_approval" | "approved" | "rejected" | null;
+}
+
+function createDynamicMemberFromRow(
+  row: TeamProfileRow,
+  cardNumber: number,
+): VintageTeamMember {
+  const role = row.role_title ?? row.position_title ?? "Team Member";
+  return {
+    slug: row.slug,
+    name: row.full_name ?? row.slug.replaceAll("-", " "),
+    role,
+    position: row.position_title ?? role,
+    department: row.department ?? "Mission Commanders",
+    cardNumber,
+    yearsWithCompany: row.years_with_company ?? 0,
+    skills: {
+      leadership: 0,
+      technical: 0,
+      communication: 0,
+      safety: 0,
+      problemSolving: 0,
+      teamwork: 0,
+      organization: 0,
+      innovation: 0,
+      passion: 0,
+      continuingEducation: 0,
+    },
+    currentYearStats: {
+      projectsCompleted: 0,
+      clientSatisfaction: 0,
+      safetyRecord: "",
+      teamCollaborations: 0,
+    },
+    careerStats: {
+      totalProjects: 0,
+      yearsExperience: 0,
+      specialtyAreas: 0,
+      mentorships: 0,
+    },
+    bio: "",
+    careerHighlights: [],
+    specialties: [],
+    active: row.active !== 0,
+    email: row.employee_email ?? undefined,
+    funFact: "",
+    certifications: "",
+    hobbies: "",
+    specialInterests: "",
+    hometown: "",
+    education: "",
+    nickname: "",
+  };
 }
 
 function safeParseJson<T>(value: string | null): T | undefined {
@@ -145,17 +203,22 @@ function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
  * Fetch all team profile overrides from D1.
  * Returns an empty map if the DB is unavailable (static data is used as fallback).
  */
-async function fetchProfileOverrides(): Promise<
-  Map<string, TeamProfileOverride>
-> {
+async function fetchProfileOverrides(): Promise<{
+  overrides: Map<string, TeamProfileOverride>;
+  dynamicMembers: VintageTeamMember[];
+}> {
   const overrides = new Map<string, TeamProfileOverride>();
+  const dynamicMembers: VintageTeamMember[] = [];
+  const staticSlugs = new Set(vintageTeamMembers.map((m) => m.slug));
 
   // During production build there is no live CF request context; skip D1 lookup
   // and fall back to static team data to keep prerender deterministic.
-  if (process.env["NEXT_PHASE"] === "phase-production-build") return overrides;
+  if (process.env["NEXT_PHASE"] === "phase-production-build") {
+    return { overrides, dynamicMembers };
+  }
 
   const DB = await getD1DatabaseAsync();
-  if (!DB) return overrides;
+  if (!DB) return { overrides, dynamicMembers };
 
   try {
     const db = createDbClient({ DB });
@@ -164,7 +227,7 @@ async function fetchProfileOverrides(): Promise<
       "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'team_profiles'",
     );
     if (!tableExistsRows[0]?.name) {
-      return overrides;
+      return { overrides, dynamicMembers };
     }
 
     const rows = await Promise.race([
@@ -176,7 +239,17 @@ async function fetchProfileOverrides(): Promise<
       }),
     ]);
     for (const row of rows) {
-      overrides.set(row.slug, rowToOverride(row));
+      if (row.active === 0) continue;
+      const override = rowToOverride(row);
+      if (staticSlugs.has(row.slug)) {
+        overrides.set(row.slug, override);
+        continue;
+      }
+      const dynamicBase = createDynamicMemberFromRow(
+        row,
+        900 + dynamicMembers.length,
+      );
+      dynamicMembers.push(applyProfileOverride(dynamicBase, override));
     }
   } catch (_err) {
     logger.warn("team/page: failed to fetch profile overrides from D1", {
@@ -184,7 +257,7 @@ async function fetchProfileOverrides(): Promise<
     });
   }
 
-  return overrides;
+  return { overrides, dynamicMembers };
 }
 
 const departmentConfig: Record<string, { icon: string; id: string }> = {
@@ -260,12 +333,13 @@ const faqSchema = {
 export default async function TeamPage() {
   const t = await getTranslations();
   // Fetch profile overrides from D1; gracefully falls back to static JSON if unavailable
-  const overrides = await fetchProfileOverrides();
+  const { overrides, dynamicMembers } = await fetchProfileOverrides();
 
   // Merge overrides with static team members
-  const mergedMembers = vintageTeamMembers.map((member) =>
+  const mergedStaticMembers = vintageTeamMembers.map((member) =>
     applyProfileOverride(member, overrides.get(member.slug) ?? null),
   );
+  const mergedMembers = [...mergedStaticMembers, ...dynamicMembers];
 
   const membersByDepartment = groupByDepartment(mergedMembers);
   const employeeTestimonials = (
@@ -701,7 +775,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -727,7 +801,7 @@ export default async function TeamPage() {
                           {t("team.culture.cards.teamUnity.description")}
                         </p>
                       </div>
-                    </div>
+                    </Card>
                   </div>
                 </div>
 
@@ -737,7 +811,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="bronze" />
 
-                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
@@ -767,7 +841,7 @@ export default async function TeamPage() {
                           {t("team.culture.cards.mutualSupport.description")}
                         </p>
                       </div>
-                    </div>
+                    </Card>
                   </div>
                 </div>
 
@@ -777,7 +851,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="primary-dark" />
 
-                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -803,7 +877,7 @@ export default async function TeamPage() {
                           {t("team.culture.cards.sharedSuccess.description")}
                         </p>
                       </div>
-                    </div>
+                    </Card>
                   </div>
                 </div>
               </div>
@@ -1021,7 +1095,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="primary-dark" />
 
-                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -1051,7 +1125,7 @@ export default async function TeamPage() {
                           )}
                         </p>
                       </div>
-                    </div>
+                    </Card>
                   </div>
                 </div>
 
@@ -1061,7 +1135,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="primary-dark" />
 
-                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -1092,7 +1166,7 @@ export default async function TeamPage() {
                           )}
                         </p>
                       </div>
-                    </div>
+                    </Card>
                   </div>
                 </div>
 
@@ -1102,7 +1176,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="bronze" />
 
-                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
@@ -1131,7 +1205,7 @@ export default async function TeamPage() {
                           {t("team.careerGrowth.cards.mentorship.description")}
                         </p>
                       </div>
-                    </div>
+                    </Card>
                   </div>
                 </div>
 
@@ -1141,7 +1215,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="primary-dark" />
 
-                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -1167,7 +1241,7 @@ export default async function TeamPage() {
                           {t("team.careerGrowth.cards.careerPaths.description")}
                         </p>
                       </div>
-                    </div>
+                    </Card>
                   </div>
                 </div>
 
@@ -1177,7 +1251,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="primary-dark" />
 
-                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -1210,7 +1284,7 @@ export default async function TeamPage() {
                           )}
                         </p>
                       </div>
-                    </div>
+                    </Card>
                   </div>
                 </div>
 
@@ -1220,7 +1294,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="bronze" />
 
-                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
@@ -1253,7 +1327,7 @@ export default async function TeamPage() {
                           )}
                         </p>
                       </div>
-                    </div>
+                    </Card>
                   </div>
                 </div>
               </div>

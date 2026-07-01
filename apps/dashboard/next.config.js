@@ -13,6 +13,11 @@
 
 process.env.NEXT_TELEMETRY_DISABLED = "1";
 
+if (process.env.NODE_ENV !== "production") {
+  const { initOpenNextCloudflareForDev } = require("@opennextjs/cloudflare");
+  initOpenNextCloudflareForDev();
+}
+
 if (
   process.env.NODE_ENV === "production" &&
   !process.env.NEXT_PUBLIC_SITE_URL
@@ -24,6 +29,7 @@ if (
 
 const path = require("node:path");
 const isLowMemoryBuild = process.env.LOW_MEMORY_BUILD === "true";
+const enableNextExperiments = process.env.NEXT_ENABLE_EXPERIMENTS === "true";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -33,15 +39,19 @@ const nextConfig = {
   // Transpile ESM-only packages so next/jest transforms them in tests
   transpilePackages: ["jose"],
 
-  experimental: {
-    webpackBuildWorker: !isLowMemoryBuild,
-    optimizePackageImports: [
-      "@radix-ui/react-slot",
-      "@radix-ui/react-tabs",
-      "@radix-ui/react-progress",
-      "recharts",
-    ],
-  },
+  ...(enableNextExperiments
+    ? {
+        experimental: {
+          webpackBuildWorker: !isLowMemoryBuild,
+          optimizePackageImports: [
+            "@radix-ui/react-slot",
+            "@radix-ui/react-tabs",
+            "@radix-ui/react-progress",
+            "recharts",
+          ],
+        },
+      }
+    : {}),
 
   // Explicitly enable Turbopack in Next 16 when custom webpack config is present.
   turbopack: {},

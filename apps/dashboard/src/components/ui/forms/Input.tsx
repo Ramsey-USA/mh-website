@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 
 // Shared class constants — defined once at module level to avoid per-render allocations
 const BASE_FIELD =
-  "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 touch-manipulation bg-white dark:bg-gray-800 text-gray-900 dark:text-white";
+  "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 touch-manipulation bg-brand-light/85 dark:bg-brand-primary-darker/70 text-brand-primary-darker dark:text-white";
 const VALID_BORDER =
-  "border-gray-300 dark:border-gray-600 focus:border-brand-primary focus:ring-brand-primary dark:focus:border-brand-secondary dark:focus:ring-brand-secondary";
+  "border-brand-primary/30 dark:border-brand-primary/45 focus:border-brand-primary focus:ring-brand-primary dark:focus:border-brand-secondary dark:focus:ring-brand-secondary";
 const ERROR_BORDER =
   "border-red-500 focus:ring-red-500 dark:border-red-400 dark:focus:ring-red-400";
 
@@ -38,7 +38,7 @@ export function Input({
       {label && (
         <label
           htmlFor={id}
-          className="block font-medium text-gray-700 dark:text-gray-300 text-sm"
+          className="block font-medium text-brand-primary-dark dark:text-brand-secondary-light/85 text-sm"
         >
           {label}
         </label>
@@ -65,7 +65,10 @@ export function Input({
         </p>
       )}
       {helperText && !error && (
-        <p id={helperId} className="text-gray-500 dark:text-gray-300 text-sm">
+        <p
+          id={helperId}
+          className="text-brand-primary/75 dark:text-brand-secondary-light/75 text-sm"
+        >
           {helperText}
         </p>
       )}
@@ -97,7 +100,7 @@ export function Textarea({
       {label && (
         <label
           htmlFor={id}
-          className="block font-medium text-gray-700 dark:text-gray-300 text-sm"
+          className="block font-medium text-brand-primary-dark dark:text-brand-secondary-light/85 text-sm"
         >
           {label}
         </label>
@@ -124,7 +127,10 @@ export function Textarea({
         </p>
       )}
       {helperText && !error && (
-        <p id={helperId} className="text-gray-500 dark:text-gray-300 text-sm">
+        <p
+          id={helperId}
+          className="text-brand-primary/75 dark:text-brand-secondary-light/75 text-sm"
+        >
           {helperText}
         </p>
       )}

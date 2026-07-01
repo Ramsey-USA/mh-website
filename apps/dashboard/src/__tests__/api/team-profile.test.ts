@@ -314,6 +314,26 @@ describe("PUT /api/team-profile", () => {
     expect(body.error).toMatch(/careerHighlights/i);
   });
 
+  it("returns 400 when profanity is submitted in a text field", async () => {
+    const req = makeAuthedRequest("PUT", {
+      bio: "This is a shitty bio",
+    });
+    const res = await PUT(req);
+    expect(res.status).toBe(400);
+    const body = await res.json();
+    expect(body.error).toMatch(/branding guidelines/i);
+  });
+
+  it("returns 400 when profanity is submitted in array items", async () => {
+    const req = makeAuthedRequest("PUT", {
+      specialties: ["Safety planning", "Shitty scheduling"],
+    });
+    const res = await PUT(req);
+    expect(res.status).toBe(400);
+    const body = await res.json();
+    expect(body.error).toMatch(/specialties item/i);
+  });
+
   it("auto-approves when submitter is Matt (the approver)", async () => {
     const req = makeAuthedRequest("PUT", {
       bio: "New bio text.",

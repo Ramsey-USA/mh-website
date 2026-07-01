@@ -4,6 +4,7 @@ import Link from "next/link";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { PageTrackingClient } from "@/components/analytics";
+import { Button, Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/SeoMeta";
@@ -151,7 +152,7 @@ export default async function QrCodesPage() {
           </section>
 
           <div className="grid gap-6 mb-12 sm:grid-cols-2 xl:grid-cols-3">
-            <div className="rounded-2xl border border-brand-primary/20 bg-white/90 dark:bg-gray-800/90 p-5 shadow-sm backdrop-blur">
+            <Card className="bg-white/90 p-5 shadow-sm backdrop-blur dark:bg-gray-800/90">
               <div className="flex items-center gap-3 mb-2">
                 <MaterialIcon
                   icon="folder"
@@ -170,8 +171,8 @@ export default async function QrCodesPage() {
                 and served from{" "}
                 <span className="font-semibold">/images/qr-codes</span>.
               </p>
-            </div>
-            <div className="rounded-2xl border border-brand-primary/20 bg-white/90 dark:bg-gray-800/90 p-5 shadow-sm backdrop-blur">
+            </Card>
+            <Card className="bg-white/90 p-5 shadow-sm backdrop-blur dark:bg-gray-800/90">
               <div className="flex items-center gap-3 mb-2">
                 <MaterialIcon
                   icon="visibility"
@@ -185,8 +186,8 @@ export default async function QrCodesPage() {
               <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                 Click any QR image to open it in a new tab at native resolution.
               </p>
-            </div>
-            <div className="rounded-2xl border border-brand-primary/20 bg-white/90 dark:bg-gray-800/90 p-5 shadow-sm backdrop-blur">
+            </Card>
+            <Card className="bg-white/90 p-5 shadow-sm backdrop-blur dark:bg-gray-800/90">
               <div className="flex items-center gap-3 mb-2">
                 <MaterialIcon
                   icon="download"
@@ -200,7 +201,7 @@ export default async function QrCodesPage() {
               <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                 Each card includes a download action for the specific PNG file.
               </p>
-            </div>
+            </Card>
           </div>
 
           <div className="space-y-12">
@@ -280,31 +281,30 @@ export default async function QrCodesPage() {
                           </p>
 
                           <div className="flex flex-wrap gap-2">
-                            <a
-                              href={imageHref}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 rounded-lg border border-brand-primary px-3 py-1.5 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary/10"
-                            >
-                              <MaterialIcon
-                                icon="visibility"
-                                size="sm"
-                                className="text-brand-primary"
-                              />
-                              Open
-                            </a>
-                            <a
-                              href={imageHref}
-                              download={entry.filename}
-                              className="inline-flex items-center gap-1.5 rounded-lg bg-brand-primary px-3 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-brand-primary-dark"
-                            >
-                              <MaterialIcon
-                                icon="download"
-                                size="sm"
-                                className="text-white"
-                              />
-                              Download PNG
-                            </a>
+                            <Button asChild variant="outline" size="sm">
+                              <a
+                                href={imageHref}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <MaterialIcon
+                                  icon="visibility"
+                                  size="sm"
+                                  className="text-brand-primary"
+                                />
+                                Open
+                              </a>
+                            </Button>
+                            <Button asChild variant="primary" size="sm">
+                              <a href={imageHref} download={entry.filename}>
+                                <MaterialIcon
+                                  icon="download"
+                                  size="sm"
+                                  className="text-white"
+                                />
+                                Download PNG
+                              </a>
+                            </Button>
                           </div>
                         </div>
                       </article>
@@ -316,24 +316,22 @@ export default async function QrCodesPage() {
           </div>
 
           <div className="mt-14 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/resources"
-              className="inline-flex items-center gap-2 rounded-xl border border-brand-primary px-4 py-2.5 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary/10"
-            >
-              <MaterialIcon
-                icon="arrow_back"
-                size="sm"
-                className="text-brand-primary"
-              />
-              Back to Resources
-            </Link>
-            <Link
-              href="/team"
-              className="inline-flex items-center gap-2 rounded-xl bg-brand-secondary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-secondary-dark"
-            >
-              <MaterialIcon icon="groups" size="sm" className="text-white" />
-              Team Profiles
-            </Link>
+            <Button asChild variant="outline" size="sm">
+              <Link href="/resources">
+                <MaterialIcon
+                  icon="arrow_back"
+                  size="sm"
+                  className="text-brand-primary"
+                />
+                Back to Resources
+              </Link>
+            </Button>
+            <Button asChild variant="secondary" size="sm">
+              <Link href="/team">
+                <MaterialIcon icon="groups" size="sm" className="text-white" />
+                Team Profiles
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

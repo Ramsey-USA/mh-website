@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { type ReactNode, type CSSProperties } from "react";
 import { cn } from "@/lib/utils";
+import { Card } from "@/components/ui";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
 
 /**
@@ -96,7 +97,7 @@ export function AlternatingShowcase({
               className="scroll-reveal group"
               style={{ "--delay": `${index * 0.1}s` } as CSSProperties}
             >
-              <div className="flex flex-col lg:grid lg:grid-cols-2 bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300">
+              <Card className="flex flex-col overflow-hidden border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 dark:hover:shadow-brand-primary/20 lg:grid lg:grid-cols-2">
                 {/* Image Side */}
                 <div
                   className={cn(
@@ -199,7 +200,7 @@ export function AlternatingShowcase({
                     )}
                   </div>
                 </div>
-              </div>
+              </Card>
             </div>
           );
         })}

@@ -102,7 +102,7 @@ function DriverForm({ token, driver, onSaved, onCancel }: DriverFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-gray-800/80 border border-brand-secondary/50 rounded-xl p-4 mb-4"
+      className="bg-brand-primary-darker/60 border border-brand-secondary/50 rounded-xl p-4 mb-4"
     >
       <h4 className="text-sm font-black text-brand-secondary uppercase tracking-wider mb-3">
         {isEdit ? "Edit Driver" : "Add New Driver"}
@@ -271,14 +271,14 @@ function DriverForm({ token, driver, onSaved, onCancel }: DriverFormProps) {
           }
         />
         <div className="flex items-end pb-2">
-          <label className="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+          <label className="flex items-center gap-2 text-sm text-brand-secondary-light/85 cursor-pointer">
             <input
               type="checkbox"
               checked={fields.consent_on_file}
               onChange={(e) =>
                 setFields((f) => ({ ...f, consent_on_file: e.target.checked }))
               }
-              className="w-4 h-4 rounded border-gray-600 bg-gray-700 text-brand-secondary focus:ring-brand-secondary"
+              className="w-4 h-4 rounded border-brand-primary/40 bg-brand-primary-darker/60 text-brand-secondary focus:ring-brand-secondary"
             />
             Consent on File
           </label>
@@ -303,18 +303,18 @@ function DriverForm({ token, driver, onSaved, onCancel }: DriverFormProps) {
         </p>
       )}
 
-      <div className="flex gap-2 justify-end">
+      <div className="flex flex-col sm:flex-row gap-2 sm:justify-end">
         <button
           type="button"
           onClick={onCancel}
-          className="px-4 py-2 text-sm font-semibold text-gray-400 hover:text-white border border-gray-600 hover:border-gray-400 rounded-lg transition-colors"
+          className="px-4 py-2 text-sm font-semibold text-brand-secondary-light/80 hover:text-white border border-brand-primary/45 hover:border-brand-secondary rounded-lg transition-colors w-full sm:w-auto"
         >
           Cancel
         </button>
         <button
           type="submit"
           disabled={submitting}
-          className="px-4 py-2 text-sm font-black text-white bg-brand-primary hover:bg-brand-primary-dark disabled:opacity-60 rounded-lg transition-colors inline-flex items-center gap-2"
+          className="px-4 py-2 text-sm font-black text-white bg-brand-primary hover:bg-brand-primary-dark disabled:opacity-60 rounded-lg transition-colors inline-flex items-center justify-center gap-2 w-full sm:w-auto"
         >
           {submitting ? (
             <>
@@ -477,11 +477,14 @@ export function DriversTab({ token }: DriversTabProps) {
             />
             AUTHORIZED DRIVERS
           </h2>
-          <p className="text-sm text-gray-400 mt-1">
+          <p className="text-sm text-brand-secondary-light/80 mt-1">
             {totalActive} active driver{totalActive !== 1 ? "s" : ""} tracked
           </p>
         </div>
-        <div data-print-hide="true" className="flex items-center gap-2">
+        <div
+          data-print-hide="true"
+          className="flex flex-wrap items-center gap-2 w-full sm:w-auto"
+        >
           <ExportCsvButton
             filename={`mh-drivers-${new Date().toISOString().slice(0, 10)}.csv`}
             headers={DRIVERS_CSV_HEADERS}
@@ -491,7 +494,7 @@ export function DriversTab({ token }: DriversTabProps) {
             type="button"
             onClick={refresh}
             disabled={driversQuery.isFetching}
-            className="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-3 py-2 text-sm font-black uppercase tracking-wide text-gray-200 hover:border-brand-secondary hover:text-white disabled:opacity-50 transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg border border-brand-primary/45 px-3 py-2 text-sm font-black uppercase tracking-wide text-brand-secondary-light hover:border-brand-secondary hover:text-white disabled:opacity-50 transition-colors"
           >
             <MaterialIcon
               icon={driversQuery.isFetching ? "hourglass_empty" : "refresh"}
@@ -536,7 +539,7 @@ export function DriversTab({ token }: DriversTabProps) {
             className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5 ${
               filter === key
                 ? "bg-brand-primary text-white"
-                : "bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700 border border-gray-700"
+                : "bg-brand-primary-darker/60 text-brand-secondary-light/75 hover:text-white hover:bg-brand-primary-dark/70 border border-brand-primary/35"
             }`}
           >
             <MaterialIcon icon={icon} size="sm" />
@@ -548,14 +551,14 @@ export function DriversTab({ token }: DriversTabProps) {
       {/* Driver Table */}
       <section
         data-print-section="true"
-        className="bg-gray-800/60 border border-gray-700 rounded-xl overflow-hidden"
+        className="bg-brand-primary-darker/60 border border-brand-primary/35 rounded-xl overflow-hidden"
       >
         {isLoading && drivers.length === 0 ? (
           <div className="p-4 space-y-2">
             {SKELETON_KEYS.map((k) => (
               <div
                 key={k}
-                className="h-12 bg-gray-700/40 rounded animate-pulse"
+                className="h-12 bg-brand-primary/25 rounded animate-pulse"
               />
             ))}
           </div>
@@ -564,57 +567,57 @@ export function DriversTab({ token }: DriversTabProps) {
             <MaterialIcon
               icon="no_accounts"
               size="3xl"
-              className="text-gray-600 mx-auto mb-3"
+              className="text-brand-secondary-light/65 mx-auto mb-3"
             />
-            <p className="text-gray-400">
+            <p className="text-brand-secondary-light/80">
               No drivers match the current filter.
             </p>
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full min-w-245 text-sm">
               <thead>
-                <tr className="border-b border-gray-700 text-left">
+                <tr className="border-b border-brand-primary/35 text-left">
                   <th
                     scope="col"
-                    className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                    className="py-3 px-3 text-xs font-black text-brand-secondary-light/85 uppercase tracking-wider"
                   >
                     Driver
                   </th>
                   <th
                     scope="col"
-                    className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                    className="py-3 px-3 text-xs font-black text-brand-secondary-light/85 uppercase tracking-wider"
                   >
                     License
                   </th>
                   <th
                     scope="col"
-                    className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                    className="py-3 px-3 text-xs font-black text-brand-secondary-light/85 uppercase tracking-wider"
                   >
                     Expiration
                   </th>
                   <th
                     scope="col"
-                    className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                    className="py-3 px-3 text-xs font-black text-brand-secondary-light/85 uppercase tracking-wider"
                   >
                     MVR Status
                   </th>
                   <th
                     scope="col"
-                    className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                    className="py-3 px-3 text-xs font-black text-brand-secondary-light/85 uppercase tracking-wider"
                   >
                     Auth Status
                   </th>
                   <th
                     scope="col"
-                    className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                    className="py-3 px-3 text-xs font-black text-brand-secondary-light/85 uppercase tracking-wider"
                   >
                     Consent
                   </th>
                   <th
                     scope="col"
                     data-print-hide="true"
-                    className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                    className="py-3 px-3 text-xs font-black text-brand-secondary-light/85 uppercase tracking-wider"
                   >
                     Actions
                   </th>
@@ -654,19 +657,21 @@ function DriverRow({ driver, revoking, onEdit, onRevoke }: DriverRowProps) {
   const isExpired = expirationDays <= 0;
   const cdl = isCdlDriver(driver);
 
-  let expirationClass = "text-gray-300";
+  let expirationClass = "text-brand-secondary-light/85";
   if (isExpired) expirationClass = "text-red-400 font-bold";
   else if (isExpiringSoon) expirationClass = "text-amber-300";
 
   return (
-    <tr className="border-b border-gray-800 hover:bg-gray-800/40 transition-colors">
+    <tr className="border-b border-brand-primary/30 hover:bg-brand-primary-dark/50 transition-colors">
       <td className="py-3 px-3">
         <div className="font-bold text-white">{driver.employee_name}</div>
         {driver.email && (
-          <div className="text-xs text-gray-500">{driver.email}</div>
+          <div className="text-xs text-brand-secondary-light/65">
+            {driver.email}
+          </div>
         )}
         {cdl && (
-          <span className="inline-block mt-1 px-1.5 py-0.5 text-[10px] font-bold uppercase bg-blue-900/50 text-blue-300 border border-blue-600 rounded">
+          <span className="inline-block mt-1 px-1.5 py-0.5 text-[10px] font-bold uppercase bg-brand-primary/25 text-brand-secondary-light border border-brand-secondary/45 rounded">
             {driver.license_class}
             {driver.cdl_endorsements ? ` (${driver.cdl_endorsements})` : ""}
           </span>
@@ -674,10 +679,12 @@ function DriverRow({ driver, revoking, onEdit, onRevoke }: DriverRowProps) {
       </td>
 
       <td className="py-3 px-3">
-        <div className="text-gray-300 font-mono text-xs">
+        <div className="text-brand-secondary-light/85 font-mono text-xs">
           {driver.license_number}
         </div>
-        <div className="text-xs text-gray-500">{driver.license_state}</div>
+        <div className="text-xs text-brand-secondary-light/65">
+          {driver.license_state}
+        </div>
       </td>
 
       <td className="py-3 px-3">
@@ -701,7 +708,7 @@ function DriverRow({ driver, revoking, onEdit, onRevoke }: DriverRowProps) {
           {driver.mvr_status}
         </span>
         {driver.next_mvr_check_date && (
-          <div className="text-[10px] text-gray-500 mt-1">
+          <div className="text-[10px] text-brand-secondary-light/65 mt-1">
             Next: {formatDriverDate(driver.next_mvr_check_date)}
           </div>
         )}
@@ -714,7 +721,7 @@ function DriverRow({ driver, revoking, onEdit, onRevoke }: DriverRowProps) {
           {driver.authorization_status}
         </span>
         {driver.authorized_by && (
-          <div className="text-[10px] text-gray-500 mt-1">
+          <div className="text-[10px] text-brand-secondary-light/65 mt-1">
             by {driver.authorized_by}
           </div>
         )}
@@ -737,7 +744,7 @@ function DriverRow({ driver, revoking, onEdit, onRevoke }: DriverRowProps) {
           <button
             type="button"
             onClick={() => onEdit(driver)}
-            className="p-1.5 text-gray-400 hover:text-white hover:bg-gray-700 rounded-lg transition-colors"
+            className="p-1.5 text-brand-secondary-light/70 hover:text-white hover:bg-brand-primary-dark/70 rounded-lg transition-colors"
             title="Edit"
             aria-label={`Edit ${driver.employee_name}`}
           >
@@ -747,7 +754,7 @@ function DriverRow({ driver, revoking, onEdit, onRevoke }: DriverRowProps) {
             type="button"
             onClick={() => onRevoke(driver)}
             disabled={revoking || driver.authorization_status === "revoked"}
-            className="p-1.5 text-gray-400 hover:text-red-400 hover:bg-red-900/30 rounded-lg transition-colors disabled:opacity-40"
+            className="p-1.5 text-brand-secondary-light/70 hover:text-red-400 hover:bg-red-900/30 rounded-lg transition-colors disabled:opacity-40"
             title="Revoke Authorization"
             aria-label={`Revoke ${driver.employee_name}`}
           >

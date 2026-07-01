@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Card } from "@/components/ui";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -167,7 +168,7 @@ export function Timeline({
                     <>
                       {/* Content Left */}
                       <div className="flex-1 text-right">
-                        <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-primary dark:group-hover:border-brand-primary-light">
+                        <Card className="inline-block border-2 border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl group-hover:border-brand-primary dark:border-gray-700 dark:bg-gray-800 dark:group-hover:border-brand-primary-light">
                           <div className="flex items-center justify-end gap-4 mb-4">
                             <div>
                               <h3 className="font-black text-gray-900 dark:text-white text-2xl mb-1">
@@ -185,7 +186,7 @@ export function Timeline({
                           <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                             {step.desc}
                           </p>
-                        </div>
+                        </Card>
                       </div>
 
                       {/* Center Circle */}
@@ -212,7 +213,7 @@ export function Timeline({
 
                       {/* Content Right */}
                       <div className="flex-1 text-left">
-                        <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-secondary dark:group-hover:border-brand-secondary-light">
+                        <Card className="inline-block border-2 border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl group-hover:border-brand-secondary dark:border-gray-700 dark:bg-gray-800 dark:group-hover:border-brand-secondary-light">
                           <div className="flex items-center gap-4 mb-4">
                             <div className="shrink-0 w-16 h-16 bg-linear-to-br from-brand-secondary to-brand-secondary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
                               <MaterialIcon
@@ -230,7 +231,7 @@ export function Timeline({
                           <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                             {step.desc}
                           </p>
-                        </div>
+                        </Card>
                       </div>
                     </>
                   )}
@@ -257,7 +258,7 @@ export function Timeline({
 
                   {/* Right Side - Card */}
                   <div className="flex-1 pb-8">
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-brand-primary dark:hover:border-brand-primary-light">
+                    <Card className="border-2 border-gray-200 bg-white p-6 shadow-lg transition-all duration-300 hover:border-brand-primary hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 dark:hover:border-brand-primary-light">
                       <div className="flex items-center gap-3 mb-4">
                         <div
                           className={cn(
@@ -280,7 +281,7 @@ export function Timeline({
                       <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                         {step.desc}
                       </p>
-                    </div>
+                    </Card>
                   </div>
                 </div>
               </div>

@@ -21,7 +21,7 @@ export function SpecialtyServiceCard(
       <Card
         className={getCardClassName(
           "static",
-          `rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden h-full flex flex-col cursor-pointer ${
+          `rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden h-full flex flex-col cursor-pointer ${
             isExpanded
               ? "ring-2 ring-brand-secondary border-brand-secondary/40"
               : ""

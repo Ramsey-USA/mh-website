@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TrackedBridgeButton } from "@/components/analytics";
+import { Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
@@ -74,9 +75,9 @@ export default function VeteranLedCompliancePage() {
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-4 sm:grid-cols-2">
             {workflow.map((step, index) => (
-              <article
+              <Card
                 key={step.title}
-                className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900"
+                className="border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900"
               >
                 <div className="inline-flex items-center gap-2 rounded-full bg-brand-primary/10 px-3 py-1 text-xs font-bold text-brand-primary dark:text-brand-primary-light">
                   <span>Step {index + 1}</span>
@@ -94,11 +95,11 @@ export default function VeteranLedCompliancePage() {
                 <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-300">
                   {step.detail}
                 </p>
-              </article>
+              </Card>
             ))}
           </div>
 
-          <div className="mt-10 rounded-3xl border border-brand-primary/20 bg-brand-primary/5 p-6 dark:border-brand-primary/30 dark:bg-brand-primary/10">
+          <Card className="mt-10 border border-brand-primary/20 bg-brand-primary/5 p-6 dark:border-brand-primary/30 dark:bg-brand-primary/10">
             <h2 className="text-xl font-bold text-gray-900 dark:text-white">
               Continue the public-sector pathway
             </h2>
@@ -138,7 +139,7 @@ export default function VeteranLedCompliancePage() {
                 Hermiston municipal delivery market
               </TrackedBridgeButton>
             </div>
-          </div>
+          </Card>
         </div>
       </section>
     </main>

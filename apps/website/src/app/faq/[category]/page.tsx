@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { PageTrackingClient } from "@/components/analytics";
-import { Button } from "@/components/ui";
+import { Button, Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
@@ -223,7 +223,7 @@ export default async function FAQCategoryPage({
       <StructuredData data={generateBreadcrumbSchema(breadcrumbItems)} />
       <StructuredData data={faqSchema} />
 
-      <main className="bg-white dark:bg-gray-950 min-h-screen">
+      <main className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <section className="hero-section hero-safe-top-lg border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 pb-14 text-white sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <Breadcrumbs
@@ -254,9 +254,9 @@ export default async function FAQCategoryPage({
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-6">
               {faqCategory.questions.map((question) => (
-                <article
+                <Card
                   key={question.question}
-                  className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900"
+                  className="border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900"
                 >
                   <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                     {question.question}
@@ -273,11 +273,11 @@ export default async function FAQCategoryPage({
                       {question.link.text}
                     </Link>
                   ) : null}
-                </article>
+                </Card>
               ))}
             </div>
 
-            <div className="mt-10 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+            <Card className="mt-10 border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
                 Move To Scope
               </p>
@@ -311,9 +311,9 @@ export default async function FAQCategoryPage({
                   <MaterialIcon icon="arrow_forward" size="sm" />
                 </Link>
               </div>
-            </div>
+            </Card>
 
-            <div className="mt-10 rounded-3xl border border-brand-primary/20 bg-brand-primary/5 p-6 dark:border-brand-primary/30 dark:bg-brand-primary/10">
+            <Card className="mt-10 border border-brand-primary/20 bg-brand-primary/5 p-6 dark:border-brand-primary/30 dark:bg-brand-primary/10">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 Need a direct answer?
               </h2>
@@ -324,7 +324,7 @@ export default async function FAQCategoryPage({
               <Button asChild className="mt-5">
                 <Link href="/contact">Contact the team</Link>
               </Button>
-            </div>
+            </Card>
           </div>
         </section>
       </main>

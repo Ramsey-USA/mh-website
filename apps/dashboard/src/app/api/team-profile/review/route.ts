@@ -31,6 +31,12 @@ export const dynamic = "force-dynamic";
 
 interface PendingRow {
   slug: string;
+  full_name: string | null;
+  role_title: string | null;
+  department: string | null;
+  position_title: string | null;
+  employee_email: string | null;
+  active: number | null;
   bio: string | null;
   fun_fact: string | null;
   certifications: string | null;
@@ -86,8 +92,11 @@ async function handleGet(
       const member = vintageTeamMembers.find((m) => m.slug === row.slug);
       return {
         slug: row.slug,
-        name: member?.name ?? row.slug,
-        role: member?.role ?? "",
+        name: member?.name ?? row.full_name ?? row.slug,
+        role: member?.role ?? row.role_title ?? "",
+        department: member?.department ?? row.department ?? "",
+        positionTitle: row.position_title,
+        employeeEmail: row.employee_email,
         submittedAt: row.submitted_at,
         updatedAt: row.updated_at,
         // Field preview
@@ -153,10 +162,6 @@ async function handlePost(
     return badRequest("rejectionReason is required when rejecting");
   }
 
-  // Verify slug is a known team member
-  const member = vintageTeamMembers.find((m) => m.slug === slug);
-  if (!member) return notFound("Team member not found");
-
   const DB = getD1Database();
   if (!DB) return serviceUnavailable("Database not available");
 
@@ -181,6 +186,8 @@ async function handlePost(
       );
     }
 
+    const member = vintageTeamMembers.find((m) => m.slug === slug);
+
     await db.execute(
       `UPDATE team_profiles
        SET status = ?,
@@ -203,8 +210,8 @@ async function handlePost(
 
     const message =
       action === "approve"
-        ? `${member.name}'s profile has been approved and will appear on the team page within 1 hour.`
-        : `${member.name}'s profile has been rejected.`;
+        ? `${member?.name ?? slug}'s profile has been approved and will appear on the team page within 1 hour.`
+        : `${member?.name ?? slug}'s profile has been rejected.`;
 
     return createSuccessResponse({ slug, status: newStatus }, message);
   } catch (_err) {

@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
+import { Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   DiagonalStripePattern,
@@ -224,7 +225,7 @@ export default function ContactPageClient({
                   {/* Animated Border Glow */}
                   <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 overflow-hidden flex flex-col w-full focus:outline-none focus:ring-4 focus:ring-brand-primary/50">
+                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-brand-primary/50">
                     {/* Top Accent Bar */}
                     <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -259,7 +260,7 @@ export default function ContactPageClient({
                         />
                       </div>
                     </div>
-                  </div>
+                  </Card>
                 </a>
               ))}
             </div>
@@ -882,7 +883,7 @@ export default function ContactPageClient({
                     }`}
                   ></div>
 
-                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 overflow-hidden flex flex-col w-full focus:outline-none focus:ring-4 focus:ring-brand-primary/50">
+                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-brand-primary/50">
                     {/* Top Accent Bar */}
                     <div
                       className={`h-2 ${
@@ -946,7 +947,7 @@ export default function ContactPageClient({
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Card>
                 </Link>
               ))}
             </div>
@@ -1008,7 +1009,7 @@ export default function ContactPageClient({
                 {/* Animated Border Glow */}
                 <div className="absolute -inset-2 rounded-2xl bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-20 group-hover:opacity-60 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                   {/* Top Accent Bar */}
                   <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -1086,7 +1087,7 @@ export default function ContactPageClient({
                       </Link>
                     </div>
                   </div>
-                </div>
+                </Card>
               </div>
 
               {/* Extended Coverage Card */}
@@ -1094,7 +1095,7 @@ export default function ContactPageClient({
                 {/* Animated Border Glow */}
                 <div className="absolute -inset-2 rounded-2xl bg-linear-to-br from-brand-secondary/40 to-bronze-600/40 opacity-20 group-hover:opacity-60 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                   {/* Top Accent Bar */}
                   <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
@@ -1194,7 +1195,7 @@ export default function ContactPageClient({
                       </div>
                     </div>
                   </div>
-                </div>
+                </Card>
               </div>
             </div>
           </div>

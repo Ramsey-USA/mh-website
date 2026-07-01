@@ -14,6 +14,7 @@ import Script from "next/script";
 import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Button } from "@/components/ui/base/button";
+import { Card } from "@/components/ui";
 import { Input, Textarea } from "@/components/ui/forms/Input";
 import { useDialogBehavior } from "@/hooks/useDialogBehavior";
 import { trackFormSubmit } from "@/lib/analytics/tracking";
@@ -612,7 +613,7 @@ export function JobApplicationModal({
 
           <div className="max-h-[calc(90vh-200px)] overflow-y-auto px-6 pt-6 pb-10 sm:pb-12">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="rounded-2xl border-2 border-brand-primary/20 bg-linear-to-br from-brand-primary/5 to-brand-secondary/5 p-4 sm:p-5 dark:border-brand-primary/30 dark:from-brand-primary/10 dark:to-brand-secondary/10 shadow-sm">
+              <Card className="rounded-2xl border-2 border-brand-primary/20 bg-linear-to-br from-brand-primary/5 to-brand-secondary/5 p-4 sm:p-5 dark:border-brand-primary/30 dark:from-brand-primary/10 dark:to-brand-secondary/10 shadow-sm">
                 <div className="flex items-start gap-3">
                   <div className="shrink-0 p-2 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl">
                     <MaterialIcon
@@ -649,7 +650,7 @@ export function JobApplicationModal({
                     </div>
                   </div>
                 </div>
-              </div>
+              </Card>
 
               <div>
                 <h3 className="flex items-center mb-4 font-bold text-gray-900 dark:text-white text-xl">
@@ -924,7 +925,7 @@ export function JobApplicationModal({
                 </div>
               </div>
 
-              <div className="rounded-2xl border-2 border-brand-secondary/25 bg-linear-to-r from-brand-primary/5 via-transparent to-brand-secondary/10 p-4 sm:p-5 dark:border-brand-secondary/35 dark:from-brand-primary/10 dark:to-brand-secondary/15 shadow-sm">
+              <Card className="rounded-2xl border-2 border-brand-secondary/25 bg-linear-to-r from-brand-primary/5 via-transparent to-brand-secondary/10 p-4 sm:p-5 dark:border-brand-secondary/35 dark:from-brand-primary/10 dark:to-brand-secondary/15 shadow-sm">
                 <div className="flex items-start gap-3">
                   <div className="shrink-0 p-2 bg-brand-secondary/15 dark:bg-brand-secondary/25 rounded-xl">
                     <MaterialIcon
@@ -945,10 +946,10 @@ export function JobApplicationModal({
                       : "not a long intake process. Start with what you have. We will handle the rest in follow-up."}
                   </p>
                 </div>
-              </div>
+              </Card>
 
               {/* Security Trust Indicator & Turnstile */}
-              <div className="rounded-2xl border-2 border-brand-primary/20 bg-linear-to-r from-brand-primary/5 to-brand-primary/10 p-4 dark:border-brand-primary/30 dark:from-brand-primary/10 dark:to-brand-primary/15">
+              <Card className="rounded-2xl border-2 border-brand-primary/20 bg-linear-to-r from-brand-primary/5 to-brand-primary/10 p-4 dark:border-brand-primary/30 dark:from-brand-primary/10 dark:to-brand-primary/15">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <div className="shrink-0 p-2 bg-brand-primary/15 dark:bg-brand-primary/25 rounded-xl">
@@ -999,7 +1000,7 @@ export function JobApplicationModal({
                     {isEs ? "Verificado" : "Verified"}
                   </p>
                 )}
-              </div>
+              </Card>
 
               {submitError && (
                 <div

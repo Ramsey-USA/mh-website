@@ -37,7 +37,7 @@ function PhilosophyCard({
       <div
         className={`absolute -inset-2 bg-linear-to-br ${glowFrom} ${glowTo} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
       ></div>
-      <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+      <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
         <div
           className={`h-2 bg-linear-to-r ${barFrom} ${barVia} ${barTo}`}
         ></div>
@@ -62,7 +62,7 @@ function PhilosophyCard({
           </h3>
           {children}
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

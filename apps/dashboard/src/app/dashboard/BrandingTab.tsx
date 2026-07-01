@@ -31,7 +31,7 @@ function resultStyle(status: FileStatus): string {
   if (status === "processing") {
     return "border-brand-secondary/50 bg-brand-primary/20 text-brand-secondary";
   }
-  return "border-gray-600 bg-gray-800/50 text-gray-200";
+  return "border-brand-primary/45 bg-brand-primary-darker/55 text-brand-secondary-light";
 }
 
 function parseFilenameFromDisposition(
@@ -217,7 +217,7 @@ export function BrandingTab({ token }: BrandingTabProps) {
           className={`rounded-xl border-2 border-dashed p-10 text-center transition-colors cursor-pointer ${
             isDragging
               ? "border-brand-secondary bg-brand-primary/20"
-              : "border-gray-600 hover:border-brand-secondary/80 hover:bg-brand-primary/10"
+              : "border-brand-primary/45 hover:border-brand-secondary/80 hover:bg-brand-primary/10"
           }`}
         >
           <div className="mx-auto max-w-xl space-y-3">
@@ -229,7 +229,7 @@ export function BrandingTab({ token }: BrandingTabProps) {
             <p className="text-white font-bold uppercase tracking-wide text-sm">
               Drag and drop files here, or use the selector
             </p>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-brand-secondary-light/75">
               Accepted formats: PDF and DOCX. Maximum file size: 20 MB.
             </p>
             <span className="inline-flex items-center gap-2 rounded-lg bg-brand-primary px-4 py-2 text-xs font-bold uppercase tracking-wide text-white hover:bg-brand-primary/80 transition-colors">
@@ -254,7 +254,7 @@ export function BrandingTab({ token }: BrandingTabProps) {
           <span className="px-3 py-1 rounded-full border border-red-600/50 bg-red-900/20 text-red-200 font-semibold">
             Failed: {statusSummary.failed}
           </span>
-          <span className="px-3 py-1 rounded-full border border-gray-600 bg-gray-700/40 text-gray-200 font-semibold">
+          <span className="px-3 py-1 rounded-full border border-brand-primary/45 bg-brand-primary-darker/50 text-brand-secondary-light font-semibold">
             Total: {statusSummary.total}
           </span>
         </div>
@@ -262,34 +262,34 @@ export function BrandingTab({ token }: BrandingTabProps) {
     );
   } else if (activeTab === "standards") {
     tabContent = (
-      <div className="rounded-xl border border-gray-700 bg-gray-800/40 p-5 space-y-4">
+      <div className="rounded-xl border border-brand-primary/35 bg-brand-primary-darker/50 p-5 space-y-4">
         <h3 className="text-sm font-black uppercase tracking-wide text-brand-secondary">
           Applied MH Branding Standards
         </h3>
         <div className="grid gap-3 sm:grid-cols-2">
-          <div className="rounded-lg border border-gray-700 bg-gray-900/50 p-4">
+          <div className="rounded-lg border border-brand-primary/35 bg-brand-primary-darker/55 p-4">
             <p className="text-xs font-bold uppercase text-white">
               PDF Enhancements
             </p>
-            <p className="text-xs text-gray-300 mt-2">
+            <p className="text-xs text-brand-secondary-light/80 mt-2">
               Header band, footer metadata, trust line, and legal-name watermark
               are added to each page.
             </p>
           </div>
-          <div className="rounded-lg border border-gray-700 bg-gray-900/50 p-4">
+          <div className="rounded-lg border border-brand-primary/35 bg-brand-primary-darker/55 p-4">
             <p className="text-xs font-bold uppercase text-white">
               DOCX Enhancements
             </p>
-            <p className="text-xs text-gray-300 mt-2">
+            <p className="text-xs text-brand-secondary-light/80 mt-2">
               Brand compliance banner is inserted and MH placeholders are
               normalized across Word XML parts.
             </p>
           </div>
-          <div className="rounded-lg border border-gray-700 bg-gray-900/50 p-4 sm:col-span-2">
+          <div className="rounded-lg border border-brand-primary/35 bg-brand-primary-darker/55 p-4 sm:col-span-2">
             <p className="text-xs font-bold uppercase text-white">
               Trust Preservation
             </p>
-            <p className="text-xs text-gray-300 mt-2">
+            <p className="text-xs text-brand-secondary-light/80 mt-2">
               Outputs include MH veteran-owned and BBB accreditation trust
               context to align with brand guardrails.
             </p>
@@ -300,7 +300,7 @@ export function BrandingTab({ token }: BrandingTabProps) {
   } else if (results.length === 0) {
     tabContent = (
       <section className="space-y-3">
-        <div className="rounded-xl border border-gray-700 bg-gray-800/40 p-5 text-sm text-gray-400">
+        <div className="rounded-xl border border-brand-primary/35 bg-brand-primary-darker/50 p-5 text-sm text-brand-secondary-light/80">
           No files processed yet.
         </div>
       </section>
@@ -313,7 +313,7 @@ export function BrandingTab({ token }: BrandingTabProps) {
             key={entry.id}
             className={`rounded-xl border px-4 py-3 ${resultStyle(entry.status)}`}
           >
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
               <p className="font-semibold text-sm truncate">{entry.fileName}</p>
               <span className="text-xs uppercase font-black tracking-wide">
                 {entry.status}
@@ -328,7 +328,7 @@ export function BrandingTab({ token }: BrandingTabProps) {
 
   return (
     <div className="space-y-6">
-      <section className="bg-gray-800/60 rounded-xl border-2 border-brand-primary p-6">
+      <section className="bg-brand-primary-darker/55 rounded-xl border-2 border-brand-primary p-6">
         <div className="flex items-start gap-4">
           <div className="bg-brand-primary/25 border border-brand-secondary/40 rounded-lg p-3">
             <MaterialIcon
@@ -341,7 +341,7 @@ export function BrandingTab({ token }: BrandingTabProps) {
             <h2 className="text-2xl font-black text-white uppercase tracking-wide">
               Branding Studio
             </h2>
-            <p className="text-sm text-gray-300 mt-1 max-w-3xl">
+            <p className="text-sm text-brand-secondary-light/80 mt-1 max-w-3xl">
               Upload Word or PDF files to apply MH branding standards. The
               service adds MH brand identity, trust lines, and footer metadata
               while preserving the source document format.
@@ -350,15 +350,15 @@ export function BrandingTab({ token }: BrandingTabProps) {
         </div>
       </section>
 
-      <section className="bg-gray-800/50 rounded-xl border border-gray-700 p-6 space-y-4">
-        <div className="flex flex-wrap gap-2 rounded-xl border border-gray-700 bg-gray-900/40 p-2">
+      <section className="bg-brand-primary-darker/50 rounded-xl border border-brand-primary/35 p-6 space-y-4">
+        <div className="flex flex-wrap gap-2 rounded-xl border border-brand-primary/35 bg-brand-primary-darker/60 p-2">
           <button
             type="button"
             onClick={() => setActiveTab("upload")}
             className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-black uppercase tracking-wide transition-colors ${
               activeTab === "upload"
                 ? "bg-brand-primary text-white"
-                : "text-gray-300 hover:bg-gray-700/60"
+                : "text-brand-secondary-light/85 hover:bg-brand-primary-dark/55"
             }`}
           >
             <MaterialIcon icon="upload_file" size="sm" />
@@ -370,7 +370,7 @@ export function BrandingTab({ token }: BrandingTabProps) {
             className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-black uppercase tracking-wide transition-colors ${
               activeTab === "standards"
                 ? "bg-brand-primary text-white"
-                : "text-gray-300 hover:bg-gray-700/60"
+                : "text-brand-secondary-light/85 hover:bg-brand-primary-dark/55"
             }`}
           >
             <MaterialIcon icon="verified" size="sm" />
@@ -382,12 +382,12 @@ export function BrandingTab({ token }: BrandingTabProps) {
             className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-black uppercase tracking-wide transition-colors ${
               activeTab === "results"
                 ? "bg-brand-primary text-white"
-                : "text-gray-300 hover:bg-gray-700/60"
+                : "text-brand-secondary-light/85 hover:bg-brand-primary-dark/55"
             }`}
           >
             <MaterialIcon icon="summarize" size="sm" />
             Results
-            <span className="rounded-full bg-black/25 px-2 py-0.5 text-[10px]">
+            <span className="rounded-full bg-brand-primary-darker/75 px-2 py-0.5 text-[10px]">
               {statusSummary.total}
             </span>
           </button>

@@ -31,7 +31,7 @@ const sizeMap = {
 const themeColors = {
   veteran: "text-bronze-300 dark:text-bronze-400", // Veteran recognition
   primary: "text-brand-primary dark:text-brand-primary-light", // Primary brand emphasis
-  secondary: "text-blue-600 dark:text-blue-400", // Secondary visual emphasis
+  secondary: "text-brand-secondary dark:text-brand-secondary-light", // Secondary visual emphasis
   default: "", // No theme color applied
 };
 

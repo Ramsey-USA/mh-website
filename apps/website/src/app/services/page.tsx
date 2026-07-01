@@ -1,7 +1,7 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { PageTrackingClient } from "@/components/analytics";
-import { Button } from "@/components/ui";
+import { Button, Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/SeoMeta";
@@ -108,7 +108,7 @@ export default function ServicesPage() {
         {/* Market Router + Ownership Summary */}
         <section className="relative bg-white dark:bg-gray-900 py-8 sm:py-10 lg:py-12 overflow-hidden">
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-            <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-6 sm:p-8 shadow-sm">
+            <Card className="border border-gray-200 bg-gray-50 p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-8">
               <h2 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white leading-tight text-center">
                 {isSpanish
                   ? "Elija su mercado y vea el modelo operativo"
@@ -146,112 +146,112 @@ export default function ServicesPage() {
                   {isSpanish ? "TI Comercial" : "Commercial TI"}
                 </a>
               </div>
+            </Card>
 
-              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
-                  <h3 className="font-extrabold text-gray-900 dark:text-white text-lg">
-                    {isSpanish ? "Comunidad AG" : "AG Communities"}
-                  </h3>
-                  <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                    <li>
-                      •{" "}
-                      {isSpanish
-                        ? "Estimacion lidera preconstruccion"
-                        : "Estimating leads preconstruction"}
-                    </li>
-                    <li>
-                      •{" "}
-                      {isSpanish
-                        ? "Superintendencia controla ejecucion"
-                        : "Superintendent controls field execution"}
-                    </li>
-                    <li>
-                      •{" "}
-                      {isSpanish
-                        ? "PM mantiene visibilidad en Procore"
-                        : "PM maintains Procore visibility"}
-                    </li>
-                  </ul>
-                </div>
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Card className="border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-900">
+                <h3 className="font-extrabold text-gray-900 dark:text-white text-lg">
+                  {isSpanish ? "Comunidad AG" : "AG Communities"}
+                </h3>
+                <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                  <li>
+                    •{" "}
+                    {isSpanish
+                      ? "Estimacion lidera preconstruccion"
+                      : "Estimating leads preconstruction"}
+                  </li>
+                  <li>
+                    •{" "}
+                    {isSpanish
+                      ? "Superintendencia controla ejecucion"
+                      : "Superintendent controls field execution"}
+                  </li>
+                  <li>
+                    •{" "}
+                    {isSpanish
+                      ? "PM mantiene visibilidad en Procore"
+                      : "PM maintains Procore visibility"}
+                  </li>
+                </ul>
+              </Card>
 
-                <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
-                  <h3 className="font-extrabold text-gray-900 dark:text-white text-lg">
-                    {isSpanish ? "Bodegas" : "Wineries"}
-                  </h3>
-                  <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                    <li>
-                      •{" "}
-                      {isSpanish
-                        ? "Coordinacion de trades y procurement"
-                        : "Trade and procurement coordination"}
-                    </li>
-                    <li>
-                      •{" "}
-                      {isSpanish
-                        ? "Controles de calidad y seguridad por etapa"
-                        : "Stage-based quality and safety controls"}
-                    </li>
-                    <li>
-                      •{" "}
-                      {isSpanish
-                        ? "Handoff con paquete de cierre verificado"
-                        : "Handoff with verified closeout package"}
-                    </li>
-                  </ul>
-                </div>
+              <Card className="border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-900">
+                <h3 className="font-extrabold text-gray-900 dark:text-white text-lg">
+                  {isSpanish ? "Bodegas" : "Wineries"}
+                </h3>
+                <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                  <li>
+                    •{" "}
+                    {isSpanish
+                      ? "Coordinacion de trades y procurement"
+                      : "Trade and procurement coordination"}
+                  </li>
+                  <li>
+                    •{" "}
+                    {isSpanish
+                      ? "Controles de calidad y seguridad por etapa"
+                      : "Stage-based quality and safety controls"}
+                  </li>
+                  <li>
+                    •{" "}
+                    {isSpanish
+                      ? "Handoff con paquete de cierre verificado"
+                      : "Handoff with verified closeout package"}
+                  </li>
+                </ul>
+              </Card>
 
-                <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
-                  <h3 className="font-extrabold text-gray-900 dark:text-white text-lg">
-                    {isSpanish ? "Municipal" : "Municipal"}
-                  </h3>
-                  <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                    <li>
-                      •{" "}
-                      {isSpanish
-                        ? "Escalamiento: Superintendente a PM a COO a Owner"
-                        : "Escalation: Superintendent to PM to COO to Owner"}
-                    </li>
-                    <li>
-                      •{" "}
-                      {isSpanish
-                        ? "Mayor a $5,000 requiere COO; mayor a $25,000 requiere CFO"
-                        : "Over $5,000 requires COO; over $25,000 adds CFO"}
-                    </li>
-                    <li>
-                      •{" "}
-                      {isSpanish
-                        ? "Aprobaciones segun requisitos de agencia"
-                        : "Approvals flex by agency requirements"}
-                    </li>
-                  </ul>
-                </div>
+              <Card className="border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-900">
+                <h3 className="font-extrabold text-gray-900 dark:text-white text-lg">
+                  {isSpanish ? "Municipal" : "Municipal"}
+                </h3>
+                <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                  <li>
+                    •{" "}
+                    {isSpanish
+                      ? "Escalamiento: Superintendente a PM a COO a Owner"
+                      : "Escalation: Superintendent to PM to COO to Owner"}
+                  </li>
+                  <li>
+                    •{" "}
+                    {isSpanish
+                      ? "Mayor a $5,000 requiere COO; mayor a $25,000 requiere CFO"
+                      : "Over $5,000 requires COO; over $25,000 adds CFO"}
+                  </li>
+                  <li>
+                    •{" "}
+                    {isSpanish
+                      ? "Aprobaciones segun requisitos de agencia"
+                      : "Approvals flex by agency requirements"}
+                  </li>
+                </ul>
+              </Card>
 
-                <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
-                  <h3 className="font-extrabold text-gray-900 dark:text-white text-lg">
-                    {isSpanish ? "TI Comercial" : "Commercial TI"}
-                  </h3>
-                  <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                    <li>
-                      •{" "}
-                      {isSpanish
-                        ? "Instalacion de puertas y herrajes"
-                        : "Door and hardware installation"}
-                    </li>
-                    <li>
-                      •{" "}
-                      {isSpanish
-                        ? "Renovacion con operaciones activas"
-                        : "Occupied-space tenant improvements"}
-                    </li>
-                    <li>
-                      •{" "}
-                      {isSpanish
-                        ? "Control de RFIs y submittals en Procore"
-                        : "Procore tracking for RFIs and submittals"}
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <Card className="border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-900">
+                <h3 className="font-extrabold text-gray-900 dark:text-white text-lg">
+                  {isSpanish ? "TI Comercial" : "Commercial TI"}
+                </h3>
+                <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                  <li>
+                    •{" "}
+                    {isSpanish
+                      ? "Instalacion de puertas y herrajes"
+                      : "Door and hardware installation"}
+                  </li>
+                  <li>
+                    •{" "}
+                    {isSpanish
+                      ? "Renovacion con operaciones activas"
+                      : "Occupied-space tenant improvements"}
+                  </li>
+                  <li>
+                    •{" "}
+                    {isSpanish
+                      ? "Control de RFIs y submittals en Procore"
+                      : "Procore tracking for RFIs and submittals"}
+                  </li>
+                </ul>
+              </Card>
             </div>
           </div>
         </section>
@@ -320,7 +320,7 @@ export default function ServicesPage() {
         {/* Portfolio Section - Compact redirect to dedicated project pages */}
         <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 overflow-hidden">
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-            <div className="rounded-2xl border-2 border-brand-secondary/30 bg-linear-to-br from-white via-white to-brand-secondary/5 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 p-8 sm:p-10 text-center shadow-xl">
+            <Card className="border-2 border-brand-secondary/30 bg-linear-to-br from-white via-white to-brand-secondary/5 p-8 text-center shadow-xl dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 sm:p-10">
               <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 shadow-lg">
                 <MaterialIcon
                   icon="photo_library"
@@ -350,14 +350,14 @@ export default function ServicesPage() {
                 <MaterialIcon icon="info" size="sm" className="inline mr-2" />
                 {t("services.portfolio.note")}
               </p>
-            </div>
+            </Card>
           </div>
         </section>
 
         {/* Final CTA - Compact services-specific conversion block */}
         <section className="relative bg-gray-50 dark:bg-gray-900 py-10 sm:py-12 lg:py-14 overflow-hidden">
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-            <div className="rounded-2xl border border-brand-primary/25 bg-white dark:bg-gray-800 p-6 sm:p-8 text-center shadow-lg">
+            <Card className="border border-brand-primary/25 bg-white p-6 text-center shadow-lg dark:bg-gray-800 sm:p-8">
               <h2 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white leading-tight">
                 {t("services.finalNextSteps.sectionTitle")}
               </h2>
@@ -406,7 +406,7 @@ export default function ServicesPage() {
                   </Button>
                 </Link>
               </div>
-            </div>
+            </Card>
           </div>
         </section>
       </div>

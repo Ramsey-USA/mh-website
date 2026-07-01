@@ -6,6 +6,7 @@
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import type { ProjectPortfolio } from "@/lib/types";
 import type { Testimonial } from "@/lib/data/testimonials";
+import { Card } from "@/components/ui";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -94,7 +95,7 @@ export function TestimonialsSection({
                       {/* Animated Border Glow */}
                       <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                      <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                      <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                         {/* Top Accent Bar */}
                         <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
@@ -133,7 +134,7 @@ export function TestimonialsSection({
                             </p>
                           </div>
                         </div>
-                      </div>
+                      </Card>
                     </div>
                   );
                 })
@@ -145,7 +146,7 @@ export function TestimonialsSection({
                       {/* Animated Border Glow */}
                       <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                      <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                      <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                         {/* Top Accent Bar */}
                         <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
@@ -186,7 +187,7 @@ export function TestimonialsSection({
                             </p>
                           </div>
                         </div>
-                      </div>
+                      </Card>
                     </div>
                   );
                 })}
