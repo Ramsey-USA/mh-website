@@ -1133,7 +1133,7 @@ export const handbookForms: DocumentEntry[] = [
     .filter((entry) =>
       entry.manualSection?.some((section) => /^HANDBOOK\b/i.test(section)),
     )
-    .map((entry) => {
+    .map((entry): DocumentEntry => {
       const publishedPdf = publicPdfDetails(
         `docs/employee/forms/${entry.slug}.pdf`,
       );

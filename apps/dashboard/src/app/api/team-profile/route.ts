@@ -156,6 +156,7 @@ function createBlankProfile(
   const name = seed.fullName?.trim() || slug.replaceAll("-", " ");
   const role = seed.roleTitle?.trim() || "Team Member";
   const department = seed.department?.trim() || "Mission Commanders";
+  const email = seed.employeeEmail?.trim();
 
   return {
     slug,
@@ -193,7 +194,7 @@ function createBlankProfile(
     careerHighlights: [],
     specialties: [],
     active: true,
-    email: seed.employeeEmail?.trim() || undefined,
+    ...(email ? { email } : {}),
     funFact: "",
     certifications: "",
     hobbies: "",
@@ -205,12 +206,19 @@ function createBlankProfile(
 }
 
 function hydrateDynamicMemberFromRow(row: TeamProfileRow): VintageTeamMember {
-  return createBlankProfile(row.slug, {
-    fullName: row.full_name ?? undefined,
-    roleTitle: row.role_title ?? undefined,
-    department: row.department ?? undefined,
-    employeeEmail: row.employee_email ?? undefined,
-  });
+  const seed: {
+    fullName?: string;
+    roleTitle?: string;
+    department?: string;
+    employeeEmail?: string;
+  } = {};
+
+  if (row.full_name != null) seed.fullName = row.full_name;
+  if (row.role_title != null) seed.roleTitle = row.role_title;
+  if (row.department != null) seed.department = row.department;
+  if (row.employee_email != null) seed.employeeEmail = row.employee_email;
+
+  return createBlankProfile(row.slug, seed);
 }
 
 // ─── GET ──────────────────────────────────────────────────────────────────────
@@ -250,18 +258,27 @@ async function handleGet(
     }
   }
 
+  const fallbackSeed: {
+    fullName?: string;
+    roleTitle?: string;
+    department?: string;
+    employeeEmail?: string;
+  } = {};
+  const fullName = request.nextUrl.searchParams.get("fullName");
+  const roleTitle = request.nextUrl.searchParams.get("roleTitle");
+  const department = request.nextUrl.searchParams.get("department");
+  const employeeEmail = request.nextUrl.searchParams.get("employeeEmail");
+
+  if (fullName != null) fallbackSeed.fullName = fullName;
+  if (roleTitle != null) fallbackSeed.roleTitle = roleTitle;
+  if (department != null) fallbackSeed.department = department;
+  if (employeeEmail != null) fallbackSeed.employeeEmail = employeeEmail;
+
   const baseMember = staticMember
     ? staticMember
     : row
       ? hydrateDynamicMemberFromRow(row)
-      : createBlankProfile(slug, {
-          fullName: request.nextUrl.searchParams.get("fullName") ?? undefined,
-          roleTitle: request.nextUrl.searchParams.get("roleTitle") ?? undefined,
-          department:
-            request.nextUrl.searchParams.get("department") ?? undefined,
-          employeeEmail:
-            request.nextUrl.searchParams.get("employeeEmail") ?? undefined,
-        });
+      : createBlankProfile(slug, fallbackSeed);
 
   // For editor UX, merge the latest saved row regardless of status.
   const merged = applyProfileOverride(

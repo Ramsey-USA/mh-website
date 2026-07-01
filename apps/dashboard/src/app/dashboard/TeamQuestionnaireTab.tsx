@@ -246,12 +246,17 @@ export function TeamQuestionnaireTab({ token }: TeamQuestionnaireTabProps) {
   const targetProfile = useMemo(() => {
     const slug = target.slug.trim();
     if (!slug) return undefined;
+    const fullName = target.fullName.trim();
+    const roleTitle = target.roleTitle.trim();
+    const department = target.department.trim();
+    const employeeEmail = target.employeeEmail.trim();
+
     return {
       slug,
-      fullName: target.fullName.trim() || undefined,
-      roleTitle: target.roleTitle.trim() || undefined,
-      department: target.department.trim() || undefined,
-      employeeEmail: target.employeeEmail.trim() || undefined,
+      ...(fullName ? { fullName } : {}),
+      ...(roleTitle ? { roleTitle } : {}),
+      ...(department ? { department } : {}),
+      ...(employeeEmail ? { employeeEmail } : {}),
     };
   }, [target]);
 
@@ -345,14 +350,18 @@ export function TeamQuestionnaireTab({ token }: TeamQuestionnaireTabProps) {
       const payload = markdownToTeamProfilePayload(markdownDraft);
       if (targetProfile?.slug) {
         payload["slug"] = targetProfile.slug;
-        if (targetProfile.fullName)
+        if (targetProfile.fullName) {
           payload["fullName"] = targetProfile.fullName;
-        if (targetProfile.roleTitle)
+        }
+        if (targetProfile.roleTitle) {
           payload["roleTitle"] = targetProfile.roleTitle;
-        if (targetProfile.department)
+        }
+        if (targetProfile.department) {
           payload["department"] = targetProfile.department;
-        if (targetProfile.employeeEmail)
+        }
+        if (targetProfile.employeeEmail) {
           payload["employeeEmail"] = targetProfile.employeeEmail;
+        }
       }
       const res = await adminFetch(token, "/api/team-profile", {
         method: "PUT",
@@ -873,7 +882,7 @@ export function TeamQuestionnaireTab({ token }: TeamQuestionnaireTabProps) {
             ) : (
               <TeamProfileForm
                 showBackToHubButton={false}
-                targetProfile={targetProfile}
+                {...(targetProfile ? { targetProfile } : {})}
                 onSaved={() => {
                   void loadProfile(target);
                 }}

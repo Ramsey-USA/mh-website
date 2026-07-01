@@ -8,7 +8,6 @@ import {
   AwardsSection,
 } from "@/components/about";
 import { useTranslations } from "next-intl";
-import type { Testimonial } from "@/lib/data/testimonials";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import {
   generateBreadcrumbSchema,

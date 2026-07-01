@@ -1,7 +1,6 @@
 import { PageTrackingClient, TrackedBridgeLink } from "@/components/analytics";
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Card } from "@/components/ui";
 import { gridPresets } from "@/lib/styles/layout-variants";

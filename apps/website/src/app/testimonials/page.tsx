@@ -2,7 +2,7 @@ export const revalidate = 86400; // 24 h ISR
 export const dynamic = "force-dynamic";
 
 import nextDynamic from "next/dynamic";
-import { Card } from "@/components/ui";
+import { Button } from "@/components/ui";
 import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
 import { headers } from "next/headers";
