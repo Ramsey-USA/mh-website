@@ -124,7 +124,7 @@ describe("Safety navigation contracts", () => {
     ).rejects.toThrow(/NEXT_REDIRECT/);
 
     expect(mockPermanentRedirect).toHaveBeenCalledWith(
-      "/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-11",
+      "/resources/safety-manual/fall-and-access-safety#mish-21",
     );
   });
 
