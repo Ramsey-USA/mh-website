@@ -1,5 +1,6 @@
 name = "mhc-v2-website"
 main = "apps/website/worker-entry.ts"
+pages_build_output_dir = "apps/website/.open-next/assets"
 compatibility_date = "2026-03-25"
 compatibility_flags = ["nodejs_compat"]
 
