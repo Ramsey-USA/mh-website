@@ -79,6 +79,9 @@ jobs:
         working-directory: apps/website
         run: npm run perf:gate
 
+      - name: Sync docs/messages/documents into app
+        run: bash scripts/docs/sync-to-app.sh
+
       - name: Run TypeScript type check — website
         working-directory: apps/website
         run: npm run type-check
