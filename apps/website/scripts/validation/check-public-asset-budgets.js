@@ -42,8 +42,15 @@ function run() {
 
   const files = walk(PUBLIC_DIR);
   const totalBytes = files.reduce((sum, f) => sum + f.size, 0);
+
+  // Hero commercial files are managed by separate guardrails check
+  // and are allowed to exceed the per-file budget
   const oversizedFiles = files
-    .filter((f) => f.size > FILE_LIMIT_BYTES)
+    .filter((f) => {
+      // Skip hero commercials - they have their own budget guardrails
+      if (f.relativePath.includes("hero-commercials")) return false;
+      return f.size > FILE_LIMIT_BYTES;
+    })
     .sort((a, b) => b.size - a.size);
 
   const topFiles = [...files].sort((a, b) => b.size - a.size).slice(0, 10);
