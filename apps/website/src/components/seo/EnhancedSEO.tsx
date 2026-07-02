@@ -554,7 +554,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "What makes MH Construction different from other contractors?",
       answer:
-        "MH Construction combines veteran-led leadership, structured project controls, and direct communication. Founded in 2010 and veteran-owned since 2025, the team emphasizes planning discipline, schedule accountability, and long-term client partnerships.",
+        "MH Construction combines veteran-led leadership, structured project controls, and direct communication. Founded in 2010 and Veteran-Owned, the team emphasizes planning discipline, schedule accountability, and long-term client partnerships.",
     },
     {
       question: "What safety record and awards does MH Construction hold?",

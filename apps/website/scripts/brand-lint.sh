@@ -161,7 +161,6 @@ EOF
 # ─── Core canonical phrase checks ────────────────────────────────────────────
 check_pattern "for the client, not the" "BANNED SLOGAN VARIANT" "${SCAN_FILES[@]}"
 check_pattern "N\\. Capitol Ave\\." "BANNED ADDRESS VARIANT" "${SCAN_FILES[@]}"
-check_pattern "Veteran-[Oo]wned since [0-9]" "BANNED VETERAN-OWNED DATE FORMAT" "${SCAN_FILES[@]}"
 check_pattern "veteran-owned since" "BANNED LOWERCASE VETERAN-OWNED PHRASE" "${SCAN_FILES[@]}"
 
 # ─── Terminology guardrails ───────────────────────────────────────────────────

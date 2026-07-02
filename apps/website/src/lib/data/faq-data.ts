@@ -35,7 +35,7 @@ export const faqCategories: FAQCategory[] = [
         question:
           "What makes MH Construction different from other construction companies?",
         answer:
-          "We operate on four values: Honesty, Integrity, Professionalism, and Thoroughness. Founded in 2010 and veteran-owned since January 2025, we deliver AG and winery projects, commercial tenant improvements, and municipal builds with Procore-led controls, plus specialty scope in pole buildings and door/hardware installation.",
+          "We operate on four values: Honesty, Integrity, Professionalism, and Thoroughness. Founded in 2010 and Veteran-Owned, we deliver AG and winery projects, commercial tenant improvements, and municipal builds with Procore-led controls, plus specialty scope in pole buildings and door/hardware installation.",
       },
       {
         question: "Where are you licensed and what areas do you serve?",
