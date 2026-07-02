@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { Button } from "@/components/ui";
-import { Card } from "@/components/ui";
+import { Button, Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TestimonialCard } from "./TestimonialCard";
 import {
