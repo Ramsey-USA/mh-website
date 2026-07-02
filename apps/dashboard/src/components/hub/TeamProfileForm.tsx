@@ -124,8 +124,9 @@ export function TeamProfileForm({
       try {
         const params = new URLSearchParams();
         if (targetProfile?.slug) params.set("slug", targetProfile.slug);
-        if (targetProfile?.fullName)
+        if (targetProfile?.fullName) {
           params.set("fullName", targetProfile.fullName);
+        }
         if (targetProfile?.roleTitle) {
           params.set("roleTitle", targetProfile.roleTitle);
         }
