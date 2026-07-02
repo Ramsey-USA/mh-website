@@ -28,7 +28,10 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
-const OUTPUT_DIR = join(ROOT, "documents/content/MHC-Employee-Handbook-Sections");
+const OUTPUT_DIR = join(
+  ROOT,
+  "documents/content/MHC-Employee-Handbook-Sections",
+);
 
 // Handbook sections based on TOC structure
 const HANDBOOK_SECTIONS = [
@@ -157,26 +160,22 @@ async function createSectionDocx(section) {
 
 async function main() {
   console.log("📖 MH Construction — Employee Handbook Section Dissector");
-  console.log(
-    "============================================================\n"
-  );
+  console.log("============================================================\n");
 
   try {
     await mkdir(OUTPUT_DIR, { recursive: true });
 
-    console.log(
-      `Creating section DOCX files in:\n  ${OUTPUT_DIR}\n`
-    );
+    console.log(`Creating section DOCX files in:\n  ${OUTPUT_DIR}\n`);
 
     for (const section of HANDBOOK_SECTIONS) {
       await createSectionDocx(section);
     }
 
     console.log(
-      `\n✅ Success. Created ${HANDBOOK_SECTIONS.length} section DOCX files.`
+      `\n✅ Success. Created ${HANDBOOK_SECTIONS.length} section DOCX files.`,
     );
     console.log(
-      "   These can now be used with the standard generation pipeline."
+      "   These can now be used with the standard generation pipeline.",
     );
   } catch (err) {
     console.error("❌ Fatal error:", err.message);

@@ -12,7 +12,10 @@ if (root.status !== 0) {
   process.exit(root.status ?? 1);
 }
 
-const target = resolve(root.stdout.trim(), "apps/website/scripts/resend-all-submissions.mjs");
+const target = resolve(
+  root.stdout.trim(),
+  "apps/website/scripts/resend-all-submissions.mjs",
+);
 const result = spawnSync(process.execPath, [target, ...process.argv.slice(2)], {
   stdio: "inherit",
 });

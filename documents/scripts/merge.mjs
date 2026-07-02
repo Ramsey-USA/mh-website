@@ -31,11 +31,11 @@ const FORMS_MANIFEST_PATH = join(ROOT, "documents/forms/forms-manifest.json");
 
 // ── CLI flags ─────────────────────────────────────────────────────────────
 const manualIndex = process.argv.indexOf("--manual");
-const manualArg = manualIndex !== -1 && manualIndex + 1 < process.argv.length
-  ? process.argv[manualIndex + 1]
-  : process.argv
-      .find((arg) => arg.startsWith("--manual="))
-      ?.split("=")[1] || "safety";
+const manualArg =
+  manualIndex !== -1 && manualIndex + 1 < process.argv.length
+    ? process.argv[manualIndex + 1]
+    : process.argv.find((arg) => arg.startsWith("--manual="))?.split("=")[1] ||
+      "safety";
 const isEmployeeHandbook =
   manualArg === "employee" ||
   manualArg === "employee-handbook" ||
@@ -392,11 +392,15 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
     process.exit(1);
   }
   if (!isEmployeeHandbook && !existsSync(tocPath)) {
-    console.error(`❌  TOC PDF not found. Run \`npm run docs:generate\` first.`);
+    console.error(
+      `❌  TOC PDF not found. Run \`npm run docs:generate\` first.`,
+    );
     process.exit(1);
   }
   if (includeTabs && !existsSync(tabsPath)) {
-    console.error(`❌  Tabs PDF not found. Run \`npm run docs:generate\` first.`);
+    console.error(
+      `❌  Tabs PDF not found. Run \`npm run docs:generate\` first.`,
+    );
     process.exit(1);
   }
   if (!isEmployeeHandbook && !existsSync(SECTIONS)) {
@@ -510,7 +514,9 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
         );
         process.exit(1);
       } else {
-        console.log(`  ℹ  No form packages found (handbook uses DOCX form templates)`);
+        console.log(
+          `  ℹ  No form packages found (handbook uses DOCX form templates)`,
+        );
       }
     } else {
       // Filter to include only MISH forms for MISH merge, only handbook forms for handbook merge

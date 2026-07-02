@@ -2,8 +2,8 @@ packages:
   - "apps/*"
   - "packages/*"
 allowBuilds:
-  '@parcel/watcher': true
-  '@swc/core': true
+  "@parcel/watcher": true
+  "@swc/core": true
   esbuild: true
   puppeteer: true
   sharp: true
@@ -11,11 +11,11 @@ allowBuilds:
   unrs-resolver: true
   workerd: true
 minimumReleaseAgeExclude:
-  - '@cloudflare/workerd-darwin-64@1.20260630.1'
-  - '@cloudflare/workerd-darwin-arm64@1.20260630.1'
-  - '@cloudflare/workerd-linux-64@1.20260630.1'
-  - '@cloudflare/workerd-linux-arm64@1.20260630.1'
-  - '@cloudflare/workerd-windows-64@1.20260630.1'
+  - "@cloudflare/workerd-darwin-64@1.20260630.1"
+  - "@cloudflare/workerd-darwin-arm64@1.20260630.1"
+  - "@cloudflare/workerd-linux-64@1.20260630.1"
+  - "@cloudflare/workerd-linux-arm64@1.20260630.1"
+  - "@cloudflare/workerd-windows-64@1.20260630.1"
   - miniflare@4.20260630.0
   - workerd@1.20260630.1
   - wrangler@4.106.0

@@ -31,6 +31,7 @@ test-results/
 
 # === Generated documents / assets ===
 documents/output/
+documents/manuals/
 documents/content/safety-manual.json
 
 # === Script-managed config files (own their formatting) ===
