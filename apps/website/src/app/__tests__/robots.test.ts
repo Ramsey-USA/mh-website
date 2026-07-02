@@ -4,7 +4,7 @@
 
 jest.mock("@/lib/constants/company", () => ({
   COMPANY_INFO: {
-    urls: { getSiteUrl: () => "https://mhc-gc.com" },
+    urls: { getSiteUrl: () => "https://www.mhc-gc.com" },
   },
 }));
 
@@ -25,8 +25,8 @@ describe("robots()", () => {
 
   it("sets sitemap and host from COMPANY_INFO when env var is absent", () => {
     const result = robotsFn();
-    expect(result.sitemap).toBe("https://mhc-gc.com/sitemap.xml");
-    expect(result.host).toBe("https://mhc-gc.com");
+    expect(result.sitemap).toBe("https://www.mhc-gc.com/sitemap.xml");
+    expect(result.host).toBe("https://www.mhc-gc.com");
   });
 
   it("uses NEXT_PUBLIC_SITE_URL when set", () => {

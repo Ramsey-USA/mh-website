@@ -161,7 +161,7 @@ describe("NextStepsSection", () => {
     expect(screen.getByText("Hablemos cara a cara")).toBeInTheDocument();
     expect(screen.getByText(/Mas popular/i)).toBeInTheDocument();
     expect(screen.getByText("Ver nuestro trabajo")).toBeInTheDocument();
-    expect(screen.getByText("Contactenos")).toBeInTheDocument();
+    expect(screen.getByText("Contáctenos")).toBeInTheDocument();
   });
 
   it("Spanish locale: shows project/satisfaction stats in Spanish", () => {

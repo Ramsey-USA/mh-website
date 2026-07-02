@@ -161,7 +161,7 @@ describe("generateOrganizationStructuredData()", () => {
     const schema = generateOrganizationStructuredData();
     expect(schema["@type"]).toBe("GeneralContractor");
     expect(schema.name).toBe("MH Construction");
-    expect(schema.url).toBe("https://mhc-gc.com");
+    expect(schema.url).toBe("http://localhost:3000");
     expect(schema.telephone).toBe("(509) 308-6489");
     expect(Array.isArray(schema.sameAs)).toBe(true);
   });
@@ -206,7 +206,7 @@ describe("generateWebsiteSchema()", () => {
   it("returns a WebSite schema with a SearchAction", () => {
     const schema = generateWebsiteSchema();
     expect(schema["@type"]).toBe("WebSite");
-    expect(schema.url).toBe("https://mhc-gc.com");
+    expect(schema.url).toBe("http://localhost:3000");
     expect((schema.potentialAction as any)["@type"]).toBe("SearchAction");
   });
 });

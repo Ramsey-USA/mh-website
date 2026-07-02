@@ -8,6 +8,11 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import type { Testimonial } from "@/lib/data/testimonials";
+import {
+  TestimonialCard,
+  TestimonialGrid,
+  TestimonialsCarousel,
+} from "../index";
 
 jest.mock("@/components/icons/MaterialIcon", () => ({
   MaterialIcon: ({ icon }: { icon: string }) => (
@@ -93,8 +98,6 @@ const veteranTestimonial: Testimonial = {
 // ── TestimonialCard ───────────────────────────────────────────────────────────
 
 describe("TestimonialCard", () => {
-  const { TestimonialCard } = require("../TestimonialCard");
-
   it("renders without throwing (client testimonial)", () => {
     expect(() =>
       render(<TestimonialCard testimonial={clientTestimonial} />),
@@ -164,8 +167,6 @@ describe("TestimonialCard", () => {
 // ── TestimonialGrid ───────────────────────────────────────────────────────────
 
 describe("TestimonialGrid", () => {
-  const { TestimonialGrid } = require("../TestimonialGrid");
-
   const testimonials = [
     clientTestimonial,
     employeeTestimonial,
@@ -226,8 +227,6 @@ describe("TestimonialGrid", () => {
 // ── TestimonialsCarousel ──────────────────────────────────────────────────────
 
 describe("TestimonialsCarousel", () => {
-  const { TestimonialsCarousel } = require("../TestimonialsCarousel");
-
   beforeEach(() => {
     jest.useFakeTimers();
   });
