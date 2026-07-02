@@ -22,7 +22,7 @@ describe("generateBreadcrumbSchema()", () => {
   it("returns a BreadcrumbList schema object", () => {
     const result = generateBreadcrumbSchema([
       { name: "Home", url: "https://www.mhc-gc.com" },
-      { name: "Services", url: "https://www.mhc-gc.com/services" },
+      { name: "Services", url: "https://www.mhc-gc.com/#services" },
     ]);
 
     expect(result["@context"]).toBe("https://schema.org");
@@ -245,7 +245,7 @@ describe("withGeoMetadata()", () => {
     const result = withGeoMetadata({
       title: "Services",
       alternates: {
-        canonical: "https://www.mhc-gc.com/services",
+        canonical: "https://www.mhc-gc.com/#services",
       },
       keywords: ["custom services keyword"],
     });

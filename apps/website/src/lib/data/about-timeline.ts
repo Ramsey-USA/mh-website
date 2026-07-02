@@ -16,7 +16,7 @@ export const aboutTimelineSteps: TimelineStep[] = [
     num: 1,
     icon: "foundation",
     title: "Foundation: Partnership Philosophy",
-    desc: 'Mike Holstein founds MH Construction on the principle: "We Work WITH You, Not FOR You"—building trust through honest communication and transparent practices. (2010)',
+    desc: "Mike Holstein founds MH Construction on a relationship-first philosophy centered on honest communication and transparent practices. (2010)",
     position: "left",
   },
   {
@@ -107,7 +107,7 @@ export const aboutTimelineSteps: TimelineStep[] = [
     num: 14,
     icon: "explore",
     title: "Continued Accountability-Focused Growth",
-    desc: "Clear planning and accountable delivery keep founding partnership principles aligned with veteran-led operational discipline, supporting durable construction relationships and dependable results. (2026 & Beyond)",
+    desc: "Built on Quality, Backed by Trust. No gaps. No guesswork. Just accountable follow-through. Founding partnership principles remain aligned with veteran-led operational discipline for durable construction relationships and dependable results. (2026 & Beyond)",
     position: "right",
   },
 ];

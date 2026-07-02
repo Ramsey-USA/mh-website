@@ -110,7 +110,7 @@ Add 5-10 common questions with answers:
 ### 5-Star Review Response
 
 ```text
-Thank you so much for the kind words, [Name]! We're thrilled that you're happy with [specific project detail]. Our veteran-owned team takes pride in Clear planning. Accountable delivery.. We appreciate your trust and look forward to serving you again in the future!
+Thank you so much for the kind words, [Name]! We're thrilled that you're happy with [specific project detail]. Our veteran-owned team takes pride in Built on Quality, Backed by Trust. We appreciate your trust and look forward to serving you again in the future!
 
 - MH Construction Team
 ```

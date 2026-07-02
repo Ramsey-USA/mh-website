@@ -34,5 +34,5 @@ Team member data is maintained in `src/lib/data/vintage-team.ts` (source of trut
 
 ---
 
-**Building projects for the Client, NOT the Dollar**  
+**Built on Quality, Backed by Trust.**  
 **MH Construction** — Founded 2010, Veteran-Owned Since January 2025

@@ -10,6 +10,7 @@ import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { PageTrackingClient } from "@/components/analytics";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { PWAInstallCTA } from "@/components/pwa";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 const SITE_URL = "https://www.mhc-gc.com";
 
@@ -399,6 +400,12 @@ export default function SafetyPage() {
               </span>
               <span className="block text-white/90">
                 Field controls first. Production follows.
+              </span>
+              <span className="block text-white/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
+                {COMPANY_INFO.slogan.primary}
+              </span>
+              <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
+                {COMPANY_INFO.slogan.quinary}
               </span>
             </h1>
           </div>

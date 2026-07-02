@@ -121,7 +121,7 @@ export default async function VeteranPublicSectorConstructionPage() {
               {t("veteransBridge.cta.buttonContact")}
             </TrackedBridgeButton>
             <TrackedBridgeButton
-              href="/services/municipal-government"
+              href="/#services"
               trackId="veteran-bridge-municipal-service"
               variant="outline"
             >

@@ -103,7 +103,7 @@ Use this rule of thumb during planning:
 
 Examples:
 
-- `/services` can remain a hub while deeper service-specific pages absorb long-form detail.
+- `/#services` should remain the single services hub with modular sections for deeper detail.
 - `/projects` can remain a portfolio hub while category-specific proof pages absorb deeper case-study content.
 - `/allies` should act as the dedicated partner-path destination instead of being buried inside broader client pages.
 

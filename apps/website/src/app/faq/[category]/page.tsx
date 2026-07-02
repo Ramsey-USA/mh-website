@@ -22,7 +22,7 @@ type FAQRoutePlan = {
 const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   general: {
     service: {
-      href: "/services/commercial-construction",
+      href: "/#services",
       label: "Commercial construction service line",
     },
     location: {
@@ -36,7 +36,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
   process: {
     service: {
-      href: "/services/drywall-interiors",
+      href: "/#services",
       label: "Drywall and interiors delivery path",
     },
     location: {
@@ -50,7 +50,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
   safety: {
     service: {
-      href: "/services/restoration-remodeling",
+      href: "/#services",
       label: "Restoration and remodeling controls",
     },
     location: {
@@ -64,7 +64,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
   communication: {
     service: {
-      href: "/services/commercial-construction",
+      href: "/#services",
       label: "Commercial project communication path",
     },
     location: {
@@ -78,7 +78,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
   veterans: {
     service: {
-      href: "/services/municipal-government",
+      href: "/#services",
       label: "Municipal and government delivery path",
     },
     location: {
@@ -92,7 +92,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
   technical: {
     service: {
-      href: "/services/commercial-construction",
+      href: "/#services",
       label: "Commercial technical planning service",
     },
     location: {
@@ -106,7 +106,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
   partnership: {
     service: {
-      href: "/services/commercial-construction",
+      href: "/#services",
       label: "Client partnership service pathway",
     },
     location: {
@@ -120,7 +120,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
   financial: {
     service: {
-      href: "/services/commercial-construction",
+      href: "/#services",
       label: "Scope and budget control service path",
     },
     location: {
@@ -245,6 +245,12 @@ export default async function FAQCategoryPage({
               <p className="mt-5 text-lg leading-8 text-white/85">
                 Review the most common questions in this category and move from
                 uncertainty to a clear next step.
+              </p>
+              <p className="mt-3 text-sm font-semibold text-white/90 sm:text-base">
+                {COMPANY_INFO.slogan.primary}
+              </p>
+              <p className="mt-4 text-sm font-semibold text-brand-secondary/90 sm:text-base">
+                {COMPANY_INFO.slogan.quinary}
               </p>
             </div>
           </div>

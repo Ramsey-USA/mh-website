@@ -10,6 +10,10 @@ import {
   generateBreadcrumbSchema,
   enhancedSEO,
 } from "@/components/seo/EnhancedSEO";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 
 // Homepage SEO
 export function getHomepageSEO(): Metadata & { schemas: object[] } {
@@ -19,7 +23,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${enhancedSEO.siteUrl}/#webpage`,
     url: enhancedSEO.siteUrl,
-    name: "Home | MH Construction",
+    name: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | MH Construction`,
     description:
       "Commercial, industrial, and public-sector construction from MH Construction's Tri-Cities headquarters, serving Washington, Oregon, and Idaho.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -44,7 +48,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: "Home | Commercial, Industrial, and Public-Sector Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Commercial, Industrial, and Public-Sector Construction`,
     description:
       "MH Construction delivers AG and winery facilities, commercial tenant improvements, and municipal projects with clear planning, disciplined field coordination, and licensed coverage across WA, OR, and ID.",
     keywords: [
@@ -132,7 +136,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
     "@type": "AboutPage",
     "@id": `${aboutUrl}#webpage`,
     url: aboutUrl,
-    name: "About Us | MH Construction",
+    name: `${formatDualPageName(PAGE_TERMINOLOGY.about.seoName, PAGE_TERMINOLOGY.about.mhBrandName)} | MH Construction`,
     description:
       "Learn MH Construction's company history, leadership transition, and operating approach across commercial, industrial, and public-sector projects in Washington, Oregon, and Idaho.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -182,8 +186,9 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
         "Partnership-Driven Construction",
         "Structured Leadership Approach",
       ],
-      slogan: "We Work WITH You, Not FOR You",
-      mission: "Clear planning. Accountable delivery.",
+      slogan: "Built on Quality, Backed by Trust.",
+      mission:
+        "Built on Quality, Backed by Trust. No gaps. No guesswork. Just accountable follow-through.",
       areaServed: [
         {
           "@type": "City",
@@ -281,7 +286,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: "About Us | Service-Earned Values, Honest Relationships",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.about.seoName, PAGE_TERMINOLOGY.about.mhBrandName)} | Service-Earned Values, Honest Relationships`,
     description:
       "Explore MH Construction's history, leadership, and trust foundations including BBB accreditation, regional chamber membership, and licensed operations across WA, OR, and ID.",
     keywords: [
@@ -328,7 +333,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
 
 // Services page SEO - GROUP 3: Future Vision & Expertise
 export function getServicesSEO(): Metadata & { schemas: object[] } {
-  const servicesUrl = `${enhancedSEO.siteUrl}/services`;
+  const servicesUrl = `${enhancedSEO.siteUrl}/#services`;
 
   const constructionServices = [
     {
@@ -340,7 +345,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     {
       name: "Master Planning & Preconstruction",
       description:
-        "Comprehensive preconstruction planning, feasibility studies, and master planning with disciplined scope development",
+        'Comprehensive preconstruction planning, feasibility studies, and master planning rooted in "Creating Value, from Proven Results."',
       category: "Preconstruction Services",
     },
     {
@@ -378,7 +383,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${servicesUrl}#webpage`,
     url: servicesUrl,
-    name: "Services | MH Construction",
+    name: `${formatDualPageName(PAGE_TERMINOLOGY.services.seoName, PAGE_TERMINOLOGY.services.mhBrandName)} | MH Construction`,
     description:
       "AG and winery community construction, commercial tenant improvements, and municipal projects across our WA-OR-ID licensed footprint with Procore project management.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -398,7 +403,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: "Services | Commercial and Industrial Construction Services",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.services.seoName, PAGE_TERMINOLOGY.services.mhBrandName)} | Commercial and Industrial Construction Services`,
     description:
       "Explore MH Construction services for AG and winery facilities, commercial tenant improvements, municipal work, and light industrial scopes across WA, OR, and ID, supported by Procore project controls.",
     keywords: [
@@ -503,7 +508,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${teamUrl}#webpage`,
     url: teamUrl,
-    name: "Our Team | MH Construction",
+    name: `${formatDualPageName(PAGE_TERMINOLOGY.team.seoName, PAGE_TERMINOLOGY.team.mhBrandName)} | MH Construction`,
     description:
       "Meet MH Construction's leadership and field management team serving Washington, Oregon, and Idaho with accountable planning and delivery.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -515,7 +520,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: "Our Team | Leadership and Field Management",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.team.seoName, PAGE_TERMINOLOGY.team.mhBrandName)} | Leadership and Field Management`,
     description:
       "Meet MH Construction's leadership team, including Jeremy Thamert and Arnold Garcia, guiding commercial, industrial, and public-sector work across WA, OR, and ID.",
     keywords: [
@@ -549,7 +554,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${enhancedSEO.siteUrl}/public-sector#webpage`,
     url: `${enhancedSEO.siteUrl}/public-sector`,
-    name: "Public Sector Construction | MH Construction",
+    name: `${formatDualPageName("Public Sector Construction", PAGE_TERMINOLOGY.publicSector.mhBrandName)} | MH Construction`,
     description:
       "Veteran-owned Tri-State contractor for government & public sector construction. Dedicated supporter of the Build America, Buy America Act (BABAA), grant support, and $8M+ bonding capacity. Pasco, WA.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -566,7 +571,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: "Public Sector Construction | Veteran-Owned, Accountable Delivery",
+    title: `${formatDualPageName("Public Sector Construction", PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Owned, Accountable Delivery`,
     description:
       "Veteran-owned Tri-State contractor for government & public sector construction. Dedicated supporter of the Build America, Buy America Act (BABAA), grant support, and $8M+ bonding capacity. Pasco, WA.",
     keywords: [
@@ -602,7 +607,7 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${enhancedSEO.siteUrl}/veterans#webpage`,
     url: `${enhancedSEO.siteUrl}/veterans`,
-    name: "Veterans | MH Construction",
+    name: `${formatDualPageName(PAGE_TERMINOLOGY.veterans.seoName, PAGE_TERMINOLOGY.veterans.mhBrandName)} | MH Construction`,
     description:
       "Veteran-focused MH Construction programs include combat veteran discounts, community support, and leadership pathways connected to commercial, industrial, and public-sector work across WA, OR, and ID.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -619,7 +624,7 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: "Veterans | Combat Veteran Discount, Year-Round Support",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.veterans.seoName, PAGE_TERMINOLOGY.veterans.mhBrandName)} | Combat Veteran Discount, Year-Round Support`,
     description:
       "Learn how MH Construction supports veterans through combat veteran discounts, hiring initiatives, apprenticeships, and long-term community partnerships across the Pacific Northwest.",
     keywords: [
@@ -657,7 +662,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${enhancedSEO.siteUrl}/allies#webpage`,
     url: `${enhancedSEO.siteUrl}/allies`,
-    name: "Trade Partners | MH Construction",
+    name: `${formatDualPageName("Trade Partners", PAGE_TERMINOLOGY.allies.mhBrandName)} | MH Construction`,
     description:
       "Join MH Construction's Trade Partner network serving commercial, industrial, and public-sector projects across WA, OR, and ID with vetted specialty contractors.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -892,8 +897,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title leads with the search-intent keyword phrase, then brand tagline
-    title:
-      "Trade Partner Opportunities | Allied Trade Partner Network | MH Construction",
+    title: `${formatDualPageName("Trade Partner Opportunities", PAGE_TERMINOLOGY.allies.mhBrandName)} | Allied Trade Partner Network`,
     description:
       "MH Construction's Trade Partner network includes electrical, signage, landscaping, glazing, specialties, fencing, insulation, plumbing, cabinetry, and drywall teams supporting projects throughout the Pacific Northwest.",
     keywords: [
@@ -982,7 +986,7 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
     "@type": "CollectionPage",
     "@id": `${enhancedSEO.siteUrl}/testimonials#webpage`,
     url: `${enhancedSEO.siteUrl}/testimonials`,
-    name: "Client Reviews | MH Construction",
+    name: `${formatDualPageName("Client Reviews", PAGE_TERMINOLOGY.testimonials.mhBrandName)} | MH Construction`,
     description:
       "Verified client testimonials from commercial, industrial, and public-sector partners across MH Construction's WA, OR, and ID service area.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -999,7 +1003,7 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: "Client Reviews | Trusted Partner Testimonials",
+    title: `${formatDualPageName("Client Reviews", PAGE_TERMINOLOGY.testimonials.mhBrandName)} | Trusted Partner Testimonials`,
     description:
       "Verified client testimonials from commercial, industrial, and public-sector partners across MH Construction's WA, OR, and ID service area.",
     keywords: [
@@ -1026,7 +1030,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${enhancedSEO.siteUrl}/careers#webpage`,
     url: `${enhancedSEO.siteUrl}/careers`,
-    name: "Careers | MH Construction",
+    name: `${formatDualPageName(PAGE_TERMINOLOGY.careers.seoName, PAGE_TERMINOLOGY.careers.mhBrandName)} | MH Construction`,
     description:
       "Build your future with MH Construction through general career inquiries, mentorship-minded growth, and opportunities across commercial, industrial, and public-sector work in WA, OR, and ID.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -1043,7 +1047,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: "Careers | Build Your Future with MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.careers.seoName, PAGE_TERMINOLOGY.careers.mhBrandName)} | Build Your Future with MH Construction`,
     description:
       "Submit a general career inquiry to MH Construction and connect with a team that values honesty, integrity, professionalism, and thoroughness across WA, OR, and ID operations.",
     keywords: [
@@ -1208,7 +1212,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
     "@type": "CollectionPage",
     "@id": `${projectsUrl}#webpage`,
     url: projectsUrl,
-    name: "Projects | MH Construction Portfolio",
+    name: `${formatDualPageName(PAGE_TERMINOLOGY.projects.seoName, PAGE_TERMINOLOGY.projects.mhBrandName)} | MH Construction Portfolio`,
     description:
       "Browse MH Construction's commercial, industrial, light industrial, and government project portfolio across Washington, Oregon, and Idaho.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -1225,8 +1229,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title:
-      "Projects | Completed Commercial and Industrial Construction Projects",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.projects.seoName, PAGE_TERMINOLOGY.projects.mhBrandName)} | Completed Commercial and Industrial Construction Projects`,
     description:
       "Explore MH Construction's completed commercial, industrial, and government projects delivered across WA, OR, and ID, including work in Yakima, Spokane, and Walla Walla.",
     keywords: [
@@ -1269,7 +1272,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     "@type": "ContactPage",
     "@id": `${enhancedSEO.siteUrl}/contact#webpage`,
     url: `${enhancedSEO.siteUrl}/contact`,
-    name: "Contact | MH Construction",
+    name: `${formatDualPageName(PAGE_TERMINOLOGY.contact.seoName, PAGE_TERMINOLOGY.contact.mhBrandName)} | MH Construction`,
     description:
       "Contact MH Construction for a consultation on commercial, industrial, or public-sector projects across WA, OR, and ID. Headquarters: Pasco, WA. Call (509) 308-6489.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -1286,7 +1289,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: "Contact | Your Project. Honest Guidance. Let's Connect.",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.contact.seoName, PAGE_TERMINOLOGY.contact.mhBrandName)} | Your Project. Honest Guidance. Let's Connect.`,
     description:
       "Schedule a consultation with MH Construction for commercial, industrial, or public-sector work. We are headquartered in Pasco, WA and licensed across WA, OR, and ID. Call (509) 308-6489.",
     keywords: [
@@ -1318,7 +1321,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${enhancedSEO.siteUrl}/faq#webpage`,
     url: `${enhancedSEO.siteUrl}/faq`,
-    name: "FAQ | MH Construction",
+    name: `${formatDualPageName("FAQ", PAGE_TERMINOLOGY.faq.mhBrandName)} | MH Construction`,
     description:
       "Construction FAQ from MH Construction covering planning, delivery methods, safety practices, project controls, and consultations across WA, OR, and ID service areas.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -1335,7 +1338,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: "FAQ | Direct Answers. Clear Guidance.",
+    title: `${formatDualPageName("FAQ", PAGE_TERMINOLOGY.faq.mhBrandName)} | Direct Answers. Clear Guidance.`,
     description:
       "Get direct answers on project planning, delivery methods, pricing visibility, safety expectations, and consultation workflow for MH Construction projects across WA, OR, and ID.",
     keywords: [

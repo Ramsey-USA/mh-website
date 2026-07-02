@@ -448,7 +448,7 @@ describe("handleFormSubmission()", () => {
     await handleFormSubmission(req, config);
 
     expect(mockGetFile).toHaveBeenCalledWith("resumes/abc.pdf");
-    // Job applications use sendToCareers (office, matt, arnold, brittney)
+    // Job applications use sendToCareers (office, matt, arnold, kimberly)
     expect(mockSendToCareers).toHaveBeenCalledWith(
       expect.any(String),
       expect.any(Object),
@@ -582,7 +582,7 @@ describe("handleFormSubmission()", () => {
 
     await handleFormSubmission(req, config);
 
-    // Job applications go to careers team (includes brittney@)
+    // Job applications go to careers team (includes kimberly@)
     expect(mockSendToCareers).toHaveBeenCalledWith(
       expect.any(String),
       expect.any(Object),

@@ -476,7 +476,7 @@ All page sections MUST follow this standardized background:
       </p>
 
       <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-        "Clear planning. Accountable delivery." — Descriptive text about page
+        "Built on Quality, Backed by Trust." — Descriptive text about page
         content.
       </p>
     </div>

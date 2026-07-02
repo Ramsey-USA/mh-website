@@ -18,6 +18,7 @@ import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { SafetyComplianceBadge } from "@/components/resources/SafetyComplianceBadge";
 import { manuals, forms } from "@/lib/data/documents";
 import { DownloadGate } from "@/components/pwa";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 export const metadata: Metadata = {
   title: "Field Resources | MH Construction",
@@ -92,6 +93,12 @@ export default function ResourcesPage() {
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
                 Manuals, forms, and field documents for MH Construction, branded
                 and ready to print or download.
+              </p>
+              <p className="mt-3 text-sm font-semibold text-gray-900 dark:text-white">
+                {COMPANY_INFO.slogan.primary}
+              </p>
+              <p className="mt-4 text-sm font-semibold text-brand-primary dark:text-brand-secondary">
+                {COMPANY_INFO.slogan.quaternary}
               </p>
             </div>
           </FadeInWhenVisible>

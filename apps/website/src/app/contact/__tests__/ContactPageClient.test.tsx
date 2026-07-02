@@ -185,7 +185,7 @@ describe("ContactPageClient", () => {
     ).toBeGreaterThanOrEqual(1);
 
     expect(getLinkByHref("/contact")).toHaveAttribute("href", "/contact");
-    expect(getLinkByHref("/services")).toHaveAttribute("href", "/services");
+    expect(getLinkByHref("/#services")).toHaveAttribute("href", "/#services");
     expect(getLinkByHref("/allies")).toHaveAttribute("href", "/allies");
     expect(getLinkByHref("/allies#benefits")).toHaveAttribute(
       "href",
@@ -200,7 +200,7 @@ describe("ContactPageClient", () => {
       screen.getByRole("link", {
         name: /contact\.options\.cards\.services\.ariaLabel/i,
       }),
-    ).toHaveAttribute("href", "/services");
+    ).toHaveAttribute("href", "/#services");
     expect(
       screen.getByRole("link", {
         name: /contact\.options\.cards\.projects\.ariaLabel/i,

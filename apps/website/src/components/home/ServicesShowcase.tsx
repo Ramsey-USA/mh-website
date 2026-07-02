@@ -78,6 +78,28 @@ const serviceIcons = [
   },
 ];
 
+function getServiceLaneHref(title: string) {
+  const normalized = title.toLowerCase();
+
+  if (normalized.includes("municipal")) {
+    return "/?utm_source=homepage&utm_medium=modal&utm_campaign=services-section&utm_content=municipal#services";
+  }
+
+  if (
+    normalized.includes("tenant") ||
+    normalized.includes("interior") ||
+    normalized.includes("drywall")
+  ) {
+    return "/?utm_source=homepage&utm_medium=modal&utm_campaign=services-section&utm_content=commercial-ti#services";
+  }
+
+  if (normalized.includes("restoration") || normalized.includes("remodel")) {
+    return "/?utm_source=homepage&utm_medium=modal&utm_campaign=services-section&utm_content=restoration#services";
+  }
+
+  return "/?utm_source=homepage&utm_medium=modal&utm_campaign=services-section&utm_content=ag-winery#services";
+}
+
 /**
  * Services Showcase Section
  * Interactive cards with modal details for core construction services
@@ -109,7 +131,7 @@ export function ServicesShowcase({
         iconGlow:
           serviceIcons[index]?.iconGlow ||
           "from-brand-primary/30 to-brand-primary-dark/30",
-        link: "/services",
+        link: getServiceLaneHref(item.title),
       })),
     [t.items],
   );
@@ -139,6 +161,23 @@ export function ServicesShowcase({
     () => (selectedService === null ? null : services[selectedService]),
     [selectedService, services],
   );
+
+  const showcaseContactHref = useMemo(() => {
+    const base =
+      "/contact?utm_source=homepage&utm_medium=modal&utm_campaign=services-umbrella";
+
+    if (!currentService) {
+      return `${base}&utm_content=services-showcase`;
+    }
+
+    const slug = currentService.title
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    return `${base}&utm_content=${slug}`;
+  }, [currentService]);
 
   // Close modal handler
   const closeModal = useCallback(() => {
@@ -415,7 +454,7 @@ export function ServicesShowcase({
                   {currentService.cta || t.learnMoreFallback}
                 </Button>
               </Link>
-              <Link href="/contact" className="flex-1">
+              <Link href={showcaseContactHref} className="flex-1">
                 <Button variant="secondary" className="w-full group/btn">
                   <MaterialIcon
                     icon="mail"

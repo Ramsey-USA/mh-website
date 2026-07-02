@@ -608,7 +608,7 @@ Priority order matches traffic volume from Lighthouse results:
 | 1        | `/` (home)      | `og/og-home.webp`                     | ☐ needed   |
 | 2        | `/testimonials` | `og/og-testimonials.webp`             | ☐ needed   |
 | 3        | `/projects`     | `og/og-projects.webp`                 | ☐ needed   |
-| 4        | `/services`     | `og/og-services.webp`                 | ☐ needed   |
+| 4        | `/#services`    | `og/og-services.webp`                 | ☐ needed   |
 | 5        | `/veterans`     | `og/og-veterans.webp`                 | ☐ needed   |
 | 6        | `/careers`      | `og/og-careers.webp`                  | ☐ needed   |
 | 7        | `/contact`      | `og/og-contact.webp`                  | ☐ needed   |

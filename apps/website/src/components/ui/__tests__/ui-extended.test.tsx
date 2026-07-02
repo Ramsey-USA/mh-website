@@ -264,7 +264,9 @@ describe("PageHero", () => {
       screen.getByText("Serving the Pacific Northwest since 2010"),
     ).toBeTruthy();
     expect(
-      screen.getByText("Clear planning. Accountable delivery."),
+      screen.getByText(
+        "Built on Quality, Backed by Trust. Squared away from start to finish.",
+      ),
     ).toBeTruthy();
   });
 });

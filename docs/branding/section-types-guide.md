@@ -63,7 +63,7 @@ This does not mean every page uses the exact same sections. It means every page 
 
 **Example pages:**
 
-- Homepage hero (with "Clear planning. Accountable delivery.")
+- Homepage hero (with "Built on Quality, Backed by Trust.")
 - Services hero (with construction icon)
 - About hero (with team-related imagery)
 
@@ -92,7 +92,7 @@ This does not mean every page uses the exact same sections. It means every page 
 **Example sections:**
 
 - "Our Core Values" section on homepage
-- "What We Offer" section on Services page
+- "What We Offer" section on Services hub section
 - "Our Team" section on About page
 
 **Non-coder explanation:** _"This is the fancy section with the gold/green shimmery title and the subtle striped background"_
@@ -201,7 +201,7 @@ This does not mean every page uses the exact same sections. It means every page 
 
 **❌ Vague:** "Can we update the section with the services?"
 
-**✅ Clear:** "Can we update the ShowcaseSection on the Services page that displays the 6 service cards?"
+**✅ Clear:** "Can we update the ShowcaseSection on the Services hub section that displays the 6 service cards?"
 
 **❌ Vague:** "The title at the top needs updating"
 
@@ -265,7 +265,7 @@ If a page needs too many sections because it is trying to serve multiple audienc
 
 Examples:
 
-- Keep `/services` as a hub, but move deep service detail to smaller service pages.
+- Keep `/#services` as the services hub and use modular sections for deeper service detail.
 - Keep `/projects` as a portfolio hub, but move deep proof clusters to category-specific pages.
 - Use `/allies` as the dedicated partner page instead of forcing partner content into client-oriented pages.
 

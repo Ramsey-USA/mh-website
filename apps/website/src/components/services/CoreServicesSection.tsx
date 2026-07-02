@@ -46,6 +46,23 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
     setSelectedService(index);
   }, []);
 
+  const contactHref = useMemo(() => {
+    const base =
+      "/contact?utm_source=services&utm_medium=modal&utm_campaign=service-detail";
+
+    if (!currentService) {
+      return `${base}&utm_content=core-service`;
+    }
+
+    const slug = currentService.title
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    return `${base}&utm_content=${slug}`;
+  }, [currentService]);
+
   return (
     <BrandedContentSection
       id="core-services"
@@ -225,7 +242,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
                   </Button>
                 </Link>
               )}
-              <Link href="/contact" className="flex-1">
+              <Link href={contactHref} className="flex-1">
                 <Button
                   variant="secondary"
                   size="lg"

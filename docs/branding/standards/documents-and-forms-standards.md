@@ -80,7 +80,7 @@ Founded 2010, Veteran-Owned Since January 2025
 The primary slogan must appear on every **cover page** and every **printable web route**:
 
 ```
-Clear planning. Accountable delivery.
+Built on Quality, Backed by Trust.
 ```
 
 Rules:
@@ -197,7 +197,7 @@ Cover pages must include, in order from top:
 2. Document title (using `--type-print-form-title`)
 3. Company name: `MH Construction, Inc.`
 4. Ownership tagline: `Founded 2010, Veteran-Owned Since January 2025`
-5. Primary slogan: `Clear planning. Accountable delivery.`
+5. Primary slogan: `Built on Quality, Backed by Trust.`
 6. Issued date and document version (if applicable)
 
 Cover pages use `@page cover` (no running header/footer, no margin offset).
@@ -216,13 +216,13 @@ Cover pages use `@page cover` (no running header/footer, no margin offset).
 
 All form copy follows [Universal Terminology Guide](../strategy/universal-terminology-guide.md). Key rules:
 
-| Do                                    | Do Not                                  |
-| ------------------------------------- | --------------------------------------- |
-| Client Partners                       | clients, retail-buyer labels            |
-| Veteran-Owned Since January 2025      | Veteran-Owned (bare)                    |
-| Clear planning. Accountable delivery. | paraphrases of the slogan               |
-| Operations                            | jobs (when using dual-label context)    |
-| Mission                               | project (when using dual-label context) |
+| Do                                 | Do Not                                  |
+| ---------------------------------- | --------------------------------------- |
+| Client Partners                    | clients, retail-buyer labels            |
+| Veteran-Owned Since January 2025   | Veteran-Owned (bare)                    |
+| Built on Quality, Backed by Trust. | paraphrases of the slogan               |
+| Operations                         | jobs (when using dual-label context)    |
+| Mission                            | project (when using dual-label context) |
 
 ### 6.3 Signature Blocks
 

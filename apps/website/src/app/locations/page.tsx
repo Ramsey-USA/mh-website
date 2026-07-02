@@ -94,6 +94,12 @@ export default async function LocationsPage() {
               <p className="mt-5 text-lg leading-8 text-white/85">
                 {t("locations.hero.description")}
               </p>
+              <p className="mt-3 text-sm font-semibold text-white/90 sm:text-base">
+                {COMPANY_INFO.slogan.primary}
+              </p>
+              <p className="mt-4 text-sm font-semibold text-brand-secondary/90 sm:text-base">
+                {COMPANY_INFO.slogan.secondary}
+              </p>
             </div>
           </div>
         </section>

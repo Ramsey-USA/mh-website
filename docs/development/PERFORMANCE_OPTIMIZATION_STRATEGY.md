@@ -12,13 +12,17 @@ Target: Performance Score 78 → 90+ (12+ point improvement)
 Current Page Performance:
 - Careers page: 78/100 (Yellow zone)
 - Contact page: 76/100
-- Services page: 74/100
+- Services hub section: 74/100
 - Public Sector page: 82/100 (Green zone)
 
 Core Web Vitals:
 - Largest Contentful Paint (LCP): 2.8s (target: <2.5s)
 - First Input Delay (FID): 45ms (target: <100ms) ✓
 - Cumulative Layout Shift (CLS): 0.08 (target: <0.1) ✓
+
+Note: This baseline snapshot is historical. Service-discovery traffic now enters
+through the home services section (`/#services`), with legacy `/services` routes
+retained only as redirects to the same section.
 ```
 
 ### Key Performance Bottlenecks

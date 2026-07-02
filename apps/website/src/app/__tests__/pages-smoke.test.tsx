@@ -413,11 +413,13 @@ describe("FAQ page", () => {
 // ── Services page ─────────────────────────────────────────────────────────────
 
 describe("Services page", () => {
-  it("renders without throwing", () => {
+  it("redirects to home", () => {
     const { default: ServicesPage } = require("../services/page") as {
-      default: React.ComponentType;
+      default: () => void;
     };
-    expect(() => render(<ServicesPage />)).not.toThrow();
+
+    expect(() => ServicesPage()).toThrow("NEXT_REDIRECT: /#services");
+    expect(mockPermanentRedirect).toHaveBeenCalledWith("/#services");
   });
 });
 

@@ -412,7 +412,7 @@ Always include veteran-owned and safety credentials when using government button
 **Icon:** `handshake`  
 **Color:** Hunter Green (#386851)  
 **Variant:** `primary`  
-**Routes:** `/services`, `/contact`
+**Routes:** `/#services`, `/contact`
 
 **Implementation:**
 

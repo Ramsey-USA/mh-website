@@ -89,7 +89,7 @@ export function generateTestimonialBlast(data: TestimonialBlastData): {
           style="display: block; margin: 0 auto 12px auto;"
         />
         <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 700;">MH Construction, Inc.</h1>
-        <p style="color: #d4af37; margin: 8px 0 0 0; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Veteran-Owned · Relationship-First</p>
+        <p style="color: #d4af37; margin: 8px 0 0 0; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Built on Quality, Backed by Trust.</p>
       </td>
     </tr>
 

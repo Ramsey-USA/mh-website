@@ -15,7 +15,6 @@ import steveMcclary from "./team/steve-mcclary.json";
 import reaganMassey from "./team/reagan-massey.json";
 import porterCline from "./team/porter-cline.json";
 import brooksMorris from "./team/brooks-morris.json";
-import brittneyHolstein from "./team/brittney-holstein.json";
 import mattRamsey from "./team/matt-ramsey.json";
 import jenniferTene from "./team/jennifer-tene.json";
 import derekParks from "./team/derek-parks.json";
@@ -95,7 +94,6 @@ export const ADMIN_EMAIL_TO_SLUG: Readonly<Record<string, string>> = {
   "matt@mhc-gc.com": "matt-ramsey",
   "jeremy@mhc-gc.com": "jeremy-thamert",
   "arnold@mhc-gc.com": "arnold-garcia",
-  "brittney@mhc-gc.com": "brittney-holstein",
 };
 
 /**
@@ -192,7 +190,6 @@ export const vintageTeamMembers: VintageTeamMember[] = [
   reaganMassey,
   porterCline,
   brooksMorris,
-  brittneyHolstein,
   mattRamsey,
   jenniferTene,
   derekParks,

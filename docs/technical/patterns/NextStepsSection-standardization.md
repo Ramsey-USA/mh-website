@@ -94,10 +94,11 @@ The NextStepsSection is standardized across these pages:
    - Dynamic import with SSR
    - Concludes veteran-focused content
 
-5. **Services Page** (`/src/app/services/page.tsx`)
-   - Dynamic import with SSR
-   - Replaced `ServicesCTA` component
-   - Final section after service details
+5. **Services Hub Section** (`/src/app/page.tsx`, `id="services"`)
+
+- Dynamic import with SSR
+- Replaced legacy `ServicesCTA` path usage with home-hub discovery
+- Legacy service routes redirect to `/#services`
 
 6. **Projects Page** (`/src/app/projects/page.tsx`)
    - Dynamic import with SSR
@@ -170,7 +171,7 @@ return (
 
 The following custom CTA components have been replaced with NextStepsSection:
 
-- ❌ `ServicesCTA` (from services page) - **Removed**
+- ❌ `ServicesCTA` (from services hub section) - **Removed**
 - ❌ `ProjectsCTASection` (from projects page) - **Removed**
 - ❌ Custom team page CTA section - **Replaced**
 

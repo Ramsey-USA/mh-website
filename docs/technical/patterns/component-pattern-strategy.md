@@ -204,9 +204,9 @@ unified conversion point that ties the entire site together.
 
 ---
 
-### Services Page ✅ COMPLIANT
+### Services Hub Sections ✅ COMPLIANT
 
-**Goal:** Explain offerings, demonstrate expertise, drive inquiries
+**Goal:** Explain offerings, demonstrate expertise, and route inquiries through the home services sections
 
 **Recommended Patterns:**
 
@@ -216,8 +216,8 @@ unified conversion point that ties the entire site together.
    implemented)
 1. ✅ **NextStepsSection** - Final CTA (already implemented)
 
-**Implementation Status:** Page uses modal-based showcase (similar to
-ValuesShowcase) for core services, multiple ContentCard grids for specialty
+**Implementation Status:** Services discovery and detail are anchored in the home hub section,
+using modal/grid patterns for delivery context.
 services and features, and NextStepsSection for final CTA. Strategy fully met.
 
 **Strategy:** Choose ONE showcase pattern (Alternating OR Interactive), supplement with ContentCard grid

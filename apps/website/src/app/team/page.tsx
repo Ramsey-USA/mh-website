@@ -36,6 +36,7 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import { getD1DatabaseAsync } from "@/lib/db/env";
 import { createDbClient } from "@/lib/db/client";
 import { logger } from "@/lib/utils/logger";
@@ -449,9 +450,10 @@ export default async function TeamPage() {
                   {t("team.hero.titleLine2")}
                 </span>
                 <span className="block text-white/90">
-                  {t("team.hero.titleLine3Prefix")}{" "}
-                  <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                  {t("team.hero.titleLine3Suffix")}
+                  {COMPANY_INFO.slogan.primary}
+                </span>
+                <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
+                  {COMPANY_INFO.slogan.secondary}
                 </span>
               </h1>
             </div>

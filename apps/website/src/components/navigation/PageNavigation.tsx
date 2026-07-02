@@ -5,6 +5,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLocale } from "@/hooks/useLocale";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import {
+  formatDualPageSummary,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 import type { NavigationItem } from "./navigationConfigs";
 
 interface PageNavigationProps {
@@ -17,7 +21,7 @@ interface PageNavigationProps {
 
 const TOP_PAGES_EN = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
+  { href: "/#services", label: "Services" },
   { href: "/projects", label: "Projects" },
   { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact" },
@@ -25,43 +29,148 @@ const TOP_PAGES_EN = [
 
 const TOP_PAGES_ES = [
   { href: "/", label: "Inicio" },
-  { href: "/services", label: "Servicios" },
+  { href: "/#services", label: "Servicios" },
   { href: "/projects", label: "Proyectos" },
   { href: "/about", label: "Nosotros" },
   { href: "/contact", label: "Contacto" },
 ] as const;
 
 const ALL_SITE_PAGES_EN = [
-  { href: "/", label: "Home", description: "Overview" },
-  { href: "/about", label: "About Us", description: "About" },
-  { href: "/services", label: "Services", description: "Operations" },
-  { href: "/projects", label: "Projects", description: "Portfolio" },
-  { href: "/contact", label: "Contact", description: "Contact" },
-  { href: "/events", label: "Events", description: "Upcoming Events" },
+  {
+    href: "/",
+    label: "Home",
+    description: formatDualPageSummary(
+      "Overview",
+      PAGE_TERMINOLOGY.home.mhBrandName,
+    ),
+  },
+  {
+    href: "/about",
+    label: "About Us",
+    description: formatDualPageSummary(
+      "About",
+      PAGE_TERMINOLOGY.about.mhBrandName,
+    ),
+  },
+  {
+    href: "/#services",
+    label: "Services",
+    description: formatDualPageSummary(
+      "Lanes",
+      PAGE_TERMINOLOGY.services.mhBrandName,
+    ),
+  },
+  {
+    href: "/projects",
+    label: "Projects",
+    description: formatDualPageSummary(
+      "Portfolio",
+      PAGE_TERMINOLOGY.projects.mhBrandName,
+    ),
+  },
+  {
+    href: "/contact",
+    label: "Contact",
+    description: formatDualPageSummary(
+      "Contact",
+      PAGE_TERMINOLOGY.contact.mhBrandName,
+    ),
+  },
+  {
+    href: "/events",
+    label: "Events",
+    description: formatDualPageSummary(
+      "Upcoming Events",
+      PAGE_TERMINOLOGY.events.mhBrandName,
+    ),
+  },
   {
     href: "/testimonials",
     label: "Reviews",
-    description: "Reviews",
+    description: formatDualPageSummary(
+      "Reviews",
+      PAGE_TERMINOLOGY.testimonials.mhBrandName,
+    ),
   },
-  { href: "/team", label: "Our Team", description: "Leadership" },
-  { href: "/careers", label: "Careers", description: "Opportunities" },
-  { href: "/veterans", label: "Veterans", description: "Veterans" },
-  { href: "/allies", label: "Partners", description: "Allies" },
+  {
+    href: "/team",
+    label: "Our Team",
+    description: formatDualPageSummary(
+      "Leadership",
+      PAGE_TERMINOLOGY.team.mhBrandName,
+    ),
+  },
+  {
+    href: "/careers",
+    label: "Careers",
+    description: formatDualPageSummary(
+      "Opportunities",
+      PAGE_TERMINOLOGY.careers.mhBrandName,
+    ),
+  },
+  {
+    href: "/veterans",
+    label: "Veterans",
+    description: formatDualPageSummary(
+      "Veterans",
+      PAGE_TERMINOLOGY.veterans.mhBrandName,
+    ),
+  },
+  {
+    href: "/allies",
+    label: "Partners",
+    description: formatDualPageSummary(
+      "Allies",
+      PAGE_TERMINOLOGY.allies.mhBrandName,
+    ),
+  },
   {
     href: "/public-sector",
     label: "Government",
-    description: "Public Sector",
+    description: formatDualPageSummary(
+      "Public Sector",
+      PAGE_TERMINOLOGY.publicSector.mhBrandName,
+    ),
   },
-  { href: "/safety", label: "Safety", description: "Safety" },
-  { href: "/resources", label: "Resources", description: "Resources" },
-  { href: "/faq", label: "Help/FAQ", description: "FAQ" },
-  { href: "/hub", label: "Team Hub", description: "Staff Hub" },
+  {
+    href: "/safety",
+    label: "Safety",
+    description: formatDualPageSummary(
+      "Safety",
+      PAGE_TERMINOLOGY.safety.mhBrandName,
+    ),
+  },
+  {
+    href: "/resources",
+    label: "Resources",
+    description: formatDualPageSummary(
+      "Resources",
+      PAGE_TERMINOLOGY.resources.mhBrandName,
+    ),
+  },
+  {
+    href: "/faq",
+    label: "Help/FAQ",
+    description: formatDualPageSummary("FAQ", PAGE_TERMINOLOGY.faq.mhBrandName),
+  },
+  {
+    href: "/hub",
+    label: "Team Hub",
+    description: formatDualPageSummary(
+      "Staff Hub",
+      PAGE_TERMINOLOGY.hub.mhBrandName,
+    ),
+  },
 ] as const;
 
 const ALL_SITE_PAGES_ES = [
   { href: "/", label: "Inicio", description: "Base central" },
   { href: "/about", label: "Nosotros", description: "Nuestro compromiso" },
-  { href: "/services", label: "Servicios", description: "Operaciones" },
+  {
+    href: "/#services",
+    label: "Servicios",
+    description: "Rutas",
+  },
   { href: "/projects", label: "Proyectos", description: "Portafolio" },
   { href: "/contact", label: "Contacto", description: "Contacto" },
   { href: "/events", label: "Eventos", description: "Proximos eventos" },
@@ -122,9 +231,11 @@ export function PageNavigation({
   );
 
   const isActivePath = (href: string) =>
-    href === "/"
+    href.startsWith("/#")
       ? pathname === "/"
-      : pathname === href || pathname.startsWith(`${href}/`);
+      : href === "/"
+        ? pathname === "/"
+        : pathname === href || pathname.startsWith(`${href}/`);
 
   const isRemainingPageActive = remainingPages.some((page) =>
     isActivePath(page.href),

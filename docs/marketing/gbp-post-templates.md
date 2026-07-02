@@ -24,7 +24,7 @@ We're excited to start work on a new [PROJECT TYPE] in [CITY], WA this week! Our
 • Size: [Square Footage]
 • Timeline: [Duration]
 
-Clear planning. Accountable delivery..
+Built on Quality, Backed by Trust.
 
 📞 (509) 308-6489
 🌐 www.mhc-gc.com
@@ -144,7 +144,7 @@ Our Services Include:
 
 Get your free consultation today!
 📞 (509) 308-6489
-🌐 www.mhc-gc.com/services
+🌐 www.mhc-gc.com/#services
 
 #CommercialConstruction #TriCities #GeneralContractor
 ```
@@ -166,7 +166,7 @@ We handle design AND construction, streamlining your project from vision to real
 Serving Pasco, Kennewick, Richland, and beyond.
 
 📞 Free consultation: (509) 308-6489
-🌐 www.mhc-gc.com/services
+🌐 www.mhc-gc.com/#services
 
 #DesignBuild #ConstructionServices #TriCities
 ```

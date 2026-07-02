@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import { PageTrackingClient } from "@/components/analytics";
@@ -25,6 +26,19 @@ const FadeInWhenVisible = dynamic(
   { ssr: true },
 );
 
+export const metadata: Metadata = {
+  title: "Detailed Capabilities | MH Construction",
+  description:
+    "Detailed capabilities and operational specialties for MH Construction delivery lanes.",
+  alternates: {
+    canonical: "https://www.mhc-gc.com/about",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
+
 export default function AboutDetailsPage() {
   const commonT = useTranslations("common");
   const aboutTitle = commonT("about.hero.sectionTitle").toLowerCase();
@@ -34,25 +48,25 @@ export default function AboutDetailsPage() {
     ? {
         breadcrumbCurrent: "Capacidades detalladas",
         valuesDescription:
-          "Trabajamos con comunidades agricolas y vinicolas, mejoras para inquilinos comerciales y obras municipales con comunicacion directa, alcance claro y control operativo.",
+          "Trabajamos con comunidades agrícolas y vinícolas, mejoras para inquilinos comerciales y obras municipales con comunicación directa, alcance claro y control operativo.",
         timelineDescription:
-          "Este historial muestra como evolucionamos para ejecutar edificios post-frame, puertas y herrajes, y gestion de proyectos en Procore en entornos regulados y de produccion activa.",
+          "Este historial muestra cómo evolucionamos para ejecutar edificios post-frame, puertas y herrajes, y gestión de proyectos en Procore en entornos regulados y de producción activa.",
         newsSubtitle: "Prueba operativa",
         newsTitle: "Especialidades por mercado",
         newsDescription:
-          "Capacidades reales para agricultura y bodegas, TI comercial y proyectos municipales, con seguridad, secuenciacion y coordinacion multi-equipo desde preconstruccion hasta entrega.",
+          "Capacidades reales para agricultura y bodegas, TI comercial y proyectos municipales, con seguridad, secuenciación y coordinación multi-equipo desde preconstrucción hasta entrega.",
         crmDescription:
-          "Coordinamos alcance, RFIs, submittals y secuencias de campo en Procore para reducir retrabajo y mantener la obra alineada con metas de operacion.",
+          "Coordinamos alcance, RFIs, submittals y secuencias de campo en Procore para reducir retrabajo y mantener la obra alineada con metas de operación.",
         tradeDescription:
-          "Lideramos instalacion de puertas y herrajes con control de apertura, cumplimiento y cierre coordinado para instalaciones nuevas y mejoras en operacion.",
+          "Lideramos instalación de puertas y herrajes con control de apertura, cumplimiento y cierre coordinado para instalaciones nuevas y mejoras en operación.",
         safetyDescription:
           "La ejecucion municipal y de sitios ocupados exige seguridad documentada, planes de control y trazabilidad en campo para mantener cumplimiento y continuidad.",
         insightDescription:
           "En agricultura y bodegas planificamos secuencias constructivas alrededor de equipos, produccion y ventanas de cosecha para minimizar interrupciones.",
         veteranDescription:
-          "El liderazgo veterano sostiene una cultura de responsabilidad, disciplina de agenda y comunicacion directa con dueños, operadores y equipos de diseño.",
+          "El liderazgo veterano sostiene una cultura de responsabilidad, disciplina de agenda y comunicación directa con dueños, operadores y equipos de diseño.",
         footerNote:
-          "Si necesita el plan de ejecucion para su sitio, compartimos enfoque, riesgos y proximos pasos desde la primera reunion.",
+          "Si necesita el plan de ejecución para su sitio, compartimos enfoque, riesgos y próximos pasos desde la primera reunión.",
       }
     : {
         breadcrumbCurrent: "Detailed capabilities",
@@ -219,7 +233,7 @@ export default function AboutDetailsPage() {
                   title={commonT("about.news.cards.insight.title")}
                   description={copy.insightDescription}
                   date={commonT("about.news.cards.insight.date")}
-                  href="/services"
+                  href="/#services"
                   linkText={commonT("about.news.cards.insight.linkText")}
                   enhancedIcon
                 />

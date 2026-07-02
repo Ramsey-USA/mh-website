@@ -77,14 +77,14 @@ Website: [www.mhc-gc.com](https://www.mhc-gc.com)
 ### Primary Strategy Line (Mission)
 
 ```text
-Clear planning. Accountable delivery.
+Built on Quality, Backed by Trust.
 ```
 
 **CRITICAL:** Keep punctuation and capitalization exactly as shown.
 
 **Correct:**
 
-- ✅ "Clear planning. Accountable delivery."
+- ✅ "Built on Quality, Backed by Trust."
 
 **Incorrect:**
 
@@ -99,6 +99,31 @@ Built on communication and follow-through
 ```
 
 **Usage:** Supporting line for partnership-focused messaging.
+
+### Supporting Operations Line
+
+```text
+Squared away from start to finish.
+```
+
+**Usage:** Use when describing preconstruction, execution discipline, and day-to-day delivery standards with client and trade partner audiences.
+
+### Supporting Relationship Line
+
+```text
+From Handshake to Handoff, we got your 'six.'
+```
+
+**Usage:** Use in partnership-focused messaging that emphasizes continuity, accountability, and end-to-end support for client and trade partner teams.
+
+### Supporting Execution Lines
+
+```text
+Professional on the line. Thorough in the details.
+No gaps. No guesswork. Just accountable follow-through.
+```
+
+**Usage:** Use in service-process, safety, and preconstruction messaging where execution discipline and handoff quality are emphasized.
 
 ### Vision Statement
 

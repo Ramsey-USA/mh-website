@@ -163,7 +163,7 @@ Our voice balances execution discipline with partnership warmth, creating commun
 
 **Example**:
 
-> "Clear planning. Accountable delivery.. Our veteran-owned team combines military
+> "Built on Quality, Backed by Trust. Our veteran-owned team combines military
 > precision with traditional business values to deliver exceptional results through honest
 > communication and proven craftsmanship for commercial projects throughout the Pacific Northwest."
 
@@ -213,7 +213,7 @@ Our messaging is structured around five interconnected pillars that flow from ou
 **Messaging Examples**:
 
 - "When we commit to something, we deliver"
-- "Clear planning. Accountable delivery."
+- "Built on Quality, Backed by Trust."
 - "70% referral business proves our promise-keeping"
 
 ### 3. Expert Execution (Professionalism)
@@ -358,7 +358,7 @@ every interaction.
 
 ### Core Brand Slogans
 
-#### Primary Slogan: "Clear planning. Accountable delivery."
+#### Primary Slogan: "Built on Quality, Backed by Trust."
 
 Our foundational message emphasizing partnership over profit, client success over company gain.
 
@@ -371,6 +371,19 @@ This powerful companion slogan reinforces our partnership-first philosophy. Use 
 - Client communications highlighting value beyond numbers
 - Content emphasizing trust and collaboration
 - Headings that highlight our relationship-driven approach
+
+#### Supporting Execution Slogans
+
+- "Squared away from start to finish."
+- "From Handshake to Handoff, we got your 'six.'"
+- "Professional on the line. Thorough in the details."
+- "No gaps. No guesswork. Just accountable follow-through."
+
+Use these for:
+
+- Services-section descriptions where method and control are being explained
+- Trade Partner and Allies messaging where reliability and standards are emphasized
+- Contact-pathway reassurance copy that highlights continuity from kickoff through closeout
 
 #### Partnership Call-to-Action: "Let's Build More than Just Structures"
 

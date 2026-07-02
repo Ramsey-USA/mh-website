@@ -1,10 +1,10 @@
 {
   "name": "Kim Thamert",
-  "role": "XO - Executive Officer",
-  "department": "The Upper Brass",
+  "role": "HR Director",
+  "department": "Logistics Command",
   "cardNumber": 27,
-  "position": "Executive Officer",
-  "nickname": "Executive Anchor",
+  "position": "HR Director",
+  "nickname": "People Operations Director",
   "yearsWithCompany": 4,
   "hometown": "Tri-Cities, WA",
   "education": "Business Administration",
@@ -20,28 +20,28 @@
     "specialtyAreas": 4,
     "mentorships": 9
   },
-  "awards": "Executive Support Excellence",
-  "bio": "Kim serves as MH Construction's executive anchor, supporting high-impact administrative and strategic decisions that keep leadership aligned and focused. In a targeted but influential role, she strengthens communication, decision quality, and organizational discipline so the team can execute with clarity and consistency.",
+  "awards": "People Operations Leadership Excellence",
+  "bio": "Kim serves as MH Construction's HR Director, leading people operations with disciplined systems that strengthen hiring, onboarding, retention, and team accountability. She helps keep workforce planning aligned with company standards so teams can execute safely, consistently, and with clear expectations.",
   "careerHighlights": [
-    "Supports executive planning with clear administrative decision frameworks.",
-    "Improves leadership alignment through focused communication and follow-through.",
-    "Helps maintain cultural consistency during growth and operational change.",
-    "Strengthens mission readiness with disciplined organizational oversight."
+    "Leads people operations with structured hiring and onboarding workflows.",
+    "Improves team retention through clear expectations and consistent follow-through.",
+    "Supports leadership with practical HR systems and policy discipline.",
+    "Strengthens workforce readiness through proactive personnel planning."
   ],
-  "funFact": "Kim is known for turning complex leadership conversations into practical next steps.",
-  "certifications": "Leadership Development, Administrative Operations",
+  "funFact": "Kim is known for turning complex personnel challenges into clear, actionable plans.",
+  "certifications": "Leadership Development, Human Resources Operations",
   "hobbies": "Family Time, Planning, Community Support",
-  "specialInterests": "Executive Alignment and Administrative Clarity",
+  "specialInterests": "People Operations and Workforce Development",
   "specialties": [
-    "Executive Coordination",
-    "Administrative Strategy",
-    "Leadership Alignment",
-    "Operational Clarity"
+    "People Operations",
+    "HR Systems",
+    "Team Development",
+    "Workforce Planning"
   ],
   "veteranStatus": "Civilian Leadership",
   "active": true,
   "slug": "kim-thamert",
-  "email": "office@mhc-gc.com",
+  "email": "kimberly@mhc-gc.com",
   "skills": {
     "leadership": 88,
     "technical": 68,

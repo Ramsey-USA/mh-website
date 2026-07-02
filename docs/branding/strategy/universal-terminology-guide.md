@@ -12,6 +12,8 @@
 
 - [📌 Brand Constants](../brand-constants.md) - ⭐ **SINGLE SOURCE OF TRUTH**
 - [📝 Page-Specific Messaging Guide](./page-specific-messaging-guide.md)
+- [🧩 Slogan Coverage Matrix](./slogan-coverage-matrix.md)
+- [✅ Brand Congruency QA Checklist](./brand-congruency-qa-checklist.md)
 - [Main README](../../../README.md)
 
 ---
@@ -315,7 +317,7 @@ Pasco, WA 99301
 
 - ❌ "Hidden fees" (negative framing - use "no hidden costs" instead)
 - ❌ "Cheap" (use "competitive" or "fair")
-- ❌ "Beat any price" (conflicts with "NOT the Dollar" philosophy)
+- ❌ "Beat any price" (conflicts with "Quality and Trust" philosophy)
 - ❌ Generic trust claims without specifics
 
 ---
@@ -538,23 +540,23 @@ Pasco, WA 99301
 #### Primary Slogan (UNIVERSAL - USE EVERYWHERE)
 
 ```text
-"Clear planning. Accountable delivery."
+"Built on Quality, Backed by Trust."
 ```
 
 **Usage Rules:**
 
 - This is THE primary slogan
-- Capitalize "Client" and "Dollar"
-- Use "NOT" in all caps for emphasis
+- Keep capitalization and comma exactly as shown
+- Keep the ending period
 - Appears on every major page
 - Can be part of hero sections, about descriptions, value statements
 
 **Examples in Context:**
 
 ```text
-✓ "Clear planning. Accountable delivery. - Our Core Philosophy"
-✓ "Where talent meets opportunity • Clear planning. Accountable delivery."
-✓ "Clear planning. Accountable delivery. means being available when you need us"
+✓ "Built on Quality, Backed by Trust. Our core philosophy."
+✓ "Where talent meets opportunity • Built on Quality, Backed by Trust."
+✓ "Built on Quality, Backed by Trust." means being available when you need us
 ```
 
 ---
@@ -580,9 +582,9 @@ Pasco, WA 99301
 
 **DO NOT use on:**
 
-- ❌ Homepage (use "Clear planning. Accountable delivery.")
-- ❌ About page (use "Clear planning. Accountable delivery.")
-- ❌ Services page (use "Clear planning. Accountable delivery.")
+- ❌ Homepage (use "Built on Quality, Backed by Trust.")
+- ❌ About page (use "Built on Quality, Backed by Trust.")
+- ❌ Services hub section (use "Built on Quality, Backed by Trust.")
 
 ---
 
@@ -601,6 +603,8 @@ Use these based on page context and messaging group:
 - "Your Vision, Our Precision"
 - "Partnership Excellence"
 - "Partnership Unity"
+- "From Handshake to Handoff, we got your 'six.'"
+- "Squared away from start to finish."
 
 **Traditional Values:**
 
@@ -618,6 +622,8 @@ Use these based on page context and messaging group:
 
 - "Mission-Ready, Compliance-Driven"
 - "When Time Is Critical, We Respond"
+- "Professional on the line. Thorough in the details."
+- "No gaps. No guesswork. Just accountable follow-through."
 
 ---
 
@@ -626,7 +632,7 @@ Use these based on page context and messaging group:
 ### Homepage Example (Correct)
 
 ```text
-✓ Hero: "Clear planning. Accountable delivery."
+✓ Hero: "Built on Quality, Backed by Trust."
 ✅ Values: "Where handshakes matter and your word is your bond"
 ✅ Testimonials: "What Our Client Partners Say"
 ✅ CTA: "Partner with veteran-owned excellence"
@@ -637,18 +643,37 @@ Use these based on page context and messaging group:
 ```text
 ✅ Hero: "Built on communication and follow-through"
 ✅ Benefits: "We treat our Trade Partners with integrity and respect"
-✓ Values: "Clear planning. Accountable delivery. means treating partners fairly"
+✓ Values: "Built on Quality, Backed by Trust." means treating partners fairly
 ✅ CTA: "Join our Trade Partner network"
 ```
 
-### Services Page (Correct)
+### Services Hub Section (Correct)
 
 ```text
-✓ Hero: "Your Vision, Our Precision • Clear planning. Accountable delivery."
+✓ Hero: "Your Vision, Our Precision • Built on Quality, Backed by Trust."
 ✅ Process: "We work WITH you to achieve your vision"
 ✅ Benefits: "You control it, we manage it—full visibility into every decision"
 ✅ Testimonials: "What Our Client Partners Say About Our Services"
 ```
+
+---
+
+## 🧭 SLOGAN PLACEMENT MATRIX (REQUIRED)
+
+Use this matrix to keep the new slogan family consistent across the website:
+
+| Slogan                                                    | Primary Zone                         | Secondary Zone                               | Intent                         |
+| --------------------------------------------------------- | ------------------------------------ | -------------------------------------------- | ------------------------------ |
+| "Built on Quality, Backed by Trust."                      | Home hero mission line               | About hero and global metadata title stack   | Core brand mission             |
+| "Squared away from start to finish."                      | Home services section intro          | Services-partnership bottom note title       | Execution discipline           |
+| "From Handshake to Handoff, we got your 'six.'"           | Contact pathways description         | Services-partnership bottom note description | Relationship continuity        |
+| "Professional on the line. Thorough in the details."      | Trade Partner notes/CTA support copy | Services-partnership bottom note description | Professionalism + Thoroughness |
+| "No gaps. No guesswork. Just accountable follow-through." | Trade Partner card description       | Services execution/support messaging         | Control + handoff clarity      |
+
+Implementation rule:
+
+- Keep one primary slogan per section headline.
+- Use supporting slogans in description/CTA lines only (avoid stacking multiple slogans in a single heading).
 
 ---
 
@@ -701,10 +726,10 @@ Use these based on page context and messaging group:
 
 ```text
 ❌ "Built on communication and follow-through" on homepage (wrong context)
-✓ "Clear planning. Accountable delivery." on homepage
+✓ "Built on Quality, Backed by Trust." on homepage
 
 ❌ "Building for the Trade Partner" (never alter the slogan)
-✓ "Clear planning. Accountable delivery." (unchanged, with Trade Partner context explained separately)
+✓ "Built on Quality, Backed by Trust." (unchanged, with Trade Partner context explained separately)
 ```
 
 ---
@@ -717,8 +742,11 @@ Use these based on page context and messaging group:
 - [ ] Veteran status: "Veteran-Owned" (capitalized, hyphenated)?
 - [ ] Location: States listed as WA, OR, ID (in that order)?
 - [ ] Safety: "0.6 EMR" with context (40% better)?
-- [ ] Primary slogan: "Clear planning. Accountable delivery." included?
+- [ ] Primary slogan: "Built on Quality, Backed by Trust." included?
 - [ ] "Built on communication and follow-through" ONLY on Trade Partners page?
+- [ ] "Squared away from start to finish." used in Services/Home execution context?
+- [ ] "From Handshake to Handoff, we got your 'six.'" used in Contact or partnership continuity context?
+- [ ] Professionalism/Thoroughness support lines used in Trade Partner and execution copy?
 - [ ] "You control it, we manage it" used for client empowerment?
 - [ ] "Work WITH" (not "work FOR") phrasing?
 - [ ] Technology balanced with personal relationship emphasis?
@@ -780,7 +808,7 @@ These frequencies indicate well-established terminology that should be maintaine
 
 1. "Client Partner" vs "client" distinction
 2. "Trade Partner" vs "Client Partner" distinction
-3. Primary slogan usage ("Clear planning. Accountable delivery.")
+3. Primary slogan usage ("Built on Quality, Backed by Trust.")
 4. "work WITH" vs "work FOR"
 
 ### Phase 2: Brand Identity (High Priority)

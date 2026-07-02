@@ -169,11 +169,10 @@ export default async function VeteransPage() {
                   {t("veteransPage.hero.titleLine4")}
                 </span>
                 <span className="block text-white/90">
-                  {t("veteransPage.hero.titleLine5Prefix")}
-                  <span className="font-black italic text-bronze-300">
-                    {t("veteransPage.hero.notWord")}
-                  </span>{" "}
-                  {t("veteransPage.hero.titleLine5Suffix")}
+                  {COMPANY_INFO.slogan.primary}
+                </span>
+                <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
+                  {COMPANY_INFO.slogan.tertiary}
                 </span>
               </h1>
             </div>

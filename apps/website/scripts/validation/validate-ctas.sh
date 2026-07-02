@@ -81,7 +81,6 @@ check_internal_links() {
     declare -a valid_routes=(
         "/"
         "/about"
-        "/services"
         "/projects"
         "/team"
         "/public-sector"

@@ -44,13 +44,13 @@ Generated: 5/11/2026, 12:12:05 AM
 
 - **Name:** `services`
 - **File:** `core/qr-services-color.png`
-- **URL:** <https://www.mhc-gc.com/services>
+- **URL:** <https://www.mhc-gc.com/#services>
 
 ### ✅ Our Services
 
 - **Name:** `services`
 - **File:** `core/qr-services-bw.png`
-- **URL:** <https://www.mhc-gc.com/services>
+- **URL:** <https://www.mhc-gc.com/#services>
 
 ### ✅ Our Projects
 
@@ -128,13 +128,13 @@ Generated: 5/11/2026, 12:12:05 AM
 
 - **Name:** `traho-services`
 - **File:** `rfq/qr-traho-services-color.png`
-- **URL:** <https://www.mhc-gc.com/services?ref=traho-rfq>
+- **URL:** <https://www.mhc-gc.com/?ref=traho-rfq#services>
 
 ### ✅ Traho RFQ - Service Lines
 
 - **Name:** `traho-services`
 - **File:** `rfq/qr-traho-services-bw.png`
-- **URL:** <https://www.mhc-gc.com/services?ref=traho-rfq>
+- **URL:** <https://www.mhc-gc.com/?ref=traho-rfq#services>
 
 ### ✅ Traho RFQ - Safety Program
 
@@ -1216,13 +1216,13 @@ Generated: 5/11/2026, 12:12:05 AM
 - **File:** `team/qr-team-mike-holstein-bw.png`
 - **URL:** <https://www.mhc-gc.com/team#mike-holstein>
 
-### ✅ Kim Thamert - XO - Executive Officer
+### ✅ Kim Thamert - HR Director
 
 - **Name:** `team-kim-thamert`
 - **File:** `team/qr-team-kim-thamert-color.png`
 - **URL:** <https://www.mhc-gc.com/team#kim-thamert>
 
-### ✅ Kim Thamert - XO - Executive Officer
+### ✅ Kim Thamert - HR Director
 
 - **Name:** `team-kim-thamert`
 - **File:** `team/qr-team-kim-thamert-bw.png`
@@ -1359,18 +1359,6 @@ Generated: 5/11/2026, 12:12:05 AM
 - **Name:** `team-reagan-massey`
 - **File:** `team/qr-team-reagan-massey-bw.png`
 - **URL:** <https://www.mhc-gc.com/team#reagan-massey>
-
-### ✅ Brittney Holstein - Project Coordinator
-
-- **Name:** `team-brittney-holstein`
-- **File:** `team/qr-team-brittney-holstein-color.png`
-- **URL:** <https://www.mhc-gc.com/team#brittney-holstein>
-
-### ✅ Brittney Holstein - Project Coordinator
-
-- **Name:** `team-brittney-holstein`
-- **File:** `team/qr-team-brittney-holstein-bw.png`
-- **URL:** <https://www.mhc-gc.com/team#brittney-holstein>
 
 ### ✅ Jennifer Tene - Payroll & HR Coordinator
 

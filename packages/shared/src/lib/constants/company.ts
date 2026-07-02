@@ -17,8 +17,29 @@ export const COMPANY_INFO = {
 
   // Brand Messaging
   slogan: {
-    primary: "Building projects for the Client, NOT the Dollar",
-    secondary: "THE ROI IS THE RELATIONSHIP",
+    primary: "Built on Quality, Backed by Trust.",
+    secondary: "Squared away from start to finish.",
+    tertiary: "From Handshake to Handoff, we got your 'six.'",
+    quaternary: "Professional on the line. Thorough in the details.",
+    quinary: "No gaps. No guesswork. Just accountable follow-through.",
+    coreValues: {
+      honesty: {
+        primary: "Truth in every touchpoint.",
+        supporting: "Clear facts. No spin. No surprises.",
+      },
+      integrity: {
+        primary: "Do right when no one is watching.",
+        supporting: "Commitments kept under pressure.",
+      },
+      professionalism: {
+        primary: "Prepared, precise, and respectful.",
+        supporting: "Standards high on every site, every day.",
+      },
+      thoroughness: {
+        primary: "Every detail accounted for.",
+        supporting: "Measure twice, document always, close out clean.",
+      },
+    },
   },
   tagline:
     "Founded 2010, Veteran-Owned Since January 2025 • BABAA (Build America, Buy America Act) Supporter",
@@ -34,7 +55,7 @@ export const COMPANY_INFO = {
     main: "office@mhc-gc.com",
     admin: "matt@mhc-gc.com",
     superintendent: "arnold@mhc-gc.com",
-    hr: "brittney@mhc-gc.com",
+    hr: "kimberly@mhc-gc.com",
   },
 
   // Physical Address
@@ -306,6 +327,6 @@ export const EMAIL_RECIPIENTS: {
     COMPANY_INFO.email.main,
     COMPANY_INFO.email.admin,
     COMPANY_INFO.email.superintendent,
-    COMPANY_INFO.email.hr, // Brittney handles HR/hiring coordination
+    COMPANY_INFO.email.hr, // Kim handles HR/hiring coordination
   ],
 };

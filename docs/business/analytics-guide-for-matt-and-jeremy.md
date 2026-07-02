@@ -98,7 +98,7 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 **Journey Milestones:**
 
 1. `entered_site` - Landing page
-2. `viewed_services` - Services page visit
+2. `viewed_services` - Services hub section visit
 3. `viewed_projects` - Projects page visit
 4. `viewed_contact` - Contact page visit
 5. `started_form` - Form interaction begins
@@ -443,4 +443,4 @@ Google Analytics event collection.
 ---
 
 **Built for Veterans, by Veterans.**
-**THE ROI IS THE RELATIONSHIP.**
+**Built on Quality, Backed by Trust.**

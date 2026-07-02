@@ -160,10 +160,11 @@ This file tracks the progress of optimizations made to the Home page of the webs
   - LCP: **0.4 s**
   - Report JSON: `apps/website/lighthouse-results/team-final.json`
 
-### May 18, 2026 - Next Page (Services)
+### May 18, 2026 - Next Page (Services Hub Baseline)
 
 - **Issue Identified**: Services had elevated main-thread blocking in the prior baseline despite good visual stability.
 - **Fix Applied**: Removed Framer-motion reveal wrappers (`FadeInWhenVisible`) from non-critical blocks to cut route-level animation runtime on Services.
+- **Routing Context**: This run was captured before the hub migration and is now represented by the home services section (`/#services`) with legacy `/services` routes redirecting to that section.
 - **Validated Services Audit (local)**:
   - Performance: **92**
   - Accessibility: **94**

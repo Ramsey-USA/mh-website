@@ -78,7 +78,7 @@ export const coreServices: CoreService[] = [
     title: "Master Planning (Pre-Construction)",
     subtitle: "Unlock Your Building's Potential with Comprehensive Planning",
     description:
-      "We align scope, budget, schedule, permitting, and trade sequencing before fieldwork starts. This preconstruction phase reduces scope drift, change pressure, and avoidable delays.",
+      'We align scope, budget, schedule, permitting, and trade sequencing before fieldwork starts. "Creating Value, from Proven Results." explains our preconstruction methods and reduces scope drift, change pressure, and avoidable delays.',
     features: [
       "Site and infrastructure analysis",
       "WA/OR/ID code compliance planning",

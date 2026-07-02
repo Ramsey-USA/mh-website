@@ -14,25 +14,25 @@ Use this template for release-level performance triage with both Google Analytic
 
 List only pages that matter for lead flow, trust, and critical navigation.
 
-| Priority | Route     | Business Role     | Target Audience        |
-| -------- | --------- | ----------------- | ---------------------- |
-| P0       | /         | Entry and trust   | All visitors           |
-| P0       | /services | Service discovery | Qualified leads        |
-| P0       | /contact  | Conversion        | Ready-to-contact users |
-| P1       | /projects | Proof and trust   | Mid-funnel users       |
-| P1       | /careers  | Recruiting        | Applicants             |
+| Priority | Route                  | Business Role     | Target Audience        |
+| -------- | ---------------------- | ----------------- | ---------------------- |
+| P0       | /                      | Entry and trust   | All visitors           |
+| P0       | / (/#services section) | Service discovery | Qualified leads        |
+| P0       | /contact               | Conversion        | Ready-to-contact users |
+| P1       | /projects              | Proof and trust   | Mid-funnel users       |
+| P1       | /careers               | Recruiting        | Applicants             |
 
 ## 3) Baseline Snapshot (Before Changes)
 
 Record GA and Lighthouse for the same pages and timeframe.
 
-| Route     | GA Users | GA Conversions | GA Conversion Rate | Lighthouse Perf | LCP (s) | CLS | TBT (ms) |
-| --------- | -------- | -------------- | ------------------ | --------------- | ------- | --- | -------- |
-| /         |          |                |                    |                 |         |     |          |
-| /services |          |                |                    |                 |         |     |          |
-| /contact  |          |                |                    |                 |         |     |          |
-| /projects |          |                |                    |                 |         |     |          |
-| /careers  |          |                |                    |                 |         |     |          |
+| Route                  | GA Users | GA Conversions | GA Conversion Rate | Lighthouse Perf | LCP (s) | CLS | TBT (ms) |
+| ---------------------- | -------- | -------------- | ------------------ | --------------- | ------- | --- | -------- |
+| /                      |          |                |                    |                 |         |     |          |
+| / (/#services section) |          |                |                    |                 |         |     |          |
+| /contact               |          |                |                    |                 |         |     |          |
+| /projects              |          |                |                    |                 |         |     |          |
+| /careers               |          |                |                    |                 |         |     |          |
 
 ## 4) Changes Shipped
 
@@ -46,13 +46,13 @@ Describe only measurable changes.
 
 Use same collection method as baseline.
 
-| Route     | GA Users | GA Conversions | GA Conversion Rate | Lighthouse Perf | LCP (s) | CLS | TBT (ms) |
-| --------- | -------- | -------------- | ------------------ | --------------- | ------- | --- | -------- |
-| /         |          |                |                    |                 |         |     |          |
-| /services |          |                |                    |                 |         |     |          |
-| /contact  |          |                |                    |                 |         |     |          |
-| /projects |          |                |                    |                 |         |     |          |
-| /careers  |          |                |                    |                 |         |     |          |
+| Route                  | GA Users | GA Conversions | GA Conversion Rate | Lighthouse Perf | LCP (s) | CLS | TBT (ms) |
+| ---------------------- | -------- | -------------- | ------------------ | --------------- | ------- | --- | -------- |
+| /                      |          |                |                    |                 |         |     |          |
+| / (/#services section) |          |                |                    |                 |         |     |          |
+| /contact               |          |                |                    |                 |         |     |          |
+| /projects              |          |                |                    |                 |         |     |          |
+| /careers               |          |                |                    |                 |         |     |          |
 
 ## 6) Decision Matrix
 

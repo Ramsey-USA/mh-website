@@ -54,7 +54,7 @@ export default function NotFound() {
           </Button>
 
           <Button variant="outline" size="lg" asChild>
-            <Link href="/services">
+            <Link href="/#services">
               <MaterialIcon icon="build" size="md" className="mr-2" />
               View Services
             </Link>

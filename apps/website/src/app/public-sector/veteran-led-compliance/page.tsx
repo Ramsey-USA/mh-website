@@ -68,6 +68,12 @@ export default function VeteranLedCompliancePage() {
             designed for disciplined delivery and transparent stakeholder
             alignment.
           </p>
+          <p className="mt-3 text-sm font-semibold text-white/90 sm:text-base">
+            {COMPANY_INFO.slogan.primary}
+          </p>
+          <p className="mt-4 text-sm font-semibold text-brand-secondary/90 sm:text-base">
+            {COMPANY_INFO.slogan.quaternary}
+          </p>
         </div>
       </section>
 
@@ -125,7 +131,7 @@ export default function VeteranLedCompliancePage() {
                 Request planning support
               </TrackedBridgeButton>
               <TrackedBridgeButton
-                href="/services/municipal-government"
+                href="/#services"
                 trackId="compliance-municipal-service"
                 variant="outline"
               >

@@ -2,7 +2,7 @@
 
 **START HERE** - This is your single source of truth for the entire project.
 
-**Building projects for the Client, NOT the Dollar** — Founded by Mike Holstein in 2010,
+**Built on Quality, Backed by Trust.** — Founded by Mike Holstein in 2010,
 purchased by Army veteran Jeremy Thamert in 2025. Veteran-owned, relationship-first,
 honest communication, and proven craftsmanship.
 
@@ -134,7 +134,7 @@ improvements.
 
 ### Core Identity
 
-- **Mission:** Building projects for the Client, NOT the Dollar
+- **Mission:** Built on Quality, Backed by Trust.
 - **Values:** Honesty, Integrity, Professionalism, Thoroughness
 - **Approach:** Face-to-face consultation, transparent pricing, veteran priority scheduling
 - **Service Area:** Tri-Cities HQ (Pasco, Richland, Kennewick) with Tri-State licensed coverage (WA, OR, ID), including Yakima, Spokane, and Walla Walla
@@ -334,8 +334,13 @@ Use Google Analytics for behavior signal and Lighthouse for technical signal.
 
 Recommended cadence:
 
-- Weekly: Lighthouse checks on core pages (`/`, `/services`, `/projects`, `/contact`, `/careers`)
+- Weekly: Lighthouse checks on core pages (`/` with `/#services` section behavior, `/projects`, `/contact`, `/careers`)
 - Per release: verify GA events and conversion funnels still fire as expected
+
+Migration status:
+
+- Services discovery model is complete and canonicalized to Home sections first (`/#services`).
+- Legacy `/services` and `/services/[slug]` behaviors are retained only as redirect compatibility to `/#services`.
 
 Use the release worksheet: [docs/performance/performance-triage-template.md](docs/performance/performance-triage-template.md)
 
@@ -750,7 +755,7 @@ Jeremy Thamert, continuing 16 years of construction excellence with renewed vete
 - Professionalism in every project
 - Thoroughness in every detail
 
-**Building projects for the Client, NOT the Dollar.**
+**Built on Quality, Backed by Trust.**
 
 ---
 

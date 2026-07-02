@@ -24,8 +24,6 @@
         "/resources/safety-manual/contents",
         "/resources/safety-manual/forms",
         "/safety",
-        "/services",
-        "/services/[slug]",
         "/team",
         "/terms",
         "/testimonials",
@@ -38,9 +36,11 @@
     },
     "noindex": {
       "exact": [
+        "/about/details",
         "/careers/print",
         "/cool-desert-nights/results",
         "/employee-handbook",
+        "/events",
         "/offline",
         "/safety/incident-report",
         "/safety/print/[id]"
@@ -49,10 +49,11 @@
     },
     "redirect": {
       "exact": [
-        "/events",
         "/resources/safety-manual",
         "/resources/safety-manual/section/[slug]",
         "/resources/safety-program",
+        "/services",
+        "/services/[slug]",
         "/safety/intake"
       ],
       "patterns": []
@@ -64,13 +65,6 @@
       "requiresAny": [
         "ALL_CLUSTER_SLUGS",
         "SAFETY_CLUSTER_PAGES"
-      ]
-    },
-    {
-      "pattern": "^/services/\\[slug\\]$",
-      "requiresAny": [
-        "getServiceRouteSlugs",
-        "serviceEntries"
       ]
     },
     {

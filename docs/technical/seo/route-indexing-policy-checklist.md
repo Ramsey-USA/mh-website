@@ -38,7 +38,9 @@ Requirements:
 
 Examples:
 
-- `/`, `/services`, `/projects`, `/contact`
+- `/` (includes services hub at `/#services`)
+- `/services` and `/services/[slug]` remain redirect-only compatibility routes
+- `/projects`, `/contact`
 - `/resources`
 - `/resources/safety-manual/contents`
 - `/resources/safety-manual/forms`

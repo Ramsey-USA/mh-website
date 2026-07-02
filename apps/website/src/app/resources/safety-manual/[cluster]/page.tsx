@@ -31,7 +31,7 @@ type SafetyRoutePlan = {
 const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   "program-foundation": {
     service: {
-      href: "/services/municipal-government",
+      href: "/#services",
       label: "Municipal and government service line",
     },
     market: {
@@ -45,7 +45,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "field-onboarding-and-communication": {
     service: {
-      href: "/services/commercial-construction",
+      href: "/#services",
       label: "Commercial construction delivery",
     },
     market: {
@@ -59,7 +59,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "safety-oversight-and-industrial-hygiene": {
     service: {
-      href: "/services/municipal-government",
+      href: "/#services",
       label: "Municipal and government controls",
     },
     market: {
@@ -73,7 +73,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "fall-and-access-safety": {
     service: {
-      href: "/services/drywall-interiors",
+      href: "/#services",
       label: "Drywall and interiors execution",
     },
     market: {
@@ -87,7 +87,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "excavation-confined-spaces-and-energy-control": {
     service: {
-      href: "/services/commercial-construction",
+      href: "/#services",
       label: "Commercial construction sequencing",
     },
     market: {
@@ -101,7 +101,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "energy-and-fire-hazards": {
     service: {
-      href: "/services/restoration-remodeling",
+      href: "/#services",
       label: "Restoration and remodeling controls",
     },
     market: {
@@ -115,7 +115,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "motor-vehicles-and-heavy-equipment": {
     service: {
-      href: "/services/commercial-construction",
+      href: "/#services",
       label: "Commercial heavy-equipment delivery",
     },
     market: {
@@ -129,7 +129,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "tools-and-materials": {
     service: {
-      href: "/services/commercial-construction",
+      href: "/#services",
       label: "Commercial tools and materials planning",
     },
     market: {
@@ -143,7 +143,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "program-compliance-and-continuity": {
     service: {
-      href: "/services/municipal-government",
+      href: "/#services",
       label: "Municipal continuity planning",
     },
     market: {

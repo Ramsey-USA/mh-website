@@ -104,7 +104,7 @@ The homepage follows the **Universal Page Flow Standard**: **Discover → Trust 
 - **Homepage Specifics:**
   - American Flag icon with animation
   - "Base HQ → Home" dual-label
-  - "Building projects for the Client, NOT the Dollar"
+  - "Built on Quality, Backed by Trust."
 
 > **Implementation Note:** Other pages reuse the hero structure but with
 > unique icons (Services = "engineering", About = "groups", Careers = "work",
@@ -158,7 +158,7 @@ The homepage follows the **Universal Page Flow Standard**: **Discover → Trust 
   - Interactive service cards
   - Tabbed interface for service categories
   - Analytics tracking for service interest
-  - Link to full services page
+  - Link to services hub section (`/#services`)
 
 ### 6. Strategic CTA Banner (40-45%)
 
@@ -440,7 +440,7 @@ This provides visual feedback during component loading.
 **Title:**
 
 ```text
-Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction
+Base HQ → Home | Built on Quality, Backed by Trust. | MH Construction
 ```
 
 **SEO Status:** Metadata and schema implementation in place; validate with external audit tools
@@ -699,7 +699,7 @@ className = "bg-white dark:bg-gray-900 text-gray-900 dark:text-white";
 
 ---
 
-**Built for the Client, NOT the Dollar.**  
+**Built on Quality, Backed by Trust.**  
 **Founded 2010 | Veteran-Owned Since January 2025**
 
 ### Updates on Component Patterns

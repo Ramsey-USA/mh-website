@@ -59,6 +59,12 @@ export default function TriStateGovernmentConstructionPage() {
             with a location-backed approach tied to service readiness and clear
             project governance.
           </p>
+          <p className="mt-3 text-sm font-semibold text-white/90 sm:text-base">
+            {COMPANY_INFO.slogan.primary}
+          </p>
+          <p className="mt-4 text-sm font-semibold text-brand-secondary/90 sm:text-base">
+            {COMPANY_INFO.slogan.tertiary}
+          </p>
         </div>
       </section>
 
@@ -105,7 +111,7 @@ export default function TriStateGovernmentConstructionPage() {
           </h2>
           <div className="mt-5 flex flex-wrap gap-3">
             <TrackedBridgeButton
-              href="/services/municipal-government"
+              href="/#services"
               trackId="tri-state-municipal-service"
             >
               Municipal and government service line

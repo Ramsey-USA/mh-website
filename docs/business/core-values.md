@@ -12,7 +12,7 @@
 
 **Trust-Centered Philosophy**: "Trust as our ultimate goal and measurable company foundation"
 
-**Core Message**: "THE ROI IS THE RELATIONSHIP"
+**Core Message**: "Built on Quality, Backed by Trust."
 
 **Veteran-Owned Values**: All-branch military service (Army, Navy, Air Force, Marines, Coast Guard, Space Force)
 taught us these principles. We apply them to every construction mission.
@@ -262,7 +262,7 @@ Every decision we make, every process we follow, and every interaction we have i
 They're not just words on a wall - they're the foundation of how we do business and the promise we make to every
 client and community we serve.
 
-**Remember**: THE ROI IS THE RELATIONSHIP - We're big enough to scale and small enough to stay personal.
+**Remember**: Built on Quality, Backed by Trust. We're big enough to scale and small enough to stay personal.
 
 ---
 
@@ -324,8 +324,8 @@ Our 4 Core Values aren't abstract concepts—they create 6 measurable difference
 
 ---
 
-**Partnership Philosophy**: "Building projects for the Client, NOT the Dollar"
-**Core Message**: "THE ROI IS THE RELATIONSHIP"
+**Partnership Philosophy**: "Built on Quality, Backed by Trust."
+**Core Message**: "Built on Quality, Backed by Trust."
 **Community Focus**: Serving Pacific Northwest Communities with Excellence
 
 ---

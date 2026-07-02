@@ -124,7 +124,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
   usePageTracking(`Location - ${location.city}`);
   const priorityServices = location.servicePriorities || [];
   const standardPositioningLine =
-    "Primary markets: AG and winery communities, commercial tenant improvements, and municipal builds. Core specialties: pole buildings, door and hardware installation, and project management powered by Procore.";
+    "Primary markets: AG and winery communities, commercial tenant improvements, and municipal builds. Core specialties: pole buildings, door and hardware installation, and project management powered by Procore. Squared away from start to finish.";
   const nearbyAreas = location.nearbyAreas || [];
   const locationTelephoneHref = `tel:${Array.from(location.telephone)
     .filter((char) => /\d/.test(char))
@@ -175,7 +175,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
   const serviceDeepLinks: ServiceDeepLink[] = (
     LOCATION_SERVICE_MAP[location.slug] ?? ["commercial-construction"]
   ).map((serviceSlug) => ({
-    href: `/services/${serviceSlug}`,
+    href: `/?service=${serviceSlug}#services`,
     label: SERVICE_LABELS[serviceSlug] ?? "Service Line",
   }));
   const bridgeDeepLinks = LOCATION_BRIDGE_MAP[location.slug] ?? [];
@@ -244,7 +244,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
       "Financing Available",
     ],
     currenciesAccepted: "USD",
-    slogan: "Clear planning and accountable delivery",
+    slogan: "Built on Quality, Backed by Trust.",
     veteranOwned: true,
     serviceType: [
       ...(priorityServices.length > 0
@@ -326,7 +326,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
 
               {/* Core Slogan */}
               <p className="text-sm sm:text-base md:text-lg text-white/80 font-medium">
-                "Clear planning. Accountable delivery."
+                "Built on Quality, Backed by Trust."
               </p>
 
               {/* CTA Buttons */}
@@ -465,7 +465,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                     </Link>
                   ))}
                   <Link
-                    href="/services"
+                    href="/#services"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-semibold text-gray-900 dark:text-gray-100 hover:border-brand-primary transition-colors"
                   >
                     <MaterialIcon icon="build" size="sm" />
@@ -733,7 +733,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                   size="lg"
                   className="group w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border-white/30"
                 >
-                  <Link href="/services">
+                  <Link href="/#services">
                     <MaterialIcon
                       icon="build"
                       size="md"

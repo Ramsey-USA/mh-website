@@ -24,6 +24,7 @@ import {
   totalFAQCount,
   type FAQQuestion,
 } from "@/lib/data/faq-data";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.faq);
 
@@ -155,9 +156,10 @@ export default function FAQPage() {
                   Construction Questions, Answered
                 </span>
                 <span className="block text-white/90">
-                  Building for the Client,{" "}
-                  <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                  the Dollar
+                  {COMPANY_INFO.slogan.primary}
+                </span>
+                <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
+                  {COMPANY_INFO.slogan.quinary}
                 </span>
               </h1>
             </div>
@@ -184,7 +186,8 @@ export default function FAQPage() {
               <FadeInWhenVisible>
                 <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
                   Clear answers on services, process, pricing, and execution. If
-                  your question is not listed, our team can help directly.
+                  your question is not listed, our team can help directly. No
+                  gaps. No guesswork. Just accountable follow-through.
                 </p>
               </FadeInWhenVisible>
 

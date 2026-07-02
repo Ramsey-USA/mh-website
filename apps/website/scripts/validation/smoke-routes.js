@@ -84,12 +84,6 @@ const DYNAMIC_ROUTE_SAMPLES = {
     "/projects/pasco-industrial-warehouse-build-out",
     "/projects/richland-corporate-office-tenant-improvement",
   ],
-  "/services/[slug]": [
-    "/services/commercial-construction",
-    "/services/municipal-government",
-    "/services/drywall-interiors",
-    "/services/restoration-remodeling",
-  ],
   "/resources/safety-manual/[cluster]": [
     "/resources/safety-manual/program-foundation",
     "/resources/safety-manual/field-onboarding-and-communication",

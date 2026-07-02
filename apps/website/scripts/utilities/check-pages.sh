@@ -137,7 +137,6 @@ npm run build > /tmp/mh-build.log 2>&1
 
 # Analyze each page
 analyze_page "/" "src/app/page.tsx" "Homepage"
-analyze_page "/services" "src/app/services/page.tsx" "Services"
 analyze_page "/careers" "src/app/careers/page.tsx" "Careers"
 analyze_page "/about" "src/app/about/page.tsx" "About"
 analyze_page "/contact" "src/app/contact/ContactPageClient.tsx" "Contact"

@@ -5,7 +5,6 @@ import { ALL_CLUSTER_SLUGS } from "@/lib/data/safety-manual-clusters";
 import { getFAQCategorySlugs } from "@/lib/data/faq-data";
 import { getLocationSlugs } from "@/lib/data/locations";
 import { getProjectCaseStudySlugs } from "@/lib/data/project-case-studies";
-import { getServiceRouteSlugs } from "@/lib/data/service-routes";
 
 export const dynamic = "force-static";
 
@@ -24,7 +23,6 @@ const ACTIVE_PAGES = [
 
   // Priority 0.9 - Core business pages
   { path: "/about", priority: 0.9, changeFreq: "monthly" as const },
-  { path: "/services", priority: 0.9, changeFreq: "monthly" as const },
 
   // Priority 0.85 - Veteran focus
   { path: "/veterans", priority: 0.85, changeFreq: "monthly" as const },
@@ -116,13 +114,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority,
   }));
 
-  const serviceEntries = buildDataRouteEntries(
-    getServiceRouteSlugs().map((slug) => `/services/${slug}`),
-    baseUrl,
-    currentDate,
-    0.85,
-  );
-
   const projectEntries = buildDataRouteEntries(
     getProjectCaseStudySlugs().map((slug) => `/projects/${slug}`),
     baseUrl,
@@ -144,13 +135,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: getMediaPriority(mediaUrl),
   }));
 
-  return [
-    ...pageEntries,
-    ...serviceEntries,
-    ...projectEntries,
-    ...faqEntries,
-    ...mediaEntries,
-  ];
+  return [...pageEntries, ...projectEntries, ...faqEntries, ...mediaEntries];
 }
 
 function buildDataRouteEntries(

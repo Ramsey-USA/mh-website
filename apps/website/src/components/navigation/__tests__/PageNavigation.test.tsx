@@ -67,7 +67,7 @@ describe("PageNavigation", () => {
     const links = screen.getAllByRole("link");
     expect(links).toHaveLength(5);
     expect(links[0]).toHaveAttribute("href", "/");
-    expect(links[1]).toHaveAttribute("href", "/services");
+    expect(links[1]).toHaveAttribute("href", "/#services");
     expect(links[2]).toHaveAttribute("href", "/projects");
     expect(links[3]).toHaveAttribute("href", "/about");
     expect(links[4]).toHaveAttribute("href", "/contact");
@@ -89,7 +89,7 @@ describe("PageNavigation", () => {
   });
 
   it("marks current route with aria-current", () => {
-    mockPathname.mockReturnValue("/services");
+    mockPathname.mockReturnValue("/");
     render(<PageNavigation items={items} />);
     expect(screen.getByRole("link", { name: "Services" })).toHaveAttribute(
       "aria-current",

@@ -27,7 +27,7 @@ describe("HeroSection", () => {
   it("renders the mission statement", () => {
     render(<HeroSection />);
     expect(
-      screen.getByText(/Building projects for the Client/i),
+      screen.getByText(/Built on Quality, Backed by Trust\./i),
     ).toBeInTheDocument();
   });
 

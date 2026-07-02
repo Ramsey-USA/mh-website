@@ -72,7 +72,7 @@ If two documents conflict, follow the higher-priority item first and then update
 ## Required Consistency Rules
 
 1. **Identity consistency:** Use canonical company naming rules from Brand Constants.
-2. **Mission consistency:** Keep the primary slogan exact: `Building projects for the Client, NOT the Dollar`.
+2. **Mission consistency:** Keep the primary slogan exact: `Built on Quality, Backed by Trust.`.
 3. **Terminology consistency:** Use approved terms (Client Partners, Trade Partners, etc.).
 4. **Surface consistency:** Website, PWA, and printable docs must reference the same core values and ownership language.
 5. **Routing consistency:** `/hub` is canonical staff access; `/safety/hub` remains backward-compat redirect only.

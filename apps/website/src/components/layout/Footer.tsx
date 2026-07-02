@@ -22,6 +22,10 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 import { WaVobBadge } from "@/components/ui/WaVobBadge";
 import { trackFormSubmit } from "@/lib/analytics/tracking";
 import { useLocale } from "@/hooks/useLocale";
+import {
+  formatDualPageSummary,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 
 type FooterNavItem = {
   href: string;
@@ -64,7 +68,12 @@ type LicenseDetail = {
 };
 
 const navCol1Links: FooterNavItem[] = [
-  { href: "/", icon: "home", label: "Home", sub: "Overview" },
+  {
+    href: "/",
+    icon: "home",
+    label: "Home",
+    sub: formatDualPageSummary("Overview", PAGE_TERMINOLOGY.home.mhBrandName),
+  },
   {
     href: "/contact",
     icon: "contact_phone",
@@ -72,7 +81,7 @@ const navCol1Links: FooterNavItem[] = [
     sub: "Contact",
   },
   {
-    href: "/services",
+    href: "/#services",
     icon: "build",
     label: "Services",
     sub: "Operations",
@@ -81,7 +90,10 @@ const navCol1Links: FooterNavItem[] = [
     href: "/projects",
     icon: "photo_library",
     label: "Projects",
-    sub: "Portfolio",
+    sub: formatDualPageSummary(
+      "Portfolio",
+      PAGE_TERMINOLOGY.projects.mhBrandName,
+    ),
   },
   {
     href: "/events",
@@ -105,7 +117,12 @@ const navCol1Links: FooterNavItem[] = [
 ];
 
 const navCol2Links: FooterNavItem[] = [
-  { href: "/about", icon: "military_tech", label: "About Us", sub: "About" },
+  {
+    href: "/about",
+    icon: "military_tech",
+    label: "About Us",
+    sub: formatDualPageSummary("About", PAGE_TERMINOLOGY.about.mhBrandName),
+  },
   { href: "/team", icon: "groups", label: "Our Team", sub: "Leadership" },
   { href: "/allies", icon: "handshake", label: "Partners", sub: "Allies" },
   {
@@ -272,7 +289,7 @@ const licenseDetails: LicenseDetail[] = [
 const navCol1TranslationsEs: Record<string, { label: string; sub: string }> = {
   "/": { label: "Inicio", sub: "Base central" },
   "/contact": { label: "Contacto", sub: "Contacto" },
-  "/services": { label: "Servicios", sub: "Operaciones" },
+  "/#services": { label: "Servicios", sub: "Operaciones" },
   "/projects": { label: "Proyectos", sub: "Portafolio" },
   "/events": {
     label: "Eventos",
@@ -287,15 +304,15 @@ const navCol2TranslationsEs: Record<string, { label: string; sub: string }> = {
   "/about": { label: "Nosotros", sub: "Nuestro compromiso" },
   "/team": { label: "Nuestro equipo", sub: "Cadena de mando" },
   "/allies": { label: "Aliados", sub: "Socios" },
-  "/public-sector": { label: "Gobierno", sub: "Sector publico" },
+  "/public-sector": { label: "Gobierno", sub: "Sector público" },
   "/veterans": { label: "Veteranos", sub: "Servicio primero" },
-  "/careers": { label: "Carreras", sub: "Unete" },
-  "/testimonials": { label: "Resenas", sub: "Reconocimientos" },
+  "/careers": { label: "Carreras", sub: "Únete" },
+  "/testimonials": { label: "Reseñas", sub: "Reconocimientos" },
 };
 
 const footerUtilityTranslationsEs: Record<string, string> = {
   "/privacy": "Privacidad",
-  "/terms": "Terminos",
+  "/terms": "Términos",
   "/accessibility": "Accesibilidad",
   "/sitemap.xml": "Mapa del sitio",
 };
@@ -762,34 +779,34 @@ export default function Footer() {
       isEs
         ? {
             socialNavLabel: "Enlaces de redes sociales",
-            rateUsEyebrow: "Calificanos",
-            leaveGoogleReview: "Deja una resena en Google",
-            servingPnw: "Sirviendo al Pacifico Noroeste",
-            mainNavLabel: "Navegacion principal",
-            servicesHeading: "Enlaces rapidos",
-            missionExecution: "Paginas principales",
-            servicesTooltipTitle: "Enlaces rapidos",
+            rateUsEyebrow: "Califícanos",
+            leaveGoogleReview: "Deja una reseña en Google",
+            servingPnw: "Sirviendo al Pacífico Noroeste",
+            mainNavLabel: "Navegación principal",
+            servicesHeading: "Enlaces rápidos",
+            missionExecution: "Páginas principales",
+            servicesTooltipTitle: "Enlaces rápidos",
             servicesTooltipDescription:
-              "Ir directamente a las paginas principales y de servicios.",
-            companyInfoLabel: "Informacion de la compania",
-            companyHeading: "Compania y alianzas",
+              "Ir directamente a las páginas principales y de servicios.",
+            companyInfoLabel: "Información de la compañía",
+            companyHeading: "Compañía y alianzas",
             ourForces: "Equipo y alianzas",
-            companyTooltipTitle: "Compania y alianzas",
+            companyTooltipTitle: "Compañía y alianzas",
             companyTooltipDescription:
-              "Conocer al equipo, las afiliaciones y la experiencia del sector publico.",
+              "Conocer al equipo, las afiliaciones y la experiencia del sector público.",
             contactHeading: "Contacto",
             commandCenter: "Opciones de contacto",
             contactTooltipTitle: "Contacto",
             contactTooltipDescription:
-              "Solicitudes, llamadas, correo, visitas y boletin informativo.",
-            joinTeamEyebrow: "Unete al equipo",
-            quickApplication: "Solicitud rapida",
-            callUsEyebrow: "Llamenos",
-            emailUsEyebrow: "Escribanos",
-            visitUsEyebrow: "Visitenos",
-            stayUpdated: "Mantengase al dia",
-            joinNewsletter: "Unase a nuestro boletin",
-            emailAddress: "Correo electronico",
+              "Solicitudes, llamadas, correo, visitas y boletín informativo.",
+            joinTeamEyebrow: "Únete al equipo",
+            quickApplication: "Solicitud rápida",
+            callUsEyebrow: "Llámenos",
+            emailUsEyebrow: "Escríbanos",
+            visitUsEyebrow: "Visítenos",
+            stayUpdated: "Manténgase al día",
+            joinNewsletter: "Únase a nuestro boletín",
+            emailAddress: "Correo electrónico",
             accreditationsHeading: "Acreditaciones y afiliaciones",
             accreditationsTooltipTitle: "Acreditaciones y afiliaciones",
             accreditationsTooltipDescription:

@@ -32,7 +32,7 @@ Prefer `NextStepsSection` everywhere. `StrategicCTABanner` remains available as 
 - `/projects`
 - `/public-sector` (full page wrapper)
 - `/resources`
-- `/services`
+- `/` (services hub at `/#services`)
 - `/team`
 - `/veterans`
 
@@ -44,7 +44,7 @@ Default for all content and evergreen pages:
 
 - Use `NextStepsSection` only.
 
-Use `NextStepsSection` only on all audited pages, including `/`, `/about`, `/faq`, `/resources`, `/team`, `/testimonials`, `/veterans`, `/careers`, `/cool-desert-nights`, `/services`, `/projects`, and `/public-sector`.
+Use `NextStepsSection` only on all audited pages, including `/`, `/about`, `/faq`, `/resources`, `/team`, `/testimonials`, `/veterans`, `/careers`, `/cool-desert-nights`, `/` (services hub at `/#services`), `/projects`, and `/public-sector`.
 
 ## Documentation Rule for New Pages
 

@@ -36,12 +36,6 @@ const ADMIN_USERS: Record<string, JWTUser> = {
     role: "admin",
     name: "Arnold",
   },
-  "admin-brittney": {
-    uid: "admin-brittney",
-    email: "brittney@mhc-gc.com",
-    role: "admin",
-    name: "Brittney",
-  },
 };
 
 function resolveFieldUser(userId: string): JWTUser | null {

@@ -182,7 +182,11 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 
 ---
 
-### `/services` — 🟡 MEDIUM
+### `/#services` — 🟡 MEDIUM
+
+Note: This label represents the home services hub section and is retained for
+historical continuity with earlier reports that targeted the legacy `/services`
+index route.
 
 **Scanned issues:**
 
@@ -339,7 +343,7 @@ These patterns appear across many pages. When you touch any file, fix the patter
 | `/public-sector` | 🟡 MED   | [x]     | [x]   | 17 FIW, no priority images; Lighthouse Apr 17: **94/97/77/100**                                                                                                                                                            |
 | `/resources`     | 🟡 MED   | [x]     | [x]   | 9 FIW; not in Apr 17 run                                                                                                                                                                                                   |
 | `/safety`        | 🟡 MED   | [x]     | [x]   | 10× decorBG; not in Apr 17 run                                                                                                                                                                                             |
-| `/services`      | 🟡 MED   | [x]     | [x]   | 9 FIW, no priority images; Lighthouse Apr 17: **97/97/77/100**                                                                                                                                                             |
+| `/#services`     | 🟡 MED   | [x]     | [x]   | 9 FIW, no priority images; Lighthouse Apr 17: **97/97/77/100**                                                                                                                                                             |
 | `/team`          | 🟡 MED   | [x]     | [x]   | 8× decorBG; ❌ Lighthouse Apr 17: **PROTOCOL_TIMEOUT** — retest needed                                                                                                                                                     |
 | `/testimonials`  | 🟢 LOW   | [x]     | [x]   | Removed hero FIW + 2 section DecorBGs; Lighthouse Apr 17: **97/97/77/100**                                                                                                                                                 |
 | `/projects`      | 🟢 LOW   | [x]     | [x]   | No Suspense needed — uses window.location; Lighthouse Apr 17: **91/97/77/100**                                                                                                                                             |
@@ -361,30 +365,30 @@ These patterns appear across many pages. When you touch any file, fix the patter
 **Result:** 19 / 22 successful · 3 failed  
 **Averages (successful pages):** Performance **95** · Accessibility **96** · Best Practices **78** · SEO **100** · Overall **92**
 
-| Page                                     | Perf   | A11y | Best Pr. | SEO | Avg | Status                |
-| ---------------------------------------- | ------ | ---- | -------- | --- | --- | --------------------- |
-| Home (/)                                 | 95     | 97   | 77       | 100 | 92  | ✅                    |
-| About (/about)                           | 96     | 97   | 81       | 100 | 94  | ✅                    |
-| Services (/services)                     | 97     | 97   | 77       | 100 | 93  | ✅                    |
-| Projects (/projects)                     | 91     | 97   | 77       | 100 | 91  | ✅                    |
-| Team (/team)                             | —      | —    | —        | —   | —   | ❌ PROTOCOL_TIMEOUT   |
-| Careers (/careers)                       | **70** | 94   | 77       | 100 | 85  | ⚠️ Perf below target  |
-| Contact (/contact)                       | —      | —    | —        | —   | —   | ❌ 503 (intermittent) |
-| FAQ (/faq)                               | 97     | 97   | **96**   | 100 | 98  | ✅ standout           |
-| Privacy (/privacy)                       | 96     | 97   | 77       | 100 | 93  | ✅                    |
-| Terms (/terms)                           | 98     | 97   | 77       | 100 | 93  | ✅                    |
-| Accessibility (/accessibility)           | 98     | 97   | 77       | 100 | 93  | ✅                    |
-| Testimonials (/testimonials)             | 97     | 97   | 77       | 100 | 93  | ✅                    |
-| Veterans (/veterans)                     | 96     | 97   | 77       | 100 | 93  | ✅                    |
-| Public Sector (/public-sector)           | 94     | 97   | 77       | 100 | 92  | ✅                    |
-| Allies (/allies)                         | —      | —    | —        | —   | —   | ❌ 300s TIMEOUT       |
-| Pasco (/locations/pasco)                 | 99     | 96   | 81       | 100 | 94  | ✅                    |
-| Richland (/locations/richland)           | 98     | 96   | 77       | 100 | 93  | ✅                    |
-| Kennewick (/locations/kennewick)         | 99     | 96   | 77       | 100 | 93  | ✅                    |
-| West Richland (/locations/west-richland) | 98     | 96   | 77       | 100 | 93  | ✅                    |
-| Yakima (/locations/yakima)               | 97     | 96   | 77       | 100 | 93  | ✅                    |
-| Walla Walla (/locations/walla-walla)     | 97     | 96   | 77       | 100 | 93  | ✅                    |
-| Spokane (/locations/spokane)             | 98     | 96   | 77       | 100 | 93  | ✅                    |
+| Page                                                     | Perf   | A11y | Best Pr. | SEO | Avg | Status                |
+| -------------------------------------------------------- | ------ | ---- | -------- | --- | --- | --------------------- |
+| Home (/)                                                 | 95     | 97   | 77       | 100 | 92  | ✅                    |
+| About (/about)                                           | 96     | 97   | 81       | 100 | 94  | ✅                    |
+| Services Hub (/#services, historical /services baseline) | 97     | 97   | 77       | 100 | 93  | ✅                    |
+| Projects (/projects)                                     | 91     | 97   | 77       | 100 | 91  | ✅                    |
+| Team (/team)                                             | —      | —    | —        | —   | —   | ❌ PROTOCOL_TIMEOUT   |
+| Careers (/careers)                                       | **70** | 94   | 77       | 100 | 85  | ⚠️ Perf below target  |
+| Contact (/contact)                                       | —      | —    | —        | —   | —   | ❌ 503 (intermittent) |
+| FAQ (/faq)                                               | 97     | 97   | **96**   | 100 | 98  | ✅ standout           |
+| Privacy (/privacy)                                       | 96     | 97   | 77       | 100 | 93  | ✅                    |
+| Terms (/terms)                                           | 98     | 97   | 77       | 100 | 93  | ✅                    |
+| Accessibility (/accessibility)                           | 98     | 97   | 77       | 100 | 93  | ✅                    |
+| Testimonials (/testimonials)                             | 97     | 97   | 77       | 100 | 93  | ✅                    |
+| Veterans (/veterans)                                     | 96     | 97   | 77       | 100 | 93  | ✅                    |
+| Public Sector (/public-sector)                           | 94     | 97   | 77       | 100 | 92  | ✅                    |
+| Allies (/allies)                                         | —      | —    | —        | —   | —   | ❌ 300s TIMEOUT       |
+| Pasco (/locations/pasco)                                 | 99     | 96   | 81       | 100 | 94  | ✅                    |
+| Richland (/locations/richland)                           | 98     | 96   | 77       | 100 | 93  | ✅                    |
+| Kennewick (/locations/kennewick)                         | 99     | 96   | 77       | 100 | 93  | ✅                    |
+| West Richland (/locations/west-richland)                 | 98     | 96   | 77       | 100 | 93  | ✅                    |
+| Yakima (/locations/yakima)                               | 97     | 96   | 77       | 100 | 93  | ✅                    |
+| Walla Walla (/locations/walla-walla)                     | 97     | 96   | 77       | 100 | 93  | ✅                    |
+| Spokane (/locations/spokane)                             | 98     | 96   | 77       | 100 | 93  | ✅                    |
 
 **Open items from this run:**
 

@@ -17,7 +17,8 @@ const DEFAULT_EN_COPY: HeroSectionCopy = {
   baseLabel: "Home",
   founded: "Founded 2010 • Veteran-Owned Since January 2025 • BABAA Supporter",
   tagline: "Relationship-first construction across WA, OR, and ID",
-  mission: "Clear planning. Accountable delivery.",
+  mission:
+    "Built on Quality, Backed by Trust. Squared away from start to finish.",
   serving:
     "Tri-Cities HQ (Pasco, Richland, Kennewick) | Licensed in WA, OR, ID",
 };

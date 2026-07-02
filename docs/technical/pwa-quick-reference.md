@@ -65,7 +65,7 @@ const STATIC_ASSETS = [
   "/new-page", // ← Add here
   "/contact",
   "/projects",
-  "/services",
+  "/#services",
 ];
 ```
 

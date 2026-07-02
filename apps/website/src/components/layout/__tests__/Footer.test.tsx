@@ -153,7 +153,7 @@ describe("Footer", () => {
     [
       "/",
       "/contact",
-      "/services",
+      "/#services",
       "/projects",
       "/about",
       "/careers?apply=true&entryPoint=Footer%20Application",
@@ -181,7 +181,7 @@ describe("Footer", () => {
     expect(screen.getByText("Contact options")).toBeVisible();
     expect(screen.getByRole("link", { name: /services/i })).toHaveAttribute(
       "href",
-      "/services",
+      "/#services",
     );
   });
 

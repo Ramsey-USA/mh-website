@@ -273,9 +273,9 @@ export function generateEnhancedOrganizationSchema() {
     ],
     veteranOwned: true,
     ownershipType: "Veteran-Owned Small Business",
-    slogan: "Clear planning and accountable delivery",
+    slogan: "Built on Quality, Backed by Trust.",
     mission:
-      "Build lasting value through clear planning, disciplined execution, and reliable partnership across the Pacific Northwest",
+      "Build lasting value through clear planning, disciplined execution, and reliable partnership across the Pacific Northwest. No gaps. No guesswork. Just accountable follow-through.",
     hasCredential: [
       {
         "@type": "EducationalOccupationalCredential",
@@ -422,7 +422,7 @@ export function generateServiceSchema(service: {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${enhancedSEO.siteUrl}/services/${service.name
+    "@id": `${enhancedSEO.siteUrl}/#service-${service.name
       .toLowerCase()
       .split(/\s+/)
       .join("-")}`,

@@ -31,7 +31,10 @@ export function AboutHero({
             <span className="block text-brand-secondary">{subtitle}</span>
             <span className="block text-brand-primary">{description}</span>
             <span className="block text-white/90">
-              Clear planning. Accountable delivery.
+              Built on Quality, Backed by Trust.
+            </span>
+            <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
+              Professional on the line. Thorough in the details.
             </span>
           </h1>
         </div>

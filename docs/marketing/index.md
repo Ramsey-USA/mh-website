@@ -39,4 +39,4 @@ Before publishing any marketing asset, confirm that terminology, trust reference
 ---
 
 **MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
-**Clear planning. Accountable delivery.**
+**Built on Quality, Backed by Trust.**

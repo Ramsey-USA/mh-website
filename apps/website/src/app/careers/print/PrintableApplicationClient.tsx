@@ -17,7 +17,7 @@ const translations = {
     title: "Employment Application",
     subtitle: "MH Construction, Inc.",
     tagline: "Veteran-Owned Since January 2025 General Contractor",
-    brandSlogan: "Clear planning. Accountable delivery.",
+    brandSlogan: "Built on Quality, Backed by Trust.",
     roiMessage: "Built on communication and follow-through",
     instructions: "Instructions",
     instructionsList: [
@@ -123,8 +123,10 @@ const translations = {
     title: "Solicitud de Empleo",
     subtitle: "MH Construction, Inc.",
     tagline: "Contratista General de Propiedad de Veteranos Desde Enero 2025",
-    brandSlogan: "Construyendo proyectos para el cliente, NO por el dinero",
-    roiMessage: "EL RETORNO ES LA RELACIÓN",
+    brandSlogan:
+      "Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
+    roiMessage:
+      "No gaps. No guesswork. Just accountable follow-through. (Sin brechas. Sin suposiciones. Solo seguimiento responsable.)",
     instructions: "Instrucciones",
     instructionsList: [
       "Por favor escriba claramente con tinta negra o azul.",

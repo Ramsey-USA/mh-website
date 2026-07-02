@@ -13,7 +13,7 @@ export function PageHero({
   title,
   highlight,
   description,
-  missionLine = "Clear planning. Accountable delivery.",
+  missionLine = "Built on Quality, Backed by Trust. Squared away from start to finish.",
 }: PageHeroProps) {
   return (
     <section

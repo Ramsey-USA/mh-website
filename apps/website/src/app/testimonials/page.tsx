@@ -256,6 +256,12 @@ export default async function TestimonialsPage(props?: {
             <p className="mx-auto mt-5 max-w-3xl text-base sm:text-lg text-white/90 leading-relaxed">
               Reviews from client partners across Washington, Oregon, and Idaho.
             </p>
+            <p className="mx-auto mt-4 max-w-3xl text-sm sm:text-base text-brand-secondary/90 font-semibold">
+              {COMPANY_INFO.slogan.primary}
+            </p>
+            <p className="mx-auto mt-2 max-w-3xl text-sm sm:text-base text-brand-secondary/80 font-semibold">
+              {COMPANY_INFO.slogan.secondary}
+            </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild variant="secondary" size="lg">
                 <Link
@@ -336,6 +342,9 @@ export default async function TestimonialsPage(props?: {
               </span>{" "}
               across commercial, industrial, and government projects in WA, OR,
               and ID.
+            </p>
+            <p className="mx-auto mt-4 max-w-3xl text-sm sm:text-base text-brand-secondary/90 font-semibold">
+              {COMPANY_INFO.slogan.secondary}
             </p>
 
             {/* Stats Display */}
@@ -942,7 +951,7 @@ export default async function TestimonialsPage(props?: {
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link
-                href="/services"
+                href="/#services"
                 aria-label="Learn about our construction services"
               >
                 <MaterialIcon icon="arrow_forward" size="md" ariaLabel="" />

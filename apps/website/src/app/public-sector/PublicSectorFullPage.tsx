@@ -326,6 +326,12 @@ export default function PublicSectorFullPage() {
                 Built for agency requirements, schedule discipline, and clear
                 reporting
               </span>
+              <span className="block text-white/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
+                {COMPANY_INFO.slogan.primary}
+              </span>
+              <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
+                {COMPANY_INFO.slogan.quaternary}
+              </span>
             </h1>
           </div>
         </div>

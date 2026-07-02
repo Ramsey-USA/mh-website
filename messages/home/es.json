@@ -3,36 +3,44 @@
     "baseLabel": "Base Central → Hogar",
     "founded": "Fundado en 2010 • Empresa veterana desde enero de 2025 • Partidario de BABAA (Ley Build America, Buy America)",
     "tagline": "Construcción centrada en la relación en WA, OR e ID",
-    "mission": "Construyendo proyectos para el Cliente, NO para el Dinero",
+    "mission": "Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
     "serving": "Sede en Tri-Cities (Pasco, Richland, Kennewick) | Licencia Tri-State en WA, OR, ID"
   },
   "coreValues": {
     "sectionSubtitle": "Marco de Decisión",
     "sectionTitle": "Cuatro Valores en la Práctica",
-    "sectionDescription": "Estos valores definen cómo tomamos decisiones sobre alcance, presupuesto y cronograma mientras protegemos la calidad y la rendición de cuentas.",
+    "sectionDescription": "Estos valores definen cómo tomamos decisiones sobre alcance, presupuesto y cronograma mientras protegemos la calidad y la rendición de cuentas. Professional on the line. Thorough in the details. (Profesionales en la línea. Minuciosos en cada detalle.)",
     "keyMetric": "Métrica Clave",
     "values": [
       {
         "value": "Honestidad",
         "tagline": "Comunicación Clara en Todo Momento",
+        "valueSlogan": "Truth in every touchpoint. (Verdad en cada punto de contacto.)",
+        "supportingSlogan": "Clear facts. No spin. No surprises. (Hechos claros. Sin adornos. Sin sorpresas.)",
         "description": "Precios transparentes, comunicación directa y actualizaciones en tiempo real sobre alcance, presupuesto y cronograma. Avisamos riesgos temprano y decimos cuando un proyecto no es el ajuste correcto.",
         "stats": "Precios 100% Transparentes"
       },
       {
         "value": "Integridad",
         "tagline": "Haciendo lo Correcto",
-        "description": "Seguimos materiales y metodos especificados, cumplimos compromisos y respaldamos el trabajo con garantias claras. Sin atajos.",
+        "valueSlogan": "Do right when no one is watching. (Hacer lo correcto, incluso cuando nadie mira.)",
+        "supportingSlogan": "Commitments kept under pressure. (Compromisos cumplidos bajo presión.)",
+        "description": "Seguimos materiales y métodos especificados, cumplimos compromisos y respaldamos el trabajo con garantías claras. Sin atajos.",
         "stats": "Ética Inquebrantable"
       },
       {
         "value": "Profesionalismo",
         "tagline": "Excelencia en Acción",
+        "valueSlogan": "Prepared, precise, and respectful. (Preparados, precisos y respetuosos.)",
+        "supportingSlogan": "Standards high on every site, every day. (Estándares altos en cada obra, todos los días.)",
         "description": "Llegamos preparados, comunicamos con claridad, mantenemos el sitio organizado y tratamos a las personas y la propiedad con respeto.",
         "stats": "Estándares de Servicio Experto"
       },
       {
         "value": "Minuciosidad",
         "tagline": "Ningún Detalle Olvidado",
+        "valueSlogan": "Every detail accounted for. (Cada detalle, debidamente considerado.)",
+        "supportingSlogan": "Measure twice, document always, close out clean. (Medir dos veces, documentar siempre y cerrar con orden.)",
         "description": "Planificamos con detalle, documentamos cada fase, aplicamos controles de calidad y cerramos con punch list y entrega completos.",
         "stats": "Cero Detalles Omitidos"
       }
@@ -41,7 +49,7 @@
   "companyStats": {
     "subtitle": "Resumen de Rendimiento",
     "title": "Cifras que Puede Verificar",
-    "description": "Vista rápida del rendimiento en seguridad, profundidad del equipo, volumen de entrega y cobertura de licencias en Washington, Oregon e Idaho.",
+    "description": "Vista rápida del rendimiento en seguridad, profundidad del equipo, volumen de entrega y cobertura de licencias en Washington, Oregon e Idaho. No gaps. No guesswork. Just accountable follow-through. (Sin brechas. Sin suposiciones. Solo seguimiento responsable.)",
     "labels": {
       "safety": "EMR de Seguridad Galardonado",
       "experience": "Años de Experiencia Combinada",
@@ -52,7 +60,7 @@
   "services": {
     "sectionSubtitle": "Frentes por Resultado",
     "sectionTitle": "Comience por su Tipo de Proyecto",
-    "sectionDescription": "Vea cómo entregamos proyectos AG y de bodegas, tenant improvements comerciales y obra municipal con responsables claros, visibilidad en Procore y controles listos para cierre.",
+    "sectionDescription": "Vea cómo entregamos proyectos AG y de bodegas, tenant improvements comerciales y obra municipal con responsables claros, visibilidad en Procore y controles listos para cierre. Squared away from start to finish. (Listos y alineados de principio a fin.)",
     "clickForDetails": "Haga clic para detalles completos",
     "viewDetailsAriaPrefix": "Ver detalles de",
     "closeDetailsBackdropAria": "Cerrar modal de detalles del servicio",
@@ -119,7 +127,7 @@
       {
         "title": "Adquisición y Alianzas Comerciales",
         "subtitle": "Gestión de Cadena de Suministro",
-        "description": "Coordinación de cadena de suministro para materiales de calidad y socios comerciales verificados, con menos retrasos y mayor trazabilidad.",
+        "description": "Coordinación de cadena de suministro para materiales de calidad y Socios Comerciales verificados, con menos retrasos y mayor trazabilidad.",
         "features": [
           "Abastecimiento y adquisición de materiales",
           "Coordinación y gestión de proveedores",
@@ -175,13 +183,13 @@
   "whyPartner": {
     "sectionSubtitle": "Responsabilidad Operativa",
     "sectionTitle": "Quien Es Responsable en Cada Etapa",
-    "sectionDescription": "Revise nuestro modelo de responsables, ruta de escalamiento y controles de aprobacion para mantener decisiones claras desde el inicio hasta el soporte posterior al cierre.",
+    "sectionDescription": "Revise nuestro modelo de responsables, ruta de escalamiento y controles de aprobacion para mantener decisiones claras desde el inicio hasta el soporte posterior al cierre. From Handshake to Handoff, we got your 'six.' (Del primer apretón de manos a la entrega final, cubrimos su retaguardia.)",
     "philosophy": "Tu palabra es tu compromiso; la nuestra también. Punto.",
-    "theROI": "EL ROI ES LA RELACIÓN",
+    "theROI": "No gaps. No guesswork. Just accountable follow-through. (Sin brechas. Sin suposiciones. Solo seguimiento responsable.)",
     "tradeCta": {
       "prompt": "¿Es usted contratista de oficios?",
       "highlight": "Únase a nuestra red Ally.",
-      "button": "Ver oportunidades para socios comerciales",
+      "button": "Ver oportunidades para Socios Comerciales",
       "iconAria": "Socios comerciales"
     },
     "values": [
@@ -263,7 +271,7 @@
   "testimonials": {
     "subtitle": "Voces de Clientes",
     "title": "Relaciones Probadas en Campo",
-    "description": "Prueba de socios cliente en AG/bodegas, TI comercial y mercados municipales en todo el Noroeste del Pacífico."
+    "description": "Prueba de Socios Cliente en AG/bodegas, TI comercial y mercados municipales en todo el Noroeste del Pacífico. Squared away from start to finish. (Listos y alineados de principio a fin.)"
   },
   "process": {
     "subtitle": "Hoja de Ruta de Ejecución",
@@ -272,7 +280,7 @@
     "descriptionPart2": "la calificación inicial hasta el cierre",
     "descriptionPart3": ". La propiedad de responsabilidades, el escalamiento y las aprobaciones se mantienen visibles con",
     "descriptionPart4": "controles en Procore y documentación lista para entrega",
-    "descriptionPart5": ".",
+    "descriptionPart5": ". Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
     "steps": [
       {
         "title": "Ingreso y Calificación",

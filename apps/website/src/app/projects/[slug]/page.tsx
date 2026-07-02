@@ -14,6 +14,10 @@ import {
 } from "@/lib/data/project-case-studies";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { PortfolioService } from "@/lib/services/portfolio-service";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 
@@ -31,11 +35,11 @@ type ProjectRoutePlan = {
 const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
   "kennewick-commercial-office-renovation": {
     primaryService: {
-      href: "/services/commercial-construction",
+      href: "/#services",
       label: "Commercial Construction",
     },
     secondaryService: {
-      href: "/services/drywall-interiors",
+      href: "/#services",
       label: "Drywall and Interiors",
     },
     location: {
@@ -45,11 +49,11 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
   },
   "pasco-industrial-warehouse-build-out": {
     primaryService: {
-      href: "/services/commercial-construction",
+      href: "/#services",
       label: "Commercial Construction",
     },
     secondaryService: {
-      href: "/services/municipal-government",
+      href: "/#services",
       label: "Municipal and Government",
     },
     location: {
@@ -59,11 +63,11 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
   },
   "richland-corporate-office-tenant-improvement": {
     primaryService: {
-      href: "/services/restoration-remodeling",
+      href: "/#services",
       label: "Restoration and Remodeling",
     },
     secondaryService: {
-      href: "/services/drywall-interiors",
+      href: "/#services",
       label: "Drywall and Interiors",
     },
     location: {
@@ -73,11 +77,11 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
   },
   "spokane-healthcare-clinic-tenant-improvement": {
     primaryService: {
-      href: "/services/drywall-interiors",
+      href: "/#services",
       label: "Drywall and Interiors",
     },
     secondaryService: {
-      href: "/services/commercial-construction",
+      href: "/#services",
       label: "Commercial Construction",
     },
     location: {
@@ -87,11 +91,11 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
   },
   "west-richland-light-industrial-flex-facility": {
     primaryService: {
-      href: "/services/commercial-construction",
+      href: "/#services",
       label: "Commercial Construction",
     },
     secondaryService: {
-      href: "/services/restoration-remodeling",
+      href: "/#services",
       label: "Restoration and Remodeling",
     },
     location: {
@@ -141,7 +145,7 @@ export async function generateMetadata({
 
   if (!caseStudy && !project) {
     return {
-      title: "Projects | MH Construction",
+      title: `${formatDualPageName(PAGE_TERMINOLOGY.projects.seoName, PAGE_TERMINOLOGY.projects.mhBrandName)} | MH Construction`,
       description:
         "Review completed MH Construction projects and case studies across commercial, industrial, and public-sector work.",
       robots: { index: false, follow: false },
@@ -297,11 +301,11 @@ export default async function ProjectCaseStudyPage({
   const routePlan = PROJECT_ROUTE_PLANS[canonicalSlug ?? slug] ??
     PROJECT_ROUTE_PLANS[caseStudy?.slug ?? ""] ?? {
       primaryService: {
-        href: "/services/commercial-construction",
+        href: "/#services",
         label: "Commercial Construction",
       },
       secondaryService: {
-        href: "/services/restoration-remodeling",
+        href: "/#services",
         label: "Restoration and Remodeling",
       },
       location: {
@@ -337,6 +341,12 @@ export default async function ProjectCaseStudyPage({
               </h1>
               <p className="mt-5 text-lg leading-8 text-white/85">
                 {description}
+              </p>
+              <p className="mt-4 text-sm font-semibold text-brand-secondary/90 sm:text-base">
+                {COMPANY_INFO.slogan.primary}
+              </p>
+              <p className="mt-2 text-sm font-semibold text-brand-secondary/80 sm:text-base">
+                {COMPANY_INFO.slogan.secondary}
               </p>
             </div>
           </div>

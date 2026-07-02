@@ -49,7 +49,7 @@ export function generateJobApplicationAcknowledgment(
     <tr>
       <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
         <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
-        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Veteran-Owned. Relationship-first.</p>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Built on Quality, Backed by Trust.</p>
       </td>
     </tr>
     
@@ -191,7 +191,7 @@ export function generateConsultationAcknowledgment(
     <tr>
       <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
         <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
-        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600; font-style: italic;">Building projects for the Client, <em>NOT</em> the Dollar</p>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600; font-style: italic;">Built on Quality, Backed by Trust.</p>
       </td>
     </tr>
     
@@ -218,7 +218,7 @@ export function generateConsultationAcknowledgment(
         </div>
         
         <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
-          At MH Construction, we believe <em>"THE ROI IS THE RELATIONSHIP."</em> We're not just building structures - we're building lasting partnerships based on trust, transparency, and disciplined execution.
+          At MH Construction, we believe <em>"Built on Quality, Backed by Trust."</em> We're not just building structures - we're building lasting partnerships based on trust, transparency, and disciplined execution.
         </p>
         
         <div style="background-color: #fff; border: 2px solid #386851; padding: 20px; margin: 20px 0; border-radius: 6px;">
@@ -283,7 +283,7 @@ YOUR CONSULTATION IS SCHEDULED:
 WHAT TO EXPECT:
 We'll review your project details and reach out within 24 hours to discuss your vision, timeline, and budget. Our partnership-driven approach means we work WITH you to bring your project to life.
 
-At MH Construction, we believe "THE ROI IS THE RELATIONSHIP." We're not just building structures — we're building lasting partnerships based on trust, transparency, and disciplined execution.
+At MH Construction, we believe "Built on Quality, Backed by Trust." We're not just building structures — we're building lasting partnerships based on trust, transparency, and disciplined execution.
 
 🤝 OUR PARTNERSHIP PROMISE:
 - Open-book pricing with no surprises
@@ -475,12 +475,12 @@ export function generateNewsletterAcknowledgment(data: NewsletterEmailData): {
         </div>
         
         <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
-          At MH Construction, we believe in <em>"Building projects for the Client, NOT the Dollar."</em> This philosophy extends to everything we do, including the content we share with you.
+          At MH Construction, we believe in <em>"Built on Quality, Backed by Trust."</em> This philosophy extends to everything we do, including the content we share with you.
         </p>
         
         <div style="background-color: #fff9f0; border: 1px solid #d4af37; padding: 20px; margin: 25px 0; border-radius: 6px; text-align: center;">
           <p style="margin: 0 0 15px 0; font-size: 16px; color: #666;">
-            <strong style="color: #BD9264;">🎖️ Veteran-Owned. Relationship-first.</strong>
+            <strong style="color: #BD9264;">🎖️ Built on Quality, Backed by Trust.</strong>
           </p>
           <p style="margin: 0; font-size: 14px; color: #666; line-height: 1.6;">
             As a Veteran-Owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to be headquartered in the Tri-Cities (Pasco, Richland, Kennewick) and to serve our Tri-State licensed footprint across the Pacific Northwest with the same dedication we showed in service to our country.
@@ -551,7 +551,7 @@ WHAT TO EXPECT:
 • Company News: Updates from our Veteran-Owned family business
 • Exclusive Content: Special offers and partnership opportunities
 
-At MH Construction, we believe in "Building projects for the Client, NOT the Dollar." This philosophy extends to everything we do, including the content we share with you.
+At MH Construction, we believe in "Built on Quality, Backed by Trust." This philosophy extends to everything we do, including the content we share with you.
 
 VETERAN-OWNED. RELATIONSHIP-FIRST.
 As a Veteran-Owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to be headquartered in the Tri-Cities (Pasco, Richland, Kennewick) and to serve our Tri-State licensed footprint across the Pacific Northwest with the same dedication we showed in service to our country.

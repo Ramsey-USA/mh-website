@@ -19,7 +19,7 @@
   values, SEO-focused metadata and structured data, performance optimized with lazy loading
   - Full documentation: [Homepage Documentation](../technical/homepage.md)
 - ✅ **About Page** (`/src/app/about/page.tsx`) - Company story and 4-value foundation
-- ✅ **Services Page** (`/src/app/services/page.tsx`) - Construction capabilities and expertise
+- ✅ **Services Sections on Home** (`/src/app/page.tsx` `id="services"`) - Service discovery and detail are handled in home sections
 - ✅ **Projects Page** (`/src/app/projects/page.tsx`) - Portfolio showcase with filtering
 - ✅ **Team Page** (`/src/app/team/page.tsx`) - Leadership profiles and specializations
 - ✅ **Contact Page** (`/src/app/contact/page.tsx`) - Multiple communication channels
@@ -105,7 +105,7 @@ src/
 ├── app/
 │   ├── page.tsx                    # Homepage
 │   ├── about/page.tsx              # About page
-│   ├── services/page.tsx           # Services page
+│   ├── services/page.tsx           # Legacy services route (permanent redirect)
 │   ├── projects/page.tsx           # Projects / portfolio page
 │   ├── team/page.tsx               # Team page
 │   ├── contact/page.tsx            # Contact page
@@ -178,7 +178,7 @@ src/
 │   ├── pwa/                        # PWA install prompt components
 │   ├── ratings/                    # Review/rating display components
 │   ├── seo/                        # SEO meta & structured data components
-│   ├── services/                   # Services page components
+│   ├── services/                   # Shared services hub/lane components
 │   ├── shared/                     # Miscellaneous shared components
 │   ├── shared-sections/            # Reusable full-page sections
 │   ├── team/                       # Team page components

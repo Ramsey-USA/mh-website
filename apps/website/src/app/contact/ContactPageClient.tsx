@@ -63,7 +63,7 @@ const buildMainCTAs = (t: ReturnType<typeof useTranslations>) => [
     icon: "map",
     label: t("contact.options.cards.services.label"),
     description: t("contact.options.cards.services.description"),
-    link: "/services",
+    link: "/#services",
     variant: "primary" as const,
     ariaLabel: t("contact.options.cards.services.ariaLabel"),
   },
@@ -136,11 +136,10 @@ export default function ContactPageClient({
                   {t("contact.hero.titleLine2")}
                 </span>
                 <span className="block text-white/90">
-                  {t("contact.hero.titleLine3Prefix")}
-                  <span className="font-black italic text-bronze-300">
-                    {t("contact.hero.notWord")}
-                  </span>{" "}
-                  {t("contact.hero.titleLine3Suffix")}
+                  {COMPANY_INFO.slogan.primary}
+                </span>
+                <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
+                  {COMPANY_INFO.slogan.tertiary}
                 </span>
               </h1>
             </div>
@@ -593,7 +592,7 @@ export default function ContactPageClient({
                     />
                   </Link>
                   <Link
-                    href="/services"
+                    href="/#services"
                     className="flex items-center justify-between bg-white dark:bg-gray-700 border-2 border-brand-primary text-brand-primary dark:text-brand-secondary hover:bg-brand-primary hover:text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
                   >
                     <div className="flex items-center gap-3">

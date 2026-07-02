@@ -39,7 +39,8 @@ const generalContractorSchema = {
     "@type": "State",
     name: "Washington",
   },
-  slogan: "Relationship-first planning with disciplined project delivery",
+  slogan: "Built on Quality, Backed by Trust.",
+  mission: "No gaps. No guesswork. Just accountable follow-through.",
 };
 
 export default async function ContactPage() {

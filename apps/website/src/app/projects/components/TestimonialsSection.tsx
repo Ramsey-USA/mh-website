@@ -27,7 +27,7 @@ export function TestimonialsSection({
   testimonials,
   title = "Stories",
   subtitle = "Partnership Success",
-  description = "Real experiences from Client Partners who've witnessed our four core values in action—building projects for the Client, NOT the Dollar.",
+  description = "Real experiences from Client Partners who've witnessed our four core values in action: Built on Quality, Backed by Trust. Squared away from start to finish.",
   clientPartnerLabel = "Client Partner",
   starRatingAriaSuffix = "star rating",
 }: Readonly<TestimonialsSectionProps>) {

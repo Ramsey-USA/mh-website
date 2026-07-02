@@ -51,4 +51,4 @@ Latest update: June 30 congruency closure pass completed across core website cop
 ---
 
 **MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
-**Building projects for the Client, NOT the Dollar**
+**Built on Quality, Backed by Trust.**

@@ -756,7 +756,7 @@ Form notifications are sent to the appropriate team members:
 | --------------- | ------------------------------------- |
 | Contact         | office@, matt@, arnold@               |
 | Consultation    | office@, matt@, arnold@               |
-| Job Application | office@, matt@, arnold@, brittney@    |
+| Job Application | office@, matt@, arnold@, kimberly@    |
 | Newsletter      | office@, matt@                        |
 | Safety Forms    | office@, arnold@ + Twilio SMS to Matt |
 
@@ -1287,7 +1287,7 @@ on every page via `src/components/seo/SeoMeta.tsx`. This enables rich results in
    - Hermiston, Pendleton (OR)
    - Coeur d'Alene (ID), Omak
 
-   **Services** (match `/services` page):
+   **Services** (match `/#services` page):
    - Commercial Construction Management
    - Pre-Construction Services
    - Design-Build

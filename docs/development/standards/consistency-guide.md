@@ -56,7 +56,7 @@ prioritization:
 
 3. **Group 3: Partnership & Team** (Team, Careers, Trade Partners)
    - Voice: Relationship-focused, long-term, mutual respect
-   - Priority: THE ROI IS THE RELATIONSHIP → All 4 values create ROI
+   - Priority: Built on Quality, Backed by Trust. → All 4 values create ROI
    - Focus: Partnerships that outlast projects
 
 4. **Group 4: Direct Communication** (Contact, FAQ)
@@ -86,7 +86,7 @@ prioritization:
 ## 🎯 Hero Section Tagline Strategy
 
 Each page's hero section uses a **unique, page-specific tagline** instead of repeating
-"THE ROI IS THE RELATIONSHIP" across all pages.
+"Built on Quality, Backed by Trust." across all pages.
 
 ### Why This Change?
 
@@ -115,11 +115,11 @@ Each page's hero section uses a **unique, page-specific tagline** instead of rep
 **Avoid:**
 
 - Generic phrases that could apply to any construction company
-- Overusing "THE ROI IS THE RELATIONSHIP" in hero sections
+- Overusing "Built on Quality, Backed by Trust." in hero sections
 - Taglines longer than one sentence
 - Industry jargon without context
 
-### Where "THE ROI IS THE RELATIONSHIP" Still Belongs
+### Where "Built on Quality, Backed by Trust." Still Belongs
 
 This phrase remains powerful and should be used in:
 
@@ -343,7 +343,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
   /* Hero Tagline */
 }
 <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-  "Building projects for the Client, NOT the Dollar"
+  "Built on Quality, Backed by Trust."
 </p>;
 
 {
@@ -875,7 +875,7 @@ pnpm run build
 
 ### Primary Slogan Styling Rule
 
-**CRITICAL STYLING REQUIREMENT**: When displaying the slogan "Building projects for the Client, NOT the Dollar",
+**CRITICAL STYLING REQUIREMENT**: When displaying the slogan "Built on Quality, Backed by Trust.",
 the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the core philosophy.
 
 **Implementation Standards**:
@@ -935,7 +935,7 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
   </div>
   <div style="font-weight: 600; margin-bottom: 4px;">MH Construction, Inc.</div>
   <div style="color: #757575; margin-bottom: 8px;">
-    Building projects for the Client, NOT the Dollar
+    Built on Quality, Backed by Trust.
   </div>
   <div style="margin-bottom: 4px;">
     Phone: <a href="tel:+15093086489" style="color: #386851;">(509) 308-6489</a>

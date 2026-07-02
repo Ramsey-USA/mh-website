@@ -66,7 +66,7 @@
           "trade": {
             "category": "Asociación",
             "title": "Expansión de la Red de Socios Comerciales",
-            "description": "Estamos ampliando nuestra red de profesionales de oficios para servir mejor a nuestros socios cliente en todo el Pacífico Noroeste.",
+            "description": "Estamos ampliando nuestra red de profesionales de oficios para servir mejor a nuestros Socios Cliente en todo el Pacífico Noroeste.",
             "date": "Oct 2025",
             "linkText": "Conviértase en Socio"
           },
@@ -435,7 +435,7 @@
     "pathways": {
       "subtitle": "Dos Caminos hacia el",
       "title": "Éxito en Asociación",
-      "description": "Elija la ruta correcta para entrega a clientes o integración de aliados",
+      "description": "Elija la ruta correcta para entrega a clientes o integración de aliados. From Handshake to Handoff, we got your 'six.' (Del apretón de manos a la entrega final, cubrimos su retaguardia.)",
       "shared": {
         "emailLabel": "Correo"
       },
@@ -460,7 +460,7 @@
         "callAriaPrefix": "Llamar a consultas de aliados al",
         "emailIconAria": "Correo de consultas de aliados",
         "emailAriaLabel": "Enviar correo a office@mhc-gc.com para consultas de aliados",
-        "note": "Para solicitudes de proveedor, relaciones de aliados y oportunidades de licitacion",
+        "note": "Para solicitudes de proveedor, relaciones de aliados y oportunidades de licitación. Professional on the line. Thorough in the details. (Profesionales en cada frente. Minuciosos en cada detalle.)",
         "ctaHeading": "Únase a Nuestra Red:",
         "ctaApply": "Solicitar como Proveedor Aprobado",
         "ctaBenefits": "Ver Beneficios de Aliados"
@@ -548,21 +548,21 @@
       "title": "MH Construction",
       "quote": "\"El retorno es la relación - demostrado con el tiempo.\"",
       "descriptionPrefix": "Desde 2010, MH Construction ha construido una reputacion de comunicación honesta, pagos puntuales y una cultura de seguridad sin igual",
-      "metric": "(.64 EMR - 40% mas seguro que el promedio de la industria)",
+      "metric": "(.64 EMR - 40% más seguro que el promedio de la industria)",
       "descriptionSuffix": "Nuestros estándares de liderazgo priorizan responsabilidad, cumplimiento y expectativas justas para cada socio.",
       "cite": "- Equipo de liderazgo de MH Construction",
       "values": {
         "handshakes": {
           "title": "Donde los apretones de manos aún importan",
-          "description": "Su palabra es su compromiso. Tratamos a nuestros socios comerciales con la misma integridad y respeto que damos a nuestros clientes: confianza cara a cara, respeto mutuo y un compromiso compartido de hacer lo correcto."
+          "description": "Su palabra es su compromiso. Tratamos a nuestros Socios Comerciales con la misma integridad y respeto que damos a nuestros clientes: confianza cara a cara, respeto mutuo y un compromiso compartido de hacer lo correcto."
         },
         "scheduling": {
           "title": "Programación confiable y comunicación abierta",
-          "description": "La comunicación transparente de libro abierto y los cronogramas confiables ayudan a nuestros socios comerciales a planificar con confianza y gestionar sus recursos de forma efectiva. Usted controla, nosotros gestionamos, juntos."
+          "description": "La comunicación transparente de libro abierto y los cronogramas confiables ayudan a nuestros Socios Comerciales a planificar con confianza y gestionar sus recursos de forma efectiva. Usted controla, nosotros gestionamos, juntos."
         },
         "payment": {
           "title": "Pago justo y puntual",
-          "description": "La compensación competitiva y los calendarios de pago confiables respaldan la salud financiera y el crecimiento de cada socio comercial. Construir para el Cliente, NO para el Dólar, significa tratar a los socios con la misma equidad."
+          "description": "La compensación competitiva y los calendarios de pago confiables respaldan la salud financiera y el crecimiento de cada Socio Comercial. Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.) significa tratar a los socios con la misma equidad."
         },
         "safety": {
           "title": "Cultura de seguridad galardonada",
@@ -571,11 +571,11 @@
       }
     },
     "network": {
-      "iconAria": "Red de socios comerciales",
+      "iconAria": "Red de Socios Comerciales",
       "subtitle": "Nuestra",
       "title": "Red de Socios Comerciales",
       "descriptionPrefix": "Empresas verificadas agrupadas por especialidad y listadas",
-      "descriptionEmphasis": "alfabeticamente dentro de cada categoria",
+      "descriptionEmphasis": "alfabéticamente dentro de cada categoría",
       "descriptionMiddle": "Los socios se seleccionan por licencia, alineación con seguridad, historial de desempeño y valores compartidos -",
       "descriptionStrong": "revisados trimestralmente para asegurar una representación justa y actualizada",
       "criteria": {
@@ -595,8 +595,8 @@
       "title": "Socio Comercial",
       "descriptionPrefix": "¿Listo para hacer crecer su negocio con un",
       "descriptionEmphasis": "contratista general regional confiable",
-      "descriptionMiddle": "Buscamos activamente socios comerciales confiables y calificados que valoren la calidad, la comunicación honesta y",
-      "descriptionStrong": "relaciones comerciales sostenibles basadas en el exito mutuo",
+      "descriptionMiddle": "Buscamos activamente Socios Comerciales confiables y calificados que valoren la calidad, la comunicación honesta y",
+      "descriptionStrong": "relaciones comerciales sostenibles basadas en el éxito mutuo",
       "buttonPrimaryAria": "Solicitar",
       "buttonPrimary": "Iniciar conversación de asociación",
       "buttonSecondaryAria": "Portafolio",
@@ -858,7 +858,7 @@
         "network": {
           "value": "En crecimiento",
           "label": "Red de Veteranos",
-          "description": "Alianzas con socios comerciales de propiedad veterana"
+          "description": "Alianzas con Socios Comerciales de propiedad veterana"
         }
       },
       "programs": {
@@ -871,7 +871,7 @@
         "allies": {
           "aria": "Red de aliados veteranos",
           "title": "Aliados Veteranos",
-          "description": "Incorporamos socios comerciales de propiedad veterana a una red en crecimiento con oportunidades preferenciales.",
+          "description": "Incorporamos Socios Comerciales de propiedad veterana a una red en crecimiento con oportunidades preferenciales.",
           "link": "Conviertase en Aliado"
         },
         "training": {
@@ -960,16 +960,16 @@
       "eyebrow": "Recurso Operativo",
       "title": "Manual del Empleado",
       "highlight": "Publicación en progreso",
-      "description": "El flujo de carga y publicación esta listo para la entrega versionada del manual."
+      "description": "El flujo de carga y publicación está listo para la entrega versionada del manual."
     },
     "badge": "Recurso Operativo",
     "placeholder": {
       "title": "Marcador del Manual del Empleado",
-      "description": "Esta sección esta activa y lista para su flujo de carga del manual. Cuando se proporcione el archivo fuente en Word, podremos procesarlo con el generador de PDF y publicar aquí el paquete final del manual."
+      "description": "Esta sección está activa y lista para su flujo de carga del manual. Cuando se proporcione el archivo fuente en Word, podremos procesarlo con el generador de PDF y publicar aquí el paquete final del manual."
     },
     "status": {
       "title": "Estado Actual",
-      "description": "Aun no se ha cargado ningun archivo del manual. Este marcador conserva la navegación del Hub de Operaciones y mantiene estable el destino para una futura publicación."
+      "description": "Aún no se ha cargado ningún archivo del manual. Este marcador conserva la navegación del Hub de Operaciones y mantiene estable el destino para una futura publicación."
     },
     "nextStep": {
       "title": "Siguiente Paso",
@@ -989,7 +989,7 @@
     "testimonials": {
       "subtitle": "Exito en la Asociación",
       "title": "Historias",
-      "description": "Experiencias reales de Socios Clientes que han visto nuestros cuatro valores en acción-construimos para el Cliente, NO para el Dólar.",
+      "description": "Experiencias reales de Socios Cliente que han visto nuestros cuatro valores en acción: Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
       "clientPartnerLabel": "Socio Cliente",
       "starRatingAriaSuffix": "calificación de estrellas"
     }
@@ -999,8 +999,8 @@
       "kicker": "Base Central - Eventos | Informe de Campo",
       "titleComplete": "Base Central - Eventos: Cool Desert Nights 2026 Resumen",
       "titleBriefing": "Base Central - Eventos: Cool Desert Nights 2026 Informe",
-      "descriptionComplete": "Gracias a la comunidad de Richland y Kennewick, al liderazgo del evento y a los Socios Clientes que hicieron posible el exito de este evento mediante una ejecución coordinada.",
-      "descriptionBriefing": "Cool Desert Nights 2026 esta programado para el 26 y 27 de junio en Richland, WA, con autos clasicos, un crucero nocturno el viernes y una exhibición Show 'n Shine el sábado en Uptown Shopping Center.",
+      "descriptionComplete": "Gracias a la comunidad de Richland y Kennewick, al liderazgo del evento y a los Socios Clientes que hicieron posible el éxito de este evento mediante una ejecución coordinada.",
+      "descriptionBriefing": "Cool Desert Nights 2026 está programado para el 26 y 27 de junio en Richland, WA, con autos clásicos, un crucero nocturno el viernes y una exhibición Show 'n Shine el sábado en Uptown Shopping Center.",
       "stats": {
         "eventWindow": {
           "label": "Fechas del Evento",
@@ -1034,7 +1034,7 @@
     "communityLeadership": {
       "kicker": "Liderazgo comunitario",
       "overline": "Confianza | Alineación de mando",
-      "title": "El propietario de MH Construction, Jeremy Thamert, formara parte del panel oficial de jueces de BBQ con sus amigos mas cercanos.",
+      "title": "El propietario de MH Construction, Jeremy Thamert, formará parte del panel oficial de jueces de BBQ con sus amigos más cercanos.",
       "description": "La coordinación del liderazgo local apoya la participación comunitaria coordinada y una comunicación clara con el liderazgo del evento."
     },
     "values": {
@@ -1062,7 +1062,7 @@
     "overview": {
       "competition": {
         "title": "Resumen de la competencia",
-        "description": "Cool Desert Nights es un evento veraniego destacado en Tri-Cities con autos clasicos, un crucero nocturno el viernes por George Washington Way y una exhibición Show 'n Shine el sábado en Uptown Shopping Center de Richland."
+        "description": "Cool Desert Nights es un evento veraniego destacado en Tri-Cities con autos clásicos, un crucero nocturno el viernes por George Washington Way y una exhibición Show 'n Shine el sábado en Uptown Shopping Center de Richland."
       },
       "presence": {
         "title": "Presencia de MH Construction",
@@ -1104,7 +1104,7 @@
       "title": "Cronograma del evento",
       "subtitle": "Prueba | Cronograma posterior a la acción",
       "items": {
-        "fridayCruise": "Crucero del viernes: Autos clasicos recorren George Washington Way.",
+        "fridayCruise": "Crucero del viernes: Autos clásicos recorren George Washington Way.",
         "partyInPark": "Party in the Park: Música en vivo y actividades comunitarias.",
         "saturdayShow": "Show 'n Shine del sábado: Exhibición de vehículos, zona infantil, vendedores y ceremonia de premiación."
       },
@@ -1112,7 +1112,7 @@
         "title": "Notas de la madrugada",
         "subtitle": "Detalles de llegada y desayuno para el inicio de la manana",
         "items": {
-          "cars": "Los autos clasicos comienzan a llegar a las 6:00 AM para los espacios con sombra en Jefferson Park.",
+          "cars": "Los autos clásicos comienzan a llegar a las 6:00 AM para los espacios con sombra en Jefferson Park.",
           "registration": "La inscripción tardia del auto show abre a las 7:00 AM en la carpa del lado de Jadwin en el centro comercial Uptown y cierra a las 10:00 AM.",
           "pancakeFeed": "El Richland Kiwanis Pancake Feed se realiza de 7:00 AM a 11:00 AM en Jefferson Park. Solo efectivo: $5 ninos, $7 adultos."
         }
@@ -1122,9 +1122,9 @@
       "kicker": "Coordinación de eventos",
       "overline": "Acción | Punto de encuentro",
       "title": "Conecte con el equipo antes de la próxima ventana del evento",
-      "description1": "El registro anticipado en línea para autos, camionetas y motocicletas esta disponible a traves de la Camara de Richland. También se están aceptando solicitudes de proveedores para 2026 a traves de la camara, y los detalles completos están disponibles en Eventbrite.",
+      "description1": "El registro anticipado en línea para autos, camionetas y motocicletas está disponible a través de la Cámara de Richland. También se están aceptando solicitudes de proveedores para 2026 a través de la cámara, y los detalles completos están disponibles en Eventbrite.",
       "description2Prefix": "Comience con la",
-      "description2Link": "página del evento de la Camara de Comercio de Richland",
+      "description2Link": "página del evento de la Cámara de Comercio de Richland",
       "description2Suffix": "y revise abajo los detalles de Eventbrite.",
       "cta": {
         "coordinate": "Coordinar con MH",
@@ -1444,14 +1444,14 @@
           "title": "Estimadora",
           "role": "Preconstrucción",
           "rating": 5,
-          "quote": "MH Construction toma en serio la inclusión y el desarrollo profesional, con responsabilidad real desde el primer dia.",
+          "quote": "MH Construction toma en serio la inclusión y el desarrollo profesional, con responsabilidad real desde el primer día.",
           "featured": true,
           "date": "2024-03"
         },
         {
           "id": "emp-003",
           "name": "Derek L.",
-          "title": "Carpintero Lider",
+          "title": "Carpintero Líder",
           "role": "Operaciones de Campo",
           "rating": 5,
           "quote": "La cultura en cada sitio de trabajo es segura, respetuosa y enfocada, con liderazgo que marca estándares claros para cada cuadrilla.",
@@ -1467,13 +1467,13 @@
       "baseLabel": "Hogar",
       "founded": "Fundado en 2010, Empresa Veterana Desde Enero de 2025 • Partidario de BABAA (Ley Build America, Buy America)",
       "tagline": "Su Centro Triestatal de Planificación de Construcción",
-      "mission": "Planificación clara. Entrega responsable.",
+      "mission": "Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
       "serving": "Sede en Tri-Cities (Pasco, Richland, Kennewick) | Licencia Tri-State en WA, OR, ID"
     },
     "coreValues": {
       "sectionSubtitle": "Valores de Empresa Veterana",
       "sectionTitle": "Construidos en Honestidad e Integridad",
-      "sectionDescription": "Cuatro valores fundamentales guían cada proyecto y asociación, enfocados en construir proyectos para el cliente, NO para el dinero.",
+      "sectionDescription": "Cuatro valores fundamentales guían cada proyecto y asociación, enfocados en Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
       "keyMetric": "Métrica Clave",
       "values": [
         {
@@ -1515,10 +1515,10 @@
     },
     "services": {
       "hero": {
-        "sectionTitle": "El Plan de Batalla - Excelencia Estratégica en Construcción",
+        "sectionTitle": "Excelencia Estratégica en Construcción",
         "sectionSubtitle": "Servicios",
-        "sectionTagline": "Su Misión de Construcción Merece Supervisión Experta con Liderazgo Veterano",
-        "sectionDescription": "Entrega comercial, industrial y del sector público en Washington, Oregon e Idaho desde nuestra sede en Tri-Cities. Nos enfocamos principalmente en trabajo comercial e industrial y solo consideramos proyectos residenciales únicos, de alta complejidad y de varios millones de dólares."
+        "sectionTagline": "Professional on the line. Thorough in the details. (Profesionales en la línea. Minuciosos en cada detalle.)",
+        "sectionDescription": "Entrega comercial, industrial y del sector público en Washington, Oregon e Idaho desde nuestra sede en Tri-Cities. Nos enfocamos principalmente en trabajo comercial e industrial y solo consideramos proyectos residenciales únicos, de alta complejidad y de varios millones de dólares. Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)"
       },
       "core": {
         "sectionTitle": "Servicios Principales",
@@ -1746,12 +1746,12 @@
       "partnership": {
         "sectionSubtitle": "Dos Caminos hacia",
         "sectionTitle": "Excelencia en la Asociación",
-        "sectionDescription": "Ya sea socio cliente planificando un proyecto o socio comercial buscando oportunidades, MH Construction ofrece rutas claras de colaboración y éxito.",
+        "sectionDescription": "Ya sea Socio Cliente planificando un proyecto o Socio Comercial buscando oportunidades, MH Construction ofrece rutas claras de colaboración y éxito.",
         "callLabel": "Llamar",
         "clientCard": {
           "title": "Relaciones con Socios Cliente",
           "subtitle": "Colaboración de Proyecto",
-          "description": "Para socios cliente que planifican proyectos en el Pacífico Noroeste. Trabajamos con usted para convertir su visión en realidad con gestión experta y colaboración enfocada en la asociación.",
+          "description": "Para Socios Cliente que planifican proyectos en el Pacífico Noroeste. Trabajamos con usted para convertir su visión en realidad con gestión experta y colaboración enfocada en la asociación.",
           "listTitle": "Lo Que Ofrecemos a Socios Cliente:",
           "items": [
             "Consultas y evaluaciones de proyecto sin costo",
@@ -1768,7 +1768,7 @@
         "tradeCard": {
           "title": "Alianzas Comerciales",
           "subtitle": "Red de Socios Comerciales",
-          "description": "Para subcontratistas, proveedores y profesionales de oficios que buscan oportunidades consistentes con un líder veterano en construcción del Pacífico Noroeste.",
+          "description": "Para subcontratistas, proveedores y profesionales de oficios que buscan oportunidades consistentes con un líder veterano en construcción del Pacífico Noroeste. No gaps. No guesswork. Just accountable follow-through. (Sin brechas. Sin adivinanzas. Solo seguimiento responsable.)",
           "listTitle": "Lo Que Ofrecemos a Socios Comerciales:",
           "items": [
             "Oportunidades de proyecto constantes",
@@ -1783,8 +1783,8 @@
           }
         },
         "bottomNote": {
-          "title": "Diferentes caminos, mismo compromiso con la excelencia.",
-          "description": "Ya sea construyendo su proyecto o su negocio, MH Construction valora cada relación de asociación."
+          "title": "Squared away from start to finish. (Listos y alineados de principio a fin.)",
+          "description": "Nuestro equipo aporta profesionalismo incansable cada día para Socios Cliente y Socios Comerciales. From Handshake to Handoff, we got your 'six.' (Del apretón de manos a la entrega final, cubrimos su retaguardia.) Professional on the line. Thorough in the details. (Profesionales en cada frente. Minuciosos en cada detalle.) No gaps. No guesswork. Just accountable follow-through. (Sin brechas. Sin adivinanzas. Solo seguimiento responsable.)"
         }
       },
       "deepNextSteps": {
@@ -1847,7 +1847,7 @@
       "tradeCta": {
         "prompt": "¿Es usted contratista de oficios?",
         "highlight": "Únase a nuestra red Ally.",
-        "button": "Ver oportunidades para socios comerciales",
+        "button": "Ver oportunidades para Socios Comerciales",
         "iconAria": "Socios comerciales"
       },
       "values": [
@@ -1998,7 +1998,7 @@
         "company": "Windermere Pasco",
         "project": "Tenant improvement comercial",
         "rating": 5,
-        "quote": "MH realizo una mejora de inquilino para nosotros y no podriamos estar mas satisfechos. Facilitaron diseno, permisos y construcción con gran profesionalismo.",
+        "quote": "MH realizó una mejora de inquilino para nosotros y no podríamos estar más satisfechos. Facilitaron diseño, permisos y construcción con gran profesionalismo.",
         "category": "commercial",
         "featured": true
       },
@@ -2018,7 +2018,7 @@
         "company": "Summer's Hub Pasco and Kennewick",
         "project": "Proyectos de asociación comercial",
         "rating": 5,
-        "quote": "Estamos agradecidos de ser socios cliente de MH Construction y muy satisfechos con la calidad y profesionalismo de su trabajo. Su atencion al detalle y resultados confiables superaron nuestras expectativas.",
+        "quote": "Estamos agradecidos de ser Socios Cliente de MH Construction y muy satisfechos con la calidad y profesionalismo de su trabajo. Su atención al detalle y resultados confiables superaron nuestras expectativas.",
         "category": "commercial",
         "featured": true
       },
@@ -2028,7 +2028,7 @@
         "company": "Baskin-Robbins of Kennewick",
         "project": "Construcción comercial tipo tenant improvement",
         "rating": 5,
-        "quote": "No podriamos estar mas contentos con la calidad de la ejecución. Todd nos mantuvo informados durante toda la obra.",
+        "quote": "No podríamos estar más contentos con la calidad de la ejecución. Todd nos mantuvo informados durante toda la obra.",
         "category": "commercial",
         "featured": true
       }

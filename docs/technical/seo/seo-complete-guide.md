@@ -216,7 +216,7 @@ All lead-path pages follow the **Universal Page Flow Standard** — **Discover �
 
 ---
 
-### Services Page ✅
+### Services Hub Section ✅
 
 1. Hero _(Discover)_
 2. CoreServicesSection _(Discover)_
@@ -397,7 +397,7 @@ with transparent pricing. Schedule your free consultation today.
 | Category     | Patterns                    | Priority | Change Freq | Schemas                                   |
 | ------------ | --------------------------- | -------- | ----------- | ----------------------------------------- |
 | Homepage     | `/`                         | 1.0      | monthly     | Organization, Website, LocalBusiness, FAQ |
-| Services     | `/services`, `/service/`    | 0.9      | monthly     | Service, Offer                            |
+| Services     | `/#services`                | 0.9      | monthly     | Service, Offer                            |
 | Projects     | `/projects`, `/portfolio`   | 0.8      | weekly      | CreativeWork                              |
 | Team         | `/team`, `/about`           | 0.7      | monthly     | Person, Organization                      |
 | Contact      | `/contact`                  | 0.9      | monthly     | ContactPage, LocalBusiness                |
@@ -411,7 +411,6 @@ with transparent pricing. Schedule your free consultation today.
 ```typescript
 const ACTIVE_PAGES = [
   { path: "/", priority: 1.0, changeFreq: "monthly" as const },
-  { path: "/services", priority: 0.9, changeFreq: "monthly" as const },
   { path: "/projects", priority: 0.8, changeFreq: "weekly" as const },
   { path: "/about", priority: 0.7, changeFreq: "monthly" as const },
   { path: "/team", priority: 0.7, changeFreq: "monthly" as const },
@@ -890,7 +889,7 @@ Before deploying changes:
 **Priority: CRITICAL** | **Time: 2-3 days** | **Impact: 15-25% ranking improvement** 🏗️
 
 ✅ **Homepage** - Already optimized; verify score in current external audits  
-⚠️ **Services Page** - Move testimonials to 25-30% position  
+⚠️ **Services Hub Section** - Move testimonials to 25-30% position  
 ⚠️ **About Page** - Restructure: testimonials earlier, leadership before awards  
 ⚠️ **Careers Page** - Move employee testimonials to 25-30%
 
@@ -921,10 +920,10 @@ export default function ServicesPage() {
 1. **Integrate Page-Specific Metadata**
    - Consider server/client split for key pages
    - Integrate existing SEO utils from `page-seo-utils.ts`
-   - Priority pages: `/contact`, `/services`
+   - Priority pages: `/contact`, `/#services`
 
 2. **Add Missing Schemas**
-   - Service schema on `/services` page
+   - Service schema on `/#services` page
    - Consultation schema on `/contact`
 
 #### Phase 2: Local SEO Enhancement

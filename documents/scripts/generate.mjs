@@ -14,6 +14,7 @@
  *   npm run docs:generate -- --template spine-guardrails # spine guardrails only
  *   npm run docs:generate -- --template sections   # all 44 section PDFs
  *   npm run docs:generate -- --template section --section 11  # single section
+ *   npm run docs:generate -- --template website-pages # website banner/section inventory
  *   npm run docs:generate -- --template toolbox-talk          # standalone form
  *   npm run docs:generate -- --template form-covers           # all 47 form cover sheets
  *   node documents/scripts/generate.mjs --template cover
@@ -203,6 +204,274 @@ const ACTIVE_MANUAL_DIGITAL_URL = isEmployeeHandbook
   ? `${SITE_URL}/docs/employee/employee-handbook-2026.pdf`
   : BRAND?.qrCodes?.digitalManual ||
     `${SITE_URL}/docs/safety/safety-manual-complete.pdf`;
+
+const WEBSITE_PAGE_INVENTORY = [
+  {
+    route: "/",
+    source: "apps/website/src/app/page.tsx",
+    banner: "HeroSection",
+    bannerNote:
+      "Homepage hero with branded value proposition and global site positioning.",
+    sections: [
+      "Specialties",
+      "Market selector",
+      "ServicesShowcaseDeferred",
+      "WhyPartnerSection",
+      "Proof by Market",
+      "TestimonialsSectionDeferred",
+      "TimelineDeferred",
+      "Ownership Controls",
+      "NextStepsSection",
+    ],
+    namedBanners: ["NextStepsSection"],
+  },
+  {
+    route: "/about",
+    source: "apps/website/src/app/about/page.tsx",
+    banner: "AboutHero",
+    bannerNote: "Keyword-led about hero introducing company positioning.",
+    sections: [
+      "Breadcrumb",
+      "PartnershipPhilosophy",
+      "LeadershipTeam",
+      "CompanyStats",
+      "AwardsSection",
+      "Accreditations logo row",
+      "SafetySection",
+      "About details link block",
+      "NextStepsSection",
+    ],
+    namedBanners: ["NextStepsSection"],
+  },
+  {
+    route: "/services",
+    source: "apps/website/src/app/services/page.tsx",
+    banner: "ServicesHero",
+    bannerNote: "Primary services hero with route-specific intro copy.",
+    sections: [
+      "Breadcrumb",
+      "Market router + ownership summary",
+      "CoreServicesSection",
+      "SpecialtyServicesSection",
+      "GovernmentProjectsSection",
+      "ConstructionProcessSection",
+      "ServiceAreasSection",
+      "TestimonialsSection",
+      "Portfolio redirect block",
+      "Final services CTA block",
+    ],
+    namedBanners: [],
+  },
+  {
+    route: "/projects",
+    source: "apps/website/src/app/projects/ProjectsPageClient.tsx",
+    banner: "ProjectsHero",
+    bannerNote: "Projects landing hero preceding search and filter controls.",
+    sections: [
+      "Breadcrumb",
+      "ProjectsFilterSection",
+      "ProjectsGridSection",
+      "CapabilitiesSection",
+      "VeteranBenefitsBanner",
+      "ProjectsStatsSection",
+      "TestimonialsSection",
+      "NextStepsSection",
+    ],
+    namedBanners: ["VeteranBenefitsBanner", "NextStepsSection"],
+  },
+  {
+    route: "/team",
+    source: "apps/website/src/app/team/page.tsx",
+    banner: "Custom Team Hero",
+    bannerNote:
+      "Full-height team hero with photo background and PageNavigation.",
+    sections: [
+      "Breadcrumb",
+      "Team overview",
+      "First two department groups",
+      "Employee testimonials",
+      "Remaining department groups",
+      "Company culture",
+      "Career growth",
+      "Careers CTA",
+      "Founder tribute",
+      "NextStepsSection",
+    ],
+    namedBanners: ["NextStepsSection"],
+  },
+  {
+    route: "/testimonials",
+    source: "apps/website/src/app/testimonials/page.tsx",
+    banner: "Custom Testimonials Hero",
+    bannerNote: "Review-focused hero with page stats and review CTA.",
+    sections: [
+      "PageNavigation",
+      "Breadcrumb",
+      "Client testimonials section",
+      "Why Choose MH section",
+      "Trust signals and certifications",
+      "Leave review CTA section",
+    ],
+    namedBanners: ["Leave review CTA"],
+  },
+  {
+    route: "/contact",
+    source: "apps/website/src/app/contact/ContactPageClient.tsx",
+    banner: "Custom Contact Hero",
+    bannerNote:
+      "Full-height contact hero with PageNavigation anchored at the base.",
+    sections: [
+      "Breadcrumb",
+      "Quick Contact",
+      "PWA one-tap contact strip",
+      "Two Pathways",
+      "Interactive Map Section",
+      "Strategic CTAs Section",
+      "Service Areas Section",
+    ],
+    namedBanners: ["Strategic CTAs Section"],
+  },
+  {
+    route: "/careers",
+    source: "apps/website/src/app/careers/CareersPageClient.tsx",
+    banner: "Custom Careers Hero",
+    bannerNote: "Full-height careers hero with role-focused messaging.",
+    sections: [
+      "Breadcrumb",
+      "Why Work With Us",
+      "Benefits and Perks",
+      "Employee Testimonials",
+      "Veteran Benefits",
+      "Open Positions",
+      "Application Process",
+      "General Application",
+      "Career Questions CTA",
+      "Accreditations section",
+    ],
+    namedBanners: [],
+  },
+  {
+    route: "/faq",
+    source: "apps/website/src/app/faq/page.tsx",
+    banner: "Custom FAQ Hero",
+    bannerNote: "FAQ hero with PageNavigation and trust stats.",
+    sections: [
+      "Breadcrumb",
+      "Introduction and trust stats",
+      "Category-based FAQ sections",
+    ],
+    namedBanners: [],
+  },
+  {
+    route: "/resources",
+    source: "apps/website/src/app/resources/page.tsx",
+    banner: "Inline Resources Hero",
+    bannerNote: "Compact in-content hero block above resource cards.",
+    sections: [
+      "Breadcrumb",
+      "Bonding & insurance CTA",
+      "QR Code Library CTA",
+      "Manuals section",
+      "Field forms section",
+      "NextStepsSection",
+    ],
+    namedBanners: ["NextStepsSection"],
+  },
+  {
+    route: "/safety",
+    source: "apps/website/src/app/safety/page.tsx",
+    banner: "Custom Safety Program Hero",
+    bannerNote: "Full-height safety hero focused on EMR and program proof.",
+    sections: [
+      "Breadcrumb",
+      "Credentials",
+      "Credential badges",
+      "Written safety program",
+      "Safety record",
+      "Active use evidence",
+      "Compliance",
+      "Snapshots",
+      "Contact CTA",
+    ],
+    namedBanners: ["PWAInstallCTA button within Snapshots"],
+  },
+  {
+    route: "/public-sector",
+    source: "apps/website/src/app/public-sector/PublicSectorFullPage.tsx",
+    banner: "Custom Public-Sector Hero",
+    bannerNote: "Government-focused hero with veteran-owned positioning.",
+    sections: [
+      "Breadcrumb",
+      "Grant support services",
+      "Compliance AlternatingShowcase",
+      "Hanford & DOE services",
+      "Grant types",
+      "InteractiveGrantSelector",
+      "Process steps",
+      "Government project types",
+      "Success factors",
+      "Government-project CTA section",
+      "Accreditations logo row",
+    ],
+    namedBanners: [
+      "InteractiveGrantSelector",
+      "Government-project CTA section",
+    ],
+  },
+  {
+    route: "/veterans",
+    source: "apps/website/src/app/veterans/page.tsx",
+    banner: "Custom Veterans Hero",
+    bannerNote:
+      "Full-height veterans hero with veteran-owned program messaging.",
+    sections: [
+      "Breadcrumb",
+      "Veteran foundation",
+      "Combat veteran discount and screening timeline",
+      "Year-round veteran support",
+      "Strategic veteran partnerships",
+      "Accreditations and certifications",
+      "Pathway CTA cards",
+    ],
+    namedBanners: [],
+  },
+  {
+    route: "/locations",
+    source: "apps/website/src/app/locations/page.tsx",
+    banner: "Compact Locations Hero",
+    bannerNote: "Gradient hero with inline breadcrumbs and market intro copy.",
+    sections: ["Locations card grid"],
+    namedBanners: [],
+  },
+  {
+    route: "/events",
+    source: "apps/website/src/app/events/EventsLandingPageClient.tsx",
+    banner: "Events Landing Hero",
+    bannerNote: "Sponsored and hosted events hero with three CTA anchors.",
+    sections: [
+      "Breadcrumb",
+      "Smoke n Shine placements",
+      "Event photo carousel",
+      "Future event pipeline",
+    ],
+    namedBanners: [],
+  },
+  {
+    route: "/allies",
+    source: "apps/website/src/app/allies/page.tsx",
+    banner: "Custom Allies Hero",
+    bannerNote:
+      "Trade partner hero with PageNavigation and relationship-first copy.",
+    sections: [
+      "Breadcrumb",
+      "Why partner with MHC",
+      "Trade partner showcase",
+      "Vendor application CTA",
+      "Accreditations and certifications",
+    ],
+    namedBanners: ["TradeGroupCarousel"],
+  },
+];
 
 // ── Logo base64 (used in Puppeteer header templates which need data URLs) ──────
 const _logoPath = join(DOCS_DIR, BRAND.logo.color.replace(/^\.\.\//, ""));
@@ -1809,6 +2078,129 @@ async function renderSafetyLetterheadPdf(pdfPath) {
   );
   await addFillableFieldsToLetterhead(pdfPath);
   return pdfPath;
+}
+
+function chunkItems(items, chunkSize) {
+  const chunks = [];
+  for (let index = 0; index < items.length; index += chunkSize) {
+    chunks.push(items.slice(index, index + chunkSize));
+  }
+  return chunks;
+}
+
+function buildWebsiteInventoryPagesHtml(entries, reportDate) {
+  const chunks = chunkItems(entries, 4);
+  return chunks
+    .map((pageEntries, pageIndex) => {
+      const rowsHtml = pageEntries
+        .map((entry) => {
+          const sectionsHtml = entry.sections.length
+            ? `<ol class="section-list">${entry.sections
+                .map((section) => `<li>${escapeHtml(section)}</li>`)
+                .join("")}</ol>`
+            : '<span class="empty">No sections listed.</span>';
+          const bannersHtml = entry.namedBanners.length
+            ? `<ul class="tag-list">${entry.namedBanners
+                .map((banner) => `<li>${escapeHtml(banner)}</li>`)
+                .join("")}</ul>`
+            : '<span class="empty">None named separately.</span>';
+
+          return `
+            <tr>
+              <td class="route-cell">
+                <p class="route">${escapeHtml(entry.route)}</p>
+                <p class="route-source">${escapeHtml(entry.source)}</p>
+              </td>
+              <td class="banner-cell">
+                <p class="banner">${escapeHtml(entry.banner)}</p>
+                <p class="banner-note">${escapeHtml(entry.bannerNote)}</p>
+              </td>
+              <td class="sections-cell">${sectionsHtml}</td>
+              <td class="cta-cell">${bannersHtml}</td>
+            </tr>`;
+        })
+        .join("");
+
+      return `
+        <section class="inventory-page">
+          <div class="left-ribbon"></div>
+          <div class="identity">
+            <span>{{BRAND_COMPANY_NAME}}</span>
+            <span><span class="dot">•</span> Website Page Inventory <span class="dot">•</span> Page ${pageIndex + 1} of ${chunks.length}</span>
+          </div>
+          <div class="header">
+            <div class="title-block">
+              <div class="logo-wrap">
+                <img class="logo" src="{{BRAND_LOGO_COLOR}}" alt="MH Construction logo" />
+              </div>
+              <div class="title-copy">
+                <div class="program-chip">Main Public Routes</div>
+                <h1 class="page-title">Current Banner + Section Inventory</h1>
+                <p class="page-subtitle">Main website routes currently rendered in apps/website • Generated ${escapeHtml(reportDate)}</p>
+              </div>
+            </div>
+            <div class="summary-card">
+              <p class="summary-label">Scope</p>
+              <p class="summary-text">This sheet inventories the current top-level public pages, their hero or banner treatment, ordered section structure, and any named CTA or banner components currently rendered.</p>
+            </div>
+          </div>
+          <div class="content">
+            <div class="table-shell">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="route-cell">Route</th>
+                    <th class="banner-cell">Banner / Hero</th>
+                    <th class="sections-cell">Ordered Sections</th>
+                    <th class="cta-cell">Named Banners / CTAs</th>
+                  </tr>
+                </thead>
+                <tbody>${rowsHtml}</tbody>
+              </table>
+            </div>
+          </div>
+          <div class="footer">
+            <div>
+              <p class="footer-label">Company Contact</p>
+              <p class="footer-name">{{BRAND_COMPANY_NAME}}</p>
+              <p class="footer-meta">{{BRAND_ADDRESS_STREET}} · {{BRAND_ADDRESS_CITYSTATEZIP}}</p>
+              <p class="footer-meta">{{BRAND_PHONE}} · {{BRAND_WEBSITE}} · {{BRAND_LICENSES_INLINE}}</p>
+            </div>
+            <div class="trust-wrap">
+              <p class="footer-label">Accreditation And Trust</p>
+              <div class="trust-logos">
+                <img class="agc" src="{{BRAND_AGC_HORIZONTAL}}" alt="AGC membership" />
+                <img class="bbb" src="{{BRAND_BBB_SEAL}}" alt="BBB accredited business" />
+                <img class="vob" src="{{BRAND_WA_VOB_LOGO}}" alt="Veteran owned business" />
+              </div>
+            </div>
+          </div>
+        </section>`;
+    })
+    .join("");
+}
+
+async function generateWebsitePagesInventory() {
+  console.log("\n🗂  Generating website page inventory sheet…");
+  await ensureDir(OUTPUT_DIR);
+  const templatePath = join(DOCS_DIR, "manuals/website-page-inventory.html");
+  const raw = await readFile(templatePath, "utf-8");
+  const reportDate = new Date().toISOString().slice(0, 10);
+  const html = applyBrandTokens(
+    raw
+      .replace("{{REPORT_DATE}}", reportDate)
+      .replace(
+        "{{INVENTORY_PAGES_HTML}}",
+        buildWebsiteInventoryPagesHtml(WEBSITE_PAGE_INVENTORY, reportDate),
+      ),
+  );
+  const pdfPath = join(OUTPUT_DIR, "website-page-inventory.pdf");
+  await renderHtmlToPdf(
+    html,
+    pdfPath,
+    { margin: { top: 0, right: 0, bottom: 0, left: 0 }, landscape: true },
+    "manuals/_tmp_website_page_inventory.html",
+  );
 }
 
 async function generateLetterhead() {
@@ -5578,6 +5970,10 @@ async function main() {
         break;
       case "toc":
         await generateToc();
+        break;
+      case "website-pages":
+      case "website-page-inventory":
+        await generateWebsitePagesInventory();
         break;
       case "guardrails-check":
         await runGuardrailsCheck();

@@ -3172,28 +3172,6 @@
       "error": null
     },
     {
-      "name": "team-brittney-holstein",
-      "filename": "qr-team-brittney-holstein-color.png",
-      "relativePath": "team/qr-team-brittney-holstein-color.png",
-      "folder": "team",
-      "variant": "color",
-      "url": "https://www.mhc-gc.com/team#brittney-holstein",
-      "description": "Brittney Holstein - HR Manager",
-      "success": true,
-      "error": null
-    },
-    {
-      "name": "team-brittney-holstein",
-      "filename": "qr-team-brittney-holstein-bw.png",
-      "relativePath": "team/qr-team-brittney-holstein-bw.png",
-      "folder": "team",
-      "variant": "bw",
-      "url": "https://www.mhc-gc.com/team#brittney-holstein",
-      "description": "Brittney Holstein - HR Manager",
-      "success": true,
-      "error": null
-    },
-    {
       "name": "team-brooks-morris",
       "filename": "qr-team-brooks-morris-color.png",
       "relativePath": "team/qr-team-brooks-morris-color.png",
@@ -3310,7 +3288,7 @@
       "folder": "team",
       "variant": "color",
       "url": "https://www.mhc-gc.com/team#kim-thamert",
-      "description": "Kim Thamert - XO - Executive Officer",
+      "description": "Kim Thamert - HR Director",
       "success": true,
       "error": null
     },
@@ -3321,7 +3299,7 @@
       "folder": "team",
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team#kim-thamert",
-      "description": "Kim Thamert - XO - Executive Officer",
+      "description": "Kim Thamert - HR Director",
       "success": true,
       "error": null
     },

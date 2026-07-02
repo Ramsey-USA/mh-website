@@ -56,7 +56,7 @@ terminology blend** (December 2025 major update). This strategy:
 - **Blends Military Operations Terminology** - Mission brief, SITREP, recon, deployment, tactical operations
 - **Maintains Construction Expertise** - Technical capability, project delivery, quality craftsmanship
 - **Reduces Generic Repetition** - Avoids overuse of single phrases
-- **Reinforces Mission-First Philosophy** - "Clear planning. Accountable delivery."
+- **Reinforces Mission-First Philosophy** - "Built on Quality, Backed by Trust."
 - **Improves Message Retention** - Variety helps visitors remember key messages
 - **Appeals to Veteran Clients** - Military-affiliated clients recognize authentic service language
 
@@ -70,7 +70,7 @@ terminology blend** (December 2025 major update). This strategy:
 - Reflect the specific page's purpose with tactical clarity
 - Keep taglines concise (5-12 words typically)
 - Align with values-driven brand values (honesty, integrity, professionalism, thoroughness)
-- Maintain core mission: "Clear planning. Accountable delivery."
+- Maintain core mission: "Built on Quality, Backed by Trust."
 - **Include unique page-specific mantra** for enhanced messaging and SEO
 
 **DON'T:**
@@ -90,21 +90,21 @@ military-construction terminology and values-driven values.
 **Dual Naming Format:** Each page includes "Military Designation → Civilian Label" for veteran
 recognition and accessibility.
 
-| Page           | Dual Naming                 | Military/Construction Blend Tagline                                             | Mantra                                                                                                                                                                                  |
-| -------------- | --------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Homepage       | Base HQ → Home              | "Mission-Focused Execution \| Building Projects for the Client, NOT the Dollar" | Your Tri-State Construction Command Center                                                                                                                                              |
-| About          | Our Oath → About Us         | "Battle-Tested Excellence Through Service-Earned Experience"                    | Service-Earned Values, Construction Excellence                                                                                                                                          |
-| Services       | Operations → Services       | "Your Construction Mission Deserves Veteran-Led Expert Oversight"               | The Battle Plan - Strategic Construction Excellence                                                                                                                                     |
-| Projects       | Missions → Projects         | "650+ Construction Missions Completed - Proven Results"                         | Mission Success: 650+ Projects, Countless Relationships                                                                                                                                 |
-| Team           | Chain of Command → Our Team | "All-Branch Veteran Leadership You Can Trust"                                   | 150+ Years Combined Military-Grade Expertise at Your Service                                                                                                                            |
-| Careers        | Enlist → Careers            | "Join the Mission - Your Construction Career Starts Here"                       | Build More Than Projects - Build Your Future                                                                                                                                            |
-| Contact        | Rally Point → Contact       | "Schedule Your Free Mission Brief - Start With SITREP-Level Clarity"            | Your Project. Our Expertise. Let's Connect.                                                                                                                                             |
-| Government     | Public Sector → Government  | "Mission-Ready Construction Operations - Federal Compliance-Driven"             | Veteran-Owned Excellence for Government Construction Missions                                                                                                                           |
-| Trade Partners | Allies → Partners           | "Vetted Vendor Partnerships - Building Success Through Trusted Alliances"       | Strategic Partnerships Built on Trust, Performance, and Mutual Success                                                                                                                  |
-| Veterans       | Service First → Veterans    | "Honoring Those Who Served - All Branches, All Values"                          | Supporting Those Who Served - One Community, One Mission (Updated Dec 2025: Comprehensive foundation with combat veteran discount, year-round support programs, strategic partnerships) |
-| Testimonials   | Commendations → Reviews     | "After-Action Reports from Real Client Missions"                                | Verified Success Stories from Completed Missions                                                                                                                                        |
-| FAQ            | Intel Brief → FAQ           | "Mission Intelligence - Your Construction Questions Answered"                   | Direct Answers. Clear Guidance. Mission-Ready Information.                                                                                                                              |
-| Safety         | Safety HQ → Safety Program  | "Zero-Incident Operations \| Mission-Critical Safety Culture"                   | Award-Winning Safety: 0.64 EMR, Zero Compromises                                                                                                                                        |
+| Page           | Dual Naming                 | Military/Construction Blend Tagline                                       | Mantra                                                                                                                                                                                  |
+| -------------- | --------------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Homepage       | Base HQ → Home              | "Mission-Focused Execution \| Built on Quality, Backed by Trust."         | Your Tri-State Construction Command Center                                                                                                                                              |
+| About          | Our Oath → About Us         | "Battle-Tested Excellence Through Service-Earned Experience"              | Service-Earned Values, Construction Excellence                                                                                                                                          |
+| Services       | Operations → Services       | "Your Construction Mission Deserves Veteran-Led Expert Oversight"         | The Battle Plan - Strategic Construction Excellence                                                                                                                                     |
+| Projects       | Missions → Projects         | "650+ Construction Missions Completed - Proven Results"                   | Mission Success: 650+ Projects, Countless Relationships                                                                                                                                 |
+| Team           | Chain of Command → Our Team | "All-Branch Veteran Leadership You Can Trust"                             | 150+ Years Combined Military-Grade Expertise at Your Service                                                                                                                            |
+| Careers        | Enlist → Careers            | "Join the Mission - Your Construction Career Starts Here"                 | Build More Than Projects - Build Your Future                                                                                                                                            |
+| Contact        | Rally Point → Contact       | "Schedule Your Free Mission Brief - Start With SITREP-Level Clarity"      | Your Project. Our Expertise. Let's Connect.                                                                                                                                             |
+| Government     | Public Sector → Government  | "Mission-Ready Construction Operations - Federal Compliance-Driven"       | Veteran-Owned Excellence for Government Construction Missions                                                                                                                           |
+| Trade Partners | Allies → Partners           | "Vetted Vendor Partnerships - Building Success Through Trusted Alliances" | Strategic Partnerships Built on Trust, Performance, and Mutual Success                                                                                                                  |
+| Veterans       | Service First → Veterans    | "Honoring Those Who Served - All Branches, All Values"                    | Supporting Those Who Served - One Community, One Mission (Updated Dec 2025: Comprehensive foundation with combat veteran discount, year-round support programs, strategic partnerships) |
+| Testimonials   | Commendations → Reviews     | "After-Action Reports from Real Client Missions"                          | Verified Success Stories from Completed Missions                                                                                                                                        |
+| FAQ            | Intel Brief → FAQ           | "Mission Intelligence - Your Construction Questions Answered"             | Direct Answers. Clear Guidance. Mission-Ready Information.                                                                                                                              |
+| Safety         | Safety HQ → Safety Program  | "Zero-Incident Operations \| Mission-Critical Safety Culture"             | Award-Winning Safety: 0.64 EMR, Zero Compromises                                                                                                                                        |
 
 ---
 
@@ -180,7 +180,7 @@ visual element. This creates a more impactful first impression where imagery spe
         Mission-Focused Execution
       </span>
       <span className="block text-white/90">
-        Building Projects for the Client, NOT the Dollar
+        Built on Quality, Backed by Trust.
       </span>
       <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
         Serving Pasco, Kennewick, Richland, and the Pacific Northwest
@@ -267,7 +267,7 @@ Use this checklist when creating or reviewing any page's hero section:
 </section>
 ```
 
-### Services Page (Parity Target)
+### Services Hub Section (Parity Target)
 
 ```tsx
 <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black ...">

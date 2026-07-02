@@ -143,7 +143,6 @@ function buildActivePages() {
   const pages = new Set([
     "/",
     "/about",
-    "/services",
     "/projects",
     "/team",
     "/contact",
@@ -174,21 +173,6 @@ function buildActivePages() {
     locationDataPath,
     /slug:\s*"([^"]+)"/g,
     "/locations",
-    pages,
-  );
-
-  const serviceRoutesPath = path.join(
-    __dirname,
-    "..",
-    "src",
-    "lib",
-    "data",
-    "service-routes.ts",
-  );
-  addPrefixedSlugsFromSourceFile(
-    serviceRoutesPath,
-    /slug:\s*"([^"]+)"/g,
-    "/services",
     pages,
   );
 
@@ -458,27 +442,6 @@ function getDynamicRouteInfo(pathname) {
       registryMarker: "getLocationSlugs",
     },
     {
-      prefix: "/services/",
-      pageFile: path.join(
-        __dirname,
-        "..",
-        "src",
-        "app",
-        "services",
-        "[slug]",
-        "page.tsx",
-      ),
-      dataFile: path.join(
-        __dirname,
-        "..",
-        "src",
-        "lib",
-        "data",
-        "service-routes.ts",
-      ),
-      registryMarker: "getServiceRouteSlugs",
-    },
-    {
       prefix: "/projects/",
       pageFile: path.join(
         __dirname,
@@ -575,7 +538,6 @@ function getStaticRouteSourceInfo(pathname) {
   const staticRouteFiles = {
     "/": "src/app/page.tsx",
     "/about": "src/app/about/layout.tsx",
-    "/services": "src/app/services/layout.tsx",
     "/projects": "src/app/projects/layout.tsx",
     "/team": "src/app/team/layout.tsx",
     "/contact": "src/app/contact/layout.tsx",

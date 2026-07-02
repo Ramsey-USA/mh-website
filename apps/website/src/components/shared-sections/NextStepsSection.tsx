@@ -52,22 +52,22 @@ const NEXT_STEPS_COPY: Record<"en" | "es", NextStepsCopy> = {
     tag: "Mas popular",
     option2Title: "Vea nuestro trabajo real",
     option2Description:
-      "Proyectos reales. Resultados reales. Testimonios reales de Clientes que confian en nosotros.",
+      "Proyectos reales. Resultados reales. Testimonios reales de Clientes que confían en nosotros.",
     option2Bullets: [
       "650+ proyectos completados desde 2010",
-      "98% de satisfaccion de clientes",
+      "98% de satisfacción de clientes",
       "70% de referidos - excelencia comprobada",
     ],
     option2Cta: "Ver nuestro trabajo",
     option3Title: "Hablemos cara a cara",
     option3Description:
-      "Respuestas honestas de personas reales. Sin sistemas automatizados. Solo comunicacion transparente.",
+      "Respuestas honestas de personas reales. Sin sistemas automatizados. Solo comunicación transparente.",
     option3Bullets: [
       "Consulta presencial preferida",
-      "Precios transparentes desde el primer dia",
+      "Precios transparentes desde el primer día",
       "Contacto directo con quienes toman decisiones",
     ],
-    option3Cta: "Contactenos",
+    option3Cta: "Contáctenos",
   },
   en: {
     subtitle: "Ready to Start Your Project?",

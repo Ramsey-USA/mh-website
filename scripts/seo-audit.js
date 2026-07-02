@@ -14,7 +14,7 @@ const path = require("path");
 const ACTIVE_PAGES = [
   "/",
   "/about",
-  "/services",
+  "/#services",
   "/projects",
   "/team",
   "/contact",

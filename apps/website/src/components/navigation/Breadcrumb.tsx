@@ -3,6 +3,10 @@
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { useLocale } from "@/hooks/useLocale";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 
 export interface BreadcrumbItem {
   label: string;
@@ -12,6 +16,26 @@ export interface BreadcrumbItem {
 interface BreadcrumbProps {
   items: BreadcrumbItem[];
   className?: string;
+  source?: "page" | "fallback";
+}
+
+const DUAL_BREADCRUMB_LABELS: Record<string, string> = {
+  Home: formatDualPageName(
+    PAGE_TERMINOLOGY.home.seoName,
+    PAGE_TERMINOLOGY.home.mhBrandName,
+  ),
+  "About Us": formatDualPageName(
+    PAGE_TERMINOLOGY.about.seoName,
+    PAGE_TERMINOLOGY.about.mhBrandName,
+  ),
+  Projects: formatDualPageName(
+    PAGE_TERMINOLOGY.projects.seoName,
+    PAGE_TERMINOLOGY.projects.mhBrandName,
+  ),
+};
+
+function getBreadcrumbDisplayLabel(label: string): string {
+  return DUAL_BREADCRUMB_LABELS[label] ?? label;
 }
 
 /**
@@ -42,13 +66,19 @@ interface BreadcrumbProps {
  * @param {BreadcrumbItem[]} props.items - Breadcrumb trail items
  * @param {string} [props.className] - Additional CSS classes
  */
-export function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
+export function Breadcrumb({
+  items,
+  className = "",
+  source = "page",
+}: BreadcrumbProps) {
   const locale = useLocale();
   const isEs = locale === "es";
 
   return (
     <nav
       aria-label={isEs ? "Navegacion de ruta" : "Breadcrumb navigation"}
+      data-mh-breadcrumb="true"
+      data-mh-breadcrumb-source={source}
       className={`bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 py-3 ${className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,7 +106,7 @@ export function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
                     className="text-gray-900 dark:text-white font-medium"
                     aria-current="page"
                   >
-                    {item.label}
+                    {getBreadcrumbDisplayLabel(item.label)}
                   </span>
                 ) : (
                   // Clickable parent page link
@@ -84,7 +114,7 @@ export function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
                     href={item.href}
                     className="text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 rounded px-1"
                   >
-                    {item.label}
+                    {getBreadcrumbDisplayLabel(item.label)}
                   </Link>
                 )}
               </li>

@@ -5,25 +5,44 @@ export type GlobalMenuItem = {
   subLabel: string;
 };
 
+import {
+  formatDualPageSummary,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
+
 export const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
   en: [
-    { href: "/", label: "Home", subLabel: "Overview", icon: "home" },
+    {
+      href: "/",
+      label: "Home",
+      subLabel: formatDualPageSummary(
+        "Overview",
+        PAGE_TERMINOLOGY.home.mhBrandName,
+      ),
+      icon: "home",
+    },
     {
       href: "/about",
       label: "About Us",
-      subLabel: "About",
+      subLabel: formatDualPageSummary(
+        "About",
+        PAGE_TERMINOLOGY.about.mhBrandName,
+      ),
       icon: "military_tech",
     },
     {
-      href: "/services",
+      href: "/#services",
       label: "Services",
-      subLabel: "Operations",
-      icon: "build",
+      subLabel: "Lanes",
+      icon: "map",
     },
     {
       href: "/projects",
       label: "Projects",
-      subLabel: "Portfolio",
+      subLabel: formatDualPageSummary(
+        "Portfolio",
+        PAGE_TERMINOLOGY.projects.mhBrandName,
+      ),
       icon: "photo_library",
     },
     {
@@ -108,10 +127,10 @@ export const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
       icon: "military_tech",
     },
     {
-      href: "/services",
+      href: "/#services",
       label: "Servicios",
-      subLabel: "Operaciones",
-      icon: "build",
+      subLabel: "Rutas",
+      icon: "map",
     },
     {
       href: "/projects",

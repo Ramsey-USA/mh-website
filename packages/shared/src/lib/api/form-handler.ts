@@ -245,7 +245,7 @@ export async function handleFormSubmission<T = unknown>(
     }
 
     // Send email to appropriate team based on submission type
-    // Job applications go to careers team (office, matt, arnold, brittney)
+    // Job applications go to careers team (office, matt, arnold, kimberly)
     // Other submissions go to general office team
     const isJobApplication = config.submissionType === "Job Application";
     const emailResult = isJobApplication

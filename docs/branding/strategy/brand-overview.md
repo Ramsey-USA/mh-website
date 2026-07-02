@@ -48,7 +48,7 @@ aligned with our veteran-owned, honesty-first brand identity.
 
 **Mission (Primary Slogan):**
 
-> "Clear planning. Accountable delivery."
+> "Built on Quality, Backed by Trust."
 
 **Vision**: To be the Pacific Northwest's most trusted veteran-led construction partner — renowned for
 craftsmanship and character.
@@ -59,7 +59,7 @@ craftsmanship and character.
 
 **Primary Partnership Message:**
 
-> "Clear planning. Accountable delivery."
+> "Built on Quality, Backed by Trust."
 
 **Relationship-Focused Message:**
 

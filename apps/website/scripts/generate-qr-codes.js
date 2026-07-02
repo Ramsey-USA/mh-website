@@ -86,9 +86,9 @@ const QR_CODES = [
   },
   {
     name: "services",
-    url: `${BASE_URL}/services`,
+    url: `${BASE_URL}/#services`,
     description: "Our Services",
-    label: "www.mhc-gc.com/services",
+    label: "www.mhc-gc.com/#services",
   },
   {
     name: "projects",
@@ -128,7 +128,7 @@ const QR_CODES = [
   },
   {
     name: "traho-services",
-    url: `${BASE_URL}/services?ref=traho-rfq`,
+    url: `${BASE_URL}/?ref=traho-rfq#services`,
     description: "Traho RFQ - Service Lines",
     label: "TRAHO SERVICES",
   },

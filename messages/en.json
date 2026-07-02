@@ -120,7 +120,7 @@
       "kicker": "Leadership Team",
       "titleLine1": "Veteran-Led Leadership You Can Trust",
       "titleLine2": "150+ Years of Combined Construction Experience",
-      "titleLine3Prefix": "Clear planning. Accountable delivery.",
+      "titleLine3Prefix": "Built on Quality, Backed by Trust.",
       "titleLine3Suffix": "",
       "breadcrumb": "Leadership Team"
     },
@@ -397,7 +397,7 @@
       "kicker": "Contact",
       "titleLine1": "Your Project. Clear Next Steps.",
       "titleLine2": "Schedule a project briefing and align scope from day one.",
-      "titleLine3Prefix": "Clear planning. Accountable delivery.",
+      "titleLine3Prefix": "Built on Quality, Backed by Trust.",
       "notWord": "",
       "titleLine3Suffix": "",
       "breadcrumb": "Introductions"
@@ -435,7 +435,7 @@
     "pathways": {
       "subtitle": "Two Pathways to",
       "title": "Partnership Success",
-      "description": "Choose the right path for Client Partner delivery or Ally engagement.",
+      "description": "Choose the right path for Client Partner delivery or Ally engagement. From Handshake to Handoff, we got your 'six.'",
       "shared": {
         "emailLabel": "Email"
       },
@@ -460,7 +460,7 @@
         "callAriaPrefix": "Call Ally inquiries at",
         "emailIconAria": "Ally inquiries email",
         "emailAriaLabel": "Email office@mhc-gc.com for Ally inquiries",
-        "note": "For trade applications, Ally relationships, and bid opportunities",
+        "note": "For trade applications, Ally relationships, and bid opportunities. Professional on the line. Thorough in the details.",
         "ctaHeading": "Join Our Network:",
         "ctaApply": "Apply as Approved Trade Partner",
         "ctaBenefits": "View Ally Benefits"
@@ -671,7 +671,7 @@
       "titleLine2": "Honoring Those Who Served",
       "titleLine3": "All Branches, All Values",
       "titleLine4": "Combat Veteran Discount at the Ready",
-      "titleLine5Prefix": "Clear planning. Accountable delivery.",
+      "titleLine5Prefix": "Built on Quality, Backed by Trust.",
       "notWord": "",
       "titleLine5Suffix": ""
     },
@@ -989,7 +989,7 @@
     "testimonials": {
       "subtitle": "Partnership Success",
       "title": "Stories",
-      "description": "Real experiences from Client Partners who've witnessed our four core values in action-building projects for the Client, NOT the Dollar.",
+      "description": "Real experiences from Client Partners who've witnessed our four core values in action: Built on Quality, Backed by Trust.",
       "clientPartnerLabel": "Client Partner",
       "starRatingAriaSuffix": "star rating"
     }
@@ -1139,7 +1139,7 @@
       "kicker": "Careers",
       "titleLine1": "Build Projects. Build Your Future.",
       "titleLine2": "Construction Careers with Clear Standards.",
-      "titleLine3Prefix": "Clear planning. Accountable delivery.",
+      "titleLine3Prefix": "Built on Quality, Backed by Trust.",
       "titleLine3Not": "",
       "titleLine3Suffix": "",
       "titleLine4": "Relationships Drive Results"
@@ -1467,13 +1467,13 @@
       "baseLabel": "Home",
       "founded": "Founded 2010, Veteran-Owned Since January 2025 • BABAA (Build America, Buy America Act) Supporter",
       "tagline": "Your Tri-State Construction Planning Hub",
-      "mission": "Clear planning. Accountable delivery.",
+      "mission": "Built on Quality, Backed by Trust.",
       "serving": "Tri-Cities HQ (Pasco, Richland, Kennewick) | Tri-State Licensed in WA, OR, ID"
     },
     "coreValues": {
       "sectionSubtitle": "Veteran-Owned Values",
       "sectionTitle": "Built on Honesty & Integrity",
-      "sectionDescription": "Four foundational values guide every project and partnership—focused on building projects for the client, NOT the dollar.",
+      "sectionDescription": "Four foundational values guide every project and partnership—focused on Built on Quality, Backed by Trust.",
       "keyMetric": "Key Metric",
       "values": [
         {
@@ -1515,10 +1515,10 @@
     },
     "services": {
       "hero": {
-        "sectionTitle": "The Battle Plan - Strategic Construction Excellence",
+        "sectionTitle": "Strategic Construction Excellence",
         "sectionSubtitle": "Services",
-        "sectionTagline": "Your Construction Mission Deserves Veteran-Led Expert Oversight",
-        "sectionDescription": "Commercial, industrial, and public-sector delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters. We primarily focus on commercial and industrial work, and only consider unique, highly complex, multi-million-dollar residential projects."
+        "sectionTagline": "Professional on the line. Thorough in the details.",
+        "sectionDescription": "Commercial, industrial, and public-sector delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters. We primarily focus on commercial and industrial work, and only consider unique, highly complex, multi-million-dollar residential projects. Built on Quality, Backed by Trust."
       },
       "core": {
         "sectionTitle": "Core Services",
@@ -1660,7 +1660,7 @@
         },
         {
           "title": "Commercial Buildings",
-          "subtitle": "Built projects for the Client, NOT the Dollar",
+          "subtitle": "Built on Quality, Backed by Trust.",
           "description": "Commercial construction for offices, retail, medical facilities, and religious spaces. Licensed across WA, OR, and ID—quality craftsmanship over profit margins.",
           "features": [
             "Professional offices & retail spaces",
@@ -1756,7 +1756,7 @@
         "tradeCard": {
           "title": "Trade Partnerships",
           "subtitle": "Trade Partner Network",
-          "description": "For subcontractors, suppliers, and trade professionals seeking consistent opportunities with a veteran-owned construction leader in the Pacific Northwest.",
+          "description": "For subcontractors, suppliers, and trade professionals seeking consistent opportunities with a veteran-owned construction leader in the Pacific Northwest. No gaps. No guesswork. Just accountable follow-through.",
           "listTitle": "What We Offer Trade Partners:",
           "items": [
             "Consistent project opportunities",
@@ -1771,8 +1771,8 @@
           }
         },
         "bottomNote": {
-          "title": "Different pathways, same commitment to excellence.",
-          "description": "Whether you are building a project or building your business, MH Construction values every partnership."
+          "title": "Squared away from start to finish.",
+          "description": "Our team delivers relentless professionalism to every client and trade partner on the line daily. From Handshake to Handoff, we got your 'six.' Professional on the line. Thorough in the details. No gaps. No guesswork. Just accountable follow-through."
         }
       },
       "deepNextSteps": {

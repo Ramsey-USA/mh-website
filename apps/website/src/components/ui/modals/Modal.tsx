@@ -80,15 +80,20 @@ export function Modal({
 
               <div className="relative z-10">
                 {showVeteranBadge && (
-                  <div className="flex justify-center items-center gap-2 mb-4">
-                    <MaterialIcon
-                      icon="military_tech"
-                      size="md"
-                      className="text-bronze-300"
-                    />
-                    <span className="font-semibold text-bronze-300 text-sm tracking-wide uppercase">
-                      Veteran-Owned. Relationship-first.
-                    </span>
+                  <div className="mb-4 text-center">
+                    <div className="flex justify-center items-center gap-2">
+                      <MaterialIcon
+                        icon="military_tech"
+                        size="md"
+                        className="text-bronze-300"
+                      />
+                      <span className="font-semibold text-bronze-300 text-sm tracking-wide uppercase">
+                        Built on Quality, Backed by Trust.
+                      </span>
+                    </div>
+                    <p className="mt-1 text-[11px] font-medium text-bronze-200/90 uppercase tracking-wide">
+                      Professional on the line. Thorough in the details.
+                    </p>
                   </div>
                 )}
 

@@ -16,7 +16,7 @@ const { getChromePath } = require("./utilities/get-chrome-path");
 const pages = [
   { name: "Home", url: "/" },
   { name: "About", url: "/about" },
-  { name: "Services", url: "/services" },
+  { name: "Projects", url: "/projects" },
 ];
 
 const args = process.argv.slice(2);

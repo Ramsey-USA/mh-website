@@ -9,6 +9,10 @@ import {
   Footer,
   SemiquincentennialBanner,
 } from "@/components/layout";
+import {
+  Breadcrumb,
+  type BreadcrumbItem,
+} from "@/components/navigation/Breadcrumb";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { EventsHubBanner } from "@/components/ui/cta";
 import { usePWA } from "@/hooks/usePWA";
@@ -23,6 +27,79 @@ const QUICK_ACTIONS = [
   { label: "Incident", href: "/safety/incident-report", icon: "report" },
   { label: "Resources", href: "/resources", icon: "menu_book" },
 ] as const;
+
+function humanizePathSegment(segment: string): string {
+  return segment
+    .replace(/[-_]+/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function buildFallbackBreadcrumbItems(pathname: string): BreadcrumbItem[] {
+  const normalizedPath = pathname.split("?")[0]?.split("#")[0] ?? "/";
+  if (normalizedPath === "/") {
+    return [{ label: "Home" }];
+  }
+
+  const segments = normalizedPath.split("/").filter(Boolean);
+  const items: BreadcrumbItem[] = [{ label: "Home", href: "/" }];
+  let currentPath = "";
+
+  segments.forEach((segment, index) => {
+    currentPath += `/${segment}`;
+    const decodedSegment = decodeURIComponent(segment);
+    const isLast = index === segments.length - 1;
+
+    let label = humanizePathSegment(decodedSegment);
+    if (currentPath === "/about") {
+      label = "About Us";
+    }
+    if (currentPath === "/projects") {
+      label = "Projects";
+    }
+
+    items.push(isLast ? { label } : { label, href: currentPath });
+  });
+
+  return items;
+}
+
+function AppShellBreadcrumbFallback() {
+  const pathname = usePathname();
+  const [shouldRender, setShouldRender] = useState(false);
+  const fallbackItems = buildFallbackBreadcrumbItems(pathname);
+
+  useEffect(() => {
+    const hasPageBreadcrumb = () =>
+      Array.from(
+        document.querySelectorAll<HTMLElement>('[data-mh-breadcrumb="true"]'),
+      ).some((element) => element.dataset["mhBreadcrumbSource"] !== "fallback");
+
+    const updateVisibility = () => {
+      setShouldRender(!hasPageBreadcrumb());
+    };
+
+    updateVisibility();
+
+    const observer = new MutationObserver(updateVisibility);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [pathname]);
+
+  if (!shouldRender) {
+    return null;
+  }
+
+  return (
+    <Breadcrumb
+      items={fallbackItems}
+      source="fallback"
+      className="border-t border-gray-200 dark:border-gray-700"
+    />
+  );
+}
 
 function SemiquincentennialAfterHeroSlot() {
   const pathname = usePathname();
@@ -143,6 +220,7 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
         <Navigation />
         <div className="flex min-h-screen flex-col bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
           <main id="main-content" className="grow pt-(--mh-nav-offset,6.5rem)">
+            <AppShellBreadcrumbFallback />
             {children}
             <SemiquincentennialAfterHeroSlot />
           </main>
@@ -194,6 +272,7 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
           id="main-content"
           className="grow pt-[calc(var(--mh-nav-offset,6.5rem)+var(--mh-pwa-nav-offset,0px)+1rem)]"
         >
+          <AppShellBreadcrumbFallback />
           {children}
           <SemiquincentennialAfterHeroSlot />
         </main>

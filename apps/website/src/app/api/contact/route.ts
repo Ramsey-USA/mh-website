@@ -34,7 +34,7 @@ const ALLOWED_RECIPIENT_EMAILS = new Set([
   COMPANY_INFO.email.main,
   "matt@mhc-gc.com",
   "arnold@mhc-gc.com",
-  "brittney@mhc-gc.com",
+  "kimberly@mhc-gc.com",
 ]);
 
 interface ContactRequest {
@@ -109,7 +109,7 @@ async function handlePOST(request: NextRequest) {
     if (isAcknowledgment) {
       emailRecipients = [recipientEmail];
     } else if (isJobApplication) {
-      // Employee applications must notify office, matt, arnold, and brittney.
+      // Employee applications must notify office, matt, arnold, and Kimberly.
       emailRecipients = [
         ...new Set([recipientEmail, ...EMAIL_RECIPIENTS.careers]),
       ];
@@ -273,7 +273,8 @@ function generateEmailHTML(data: ContactRequest): string {
     <tr>
       <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
         <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
-        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Veteran-Owned. Relationship-first.</p>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Built on Quality, Backed by Trust.</p>
+        <p style="color: #d4af37; margin: 6px 0 0 0; font-size: 13px; font-weight: 500;">No gaps. No guesswork. Just accountable follow-through.</p>
       </td>
     </tr>
     
@@ -348,7 +349,8 @@ function generateEmailText(data: ContactRequest): string {
   return `
 MH Construction, Inc. - New ${data.type || "Contact"} Form Submission
 
-Veteran-Owned. Relationship-first.
+Built on Quality, Backed by Trust.
+No gaps. No guesswork. Just accountable follow-through.
 
 ---
 

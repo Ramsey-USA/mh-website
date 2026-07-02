@@ -37,7 +37,7 @@ in ways that resonate with its specific audience.
 
 ### Core Principle
 
-**"Clear planning. Accountable delivery."** is our PRIMARY SLOGAN and should be prominently
+**"Built on Quality, Backed by Trust."** is our PRIMARY SLOGAN and should be prominently
 featured across the site. However, each page group also has freedom to create and use
 supplementary messaging that speaks to its unique purpose while always reflecting our four core values.
 
@@ -114,7 +114,7 @@ For **page section ordering**, all lead-path pages must follow the
 
 **Foundation Slogan (Always Featured):**
 
-- "Clear planning. Accountable delivery."
+- "Built on Quality, Backed by Trust."
 
 **Dual-Label Slogans (Military / Construction):**
 
@@ -137,6 +137,9 @@ For **page section ordering**, all lead-path pages must follow the
 - "Where handshakes still matter, promises are kept, and relationships last"
 - "Old-school business values that never go out of style"
 - "No gimmicks. No shortcuts. Just honest work."
+- "Squared away from start to finish."
+- "From Handshake to Handoff, we got your 'six.'"
+- "Professional on the line. Thorough in the details."
 
 ### Language Characteristics (Group 1)
 
@@ -209,7 +212,7 @@ appropriately.
 
 **Foundation Slogan:**
 
-- "Clear planning. Accountable delivery." (always applies)
+- "Built on Quality, Backed by Trust." (always applies)
 
 **Dual-Label Slogans (Military / Construction):**
 
@@ -289,7 +292,7 @@ appropriately.
 
 **Foundation Slogan:**
 
-- "Clear planning. Accountable delivery." (always applies)
+- "Built on Quality, Backed by Trust." (always applies)
 
 **Dual-Label Slogans (Military / Construction):**
 
@@ -369,7 +372,7 @@ appropriately.
 
 **Foundation Slogan:**
 
-- "Clear planning. Accountable delivery." (always applies)
+- "Built on Quality, Backed by Trust." (always applies)
 
 **Dual-Label Slogans (Military / Construction):**
 
@@ -424,7 +427,7 @@ appropriately.
 
 1. **Identify the page group** before writing any content
 2. **Lead with the appropriate voice and tone** for that group
-3. **Use "Clear planning. Accountable delivery."** as the primary slogan across all pages
+3. **Use "Built on Quality, Backed by Trust."** as the primary slogan across all pages
 4. **Integrate group-specific slogans** as secondary messaging
 5. **Maintain consistency** within each page group
 6. **Test messaging** against the characteristics for that group
@@ -469,7 +472,7 @@ appropriately.
 - **MESSAGING SHIFT:** Removed all tech/automation language, prioritized human consultation
 - **GROUP 1:** Veteran Foundation (Home, About, Veterans) - honesty-first messaging
 - **GROUP 2:** Professional Services (Services, Projects, Government) - proven expertise
-- **GROUP 3:** Partnership & Team (Team, Careers, Trade Partners) - ROI IS THE RELATIONSHIP
+- **GROUP 3:** Partnership & Team (Team, Careers, Trade Partners) - Built on communication and follow-through
 - **GROUP 4:** Direct Communication (Contact, FAQ) - transparent, accessible
 - **REMOVED:** Tech Innovation group, all AI/automation messaging deprecated
 - **EMPHASIS:** "Your word is your bond — so is ours. Period."

@@ -1,6 +1,7 @@
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { useTranslations } from "next-intl";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 export function ServicesHero() {
   const t = useTranslations("home");
@@ -31,6 +32,9 @@ export function ServicesHero() {
             </span>
             <span className="block text-white/90 text-sm sm:text-base lg:text-lg">
               {t("services.hero.sectionDescription")}
+            </span>
+            <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
+              {COMPANY_INFO.slogan.primary}
             </span>
           </h1>
         </div>

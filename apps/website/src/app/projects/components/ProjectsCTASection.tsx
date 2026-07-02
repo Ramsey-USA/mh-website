@@ -87,7 +87,7 @@ export function ProjectsCTASection() {
                   <span className="font-semibold">Begin Your Project</span>
                 </Button>
               </Link>
-              <Link href="/services" className="inline-block">
+              <Link href="/#services" className="inline-block">
                 <Button
                   variant="outline"
                   size="lg"

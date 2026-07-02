@@ -193,7 +193,7 @@ describe("generateBreadcrumbStructuredData()", () => {
   it("maps breadcrumbs to ListItem elements with 1-based position", () => {
     const schema = generateBreadcrumbStructuredData([
       { name: "Home", url: "https://mhc-gc.com" },
-      { name: "Services", url: "https://mhc-gc.com/services" },
+      { name: "Services", url: "https://mhc-gc.com/#services" },
     ]);
     expect(schema["@type"]).toBe("BreadcrumbList");
     expect(schema.itemListElement[0]!.position).toBe(1);

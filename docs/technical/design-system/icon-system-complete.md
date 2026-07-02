@@ -631,7 +631,7 @@ import { SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
 | ------------- | ------------------- | ---------------------------------- |
 | Home          | `home`              | Homepage navigation                |
 | Contact       | `contact_phone`     | Contact page links                 |
-| Services      | `build`             | Services page navigation           |
+| Services      | `build`             | Services hub section navigation    |
 | Projects      | `photo_library`     | Project portfolio links            |
 | Resources     | `folder_open`       | Resources/downloads page           |
 | Safety        | `verified_user`     | Safety information page            |
@@ -639,8 +639,8 @@ import { SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
 | About         | `military_tech`     | About page (veteran-owned)         |
 | Team          | `groups`            | Team/staff page (3 people)         |
 | Allies        | `handshake`         | Partner trade partners (handshake) |
-| Public Sector | `account_balance`   | Government services page           |
-| Veterans      | `workspace_premium` | Veterans services page             |
+| Public Sector | `account_balance`   | Government services hub section    |
+| Veterans      | `workspace_premium` | Veterans services hub section      |
 | Careers       | `work`              | Careers/jobs page                  |
 | Testimonials  | `star`              | Client partner reviews page        |
 | Privacy       | `shield`            | Privacy policy                     |
@@ -657,7 +657,7 @@ import { PAGE_ICONS, SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
 <MaterialIcon icon={PAGE_ICONS.services} /> // "build"
 
 // In a link component
-<Link href="/services">
+<Link href="/#services">
   <MaterialIcon icon={PAGE_ICONS.services} />
   Services
 </Link>
@@ -733,7 +733,7 @@ import { PAGE_ICONS, SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
 - `event`, `calculate`
 - `check_circle`, `workspace_premium`, `shield`
 
-**Services Page:**
+**Services Hub Section:**
 
 - `construction`, `business`, `home`, `factory`
 - `engineering`, `dashboard`, `insights`

@@ -15,6 +15,8 @@ const coreValuesBase = [
     value: "Honesty",
     icon: CORE_VALUE_ICONS.honesty,
     tagline: "Clear Communication Every Time",
+    valueSlogan: "Truth in every touchpoint.",
+    supportingSlogan: "Clear facts. No spin. No surprises.",
     description:
       "Full transparency-truthful assessments, open communication, honest intel. Upfront discussion of challenges and obstacles. Real-time updates on timeline or budget changes. Honest assessment when a project is not the right fit. Complete cost breakdown before starting. Straight talk, no jargon.",
     image: "/images/values/honesty.webp",
@@ -27,6 +29,8 @@ const coreValuesBase = [
     value: "Integrity",
     icon: CORE_VALUE_ICONS.integrity,
     tagline: "Doing What's Right",
+    valueSlogan: "Do right when no one is watching.",
+    supportingSlogan: "Commitments kept under pressure.",
     description:
       "Strong ethics-doing what is right even when no one is watching. Using specified materials and methods without substitutions. Comprehensive warranties-we stand behind our work. Making decisions that benefit Client Partners, not just our bottom line. Following through on commitments even when circumstances change. No shortcuts, period.",
     image: "/images/values/integrity.webp",
@@ -37,6 +41,8 @@ const coreValuesBase = [
     value: "Professionalism",
     icon: CORE_VALUE_ICONS.professionalism,
     tagline: "Excellence in Action",
+    valueSlogan: "Prepared, precise, and respectful.",
+    supportingSlogan: "Standards high on every site, every day.",
     description:
       "On time, prepared, and ready-zero excuses. Arriving on time and prepared. Clear communication in all interactions. Proper site management and organization. Treating your property with respect. Maintaining industry credentials and continuous improvement.",
     image: "/images/values/professionalism.webp",
@@ -47,6 +53,8 @@ const coreValuesBase = [
     value: "Thoroughness",
     icon: CORE_VALUE_ICONS.thoroughness,
     tagline: "No Detail Left Behind",
+    valueSlogan: "Every detail accounted for.",
+    supportingSlogan: "Measure twice, document always, close out clean.",
     description:
       "Meticulous planning and execution-complete documentation, zero surprises. Detailed site analysis and planning. Precision measurements and calculations. Systematic quality checkpoints at every phase. Complete documentation with photo records. Comprehensive final review with detailed punch lists.",
     image: "/images/values/thoroughness.webp",
@@ -77,6 +85,8 @@ export function CoreValuesSection({
     ...item,
     value: t.values[i]?.value ?? item.value,
     tagline: t.values[i]?.tagline ?? item.tagline,
+    valueSlogan: t.values[i]?.valueSlogan ?? item.valueSlogan,
+    supportingSlogan: t.values[i]?.supportingSlogan ?? item.supportingSlogan,
     description: t.values[i]?.description ?? item.description,
     stats: t.values[i]?.stats ?? item.stats,
   }));
@@ -206,6 +216,12 @@ export function CoreValuesSection({
                       </h3>
                       <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-sm sm:text-base">
                         {item.tagline}
+                      </p>
+                      <p className="mt-2 font-semibold text-gray-900 dark:text-white text-sm sm:text-base leading-relaxed">
+                        {item.valueSlogan}
+                      </p>
+                      <p className="mt-1 font-medium text-brand-primary/90 dark:text-brand-primary-light/90 text-xs sm:text-sm leading-relaxed">
+                        {item.supportingSlogan}
                       </p>
                     </div>
 

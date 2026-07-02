@@ -66,7 +66,7 @@ export default async function HubPage() {
               sections · {formCount} current forms.
             </p>
             <p className="mt-3 text-sm text-brand-secondary-light/85">
-              Building projects for the Client, NOT the Dollar.
+              Built on Quality, Backed by Trust.
             </p>
           </div>
         </div>

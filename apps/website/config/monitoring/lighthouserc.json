@@ -4,7 +4,6 @@
       "url": [
         "http://localhost:3000/",
         "http://localhost:3000/about",
-        "http://localhost:3000/services",
         "http://localhost:3000/projects",
         "http://localhost:3000/team",
         "http://localhost:3000/contact"

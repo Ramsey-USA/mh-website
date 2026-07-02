@@ -35,6 +35,50 @@ describe("CoreValuesSection", () => {
     expect(screen.getByText("No Detail Left Behind")).toBeInTheDocument();
   });
 
+  it("renders unique primary slogans for each core value", () => {
+    render(<CoreValuesSection />);
+    expect(screen.getByText("Truth in every touchpoint.")).toBeInTheDocument();
+    expect(
+      screen.getByText("Do right when no one is watching."),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Prepared, precise, and respectful."),
+    ).toBeInTheDocument();
+    expect(screen.getByText("Every detail accounted for.")).toBeInTheDocument();
+  });
+
+  it("renders supporting slogans for each core value", () => {
+    render(<CoreValuesSection />);
+    expect(
+      screen.getByText("Clear facts. No spin. No surprises."),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Commitments kept under pressure."),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Standards high on every site, every day."),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Measure twice, document always, close out clean."),
+    ).toBeInTheDocument();
+  });
+
+  it("renders Spanish core-value slogans in bilingual format", () => {
+    render(<CoreValuesSection locale="es" />);
+
+    expect(screen.getByText("Honestidad")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "Truth in every touchpoint. (Verdad en cada punto de contacto.)",
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "Clear facts. No spin. No surprises. (Hechos claros. Sin adornos. Sin sorpresas.)",
+      ),
+    ).toBeInTheDocument();
+  });
+
   it("renders stats labels", () => {
     render(<CoreValuesSection />);
     expect(screen.getByText("100% Transparent Pricing")).toBeInTheDocument();

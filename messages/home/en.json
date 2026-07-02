@@ -3,36 +3,44 @@
     "baseLabel": "Home",
     "founded": "Founded 2010 • Veteran-Owned Since January 2025 • BABAA (Build America, Buy America Act) Supporter",
     "tagline": "Accountable construction across WA, OR, and ID",
-    "mission": "Clear planning. Accountable delivery.",
+    "mission": "Built on Quality, Backed by Trust.",
     "serving": "Tri-Cities HQ (Pasco, Richland, Kennewick) | Tri-State Licensed in WA, OR, ID"
   },
   "coreValues": {
     "sectionSubtitle": "Decision Framework",
     "sectionTitle": "Four Values in Daily Practice",
-    "sectionDescription": "These values set the standard for decisions on scope, budget, and schedule while protecting quality and accountability.",
+    "sectionDescription": "These values set the standard for decisions on scope, budget, and schedule while protecting quality and accountability. Professional on the line. Thorough in the details.",
     "keyMetric": "Key Metric",
     "values": [
       {
         "value": "Honesty",
         "tagline": "Clear Communication Every Time",
+        "valueSlogan": "Truth in every touchpoint.",
+        "supportingSlogan": "Clear facts. No spin. No surprises.",
         "description": "Transparent pricing, direct communication, and real-time updates on scope, budget, and schedule. We flag risks early and say when a project is not the right fit.",
         "stats": "100% Transparent Pricing"
       },
       {
         "value": "Integrity",
         "tagline": "Doing What's Right",
+        "valueSlogan": "Do right when no one is watching.",
+        "supportingSlogan": "Commitments kept under pressure.",
         "description": "We follow specified materials and methods, honor commitments, and stand behind the work with clear warranties. No shortcuts.",
         "stats": "Unwavering Ethics"
       },
       {
         "value": "Professionalism",
         "tagline": "Excellence in Action",
+        "valueSlogan": "Prepared, precise, and respectful.",
+        "supportingSlogan": "Standards high on every site, every day.",
         "description": "We show up prepared, communicate clearly, run organized sites, and treat people and property with respect.",
         "stats": "Expert Service Standards"
       },
       {
         "value": "Thoroughness",
         "tagline": "No Detail Left Behind",
+        "valueSlogan": "Every detail accounted for.",
+        "supportingSlogan": "Measure twice, document always, close out clean.",
         "description": "We plan in detail, document each phase, run quality checkpoints, and close with complete punch and turnover records.",
         "stats": "Zero Details Missed"
       }
@@ -41,7 +49,7 @@
   "companyStats": {
     "subtitle": "Performance Snapshot",
     "title": "Numbers You Can Verify",
-    "description": "Quick snapshot of safety performance, team depth, delivery volume, and licensing coverage across Washington, Oregon, and Idaho.",
+    "description": "Quick snapshot of safety performance, team depth, delivery volume, and licensing coverage across Washington, Oregon, and Idaho. No gaps. No guesswork. Just accountable follow-through.",
     "labels": {
       "safety": "Award-Winning Safety EMR",
       "experience": "Years Combined Experience",
@@ -52,7 +60,7 @@
   "services": {
     "sectionSubtitle": "Market Outcome Lanes",
     "sectionTitle": "Start with Your Project Type",
-    "sectionDescription": "See how we deliver AG and winery projects, commercial tenant improvements, and municipal builds with clear ownership, Procore visibility, and closeout-ready controls. MH Construction prides itself on being the answer before the problem through Professional Pre-Construction and Handoff Procedures. Every complex project presents a minefield of operational risks—MHC neutralizes the variables and secures your delivery. Every build introduces unique structural and regulatory challenges. MHC provides the precise project management required to navigate them on time and within scope.",
+    "sectionDescription": "See how we deliver AG and winery projects, commercial tenant improvements, and municipal builds with clear ownership, Procore visibility, and closeout-ready controls. MH Construction prides itself on being the answer before the problem through Professional Pre-Construction and Handoff Procedures. Every complex project presents a minefield of operational risks—MHC neutralizes the variables and secures your delivery. Every build introduces unique structural and regulatory challenges. MHC provides the precise project management required to navigate them on time and within scope. Squared away from start to finish.",
     "clickForDetails": "Click for Full Details",
     "viewDetailsAriaPrefix": "View details for",
     "closeDetailsBackdropAria": "Close service details modal",
@@ -175,7 +183,7 @@
   "whyPartner": {
     "sectionSubtitle": "Operational Accountability",
     "sectionTitle": "Who Owns What at Every Stage",
-    "sectionDescription": "Review our ownership model, escalation path, and approval controls so decisions stay clear from kickoff through post-closeout support.",
+    "sectionDescription": "Review our ownership model, escalation path, and approval controls so decisions stay clear from kickoff through post-closeout support. From Handshake to Handoff, we got your 'six.'",
     "philosophy": "Your word is your bond — so is ours. Period.",
     "theROI": "Built on communication and follow-through",
     "tradeCta": {
@@ -263,7 +271,7 @@
   "testimonials": {
     "subtitle": "Client Partner Voices",
     "title": "Field-Tested Relationships",
-    "description": "Proof from AG/winery, commercial TI, and municipal-facing Client Partners across the Pacific Northwest."
+    "description": "Proof from AG/winery, commercial TI, and municipal-facing Client Partners across the Pacific Northwest. Squared away from start to finish."
   },
   "process": {
     "subtitle": "Execution Roadmap",
@@ -272,7 +280,7 @@
     "descriptionPart2": "intake through post-closeout support",
     "descriptionPart3": ". Ownership, escalation, and approvals stay visible with",
     "descriptionPart4": "Procore-backed controls and handoff-ready documentation",
-    "descriptionPart5": ".",
+    "descriptionPart5": ". Built on Quality, Backed by Trust.",
     "steps": [
       {
         "title": "Intake and Qualification",
@@ -280,7 +288,7 @@
       },
       {
         "title": "Preconstruction Planning",
-        "desc": "Estimators lead budget intelligence, scope planning, and risk controls before field mobilization."
+        "desc": "Estimators lead budget intelligence, scope planning, and risk controls before field mobilization. \"Creating Value, from Proven Results.\" explains our preconstruction methods."
       },
       {
         "title": "Execution Control",

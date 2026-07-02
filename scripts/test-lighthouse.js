@@ -17,7 +17,7 @@ const { getChromePath } = require("./utilities/get-chrome-path");
 const pages = [
   { name: "Home", url: "/" },
   { name: "About", url: "/about" },
-  { name: "Services", url: "/services" },
+  { name: "Services Hub", url: "/#services" },
   { name: "Projects", url: "/projects" },
   { name: "Team", url: "/team" },
   { name: "Careers", url: "/careers" },

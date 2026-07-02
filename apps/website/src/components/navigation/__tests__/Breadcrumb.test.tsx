@@ -1,5 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import { Breadcrumb } from "../Breadcrumb";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 
 jest.mock("next/link", () => ({
   __esModule: true,
@@ -17,9 +21,13 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
 }));
 
 describe("Breadcrumb", () => {
+  const dualHomeLabel = formatDualPageName(
+    PAGE_TERMINOLOGY.home.seoName,
+    PAGE_TERMINOLOGY.home.mhBrandName,
+  );
   const items = [
     { label: "Home", href: "/" },
-    { label: "Services", href: "/services" },
+    { label: "Services", href: "/#services" },
     { label: "Roofing" },
   ];
 
@@ -32,13 +40,13 @@ describe("Breadcrumb", () => {
 
   it("renders linked labels for non-last items", () => {
     render(<Breadcrumb items={items} />);
-    expect(screen.getByRole("link", { name: "Home" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: dualHomeLabel })).toHaveAttribute(
       "href",
       "/",
     );
     expect(screen.getByRole("link", { name: "Services" })).toHaveAttribute(
       "href",
-      "/services",
+      "/#services",
     );
   });
 
@@ -65,7 +73,10 @@ describe("Breadcrumb", () => {
   it("handles single item without chevron", () => {
     render(<Breadcrumb items={[{ label: "Home" }]} />);
     expect(screen.queryByTestId("chevron")).not.toBeInTheDocument();
-    expect(screen.getByText("Home")).toHaveAttribute("aria-current", "page");
+    expect(screen.getByText(dualHomeLabel)).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
   });
 
   it("renders item with href as last item without link", () => {

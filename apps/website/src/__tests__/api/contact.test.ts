@@ -219,7 +219,7 @@ describe("POST /api/contact", () => {
     expect(emailArgs.to).toContain("office@mhc-gc.com");
     expect(emailArgs.to).toContain("matt@mhc-gc.com");
     expect(emailArgs.to).toContain("arnold@mhc-gc.com");
-    expect(emailArgs.to).toContain("brittney@mhc-gc.com");
+    expect(emailArgs.to).toContain("kimberly@mhc-gc.com");
   });
 
   it("stores submission in DB when D1 is available", async () => {

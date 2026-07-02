@@ -192,7 +192,7 @@ export class EmailService {
   }
 
   /**
-   * Send email to careers/HR team (office@, matt@, arnold@, and brittney@)
+   * Send email to careers/HR team (office@, matt@, arnold@, and kimberly@)
    * Used for job applications and hiring-related notifications
    * @param subject Email subject
    * @param content Email content (html and text)

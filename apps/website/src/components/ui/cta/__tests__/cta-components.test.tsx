@@ -170,7 +170,7 @@ describe("NextStepsSection", () => {
       screen.getByText(/650\+ proyectos completados desde 2010/i),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/98% de satisfaccion de clientes/i),
+      screen.getByText(/98% de satisfacción de clientes/i),
     ).toBeInTheDocument();
     expect(screen.getByText(/70% de referidos/i)).toBeInTheDocument();
   });
@@ -181,7 +181,7 @@ describe("NextStepsSection", () => {
       screen.getByText(/Consulta presencial preferida/i),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/Precios transparentes desde el primer dia/i),
+      screen.getByText(/Precios transparentes desde el primer día/i),
     ).toBeInTheDocument();
   });
 

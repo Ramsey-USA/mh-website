@@ -41,14 +41,12 @@ const ADMIN_EMAILS: Record<string, string> = {
   "matt@mhc-gc.com": "Matt",
   "jeremy@mhc-gc.com": "Jeremy",
   "arnold@mhc-gc.com": "Arnold",
-  "brittney@mhc-gc.com": "Brittney",
 };
 
 const ADMIN_ENV_KEYS: Record<string, string> = {
   "matt@mhc-gc.com": "ADMIN_MATT_PASSWORD",
   "jeremy@mhc-gc.com": "ADMIN_JEREMY_PASSWORD",
   "arnold@mhc-gc.com": "ADMIN_ARNOLD_PASSWORD",
-  "brittney@mhc-gc.com": "ADMIN_BRITTNEY_PASSWORD",
 };
 
 function resolveInvalidAdminSentinel(email: string): string {

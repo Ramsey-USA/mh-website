@@ -16,7 +16,7 @@ accessibility.
 
 ### Home
 
-**Title:** `Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction`
+**Title:** `Base HQ → Home | Built on Quality, Backed by Trust. | MH Construction`
 **Format:** Military term → Civilian term | Brand promise | Company
 **Location:** `/src/app/layout.tsx` (default title)
 

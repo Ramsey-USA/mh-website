@@ -188,14 +188,10 @@ export default function CareersPageClient() {
                   {t("hero.titleLine2")}
                 </span>
                 <span className="block text-white/90">
-                  {t("hero.titleLine3Prefix")}{" "}
-                  <span className="font-black italic text-bronze-300">
-                    {t("hero.titleLine3Not")}
-                  </span>{" "}
-                  {t("hero.titleLine3Suffix")}
+                  {COMPANY_INFO.slogan.primary}
                 </span>
                 <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl mt-2">
-                  {t("hero.titleLine4")}
+                  {COMPANY_INFO.slogan.secondary}
                 </span>
               </h1>
             </div>

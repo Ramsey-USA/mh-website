@@ -771,7 +771,7 @@ function renderSubtitle(subtitle: string) {
 
 // Usage in component
 <h3 className="text-xl text-gray-700 dark:text-gray-300">
-  {renderSubtitle("Built projects for the Client, NOT the Dollar")}
+  {renderSubtitle("Built on Quality, Backed by Trust.")}
 </h3>;
 ```
 

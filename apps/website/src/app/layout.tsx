@@ -22,6 +22,10 @@ import { SkipLink } from "@/components/ui/accessibility/SkipLink";
 import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import {
   DEFAULT_LOCALE,
@@ -36,7 +40,7 @@ export const metadata: Metadata = withGeoMetadata({
     process.env["NEXT_PUBLIC_SITE_URL"] || COMPANY_INFO.urls.getSiteUrl(),
   ),
   title: {
-    default: "Home | Construction Planning and Delivery | MH Construction",
+    default: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Construction Planning and Delivery | MH Construction`,
     // Child routes already provide fully-branded titles in most cases.
     // Keep template neutral to avoid duplicate "| MH Construction" suffixes.
     template: "%s",
@@ -102,8 +106,7 @@ export const metadata: Metadata = withGeoMetadata({
     locale: "en_US",
     url: "https://www.mhc-gc.com",
     siteName: "MH Construction",
-    title:
-      "Home | Building Projects for the Client, NOT the Dollar | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Built on Quality, Backed by Trust. | Squared away from start to finish. | MH Construction`,
     description:
       "Construction services, planning resources, and project pathways for WA, OR, and ID from MH Construction's Tri-Cities headquarters.",
     images: [
@@ -119,8 +122,7 @@ export const metadata: Metadata = withGeoMetadata({
     card: "summary_large_image",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title:
-      "Home | Building Projects for the Client, NOT the Dollar | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Built on Quality, Backed by Trust. | Squared away from start to finish. | MH Construction`,
     description:
       "Construction services and project planning resources from MH Construction across Washington, Oregon, and Idaho.",
     images: ["/images/og-default.jpg"],
