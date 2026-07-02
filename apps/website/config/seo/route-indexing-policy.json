@@ -38,7 +38,6 @@
       "exact": [
         "/about/details",
         "/careers/print",
-        "/cool-desert-nights/results",
         "/employee-handbook",
         "/events",
         "/offline",
@@ -52,9 +51,9 @@
         "/resources/safety-manual",
         "/resources/safety-manual/section/[slug]",
         "/resources/safety-program",
+        "/safety/intake",
         "/services",
-        "/services/[slug]",
-        "/safety/intake"
+        "/services/[slug]"
       ],
       "patterns": []
     }
