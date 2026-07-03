@@ -18,11 +18,12 @@
  *   ROUTE_SMOKE_FAIL_BACKOFF_MS=1000
  *   ROUTE_SMOKE_MAX_RECOVERIES=3
  *   ROUTE_SMOKE_REPORT_FILE=.tmp/route-smoke-report.json
+ *   ROUTE_SMOKE_CHECK_BRANDING=1
  */
 
 const fs = require("node:fs");
 const path = require("node:path");
-const { spawn } = require("node:child_process");
+const { spawn, spawnSync } = require("node:child_process");
 
 const ROOT = path.resolve(__dirname, "..", "..");
 const APP_DIR = path.join(ROOT, "src", "app");
@@ -66,6 +67,15 @@ const reportFilePath = path.isAbsolute(
       ROOT,
       process.env.ROUTE_SMOKE_REPORT_FILE || ".tmp/route-smoke-report.json",
     );
+const brandingSmokeEnabled = /^(1|true|yes)$/i.test(
+  process.env.ROUTE_SMOKE_CHECK_BRANDING || "1",
+);
+const brandingSmokeScriptPath = path.join(
+  ROOT,
+  "scripts",
+  "validation",
+  "check-website-congruency.js",
+);
 
 const DYNAMIC_ROUTE_SAMPLES = {
   "/faq/[category]": [
@@ -240,6 +250,43 @@ function writeReport(report) {
   fs.mkdirSync(outputDir, { recursive: true });
   fs.writeFileSync(outputPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
   return outputPath;
+}
+
+function runBrandingSmokeCheck() {
+  if (!brandingSmokeEnabled) {
+    return;
+  }
+
+  if (!fs.existsSync(brandingSmokeScriptPath)) {
+    throw new Error(
+      `Branding smoke script not found: ${brandingSmokeScriptPath}`,
+    );
+  }
+
+  console.log("Running branding congruency smoke check...");
+  const result = spawnSync(process.execPath, [brandingSmokeScriptPath], {
+    cwd: ROOT,
+    encoding: "utf8",
+  });
+
+  if (result.status !== 0) {
+    const stdout = (result.stdout || "").trim();
+    const stderr = (result.stderr || "").trim();
+    throw new Error(
+      [
+        "Branding congruency smoke check failed.",
+        stdout ? `stdout:\n${stdout}` : "",
+        stderr ? `stderr:\n${stderr}` : "",
+      ]
+        .filter(Boolean)
+        .join("\n"),
+    );
+  }
+
+  const output = (result.stdout || "").trim();
+  if (output) {
+    console.log(output);
+  }
 }
 
 function startManagedDevServer() {
@@ -490,6 +537,8 @@ async function main() {
   console.log(`Accepted statuses: ${formatExpectedStatuses()}`);
   console.log(`JSON report: ${reportFilePath}`);
 
+  runBrandingSmokeCheck();
+
   try {
     await assertBaseUrlReachable();
   } catch (error) {
@@ -568,6 +617,8 @@ async function main() {
       failBackoffMs,
       maxRecoveries,
       reportFilePath,
+      brandingSmokeEnabled,
+      brandingSmokeScriptPath,
     },
     totals: {
       routes: routes.length,
@@ -622,6 +673,8 @@ main()
           failBackoffMs,
           maxRecoveries,
           reportFilePath,
+          brandingSmokeEnabled,
+          brandingSmokeScriptPath,
         },
         totals: {
           recoveryAttempts,

@@ -388,6 +388,11 @@ jest.mock("next/navigation", () => ({
 
 import { render } from "@testing-library/react";
 
+const fs = require("node:fs") as typeof import("node:fs");
+const path = require("node:path") as typeof import("node:path");
+const APP_ROOT = path.resolve(__dirname, "../../..");
+const REPO_ROOT = path.resolve(APP_ROOT, "..", "..");
+
 // ── About page ────────────────────────────────────────────────────────────────
 
 describe("About page", () => {
@@ -420,6 +425,73 @@ describe("Services page", () => {
 
     expect(() => ServicesPage()).toThrow("NEXT_REDIRECT: /#services");
     expect(mockPermanentRedirect).toHaveBeenCalledWith("/#services");
+  });
+});
+
+describe("Branding congruency smoke", () => {
+  it("keeps the canonical primary slogan in shared constants", () => {
+    const companyConstantsPath = path.join(
+      REPO_ROOT,
+      "packages",
+      "shared",
+      "src",
+      "lib",
+      "constants",
+      "company.ts",
+    );
+    const source = fs.readFileSync(companyConstantsPath, "utf8");
+    expect(source).toContain('primary: "Built on Quality, Backed by Trust."');
+  });
+
+  it("keeps legacy services routes as non-indexed redirects to home services anchor", async () => {
+    const { metadata: servicesMetadata, default: ServicesPage } =
+      require("../services/page") as {
+        metadata: {
+          robots: { index: boolean; follow: boolean };
+          alternates: { canonical: string };
+        };
+        default: () => void;
+      };
+    const { metadata: serviceDetailMetadata, default: ServiceDetailPage } =
+      require("../services/[slug]/page") as {
+        metadata: {
+          robots: { index: boolean; follow: boolean };
+          alternates: { canonical: string };
+        };
+        default: () => Promise<void>;
+      };
+
+    expect(servicesMetadata.robots.index).toBe(false);
+    expect(servicesMetadata.alternates.canonical).toBe(
+      "https://www.mhc-gc.com/",
+    );
+    expect(serviceDetailMetadata.robots.index).toBe(false);
+    expect(serviceDetailMetadata.alternates.canonical).toBe(
+      "https://www.mhc-gc.com/",
+    );
+
+    expect(() => ServicesPage()).toThrow("NEXT_REDIRECT: /#services");
+    await expect(ServiceDetailPage()).rejects.toThrow(
+      "NEXT_REDIRECT: /#services",
+    );
+  });
+
+  it("keeps services section represented on home with #services anchor", () => {
+    const homePagePath = path.join(APP_ROOT, "src", "app", "page.tsx");
+    const servicesDeferredPath = path.join(
+      APP_ROOT,
+      "src",
+      "components",
+      "home",
+      "ServicesShowcaseDeferred.tsx",
+    );
+
+    const homeSource = fs.readFileSync(homePagePath, "utf8");
+    const servicesSource = fs.readFileSync(servicesDeferredPath, "utf8");
+
+    expect(homeSource).toContain("ServicesShowcaseDeferred");
+    expect(homeSource).toContain("Stage 2 · Select Your Service Lane");
+    expect(servicesSource).toContain('id="services"');
   });
 });
 

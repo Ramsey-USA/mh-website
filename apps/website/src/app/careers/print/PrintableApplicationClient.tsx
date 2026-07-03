@@ -16,7 +16,7 @@ const translations = {
   en: {
     title: "Employment Application",
     subtitle: "MH Construction, Inc.",
-    tagline: "Veteran-Owned Since January 2025 General Contractor",
+    tagline: "Founded 2010, Veteran-Owned Since January 2025",
     brandSlogan: "Built on Quality, Backed by Trust.",
     roiMessage: "Built on communication and follow-through",
     instructions: "Instructions",

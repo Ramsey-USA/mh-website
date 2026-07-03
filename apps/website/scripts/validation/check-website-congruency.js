@@ -1,0 +1,551 @@
+#!/usr/bin/env node
+
+/**
+ * Website Congruency Check
+ *
+ * Enforces cross-site branding congruency beyond slogan sync by validating:
+ * - terminology and anti-hype guardrails on page copy files
+ * - metadata coverage on every routed page
+ * - trust-surface continuity on required pages
+ * - visual exception scoping for WA VOB badge colors
+ * - typography contract signals in layout + global CSS
+ */
+
+const fs = require("node:fs");
+const path = require("node:path");
+
+const ROOT = process.cwd();
+const APP_DIR = path.join(ROOT, "src", "app");
+const SRC_DIR = path.join(ROOT, "src");
+
+const WA_VOB_BADGE_FILE = path.join(
+  SRC_DIR,
+  "components",
+  "ui",
+  "WaVobBadge.tsx",
+);
+const ROOT_LAYOUT_FILE = path.join(APP_DIR, "layout.tsx");
+const GLOBALS_CSS_FILE = path.join(APP_DIR, "globals.css");
+const SEO_ROUTE_POLICY_FILE = path.join(
+  ROOT,
+  "config",
+  "seo",
+  "route-indexing-policy.json",
+);
+const SITEMAP_FILE = path.join(APP_DIR, "sitemap.ts");
+const COMPANY_CONSTANTS_FILE = path.join(
+  ROOT,
+  "..",
+  "..",
+  "packages",
+  "shared",
+  "src",
+  "lib",
+  "constants",
+  "company.ts",
+);
+const CAREERS_PRINT_FILE = path.join(
+  APP_DIR,
+  "careers",
+  "print",
+  "PrintableApplicationClient.tsx",
+);
+
+const DISALLOWED_HYPE_PATTERNS = [
+  /\bAI-powered\b/i,
+  /\bsynergy\b/i,
+  /\bcutting-edge\b/i,
+  /\bbest-in-class\b/i,
+  /\bguaranteed\b/i,
+  /\bbook now\b/i,
+  /\binstant quote\b/i,
+];
+
+const TRUST_SURFACE_CONTRACTS = [
+  {
+    relPath: "src/app/about/page.tsx",
+    requiredSnippets: ["AccreditationsLogoRow"],
+  },
+  {
+    relPath: "src/app/allies/page.tsx",
+    requiredSnippets: ["AccreditationsLogoRow"],
+  },
+  {
+    relPath: "src/app/veterans/page.tsx",
+    requiredSnippets: ["AccreditationsLogoRow"],
+  },
+  {
+    relPath: "src/app/public-sector/PublicSectorFullPage.tsx",
+    requiredSnippets: [
+      "AccreditationsLogoRow",
+      "Build America, Buy America Act (BABAA)",
+    ],
+  },
+  {
+    relPath: "src/app/contact/ContactPageClient.tsx",
+    requiredSnippets: [
+      "COMPANY_INFO.bbb.sealClickUrl",
+      "COMPANY_INFO.travelers.website",
+      "COMPANY_INFO.chambers.pasco.memberDirectoryUrl",
+      "COMPANY_INFO.chambers.richland.memberDirectoryUrl",
+      "COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl",
+    ],
+  },
+  {
+    relPath: "src/components/layout/Footer.tsx",
+    requiredSnippets: ["footer-accreditations-heading", "WaVobBadge"],
+  },
+];
+
+const HERO_VISUAL_FILES = [
+  "src/components/home/HeroSection.tsx",
+  "src/components/about/AboutHero.tsx",
+  "src/components/locations/LocationPageContent.tsx",
+  "src/app/projects/components/ProjectsHero.tsx",
+  "src/app/team/page.tsx",
+  "src/app/contact/ContactPageClient.tsx",
+  "src/app/locations/page.tsx",
+  "src/app/projects/[slug]/page.tsx",
+  "src/app/testimonials/page.tsx",
+  "src/app/faq/page.tsx",
+  "src/app/faq/[category]/page.tsx",
+  "src/app/veterans/page.tsx",
+  "src/app/safety/page.tsx",
+  "src/app/careers/CareersPageClient.tsx",
+  "src/app/resources/page.tsx",
+  "src/app/public-sector/PublicSectorFullPage.tsx",
+  "src/app/public-sector/veteran-led-compliance/page.tsx",
+  "src/app/public-sector/tri-state-government-construction/page.tsx",
+  "src/app/allies/page.tsx",
+];
+
+const SERVICES_CONSOLIDATION_CONTRACT = {
+  legacyRoutes: [
+    {
+      relPath: "src/app/services/page.tsx",
+      requiredSnippets: [
+        'permanentRedirect("/#services")',
+        "index: false",
+        'canonical: "https://www.mhc-gc.com/"',
+      ],
+    },
+    {
+      relPath: "src/app/services/[slug]/page.tsx",
+      requiredSnippets: [
+        'permanentRedirect("/#services")',
+        "index: false",
+        'canonical: "https://www.mhc-gc.com/"',
+      ],
+    },
+  ],
+  homePath: "src/app/page.tsx",
+  homeRequiredSnippets: [
+    "ServicesShowcaseDeferred",
+    "Stage 2 · Select Your Service Lane",
+  ],
+  servicesComponentPath: "src/components/home/ServicesShowcaseDeferred.tsx",
+  servicesComponentRequiredSnippets: ['id="services"', "<ServicesShowcase"],
+};
+
+function fail(errors) {
+  console.error("\nWebsite congruency check failed:\n");
+  for (const error of errors) {
+    console.error(`- ${error}`);
+  }
+  process.exit(1);
+}
+
+function walkFiles(dirPath, predicate, result = []) {
+  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dirPath, entry.name);
+    if (entry.isDirectory()) {
+      walkFiles(fullPath, predicate, result);
+      continue;
+    }
+
+    if (entry.isFile() && predicate(fullPath)) {
+      result.push(fullPath);
+    }
+  }
+
+  return result;
+}
+
+function rel(filePath) {
+  return path.relative(ROOT, filePath).split(path.sep).join("/");
+}
+
+function hasMetadataExport(source) {
+  return /export\s+(const\s+metadata|async\s+function\s+generateMetadata|function\s+generateMetadata)/.test(
+    source,
+  );
+}
+
+function listPageFiles() {
+  return walkFiles(
+    APP_DIR,
+    (filePath) => path.basename(filePath) === "page.tsx",
+  );
+}
+
+function checkMetadataCoverage(errors) {
+  const pageFiles = listPageFiles();
+
+  for (const pageFile of pageFiles) {
+    const pageSource = fs.readFileSync(pageFile, "utf8");
+    if (hasMetadataExport(pageSource)) {
+      continue;
+    }
+
+    const layoutFile = path.join(path.dirname(pageFile), "layout.tsx");
+    if (fs.existsSync(layoutFile)) {
+      const layoutSource = fs.readFileSync(layoutFile, "utf8");
+      if (hasMetadataExport(layoutSource)) {
+        continue;
+      }
+    }
+
+    errors.push(
+      `Missing metadata export for route file ${rel(pageFile)} (no metadata in same-segment layout).`,
+    );
+  }
+}
+
+function checkDisallowedHypeLanguage(errors) {
+  const candidateFiles = walkFiles(
+    APP_DIR,
+    (filePath) =>
+      /\.(ts|tsx|js|jsx)$/.test(filePath) &&
+      !filePath.includes("__tests__") &&
+      !filePath.includes("/api/"),
+  );
+
+  for (const filePath of candidateFiles) {
+    const source = fs.readFileSync(filePath, "utf8");
+    for (const pattern of DISALLOWED_HYPE_PATTERNS) {
+      if (pattern.test(source)) {
+        errors.push(
+          `Disallowed hype language (${pattern}) found in ${rel(filePath)}.`,
+        );
+      }
+    }
+  }
+}
+
+function checkTrustSurfaceContracts(errors) {
+  for (const contract of TRUST_SURFACE_CONTRACTS) {
+    const absPath = path.join(ROOT, contract.relPath);
+    if (!fs.existsSync(absPath)) {
+      errors.push(`Required trust-surface file missing: ${contract.relPath}`);
+      continue;
+    }
+
+    const source = fs.readFileSync(absPath, "utf8");
+    for (const snippet of contract.requiredSnippets) {
+      if (!source.includes(snippet)) {
+        errors.push(
+          `Trust-surface contract missing in ${contract.relPath}: expected snippet "${snippet}".`,
+        );
+      }
+    }
+  }
+}
+
+function checkWaVobVisualExceptionScope(errors) {
+  const sourceFiles = walkFiles(SRC_DIR, (filePath) =>
+    /\.(ts|tsx|js|jsx)$/.test(filePath),
+  );
+
+  const exceptionPattern =
+    /from-red-600[\s\S]{0,120}to-blue-700|to-blue-700[\s\S]{0,120}from-red-600/g;
+
+  for (const filePath of sourceFiles) {
+    const source = fs.readFileSync(filePath, "utf8");
+    const hasExceptionGradient = exceptionPattern.test(source);
+    if (!hasExceptionGradient) {
+      continue;
+    }
+
+    if (path.resolve(filePath) !== path.resolve(WA_VOB_BADGE_FILE)) {
+      errors.push(
+        `WA VOB red→blue gradient exception appears outside WaVobBadge: ${rel(filePath)}.`,
+      );
+    }
+  }
+}
+
+function checkTypographyContracts(errors) {
+  const layoutSource = fs.readFileSync(ROOT_LAYOUT_FILE, "utf8");
+  const globalsSource = fs.readFileSync(GLOBALS_CSS_FILE, "utf8");
+
+  if (!layoutSource.includes("https://use.typekit.net/jqs8bjh.css")) {
+    errors.push(
+      `Root layout is missing the canonical Typekit stylesheet link in ${rel(ROOT_LAYOUT_FILE)}.`,
+    );
+  }
+
+  if (!globalsSource.includes("--font-heading")) {
+    errors.push(`Missing --font-heading token in ${rel(GLOBALS_CSS_FILE)}.`);
+  }
+
+  if (!globalsSource.includes("--font-body")) {
+    errors.push(`Missing --font-body token in ${rel(GLOBALS_CSS_FILE)}.`);
+  }
+}
+
+function checkCanonicalTerminologyAnchors(errors) {
+  const constantsSource = fs.readFileSync(COMPANY_CONSTANTS_FILE, "utf8");
+  const careersPrintSource = fs.readFileSync(CAREERS_PRINT_FILE, "utf8");
+
+  if (
+    !constantsSource.includes('primary: "Built on Quality, Backed by Trust."')
+  ) {
+    errors.push(
+      `Primary slogan constant drift detected in ${rel(COMPANY_CONSTANTS_FILE)}.`,
+    );
+  }
+
+  if (
+    !constantsSource.includes('"Founded 2010, Veteran-Owned Since January 2025')
+  ) {
+    errors.push(
+      `Canonical veteran-owned tagline drift detected in ${rel(COMPANY_CONSTANTS_FILE)}.`,
+    );
+  }
+
+  if (
+    !careersPrintSource.includes(
+      'tagline: "Founded 2010, Veteran-Owned Since January 2025"',
+    )
+  ) {
+    errors.push(
+      `Careers print tagline must use canonical veteran-owned wording in ${rel(CAREERS_PRINT_FILE)}.`,
+    );
+  }
+}
+
+function checkCanonicalDomainUsage(errors) {
+  const candidateFiles = walkFiles(
+    path.join(ROOT, "src"),
+    (filePath) =>
+      /\.(ts|tsx|js|jsx)$/.test(filePath) && !filePath.includes("__tests__"),
+  );
+
+  for (const filePath of candidateFiles) {
+    const source = fs.readFileSync(filePath, "utf8");
+    if (source.includes("https://mhc-gc.com")) {
+      errors.push(
+        `Non-canonical domain (missing www) found in ${rel(filePath)}. Use https://www.mhc-gc.com.`,
+      );
+    }
+  }
+}
+
+function checkPrimarySloganIntegrity(errors) {
+  const candidateFiles = [
+    ...walkFiles(APP_DIR, (filePath) => /\.(ts|tsx|js|jsx)$/.test(filePath)),
+    ...walkFiles(path.join(ROOT, "messages"), (filePath) =>
+      /\.json$/.test(filePath),
+    ),
+    ...walkFiles(path.join(ROOT, "messages", "home"), (filePath) =>
+      /\.json$/.test(filePath),
+    ),
+  ];
+
+  const malformedPatterns = [
+    /Built on Quality,\s*Backed by Trust(?!\.)/g,
+    /built on quality, backed by trust\./g,
+  ];
+
+  for (const filePath of candidateFiles) {
+    const source = fs.readFileSync(filePath, "utf8");
+    for (const pattern of malformedPatterns) {
+      if (pattern.test(source)) {
+        errors.push(
+          `Malformed primary slogan variant found in ${rel(filePath)}. Canonical phrase is \"Built on Quality, Backed by Trust.\"`,
+        );
+      }
+      pattern.lastIndex = 0;
+    }
+  }
+}
+
+function checkHeroVisualContracts(errors) {
+  const homeHeroRelPath = "src/components/home/HeroSection.tsx";
+  const heroContainerSignal =
+    /hero-section|hero-safe-top|hero-safe-bottom|min-h-screen|h-screen|calc\(100vh - var\(--mh-nav-offset|HeroSectionClient|useVideoHero/;
+
+  for (const relPath of HERO_VISUAL_FILES) {
+    const absPath = path.join(ROOT, relPath);
+    if (!fs.existsSync(absPath)) {
+      errors.push(`Missing hero visual file: ${relPath}`);
+      continue;
+    }
+
+    const source = fs.readFileSync(absPath, "utf8");
+
+    if (!heroContainerSignal.test(source)) {
+      errors.push(
+        `Hero visual contract missing hero container signal in ${relPath}.`,
+      );
+    }
+
+    if (relPath !== homeHeroRelPath) {
+      const hasNavigationShell =
+        source.includes("PageNavigation") ||
+        source.includes("Breadcrumb") ||
+        source.includes("Breadcrumbs");
+
+      if (!hasNavigationShell) {
+        errors.push(
+          `Hero visual contract missing navigation shell signal (PageNavigation/Breadcrumb) in ${relPath}.`,
+        );
+      }
+    }
+  }
+}
+
+function checkServicesConsolidationContract(errors) {
+  for (const routeContract of SERVICES_CONSOLIDATION_CONTRACT.legacyRoutes) {
+    const absPath = path.join(ROOT, routeContract.relPath);
+    if (!fs.existsSync(absPath)) {
+      errors.push(
+        `Missing legacy services redirect route file: ${routeContract.relPath}.`,
+      );
+      continue;
+    }
+
+    const source = fs.readFileSync(absPath, "utf8");
+    for (const snippet of routeContract.requiredSnippets) {
+      if (!source.includes(snippet)) {
+        errors.push(
+          `Legacy services route contract missing in ${routeContract.relPath}: expected snippet "${snippet}".`,
+        );
+      }
+    }
+  }
+
+  const homeAbsPath = path.join(ROOT, SERVICES_CONSOLIDATION_CONTRACT.homePath);
+  if (!fs.existsSync(homeAbsPath)) {
+    errors.push(
+      `Home page file missing for services consolidation contract: ${SERVICES_CONSOLIDATION_CONTRACT.homePath}.`,
+    );
+    return;
+  }
+
+  const homeSource = fs.readFileSync(homeAbsPath, "utf8");
+  for (const snippet of SERVICES_CONSOLIDATION_CONTRACT.homeRequiredSnippets) {
+    if (!homeSource.includes(snippet)) {
+      errors.push(
+        `Home services consolidation contract missing in ${SERVICES_CONSOLIDATION_CONTRACT.homePath}: expected snippet "${snippet}".`,
+      );
+    }
+  }
+
+  const servicesComponentAbsPath = path.join(
+    ROOT,
+    SERVICES_CONSOLIDATION_CONTRACT.servicesComponentPath,
+  );
+  if (!fs.existsSync(servicesComponentAbsPath)) {
+    errors.push(
+      `Services component file missing for consolidation contract: ${SERVICES_CONSOLIDATION_CONTRACT.servicesComponentPath}.`,
+    );
+    return;
+  }
+
+  const servicesComponentSource = fs.readFileSync(
+    servicesComponentAbsPath,
+    "utf8",
+  );
+  for (const snippet of SERVICES_CONSOLIDATION_CONTRACT.servicesComponentRequiredSnippets) {
+    if (!servicesComponentSource.includes(snippet)) {
+      errors.push(
+        `Services component consolidation contract missing in ${SERVICES_CONSOLIDATION_CONTRACT.servicesComponentPath}: expected snippet "${snippet}".`,
+      );
+    }
+  }
+
+  if (!fs.existsSync(SEO_ROUTE_POLICY_FILE)) {
+    errors.push(
+      `SEO route policy file missing for services consolidation contract: ${rel(SEO_ROUTE_POLICY_FILE)}.`,
+    );
+  } else {
+    try {
+      const routePolicy = JSON.parse(
+        fs.readFileSync(SEO_ROUTE_POLICY_FILE, "utf8"),
+      );
+      const redirectExact = routePolicy?.classes?.redirect?.exact;
+      const indexableExact = routePolicy?.classes?.indexable?.exact;
+
+      if (!Array.isArray(redirectExact)) {
+        errors.push(
+          `SEO route policy redirect.exact must be an array in ${rel(SEO_ROUTE_POLICY_FILE)}.`,
+        );
+      } else {
+        for (const legacyRoute of ["/services", "/services/[slug]"]) {
+          if (!redirectExact.includes(legacyRoute)) {
+            errors.push(
+              `SEO route policy must classify ${legacyRoute} as redirect in ${rel(SEO_ROUTE_POLICY_FILE)}.`,
+            );
+          }
+        }
+      }
+
+      if (Array.isArray(indexableExact)) {
+        for (const legacyRoute of ["/services", "/services/[slug]"]) {
+          if (indexableExact.includes(legacyRoute)) {
+            errors.push(
+              `SEO route policy must not classify ${legacyRoute} as indexable in ${rel(SEO_ROUTE_POLICY_FILE)}.`,
+            );
+          }
+        }
+      }
+    } catch (error) {
+      errors.push(
+        `Unable to parse SEO route policy JSON in ${rel(SEO_ROUTE_POLICY_FILE)}: ${error.message}`,
+      );
+    }
+  }
+
+  if (!fs.existsSync(SITEMAP_FILE)) {
+    errors.push(`Sitemap file missing: ${rel(SITEMAP_FILE)}.`);
+  } else {
+    const sitemapSource = fs.readFileSync(SITEMAP_FILE, "utf8");
+    if (
+      sitemapSource.includes('path: "/services"') ||
+      sitemapSource.includes('path: "/services/[slug]"')
+    ) {
+      errors.push(
+        `Legacy services routes must not appear in ACTIVE_PAGES inside ${rel(SITEMAP_FILE)}.`,
+      );
+    }
+  }
+}
+
+function main() {
+  const errors = [];
+
+  checkMetadataCoverage(errors);
+  checkDisallowedHypeLanguage(errors);
+  checkTrustSurfaceContracts(errors);
+  checkWaVobVisualExceptionScope(errors);
+  checkTypographyContracts(errors);
+  checkCanonicalTerminologyAnchors(errors);
+  checkCanonicalDomainUsage(errors);
+  checkPrimarySloganIntegrity(errors);
+  checkHeroVisualContracts(errors);
+  checkServicesConsolidationContract(errors);
+
+  if (errors.length > 0) {
+    fail(errors);
+  }
+
+  const routeCount = listPageFiles().length;
+  const servicesSummary = "services-consolidation=ok";
+  console.log(
+    `PASS: Website congruency check passed (routes=${routeCount}, contracts=${TRUST_SURFACE_CONTRACTS.length}, ${servicesSummary}).`,
+  );
+}
+
+main();
