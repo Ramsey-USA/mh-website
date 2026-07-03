@@ -10,12 +10,9 @@ import {
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { NextStepsSection } from "@/components/shared-sections";
 import { StructuredData } from "@/components/seo/SeoMeta";
-import {
-  DiagonalStripePattern,
-  BrandColorBlobs,
-} from "@/components/ui/backgrounds";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { SafetyComplianceBadge } from "@/components/resources/SafetyComplianceBadge";
+import { ResourcesHero } from "@/components/resources/ResourcesHero";
 import { manuals, forms } from "@/lib/data/documents";
 import { DownloadGate } from "@/components/pwa";
 import { COMPANY_INFO } from "@/lib/constants/company";
@@ -59,11 +56,11 @@ export default function ResourcesPage() {
       <PageTrackingClient pageName="resources" />
       <StructuredData data={breadcrumbSchema} />
 
-      <div className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <DiagonalStripePattern />
-        <BrandColorBlobs />
+      {/* Hero Section - Compliant with MH Branding Standards */}
+      <ResourcesHero />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+      <div className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20">
           <Breadcrumb
             items={[
               { label: "Home", href: "/" },
@@ -71,80 +68,50 @@ export default function ResourcesPage() {
             ]}
           />
 
-          {/* Hero */}
-          <FadeInWhenVisible>
-            <div className="hero-section text-center mb-14">
-              <div className="inline-flex items-center gap-2 bg-brand-primary/10 dark:bg-brand-primary/20 border border-brand-primary/20 rounded-full px-4 py-1.5 mb-5">
-                <MaterialIcon
-                  icon="folder_open"
-                  size="sm"
-                  className="text-brand-primary"
-                />
-                <span className="text-brand-primary dark:text-brand-secondary text-sm font-semibold tracking-wide uppercase">
-                  Resources
-                </span>
-              </div>
-              <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight tracking-tight">
-                Project{" "}
-                <span className="bg-linear-to-r from-brand-primary to-brand-primary-light bg-clip-text text-transparent">
-                  Resources
-                </span>
-              </h1>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                Manuals, forms, and field documents for MH Construction, branded
-                and ready to print or download.
-              </p>
-              <p className="mt-3 text-sm font-semibold text-gray-900 dark:text-white">
-                {COMPANY_INFO.slogan.primary}
-              </p>
-              <p className="mt-4 text-sm font-semibold text-brand-primary dark:text-brand-secondary">
-                {COMPANY_INFO.slogan.quaternary}
-              </p>
-            </div>
-          </FadeInWhenVisible>
-
           {/* Bonding & Insurance Agency CTA */}
-          <Card className="group mb-10 overflow-hidden border-brand-primary/25 bg-linear-to-r from-brand-primary/8 to-brand-primary/4 dark:from-brand-primary/20 dark:to-brand-primary/10 transition-all duration-300 hover:border-brand-primary hover:shadow-lg">
-            <Link
-              href="/safety"
-              className="flex items-start gap-5 p-5 sm:items-center sm:p-6"
-            >
-              <div className="shrink-0 w-12 h-12 bg-brand-primary rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
+          <FadeInWhenVisible>
+            <Card className="group mb-10 overflow-hidden border-brand-primary/25 bg-linear-to-r from-brand-primary/8 to-brand-primary/4 dark:from-brand-primary/20 dark:to-brand-primary/10 transition-all duration-300 hover:border-brand-primary hover:shadow-lg">
+              <Link
+                href="/safety"
+                className="flex items-start gap-5 p-5 sm:items-center sm:p-6"
+              >
+                <div className="shrink-0 w-12 h-12 bg-brand-primary rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
+                  <MaterialIcon
+                    icon="shield_lock"
+                    size="md"
+                    className="text-white"
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap mb-1">
+                    <h2 className="text-base font-bold text-brand-primary dark:text-brand-secondary">
+                      For Bonding &amp; Insurance Agencies
+                    </h2>
+                    <span className="text-xs font-semibold bg-brand-primary text-white rounded-full px-2.5 py-0.5">
+                      New
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                    View the OSHA 29 CFR 1926-compliant safety overview with
+                    compliance credentials, section mapping, and direct PDF
+                    access for pre-qualification and surety review.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <SafetyComplianceBadge variant="osha" />
+                    <SafetyComplianceBadge variant="agc" />
+                    <SafetyComplianceBadge variant="pmbok" />
+                    <SafetyComplianceBadge variant="veteran" />
+                    <SafetyComplianceBadge variant="bbb" />
+                  </div>
+                </div>
                 <MaterialIcon
-                  icon="shield_lock"
+                  icon="arrow_forward"
                   size="md"
-                  className="text-white"
+                  className="text-brand-primary shrink-0 group-hover:translate-x-1 transition-transform duration-200 hidden sm:block"
                 />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 flex-wrap mb-1">
-                  <h2 className="text-base font-bold text-brand-primary dark:text-brand-secondary">
-                    For Bonding &amp; Insurance Agencies
-                  </h2>
-                  <span className="text-xs font-semibold bg-brand-primary text-white rounded-full px-2.5 py-0.5">
-                    New
-                  </span>
-                </div>
-                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                  View the OSHA 29 CFR 1926-compliant safety overview with
-                  compliance credentials, section mapping, and direct PDF access
-                  for pre-qualification and surety review.
-                </p>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  <SafetyComplianceBadge variant="osha" />
-                  <SafetyComplianceBadge variant="agc" />
-                  <SafetyComplianceBadge variant="pmbok" />
-                  <SafetyComplianceBadge variant="veteran" />
-                  <SafetyComplianceBadge variant="bbb" />
-                </div>
-              </div>
-              <MaterialIcon
-                icon="arrow_forward"
-                size="md"
-                className="text-brand-primary shrink-0 group-hover:translate-x-1 transition-transform duration-200 hidden sm:block"
-              />
-            </Link>
-          </Card>
+              </Link>
+            </Card>
+          </FadeInWhenVisible>
 
           <Card className="group mb-10 overflow-hidden border-brand-secondary/25 bg-linear-to-r from-brand-secondary/8 to-brand-secondary/4 dark:from-brand-secondary/20 dark:to-brand-secondary/10 transition-all duration-300 hover:border-brand-secondary hover:shadow-lg">
             <Link

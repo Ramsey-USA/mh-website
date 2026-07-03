@@ -6,11 +6,8 @@ import { Button } from "@/components/ui";
 import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
 import { headers } from "next/headers";
-import {
-  DiagonalStripePattern,
-  BrandColorBlobs,
-} from "@/components/ui/backgrounds";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { TestimonialsHero } from "@/components/testimonials/TestimonialsHero";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import {
@@ -49,12 +46,6 @@ async function getIsLighthouseAudit(
 const Breadcrumb = nextDynamic(() =>
   import("@/components/navigation/Breadcrumb").then((m) => ({
     default: m.Breadcrumb,
-  })),
-);
-
-const PageNavigation = nextDynamic(() =>
-  import("@/components/navigation/PageNavigation").then((m) => ({
-    default: m.PageNavigation,
   })),
 );
 
@@ -248,36 +239,7 @@ export default async function TestimonialsPage(props?: {
         ))}
         <StructuredData data={faqSchema} />
 
-        <section className="hero-section hero-safe-top relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 pb-20 text-white sm:pb-24 lg:pb-28">
-          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight">
-              Client Partner Reviews
-            </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-base sm:text-lg text-white/90 leading-relaxed">
-              Reviews from client partners across Washington, Oregon, and Idaho.
-            </p>
-            <p className="mx-auto mt-4 max-w-3xl text-sm sm:text-base text-brand-secondary/90 font-semibold">
-              {COMPANY_INFO.slogan.primary}
-            </p>
-            <p className="mx-auto mt-2 max-w-3xl text-sm sm:text-base text-brand-secondary/80 font-semibold">
-              {COMPANY_INFO.slogan.secondary}
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-              <Button asChild variant="secondary" size="lg">
-                <Link
-                  href="https://g.page/r/CVdv3YZLzJvdEAI/review"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Leave a Google Review
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/contact">Start Your Project</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
+        <TestimonialsHero />
 
         {testimonials.length > 0 && (
           <StaticTestimonialsSection testimonials={testimonials} />
@@ -299,111 +261,8 @@ export default async function TestimonialsPage(props?: {
       ))}
       <StructuredData data={faqSchema} />
 
-      {/* Hero Section - Modern MH Standard with Diagonal Stripes */}
-      <section className="hero-section relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white overflow-hidden">
-        <DiagonalStripePattern />
-        <BrandColorBlobs />
-
-        {/* Content - Centered for standard pages */}
-        <div className="hero-safe-top hero-safe-bottom relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-            {/* Icon with decorative lines */}
-            <div className="flex items-center justify-center mb-8 gap-4">
-              <div className="h-1 w-16 bg-linear-to-r from-transparent to-white/30 rounded-full"></div>
-              <div className="relative">
-                <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/50 to-bronze-600/50 blur-2xl rounded-full"></div>
-                <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50">
-                  <MaterialIcon
-                    icon="forum"
-                    size="2xl"
-                    className="text-white drop-shadow-lg"
-                    ariaLabel="Client testimonials"
-                  />
-                </div>
-              </div>
-              <div className="h-1 w-16 bg-linear-to-l from-transparent to-white/30 rounded-full"></div>
-            </div>
-
-            {/* Two-line gradient heading */}
-            <h1 className="mb-6 sm:mb-8 font-black text-white text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight overflow-visible">
-              <span className="block mb-3 sm:mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                Reviews
-              </span>
-              <span className="block bg-linear-to-r from-brand-secondary via-brand-secondary-light to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                From Client Partners
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed px-2 font-light tracking-wide">
-              Real feedback from{" "}
-              <span className="text-brand-secondary font-bold">
-                Client Partners
-              </span>{" "}
-              across commercial, industrial, and government projects in WA, OR,
-              and ID.
-            </p>
-            <p className="mx-auto mt-4 max-w-3xl text-sm sm:text-base text-brand-secondary/90 font-semibold">
-              {COMPANY_INFO.slogan.secondary}
-            </p>
-
-            {/* Stats Display */}
-            {aggregateRating && (
-              <div className="flex flex-wrap justify-center gap-8 sm:gap-12 pt-8">
-                <div className="flex flex-col items-center">
-                  <div className="flex items-center gap-2 mb-2">
-                    {STAR_SLOTS.map((slot, i) => (
-                      <MaterialIcon
-                        key={slot}
-                        icon="star"
-                        size="md"
-                        className={
-                          i < Math.round(aggregateRating.ratingValue)
-                            ? "text-brand-secondary"
-                            : "text-gray-500"
-                        }
-                        ariaLabel={
-                          i < Math.round(aggregateRating.ratingValue)
-                            ? "Filled star"
-                            : "Empty star"
-                        }
-                      />
-                    ))}
-                  </div>
-                  <p className="text-base sm:text-lg text-white/90 font-medium">
-                    {aggregateRating.ratingValue.toFixed(1)} Average Rating
-                  </p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <p className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-secondary drop-shadow-lg">
-                    {aggregateRating.reviewCount}+
-                  </p>
-                  <p className="text-base sm:text-lg text-white/90 font-medium">
-                    Client Reviews
-                  </p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <p className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-secondary drop-shadow-lg">
-                    20+
-                  </p>
-                  <p className="text-base sm:text-lg text-white/90 font-medium">
-                    Years Experience
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Page-Specific Navigation Bar */}
-        {!isLighthouseAudit && (
-          <PageNavigation
-            items={navigationConfigs.testimonials}
-            showRemainingPagesOverlay
-            className="absolute bottom-0 left-0 right-0"
-          />
-        )}
-      </section>
+      {/* Hero Section - Compliant with MH Branding Standards */}
+      <TestimonialsHero />
 
       {/* Breadcrumb Navigation */}
       {!isLighthouseAudit && (

@@ -655,6 +655,87 @@ export const navigationConfigs = {
       icon: "photo_camera",
     },
   ],
+
+  events: [
+    {
+      href: "#smoke-n-shine",
+      label: "Featured Events",
+      mobileLabel: "Featured",
+      icon: "event",
+    },
+    {
+      href: "#event-gallery",
+      label: "Event Gallery",
+      mobileLabel: "Gallery",
+      icon: "photo_library",
+    },
+    {
+      href: "#upcoming-events",
+      label: "Upcoming Events",
+      mobileLabel: "Upcoming",
+      icon: "calendar_month",
+    },
+    {
+      href: "/contact",
+      label: "Partner With MH",
+      mobileLabel: "Partner",
+      icon: "groups",
+    },
+  ],
+
+  resources: [
+    {
+      href: "#manuals",
+      label: "Safety Manual",
+      mobileLabel: "Manual",
+      icon: "menu_book",
+    },
+    {
+      href: "#forms",
+      label: "Forms & Toolbox Talks",
+      mobileLabel: "Forms",
+      icon: "description",
+    },
+    {
+      href: "#downloads",
+      label: "Field Downloads",
+      mobileLabel: "Downloads",
+      icon: "cloud_download",
+    },
+    {
+      href: "/services",
+      label: "Our Services",
+      mobileLabel: "Services",
+      icon: "build",
+    },
+  ],
+
+  locations: [
+    {
+      href: "#offices",
+      label: "Office Locations",
+      mobileLabel: "Offices",
+      icon: "location_on",
+    },
+    {
+      href: "#service-areas",
+      label: "Service Areas",
+      mobileLabel: "Areas",
+      icon: "public",
+    },
+    {
+      href: "#contact-info",
+      label: "Contact Info",
+      mobileLabel: "Contact",
+      icon: "phone",
+    },
+    {
+      href: "/contact",
+      label: "Get In Touch",
+      mobileLabel: "Connect",
+      icon: "mail",
+    },
+  ],
 };
 
 export type PageType = keyof typeof navigationConfigs;

@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StripedBackground } from "@/components/ui/StripedBackground";
+import { EventsHero } from "@/components/events/EventsHero";
 
 const SMOKE_N_SHINE_PLACEMENTS = [
   { place: "1st Place", team: "Classic Grillin'" },
@@ -75,23 +76,21 @@ export function EventsLandingPageClient() {
 
   return (
     <main className="min-h-screen text-white">
-      <section className="relative overflow-hidden border-b border-brand-secondary/35">
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900" />
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-brand-primary/25 via-gray-900/60 to-gray-900/80" />
-        <div className="relative mx-auto max-w-7xl px-4 pb-14 pt-28 sm:px-6 lg:px-8 lg:pb-20 lg:pt-32">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-secondary/90">
-            Sponsored and Hosted Events
-          </p>
-          <h1 className="mt-3 max-w-4xl text-balance text-3xl font-black leading-tight sm:text-5xl">
-            MH Construction Community Events Hub
-          </h1>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/90 sm:text-lg">
-            This is the central landing page for MH Construction sponsored and
-            hosted events. We keep completed-event records visible, highlight
-            participating teams, and publish upcoming opportunities for clients,
-            partners, and the Tri-Cities community.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
+      {/* Hero Section - Compliant with MH Branding Standards */}
+      <EventsHero />
+
+      {/* Event Hub Introduction and CTAs */}
+      <section className="relative bg-white/5 border-b border-brand-secondary/35 py-12 sm:py-16 lg:py-20">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-8">
+            <p className="text-base sm:text-lg text-white/90 leading-relaxed">
+              This is the central landing page for MH Construction sponsored and
+              hosted events. We keep completed-event records visible, highlight
+              participating teams, and publish upcoming opportunities for
+              clients, partners, and the Tri-Cities community.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3">
             <a
               href="#smoke-n-shine"
               className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-brand-secondary px-5 py-3 text-sm font-bold text-gray-900 transition hover:bg-brand-secondary-light"
@@ -116,7 +115,6 @@ export function EventsLandingPageClient() {
           </div>
         </div>
       </section>
-
       <StripedBackground>
         <div className="relative z-10 pb-20">
           <Breadcrumb

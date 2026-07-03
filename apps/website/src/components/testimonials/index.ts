@@ -6,3 +6,4 @@
 export { TestimonialCard } from "./TestimonialCard";
 export { TestimonialGrid } from "./TestimonialGrid";
 export { TestimonialsCarousel } from "./TestimonialsCarousel";
+export { TestimonialsHero } from "./TestimonialsHero";

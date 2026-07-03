@@ -4,3 +4,4 @@
  */
 
 export { LocationPageContent } from "./LocationPageContent";
+export { LocationsHero } from "./LocationsHero";

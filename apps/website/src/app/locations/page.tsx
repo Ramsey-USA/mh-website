@@ -6,6 +6,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { Button, Card } from "@/components/ui";
+import { LocationsHero } from "@/components/locations/LocationsHero";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { locations } from "@/lib/data/locations";
 import { getTranslations } from "next-intl/server";
@@ -73,34 +74,19 @@ export default async function LocationsPage() {
       <StructuredData data={generateBreadcrumbSchema(breadcrumbItems)} />
       <StructuredData data={locationsSchema} />
 
+      {/* Hero Section - Compliant with MH Branding Standards */}
+      <LocationsHero />
+
       <main className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <section className="hero-section hero-safe-top-lg border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 pb-14 text-white sm:px-6 lg:px-8">
+        <section className="px-4 pt-12 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
             <Breadcrumbs
               items={[
                 { label: t("locations.breadcrumb.home"), href: "/" },
                 { label: t("locations.breadcrumb.current") },
               ]}
-              className="mb-6 bg-transparent text-white/70 [&_nav]:border-0 [&_nav]:bg-transparent [&_nav]:py-0 [&_span[aria-current='page']]:text-white [&_a]:text-white/70 [&_a:hover]:text-white"
+              className="mb-6 bg-transparent text-gray-700 dark:text-white/70 [&_nav]:border-0 [&_nav]:bg-transparent [&_nav]:py-0 [&_span[aria-current='page']]:text-gray-900 dark:[&_span[aria-current='page']]:text-white [&_a]:text-gray-600 dark:[&_a]:text-white/70 [&_a:hover]:text-gray-900 dark:[&_a:hover]:text-white"
             />
-
-            <div className="max-w-3xl">
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
-                {t("locations.hero.kicker")}
-              </p>
-              <h1 className="text-3xl font-black tracking-tight sm:text-5xl">
-                {t("locations.hero.title")}
-              </h1>
-              <p className="mt-5 text-lg leading-8 text-white/85">
-                {t("locations.hero.description")}
-              </p>
-              <p className="mt-3 text-sm font-semibold text-white/90 sm:text-base">
-                {COMPANY_INFO.slogan.primary}
-              </p>
-              <p className="mt-4 text-sm font-semibold text-brand-secondary/90 sm:text-base">
-                {COMPANY_INFO.slogan.secondary}
-              </p>
-            </div>
           </div>
         </section>
 
