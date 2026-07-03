@@ -34,13 +34,24 @@ function parseSection(
     return null;
   }
 
-  const icon = iconMatch[1].trim().toLowerCase();
-  if (icon !== "star" && icon !== "anchor") {
+  const icon = iconMatch[1]?.trim().toLowerCase();
+  if (!icon || (icon !== "star" && icon !== "anchor")) {
     return null;
   }
 
-  const stars = Number.parseInt(starsMatch[1], 10);
+  const starsValue = starsMatch[1];
+  if (!starsValue) {
+    return null;
+  }
+
+  const stars = Number.parseInt(starsValue, 10);
   if (Number.isNaN(stars) || stars < 1 || stars > 5) {
+    return null;
+  }
+
+  const label = labelMatch[1]?.trim();
+  const ariaLabel = ariaLabelMatch[1]?.trim();
+  if (!label || !ariaLabel) {
     return null;
   }
 
@@ -48,8 +59,8 @@ function parseSection(
     key,
     icon,
     stars,
-    label: labelMatch[1].trim(),
-    ariaLabel: ariaLabelMatch[1].trim(),
+    label,
+    ariaLabel,
   };
 }
 
@@ -60,7 +71,7 @@ function parseStamps(
   const parsed: Record<string, IndividualBrandingStamp> = {};
 
   for (const section of sections) {
-    const [rawTitle, ...rest] = section.split("\n");
+    const [rawTitle = "", ...rest] = section.split("\n");
     const key = rawTitle.trim().toLowerCase();
     if (!key) continue;
 

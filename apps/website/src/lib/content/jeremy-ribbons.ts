@@ -26,10 +26,17 @@ function parseSection(sectionBody: string): JeremyRibbon | null {
     return null;
   }
 
+  const eyebrow = eyebrowMatch[1]?.trim();
+  const quote = quoteMatch[1]?.trim();
+  const attribution = attributionMatch[1]?.trim();
+  if (!eyebrow || !quote || !attribution) {
+    return null;
+  }
+
   return {
-    eyebrow: eyebrowMatch[1].trim(),
-    quote: quoteMatch[1].trim(),
-    attribution: attributionMatch[1].trim(),
+    eyebrow,
+    quote,
+    attribution,
   };
 }
 
@@ -38,7 +45,7 @@ function parseRibbons(markdown: string): Record<string, JeremyRibbon> {
   const parsed: Record<string, JeremyRibbon> = {};
 
   for (const section of sections) {
-    const [rawTitle, ...rest] = section.split("\n");
+    const [rawTitle = "", ...rest] = section.split("\n");
     const key = rawTitle.trim().toLowerCase();
     if (!key) continue;
 
@@ -69,7 +76,9 @@ function loadRibbons(): Record<string, JeremyRibbon> {
 export function getJeremyRibbon(key: string): JeremyRibbon {
   cachedRibbons ??= loadRibbons();
   return (
-    cachedRibbons[key.toLowerCase()] ?? cachedRibbons.default ?? DEFAULT_RIBBON
+    cachedRibbons[key.toLowerCase()] ??
+    cachedRibbons["default"] ??
+    DEFAULT_RIBBON
   );
 }
 

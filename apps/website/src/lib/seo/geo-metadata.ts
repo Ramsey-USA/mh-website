@@ -161,16 +161,14 @@ function resolveMetadataBase(metadataBase: Metadata["metadataBase"]): string {
 }
 
 function resolveCanonicalUrl(
-  canonical: Metadata["alternates"] extends { canonical?: infer T }
-    ? T
-    : undefined,
+  canonical: unknown,
   baseUrl: string,
 ): string | null {
-  if (!canonical) {
+  const canonicalString = stringifyUrlLike(canonical);
+  if (!canonicalString) {
     return null;
   }
 
-  const canonicalString = canonical.toString();
   if (
     canonicalString.startsWith("http://") ||
     canonicalString.startsWith("https://")
@@ -185,6 +183,32 @@ function resolveCanonicalUrl(
   } catch {
     return null;
   }
+}
+
+function stringifyUrlLike(value: unknown): string | null {
+  if (!value) {
+    return null;
+  }
+
+  if (typeof value === "string") {
+    return value;
+  }
+
+  if (value instanceof URL) {
+    return value.toString();
+  }
+
+  if (typeof value === "object") {
+    const maybeUrl = (value as { url?: unknown }).url;
+    if (typeof maybeUrl === "string") {
+      return maybeUrl;
+    }
+    if (maybeUrl instanceof URL) {
+      return maybeUrl.toString();
+    }
+  }
+
+  return null;
 }
 
 function stripLocalePrefix(pathname: string): string {
@@ -242,15 +266,17 @@ function getKeywordStrategyByRoute(metadata: Metadata): string[] {
 
 function getRoutePathFromMetadata(metadata: Metadata): string | null {
   const canonical = metadata.alternates?.canonical;
-  const canonicalUrl =
-    typeof canonical === "string" ? canonical : canonical?.toString();
+  const canonicalUrl = stringifyUrlLike(canonical);
 
   if (canonicalUrl) {
     return parseRoutePath(canonicalUrl);
   }
 
-  if (metadata.openGraph?.url) {
-    return parseRoutePath(metadata.openGraph.url.toString());
+  const openGraphUrl = stringifyUrlLike(
+    (metadata.openGraph as { url?: unknown } | undefined)?.url,
+  );
+  if (openGraphUrl) {
+    return parseRoutePath(openGraphUrl);
   }
 
   return null;

@@ -206,7 +206,7 @@ export function AppShell({
     }
 
     return (
-      ribbons.default ?? {
+      ribbons["default"] ?? {
         eyebrow: "Words from the General",
         quote:
           "My commitment on every page is the same: clear planning, accountable execution, and communication that earns trust before, during, and after closeout.",
@@ -270,7 +270,7 @@ export function AppShell({
               <JeremyQuoteRibbon
                 ribbon={activeRibbon}
                 variant="global"
-                stamp={jeremyStamp}
+                stamp={jeremyStamp ?? null}
               />
             </div>
           </section>
@@ -334,7 +334,7 @@ export function AppShell({
             <JeremyQuoteRibbon
               ribbon={activeRibbon}
               variant="global"
-              stamp={jeremyStamp}
+              stamp={jeremyStamp ?? null}
             />
           </div>
         </section>

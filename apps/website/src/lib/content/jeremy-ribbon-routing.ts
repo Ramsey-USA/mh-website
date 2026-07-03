@@ -18,6 +18,10 @@ function isPatternMatch(pattern: string, pathKey: string): boolean {
 
   for (let i = 0; i < patternSegments.length; i += 1) {
     const segment = patternSegments[i];
+    if (!segment) {
+      continue;
+    }
+
     const isCatchAll = /^\[\[?\.\.\.[^\]]+\]?\]$/.test(segment);
     const isOptionalCatchAll = /^\[\[\.\.\.[^\]]+\]\]$/.test(segment);
 
@@ -32,7 +36,12 @@ function isPatternMatch(pattern: string, pathKey: string): boolean {
       return false;
     }
 
-    if (!isDynamicSegment(segment) && segment !== pathSegments[pathIndex]) {
+    const pathSegment = pathSegments[pathIndex];
+    if (!pathSegment) {
+      return false;
+    }
+
+    if (!isDynamicSegment(segment) && segment !== pathSegment) {
       return false;
     }
 
