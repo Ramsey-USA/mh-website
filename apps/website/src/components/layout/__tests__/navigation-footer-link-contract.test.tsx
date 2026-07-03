@@ -97,6 +97,7 @@ describe("Navigation and Footer link contract", () => {
       "/projects",
       "/events",
       "/team",
+      "/jeremy-thamert",
       "/testimonials",
       "/careers",
       "/contact",

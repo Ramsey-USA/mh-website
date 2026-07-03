@@ -156,6 +156,7 @@ describe("Footer", () => {
       "/services",
       "/projects",
       "/about",
+      "/jeremy-thamert",
       "/careers?apply=true&entryPoint=Footer%20Application",
       `tel:${COMPANY_INFO.phone.tel}`,
       `mailto:${COMPANY_INFO.email.main}`,

@@ -265,6 +265,25 @@ describe("withGeoMetadata()", () => {
     expect(keywords).toContain("Industrial Facility Construction");
     expect(keywords).toContain("custom services keyword");
   });
+
+  it("adds hreflang alternates when canonical is present", () => {
+    const result = withGeoMetadata({
+      title: "Services",
+      alternates: {
+        canonical: "https://www.mhc-gc.com/services",
+      },
+    });
+
+    expect(result.alternates?.languages?.["x-default"]?.toString()).toBe(
+      "https://www.mhc-gc.com/services",
+    );
+    expect(result.alternates?.languages?.["en-US"]?.toString()).toBe(
+      "https://www.mhc-gc.com/en/services",
+    );
+    expect(result.alternates?.languages?.["es-US"]?.toString()).toBe(
+      "https://www.mhc-gc.com/es/services",
+    );
+  });
 });
 
 // ── location-metadata ─────────────────────────────────────────────────────────

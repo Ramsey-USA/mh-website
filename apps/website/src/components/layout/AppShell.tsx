@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -16,9 +16,21 @@ import {
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { EventsHubBanner } from "@/components/ui/cta";
 import { usePWA } from "@/hooks/usePWA";
+import { JeremyQuoteRibbon } from "@/components/shared-sections/JeremyQuoteRibbon";
+import type { IndividualBrandingStamp } from "@/lib/content/individual-branding-stamps";
+import { resolveJeremyRibbonKey } from "@/lib/content/jeremy-ribbon-routing";
 
 interface AppShellProps {
   children: React.ReactNode;
+  jeremyRibbons?: Record<
+    string,
+    {
+      eyebrow: string;
+      quote: string;
+      attribution: string;
+    }
+  >;
+  jeremyStamp?: IndividualBrandingStamp | null;
 }
 
 const QUICK_ACTIONS = [
@@ -175,9 +187,33 @@ function SemiquincentennialAfterHeroSlot() {
   );
 }
 
-export function AppShell({ children }: Readonly<AppShellProps>) {
+export function AppShell({
+  children,
+  jeremyRibbons,
+  jeremyStamp,
+}: Readonly<AppShellProps>) {
   const { isStandalone } = usePWA();
   const pwaHeaderRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
+
+  const activeRibbon = useMemo(() => {
+    const ribbons = jeremyRibbons ?? {};
+    const availableKeys = Object.keys(ribbons);
+    const routeKey = resolveJeremyRibbonKey(pathname, availableKeys);
+
+    if (routeKey && ribbons[routeKey]) {
+      return ribbons[routeKey];
+    }
+
+    return (
+      ribbons.default ?? {
+        eyebrow: "Words from the General",
+        quote:
+          "My commitment on every page is the same: clear planning, accountable execution, and communication that earns trust before, during, and after closeout.",
+        attribution: "Jeremy Thamert, Owner & President",
+      }
+    );
+  }, [jeremyRibbons, pathname]);
 
   useEffect(() => {
     if (!isStandalone) {
@@ -226,6 +262,18 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
             <SemiquincentennialAfterHeroSlot />
           </main>
           <EventsHubBanner />
+          <section
+            className="border-y border-brand-primary/20 bg-linear-to-b from-gray-100 via-white to-gray-100 py-8 sm:py-10 dark:border-brand-primary/35 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950"
+            aria-label="Jeremy leadership ribbon"
+          >
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <JeremyQuoteRibbon
+                ribbon={activeRibbon}
+                variant="global"
+                stamp={jeremyStamp}
+              />
+            </div>
+          </section>
           <Footer />
         </div>
       </>
@@ -278,6 +326,18 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
         </main>
 
         <EventsHubBanner />
+        <section
+          className="border-y border-brand-primary/20 bg-linear-to-b from-gray-100 via-white to-gray-100 py-8 sm:py-10 dark:border-brand-primary/35 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950"
+          aria-label="Jeremy leadership ribbon"
+        >
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <JeremyQuoteRibbon
+              ribbon={activeRibbon}
+              variant="global"
+              stamp={jeremyStamp}
+            />
+          </div>
+        </section>
         <Footer />
       </div>
     </>

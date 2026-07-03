@@ -5,6 +5,8 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { SkillsRadarChart } from "./SkillsRadarChart";
 import { Modal } from "@/components/ui/modals/Modal";
 import { type VintageTeamMember } from "@/lib/data/vintage-team";
+import type { IndividualBrandingStamp as IndividualBrandingStampType } from "@/lib/content/individual-branding-stamps";
+import { IndividualBrandingStamp } from "@/components/shared-sections/IndividualBrandingStamp";
 import { buildCertificationShowcase } from "@/lib/safety/certification-showcase";
 import { useState } from "react";
 import { useTheme } from "@/contexts/theme-context";
@@ -523,11 +525,13 @@ function TeamAvatar({ member }: Readonly<{ member: VintageTeamMember }>) {
 interface TeamProfileSectionProps {
   member: VintageTeamMember;
   index: number;
+  brandingStamp?: IndividualBrandingStampType | null;
 }
 
 export function TeamProfileSection({
   member,
   index,
+  brandingStamp,
 }: Readonly<TeamProfileSectionProps>) {
   // Use ThemeContext instead of a MutationObserver on document.documentElement.
   // The context already tracks isDarkMode reactively — no DOM watcher needed.
@@ -704,9 +708,14 @@ export function TeamProfileSection({
 
             {/* Name and Title */}
             <div className="flex-1 min-w-0">
-              <h3 className="text-2xl sm:text-2xl md:text-3xl font-black text-gray-900 dark:text-white leading-tight tracking-tight">
-                {member.name}
-              </h3>
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-2xl sm:text-2xl md:text-3xl font-black text-gray-900 dark:text-white leading-tight tracking-tight">
+                  {member.name}
+                </h3>
+                {brandingStamp ? (
+                  <IndividualBrandingStamp stamp={brandingStamp} />
+                ) : null}
+              </div>
               {member.nickname && (
                 <p className="text-base sm:text-lg text-brand-secondary-dark dark:text-brand-secondary-light italic mb-1 font-medium">
                   &ldquo;{member.nickname}&rdquo;
@@ -748,7 +757,7 @@ export function TeamProfileSection({
 
           {/* Credentials Snapshot */}
           <div
-            className={`${TEAM_PROFILE_SECTION_THEME.credentials} p-3 sm:p-4 rounded-lg flex flex-col lg:min-h-[14rem]`}
+            className={`${TEAM_PROFILE_SECTION_THEME.credentials} p-3 sm:p-4 rounded-lg flex flex-col lg:min-h-56`}
           >
             <h4 className="text-base sm:text-lg font-bold text-brand-secondary dark:text-brand-secondary-light mb-3 flex items-center gap-2 tracking-tight">
               <MaterialIcon

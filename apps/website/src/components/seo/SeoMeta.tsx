@@ -285,6 +285,12 @@ export function generateWebsiteSchema() {
     url: defaultSEO.siteUrl,
     name: defaultSEO.siteName,
     description: defaultSEO.defaultDescription,
+    about: {
+      "@id": `${defaultSEO.siteUrl}/jeremy-thamert#person`,
+    },
+    mainEntity: {
+      "@id": `${defaultSEO.siteUrl}/#organization`,
+    },
     publisher: {
       "@id": `${defaultSEO.siteUrl}/#organization`,
     },
@@ -295,6 +301,64 @@ export function generateWebsiteSchema() {
         urlTemplate: `${defaultSEO.siteUrl}/search?q={search_term_string}`,
       },
       "query-input": "required name=search_term_string",
+    },
+  };
+}
+
+export function generateJeremyPersonSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${defaultSEO.siteUrl}/jeremy-thamert#person`,
+    name: "Jeremy Thamert",
+    givenName: "Jeremy",
+    familyName: "Thamert",
+    jobTitle: "Owner & President",
+    url: `${defaultSEO.siteUrl}/jeremy-thamert`,
+    image: {
+      "@type": "ImageObject",
+      "@id": `${defaultSEO.siteUrl}/images/team/jeremy-thamert.webp#image`,
+      url: `${defaultSEO.siteUrl}/images/team/jeremy-thamert.webp`,
+      caption: "Jeremy Thamert, Owner & President of MH Construction",
+      representativeOfPage: true,
+      creator: {
+        "@id": `${defaultSEO.siteUrl}/#organization`,
+      },
+    },
+    worksFor: {
+      "@type": "Organization",
+      "@id": `${defaultSEO.siteUrl}/#organization`,
+      name: defaultSEO.siteName,
+    },
+    description:
+      "Jeremy Thamert is Owner & President of MH Construction, leading relationship-first project delivery across Washington, Oregon, and Idaho.",
+    knowsAbout: [
+      "Construction Operations",
+      "Project Delivery",
+      "Safety Culture",
+      "Veteran-Owned Business Leadership",
+    ],
+    subjectOf: {
+      "@id": `${defaultSEO.siteUrl}/#video-jeremy-leadership`,
+    },
+  };
+}
+
+export function generateJeremyLeadershipVideoSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "@id": `${defaultSEO.siteUrl}/#video-jeremy-leadership`,
+    name: "MH Construction Leadership and Project Delivery Video",
+    description:
+      "Homepage leadership and project delivery reel representing MH Construction under Owner & President Jeremy Thamert.",
+    thumbnailUrl: `${defaultSEO.siteUrl}/images/home-hero-poster.jpg`,
+    contentUrl: `${defaultSEO.siteUrl}/videos/hero-commercials/home-hero-optimized-audio.mp4`,
+    about: {
+      "@id": `${defaultSEO.siteUrl}/jeremy-thamert#person`,
+    },
+    publisher: {
+      "@id": `${defaultSEO.siteUrl}/#organization`,
     },
   };
 }
@@ -310,6 +374,14 @@ export function generateEnhancedOrganizationSchema() {
     "@id": `${defaultSEO.siteUrl}/#organization`,
     "@type": ["GeneralContractor", "VeteranOwnedBusiness"],
     legalName: "MH Construction Incorporated - Veteran-Owned",
+    employee: [
+      {
+        "@type": "Person",
+        "@id": `${defaultSEO.siteUrl}/jeremy-thamert#person`,
+        name: "Jeremy Thamert",
+        jobTitle: "Owner & President",
+      },
+    ],
     contactPoint: [
       {
         "@type": "ContactPoint",

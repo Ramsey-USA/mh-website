@@ -1,6 +1,4 @@
 import type { MetadataRoute } from "next";
-import fs from "node:fs";
-import path from "node:path";
 import { ALL_CLUSTER_SLUGS } from "@/lib/data/safety-manual-clusters";
 import { getFAQCategorySlugs } from "@/lib/data/faq-data";
 import { getLocationSlugs } from "@/lib/data/locations";
@@ -23,6 +21,7 @@ const ACTIVE_PAGES = [
 
   // Priority 0.9 - Core business pages
   { path: "/about", priority: 0.9, changeFreq: "monthly" as const },
+  { path: "/jeremy-thamert", priority: 0.9, changeFreq: "monthly" as const },
 
   // Priority 0.85 - Veteran focus
   { path: "/veterans", priority: 0.85, changeFreq: "monthly" as const },
@@ -31,6 +30,7 @@ const ACTIVE_PAGES = [
 
   // Priority 0.8 - Important secondary pages
   { path: "/contact", priority: 0.8, changeFreq: "monthly" as const },
+  { path: "/services", priority: 0.8, changeFreq: "monthly" as const },
   { path: "/projects", priority: 0.8, changeFreq: "weekly" as const },
   { path: "/public-sector", priority: 0.8, changeFreq: "monthly" as const },
   {
@@ -97,9 +97,14 @@ const LOCATION_PAGES = getLocationSlugs().map((city) => ({
   changeFreq: "monthly" as const,
 }));
 
+const X_DEFAULT = "x-default";
+const LANG_EN_US = "en-US";
+const LANG_ES_US = "es-US";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl =
-    process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com";
+  const baseUrl = (
+    process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com"
+  ).replace(/\/$/, "");
   const currentDate = new Date();
 
   // Auto-generate sitemap entries from registry
@@ -107,12 +112,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...ACTIVE_PAGES,
     ...LOCATION_PAGES,
     ...SAFETY_CLUSTER_PAGES,
-  ].map(({ path, priority, changeFreq }) => ({
-    url: `${baseUrl}${path}`,
-    lastModified: currentDate,
-    changeFrequency: changeFreq,
-    priority,
-  }));
+  ].flatMap(({ path, priority, changeFreq }) =>
+    buildLocaleEntries(path, baseUrl, currentDate, priority, changeFreq),
+  );
 
   const projectEntries = buildDataRouteEntries(
     getProjectCaseStudySlugs().map((slug) => `/projects/${slug}`),
@@ -128,14 +130,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     0.75,
   );
 
-  const mediaEntries = getMediaUrls().map((mediaUrl) => ({
-    url: `${baseUrl}${mediaUrl}`,
-    lastModified: currentDate,
-    changeFrequency: "monthly" as const,
-    priority: getMediaPriority(mediaUrl),
-  }));
+  const entries = [...pageEntries, ...projectEntries, ...faqEntries];
+  const uniqueByUrl = new Map(entries.map((entry) => [entry.url, entry]));
 
-  return [...pageEntries, ...projectEntries, ...faqEntries, ...mediaEntries];
+  return [...uniqueByUrl.values()].sort((a, b) => a.url.localeCompare(b.url));
 }
 
 function buildDataRouteEntries(
@@ -146,78 +144,68 @@ function buildDataRouteEntries(
 ): MetadataRoute.Sitemap {
   const uniquePaths = [...new Set(paths)];
 
-  return uniquePaths.map((path) => ({
-    url: `${baseUrl}${path}`,
-    lastModified,
-    changeFrequency: "monthly" as const,
-    priority,
-  }));
+  return uniquePaths.flatMap((path) =>
+    buildLocaleEntries(path, baseUrl, lastModified, priority, "monthly"),
+  );
 }
 
-function getMediaUrls(): string[] {
-  const publicDir = path.join(process.cwd(), "public");
-  const targets = ["images", "videos"];
-  const allowedExt = new Set([
-    ".jpg",
-    ".jpeg",
-    ".png",
-    ".webp",
-    ".gif",
-    ".svg",
-    ".mp4",
-    ".webm",
-    ".mov",
-  ]);
-  const urls: string[] = [];
+function buildLocaleEntries(
+  path: string,
+  baseUrl: string,
+  lastModified: Date,
+  priority: number,
+  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"],
+): MetadataRoute.Sitemap {
+  const normalizedPath = normalizePath(path);
+  const enUrl = `${baseUrl}${normalizedPath}`;
+  const enLocalizedUrl = `${baseUrl}${toLocalePath(normalizedPath, "en")}`;
+  const esUrl = `${baseUrl}${toLocalePath(normalizedPath, "es")}`;
+  const alternates = {
+    languages: {
+      [X_DEFAULT]: enUrl,
+      [LANG_EN_US]: enLocalizedUrl,
+      [LANG_ES_US]: esUrl,
+    },
+  };
 
-  for (const target of targets) {
-    const targetPath = path.join(publicDir, target);
-    if (!fs.existsSync(targetPath)) {
-      continue;
-    }
-    collectMediaUrls(targetPath, publicDir, allowedExt, urls);
-  }
-
-  return urls;
-}
-
-function collectMediaUrls(
-  currentPath: string,
-  publicDir: string,
-  allowedExt: Set<string>,
-  urls: string[],
-) {
-  const items = fs.readdirSync(currentPath, { withFileTypes: true });
-  for (const item of items) {
-    const fullPath = path.join(currentPath, item.name);
-    if (item.isDirectory()) {
-      collectMediaUrls(fullPath, publicDir, allowedExt, urls);
-      continue;
-    }
-
-    const ext = path.extname(item.name).toLowerCase();
-    if (!allowedExt.has(ext)) {
-      continue;
-    }
-
-    const relative = fullPath.replace(publicDir, "").split(path.sep).join("/");
-    urls.push(relative.startsWith("/") ? relative : `/${relative}`);
-  }
-}
-
-function getMediaPriority(mediaUrl: string): number {
-  const importantPatterns = [
-    "zoom",
-    "boom",
-    "forklift",
-    "safety",
-    "job-site",
-    "jobsite",
-    "industrial",
+  return [
+    {
+      url: enUrl,
+      lastModified,
+      changeFrequency,
+      priority,
+      alternates,
+    },
+    {
+      url: enLocalizedUrl,
+      lastModified,
+      changeFrequency,
+      priority,
+      alternates,
+    },
+    {
+      url: esUrl,
+      lastModified,
+      changeFrequency,
+      priority,
+      alternates,
+    },
   ];
+}
 
-  const lowered = mediaUrl.toLowerCase();
-  return importantPatterns.some((pattern) => lowered.includes(pattern))
-    ? 0.7
-    : 0.4;
+function normalizePath(path: string): string {
+  if (!path || path === "/") {
+    return "/";
+  }
+
+  return path.startsWith("/") ? path : `/${path}`;
+}
+
+function toLocalePath(path: string, locale: "en" | "es"): string {
+  const normalizedPath = normalizePath(path);
+  if (normalizedPath === "/") {
+    return `/${locale}`;
+  }
+
+  return `/${locale}${normalizedPath}`;
 }

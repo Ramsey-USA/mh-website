@@ -79,6 +79,7 @@ const footerNavCol1Hrefs = [
 const footerNavCol2Hrefs = [
   "/about",
   "/team",
+  "/jeremy-thamert",
   "/allies",
   "/public-sector",
   "/veterans",
@@ -737,6 +738,7 @@ export default function Footer() {
             accreditationsTooltipDescription:
               "Membresias, certificaciones y sellos de terceros que respaldan la confianza.",
             legalLinksLabel: "Enlaces legales y utilitarios",
+            leadershipLabel: "Liderazgo",
             backToTopAria: "Volver arriba",
             backToTopLabel: "Arriba",
             phoneAriaPrefix: "Llame a MH Construction al",
@@ -777,6 +779,7 @@ export default function Footer() {
             accreditationsTooltipDescription:
               "Third-party memberships, certifications, and partner seals that reinforce trust.",
             legalLinksLabel: "Legal and utility links",
+            leadershipLabel: "Leadership",
             backToTopAria: "Back to top",
             backToTopLabel: "Top",
             phoneAriaPrefix: "Call MH Construction at",
@@ -1362,6 +1365,17 @@ export default function Footer() {
                 </span>
                 <span className="text-brand-secondary/50">•</span>
                 <span className="text-xs">Veteran-Owned</span>
+                <span className="text-brand-secondary/50">•</span>
+                <span className="text-xs">
+                  {copy.leadershipLabel}:{" "}
+                  <Link
+                    href="/jeremy-thamert"
+                    prefetch={false}
+                    className="font-semibold text-brand-secondary/80 underline decoration-brand-secondary/50 underline-offset-2 transition-colors hover:text-brand-secondary"
+                  >
+                    Jeremy Thamert
+                  </Link>
+                </span>
               </div>
 
               {/* BABAA Supporter */}

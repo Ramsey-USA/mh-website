@@ -149,7 +149,7 @@ export function HeroSectionClient({
               playsInline
               preload="auto"
               poster={hasPoster ? posterSrc : undefined}
-              aria-label="MH Construction homepage hero video"
+              aria-label="MH Construction homepage hero video highlighting project delivery leadership by Jeremy Thamert"
               onPlay={() => setIsVideoPlaying(true)}
               onPlaying={() => setIsVideoPlaying(true)}
               onCanPlay={() => setIsVideoReady(true)}

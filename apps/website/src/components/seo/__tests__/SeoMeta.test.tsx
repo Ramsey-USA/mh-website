@@ -62,6 +62,8 @@ import {
   generateBreadcrumbStructuredData,
   generateWebsiteSchema,
   generateEnhancedOrganizationSchema,
+  generateJeremyPersonSchema,
+  generateJeremyLeadershipVideoSchema,
 } from "../SeoMeta";
 
 describe("generateSEOMetadata()", () => {
@@ -208,6 +210,8 @@ describe("generateWebsiteSchema()", () => {
     expect(schema["@type"]).toBe("WebSite");
     expect(schema.url).toBe("http://localhost:3000");
     expect((schema.potentialAction as any)["@type"]).toBe("SearchAction");
+    expect((schema.about as any)["@id"]).toContain("/jeremy-thamert#person");
+    expect((schema.mainEntity as any)["@id"]).toContain("/#organization");
   });
 });
 
@@ -220,5 +224,35 @@ describe("generateEnhancedOrganizationSchema()", () => {
     );
     expect(schema.legalName).toContain("Veteran-Owned");
     expect(Array.isArray(schema.contactPoint)).toBe(true);
+  });
+});
+
+describe("generateJeremyPersonSchema()", () => {
+  it("returns a Jeremy Person entity linked to image and profile URL", () => {
+    const schema = generateJeremyPersonSchema();
+
+    expect(schema["@type"]).toBe("Person");
+    expect(schema.name).toBe("Jeremy Thamert");
+    expect(schema.url).toContain("/jeremy-thamert");
+    expect((schema.image as any)["@type"]).toBe("ImageObject");
+    expect((schema.image as any).url).toContain(
+      "/images/team/jeremy-thamert.webp",
+    );
+    expect((schema.subjectOf as any)["@id"]).toContain(
+      "#video-jeremy-leadership",
+    );
+  });
+});
+
+describe("generateJeremyLeadershipVideoSchema()", () => {
+  it("returns a VideoObject linked to Jeremy person entity", () => {
+    const schema = generateJeremyLeadershipVideoSchema();
+
+    expect(schema["@type"]).toBe("VideoObject");
+    expect(schema.contentUrl).toContain(
+      "/videos/hero-commercials/home-hero-optimized-audio.mp4",
+    );
+    expect((schema.about as any)["@id"]).toContain("/jeremy-thamert#person");
+    expect((schema.publisher as any)["@id"]).toContain("/#organization");
   });
 });

@@ -11,6 +11,7 @@
         "/cool-desert-nights",
         "/faq",
         "/faq/[category]",
+        "/jeremy-thamert",
         "/locations",
         "/locations/[city]",
         "/privacy",
@@ -24,6 +25,7 @@
         "/resources/safety-manual/contents",
         "/resources/safety-manual/forms",
         "/safety",
+        "/services",
         "/team",
         "/terms",
         "/testimonials",
@@ -52,7 +54,6 @@
         "/resources/safety-manual/section/[slug]",
         "/resources/safety-program",
         "/safety/intake",
-        "/services",
         "/services/[slug]"
       ],
       "patterns": []

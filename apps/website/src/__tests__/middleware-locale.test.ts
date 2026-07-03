@@ -72,4 +72,18 @@ describe("middleware locale seeding", () => {
 
     expect(response.cookies.get(LOCALE_COOKIE_NAME)).toBeUndefined();
   });
+
+  it("rewrites locale-prefixed routes and seeds locale cookie from path", async () => {
+    const response = await middleware(makeRequest("/es/contact"));
+
+    expect(response.headers.get("x-middleware-rewrite")).toContain("/contact");
+    expect(response.cookies.get(LOCALE_COOKIE_NAME)?.value).toBe("es");
+  });
+
+  it("rewrites /en root to canonical root path", async () => {
+    const response = await middleware(makeRequest("/en"));
+
+    expect(response.headers.get("x-middleware-rewrite")).toContain("/");
+    expect(response.cookies.get(LOCALE_COOKIE_NAME)?.value).toBe("en");
+  });
 });

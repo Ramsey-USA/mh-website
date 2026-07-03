@@ -3,11 +3,12 @@
  * Enhanced middleware with Cloudflare optimization and security features
  */
 
-import { type NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import {
   getPreferredLocaleFromAcceptLanguage,
   isSupportedLocale,
   LOCALE_COOKIE_NAME,
+  SUPPORTED_LOCALES,
 } from "./src/lib/i18n/locale";
 import { securityMiddleware } from "./src/middleware/security";
 
@@ -16,8 +17,37 @@ export async function middleware(request: NextRequest) {
   // at the CDN edge (~10-20 ms faster than handling in Worker).
   // Rule: https://mhc-gc.com/* → https://www.mhc-gc.com/${1}
 
+  const { localeFromPath, normalizedPath, isLocalePrefixed } =
+    resolveLocalizedPath(request.nextUrl.pathname);
+
   // Apply security middleware
-  const response = await securityMiddleware(request);
+  const securityResponse = await securityMiddleware(request, normalizedPath);
+
+  if (securityResponse.status >= 300 && securityResponse.status < 600) {
+    return securityResponse;
+  }
+
+  let response = securityResponse;
+
+  if (isLocalePrefixed && !normalizedPath.startsWith("/api/")) {
+    const rewriteUrl = request.nextUrl.clone();
+    rewriteUrl.pathname = normalizedPath;
+    response = NextResponse.rewrite(rewriteUrl);
+
+    for (const [name, value] of securityResponse.headers.entries()) {
+      if (name.toLowerCase().startsWith("x-middleware-")) {
+        continue;
+      }
+      if (name.toLowerCase() === "set-cookie") {
+        continue;
+      }
+      response.headers.set(name, value);
+    }
+
+    for (const cookie of securityResponse.cookies.getAll()) {
+      response.cookies.set(cookie);
+    }
+  }
 
   // Add Cloudflare-specific optimizations
   if (response) {
@@ -35,6 +65,17 @@ export async function middleware(request: NextRequest) {
       }
     } else {
       response.headers.set("CF-Cache-Tag", "html");
+
+      if (localeFromPath) {
+        response.cookies.set({
+          name: LOCALE_COOKIE_NAME,
+          value: localeFromPath,
+          path: "/",
+          maxAge: 60 * 60 * 24 * 365,
+          sameSite: "lax",
+        });
+        return response;
+      }
 
       const localeCookie = request.cookies.get(LOCALE_COOKIE_NAME)?.value;
       if (!localeCookie || !isSupportedLocale(localeCookie)) {
@@ -54,6 +95,37 @@ export async function middleware(request: NextRequest) {
   }
 
   return response;
+}
+
+function resolveLocalizedPath(pathname: string): {
+  localeFromPath: (typeof SUPPORTED_LOCALES)[number] | null;
+  normalizedPath: string;
+  isLocalePrefixed: boolean;
+} {
+  for (const locale of SUPPORTED_LOCALES) {
+    const prefix = `/${locale}`;
+    if (pathname === prefix) {
+      return {
+        localeFromPath: locale,
+        normalizedPath: "/",
+        isLocalePrefixed: true,
+      };
+    }
+
+    if (pathname.startsWith(`${prefix}/`)) {
+      return {
+        localeFromPath: locale,
+        normalizedPath: pathname.slice(prefix.length),
+        isLocalePrefixed: true,
+      };
+    }
+  }
+
+  return {
+    localeFromPath: null,
+    normalizedPath: pathname || "/",
+    isLocalePrefixed: false,
+  };
 }
 
 // Configure which paths the middleware should run on
@@ -76,6 +148,7 @@ export const config = {
      *   - sitemap-index.xml   Root sitemap index (public/sitemap-index.xml)
      *   - llms.txt            LLM discovery file (public/llms.txt)
      *   - google*.html        Google Search Console verification files
+     *   - <indexnow-key>.txt  IndexNow ownership proof file
      *
      * Static asset directories (cache headers already set in next.config.js)
      *   - fonts/              Self-hosted woff2 files
@@ -92,6 +165,6 @@ export const config = {
      *   - _headers            Custom response headers file
      *   - _redirects          Redirect rules file
      */
-    "/((?!api/health|api/security/status|api/cf-|_next|favicon\\.ico|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|sitemap-index\\.xml|llms\\.txt|google[a-z0-9]+\\.html|_headers|_redirects|fonts|icons|images|videos).*)",
+    "/((?!api/health|api/security/status|api/cf-|_next|favicon\\.ico|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|sitemap-index\\.xml|llms\\.txt|google[a-z0-9]+\\.html|[A-Za-z0-9]{8,128}\\.txt|_headers|_redirects|fonts|icons|images|videos).*)",
   ],
 };

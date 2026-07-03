@@ -41,6 +41,7 @@ import { getD1DatabaseAsync } from "@/lib/db/env";
 import { createDbClient } from "@/lib/db/client";
 import { logger } from "@/lib/utils/logger";
 import { getTranslations } from "next-intl/server";
+import { getAllIndividualBrandingStamps } from "@/lib/content/individual-branding-stamps";
 
 // Lazy load below-the-fold heavy components for better mobile performance
 const TestimonialGrid = dynamic(() =>
@@ -334,6 +335,7 @@ const faqSchema = {
 
 export default async function TeamPage() {
   const t = await getTranslations();
+  const brandingStamps = getAllIndividualBrandingStamps();
   // Fetch profile overrides from D1; gracefully falls back to static JSON if unavailable
   const { overrides, dynamicMembers } = await fetchProfileOverrides();
 
@@ -475,6 +477,31 @@ export default async function TeamPage() {
           ]}
         />
 
+        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <div className="rounded-2xl border border-brand-secondary/25 bg-linear-to-r from-white via-brand-secondary/5 to-white dark:from-gray-900 dark:via-brand-secondary/15 dark:to-gray-900 p-5 sm:p-6 shadow-sm">
+            <p className="text-xs sm:text-sm font-semibold tracking-[0.18em] text-brand-primary uppercase mb-2">
+              Leadership Spotlight
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed">
+                Learn more about Jeremy Thamert, Owner &amp; President, and the
+                relationship-first leadership model guiding MH Construction.
+              </p>
+              <Button
+                asChild
+                variant="secondary"
+                size="sm"
+                className="shrink-0"
+              >
+                <Link href="/jeremy-thamert">
+                  <MaterialIcon icon="person" size="sm" className="mr-2" />
+                  View Jeremy Thamert Profile
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
         <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
           <DiagonalStripePattern />
           <BrandColorBlobs />
@@ -577,7 +604,13 @@ export default async function TeamPage() {
                       {hasMembers ? (
                         members.map((member, index) => (
                           <div key={member.slug} className="scroll-reveal">
-                            <TeamProfileSection member={member} index={index} />
+                            <TeamProfileSection
+                              member={member}
+                              index={index}
+                              brandingStamp={
+                                brandingStamps[member.slug] ?? null
+                              }
+                            />
                           </div>
                         ))
                       ) : (
@@ -713,7 +746,13 @@ export default async function TeamPage() {
                       {hasMembers ? (
                         members.map((member, index) => (
                           <div key={member.slug} className="scroll-reveal">
-                            <TeamProfileSection member={member} index={index} />
+                            <TeamProfileSection
+                              member={member}
+                              index={index}
+                              brandingStamp={
+                                brandingStamps[member.slug] ?? null
+                              }
+                            />
                           </div>
                         ))
                       ) : (

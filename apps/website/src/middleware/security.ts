@@ -118,8 +118,11 @@ function isTrustedLighthouseAudit(request: NextRequest): boolean {
  */
 export async function securityMiddleware(
   request: NextRequest,
+  pathnameOverride?: string,
 ): Promise<NextResponse> {
-  const pathname = request.nextUrl.pathname;
+  const pathname = normalizePathnameForLocale(
+    pathnameOverride ?? request.nextUrl.pathname,
+  );
   const userAgent = request.headers.get("user-agent") || "Unknown";
   const ipAddress = getClientIP(request);
 
@@ -388,6 +391,23 @@ export function withSecurity<
 
 function shouldBypassSecurity(pathname: string): boolean {
   return SECURITY_BYPASS_PATHS.some((path) => pathname.startsWith(path));
+}
+
+function normalizePathnameForLocale(pathname: string): string {
+  if (!pathname || pathname === "/") {
+    return "/";
+  }
+
+  for (const localePrefix of ["/en", "/es"]) {
+    if (pathname === localePrefix) {
+      return "/";
+    }
+    if (pathname.startsWith(`${localePrefix}/`)) {
+      return pathname.slice(localePrefix.length);
+    }
+  }
+
+  return pathname;
 }
 
 function getRouteConfig(pathname: string) {

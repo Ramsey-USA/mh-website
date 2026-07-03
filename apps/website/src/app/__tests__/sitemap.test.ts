@@ -2,21 +2,6 @@
  * @jest-environment node
  */
 
-// Mock fs so we don't scan the real public directory
-jest.mock("node:fs", () => ({
-  readdirSync: jest.fn(() => []),
-  statSync: jest.fn(() => ({ isDirectory: () => false })),
-  existsSync: jest.fn(() => false),
-}));
-
-jest.mock("node:path", () => {
-  const actual = jest.requireActual<typeof import("node:path")>("node:path");
-  return {
-    ...actual,
-    join: (...args: string[]) => args.join("/"),
-  };
-});
-
 import sitemapFn from "../sitemap";
 
 describe("sitemap()", () => {
@@ -50,6 +35,31 @@ describe("sitemap()", () => {
     expect(home!.priority).toBe(1.0);
   });
 
+  it("includes locale-prefixed variants in sitemap output", () => {
+    const entries = sitemapFn();
+    expect(entries.some((entry) => /\/es(?:\/|$)/.test(entry.url))).toBe(true);
+    expect(entries.some((entry) => /\/en(?:\/|$)/.test(entry.url))).toBe(true);
+  });
+
+  it("includes hreflang alternates for en-US and es-US", () => {
+    const entries = sitemapFn();
+    const home = entries.find(
+      (entry) =>
+        entry.url === "https://www.mhc-gc.com/" ||
+        entry.url === "https://www.mhc-gc.com",
+    );
+
+    expect(home?.alternates?.languages?.["en-US"]).toBe(
+      "https://www.mhc-gc.com/en",
+    );
+    expect(home?.alternates?.languages?.["es-US"]).toBe(
+      "https://www.mhc-gc.com/es",
+    );
+    expect(home?.alternates?.languages?.["x-default"]).toBe(
+      "https://www.mhc-gc.com/",
+    );
+  });
+
   it("every entry has a url, lastModified, changeFrequency and priority", () => {
     const entries = sitemapFn();
     for (const entry of entries.slice(0, 5)) {
@@ -59,156 +69,40 @@ describe("sitemap()", () => {
       expect(typeof entry.priority).toBe("number");
     }
   });
-});
+  it("returns deterministic URL ordering for stable crawl diffs", () => {
+    const entries = sitemapFn();
+    const urls = entries.map((entry) => entry.url);
+    const sorted = [...urls].sort((a, b) => a.localeCompare(b));
 
-// ─── Media URL branches ───────────────────────────────────────────────────────
-
-describe("sitemap() with media files", () => {
-  // Re-require a fresh module after each test since jest.mock is hoisted but
-  // we need to change the mock implementation per test.
-  beforeEach(() => {
-    jest.resetModules();
-    // Re-apply the path mock so join stays predictable
-    jest.mock("node:path", () => {
-      const actual =
-        jest.requireActual<typeof import("node:path")>("node:path");
-      return { ...actual, join: (...args: string[]) => args.join("/") };
-    });
+    expect(urls).toEqual(sorted);
   });
 
-  it("skips non-existent media target directories", () => {
-    jest.mock("node:fs", () => ({
-      existsSync: jest.fn(() => false),
-      readdirSync: jest.fn(() => []),
-    }));
-    const { default: sitemap } = require("../sitemap") as {
-      default: () => unknown[];
-    };
-    const entries = sitemap();
-    // Only static pages — no media entries
+  it("does not include raw media asset URLs", () => {
+    const entries = sitemapFn();
+
     expect(
-      entries.every((e: unknown) => {
-        const entry = e as { url: string };
-        return (
-          !entry.url.includes("/images/") && !entry.url.includes("/videos/")
-        );
-      }),
-    ).toBe(true);
+      entries.some(
+        (entry) =>
+          entry.url.includes("/images/") || entry.url.includes("/videos/"),
+      ),
+    ).toBe(false);
   });
 
-  it("includes media files from images directory with correct priority", () => {
-    jest.mock("node:fs", () => ({
-      existsSync: jest.fn(() => true),
-      readdirSync: jest.fn((dir: string) => {
-        if (dir.endsWith("images")) {
-          return [
-            { name: "jobsite-photo.jpg", isDirectory: () => false },
-            { name: "logo.png", isDirectory: () => false },
-            { name: "document.pdf", isDirectory: () => false }, // not allowed ext
-          ];
-        }
-        if (dir.endsWith("videos")) {
-          return [{ name: "boom-video.mp4", isDirectory: () => false }];
-        }
-        return [];
-      }),
-    }));
-    const { default: sitemap } = require("../sitemap") as {
-      default: () => unknown[];
-    };
-    const entries = sitemap() as Array<{ url: string; priority: number }>;
-    const mediaEntries = entries.filter(
-      (e) => e.url.includes("/images/") || e.url.includes("/videos/"),
-    );
-    expect(mediaEntries.length).toBeGreaterThan(0);
+  it("includes Jeremy Thamert authority page in canonical and localized paths", () => {
+    const entries = sitemapFn();
+    const urls = entries.map((entry) => entry.url);
 
-    // jobsite-photo.jpg should match "jobsite" → priority 0.7
-    const jobsite = mediaEntries.find((e) => e.url.includes("jobsite"));
-    expect(jobsite?.priority).toBe(0.7);
-
-    // logo.png doesn't match important patterns → priority 0.4
-    const logo = mediaEntries.find((e) => e.url.includes("logo"));
-    expect(logo?.priority).toBe(0.4);
-
-    // boom-video.mp4 matches "boom" → priority 0.7
-    const boom = mediaEntries.find((e) => e.url.includes("boom"));
-    expect(boom?.priority).toBe(0.7);
-
-    // document.pdf should be excluded
-    expect(entries.some((e) => e.url.includes("document.pdf"))).toBe(false);
+    expect(urls).toContain("https://www.mhc-gc.com/jeremy-thamert");
+    expect(urls).toContain("https://www.mhc-gc.com/en/jeremy-thamert");
+    expect(urls).toContain("https://www.mhc-gc.com/es/jeremy-thamert");
   });
 
-  it("recurses into subdirectories for media file collection", () => {
-    let callCount = 0;
-    jest.mock("node:fs", () => ({
-      existsSync: jest.fn(() => true),
-      readdirSync: jest.fn((dir: string) => {
-        callCount++;
-        if (dir.endsWith("images")) {
-          return [{ name: "subfolder", isDirectory: () => true }];
-        }
-        if (dir.endsWith("subfolder")) {
-          return [{ name: "zoom-photo.webp", isDirectory: () => false }];
-        }
-        // videos dir
-        return [];
-      }),
-    }));
-    const { default: sitemap } = require("../sitemap") as {
-      default: () => unknown[];
-    };
-    const entries = sitemap() as Array<{ url: string; priority: number }>;
-    const zoom = entries.find((e) => e.url.includes("zoom"));
-    expect(zoom).toBeDefined();
-    expect(zoom?.priority).toBe(0.7); // "zoom" is an important pattern
-    expect(callCount).toBeGreaterThan(2); // proves recursion
-  });
+  it("includes services overview page in canonical and localized paths", () => {
+    const entries = sitemapFn();
+    const urls = entries.map((entry) => entry.url);
 
-  it("getMediaPriority returns 0.7 for all known important keywords", () => {
-    // Keywords defined here for the assertion loop only.
-    // The factory below inlines the same list to avoid jest.mock hoisting
-    // issues with closure references to locally-declared variables.
-    const importantKeywords = [
-      "zoom",
-      "boom",
-      "forklift",
-      "safety",
-      "job-site",
-      "jobsite",
-      "industrial",
-    ];
-    jest.mock("node:fs", () => ({
-      existsSync: jest.fn(() => true),
-      readdirSync: jest.fn((dir: string) => {
-        if (dir.endsWith("images")) {
-          return [
-            "zoom",
-            "boom",
-            "forklift",
-            "safety",
-            "job-site",
-            "jobsite",
-            "industrial",
-          ].map((k) => ({
-            name: `${k}-image.jpg`,
-            isDirectory: () => false,
-          }));
-        }
-        return [];
-      }),
-    }));
-    const { default: sitemap } = require("../sitemap") as {
-      default: () => unknown[];
-    };
-    const entries = sitemap() as Array<{ url: string; priority: number }>;
-    for (const kw of importantKeywords) {
-      // Search only within media entries to avoid matching static page URLs.
-      const found = entries.find(
-        (e) =>
-          (e.url.includes("/images/") || e.url.includes("/videos/")) &&
-          e.url.includes(kw),
-      );
-      expect(found?.priority).toBe(0.7);
-    }
+    expect(urls).toContain("https://www.mhc-gc.com/services");
+    expect(urls).toContain("https://www.mhc-gc.com/en/services");
+    expect(urls).toContain("https://www.mhc-gc.com/es/services");
   });
 });

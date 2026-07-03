@@ -52,6 +52,15 @@ export default function AboutPage() {
           "See how we execute pole buildings, door and hardware scopes, and Procore-led project management for AG and winery communities, commercial tenant improvements, and municipal builds.",
         cta: "View Detailed Capabilities",
       };
+  const leadershipProfileCopy = isSpanish
+    ? {
+        title: "Perfil de liderazgo de Jeremy Thamert",
+        cta: "Ver perfil de Jeremy",
+      }
+    : {
+        title: "Jeremy Thamert leadership profile",
+        cta: "View Jeremy's Profile",
+      };
   return (
     <>
       <PageTrackingClient pageName="About" />
@@ -146,6 +155,21 @@ export default function AboutPage() {
                 {detailsLinkCopy.cta}
               </Link>
             </Button>
+            <div className="mt-4">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                {leadershipProfileCopy.title}
+              </p>
+              <Button variant="outline" size="lg" className="group" asChild>
+                <Link href="/jeremy-thamert">
+                  <MaterialIcon
+                    icon="person"
+                    size="md"
+                    className="mr-2 transition-colors"
+                  />
+                  {leadershipProfileCopy.cta}
+                </Link>
+              </Button>
+            </div>
           </div>
         </section>
 

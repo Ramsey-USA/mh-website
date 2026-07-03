@@ -17,6 +17,13 @@
 | Phase 5 | Page-level (`app/`) and layout stubs                 | ✅ Complete |
 | Phase 6 | Zero-coverage UI, analytics, testimonials, home page | ✅ Complete |
 
+## Forward Development Requirement (Brand + UX)
+
+- Maintain the shared Jeremy leadership ribbon directly above the footer on every public route.
+- Use a single implementation path in `src/components/layout/AppShell.tsx` so behavior is uniform across pages.
+- Keep route-specific quote/admission copy in `src/content/jeremy-page-ribbons.md` and avoid per-page hardcoded ribbon variants.
+- Add or update tests when shell/footer structure changes to preserve the above-footer placement contract.
+
 ---
 
 ## Phase 3 — Completed this session

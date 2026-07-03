@@ -6,3 +6,4 @@
 export { TestimonialsSection } from "./TestimonialsSection";
 export { NextStepsSection } from "./NextStepsSection";
 export { AccreditationsLogoRow } from "./AccreditationsLogoRow";
+export { IndividualBrandingStamp } from "./IndividualBrandingStamp";

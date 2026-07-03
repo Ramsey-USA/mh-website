@@ -72,10 +72,15 @@ export function withGeoMetadata(
 
   const existingOther = normalizeOther(metadata.other);
   const mergedKeywords = mergeSitewideKeywords(metadata.keywords, metadata);
+  const localizedAlternates = buildLocalizedAlternates(
+    metadata.alternates,
+    metadata.metadataBase,
+  );
 
   return {
     ...metadata,
     keywords: mergedKeywords,
+    alternates: localizedAlternates,
     other: {
       ...existingOther,
       "geo.region": region,
@@ -88,6 +93,111 @@ export function withGeoMetadata(
       "business:contact_data:country_name": "USA",
     },
   };
+}
+
+function buildLocalizedAlternates(
+  alternates: Metadata["alternates"],
+  metadataBase: Metadata["metadataBase"],
+): Metadata["alternates"] {
+  const fallbackBaseUrl = resolveMetadataBase(metadataBase);
+  const canonicalValue = alternates?.canonical;
+  const canonicalUrl = resolveCanonicalUrl(canonicalValue, fallbackBaseUrl);
+
+  if (!canonicalUrl) {
+    return alternates;
+  }
+
+  const canonicalBaseUrl = resolveCanonicalOrigin(
+    canonicalUrl,
+    fallbackBaseUrl,
+  );
+
+  const routePath = parseRoutePath(canonicalUrl);
+  if (!routePath) {
+    return alternates;
+  }
+
+  const normalizedPath = stripLocalePrefix(routePath);
+  const enUrl = `${canonicalBaseUrl}${normalizedPath}`;
+  const enPath = normalizedPath === "/" ? "/en" : `/en${normalizedPath}`;
+  const esPath = normalizedPath === "/" ? "/es" : `/es${normalizedPath}`;
+  const enLocalizedUrl = `${canonicalBaseUrl}${enPath}`;
+  const esUrl = `${canonicalBaseUrl}${esPath}`;
+
+  return {
+    ...alternates,
+    canonical: canonicalUrl,
+    languages: {
+      ...alternates?.languages,
+      "x-default": enUrl,
+      "en-US": enLocalizedUrl,
+      "es-US": esUrl,
+    },
+  };
+}
+
+function resolveCanonicalOrigin(
+  canonicalUrl: string,
+  fallbackBaseUrl: string,
+): string {
+  try {
+    return new URL(canonicalUrl).origin;
+  } catch {
+    return fallbackBaseUrl;
+  }
+}
+
+function resolveMetadataBase(metadataBase: Metadata["metadataBase"]): string {
+  const fallback = COMPANY_INFO.urls.getSiteUrl().replace(/\/$/, "");
+  if (!metadataBase) {
+    return fallback;
+  }
+
+  try {
+    return new URL(metadataBase.toString()).origin;
+  } catch {
+    return fallback;
+  }
+}
+
+function resolveCanonicalUrl(
+  canonical: Metadata["alternates"] extends { canonical?: infer T }
+    ? T
+    : undefined,
+  baseUrl: string,
+): string | null {
+  if (!canonical) {
+    return null;
+  }
+
+  const canonicalString = canonical.toString();
+  if (
+    canonicalString.startsWith("http://") ||
+    canonicalString.startsWith("https://")
+  ) {
+    return canonicalString.replace(/\/$/, "") || canonicalString;
+  }
+
+  try {
+    return new URL(canonicalString, `${baseUrl}/`)
+      .toString()
+      .replace(/\/$/, "");
+  } catch {
+    return null;
+  }
+}
+
+function stripLocalePrefix(pathname: string): string {
+  if (pathname === "/en" || pathname === "/es") {
+    return "/";
+  }
+  if (pathname.startsWith("/en/")) {
+    return pathname.slice(3);
+  }
+  if (pathname.startsWith("/es/")) {
+    return pathname.slice(3);
+  }
+  return pathname;
 }
 
 function mergeSitewideKeywords(

@@ -46,6 +46,11 @@ See **[Standards Index](./standards/index.md)** for the full standards library, 
 - **[Codebase Analysis](./codebase-analysis.md)** — Comprehensive structural analysis
 - **[Test Coverage — Next Steps](./testing-coverage-next-steps.md)** — Coverage audit roadmap
 
+## Forward Plan Requirement
+
+- **Global Jeremy ribbon standard (required):** Every public page must display the shared Jeremy leadership ribbon directly above the footer with identical behavior across routes. Route-specific ribbon copy is maintained in `apps/website/src/content/jeremy-page-ribbons.md`, and routing behavior is enforced through shared shell logic.
+- **Jeremy SEO guardrails (required):** CI must enforce both `seo:jeremy:signals:check` and `seo:jeremy:metadata:check` so indexable routes keep Jeremy name/entity associations in ribbon content, structured data, and high-impact metadata builders.
+
 ## Quick Links
 
 - [← Documentation Index](../index.md)

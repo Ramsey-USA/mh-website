@@ -415,6 +415,13 @@ D1_DATABASE_ID=your_d1_id
 
 # Optional (Google Analytics)
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+
+# Optional (Search engine verification meta tags)
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=google-site-verification-token
+NEXT_PUBLIC_BING_SITE_VERIFICATION=msvalidate-token
+NEXT_PUBLIC_YANDEX_VERIFICATION=yandex-verification-token
+NEXT_PUBLIC_YAHOO_SITE_VERIFICATION=yahoo-verification-token
+NEXT_PUBLIC_BAIDU_SITE_VERIFICATION=baidu-site-verification-token
 ```
 
 ---
@@ -454,6 +461,7 @@ pnpm --filter @mhc/website run test:pwa        # PWA functionality tests
 
 ```bash
 pnpm --filter @mhc/website run quality:check   # Website quality scan
+pnpm --filter @mhc/website run seo:sitemaps:submit # Submit updated sitemaps to supported engines
 pnpm run lint:markdown                          # Lint markdown files
 pnpm --filter @mhc/website run optimize:images # Convert images to WebP
 pnpm --filter @mhc/website run optimize:videos # Convert videos to WebM/MP4

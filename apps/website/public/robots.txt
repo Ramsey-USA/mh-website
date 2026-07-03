@@ -2,45 +2,68 @@
 # Website: https://www.mhc-gc.com
 # NOTE: src/app/robots.ts generates /robots.txt dynamically and takes
 # precedence in production. This static file is a fallback only.
-# Keep both files in sync. Last synced: 2026-03-26.
+# Keep both files in sync. Last synced: 2026-07-03.
 
-# AI Crawlers - Explicitly Allow for Retrieval & Indexing
-User-agent: GPTBot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: YouBot
-Allow: /
-
-# Traditional Search Engines
+# Major Search Engines
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
 
 User-agent: Slurp
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
+
+User-agent: YandexBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
 
 # General Crawlers
 User-agent: *
@@ -48,14 +71,13 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /dashboard/
-Disallow: /_next/
 Disallow: /private/
 Disallow: /security/
-Disallow: *.json
 Disallow: /logs/
 Disallow: /monitoring/
 Crawl-delay: 1
 
 # Sitemaps
 Sitemap: https://www.mhc-gc.com/sitemap.xml
+Sitemap: https://www.mhc-gc.com/sitemap-index.xml
 

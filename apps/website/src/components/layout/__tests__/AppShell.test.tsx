@@ -6,6 +6,14 @@ import "@testing-library/jest-dom";
 import { render, screen, within } from "@testing-library/react";
 import { AppShell } from "../AppShell";
 
+const JEREMY_STAMP = {
+  key: "jeremy-thamert",
+  icon: "star" as const,
+  stars: 4,
+  label: "Four-Star Command Stamp",
+  ariaLabel: "Jeremy Thamert individual branding stamp",
+};
+
 const mockUsePWA = jest.fn();
 const mockUsePathname = jest.fn(() => "/");
 
@@ -58,13 +66,21 @@ describe("AppShell", () => {
     });
 
     render(
-      <AppShell>
+      <AppShell jeremyStamp={JEREMY_STAMP}>
         <div>Page Content</div>
       </AppShell>,
     );
 
     expect(screen.getByTestId("site-navigation")).toBeInTheDocument();
     expect(screen.getByTestId("events-hub-banner")).toBeInTheDocument();
+    expect(
+      screen.getByRole("region", { name: /Jeremy leadership ribbon/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /Jeremy Thamert individual branding stamp/i,
+      }),
+    ).toBeInTheDocument();
     expect(screen.getByTestId("site-footer")).toBeInTheDocument();
     expect(screen.getByText("Page Content")).toBeInTheDocument();
     expect(
@@ -87,6 +103,9 @@ describe("AppShell", () => {
 
     expect(screen.getByTestId("site-navigation")).toBeInTheDocument();
     expect(screen.getByTestId("events-hub-banner")).toBeInTheDocument();
+    expect(
+      screen.getByRole("region", { name: /Jeremy leadership ribbon/i }),
+    ).toBeInTheDocument();
     expect(screen.getByTestId("site-footer")).toBeInTheDocument();
 
     expect(
@@ -144,7 +163,7 @@ describe("AppShell", () => {
     expect(slotAfterHero?.contains(banner)).toBe(true);
   });
 
-  it("places the events banner immediately before the footer", () => {
+  it("places the global ribbon directly above the footer", () => {
     mockUsePWA.mockReturnValue({
       isStandalone: false,
       isInstallable: true,
@@ -159,8 +178,12 @@ describe("AppShell", () => {
 
     const footer = screen.getByTestId("site-footer");
     const eventsBanner = screen.getByTestId("events-hub-banner");
+    const ribbon = screen.getByRole("region", {
+      name: /Jeremy leadership ribbon/i,
+    });
 
-    expect(footer.previousElementSibling).toBe(eventsBanner);
+    expect(ribbon.previousElementSibling).toBe(eventsBanner);
+    expect(footer.previousElementSibling).toBe(ribbon);
   });
 
   it("renders fallback breadcrumb after hero and before semiquincentennial banner", async () => {

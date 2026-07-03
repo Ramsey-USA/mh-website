@@ -16,6 +16,8 @@ import { DeferredPerformanceEnhancements } from "@/components/performance/Deferr
 import {
   StructuredData,
   generateEnhancedOrganizationSchema,
+  generateJeremyLeadershipVideoSchema,
+  generateJeremyPersonSchema,
   generateWebsiteSchema,
 } from "@/components/seo/SeoMeta";
 import { SkipLink } from "@/components/ui/accessibility/SkipLink";
@@ -31,6 +33,18 @@ import {
   normalizeLocale,
 } from "@/lib/i18n/locale";
 import { getMessages } from "next-intl/server";
+import { getAllJeremyRibbons } from "@/lib/content/jeremy-ribbons";
+import { getIndividualBrandingStamp } from "@/lib/content/individual-branding-stamps";
+
+const SEARCH_ENGINE_VERIFICATION_OTHER = Object.fromEntries(
+  [
+    ["msvalidate.01", process.env["NEXT_PUBLIC_BING_SITE_VERIFICATION"]],
+    [
+      "baidu-site-verification",
+      process.env["NEXT_PUBLIC_BAIDU_SITE_VERIFICATION"],
+    ],
+  ].filter((entry): entry is [string, string] => Boolean(entry[1])),
+);
 
 export const metadata: Metadata = withGeoMetadata({
   metadataBase: new URL(
@@ -46,8 +60,11 @@ export const metadata: Metadata = withGeoMetadata({
     template: "%s",
   },
   description:
-    "MH Construction delivers commercial, industrial, and public-sector project planning and delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters.",
+    "MH Construction, led by Owner & President Jeremy Thamert, delivers commercial, industrial, and public-sector project planning and delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters.",
   keywords: [
+    "Jeremy Thamert",
+    "Jeremy Thamert MH Construction",
+    "Jeremy Thamert Owner and President",
     "MH Construction home",
     "Tri-State construction center",
     "disciplined execution construction",
@@ -93,6 +110,9 @@ export const metadata: Metadata = withGeoMetadata({
   ],
   authors: [
     {
+      name: "Jeremy Thamert",
+    },
+    {
       name: "MH Construction Partnership-Driven Team",
     },
   ],
@@ -111,7 +131,7 @@ export const metadata: Metadata = withGeoMetadata({
       "Construction Planning and Delivery in WA, OR, and ID",
     ),
     description:
-      "Commercial, industrial, and public-sector planning and delivery from MH Construction across Washington, Oregon, and Idaho.",
+      "Commercial, industrial, and public-sector planning and delivery from MH Construction under Owner & President Jeremy Thamert across Washington, Oregon, and Idaho.",
     images: [
       {
         url: "/images/og-default.jpg",
@@ -130,7 +150,7 @@ export const metadata: Metadata = withGeoMetadata({
       "Construction Planning and Delivery in WA, OR, and ID",
     ),
     description:
-      "Commercial, industrial, and public-sector planning and delivery from MH Construction across Washington, Oregon, and Idaho.",
+      "Commercial, industrial, and public-sector planning and delivery from MH Construction under Owner & President Jeremy Thamert across Washington, Oregon, and Idaho.",
     images: ["/images/og-default.jpg"],
   },
   robots: {
@@ -170,10 +190,13 @@ export const metadata: Metadata = withGeoMetadata({
       { url: "/icons/icon-180x180.png", sizes: "180x180", type: "image/png" },
     ],
   },
-  // Google Search Console verification
-  // Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Cloudflare dashboard after completing GSC setup
+  // Search console verification (Google, Bing, Yandex, Yahoo, and Baidu)
+  // Set these env vars in Cloudflare dashboard after each platform is verified.
   verification: {
     google: process.env["NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION"],
+    yandex: process.env["NEXT_PUBLIC_YANDEX_VERIFICATION"],
+    yahoo: process.env["NEXT_PUBLIC_YAHOO_SITE_VERIFICATION"],
+    other: SEARCH_ENGINE_VERIFICATION_OTHER,
   },
 });
 
@@ -228,6 +251,7 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="author" href="https://www.mhc-gc.com/jeremy-thamert" />
         <link rel="preconnect" href="https://use.typekit.net" />
         <link rel="dns-prefetch" href="https://use.typekit.net" />
         <link
@@ -288,6 +312,8 @@ export default async function RootLayout({
           <StructuredData
             data={[
               generateEnhancedOrganizationSchema(),
+              generateJeremyPersonSchema(),
+              generateJeremyLeadershipVideoSchema(),
               generateWebsiteSchema(),
             ]}
           />
@@ -306,7 +332,12 @@ export default async function RootLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider defaultTheme="dark" storageKey="mh-construction-theme">
             <ErrorBoundary>
-              <AppShell>{children}</AppShell>
+              <AppShell
+                jeremyRibbons={getAllJeremyRibbons()}
+                jeremyStamp={getIndividualBrandingStamp("jeremy-thamert")}
+              >
+                {children}
+              </AppShell>
               {!isLighthouseAudit ? <ChatWidgetLazy /> : null}
             </ErrorBoundary>
           </ThemeProvider>

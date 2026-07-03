@@ -46,6 +46,12 @@ export const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
       icon: "groups",
     },
     {
+      href: "/jeremy-thamert",
+      label: "Jeremy Thamert",
+      subLabel: "Owner & President",
+      icon: "person",
+    },
+    {
       href: "/testimonials",
       label: PAGE_TERMINOLOGY.testimonials.seoName,
       subLabel: PAGE_TERMINOLOGY.testimonials.mhBrandName,
@@ -137,6 +143,12 @@ export const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
       label: "Nuestro equipo",
       subLabel: "Cadena de mando",
       icon: "groups",
+    },
+    {
+      href: "/jeremy-thamert",
+      label: "Jeremy Thamert",
+      subLabel: "Propietario y Presidente",
+      icon: "person",
     },
     {
       href: "/testimonials",
