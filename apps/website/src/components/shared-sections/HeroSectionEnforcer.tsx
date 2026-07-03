@@ -146,7 +146,7 @@ export function HeroSectionEnforcer({
       {shouldShowNav && navigation && (
         <PageNavigation
           items={navigation}
-          showRemainingPagesOverlay={Boolean(showNavigation)}
+          showRemainingPagesOverlay={showNavigation ? true : false}
           className="absolute bottom-0 left-0 right-0"
         />
       )}

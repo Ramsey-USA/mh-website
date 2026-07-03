@@ -15,7 +15,6 @@ import { SafetyComplianceBadge } from "@/components/resources/SafetyComplianceBa
 import { ResourcesHero } from "@/components/resources/ResourcesHero";
 import { manuals, forms } from "@/lib/data/documents";
 import { DownloadGate } from "@/components/pwa";
-import { COMPANY_INFO } from "@/lib/constants/company";
 
 export const metadata: Metadata = {
   title: "Field Resources | MH Construction",

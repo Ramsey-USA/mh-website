@@ -16,7 +16,6 @@ import {
 } from "@/lib/seo/review-schema";
 import type { Testimonial } from "@/lib/data/testimonials";
 import { getTranslations } from "next-intl/server";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { CORE_VALUE_ICONS } from "@/lib/constants/navigation-icons";
 
@@ -61,7 +60,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 
 const SITE_URL = "https://www.mhc-gc.com";
-const STAR_SLOTS = ["star-1", "star-2", "star-3", "star-4", "star-5"];
 
 const faqSchema = {
   "@context": "https://schema.org",
