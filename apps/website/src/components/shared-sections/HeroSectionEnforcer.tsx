@@ -161,7 +161,7 @@ export function isHeroSectionEnforcer(
   component: ReactNode,
 ): component is ReturnType<typeof HeroSectionEnforcer> {
   return (
-    component &&
+    Boolean(component) &&
     typeof component === "object" &&
     "type" in component &&
     component.type === HeroSectionEnforcer
