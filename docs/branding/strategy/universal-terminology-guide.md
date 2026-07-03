@@ -11,6 +11,7 @@
 ## 🧭Quick Navigation
 
 - [📌 Brand Constants](../brand-constants.md) - ⭐ **SINGLE SOURCE OF TRUTH**
+- [✅ Brand Congruency Master Checklist](../governance/brand-congruency-master-checklist.md)
 - [📝 Page-Specific Messaging Guide](./page-specific-messaging-guide.md)
 - [🧩 Slogan Coverage Matrix](./slogan-coverage-matrix.md)
 - [✅ Brand Congruency QA Checklist](./brand-congruency-qa-checklist.md)

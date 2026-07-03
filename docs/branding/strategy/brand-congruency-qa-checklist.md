@@ -3,11 +3,16 @@
 Last Updated: 2026-07-02
 Status: Active
 
+Canonical Merge Gate: Start with [Brand Congruency Master Checklist](../governance/brand-congruency-master-checklist.md)
+
 ## Purpose
 
-Use this checklist to verify that MH branding remains congruent across slogans, core values, and section-level messaging.
+Use this strategy companion checklist to verify that MH branding remains congruent across slogans,
+core values, and section-level messaging.
 
 This checklist complements:
+
+- Brand Congruency Master Checklist
 
 - Slogan Coverage Matrix
 - Core Values Slogan Validator

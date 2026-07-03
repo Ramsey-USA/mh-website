@@ -12,6 +12,8 @@ Use these guides together with the branding and development standards so impleme
 
 **Brand Congruency:** Technical implementations must keep typography and color usage aligned with the canonical MH font and palette system.
 
+Before shipping branding-sensitive technical changes, verify surface coverage using [Website Guardrails Coverage Map](../branding/governance/website-guardrails-coverage.md).
+
 ## Reference Standard
 
 - **[Homepage Documentation](./homepage.md)** — The canonical reference page. All other pages

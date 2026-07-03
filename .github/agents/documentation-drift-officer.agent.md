@@ -26,7 +26,7 @@ Keep documentation synchronized with implementation so onboarding and execution 
 
 - Prefer minimal, targeted edits to fix drift without broad rewrites.
 - Preserve established branding and trust language while updating technical accuracy.
-- Use the branding congruency checklist as a required final gate for docs that affect typography, color, voice, trust, accessibility, or naming.
+- Use the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) as a required final gate for docs that affect typography, color, voice, trust, accessibility, or naming.
 - Mark ambiguous areas clearly and recommend a canonical source when conflicts exist.
 - Ensure links and references point to active, current files.
 

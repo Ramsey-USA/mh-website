@@ -77,7 +77,7 @@ If a file exceeds 500 KB after respecting max-width, lower WebP quality in steps
 
 - Never overwrite existing files with different content.
 - Never delete JPG/JPEG files without a verified same-basename WebP replacement.
-- Use the branding congruency checklist as a final gate for media naming and visual-surface changes that affect trust, accessibility, or terminology.
+- Use the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) as a final gate for media naming and visual-surface changes that affect trust, accessibility, or terminology.
 - Every output WebP must be ≤ 500 KB before references are updated.
 - Exclude build artifacts and generated folders unless explicitly requested.
 - Preserve MH branding and accessibility text quality (especially image alt text context).

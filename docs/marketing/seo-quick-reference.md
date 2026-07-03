@@ -3,14 +3,14 @@
 **Category:** Technical - SEO Quick Reference  
 **Last Updated:** May 15, 2026  
 **Status:** ✅ Active - Quick Action Card
-**Canonical Source:** [docs/technical/seo/seo-complete-guide.md](./docs/technical/seo/seo-complete-guide.md)
+**Canonical Source:** [docs/technical/seo/seo-complete-guide.md](../technical/seo/seo-complete-guide.md)
 **Consolidation Rule:** Keep this file as a short action card; place deep implementation details in the complete guide.
 
 **Current implementation:** GEO optimization is active across titles, location data, schema, and sitemap media discovery.
 
 **Related Documentation:**
 
-- [Browser Titles Inventory](./docs/technical/browser-tab-titles-inventory.md) - Complete title system
+- [Browser Titles Inventory](../technical/browser-tab-titles-inventory.md) - Complete title system
 
 ---
 
@@ -44,7 +44,7 @@ Update `src/lib/data/locations.ts` and use these fields:
 - `publicSectorHighlight`
 
 For field definitions and full examples, use the canonical guide:
-[docs/technical/seo/seo-complete-guide.md](./docs/technical/seo/seo-complete-guide.md).
+[docs/technical/seo/seo-complete-guide.md](../technical/seo/seo-complete-guide.md).
 
 ---
 
@@ -114,5 +114,5 @@ pnpm run type-check         # TypeScript check
 
 ## 📚 Canonical Docs
 
-- [SEO Complete Guide](./docs/technical/seo/seo-complete-guide.md)
-- [Browser Titles Inventory](./docs/technical/browser-tab-titles-inventory.md)
+- [SEO Complete Guide](../technical/seo/seo-complete-guide.md)
+- [Browser Titles Inventory](../technical/browser-tab-titles-inventory.md)

@@ -36,6 +36,7 @@ Validation script:
 
 Related checklist:
 
+- docs/branding/governance/brand-congruency-master-checklist.md
 - docs/branding/strategy/brand-congruency-qa-checklist.md
 
 ## Matrix

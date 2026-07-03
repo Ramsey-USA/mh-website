@@ -5,21 +5,18 @@
 **Status:** ✅ Active
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../../branding/brand-constants.md).
+> **Canonical Merge Gate:** Start with the [Brand Congruency Master Checklist](../../branding/governance/brand-congruency-master-checklist.md).
 
 ## Purpose
 
-Use this checklist before publishing or merging any branding-sensitive change. It is a quick gate for voice, trust, accessibility, naming congruency, and visual consistency.
+This file is the development implementation companion to the canonical branding merge gate.
+Use it for component and token-level checks after the master checklist is complete.
 
-## Required Checks
+## Development Companion Checks
 
-1. **Voice:** Copy is relationship-first, factual, and free of hype.
-1. **Veteran framing:** Veteran-owned language is accurate, hyphenated, and not slogan-heavy.
-1. **Trust content:** Credentials, accreditation, and credibility sections are preserved.
-1. **Accessibility:** Headings, labels, contrast, and semantic structure remain intact.
-1. **SEO naming:** Titles, labels, slugs, and schema names match approved terminology.
 1. **Visual consistency:** Corner radii and hover effects use centralized design tokens (see [Design System Standards](./design-system-standards.md)).
 1. **Exception scope:** Approved visual exceptions stay limited to their documented component.
-1. **Cross-surface alignment:** Related docs, metadata, and page content use the same terminology.
+1. **Cross-surface alignment:** Related docs, metadata, and page content stay terminology-consistent after implementation changes.
 
 ## Visual Consistency (New)
 
@@ -35,15 +32,24 @@ See [Design System Standards](./design-system-standards.md) for complete guideli
 
 ## How to Use
 
-- Check the relevant branding, development, and SEO standards first.
+- Complete the [Brand Congruency Master Checklist](../../branding/governance/brand-congruency-master-checklist.md) first.
+- Check the relevant branding, development, and SEO standards next.
 - Verify both the edited surface and neighboring surfaces that share the same terminology.
 - If a check fails, update the underlying canonical source before publishing the downstream copy.
 
 ## Related Standards
 
 - [Branding Index](../../branding/index.md)
+- [Brand Congruency Master Checklist](../../branding/governance/brand-congruency-master-checklist.md)
 - [Development Standards](./development-standards.md)
 - [Design System Standards](./design-system-standards.md) ← **NEW**
+- [Heading and Typography Visual Contract](../../branding/standards/unified-component-standards.md#heading-and-typography-visual-contract-canonical)
+- [Button Visual Contract](../../branding/standards/unified-component-standards.md#button-visual-contract-canonical)
+- [Container and Modal Visual Contract](../../branding/standards/unified-component-standards.md#container-and-modal-visual-contract-canonical)
+- [Card Visual Contract](../../branding/standards/unified-component-standards.md#card-visual-contract-canonical)
+- [Form Field and Form Shell Visual Contract](../../branding/standards/unified-component-standards.md#form-field-and-form-shell-visual-contract-canonical)
+- [Navigation Overlay and Header Action Visual Contract](../../branding/standards/unified-component-standards.md#navigation-overlay-and-header-action-visual-contract-canonical)
+- [Footer Accreditation and Trust Continuity Visual Contract](../../branding/standards/unified-component-standards.md#footer-accreditation-and-trust-continuity-visual-contract-canonical)
 - [AI Development Guidelines](./ai-development-guidelines.md)
 - [Consistency Guide](./consistency-guide.md)
 - [Universal Terminology Guide](../../branding/strategy/universal-terminology-guide.md)

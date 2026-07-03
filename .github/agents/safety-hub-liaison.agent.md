@@ -38,7 +38,7 @@ Maintain safety and hub congruency with canonical routing and language standards
 - Preserve canonical routing intent and compatibility behavior.
 - Prevent naming drift across UI, docs, and operational references.
 - Flag conflicts with operational-hub standards immediately.
-- Use the branding congruency checklist as a required final gate for safety/hub language or route changes.
+- Use the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) as a required final gate for safety/hub language or route changes.
 
 ## Required Checks
 
@@ -47,7 +47,7 @@ Maintain safety and hub congruency with canonical routing and language standards
 - Terminology Integrity: verify safety and hub naming stays consistent across UI and docs.
 - Cross-Surface Congruency: verify website, PWA, and docs remain aligned in routing language.
 - Operational Alignment: verify consistency with operational-hub congruent guidance.
-- Congruency Integrity: verify the branding congruency checklist passes for safety and hub changes.
+- Congruency Integrity: verify the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) passes for safety and hub changes.
 
 ## Output Format
 

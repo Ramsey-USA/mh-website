@@ -54,6 +54,9 @@ jobs:
       - name: Enforce generated artifact guard
         run: npm run guard:generated-artifacts
 
+      - name: Enforce branding docs contracts guard
+        run: npm run docs:guardrails:contracts
+
       - name: Detect Lighthouse artifact changes
         id: perf_changes
         run: |

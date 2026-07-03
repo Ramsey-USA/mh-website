@@ -3,7 +3,7 @@
 ## Comprehensive Standards for Pages, Sections, Components, and Mobile
 
 **Category:** Development - Implementation Standards  
-**Last Updated:** April 18, 2026 | **Version:** 2.2.0 | **Status:** Official Standard
+**Last Updated:** July 3, 2026 | **Version:** 2.2.0 | **Status:** Official Standard
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../../branding/brand-constants.md).
 
@@ -623,8 +623,11 @@ import { Button } from "@/components/ui";
 
 ```tsx
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
+import { designTokens } from "@/lib/styles/design-tokens";
 
-<Card className="bg-white dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 transition-all hover:-translate-y-2 duration-300">
+<Card
+  className={`bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 ${designTokens.cardInteractive}`}
+>
   <CardHeader className="text-center">
     <MaterialIcon
       icon="construction"
@@ -646,8 +649,8 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 
 - **Border radius**: `rounded-3xl` (already in base Card)
 - **Border**: `border border-gray-200 dark:border-gray-700`
-- **Shadow**: `hover:shadow-xl dark:hover:shadow-gray-600/50`
-- **Animation**: `hover:-translate-y-2 transition-all duration-300`
+- **Shadow/interaction**: use `designTokens.cardInteractive` for consistent hover behavior
+- **Animation**: use centralized motion tokens (`hoverMotion.*`) instead of inline transform classes
 - **Accent border**: Add `border-l-4 border-l-brand-primary` for emphasis
 
 ### Modal Component

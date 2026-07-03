@@ -38,6 +38,7 @@ homepage - same visual weight, spacing, animations, and polish.
 - [Development Standards](docs/development/standards/development-standards.md) - Code patterns
 - [Consistency Guide](docs/development/standards/consistency-guide.md) - **MANDATORY** reading
 - [Operational Hub Congruent Plan](docs/project/operational-hub-congruent-plan.md) - Website + PWA + document congruency rules
+- [Website Guardrails Coverage Map](docs/branding/governance/website-guardrails-coverage.md) - Required branding guardrail coverage across all website surfaces
 
 **When You Need Specific Features:**
 

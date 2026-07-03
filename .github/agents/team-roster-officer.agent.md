@@ -16,7 +16,7 @@ Maintain the accuracy, completeness, and display consistency of every team
 member profile on the `/team` page. This includes per-member data files,
 avatar images, QR codes, and the `VintageTeamMember` interface.
 
-Use [docs/development/standards/branding-congruency-checklist.md](../../docs/development/standards/branding-congruency-checklist.md) as a required final gate for roster changes that affect naming, trust framing, accessibility, or visual-brand cues.
+Use [docs/branding/governance/brand-congruency-master-checklist.md](../../docs/branding/governance/brand-congruency-master-checklist.md) as the required final gate for roster changes that affect naming, trust framing, accessibility, or visual-brand cues, then run [docs/development/standards/branding-congruency-checklist.md](../../docs/development/standards/branding-congruency-checklist.md) for implementation-level checks.
 
 ---
 

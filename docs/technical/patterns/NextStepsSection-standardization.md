@@ -78,36 +78,13 @@ The NextStepsSection is standardized across these pages:
 
 ### ✅ Fully Implemented
 
-1. **Homepage** (`/src/app/page.tsx`)
-   - Dynamic import with SSR
-   - Used as final section before footer
-
-2. **About Page** (`/src/app/about/page.tsx`)
-   - Dynamic import with SSR
-   - Placed after mission, vision, values sections
-
-3. **FAQ Page** (`/src/app/faq/page.tsx`)
-   - Dynamic import with SSR
-   - Final section after FAQ content
-
-4. **Veterans Page** (`/src/app/veterans/page.tsx`)
-   - Dynamic import with SSR
-   - Concludes veteran-focused content
-
-5. **Services Hub Section** (`/src/app/page.tsx`, `id="services"`)
-
-- Dynamic import with SSR
-- Replaced legacy `ServicesCTA` path usage with home-hub discovery
-- Legacy service routes redirect to `/#services`
-
-6. **Projects Page** (`/src/app/projects/page.tsx`)
-   - Dynamic import with SSR
-   - Replaced `ProjectsCTASection` component
-   - Concludes project portfolio
-
-7. **Team Page** (`/src/app/team/page.tsx`)
-   - Dynamic import with SSR
-   - Final section after team profiles
+- **Homepage** (`/src/app/page.tsx`) - Dynamic import with SSR; used as final section before footer.
+- **About Page** (`/src/app/about/page.tsx`) - Dynamic import with SSR; placed after mission, vision, values sections.
+- **FAQ Page** (`/src/app/faq/page.tsx`) - Dynamic import with SSR; final section after FAQ content.
+- **Veterans Page** (`/src/app/veterans/page.tsx`) - Dynamic import with SSR; concludes veteran-focused content.
+- **Services Hub Section** (`/src/app/page.tsx`, `id="services"`) - Dynamic import with SSR; replaced legacy `ServicesCTA` path usage with home-hub discovery; legacy service routes redirect to `/#services`.
+- **Projects Page** (`/src/app/projects/page.tsx`) - Dynamic import with SSR; replaced `ProjectsCTASection` component; concludes project portfolio.
+- **Team Page** (`/src/app/team/page.tsx`) - Dynamic import with SSR; final section after team profiles.
 
 ## Usage Guidelines
 

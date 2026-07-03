@@ -180,7 +180,13 @@ These standards are:
 See also:
 
 - [MH Branding Guardrails](/.github/instructions/mh-branding-guardrails.instructions.md)
+- [Brand Congruency Master Checklist](/docs/branding/governance/brand-congruency-master-checklist.md)
 - [Branding Congruency Checklist](/docs/development/standards/branding-congruency-checklist.md)
+- [Container and Modal Visual Contract](/docs/branding/standards/unified-component-standards.md#container-and-modal-visual-contract-canonical)
+- [Card Visual Contract](/docs/branding/standards/unified-component-standards.md#card-visual-contract-canonical)
+- [Form Field and Form Shell Visual Contract](/docs/branding/standards/unified-component-standards.md#form-field-and-form-shell-visual-contract-canonical)
+- [Navigation Overlay and Header Action Visual Contract](/docs/branding/standards/unified-component-standards.md#navigation-overlay-and-header-action-visual-contract-canonical)
+- [Footer Accreditation and Trust Continuity Visual Contract](/docs/branding/standards/unified-component-standards.md#footer-accreditation-and-trust-continuity-visual-contract-canonical)
 
 ---
 

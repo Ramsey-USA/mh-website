@@ -332,4 +332,4 @@ Look for these visual clues:
 
 ---
 
-This guide is maintained by the development team. Last updated: December 28, 2025.
+This guide is maintained by the development team. Last updated: April 18, 2026.

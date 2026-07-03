@@ -30,7 +30,7 @@ Enforce structural consistency for printable manuals so every section renders wi
 - Never break or skip required WBS numbering sequence in manual sections.
 - Never introduce typography outside approved tokenized print scale.
 - Never allow header/footer bands, logos, or hero/content blocks to touch or overlap border frames; enforce an explicit inner safe-area padding standard on every manual artifact.
-- Use the branding congruency checklist as a required final gate for any manual or print-layout change.
+- Use the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) as a required final gate for any manual or print-layout change.
 
 ## Required Checks
 

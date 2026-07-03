@@ -7,6 +7,8 @@
 
 **Brand Congruency:** Button colors, type treatments, and labels must remain aligned with Brand Constants, the Color System, and Unified Component Standards.
 
+**Canonical Visual Contract:** [Unified Component Standards - Button Visual Contract](../../branding/standards/unified-component-standards.md#button-visual-contract-canonical)
+
 **⚠️ CONSOLIDATED DOCUMENT:** This guide consolidates and supersedes:
 
 - `buttons-guide.md` (technical implementation)
@@ -68,11 +70,7 @@
 
 ```tsx
 <Button variant="primary" size="lg" className="group/btn">
-  <MaterialIcon
-    icon="event"
-    size="lg"
-    className="mr-2 group-hover/btn:scale-110 transition-transform"
-  />
+  <MaterialIcon icon="event" size="lg" className="mr-2" />
   Schedule Free Consultation
 </Button>
 ```
@@ -108,11 +106,7 @@
 
 ```tsx
 <Button variant="secondary" size="lg" className="group/btn">
-  <MaterialIcon
-    icon="photo_library"
-    size="lg"
-    className="mr-2 group-hover/btn:scale-110 transition-transform"
-  />
+  <MaterialIcon icon="photo_library" size="lg" className="mr-2" />
   View Our Work
 </Button>
 ```
@@ -146,11 +140,7 @@
 
 ```tsx
 <Button variant="outline" size="md" className="group/btn">
-  <MaterialIcon
-    icon="arrow_forward"
-    size="md"
-    className="ml-2 group-hover/btn:translate-x-1 transition-transform"
-  />
+  <MaterialIcon icon="arrow_forward" size="md" className="ml-2" />
   Learn More
 </Button>
 ```
@@ -204,14 +194,14 @@
 **Technical Implementation:**
 
 ```tsx
-<button className="inline-flex items-center px-6 py-3 rounded-lg font-medium text-white bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600 hover:from-slate-700 hover:via-gray-800 hover:to-slate-700 transition-all duration-300 shadow-lg hover:shadow-xl group">
-  <MaterialIcon
-    icon="account_balance"
-    size="lg"
-    className="mr-2 group-hover:scale-110 transition-transform"
-  />
+<Button
+  variant="secondary"
+  size="lg"
+  className="bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600 text-white shadow-lg hover:shadow-xl"
+>
+  <MaterialIcon icon="account_balance" size="lg" className="mr-2" />
   Request Grant Support
-</button>
+</Button>
 ```
 
 **When to Use:**
@@ -251,9 +241,12 @@ Always include veteran-owned and safety credentials when using government button
 {
   /* Government CTA */
 }
-<button className="bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600 ...">
+<Button
+  variant="secondary"
+  className="bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600 text-white ..."
+>
   Request Grant Support
-</button>;
+</Button>;
 
 {
   /* Veteran Trust Signals - Use brand green and bronze */

@@ -86,7 +86,7 @@ Apply these baseline checks to every hero section under review:
 - Header Dominance Integrity: hero spacing preserves the logo-first header hierarchy on narrow screens.
 - Hero Icon Integrity: icon treatment follows Home strategy without ornamental drift.
 - Hero Navigation Integrity: global 6-cell nav row is present and bottom-anchored; `showRemainingPagesOverlay` is enabled; `More` opens a branded modal overlay (not a dropdown) with focus trap, Escape close, and focus restoration.
-- Congruency Integrity: branding congruency checklist passes for affected pages.
+- Congruency Integrity: Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) passes for affected pages.
 
 ## Output Format
 

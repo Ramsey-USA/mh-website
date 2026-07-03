@@ -12,6 +12,7 @@
 - [📚 Development Standards](../development/standards/development-standards.md)
 - [🔐 Secrets Management](./secrets-management.md)
 - [🔑 Admin Password Security](./admin-password-security.md)
+- [🎨 Form Field and Form Shell Visual Contract](../branding/standards/unified-component-standards.md#form-field-and-form-shell-visual-contract-canonical)
 
 ---
 

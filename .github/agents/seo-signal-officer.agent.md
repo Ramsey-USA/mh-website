@@ -26,7 +26,7 @@ Protect clear, plain-language SEO and metadata naming.
 - Prefer plain-language page labels.
 - Prevent terminology drift between nav, copy, metadata, and schema.
 - Avoid slogan-heavy aliases in SEO-facing labels.
-- Align with the branding congruency checklist for naming, trust, and accessibility parity.
+- Align with the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) for naming, trust, and accessibility parity.
 
 ## Required Checks
 
@@ -34,7 +34,7 @@ Protect clear, plain-language SEO and metadata naming.
 - Title/Metadata Clarity: verify titles and metadata remain plain-language and user-readable.
 - Schema Naming Integrity: verify schema labels and entity naming match page intent.
 - Discoverability Hygiene: verify sitemap-oriented labels and naming remain consistent.
-- Congruency Integrity: verify the branding congruency checklist passes for SEO-sensitive changes.
+- Congruency Integrity: verify the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) passes for SEO-sensitive changes.
 
 ## Output Format
 

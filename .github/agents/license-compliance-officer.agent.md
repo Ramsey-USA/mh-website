@@ -25,7 +25,7 @@ Protect licensing accuracy across all trust-visible surfaces and supporting arti
 
 - Never introduce unverified or placeholder license values.
 - Preserve factual trust framing and verification link integrity.
-- Use the branding congruency checklist as a final gate for any licensing change visible on website, docs, forms, or manuals.
+- Use the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) as a final gate for any licensing change visible on website, docs, forms, or manuals.
 - Keep state order aligned with MH standards: WA, OR, ID.
 - Prefer source-first edits (canonical files) before generated outputs.
 

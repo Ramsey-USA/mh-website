@@ -253,4 +253,4 @@ In the unified header system, keep the compact toggle visually subordinate to th
 
 ---
 
-**MH Construction** - Founded 2010, Veteran-Owned Since 2025
+**MH Construction** - Founded 2010, Veteran-Owned Since January 2025

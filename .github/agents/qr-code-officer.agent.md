@@ -27,7 +27,7 @@ Ensure every QR code image in `public/images/qr-codes/` is present on disk, enco
 
 - Never remove a QR entry without confirming its target route has been permanently retired.
 - When a route changes, regenerate only the affected QR image via `pnpm --filter @mhc/website run qr:generate`, then re-run `pnpm --filter @mhc/website run qr:test` to verify.
-- Use the branding congruency checklist as a final gate for QR labels, destination naming, and trust-facing route updates.
+- Use the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) as a final gate for QR labels, destination naming, and trust-facing route updates.
 - Do not encode auth-gated or internal-only routes (e.g., `/dashboard`) in publicly distributed QR codes.
 - All team member QR paths in `team-data.json` must reference the `-color` variant file, not a bare or `-bw` filename.
 

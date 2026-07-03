@@ -10,6 +10,10 @@ on:
     paths:
       - "**/*.md"
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   markdown-lint:
     name: Markdown Linting
@@ -35,6 +39,84 @@ jobs:
 
       - name: Enforce generated artifact guard
         run: npm run guard:generated-artifacts
+
+      - name: Enforce branding docs contracts guard
+        id: docs_contracts_guard
+        run: |
+          set +e
+          guard_output="$(npm run docs:guardrails:contracts 2>&1)"
+          guard_exit_code=$?
+
+          {
+            echo "output<<EOF"
+            echo "$guard_output"
+            echo "EOF"
+            echo "exit_code=$guard_exit_code"
+          } >> "$GITHUB_OUTPUT"
+
+          exit 0
+
+      - name: Post Docs Contracts Guard Comment
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        env:
+          DOCS_GUARD_OUTPUT: ${{ steps.docs_contracts_guard.outputs.output }}
+          DOCS_GUARD_EXIT_CODE: ${{ steps.docs_contracts_guard.outputs.exit_code }}
+        with:
+          script: |
+            const marker = "<!-- docs-contracts-guard-report -->";
+            const exitCode = Number(process.env.DOCS_GUARD_EXIT_CODE || "1");
+            const rawOutput = (process.env.DOCS_GUARD_OUTPUT || "").trim();
+            const status = exitCode === 0 ? "PASS" : "FAIL";
+
+            const body = [
+              marker,
+              "## Docs Contracts Guard",
+              `Result: **${status}**`,
+              "",
+              "Command: `pnpm docs:guardrails:contracts`",
+              "",
+              "### Output",
+              "```text",
+              rawOutput || "(no output)",
+              "```"
+            ].join("\n");
+
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner,
+              repo,
+              issue_number,
+              per_page: 100,
+            });
+
+            const existing = comments.find(
+              (c) => c.user?.type === "Bot" && c.body?.includes(marker)
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number,
+                body,
+              });
+            }
+
+      - name: Fail if docs contracts guard failed
+        if: steps.docs_contracts_guard.outputs.exit_code != '0'
+        run: |
+          echo "Docs contracts guard failed. See PR comment for details."
+          exit 1
 
       - name: Run markdownlint-cli2
         run: |

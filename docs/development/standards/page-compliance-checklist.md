@@ -2,7 +2,7 @@
 
 **Purpose:** Systematic audit tool to verify page compliance with MH standards  
 **Version:** 1.4.0  
-**Last Updated:** June 20, 2026  
+**Last Updated:** July 3, 2026  
 **Use Case:** Run this checklist on any page to ensure consistency
 
 **Brand Congruency:** This checklist is a required gate for typography, color, voice, trust content, accessibility, and naming alignment.
@@ -23,6 +23,7 @@
 
 ### Hero Section
 
+- [ ] Conforms to [Navigation Overlay and Header Action Visual Contract](../../branding/standards/unified-component-standards.md#navigation-overlay-and-header-action-visual-contract-canonical)
 - [ ] Hero section exists and is first visible element
 - [ ] Full viewport height with `h-screen flex items-center justify-center`
 - [ ] Uses one of three approved hero patterns (see unified-component-standards.md)
@@ -36,6 +37,7 @@
 
 ### Global Header
 
+- [ ] Conforms to [Navigation Overlay and Header Action Visual Contract](../../branding/standards/unified-component-standards.md#navigation-overlay-and-header-action-visual-contract-canonical)
 - [ ] Global header remains logo-first at all breakpoints
 - [ ] MH logo is visually dominant over adjacent header controls on phone widths
 - [ ] Phone CTA lives in the global header and exposes the business number
@@ -44,10 +46,12 @@
 
 ### Section Structure
 
+- [ ] Conforms to [Container and Modal Visual Contract](../../branding/standards/unified-component-standards.md#container-and-modal-visual-contract-canonical)
 - [ ] Section IDs are present when referenced by internal jump links/deep links
 - [ ] Section IDs use kebab-case when present (e.g., `id="core-values"`)
 - [ ] Sections use standard class: `relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden`
 - [ ] Content wrapped in: `relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl`
+- [ ] Section wrappers do not use `.container` class
 - [ ] Major section framing uses dual-label military pattern (clear primary label + military-themed secondary sublabel)
 - [ ] Section/navigation labels include military-themed language consistent with brand messaging standards
 
@@ -62,6 +66,7 @@
 
 ### Page Bottom
 
+- [ ] Conforms to [Footer Accreditation and Trust Continuity Visual Contract](../../branding/standards/unified-component-standards.md#footer-accreditation-and-trust-continuity-visual-contract-canonical)
 - [ ] NextStepsSection included as final section (before footer)
 - [ ] NextStepsSection loaded via dynamic import with `ssr: true`
 - [ ] Global footer includes accreditation row and it is visible at all breakpoints
@@ -93,6 +98,7 @@
 
 ### Section Headers
 
+- [ ] Conforms to [Heading and Typography Visual Contract](../../branding/standards/unified-component-standards.md#heading-and-typography-visual-contract-canonical)
 - [ ] Use two-line gradient pattern (subtitle + main title)
 - [ ] Container has `overflow-visible` class
 - [ ] Both spans (subtitle and title) have `overflow-visible`
@@ -123,11 +129,11 @@
 
 ### Modern Card Structure
 
+- [ ] Conforms to [Card Visual Contract](../../branding/standards/unified-component-standards.md#card-visual-contract-canonical)
 - [ ] Uses modern div structure (not old `<Card>` component)
 - [ ] Animated border glow with `absolute -inset-2` and `blur-xl`
 - [ ] Border glow uses `opacity-20` default, `opacity-100` on hover
-- [ ] Group hover effects: `group-hover:animate-pulse`
-- [ ] Card lift on hover: `group-hover:-translate-y-1`
+- [ ] Hover interactions use centralized `hoverMotion.*` tokens (no inline `group-hover:*` patterns)
 - [ ] Shadow enhancement: `shadow-lg` to `shadow-2xl`
 - [ ] Border transition: `border-gray-200` to `border-transparent`
 
@@ -144,7 +150,7 @@
 - [ ] Icon has nested blur layers (outer blur + inner gradient container)
 - [ ] Outer blur: `absolute -inset-2` with `blur-lg`
 - [ ] Inner container: `rounded-xl bg-gradient-to-br` with shadow-xl
-- [ ] Icon scales on hover: `group-hover:scale-110`
+- [ ] Icon hover behavior uses centralized `hoverMotion.*` token utilities
 - [ ] Icon uses white text: `text-white drop-shadow-lg`
 
 ### Card Typography
@@ -192,10 +198,11 @@
 ### Button Component
 
 - [ ] Uses Button component from `@/components/ui`
+- [ ] Conforms to [Button Visual Contract](../../branding/standards/unified-component-standards.md#button-visual-contract-canonical)
 - [ ] Appropriate variant: `primary`, `secondary`, `outline`, `neutral`, `default`, `destructive`, `ghost`, `link`
 - [ ] Appropriate size: `sm`, `default`, `lg`, `xl`
-- [ ] Group class for hover effects: `className="group"`
-- [ ] Icons scale on hover: `group-hover:scale-110`
+- [ ] Button hover and icon motion use centralized tokens from `@/lib/styles/design-tokens`
+- [ ] No ad-hoc inline hover transform classes (`hover:scale-*`, `group-hover:scale-*`, `group-hover:rotate-*`)
 - [ ] Minimum height: 44px (WCAG compliant)
 
 ### Touch Accessibility
@@ -203,6 +210,18 @@
 - [ ] All interactive elements have `touch-manipulation` class
 - [ ] Buttons meet 44px minimum touch target
 - [ ] Proper focus states: `focus:ring-2 focus:ring-brand-primary`
+
+---
+
+## 🪟 Containers & Modals
+
+### Modal Overlay Behavior
+
+- [ ] Modal overlays include backdrop + centered panel + visible close button
+- [ ] Escape key closes modal/dialog where applicable
+- [ ] Backdrop click closes modal/dialog where applicable
+- [ ] Body scroll locks while modal overlay is open and restores on close
+- [ ] Dialog content is keyboard reachable with visible focus states
 
 ---
 
@@ -234,10 +253,9 @@
 
 ### Standard Animations
 
-- [ ] All transitions use `duration-300`
-- [ ] Hover effects use `transition-all duration-300`
-- [ ] Cards lift on hover: `hover:-translate-y-1`
-- [ ] Icons scale on hover: `hover:scale-110` or `group-hover:scale-110`
+- [ ] Transitions use standardized timing tokens (`transitionDuration.*`)
+- [ ] Hover effects use centralized motion tokens (`hoverMotion.*`)
+- [ ] Cards and icons use tokenized hover motion (`hoverMotion.*`) instead of inline transform classes
 - [ ] Shadows enhance on hover: `hover:shadow-2xl`
 
 ### FadeInWhenVisible
@@ -272,6 +290,8 @@
 ---
 
 ## 🔐 Form Security (Pages with Forms)
+
+- [ ] Conforms to [Form Field and Form Shell Visual Contract](../../branding/standards/unified-component-standards.md#form-field-and-form-shell-visual-contract-canonical)
 
 ### Cloudflare Turnstile Integration
 

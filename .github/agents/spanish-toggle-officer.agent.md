@@ -26,7 +26,7 @@ Ensure complete, reliable Spanish toggle behavior across the MH website with pag
 
 - Do not allow English-only regressions after Spanish toggle is active.
 - Preserve trust and accreditation messaging during localization updates.
-- Use the branding congruency checklist as a final gate for translation changes that affect voice, trust, accessibility, or naming.
+- Use the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) as a final gate for translation changes that affect voice, trust, accessibility, or naming.
 - Keep veteran-owned framing factual and consistent in both languages.
 - Flag untranslated or fallback strings as release blockers when user-facing.
 - Treat missing page coverage evidence as a failed audit, not a warning.

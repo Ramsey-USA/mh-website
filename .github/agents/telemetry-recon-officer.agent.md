@@ -25,7 +25,7 @@ Protect analytics integrity and prevent silent tracking gaps.
 
 - Verify every new CTA or interaction has an intentional tracking path.
 - Preserve established event naming conventions unless a migration plan is included.
-- Use the branding congruency checklist as a final gate for telemetry label or taxonomy changes that affect user-facing naming and trust context.
+- Use the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) as a final gate for telemetry label or taxonomy changes that affect user-facing naming and trust context.
 - Do not introduce duplicate semantics under different event names.
 - Keep analytics labels consistent with plain-language UI and metadata naming.
 

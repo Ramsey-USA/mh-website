@@ -30,7 +30,7 @@ Keep wording coherent across the entire website while preserving:
 - Keep dual-label arrows only when explicitly approved for that surface.
 - Avoid slogan-heavy militarized aliases in titles, labels, metadata, and schema naming.
 - Preserve approved brand statements where factual and identity-critical.
-- Use the branding congruency checklist as the validation gate for any terminology sweep.
+- Use the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) as the validation gate for any terminology sweep.
 
 ## Scope Coverage
 
@@ -58,7 +58,7 @@ Review and align all of the following when in scope:
 5. Apply edits consistently across all in-scope surfaces.
 6. Validate with targeted tests and static checks.
 7. Produce a Terminology Compliance Report.
-8. Confirm the branding congruency checklist passes before completion.
+8. Confirm the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) passes before completion.
 
 ## Non-Negotiable Guardrails
 

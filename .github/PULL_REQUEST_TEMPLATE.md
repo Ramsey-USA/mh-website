@@ -23,6 +23,8 @@
 
 - [ ] Compliance Result included (PASS or FAIL)
 - [ ] Applied standards listed
+- [ ] Canonical contracts touched are listed (or "none")
+- [ ] `pnpm docs:guardrails:contracts` result recorded (PASS or FAIL)
 - [ ] Violations and remediations documented (or "none")
 - [ ] Risk level recorded (low, medium, high)
 - [ ] Required agent handoffs completed per .github/AGENT_INVOCATION_MATRIX.md
@@ -33,6 +35,10 @@
 Compliance Result:
 
 Applied Standards:
+
+Canonical Contracts Touched:
+
+Docs Contracts Guard Result:
 
 Passes:
 

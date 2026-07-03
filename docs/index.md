@@ -1,7 +1,7 @@
 # MH Construction Documentation
 
 **Category:** Documentation - Master Index  
-**Last Updated:** June 30, 2026
+**Last Updated:** July 3, 2026
 
 ## Overview
 
@@ -13,10 +13,13 @@ All documentation categories should remain congruent with the canonical brand la
 
 Latest update: June 30 congruency closure pass completed across core website copy and centralized SEO metadata/schema utilities, with one intentional canonical mission-text exception retained for standards alignment.
 
+Branding markdown update note: see [Branding Markdown Sweep Log (2026-07-02)](./branding/governance/markdown-sweep-2026-07-02.md).
+
 **Brand Congruency:** Documentation across all categories must keep typography and color decisions aligned with the canonical MH font and palette standards.
 
 ## Categories
 
+- **[Archive](./archive/index.md)** — Historical documentation snapshots retained for traceability.
 - **[Branding](./branding/index.md)** — Brand constants, color system, hero standards, messaging,
   agent branding policy, and unified component standards.
 - **[Business](./business/index.md)** — Core values, services, and project specializations.
@@ -36,6 +39,9 @@ Latest update: June 30 congruency closure pass completed across core website cop
 ## Single Sources of Truth
 
 - **[Brand Constants](./branding/brand-constants.md)** — Canonical brand values
+- **[Brand Congruency Master Checklist](./branding/governance/brand-congruency-master-checklist.md)** — Canonical branding merge gate
+- **[Website Guardrails Coverage Map](./branding/governance/website-guardrails-coverage.md)** — Website-wide branding guardrail coverage requirements
+- **[Canonical Contracts Matrix](./branding/governance/website-guardrails-coverage.md#canonical-contracts-matrix-development-routing)** — Component-level routing table for development congruency
 - **[Unified Component Standards](./branding/standards/unified-component-standards.md)** — UI
   component patterns
 - **[Operational Hub Congruent Plan](./project/operational-hub-congruent-plan.md)** — Website +

@@ -1,7 +1,7 @@
 # Branding Documentation
 
 **Category:** Branding - Overview  
-**Last Updated:** May 15, 2026
+**Last Updated:** July 3, 2026
 
 ## Overview
 
@@ -12,12 +12,24 @@ and brand identity guidelines.
 
 - **[Brand Constants](./brand-constants.md)** - ⭐ **START HERE** - Canonical values for all brand elements
 - **[Agent Branding Policy](./agent-branding-policy.md)** - Fast enforcement policy for AI agent decisions
+- **[Brand Congruency Master Checklist](./governance/brand-congruency-master-checklist.md)** - Canonical pre-merge branding gate
+- **[Website Guardrails Coverage Map](./governance/website-guardrails-coverage.md)** - Required coverage map for all website surfaces
 
 ## Branding Congruency Requirement
 
 All branding edits must stay congruent with the messaging, trust, accessibility, and SEO naming rules used across the site.
 Typography and color decisions must also follow the canonical MH font system and color system so page layouts do not drift visually.
 For implementation work, pair this directory with [Development Standards](../development/standards/development-standards.md) and [AI Development Guidelines](../development/standards/ai-development-guidelines.md).
+
+## How to Choose the Right Checklist
+
+Use this order so every branding-sensitive change follows the same gate:
+
+1. Start with **[Brand Congruency Master Checklist](./governance/brand-congruency-master-checklist.md)** for all branding-sensitive changes.
+2. If your change is slogan, core-value, or bilingual messaging related, add **[Brand Congruency QA Checklist](./strategy/brand-congruency-qa-checklist.md)**.
+3. If your change includes UI implementation or tokens, add **[Branding Congruency Checklist](../development/standards/branding-congruency-checklist.md)**.
+
+Rule of thumb: Master checklist is always required; strategy and development checklists are companion checks based on scope.
 
 ## Agent Quick Start
 
@@ -76,6 +88,15 @@ Messaging, voice, and brand positioning guidelines.
 - **[Dual Terminology Standard](./strategy/dual-terminology-standard.md)** - Canonical dual-label and arrow-format naming rules
 - **[Universal Terminology](./strategy/universal-terminology-guide.md)** - Consistent word choices
 - **[Page-Specific Messaging](./strategy/page-specific-messaging-guide.md)** - Voice by page type
+
+### Governance
+
+Documentation ownership and consolidation rules to prevent duplicate branding guidance.
+
+- **[Governance Index](./governance/index.md)** - Governance entry point
+- **[Information Architecture](./governance/information-architecture.md)** - Folder placement and consolidation rules
+- **[Brand Congruency Master Checklist](./governance/brand-congruency-master-checklist.md)** - Canonical branding merge checklist
+- **[Website Guardrails Coverage Map](./governance/website-guardrails-coverage.md)** - Website-wide coverage rules and surface matrix
 
 ### Section Types
 

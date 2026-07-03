@@ -46,7 +46,7 @@ Any form deviating from these values without documented exception fails layout r
 - Trust/accreditation continuity in form headers and footers
 - Accessibility and SEO naming alignment for forms routes and labels
 
-Use [docs/development/standards/branding-congruency-checklist.md](../../docs/development/standards/branding-congruency-checklist.md) as the final gate for any forms or printable-template change.
+Use [docs/branding/governance/brand-congruency-master-checklist.md](../../docs/branding/governance/brand-congruency-master-checklist.md) as the primary gate for any forms or printable-template change, then run [docs/development/standards/branding-congruency-checklist.md](../../docs/development/standards/branding-congruency-checklist.md) for implementation-specific checks.
 
 For strict manual-wide structure enforcement (uniform print layout + WBS hierarchy), defer to `manual-structure-officer`.
 
@@ -72,7 +72,7 @@ the forms-manifest, and brand cover sheets — not the AcroForm pipeline.
 - Token Discipline: verify form templates and generator outputs use approved brand tokens.
 - Generation Integrity: verify forms generation paths render expected outputs and do not silently no-op. After every regeneration, render a PNG preview with `pdftoppm -r 150 -png -f 1 -l 1 documents/output/<artifact>.pdf /tmp/<artifact>-preview` and display page 1 to the user for visual confirmation.
 - Accessibility/SEO Alignment: verify labels, headings, and route naming remain clear and consistent.
-- Congruency Integrity: verify the branding congruency checklist passes before sign-off.
+- Congruency Integrity: verify the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) passes before sign-off.
 
 ## Output Format
 

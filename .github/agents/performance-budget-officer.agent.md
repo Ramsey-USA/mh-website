@@ -28,7 +28,7 @@ Protect loading speed and interaction quality by enforcing practical performance
 
 - Prefer optimized media and lazy-loading patterns for non-critical assets.
 - Prevent unnecessary client-side work when server-rendered paths are sufficient.
-- Use the branding congruency checklist as a final gate when performance fixes affect typography, color treatments, trust content, or naming.
+- Use the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) as a final gate when performance fixes affect typography, color treatments, trust content, or naming.
 - Flag high-impact regressions with the smallest viable remediation.
 - Align performance fixes with existing design and accessibility standards.
 

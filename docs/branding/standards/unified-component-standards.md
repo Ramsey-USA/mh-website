@@ -2,7 +2,7 @@
 
 **Category:** Branding - Standards  
 **Version:** 7.2.0  
-**Last Updated:** June 20, 2026  
+**Last Updated:** July 3, 2026  
 **Status:** ✅ Official Standard - Consolidated Documentation  
 **Previous Versions:** Replaces typography.md v5.0.0 and component-standards.md v6.0.0
 
@@ -339,6 +339,48 @@ font-family:
 - Only one H1 per page
 - Maximum lengths: H1 (60 chars), H2 (50 chars), H3 (40 chars)
 
+## Heading and Typography Visual Contract (Canonical)
+
+This section is the canonical visual contract for hero headings, section headers,
+subheaders, and card-title typography across the website.
+
+### Contract Rules
+
+1. Use semantic hierarchy in order: one H1 per page, then H2, H3, H4 as needed.
+1. Use approved heading roles and scales from this file: H1 hero headline scale, H2 two-line section header pattern (subtitle + gradient main title), H3 subsection heading scale, H4 card-title heading scale.
+1. Section header gradient pattern must preserve `overflow-visible` on container and both spans.
+1. Heading weights must stay role-aligned: H1/H2 main title `font-black`, subtitle `font-semibold`, H3 `font-semibold`, H4 `font-bold`.
+1. Keep typography token alignment with `font-heading`/`font-body` and approved responsive classes.
+1. Do not introduce alternate ad-hoc heading styles that bypass this contract.
+
+### Canonical References
+
+- [Page Compliance Checklist](../../development/standards/page-compliance-checklist.md)
+- [Homepage Documentation](../../technical/homepage.md)
+- [Design System Standards](../../development/standards/design-system-standards.md)
+
+## Container and Modal Visual Contract (Canonical)
+
+This section is the canonical visual contract for section containers, overlay backdrops,
+and modal/dialog presentation patterns.
+
+### Contract Rules
+
+1. Section wrappers must use the approved content container pattern: `relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl`.
+2. Do not use the `.container` utility class in section wrappers.
+3. Standard section shells must preserve approved spacing and background structure from this file.
+4. Full-screen overlay modals must include a backdrop layer, centered modal panel, and visible close control.
+5. Modal close behaviors must include Escape key and explicit close button; backdrop click close is required where pattern allows.
+6. Body scroll must lock while full-screen overlays are open and restore on close.
+7. Modal/dialog visuals must stay brand-congruent in color, typography, border radius, and focus states.
+8. Modal/dialog accessibility must include semantic dialog roles and keyboard-reachable controls.
+
+### Canonical References
+
+- [Page Compliance Checklist](../../development/standards/page-compliance-checklist.md)
+- [Consistency Guide](../../development/standards/consistency-guide.md)
+- [Homepage Documentation](../../technical/homepage.md)
+
 ### Line Length & Spacing
 
 - **Optimal:** 45-75 characters per line
@@ -502,6 +544,48 @@ All page sections MUST follow this standardized background:
 - Overlay menu items list remaining site pages as direct links.
 - Keep interactive elements keyboard reachable with visible focus rings.
 
+## Navigation Overlay and Header Action Visual Contract (Canonical)
+
+This section is the canonical visual contract for global header controls,
+page-navigation overlays, and navigation action presentation.
+
+### Contract Rules
+
+1. Global header control set must remain: logo, language toggle, phone CTA, compact theme toggle, and hamburger menu.
+2. Header remains logo-first and the MH logo stays visually dominant at mobile and desktop breakpoints.
+3. Hero surfaces must not duplicate global-header contact actions owned by the phone CTA.
+4. Page navigation row must preserve the six-cell top-row pattern (Home, Services, Projects, About, Contact, More) where this pattern is required.
+5. `More` interactions must use the full-screen overlay pattern (backdrop + centered panel), not inline dropdown behavior.
+6. Overlay close behaviors must include Escape key, close button, and backdrop click where applicable.
+7. Body scroll must lock while navigation overlays are open and restore on close.
+8. Navigation controls and overlay links must remain keyboard reachable with visible focus states.
+
+### Canonical References
+
+- [Page Compliance Checklist](../../development/standards/page-compliance-checklist.md)
+- [Homepage Documentation](../../technical/homepage.md)
+- [Consistency Guide](../../development/standards/consistency-guide.md)
+
+## Footer Accreditation and Trust Continuity Visual Contract (Canonical)
+
+This section is the canonical visual contract for footer trust presentation,
+accreditation visibility, and credential continuity.
+
+### Contract Rules
+
+1. Every production page must render the global footer accreditation row.
+2. Accreditation row visibility must be preserved at all breakpoints.
+3. Accreditation row must include required trust credentials with valid outbound destinations (for example: AGC, BBB, insurance, chamber memberships, WA VOB).
+4. Trust and credential blocks must not be removed or hidden without approved exception handling.
+5. WA Veteran Owned Business badge usage must remain scoped to the approved `WaVobBadge` component and documented color exception.
+6. Footer trust copy must remain factual, relationship-first, and consistent with canonical terminology.
+
+### Canonical References
+
+- [Brand Congruency Master Checklist](../../branding/governance/brand-congruency-master-checklist.md)
+- [Page Compliance Checklist](../../development/standards/page-compliance-checklist.md)
+- [Brand Constants](../../branding/brand-constants.md)
+
 ---
 
 ## 🎴 **Card Component Standards**
@@ -511,11 +595,15 @@ All page sections MUST follow this standardized background:
 **Current Standard:** Custom div structure with animated border glows, top accent bars, and enhanced icons.
 
 ```tsx
+import { designTokens, hoverMotion } from "@/lib/styles/design-tokens";
+
 <div className="group relative flex h-full">
   {/* Animated Border Glow */}
-  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 blur-xl transition-opacity duration-500 group-hover:opacity-100"></div>
 
-  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+  <div
+    className={`relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col w-full ${designTokens.cardInteractive}`}
+  >
     {/* Top Accent Bar */}
     <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -523,7 +611,9 @@ All page sections MUST follow this standardized background:
       {/* Enhanced Icon with Nested Blur Layers */}
       <div className="relative inline-block mb-4 mx-auto">
         <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
-        <div className="relative rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+        <div
+          className={`relative rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-3 shadow-xl ${hoverMotion.iconSubtle}`}
+        >
           <MaterialIcon
             icon="icon_name"
             size="xl"
@@ -552,16 +642,16 @@ All page sections MUST follow this standardized background:
       </Link>
     </div>
   </div>
-</div>
+</div>;
 ```
 
 ### Card Animation Effects
 
-- **Border glow:** `opacity-20` default, `opacity-100` on hover with `animate-pulse`
-- **Card lift:** `group-hover:-translate-y-1` for subtle elevation
+- **Border glow:** `opacity-20` default, `opacity-100` on hover
+- **Card lift:** Use `hoverMotion.cardLift` or `designTokens.cardInteractive`
 - **Border transition:** `border-gray-200` to `border-transparent` on hover
 - **Shadow enhancement:** `shadow-lg` to `shadow-2xl` on hover
-- **Icon scale:** `group-hover:scale-110` for icon emphasis
+- **Icon scale:** Use `hoverMotion.iconSubtle` for icon emphasis
 
 ### Card Color Themes
 
@@ -602,6 +692,27 @@ All page sections MUST follow this standardized background:
 
 **Philosophy:** Prefer 3-4 columns on large screens for better visual balance.
 
+## Card Visual Contract (Canonical)
+
+This section is the canonical visual contract for card shells, accent bars, icon containers,
+and card typography across website surfaces.
+
+### Contract Rules
+
+1. Card structures must use approved modern card patterns from this file.
+2. Border glow, elevation, and border transition behavior must stay role-consistent across card sets.
+3. Icon containers in cards must preserve nested blur-layer structure.
+4. Card hover and icon motion must use centralized motion tokens (`hoverMotion.*`) instead of ad-hoc inline transform patterns.
+5. Top accent bars are required where the card pattern calls for accent-led visual hierarchy.
+6. Card typography must use approved responsive scales and weights.
+7. Public-sector grayscale card styling is contextual and must remain scoped to approved surfaces.
+
+### Canonical References
+
+- [Page Compliance Checklist](../../development/standards/page-compliance-checklist.md)
+- [Design System Standards](../../development/standards/design-system-standards.md)
+- [Consistency Guide](../../development/standards/consistency-guide.md)
+
 ### Team Profile Section Color Roles (Source of Truth)
 
 For the team profile surface, section-level color roles are centralized as tokenized class strings in:
@@ -621,7 +732,18 @@ Implementation rule:
 
 ---
 
-## 🔘 **Button Standards**
+## Button Visual Contract (Canonical)
+
+This section is the canonical visual contract for all website buttons and CTAs.
+
+### Contract Rules
+
+1. Use the shared `Button` component from `@/components/ui` for production CTAs.
+2. Use approved variants only: `primary`, `secondary`, `outline`, `neutral`, `default`, `destructive`, `ghost`, `link`.
+3. Keep motion tokenized via `@/lib/styles/design-tokens` (`hoverMotion.*`, `transitionDuration.*`).
+4. Do not introduce ad-hoc inline hover transform classes (`hover:scale-*`, `group-hover:scale-*`, `group-hover:rotate-*`).
+5. Minimum touch target height is 44px.
+6. Public-sector grayscale styling is contextual and must still use `Button` as the base component.
 
 ### Button Variants
 
@@ -631,9 +753,9 @@ Implementation rule:
 <Button
   variant="primary"
   size="default"
-  className="group transition-all duration-300"
+  className="transition-all duration-300"
 >
-  <MaterialIcon icon="icon_name" className="mr-2 group-hover:scale-110" />
+  <MaterialIcon icon="icon_name" className="mr-2" />
   Button Text
 </Button>
 ```
@@ -644,9 +766,9 @@ Implementation rule:
 <Button
   variant="secondary"
   size="default"
-  className="group transition-all duration-300"
+  className="transition-all duration-300"
 >
-  <MaterialIcon icon="icon_name" className="mr-2 group-hover:scale-110" />
+  <MaterialIcon icon="icon_name" className="mr-2" />
   Button Text
 </Button>
 ```
@@ -665,6 +787,11 @@ Implementation rule:
 - **Interactive States:** hover, focus, active
 - **Disabled States:** 50% opacity, no hover effects
 - **Icon Spacing:** `mr-2` (small), `mr-3` (medium), `mr-4` (large)
+
+### Canonical References
+
+- [Design System Standards](../../development/standards/design-system-standards.md)
+- [Buttons & CTAs Guide](../../technical/design-system/buttons-ctas-complete-guide.md)
 
 ---
 
@@ -687,6 +814,26 @@ Implementation rule:
   />
 </div>
 ```
+
+## Form Field and Form Shell Visual Contract (Canonical)
+
+This section is the canonical visual contract for form fields, form shell presentation,
+and trust/security indicator styling on website forms.
+
+### Contract Rules
+
+1. Form fields must preserve accessible sizing and interaction baselines (minimum 44px touch targets for interactive controls).
+2. Form shell and field styling must remain brand-congruent in color, typography, spacing, and focus treatment.
+3. Focus/validation behavior must remain accessible and visually consistent across forms.
+4. Trust indicators (for example security badges) must remain visible and styled within approved brand constraints.
+5. Form security UX requirements must align with Turnstile and server verification guidance.
+6. Do not introduce alternate ad-hoc field or shell patterns that bypass this contract.
+
+### Canonical References
+
+- [Page Compliance Checklist](../../development/standards/page-compliance-checklist.md)
+- [Form Security Standards](../../technical/form-security-standards.md)
+- [Design System Standards](../../development/standards/design-system-standards.md)
 
 ---
 
@@ -742,19 +889,17 @@ Implementation rule:
 
 ### Standard Transitions
 
-- **Duration:** `duration-300` (consistent across all components)
+- **Duration:** `transitionDuration.normal` (300ms)
 - **Easing:** `ease-out` for natural feel
-- **Hover Effects:** `hover:scale-105`, `hover:shadow-2xl`
+- **Hover Effects:** Use `hoverMotion.*` token classes
 - **Focus States:** `focus:ring-2 focus:ring-brand-primary`
 
 ### Group Interactions
 
 ```tsx
-className = "group";
-// Icon animations within groups
-className = "group-hover:scale-110 transition-transform duration-300";
-// Text animations within groups
-className = "group-hover:text-brand-primary transition-colors duration-300";
+import { hoverMotion } from "@/lib/styles/design-tokens";
+
+className = hoverMotion.iconSubtle;
 ```
 
 ---

@@ -613,6 +613,8 @@ The homepage hero uses `PageNavigation` with a 6-cell top row and modal overlay 
 - `More` behavior: opens full-screen modal overlay with backdrop and centered panel
 - Overlay close controls: backdrop click, Escape key, close button, and link click
 - Accessibility/UX: body scroll locks while overlay is open
+- Canonical contract: [Container and Modal Visual Contract](../branding/standards/unified-component-standards.md#container-and-modal-visual-contract-canonical)
+- Canonical contract: [Navigation Overlay and Header Action Visual Contract](../branding/standards/unified-component-standards.md#navigation-overlay-and-header-action-visual-contract-canonical)
 
 ### Dark Mode Support
 
