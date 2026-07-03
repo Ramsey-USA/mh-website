@@ -99,7 +99,7 @@ export function SpecialtyServiceCard(
             </p>
 
             <div className="space-y-3 sm:space-y-4">
-              {/* Markets List */}
+              {/* Service Areas List */}
               {service.markets && (
                 <div className="bg-brand-secondary/5 dark:bg-brand-secondary/10 rounded-xl p-3 sm:p-4">
                   <div className="flex items-center mb-2">
@@ -108,13 +108,13 @@ export function SpecialtyServiceCard(
                       className="mr-2 text-brand-secondary text-sm sm:text-base shrink-0"
                     />
                     <p className="font-bold text-gray-900 dark:text-white text-xs sm:text-sm">
-                      Markets We Serve:
+                      Service Areas We Support:
                     </p>
                   </div>
                   <ul className="space-y-1.5">
                     {service.markets.map((market) => (
                       <li
-                        key={`${service.title}-market-${market}`}
+                        key={`${service.title}-area-${market}`}
                         className="flex items-start text-xs"
                       >
                         <MaterialIcon

@@ -44,7 +44,7 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
     },
     location: {
       href: "/locations/kennewick",
-      label: "Kennewick Market",
+      label: "Kennewick Service Area",
     },
   },
   "pasco-industrial-warehouse-build-out": {
@@ -58,7 +58,7 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
     },
     location: {
       href: "/locations/pasco",
-      label: "Pasco Market",
+      label: "Pasco Service Area",
     },
   },
   "richland-corporate-office-tenant-improvement": {
@@ -72,7 +72,7 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
     },
     location: {
       href: "/locations/richland",
-      label: "Richland Market",
+      label: "Richland Service Area",
     },
   },
   "spokane-healthcare-clinic-tenant-improvement": {
@@ -86,7 +86,7 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
     },
     location: {
       href: "/locations/spokane",
-      label: "Spokane Market",
+      label: "Spokane Service Area",
     },
   },
   "west-richland-light-industrial-flex-facility": {
@@ -100,7 +100,7 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
     },
     location: {
       href: "/locations/west-richland",
-      label: "West Richland Market",
+      label: "West Richland Service Area",
     },
   },
 };
@@ -310,7 +310,7 @@ export default async function ProjectCaseStudyPage({
       },
       location: {
         href: `/locations/${cityToLocationSlug(location.city)}`,
-        label: `${location.city} Market`,
+        label: `${location.city} Service Area`,
       },
     };
 
@@ -465,8 +465,8 @@ export default async function ProjectCaseStudyPage({
                   Related Service Paths
                 </p>
                 <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-300">
-                  Use the nearest service line and market page to move this case
-                  study into scoping and consultation.
+                  Use the nearest service line and service area page to move
+                  this case study into scoping and consultation.
                 </p>
                 <div className="mt-4 space-y-3">
                   <Link

@@ -16,7 +16,7 @@ export default function LocationsLayout({
       navTitle="Service Area"
       navLabel="Service area locations"
       navItems={locationNavItems}
-      navNote="Move between service areas without losing the local proof, licensing context, or project coverage tied to each market."
+      navNote="Move between service areas without losing the local proof, licensing context, or project coverage tied to each location."
     >
       {children}
     </SectionShell>

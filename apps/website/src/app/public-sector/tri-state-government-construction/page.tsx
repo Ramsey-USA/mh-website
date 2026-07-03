@@ -142,7 +142,7 @@ export default function TriStateGovernmentConstructionPage() {
               trackId="tri-state-yakima-market"
               variant="outline"
             >
-              Yakima public-sector market
+              Yakima public-sector service area
             </TrackedBridgeButton>
           </div>
         </Card>

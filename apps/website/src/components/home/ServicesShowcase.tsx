@@ -78,26 +78,57 @@ const serviceIcons = [
   },
 ];
 
-function getServiceLaneHref(title: string) {
+type ServicePathId =
+  | "all"
+  | "plan-control"
+  | "build-expand"
+  | "modernize-spaces";
+
+type ServiceFocusId =
+  | "all"
+  | "ag-winery"
+  | "public-sector"
+  | "procurement"
+  | "industrial"
+  | "occupied-ti"
+  | "rapid-ti";
+
+function getServiceFunnelMeta(title: string): {
+  path: Exclude<ServicePathId, "all">;
+  focus: Exclude<ServiceFocusId, "all">;
+} {
   const normalized = title.toLowerCase();
 
+  if (normalized.includes("ag") || normalized.includes("winery")) {
+    return { path: "build-expand", focus: "ag-winery" };
+  }
+
   if (normalized.includes("municipal")) {
-    return "/?utm_source=homepage&utm_medium=modal&utm_campaign=services-section&utm_content=municipal#services";
+    return { path: "plan-control", focus: "public-sector" };
+  }
+
+  if (normalized.includes("procurement") || normalized.includes("trade")) {
+    return { path: "plan-control", focus: "procurement" };
+  }
+
+  if (normalized.includes("industrial")) {
+    return { path: "build-expand", focus: "industrial" };
   }
 
   if (
-    normalized.includes("tenant") ||
-    normalized.includes("interior") ||
-    normalized.includes("drywall")
+    normalized.includes("commercial tenant") ||
+    normalized.includes("espacios activos")
   ) {
-    return "/?utm_source=homepage&utm_medium=modal&utm_campaign=services-section&utm_content=commercial-ti#services";
+    return { path: "modernize-spaces", focus: "occupied-ti" };
   }
 
-  if (normalized.includes("restoration") || normalized.includes("remodel")) {
-    return "/?utm_source=homepage&utm_medium=modal&utm_campaign=services-section&utm_content=restoration#services";
-  }
+  return { path: "modernize-spaces", focus: "rapid-ti" };
+}
 
-  return "/?utm_source=homepage&utm_medium=modal&utm_campaign=services-section&utm_content=ag-winery#services";
+function getServiceLaneHref(title: string) {
+  const { path, focus } = getServiceFunnelMeta(title);
+
+  return `/?utm_source=homepage&utm_medium=modal&utm_campaign=services-funnel&utm_content=path-${path}_focus-${focus}#services`;
 }
 
 /**
@@ -116,8 +147,32 @@ export function ServicesShowcase({
 }) {
   const locale = useLocale();
   const t = locale === "es" ? es.services : en.services;
-  const [selectedService, setSelectedService] = useState<number | null>(null);
+  const [selectedServiceTitle, setSelectedServiceTitle] = useState<
+    string | null
+  >(null);
+  const [selectedPath, setSelectedPath] = useState<ServicePathId>("all");
+  const [selectedFocus, setSelectedFocus] = useState<ServiceFocusId>("all");
   const [showAllServices, setShowAllServices] = useState(false);
+
+  const trackFunnelInteraction = useCallback(
+    (
+      interaction:
+        | "path_select"
+        | "focus_select"
+        | "reset_filters"
+        | "modal_open",
+      properties?: Record<string, unknown>,
+    ) => {
+      trackServiceInterest("Services Funnel", "click", {
+        location: "homepage-showcase",
+        interaction,
+        path: selectedPath,
+        focus: selectedFocus,
+        ...properties,
+      });
+    },
+    [selectedPath, selectedFocus],
+  );
 
   // Build services array from translations with icon metadata
   const services = useMemo(
@@ -131,9 +186,155 @@ export function ServicesShowcase({
         iconGlow:
           serviceIcons[index]?.iconGlow ||
           "from-brand-primary/30 to-brand-primary-dark/30",
+        funnel: getServiceFunnelMeta(item.title),
         link: getServiceLaneHref(item.title),
       })),
     [t.items],
+  );
+
+  const pathOptions = useMemo(
+    () => [
+      { id: "all" as ServicePathId, label: t.funnel.pathOptions.all },
+      {
+        id: "plan-control" as ServicePathId,
+        label: t.funnel.pathOptions.planControl,
+      },
+      {
+        id: "build-expand" as ServicePathId,
+        label: t.funnel.pathOptions.buildExpand,
+      },
+      {
+        id: "modernize-spaces" as ServicePathId,
+        label: t.funnel.pathOptions.modernizeSpaces,
+      },
+    ],
+    [
+      t.funnel.pathOptions.all,
+      t.funnel.pathOptions.planControl,
+      t.funnel.pathOptions.buildExpand,
+      t.funnel.pathOptions.modernizeSpaces,
+    ],
+  );
+
+  const filteredByPath = useMemo(
+    () =>
+      selectedPath === "all"
+        ? services
+        : services.filter((service) => service.funnel.path === selectedPath),
+    [services, selectedPath],
+  );
+
+  const focusOptions = useMemo(() => {
+    const focusLabels: Record<ServiceFocusId, string> = {
+      all: t.funnel.focusOptions.all,
+      "ag-winery": t.funnel.focusOptions.agWinery,
+      "public-sector": t.funnel.focusOptions.publicSector,
+      procurement: t.funnel.focusOptions.procurement,
+      industrial: t.funnel.focusOptions.industrial,
+      "occupied-ti": t.funnel.focusOptions.occupiedTi,
+      "rapid-ti": t.funnel.focusOptions.rapidTi,
+    };
+
+    const availableFocuses = new Set<ServiceFocusId>(["all"]);
+
+    for (const service of filteredByPath) {
+      availableFocuses.add(service.funnel.focus);
+    }
+
+    const orderedFocuses: ServiceFocusId[] = [
+      "all",
+      "ag-winery",
+      "public-sector",
+      "procurement",
+      "industrial",
+      "occupied-ti",
+      "rapid-ti",
+    ];
+
+    return orderedFocuses
+      .filter((focus) => availableFocuses.has(focus))
+      .map((focus) => ({ id: focus, label: focusLabels[focus] }));
+  }, [filteredByPath, t.funnel.focusOptions]);
+
+  const filteredServices = useMemo(
+    () =>
+      selectedFocus === "all"
+        ? filteredByPath
+        : filteredByPath.filter(
+            (service) => service.funnel.focus === selectedFocus,
+          ),
+    [filteredByPath, selectedFocus],
+  );
+
+  const hasActiveFilters = selectedPath !== "all" || selectedFocus !== "all";
+
+  const handlePathSelection = useCallback(
+    (nextPath: ServicePathId) => {
+      const nextFocus: ServiceFocusId = "all";
+
+      if (nextPath === selectedPath && nextFocus === selectedFocus) {
+        return;
+      }
+
+      const matchedCount = services.filter(
+        (service) => nextPath === "all" || service.funnel.path === nextPath,
+      ).length;
+
+      setSelectedPath(nextPath);
+      setSelectedFocus(nextFocus);
+      setShowAllServices(false);
+
+      trackFunnelInteraction("path_select", {
+        nextPath,
+        nextFocus,
+        matchedCount,
+      });
+    },
+    [selectedPath, selectedFocus, services, trackFunnelInteraction],
+  );
+
+  const handleFocusSelection = useCallback(
+    (nextFocus: ServiceFocusId) => {
+      if (nextFocus === selectedFocus) {
+        return;
+      }
+
+      const matchedCount =
+        nextFocus === "all"
+          ? filteredByPath.length
+          : filteredByPath.filter(
+              (service) => service.funnel.focus === nextFocus,
+            ).length;
+
+      setSelectedFocus(nextFocus);
+      setShowAllServices(false);
+
+      trackFunnelInteraction("focus_select", {
+        nextPath: selectedPath,
+        nextFocus,
+        matchedCount,
+      });
+    },
+    [filteredByPath, selectedFocus, selectedPath, trackFunnelInteraction],
+  );
+
+  const resetFilters = useCallback(
+    (origin: "manual" | "empty_state") => {
+      if (!hasActiveFilters) {
+        return;
+      }
+
+      trackFunnelInteraction("reset_filters", {
+        origin,
+        previousPath: selectedPath,
+        previousFocus: selectedFocus,
+      });
+
+      setSelectedPath("all");
+      setSelectedFocus("all");
+      setShowAllServices(false);
+    },
+    [hasActiveFilters, selectedFocus, selectedPath, trackFunnelInteraction],
   );
 
   const visibleLimit =
@@ -141,25 +342,29 @@ export function ServicesShowcase({
 
   const visibleServices = useMemo(() => {
     if (visibleLimit === null || showAllServices) {
-      return services;
+      return filteredServices;
     }
 
-    return services.slice(0, visibleLimit);
-  }, [services, showAllServices, visibleLimit]);
+    return filteredServices.slice(0, visibleLimit);
+  }, [filteredServices, showAllServices, visibleLimit]);
 
   const hasHiddenServices =
-    visibleLimit !== null && services.length > visibleLimit;
+    visibleLimit !== null && filteredServices.length > visibleLimit;
   const revealServicesLabel =
     locale === "es"
-      ? `Ver los ${services.length} servicios`
-      : `View all ${services.length} services`;
+      ? `Ver los ${filteredServices.length} servicios`
+      : `View all ${filteredServices.length} services`;
   const collapseServicesLabel =
     locale === "es" ? "Mostrar menos" : "Show fewer";
 
   // Memoize the selected service data to prevent unnecessary recalculations
   const currentService = useMemo(
-    () => (selectedService === null ? null : services[selectedService]),
-    [selectedService, services],
+    () =>
+      selectedServiceTitle === null
+        ? null
+        : services.find((service) => service.title === selectedServiceTitle) ||
+          null,
+    [selectedServiceTitle, services],
   );
 
   const showcaseContactHref = useMemo(() => {
@@ -181,13 +386,19 @@ export function ServicesShowcase({
 
   // Close modal handler
   const closeModal = useCallback(() => {
-    setSelectedService(null);
+    setSelectedServiceTitle(null);
   }, []);
 
   // Open modal handler
-  const openModal = useCallback((index: number) => {
-    setSelectedService(index);
-  }, []);
+  const openModal = useCallback(
+    (title: string) => {
+      setSelectedServiceTitle(title);
+      trackFunnelInteraction("modal_open", {
+        serviceName: title,
+      });
+    },
+    [trackFunnelInteraction],
+  );
 
   return (
     <BrandedContentSection
@@ -220,6 +431,100 @@ export function ServicesShowcase({
         ),
       }}
     >
+      <div className="mb-8 sm:mb-10 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 sm:p-6">
+        <div className="space-y-5">
+          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+            {t.funnel.helperText}
+          </p>
+
+          <div>
+            <p className="mb-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-600 dark:text-gray-300">
+              {t.funnel.pathStepLabel}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {pathOptions.map((option) => (
+                <button
+                  key={option.id}
+                  type="button"
+                  onClick={() => handlePathSelection(option.id)}
+                  aria-pressed={selectedPath === option.id}
+                  className={`rounded-xl px-3 py-2 text-sm font-semibold transition-colors ${
+                    selectedPath === option.id
+                      ? "bg-brand-primary text-white"
+                      : "bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600"
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-600 dark:text-gray-300">
+              {t.funnel.focusStepLabel}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {focusOptions.map((option) => (
+                <button
+                  key={option.id}
+                  type="button"
+                  onClick={() => handleFocusSelection(option.id)}
+                  aria-pressed={selectedFocus === option.id}
+                  className={`rounded-xl px-3 py-2 text-sm font-semibold transition-colors ${
+                    selectedFocus === option.id
+                      ? "bg-brand-secondary text-gray-900"
+                      : "bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600"
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <p
+            className="text-sm text-gray-700 dark:text-gray-300"
+            aria-live="polite"
+          >
+            {t.funnel.resultsLabel.replace(
+              "{count}",
+              String(filteredServices.length),
+            )}
+          </p>
+
+          {hasActiveFilters ? (
+            <div>
+              <button
+                type="button"
+                onClick={() => resetFilters("manual")}
+                className="inline-flex items-center rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 px-3 py-2 text-sm font-semibold text-gray-800 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                {t.funnel.resetFilters}
+              </button>
+            </div>
+          ) : null}
+        </div>
+      </div>
+
+      {filteredServices.length === 0 ? (
+        <div className="mb-8 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-6 text-center">
+          <h3 className="text-xl font-black text-gray-900 dark:text-white">
+            {t.funnel.noResultsTitle}
+          </h3>
+          <p className="mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300">
+            {t.funnel.noResultsDescription}
+          </p>
+          <button
+            type="button"
+            onClick={() => resetFilters("empty_state")}
+            className="mt-4 inline-flex items-center rounded-lg bg-brand-primary px-4 py-2 text-sm font-bold text-white hover:bg-brand-primary-dark transition-colors"
+          >
+            {t.funnel.resetFilters}
+          </button>
+        </div>
+      ) : null}
+
       {/* Service Cards Grid */}
       <div className={gridPresets.cards3("md")}>
         {visibleServices.map((service, index) => (
@@ -232,8 +537,10 @@ export function ServicesShowcase({
               trackServiceInterest(service.title, "click", {
                 location: "homepage-showcase",
                 position: index + 1,
+                path: selectedPath,
+                focus: selectedFocus,
               });
-              openModal(index);
+              openModal(service.title);
             }}
             aria-label={`${t.viewDetailsAriaPrefix} ${service.title}`}
           >

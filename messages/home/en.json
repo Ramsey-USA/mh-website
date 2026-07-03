@@ -58,9 +58,33 @@
     }
   },
   "services": {
-    "sectionSubtitle": "Market Outcome Lanes",
+    "sectionSubtitle": "Project Outcome Lanes",
     "sectionTitle": "Start with Your Project Type",
     "sectionDescription": "See how we deliver AG and winery projects, commercial tenant improvements, and municipal builds with clear ownership, Procore visibility, and closeout-ready controls. MH Construction prides itself on being the answer before the problem through Professional Pre-Construction and Handoff Procedures. Every complex project presents a minefield of operational risks—MHC neutralizes the variables and secures your delivery. Every build introduces unique structural and regulatory challenges. MHC provides the precise project management required to navigate them on time and within scope. Squared away from start to finish.",
+    "funnel": {
+      "pathStepLabel": "Step 1: Choose a delivery path",
+      "focusStepLabel": "Step 2: Choose your project focus",
+      "helperText": "Use this guided funnel to narrow from broad delivery path to the specific scope your project needs.",
+      "resultsLabel": "Matching services: {count}",
+      "resetFilters": "Reset filters",
+      "noResultsTitle": "No exact services match this filter combo",
+      "noResultsDescription": "Reset filters to see all available delivery lanes and choose a different route.",
+      "pathOptions": {
+        "all": "All delivery paths",
+        "planControl": "Plan & control",
+        "buildExpand": "Build & expand",
+        "modernizeSpaces": "Modernize spaces"
+      },
+      "focusOptions": {
+        "all": "All project focuses",
+        "agWinery": "AG & winery",
+        "publicSector": "Public sector",
+        "procurement": "Procurement & trade partners",
+        "industrial": "Light industrial",
+        "occupiedTi": "Occupied-space TI",
+        "rapidTi": "Fast-turn TI"
+      }
+    },
     "clickForDetails": "Click for Full Details",
     "viewDetailsAriaPrefix": "View details for",
     "closeDetailsBackdropAria": "Close service details modal",
@@ -292,7 +316,7 @@
       },
       {
         "title": "Execution Control",
-        "desc": "Superintendents lead field execution while PMs manage delivery controls. Costs above $5,000 require COO approval; above $25,000 add CFO approval."
+        "desc": "Superintendents lead field execution while PMs manage delivery controls. Changes follow defined approval controls with executive oversight when required."
       },
       {
         "title": "Quality and Safety Validation",

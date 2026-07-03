@@ -556,7 +556,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/public-sector`,
     name: `${formatDualPageName("Public Sector Construction", PAGE_TERMINOLOGY.publicSector.mhBrandName)} | MH Construction`,
     description:
-      "Veteran-owned Tri-State contractor for government & public sector construction. Dedicated supporter of the Build America, Buy America Act (BABAA), grant support, and $8M+ bonding capacity. Pasco, WA.",
+      "Veteran-owned Tri-State contractor for government & public sector construction. Dedicated supporter of the Build America, Buy America Act (BABAA), grant support, and robust bonding capacity. Pasco, WA.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -573,7 +573,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: `${formatDualPageName("Public Sector Construction", PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Owned, Accountable Delivery`,
     description:
-      "Veteran-owned Tri-State contractor for government & public sector construction. Dedicated supporter of the Build America, Buy America Act (BABAA), grant support, and $8M+ bonding capacity. Pasco, WA.",
+      "Veteran-owned Tri-State contractor for government & public sector construction. Dedicated supporter of the Build America, Buy America Act (BABAA), grant support, and robust bonding capacity. Pasco, WA.",
     keywords: [
       "Public Sector Government construction missions",
       "mission-ready construction operations",
@@ -582,7 +582,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
       "BABAA construction support",
       "public sector construction",
       "government grant support",
-      "$8M bonding capacity",
+      "strong bonding capacity",
       "construction subcontractor",
       "veteran-owned contractor",
       "Tri-State construction",

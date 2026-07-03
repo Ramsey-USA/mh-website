@@ -134,6 +134,53 @@ Examples:
 - `conversion-contact-form-submit`
 - `engagement-testimonial-carousel-next`
 
+### Services Funnel Event Schema (GA4)
+
+Use this schema for homepage services funnel reporting and dashboard segmentation.
+
+**Primary events (already implemented):**
+
+| Event Name      | Trigger                                             | Required Params                                                                             | Optional Params                 |
+| --------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------- |
+| `service-click` | Any services funnel interaction in the homepage hub | `serviceName`, `category`, `action`, `location`, `interaction`, `path`, `focus`             | `nextPath`, `nextFocus`         |
+| `service-click` | Service card selected                               | `serviceName`, `category`, `action`, `location`, `interaction`, `path`, `focus`, `position` | `matchedCount`                  |
+| `service-click` | Modal opened from service card                      | `serviceName`, `category`, `action`, `location`, `interaction`, `path`, `focus`             |                                 |
+| `service-click` | Filters reset (manual or empty-state recovery)      | `serviceName`, `category`, `action`, `location`, `interaction`, `path`, `focus`, `origin`   | `previousPath`, `previousFocus` |
+
+**Interaction enum values:**
+
+- `path_select`
+- `focus_select`
+- `modal_open`
+- `reset_filters`
+
+**Canonical parameter values:**
+
+- `path`: `all`, `plan-control`, `build-expand`, `modernize-spaces`
+- `focus`: `all`, `ag-winery`, `public-sector`, `procurement`, `industrial`, `occupied-ti`, `rapid-ti`
+- `location`: `homepage-showcase`
+- `category`: `service-interest`
+
+**Recommended GA4 custom dimensions:**
+
+| Dimension Name         | Event Param    | Scope |
+| ---------------------- | -------------- | ----- |
+| Services Interaction   | `interaction`  | Event |
+| Services Path          | `path`         | Event |
+| Services Focus         | `focus`        | Event |
+| Services Next Path     | `nextPath`     | Event |
+| Services Next Focus    | `nextFocus`    | Event |
+| Services Matched Count | `matchedCount` | Event |
+| Services Reset Origin  | `origin`       | Event |
+| Services Location      | `location`     | Event |
+
+**Dashboard starter views:**
+
+1. Funnel progression: `path_select -> focus_select -> modal_open -> contact conversion`.
+2. Drop-off matrix by `path` and `focus`.
+3. Recovery impact: `reset_filters` count vs. post-reset `modal_open`.
+4. Lane demand ranking: modal opens grouped by `path` + `focus`.
+
 ### KPI Set for Optimization Success
 
 - **Collection health**: successful collect responses / collect attempts
@@ -201,28 +248,34 @@ export default function AboutPage() {
 import { usePageTracking } from "@/lib/analytics/hooks";
 import { trackClick, trackCTA } from "@/lib/analytics/tracking";
 
-export default function ServicesPage() {
-  usePageTracking("Services");
+export default function HomePage() {
+  usePageTracking("Home");
 
   return (
     <div>
-      <h1>Our Services</h1>
+      <h1>Start with Your Project Type</h1>
 
-      <a
-        href="/services/construction"
+      <button
         onClick={() =>
-          trackClick("service-construction", { service: "construction" })
+          trackClick("services-delivery-path", {
+            step: 1,
+            path: "build-expand",
+          })
         }
       >
-        Construction Services
-      </a>
+        Build & expand
+      </button>
 
       <button
         onClick={() => {
-          trackCTA("request-quote", { service: "general" });
+          trackCTA("services-card-open", {
+            step: 3,
+            focus: "ag-winery",
+            service: "AG and Winery Communities",
+          });
         }}
       >
-        Request Quote
+        Open AG and Winery service details
       </button>
     </div>
   );

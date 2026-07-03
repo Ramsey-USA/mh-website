@@ -34,6 +34,37 @@ brand identity and make our message clearer to clients, partners, and team membe
 
 ## 📖 TERMINOLOGY CATEGORIES
 
+### 0. CLIENT-SAFE MESSAGE GUARDRAILS (GLOBAL)
+
+Use language that keeps potential Client Partners moving forward with clarity and confidence.
+
+**Avoid client-detouring phrasing:**
+
+- ❌ Hard dollar thresholds in client-facing copy (example: specific approval amounts)
+- ❌ Market-trader framing for client journeys (example: "pick your market" in CTA language)
+- ❌ Budget-first or cost-alarm phrasing before value/context
+- ❌ Internal escalation shorthand without clear client benefit
+
+**Preferred alternatives:**
+
+- ✅ Scope-fit, delivery-path, and project-type wording
+- ✅ Relationship-first planning language ("review scope", "confirm fit", "plan delivery")
+- ✅ Governance language without exposed internal thresholds ("managed approval controls")
+- ✅ Outcome-oriented phrasing ("clear ownership", "traceable decisions", "ready-to-build handoff")
+
+**Examples:**
+
+```text
+❌ "Changes above $5,000 require..."
+✅ "Changes follow defined approval controls for accountability."
+
+❌ "Choose your market"
+✅ "Choose your project type"
+
+❌ "Budget pressure and cost spikes"
+✅ "Budget clarity and planning confidence"
+```
+
 ### 1. PARTNERSHIP LANGUAGE
 
 #### **Client Partners** (PREFERRED - UNIVERSAL STANDARD)

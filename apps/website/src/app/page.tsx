@@ -165,21 +165,21 @@ export default async function Home() {
   );
   const enableHomeTelemetry = isProduction && !isLighthouseAudit;
   const agWineryLaneHref =
-    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-section&utm_content=ag-winery#services";
+    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-funnel&utm_content=path-build-expand_focus-ag-winery#services";
   const commercialTiLaneHref =
-    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-section&utm_content=commercial-ti#services";
+    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-funnel&utm_content=path-modernize-spaces_focus-occupied-ti#services";
   const municipalLaneHref =
-    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-section&utm_content=municipal#services";
+    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-funnel&utm_content=path-plan-control_focus-public-sector#services";
   const agWineryProofHref =
-    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-section&utm_content=ag-winery-proof#services";
+    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-funnel&utm_content=path-build-expand_focus-ag-winery_proof#services";
   const commercialTiProofHref =
-    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-section&utm_content=commercial-ti-proof#services";
+    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-funnel&utm_content=path-modernize-spaces_focus-occupied-ti_proof#services";
   const municipalProofHref =
-    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-section&utm_content=municipal-proof#services";
+    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-funnel&utm_content=path-plan-control_focus-public-sector_proof#services";
   const ownershipCopy =
     locale === "es"
       ? {
-          sectionSubtitle: "Etapa 4 · Validar Gobernanza Operativa",
+          sectionSubtitle: "Etapa 4 · Gobernanza Operativa",
           sectionTitle: "Gobernanza de Proyecto y Controles de Aprobación",
           sectionDescription:
             "Antes de comprometer presupuesto o cronograma, vea responsables por etapa, ruta de escalamiento y umbrales de aprobación que sostienen la trazabilidad en Procore.",
@@ -209,8 +209,8 @@ export default async function Home() {
             {
               title: "Umbrales de Aprobación",
               bullets: [
-                "Impactos > $5,000 requieren COO.",
-                "Impactos > $25,000 suman aprobación de CFO.",
+                "Los cambios siguen controles de aprobación definidos.",
+                "Las decisiones relevantes escalan por liderazgo ejecutivo.",
                 "Municipal se ajusta por requisito de agencia.",
               ],
               detailsTitle: "Ver detalle",
@@ -220,10 +220,10 @@ export default async function Home() {
           ],
         }
       : {
-          sectionSubtitle: "Stage 4 · Validate Operating Governance",
+          sectionSubtitle: "Stage 4 · Operating Governance",
           sectionTitle: "Project Governance and Approval Controls",
           sectionDescription:
-            "Before committing budget and schedule, review ownership by stage, escalation path, and approval thresholds that keep Procore traceability intact.",
+            "Before committing budget and schedule, review ownership by stage, escalation path, and approval controls that keep Procore traceability intact.",
           cards: [
             {
               title: "Ownership by Stage",
@@ -248,10 +248,10 @@ export default async function Home() {
                 "The same path is used for field coordination, cost control, and closeout handoff.",
             },
             {
-              title: "Approval Thresholds",
+              title: "Approval Controls",
               bullets: [
-                "Impacts over $5,000 require COO approval.",
-                "Impacts over $25,000 require additional CFO approval.",
+                "Changes follow defined approval controls.",
+                "Material decisions escalate through executive review.",
                 "Municipal governance flexes by agency requirement.",
               ],
               detailsTitle: "View detail",
@@ -264,10 +264,11 @@ export default async function Home() {
   const specialtiesCopy =
     locale === "es"
       ? {
-          subtitle: "Etapa 1 · Definir la Base del Umbrella",
-          title: "Capacidades Base que Soportan Cada Mercado",
+          subtitle: "Etapa 1 · Capacidades Base",
+          title:
+            "Capacidades Base y PreConstruction Planning para Cada Tipo de Proyecto",
           description:
-            "Estas tres capacidades sostienen todo el sistema de servicios: primero definimos base técnica, luego dirigimos al frente correcto (AG/bodegas, TI comercial o municipal).",
+            "Estas tres capacidades sostienen el sistema de servicios: primero validamos PreConstruction Planning y handoffs, luego dirigimos al frente correcto (AG/bodegas, TI comercial o municipal).",
           items: [
             {
               title: "Pole Buildings",
@@ -282,18 +283,19 @@ export default async function Home() {
               cta: "Ir a Frente TI Comercial",
             },
             {
-              title: "Gestión de Proyecto en Procore",
-              desc: "RFIs, submittals, costos, hitos y cierre en una sola fuente de verdad para cliente y equipo.",
+              title: "PreConstruction Planning y Gestión en Procore",
+              desc: "RFIs, submittals, costos, hitos, handoffs y cierre en una sola fuente de verdad para cliente y equipo.",
               href: municipalLaneHref,
               cta: "Ir a Frente Municipal",
             },
           ],
         }
       : {
-          subtitle: "Stage 1 · Define the Umbrella Foundation",
-          title: "Core Capabilities Behind Every Market Lane",
+          subtitle: "Stage 1 · Core Capabilities",
+          title:
+            "Core Capabilities and PreConstruction Planning Behind Every Project Type",
           description:
-            "These three capabilities power the full services umbrella: establish technical fit first, then route to the right lane for AG/winery, commercial TI, or municipal delivery.",
+            "These three capabilities power the full services umbrella: validate PreConstruction Planning and handoffs first, then route to the right lane for AG/winery, commercial TI, or municipal delivery.",
           items: [
             {
               title: "Pole Buildings",
@@ -308,8 +310,9 @@ export default async function Home() {
               cta: "Go to Commercial TI Lane",
             },
             {
-              title: "Project Management in Procore",
-              desc: "RFIs, submittals, costs, milestones, and closeout in one source of truth for client and team.",
+              title:
+                "PreConstruction Planning and Project Management in Procore",
+              desc: "RFIs, submittals, costs, milestones, handoffs, and closeout in one source of truth for client and team.",
               href: municipalLaneHref,
               cta: "Go to Municipal Lane",
             },
@@ -319,10 +322,10 @@ export default async function Home() {
   const marketCtaCopy =
     locale === "es"
       ? {
-          subtitle: "Etapa 8 · Activar su Ruta de Proyecto",
-          title: "Seleccione su Mercado y Entre al Frente Correcto",
+          subtitle: "Etapa 8 · Siguiente Paso",
+          title: "Seleccione su Tipo de Proyecto y Entre al Frente Correcto",
           description:
-            "Seleccione su mercado y avance a una revisión enfocada de alcance, cronograma y ruta de ejecución.",
+            "Seleccione su tipo de proyecto y avance a una revisión enfocada de alcance, cronograma y ruta de ejecución.",
           buttons: [
             {
               href: agWineryLaneHref,
@@ -339,10 +342,10 @@ export default async function Home() {
           ],
         }
       : {
-          subtitle: "Stage 8 · Activate Your Project Path",
-          title: "Choose Your Market and Enter the Right Lane",
+          subtitle: "Stage 8 · Next Step",
+          title: "Choose Your Project Type and Enter the Right Lane",
           description:
-            "Pick your market and move into a focused review for scope, schedule, and delivery path.",
+            "Pick your project type and move into a focused review for scope, schedule, and delivery path.",
           buttons: [
             {
               href: agWineryLaneHref,
@@ -362,27 +365,27 @@ export default async function Home() {
   const proofByMarketCopy =
     locale === "es"
       ? {
-          subtitle: "Etapa 3 · Validar por Mercado",
+          subtitle: "Etapa 3 · Validación por Frente",
           title: "Prueba de Ejecución por Frente",
           description:
-            "Compare evidencia real por mercado antes de avanzar a revisión técnica y de presupuesto.",
+            "Compare evidencia real por tipo de proyecto antes de avanzar a revisión técnica y de presupuesto.",
           lanes: [
             {
-              market: "AG y Bodegas",
+              projectType: "AG y Bodegas",
               proof:
                 "Entrega especializada para AG y bodegas con instalación de pond liners para contención de wastewater/sludge runoff, más coordinación técnica para alcances con acero inoxidable y silos mayores.",
               href: agWineryProofHref,
               cta: "Evaluar Ajuste de Alcance AG/Bodegas",
             },
             {
-              market: "TI Comercial",
+              projectType: "TI Comercial",
               proof:
                 "Tenant improvements en espacios activos con control en Procore, instalación de puertas/herrajes y secuenciación por fases para proteger operación.",
               href: commercialTiProofHref,
               cta: "Evaluar Ajuste de Entrega TI",
             },
             {
-              market: "Municipal",
+              projectType: "Municipal",
               proof:
                 "Entrega municipal con trazabilidad de aprobaciones, autoridad de seguridad y documentación de cierre alineada a requisito de agencia.",
               href: municipalProofHref,
@@ -391,27 +394,27 @@ export default async function Home() {
           ],
         }
       : {
-          subtitle: "Stage 3 · Validate by Market",
+          subtitle: "Stage 3 · Lane Validation",
           title: "Delivery Evidence by Lane",
           description:
-            "Compare field proof by market before moving into technical and budget review.",
+            "Compare field proof by project type before moving into technical and budget review.",
           lanes: [
             {
-              market: "AG and Winery Communities",
+              projectType: "AG and Winery Communities",
               proof:
                 "Specialty delivery for AG and winery scopes with pond liner containment for wastewater/sludge runoff, plus technical coordination for stainless-steel and major-silo impacts.",
               href: agWineryProofHref,
               cta: "Check AG/Winery Scope Fit",
             },
             {
-              market: "Commercial Tenant Improvements",
+              projectType: "Commercial Tenant Improvements",
               proof:
                 "Occupied-space TI delivery with Procore controls, door/hardware packages, and phased sequencing that protects live operations.",
               href: commercialTiProofHref,
               cta: "Check Commercial TI Delivery Fit",
             },
             {
-              market: "Municipal Builds",
+              projectType: "Municipal Builds",
               proof:
                 "Municipal delivery with approval traceability, defined safety authority, and agency-ready closeout records.",
               href: municipalProofHref,
@@ -423,39 +426,39 @@ export default async function Home() {
   const servicesShowcaseIntroCopy =
     locale === "es"
       ? {
-          subtitle: "Etapa 2 · Elegir Ruta de Servicio",
-          title: "Seleccione su Tipo de Proyecto Dentro del Umbrella",
+          subtitle: "Etapa 2 · Seleccione su Frente de Servicio",
+          title: "Elija su Tipo de Proyecto con un Flujo Guiado de Tres Pasos",
           description:
-            "Revise cada ruta de servicio y abra detalles para ver alcance, beneficios y siguiente paso.",
+            "Primero elija una ruta de entrega, luego su enfoque de proyecto y finalmente abra el servicio especifico para revisar alcance, beneficios y siguiente accion.",
         }
       : {
           subtitle: "Stage 2 · Select Your Service Lane",
-          title: "Choose Your Project Type Inside the Umbrella",
+          title: "Choose Your Project Type in Three Guided Steps",
           description:
-            "Review each lane, confirm scope fit, and move forward with the right planning conversation.",
+            "Pick a delivery path, narrow by project focus, then open the specific service card for scope detail and next action.",
         };
 
   const processCopy =
     locale === "es"
       ? {
-          subtitle: "Etapa 5 · Confirmar Plan de Ejecución",
+          subtitle: "Etapa 5 · Plan de Ejecucion",
           title: "Modelo Operativo de Seis Etapas",
         }
       : {
-          subtitle: "Stage 5 · Confirm Delivery Plan",
+          subtitle: "Stage 5 · Delivery Plan",
           title: "Six-Stage Operating Model",
         };
 
   const trustIntroCopy =
     locale === "es"
       ? {
-          subtitle: "Etapa 6 · Confirmar Ajuste de Socio",
+          subtitle: "Etapa 6 · Ajuste de Socio",
           title: "Modelo de Relación y Rendición de Cuentas",
           description:
             "Después de validar la ruta técnica, confirme cómo operamos como socio durante y después del cierre.",
         }
       : {
-          subtitle: "Stage 6 · Confirm Partner Fit",
+          subtitle: "Stage 6 · Partner Fit",
           title: "Relationship and Accountability Model",
           description:
             "After validating technical route, confirm how we operate as your partner through closeout and support.",
@@ -464,16 +467,16 @@ export default async function Home() {
   const testimonialsCopy =
     locale === "es"
       ? {
-          subtitle: "Etapa 7 · Verificar con Evidencia de Clientes",
+          subtitle: "Etapa 7 · Evidencia de Clientes",
           title: "Lo que Dicen Nuestros Client Partners",
           description:
-            "Validación final del mercado: resultados compartidos por clientes AG/bodegas, TI comercial y municipal.",
+            "Validación final por tipo de proyecto: resultados compartidos por clientes AG/bodegas, TI comercial y municipal.",
         }
       : {
-          subtitle: "Stage 7 · Verify with Client Evidence",
+          subtitle: "Stage 7 · Client Evidence",
           title: "What Client Partners Report",
           description:
-            "Final market validation from AG/winery, commercial TI, and municipal-facing client partners.",
+            "Final project-type validation from AG/winery, commercial TI, and municipal-facing client partners.",
         };
 
   return (
@@ -561,11 +564,11 @@ export default async function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {proofByMarketCopy.lanes.map((lane) => (
               <article
-                key={lane.market}
+                key={lane.projectType}
                 className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-5 sm:p-6 shadow-sm"
               >
                 <h3 className="text-xl font-extrabold text-gray-900 dark:text-white">
-                  {lane.market}
+                  {lane.projectType}
                 </h3>
                 <p className="mt-3 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
                   {lane.proof}

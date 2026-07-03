@@ -175,7 +175,7 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
                   +
                   {area.areas.length -
                     (maxLocationsPerArea ?? area.areas.length)}{" "}
-                  more in this market
+                  more in this service area
                 </p>
               )}
             </Card>

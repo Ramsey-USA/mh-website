@@ -146,17 +146,21 @@ The homepage follows the **Universal Page Flow Standard**: **Discover → Trust 
 ### 5. Services Showcase Section (30-40%)
 
 - **Component:** `ServicesShowcase`
-- **Purpose:** Display primary service offerings
-- **Services:**
-  - Construction Management
-  - Master Planning & Pre-Construction
-  - General Contracting
-  - Tenant Improvements
+- **Purpose:** Guide users from broad service intent to specific scopes
+- **Hierarchy:**
+  1. Delivery Path
+  2. Project Focus
+  3. Specific Service Card (with modal detail)
+- **Current service lanes shown as cards:**
+  - AG and Winery Communities
+  - Commercial Tenant Improvements
+  - Municipal Builds
+  - Procurement & Trade Partnerships
   - Light Industrial
-  - Additional specialty services
+  - Tenant Improvements
 - **Features:**
-  - Interactive service cards
-  - Tabbed interface for service categories
+  - Tiered funnel controls (path then focus)
+  - Interactive service cards with modal details
   - Analytics tracking for service interest
   - Link to services hub section (`/#services`)
 
@@ -264,9 +268,10 @@ import { ServicesShowcase } from "@/components/home";
 - **File:** `/src/components/home/ServicesShowcase.tsx`
 - **Loading:** Eager (primary service presentation)
 - **Features:**
+  - 3-step hierarchy: Delivery Path -> Project Focus -> Specific Service Card
   - Interactive service cards
   - Analytics tracking integration
-  - Tabbed interface for categories
+  - Modal details and direct contact CTA
 
 #### WhyPartnerSection
 

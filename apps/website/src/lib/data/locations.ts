@@ -486,7 +486,7 @@ export const locations: Record<string, LocationData> = {
     localExpertise: {
       title: "Serving Tacoma and Pierce County",
       description: [
-        "Tacoma and the greater Pierce County market require disciplined planning, clear communication, and reliable execution across commercial and public-facing projects. MH Construction brings a Veteran-Owned, relationship-first operating model to every Tacoma engagement.",
+        "Tacoma and the greater Pierce County service area require disciplined planning, clear communication, and reliable execution across commercial and public-facing projects. MH Construction brings a Veteran-Owned, relationship-first operating model to every Tacoma engagement.",
         "Licensed in Washington, Oregon, and Idaho, our team supports Tacoma clients with transparent preconstruction, proactive coordination, and accountability through close-out.",
       ],
     },
@@ -830,7 +830,7 @@ export const locations: Record<string, LocationData> = {
     localExpertise: {
       title: "Serving the Okanogan Valley",
       description: [
-        "Omak and the Okanogan Valley represent a growing market for quality construction services. Our Veteran-Owned team brings the discipline and transparency that rural communities deserve — no shortcuts, no surprises, and honest communication from first conversation to final inspection.",
+        "Omak and the Okanogan Valley represent a growing service area for quality construction services. Our Veteran-Owned team brings the discipline and transparency that rural communities deserve — no shortcuts, no surprises, and honest communication from first conversation to final inspection.",
         "Based in Pasco and licensed throughout Washington, we serve Omak and Okanogan County clients with the same commitment to quality and community partnership that defines every MH Construction project.",
       ],
     },

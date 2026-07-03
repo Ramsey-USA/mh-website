@@ -478,7 +478,7 @@ export default function PublicSectorFullPage() {
               "Bonding capacity and insurance coverage aligned to public-sector requirements. Performance, payment, and bid bonds plus liability coverage support financial protection for government projects.",
             image: "/images/compliance/bonding.webp",
             iconBg: "bg-brand-secondary",
-            stats: "$8M+",
+            stats: "Strong",
             statsLabel: "Bonding Capacity",
           },
           {

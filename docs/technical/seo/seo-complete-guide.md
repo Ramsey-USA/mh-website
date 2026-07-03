@@ -218,17 +218,11 @@ All lead-path pages follow the **Universal Page Flow Standard** — **Discover �
 
 ### Services Hub Section ✅
 
-1. Hero _(Discover)_
-2. CoreServicesSection _(Discover)_
-3. SpecialtyServicesSection _(Discover)_
-4. GovernmentProjectsSection _(Discover)_
-5. ServiceAreasSection _(Discover)_
-6. ConstructionExpertiseSection _(Trust)_
-7. WhyChooseUs _(Trust)_
-8. TestimonialsSection _(Proof)_
-9. ConstructionProcessSection _(Action)_
-10. Partnership section + final CTAs _(Action)_
-11. NextStepsSection _(Action)_
+1. ServicesShowcase intro copy _(Discover)_
+2. Delivery Path selector _(Discover)_
+3. Project Focus selector _(Discover)_
+4. Specific Service Cards _(Discover)_
+5. Service detail modal + contact CTA _(Action)_
 
 ---
 
@@ -783,13 +777,14 @@ export async function generateMetadata(): Promise<Metadata> {
   return metadata;
 }
 
-export default function ServicesPage() {
+export default function HomePage() {
   const seoData = getServicesSEO();
 
   return (
     <>
       <StructuredData data={seoData.schemas} />
-      {/* Page content */}
+      {/* Services discovery in the home hub section */}
+      {/* Delivery Path -> Project Focus -> Specific Service Card */}
     </>
   );
 }
@@ -896,23 +891,11 @@ Before deploying changes:
 **Implementation:**
 
 ```tsx
-// Simply reorder JSX elements in the component
-export default function ServicesPage() {
-  return (
-    <>
-      <ServicesHero />
-      <Section variant="default">Construction Expertise</Section>
-      <Section id="core-services">Core Services</Section>
-      <Section variant="default">Specialty Services</Section>
+// Services discovery is in the home hub section
+<ServicesShowcase sectionVariant="white" className="..." />
 
-      {/* ✅ TESTIMONIALS - MOVED HERE FOR SEO */}
-      <TestimonialGrid />
-
-      <Section variant="gray">Government Projects</Section>
-      {/* Rest of sections... */}
-    </>
-  );
-}
+// Funnel order inside ServicesShowcase:
+// 1) Delivery Path -> 2) Project Focus -> 3) Specific Service Card -> modal CTA
 ```
 
 #### Phase 1: Enhanced Metadata Integration

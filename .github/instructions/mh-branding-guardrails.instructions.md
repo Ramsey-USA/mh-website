@@ -13,12 +13,14 @@ Always enforce:
 3. Relationship-first, no-hype messaging.
 4. Trust and accreditation preservation on relevant surfaces.
 5. Accessibility and SEO naming alignment.
+6. Client-safe terminology: avoid hard dollar thresholds and market-trader phrasing in client-facing copy; prefer project-type, scope-fit, and delivery-path wording.
 
 Never:
 
 1. Introduce off-brand visual patterns without explicit approval.
 2. Remove trust or credential sections unintentionally.
 3. Use slogan-heavy or militarized aliases in page or SEO labels unless explicitly approved.
+4. Expose internal budget thresholds or cost-trigger language in client-facing messaging unless legally required.
 
 Approved exceptions:
 

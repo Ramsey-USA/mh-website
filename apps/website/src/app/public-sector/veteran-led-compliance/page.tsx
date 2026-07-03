@@ -142,7 +142,7 @@ export default function VeteranLedCompliancePage() {
                 trackId="compliance-hermiston-market"
                 variant="outline"
               >
-                Hermiston municipal delivery market
+                Hermiston municipal delivery area
               </TrackedBridgeButton>
             </div>
           </Card>

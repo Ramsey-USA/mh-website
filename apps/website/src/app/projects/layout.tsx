@@ -26,7 +26,7 @@ export default function ProjectsLayout({
           href: `/projects/${project.slug}`,
           label: project.title,
         }))}
-        navNote="Move between case studies to compare delivery methods, market types, and field-proven outcomes across the portfolio."
+        navNote="Move between case studies to compare delivery methods, project types, and field-proven outcomes across the portfolio."
       >
         {children}
       </SectionShell>

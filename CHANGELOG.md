@@ -6,6 +6,8 @@ All notable changes to the MH Construction website are documented here.
 
 ## June 2026
 
+- **Jul 3:** Services funnel documentation standardization — aligned technical, branding, standards, and root docs to the implemented home services hierarchy (`Delivery Path -> Project Focus -> Specific Service Card`) and removed stale references to legacy tabbed/category flow or standalone services-page sequencing where discovery now occurs in `/#services`.
+
 - **Jul 2:** Services hub routing standardization — deprecated direct `/services` index navigation in favor of the home-page services hub anchor (`/#services`) across header, hamburger, footer, CTA links, chatbot references, and SEO breadcrumb helpers; retained dedicated delivery lane pages under `/services/[slug]`; updated sitemap behavior and aligned tests/docs for this canonical split (`/#services` for hub discovery, `/services/[slug]` for lane detail).
 
 - **Jul 2 (handoff):** Services-on-home migration completion pack — finalized codebase congruency so service discovery is documented and validated as Home hub first (`/#services`) with dedicated detail under `/services/[slug]`; aligned route-indexing policy classes (`/services` redirect, `/about/details` noindex, `/events` noindex) and added explicit metadata on non-index/redirect routes to satisfy validator contracts; updated Lighthouse/SEO audit scripts to evaluate the services hub strategy instead of legacy `/services` index assumptions; standardized technical/branding/performance docs terminology from “Services Page” to “Services Hub Section” and added historical-baseline notes where older route-era metrics are retained for continuity.

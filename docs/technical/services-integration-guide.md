@@ -1288,18 +1288,17 @@ on every page via `src/components/seo/SeoMeta.tsx`. This enables rich results in
    - Coeur d'Alene (ID), Omak
 
    **Services** (match `/#services` page):
-   - Commercial Construction Management
-   - Pre-Construction Services
-   - Design-Build
-   - Tenant Improvements
-   - Light Industrial Construction
-   - Healthcare Construction
-   - Education Construction
-   - Public Safety Construction
 
-   **Business Description** (250 chars):
+- AG and Winery Communities
+- Commercial Tenant Improvements
+- Municipal Builds
+- Procurement & Trade Partnerships
+- Light Industrial
+- Tenant Improvements
 
-   > Veteran-owned general contractor serving the Pacific Northwest since 2010. Commercial construction, design-build, tenant improvements. BBB A+ rated, 650+ projects completed. Call for free consultation.
+  **Business Description** (250 chars):
+
+> Veteran-owned general contractor serving the Pacific Northwest since 2010. Commercial construction, design-build, tenant improvements. BBB A+ rated, 650+ projects completed. Call for free consultation.
 
 4. **Upload media**:
    - **Logo:** Official MH Construction logo (square, 250x250+)

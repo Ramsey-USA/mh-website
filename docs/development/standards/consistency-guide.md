@@ -81,6 +81,14 @@ prioritization:
 - Keyword ordering varies by messaging group
 - Technology mentions positioned strategically by group
 
+### Client-Detour Language Rule
+
+When writing client-facing page copy, avoid terms that introduce friction before trust is established.
+
+- Do not use hard dollar thresholds in public-facing body copy.
+- Do not frame user choices as "market" selection; use "project type", "delivery path", or "scope fit".
+- Prefer transparent process language over internal shorthand.
+
 ---
 
 ## 🎯 Hero Section Tagline Strategy

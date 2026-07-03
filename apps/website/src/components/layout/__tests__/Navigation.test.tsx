@@ -137,17 +137,49 @@ describe("Navigation", () => {
     expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();
   });
 
-  it("closes the menu when a Services link is clicked", async () => {
+  it("opens the Services dropdown and closes the menu when a lane is selected", async () => {
     const user = userEvent.setup();
 
     render(<Navigation />);
 
     await user.click(screen.getByRole("button", { name: /open menu/i }));
-    await user.click(screen.getByRole("link", { name: /services/i }));
+    await user.click(
+      screen.getByRole("button", { name: /open service lanes menu/i }),
+    );
+
+    const laneLink = screen.getByRole("link", { name: /build & expand/i });
+    expect(laneLink).toHaveAttribute(
+      "href",
+      "/?utm_source=nav&utm_medium=menu&utm_campaign=services-funnel&utm_content=path-build-expand#services",
+    );
+
+    await user.click(laneLink);
 
     expect(
       screen.getByRole("button", { name: /open menu/i }),
     ).toBeInTheDocument();
+    expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();
+  });
+
+  it("highlights PreConstruction Planning as a separate focus item in Services", async () => {
+    const user = userEvent.setup();
+
+    render(<Navigation />);
+
+    await user.click(screen.getByRole("button", { name: /open menu/i }));
+    await user.click(
+      screen.getByRole("button", { name: /open service lanes menu/i }),
+    );
+
+    const focusLink = screen.getByRole("link", {
+      name: /preconstruction planning/i,
+    });
+    expect(focusLink).toHaveAttribute(
+      "href",
+      "/?utm_source=nav&utm_medium=menu&utm_campaign=services-funnel&utm_content=preconstruction-planning-focus#services",
+    );
+
+    await user.click(focusLink);
     expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();
   });
 

@@ -250,7 +250,7 @@ NextStepsSection (final CTA)
 ### Service Page Pattern
 
 ```text
-HeroSection → ShowcaseSection (Discover: services grid) → BrandedContentSection (Trust: differentiators) → Testimonials or stats (Proof) → CTABanner → ProcessTimeline (optional) → NextStepsSection
+HeroSection → ShowcaseSection (Discover: 3-step services funnel: delivery path → project focus → specific service card) → BrandedContentSection (Trust: differentiators) → Testimonials or stats (Proof) → CTABanner → ProcessTimeline (optional) → NextStepsSection
 ```
 
 ### About Page Pattern

@@ -56,6 +56,7 @@ export function Navigation() {
   const isEs = locale === "es";
   const menuItems = globalMenuItemsByLocale[isEs ? "es" : "en"];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const [menuTopOffset, setMenuTopOffset] = useState(0);
 
@@ -100,6 +101,12 @@ export function Navigation() {
         termsLabel: "Terminos",
         accessibilityLabel: "Accesibilidad",
         veteranBadge: "Empresa veterana • Licencia WA OR ID",
+        servicesMenuLabel: "Rutas de servicio",
+        servicesMenuHint: "Seleccione una ruta guiada",
+        servicesOpenLabel: "Abrir menu de rutas de servicio",
+        servicesCloseLabel: "Cerrar menu de rutas de servicio",
+        preconstructionFocusLabel: "PreConstruction Planning",
+        preconstructionFocusSubLabel: "(Planificacion preconstruccion)",
       }
     : {
         closeMenuLabel: "Close menu",
@@ -114,12 +121,60 @@ export function Navigation() {
         termsLabel: "Terms",
         accessibilityLabel: "Accessibility",
         veteranBadge: "Veteran-Owned • Licensed WA OR ID",
+        servicesMenuLabel: "Service Lanes",
+        servicesMenuHint: "Select a guided delivery lane",
+        servicesOpenLabel: "Open service lanes menu",
+        servicesCloseLabel: "Close service lanes menu",
+        preconstructionFocusLabel: "PreConstruction Planning",
+        preconstructionFocusSubLabel:
+          "Major focus for handoffs and mistake prevention",
       };
+  const serviceLaneMenuItems = isEs
+    ? [
+        {
+          href: "/?utm_source=nav&utm_medium=menu&utm_campaign=services-funnel&utm_content=path-build-expand#services",
+          label: "Construir y Expandir",
+          subLabel: "AG y bodegas",
+        },
+        {
+          href: "/?utm_source=nav&utm_medium=menu&utm_campaign=services-funnel&utm_content=path-modernize-spaces#services",
+          label: "Modernizar Espacios",
+          subLabel: "TI comercial activo",
+        },
+        {
+          href: "/?utm_source=nav&utm_medium=menu&utm_campaign=services-funnel&utm_content=path-plan-control#services",
+          label: "Planificar y Controlar",
+          subLabel: "Entrega municipal",
+        },
+      ]
+    : [
+        {
+          href: "/?utm_source=nav&utm_medium=menu&utm_campaign=services-funnel&utm_content=path-build-expand#services",
+          label: "Build & Expand",
+          subLabel: "AG and winery communities",
+        },
+        {
+          href: "/?utm_source=nav&utm_medium=menu&utm_campaign=services-funnel&utm_content=path-modernize-spaces#services",
+          label: "Modernize Spaces",
+          subLabel: "Occupied commercial TI",
+        },
+        {
+          href: "/?utm_source=nav&utm_medium=menu&utm_campaign=services-funnel&utm_content=path-plan-control#services",
+          label: "Plan & Control",
+          subLabel: "Municipal delivery",
+        },
+      ];
   const menuToggleAriaLabel = isMenuOpen
     ? navText.closeMenuLabel
     : navText.openMenuLabel;
   const controlButtonClassName =
     "relative bg-brand-primary hover:bg-brand-primary-dark shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:scale-[1.03] active:translate-y-0 active:scale-100 p-1.5 max-[360px]:p-1.5 xs:p-2 sm:p-2.5 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation border-2 border-brand-secondary hover:border-brand-secondary-light outline outline-2 outline-offset-1 outline-brand-secondary/50 hover:outline-brand-secondary min-w-9 min-h-9 max-[360px]:min-w-[34px] max-[360px]:min-h-[34px] xs:min-w-11 xs:min-h-11 sm:min-w-12 sm:min-h-12 flex items-center justify-center";
+
+  useEffect(() => {
+    if (!isMenuOpen) {
+      setIsServicesDropdownOpen(false);
+    }
+  }, [isMenuOpen]);
 
   return (
     <>
@@ -361,40 +416,123 @@ export function Navigation() {
           {/* Menu Content - fills viewport, no scroll */}
           <div className="z-10 relative flex h-full flex-col overflow-hidden px-3 py-3 sm:px-4 sm:py-4">
             {/* Main Navigation Links - rows fill available height */}
-            <div className="min-h-0 flex-1 overflow-hidden">
-              <div
-                className="h-full grid grid-cols-4 gap-x-1.5 sm:gap-x-2"
-                style={{ gridTemplateRows: "repeat(4, 1fr)" }}
-              >
-                {menuItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    prefetch={false}
-                    aria-label={item.label}
-                    className="group flex flex-col items-center justify-center gap-0.5 hover:bg-brand-primary/8 dark:hover:bg-brand-primary/15 px-1 rounded-lg border border-transparent hover:border-brand-primary/20 text-center transition-all duration-200 touch-manipulation overflow-hidden"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <MaterialIcon
-                      icon={item.icon}
-                      size="md"
-                      className="text-brand-primary/70 group-hover:text-brand-primary dark:text-brand-secondary/70 dark:group-hover:text-brand-secondary transition-all duration-200 shrink-0"
-                      style={{ fontSize: "clamp(18px, 3.5vw, 26px)" }}
-                    />
-                    <span
-                      className="font-semibold text-gray-800 dark:text-gray-100 group-hover:text-brand-primary dark:group-hover:text-brand-secondary leading-tight w-full"
-                      style={{ fontSize: "clamp(9px, 2vw, 13px)" }}
+            <div className="min-h-0 flex-1 overflow-y-auto overflow-x-visible pr-0.5">
+              <div className="h-full grid grid-cols-4 gap-x-1.5 sm:gap-x-2 gap-y-1.5 sm:gap-y-2 auto-rows-fr">
+                {menuItems.map((item) =>
+                  item.href === "/#services" ? (
+                    <div key={item.href} className="col-span-2 row-span-2">
+                      <button
+                        type="button"
+                        aria-label={
+                          isServicesDropdownOpen
+                            ? navText.servicesCloseLabel
+                            : navText.servicesOpenLabel
+                        }
+                        className="group flex w-full flex-col items-center justify-center gap-0.5 hover:bg-brand-primary/8 dark:hover:bg-brand-primary/15 px-1 py-2 rounded-lg border border-brand-primary/25 hover:border-brand-primary/40 text-center transition-all duration-200 touch-manipulation"
+                        onClick={() =>
+                          setIsServicesDropdownOpen((current) => !current)
+                        }
+                      >
+                        <MaterialIcon
+                          icon={item.icon}
+                          size="md"
+                          className="text-brand-primary/70 group-hover:text-brand-primary dark:text-brand-secondary/70 dark:group-hover:text-brand-secondary transition-all duration-200 shrink-0"
+                          style={{ fontSize: "clamp(18px, 3.5vw, 26px)" }}
+                        />
+                        <span
+                          className="font-semibold text-gray-800 dark:text-gray-100 group-hover:text-brand-primary dark:group-hover:text-brand-secondary leading-tight w-full"
+                          style={{ fontSize: "clamp(9px, 2vw, 13px)" }}
+                        >
+                          {item.label}
+                        </span>
+                        <span
+                          className="text-gray-400 dark:text-gray-500 group-hover:text-brand-primary/60 dark:group-hover:text-brand-secondary/60 leading-none w-full"
+                          style={{ fontSize: "clamp(7px, 1.5vw, 10px)" }}
+                        >
+                          {navText.servicesMenuHint}
+                        </span>
+                        <MaterialIcon
+                          icon={
+                            isServicesDropdownOpen
+                              ? "keyboard_arrow_up"
+                              : "keyboard_arrow_down"
+                          }
+                          size="sm"
+                          className="text-brand-primary/70 dark:text-brand-secondary/70"
+                        />
+                      </button>
+
+                      {isServicesDropdownOpen ? (
+                        <div className="mt-1.5 rounded-lg border border-brand-primary/20 bg-white/90 p-1.5 dark:bg-gray-900/90 dark:border-brand-secondary/25 backdrop-blur-sm">
+                          <p className="px-2 pb-1 text-[10px] font-semibold uppercase tracking-[0.09em] text-brand-primary dark:text-brand-secondary">
+                            {navText.servicesMenuLabel}
+                          </p>
+                          <Link
+                            href="/?utm_source=nav&utm_medium=menu&utm_campaign=services-funnel&utm_content=preconstruction-planning-focus#services"
+                            prefetch={false}
+                            aria-label={navText.preconstructionFocusLabel}
+                            className="group block rounded-md border border-brand-secondary/35 bg-brand-secondary/10 px-2 py-2 text-left hover:border-brand-secondary/50 hover:bg-brand-secondary/15 dark:border-brand-secondary/40 dark:bg-brand-secondary/15 dark:hover:bg-brand-secondary/20 transition-all"
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            <span className="block text-[11px] font-extrabold uppercase tracking-[0.06em] text-brand-primary dark:text-brand-secondary leading-tight">
+                              {navText.preconstructionFocusLabel}
+                            </span>
+                            <span className="block text-[10px] text-gray-700 dark:text-gray-200 leading-tight mt-0.5">
+                              {navText.preconstructionFocusSubLabel}
+                            </span>
+                          </Link>
+                          <div className="space-y-1">
+                            {serviceLaneMenuItems.map((lane) => (
+                              <Link
+                                key={lane.href}
+                                href={lane.href}
+                                prefetch={false}
+                                aria-label={lane.label}
+                                className="group block rounded-md border border-transparent px-2 py-1.5 text-left hover:border-brand-primary/25 hover:bg-brand-primary/8 dark:hover:bg-brand-secondary/10 transition-all"
+                                onClick={() => setIsMenuOpen(false)}
+                              >
+                                <span className="block text-[11px] font-semibold text-gray-800 dark:text-gray-100 group-hover:text-brand-primary dark:group-hover:text-brand-secondary leading-tight">
+                                  {lane.label}
+                                </span>
+                                <span className="block text-[10px] text-gray-500 dark:text-gray-400 leading-tight">
+                                  {lane.subLabel}
+                                </span>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ) : null}
+                    </div>
+                  ) : (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      prefetch={false}
+                      aria-label={item.label}
+                      className="group flex flex-col items-center justify-center gap-0.5 hover:bg-brand-primary/8 dark:hover:bg-brand-primary/15 px-1 rounded-lg border border-transparent hover:border-brand-primary/20 text-center transition-all duration-200 touch-manipulation overflow-hidden"
+                      onClick={() => setIsMenuOpen(false)}
                     >
-                      {item.label}
-                    </span>
-                    <span
-                      className="text-gray-400 dark:text-gray-500 group-hover:text-brand-primary/60 dark:group-hover:text-brand-secondary/60 leading-none w-full"
-                      style={{ fontSize: "clamp(7px, 1.5vw, 10px)" }}
-                    >
-                      {item.subLabel}
-                    </span>
-                  </Link>
-                ))}
+                      <MaterialIcon
+                        icon={item.icon}
+                        size="md"
+                        className="text-brand-primary/70 group-hover:text-brand-primary dark:text-brand-secondary/70 dark:group-hover:text-brand-secondary transition-all duration-200 shrink-0"
+                        style={{ fontSize: "clamp(18px, 3.5vw, 26px)" }}
+                      />
+                      <span
+                        className="font-semibold text-gray-800 dark:text-gray-100 group-hover:text-brand-primary dark:group-hover:text-brand-secondary leading-tight w-full"
+                        style={{ fontSize: "clamp(9px, 2vw, 13px)" }}
+                      >
+                        {item.label}
+                      </span>
+                      <span
+                        className="text-gray-400 dark:text-gray-500 group-hover:text-brand-primary/60 dark:group-hover:text-brand-secondary/60 leading-none w-full"
+                        style={{ fontSize: "clamp(7px, 1.5vw, 10px)" }}
+                      >
+                        {item.subLabel}
+                      </span>
+                    </Link>
+                  ),
+                )}
               </div>
             </div>
 

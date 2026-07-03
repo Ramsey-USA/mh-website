@@ -75,7 +75,7 @@ export default function AboutDetailsPage() {
         timelineDescription:
           "This timeline reflects how we built depth in pole buildings, door and hardware installation, and Procore-driven project management for regulated and active facilities.",
         newsSubtitle: "Operational proof",
-        newsTitle: "Specialties by market",
+        newsTitle: "Specialties by project type",
         newsDescription:
           "Real capabilities for AG and winery facilities, commercial TI, and municipal builds with safety, sequencing, and multi-trade coordination from preconstruction through closeout.",
         crmDescription:

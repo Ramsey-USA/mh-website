@@ -61,6 +61,30 @@
     "sectionSubtitle": "Frentes por Resultado",
     "sectionTitle": "Comience por su Tipo de Proyecto",
     "sectionDescription": "Vea cómo entregamos proyectos AG y de bodegas, tenant improvements comerciales y obra municipal con responsables claros, visibilidad en Procore y controles listos para cierre. Squared away from start to finish. (Listos y alineados de principio a fin.)",
+    "funnel": {
+      "pathStepLabel": "Paso 1: Elija una ruta de entrega",
+      "focusStepLabel": "Paso 2: Elija el enfoque de su proyecto",
+      "helperText": "Use este flujo guiado para pasar de una ruta amplia de entrega al alcance específico que su proyecto necesita.",
+      "resultsLabel": "Servicios coincidentes: {count}",
+      "resetFilters": "Restablecer filtros",
+      "noResultsTitle": "No hay servicios exactos para esa combinación de filtros",
+      "noResultsDescription": "Restablezca filtros para ver todas las rutas de entrega y elegir otro camino.",
+      "pathOptions": {
+        "all": "Todas las rutas de entrega",
+        "planControl": "Planificar y controlar",
+        "buildExpand": "Construir y expandir",
+        "modernizeSpaces": "Modernizar espacios"
+      },
+      "focusOptions": {
+        "all": "Todos los enfoques",
+        "agWinery": "AG y bodegas",
+        "publicSector": "Sector público",
+        "procurement": "Adquisición y socios comerciales",
+        "industrial": "Industrial ligero",
+        "occupiedTi": "TI en espacios activos",
+        "rapidTi": "TI de entrega rápida"
+      }
+    },
     "clickForDetails": "Haga clic para detalles completos",
     "viewDetailsAriaPrefix": "Ver detalles de",
     "closeDetailsBackdropAria": "Cerrar modal de detalles del servicio",
@@ -292,7 +316,7 @@
       },
       {
         "title": "Control de Ejecución",
-        "desc": "Superintendentes dirigen campo y PM gestionan controles de entrega. Impactos mayores a $5,000 requieren aprobación del COO; mayores a $25,000 requieren aprobación adicional del CFO."
+        "desc": "Superintendentes dirigen campo y PM gestionan controles de entrega. Los cambios siguen controles de aprobación definidos con revisión ejecutiva cuando es necesario."
       },
       {
         "title": "Validacion de Calidad y Seguridad",

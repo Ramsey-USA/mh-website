@@ -341,6 +341,7 @@ Recommended cadence:
 Migration status:
 
 - Services discovery model is complete and canonicalized to Home sections first (`/#services`).
+- Services hub interaction now uses a three-step hierarchy: `Delivery Path -> Project Focus -> Specific Service Card`, then modal detail and contact CTA.
 - Legacy `/services` and `/services/[slug]` behaviors are retained only as redirect compatibility to `/#services`.
 
 Use the release worksheet: [docs/performance/performance-triage-template.md](docs/performance/performance-triage-template.md)

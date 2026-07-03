@@ -14,6 +14,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function ServiceDetailPage() {
+export default function ServiceDetailPage() {
   permanentRedirect("/#services");
 }

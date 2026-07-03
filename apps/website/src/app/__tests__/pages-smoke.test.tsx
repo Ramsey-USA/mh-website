@@ -429,7 +429,7 @@ describe("Services page", () => {
 });
 
 describe("Branding congruency smoke", () => {
-  it("keeps the canonical primary slogan in shared constants", () => {
+  it("keeps the canonical primary slogan with supporting slogan in shared constants", () => {
     const companyConstantsPath = path.join(
       REPO_ROOT,
       "packages",
@@ -441,9 +441,12 @@ describe("Branding congruency smoke", () => {
     );
     const source = fs.readFileSync(companyConstantsPath, "utf8");
     expect(source).toContain('primary: "Built on Quality, Backed by Trust."');
+    expect(source).toContain(
+      'supporting: "Clear facts. No spin. No surprises."',
+    );
   });
 
-  it("keeps legacy services routes as non-indexed redirects to home services anchor", async () => {
+  it("keeps legacy services routes as non-indexed redirects to home services anchor", () => {
     const { metadata: servicesMetadata, default: ServicesPage } =
       require("../services/page") as {
         metadata: {
@@ -458,7 +461,7 @@ describe("Branding congruency smoke", () => {
           robots: { index: boolean; follow: boolean };
           alternates: { canonical: string };
         };
-        default: () => Promise<void>;
+        default: () => void;
       };
 
     expect(servicesMetadata.robots.index).toBe(false);
@@ -471,9 +474,7 @@ describe("Branding congruency smoke", () => {
     );
 
     expect(() => ServicesPage()).toThrow("NEXT_REDIRECT: /#services");
-    await expect(ServiceDetailPage()).rejects.toThrow(
-      "NEXT_REDIRECT: /#services",
-    );
+    expect(() => ServiceDetailPage()).toThrow("NEXT_REDIRECT: /#services");
   });
 
   it("keeps services section represented on home with #services anchor", () => {

@@ -27,7 +27,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
     },
     location: {
       href: "/locations/pasco",
-      label: "Pasco regional service market",
+      label: "Pasco regional service area",
     },
     support: {
       href: "/contact",
@@ -41,7 +41,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
     },
     location: {
       href: "/locations/kennewick",
-      label: "Kennewick project planning market",
+      label: "Kennewick project planning area",
     },
     support: {
       href: "/projects/kennewick-commercial-office-renovation",
@@ -55,7 +55,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
     },
     location: {
       href: "/locations/richland",
-      label: "Richland safety-focused delivery market",
+      label: "Richland safety-focused delivery area",
     },
     support: {
       href: "/resources/safety-manual/program-compliance-and-continuity",
@@ -69,7 +69,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
     },
     location: {
       href: "/locations/spokane",
-      label: "Spokane communication-first service market",
+      label: "Spokane communication-first service area",
     },
     support: {
       href: "/contact",
@@ -83,7 +83,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
     },
     location: {
       href: "/locations/yakima",
-      label: "Yakima public-sector service market",
+      label: "Yakima public-sector service area",
     },
     support: {
       href: "/public-sector",
@@ -97,7 +97,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
     },
     location: {
       href: "/locations/pendleton",
-      label: "Pendleton technical delivery market",
+      label: "Pendleton technical delivery area",
     },
     support: {
       href: "/projects/pasco-industrial-warehouse-build-out",
@@ -111,7 +111,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
     },
     location: {
       href: "/locations/walla-walla",
-      label: "Walla Walla partner delivery market",
+      label: "Walla Walla partner delivery area",
     },
     support: {
       href: "/allies",
@@ -125,7 +125,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
     },
     location: {
       href: "/locations/richland",
-      label: "Richland budget planning market",
+      label: "Richland budget planning area",
     },
     support: {
       href: "/contact",
@@ -291,8 +291,8 @@ export default async function FAQCategoryPage({
                 Route this category into a project decision
               </h2>
               <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-300">
-                Use the direct service path, local market page, and support
-                destination below to move from research to execution.
+                Use the direct service path, local service area page, and
+                support destination below to move from research to execution.
               </p>
               <div className="mt-5 grid gap-3 sm:grid-cols-3">
                 <Link

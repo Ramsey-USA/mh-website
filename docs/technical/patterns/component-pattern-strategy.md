@@ -208,6 +208,8 @@ unified conversion point that ties the entire site together.
 
 **Goal:** Explain offerings, demonstrate expertise, and route inquiries through the home services sections
 
+**Flow Standard:** Delivery Path -> Project Focus -> Specific Service Card (modal detail + CTA)
+
 **Recommended Patterns:**
 
 1. ✅ **ValuesShowcase (Modal)** - Core Services Interactive Exploration
@@ -217,7 +219,7 @@ unified conversion point that ties the entire site together.
 1. ✅ **NextStepsSection** - Final CTA (already implemented)
 
 **Implementation Status:** Services discovery and detail are anchored in the home hub section,
-using modal/grid patterns for delivery context.
+using the 3-step funnel plus modal/grid patterns for delivery context.
 services and features, and NextStepsSection for final CTA. Strategy fully met.
 
 **Strategy:** Choose ONE showcase pattern (Alternating OR Interactive), supplement with ContentCard grid

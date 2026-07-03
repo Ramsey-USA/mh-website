@@ -103,7 +103,7 @@ Use this rule of thumb during planning:
 
 Examples:
 
-- `/#services` should remain the single services hub with modular sections for deeper detail.
+- `/#services` should remain the single services hub and use a tiered funnel (`Delivery Path -> Project Focus -> Specific Service Card`) before deeper detail.
 - `/projects` can remain a portfolio hub while category-specific proof pages absorb deeper case-study content.
 - `/allies` should act as the dedicated partner-path destination instead of being buried inside broader client pages.
 

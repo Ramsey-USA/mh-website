@@ -17,14 +17,14 @@ const locationList = Object.values(locations);
 export const metadata: Metadata = {
   title: "Locations | MH Construction",
   description:
-    "Service markets across Washington, Oregon, and Idaho with local project proof for AG and winery facilities, commercial tenant improvements, and municipal builds.",
+    "Service coverage across Washington, Oregon, and Idaho with local project proof for AG and winery facilities, commercial tenant improvements, and municipal builds.",
   alternates: {
     canonical: `${SITE_URL}/locations`,
   },
   openGraph: {
     title: "Locations | MH Construction",
     description:
-      "Service markets across Washington, Oregon, and Idaho with local project proof for AG and winery facilities, commercial tenant improvements, and municipal builds.",
+      "Service coverage across Washington, Oregon, and Idaho with local project proof for AG and winery facilities, commercial tenant improvements, and municipal builds.",
     url: `${SITE_URL}/locations`,
     type: "website",
     images: [
@@ -49,7 +49,7 @@ const locationsSchema = {
   url: `${SITE_URL}/locations`,
   name: "Locations | MH Construction",
   description:
-    "Market-by-market service index for MH Construction across Washington, Oregon, and Idaho.",
+    "Location-by-location service index for MH Construction across Washington, Oregon, and Idaho.",
   isPartOf: { "@id": `${SITE_URL}/#website` },
   about: { "@id": `${SITE_URL}/#organization` },
   breadcrumb: { "@id": `${SITE_URL}/locations#breadcrumb` },

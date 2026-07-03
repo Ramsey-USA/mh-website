@@ -151,6 +151,10 @@ jobs:
         working-directory: apps/website
         run: npm run check:hero-commercials
 
+      - name: Check client terminology guardrails
+        working-directory: apps/website
+        run: npm run terminology:guardrails:check
+
       - name: Check for unused dependencies — website
         working-directory: apps/website
         run: npm run deps:check

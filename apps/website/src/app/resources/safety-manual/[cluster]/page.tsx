@@ -24,7 +24,7 @@ const REVISION_DATE = safetyManualEntry?.revisionDate ?? "04/07/2026";
 
 type SafetyRoutePlan = {
   service: { href: string; label: string };
-  market: { href: string; label: string };
+  area: { href: string; label: string };
   support: { href: string; label: string };
 };
 
@@ -34,9 +34,9 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
       href: "/#services",
       label: "Municipal and government service line",
     },
-    market: {
+    area: {
       href: "/locations/yakima",
-      label: "Yakima public-sector market",
+      label: "Yakima public-sector service area",
     },
     support: {
       href: "/contact",
@@ -48,9 +48,9 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
       href: "/#services",
       label: "Commercial construction delivery",
     },
-    market: {
+    area: {
       href: "/locations/kennewick",
-      label: "Kennewick field coordination market",
+      label: "Kennewick field coordination area",
     },
     support: {
       href: "/faq/process",
@@ -62,9 +62,9 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
       href: "/#services",
       label: "Municipal and government controls",
     },
-    market: {
+    area: {
       href: "/locations/pendleton",
-      label: "Pendleton regulated delivery market",
+      label: "Pendleton regulated delivery area",
     },
     support: {
       href: "/faq/safety",
@@ -76,9 +76,9 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
       href: "/#services",
       label: "Drywall and interiors execution",
     },
-    market: {
+    area: {
       href: "/locations/spokane",
-      label: "Spokane interiors market",
+      label: "Spokane interiors service area",
     },
     support: {
       href: "/contact",
@@ -90,9 +90,9 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
       href: "/#services",
       label: "Commercial construction sequencing",
     },
-    market: {
+    area: {
       href: "/locations/pasco",
-      label: "Pasco industrial delivery market",
+      label: "Pasco industrial delivery area",
     },
     support: {
       href: "/faq/technical",
@@ -104,9 +104,9 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
       href: "/#services",
       label: "Restoration and remodeling controls",
     },
-    market: {
+    area: {
       href: "/locations/richland",
-      label: "Richland restoration market",
+      label: "Richland restoration service area",
     },
     support: {
       href: "/faq/safety",
@@ -118,9 +118,9 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
       href: "/#services",
       label: "Commercial heavy-equipment delivery",
     },
-    market: {
+    area: {
       href: "/locations/hermiston",
-      label: "Hermiston logistics market",
+      label: "Hermiston logistics area",
     },
     support: {
       href: "/public-sector",
@@ -132,9 +132,9 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
       href: "/#services",
       label: "Commercial tools and materials planning",
     },
-    market: {
+    area: {
       href: "/locations/kennewick",
-      label: "Kennewick materials execution market",
+      label: "Kennewick materials execution area",
     },
     support: {
       href: "/projects/kennewick-commercial-office-renovation",
@@ -146,9 +146,9 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
       href: "/#services",
       label: "Municipal continuity planning",
     },
-    market: {
+    area: {
       href: "/locations/yakima",
-      label: "Yakima continuity-ready market",
+      label: "Yakima continuity-ready area",
     },
     support: {
       href: "/contact",
@@ -456,8 +456,8 @@ export default async function SafetyManualClusterPage({
             Apply this safety guidance to active scopes
           </h2>
           <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-300">
-            Connect this cluster to a service line, regional market, and live
-            planning path to move safety standards into execution.
+            Connect this cluster to a service line, regional service area, and
+            live planning path to move safety standards into execution.
           </p>
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
             <Link
@@ -468,10 +468,10 @@ export default async function SafetyManualClusterPage({
               <MaterialIcon icon="arrow_forward" size="sm" />
             </Link>
             <Link
-              href={routePlan.market.href}
+              href={routePlan.area.href}
               className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
             >
-              <span>{routePlan.market.label}</span>
+              <span>{routePlan.area.label}</span>
               <MaterialIcon icon="arrow_forward" size="sm" />
             </Link>
             <Link
