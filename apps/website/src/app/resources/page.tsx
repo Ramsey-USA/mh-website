@@ -14,10 +14,14 @@ import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { SafetyComplianceBadge } from "@/components/resources/SafetyComplianceBadge";
 import { ResourcesHero } from "@/components/resources/ResourcesHero";
 import { manuals, forms } from "@/lib/data/documents";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 import { DownloadGate } from "@/components/pwa";
 
 export const metadata: Metadata = {
-  title: "Field Resources | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
   description:
     "Download MH Construction safety manuals, toolbox talk forms, JHA templates, and field documentation for crews, partners, and prequalification workflows.",
   alternates: {
@@ -28,7 +32,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Field Resources | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
     description:
       "Safety manuals, toolbox talks, and field forms from MH Construction, organized for fast field use and agency review.",
     url: "https://www.mhc-gc.com/resources",
@@ -36,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Field Resources | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
     description:
       "Safety manuals, toolbox talks, and field forms from MH Construction for field crews and project stakeholders.",
   },

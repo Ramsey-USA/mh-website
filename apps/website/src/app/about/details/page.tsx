@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
+import { buildDualSeoTitle } from "@/lib/branding/page-names";
 import { PageTrackingClient } from "@/components/analytics";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
@@ -27,7 +28,7 @@ const FadeInWhenVisible = dynamic(
 );
 
 export const metadata: Metadata = {
-  title: "Detailed Capabilities | MH Construction",
+  title: buildDualSeoTitle("about", "Detailed Capabilities"),
   description:
     "Detailed capabilities and operational specialties for MH Construction delivery lanes.",
   alternates: {
@@ -77,7 +78,7 @@ export default function AboutDetailsPage() {
         newsSubtitle: "Operational proof",
         newsTitle: "Specialties by project type",
         newsDescription:
-          "Real capabilities for AG and winery facilities, commercial TI, and municipal builds with safety, sequencing, and multi-trade coordination from preconstruction through closeout.",
+          "Real capabilities for AG and winery facilities, commercial TI, and municipal builds with safety, sequencing, and multi-trade coordination from front-end scope definition through closeout.",
         crmDescription:
           "We manage scope, RFIs, submittals, and field sequencing in Procore to reduce rework and keep execution aligned with operating goals.",
         tradeDescription:

@@ -163,7 +163,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
       icon: "home_repair_service",
       title: "Construction Management",
       description:
-        "End-to-end coordination from preconstruction through closeout, powered by Procore with budget transparency, door and hardware scope tracking, and local permitting alignment.",
+        "End-to-end coordination from front-end scope definition through closeout, powered by Procore with budget transparency, door/hardware tracking, and local permitting alignment.",
     },
   ];
 

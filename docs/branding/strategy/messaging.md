@@ -77,17 +77,20 @@ these core values in hierarchical order:
 - **Trade Partners**: Collaborative partnerships, honest dealings
 - **Veterans**: Military heritage, veteran support, service recognition
 
-### Dual-Label Navigation Pattern (NEW - Dec 22, 2025)
+### Dual-Label Navigation Pattern (Current)
 
-**Standard**: All navigation elements use dual-label format to balance accessibility with veteran brand identity
+**Standard**: Navigation uses surface-specific dual terminology to balance accessibility with veteran brand identity.
 
-**Pattern**: Primary label (civilian/clear term) + Secondary sublabel (military-themed term)
+**Pattern by surface**:
 
-**Implementation**:
+- PageNavigation top row: MH brand label only for compact 6-cell readability.
+- PageNavigation More overlay: MH brand label with plain-language description.
+- Hamburger menu and footer nav: plain-language primary label with MH brand secondary sublabel.
 
-- Primary: Standard terminology for universal understanding
-- Sublabel: Military-themed term (9px, brand tan, 75% opacity)
-- Purpose: Honors veteran heritage while maintaining accessibility
+**Purpose**:
+
+- Preserve veteran-led brand voice on primary navigation surfaces.
+- Keep plain-language clarity visible where users scan broad link sets.
 
 **Examples**:
 
@@ -103,12 +106,12 @@ these core values in hierarchical order:
 
 **Documentation**: Global hero navigation system implemented site-wide.
 
-**Current Implementation (Dec 2025)**:
+**Current Implementation**:
 
 - **Global Top Row**: PageNavigation uses a shared 6-cell row (Home, Services, Projects, About, Contact, More)
 - **More Overlay**: `More` opens a modal overlay with remaining pages and short descriptions
 - **Hamburger Menu**: Handles cross-page navigation and social media links
-- **Dual Labels**: Military/civilian naming remains supported in broader navigation language system
+- **Dual Labels by Surface**: Military/civilian naming remains supported with surface-specific rendering rules
 - **Material Icons**: All navigation items include semantic icons
 
 ### Military-Themed Section Framing Standard (MANDATORY - Apr 19, 2026)

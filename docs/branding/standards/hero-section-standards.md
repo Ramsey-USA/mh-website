@@ -45,6 +45,17 @@ The hero section now operates with a unified global header system anchored in
 - Hero spacing must continue to clear the fixed visual envelope created by the
   global header above and the page navigation bar below.
 
+## Breadcrumb Placement Standard (Sitewide)
+
+Breadcrumbs are part of the post-hero content frame, not pre-hero chrome.
+
+- Render breadcrumbs immediately **after** the hero section.
+- When the semiquincentennial campaign banner is enabled, breadcrumb order is:
+  hero -> breadcrumb -> semiquincentennial banner -> body sections.
+- On routes where the semiquincentennial banner is intentionally suppressed
+  (`/events`, `/cool-desert-nights`), breadcrumbs still render directly after hero.
+- Do not render fallback breadcrumbs before hero content in shell/layout wrappers.
+
 ## 🎯 Tagline Strategy Update (December 14, 2025)
 
 ### Military/Construction Terminology Integration
@@ -236,6 +247,8 @@ Use this checklist when creating or reviewing any page's hero section:
 - [ ] Subtitle with proper responsive classes
 - [ ] Description includes company tagline
 - [ ] PageNavigation at `absolute bottom-0 left-0 right-0`
+- [ ] Breadcrumb appears after hero (never above hero)
+- [ ] If semiquincentennial banner exists, breadcrumb appears before banner
 - [ ] Home nav row renders six equal cells including `More`
 - [ ] `More` opens centered modal overlay with backdrop, Escape close, and body scroll lock
 - [ ] All navigable sections have unique `id` attributes

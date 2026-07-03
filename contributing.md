@@ -126,6 +126,7 @@ Before submitting a PR, confirm:
 - [ ] `pnpm run lint` passes (zero warnings)
 - [ ] `pnpm run build` succeeds
 - [ ] `pnpm run test` passes (all tests green)
+- [ ] For public copy/metadata/label changes, run `npm test -- src/app/__tests__/public-copy-phrasing-guard.test.ts src/lib/branding/__tests__/page-names.test.ts` in `apps/website`
 - [ ] Docs updated if the change affects documented behavior
 - [ ] No `.env` secrets, `*.bak`, or generated output committed
 - [ ] Page-level changes pass the [Page Compliance Checklist](./docs/development/standards/page-compliance-checklist.md)

@@ -1,6 +1,6 @@
 # Dual Terminology Standard
 
-**Last Updated:** April 24, 2026  
+**Last Updated:** July 3, 2026  
 **Status:** Canonical Reference (website terminology)
 
 ## Purpose
@@ -20,46 +20,83 @@ This standard governs:
 
 ## Core Rule
 
-Use plain-language primary labels for clarity and SEO.
+Use surface-specific dual terminology to preserve both clarity and MH brand voice.
 
-Dual terminology may use arrow format only when approved for that surface:
+Canonical navigation pattern matrix:
 
-`Primary Label → Context Label`
+1. PageNavigation top row: MH brand name only (`mhBrandName`) to keep labels concise in the 6-cell layout.
+2. PageNavigation More overlay: MH brand name primary with plain-language SEO name as supporting description.
+3. Hamburger menu: plain-language SEO name primary with MH brand name on the secondary line.
+4. Footer navigation: plain-language SEO name primary with MH brand name as the supporting sublabel.
+5. Metadata/SEO title fields: canonical dual title helper format remains `SEO Name (MH Brand Name)` where dual titles are required.
 
-Do not use slogan-heavy or militarized aliases as standalone page labels in SEO-facing surfaces.
+Browser tab implementation rule:
+
+- Route metadata titles should use `buildDualSeoTitle(pageKey, descriptor)` in app-level `metadata` exports.
+- For special route states (print, redirect, archive), keep the canonical page key and vary only the descriptor.
+- Enforcement test: `apps/website/src/app/__tests__/tab-title-sitewide-contract.test.ts`.
+
+Do not use slogan-heavy aliases as standalone page labels in SEO-facing surfaces.
+
+For cross-page consistency, all shared labels must resolve through the terminology dictionary in `apps/website/src/lib/branding/page-names.ts`.
 
 ## Canonical Label Set
 
 ### Services
 
-- Primary label: `Services`
-- Approved dual form: `Operations → Services`
-- Browser tab standard: `Operations → Services | Commercial and Industrial Construction Services | MH Construction`
+- PageNavigation top row: `Operations Brief`
+- Hamburger/Footer primary: `Services`
+- Hamburger/Footer secondary: `Operations Brief`
+- Browser tab standard: `Services (Operations Brief) | Commercial and Industrial Construction Services | MH Construction`
 
 ### Projects
 
-- Primary label: `Projects`
-- Approved dual form: `Portfolio → Projects`
-- Browser tab standard: `Portfolio → Projects | Completed Commercial and Industrial Construction Projects | MH Construction`
+- PageNavigation top row: `Our Work`
+- Hamburger/Footer primary: `Projects`
+- Hamburger/Footer secondary: `Our Work`
+- Browser tab standard: `Projects (Our Work) | Completed Commercial and Industrial Construction Projects | MH Construction`
 
 ### Contact
 
-- Primary label: `Contact`
-- Approved dual form: `Contact → Consultation`
-- Browser tab standard: `Contact → Consultation | Your Project. Honest Guidance. Let's Connect. | MH Construction`
+- PageNavigation top row: `Comms Desk`
+- Hamburger/Footer primary: `Contact`
+- Hamburger/Footer secondary: `Comms Desk`
+- Browser tab standard: `Contact (Comms Desk) | Your Project. Honest Guidance. Let's Connect. | MH Construction`
 
 ### Team
 
-- Primary label: `Our Team`
-- Approved dual form: `Chain of Command → Our Team`
+- PageNavigation More overlay menuitem: `Command Staff`
+- Overlay supporting description + Hamburger/Footer primary: `Our Team`
 - Keep veteran-owned factual framing and leadership clarity.
+
+### Additional Covered Labels
+
+- Metadata dual form remains canonical, for example `Locations (Regional Coverage)`.
+- UI surfaces should follow the surface matrix above rather than forced parenthetical rendering.
+
+### Common Alias Coverage
+
+The terminology dictionary also recognizes common page-label variants so shared UI and metadata stay congruent:
+
+- `Contact Us` and `Get in Touch` -> Contact / Comms Desk terminology pair
+- `Our Work` -> Projects terminology pair
+- `Crew` and `Staff` -> Our Team terminology pair
+- `FAQ`, `FAQs`, and `Questions & Answers` -> Help/FAQ terminology pair
+- `Forms Index` and `Safety Forms Index` -> Safety Forms terminology pair
 
 ## SEO and Accessibility Guardrails
 
 1. Primary terms must remain human-readable and search-friendly.
-2. Labels must stay consistent across nav, metadata, schema, and visible headings.
+2. Labels must stay consistent with the surface matrix across nav, metadata, schema, and visible headings.
 3. ARIA labels should prioritize plain-language clarity.
 4. Spanish equivalents must match intent and avoid terminology drift.
+
+## Public Copy Duplication Guardrail
+
+1. Shared phrasing across different pages is allowed.
+2. Duplicate guarded phrasing within the same page file is not allowed.
+3. Repeated sentence-level boilerplate within the same page file is not allowed.
+4. Enforcement test: `src/app/__tests__/public-copy-phrasing-guard.test.ts`.
 
 ## Trust and Compliance Guardrails
 
@@ -69,18 +106,20 @@ Do not use slogan-heavy or militarized aliases as standalone page labels in SEO-
 
 ## Implementation References
 
-- Metadata generators: `src/lib/seo/page-seo-utils.ts`
-- Global metadata baseline: `src/app/layout.tsx`
-- Shared SEO defaults: `src/components/seo/EnhancedSEO.tsx`
-- Navigation labels: `src/components/layout/Navigation.tsx`
-- Footer labels: `src/components/layout/Footer.tsx`
-- Chatbot page references: `src/lib/chatbot/knowledge-base.ts`
+- Terminology dictionary: `apps/website/src/lib/branding/page-names.ts`
+- Metadata generators: `apps/website/src/lib/seo/page-seo-utils.ts`
+- Global metadata baseline: `apps/website/src/app/layout.tsx`
+- Shared SEO defaults: `apps/website/src/components/seo/EnhancedSEO.tsx`
+- Navigation labels: `apps/website/src/components/layout/Navigation.tsx`
+- Footer labels: `apps/website/src/components/layout/Footer.tsx`
+- Page nav labels: `apps/website/src/components/navigation/PageNavigation.tsx`
+- Chatbot page references: `apps/website/src/lib/chatbot/knowledge-base.ts`
 
 ## Change Control
 
 If terminology changes are approved:
 
 1. Update this file first.
-2. Apply synchronized updates across all affected surfaces.
-3. Run targeted tests for changed areas.
+2. Update `apps/website/src/lib/branding/page-names.ts` (keys + aliases) first, then apply synchronized updates across affected surfaces.
+3. Run targeted tests for changed areas, including terminology and copy guard tests.
 4. Record any temporary exceptions in project governance notes.

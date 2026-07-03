@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { LocationPageContent } from "@/components/locations/LocationPageContent";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 import { getLocationBySlug, getLocationSlugs } from "@/lib/data/locations";
 import { generateLocationMetadata } from "@/lib/seo/location-metadata";
 
@@ -22,7 +26,7 @@ export async function generateMetadata({
 
   if (!location) {
     return {
-      title: "Locations | MH Construction",
+      title: `${formatDualPageName(PAGE_TERMINOLOGY.locations.seoName, PAGE_TERMINOLOGY.locations.mhBrandName)} | MH Construction`,
       robots: { index: false, follow: false },
     };
   }

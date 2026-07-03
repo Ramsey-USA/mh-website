@@ -1,6 +1,12 @@
 import { type Metadata } from "next";
 import Script from "next/script";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  buildDualSeoTitle,
+  normalizeMhKeywordList,
+  normalizeMhPhrase,
+  normalizeMhPhrasesInText,
+} from "@/lib/branding/page-names";
 
 // Removed unused interface _SEOProps to satisfy lint rule
 interface GenerateMetadataProps {
@@ -16,10 +22,12 @@ interface GenerateMetadataProps {
 const defaultSEO = {
   siteName: COMPANY_INFO.name,
   siteUrl: COMPANY_INFO.urls.getSiteUrl(),
-  defaultTitle:
-    "MH Construction - Veteran-Owned Construction Excellence in the Pacific Northwest",
+  defaultTitle: buildDualSeoTitle(
+    "home",
+    "Construction Services in Washington, Oregon, and Idaho",
+  ),
   defaultDescription:
-    "MH Construction delivers exceptional commercial and industrial construction services throughout the Pacific Northwest. Veteran-Owned where handshakes matter and your word is your bond.",
+    "MH Construction provides commercial, industrial, and public-sector construction services across Washington, Oregon, and Idaho.",
   defaultKeywords: [
     "construction",
     "general contractor",
@@ -46,7 +54,6 @@ const defaultSEO = {
     "veteran owned business",
     "office buildings",
     "construction estimate",
-    "AI construction",
   ],
   twitterHandle: COMPANY_INFO.social.twitterHandle,
   companyInfo: {
@@ -73,11 +80,16 @@ export function generateSEOMetadata({
   noIndex = false,
 }: GenerateMetadataProps): Metadata {
   const pageTitle = title
-    ? `${title} | ${defaultSEO.siteName}`
+    ? `${normalizeMhPhrasesInText(normalizeMhPhrase(title))} | ${defaultSEO.siteName}`
     : defaultSEO.defaultTitle;
 
-  const pageDescription = description || defaultSEO.defaultDescription;
-  const pageKeywords = [...defaultSEO.defaultKeywords, ...keywords].join(", ");
+  const pageDescription = normalizeMhPhrasesInText(
+    description || defaultSEO.defaultDescription,
+  );
+  const pageKeywords = normalizeMhKeywordList([
+    ...defaultSEO.defaultKeywords,
+    ...keywords,
+  ]).join(", ");
   const pageUrl = canonicalUrl || defaultSEO.siteUrl;
   const pageImage = ogImage || `${defaultSEO.siteUrl}/images/og-default.png`;
 

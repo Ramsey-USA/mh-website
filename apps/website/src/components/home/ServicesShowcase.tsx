@@ -418,7 +418,7 @@ export function ServicesShowcase({
               <>
                 Understand each delivery lane from{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  preconstruction planning
+                  front-end planning controls
                 </span>{" "}
                 through active build and{" "}
                 <span className="font-bold text-gray-900 dark:text-white">

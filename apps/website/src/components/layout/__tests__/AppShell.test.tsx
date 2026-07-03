@@ -7,6 +7,11 @@ import { render, screen, within } from "@testing-library/react";
 import { AppShell } from "../AppShell";
 
 const mockUsePWA = jest.fn();
+const mockUsePathname = jest.fn(() => "/");
+
+jest.mock("next/navigation", () => ({
+  usePathname: () => mockUsePathname(),
+}));
 
 jest.mock("next/link", () => ({
   __esModule: true,
@@ -42,6 +47,7 @@ jest.mock("@/components/ui/cta", () => ({
 describe("AppShell", () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockUsePathname.mockReturnValue("/");
   });
 
   it("renders full website shell when not in standalone PWA mode", () => {
@@ -155,5 +161,72 @@ describe("AppShell", () => {
     const eventsBanner = screen.getByTestId("events-hub-banner");
 
     expect(footer.previousElementSibling).toBe(eventsBanner);
+  });
+
+  it("renders fallback breadcrumb after hero and before semiquincentennial banner", async () => {
+    mockUsePWA.mockReturnValue({
+      isStandalone: false,
+      isInstallable: true,
+      isIOS: false,
+    });
+
+    render(
+      <AppShell>
+        <>
+          <section data-page-hero="true" data-testid="page-hero">
+            Hero
+          </section>
+          <div>Body</div>
+        </>
+      </AppShell>,
+    );
+
+    const banner = await screen.findByTestId("semiquincentennial-banner");
+    const fallbackBreadcrumb = await screen.findByLabelText(
+      /breadcrumb navigation/i,
+    );
+    const hero = screen.getByTestId("page-hero");
+    const slotAfterHero = hero.nextElementSibling as HTMLElement | null;
+
+    expect(slotAfterHero).not.toBeNull();
+    expect(slotAfterHero?.dataset["semiquincentennialAfterHero"]).toBe("true");
+    expect(slotAfterHero?.contains(fallbackBreadcrumb)).toBe(true);
+    expect(slotAfterHero?.contains(banner)).toBe(true);
+    expect(
+      fallbackBreadcrumb.compareDocumentPosition(banner) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+  });
+
+  it("keeps fallback breadcrumb after hero on /events while suppressing semiquincentennial banner", async () => {
+    mockUsePathname.mockReturnValue("/events");
+    mockUsePWA.mockReturnValue({
+      isStandalone: false,
+      isInstallable: true,
+      isIOS: false,
+    });
+
+    render(
+      <AppShell>
+        <>
+          <section data-page-hero="true" data-testid="events-hero">
+            Events Hero
+          </section>
+          <div>Body</div>
+        </>
+      </AppShell>,
+    );
+
+    const fallbackBreadcrumb = await screen.findByLabelText(
+      /breadcrumb navigation/i,
+    );
+    const hero = screen.getByTestId("events-hero");
+    const slotAfterHero = hero.nextElementSibling as HTMLElement | null;
+
+    expect(slotAfterHero).not.toBeNull();
+    expect(slotAfterHero?.contains(fallbackBreadcrumb)).toBe(true);
+    expect(
+      screen.queryByTestId("semiquincentennial-banner"),
+    ).not.toBeInTheDocument();
   });
 });

@@ -7,6 +7,8 @@
 
 **Brand Congruency:** This checklist is a required gate for typography, color, voice, trust content, accessibility, and naming alignment.
 
+**Copy Congruency Rule:** Shared phrasing across pages is acceptable; duplicated phrasing within the same page is not.
+
 ---
 
 ## 📋 How to Use This Checklist
@@ -190,6 +192,16 @@
 <MaterialIcon icon="target" className="text-brand-primary" />
 // Comment: Complete
 ```
+
+---
+
+## ✍️ Copy and Terminology Quality
+
+- [ ] Public-facing copy avoids repeated sentence-level boilerplate within the same page file
+- [ ] Guarded phrasing patterns do not appear more than once in the same page file
+- [ ] Page/breadcrumb labels resolve through the dual terminology dictionary when applicable
+- [ ] Copy retains factual veteran-owned framing and relationship-first tone without hype
+- [ ] For terminology/copy edits, run: `npm test -- src/app/__tests__/public-copy-phrasing-guard.test.ts src/lib/branding/__tests__/page-names.test.ts`
 
 ---
 

@@ -13,6 +13,10 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 import { generateHowToSchema } from "@/lib/seo/howto-schema";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
@@ -174,7 +178,17 @@ export default function FAQPage() {
         </section>
 
         {/* Breadcrumb Navigation */}
-        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "FAQ" }]} />
+        <Breadcrumb
+          items={[
+            { label: "Home", href: "/" },
+            {
+              label: formatDualPageName(
+                PAGE_TERMINOLOGY.faq.seoName,
+                PAGE_TERMINOLOGY.faq.mhBrandName,
+              ),
+            },
+          ]}
+        />
 
         {/* Introduction Section */}
         <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">

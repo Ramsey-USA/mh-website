@@ -78,7 +78,7 @@ export const coreServices: CoreService[] = [
     title: "Master Planning (Pre-Construction)",
     subtitle: "Unlock Your Building's Potential with Comprehensive Planning",
     description:
-      'We align scope, budget, schedule, permitting, and trade sequencing before fieldwork starts. "Creating Value, from Proven Results." explains our preconstruction methods and reduces scope drift, change pressure, and avoidable delays.',
+      'We lock scope architecture, budget logic, permitting strategy, and trade sequence before mobilization. "Creating Value, from Proven Results." reflects this front-end discipline and helps prevent scope drift, change pressure, and avoidable delays.',
     features: [
       "Site and infrastructure analysis",
       "WA/OR/ID code compliance planning",
@@ -216,7 +216,7 @@ export const specialtyServices: SpecialtyService[] = [
     title: "Commercial New Build-Outs",
     subtitle: "Ground-Up Commercial Builds Done Right",
     description:
-      "We build new commercial facilities with clear preconstruction controls, disciplined field sequencing, and direct owner communication from site readiness through turnover.",
+      "We deliver ground-up commercial facilities with early constructability mapping, disciplined field sequence control, and direct owner communication from site readiness through turnover.",
     buildTypes: [
       "Retail stores and shopping centers",
       "Medical offices and clinics",

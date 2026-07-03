@@ -22,10 +22,7 @@ import { SkipLink } from "@/components/ui/accessibility/SkipLink";
 import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import {
-  formatDualPageName,
-  PAGE_TERMINOLOGY,
-} from "@/lib/branding/page-names";
+import { buildDualSeoTitle } from "@/lib/branding/page-names";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import {
   DEFAULT_LOCALE,
@@ -40,13 +37,16 @@ export const metadata: Metadata = withGeoMetadata({
     process.env["NEXT_PUBLIC_SITE_URL"] || COMPANY_INFO.urls.getSiteUrl(),
   ),
   title: {
-    default: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Construction Planning and Delivery | MH Construction`,
+    default: buildDualSeoTitle(
+      "home",
+      "Construction Planning and Delivery in WA, OR, and ID",
+    ),
     // Child routes already provide fully-branded titles in most cases.
     // Keep template neutral to avoid duplicate "| MH Construction" suffixes.
     template: "%s",
   },
   description:
-    "Home base for MH Construction services, project pathways, and planning resources across Washington, Oregon, and Idaho from our Tri-Cities headquarters. We pride ourselves on being the answer before the problem through Professional Pre-Construction and Handoff Procedures. Every complex project presents a minefield of operational risks—MHC neutralizes the variables and secures your delivery. Every build introduces unique structural and regulatory challenges. MHC provides the precise project management required to navigate them on time and within scope.",
+    "MH Construction delivers commercial, industrial, and public-sector project planning and delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters.",
   keywords: [
     "MH Construction home",
     "Tri-State construction center",
@@ -106,9 +106,12 @@ export const metadata: Metadata = withGeoMetadata({
     locale: "en_US",
     url: "https://www.mhc-gc.com",
     siteName: "MH Construction",
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Built on Quality, Backed by Trust. | Squared away from start to finish. | MH Construction`,
+    title: buildDualSeoTitle(
+      "home",
+      "Construction Planning and Delivery in WA, OR, and ID",
+    ),
     description:
-      "Construction services, planning resources, and project pathways for WA, OR, and ID from MH Construction's Tri-Cities headquarters.",
+      "Commercial, industrial, and public-sector planning and delivery from MH Construction across Washington, Oregon, and Idaho.",
     images: [
       {
         url: "/images/og-default.jpg",
@@ -122,9 +125,12 @@ export const metadata: Metadata = withGeoMetadata({
     card: "summary_large_image",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Built on Quality, Backed by Trust. | Squared away from start to finish. | MH Construction`,
+    title: buildDualSeoTitle(
+      "home",
+      "Construction Planning and Delivery in WA, OR, and ID",
+    ),
     description:
-      "Construction services and project planning resources from MH Construction across Washington, Oregon, and Idaho.",
+      "Commercial, industrial, and public-sector planning and delivery from MH Construction across Washington, Oregon, and Idaho.",
     images: ["/images/og-default.jpg"],
   },
   robots: {

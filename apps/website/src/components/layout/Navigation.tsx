@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "@/components/ui/layout/ThemeToggle";
@@ -60,7 +60,7 @@ export function Navigation() {
   const headerRef = useRef<HTMLElement>(null);
   const [menuTopOffset, setMenuTopOffset] = useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const root = document.documentElement;
 
     const updateOffset = () => {
@@ -105,8 +105,9 @@ export function Navigation() {
         servicesMenuHint: "Seleccione una ruta guiada",
         servicesOpenLabel: "Abrir menu de rutas de servicio",
         servicesCloseLabel: "Cerrar menu de rutas de servicio",
-        preconstructionFocusLabel: "PreConstruction Planning",
-        preconstructionFocusSubLabel: "(Planificacion preconstruccion)",
+        preconstructionFocusLabel: "PreConstruction Planning Prioritario",
+        preconstructionFocusSubLabel:
+          "Control de alcance, riesgo y handoff desde el inicio",
       }
     : {
         closeMenuLabel: "Close menu",
@@ -125,9 +126,9 @@ export function Navigation() {
         servicesMenuHint: "Select a guided delivery lane",
         servicesOpenLabel: "Open service lanes menu",
         servicesCloseLabel: "Close service lanes menu",
-        preconstructionFocusLabel: "PreConstruction Planning",
+        preconstructionFocusLabel: "PreConstruction Planning Priority",
         preconstructionFocusSubLabel:
-          "Major focus for handoffs and mistake prevention",
+          "Scope lock, risk controls, and cleaner handoffs before mobilization",
       };
   const serviceLaneMenuItems = isEs
     ? [
@@ -174,6 +175,23 @@ export function Navigation() {
     if (!isMenuOpen) {
       setIsServicesDropdownOpen(false);
     }
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return;
+    }
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+
+    globalThis.addEventListener("keydown", handleEscape);
+    return () => {
+      globalThis.removeEventListener("keydown", handleEscape);
+    };
   }, [isMenuOpen]);
 
   return (
@@ -417,7 +435,7 @@ export function Navigation() {
           <div className="z-10 relative flex h-full flex-col overflow-hidden px-3 py-3 sm:px-4 sm:py-4">
             {/* Main Navigation Links - rows fill available height */}
             <div className="min-h-0 flex-1 overflow-y-auto overflow-x-visible pr-0.5">
-              <div className="h-full grid grid-cols-4 gap-x-1.5 sm:gap-x-2 gap-y-1.5 sm:gap-y-2 auto-rows-fr">
+              <div className="h-full grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-x-1.5 sm:gap-x-2 gap-y-1.5 sm:gap-y-2 auto-rows-fr">
                 {menuItems.map((item) =>
                   item.href === "/#services" ? (
                     <div key={item.href} className="col-span-2 row-span-2">

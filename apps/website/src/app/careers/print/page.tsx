@@ -1,5 +1,7 @@
+import { buildDualSeoTitle } from "@/lib/branding/page-names";
+
 export const metadata = {
-  title: "Print Job Application | MH Construction",
+  title: buildDualSeoTitle("careers", "Printable Application"),
   description:
     "Download or print a blank job application form to bring to MH Construction in person. Available in English and Spanish.",
   alternates: {

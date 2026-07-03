@@ -6,6 +6,10 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Button } from "@/components/ui";
 import { StructuredData } from "@/components/seo/SeoMeta";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { manuals } from "@/lib/data/documents";
 import {
@@ -170,7 +174,7 @@ export async function generateMetadata({
   const cluster = getClusterBySlug(clusterSlug);
   if (!cluster) {
     return {
-      title: "Safety Manual | MH Construction",
+      title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyManual.seoName, PAGE_TERMINOLOGY.safetyManual.mhBrandName)} | MH Construction`,
       robots: { index: false, follow: false },
     };
   }
@@ -178,7 +182,7 @@ export async function generateMetadata({
   const range = `MISH ${String(cluster.min).padStart(2, "0")}–${String(
     cluster.max,
   ).padStart(2, "0")}`;
-  const title = `${cluster.name} (${range}) — MISH Safety Manual | MH Construction`;
+  const title = `${cluster.name} (${range}) — ${formatDualPageName(PAGE_TERMINOLOGY.safetyManual.seoName, PAGE_TERMINOLOGY.safetyManual.mhBrandName)} | MH Construction`;
   const description = `${cluster.description} Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Full section detail available to credentialed parties upon login.`;
   return {
     title,

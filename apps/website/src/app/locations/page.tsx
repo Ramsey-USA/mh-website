@@ -7,6 +7,10 @@ import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { Button, Card } from "@/components/ui";
 import { LocationsHero } from "@/components/locations/LocationsHero";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { locations } from "@/lib/data/locations";
 import { getTranslations } from "next-intl/server";
@@ -16,16 +20,16 @@ const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 const locationList = Object.values(locations);
 
 export const metadata: Metadata = {
-  title: "Locations | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.locations.seoName, PAGE_TERMINOLOGY.locations.mhBrandName)} | MH Construction`,
   description:
     "Service coverage across Washington, Oregon, and Idaho with local project proof for AG and winery facilities, commercial tenant improvements, and municipal builds.",
   alternates: {
     canonical: `${SITE_URL}/locations`,
   },
   openGraph: {
-    title: "Locations | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.locations.seoName, PAGE_TERMINOLOGY.locations.mhBrandName)} | MH Construction`,
     description:
-      "Service coverage across Washington, Oregon, and Idaho with local project proof for AG and winery facilities, commercial tenant improvements, and municipal builds.",
+      "Regional market profiles for Washington, Oregon, and Idaho with verified project examples and local delivery context.",
     url: `${SITE_URL}/locations`,
     type: "website",
     images: [
@@ -48,7 +52,7 @@ const locationsSchema = {
   "@type": "CollectionPage",
   "@id": `${SITE_URL}/locations#webpage`,
   url: `${SITE_URL}/locations`,
-  name: "Locations | MH Construction",
+  name: `${formatDualPageName(PAGE_TERMINOLOGY.locations.seoName, PAGE_TERMINOLOGY.locations.mhBrandName)} | MH Construction`,
   description:
     "Location-by-location service index for MH Construction across Washington, Oregon, and Idaho.",
   isPartOf: { "@id": `${SITE_URL}/#website` },

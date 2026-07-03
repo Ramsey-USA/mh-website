@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
+import { buildDualSeoTitle } from "@/lib/branding/page-names";
 import {
   breadcrumbPatterns,
   generateBreadcrumbSchema,
 } from "@/lib/seo/breadcrumb-schema";
 import { CoolDesertNightsPageClient } from "./CoolDesertNightsPageClient";
 
+const coolDesertNightsSeoTitle = buildDualSeoTitle(
+  "coolDesertNights",
+  "2026 Archive and Smoke n Shine Placements",
+);
+
 export const metadata: Metadata = withGeoMetadata({
-  title:
-    "Cool Desert Nights 2026 Archive | Smoke n Shine Placements | MH Construction",
+  title: coolDesertNightsSeoTitle,
   description:
     "Archive page for MH Construction's Cool Desert Nights 2026 participation, including Smoke n Shine placement highlights and event recap. For current and upcoming sponsored or hosted activities, visit the MH Construction Events hub.",
   keywords: [
@@ -23,8 +28,7 @@ export const metadata: Metadata = withGeoMetadata({
     canonical: "https://www.mhc-gc.com/cool-desert-nights",
   },
   openGraph: {
-    title:
-      "Cool Desert Nights 2026 Archive | Smoke n Shine Placements | MH Construction",
+    title: coolDesertNightsSeoTitle,
     description:
       "Archive recap of Cool Desert Nights 2026 and Smoke n Shine placements from MH Construction. For current and upcoming events, visit the Events hub.",
     url: "https://www.mhc-gc.com/cool-desert-nights",
@@ -45,10 +49,9 @@ export const metadata: Metadata = withGeoMetadata({
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Cool Desert Nights 2026 Archive | Smoke n Shine Placements | MH Construction",
+    title: coolDesertNightsSeoTitle,
     description:
-      "Archive recap of Cool Desert Nights 2026 and Smoke n Shine placements from MH Construction.",
+      "Review 2026 Cool Desert Nights highlights and Smoke n Shine results from MH Construction.",
     images: [
       "/images/events/cool-desert-nights/cool-desert-nights-2026.webp",
       "/images/og-default.webp",

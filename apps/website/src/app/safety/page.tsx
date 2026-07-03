@@ -11,11 +11,15 @@ import { PageTrackingClient } from "@/components/analytics";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { PWAInstallCTA } from "@/components/pwa";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 
 const SITE_URL = "https://www.mhc-gc.com";
 
 export const metadata: Metadata = withGeoMetadata({
-  title: "Safety Program | 0.64 EMR | AGC-WA Award | MH Construction Tri-State",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyProgram.seoName, PAGE_TERMINOLOGY.safetyProgram.mhBrandName)} | 0.64 EMR | AGC-WA Award | MH Construction Tri-State`,
   description:
     "MH Construction's safety program — 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written safety program aligned for WA, OR, and ID operations.",
   keywords: [
@@ -44,7 +48,7 @@ export const metadata: Metadata = withGeoMetadata({
     canonical: `${SITE_URL}/safety`,
   },
   openGraph: {
-    title: "Safety Program | 0.64 EMR, AGC-WA Award | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyProgram.seoName, PAGE_TERMINOLOGY.safetyProgram.mhBrandName)} | 0.64 EMR, AGC-WA Award | MH Construction`,
     description:
       "Safety is a value, not a rule. 0.64 EMR (40% below industry avg), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written safety program.",
     url: `${SITE_URL}/safety`,
@@ -64,7 +68,7 @@ export const metadata: Metadata = withGeoMetadata({
     card: "summary_large_image",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: "Safety Program | 0.64 EMR | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyProgram.seoName, PAGE_TERMINOLOGY.safetyProgram.mhBrandName)} | 0.64 EMR | MH Construction`,
     description:
       "0.64 EMR — 40% better than industry average. OSHA VPP Star designation. AGC-WA Top EMR Award.",
     images: [`${SITE_URL}/images/safety/safety-culture.webp`],

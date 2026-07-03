@@ -108,6 +108,22 @@ describe("Navigation", () => {
     expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();
   });
 
+  it("closes the menu when Escape is pressed anywhere", () => {
+    render(<Navigation />);
+
+    fireEvent.click(screen.getByRole("button", { name: /open menu/i }));
+    expect(screen.getAllByRole("button", { name: /close menu/i })).toHaveLength(
+      2,
+    );
+
+    fireEvent.keyDown(window, { key: "Escape" });
+
+    expect(
+      screen.getByRole("button", { name: /open menu/i }),
+    ).toBeInTheDocument();
+    expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();
+  });
+
   it("closes the menu after selecting a primary navigation link", async () => {
     const user = userEvent.setup();
 
@@ -267,6 +283,30 @@ describe("Navigation", () => {
       expect(
         screen.queryByLabelText("Close menu", { selector: "button" }),
       ).not.toBeInTheDocument();
+    }
+  });
+
+  it("keeps hamburger interactions reliable across representative viewport widths", async () => {
+    const user = userEvent.setup();
+
+    render(<Navigation />);
+
+    const widths = [320, 375, 768, 1024, 1440];
+    for (const width of widths) {
+      Object.defineProperty(window, "innerWidth", {
+        writable: true,
+        configurable: true,
+        value: width,
+      });
+      fireEvent(window, new Event("resize"));
+
+      await user.click(screen.getByRole("button", { name: /open menu/i }));
+      expect(
+        screen.getAllByRole("button", { name: /close menu/i }),
+      ).toHaveLength(2);
+
+      fireEvent.keyDown(window, { key: "Escape" });
+      expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();
     }
   });
 });

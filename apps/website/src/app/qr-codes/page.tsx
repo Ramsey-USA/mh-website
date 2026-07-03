@@ -12,6 +12,10 @@ import {
   BrandColorBlobs,
   DiagonalStripePattern,
 } from "@/components/ui/backgrounds";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 
 type QrCodeEntry = {
@@ -42,7 +46,7 @@ const FOLDER_LABELS: Record<string, string> = {
 const SITE_URL = "https://www.mhc-gc.com";
 
 export const metadata: Metadata = {
-  title: "QR Code Library | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.qrCodes.seoName, PAGE_TERMINOLOGY.qrCodes.mhBrandName)} | MH Construction`,
   description:
     "Browse every MH Construction QR code, view each image at full size, and download the PNG files individually.",
   alternates: {
@@ -53,7 +57,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "QR Code Library | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.qrCodes.seoName, PAGE_TERMINOLOGY.qrCodes.mhBrandName)} | MH Construction`,
     description:
       "Open and download every MH Construction QR code from one central library.",
     url: `${SITE_URL}/qr-codes`,
@@ -61,9 +65,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "QR Code Library | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.qrCodes.seoName, PAGE_TERMINOLOGY.qrCodes.mhBrandName)} | MH Construction`,
     description:
-      "Open and download every MH Construction QR code from one central library.",
+      "Access the full QR catalog and download exact PNG assets for field use.",
   },
 };
 

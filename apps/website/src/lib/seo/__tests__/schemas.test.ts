@@ -7,6 +7,10 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "../breadcrumb-schema";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 import { generateHowToSchema } from "../howto-schema";
 import {
   generateReviewSchema,
@@ -47,7 +51,12 @@ describe("generateBreadcrumbSchema()", () => {
     const { itemListElement } = generateBreadcrumbSchema([
       { name: "Contact", url: "https://www.mhc-gc.com/contact" },
     ]);
-    expect(itemListElement[0]!.name).toBe("Contact");
+    expect(itemListElement[0]!.name).toBe(
+      formatDualPageName(
+        PAGE_TERMINOLOGY.contact.seoName,
+        PAGE_TERMINOLOGY.contact.mhBrandName,
+      ),
+    );
     expect(itemListElement[0]!.item).toBe("https://www.mhc-gc.com/contact");
   });
 

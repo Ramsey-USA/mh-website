@@ -3,10 +3,7 @@
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { useLocale } from "@/hooks/useLocale";
-import {
-  formatDualPageName,
-  PAGE_TERMINOLOGY,
-} from "@/lib/branding/page-names";
+import { getDualPageName } from "@/lib/branding/page-names";
 
 export interface BreadcrumbItem {
   label: string;
@@ -19,23 +16,8 @@ interface BreadcrumbProps {
   source?: "page" | "fallback";
 }
 
-const DUAL_BREADCRUMB_LABELS: Record<string, string> = {
-  Home: formatDualPageName(
-    PAGE_TERMINOLOGY.home.seoName,
-    PAGE_TERMINOLOGY.home.mhBrandName,
-  ),
-  "About Us": formatDualPageName(
-    PAGE_TERMINOLOGY.about.seoName,
-    PAGE_TERMINOLOGY.about.mhBrandName,
-  ),
-  Projects: formatDualPageName(
-    PAGE_TERMINOLOGY.projects.seoName,
-    PAGE_TERMINOLOGY.projects.mhBrandName,
-  ),
-};
-
 function getBreadcrumbDisplayLabel(label: string): string {
-  return DUAL_BREADCRUMB_LABELS[label] ?? label;
+  return getDualPageName(label);
 }
 
 /**
@@ -82,7 +64,11 @@ export function Breadcrumb({
       className={`bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 py-3 ${className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ol className="flex items-center space-x-2 text-sm overflow-x-auto scrollbar-hide">
+        <ol
+          className="flex items-center space-x-2 text-sm overflow-x-auto scrollbar-hide"
+          itemScope
+          itemType="https://schema.org/BreadcrumbList"
+        >
           {items.map((item, index) => {
             const isLast = index === items.length - 1;
 
@@ -90,6 +76,9 @@ export function Breadcrumb({
               <li
                 key={item.href || `breadcrumb-${index}`}
                 className="flex items-center shrink-0"
+                itemProp="itemListElement"
+                itemScope
+                itemType="https://schema.org/ListItem"
               >
                 {index > 0 && (
                   <MaterialIcon
@@ -105,6 +94,7 @@ export function Breadcrumb({
                   <span
                     className="text-gray-900 dark:text-white font-medium"
                     aria-current="page"
+                    itemProp="name"
                   >
                     {getBreadcrumbDisplayLabel(item.label)}
                   </span>
@@ -112,11 +102,15 @@ export function Breadcrumb({
                   // Clickable parent page link
                   <Link
                     href={item.href}
+                    itemProp="item"
                     className="text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 rounded px-1"
                   >
-                    {getBreadcrumbDisplayLabel(item.label)}
+                    <span itemProp="name">
+                      {getBreadcrumbDisplayLabel(item.label)}
+                    </span>
                   </Link>
                 )}
+                <meta itemProp="position" content={String(index + 1)} />
               </li>
             );
           })}

@@ -7,6 +7,10 @@ import { Button, Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getFAQCategoryBySlug, getFAQCategorySlugs } from "@/lib/data/faq-data";
@@ -148,14 +152,14 @@ export async function generateMetadata({
 
   if (!faqCategory) {
     return {
-      title: "FAQ | MH Construction",
+      title: `${formatDualPageName(PAGE_TERMINOLOGY.faq.seoName, PAGE_TERMINOLOGY.faq.mhBrandName)} | MH Construction`,
       description:
         "Browse MH Construction frequently asked questions by topic to review process, service lines, safety, and partnership details.",
       robots: { index: false, follow: false },
     };
   }
 
-  const title = `${faqCategory.title} FAQ | MH Construction`;
+  const title = `${faqCategory.title} | ${formatDualPageName(PAGE_TERMINOLOGY.faq.seoName, PAGE_TERMINOLOGY.faq.mhBrandName)} | MH Construction`;
   const description = faqCategory.metaDescription;
 
   return {

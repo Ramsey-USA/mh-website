@@ -3,9 +3,15 @@
  * Helps search engines understand site hierarchy
  */
 
+import { getDualPageName } from "@/lib/branding/page-names";
+
 export interface BreadcrumbItem {
   name: string;
   url: string;
+}
+
+function toDualSchemaLabel(name: string): string {
+  return getDualPageName(name);
 }
 
 export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
@@ -15,7 +21,7 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
     itemListElement: items.map((item, _index) => ({
       "@type": "ListItem",
       position: _index + 1,
-      name: item.name,
+      name: toDualSchemaLabel(item.name),
       item: item.url,
     })),
   };

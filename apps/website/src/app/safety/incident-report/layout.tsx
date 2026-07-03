@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 
 export const metadata: Metadata = {
-  title: "Safety Incident Report | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.incidentReport.seoName, PAGE_TERMINOLOGY.incidentReport.mhBrandName)} | MH Construction`,
   description:
     "Authorized team incident report submission interface for MH Construction safety workflows.",
   alternates: {

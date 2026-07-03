@@ -34,12 +34,6 @@
   font-feature-settings: "liga";
 }
 
-/* Hide breadcrumb navigation globally */
-nav[aria-label="Breadcrumb navigation"],
-nav[aria-label="Navegacion de ruta"] {
-  display: none;
-}
-
 /* ============================================
    TAILWIND LAYER EXTENSIONS
    Clean utility classes in proper layers
@@ -242,6 +236,7 @@ nav[aria-label="Navegacion de ruta"] {
 
   /* Dark mode color scheme for native browser elements */
   :root {
+    --mh-nav-offset: 7rem;
     color-scheme: light;
   }
 

@@ -25,6 +25,14 @@ describe("Breadcrumb", () => {
     PAGE_TERMINOLOGY.home.seoName,
     PAGE_TERMINOLOGY.home.mhBrandName,
   );
+  const dualServicesLabel = formatDualPageName(
+    PAGE_TERMINOLOGY.services.seoName,
+    PAGE_TERMINOLOGY.services.mhBrandName,
+  );
+  const dualAboutLabel = formatDualPageName(
+    PAGE_TERMINOLOGY.about.seoName,
+    PAGE_TERMINOLOGY.about.mhBrandName,
+  );
   const items = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/#services" },
@@ -44,10 +52,9 @@ describe("Breadcrumb", () => {
       "href",
       "/",
     );
-    expect(screen.getByRole("link", { name: "Services" })).toHaveAttribute(
-      "href",
-      "/#services",
-    );
+    expect(
+      screen.getByRole("link", { name: dualServicesLabel }),
+    ).toHaveAttribute("href", "/#services");
   });
 
   it("renders the last item as non-linked with aria-current", () => {
@@ -90,7 +97,7 @@ describe("Breadcrumb", () => {
       />,
     );
     // Last item "About" should be non-linked (isLast = true)
-    const about = screen.getByText("About");
+    const about = screen.getByText(dualAboutLabel);
     expect(about.tagName).toBe("SPAN");
   });
 });

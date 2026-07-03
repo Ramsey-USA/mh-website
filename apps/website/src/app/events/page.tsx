@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
+import { buildDualSeoTitle } from "@/lib/branding/page-names";
 import {
   breadcrumbPatterns,
   generateBreadcrumbSchema,
 } from "@/lib/seo/breadcrumb-schema";
 import { EventsLandingPageClient } from "./EventsLandingPageClient";
+
+const eventsSeoTitle = buildDualSeoTitle(
+  "events",
+  "Sponsored and Hosted Community Events",
+);
 
 const eventsHubStructuredData = {
   "@context": "https://schema.org",
@@ -65,7 +71,7 @@ const eventsHubStructuredData = {
 };
 
 export const metadata: Metadata = withGeoMetadata({
-  title: "MH Construction Events | Sponsored and Hosted Community Events",
+  title: eventsSeoTitle,
   description:
     "Explore MH Construction sponsored and hosted events in Pasco, Richland, and Kennewick, including archived Smoke n Shine placements, event media, and upcoming community engagements across WA, OR, and ID.",
   keywords: [
@@ -85,7 +91,7 @@ export const metadata: Metadata = withGeoMetadata({
     canonical: "https://www.mhc-gc.com/events",
   },
   openGraph: {
-    title: "MH Construction Events | Sponsored and Hosted Community Events",
+    title: eventsSeoTitle,
     description:
       "Archived Smoke n Shine placements, event photos, and upcoming MH Construction community events across Tri-Cities and the Pacific Northwest.",
     url: "https://www.mhc-gc.com/events",
@@ -100,9 +106,9 @@ export const metadata: Metadata = withGeoMetadata({
   },
   twitter: {
     card: "summary_large_image",
-    title: "MH Construction Events | Sponsored and Hosted Community Events",
+    title: eventsSeoTitle,
     description:
-      "Archived Smoke n Shine placements, event photos, and upcoming MH Construction community events across Tri-Cities and the Pacific Northwest.",
+      "See event recaps, gallery highlights, and upcoming MH Construction community engagements across Tri-Cities and the Pacific Northwest.",
     images: [
       "/images/events/cool-desert-nights/smoke-n-shine-showdown-graphic.webp",
     ],

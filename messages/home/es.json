@@ -308,27 +308,27 @@
     "steps": [
       {
         "title": "Ingreso y Calificación",
-        "desc": "Desde el inicio se definen encaje, objetivos y restricciones para alinear la ruta de entrega en AG, bodegas y obra municipal."
+        "desc": "Desde el primer contacto se establecen objetivos, restricciones y criterio de éxito para elegir ruta con contexto validado, no con supuestos."
       },
       {
         "title": "Planificación de Preconstrucción",
-        "desc": "Estimación lidera presupuesto previo, definición de alcance y controles de riesgo para validar rutas realistas antes de movilizar obra."
+        "desc": "Estimación lidera inteligencia de costos, arquitectura de alcance y modelado de riesgo para alinear secuencia, compras y presupuesto antes de movilizar campo."
       },
       {
         "title": "Control de Ejecución",
-        "desc": "Superintendentes dirigen campo y PM gestionan controles de entrega. Los cambios siguen controles de aprobación definidos con revisión ejecutiva cuando es necesario."
+        "desc": "Superintendencia dirige producción en obra y PM sostiene bucles de control para mantener ritmo, cambios y comunicación bajo una misma cadencia operativa."
       },
       {
         "title": "Validacion de Calidad y Seguridad",
-        "desc": "Los controles de calidad y seguridad son continuos. El superintendente puede detener trabajo de inmediato, con escalamiento por PM, Safety Officer, COO y Owner según necesidad."
+        "desc": "La verificación de calidad y seguridad es permanente, con autoridad de stop-work en campo y escalamiento estructurado por PM, Safety Officer, COO y Owner."
       },
       {
         "title": "Entrega y Cierre",
-        "desc": "Antes del traspaso se verifica paquete de cierre, avance de punch list y preparación de entrega. Owner y President aprueban el cierre final."
+        "desc": "Antes del traspaso se consolida punch list, se valida paquete de cierre y se confirma entrega lista para cliente con aprobación final de liderazgo."
       },
       {
         "title": "Soporte Posterior al Cierre",
-        "desc": "El PM original gestiona garantía con autorización del COO. Marketing y Estimación mantienen seguimiento y continuidad de comunicación tras la entrega."
+        "desc": "Tras la entrega se mantiene continuidad con PM responsable de garantía, autorización del COO y seguimiento coordinado entre estimación y comunicación con cliente."
       }
     ]
   }

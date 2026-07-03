@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 
 const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 
 export const metadata: Metadata = withGeoMetadata({
-  title: "Safety Program | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyProgram.seoName, PAGE_TERMINOLOGY.safetyProgram.mhBrandName)} | MH Construction`,
   description:
     "MH Construction's award-winning written safety program with 0.64 EMR (40% below industry average), OSHA 29 CFR 1926 alignment, AGC CSEA alignment, and applicable WA/OR/ID requirements.",
   alternates: {
@@ -16,7 +20,7 @@ export const metadata: Metadata = withGeoMetadata({
     follow: true,
   },
   openGraph: {
-    title: "Safety Program | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyProgram.seoName, PAGE_TERMINOLOGY.safetyProgram.mhBrandName)} | MH Construction`,
     description:
       "0.64 EMR · written safety program aligned with OSHA 29 CFR 1926 and AGC CSEA expectations · AGC-WA award winner.",
     type: "website",

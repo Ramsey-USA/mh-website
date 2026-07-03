@@ -2,11 +2,16 @@
 import { type Metadata } from "next";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
+import {
+  buildDualSeoTitle,
+  normalizeMhKeywordList,
+  normalizeMhPhrasesInText,
+} from "@/lib/branding/page-names";
 
 // Enhanced company information
 export const enhancedSEO = {
   siteName: COMPANY_INFO.name,
-  defaultTitle: "Home | Construction Planning and Delivery | MH Construction",
+  defaultTitle: buildDualSeoTitle("home", "Construction Planning and Delivery"),
   defaultDescription:
     "MH Construction delivers construction planning and execution across Washington, Oregon, and Idaho from Tri-Cities headquarters, including commercial, industrial, municipal, and public-sector work.",
   siteUrl: COMPANY_INFO.urls.getSiteUrl(),
@@ -564,7 +569,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "What types of construction services do you provide?",
       answer:
-        "MH Construction provides commercial, industrial, and government project delivery, including general contracting, construction management, preconstruction planning, tenant improvements, light industrial builds, design-build, and facility renovations.",
+        "MH Construction provides commercial, industrial, and government project delivery, including general contracting, construction management, front-end scope planning, tenant improvements, light industrial builds, design-build, and facility renovations.",
     },
     {
       question: "How can I get started with my construction project?",
@@ -853,11 +858,16 @@ export function generateEnhancedMetadata({
   schemas?: object[];
 }): Metadata & { schemas: object[] } {
   const pageTitle = title
-    ? `${title} | ${enhancedSEO.siteName}`
+    ? `${normalizeMhPhrasesInText(title)} | ${enhancedSEO.siteName}`
     : enhancedSEO.defaultTitle;
 
-  const pageDescription = description || enhancedSEO.defaultDescription;
-  const pageKeywords = [...enhancedSEO.defaultKeywords, ...keywords].join(", ");
+  const pageDescription = normalizeMhPhrasesInText(
+    description || enhancedSEO.defaultDescription,
+  );
+  const pageKeywords = normalizeMhKeywordList([
+    ...enhancedSEO.defaultKeywords,
+    ...keywords,
+  ]).join(", ");
   const pageUrl = canonicalUrl || enhancedSEO.siteUrl;
   const pageImage = ogImage || `${enhancedSEO.siteUrl}/images/og-default.png`;
 

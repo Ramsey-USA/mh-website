@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 
 const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 
@@ -68,7 +72,7 @@ const accessibilitySchemas = [
 ];
 
 export const metadata: Metadata = withGeoMetadata({
-  title: "Accessibility Statement | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.accessibility.seoName, PAGE_TERMINOLOGY.accessibility.mhBrandName)} | MH Construction`,
   description:
     "Read MH Construction's accessibility statement and WCAG commitment for a usable, inclusive digital experience across the Pacific Northwest.",
   keywords: [
@@ -86,7 +90,7 @@ export const metadata: Metadata = withGeoMetadata({
     follow: true,
   },
   openGraph: {
-    title: "Accessibility Statement | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.accessibility.seoName, PAGE_TERMINOLOGY.accessibility.mhBrandName)} | MH Construction`,
     description:
       "Our accessibility commitment: continuous WCAG-aligned improvements for all visitors.",
     type: "website",
@@ -95,7 +99,7 @@ export const metadata: Metadata = withGeoMetadata({
   },
   twitter: {
     card: "summary",
-    title: "Accessibility Statement | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.accessibility.seoName, PAGE_TERMINOLOGY.accessibility.mhBrandName)} | MH Construction`,
     description:
       "WCAG-focused accessibility commitment for the MH Construction website.",
   },

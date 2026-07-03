@@ -487,7 +487,7 @@ export const locations: Record<string, LocationData> = {
       title: "Serving Tacoma and Pierce County",
       description: [
         "Tacoma and the greater Pierce County service area require disciplined planning, clear communication, and reliable execution across commercial and public-facing projects. MH Construction brings a Veteran-Owned, relationship-first operating model to every Tacoma engagement.",
-        "Licensed in Washington, Oregon, and Idaho, our team supports Tacoma clients with transparent preconstruction, proactive coordination, and accountability through close-out.",
+        "Licensed in Washington, Oregon, and Idaho, our team supports Tacoma clients with transparent front-end planning controls, proactive coordination, and accountability through closeout.",
       ],
     },
     servicePriorities: [

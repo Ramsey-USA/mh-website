@@ -4,11 +4,15 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TrackedBridgeButton } from "@/components/analytics";
 import { Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 
 export const metadata: Metadata = {
-  title: "Veteran-Led Compliance Workflow | Public Sector | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Led Compliance Workflow | MH Construction`,
   description:
     "Review MH Construction's veteran-led workflow for public-sector preconstruction, procurement readiness, and execution oversight.",
   alternates: {
@@ -52,7 +56,7 @@ export default function VeteranLedCompliancePage() {
           <Breadcrumbs
             items={[
               { label: "Home", href: "/" },
-              { label: "Public Sector", href: "/public-sector" },
+              { label: "Government", href: "/public-sector" },
               { label: "Veteran-Led Compliance" },
             ]}
             className="mb-6 text-white/70"

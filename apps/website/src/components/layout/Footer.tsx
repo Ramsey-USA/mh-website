@@ -22,10 +22,7 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 import { WaVobBadge } from "@/components/ui/WaVobBadge";
 import { trackFormSubmit } from "@/lib/analytics/tracking";
 import { useLocale } from "@/hooks/useLocale";
-import {
-  formatDualPageSummary,
-  PAGE_TERMINOLOGY,
-} from "@/lib/branding/page-names";
+import { PAGE_TERMINOLOGY } from "@/lib/branding/page-names";
 
 type FooterNavItem = {
   href: string;
@@ -71,78 +68,95 @@ const navCol1Links: FooterNavItem[] = [
   {
     href: "/",
     icon: "home",
-    label: "Home",
-    sub: formatDualPageSummary("Overview", PAGE_TERMINOLOGY.home.mhBrandName),
+    label: PAGE_TERMINOLOGY.home.seoName,
+    sub: PAGE_TERMINOLOGY.home.mhBrandName,
   },
   {
     href: "/contact",
     icon: "contact_phone",
-    label: "Contact",
-    sub: "Contact",
+    label: PAGE_TERMINOLOGY.contact.seoName,
+    sub: PAGE_TERMINOLOGY.contact.mhBrandName,
   },
   {
     href: "/#services",
     icon: "build",
-    label: "Services",
-    sub: "Operations",
+    label: PAGE_TERMINOLOGY.services.seoName,
+    sub: PAGE_TERMINOLOGY.services.mhBrandName,
   },
   {
     href: "/projects",
     icon: "photo_library",
-    label: "Projects",
-    sub: formatDualPageSummary(
-      "Portfolio",
-      PAGE_TERMINOLOGY.projects.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.projects.seoName,
+    sub: PAGE_TERMINOLOGY.projects.mhBrandName,
   },
   {
     href: "/events",
     icon: "event",
-    label: "Events",
-    sub: "Community Events",
+    label: PAGE_TERMINOLOGY.events.seoName,
+    sub: PAGE_TERMINOLOGY.events.mhBrandName,
   },
   {
     href: "/resources",
     icon: "folder_open",
-    label: "Resources",
-    sub: "Resources",
+    label: PAGE_TERMINOLOGY.resources.seoName,
+    sub: PAGE_TERMINOLOGY.resources.mhBrandName,
   },
   {
     href: "/safety",
     icon: "verified_user",
-    label: "Safety",
-    sub: "Safety",
+    label: PAGE_TERMINOLOGY.safety.seoName,
+    sub: PAGE_TERMINOLOGY.safety.mhBrandName,
   },
-  { href: "/faq", icon: "help", label: "Help/FAQ", sub: "FAQ" },
+  {
+    href: "/faq",
+    icon: "help",
+    label: PAGE_TERMINOLOGY.faq.seoName,
+    sub: PAGE_TERMINOLOGY.faq.mhBrandName,
+  },
 ];
 
 const navCol2Links: FooterNavItem[] = [
   {
     href: "/about",
     icon: "military_tech",
-    label: "About Us",
-    sub: formatDualPageSummary("About", PAGE_TERMINOLOGY.about.mhBrandName),
+    label: PAGE_TERMINOLOGY.about.seoName,
+    sub: PAGE_TERMINOLOGY.about.mhBrandName,
   },
-  { href: "/team", icon: "groups", label: "Our Team", sub: "Leadership" },
-  { href: "/allies", icon: "handshake", label: "Partners", sub: "Allies" },
+  {
+    href: "/team",
+    icon: "groups",
+    label: PAGE_TERMINOLOGY.team.seoName,
+    sub: PAGE_TERMINOLOGY.team.mhBrandName,
+  },
+  {
+    href: "/allies",
+    icon: "handshake",
+    label: PAGE_TERMINOLOGY.allies.seoName,
+    sub: PAGE_TERMINOLOGY.allies.mhBrandName,
+  },
   {
     href: "/public-sector",
     icon: "account_balance",
-    label: "Government",
-    sub: "Public Sector",
+    label: PAGE_TERMINOLOGY.publicSector.seoName,
+    sub: PAGE_TERMINOLOGY.publicSector.mhBrandName,
   },
   {
     href: "/veterans",
     icon: "workspace_premium",
-    label: "Veterans",
-    sub: "Veterans",
+    label: PAGE_TERMINOLOGY.veterans.seoName,
+    sub: PAGE_TERMINOLOGY.veterans.mhBrandName,
   },
-  { href: "/careers", icon: "work", label: "Careers", sub: "Opportunities" },
+  {
+    href: "/careers",
+    icon: "work",
+    label: PAGE_TERMINOLOGY.careers.seoName,
+    sub: PAGE_TERMINOLOGY.careers.mhBrandName,
+  },
   {
     href: "/testimonials",
     icon: "star",
-    label: "Reviews",
-    sub: "Reviews",
+    label: PAGE_TERMINOLOGY.testimonials.seoName,
+    sub: PAGE_TERMINOLOGY.testimonials.mhBrandName,
   },
 ];
 

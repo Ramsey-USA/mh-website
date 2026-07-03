@@ -8,6 +8,10 @@ import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { manuals } from "@/lib/data/documents";
 import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
+import {
   SAFETY_MANUAL_CLUSTERS,
   clusterForSection,
 } from "@/lib/data/safety-manual-clusters";
@@ -15,7 +19,7 @@ import {
 const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 
 export const metadata: Metadata = {
-  title: "Safety Manual — Table of Contents | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyContents.seoName, PAGE_TERMINOLOGY.safetyContents.mhBrandName)} | MH Construction`,
   description:
     "Browse all 50 sections of MH Construction's MISH Safety & Health Program. Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Full manual access requires login.",
   alternates: {
@@ -26,7 +30,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Safety Manual — Table of Contents | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyContents.seoName, PAGE_TERMINOLOGY.safetyContents.mhBrandName)} | MH Construction`,
     description:
       "50-section MISH Safety & Health Program index with cluster navigation and credentialed access pathways.",
     type: "website",

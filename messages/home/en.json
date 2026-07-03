@@ -308,27 +308,27 @@
     "steps": [
       {
         "title": "Intake and Qualification",
-        "desc": "Define fit, goals, and constraints upfront so the right delivery path is clear for AG, Winery, and Municipal work."
+        "desc": "Frame project intent, decision constraints, and success criteria at intake so lane selection starts from verified context instead of assumptions."
       },
       {
         "title": "Preconstruction Planning",
-        "desc": "Estimators lead budget intelligence, scope planning, and risk controls before field mobilization. \"Creating Value, from Proven Results.\" explains our preconstruction methods."
+        "desc": "Run estimate intelligence, scope architecture, and risk modeling before mobilization so cost, sequence, and procurement stay synchronized. \"Creating Value, from Proven Results.\" anchors this planning discipline."
       },
       {
         "title": "Execution Control",
-        "desc": "Superintendents lead field execution while PMs manage delivery controls. Changes follow defined approval controls with executive oversight when required."
+        "desc": "Coordinate superintendent-led field production with PM-led control loops so schedule pressure, change decisions, and communication cadence remain stable."
       },
       {
         "title": "Quality and Safety Validation",
-        "desc": "Quality checkpoints and safety enforcement are continuous. Superintendents hold stop-work authority with defined escalation through PM, Safety Officer, COO, and Owner."
+        "desc": "Apply continuous QA and safety verification with stop-work authority at the field edge, plus structured escalation through PM, Safety Officer, COO, and Owner."
       },
       {
         "title": "Handoff and Closeout",
-        "desc": "Verify closeout packages, punch-list completion, and turnover readiness before handoff. Owner and President provides final closeout sign-off."
+        "desc": "Complete punch convergence, turnover package verification, and client-ready documentation before sign-off by ownership leadership."
       },
       {
         "title": "Post-Closeout Support",
-        "desc": "The original PM owns warranty handling with COO authorization. Marketing and Estimation teams maintain follow-up after turnover."
+        "desc": "Keep continuity after turnover through PM-owned warranty coordination, COO-backed approvals, and structured follow-up across estimating and client-facing teams."
       }
     ]
   }

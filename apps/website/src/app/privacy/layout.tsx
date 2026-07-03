@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 
 const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 
@@ -55,7 +59,7 @@ const privacySchemas = [
 ];
 
 export const metadata: Metadata = withGeoMetadata({
-  title: "Privacy Policy | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.privacy.seoName, PAGE_TERMINOLOGY.privacy.mhBrandName)} | MH Construction`,
   description:
     "Review how MH Construction collects, uses, and protects personal information for consultations, careers, and website services.",
   keywords: [
@@ -73,7 +77,7 @@ export const metadata: Metadata = withGeoMetadata({
     follow: true,
   },
   openGraph: {
-    title: "Privacy Policy | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.privacy.seoName, PAGE_TERMINOLOGY.privacy.mhBrandName)} | MH Construction`,
     description:
       "How MH Construction protects your data and handles privacy across contact and project workflows.",
     type: "website",
@@ -82,7 +86,7 @@ export const metadata: Metadata = withGeoMetadata({
   },
   twitter: {
     card: "summary",
-    title: "Privacy Policy | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.privacy.seoName, PAGE_TERMINOLOGY.privacy.mhBrandName)} | MH Construction`,
     description:
       "Data handling and privacy practices for MH Construction website users.",
   },

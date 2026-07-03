@@ -68,9 +68,9 @@ describe("generateSEOMetadata()", () => {
   it("generates default metadata when called with no options", () => {
     const meta = generateSEOMetadata({});
     expect(meta.title).toBe(
-      "MH Construction - Veteran-Owned Construction Excellence in the Pacific Northwest",
+      "Home (Command Center) | Construction Services in Washington, Oregon, and Idaho | MH Construction",
     );
-    expect(meta.description).toMatch(/exceptional/i);
+    expect(meta.description).toMatch(/construction services/i);
     expect((meta as any).robots).toBe("index,follow");
   });
 

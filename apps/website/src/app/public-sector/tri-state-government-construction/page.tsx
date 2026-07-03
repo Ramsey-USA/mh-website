@@ -4,11 +4,15 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TrackedBridgeButton, TrackedBridgeLink } from "@/components/analytics";
 import { Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 
 export const metadata: Metadata = {
-  title: "Tri-State Government Construction | Public Sector | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.triStateGovernmentConstruction.seoName, PAGE_TERMINOLOGY.triStateGovernmentConstruction.mhBrandName)} | MH Construction`,
   description:
     "Regional strategy for government construction across Washington, Oregon, and Idaho, aligned to location coverage and service pathways.",
   alternates: {
@@ -43,7 +47,7 @@ export default function TriStateGovernmentConstructionPage() {
           <Breadcrumbs
             items={[
               { label: "Home", href: "/" },
-              { label: "Public Sector", href: "/public-sector" },
+              { label: "Government", href: "/public-sector" },
               { label: "Tri-State Government Construction" },
             ]}
             className="mb-6 text-white/70"

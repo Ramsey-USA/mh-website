@@ -104,15 +104,11 @@ function AppShellBreadcrumbFallback() {
 function SemiquincentennialAfterHeroSlot() {
   const pathname = usePathname();
   const [slot, setSlot] = useState<HTMLElement | null>(null);
+  const showSemiquincentennialBanner =
+    pathname !== "/cool-desert-nights" && pathname !== "/events";
 
   useEffect(() => {
     setSlot(null);
-
-    // Preserve campaign exclusion for the event destination page and its
-    // first-class /events entry route.
-    if (pathname === "/cool-desert-nights" || pathname === "/events") {
-      return;
-    }
 
     let cancelled = false;
     let attempts = 0;
@@ -170,7 +166,13 @@ function SemiquincentennialAfterHeroSlot() {
 
   if (!slot) return null;
 
-  return createPortal(<SemiquincentennialBanner />, slot);
+  return createPortal(
+    <>
+      <AppShellBreadcrumbFallback />
+      {showSemiquincentennialBanner ? <SemiquincentennialBanner /> : null}
+    </>,
+    slot,
+  );
 }
 
 export function AppShell({ children }: Readonly<AppShellProps>) {
@@ -220,7 +222,6 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
         <Navigation />
         <div className="flex min-h-screen flex-col bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
           <main id="main-content" className="grow pt-(--mh-nav-offset,6.5rem)">
-            <AppShellBreadcrumbFallback />
             {children}
             <SemiquincentennialAfterHeroSlot />
           </main>
@@ -272,7 +273,6 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
           id="main-content"
           className="grow pt-[calc(var(--mh-nav-offset,6.5rem)+var(--mh-pwa-nav-offset,0px)+1rem)]"
         >
-          <AppShellBreadcrumbFallback />
           {children}
           <SemiquincentennialAfterHeroSlot />
         </main>

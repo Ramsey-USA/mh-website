@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { PageNavigation } from "../PageNavigation";
 import type { NavigationItem } from "../navigationConfigs";
+import { PAGE_TERMINOLOGY } from "@/lib/branding/page-names";
 
 let _navErrorSpy: jest.SpyInstance;
 beforeAll(() => {
@@ -91,13 +92,16 @@ describe("PageNavigation", () => {
   it("marks current route with aria-current", () => {
     mockPathname.mockReturnValue("/");
     render(<PageNavigation items={items} />);
-    expect(screen.getByRole("link", { name: "Services" })).toHaveAttribute(
-      "aria-current",
-      "page",
-    );
-    expect(screen.getByRole("link", { name: "About Us" })).not.toHaveAttribute(
-      "aria-current",
-    );
+    expect(
+      screen.getByRole("link", {
+        name: new RegExp(PAGE_TERMINOLOGY.home.mhBrandName, "i"),
+      }),
+    ).toHaveAttribute("aria-current", "page");
+    expect(
+      screen.getByRole("link", {
+        name: new RegExp(PAGE_TERMINOLOGY.about.mhBrandName, "i"),
+      }),
+    ).not.toHaveAttribute("aria-current");
   });
 
   it("shows a More overlay trigger when enabled", () => {
@@ -120,14 +124,20 @@ describe("PageNavigation", () => {
     expect(
       screen.getByRole("menu", { name: /more pages/i }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("menuitem", { name: "Events" })).toHaveAttribute(
-      "href",
-      "/events",
-    );
-    expect(screen.getByRole("menuitem", { name: "Team Hub" })).toHaveAttribute(
-      "href",
-      "/hub",
-    );
+    expect(
+      screen.getByRole("menuitem", {
+        name: new RegExp(PAGE_TERMINOLOGY.events.mhBrandName, "i"),
+      }),
+    ).toHaveAttribute("href", "/events");
+    expect(
+      screen.getByRole("menuitem", {
+        name: new RegExp(PAGE_TERMINOLOGY.hub.mhBrandName, "i"),
+      }),
+    ).toHaveAttribute("href", "/hub");
+    expect(
+      screen.getByText(PAGE_TERMINOLOGY.events.seoName),
+    ).toBeInTheDocument();
+    expect(screen.getByText(PAGE_TERMINOLOGY.hub.seoName)).toBeInTheDocument();
   });
 
   it("closes overlay on Escape and restores focus to trigger", () => {

@@ -4,13 +4,17 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TrackedBridgeButton, TrackedBridgeLink } from "@/components/analytics";
 import { Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { getTranslations } from "next-intl/server";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 
 export const metadata: Metadata = {
-  title: "Veteran-Led Public Sector Construction | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Led Public Sector Construction | MH Construction`,
   description:
     "Bridge veteran-focused values with public-sector project delivery. Learn how MH Construction aligns disciplined execution, transparency, and compliance for government work.",
   alternates: {

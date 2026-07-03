@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { buildDualSeoTitle } from "@/lib/branding/page-names";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 export const metadata: Metadata = {
-  title: "404 – Page Not Found | MH Construction",
+  title: buildDualSeoTitle("home", "404 Page Not Found"),
   robots: { index: false, follow: false },
 };
 

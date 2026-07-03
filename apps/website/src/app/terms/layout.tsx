@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 
 const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 
@@ -55,7 +59,7 @@ const termsSchemas = [
 ];
 
 export const metadata: Metadata = withGeoMetadata({
-  title: "Terms of Service | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.terms.seoName, PAGE_TERMINOLOGY.terms.mhBrandName)} | MH Construction`,
   description:
     "Read MH Construction's website terms of service, usage conditions, and legal terms for digital content and service inquiries.",
   keywords: [
@@ -73,7 +77,7 @@ export const metadata: Metadata = withGeoMetadata({
     follow: true,
   },
   openGraph: {
-    title: "Terms of Service | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.terms.seoName, PAGE_TERMINOLOGY.terms.mhBrandName)} | MH Construction`,
     description:
       "Website usage terms, legal disclaimers, and service agreement boundaries.",
     type: "website",
@@ -82,7 +86,7 @@ export const metadata: Metadata = withGeoMetadata({
   },
   twitter: {
     card: "summary",
-    title: "Terms of Service | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.terms.seoName, PAGE_TERMINOLOGY.terms.mhBrandName)} | MH Construction`,
     description:
       "Legal terms governing use of MH Construction digital properties.",
   },

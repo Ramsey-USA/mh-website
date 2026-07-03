@@ -45,7 +45,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "What types of projects do you specialize in?",
         answer:
-          "We specialize in AG and winery facilities, commercial tenant improvements, and municipal builds. Core services include Procore project management, preconstruction planning, procurement coordination, and constructability controls. Specialty scopes include pole buildings, PEMB/post-frame applications, and door/hardware installation.",
+          "We specialize in AG and winery facilities, commercial tenant improvements, and municipal builds. Core services include Procore project management, front-end scope planning, procurement coordination, and constructability controls. Specialty scopes include pole buildings, PEMB/post-frame applications, and door/hardware installation.",
       },
       {
         question: "Are you really Veteran-Owned?",

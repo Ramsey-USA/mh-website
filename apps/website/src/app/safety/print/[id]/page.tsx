@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { buildDualSeoTitle } from "@/lib/branding/page-names";
 
 export const metadata: Metadata = {
-  title: "Print Safety Form | MH Construction",
+  title: buildDualSeoTitle("safetyForms", "Print Safety Form"),
   robots: { index: false, follow: false },
 };
 

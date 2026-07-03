@@ -268,23 +268,23 @@ export default async function Home() {
           title:
             "Capacidades Base y PreConstruction Planning para Cada Tipo de Proyecto",
           description:
-            "Estas tres capacidades sostienen el sistema de servicios: primero validamos PreConstruction Planning y handoffs, luego dirigimos al frente correcto (AG/bodegas, TI comercial o municipal).",
+            "Estas tres capacidades actuan como items clave de interes: cada una cumple una funcion distinta para validar preconstruccion, ordenar handoffs y dirigir la ruta correcta (AG/bodegas, TI comercial o municipal).",
           items: [
             {
               title: "Pole Buildings",
-              desc: "Entrega de estructuras post-frame y PEMB para usos agrícolas, industriales y de soporte operativo.",
+              desc: "Estructuras post-frame y PEMB diseñadas para rendimiento operativo, con definicion temprana de cargas, envolvente y secuencia de montaje.",
               href: agWineryLaneHref,
               cta: "Ir a Frente AG/Bodegas",
             },
             {
               title: "Instalación de Puertas y Herrajes",
-              desc: "Coordinación e instalación para proyectos con operaciones activas y control de cumplimiento por etapa.",
+              desc: "Paquetes de puertas y herrajes gestionados por fases para espacios activos, con control de compatibilidades, seguridad y cumplimiento por hito.",
               href: commercialTiLaneHref,
               cta: "Ir a Frente TI Comercial",
             },
             {
               title: "PreConstruction Planning y Gestión en Procore",
-              desc: "RFIs, submittals, costos, hitos, handoffs y cierre en una sola fuente de verdad para cliente y equipo.",
+              desc: "Gobernanza de RFIs, submittals, costos y decisiones en Procore para mantener trazabilidad tecnica desde alcance inicial hasta cierre documentado.",
               href: municipalLaneHref,
               cta: "Ir a Frente Municipal",
             },
@@ -295,24 +295,24 @@ export default async function Home() {
           title:
             "Core Capabilities and PreConstruction Planning Behind Every Project Type",
           description:
-            "These three capabilities power the full services umbrella: validate PreConstruction Planning and handoffs first, then route to the right lane for AG/winery, commercial TI, or municipal delivery.",
+            "These three capabilities are our special items of interest: each one serves a distinct role in preconstruction validation, handoff control, and lane selection for AG/winery, commercial TI, or municipal delivery.",
           items: [
             {
               title: "Pole Buildings",
-              desc: "Post-frame and PEMB delivery for agricultural, industrial, and operations-support facilities.",
+              desc: "Post-frame and PEMB execution tuned for operational performance, with early definition of loads, envelope strategy, and erection sequence.",
               href: agWineryLaneHref,
               cta: "Go to AG/Winery Lane",
             },
             {
               title: "Door and Hardware Installation",
-              desc: "Detailed coordination and installation for occupied facilities with phased compliance controls.",
+              desc: "Phased door and hardware packages for occupied facilities, emphasizing compatibility checks, life-safety requirements, and turnover readiness.",
               href: commercialTiLaneHref,
               cta: "Go to Commercial TI Lane",
             },
             {
               title:
                 "PreConstruction Planning and Project Management in Procore",
-              desc: "RFIs, submittals, costs, milestones, handoffs, and closeout in one source of truth for client and team.",
+              desc: "Procore-centered control of RFIs, submittals, costs, and milestone decisions to preserve technical traceability from scope lock through closeout.",
               href: municipalLaneHref,
               cta: "Go to Municipal Lane",
             },

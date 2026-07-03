@@ -5,10 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLocale } from "@/hooks/useLocale";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import {
-  formatDualPageSummary,
-  PAGE_TERMINOLOGY,
-} from "@/lib/branding/page-names";
+import { PAGE_TERMINOLOGY } from "@/lib/branding/page-names";
 import type { NavigationItem } from "./navigationConfigs";
 
 interface PageNavigationProps {
@@ -20,11 +17,11 @@ interface PageNavigationProps {
 }
 
 const TOP_PAGES_EN = [
-  { href: "/", label: "Home" },
-  { href: "/#services", label: "Services" },
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About Us" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: PAGE_TERMINOLOGY.home.mhBrandName },
+  { href: "/#services", label: PAGE_TERMINOLOGY.services.mhBrandName },
+  { href: "/projects", label: PAGE_TERMINOLOGY.projects.mhBrandName },
+  { href: "/about", label: PAGE_TERMINOLOGY.about.mhBrandName },
+  { href: "/contact", label: PAGE_TERMINOLOGY.contact.mhBrandName },
 ] as const;
 
 const TOP_PAGES_ES = [
@@ -38,128 +35,83 @@ const TOP_PAGES_ES = [
 const ALL_SITE_PAGES_EN = [
   {
     href: "/",
-    label: "Home",
-    description: formatDualPageSummary(
-      "Overview",
-      PAGE_TERMINOLOGY.home.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.home.mhBrandName,
+    description: PAGE_TERMINOLOGY.home.seoName,
   },
   {
     href: "/about",
-    label: "About Us",
-    description: formatDualPageSummary(
-      "About",
-      PAGE_TERMINOLOGY.about.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.about.mhBrandName,
+    description: PAGE_TERMINOLOGY.about.seoName,
   },
   {
     href: "/#services",
-    label: "Services",
-    description: formatDualPageSummary(
-      "Lanes",
-      PAGE_TERMINOLOGY.services.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.services.mhBrandName,
+    description: PAGE_TERMINOLOGY.services.seoName,
   },
   {
     href: "/projects",
-    label: "Projects",
-    description: formatDualPageSummary(
-      "Portfolio",
-      PAGE_TERMINOLOGY.projects.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.projects.mhBrandName,
+    description: PAGE_TERMINOLOGY.projects.seoName,
   },
   {
     href: "/contact",
-    label: "Contact",
-    description: formatDualPageSummary(
-      "Contact",
-      PAGE_TERMINOLOGY.contact.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.contact.mhBrandName,
+    description: PAGE_TERMINOLOGY.contact.seoName,
   },
   {
     href: "/events",
-    label: "Events",
-    description: formatDualPageSummary(
-      "Upcoming Events",
-      PAGE_TERMINOLOGY.events.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.events.mhBrandName,
+    description: PAGE_TERMINOLOGY.events.seoName,
   },
   {
     href: "/testimonials",
-    label: "Reviews",
-    description: formatDualPageSummary(
-      "Reviews",
-      PAGE_TERMINOLOGY.testimonials.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.testimonials.mhBrandName,
+    description: PAGE_TERMINOLOGY.testimonials.seoName,
   },
   {
     href: "/team",
-    label: "Our Team",
-    description: formatDualPageSummary(
-      "Leadership",
-      PAGE_TERMINOLOGY.team.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.team.mhBrandName,
+    description: PAGE_TERMINOLOGY.team.seoName,
   },
   {
     href: "/careers",
-    label: "Careers",
-    description: formatDualPageSummary(
-      "Opportunities",
-      PAGE_TERMINOLOGY.careers.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.careers.mhBrandName,
+    description: PAGE_TERMINOLOGY.careers.seoName,
   },
   {
     href: "/veterans",
-    label: "Veterans",
-    description: formatDualPageSummary(
-      "Veterans",
-      PAGE_TERMINOLOGY.veterans.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.veterans.mhBrandName,
+    description: PAGE_TERMINOLOGY.veterans.seoName,
   },
   {
     href: "/allies",
-    label: "Partners",
-    description: formatDualPageSummary(
-      "Allies",
-      PAGE_TERMINOLOGY.allies.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.allies.mhBrandName,
+    description: PAGE_TERMINOLOGY.allies.seoName,
   },
   {
     href: "/public-sector",
-    label: "Government",
-    description: formatDualPageSummary(
-      "Public Sector",
-      PAGE_TERMINOLOGY.publicSector.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.publicSector.mhBrandName,
+    description: PAGE_TERMINOLOGY.publicSector.seoName,
   },
   {
     href: "/safety",
-    label: "Safety",
-    description: formatDualPageSummary(
-      "Safety",
-      PAGE_TERMINOLOGY.safety.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.safety.mhBrandName,
+    description: PAGE_TERMINOLOGY.safety.seoName,
   },
   {
     href: "/resources",
-    label: "Resources",
-    description: formatDualPageSummary(
-      "Resources",
-      PAGE_TERMINOLOGY.resources.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.resources.mhBrandName,
+    description: PAGE_TERMINOLOGY.resources.seoName,
   },
   {
     href: "/faq",
-    label: "Help/FAQ",
-    description: formatDualPageSummary("FAQ", PAGE_TERMINOLOGY.faq.mhBrandName),
+    label: PAGE_TERMINOLOGY.faq.mhBrandName,
+    description: PAGE_TERMINOLOGY.faq.seoName,
   },
   {
     href: "/hub",
-    label: "Team Hub",
-    description: formatDualPageSummary(
-      "Staff Hub",
-      PAGE_TERMINOLOGY.hub.mhBrandName,
-    ),
+    label: PAGE_TERMINOLOGY.hub.mhBrandName,
+    description: PAGE_TERMINOLOGY.hub.seoName,
   },
 ] as const;
 

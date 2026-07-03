@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Safety Intake | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyProgram.seoName, PAGE_TERMINOLOGY.safetyProgram.mhBrandName)} | MH Construction`,
   description:
     "Safety intake entry route that forwards to the active MH Construction safety program page.",
   alternates: {

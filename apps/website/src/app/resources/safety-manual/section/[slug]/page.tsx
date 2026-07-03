@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { permanentRedirect } from "next/navigation";
+import { buildDualSeoTitle } from "@/lib/branding/page-names";
 
 import { getDocumentById } from "@/lib/data/documents";
 import { clusterForSection } from "@/lib/data/safety-manual-clusters";
 
 export const metadata: Metadata = {
-  title: "Safety Manual Section Redirect | MH Construction",
+  title: buildDualSeoTitle("safetyManual", "Section Redirect"),
   description:
     "Legacy safety manual section route that permanently redirects to the current indexed cluster page.",
   alternates: {

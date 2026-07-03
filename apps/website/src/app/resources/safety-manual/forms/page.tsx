@@ -5,6 +5,10 @@ import { Button } from "@/components/ui";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StructuredData } from "@/components/seo/SeoMeta";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { safetyForms } from "@/lib/data/documents";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
@@ -12,13 +16,13 @@ import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 
 export const metadata: Metadata = {
-  title: "Safety Manual — Forms Index | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyForms.seoName, PAGE_TERMINOLOGY.safetyForms.mhBrandName)} | MH Construction`,
   description:
     "Index of MH Construction's MISH safety forms. Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Authorized personnel may download blank forms; completed forms are restricted.",
   alternates: { canonical: `${SITE_URL}/resources/safety-manual/forms` },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Safety Manual — Forms Index | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyForms.seoName, PAGE_TERMINOLOGY.safetyForms.mhBrandName)} | MH Construction`,
     description:
       "Index of MISH safety forms with downloadable blank templates and restricted completion records.",
     type: "website",
@@ -31,7 +35,7 @@ const breadcrumbs = [
   { label: "Resources", href: "/resources" },
   { label: "Safety Manual", href: "/safety" },
   { label: "Table of Contents", href: "/resources/safety-manual/contents" },
-  { label: "Forms", href: "/resources/safety-manual/forms" },
+  { label: "Safety Forms", href: "/resources/safety-manual/forms" },
 ];
 
 /** Strip the `safety-form-` id prefix to get a stable QR anchor id. */
@@ -58,7 +62,7 @@ export default function SafetyManualFormsPage() {
               size="sm"
               className="text-brand-secondary"
             />
-            Forms Index
+            Safety Forms
           </div>
           <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/80">
             Field Forms <span aria-hidden>→</span> Safety Forms

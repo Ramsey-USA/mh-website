@@ -20,6 +20,8 @@ or documentation that can affect MH brand consistency.
 1. **Accessibility:** Semantic headings, labels, contrast, and keyboard flow remain valid.
 1. **SEO naming:** Labels and titles stay plain-language and canonical.
 1. **Exceptions:** Approved design/color exceptions remain scoped to documented components only.
+1. **Duplicate phrasing policy:** Public-facing copy does not repeat guarded phrasing or sentence-level boilerplate within the same page file.
+1. **Dictionary parity:** New public page labels are added to `src/lib/branding/page-names.ts` aliases before rollout.
 
 ## Required Review Order
 
@@ -45,6 +47,13 @@ Record one result in the PR description or review notes:
 
 - `PASS`: All checklist items satisfied.
 - `FAIL`: Include concrete remediation steps and file targets.
+
+## Required Validation for Terminology/Copy Changes
+
+Run these targeted tests when copy, terminology labels, breadcrumbs, or metadata naming changes:
+
+- `npm test -- src/lib/branding/__tests__/page-names.test.ts`
+- `npm test -- src/app/__tests__/public-copy-phrasing-guard.test.ts`
 
 ---
 

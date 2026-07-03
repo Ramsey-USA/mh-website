@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { permanentRedirect } from "next/navigation";
+import { buildDualSeoTitle } from "@/lib/branding/page-names";
 
 export const metadata: Metadata = {
-  title: "Services | MH Construction",
+  title: buildDualSeoTitle("services", "Legacy Route Redirect"),
   description:
     "Legacy service detail route redirected to the home services section.",
   alternates: {

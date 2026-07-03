@@ -12,6 +12,7 @@ import {
 } from "@/components/seo/EnhancedSEO";
 import {
   formatDualPageName,
+  MH_DUAL_PHRASES,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 
@@ -186,9 +187,8 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
         "Partnership-Driven Construction",
         "Structured Leadership Approach",
       ],
-      slogan: "Built on Quality, Backed by Trust.",
-      mission:
-        "Built on Quality, Backed by Trust. No gaps. No guesswork. Just accountable follow-through.",
+      slogan: MH_DUAL_PHRASES.primarySlogan,
+      mission: `${MH_DUAL_PHRASES.primarySlogan} ${MH_DUAL_PHRASES.missionLine}`,
       areaServed: [
         {
           "@type": "City",
@@ -571,7 +571,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: `${formatDualPageName("Public Sector Construction", PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Owned, Accountable Delivery`,
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Owned, Accountable Delivery`,
     description:
       "Veteran-owned Tri-State contractor for government & public sector construction. Dedicated supporter of the Build America, Buy America Act (BABAA), grant support, and robust bonding capacity. Pasco, WA.",
     keywords: [
@@ -1338,7 +1338,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: `${formatDualPageName("FAQ", PAGE_TERMINOLOGY.faq.mhBrandName)} | Direct Answers. Clear Guidance.`,
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.faq.seoName, PAGE_TERMINOLOGY.faq.mhBrandName)} | Direct Answers. Clear Guidance.`,
     description:
       "Get direct answers on project planning, delivery methods, pricing visibility, safety expectations, and consultation workflow for MH Construction projects across WA, OR, and ID.",
     keywords: [

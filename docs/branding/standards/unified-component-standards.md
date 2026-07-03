@@ -102,6 +102,15 @@ The gradient text in section headers, as implemented across all pages, is the co
 - Tooltip copy and bilingual control labels are part of the global header system and should
   not be removed during refinements unless replaced by an approved accessible equivalent.
 
+#### 4) Breadcrumb Ordering Is Required
+
+- Breadcrumbs must render in the post-hero flow, not above hero sections.
+- Required order for shell-managed fallback breadcrumbs:
+  hero -> breadcrumb -> semiquincentennial banner -> main body content.
+- On routes where the semiquincentennial banner is intentionally suppressed,
+  breadcrumbs still render directly after hero.
+- Any layout update that reintroduces pre-hero fallback breadcrumbs is non-compliant.
+
 ---
 
 ## 📝 **Typography System**
@@ -559,6 +568,13 @@ page-navigation overlays, and navigation action presentation.
 6. Overlay close behaviors must include Escape key, close button, and backdrop click where applicable.
 7. Body scroll must lock while navigation overlays are open and restore on close.
 8. Navigation controls and overlay links must remain keyboard reachable with visible focus states.
+9. Terminology by navigation surface must follow the dual-terminology matrix:
+
+- PageNavigation top row uses MH brand labels (`mhBrandName`) for compact clarity.
+- PageNavigation More overlay keeps MH brand labels with plain-language SEO descriptions.
+- Hamburger and Footer navigation keep plain-language SEO labels on the primary line and MH brand labels on the secondary line.
+
+10. Do not collapse the above surface-specific pattern into a single global parenthetical format for all UI elements.
 
 ### Canonical References
 

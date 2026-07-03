@@ -6,11 +6,15 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { Button } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  formatDualPageName,
+  PAGE_TERMINOLOGY,
+} from "@/lib/branding/page-names";
 import { getDocumentById, handbookForms } from "@/lib/data/documents";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 
 export const metadata: Metadata = {
-  title: "Employee Handbook | MH Construction",
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.employeeHandbook.seoName, PAGE_TERMINOLOGY.employeeHandbook.mhBrandName)} | MH Construction`,
   description:
     "Public index of MH Construction's Employee Handbook sections and handbook-owned forms. Download the published handbook PDF and review the current policy and acknowledgment inventory.",
   alternates: {
@@ -21,9 +25,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Employee Handbook | MH Construction",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.employeeHandbook.seoName, PAGE_TERMINOLOGY.employeeHandbook.mhBrandName)} | MH Construction`,
     description:
-      "Public index of MH Construction's Employee Handbook sections and handbook-owned forms.",
+      "Browse handbook chapters, review policy form inventory, and access the published Employee Handbook PDF.",
     type: "website",
     url: "https://www.mhc-gc.com/employee-handbook",
   },
