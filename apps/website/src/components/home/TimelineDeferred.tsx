@@ -76,7 +76,7 @@ export function TimelineDeferred(props: TimelineProps) {
       {shouldRender ? (
         <Timeline {...props} />
       ) : (
-        <TimelinePlaceholder className={props.className} />
+        <TimelinePlaceholder className={props.className ?? ""} />
       )}
     </div>
   );

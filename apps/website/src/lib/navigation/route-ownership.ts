@@ -37,7 +37,7 @@ function normalizeHrefPath(href: string): string {
     return "";
   }
 
-  const [pathWithNoHash] = href.split("#", 1);
+  const [pathWithNoHash = ""] = href.split("#", 1);
   const [pathWithNoQuery = ""] = pathWithNoHash.split("?", 1);
 
   if (!pathWithNoQuery.startsWith("/")) {

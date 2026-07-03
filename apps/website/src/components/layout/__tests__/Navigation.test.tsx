@@ -166,7 +166,7 @@ describe("Navigation", () => {
     expect(servicesLink).toBeDefined();
     expect(servicesLink).toHaveAttribute("href", "/services");
 
-    await user.click(servicesLink);
+    await user.click(servicesLink!);
 
     expect(
       screen.getByRole("button", { name: /open menu/i }),

@@ -102,7 +102,7 @@ export default function ServicesPage() {
         subtitle="Delivery Process"
         title="Six-Stage Operating Process"
         description="A clear operating model that keeps planning, field execution, and closeout controls visible at every stage."
-        steps={processSteps.map((step) => ({ ...step }))}
+        steps={processSteps.map((step) => ({ ...step, tags: [...step.tags] }))}
         cta={{
           title: "Evaluate Project Fit",
           description:

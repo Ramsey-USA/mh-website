@@ -84,7 +84,7 @@ export function TestimonialsSectionDeferred(
       {shouldRender ? (
         <TestimonialsSection {...props} />
       ) : (
-        <TestimonialsPlaceholder className={props.className} />
+        <TestimonialsPlaceholder className={props.className ?? ""} />
       )}
     </div>
   );
