@@ -31,6 +31,9 @@ export function TestimonialsHero() {
             <span className="block text-brand-secondary/75 text-xs xs:text-sm sm:text-base mt-2">
               {COMPANY_INFO.slogan.primary}
             </span>
+            <span className="block text-brand-secondary/80 text-xs xs:text-sm sm:text-base mt-1">
+              Clear facts. No spin. No surprises.
+            </span>
           </h1>
         </div>
       </div>

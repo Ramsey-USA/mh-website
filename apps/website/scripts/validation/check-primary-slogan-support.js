@@ -17,6 +17,7 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
+const { SLOGAN_RULES } = require("./branding-rules.cjs");
 
 const APP_ROOT = process.cwd();
 const REPO_ROOT = path.resolve(APP_ROOT, "..", "..");
@@ -28,9 +29,8 @@ const SCAN_DIRS = [
 
 const ALLOWED_EXTENSIONS = new Set([".ts", ".tsx", ".js", ".jsx", ".json"]);
 
-const PRIMARY_RE = /Built on Quality, Backed by Trust\./;
-const SUPPORTING_RE =
-  /Squared away from start to finish\.|From Handshake to Handoff, we got your 'six\.'|Professional on the line\. Thorough in the details\.|No gaps\. No guesswork\. Just accountable follow-through\.|Clear facts\. No spin\. No surprises\.|Commitments kept under pressure\.|Standards high on every site, every day\.|Measure twice, document always, close out clean\./;
+const PRIMARY_RE = SLOGAN_RULES.primaryRegex;
+const SUPPORTING_RE = SLOGAN_RULES.supportingRegex;
 
 const IGNORE_PATH_SEGMENTS = new Set([
   "node_modules",

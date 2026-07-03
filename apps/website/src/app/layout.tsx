@@ -227,7 +227,7 @@ export default async function RootLayout({
       <head>
         <FaviconLinks />
         {/* Google Analytics */}
-        {process.env["NEXT_PUBLIC_GA_MEASUREMENT_ID"] && (
+        {isProduction && process.env["NEXT_PUBLIC_GA_MEASUREMENT_ID"] && (
           <GoogleAnalytics
             measurementId={process.env["NEXT_PUBLIC_GA_MEASUREMENT_ID"]}
           />
@@ -248,9 +248,13 @@ export default async function RootLayout({
         />
         {/* Preconnect to external origins used by GA and Sentry to reduce
             connection latency (TCP + TLS handshake done early) */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        {isProduction && process.env["NEXT_PUBLIC_GA_MEASUREMENT_ID"] ? (
+          <>
+            <link rel="preconnect" href="https://www.googletagmanager.com" />
+            <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+            <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+          </>
+        ) : null}
         <link rel="author" href="https://www.mhc-gc.com/jeremy-thamert" />
         <link rel="preconnect" href="https://use.typekit.net" />
         <link rel="dns-prefetch" href="https://use.typekit.net" />

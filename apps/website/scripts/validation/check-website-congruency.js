@@ -13,6 +13,10 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
+const {
+  DISALLOWED_HYPE_PATTERNS,
+  TRUST_SURFACE_CONTRACTS,
+} = require("./branding-rules.cjs");
 
 const ROOT = process.cwd();
 const APP_DIR = path.join(ROOT, "src", "app");
@@ -51,52 +55,6 @@ const CAREERS_PRINT_FILE = path.join(
   "PrintableApplicationClient.tsx",
 );
 
-const DISALLOWED_HYPE_PATTERNS = [
-  /\bAI-powered\b/i,
-  /\bsynergy\b/i,
-  /\bcutting-edge\b/i,
-  /\bbest-in-class\b/i,
-  /\bguaranteed\b/i,
-  /\bbook now\b/i,
-  /\binstant quote\b/i,
-];
-
-const TRUST_SURFACE_CONTRACTS = [
-  {
-    relPath: "src/app/about/page.tsx",
-    requiredSnippets: ["AccreditationsLogoRow"],
-  },
-  {
-    relPath: "src/app/allies/page.tsx",
-    requiredSnippets: ["AccreditationsLogoRow"],
-  },
-  {
-    relPath: "src/app/veterans/page.tsx",
-    requiredSnippets: ["AccreditationsLogoRow"],
-  },
-  {
-    relPath: "src/app/public-sector/PublicSectorFullPage.tsx",
-    requiredSnippets: [
-      "AccreditationsLogoRow",
-      "Build America, Buy America Act (BABAA)",
-    ],
-  },
-  {
-    relPath: "src/app/contact/ContactPageClient.tsx",
-    requiredSnippets: [
-      "COMPANY_INFO.bbb.sealClickUrl",
-      "COMPANY_INFO.travelers.website",
-      "COMPANY_INFO.chambers.pasco.memberDirectoryUrl",
-      "COMPANY_INFO.chambers.richland.memberDirectoryUrl",
-      "COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl",
-    ],
-  },
-  {
-    relPath: "src/components/layout/Footer.tsx",
-    requiredSnippets: ["footer-accreditations-heading", "WaVobBadge"],
-  },
-];
-
 const HERO_VISUAL_FILES = [
   "src/components/home/HeroSection.tsx",
   "src/components/about/AboutHero.tsx",
@@ -120,31 +78,15 @@ const HERO_VISUAL_FILES = [
 ];
 
 const SERVICES_CONSOLIDATION_CONTRACT = {
-  legacyRoutes: [
-    {
-      relPath: "src/app/services/page.tsx",
-      requiredSnippets: [
-        'permanentRedirect("/#services")',
-        "index: false",
-        'canonical: "https://www.mhc-gc.com/"',
-      ],
-    },
-    {
-      relPath: "src/app/services/[slug]/page.tsx",
-      requiredSnippets: [
-        'permanentRedirect("/#services")',
-        "index: false",
-        'canonical: "https://www.mhc-gc.com/"',
-      ],
-    },
-  ],
-  homePath: "src/app/page.tsx",
-  homeRequiredSnippets: [
-    "ServicesShowcaseDeferred",
-    "Stage 2 · Select Your Service Lane",
-  ],
-  servicesComponentPath: "src/components/home/ServicesShowcaseDeferred.tsx",
-  servicesComponentRequiredSnippets: ['id="services"', "<ServicesShowcase"],
+  pageRoute: {
+    relPath: "src/app/services/page.tsx",
+    requiredSnippets: [
+      "<ServicesHero />",
+      "<CoreServicesSection",
+      "<ServiceAreasSection",
+    ],
+  },
+  forbiddenRoute: "src/app/services/[slug]/page.tsx",
 };
 
 function fail(errors) {
@@ -344,7 +286,11 @@ function checkCanonicalDomainUsage(errors) {
 
 function checkPrimarySloganIntegrity(errors) {
   const candidateFiles = [
-    ...walkFiles(APP_DIR, (filePath) => /\.(ts|tsx|js|jsx)$/.test(filePath)),
+    ...walkFiles(
+      APP_DIR,
+      (filePath) =>
+        /\.(ts|tsx|js|jsx)$/.test(filePath) && !filePath.includes("__tests__"),
+    ),
     ...walkFiles(path.join(ROOT, "messages"), (filePath) =>
       /\.json$/.test(filePath),
     ),
@@ -407,63 +353,32 @@ function checkHeroVisualContracts(errors) {
 }
 
 function checkServicesConsolidationContract(errors) {
-  for (const routeContract of SERVICES_CONSOLIDATION_CONTRACT.legacyRoutes) {
-    const absPath = path.join(ROOT, routeContract.relPath);
-    if (!fs.existsSync(absPath)) {
-      errors.push(
-        `Missing legacy services redirect route file: ${routeContract.relPath}.`,
-      );
-      continue;
-    }
+  const servicesPageContract = SERVICES_CONSOLIDATION_CONTRACT.pageRoute;
+  const servicesPageAbsPath = path.join(ROOT, servicesPageContract.relPath);
 
-    const source = fs.readFileSync(absPath, "utf8");
-    for (const snippet of routeContract.requiredSnippets) {
+  if (!fs.existsSync(servicesPageAbsPath)) {
+    errors.push(
+      `Missing canonical services page route file: ${servicesPageContract.relPath}.`,
+    );
+  } else {
+    const source = fs.readFileSync(servicesPageAbsPath, "utf8");
+    for (const snippet of servicesPageContract.requiredSnippets) {
       if (!source.includes(snippet)) {
         errors.push(
-          `Legacy services route contract missing in ${routeContract.relPath}: expected snippet "${snippet}".`,
+          `Services page contract missing in ${servicesPageContract.relPath}: expected snippet "${snippet}".`,
         );
       }
     }
   }
 
-  const homeAbsPath = path.join(ROOT, SERVICES_CONSOLIDATION_CONTRACT.homePath);
-  if (!fs.existsSync(homeAbsPath)) {
-    errors.push(
-      `Home page file missing for services consolidation contract: ${SERVICES_CONSOLIDATION_CONTRACT.homePath}.`,
-    );
-    return;
-  }
-
-  const homeSource = fs.readFileSync(homeAbsPath, "utf8");
-  for (const snippet of SERVICES_CONSOLIDATION_CONTRACT.homeRequiredSnippets) {
-    if (!homeSource.includes(snippet)) {
-      errors.push(
-        `Home services consolidation contract missing in ${SERVICES_CONSOLIDATION_CONTRACT.homePath}: expected snippet "${snippet}".`,
-      );
-    }
-  }
-
-  const servicesComponentAbsPath = path.join(
+  const forbiddenRouteAbsPath = path.join(
     ROOT,
-    SERVICES_CONSOLIDATION_CONTRACT.servicesComponentPath,
+    SERVICES_CONSOLIDATION_CONTRACT.forbiddenRoute,
   );
-  if (!fs.existsSync(servicesComponentAbsPath)) {
+  if (fs.existsSync(forbiddenRouteAbsPath)) {
     errors.push(
-      `Services component file missing for consolidation contract: ${SERVICES_CONSOLIDATION_CONTRACT.servicesComponentPath}.`,
+      `Services slug route must not exist: ${SERVICES_CONSOLIDATION_CONTRACT.forbiddenRoute}.`,
     );
-    return;
-  }
-
-  const servicesComponentSource = fs.readFileSync(
-    servicesComponentAbsPath,
-    "utf8",
-  );
-  for (const snippet of SERVICES_CONSOLIDATION_CONTRACT.servicesComponentRequiredSnippets) {
-    if (!servicesComponentSource.includes(snippet)) {
-      errors.push(
-        `Services component consolidation contract missing in ${SERVICES_CONSOLIDATION_CONTRACT.servicesComponentPath}: expected snippet "${snippet}".`,
-      );
-    }
   }
 
   if (!fs.existsSync(SEO_ROUTE_POLICY_FILE)) {
@@ -483,22 +398,27 @@ function checkServicesConsolidationContract(errors) {
           `SEO route policy redirect.exact must be an array in ${rel(SEO_ROUTE_POLICY_FILE)}.`,
         );
       } else {
-        for (const legacyRoute of ["/services", "/services/[slug]"]) {
-          if (!redirectExact.includes(legacyRoute)) {
-            errors.push(
-              `SEO route policy must classify ${legacyRoute} as redirect in ${rel(SEO_ROUTE_POLICY_FILE)}.`,
-            );
-          }
+        if (
+          redirectExact.includes("/services") ||
+          redirectExact.includes("/services/[slug]")
+        ) {
+          errors.push(
+            `SEO route policy redirect class must not include /services or /services/[slug] in ${rel(SEO_ROUTE_POLICY_FILE)}.`,
+          );
         }
       }
 
       if (Array.isArray(indexableExact)) {
-        for (const legacyRoute of ["/services", "/services/[slug]"]) {
-          if (indexableExact.includes(legacyRoute)) {
-            errors.push(
-              `SEO route policy must not classify ${legacyRoute} as indexable in ${rel(SEO_ROUTE_POLICY_FILE)}.`,
-            );
-          }
+        if (!indexableExact.includes("/services")) {
+          errors.push(
+            `SEO route policy must classify /services as indexable in ${rel(SEO_ROUTE_POLICY_FILE)}.`,
+          );
+        }
+
+        if (indexableExact.includes("/services/[slug]")) {
+          errors.push(
+            `SEO route policy must not classify /services/[slug] as indexable in ${rel(SEO_ROUTE_POLICY_FILE)}.`,
+          );
         }
       }
     } catch (error) {
@@ -512,12 +432,15 @@ function checkServicesConsolidationContract(errors) {
     errors.push(`Sitemap file missing: ${rel(SITEMAP_FILE)}.`);
   } else {
     const sitemapSource = fs.readFileSync(SITEMAP_FILE, "utf8");
-    if (
-      sitemapSource.includes('path: "/services"') ||
-      sitemapSource.includes('path: "/services/[slug]"')
-    ) {
+    if (!sitemapSource.includes('path: "/services"')) {
       errors.push(
-        `Legacy services routes must not appear in ACTIVE_PAGES inside ${rel(SITEMAP_FILE)}.`,
+        `Canonical services page route must appear in ACTIVE_PAGES inside ${rel(SITEMAP_FILE)}.`,
+      );
+    }
+
+    if (sitemapSource.includes('path: "/services/[slug]"')) {
+      errors.push(
+        `Services slug route must not appear in ACTIVE_PAGES inside ${rel(SITEMAP_FILE)}.`,
       );
     }
   }

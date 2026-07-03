@@ -24,6 +24,7 @@ describe("Branding congruency contracts", () => {
   const scanFiles = collectFiles(srcRoot, [".ts", ".tsx"]).filter(
     (filePath) =>
       !filePath.includes("__tests__") &&
+      !filePath.includes("lib/validation") &&
       !filePath.endsWith("/components/ui/GlowEffect.tsx"),
   );
 

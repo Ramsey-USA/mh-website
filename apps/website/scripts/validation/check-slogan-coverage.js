@@ -14,31 +14,11 @@
 
 const fs = require("fs");
 const path = require("path");
+const { SLOGAN_RULES } = require("./branding-rules.cjs");
 
 const ROOT = process.cwd();
 
-const HERO_FILES = [
-  "src/components/home/HeroSection.tsx",
-  "src/components/about/AboutHero.tsx",
-  "src/components/services/ServicesHero.tsx",
-  "src/components/locations/LocationPageContent.tsx",
-  "src/app/projects/components/ProjectsHero.tsx",
-  "src/app/team/page.tsx",
-  "src/app/contact/ContactPageClient.tsx",
-  "src/app/locations/page.tsx",
-  "src/app/projects/[slug]/page.tsx",
-  "src/app/testimonials/page.tsx",
-  "src/app/faq/page.tsx",
-  "src/app/faq/[category]/page.tsx",
-  "src/app/veterans/page.tsx",
-  "src/app/safety/page.tsx",
-  "src/app/careers/CareersPageClient.tsx",
-  "src/app/resources/page.tsx",
-  "src/app/public-sector/PublicSectorFullPage.tsx",
-  "src/app/public-sector/veteran-led-compliance/page.tsx",
-  "src/app/public-sector/tri-state-government-construction/page.tsx",
-  "src/app/allies/page.tsx",
-];
+const HERO_FILES = SLOGAN_RULES.heroFiles;
 
 const PRIMARY_SIGNAL =
   /Built on Quality, Backed by Trust\.|COMPANY_INFO\.slogan\.primary|hero\.mission/;

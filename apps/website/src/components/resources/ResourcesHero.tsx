@@ -25,6 +25,12 @@ export function ResourcesHero() {
             <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
               Manuals, Toolbox Talks, Forms, and Safety Documentation
             </span>
+            <span className="block text-brand-secondary/75 text-xs xs:text-sm sm:text-base mt-2">
+              Built on Quality, Backed by Trust.
+            </span>
+            <span className="block text-brand-secondary/80 text-xs xs:text-sm sm:text-base mt-1">
+              No gaps. No guesswork. Just accountable follow-through.
+            </span>
           </h1>
         </div>
       </div>

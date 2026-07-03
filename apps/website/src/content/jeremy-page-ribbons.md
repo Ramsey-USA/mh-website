@@ -36,12 +36,6 @@ eyebrow: Service Admission
 quote: On services, my standard is simple: every scope we offer must be delivered with clear sequencing, reliable communication, and measurable quality.
 attribution: Jeremy Thamert, Owner & President
 
-## services/[slug]
-
-eyebrow: Scope Admission
-quote: Every individual service page represents a real commitment from our team, and I expect that commitment to show up in planning, execution, and final turnover.
-attribution: Jeremy Thamert, Owner & President
-
 ## projects
 
 eyebrow: Delivery Admission

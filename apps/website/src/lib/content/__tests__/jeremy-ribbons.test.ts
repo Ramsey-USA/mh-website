@@ -12,11 +12,11 @@ describe("jeremy-ribbons", () => {
     expect(ribbon.attribution).toContain("Jeremy Thamert");
   });
 
-  it("returns a configured ribbon for dynamic route keys", () => {
-    const ribbon = getJeremyRibbon("services/[slug]");
+  it("returns a configured ribbon for the services page key", () => {
+    const ribbon = getJeremyRibbon("services");
 
     expect(ribbon.eyebrow).toContain("Admission");
-    expect(ribbon.quote).toContain("service page");
+    expect(ribbon.quote).toContain("services");
   });
 
   it("maps root path to the home ribbon", () => {

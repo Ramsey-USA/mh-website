@@ -39,7 +39,7 @@ Requirements:
 Examples:
 
 - `/` (includes services hub at `/#services`)
-- `/services` and `/services/[slug]` remain redirect-only compatibility routes
+- `/services` (canonical services page)
 - `/projects`, `/contact`
 - `/resources`
 - `/resources/safety-manual/contents`

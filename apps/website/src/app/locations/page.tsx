@@ -58,6 +58,8 @@ const locationsSchema = {
   isPartOf: { "@id": `${SITE_URL}/#website` },
   about: { "@id": `${SITE_URL}/#organization` },
   breadcrumb: { "@id": `${SITE_URL}/locations#breadcrumb` },
+  slogan: COMPANY_INFO.slogan.primary,
+  mission: "Professional on the line. Thorough in the details.",
   mainEntity: {
     "@type": "ItemList",
     itemListElement: locationList.map((location, index) => ({

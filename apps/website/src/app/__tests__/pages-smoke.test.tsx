@@ -445,7 +445,7 @@ describe("Branding congruency smoke", () => {
     );
   });
 
-  it("keeps services overview indexable and legacy detail routes redirected to /services", () => {
+  it("keeps services overview indexable without legacy detail slug routes", () => {
     const servicesSeoUtilsPath = path.join(
       APP_ROOT,
       "src",
@@ -454,24 +454,19 @@ describe("Branding congruency smoke", () => {
       "page-seo-utils.ts",
     );
     const servicesSeoSource = fs.readFileSync(servicesSeoUtilsPath, "utf8");
-    const { metadata: serviceDetailMetadata, default: ServiceDetailPage } =
-      require("../services/[slug]/page") as {
-        metadata: {
-          robots: { index: boolean; follow: boolean };
-          alternates: { canonical: string };
-        };
-        default: () => void;
-      };
+    const serviceSlugPagePath = path.join(
+      APP_ROOT,
+      "src",
+      "app",
+      "services",
+      "[slug]",
+      "page.tsx",
+    );
 
     expect(servicesSeoSource).toContain(
       "const servicesUrl = `${enhancedSEO.siteUrl}/services`;",
     );
-    expect(serviceDetailMetadata.robots.index).toBe(false);
-    expect(serviceDetailMetadata.alternates.canonical).toBe(
-      "https://www.mhc-gc.com/services",
-    );
-
-    expect(() => ServiceDetailPage()).toThrow("NEXT_REDIRECT: /services");
+    expect(fs.existsSync(serviceSlugPagePath)).toBe(false);
   });
 
   it("keeps services flow represented on home and routes to /services", () => {

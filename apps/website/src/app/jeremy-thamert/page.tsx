@@ -8,14 +8,16 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { IndividualBrandingStamp } from "@/components/shared-sections";
 import { getIndividualBrandingStamp } from "@/lib/content/individual-branding-stamps";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
+import { buildDualSeoTitle } from "@/lib/branding/page-names";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import jeremyProfile from "@/lib/data/team/jeremy-thamert.json";
 
 const canonicalUrl = "https://www.mhc-gc.com/jeremy-thamert";
 const jeremyStamp = getIndividualBrandingStamp("jeremy-thamert");
+const jeremySeoTitle = buildDualSeoTitle("team", "Jeremy Thamert Profile");
 
 export const metadata: Metadata = withGeoMetadata({
-  title: "Jeremy Thamert | Owner & President | MH Construction",
+  title: jeremySeoTitle,
   description:
     "Jeremy Thamert is Owner & President of MH Construction. Learn about his Army veteran background, leadership approach, and relationship-first delivery model across WA, OR, and ID.",
   keywords: [
@@ -31,7 +33,7 @@ export const metadata: Metadata = withGeoMetadata({
     canonical: canonicalUrl,
   },
   openGraph: {
-    title: "Jeremy Thamert | Owner & President | MH Construction",
+    title: jeremySeoTitle,
     description:
       "Owner & President Jeremy Thamert leads MH Construction with disciplined planning, direct communication, and accountable delivery.",
     url: canonicalUrl,
@@ -46,7 +48,7 @@ export const metadata: Metadata = withGeoMetadata({
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jeremy Thamert | Owner & President | MH Construction",
+    title: jeremySeoTitle,
     description:
       "Army veteran and construction operator Jeremy Thamert leads MH Construction with relationship-first standards.",
     images: [jeremyProfile.avatar],

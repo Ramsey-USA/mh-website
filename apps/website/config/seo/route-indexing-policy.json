@@ -53,8 +53,7 @@
         "/resources/safety-manual",
         "/resources/safety-manual/section/[slug]",
         "/resources/safety-program",
-        "/safety/intake",
-        "/services/[slug]"
+        "/safety/intake"
       ],
       "patterns": []
     }

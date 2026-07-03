@@ -237,7 +237,9 @@ export default async function TestimonialsPage(props?: {
         ))}
         <StructuredData data={faqSchema} />
 
-        <TestimonialsHero />
+        <div data-hero-signal="hero-section">
+          <TestimonialsHero />
+        </div>
 
         {testimonials.length > 0 && (
           <StaticTestimonialsSection testimonials={testimonials} />
@@ -260,7 +262,9 @@ export default async function TestimonialsPage(props?: {
       <StructuredData data={faqSchema} />
 
       {/* Hero Section - Compliant with MH Branding Standards */}
-      <TestimonialsHero />
+      <div data-hero-signal="hero-section">
+        <TestimonialsHero />
+      </div>
 
       {/* Breadcrumb Navigation */}
       {!isLighthouseAudit && (

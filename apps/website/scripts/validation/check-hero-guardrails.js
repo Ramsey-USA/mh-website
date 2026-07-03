@@ -22,6 +22,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { HERO_SECTION_RULES } = require("./branding-rules.cjs");
 
 /**
  * Validate that a hero section meets all MH Branding standards
@@ -35,24 +36,17 @@ function validateHeroSection(filePath, content) {
 
   // Check 1: Canonical hero class structure
   const hasCanonicalClass =
-    /className="hero-section\s+relative\s+flex\s+items-end\s+justify-end\s+text-white\s+overflow-hidden"/.test(
-      content,
-    ) ||
-    /className=['"]hero-section.*?relative.*?flex.*?items-end.*?justify-end.*?text-white.*?overflow-hidden['"]/.test(
-      content,
-    );
+    HERO_SECTION_RULES.canonicalClassRegex.test(content) ||
+    HERO_SECTION_RULES.canonicalClassRegexFlexible.test(content);
 
   if (!hasCanonicalClass) {
     errors.push(
-      'Missing canonical hero class: "hero-section relative flex items-end justify-end text-white overflow-hidden"',
+      `Missing canonical hero class: "${HERO_SECTION_RULES.canonicalClass}"`,
     );
   }
 
   // Check 2: Proper height property
-  const hasProperHeight =
-    /height.*?calc\(100vh\s*-\s*var\(--mh-nav-offset,\s*6\.5rem\)\)/.test(
-      content,
-    );
+  const hasProperHeight = HERO_SECTION_RULES.heightRegex.test(content);
 
   if (!hasProperHeight) {
     errors.push(
@@ -61,14 +55,14 @@ function validateHeroSection(filePath, content) {
   }
 
   // Check 3: PageNavigation component
-  const hasPageNavigation = /PageNavigation/.test(content);
+  const hasPageNavigation = HERO_SECTION_RULES.hasPageNavigation.test(content);
 
   if (!hasPageNavigation) {
     errors.push("Missing PageNavigation component");
   }
 
   // Check 4: Dual naming format (Military → Civilian)
-  const hasDualNaming = /→/.test(content);
+  const hasDualNaming = HERO_SECTION_RULES.hasDualNaming.test(content);
 
   if (!hasDualNaming) {
     warnings.push(
@@ -77,7 +71,8 @@ function validateHeroSection(filePath, content) {
   }
 
   // Check 5: Bottom-right positioning (ml-auto required)
-  const hasBottomRightPositioning = /ml-auto/.test(content);
+  const hasBottomRightPositioning =
+    HERO_SECTION_RULES.hasBottomRightPositioning.test(content);
 
   if (!hasBottomRightPositioning) {
     warnings.push("Missing bottom-right text positioning (ml-auto not found)");
@@ -85,8 +80,7 @@ function validateHeroSection(filePath, content) {
 
   // Check 6: No CTA buttons in hero section (look for suspicious patterns)
   const hasSuspiciousCTA =
-    /href.*?className.*?(?:button|cta|btn)/.test(content) &&
-    /hero/.test(content);
+    HERO_SECTION_RULES.suspiciousCTA.test(content) && /hero/.test(content);
 
   if (hasSuspiciousCTA) {
     warnings.push("Possible CTA buttons detected in hero section");

@@ -25,7 +25,10 @@ export function LocationsHero() {
             </span>
             <span className="block text-white">Serving WA, OR, and ID</span>
             <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
-              Local Leadership, Regional Excellence, Trusted Partnerships
+              Built on Quality, Backed by Trust.
+            </span>
+            <span className="block text-brand-secondary/80 text-xs xs:text-sm sm:text-base mt-1">
+              Professional on the line. Thorough in the details.
             </span>
           </h1>
         </div>

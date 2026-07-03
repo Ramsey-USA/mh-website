@@ -10,6 +10,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
+const { CLIENT_TERMINOLOGY_GUARDRAIL_RULES } = require("./branding-rules.cjs");
 
 const APP_ROOT = process.cwd();
 const REPO_ROOT = path.resolve(APP_ROOT, "..", "..");
@@ -32,60 +33,7 @@ const EXCLUDED_PATH_PATTERNS = [
   /src\/lib\/services\//,
 ];
 
-const RULES = [
-  {
-    id: "hard-dollar-amount",
-    pattern: /\$\s?\d[\d.,]*(?:\s?[KMBkmb])?\+?/g,
-    message: "Avoid hard dollar amounts in client-facing copy.",
-    prefer:
-      "Use trust-safe phrasing like 'robust bonding capacity' or 'defined approval controls'.",
-  },
-  {
-    id: "choose-market",
-    pattern: /\b(?:choose|pick)\s+(?:your\s+)?market\b/gi,
-    message: "Avoid market-trader journey framing.",
-    prefer: "Use 'project type', 'delivery path', or 'scope fit'.",
-  },
-  {
-    id: "market-by-market",
-    pattern: /\bmarket[-\s]by[-\s]market\b/gi,
-    message: "Avoid market-by-market phrasing.",
-    prefer: "Use 'location-by-location' or 'project-type'.",
-  },
-  {
-    id: "service-market-label",
-    pattern:
-      /\b(?:service|delivery|planning|regional|local|technical|public-sector|municipal|partner)\s+market\b/gi,
-    message: "Avoid market labels in user-facing navigation/copy.",
-    prefer: "Use 'service area', 'project path', or 'project type'.",
-  },
-  {
-    id: "market-page-label",
-    pattern: /\bmarket\s+page\b/gi,
-    message: "Avoid market page phrasing.",
-    prefer: "Use 'service area page' or route by project type.",
-  },
-  {
-    id: "approval-threshold-label",
-    pattern: /\bapproval\s+thresholds?\b/gi,
-    message: "Avoid threshold-heavy terminology in client-facing copy.",
-    prefer: "Use 'approval controls'.",
-  },
-  {
-    id: "generic-market-noun",
-    pattern: /\bmarket\b/gi,
-    message: "Avoid generic market wording in client-facing copy.",
-    prefer: "Use 'project type', 'service area', or 'delivery lane'.",
-    // Keep this rule low-noise by allowing common non-detouring contexts.
-    allowIfMatch: [
-      /marketing/i,
-      /remarketing/i,
-      /benchmark/i,
-      /marketplace/i,
-      /google business profile/i,
-    ],
-  },
-];
+const RULES = CLIENT_TERMINOLOGY_GUARDRAIL_RULES;
 
 function runGitLsFiles(cwd, globs) {
   const result = spawnSync("git", ["ls-files", ...globs], {

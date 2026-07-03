@@ -45,12 +45,6 @@ describe("Sitewide tab title metadata contract", () => {
       requiredSnippets: ["getServicesSEO()"],
     },
     {
-      file: "app/services/[slug]/page.tsx",
-      requiredSnippets: [
-        'buildDualSeoTitle("services", "Legacy Route Redirect")',
-      ],
-    },
-    {
       file: "app/about/details/page.tsx",
       requiredSnippets: ['buildDualSeoTitle("about", "Detailed Capabilities")'],
     },
