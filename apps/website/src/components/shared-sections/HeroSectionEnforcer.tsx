@@ -160,14 +160,12 @@ export function HeroSectionEnforcer({
 export function isHeroSectionEnforcer(
   component: ReactNode,
 ): component is ReturnType<typeof HeroSectionEnforcer> {
-  const candidate = component as { type?: unknown };
+  if (component == null || typeof component !== "object") {
+    return false;
+  }
 
-  return (
-    Boolean(component) &&
-    typeof component === "object" &&
-    "type" in component &&
-    candidate.type === HeroSectionEnforcer
-  );
+  const candidate = component as { type?: unknown };
+  return "type" in component && candidate.type === HeroSectionEnforcer;
 }
 
 /**
