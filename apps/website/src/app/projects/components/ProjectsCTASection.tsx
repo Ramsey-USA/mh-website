@@ -71,40 +71,42 @@ export function ProjectsCTASection() {
 
             {/* CTA Buttons */}
             <div className="flex sm:flex-row flex-col justify-center gap-6 mb-12">
-              <Link href="/contact" className="inline-block">
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="w-full sm:w-auto min-w-[280px] transition-all duration-300 group"
-                  aria-label="Start your construction project with MH Construction"
-                >
+              <Button
+                variant="primary"
+                size="lg"
+                className="w-full sm:w-auto min-w-70 transition-all duration-300 group"
+                aria-label="Start your construction project with MH Construction"
+                asChild
+              >
+                <Link href="/contact" className="inline-block">
                   <MaterialIcon
                     icon="event"
                     size="lg"
-                    className="mr-3 group-hover:scale-110 transition-transform duration-300"
+                    className="mr-3 transition-colors duration-300"
                     ariaLabel=""
                   />
                   <span className="font-semibold">Begin Your Project</span>
-                </Button>
-              </Link>
-              <Link href="/#services" className="inline-block">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="w-full sm:w-auto min-w-[280px] transition-all duration-300 group border-2 border-brand-primary dark:border-brand-primary-light"
-                  aria-label="View our construction services"
-                >
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full sm:w-auto min-w-70 transition-all duration-300 group border-2 border-brand-primary dark:border-brand-primary-light"
+                aria-label="View our construction services"
+                asChild
+              >
+                <Link href="/services" className="inline-block">
                   <MaterialIcon
                     icon="build"
                     size="lg"
-                    className="mr-3 group-hover:scale-110 transition-transform duration-300"
+                    className="mr-3 transition-colors duration-300"
                     ariaLabel=""
                   />
                   <span className="font-semibold">
                     Our Values-Driven Services
                   </span>
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
 
             {/* Contact Information */}

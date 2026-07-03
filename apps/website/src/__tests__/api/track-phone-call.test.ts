@@ -135,7 +135,7 @@ describe("POST /api/track-phone-call", () => {
         source: "services-page",
         phoneNumber: "509-308-6489",
         timestamp: new Date().toISOString(),
-        page: "https://mhc-gc.com/#services",
+        page: "https://mhc-gc.com/services",
         referrer: "https://google.com",
         userAgent: "Mozilla/5.0 Chrome/120",
       }),

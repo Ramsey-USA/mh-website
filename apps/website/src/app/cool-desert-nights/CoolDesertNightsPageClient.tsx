@@ -102,15 +102,16 @@ export function CoolDesertNightsPageClient() {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <Link
-                  href={chamberScheduleUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="touch-manipulation"
+                  asChild
                 >
-                  <Button
-                    variant="secondary"
-                    size="lg"
-                    className="touch-manipulation"
+                  <Link
+                    href={chamberScheduleUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <MaterialIcon
                       icon="calendar_month"
@@ -118,29 +119,31 @@ export function CoolDesertNightsPageClient() {
                       className="mr-2"
                     />
                     {t("hero.cta.schedule")}
-                  </Button>
-                </Link>
-                <Link href="/contact">
+                  </Link>
+                </Button>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="touch-manipulation"
+                  asChild
+                >
+                  <Link href="/contact">
+                    <MaterialIcon icon="handshake" size="md" className="mr-2" />
+                    {t("hero.cta.team")}
+                  </Link>
+                </Button>
+                {!isMissionComplete && (
                   <Button
                     variant="primary"
                     size="lg"
                     className="touch-manipulation"
+                    asChild
                   >
-                    <MaterialIcon icon="handshake" size="md" className="mr-2" />
-                    {t("hero.cta.team")}
-                  </Button>
-                </Link>
-                {!isMissionComplete && (
-                  <Link href="#booth-map">
-                    <Button
-                      variant="primary"
-                      size="lg"
-                      className="touch-manipulation"
-                    >
+                    <Link href="#booth-map">
                       <MaterialIcon icon="map" size="md" className="mr-2" />
                       {t("hero.cta.booth")}
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                 )}
               </div>
             </div>
@@ -455,43 +458,46 @@ export function CoolDesertNightsPageClient() {
                   {t("action.description2Suffix")}
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
-                  <Link href="/contact">
-                    <Button
-                      variant="primary"
-                      size="lg"
-                      className="touch-manipulation"
-                    >
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="touch-manipulation"
+                    asChild
+                  >
+                    <Link href="/contact">
                       <MaterialIcon
                         icon="contact_phone"
                         size="md"
                         className="mr-2"
                       />
                       {t("action.cta.coordinate")}
-                    </Button>
-                  </Link>
-                  <Link href="/allies">
-                    <Button
-                      variant="secondary"
-                      size="lg"
-                      className="touch-manipulation"
-                    >
+                    </Link>
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    className="touch-manipulation"
+                    asChild
+                  >
+                    <Link href="/allies">
                       <MaterialIcon
                         icon="handshake"
                         size="md"
                         className="mr-2"
                       />
                       {t("action.cta.pathways")}
-                    </Button>
-                  </Link>
-                  <Link
-                    href={eventbriteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    </Link>
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    className="touch-manipulation"
+                    asChild
                   >
-                    <Button
-                      variant="secondary"
-                      size="lg"
-                      className="touch-manipulation"
+                    <Link
+                      href={eventbriteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <MaterialIcon
                         icon="confirmation_number"
@@ -499,8 +505,8 @@ export function CoolDesertNightsPageClient() {
                         className="mr-2"
                       />
                       {t("action.cta.eventbrite")}
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                 </div>
               </div>
             </section>

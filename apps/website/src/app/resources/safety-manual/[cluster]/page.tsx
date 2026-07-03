@@ -35,7 +35,7 @@ type SafetyRoutePlan = {
 const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   "program-foundation": {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Municipal and government service line",
     },
     area: {
@@ -49,7 +49,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "field-onboarding-and-communication": {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Commercial construction delivery",
     },
     area: {
@@ -63,7 +63,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "safety-oversight-and-industrial-hygiene": {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Municipal and government controls",
     },
     area: {
@@ -77,7 +77,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "fall-and-access-safety": {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Drywall and interiors execution",
     },
     area: {
@@ -91,7 +91,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "excavation-confined-spaces-and-energy-control": {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Commercial construction sequencing",
     },
     area: {
@@ -105,7 +105,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "energy-and-fire-hazards": {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Restoration and remodeling controls",
     },
     area: {
@@ -119,7 +119,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "motor-vehicles-and-heavy-equipment": {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Commercial heavy-equipment delivery",
     },
     area: {
@@ -133,7 +133,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "tools-and-materials": {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Commercial tools and materials planning",
     },
     area: {
@@ -147,7 +147,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
   },
   "program-compliance-and-continuity": {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Municipal continuity planning",
     },
     area: {

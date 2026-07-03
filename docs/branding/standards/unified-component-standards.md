@@ -402,6 +402,47 @@ and modal/dialog presentation patterns.
 
 ## 🏗️ **Section Component Standards**
 
+## Section Rhythm and Transition Contract (Canonical)
+
+This section defines the approved section-to-section rhythm so pages feel cohesive without visual jumps.
+
+### Rhythm Tiers
+
+Use one of the two approved vertical rhythm tiers per page and avoid ad-hoc spacing drift.
+
+- Standard tier: `py-12 sm:py-16 lg:py-20 xl:py-24`
+- Compact tier: `py-10 sm:py-12 lg:py-16`
+
+Rules:
+
+1. Select a dominant tier for the page and reuse it for most body sections.
+2. Use a tighter top handoff for transitional sections when needed (for example, FAQ to final CTA) instead of changing both top and bottom spacing.
+3. Keep background alternation intentional (`white` -> `gray` -> `white`) and avoid accidental repeated transitions that flatten hierarchy.
+
+### Heading Cadence Between Adjacent Sections
+
+Large display headers should not repeat at full intensity in consecutive sections unless a deliberate hero-level break is intended.
+
+1. Use display-scale headers for anchor sections.
+2. Use section-scale headers for supporting sections that follow immediately after another headline-heavy block.
+3. Keep subtitle-to-title hierarchy consistent across the page.
+
+### Deferred/Loading Visual Parity
+
+Deferred section placeholders must match the final rendered section shell.
+
+1. Placeholder wrappers must inherit the same section className/variant.
+2. Placeholder background and spacing must not flash between unrelated styles.
+3. Skeleton card density should roughly match final content density.
+
+### Shared Section Shell Priority
+
+When a page uses standard MH section chrome, prefer shared section-shell components over hand-authored duplicated shells.
+
+1. Use `BrandedContentSection` when the section follows canonical MH icon + two-line header + pattern background structure.
+2. Use shared wrappers for deferred sections and pass shell className through so loading and final states match.
+3. Only use manual section markup when a documented exception requires it.
+
 ### Section Background Pattern (REQUIRED)
 
 All page sections MUST follow this standardized background:
@@ -574,7 +615,7 @@ page-navigation overlays, and navigation action presentation.
 - PageNavigation More overlay keeps MH brand labels with plain-language SEO descriptions.
 - Hamburger and Footer navigation keep plain-language SEO labels on the primary line and MH brand labels on the secondary line.
 
-10. Do not collapse the above surface-specific pattern into a single global parenthetical format for all UI elements.
+1. Do not collapse the above surface-specific pattern into a single global parenthetical format for all UI elements.
 
 ### Canonical References
 
@@ -723,6 +764,22 @@ and card typography across website surfaces.
 6. Card typography must use approved responsive scales and weights.
 7. Public-sector grayscale card styling is contextual and must remain scoped to approved surfaces.
 
+### Elevation Tiers (Required)
+
+Use two card elevation tiers to prevent random shadow intensity drift across adjacent sections.
+
+1. Tier 1 (standard): subtle card surfaces for dense informational sections.
+2. Tier 2 (emphasis): stronger surfaces for featured proof or CTA cards.
+3. Do not place Tier 2 blocks back-to-back across neighboring sections unless intentional for a hero-like break.
+
+### Motion Exception Governance
+
+Motion outside tokenized patterns must be documented as an exception.
+
+1. Default card and CTA motion must use centralized tokens (`hoverMotion.*`, `designTokens.*`, `transitionDuration.*`).
+2. If inline transform classes are required for a one-off interaction, record the reason and component scope in the associated PR/audit note.
+3. Repeated one-off motion patterns must be converted into shared tokens/components.
+
 ### Canonical References
 
 - [Page Compliance Checklist](../../development/standards/page-compliance-checklist.md)
@@ -760,6 +817,35 @@ This section is the canonical visual contract for all website buttons and CTAs.
 4. Do not introduce ad-hoc inline hover transform classes (`hover:scale-*`, `group-hover:scale-*`, `group-hover:rotate-*`).
 5. Minimum touch target height is 44px.
 6. Public-sector grayscale styling is contextual and must still use `Button` as the base component.
+7. For route navigation CTAs, use `Button asChild` with `Link` rather than wrapping `Button` in `Link`.
+
+### CTA Priority Ladder (Required)
+
+Use a consistent CTA hierarchy inside each section:
+
+1. Primary CTA: filled high-emphasis action (single dominant next step).
+2. Secondary CTA: outlined or tinted support action.
+3. Tertiary CTA: text-link action for low-emphasis navigation.
+
+Rules:
+
+1. Do not render multiple primary CTAs with equal weight in the same CTA cluster.
+2. If a section has 2-3 CTAs, only the first/highest-priority action is primary.
+3. FAQ and utility sections should default to secondary or tertiary CTA emphasis.
+
+### CTA Composition Pattern (Required)
+
+```tsx
+// ✅ CORRECT
+<Button asChild variant="primary" size="lg">
+  <Link href="/contact">Contact Our Team</Link>
+</Button>
+
+// ❌ AVOID
+<Link href="/contact">
+  <Button variant="primary" size="lg">Contact Our Team</Button>
+</Link>
+```
 
 ### Button Variants
 
@@ -961,6 +1047,10 @@ className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 - [ ] Section headers use two-line gradient pattern with `overflow-visible`
 - [ ] Cards use modern structure with animated border glows
 - [ ] Backgrounds use diagonal stripe pattern with large blobs
+- [ ] Page uses one approved section rhythm tier consistently (standard or compact)
+- [ ] CTA clusters follow required primary-secondary-tertiary ladder
+- [ ] Adjacent section headers follow a deliberate cadence (display vs section scale)
+- [ ] Deferred placeholders visually match final section shell (spacing/background parity)
 
 ---
 

@@ -117,6 +117,8 @@ function getServiceFunnelMeta(title: string): {
 
   if (
     normalized.includes("commercial tenant") ||
+    normalized.includes("commercial renovation") ||
+    normalized.includes("renovaciones comerciales") ||
     normalized.includes("espacios activos")
   ) {
     return { path: "modernize-spaces", focus: "occupied-ti" };
@@ -128,7 +130,7 @@ function getServiceFunnelMeta(title: string): {
 function getServiceLaneHref(title: string) {
   const { path, focus } = getServiceFunnelMeta(title);
 
-  return `/?utm_source=homepage&utm_medium=modal&utm_campaign=services-funnel&utm_content=path-${path}_focus-${focus}#services`;
+  return `/services?utm_source=homepage&utm_medium=modal&utm_campaign=services-funnel&utm_content=path-${path}_focus-${focus}`;
 }
 
 /**
@@ -410,25 +412,7 @@ export function ServicesShowcase({
         iconVariant: "bronze",
         subtitle: t.sectionSubtitle,
         title: t.sectionTitle,
-        description: (
-          <>
-            {locale === "es" ? (
-              t.sectionDescription
-            ) : (
-              <>
-                Understand each delivery lane from{" "}
-                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  front-end planning controls
-                </span>{" "}
-                through active build and{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  close-out
-                </span>
-                .
-              </>
-            )}
-          </>
-        ),
+        description: t.sectionDescription,
       }}
     >
       <div className="mb-8 sm:mb-10 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 sm:p-6">
@@ -545,7 +529,7 @@ export function ServicesShowcase({
             aria-label={`${t.viewDetailsAriaPrefix} ${service.title}`}
           >
             <Card
-              className={`flex flex-col bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-secondary/20 border border-gray-200 dark:border-gray-700 ${cornerRadius.card} h-full transition-all duration-300 p-6 sm:p-8 overflow-hidden group hover:scale-[1.02]`}
+              className={`flex flex-col bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-secondary/20 border border-gray-200 dark:border-gray-700 ${cornerRadius.card} h-full transition-all duration-300 p-6 sm:p-8 overflow-hidden group`}
             >
               <div className="relative flex flex-col h-full">
                 <CardHeader className="shrink-0 pb-4 px-0">
@@ -586,7 +570,7 @@ export function ServicesShowcase({
                         <MaterialIcon
                           icon="info"
                           size="md"
-                          className="text-brand-primary dark:text-brand-primary-light group-hover:scale-110 group-hover:rotate-12 transition-all duration-300"
+                          className="text-brand-primary dark:text-brand-primary-light transition-all duration-300"
                         />
                         <span className="font-bold text-xs sm:text-sm uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
                           {t.clickForDetails}
@@ -594,7 +578,7 @@ export function ServicesShowcase({
                         <MaterialIcon
                           icon="arrow_forward"
                           size="sm"
-                          className="text-brand-primary dark:text-brand-primary-light group-hover:translate-x-1 transition-transform duration-300"
+                          className="text-brand-primary dark:text-brand-primary-light transition-colors duration-300"
                         />
                       </div>
                     </div>
@@ -644,7 +628,7 @@ export function ServicesShowcase({
               <div className="absolute inset-0 bg-linear-to-br from-black/10 to-black/20"></div>
               <button
                 onClick={onClose}
-                className={`absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 ${cornerRadius.full} p-2.5 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 z-10`}
+                className={`absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 ${cornerRadius.full} p-2.5 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl z-10`}
                 aria-label={t.closeModalAria}
                 type="button"
                 autoFocus
@@ -751,26 +735,26 @@ export function ServicesShowcase({
 
             {/* CTA Button */}
             <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gray-200 dark:border-gray-700">
-              <Link href={currentService.link} className="flex-1">
-                <Button variant="primary" className="w-full group/btn">
+              <Button variant="primary" className="w-full group/btn" asChild>
+                <Link href={currentService.link} className="flex-1">
                   <MaterialIcon
                     icon="arrow_forward"
                     size="md"
-                    className="mr-2 group-hover/btn:translate-x-1 transition-transform"
+                    className="mr-2"
                   />
                   {currentService.cta || t.learnMoreFallback}
-                </Button>
-              </Link>
-              <Link href={showcaseContactHref} className="flex-1">
-                <Button variant="secondary" className="w-full group/btn">
+                </Link>
+              </Button>
+              <Button variant="secondary" className="w-full group/btn" asChild>
+                <Link href={showcaseContactHref} className="flex-1">
                   <MaterialIcon
                     icon="mail"
                     size="md"
-                    className="mr-2 group-hover/btn:scale-110 transition-transform"
+                    className="mr-2 transition-colors"
                   />
                   {t.contactCta}
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </ServicesDetailModal>

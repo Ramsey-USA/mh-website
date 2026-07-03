@@ -33,7 +33,7 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
 export const breadcrumbPatterns = {
   services: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Services", url: "https://www.mhc-gc.com/#services" },
+    { name: "Services", url: "https://www.mhc-gc.com/services" },
   ],
   about: [
     { name: "Home", url: "https://www.mhc-gc.com" },

@@ -323,7 +323,7 @@ export function ChatWidget() {
 
           <button
             onClick={handleOpenChat}
-            className="flex items-center justify-center w-14 h-14 rounded-full bg-linear-to-br from-brand-primary to-brand-primary-dark text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+            className="flex items-center justify-center w-14 h-14 rounded-full bg-linear-to-br from-brand-primary to-brand-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900"
             aria-label={copy.openChatLabel}
             title={copy.chatTitle}
           >

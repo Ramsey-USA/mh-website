@@ -81,6 +81,7 @@ const mockRedirect = jest.fn();
 const mockPermanentRedirect = jest.fn();
 
 jest.mock("next/navigation", () => ({
+  usePathname: () => "/resources",
   useParams: () => ({ id: "submission-123" }),
   redirect: (...args: unknown[]) => mockRedirect(...args),
   permanentRedirect: (path: string) => {

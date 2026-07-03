@@ -245,7 +245,7 @@ export default async function QrCodesPage() {
                     return (
                       <article
                         key={`${entry.relativePath}-${entry.variant}`}
-                        className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800"
+                        className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800"
                       >
                         <a
                           href={imageHref}

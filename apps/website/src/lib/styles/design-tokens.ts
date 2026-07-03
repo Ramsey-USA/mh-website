@@ -34,30 +34,29 @@ export const cornerRadius = {
  * Standardized hover effects for interactive elements
  */
 export const hoverMotion = {
-  /** Icon hover - scale + rotation for playful interaction (scale-110 rotate-12) */
-  iconPlayful:
-    "transition-all duration-300 group-hover:scale-110 group-hover:rotate-12",
+  /** Icon hover - color/opacity emphasis only */
+  iconPlayful: "transition-colors duration-300",
 
-  /** Icon hover - scale only for subtle interaction (scale-110) */
-  iconSubtle: "transition-all duration-300 group-hover:scale-110",
+  /** Icon hover - subtle color transition only */
+  iconSubtle: "transition-colors duration-300",
 
-  /** Card hover - gentle lift effect (scale-[1.02]) */
-  cardLift: "transition-all duration-300 hover:scale-[1.02]",
+  /** Card hover - shadow emphasis only */
+  cardLift: "transition-shadow duration-300",
 
-  /** Card hover - moderate scale (scale-105) */
-  cardScale: "transition-all duration-300 hover:scale-105",
+  /** Card hover - moderate shadow emphasis */
+  cardScale: "transition-shadow duration-300",
 
-  /** Button hover - scale up (scale-105) */
-  button: "transition-all duration-300 hover:scale-105",
+  /** Button hover - shadow/color only */
+  button: "transition-colors duration-300",
 
-  /** Image hover - gentle zoom (scale-105) */
-  imageZoom: "transition-transform duration-500 group-hover:scale-105",
+  /** Image hover - color/opacity-only transition */
+  imageZoom: "transition-opacity duration-500",
 
-  /** Translate hover - move up (translate-y-1) */
-  translateUp: "transition-all duration-300 group-hover:-translate-y-1",
+  /** Utility motion token retained for API compatibility (no transform) */
+  translateUp: "transition-colors duration-300",
 
-  /** Translate hover - move up slightly (translate-y-2) */
-  translateUpLarge: "transition-all duration-300 hover:-translate-y-2",
+  /** Utility motion token retained for API compatibility (no transform) */
+  translateUpLarge: "transition-colors duration-300",
 } as const;
 
 /**

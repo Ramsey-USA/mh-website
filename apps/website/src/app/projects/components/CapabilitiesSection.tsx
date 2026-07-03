@@ -68,16 +68,16 @@ export function CapabilitiesSection() {
           {capabilities.map((capability, _index) => (
             <div key={_index} className="group relative flex h-full">
               {/* Animated Border Glow */}
-              <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+              <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
-              <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+              <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                 {/* Top Accent Bar */}
                 <div className="h-2 bg-linear-to-r from-brand-primary via-brand-secondary to-bronze-700"></div>
 
                 <div className="p-6 flex flex-col flex-1">
                   <div className="relative inline-block mb-4">
                     <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-secondary/40 opacity-30 blur-lg rounded-xl"></div>
-                    <div className="relative rounded-xl bg-linear-to-br from-brand-primary via-brand-secondary to-bronze-700 p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+                    <div className="relative rounded-xl bg-linear-to-br from-brand-primary via-brand-secondary to-bronze-700 p-3 shadow-xl transition-all duration-300">
                       <MaterialIcon
                         icon={capability.icon}
                         size="2xl"

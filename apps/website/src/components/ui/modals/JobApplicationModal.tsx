@@ -560,7 +560,7 @@ export function JobApplicationModal({
                 </div>
                 <button
                   onClick={handleClose}
-                  className="hover:bg-white/20 p-2 rounded-lg text-white hover:scale-110 transition-all duration-200"
+                  className="hover:bg-white/20 p-2 rounded-lg text-white transition-all duration-200"
                   aria-label="Close modal"
                 >
                   <MaterialIcon icon="close" size="lg" />
@@ -882,7 +882,7 @@ export function JobApplicationModal({
                 </p>
                 <div className="flex justify-center mt-1 px-6 pt-8 pb-8 border-2 border-gray-300 hover:border-brand-primary dark:border-gray-600 border-dashed rounded-xl transition-all duration-300 hover:bg-linear-to-br hover:from-brand-primary/5 hover:to-brand-secondary/5 dark:hover:from-brand-primary/10 dark:hover:to-brand-secondary/10 group cursor-pointer">
                   <div className="space-y-2 text-center">
-                    <div className="mx-auto w-16 h-16 flex items-center justify-center bg-brand-primary/10 dark:bg-brand-primary/20 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                    <div className="mx-auto w-16 h-16 flex items-center justify-center bg-brand-primary/10 dark:bg-brand-primary/20 rounded-2xl transition-colors duration-300">
                       <MaterialIcon
                         icon="upload"
                         size="2xl"

@@ -192,9 +192,9 @@ export function ValuesShowcase({
               aria-label={`Learn more about ${value.title}`}
             >
               {/* Animated Border Glow */}
-              <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+              <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
-              <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:scale-[1.02] group-hover:border-brand-primary group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 dark:group-hover:border-brand-primary-light">
+              <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-brand-primary group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 dark:group-hover:border-brand-primary-light">
                 {/* Top Accent Bar */}
                 <div
                   className={`h-2 bg-linear-to-r ${value.accentGradient}`}
@@ -206,7 +206,7 @@ export function ValuesShowcase({
                     <div className="relative inline-block">
                       <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
                       <div
-                        className={`relative rounded-xl bg-linear-to-br ${value.iconGradient} p-3 shadow-xl group-hover:scale-110 transition-all duration-300`}
+                        className={`relative rounded-xl bg-linear-to-br ${value.iconGradient} p-3 shadow-xl transition-all duration-300`}
                       >
                         <MaterialIcon
                           icon={value.icon}
@@ -230,7 +230,7 @@ export function ValuesShowcase({
                   {/* Learn More Button */}
                   <div className="flex justify-center mt-4">
                     <button
-                      className="flex items-center gap-2 px-4 py-2 bg-brand-primary hover:bg-brand-primary-dark text-white rounded-lg transition-colors duration-200 font-semibold text-sm group-hover:scale-105"
+                      className="flex items-center gap-2 px-4 py-2 bg-brand-primary hover:bg-brand-primary-dark text-white rounded-lg transition-colors duration-200 font-semibold text-sm"
                       onClick={(e) => {
                         e.stopPropagation();
                         openModal(index);
@@ -264,7 +264,7 @@ export function ValuesShowcase({
                 <div className="absolute inset-0 bg-linear-to-br from-black/10 to-black/20"></div>
                 <button
                   onClick={onClose}
-                  className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 rounded-full p-2.5 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 z-10"
+                  className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 rounded-full p-2.5 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl z-10"
                   aria-label="Close modal"
                   type="button"
                   autoFocus

@@ -33,7 +33,7 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
     <Card
       className={getCardClassName(
         "default",
-        "overflow-hidden hover:-translate-y-1 hover:shadow-xl cursor-pointer",
+        "overflow-hidden hover:shadow-xl cursor-pointer",
       )}
       onClick={handleCardClick}
     >
@@ -179,24 +179,21 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
         )}
 
         {/* View Details Button */}
-        <Link
-          href={`/projects/${project.seoMetadata.slug}`}
-          prefetch={false}
-          passHref
+        <Button
+          variant="outline"
+          size="sm"
+          className="w-full group hover:bg-brand-primary hover:text-white hover:border-brand-primary"
+          asChild
         >
-          <Button
-            variant="outline"
-            size="sm"
-            className="w-full group hover:bg-brand-primary hover:text-white hover:border-brand-primary"
-          >
+          <Link href={`/projects/${project.seoMetadata.slug}`} prefetch={false}>
             View Partnership Details
             <MaterialIcon
               icon="arrow_forward"
               size="sm"
-              className="ml-2 group-hover:translate-x-1 transition-transform"
+              className="ml-2 transition-colors"
             />
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </CardContent>
     </Card>
   );

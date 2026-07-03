@@ -179,16 +179,21 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
               </li>
             ))}
           </ul>
-          <Link href="/projects">
-            <Button variant="secondary" size="lg" className="w-full group/btn">
+          <Button
+            variant="secondary"
+            size="lg"
+            className="w-full group/btn"
+            asChild
+          >
+            <Link href="/projects">
               <MaterialIcon
                 icon="photo_library"
                 size="lg"
-                className="mr-2 group-hover/btn:scale-110 transition-transform"
+                className="mr-2 transition-colors"
               />
               {copy.option2Cta}
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
 
         {/* Option 3: Contact Us */}
@@ -224,20 +229,21 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
               </li>
             ))}
           </ul>
-          <Link href="/contact">
-            <Button
-              variant="primary"
-              size="lg"
-              className="w-full bg-brand-secondary hover:bg-brand-secondary/90 group/btn"
-            >
+          <Button
+            variant="primary"
+            size="lg"
+            className="w-full bg-brand-secondary hover:bg-brand-secondary/90 group/btn"
+            asChild
+          >
+            <Link href="/contact">
               <MaterialIcon
                 icon="mail"
                 size="lg"
-                className="mr-2 group-hover/btn:scale-110 transition-transform"
+                className="mr-2 transition-colors"
               />
               {copy.option3Cta}
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </div>
     </BrandedContentSection>

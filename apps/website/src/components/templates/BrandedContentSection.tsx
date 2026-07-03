@@ -47,6 +47,9 @@ export interface BrandedContentSectionProps {
 
   /** Additional classes for content container */
   containerClassName?: string;
+
+  /** Header visual scale */
+  headerSize?: "display" | "section";
 }
 
 /**
@@ -153,6 +156,7 @@ export function BrandedContentSection({
   animated = true,
   className = "",
   containerClassName = "",
+  headerSize = "display",
 }: BrandedContentSectionProps) {
   // Background color based on variant
   const bgClasses =
@@ -163,7 +167,13 @@ export function BrandedContentSection({
   const content = (
     <>
       {header && (
-        <div className="mb-16 sm:mb-20 text-center">
+        <div
+          className={
+            headerSize === "section"
+              ? "mb-12 sm:mb-16 text-center"
+              : "mb-16 sm:mb-20 text-center"
+          }
+        >
           {/* Icon with decorative lines */}
           <div className="flex items-center justify-center mb-8 gap-4">
             <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
@@ -185,8 +195,20 @@ export function BrandedContentSection({
           </div>
 
           {/* Two-line gradient heading - CRITICAL: overflow-visible */}
-          <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-            <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+          <h2
+            className={
+              headerSize === "section"
+                ? "mb-5 sm:mb-7 font-black text-gray-900 dark:text-gray-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-relaxed tracking-tighter overflow-visible"
+                : "mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"
+            }
+          >
+            <span
+              className={
+                headerSize === "section"
+                  ? "block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-lg sm:text-2xl md:text-3xl lg:text-4xl tracking-tight overflow-visible py-1"
+                  : "block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1"
+              }
+            >
               {header.subtitle}
             </span>
             <span
@@ -198,7 +220,13 @@ export function BrandedContentSection({
 
           {/* Description */}
           {header.description && (
-            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            <p
+              className={
+                headerSize === "section"
+                  ? "mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed tracking-wide px-2"
+                  : "mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"
+              }
+            >
               {header.description}
             </p>
           )}

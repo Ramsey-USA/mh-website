@@ -22,7 +22,8 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 import { WaVobBadge } from "@/components/ui/WaVobBadge";
 import { trackFormSubmit } from "@/lib/analytics/tracking";
 import { useLocale } from "@/hooks/useLocale";
-import { PAGE_TERMINOLOGY } from "@/lib/branding/page-names";
+import { globalMenuItemsByLocale } from "@/components/layout/globalMenuItems";
+import { PWAInstallCTA } from "@/components/pwa";
 
 type FooterNavItem = {
   href: string;
@@ -64,101 +65,27 @@ type LicenseDetail = {
   verifyUrl?: string;
 };
 
-const navCol1Links: FooterNavItem[] = [
-  {
-    href: "/",
-    icon: "home",
-    label: PAGE_TERMINOLOGY.home.seoName,
-    sub: PAGE_TERMINOLOGY.home.mhBrandName,
-  },
-  {
-    href: "/contact",
-    icon: "contact_phone",
-    label: PAGE_TERMINOLOGY.contact.seoName,
-    sub: PAGE_TERMINOLOGY.contact.mhBrandName,
-  },
-  {
-    href: "/#services",
-    icon: "build",
-    label: PAGE_TERMINOLOGY.services.seoName,
-    sub: PAGE_TERMINOLOGY.services.mhBrandName,
-  },
-  {
-    href: "/projects",
-    icon: "photo_library",
-    label: PAGE_TERMINOLOGY.projects.seoName,
-    sub: PAGE_TERMINOLOGY.projects.mhBrandName,
-  },
-  {
-    href: "/events",
-    icon: "event",
-    label: PAGE_TERMINOLOGY.events.seoName,
-    sub: PAGE_TERMINOLOGY.events.mhBrandName,
-  },
-  {
-    href: "/resources",
-    icon: "folder_open",
-    label: PAGE_TERMINOLOGY.resources.seoName,
-    sub: PAGE_TERMINOLOGY.resources.mhBrandName,
-  },
-  {
-    href: "/safety",
-    icon: "verified_user",
-    label: PAGE_TERMINOLOGY.safety.seoName,
-    sub: PAGE_TERMINOLOGY.safety.mhBrandName,
-  },
-  {
-    href: "/faq",
-    icon: "help",
-    label: PAGE_TERMINOLOGY.faq.seoName,
-    sub: PAGE_TERMINOLOGY.faq.mhBrandName,
-  },
-];
+const footerNavCol1Hrefs = [
+  "/",
+  "/contact",
+  "/services",
+  "/projects",
+  "/events",
+  "/resources",
+  "/safety",
+  "/faq",
+] as const;
 
-const navCol2Links: FooterNavItem[] = [
-  {
-    href: "/about",
-    icon: "military_tech",
-    label: PAGE_TERMINOLOGY.about.seoName,
-    sub: PAGE_TERMINOLOGY.about.mhBrandName,
-  },
-  {
-    href: "/team",
-    icon: "groups",
-    label: PAGE_TERMINOLOGY.team.seoName,
-    sub: PAGE_TERMINOLOGY.team.mhBrandName,
-  },
-  {
-    href: "/allies",
-    icon: "handshake",
-    label: PAGE_TERMINOLOGY.allies.seoName,
-    sub: PAGE_TERMINOLOGY.allies.mhBrandName,
-  },
-  {
-    href: "/public-sector",
-    icon: "account_balance",
-    label: PAGE_TERMINOLOGY.publicSector.seoName,
-    sub: PAGE_TERMINOLOGY.publicSector.mhBrandName,
-  },
-  {
-    href: "/veterans",
-    icon: "workspace_premium",
-    label: PAGE_TERMINOLOGY.veterans.seoName,
-    sub: PAGE_TERMINOLOGY.veterans.mhBrandName,
-  },
-  {
-    href: "/careers",
-    icon: "work",
-    label: PAGE_TERMINOLOGY.careers.seoName,
-    sub: PAGE_TERMINOLOGY.careers.mhBrandName,
-  },
-  {
-    href: "/testimonials",
-    icon: "star",
-    label: PAGE_TERMINOLOGY.testimonials.seoName,
-    sub: PAGE_TERMINOLOGY.testimonials.mhBrandName,
-  },
-];
+const footerNavCol2Hrefs = [
+  "/about",
+  "/team",
+  "/allies",
+  "/public-sector",
+  "/veterans",
+  "/careers",
+  "/testimonials",
+  "/hub",
+] as const;
 
 const footerUtilityLinks: FooterUtilityLinkItem[] = [
   { href: "/privacy", icon: "shield", label: "Privacy" },
@@ -206,19 +133,19 @@ const serviceStates = [
 ] as const;
 
 const socialLinkBaseClass =
-  "group flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg border border-gray-600 bg-linear-to-br from-gray-700 to-gray-800 p-2.5 shadow-md transition-all duration-300 touch-manipulation hover:scale-105 dark:border-gray-500 dark:from-gray-600 dark:to-gray-700";
+  "group flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg border border-gray-600 bg-linear-to-br from-gray-700 to-gray-800 p-2.5 shadow-md transition-all duration-300 touch-manipulation dark:border-gray-500 dark:from-gray-600 dark:to-gray-700";
 
 const primaryActionCardClassName =
-  "group flex items-center gap-3 rounded-lg border border-brand-primary/30 bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 p-3 transition-all duration-300 hover:scale-105 hover:border-brand-primary hover:from-brand-primary/20 hover:to-brand-secondary/20 touch-manipulation";
+  "group flex items-center gap-3 rounded-lg border border-brand-primary/30 bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 p-3 transition-all duration-300 hover:border-brand-primary hover:from-brand-primary/20 hover:to-brand-secondary/20 touch-manipulation";
 
 const secondaryActionCardClassName =
-  "group flex items-center gap-3 rounded-lg border border-brand-secondary/40 bg-linear-to-r from-brand-secondary/15 to-brand-primary/15 p-3 transition-all duration-300 hover:scale-105 hover:border-brand-secondary hover:from-brand-secondary/25 hover:to-brand-primary/25 touch-manipulation";
+  "group flex items-center gap-3 rounded-lg border border-brand-secondary/40 bg-linear-to-r from-brand-secondary/15 to-brand-primary/15 p-3 transition-all duration-300 hover:border-brand-secondary hover:from-brand-secondary/25 hover:to-brand-primary/25 touch-manipulation";
 
 const serviceAreasTriggerClassName =
-  "group flex items-center gap-2 rounded-lg border border-brand-secondary/30 bg-linear-to-r from-brand-primary to-brand-primary-dark px-4 py-2 text-sm font-bold text-brand-secondary shadow-md transition-all duration-300 touch-manipulation hover:scale-105 hover:from-brand-primary-dark hover:to-brand-primary hover:border-brand-secondary hover:text-brand-secondary-light hover:shadow-lg hover:shadow-brand-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900";
+  "group flex items-center gap-2 rounded-lg border border-brand-secondary/30 bg-linear-to-r from-brand-primary to-brand-primary-dark px-4 py-2 text-sm font-bold text-brand-secondary shadow-md transition-all duration-300 touch-manipulation hover:from-brand-primary-dark hover:to-brand-primary hover:border-brand-secondary hover:text-brand-secondary-light hover:shadow-lg hover:shadow-brand-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900";
 
 const serviceAreaCityChipClassName =
-  "rounded-full border border-brand-primary/25 bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 px-2.5 py-1 text-xs font-semibold text-gray-200 transition-all duration-300 hover:scale-105 hover:border-brand-secondary/40 hover:from-brand-primary/20 hover:to-brand-secondary/20 hover:text-brand-secondary-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900";
+  "rounded-full border border-brand-primary/25 bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 px-2.5 py-1 text-xs font-semibold text-gray-200 transition-all duration-300 hover:border-brand-secondary/40 hover:from-brand-primary/20 hover:to-brand-secondary/20 hover:text-brand-secondary-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900";
 
 const socialLinks: SocialLinkItem[] = [
   {
@@ -300,30 +227,6 @@ const licenseDetails: LicenseDetail[] = [
   },
 ];
 
-const navCol1TranslationsEs: Record<string, { label: string; sub: string }> = {
-  "/": { label: "Inicio", sub: "Base central" },
-  "/contact": { label: "Contacto", sub: "Contacto" },
-  "/#services": { label: "Servicios", sub: "Operaciones" },
-  "/projects": { label: "Proyectos", sub: "Portafolio" },
-  "/events": {
-    label: "Eventos",
-    sub: "Eventos comunitarios",
-  },
-  "/resources": { label: "Recursos", sub: "Inteligencia de campo" },
-  "/safety": { label: "Seguridad", sub: "Proteccion operativa" },
-  "/faq": { label: "Ayuda/Preguntas", sub: "Informe rapido" },
-};
-
-const navCol2TranslationsEs: Record<string, { label: string; sub: string }> = {
-  "/about": { label: "Nosotros", sub: "Nuestro compromiso" },
-  "/team": { label: "Nuestro equipo", sub: "Cadena de mando" },
-  "/allies": { label: "Aliados", sub: "Socios" },
-  "/public-sector": { label: "Gobierno", sub: "Sector público" },
-  "/veterans": { label: "Veteranos", sub: "Servicio primero" },
-  "/careers": { label: "Carreras", sub: "Únete" },
-  "/testimonials": { label: "Reseñas", sub: "Reconocimientos" },
-};
-
 const footerUtilityTranslationsEs: Record<string, string> = {
   "/privacy": "Privacidad",
   "/terms": "Términos",
@@ -331,20 +234,28 @@ const footerUtilityTranslationsEs: Record<string, string> = {
   "/sitemap.xml": "Mapa del sitio",
 };
 
-function localizeFooterNavItems(
-  links: FooterNavItem[],
-  translations: Record<string, { label: string; sub: string }>,
-  isEs: boolean,
-) {
-  if (!isEs) return links;
+function buildFooterNavItems(
+  locale: "en" | "es",
+  hrefs: readonly string[],
+): FooterNavItem[] {
+  const menuItemsByHref = new Map(
+    globalMenuItemsByLocale[locale].map((item) => [item.href, item]),
+  );
 
-  return links.map((link) => {
-    const translation = translations[link.href];
-    return {
-      ...link,
-      label: translation?.label ?? link.label,
-      sub: translation?.sub ?? link.sub,
-    };
+  return hrefs.flatMap((href) => {
+    const item = menuItemsByHref.get(href);
+    if (!item) {
+      return [];
+    }
+
+    return [
+      {
+        href: item.href,
+        icon: item.icon,
+        label: item.label,
+        sub: item.subLabel,
+      },
+    ];
   });
 }
 
@@ -477,7 +388,7 @@ function FooterNavLink(props: {
     <Link
       href={href}
       prefetch={false}
-      className="group flex items-center space-x-2 text-base xs:text-lg text-gray-300 hover:text-brand-primary dark:text-gray-200 transition-all hover:translate-x-1 duration-300 touch-manipulation"
+      className="group flex items-center space-x-2 text-base xs:text-lg text-gray-300 hover:text-brand-primary dark:text-gray-200 transition-all duration-300 touch-manipulation"
     >
       <MaterialIcon
         icon={icon}
@@ -540,12 +451,12 @@ function FooterActionCardContent(props: {
   const accentClasses =
     accent === "secondary"
       ? {
-          iconWrapper: "bg-brand-secondary text-gray-900 group-hover:scale-110",
+          iconWrapper: "bg-brand-secondary text-gray-900",
           eyebrow: "text-brand-secondary",
           arrow: "text-brand-secondary",
         }
       : {
-          iconWrapper: "bg-brand-primary text-white group-hover:scale-110",
+          iconWrapper: "bg-brand-primary text-white",
           eyebrow: "text-brand-secondary",
           arrow: "text-brand-primary",
         };
@@ -553,7 +464,7 @@ function FooterActionCardContent(props: {
   return (
     <>
       <div
-        className={`flex shrink-0 items-center justify-center rounded-lg p-2 transition-transform ${accentClasses.iconWrapper}`}
+        className={`flex shrink-0 items-center justify-center rounded-lg p-2 transition-colors ${accentClasses.iconWrapper}`}
       >
         <MaterialIcon icon={icon} size="md" />
       </div>
@@ -617,7 +528,7 @@ function FooterSectionHeader(props: FooterSectionHeaderProps) {
       </div>
 
       <div
-        className={`absolute top-full mt-2 z-50 w-[min(92vw,16rem)] max-w-[calc(100vw-1rem)] transition-all duration-300 opacity-0 scale-95 pointer-events-none group-hover/footer-section:opacity-100 group-hover/footer-section:scale-100 group-hover/footer-section:pointer-events-auto group-focus-within/footer-section:opacity-100 group-focus-within/footer-section:scale-100 group-focus-within/footer-section:pointer-events-auto ${tooltipAlignmentClasses}`}
+        className={`absolute top-full mt-2 z-50 w-[min(92vw,16rem)] max-w-[calc(100vw-1rem)] transition-all duration-300 opacity-0 scale-95 pointer-events-none group-hover/footer-section:opacity-100 group-hover/footer-section:pointer-events-auto group-focus-within/footer-section:opacity-100 group-focus-within/footer-section:scale-100 group-focus-within/footer-section:pointer-events-auto ${tooltipAlignmentClasses}`}
       >
         <div className="relative">
           <div className="absolute inset-0 -z-10 rounded-xl bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary blur-md opacity-35" />
@@ -874,11 +785,11 @@ export default function Footer() {
     [isEs],
   );
   const localizedNavCol1Links = useMemo(
-    () => localizeFooterNavItems(navCol1Links, navCol1TranslationsEs, isEs),
+    () => buildFooterNavItems(isEs ? "es" : "en", footerNavCol1Hrefs),
     [isEs],
   );
   const localizedNavCol2Links = useMemo(
-    () => localizeFooterNavItems(navCol2Links, navCol2TranslationsEs, isEs),
+    () => buildFooterNavItems(isEs ? "es" : "en", footerNavCol2Hrefs),
     [isEs],
   );
   const localizedFooterUtilityLinks = useMemo(
@@ -949,7 +860,7 @@ export default function Footer() {
 
                 {/* Google Review Card */}
                 <a
-                  href="https://g.page/r/CVdv3YZLzJvdEAI/review"
+                  href={COMPANY_INFO.reviews.google.writeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${primaryActionCardClassName} mt-4`}
@@ -1080,6 +991,11 @@ export default function Footer() {
                   />
                 </Link>
 
+                <PWAInstallCTA
+                  variant="button"
+                  className="w-full justify-center border border-brand-secondary/40 bg-linear-to-r from-brand-primary/12 to-brand-secondary/12 hover:from-brand-primary/20 hover:to-brand-secondary/20"
+                />
+
                 <TrackedPhoneLink
                   trackId="footer-phone-cta"
                   trackProperties={{
@@ -1154,9 +1070,9 @@ export default function Footer() {
               </div>
 
               {/* Newsletter Signup */}
-              <div className="group bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation">
+              <div className="group bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 touch-manipulation">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
+                  <div className="shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg transition-colors">
                     <MaterialIcon
                       icon="notifications_active"
                       size="md"
@@ -1229,11 +1145,11 @@ export default function Footer() {
               <div className="grid w-full max-w-lg grid-cols-2 justify-items-center gap-3">
                 {/* AGC Washington */}
                 <a
-                  href="https://www.agcwa.com/"
+                  href={COMPANY_INFO.agc.website}
                   target="_blank"
                   rel="noopener noreferrer"
                   title="AGC of Washington Member"
-                  className="group flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+                  className="group flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:border-brand-secondary hover:shadow-lg"
                 >
                   <Image
                     src="/images/logo/nwagc-logo.webp"
@@ -1251,7 +1167,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title="BBB Accredited Business - A+ Rating"
-                  className="group flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+                  className="group flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:border-brand-secondary hover:shadow-lg"
                 >
                   <img
                     src={COMPANY_INFO.bbb.sealHorizontal}
@@ -1279,7 +1195,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Travelers Insurance Partner - Auto & Bonding"
-                  className="group col-span-2 flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+                  className="group col-span-2 flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:border-brand-secondary hover:shadow-lg"
                 >
                   <Image
                     src={COMPANY_INFO.travelers.logo}
@@ -1314,7 +1230,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Pasco Chamber of Commerce Member"
-                  className="group flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+                  className="group flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:border-brand-secondary hover:shadow-lg"
                 >
                   <Image
                     src={COMPANY_INFO.chambers.pasco.logo}
@@ -1340,7 +1256,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Richland Chamber of Commerce Member"
-                  className="group flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+                  className="group flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:border-brand-secondary hover:shadow-lg"
                 >
                   <Image
                     src={COMPANY_INFO.chambers.richland.logo}
@@ -1360,7 +1276,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Tri-City Regional Chamber of Commerce Member"
-                  className="group col-span-2 flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+                  className="group col-span-2 flex h-full w-full items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-2 transition-all duration-300 touch-manipulation hover:border-brand-secondary hover:shadow-lg"
                 >
                   <Image
                     src={COMPANY_INFO.chambers.triCityRegional.logo}
@@ -1387,7 +1303,7 @@ export default function Footer() {
                   key={link.href}
                   href={link.href}
                   prefetch={false}
-                  className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-primary/20 bg-linear-to-r from-brand-primary/5 to-brand-secondary/5 hover:from-brand-primary/15 hover:to-brand-secondary/15 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
+                  className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-primary/20 bg-linear-to-r from-brand-primary/5 to-brand-secondary/5 hover:from-brand-primary/15 hover:to-brand-secondary/15 hover:border-brand-primary/40 transition-all duration-300"
                 >
                   <MaterialIcon
                     icon={link.icon}
@@ -1418,13 +1334,13 @@ export default function Footer() {
                 onClick={() =>
                   globalThis.scrollTo({ top: 0, behavior: "smooth" })
                 }
-                className="group flex items-center gap-2 bg-linear-to-r from-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary text-brand-secondary-light px-4 py-2 rounded-lg shadow-md hover:shadow-lg hover:shadow-brand-primary/20 transition-all duration-300 hover:scale-105 touch-manipulation border border-brand-secondary/30 hover:border-brand-secondary"
+                className="group flex items-center gap-2 bg-linear-to-r from-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary text-brand-secondary-light px-4 py-2 rounded-lg shadow-md hover:shadow-lg hover:shadow-brand-primary/20 transition-all duration-300 touch-manipulation border border-brand-secondary/30 hover:border-brand-secondary"
                 aria-label={copy.backToTopAria}
               >
                 <MaterialIcon
                   icon="arrow_upward"
                   size="sm"
-                  className="text-brand-secondary group-hover:text-brand-secondary-light group-hover:-translate-y-0.5 transition-all duration-300"
+                  className="text-brand-secondary group-hover:text-brand-secondary-light transition-all duration-300"
                 />
                 <span className="font-bold text-sm text-brand-secondary group-hover:text-brand-secondary-light transition-colors duration-300">
                   {copy.backToTopLabel}

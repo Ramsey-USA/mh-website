@@ -146,11 +146,11 @@ export function GalleryImage({
   ...props
 }: GalleryImageProps) {
   return (
-    <div className="group relative rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105">
+    <div className="group relative rounded-lg overflow-hidden cursor-pointer transition-colors duration-300">
       <OptimizedImage
         {...props}
         className={cn(
-          "object-cover transition-transform duration-300 group-hover:scale-110",
+          "object-cover transition-colors duration-300",
           props.className,
         )}
       />

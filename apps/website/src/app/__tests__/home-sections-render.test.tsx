@@ -3,6 +3,7 @@
  */
 
 import { render, screen } from "@testing-library/react";
+import type { ReactNode } from "react";
 
 jest.mock("next/headers", () => ({
   __esModule: true,
@@ -52,6 +53,12 @@ jest.mock("@/components/home", () => ({
   HeroSection: () => <section data-testid="hero-section" />,
   ServicesShowcase: () => <section data-testid="dynamic-home-section" />,
   WhyPartnerSection: () => <section data-testid="dynamic-home-section" />,
+}));
+
+jest.mock("@/components/templates", () => ({
+  BrandedContentSection: ({ children }: { children: ReactNode }) => (
+    <section data-testid="dynamic-home-section">{children}</section>
+  ),
 }));
 
 jest.mock("@/components/pwa", () => ({

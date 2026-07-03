@@ -249,7 +249,7 @@ export function HeroSectionClient({
       <PageNavigation
         items={navigationConfigs.home}
         showRemainingPagesOverlay
-        className="absolute bottom-0 left-0 right-0 z-30 border-white/0! bg-transparent! backdrop-blur-xl dark:border-gray-700/0! dark:bg-transparent!"
+        className="absolute bottom-0 left-0 right-0 z-30 border-white/0 bg-transparent backdrop-blur-xl dark:border-gray-700/0 dark:bg-transparent"
       />
     </section>
   );

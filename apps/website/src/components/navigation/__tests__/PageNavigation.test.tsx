@@ -68,7 +68,7 @@ describe("PageNavigation", () => {
     const links = screen.getAllByRole("link");
     expect(links).toHaveLength(5);
     expect(links[0]).toHaveAttribute("href", "/");
-    expect(links[1]).toHaveAttribute("href", "/#services");
+    expect(links[1]).toHaveAttribute("href", "/services");
     expect(links[2]).toHaveAttribute("href", "/projects");
     expect(links[3]).toHaveAttribute("href", "/about");
     expect(links[4]).toHaveAttribute("href", "/contact");
@@ -94,12 +94,12 @@ describe("PageNavigation", () => {
     render(<PageNavigation items={items} />);
     expect(
       screen.getByRole("link", {
-        name: new RegExp(PAGE_TERMINOLOGY.home.mhBrandName, "i"),
+        name: new RegExp(PAGE_TERMINOLOGY.home.seoName, "i"),
       }),
     ).toHaveAttribute("aria-current", "page");
     expect(
       screen.getByRole("link", {
-        name: new RegExp(PAGE_TERMINOLOGY.about.mhBrandName, "i"),
+        name: new RegExp(PAGE_TERMINOLOGY.about.seoName, "i"),
       }),
     ).not.toHaveAttribute("aria-current");
   });
@@ -126,18 +126,20 @@ describe("PageNavigation", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByRole("menuitem", {
-        name: new RegExp(PAGE_TERMINOLOGY.events.mhBrandName, "i"),
+        name: new RegExp(PAGE_TERMINOLOGY.events.seoName, "i"),
       }),
     ).toHaveAttribute("href", "/events");
     expect(
       screen.getByRole("menuitem", {
-        name: new RegExp(PAGE_TERMINOLOGY.hub.mhBrandName, "i"),
+        name: new RegExp(PAGE_TERMINOLOGY.hub.seoName, "i"),
       }),
     ).toHaveAttribute("href", "/hub");
     expect(
-      screen.getByText(PAGE_TERMINOLOGY.events.seoName),
+      screen.getByText(PAGE_TERMINOLOGY.events.mhBrandName),
     ).toBeInTheDocument();
-    expect(screen.getByText(PAGE_TERMINOLOGY.hub.seoName)).toBeInTheDocument();
+    expect(
+      screen.getByText(PAGE_TERMINOLOGY.hub.mhBrandName),
+    ).toBeInTheDocument();
   });
 
   it("closes overlay on Escape and restores focus to trigger", () => {

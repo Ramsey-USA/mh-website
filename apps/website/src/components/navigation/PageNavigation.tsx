@@ -16,110 +16,110 @@ interface PageNavigationProps {
   showRemainingPagesDropdown?: boolean;
 }
 
-const TOP_PAGES_EN = [
-  { href: "/", label: PAGE_TERMINOLOGY.home.mhBrandName },
-  { href: "/#services", label: PAGE_TERMINOLOGY.services.mhBrandName },
-  { href: "/projects", label: PAGE_TERMINOLOGY.projects.mhBrandName },
-  { href: "/about", label: PAGE_TERMINOLOGY.about.mhBrandName },
-  { href: "/contact", label: PAGE_TERMINOLOGY.contact.mhBrandName },
+export const TOP_PAGES_EN = [
+  { href: "/", label: PAGE_TERMINOLOGY.home.seoName },
+  { href: "/services", label: PAGE_TERMINOLOGY.services.seoName },
+  { href: "/projects", label: PAGE_TERMINOLOGY.projects.seoName },
+  { href: "/about", label: PAGE_TERMINOLOGY.about.seoName },
+  { href: "/contact", label: PAGE_TERMINOLOGY.contact.seoName },
 ] as const;
 
-const TOP_PAGES_ES = [
+export const TOP_PAGES_ES = [
   { href: "/", label: "Inicio" },
-  { href: "/#services", label: "Servicios" },
+  { href: "/services", label: "Servicios" },
   { href: "/projects", label: "Proyectos" },
   { href: "/about", label: "Nosotros" },
   { href: "/contact", label: "Contacto" },
 ] as const;
 
-const ALL_SITE_PAGES_EN = [
+export const ALL_SITE_PAGES_EN = [
   {
     href: "/",
-    label: PAGE_TERMINOLOGY.home.mhBrandName,
-    description: PAGE_TERMINOLOGY.home.seoName,
+    label: PAGE_TERMINOLOGY.home.seoName,
+    description: PAGE_TERMINOLOGY.home.mhBrandName,
   },
   {
     href: "/about",
-    label: PAGE_TERMINOLOGY.about.mhBrandName,
-    description: PAGE_TERMINOLOGY.about.seoName,
+    label: PAGE_TERMINOLOGY.about.seoName,
+    description: PAGE_TERMINOLOGY.about.mhBrandName,
   },
   {
-    href: "/#services",
-    label: PAGE_TERMINOLOGY.services.mhBrandName,
-    description: PAGE_TERMINOLOGY.services.seoName,
+    href: "/services",
+    label: PAGE_TERMINOLOGY.services.seoName,
+    description: PAGE_TERMINOLOGY.services.mhBrandName,
   },
   {
     href: "/projects",
-    label: PAGE_TERMINOLOGY.projects.mhBrandName,
-    description: PAGE_TERMINOLOGY.projects.seoName,
+    label: PAGE_TERMINOLOGY.projects.seoName,
+    description: PAGE_TERMINOLOGY.projects.mhBrandName,
   },
   {
     href: "/contact",
-    label: PAGE_TERMINOLOGY.contact.mhBrandName,
-    description: PAGE_TERMINOLOGY.contact.seoName,
+    label: PAGE_TERMINOLOGY.contact.seoName,
+    description: PAGE_TERMINOLOGY.contact.mhBrandName,
   },
   {
     href: "/events",
-    label: PAGE_TERMINOLOGY.events.mhBrandName,
-    description: PAGE_TERMINOLOGY.events.seoName,
+    label: PAGE_TERMINOLOGY.events.seoName,
+    description: PAGE_TERMINOLOGY.events.mhBrandName,
   },
   {
     href: "/testimonials",
-    label: PAGE_TERMINOLOGY.testimonials.mhBrandName,
-    description: PAGE_TERMINOLOGY.testimonials.seoName,
+    label: PAGE_TERMINOLOGY.testimonials.seoName,
+    description: PAGE_TERMINOLOGY.testimonials.mhBrandName,
   },
   {
     href: "/team",
-    label: PAGE_TERMINOLOGY.team.mhBrandName,
-    description: PAGE_TERMINOLOGY.team.seoName,
+    label: PAGE_TERMINOLOGY.team.seoName,
+    description: PAGE_TERMINOLOGY.team.mhBrandName,
   },
   {
     href: "/careers",
-    label: PAGE_TERMINOLOGY.careers.mhBrandName,
-    description: PAGE_TERMINOLOGY.careers.seoName,
+    label: PAGE_TERMINOLOGY.careers.seoName,
+    description: PAGE_TERMINOLOGY.careers.mhBrandName,
   },
   {
     href: "/veterans",
-    label: PAGE_TERMINOLOGY.veterans.mhBrandName,
-    description: PAGE_TERMINOLOGY.veterans.seoName,
+    label: PAGE_TERMINOLOGY.veterans.seoName,
+    description: PAGE_TERMINOLOGY.veterans.mhBrandName,
   },
   {
     href: "/allies",
-    label: PAGE_TERMINOLOGY.allies.mhBrandName,
-    description: PAGE_TERMINOLOGY.allies.seoName,
+    label: PAGE_TERMINOLOGY.allies.seoName,
+    description: PAGE_TERMINOLOGY.allies.mhBrandName,
   },
   {
     href: "/public-sector",
-    label: PAGE_TERMINOLOGY.publicSector.mhBrandName,
-    description: PAGE_TERMINOLOGY.publicSector.seoName,
+    label: PAGE_TERMINOLOGY.publicSector.seoName,
+    description: PAGE_TERMINOLOGY.publicSector.mhBrandName,
   },
   {
     href: "/safety",
-    label: PAGE_TERMINOLOGY.safety.mhBrandName,
-    description: PAGE_TERMINOLOGY.safety.seoName,
+    label: PAGE_TERMINOLOGY.safety.seoName,
+    description: PAGE_TERMINOLOGY.safety.mhBrandName,
   },
   {
     href: "/resources",
-    label: PAGE_TERMINOLOGY.resources.mhBrandName,
-    description: PAGE_TERMINOLOGY.resources.seoName,
+    label: PAGE_TERMINOLOGY.resources.seoName,
+    description: PAGE_TERMINOLOGY.resources.mhBrandName,
   },
   {
     href: "/faq",
-    label: PAGE_TERMINOLOGY.faq.mhBrandName,
-    description: PAGE_TERMINOLOGY.faq.seoName,
+    label: PAGE_TERMINOLOGY.faq.seoName,
+    description: PAGE_TERMINOLOGY.faq.mhBrandName,
   },
   {
     href: "/hub",
-    label: PAGE_TERMINOLOGY.hub.mhBrandName,
-    description: PAGE_TERMINOLOGY.hub.seoName,
+    label: PAGE_TERMINOLOGY.hub.seoName,
+    description: PAGE_TERMINOLOGY.hub.mhBrandName,
   },
 ] as const;
 
-const ALL_SITE_PAGES_ES = [
+export const ALL_SITE_PAGES_ES = [
   { href: "/", label: "Inicio", description: "Base central" },
   { href: "/about", label: "Nosotros", description: "Nuestro compromiso" },
   {
-    href: "/#services",
+    href: "/services",
     label: "Servicios",
     description: "Rutas",
   },

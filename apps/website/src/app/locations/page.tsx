@@ -100,7 +100,7 @@ export default async function LocationsPage() {
               {locationList.map((location) => (
                 <Card
                   key={location.slug}
-                  className="border border-gray-200 bg-white p-6 shadow-sm transition-transform hover:-translate-y-1 dark:border-gray-800 dark:bg-gray-900"
+                  className="border border-gray-200 bg-white p-6 shadow-sm transition-colors dark:border-gray-800 dark:bg-gray-900"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>

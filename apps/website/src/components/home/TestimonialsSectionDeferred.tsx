@@ -13,6 +13,7 @@ interface TestimonialsSectionDeferredProps {
   autoPlayInterval?: number;
   id?: string;
   animated?: boolean;
+  headerSize?: "display" | "section";
   testimonials: Testimonial[];
 }
 
@@ -27,9 +28,11 @@ const TestimonialsSection = dynamic(
   },
 );
 
-function TestimonialsPlaceholder() {
+function TestimonialsPlaceholder({ className = "" }: { className?: string }) {
   return (
-    <section className="bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+    <section
+      className={`bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden ${className}`}
+    >
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="mb-16 sm:mb-20 text-center">
           <div className="mx-auto h-6 w-40 rounded-full bg-gray-200 dark:bg-gray-700 mb-5" />
@@ -37,7 +40,7 @@ function TestimonialsPlaceholder() {
           <div className="mx-auto h-6 w-full max-w-5xl rounded-full bg-gray-100 dark:bg-gray-800" />
         </div>
 
-        <div className="mx-auto max-w-5xl rounded-3xl bg-gray-100 dark:bg-gray-800 shadow-2xl p-8 sm:p-12 lg:p-16 min-h-[420px] animate-pulse" />
+        <div className="mx-auto max-w-5xl rounded-3xl bg-gray-100 dark:bg-gray-800 shadow-2xl p-8 sm:p-12 lg:p-16 min-h-105 animate-pulse" />
       </div>
     </section>
   );
@@ -81,7 +84,7 @@ export function TestimonialsSectionDeferred(
       {shouldRender ? (
         <TestimonialsSection {...props} />
       ) : (
-        <TestimonialsPlaceholder />
+        <TestimonialsPlaceholder className={props.className} />
       )}
     </div>
   );

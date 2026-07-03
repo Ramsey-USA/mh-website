@@ -119,8 +119,7 @@ export function ContentCard({
         className={cn(
           "absolute -inset-2 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500",
           glowClass,
-          (variant === "news" || variant === "feature") &&
-            "group-hover:animate-pulse",
+          (variant === "news" || variant === "feature") && "",
         )}
         aria-hidden="true"
       ></div>
@@ -128,7 +127,7 @@ export function ContentCard({
       <Card
         className={cn(
           "relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800",
-          variant === "feature" && "group-hover:-translate-y-1",
+          variant === "feature" && "group-",
         )}
       >
         {/* Top Accent Bar */}
@@ -150,7 +149,7 @@ export function ContentCard({
                   ></div>
                   <div
                     className={cn(
-                      "relative rounded-xl p-2 shadow-xl group-hover:scale-110 transition-all duration-300",
+                      "relative rounded-xl p-2 shadow-xl transition-all duration-300",
                       accentClass.replace("bg-linear-to-r", "bg-linear-to-br"),
                     )}
                   >

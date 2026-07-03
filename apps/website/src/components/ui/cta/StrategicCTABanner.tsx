@@ -70,11 +70,11 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
             </div>
             <div className="text-white text-center sm:text-left">
               <p id="pwa-cta-heading" className="font-bold text-xl mb-1">
-                Access MH Construction Offline
+                Access the MH Construction Staff Hub
               </p>
               <p className="text-sm text-white/90">
-                Install our app for instant access anywhere, anytime—even
-                without internet
+                Team members can open the Staff Hub for safety manuals, forms,
+                and operational workflows.
               </p>
             </div>
           </div>
@@ -83,15 +83,18 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
             size="lg"
             onClick={trackPwaInstall}
             className="shrink-0"
-            aria-label="Install MH Construction Progressive Web App"
+            aria-label="Open MH Construction Staff Hub"
+            asChild
           >
-            <MaterialIcon
-              icon="get_app"
-              size="md"
-              className="mr-2"
-              aria-hidden="true"
-            />
-            Install App
+            <Link href="/hub" className="shrink-0">
+              <MaterialIcon
+                icon="dashboard"
+                size="md"
+                className="mr-2"
+                aria-hidden="true"
+              />
+              Open Staff Hub
+            </Link>
           </Button>
         </div>
       </aside>
@@ -126,14 +129,15 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
               </p>
             </div>
           </div>
-          <Link href={PITCH_DECK_HREF} className="shrink-0">
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={trackPitchDeck}
-              className="shrink-0 bg-white/10 border-white/30 text-white hover:bg-white/20"
-              aria-label="Request MH Construction pitch deck"
-            >
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={trackPitchDeck}
+            className="shrink-0 bg-white/10 border-white/30 text-white hover:bg-white/20"
+            aria-label="Request MH Construction pitch deck"
+            asChild
+          >
+            <Link href={PITCH_DECK_HREF} className="shrink-0">
               <MaterialIcon
                 icon="request_page"
                 size="md"
@@ -141,8 +145,8 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
                 aria-hidden="true"
               />
               Request Deck
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </aside>
     );
@@ -178,13 +182,14 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
               </p>
             </div>
           </div>
-          <Link href="/contact" className="shrink-0">
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={trackConsultation}
-              aria-label="Book a free consultation with MH Construction"
-            >
+          <Button
+            variant="primary"
+            size="lg"
+            onClick={trackConsultation}
+            aria-label="Book a free consultation with MH Construction"
+            asChild
+          >
+            <Link href="/contact" className="shrink-0">
               <MaterialIcon
                 icon="event"
                 size="md"
@@ -192,8 +197,8 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
                 aria-hidden="true"
               />
               Book Consultation
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </aside>
     );
@@ -213,37 +218,41 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
       className={className}
     >
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        {/* Install App */}
+        {/* Staff Hub */}
         <Button
           variant="outline"
           size="lg"
           onClick={trackComboPwa}
           className="flex flex-col items-center gap-2 h-auto py-6 border-2 border-brand-bronze/30 hover:border-brand-bronze/60 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
-          aria-label="Install MH Construction app for offline access"
+          aria-label="Open MH Construction Staff Hub"
+          asChild
         >
-          <MaterialIcon
-            icon="install_mobile"
-            size="xl"
-            aria-hidden="true"
-            className="text-brand-primary"
-          />
-          <span className="font-bold text-gray-900 dark:text-white">
-            Install App
-          </span>
-          <span className="text-xs text-gray-600 dark:text-gray-300">
-            Offline access
-          </span>
+          <Link href="/hub" className="block">
+            <MaterialIcon
+              icon="dashboard"
+              size="xl"
+              aria-hidden="true"
+              className="text-brand-primary"
+            />
+            <span className="font-bold text-gray-900 dark:text-white">
+              Staff Hub
+            </span>
+            <span className="text-xs text-gray-600 dark:text-gray-300">
+              Team portal access
+            </span>
+          </Link>
         </Button>
 
         {/* View Pitch Deck */}
-        <Link href={PITCH_DECK_HREF} className="block">
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={trackComboPitchDeck}
-            className="w-full flex flex-col items-center gap-2 h-auto py-6 border-2 border-brand-primary/30 hover:border-brand-primary/60 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
-            aria-label="Request MH Construction pitch deck"
-          >
+        <Button
+          variant="outline"
+          size="lg"
+          onClick={trackComboPitchDeck}
+          className="w-full flex flex-col items-center gap-2 h-auto py-6 border-2 border-brand-primary/30 hover:border-brand-primary/60 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
+          aria-label="Request MH Construction pitch deck"
+          asChild
+        >
+          <Link href={PITCH_DECK_HREF} className="block">
             <MaterialIcon
               icon="request_page"
               size="xl"
@@ -256,23 +265,24 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
             <span className="text-xs text-gray-600 dark:text-gray-300">
               Request via contact
             </span>
-          </Button>
-        </Link>
+          </Link>
+        </Button>
 
         {/* Get Consultation */}
-        <Link href="/contact" className="block">
-          <Button
-            variant="primary"
-            size="lg"
-            onClick={trackComboConsultation}
-            className="w-full flex flex-col items-center gap-2 h-auto py-6"
-            aria-label="Schedule a free consultation with MH Construction"
-          >
+        <Button
+          variant="primary"
+          size="lg"
+          onClick={trackComboConsultation}
+          className="w-full flex flex-col items-center gap-2 h-auto py-6"
+          aria-label="Schedule a free consultation with MH Construction"
+          asChild
+        >
+          <Link href="/contact" className="block">
             <MaterialIcon icon="event_available" size="xl" aria-hidden="true" />
             <span className="font-bold">Get Consultation</span>
             <span className="text-xs">Free estimate</span>
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </div>
     </BrandedContentSection>
   );

@@ -70,6 +70,25 @@ markup - it automatically includes all required patterns
 gold/green gradient titles and background patterns" - it's pre-made so
 developers don't code the same thing 26 times.
 
+### Shared Shell First Rule
+
+When scaffolding new pages:
+
+1. Start with shared section shells (`BrandedContentSection`, `NextStepsSection`, other shared wrappers).
+2. Use manual section markup only when the shared shell cannot represent the required layout.
+3. If using deferred sections, ensure loading placeholders inherit final section className/variant.
+
+### CTA Composition Rule
+
+Use `Button asChild` with `Link` for route CTAs in templates.
+
+```tsx
+// ✅ Preferred
+<Button asChild variant="primary" size="lg">
+  <Link href="/contact">Contact Our Team</Link>
+</Button>
+```
+
 ---
 
 ## Mandatory Page Architecture

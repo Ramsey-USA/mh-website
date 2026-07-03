@@ -34,7 +34,7 @@ const buttonVariants = cva(
         ghost:
           "border-transparent bg-transparent text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-200 dark:hover:border-gray-700 focus:ring-gray-500",
 
-        link: "border-transparent bg-transparent text-brand-primary dark:text-bronze-400 underline-offset-4 hover:underline hover:text-brand-secondary dark:hover:text-bronze-300 focus:ring-brand-primary/50 hover:translate-y-0",
+        link: "border-transparent bg-transparent text-brand-primary dark:text-bronze-400 underline-offset-4 hover:underline hover:text-brand-secondary dark:hover:text-bronze-300 focus:ring-brand-primary/50",
       },
       size: {
         sm: "h-9 px-3.5 text-xs min-w-[76px]",

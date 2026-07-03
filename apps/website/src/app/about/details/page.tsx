@@ -234,7 +234,7 @@ export default function AboutDetailsPage() {
                   title={commonT("about.news.cards.insight.title")}
                   description={copy.insightDescription}
                   date={commonT("about.news.cards.insight.date")}
-                  href="/#services"
+                  href="/services"
                   linkText={commonT("about.news.cards.insight.linkText")}
                   enhancedIcon
                 />

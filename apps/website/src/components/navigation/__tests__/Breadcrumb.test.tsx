@@ -35,7 +35,7 @@ describe("Breadcrumb", () => {
   );
   const items = [
     { label: "Home", href: "/" },
-    { label: "Services", href: "/#services" },
+    { label: "Services", href: "/services" },
     { label: "Roofing" },
   ];
 
@@ -54,7 +54,7 @@ describe("Breadcrumb", () => {
     );
     expect(
       screen.getByRole("link", { name: dualServicesLabel }),
-    ).toHaveAttribute("href", "/#services");
+    ).toHaveAttribute("href", "/services");
   });
 
   it("renders the last item as non-linked with aria-current", () => {

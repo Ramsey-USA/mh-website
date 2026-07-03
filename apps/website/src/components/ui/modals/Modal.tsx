@@ -106,7 +106,7 @@ export function Modal({
                   </h2>
                   <button
                     onClick={onClose}
-                    className="hover:bg-white/20 p-2 rounded-lg text-white hover:scale-110 transition-all duration-200"
+                    className="hover:bg-white/20 p-2 rounded-lg text-white transition-all duration-200"
                     aria-label="Close modal"
                   >
                     <MaterialIcon icon="close" size="md" />

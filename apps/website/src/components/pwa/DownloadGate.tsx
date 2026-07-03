@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { PWAInstallCTA } from "./PWAInstallCTA";
 
 interface DownloadGateProps {
   children: React.ReactNode;
@@ -50,7 +50,7 @@ function getStoredRole(): StoredRole | null {
  *
  * Wraps any download or print action. Team members with a stored
  * superintendent or admin token (from the Hub login) see the real button.
- * Everyone else sees an app-install prompt.
+ * Everyone else sees app access guidance.
  *
  * The gate is offline-safe: it reads from localStorage, which persists
  * through loss of connectivity.
@@ -91,18 +91,19 @@ export function DownloadGate({
       </div>
 
       <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-        Downloads and printing are available to team members. Install the app
-        and log in with your team passcode to access this document.
+        Downloads and printing are available to team members. Use the Install
+        App button in the site header or footer, then log in with your team
+        passcode to access this document.
       </p>
 
       <div className="flex flex-wrap items-center gap-2">
-        {/* Triggers the native browser install prompt when available */}
-        <PWAInstallCTA variant="button" />
-
-        <span className="inline-flex items-center gap-1.5 rounded-lg border border-brand-primary/30 px-3 py-1.5 text-xs font-semibold text-brand-primary/80 dark:text-brand-secondary">
-          Already have it? Open the app
+        <Link
+          href="/hub"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-brand-primary/30 px-3 py-1.5 text-xs font-semibold text-brand-primary/80 transition-colors hover:border-brand-primary/50 hover:text-brand-primary dark:text-brand-secondary"
+        >
+          Already installed? Open the app
           <MaterialIcon icon="smartphone" size="sm" />
-        </span>
+        </Link>
       </div>
     </div>
   );

@@ -150,10 +150,10 @@ export function AwardsSection() {
             <div key={card.title} className="group relative flex h-full">
               {/* Animated Border Glow */}
               <div
-                className={`absolute -inset-2 bg-linear-to-br ${card.glowFrom} ${card.glowTo} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
+                className={`absolute -inset-2 bg-linear-to-br ${card.glowFrom} ${card.glowTo} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500`}
               ></div>
 
-              <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 hover:scale-105 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+              <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                 {/* Top Accent Bar */}
                 <div
                   className={`h-2 bg-linear-to-r ${card.barFrom} ${card.barVia} ${card.barTo}`}
@@ -165,7 +165,7 @@ export function AwardsSection() {
                       className={`absolute -inset-2 bg-linear-to-br ${card.glowFrom} ${card.glowTo} opacity-30 blur-lg rounded-xl`}
                     ></div>
                     <div
-                      className={`relative rounded-xl bg-linear-to-br ${card.iconFrom} ${card.iconVia} ${card.iconTo} p-3 shadow-xl group-hover:scale-110 transition-all duration-300`}
+                      className={`relative rounded-xl bg-linear-to-br ${card.iconFrom} ${card.iconVia} ${card.iconTo} p-3 shadow-xl transition-all duration-300`}
                     >
                       <MaterialIcon
                         icon={card.icon}
@@ -204,7 +204,7 @@ export function AwardsSection() {
               className="group scroll-reveal"
               style={{ "--delay": `${index * 0.1}s` } as CSSProperties}
             >
-              <Card className="relative h-full overflow-hidden border-2 border-gray-200 bg-white p-6 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:border-brand-primary hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 dark:hover:border-brand-primary-light lg:p-8">
+              <Card className="relative h-full overflow-hidden border-2 border-gray-200 bg-white p-6 shadow-lg transition-all duration-300 hover:border-brand-primary hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 dark:hover:border-brand-primary-light lg:p-8">
                 {/* Trophy Icon Background Watermark */}
                 <div className="absolute top-4 right-4 opacity-5 dark:opacity-10">
                   <MaterialIcon
@@ -219,7 +219,7 @@ export function AwardsSection() {
                   <div className="flex items-center gap-3">
                     <div className="relative">
                       <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-xl rounded-full"></div>
-                      <div className="relative w-16 h-16 lg:w-20 lg:h-20 bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                      <div className="relative w-16 h-16 lg:w-20 lg:h-20 bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white/50 dark:border-gray-700/50 transition-colors duration-300">
                         <MaterialIcon
                           icon={item.icon}
                           size="xl"

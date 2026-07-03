@@ -35,7 +35,7 @@ function PhilosophyCard({
   return (
     <div className="group relative flex h-full">
       <div
-        className={`absolute -inset-2 bg-linear-to-br ${glowFrom} ${glowTo} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
+        className={`absolute -inset-2 bg-linear-to-br ${glowFrom} ${glowTo} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500`}
       ></div>
       <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
         <div
@@ -47,7 +47,7 @@ function PhilosophyCard({
               className={`absolute -inset-2 bg-linear-to-br ${glowFrom} ${glowTo} opacity-30 blur-lg rounded-xl`}
             ></div>
             <div
-              className={`relative rounded-xl bg-linear-to-br ${barFrom} ${barVia} ${barTo} p-3 shadow-xl group-hover:scale-110 transition-all duration-300`}
+              className={`relative rounded-xl bg-linear-to-br ${barFrom} ${barVia} ${barTo} p-3 shadow-xl transition-all duration-300`}
             >
               <MaterialIcon
                 icon={icon}

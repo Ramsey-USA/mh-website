@@ -35,11 +35,11 @@ type ProjectRoutePlan = {
 const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
   "kennewick-commercial-office-renovation": {
     primaryService: {
-      href: "/#services",
+      href: "/services",
       label: "Commercial Construction",
     },
     secondaryService: {
-      href: "/#services",
+      href: "/services",
       label: "Drywall and Interiors",
     },
     location: {
@@ -49,11 +49,11 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
   },
   "pasco-industrial-warehouse-build-out": {
     primaryService: {
-      href: "/#services",
+      href: "/services",
       label: "Commercial Construction",
     },
     secondaryService: {
-      href: "/#services",
+      href: "/services",
       label: "Municipal and Government",
     },
     location: {
@@ -63,11 +63,11 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
   },
   "richland-corporate-office-tenant-improvement": {
     primaryService: {
-      href: "/#services",
+      href: "/services",
       label: "Restoration and Remodeling",
     },
     secondaryService: {
-      href: "/#services",
+      href: "/services",
       label: "Drywall and Interiors",
     },
     location: {
@@ -77,11 +77,11 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
   },
   "spokane-healthcare-clinic-tenant-improvement": {
     primaryService: {
-      href: "/#services",
+      href: "/services",
       label: "Drywall and Interiors",
     },
     secondaryService: {
-      href: "/#services",
+      href: "/services",
       label: "Commercial Construction",
     },
     location: {
@@ -91,11 +91,11 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
   },
   "west-richland-light-industrial-flex-facility": {
     primaryService: {
-      href: "/#services",
+      href: "/services",
       label: "Commercial Construction",
     },
     secondaryService: {
-      href: "/#services",
+      href: "/services",
       label: "Restoration and Remodeling",
     },
     location: {
@@ -301,11 +301,11 @@ export default async function ProjectCaseStudyPage({
   const routePlan = PROJECT_ROUTE_PLANS[canonicalSlug ?? slug] ??
     PROJECT_ROUTE_PLANS[caseStudy?.slug ?? ""] ?? {
       primaryService: {
-        href: "/#services",
+        href: "/services",
         label: "Commercial Construction",
       },
       secondaryService: {
-        href: "/#services",
+        href: "/services",
         label: "Restoration and Remodeling",
       },
       location: {

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { getCardClassName } from "@/lib/styles/card-variants";
+import { cornerRadius, transitionDuration } from "@/lib/styles/design-tokens";
 import type { SpecialtyService } from "./servicesData";
 
 interface SpecialtyServiceCardProps {
@@ -21,7 +22,7 @@ export function SpecialtyServiceCard(
       <Card
         className={getCardClassName(
           "static",
-          `rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden h-full flex flex-col cursor-pointer ${
+          `${cornerRadius.element} shadow-lg hover:shadow-2xl transition-all ${transitionDuration.normal} overflow-hidden h-full flex flex-col cursor-pointer ${
             isExpanded
               ? "ring-2 ring-brand-secondary border-brand-secondary/40"
               : ""
@@ -42,7 +43,9 @@ export function SpecialtyServiceCard(
         <CardHeader className="shrink-0 pb-4 p-4 sm:p-5 lg:p-6">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-start gap-3 flex-1">
-              <div className="shrink-0 bg-brand-secondary/10 rounded-2xl w-12 h-12 sm:w-14 sm:h-14 p-2 flex items-center justify-center">
+              <div
+                className={`shrink-0 bg-brand-secondary/10 ${cornerRadius.icon} w-12 h-12 sm:w-14 sm:h-14 p-2 flex items-center justify-center`}
+              >
                 <MaterialIcon
                   icon={service.iconName}
                   size="lg"
@@ -59,18 +62,20 @@ export function SpecialtyServiceCard(
               </div>
             </div>
             <span
-              className="shrink-0 text-brand-secondary dark:text-brand-secondary-light transition-transform"
+              className={`shrink-0 text-brand-secondary dark:text-brand-secondary-light transition-colors ${transitionDuration.normal}`}
               aria-hidden="true"
             >
               <MaterialIcon
                 icon={isExpanded ? "expand_less" : "expand_more"}
                 size="xl"
-                className="transition-transform duration-300"
+                className={`transition-colors ${transitionDuration.normal}`}
               />
             </span>
           </div>
 
-          <div className="mt-3 inline-flex items-center rounded-full border border-brand-secondary/30 bg-brand-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-secondary dark:border-brand-secondary/40 dark:bg-brand-secondary/15">
+          <div
+            className={`mt-3 inline-flex items-center ${cornerRadius.full} border border-brand-secondary/30 bg-brand-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-secondary dark:border-brand-secondary/40 dark:bg-brand-secondary/15`}
+          >
             {isExpanded ? "Details Open" : "Tap for Details"}
           </div>
         </CardHeader>
@@ -93,7 +98,9 @@ export function SpecialtyServiceCard(
 
         {/* Expanded Content */}
         {isExpanded && (
-          <CardContent className="grow pt-0 px-4 sm:px-5 lg:px-6 pb-4 sm:pb-5 lg:pb-6 animate-in slide-in-from-top duration-300">
+          <CardContent
+            className={`grow pt-0 px-4 sm:px-5 lg:px-6 pb-4 sm:pb-5 lg:pb-6 animate-in slide-in-from-top ${transitionDuration.normal}`}
+          >
             <p className="mb-4 text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed wrap-break-word">
               {service.description}
             </p>
@@ -101,7 +108,9 @@ export function SpecialtyServiceCard(
             <div className="space-y-3 sm:space-y-4">
               {/* Service Areas List */}
               {service.markets && (
-                <div className="bg-brand-secondary/5 dark:bg-brand-secondary/10 rounded-xl p-3 sm:p-4">
+                <div
+                  className={`bg-brand-secondary/5 dark:bg-brand-secondary/10 ${cornerRadius.element} p-3 sm:p-4`}
+                >
                   <div className="flex items-center mb-2">
                     <MaterialIcon
                       icon="business"
@@ -132,7 +141,9 @@ export function SpecialtyServiceCard(
 
               {/* Build Types List */}
               {service.buildTypes && (
-                <div className="bg-brand-primary/5 dark:bg-brand-primary/10 rounded-xl p-3 sm:p-4">
+                <div
+                  className={`bg-brand-primary/5 dark:bg-brand-primary/10 ${cornerRadius.element} p-3 sm:p-4`}
+                >
                   <div className="flex items-center mb-2">
                     <MaterialIcon
                       icon="construction"
@@ -163,7 +174,9 @@ export function SpecialtyServiceCard(
 
               {/* Features List */}
               {service.features && (
-                <div className="bg-brand-secondary/5 dark:bg-brand-secondary/10 rounded-xl p-3 sm:p-4">
+                <div
+                  className={`bg-brand-secondary/5 dark:bg-brand-secondary/10 ${cornerRadius.element} p-3 sm:p-4`}
+                >
                   <div className="flex items-center mb-2">
                     <MaterialIcon
                       icon="verified"
@@ -194,7 +207,9 @@ export function SpecialtyServiceCard(
 
               {/* Capabilities List */}
               {service.capabilities && !service.markets && (
-                <div className="bg-brand-primary/5 dark:bg-brand-primary/10 rounded-xl p-3 sm:p-4">
+                <div
+                  className={`bg-brand-primary/5 dark:bg-brand-primary/10 ${cornerRadius.element} p-3 sm:p-4`}
+                >
                   <div className="flex items-center mb-2">
                     <MaterialIcon
                       icon="settings"
@@ -225,7 +240,9 @@ export function SpecialtyServiceCard(
 
               {/* Additional Note */}
               {service.note && (
-                <div className="bg-brand-secondary/10 dark:bg-brand-secondary/20 p-3 border-l-4 border-brand-secondary rounded-md">
+                <div
+                  className={`bg-brand-secondary/10 dark:bg-brand-secondary/20 p-3 border-l-4 border-brand-secondary ${cornerRadius.small}`}
+                >
                   <p className="font-medium text-gray-700 dark:text-gray-300 text-xs leading-relaxed wrap-break-word">
                     <MaterialIcon
                       icon="info"
@@ -238,7 +255,9 @@ export function SpecialtyServiceCard(
 
               {/* CTA Text */}
               {service.ctaText && (
-                <div className="bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-3 border-l-4 border-brand-primary rounded-md">
+                <div
+                  className={`bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-3 border-l-4 border-brand-primary ${cornerRadius.small}`}
+                >
                   <p className="font-medium text-gray-800 dark:text-gray-200 text-xs leading-relaxed wrap-break-word">
                     <MaterialIcon
                       icon="phone"

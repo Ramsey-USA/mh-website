@@ -8,7 +8,7 @@ type CardVariant = "default" | "primary" | "secondary" | "accent" | "static";
 
 const cardStyles = {
   base: "flex flex-col bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 h-full transition-all",
-  hover: "hover:shadow-lg dark:hover:shadow-gray-600/50 hover:-translate-y-1",
+  hover: "hover:shadow-lg dark:hover:shadow-gray-600/50",
   primary: "border-2 border-brand-primary dark:border-brand-primary/50",
   secondary: "border-2 border-brand-secondary dark:border-brand-secondary/50",
   accent: "border-2 border-brand-secondary dark:border-brand-secondary/50",

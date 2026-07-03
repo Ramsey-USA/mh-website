@@ -195,21 +195,22 @@ export function UnderConstruction({
                 discuss your construction needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="/">
-                  <Button
-                    variant="secondary"
-                    size="lg"
-                    className="min-w-[200px]"
-                  >
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="min-w-50"
+                  asChild
+                >
+                  <Link href="/">
                     <MaterialIcon icon="home" size="lg" className="mr-2" />
                     Return Home
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
                 <a href={`tel:${COMPANY_INFO.phone.tel}`}>
                   <Button
                     variant="outline"
                     size="lg"
-                    className="min-w-[200px] bg-white hover:bg-gray-100 text-brand-primary border-2 border-white"
+                    className="min-w-50 bg-white hover:bg-gray-100 text-brand-primary border-2 border-white"
                   >
                     <MaterialIcon icon="phone" size="lg" className="mr-2" />
                     Call Now

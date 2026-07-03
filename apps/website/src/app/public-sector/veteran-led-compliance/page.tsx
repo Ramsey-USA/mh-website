@@ -135,7 +135,7 @@ export default function VeteranLedCompliancePage() {
                 Request planning support
               </TrackedBridgeButton>
               <TrackedBridgeButton
-                href="/#services"
+                href="/services"
                 trackId="compliance-municipal-service"
                 variant="outline"
               >

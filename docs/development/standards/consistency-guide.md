@@ -582,10 +582,18 @@ pageName: [
 
 ### Section Spacing
 
-- **Vertical padding**: `py-20 lg:py-32 xl:py-40`
+- **Standard rhythm tier**: `py-12 sm:py-16 lg:py-20 xl:py-24`
+- **Compact rhythm tier**: `py-10 sm:py-12 lg:py-16`
 - **Container**: `relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl`
 - **Header margin bottom**: `mb-16 lg:mb-24`
 - **Content grid gaps**: `gap-6 lg:gap-8`
+
+**Implementation rules:**
+
+1. Pick one rhythm tier as the page default and keep it consistent section-to-section.
+2. Use targeted top-padding reduction for transition handoffs instead of compressing both top and bottom spacing globally.
+3. Avoid rhythm oscillation between compact and oversized section shells unless there is a clear narrative break.
+4. Prefer shared section shells (`BrandedContentSection` and related wrappers) before hand-authoring custom section chrome.
 
 ---
 
@@ -626,6 +634,40 @@ import { Button } from "@/components/ui";
 **Button Sizes**: `sm`, `default`, `lg`, `xl`, `icon`, `icon-sm`, `icon-lg`
 
 **Touch Targets**: All buttons automatically meet 44px minimum height
+
+### CTA Composition Pattern (Required)
+
+```tsx
+// ✅ CORRECT
+<Button asChild variant="primary" size="lg">
+  <Link href="/contact">Contact Our Team</Link>
+</Button>
+
+// ❌ AVOID
+<Link href="/contact">
+  <Button variant="primary" size="lg">Contact Our Team</Button>
+</Link>
+```
+
+Rules:
+
+1. Use `Button asChild` for route/navigation actions.
+2. Do not wrap `Button` with `Link` for primary CTA patterns.
+3. Keep icon spacing and touch target standards unchanged when using `asChild`.
+
+### CTA Hierarchy (Required)
+
+Use one action ladder across sections and pages:
+
+1. Primary: filled, highest emphasis, single dominant action.
+2. Secondary: outlined/tinted supporting action.
+3. Tertiary: text-link utility action.
+
+Rules:
+
+1. In a multi-CTA cluster, only one CTA may use primary emphasis.
+2. Secondary CTAs must remain visually subordinate to primary.
+3. FAQ and utility sections should typically use secondary or tertiary CTA emphasis.
 
 ### Card Component
 
@@ -719,6 +761,34 @@ import { Input, Textarea } from "@/components/ui/forms/Input";
 
 ## 📱 Mobile Consistency
 
+## Section Header Cadence
+
+Prevent headline fatigue by managing large headings across adjacent sections.
+
+1. Use display-scale headers for anchor sections.
+2. Use section-scale headers for supporting sections that directly follow another headline-heavy block.
+3. Avoid stacking multiple display-scale headers back-to-back unless intentionally creating a major narrative break.
+
+Implementation hint:
+
+- Prefer shared header-size props on section shells over one-off inline class overrides.
+
+## Motion Token Governance
+
+Use tokenized motion as the default and treat ad-hoc transform classes as exceptions.
+
+1. Use `hoverMotion.*`, `designTokens.*`, and `transitionDuration.*` for card/CTA motion.
+2. Avoid repeated inline `hover:scale-*`, `hover:-translate-*`, and `group-hover:rotate-*` patterns.
+3. If a one-off inline transform is required, document scope and reason in the implementation note/PR.
+
+### Utility Override Rule
+
+Avoid utility-important class usage (`!`) in production section composition.
+
+1. Do not use classes like `py-0!` to force overrides in page sections/components.
+2. Resolve style conflicts by adjusting shared component props or tokenized class contracts.
+3. Use documented exceptions only for emergency patches with follow-up refactor tasks.
+
 ### Mobile-First Breakpoints
 
 ```css
@@ -811,7 +881,13 @@ className = "transform-gpu will-change-transform";
 - [ ] Responsive typography with all breakpoints
 - [ ] FadeInWhenVisible wrapper on header
 - [ ] StaggeredFadeIn on grid content
-- [ ] Proper vertical padding: `py-20 lg:py-32 xl:py-40`
+- [ ] Proper vertical padding uses approved rhythm tiers (`py-12 sm:py-16 lg:py-20 xl:py-24` or `py-10 sm:py-12 lg:py-16`)
+- [ ] CTA cluster follows primary-secondary-tertiary hierarchy
+- [ ] Header scale is chosen intentionally for cadence with adjacent sections
+- [ ] Deferred placeholder (if used) matches final section shell spacing and background
+- [ ] CTA route actions use `Button asChild` + `Link` composition
+- [ ] No utility-important (`!`) class overrides in section composition
+- [ ] Motion classes are tokenized or documented as explicit exceptions
 
 ### Before Creating a New Component
 
@@ -843,6 +919,12 @@ className = "transform-gpu will-change-transform";
 - [ ] Images responsive with proper aspect ratios
 - [ ] Animations smooth on mobile devices
 - [ ] Forms usable with touch keyboards
+
+### Deferred Rendering Checklist
+
+- [ ] Loading placeholders inherit final section spacing classes.
+- [ ] Loading placeholders inherit final section background variant.
+- [ ] Placeholder structure approximates final content density to reduce layout pop.
 
 ---
 

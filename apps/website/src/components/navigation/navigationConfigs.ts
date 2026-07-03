@@ -157,7 +157,7 @@ export function getNavigationLabel(
 export const navigationConfigs = {
   home: [
     {
-      href: "#services",
+      href: "/services",
       label: "Services",
       mobileLabel: "Services",
       icon: "build",
@@ -271,7 +271,7 @@ export const navigationConfigs = {
       icon: "map",
     },
     {
-      href: "#testimonials",
+      href: "#trust-in-action",
       label: "Trust In Action",
       mobileLabel: "Trust",
       icon: "verified",
@@ -523,7 +523,7 @@ export const navigationConfigs = {
       icon: "info",
     },
     {
-      href: "#services",
+      href: "/services",
       label: "Our Services",
       mobileLabel: "Services",
       icon: "build",

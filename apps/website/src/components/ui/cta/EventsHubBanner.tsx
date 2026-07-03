@@ -61,17 +61,18 @@ export function EventsHubBanner() {
             sections.
           </p>
 
-          <Link href="/events" className="inline-flex max-w-full">
-            <Button
-              variant="secondary"
-              size="lg"
-              className="max-w-full border-brand-secondary bg-brand-secondary/20 text-white hover:bg-brand-secondary hover:text-gray-950"
-              aria-label="Explore the MH Construction Events Hub"
-            >
+          <Button
+            variant="secondary"
+            size="lg"
+            className="max-w-full border-brand-secondary bg-brand-secondary/20 text-white hover:bg-brand-secondary hover:text-gray-950"
+            aria-label="Explore the MH Construction Events Hub"
+            asChild
+          >
+            <Link href="/events" className="inline-flex max-w-full">
               <MaterialIcon icon="campaign" size="md" className="mr-2" />
               Explore Events Hub
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </div>
     </aside>

@@ -58,17 +58,17 @@
     }
   },
   "services": {
-    "sectionSubtitle": "Frentes por Resultado",
-    "sectionTitle": "Comience por su Tipo de Proyecto",
-    "sectionDescription": "Vea cómo entregamos proyectos AG y de bodegas, tenant improvements comerciales y obra municipal con responsables claros, visibilidad en Procore y controles listos para cierre. Squared away from start to finish. (Listos y alineados de principio a fin.)",
+    "sectionSubtitle": "Selector de Servicios",
+    "sectionTitle": "Filtre por Ruta de Entrega y Enfoque de Proyecto",
+    "sectionDescription": "Use los filtros para encontrar rapidamente la tarjeta de servicio que mejor se ajusta al alcance y prioridades de entrega de su proyecto. Nuestra operación es principalmente comercial y también evaluamos Custom Home Builds selectivos por ajuste.",
     "funnel": {
       "pathStepLabel": "Paso 1: Elija una ruta de entrega",
       "focusStepLabel": "Paso 2: Elija el enfoque de su proyecto",
-      "helperText": "Use este flujo guiado para pasar de una ruta amplia de entrega al alcance específico que su proyecto necesita.",
+      "helperText": "Primero elija una ruta de entrega y luego el enfoque del proyecto. Abra cualquier tarjeta coincidente para revisar alcance, beneficios y siguientes acciones.",
       "resultsLabel": "Servicios coincidentes: {count}",
       "resetFilters": "Restablecer filtros",
       "noResultsTitle": "No hay servicios exactos para esa combinación de filtros",
-      "noResultsDescription": "Restablezca filtros para ver todas las rutas de entrega y elegir otro camino.",
+      "noResultsDescription": "Restablezca filtros para ver todos los servicios disponibles y elegir otra combinacion.",
       "pathOptions": {
         "all": "Todas las rutas de entrega",
         "planControl": "Planificar y controlar",
@@ -185,22 +185,22 @@
         "cta": "Ver Capacidades"
       },
       {
-        "title": "Mejoras para Inquilinos",
-        "subtitle": "TI Comercial e Instalación de Puertas y Herrajes",
-        "description": "Tenant improvements comerciales con instalación de puertas y herrajes para minimizar tiempos muertos y proteger operaciones activas.",
+        "title": "Renovaciones Comerciales y Custom Home Builds Selectivos",
+        "subtitle": "Operación Comercial Primero con Residencial por Ajuste",
+        "description": "La renovación comercial es nuestra ruta principal y también consideramos Custom Home Builds selectivos cuando alcance, cronograma y ruta de entrega están alineados.",
         "features": [
-          "Renovaciones de oficinas",
-          "Habilitaciones de tiendas",
-          "Instalación de puertas y herrajes",
-          "TI para restaurantes, hostelería y consultorios médicos"
+          "Planificación y ejecución de renovaciones comerciales",
+          "Integración de puertas y herrajes cuando aplique",
+          "Evaluación selectiva de custom homes por ajuste de alcance",
+          "Expectativas claras de preconstrucción antes del compromiso"
         ],
         "benefits": [
-          "Finalización rápida y eficiente",
-          "Mínima interrupción del negocio",
-          "Licencia en 3 estados (WA, OR, ID)",
-          "Calidad de trabajo garantizada"
+          "Enfoque principal en ejecución comercial",
+          "Calificación clara para custom homes",
+          "Planificación transparente antes de movilizar",
+          "Estándares consistentes de calidad y comunicación"
         ],
-        "cta": "Comenzar"
+        "cta": "Iniciar Calificación"
       }
     ]
   },

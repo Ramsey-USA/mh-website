@@ -84,9 +84,6 @@ describe("Navigation and Footer link contract", () => {
     );
 
     await user.click(screen.getByRole("button", { name: /open menu/i }));
-    await user.click(
-      screen.getByRole("button", { name: /open service lanes menu/i }),
-    );
 
     const hrefs = new Set(
       Array.from(container.querySelectorAll("a"))
@@ -110,16 +107,12 @@ describe("Navigation and Footer link contract", () => {
       "/faq",
       "/safety",
       "/hub",
-      "/#services",
+      "/services",
       "/privacy",
       "/terms",
       "/accessibility",
       "/sitemap.xml",
       "/careers?apply=true&entryPoint=Footer%20Application",
-      "/?utm_source=nav&utm_medium=menu&utm_campaign=services-funnel&utm_content=preconstruction-planning-focus#services",
-      "/?utm_source=nav&utm_medium=menu&utm_campaign=services-funnel&utm_content=path-build-expand#services",
-      "/?utm_source=nav&utm_medium=menu&utm_campaign=services-funnel&utm_content=path-modernize-spaces#services",
-      "/?utm_source=nav&utm_medium=menu&utm_campaign=services-funnel&utm_content=path-plan-control#services",
     ];
 
     expectedInternalLinks.forEach((href) => {

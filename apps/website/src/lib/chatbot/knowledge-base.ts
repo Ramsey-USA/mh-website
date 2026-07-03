@@ -325,7 +325,7 @@ For trades not covered by a current named Ally (e.g., concrete, roofing, HVAC, p
 ## NAVIGATION HELP
 If visitors are looking for specific pages, guide them:
 - About the company → ${SITE_HOST}/about
-- Services → ${SITE_HOST}/#services
+- Services → ${SITE_HOST}/services
 - Projects portfolio → ${SITE_HOST}/projects
 - Team → ${SITE_HOST}/team
 - Trade Partners → ${SITE_HOST}/allies

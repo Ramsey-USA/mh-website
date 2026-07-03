@@ -58,17 +58,17 @@
     }
   },
   "services": {
-    "sectionSubtitle": "Project Outcome Lanes",
-    "sectionTitle": "Start with Your Project Type",
-    "sectionDescription": "See how we deliver AG and winery projects, commercial tenant improvements, and municipal builds with clear ownership, Procore visibility, and closeout-ready controls. MH Construction prides itself on being the answer before the problem through Professional Pre-Construction and Handoff Procedures. Every complex project presents a minefield of operational risks—MHC neutralizes the variables and secures your delivery. Every build introduces unique structural and regulatory challenges. MHC provides the precise project management required to navigate them on time and within scope. Squared away from start to finish.",
+    "sectionSubtitle": "Service Matcher",
+    "sectionTitle": "Filter by Delivery Path and Project Focus",
+    "sectionDescription": "Use the filters to quickly find the service card that best fits your project scope and delivery priorities. Our core delivery is commercial, with select Custom Home Builds by fit.",
     "funnel": {
       "pathStepLabel": "Step 1: Choose a delivery path",
       "focusStepLabel": "Step 2: Choose your project focus",
-      "helperText": "Use this guided funnel to narrow from broad delivery path to the specific scope your project needs.",
+      "helperText": "Choose a delivery path first, then project focus. Open any matching card to review scope, benefits, and next actions.",
       "resultsLabel": "Matching services: {count}",
       "resetFilters": "Reset filters",
       "noResultsTitle": "No exact services match this filter combo",
-      "noResultsDescription": "Reset filters to see all available delivery lanes and choose a different route.",
+      "noResultsDescription": "Reset filters to see all available services and choose a different combination.",
       "pathOptions": {
         "all": "All delivery paths",
         "planControl": "Plan & control",
@@ -185,22 +185,22 @@
         "cta": "See Capabilities"
       },
       {
-        "title": "Tenant Improvements",
-        "subtitle": "Commercial TI and Door/Hardware Installation",
-        "description": "Commercial tenant improvements with door and hardware installation that minimize downtime and protect active operations.",
+        "title": "Commercial Renovations and Select Custom Home Builds",
+        "subtitle": "Commercial-First Delivery with Residential by Fit",
+        "description": "Commercial renovation remains our primary lane, and we also entertain select Custom Home Builds when scope, schedule, and delivery fit align.",
         "features": [
-          "Office space renovations",
-          "Retail store buildouts",
-          "Door and hardware installation",
-          "Restaurant, hospitality, and medical TI"
+          "Commercial renovation planning and execution",
+          "Door and hardware integration where required",
+          "Selective custom home review by scope fit",
+          "Clear preconstruction expectations before commitment"
         ],
         "benefits": [
-          "Fast, efficient completion",
-          "Minimal business disruption",
-          "3-state licensing (WA, OR, ID)",
-          "Quality workmanship guaranteed"
+          "Commercial-first execution focus",
+          "Clear qualification for custom homes",
+          "Transparent planning before mobilization",
+          "Consistent quality and communication standards"
         ],
-        "cta": "Get Started"
+        "cta": "Start Qualification"
       }
     ]
   },

@@ -65,7 +65,7 @@ export function PartnershipProcessSection() {
             {partnershipProcess.map((process, _index) => (
               <div key={_index} className="group relative flex h-full">
                 {/* Animated Border Glow */}
-                <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-600/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-600/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
                 <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                   {/* Top Accent Bar */}
@@ -76,7 +76,7 @@ export function PartnershipProcessSection() {
                       <div className="shrink-0 mr-4">
                         <div className="relative inline-block">
                           <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-600/40 opacity-30 blur-lg rounded-full"></div>
-                          <div className="relative flex justify-center items-center bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 rounded-full w-12 h-12 font-bold text-white text-xl shadow-xl group-hover:scale-110 transition-all duration-300">
+                          <div className="relative flex justify-center items-center bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 rounded-full w-12 h-12 font-bold text-white text-xl shadow-xl transition-all duration-300">
                             {process.step}
                           </div>
                         </div>
@@ -93,7 +93,7 @@ export function PartnershipProcessSection() {
                           </div>
                           <div className="relative inline-block">
                             <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-600/40 opacity-20 blur-lg rounded-xl"></div>
-                            <div className="relative rounded-xl bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-2 shadow-lg group-hover:scale-110 transition-all duration-300">
+                            <div className="relative rounded-xl bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-2 shadow-lg transition-all duration-300">
                               <MaterialIcon
                                 icon={process.icon}
                                 size="lg"

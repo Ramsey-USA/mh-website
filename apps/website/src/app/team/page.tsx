@@ -642,7 +642,7 @@ export default async function TeamPage() {
               testimonials={employeeTestimonials}
               variant="employee"
               columns={3}
-              className="py-0!"
+              className="py-0"
             />
           </div>
         </section>
@@ -776,9 +776,9 @@ export default async function TeamPage() {
                 <div className="scroll-reveal">
                   <div className="group relative flex h-full">
                     {/* Animated Border Glow */}
-                    <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
-                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -814,7 +814,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="bronze" />
 
-                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
@@ -854,7 +854,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="primary-dark" />
 
-                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -915,7 +915,7 @@ export default async function TeamPage() {
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                     <div className="space-y-6">
                       <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
-                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-primary to-brand-primary-dark group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full w-10 h-10 shadow-md transition-colors duration-300">
                           <MaterialIcon
                             icon="military_tech"
                             size="sm"
@@ -936,7 +936,7 @@ export default async function TeamPage() {
                         </div>
                       </div>
                       <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
-                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-primary to-brand-primary-dark group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full w-10 h-10 shadow-md transition-colors duration-300">
                           <MaterialIcon
                             icon="forum"
                             size="sm"
@@ -957,7 +957,7 @@ export default async function TeamPage() {
                         </div>
                       </div>
                       <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
-                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-primary to-brand-primary-dark group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full w-10 h-10 shadow-md transition-colors duration-300">
                           <MaterialIcon
                             icon="verified_user"
                             size="sm"
@@ -978,7 +978,7 @@ export default async function TeamPage() {
                     </div>
                     <div className="space-y-6">
                       <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
-                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-secondary to-bronze-700 group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-secondary to-bronze-700 rounded-full w-10 h-10 shadow-md transition-colors duration-300">
                           <MaterialIcon
                             icon="location_city"
                             size="sm"
@@ -997,7 +997,7 @@ export default async function TeamPage() {
                         </div>
                       </div>
                       <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
-                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-secondary to-bronze-700 group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-secondary to-bronze-700 rounded-full w-10 h-10 shadow-md transition-colors duration-300">
                           <MaterialIcon
                             icon="balance"
                             size="sm"
@@ -1016,7 +1016,7 @@ export default async function TeamPage() {
                         </div>
                       </div>
                       <div className="group flex items-start space-x-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/30 transition-colors duration-300">
-                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-secondary to-bronze-700 group-hover:scale-110 rounded-full w-10 h-10 shadow-md transition-transform duration-300">
+                        <div className="flex shrink-0 justify-center items-center bg-linear-to-br from-brand-secondary to-bronze-700 rounded-full w-10 h-10 shadow-md transition-colors duration-300">
                           <MaterialIcon
                             icon="handshake"
                             size="sm"
@@ -1098,7 +1098,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="primary-dark" />
 
-                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -1138,7 +1138,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="primary-dark" />
 
-                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -1179,7 +1179,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="bronze" />
 
-                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
@@ -1218,7 +1218,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="primary-dark" />
 
-                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -1254,7 +1254,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="primary-dark" />
 
-                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -1297,7 +1297,7 @@ export default async function TeamPage() {
                     {/* Animated Border Glow */}
                     <GlowEffect gradient="bronze" />
 
-                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+                    <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
                       <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
@@ -1365,7 +1365,7 @@ export default async function TeamPage() {
                   {/* Stats Grid */}
                   <div className="gap-6 sm:gap-8 grid grid-cols-2 lg:grid-cols-4">
                     {/* Stat 1 */}
-                    <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
+                    <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
                       <div className="mb-3 flex justify-center">
                         <div className="p-3 bg-linear-to-br from-brand-primary/10 to-brand-primary/5 rounded-lg group-hover:from-brand-primary/20 group-hover:to-brand-primary/10 transition-colors duration-300">
                           <MaterialIcon
@@ -1375,7 +1375,7 @@ export default async function TeamPage() {
                           />
                         </div>
                       </div>
-                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-linear-to-br from-brand-primary to-brand-primary-dark bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-linear-to-br from-brand-primary to-brand-primary-dark bg-clip-text text-transparent mb-2 transition-colors duration-300">
                         150+
                       </p>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
@@ -1390,7 +1390,7 @@ export default async function TeamPage() {
                     </div>
 
                     {/* Stat 2 */}
-                    <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
+                    <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
                       <div className="mb-3 flex justify-center">
                         <div className="p-3 bg-linear-to-br from-brand-secondary/10 to-brand-secondary/5 rounded-lg group-hover:from-brand-secondary/20 group-hover:to-brand-secondary/10 transition-colors duration-300">
                           <MaterialIcon
@@ -1400,7 +1400,7 @@ export default async function TeamPage() {
                           />
                         </div>
                       </div>
-                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-linear-to-br from-brand-secondary to-bronze-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-linear-to-br from-brand-secondary to-bronze-700 bg-clip-text text-transparent mb-2 transition-colors duration-300">
                         100%
                       </p>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
@@ -1415,7 +1415,7 @@ export default async function TeamPage() {
                     </div>
 
                     {/* Stat 3 - AGC Awards */}
-                    <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
+                    <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
                       <div className="mb-3 flex justify-center">
                         <div className="p-3 bg-linear-to-br from-brand-primary/10 to-brand-primary/5 rounded-lg group-hover:from-brand-primary/20 group-hover:to-brand-primary/10 transition-colors duration-300">
                           <MaterialIcon
@@ -1425,7 +1425,7 @@ export default async function TeamPage() {
                           />
                         </div>
                       </div>
-                      <p className="font-black text-2xl sm:text-3xl md:text-4xl bg-linear-to-br from-brand-primary to-brand-primary-dark bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                      <p className="font-black text-2xl sm:text-3xl md:text-4xl bg-linear-to-br from-brand-primary to-brand-primary-dark bg-clip-text text-transparent mb-2 transition-colors duration-300">
                         AGC-WA
                       </p>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
@@ -1436,7 +1436,7 @@ export default async function TeamPage() {
                     </div>
 
                     {/* Stat 4 - Years in Business */}
-                    <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
+                    <div className="group text-center p-6 bg-white dark:bg-gray-800/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
                       <div className="mb-3 flex justify-center">
                         <div className="p-3 bg-linear-to-br from-brand-secondary/10 to-brand-secondary/5 rounded-lg group-hover:from-brand-secondary/20 group-hover:to-brand-secondary/10 transition-colors duration-300">
                           <MaterialIcon
@@ -1446,7 +1446,7 @@ export default async function TeamPage() {
                           />
                         </div>
                       </div>
-                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-linear-to-br from-brand-secondary to-bronze-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                      <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-linear-to-br from-brand-secondary to-bronze-700 bg-clip-text text-transparent mb-2 transition-colors duration-300">
                         15+
                       </p>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
@@ -1479,18 +1479,19 @@ export default async function TeamPage() {
                 <p className="mb-6 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                   {t("team.careersCta.description")}
                 </p>
-                <Link href="/careers" prefetch={false}>
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    className="transition-all duration-300 w-full sm:w-auto sm:min-w-70"
-                  >
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="transition-all duration-300 w-full sm:w-auto sm:min-w-70"
+                  asChild
+                >
+                  <Link href="/careers" prefetch={false}>
                     <MaterialIcon icon="work" size="lg" className="mr-3" />
                     <span className="font-medium">
                       {t("team.careersCta.button")}
                     </span>
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>

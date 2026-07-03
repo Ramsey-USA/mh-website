@@ -78,7 +78,7 @@ export default function ResourcesPage() {
                 href="/safety"
                 className="flex items-start gap-5 p-5 sm:items-center sm:p-6"
               >
-                <div className="shrink-0 w-12 h-12 bg-brand-primary rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
+                <div className="shrink-0 w-12 h-12 bg-brand-primary rounded-xl flex items-center justify-center shadow-md transition-colors duration-200">
                   <MaterialIcon
                     icon="shield_lock"
                     size="md"
@@ -110,7 +110,7 @@ export default function ResourcesPage() {
                 <MaterialIcon
                   icon="arrow_forward"
                   size="md"
-                  className="text-brand-primary shrink-0 group-hover:translate-x-1 transition-transform duration-200 hidden sm:block"
+                  className="text-brand-primary shrink-0 hidden sm:block"
                 />
               </Link>
             </Card>
@@ -121,7 +121,7 @@ export default function ResourcesPage() {
               href="/qr-codes"
               className="flex items-start gap-5 p-5 sm:items-center sm:p-6"
             >
-              <div className="shrink-0 w-12 h-12 bg-brand-secondary rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
+              <div className="shrink-0 w-12 h-12 bg-brand-secondary rounded-xl flex items-center justify-center shadow-md transition-colors duration-200">
                 <MaterialIcon
                   icon="qr_code_2"
                   size="md"
@@ -145,7 +145,7 @@ export default function ResourcesPage() {
               <MaterialIcon
                 icon="arrow_forward"
                 size="md"
-                className="text-brand-secondary shrink-0 group-hover:translate-x-1 transition-transform duration-200 hidden sm:block"
+                className="text-brand-secondary shrink-0 hidden sm:block"
               />
             </Link>
           </Card>
@@ -299,11 +299,7 @@ export default function ResourcesPage() {
                             ? "View handbook index"
                             : "Open manual PDF"}
                       </span>
-                      <MaterialIcon
-                        icon="arrow_forward"
-                        size="sm"
-                        className="transition-transform duration-200 group-hover:translate-x-1"
-                      />
+                      <MaterialIcon icon="arrow_forward" size="sm" />
                     </div>
                   </div>
                 </Link>

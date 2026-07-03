@@ -98,7 +98,7 @@ export function VendorPlatformLink({
         "bg-linear-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700",
         hoverClasses,
         "p-2.5 border border-gray-600 dark:border-gray-500",
-        "rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation",
+        "rounded-lg transition-all duration-300 touch-manipulation",
         "shadow-md",
       ].join(" ")}
     >

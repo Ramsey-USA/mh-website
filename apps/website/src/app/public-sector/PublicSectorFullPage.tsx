@@ -399,7 +399,7 @@ export default function PublicSectorFullPage() {
             {grantSupportServices.map((service) => (
               <Card
                 key={service.title}
-                className="group relative overflow-hidden border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800"
+                className="group relative overflow-hidden border border-gray-200 bg-white transition-all duration-300 hover:border-transparent hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800"
               >
                 {/* Animated border glow */}
                 <div
@@ -419,7 +419,7 @@ export default function PublicSectorFullPage() {
                       <MaterialIcon
                         icon={service.icon}
                         size="2xl"
-                        className="text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+                        className="text-white drop-shadow-lg transition-colors duration-300"
                       />
                     </div>
                   </div>
@@ -588,7 +588,7 @@ export default function PublicSectorFullPage() {
               {hanfordCapabilities.map((capability) => (
                 <div
                   key={capability.title}
-                  className="group relative bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-2xl border border-white/20 hover:border-transparent transition-all duration-300 overflow-hidden hover:-translate-y-1"
+                  className="group relative bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-2xl border border-white/20 hover:border-transparent transition-all duration-300 overflow-hidden"
                 >
                   {/* Top accent bar */}
                   <div className="h-2 bg-linear-to-r from-slate-500 via-gray-400 to-slate-500" />
@@ -602,7 +602,7 @@ export default function PublicSectorFullPage() {
                         <MaterialIcon
                           icon={capability.icon}
                           size="xl"
-                          className="text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+                          className="text-white drop-shadow-lg transition-colors duration-300"
                         />
                       </div>
                     </div>
@@ -854,7 +854,7 @@ export default function PublicSectorFullPage() {
             {governmentProjects.map((project) => (
               <div
                 key={project.title}
-                className="group relative bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 overflow-hidden hover:-translate-y-1"
+                className="group relative bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 overflow-hidden"
               >
                 {/* Animated border glow */}
                 <div
@@ -873,7 +873,7 @@ export default function PublicSectorFullPage() {
                       <MaterialIcon
                         icon={project.icon}
                         size="xl"
-                        className="text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+                        className="text-white drop-shadow-lg transition-colors duration-300"
                       />
                     </div>
                   </div>
@@ -970,7 +970,7 @@ export default function PublicSectorFullPage() {
                           <MaterialIcon
                             icon={factor.icon}
                             size="lg"
-                            className="text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+                            className="text-white drop-shadow-lg transition-colors duration-300"
                           />
                         </div>
                       </div>
@@ -1106,11 +1106,12 @@ export default function PublicSectorFullPage() {
             </div>
 
             <div className="flex sm:flex-row flex-col justify-center gap-4">
-              <Link href="/contact" prefetch={false}>
-                <Button
-                  size="lg"
-                  className="bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-800 px-10 py-7 text-white text-xl"
-                >
+              <Button
+                size="lg"
+                className="bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-800 px-10 py-7 text-white text-xl"
+                asChild
+              >
+                <Link href="/contact" prefetch={false}>
                   <MaterialIcon
                     icon="campaign"
                     className="mr-3"
@@ -1119,8 +1120,8 @@ export default function PublicSectorFullPage() {
                     ariaLabel="Request Project Consultation"
                   />
                   Request Project Consultation
-                </Button>
-              </Link>
+                </Link>
+              </Button>
               <a
                 href={`mailto:${COMPANY_INFO.email.main}?subject=Request%20Federal%20Capabilities%20Brief`}
               >

@@ -53,7 +53,7 @@ export function TestimonialCard({
     >
       {/* Quote Icon */}
       <div
-        className={`absolute top-4 right-4 sm:top-6 sm:right-6 flex justify-center items-center bg-${activeVariant === "client" ? "brand-secondary" : "brand-primary"}/10 p-2 rounded-full w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-110 transition-transform duration-300`}
+        className={`absolute top-4 right-4 sm:top-6 sm:right-6 flex justify-center items-center bg-${activeVariant === "client" ? "brand-secondary" : "brand-primary"}/10 p-2 rounded-full w-10 h-10 sm:w-12 sm:h-12 transition-colors duration-300`}
       >
         <svg
           className={`w-full h-full ${styles.quoteColor}`}
@@ -68,7 +68,7 @@ export function TestimonialCard({
       {/* Header with Avatar/Initials */}
       <div className="flex items-start space-x-3 sm:space-x-4 mb-4 sm:mb-6">
         {showImage && (
-          <div className="shrink-0 relative rounded-xl sm:rounded-2xl w-12 h-12 sm:w-16 sm:h-16 overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <div className="shrink-0 relative rounded-xl sm:rounded-2xl w-12 h-12 sm:w-16 sm:h-16 overflow-hidden shadow-lg transition-colors duration-300">
             {testimonial.image ? (
               <Image
                 src={testimonial.image}

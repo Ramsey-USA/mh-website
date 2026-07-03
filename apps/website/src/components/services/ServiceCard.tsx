@@ -2,6 +2,11 @@
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { IconContainer, GlowEffect, Card } from "@/components/ui";
+import {
+  cornerRadius,
+  hoverMotion,
+  transitionDuration,
+} from "@/lib/styles/design-tokens";
 import type { CoreService } from "./servicesData";
 
 interface ServiceCardProps {
@@ -27,7 +32,9 @@ export function ServiceCard(props: Readonly<ServiceCardProps>) {
       {/* Animated Border Glow */}
       <GlowEffect gradient="primary-dark" />
 
-      <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+      <Card
+        className={`relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all ${transitionDuration.normal} group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800`}
+      >
         {/* Top Accent Bar */}
         <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -39,13 +46,13 @@ export function ServiceCard(props: Readonly<ServiceCardProps>) {
                 gradient="primary-dark"
                 opacity={30}
                 animate={false}
-                className="rounded-2xl"
+                className={cornerRadius.icon}
               />
               <IconContainer
                 size="lg"
                 gradient="primary"
                 shape="rounded"
-                className="group-hover:rotate-3"
+                className={hoverMotion.iconPlayful}
               >
                 <MaterialIcon
                   icon={service.iconName}
@@ -85,20 +92,26 @@ export function ServiceCard(props: Readonly<ServiceCardProps>) {
             </div>
 
             {/* Click for details indicator */}
-            <div className="mt-auto pt-4 border-t border-brand-primary/20 dark:border-brand-primary/30 group-hover:border-brand-primary dark:group-hover:border-brand-primary-light transition-colors duration-300">
-              <div className="relative flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-linear-to-r from-brand-primary/0 via-brand-primary/5 to-brand-primary/0 group-hover:from-brand-primary/5 group-hover:via-brand-primary/10 group-hover:to-brand-primary/5 transition-all duration-300">
+            <div
+              className={`mt-auto pt-4 border-t border-brand-primary/20 dark:border-brand-primary/30 group-hover:border-brand-primary dark:group-hover:border-brand-primary-light transition-colors ${transitionDuration.normal}`}
+            >
+              <div
+                className={`relative flex items-center justify-center gap-2 py-3 px-4 ${cornerRadius.small} bg-linear-to-r from-brand-primary/0 via-brand-primary/5 to-brand-primary/0 group-hover:from-brand-primary/5 group-hover:via-brand-primary/10 group-hover:to-brand-primary/5 transition-all ${transitionDuration.normal}`}
+              >
                 <MaterialIcon
                   icon="info"
                   size="md"
-                  className="text-brand-primary dark:text-brand-primary-light group-hover:scale-110 group-hover:rotate-12 transition-all duration-300"
+                  className={`text-brand-primary dark:text-brand-primary-light ${hoverMotion.iconPlayful}`}
                 />
-                <span className="font-bold text-sm uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
+                <span
+                  className={`font-bold text-sm uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors ${transitionDuration.normal}`}
+                >
                   Click for Full Details
                 </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
-                  className="text-brand-primary dark:text-brand-primary-light group-hover:translate-x-1 transition-transform duration-300"
+                  className={`text-brand-primary dark:text-brand-primary-light ${hoverMotion.iconSubtle}`}
                 />
               </div>
             </div>

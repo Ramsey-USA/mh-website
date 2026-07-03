@@ -26,7 +26,7 @@ type FAQRoutePlan = {
 const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   general: {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Commercial construction service line",
     },
     location: {
@@ -40,7 +40,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
   process: {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Drywall and interiors delivery path",
     },
     location: {
@@ -54,7 +54,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
   safety: {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Restoration and remodeling controls",
     },
     location: {
@@ -68,7 +68,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
   communication: {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Commercial project communication path",
     },
     location: {
@@ -82,7 +82,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
   veterans: {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Municipal and government delivery path",
     },
     location: {
@@ -96,7 +96,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
   technical: {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Commercial technical planning service",
     },
     location: {
@@ -110,7 +110,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
   partnership: {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Client partnership service pathway",
     },
     location: {
@@ -124,7 +124,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
   financial: {
     service: {
-      href: "/#services",
+      href: "/services",
       label: "Scope and budget control service path",
     },
     location: {

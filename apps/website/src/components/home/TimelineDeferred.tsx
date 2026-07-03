@@ -15,9 +15,11 @@ const Timeline = dynamic(
   },
 );
 
-function TimelinePlaceholder() {
+function TimelinePlaceholder({ className = "" }: { className?: string }) {
   return (
-    <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+    <section
+      className={`relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden ${className}`}
+    >
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="mb-16 sm:mb-20 text-center">
           <div className="mx-auto h-6 w-36 rounded-full bg-gray-200 dark:bg-gray-700 mb-5" />
@@ -71,7 +73,11 @@ export function TimelineDeferred(props: TimelineProps) {
 
   return (
     <div ref={triggerRef}>
-      {shouldRender ? <Timeline {...props} /> : <TimelinePlaceholder />}
+      {shouldRender ? (
+        <Timeline {...props} />
+      ) : (
+        <TimelinePlaceholder className={props.className} />
+      )}
     </div>
   );
 }

@@ -30,7 +30,7 @@ export function ProjectsGridSection({
   return (
     <section
       id="portfolio"
-      className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40"
+      className="bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24"
     >
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FadeInWhenVisible>

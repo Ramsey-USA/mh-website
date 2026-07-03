@@ -115,7 +115,7 @@ export default function TriStateGovernmentConstructionPage() {
           </h2>
           <div className="mt-5 flex flex-wrap gap-3">
             <TrackedBridgeButton
-              href="/#services"
+              href="/services"
               trackId="tri-state-municipal-service"
             >
               Municipal and government service line

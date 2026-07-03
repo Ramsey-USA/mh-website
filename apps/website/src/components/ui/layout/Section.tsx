@@ -29,7 +29,7 @@ interface SectionProps {
  * Section component with consistent styling and optional animation
  *
  * @param variant - Background color variant (default: white, gray: gray-50, gradient: white->gray)
- * @param padding - Vertical padding size (default: py-20 lg:py-32 xl:py-40, large: xl:py-40, small: py-12, none: py-0)
+ * @param padding - Vertical padding size (default: py-12 sm:py-16 lg:py-20 xl:py-24, large: py-16 sm:py-20 lg:py-24 xl:py-28, small: py-10 sm:py-12, none: py-0)
  * @param animated - Whether to wrap content in FadeInWhenVisible animation
  * @param className - Additional classes for section element
  * @param containerClassName - Additional classes for inner container
@@ -63,9 +63,9 @@ export function Section({
 
   // Padding variant classes
   const paddingClasses = {
-    default: "py-20 lg:py-32 xl:py-40",
-    large: "py-20 lg:py-32 xl:py-40",
-    small: "py-12",
+    default: "py-12 sm:py-16 lg:py-20 xl:py-24",
+    large: "py-16 sm:py-20 lg:py-24 xl:py-28",
+    small: "py-10 sm:py-12",
     none: "py-0",
   }[padding];
 

@@ -732,7 +732,7 @@ export default async function TestimonialsPage(props?: {
         </>
       ) : (
         /* Coming Soon State - No testimonials yet */
-        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
+        <section className="bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="mb-8">
               <MaterialIcon
@@ -808,7 +808,7 @@ export default async function TestimonialsPage(props?: {
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link
-                href="/#services"
+                href="/services"
                 aria-label="Learn about our construction services"
               >
                 <MaterialIcon icon="arrow_forward" size="md" ariaLabel="" />

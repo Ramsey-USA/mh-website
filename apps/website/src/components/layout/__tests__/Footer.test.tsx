@@ -153,7 +153,7 @@ describe("Footer", () => {
     [
       "/",
       "/contact",
-      "/#services",
+      "/services",
       "/projects",
       "/about",
       "/careers?apply=true&entryPoint=Footer%20Application",
@@ -181,18 +181,24 @@ describe("Footer", () => {
     expect(screen.getByText("Contact options")).toBeVisible();
     expect(screen.getByRole("link", { name: /services/i })).toHaveAttribute(
       "href",
-      "/#services",
+      "/services",
+    );
+    expect(screen.getByRole("link", { name: /team hub/i })).toHaveAttribute(
+      "href",
+      "/hub",
     );
   });
 
   it("renders a header for the accreditations and affiliations section", () => {
     render(<Footer />);
 
-    expect(
-      screen.getByRole("heading", {
-        name: "Accreditations and Affiliations",
-      }),
-    ).toBeVisible();
+    (COMPANY_INFO.reviews.google.writeUrl,
+      COMPANY_INFO.agc.website,
+      expect(
+        screen.getByRole("heading", {
+          name: "Accreditations and Affiliations",
+        }),
+      ).toBeVisible());
     expect(screen.getByText("Verified partners")).toBeVisible();
   });
 

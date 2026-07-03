@@ -6,7 +6,7 @@
  *
  * Replaces repeated pattern:
  * ```tsx
- * <div className="relative flex justify-center items-center bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+ * <div className="relative flex justify-center items-center bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl transition-all duration-300">
  *   <MaterialIcon icon="..." className="text-white" />
  * </div>
  * ```
@@ -75,7 +75,7 @@ export function IconContainer({
         sizeVariants[size],
         gradientVariants[gradient],
         shapeVariants[shape],
-        animate && "group-hover:scale-110 transition-all duration-300",
+        animate && " transition-all duration-300",
         className,
       )}
     >

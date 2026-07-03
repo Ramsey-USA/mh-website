@@ -11,7 +11,10 @@ const ServicesShowcase = dynamic(
   {
     ssr: false,
     loading: () => (
-      <section className="bg-white py-20 lg:py-32 xl:py-40" id="services">
+      <section
+        className="bg-white py-12 sm:py-16 lg:py-20 xl:py-24"
+        id="services"
+      >
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 3 }).map((_, idx) => (
@@ -73,7 +76,10 @@ export function ServicesShowcaseDeferred({
           {...(typeof maxVisibleCards === "number" ? { maxVisibleCards } : {})}
         />
       ) : (
-        <section className="bg-white py-20 lg:py-32 xl:py-40" id="services">
+        <section
+          className="bg-white py-12 sm:py-16 lg:py-20 xl:py-24"
+          id="services"
+        >
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {Array.from({ length: 3 }).map((_, idx) => (

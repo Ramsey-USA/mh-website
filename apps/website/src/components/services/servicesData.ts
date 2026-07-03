@@ -48,7 +48,7 @@ export const coreServices: CoreService[] = [
     title: "Commercial Construction Management",
     subtitle: "Project Management Leadership Powered by Procore",
     description:
-      "We manage AG and winery projects, commercial tenant improvements, and municipal builds with Procore-led controls, clear ownership, and disciplined field execution across WA, OR, and ID.",
+      "We manage agricultural and winery projects, commercial tenant improvements, and municipal builds with Procore-led controls, clear accountability, and disciplined field execution across WA, OR, and ID.",
     features: [
       "Procore project controls and documentation",
       "RFI, submittal, and change workflows",
@@ -56,9 +56,9 @@ export const coreServices: CoreService[] = [
       "Medical and healthcare facilities",
       "Industrial and manufacturing facilities",
       "Church and religious facilities",
-      "Winery, vineyard, and AG facilities",
+      "Winery, vineyard, and agricultural facilities",
       "Municipal and public buildings",
-      "Commercial TI and occupied renovations",
+      "Commercial tenant improvements and occupied renovations",
       "Door and hardware packages",
       "Pole building and post-frame scopes",
       "Schools and training facilities",
@@ -84,7 +84,7 @@ export const coreServices: CoreService[] = [
       "WA/OR/ID code compliance planning",
       "Budget constraints and cost controls",
       "Schedule and sequencing planning",
-      "Owner design intent integration",
+      "Client Partner design intent integration",
       "Feasibility and risk analysis",
       "Multi-scenario budgeting when needed",
     ],
@@ -116,7 +116,7 @@ export const coreServices: CoreService[] = [
     benefits: [
       "Earlier visibility on long-lead risk",
       "Tighter material and schedule coordination",
-      "Reduced owner burden for trade management",
+      "Reduced Client Partner burden for trade management",
       "Consistent quality through vetted partners",
       "Better field readiness at install milestones",
     ],
@@ -142,7 +142,7 @@ export const coreServices: CoreService[] = [
       "Trade-informed pricing and sequencing",
       "Fewer constructability conflicts in the field",
       "Stronger budget adherence",
-      "Earlier decision confidence for owners and teams",
+      "Earlier decision confidence for Client Partners and teams",
       "Improved schedule predictability",
     ],
   },
@@ -178,15 +178,15 @@ export const specialtyServices: SpecialtyService[] = [
     title: "Markets We Serve",
     subtitle: "Diverse Business Solutions Across WA, OR, ID",
     description:
-      "We focus on AG and winery communities, commercial tenant improvements, and municipal organizations across WA, OR, and ID. Specialty scopes include pole buildings, door and hardware installation, and winery pond liner delivery for wastewater and sludge control.",
+      "We focus on agricultural and winery communities, commercial tenant improvements, and municipal organizations across WA, OR, and ID. Specialty scopes include pole buildings, door and hardware installation, and winery pond liner delivery for wastewater and sludge control.",
     markets: [
       "Religious and community facilities",
       "Retail and office commercial buildings",
       "Municipal and grant-funded projects",
       "Schools and training facilities",
       "Medical and healthcare facilities",
-      "Wineries, vineyards, and specialty AG",
-      "AG operations and support facilities",
+      "Wineries, vineyards, and specialty agriculture",
+      "Agricultural operations and support facilities",
       "Pole buildings and post-frame structures",
       "Door and Hardware Installation",
       "Winery pond liner installation",
@@ -198,7 +198,7 @@ export const specialtyServices: SpecialtyService[] = [
     title: "Tenant Improvements",
     subtitle: "Transform Your Commercial Space Across Our Tri-State Footprint",
     description:
-      "We deliver commercial TI scopes from full build-outs to focused renovations, including door and hardware packages for occupied facilities. Procore workflows keep RFIs, submittals, and schedule impacts visible.",
+      "We deliver commercial tenant improvement scopes from full build-outs to focused renovations, including door and hardware packages for occupied facilities. Procore workflows keep RFIs, submittals, and schedule impacts visible.",
     capabilities: [
       "Complete build-out and renovation delivery",
       "Licensed across WA, OR, and ID",
@@ -206,7 +206,7 @@ export const specialtyServices: SpecialtyService[] = [
       "Field guidance from planning to closeout",
       "Door and hardware installation for occupied facilities",
       "Existing building conversion expertise",
-      "Proven TI delivery discipline",
+      "Proven tenant improvement delivery discipline",
     ],
     ctaText:
       "Ready for tenant improvements? Call (509) 308-6489 to schedule a consultation or on-site scope assessment.",
@@ -216,7 +216,7 @@ export const specialtyServices: SpecialtyService[] = [
     title: "Commercial New Build-Outs",
     subtitle: "Ground-Up Commercial Builds Done Right",
     description:
-      "We deliver ground-up commercial facilities with early constructability mapping, disciplined field sequence control, and direct owner communication from site readiness through turnover.",
+      "We deliver ground-up commercial facilities with early constructability mapping, disciplined field sequence control, and direct Client Partner communication from site readiness through turnover.",
     buildTypes: [
       "Retail stores and shopping centers",
       "Medical offices and clinics",

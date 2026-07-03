@@ -175,7 +175,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
   const serviceDeepLinks: ServiceDeepLink[] = (
     LOCATION_SERVICE_MAP[location.slug] ?? ["commercial-construction"]
   ).map((serviceSlug) => ({
-    href: `/?service=${serviceSlug}#services`,
+    href: `/services?service=${serviceSlug}`,
     label: SERVICE_LABELS[serviceSlug] ?? "Service Line",
   }));
   const bridgeDeepLinks = LOCATION_BRIDGE_MAP[location.slug] ?? [];
@@ -341,7 +341,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                     <MaterialIcon
                       icon="event"
                       size="md"
-                      className="group-hover:scale-110 transition-transform"
+                      className=" transition-colors"
                     />
                     Schedule {location.city} Consultation
                   </Link>
@@ -356,7 +356,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                     <MaterialIcon
                       icon="phone"
                       size="md"
-                      className="group-hover:scale-110 transition-transform"
+                      className=" transition-colors"
                     />
                     Call for {priorityServices[0] || "Project"} Support
                   </Link>
@@ -465,7 +465,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                     </Link>
                   ))}
                   <Link
-                    href="/#services"
+                    href="/services"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-semibold text-gray-900 dark:text-gray-100 hover:border-brand-primary transition-colors"
                   >
                     <MaterialIcon icon="build" size="sm" />
@@ -722,7 +722,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                     <MaterialIcon
                       icon="event"
                       size="md"
-                      className="group-hover:scale-110 transition-transform"
+                      className=" transition-colors"
                     />
                     Schedule Free Consultation
                   </Link>
@@ -733,11 +733,11 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                   size="lg"
                   className="group w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border-white/30"
                 >
-                  <Link href="/#services">
+                  <Link href="/services">
                     <MaterialIcon
                       icon="build"
                       size="md"
-                      className="group-hover:scale-110 transition-transform"
+                      className=" transition-colors"
                     />
                     View All Services
                   </Link>

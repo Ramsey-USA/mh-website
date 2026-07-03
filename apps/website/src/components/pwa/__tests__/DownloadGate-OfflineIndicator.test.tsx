@@ -18,10 +18,6 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
 
 // ── DownloadGate ──────────────────────────────────────────────────────────────
 
-jest.mock("../PWAInstallCTA", () => ({
-  PWAInstallCTA: () => <div data-testid="pwa-install-cta" />,
-}));
-
 import { DownloadGate } from "../DownloadGate";
 import { OfflineIndicator } from "../OfflineIndicator";
 
@@ -61,7 +57,7 @@ describe("DownloadGate", () => {
     jest.clearAllMocks();
   });
 
-  it("shows the app-install prompt on initial render when no auth is stored", async () => {
+  it("shows app access guidance on initial render when no auth is stored", async () => {
     localStorage.clear();
     await act(async () => {
       render(
@@ -70,8 +66,15 @@ describe("DownloadGate", () => {
         </DownloadGate>,
       );
     });
-    // No admin/superintendent token → gate shows the install prompt
-    expect(screen.getByTestId("pwa-install-cta")).toBeInTheDocument();
+    // No admin/superintendent token → gate shows guidance
+    expect(
+      screen.getByText(
+        /use the install app button in the site header or footer/i,
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /already installed\? open the app/i }),
+    ).toHaveAttribute("href", "/hub");
   });
 
   it("renders children when user has admin role in localStorage", async () => {
@@ -107,7 +110,7 @@ describe("DownloadGate", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders the app-install prompt when user is not authenticated", async () => {
+  it("renders app access guidance when user is not authenticated", async () => {
     localStorage.clear(); // no tokens
     await act(async () => {
       render(
@@ -117,7 +120,9 @@ describe("DownloadGate", () => {
       );
     });
     expect(screen.queryByRole("button", { name: "Download" })).toBeNull();
-    expect(screen.getByTestId("pwa-install-cta")).toBeInTheDocument();
+    expect(
+      screen.getByText(/available in the mh construction app/i),
+    ).toBeInTheDocument();
   });
 
   it("always renders children when exempt prop is true", async () => {

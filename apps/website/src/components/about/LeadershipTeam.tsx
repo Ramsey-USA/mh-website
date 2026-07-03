@@ -108,7 +108,7 @@ export function LeadershipTeam({
           {teamSpecialties.map((specialty) => (
             <div key={specialty.title} className="group relative flex h-full">
               {/* Animated Border Glow */}
-              <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+              <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
               <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                 {/* Top Accent Bar */}
@@ -118,7 +118,7 @@ export function LeadershipTeam({
                   <div className="flex items-start gap-4 mb-4">
                     <div className="relative shrink-0">
                       <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
-                      <div className="relative rounded-xl bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+                      <div className="relative rounded-xl bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-xl transition-all duration-300">
                         <MaterialIcon
                           icon={specialty.icon}
                           size="lg"
@@ -152,20 +152,17 @@ export function LeadershipTeam({
               bring individual mastery to every MH Construction mission—each
               dedicated to your project's success.
             </p>
-            <Link href="/team">
-              <Button
-                variant="primary"
-                size="lg"
-                className="group shadow-2xl hover:shadow-brand-primary/50 dark:hover:shadow-brand-primary/30"
-              >
-                <MaterialIcon
-                  icon="arrow_forward"
-                  size="md"
-                  className="mr-2 group-hover:translate-x-1 transition-transform"
-                />
+            <Button
+              variant="primary"
+              size="lg"
+              className="group shadow-2xl hover:shadow-brand-primary/50 dark:hover:shadow-brand-primary/30"
+              asChild
+            >
+              <Link href="/team">
+                <MaterialIcon icon="arrow_forward" size="md" className="mr-2" />
                 View Full Team Roster
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

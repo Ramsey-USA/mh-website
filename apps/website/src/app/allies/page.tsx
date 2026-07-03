@@ -606,7 +606,7 @@ export default async function AlliesPage() {
         ]}
       />
 
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl flex flex-col">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 xl:py-24 max-w-7xl flex flex-col">
         {/* ── SECTION 1: WHY PARTNER WITH MHC ──────────────────────────── */}
         <section
           id="partnership"
@@ -660,14 +660,14 @@ export default async function AlliesPage() {
             <StaggeredFadeIn className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {partnershipValues.map((value) => (
                 <div key={value.key} className="group relative flex h-full">
-                  <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse" />
-                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+                  <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500" />
+                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                     <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker" />
                     <div className="p-6 flex flex-col flex-1 text-center">
                       <div className="relative inline-block mx-auto mb-4">
                         <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full" />
                         <div
-                          className={`relative flex justify-center items-center bg-linear-to-r ${value.color} rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300`}
+                          className={`relative flex justify-center items-center bg-linear-to-r ${value.color} rounded-full w-16 h-16 shadow-xl transition-all duration-300`}
                         >
                           <MaterialIcon
                             icon={value.icon}
@@ -783,7 +783,7 @@ export default async function AlliesPage() {
               {sortedVendors.map((vendor) => (
                 <div
                   key={vendor.name}
-                  className="group flex items-center justify-center rounded-xl border-2 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                  className="group flex items-center justify-center rounded-xl border-2 bg-white shadow-md transition-all duration-300 hover:shadow-xl"
                   style={{
                     borderColor: vendor.brandColors
                       ? `${vendor.brandColors.primary}60`

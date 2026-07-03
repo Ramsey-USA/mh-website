@@ -16,7 +16,7 @@ describe("getCardClassName()", () => {
   it("applies hover effects for the default (non-static) variant", () => {
     const cls = getCardClassName("default");
     expect(cls).toContain("hover:shadow-lg");
-    expect(cls).toContain("hover:-translate-y-1");
+    expect(cls).not.toContain("hover:-translate-y-1");
   });
 
   it("omits hover effects for the static variant", () => {

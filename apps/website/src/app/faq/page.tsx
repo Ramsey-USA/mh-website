@@ -95,7 +95,7 @@ function FAQItem({ question, answer, link }: Readonly<FAQQuestion>) {
           </h3>
           <div className="relative inline-block shrink-0">
             <div className="absolute -inset-1 bg-brand-primary/20 dark:bg-brand-primary/30 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="relative rounded-lg bg-linear-to-br from-brand-primary to-brand-primary-dark p-2 group-hover:scale-110 transition-transform duration-300">
+            <div className="relative rounded-lg bg-linear-to-br from-brand-primary to-brand-primary-dark p-2 transition-colors duration-300">
               <MaterialIcon
                 icon="expand_more"
                 className="text-white transform group-open:rotate-180 transition-transform duration-300"
@@ -207,32 +207,32 @@ export default function FAQPage() {
 
               {/* Trust Stat Badges */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
-                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
+                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300">
+                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 transition-colors duration-300">
                     {totalFAQCount}+
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     Questions Answered
                   </div>
                 </div>
-                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
-                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
+                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300">
+                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 transition-colors duration-300">
                     {faqCategories.length}
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     Topic Categories
                   </div>
                 </div>
-                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
-                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
+                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300">
+                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 transition-colors duration-300">
                     0.64
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     EMR Safety Record
                   </div>
                 </div>
-                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
-                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
+                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300">
+                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 transition-colors duration-300">
                     3
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">

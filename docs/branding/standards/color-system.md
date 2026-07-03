@@ -311,6 +311,26 @@ import { WaVobBadge } from "@/components/ui/WaVobBadge";
 
 **DO NOT** use `red-600` / `blue-700` gradients anywhere outside `WaVobBadge`.
 
+## Third-Party Platform Color Exception
+
+**Status:** ✅ Approved with strict scope control
+
+Certain surfaces may use third-party platform brand colors (for example social network action icons)
+when preserving recognizability is the primary UX requirement.
+
+Rules:
+
+1. Scope third-party colors to the minimal interactive element that requires recognition.
+2. Do not let third-party colors become dominant page accents.
+3. Keep surrounding shell and typography in MH brand colors.
+4. Use tokens or a centralized map for platform colors instead of repeated hardcoded hex values.
+5. Document new platform color usage in the implementation note/PR.
+
+Examples:
+
+- Allowed: platform icon hover treatments in social link clusters.
+- Not allowed: section headers, primary CTAs, or card accent bars using platform brand colors.
+
 ---
 
 ## Light Mode Color Palette

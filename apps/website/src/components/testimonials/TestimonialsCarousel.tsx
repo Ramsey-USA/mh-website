@@ -142,7 +142,7 @@ export function TestimonialsCarousel({
         {/* Navigation Arrows */}
         <button
           onClick={goToPrevious}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 shadow-lg p-3 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-primary"
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 shadow-lg p-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary"
           aria-label="Previous testimonial"
         >
           <MaterialIcon
@@ -153,7 +153,7 @@ export function TestimonialsCarousel({
 
         <button
           onClick={goToNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 shadow-lg p-3 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-primary"
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 shadow-lg p-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary"
           aria-label="Next testimonial"
         >
           <MaterialIcon

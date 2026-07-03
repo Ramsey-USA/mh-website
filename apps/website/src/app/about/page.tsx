@@ -136,16 +136,16 @@ export default function AboutPage() {
             <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
               {detailsLinkCopy.description}
             </p>
-            <Link href="/about/details">
-              <Button variant="secondary" size="lg" className="group">
+            <Button variant="secondary" size="lg" className="group" asChild>
+              <Link href="/about/details">
                 <MaterialIcon
                   icon="history_edu"
                   size="md"
-                  className="mr-2 group-hover:scale-110 transition-transform"
+                  className="mr-2 transition-colors"
                 />
                 {detailsLinkCopy.cta}
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </section>
 

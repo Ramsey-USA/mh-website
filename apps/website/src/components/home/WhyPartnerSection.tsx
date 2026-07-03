@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
@@ -98,19 +98,29 @@ function getSubtitleAccentClass(accentColor?: string): string {
   return "text-brand-primary-dark dark:text-brand-primary";
 }
 
+interface WhyPartnerSectionProps {
+  sectionVariant?: "white" | "gray";
+  locale?: SupportedLocale;
+  className?: string;
+  condensed?: boolean;
+  condensedVisibleCount?: number;
+  headerSubtitle?: string;
+  headerTitle?: string;
+  headerDescription?: ReactNode;
+  headerSize?: "display" | "section";
+}
+
 export function WhyPartnerSection({
   sectionVariant = "white",
   locale = "en",
   className = "",
   condensed = false,
   condensedVisibleCount = 4,
-}: {
-  sectionVariant?: "white" | "gray";
-  locale?: SupportedLocale;
-  className?: string;
-  condensed?: boolean;
-  condensedVisibleCount?: number;
-}) {
+  headerSubtitle,
+  headerTitle,
+  headerDescription,
+  headerSize = "display",
+}: WhyPartnerSectionProps) {
   const t = locale === "es" ? es.whyPartner : en.whyPartner;
   const [showAllStandards, setShowAllStandards] = useState(false);
   const visibleCount = Math.max(1, condensedVisibleCount);
@@ -134,41 +144,37 @@ export function WhyPartnerSection({
       id="why-partner"
       variant={sectionVariant}
       className={className}
+      headerSize={headerSize}
       header={{
         icon: "verified",
         iconVariant: "primary",
-        subtitle: t.sectionSubtitle,
-        title: t.sectionTitle,
-        description: (
-          <>
-            {locale === "es" ? (
-              t.sectionDescription
-            ) : (
-              <>
-                Review the operating standards behind every{" "}
-                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  client partnership
-                </span>
-                : safety leadership, transparent process controls, and{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  measurable reliability
-                </span>{" "}
-                across every phase.
-              </>
-            )}
-          </>
-        ),
+        subtitle: headerSubtitle ?? t.sectionSubtitle,
+        title: headerTitle ?? t.sectionTitle,
+        description:
+          headerDescription ??
+          (locale === "es" ? (
+            t.sectionDescription
+          ) : (
+            <>
+              Review the operating standards behind every{" "}
+              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                client partnership
+              </span>
+              : safety leadership, transparent process controls, and{" "}
+              <span className="font-bold text-gray-900 dark:text-white">
+                measurable reliability
+              </span>{" "}
+              across every phase.
+            </>
+          )),
       }}
     >
       {/* Core Philosophy Callout */}
       <div className="flex justify-center mb-10 sm:mb-12">
-        <div className="relative group">
-          <div className="absolute -inset-1 bg-linear-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-3xl blur-sm opacity-40 group-hover:opacity-70 transition duration-500"></div>
-          <div className="relative bg-white dark:bg-gray-800 px-8 py-6 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg">
-            <p className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
-              {t.philosophy}
-            </p>
-          </div>
+        <div className="bg-white dark:bg-gray-800 px-8 py-6 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg">
+          <p className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
+            {t.philosophy}
+          </p>
         </div>
       </div>
 
@@ -183,12 +189,7 @@ export function WhyPartnerSection({
           );
           return (
             <div key={value.title} className="group relative flex h-full">
-              {/* Colored Border Glow - Visible on hover */}
-              <div
-                className={`absolute -inset-1 bg-linear-to-br ${iconData.iconBgGradient} rounded-3xl opacity-15 group-hover:opacity-35 blur-lg transition-all duration-500`}
-              ></div>
-
-              <div className="relative bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/40 dark:group-hover:border-brand-primary/50 shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+              <div className="relative bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 group-hover:border-gray-300 dark:group-hover:border-gray-600 shadow-lg transition-colors duration-300 overflow-hidden flex flex-col w-full">
                 {/* Top Accent Bar */}
                 <div
                   className={`h-1 bg-linear-to-r ${iconData.iconBgGradient}`}
@@ -197,34 +198,27 @@ export function WhyPartnerSection({
                 <div className="p-6 sm:p-7 flex flex-col flex-1">
                   {/* Icon and Stat Section */}
                   <div className="flex items-start justify-between mb-5">
-                    {/* Enhanced Icon with Header Style */}
-                    <div className="relative">
-                      {/* Blur glow layer behind icon */}
-                      <div
-                        className={`absolute -inset-2 bg-linear-to-br ${iconData.iconBgGradient} opacity-30 blur-lg rounded-2xl`}
-                      ></div>
-                      <div
-                        className={`relative inline-flex items-center justify-center w-16 h-16 bg-linear-to-br ${iconData.iconBgGradient} rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 transition-all duration-300`}
-                      >
-                        <MaterialIcon
-                          icon={iconData.icon}
-                          size="xl"
-                          className="text-white drop-shadow-lg"
-                          interactive
-                          {...(iconData.themePreset && {
-                            theme: iconData.themePreset as
-                              | "veteran"
-                              | "military"
-                              | "tactical"
-                              | "default",
-                          })}
-                        />
-                      </div>
+                    <div
+                      className={`inline-flex items-center justify-center w-14 h-14 bg-linear-to-br ${iconData.iconBgGradient} rounded-xl shadow-md border border-white/40 dark:border-gray-700/50`}
+                    >
+                      <MaterialIcon
+                        icon={iconData.icon}
+                        size="lg"
+                        className="text-white"
+                        interactive
+                        {...(iconData.themePreset && {
+                          theme: iconData.themePreset as
+                            | "veteran"
+                            | "military"
+                            | "tactical"
+                            | "default",
+                        })}
+                      />
                     </div>
                     <div className="text-right">
                       {displayStat ? (
                         <div
-                          className={`text-3xl sm:text-4xl font-black group-hover:scale-105 transition-transform duration-300 ${statAccentClass}`}
+                          className={`text-3xl sm:text-4xl font-black ${statAccentClass}`}
                         >
                           {displayStat}
                         </div>
@@ -269,7 +263,7 @@ export function WhyPartnerSection({
                         className="flex items-start gap-3"
                       >
                         <div
-                          className={`mt-0.5 shrink-0 w-5 h-5 rounded-full bg-linear-to-br ${iconData.iconBgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                          className={`mt-0.5 shrink-0 w-5 h-5 rounded-full bg-linear-to-br ${iconData.iconBgGradient} flex items-center justify-center`}
                         >
                           <MaterialIcon
                             icon="check"
@@ -311,31 +305,28 @@ export function WhyPartnerSection({
 
       {/* Trade Partner CTA */}
       <div className="mt-2 flex justify-center">
-        <div className="relative group max-w-2xl w-full">
-          <div className="absolute -inset-1 bg-linear-to-r from-brand-secondary to-bronze-600 rounded-3xl blur-sm opacity-35 group-hover:opacity-65 transition duration-500" />
-          <div className="relative flex flex-col sm:flex-row items-center justify-between gap-4 bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg px-8 py-5">
-            <div className="flex items-center gap-3">
-              <MaterialIcon
-                icon="handshake"
-                size="xl"
-                className="text-brand-secondary shrink-0"
-                ariaLabel={t.tradeCta.iconAria}
-              />
-              <p className="font-semibold text-gray-900 dark:text-white text-base sm:text-lg leading-snug">
-                {t.tradeCta.prompt}{" "}
-                <span className="text-brand-secondary font-bold">
-                  {t.tradeCta.highlight}
-                </span>
-              </p>
-            </div>
-            <Link
-              href="/allies"
-              className="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-brand-secondary hover:bg-brand-secondary-dark text-black font-bold rounded-xl shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-sm sm:text-base"
-            >
-              {t.tradeCta.button}
-              <MaterialIcon icon="arrow_forward" size="sm" ariaLabel="" />
-            </Link>
+        <div className="max-w-2xl w-full flex flex-col sm:flex-row items-center justify-between gap-4 bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg px-8 py-5">
+          <div className="flex items-center gap-3">
+            <MaterialIcon
+              icon="handshake"
+              size="xl"
+              className="text-brand-secondary shrink-0"
+              ariaLabel={t.tradeCta.iconAria}
+            />
+            <p className="font-semibold text-gray-900 dark:text-white text-base sm:text-lg leading-snug">
+              {t.tradeCta.prompt}{" "}
+              <span className="text-brand-secondary font-bold">
+                {t.tradeCta.highlight}
+              </span>
+            </p>
           </div>
+          <Link
+            href="/allies"
+            className="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-brand-secondary hover:bg-brand-secondary-dark text-black font-bold rounded-xl shadow-md transition-colors text-sm sm:text-base"
+          >
+            {t.tradeCta.button}
+            <MaterialIcon icon="arrow_forward" size="sm" ariaLabel="" />
+          </Link>
         </div>
       </div>
     </BrandedContentSection>

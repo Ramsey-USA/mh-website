@@ -22,7 +22,7 @@ export const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
       icon: "military_tech",
     },
     {
-      href: "/#services",
+      href: "/services",
       label: PAGE_TERMINOLOGY.services.seoName,
       subLabel: PAGE_TERMINOLOGY.services.mhBrandName,
       icon: "map",
@@ -115,7 +115,7 @@ export const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
       icon: "military_tech",
     },
     {
-      href: "/#services",
+      href: "/services",
       label: "Servicios",
       subLabel: "Rutas",
       icon: "map",

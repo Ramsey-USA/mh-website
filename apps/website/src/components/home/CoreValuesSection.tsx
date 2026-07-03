@@ -142,7 +142,7 @@ export function CoreValuesSection({
               style={{ "--delay": `${index * 0.1}s` } as CSSProperties}
             >
               <div
-                className={`flex flex-col lg:grid lg:grid-cols-2 bg-white dark:bg-gray-800 ${cornerRadius.card} shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:scale-[1.02]`}
+                className={`flex flex-col lg:grid lg:grid-cols-2 bg-white dark:bg-gray-800 ${cornerRadius.card} shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300`}
               >
                 <div
                   className={`relative ${condensed ? "h-52 sm:h-64 lg:h-full lg:min-h-96" : "h-64 sm:h-80 lg:h-full lg:min-h-125"} overflow-hidden ${

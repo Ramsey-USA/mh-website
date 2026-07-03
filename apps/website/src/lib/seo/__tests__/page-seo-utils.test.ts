@@ -85,7 +85,7 @@ describe("page seo utils", () => {
     const result = getServicesSEO();
 
     expect(result.alternates!.canonical).toBe(
-      "https://www.mhc-gc.com/#services",
+      "https://www.mhc-gc.com/services",
     );
     expect(mockGenerateServiceSchema).toHaveBeenCalledTimes(6);
     expect(result.schemas.length).toBeGreaterThanOrEqual(8);

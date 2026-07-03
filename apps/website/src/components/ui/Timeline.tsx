@@ -168,14 +168,14 @@ export function Timeline({
                     <>
                       {/* Content Left */}
                       <div className="flex-1 text-right">
-                        <Card className="inline-block border-2 border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl group-hover:border-brand-primary dark:border-gray-700 dark:bg-gray-800 dark:group-hover:border-brand-primary-light">
+                        <Card className="inline-block border-2 border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-2xl group-hover:border-brand-primary dark:border-gray-700 dark:bg-gray-800 dark:group-hover:border-brand-primary-light">
                           <div className="flex items-center justify-end gap-4 mb-4">
                             <div>
                               <h3 className="font-black text-gray-900 dark:text-white text-2xl mb-1">
                                 {step.title}
                               </h3>
                             </div>
-                            <div className="shrink-0 w-16 h-16 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                            <div className="shrink-0 w-16 h-16 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg transition-colors duration-300">
                               <MaterialIcon
                                 icon={step.icon}
                                 size="xl"
@@ -191,7 +191,7 @@ export function Timeline({
 
                       {/* Center Circle */}
                       <div className="shrink-0 relative z-10">
-                        <div className="w-20 h-20 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-20 h-20 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 transition-colors duration-300">
                           {step.num}
                         </div>
                       </div>
@@ -206,16 +206,16 @@ export function Timeline({
 
                       {/* Center Circle */}
                       <div className="shrink-0 relative z-10">
-                        <div className="w-20 h-20 bg-linear-to-br from-brand-secondary to-brand-secondary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-20 h-20 bg-linear-to-br from-brand-secondary to-brand-secondary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 transition-colors duration-300">
                           {step.num}
                         </div>
                       </div>
 
                       {/* Content Right */}
                       <div className="flex-1 text-left">
-                        <Card className="inline-block border-2 border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl group-hover:border-brand-secondary dark:border-gray-700 dark:bg-gray-800 dark:group-hover:border-brand-secondary-light">
+                        <Card className="inline-block border-2 border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-2xl group-hover:border-brand-secondary dark:border-gray-700 dark:bg-gray-800 dark:group-hover:border-brand-secondary-light">
                           <div className="flex items-center gap-4 mb-4">
-                            <div className="shrink-0 w-16 h-16 bg-linear-to-br from-brand-secondary to-brand-secondary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
+                            <div className="shrink-0 w-16 h-16 bg-linear-to-br from-brand-secondary to-brand-secondary-dark rounded-xl flex items-center justify-center shadow-lg transition-colors duration-300">
                               <MaterialIcon
                                 icon={step.icon}
                                 size="xl"

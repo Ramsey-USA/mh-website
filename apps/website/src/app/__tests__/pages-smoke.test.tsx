@@ -418,13 +418,12 @@ describe("FAQ page", () => {
 // ── Services page ─────────────────────────────────────────────────────────────
 
 describe("Services page", () => {
-  it("redirects to home", () => {
+  it("renders without throwing", () => {
     const { default: ServicesPage } = require("../services/page") as {
-      default: () => void;
+      default: React.ComponentType;
     };
 
-    expect(() => ServicesPage()).toThrow("NEXT_REDIRECT: /#services");
-    expect(mockPermanentRedirect).toHaveBeenCalledWith("/#services");
+    expect(() => render(<ServicesPage />)).not.toThrow();
   });
 });
 
@@ -446,15 +445,15 @@ describe("Branding congruency smoke", () => {
     );
   });
 
-  it("keeps legacy services routes as non-indexed redirects to home services anchor", () => {
-    const { metadata: servicesMetadata, default: ServicesPage } =
-      require("../services/page") as {
-        metadata: {
-          robots: { index: boolean; follow: boolean };
-          alternates: { canonical: string };
-        };
-        default: () => void;
-      };
+  it("keeps services overview indexable and legacy detail routes redirected to /services", () => {
+    const servicesSeoUtilsPath = path.join(
+      APP_ROOT,
+      "src",
+      "lib",
+      "seo",
+      "page-seo-utils.ts",
+    );
+    const servicesSeoSource = fs.readFileSync(servicesSeoUtilsPath, "utf8");
     const { metadata: serviceDetailMetadata, default: ServiceDetailPage } =
       require("../services/[slug]/page") as {
         metadata: {
@@ -464,35 +463,24 @@ describe("Branding congruency smoke", () => {
         default: () => void;
       };
 
-    expect(servicesMetadata.robots.index).toBe(false);
-    expect(servicesMetadata.alternates.canonical).toBe(
-      "https://www.mhc-gc.com/",
+    expect(servicesSeoSource).toContain(
+      "const servicesUrl = `${enhancedSEO.siteUrl}/services`;",
     );
     expect(serviceDetailMetadata.robots.index).toBe(false);
     expect(serviceDetailMetadata.alternates.canonical).toBe(
-      "https://www.mhc-gc.com/",
+      "https://www.mhc-gc.com/services",
     );
 
-    expect(() => ServicesPage()).toThrow("NEXT_REDIRECT: /#services");
-    expect(() => ServiceDetailPage()).toThrow("NEXT_REDIRECT: /#services");
+    expect(() => ServiceDetailPage()).toThrow("NEXT_REDIRECT: /services");
   });
 
-  it("keeps services section represented on home with #services anchor", () => {
+  it("keeps services flow represented on home and routes to /services", () => {
     const homePagePath = path.join(APP_ROOT, "src", "app", "page.tsx");
-    const servicesDeferredPath = path.join(
-      APP_ROOT,
-      "src",
-      "components",
-      "home",
-      "ServicesShowcaseDeferred.tsx",
-    );
-
     const homeSource = fs.readFileSync(homePagePath, "utf8");
-    const servicesSource = fs.readFileSync(servicesDeferredPath, "utf8");
 
-    expect(homeSource).toContain("ServicesShowcaseDeferred");
-    expect(homeSource).toContain("Stage 2 · Select Your Service Lane");
-    expect(servicesSource).toContain('id="services"');
+    expect(homeSource).toContain("Home Page Hero Section");
+    expect(homeSource).toContain("Company Overview");
+    expect(homeSource).toContain("utm_campaign=home-splash");
   });
 });
 

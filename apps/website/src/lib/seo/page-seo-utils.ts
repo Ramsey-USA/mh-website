@@ -333,7 +333,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
 
 // Services page SEO - GROUP 3: Future Vision & Expertise
 export function getServicesSEO(): Metadata & { schemas: object[] } {
-  const servicesUrl = `${enhancedSEO.siteUrl}/#services`;
+  const servicesUrl = `${enhancedSEO.siteUrl}/services`;
 
   const constructionServices = [
     {

@@ -275,32 +275,32 @@ export default function CareersPageClient() {
 
             {/* Impressive Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12">
-              <Card className="group border-brand-primary/20 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 p-6 text-center transition-all duration-300 hover:scale-105 hover:border-brand-primary dark:from-brand-primary/10 dark:to-brand-primary/20">
-                <div className="text-4xl sm:text-5xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
+              <Card className="group border-brand-primary/20 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 p-6 text-center transition-all duration-300 hover:border-brand-primary dark:from-brand-primary/10 dark:to-brand-primary/20">
+                <div className="text-4xl sm:text-5xl font-black text-brand-primary dark:text-brand-primary-light mb-2 transition-colors duration-300">
                   150+
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                   {t("whyChoose.stats.experience")}
                 </div>
               </Card>
-              <Card className="group border-brand-secondary/20 bg-linear-to-br from-brand-secondary/5 to-bronze-700/10 p-6 text-center transition-all duration-300 hover:scale-105 hover:border-brand-secondary dark:from-brand-secondary/10 dark:to-bronze-700/20">
-                <div className="text-4xl sm:text-5xl font-black text-brand-secondary dark:text-brand-secondary-light mb-2 group-hover:scale-110 transition-transform duration-300">
+              <Card className="group border-brand-secondary/20 bg-linear-to-br from-brand-secondary/5 to-bronze-700/10 p-6 text-center transition-all duration-300 hover:border-brand-secondary dark:from-brand-secondary/10 dark:to-bronze-700/20">
+                <div className="text-4xl sm:text-5xl font-black text-brand-secondary dark:text-brand-secondary-light mb-2 transition-colors duration-300">
                   .64
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                   {t("whyChoose.stats.safety")}
                 </div>
               </Card>
-              <Card className="group border-bronze-700/20 bg-linear-to-br from-bronze-700/5 to-bronze-800/10 p-6 text-center transition-all duration-300 hover:scale-105 hover:border-bronze-700 dark:from-bronze-700/10 dark:to-bronze-800/20">
-                <div className="text-4xl sm:text-5xl font-black text-bronze-700 dark:text-bronze-400 mb-2 group-hover:scale-110 transition-transform duration-300">
+              <Card className="group border-bronze-700/20 bg-linear-to-br from-bronze-700/5 to-bronze-800/10 p-6 text-center transition-all duration-300 hover:border-bronze-700 dark:from-bronze-700/10 dark:to-bronze-800/20">
+                <div className="text-4xl sm:text-5xl font-black text-bronze-700 dark:text-bronze-400 mb-2 transition-colors duration-300">
                   100%
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                   {t("whyChoose.stats.mentorship")}
                 </div>
               </Card>
-              <Card className="group border-brand-primary/20 bg-linear-to-br from-brand-primary/5 to-brand-secondary/10 p-6 text-center transition-all duration-300 hover:scale-105 hover:border-brand-primary dark:from-brand-primary/10 dark:to-brand-secondary/20">
-                <div className="text-4xl sm:text-5xl font-black bg-linear-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+              <Card className="group border-brand-primary/20 bg-linear-to-br from-brand-primary/5 to-brand-secondary/10 p-6 text-center transition-all duration-300 hover:border-brand-primary dark:from-brand-primary/10 dark:to-brand-secondary/20">
+                <div className="text-4xl sm:text-5xl font-black bg-linear-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent mb-2 transition-colors duration-300">
                   70%
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
@@ -395,7 +395,7 @@ export default function CareersPageClient() {
                   key={benefit.title}
                   className="group relative flex h-full min-h-80 overflow-hidden border-gray-200 dark:border-gray-700 transition-all duration-300 hover:border-transparent hover:shadow-2xl"
                 >
-                  <div className="absolute -inset-2 rounded-2xl bg-linear-to-br from-brand-secondary/40 to-bronze-600/40 opacity-20 blur-xl transition-all duration-500 group-hover:opacity-100 group-hover:animate-pulse"></div>
+                  <div className="absolute -inset-2 rounded-2xl bg-linear-to-br from-brand-secondary/40 to-bronze-600/40 opacity-20 blur-xl transition-all duration-500 group-hover:opacity-100"></div>
 
                   <div className="relative flex w-full flex-col overflow-hidden bg-white dark:bg-gray-800">
                     <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
@@ -404,7 +404,7 @@ export default function CareersPageClient() {
                       <div className="mb-5">
                         <div className="relative inline-block">
                           <div className="absolute -inset-2 rounded-2xl bg-linear-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg"></div>
-                          <div className="relative inline-flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-white/50 bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 shadow-2xl transition-all duration-300 group-hover:scale-110 dark:border-gray-700/50">
+                          <div className="relative inline-flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-white/50 bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 shadow-2xl transition-all duration-300 dark:border-gray-700/50">
                             <MaterialIcon
                               icon={benefit.icon}
                               size="xl"
@@ -550,11 +550,11 @@ export default function CareersPageClient() {
 
               {/* Veteran Stats Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-12 max-w-4xl mx-auto">
-                <Card className="group border-2 border-brand-primary/30 bg-linear-to-br from-brand-primary/10 to-brand-primary/20 p-6 text-center transition-all duration-300 hover:scale-105 hover:border-brand-primary dark:from-brand-primary/20 dark:to-brand-primary/30">
+                <Card className="group border-2 border-brand-primary/30 bg-linear-to-br from-brand-primary/10 to-brand-primary/20 p-6 text-center transition-all duration-300 hover:border-brand-primary dark:from-brand-primary/20 dark:to-brand-primary/30">
                   <MaterialIcon
                     icon="stars"
                     size="2xl"
-                    className="text-brand-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300"
+                    className="text-brand-primary mx-auto mb-3 transition-colors duration-300"
                   />
                   <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2">
                     {t("veterans.stats.priority.value")}
@@ -566,11 +566,11 @@ export default function CareersPageClient() {
                     {t("veterans.stats.priority.note")}
                   </p>
                 </Card>
-                <Card className="group border-2 border-brand-secondary/30 bg-linear-to-br from-brand-secondary/10 to-bronze-700/20 p-6 text-center transition-all duration-300 hover:scale-105 hover:border-brand-secondary dark:from-brand-secondary/20 dark:to-bronze-700/30">
+                <Card className="group border-2 border-brand-secondary/30 bg-linear-to-br from-brand-secondary/10 to-bronze-700/20 p-6 text-center transition-all duration-300 hover:border-brand-secondary dark:from-brand-secondary/20 dark:to-bronze-700/30">
                   <MaterialIcon
                     icon="shield"
                     size="2xl"
-                    className="text-brand-secondary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300"
+                    className="text-brand-secondary mx-auto mb-3 transition-colors duration-300"
                   />
                   <div className="text-3xl sm:text-4xl font-black text-brand-secondary dark:text-brand-secondary-light mb-2">
                     100%
@@ -582,11 +582,11 @@ export default function CareersPageClient() {
                     {t("veterans.stats.militaryFriendly.note")}
                   </p>
                 </Card>
-                <Card className="group border-2 border-bronze-700/30 bg-linear-to-br from-bronze-700/10 to-bronze-800/20 p-6 text-center transition-all duration-300 hover:scale-105 hover:border-bronze-700 dark:from-bronze-700/20 dark:to-bronze-800/30">
+                <Card className="group border-2 border-bronze-700/30 bg-linear-to-br from-bronze-700/10 to-bronze-800/20 p-6 text-center transition-all duration-300 hover:border-bronze-700 dark:from-bronze-700/20 dark:to-bronze-800/30">
                   <MaterialIcon
                     icon="flag"
                     size="2xl"
-                    className="text-bronze-700 dark:text-bronze-400 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300"
+                    className="text-bronze-700 dark:text-bronze-400 mx-auto mb-3 transition-colors duration-300"
                   />
                   <div className="text-3xl sm:text-4xl font-black text-bronze-700 dark:text-bronze-400 mb-2">
                     {t("veterans.stats.branches.value")}
@@ -608,7 +608,7 @@ export default function CareersPageClient() {
                     className="group relative flex h-full min-h-70 scroll-reveal"
                   >
                     {/* Colored Border Glow - Visible on hover */}
-                    <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
                     <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       {/* Top Accent Bar */}
@@ -621,7 +621,7 @@ export default function CareersPageClient() {
                           <div className="relative inline-block">
                             {/* Blur glow layer behind icon */}
                             <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-2xl"></div>
-                            <div className="relative inline-flex items-center justify-center w-14 h-14 bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 transition-all duration-300">
+                            <div className="relative inline-flex items-center justify-center w-14 h-14 bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 transition-all duration-300">
                               <MaterialIcon
                                 icon={benefit.icon}
                                 size="lg"
@@ -686,12 +686,13 @@ export default function CareersPageClient() {
                           {t("veterans.cta.applyButton")}
                         </span>
                       </Button>
-                      <Link href="/veterans" prefetch={false}>
-                        <Button
-                          variant="outline"
-                          size="lg"
-                          className="transition-all duration-300 min-w-65"
-                        >
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="transition-all duration-300 min-w-65"
+                        asChild
+                      >
+                        <Link href="/veterans" prefetch={false}>
                           <MaterialIcon
                             icon="info"
                             size="lg"
@@ -702,8 +703,8 @@ export default function CareersPageClient() {
                           <span className="font-medium">
                             {t("veterans.cta.initiativeButton")}
                           </span>
-                        </Button>
-                      </Link>
+                        </Link>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -806,12 +807,13 @@ export default function CareersPageClient() {
                           {t("readyToJoin.startApplication")}
                         </span>
                       </Button>
-                      <Link href="/contact" prefetch={false}>
-                        <Button
-                          variant="outline"
-                          size="lg"
-                          className="transition-all duration-300 min-w-65"
-                        >
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="transition-all duration-300 min-w-65"
+                        asChild
+                      >
+                        <Link href="/contact" prefetch={false}>
                           <MaterialIcon
                             icon="phone"
                             size="lg"
@@ -822,8 +824,8 @@ export default function CareersPageClient() {
                               phone: COMPANY_INFO.phone.display,
                             })}
                           </span>
-                        </Button>
-                      </Link>
+                        </Link>
+                      </Button>
                     </div>
 
                     {/* Supporting Text */}
@@ -937,7 +939,7 @@ export default function CareersPageClient() {
                           <>
                             {/* Content Left */}
                             <div className="flex-1 text-right">
-                              <Card className="inline-block border-2 border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 group-hover:border-brand-primary dark:group-hover:border-brand-primary-light">
+                              <Card className="inline-block border-2 border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 group-hover:border-brand-primary dark:group-hover:border-brand-primary-light">
                                 <div className="flex items-center justify-end gap-4 mb-4">
                                   <div>
                                     <h3 className="font-black text-gray-900 dark:text-white text-2xl mb-1">
@@ -946,7 +948,7 @@ export default function CareersPageClient() {
                                       )}
                                     </h3>
                                   </div>
-                                  <div className="shrink-0 w-16 h-16 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                                  <div className="shrink-0 w-16 h-16 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg transition-colors duration-300">
                                     <MaterialIcon
                                       icon={step.icon}
                                       size="xl"
@@ -964,7 +966,7 @@ export default function CareersPageClient() {
 
                             {/* Center Circle */}
                             <div className="shrink-0 relative z-10">
-                              <div className="w-20 h-20 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                              <div className="w-20 h-20 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 transition-colors duration-300">
                                 {step.num}
                               </div>
                             </div>
@@ -978,16 +980,16 @@ export default function CareersPageClient() {
 
                             {/* Center Circle */}
                             <div className="shrink-0 relative z-10">
-                              <div className="w-20 h-20 bg-linear-to-br from-brand-secondary to-brand-secondary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                              <div className="w-20 h-20 bg-linear-to-br from-brand-secondary to-brand-secondary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 transition-colors duration-300">
                                 {step.num}
                               </div>
                             </div>
 
                             {/* Content Right */}
                             <div className="flex-1 text-left">
-                              <Card className="inline-block border-2 border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 group-hover:border-brand-secondary dark:group-hover:border-brand-secondary-light">
+                              <Card className="inline-block border-2 border-gray-200 bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 group-hover:border-brand-secondary dark:group-hover:border-brand-secondary-light">
                                 <div className="flex items-center gap-4 mb-4">
-                                  <div className="shrink-0 w-16 h-16 bg-linear-to-br from-brand-secondary to-brand-secondary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
+                                  <div className="shrink-0 w-16 h-16 bg-linear-to-br from-brand-secondary to-brand-secondary-dark rounded-xl flex items-center justify-center shadow-lg transition-colors duration-300">
                                     <MaterialIcon
                                       icon={step.icon}
                                       size="xl"
@@ -1080,7 +1082,7 @@ export default function CareersPageClient() {
                         <div className="p-6 text-center">
                           <div className="relative inline-block mb-4">
                             <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-2xl"></div>
-                            <div className="relative flex justify-center items-center w-16 h-16 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-2xl shadow-xl mx-auto group-hover:scale-110 transition-transform duration-300">
+                            <div className="relative flex justify-center items-center w-16 h-16 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-2xl shadow-xl mx-auto transition-colors duration-300">
                               <MaterialIcon
                                 icon="flash_on"
                                 size="xl"
@@ -1109,7 +1111,7 @@ export default function CareersPageClient() {
                         <div className="p-6 text-center">
                           <div className="relative inline-block mb-4">
                             <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-2xl"></div>
-                            <div className="relative flex justify-center items-center w-16 h-16 bg-linear-to-br from-brand-secondary to-bronze-700 rounded-2xl shadow-xl mx-auto group-hover:scale-110 transition-transform duration-300">
+                            <div className="relative flex justify-center items-center w-16 h-16 bg-linear-to-br from-brand-secondary to-bronze-700 rounded-2xl shadow-xl mx-auto transition-colors duration-300">
                               <MaterialIcon
                                 icon="verified"
                                 size="xl"
@@ -1139,7 +1141,7 @@ export default function CareersPageClient() {
                         <div className="p-6 text-center">
                           <div className="relative inline-block mb-4">
                             <div className="absolute -inset-2 bg-linear-to-br from-bronze-700/40 to-bronze-800/40 opacity-30 blur-lg rounded-2xl"></div>
-                            <div className="relative flex justify-center items-center w-16 h-16 bg-linear-to-br from-bronze-700 to-bronze-800 rounded-2xl shadow-xl mx-auto group-hover:scale-110 transition-transform duration-300">
+                            <div className="relative flex justify-center items-center w-16 h-16 bg-linear-to-br from-bronze-700 to-bronze-800 rounded-2xl shadow-xl mx-auto transition-colors duration-300">
                               <MaterialIcon
                                 icon="support_agent"
                                 size="xl"
@@ -1276,12 +1278,13 @@ export default function CareersPageClient() {
                     {t("noRole.submitApplication")}
                   </span>
                 </Button>
-                <Link href="/contact" prefetch={false}>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="transition-all duration-300 min-w-65"
-                  >
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="transition-all duration-300 min-w-65"
+                  asChild
+                >
+                  <Link href="/contact" prefetch={false}>
                     <MaterialIcon
                       icon="campaign"
                       size="lg"
@@ -1290,8 +1293,8 @@ export default function CareersPageClient() {
                       className="mr-3"
                     />
                     <span className="font-medium">{t("noRole.contactHr")}</span>
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
               <p className="mt-8 text-gray-500 dark:text-gray-300 text-lg">
                 <MaterialIcon

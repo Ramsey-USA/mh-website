@@ -63,7 +63,7 @@ const buildMainCTAs = (t: ReturnType<typeof useTranslations>) => [
     icon: "map",
     label: t("contact.options.cards.services.label"),
     description: t("contact.options.cards.services.description"),
-    link: "/#services",
+    link: "/services",
     variant: "primary" as const,
     ariaLabel: t("contact.options.cards.services.ariaLabel"),
   },
@@ -222,16 +222,16 @@ export default function ContactPageClient({
                   className="group relative flex h-full"
                 >
                   {/* Animated Border Glow */}
-                  <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                  <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
-                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-brand-primary/50">
+                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-brand-primary/50">
                     {/* Top Accent Bar */}
                     <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
                     <div className="p-8 flex flex-col flex-1 items-center text-center">
                       <div className="relative inline-block mb-6">
                         <div className="absolute -inset-3 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
-                        <div className="relative rounded-xl bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-4 shadow-xl group-hover:scale-110 transition-all duration-300">
+                        <div className="relative rounded-xl bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-4 shadow-xl transition-all duration-300">
                           <MaterialIcon
                             icon={contact.icon}
                             size="3xl"
@@ -252,11 +252,7 @@ export default function ContactPageClient({
                         <span className="font-medium text-sm">
                           {contact.actionLabel}
                         </span>
-                        <MaterialIcon
-                          icon="arrow_forward"
-                          size="sm"
-                          className="group-hover:translate-x-1 transition-transform duration-300"
-                        />
+                        <MaterialIcon icon="arrow_forward" size="sm" />
                       </div>
                     </div>
                   </Card>
@@ -274,7 +270,7 @@ export default function ContactPageClient({
                 target="_blank"
                 rel="noopener noreferrer"
                 title="BBB Accredited Business - A+ Rating"
-                className="transition-transform hover:scale-105"
+                className="transition-colors"
               >
                 {}
                 <img
@@ -302,7 +298,7 @@ export default function ContactPageClient({
                 target="_blank"
                 rel="noopener noreferrer"
                 title="AGC of Washington Member"
-                className="transition-transform hover:scale-105"
+                className="transition-colors"
               >
                 {}
                 <img
@@ -320,7 +316,7 @@ export default function ContactPageClient({
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Travelers Insurance - Auto & Bonding Partner"
-                className="transition-transform hover:scale-105"
+                className="transition-colors"
               >
                 {}
                 <img
@@ -348,7 +344,7 @@ export default function ContactPageClient({
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Pasco Chamber of Commerce Member"
-                className="transition-transform hover:scale-105"
+                className="transition-colors"
               >
                 {}
                 <img
@@ -376,7 +372,7 @@ export default function ContactPageClient({
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Richland Chamber of Commerce Member"
-                className="transition-transform hover:scale-105"
+                className="transition-colors"
               >
                 {}
                 <img
@@ -394,7 +390,7 @@ export default function ContactPageClient({
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Tri-City Regional Chamber of Commerce Member"
-                className="transition-transform hover:scale-105"
+                className="transition-colors"
               >
                 {}
                 <img
@@ -456,7 +452,7 @@ export default function ContactPageClient({
 
         {/* Two Pathways - Allies vs Client Partners */}
         <section
-          className="relative py-20 lg:py-32 xl:py-40 bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden"
+          className="relative py-12 sm:py-16 lg:py-20 xl:py-24 bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden"
           aria-labelledby="partnership-pathways-heading"
         >
           {/* Enhanced Background Effects */}
@@ -574,7 +570,7 @@ export default function ContactPageClient({
                   </h4>
                   <Link
                     href="/contact"
-                    className="flex items-center justify-between bg-brand-primary hover:bg-brand-secondary text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
+                    className="flex items-center justify-between bg-brand-primary hover:bg-brand-secondary text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg group"
                   >
                     <div className="flex items-center gap-3">
                       <MaterialIcon
@@ -585,15 +581,11 @@ export default function ContactPageClient({
                       />
                       <span>{t("contact.pathways.client.ctaContact")}</span>
                     </div>
-                    <MaterialIcon
-                      icon="arrow_forward"
-                      size="md"
-                      className="group-hover:translate-x-1 transition-transform"
-                    />
+                    <MaterialIcon icon="arrow_forward" size="md" />
                   </Link>
                   <Link
-                    href="/#services"
-                    className="flex items-center justify-between bg-white dark:bg-gray-700 border-2 border-brand-primary text-brand-primary dark:text-brand-secondary hover:bg-brand-primary hover:text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
+                    href="/services"
+                    className="flex items-center justify-between bg-white dark:bg-gray-700 border-2 border-brand-primary text-brand-primary dark:text-brand-secondary hover:bg-brand-primary hover:text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg group"
                   >
                     <div className="flex items-center gap-3">
                       <MaterialIcon
@@ -604,11 +596,7 @@ export default function ContactPageClient({
                       />
                       <span>{t("contact.pathways.client.ctaServices")}</span>
                     </div>
-                    <MaterialIcon
-                      icon="arrow_forward"
-                      size="md"
-                      className="group-hover:translate-x-1 transition-transform"
-                    />
+                    <MaterialIcon icon="arrow_forward" size="md" />
                   </Link>
                 </div>
               </div>
@@ -696,7 +684,7 @@ export default function ContactPageClient({
                   </h4>
                   <Link
                     href="/allies"
-                    className="flex items-center justify-between bg-secondary-700 hover:bg-bronze-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
+                    className="flex items-center justify-between bg-secondary-700 hover:bg-bronze-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg group"
                   >
                     <div className="flex items-center gap-3">
                       <MaterialIcon
@@ -707,15 +695,11 @@ export default function ContactPageClient({
                       />
                       <span>{t("contact.pathways.allies.ctaApply")}</span>
                     </div>
-                    <MaterialIcon
-                      icon="arrow_forward"
-                      size="md"
-                      className="group-hover:translate-x-1 transition-transform"
-                    />
+                    <MaterialIcon icon="arrow_forward" size="md" />
                   </Link>
                   <Link
                     href="/allies#benefits"
-                    className="flex items-center justify-between bg-white dark:bg-gray-700 border-2 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
+                    className="flex items-center justify-between bg-white dark:bg-gray-700 border-2 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg group"
                   >
                     <div className="flex items-center gap-3">
                       <MaterialIcon
@@ -726,11 +710,7 @@ export default function ContactPageClient({
                       />
                       <span>{t("contact.pathways.allies.ctaBenefits")}</span>
                     </div>
-                    <MaterialIcon
-                      icon="arrow_forward"
-                      size="md"
-                      className="group-hover:translate-x-1 transition-transform"
-                    />
+                    <MaterialIcon icon="arrow_forward" size="md" />
                   </Link>
                 </div>
               </div>
@@ -804,7 +784,7 @@ export default function ContactPageClient({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t("contact.office.getDirectionsAria")}
-                className="inline-flex items-center gap-3 bg-white dark:bg-gray-800 border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-brand-primary/50"
+                className="inline-flex items-center gap-3 bg-white dark:bg-gray-800 border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-brand-primary/50"
               >
                 <MaterialIcon
                   icon="explore"
@@ -875,14 +855,14 @@ export default function ContactPageClient({
                 >
                   {/* Animated Border Glow */}
                   <div
-                    className={`absolute -inset-2 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse ${
+                    className={`absolute -inset-2 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 ${
                       cta.variant === "primary"
                         ? "bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40"
                         : "bg-linear-to-br from-brand-secondary/40 to-bronze-600/40"
                     }`}
                   ></div>
 
-                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-brand-primary/50">
+                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-brand-primary/50">
                     {/* Top Accent Bar */}
                     <div
                       className={`h-2 ${
@@ -904,7 +884,7 @@ export default function ContactPageClient({
                             }`}
                           ></div>
                           <div
-                            className={`relative rounded-xl p-4 shadow-xl group-hover:scale-110 transition-all duration-300 ${
+                            className={`relative rounded-xl p-4 shadow-xl transition-all duration-300 ${
                               cta.variant === "primary"
                                 ? "bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker"
                                 : "bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800"
@@ -938,11 +918,7 @@ export default function ContactPageClient({
                           <span className="font-semibold text-sm">
                             {t("contact.options.learnMore")}
                           </span>
-                          <MaterialIcon
-                            icon="arrow_forward"
-                            size="sm"
-                            className="group-hover:translate-x-1 transition-transform duration-300"
-                          />
+                          <MaterialIcon icon="arrow_forward" size="sm" />
                         </div>
                       </div>
                     </div>
@@ -1006,7 +982,7 @@ export default function ContactPageClient({
               {/* Tri-Cities Headquarters Card */}
               <div className="group relative flex h-full">
                 {/* Animated Border Glow */}
-                <div className="absolute -inset-2 rounded-2xl bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-20 group-hover:opacity-60 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                <div className="absolute -inset-2 rounded-2xl bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-20 group-hover:opacity-60 blur-xl transition-all duration-500"></div>
 
                 <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                   {/* Top Accent Bar */}
@@ -1046,7 +1022,7 @@ export default function ContactPageClient({
                         <MaterialIcon
                           icon="arrow_forward"
                           size="sm"
-                          className="text-brand-secondary group-hover/link:translate-x-1 transition-transform"
+                          className="text-brand-secondary transition-colors"
                           ariaLabel={t(
                             "contact.serviceAreas.triCities.pascoAria",
                           )}
@@ -1063,7 +1039,7 @@ export default function ContactPageClient({
                         <MaterialIcon
                           icon="arrow_forward"
                           size="sm"
-                          className="text-brand-secondary group-hover/link:translate-x-1 transition-transform"
+                          className="text-brand-secondary transition-colors"
                           ariaLabel={t(
                             "contact.serviceAreas.triCities.kennewickAria",
                           )}
@@ -1077,7 +1053,7 @@ export default function ContactPageClient({
                         <MaterialIcon
                           icon="arrow_forward"
                           size="sm"
-                          className="text-brand-secondary group-hover/link:translate-x-1 transition-transform"
+                          className="text-brand-secondary transition-colors"
                           ariaLabel={t(
                             "contact.serviceAreas.triCities.richlandAria",
                           )}
@@ -1092,7 +1068,7 @@ export default function ContactPageClient({
               {/* Extended Coverage Card */}
               <div className="group relative flex h-full">
                 {/* Animated Border Glow */}
-                <div className="absolute -inset-2 rounded-2xl bg-linear-to-br from-brand-secondary/40 to-bronze-600/40 opacity-20 group-hover:opacity-60 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                <div className="absolute -inset-2 rounded-2xl bg-linear-to-br from-brand-secondary/40 to-bronze-600/40 opacity-20 group-hover:opacity-60 blur-xl transition-all duration-500"></div>
 
                 <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                   {/* Top Accent Bar */}
@@ -1132,7 +1108,7 @@ export default function ContactPageClient({
                         <MaterialIcon
                           icon="arrow_forward"
                           size="sm"
-                          className="text-brand-primary group-hover/link:translate-x-1 transition-transform"
+                          className="text-brand-primary transition-colors"
                           ariaLabel={t(
                             "contact.serviceAreas.extended.spokaneAria",
                           )}
@@ -1146,7 +1122,7 @@ export default function ContactPageClient({
                         <MaterialIcon
                           icon="arrow_forward"
                           size="sm"
-                          className="text-brand-primary group-hover/link:translate-x-1 transition-transform"
+                          className="text-brand-primary transition-colors"
                           ariaLabel={t(
                             "contact.serviceAreas.extended.yakimaAria",
                           )}

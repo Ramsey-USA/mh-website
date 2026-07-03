@@ -124,12 +124,13 @@ export function TestimonialGrid({
         {/* View More Button */}
         {showViewMoreButton && !hasNoTestimonials && (
           <FadeInWhenVisible className="text-center">
-            <Link href={viewMoreHref}>
-              <Button
-                variant="secondary"
-                size="lg"
-                className="group transition-all duration-300 w-full sm:w-auto min-h-12 touch-manipulation"
-              >
+            <Button
+              variant="secondary"
+              size="lg"
+              className="group transition-all duration-300 w-full sm:w-auto min-h-12 touch-manipulation"
+              asChild
+            >
+              <Link href={viewMoreHref}>
                 <MaterialIcon
                   icon="rate_review"
                   size="lg"
@@ -138,13 +139,9 @@ export function TestimonialGrid({
                 <span className="font-medium text-sm sm:text-base">
                   {t("viewAllReviews")}
                 </span>
-                <MaterialIcon
-                  icon="arrow_forward"
-                  size="sm"
-                  className="ml-2 group-hover:translate-x-1 transition-transform duration-300"
-                />
-              </Button>
-            </Link>
+                <MaterialIcon icon="arrow_forward" size="sm" className="ml-2" />
+              </Link>
+            </Button>
           </FadeInWhenVisible>
         )}
       </div>

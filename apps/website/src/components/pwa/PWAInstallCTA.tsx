@@ -30,7 +30,11 @@ export function PWAInstallCTA({
 
   useEffect(() => {
     // Check if already installed
-    if (globalThis.matchMedia("(display-mode: standalone)").matches) {
+    const displayModeMedia =
+      typeof globalThis.matchMedia === "function"
+        ? globalThis.matchMedia("(display-mode: standalone)")
+        : null;
+    if (displayModeMedia?.matches) {
       return;
     }
 
@@ -93,7 +97,7 @@ export function PWAInstallCTA({
     if (!isInstallable) {
       return (
         <div
-          className={`group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full border-2 border-gray-300/20 ${className}`}
+          className={`group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 flex flex-col h-full border-2 border-gray-300/20 ${className}`}
         >
           <div className="flex justify-center mb-6">
             <div className="rounded-xl bg-linear-to-br from-gray-400 to-gray-500 p-4 shadow-lg">
@@ -156,7 +160,7 @@ export function PWAInstallCTA({
 
     return (
       <div
-        className={`group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full border-2 border-brand-primary/20 ${className}`}
+        className={`group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 flex flex-col h-full border-2 border-brand-primary/20 ${className}`}
       >
         {/* Optional badge */}
         <div className="bg-brand-primary -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2 shadow-md">
@@ -166,7 +170,7 @@ export function PWAInstallCTA({
         </div>
 
         <div className="flex justify-center mb-6">
-          <div className="rounded-xl bg-linear-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <div className="rounded-xl bg-linear-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg transition-colors duration-300">
             <MaterialIcon
               icon="install_mobile"
               size="xl"
@@ -220,7 +224,7 @@ export function PWAInstallCTA({
           <MaterialIcon
             icon="add_to_home_screen"
             size="lg"
-            className="mr-2 group-hover/btn:scale-110 transition-transform"
+            className="mr-2 transition-colors"
           />
           Install Now
         </Button>
@@ -283,7 +287,7 @@ export function PWAInstallCTA({
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-3 sm:min-w-[220px] sm:max-w-[260px]">
+              <div className="flex flex-col gap-3 sm:min-w-55 sm:max-w-65">
                 <Button
                   variant="secondary"
                   size="lg"

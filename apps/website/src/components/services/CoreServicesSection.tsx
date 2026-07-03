@@ -13,6 +13,11 @@ import { gridPresets } from "@/lib/styles/layout-variants";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Button } from "@/components/ui";
 import { Modal } from "@/components/ui/modals/Modal";
+import {
+  cornerRadius,
+  hoverMotion,
+  transitionDuration,
+} from "@/lib/styles/design-tokens";
 import { ServiceCard } from "./ServiceCard";
 import type { CoreService } from "./servicesData";
 
@@ -95,14 +100,14 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
           size="xl"
           showVeteranBadge={false}
           backdropAriaLabel="Close core service details modal"
-          panelClassName="max-w-3xl rounded-3xl border border-brand-primary/20 bg-white dark:bg-gray-800 shadow-2xl"
+          panelClassName={`max-w-3xl ${cornerRadius.card} border border-brand-primary/20 bg-white dark:bg-gray-800 shadow-2xl`}
           contentClassName="p-0"
           renderHeader={({ titleId, onClose }) => (
             <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-secondary p-6 sm:p-8 text-white">
               <div className="absolute inset-0 bg-linear-to-br from-black/10 to-black/20"></div>
               <button
                 onClick={onClose}
-                className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 rounded-full p-2.5 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 z-10"
+                className={`absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 ${cornerRadius.full} p-2.5 sm:p-3 transition-all ${transitionDuration.fast} focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl z-10 ${hoverMotion.button}`}
                 aria-label="Close modal"
                 type="button"
                 autoFocus
@@ -114,7 +119,9 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
                 />
               </button>
               <div className="relative flex items-start gap-4">
-                <div className="shrink-0 bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-xl border border-white/30">
+                <div
+                  className={`shrink-0 bg-white/20 backdrop-blur-sm p-4 ${cornerRadius.icon} shadow-xl border border-white/30`}
+                >
                   <MaterialIcon
                     icon={currentService.iconName}
                     size="2xl"
@@ -145,7 +152,9 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
             </p>
 
             {/* Features */}
-            <div className="mb-6 rounded-2xl border border-brand-primary/20 bg-brand-primary/5 dark:bg-brand-primary/10 p-5">
+            <div
+              className={`mb-6 ${cornerRadius.icon} border border-brand-primary/20 bg-brand-primary/5 dark:bg-brand-primary/10 p-5`}
+            >
               <div className="flex items-center gap-2 mb-4">
                 <MaterialIcon
                   icon="checklist"
@@ -160,9 +169,11 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
                 {currentService.features.map((feature) => (
                   <li
                     key={`${currentService.title}-feature-${feature}`}
-                    className="flex items-start gap-3 group hover:translate-x-1 transition-transform duration-200"
+                    className={`flex items-start gap-3 ${hoverMotion.translateUpLarge}`}
                   >
-                    <div className="shrink-0 w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-0.5 group-hover:scale-110 transition-transform duration-200">
+                    <div
+                      className={`shrink-0 w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 ${cornerRadius.small} flex items-center justify-center mt-0.5 ${hoverMotion.iconSubtle}`}
+                    >
                       <MaterialIcon
                         icon="check_circle"
                         size="sm"
@@ -178,7 +189,9 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
             </div>
 
             {/* Benefits */}
-            <div className="mb-6 rounded-2xl border border-brand-secondary/20 bg-brand-secondary/5 dark:bg-brand-secondary/10 p-5">
+            <div
+              className={`mb-6 ${cornerRadius.icon} border border-brand-secondary/20 bg-brand-secondary/5 dark:bg-brand-secondary/10 p-5`}
+            >
               <div className="flex items-center gap-2 mb-4">
                 <MaterialIcon
                   icon="military_tech"
@@ -193,9 +206,11 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
                 {currentService.benefits.map((benefit) => (
                   <li
                     key={`${currentService.title}-benefit-${benefit}`}
-                    className="flex items-start gap-3 group hover:translate-x-1 transition-transform duration-200"
+                    className={`flex items-start gap-3 ${hoverMotion.translateUpLarge}`}
                   >
-                    <div className="shrink-0 w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-0.5 group-hover:scale-110 transition-transform duration-200">
+                    <div
+                      className={`shrink-0 w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 ${cornerRadius.small} flex items-center justify-center mt-0.5 ${hoverMotion.iconSubtle}`}
+                    >
                       <MaterialIcon
                         icon="military_tech"
                         size="sm"
@@ -212,7 +227,9 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
 
             {/* CTA Text */}
             {currentService.ctaText && (
-              <div className="bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-4 rounded-xl border border-brand-primary/30 mb-6">
+              <div
+                className={`bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-4 ${cornerRadius.element} border border-brand-primary/30 mb-6`}
+              >
                 <p className="text-gray-800 dark:text-gray-200 text-sm sm:text-base leading-relaxed font-medium">
                   <MaterialIcon
                     icon="phone"
@@ -227,35 +244,37 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               {currentService.ctaLink && (
-                <Link href={currentService.ctaLink} className="flex-1">
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    className="w-full group/btn"
-                  >
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="w-full group"
+                  asChild
+                >
+                  <Link href={currentService.ctaLink} className="flex-1">
                     <MaterialIcon
                       icon="arrow_forward"
                       size="md"
-                      className="mr-2 group-hover/btn:translate-x-1 transition-transform"
+                      className={`mr-2 ${hoverMotion.iconSubtle}`}
                     />
                     {currentService.ctaLinkText || "Learn More"}
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               )}
-              <Link href={contactHref} className="flex-1">
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  className="w-full group/btn"
-                >
+              <Button
+                variant="secondary"
+                size="lg"
+                className="w-full group"
+                asChild
+              >
+                <Link href={contactHref} className="flex-1">
                   <MaterialIcon
                     icon="handshake"
                     size="md"
-                    className="mr-2 group-hover/btn:scale-110 transition-transform"
+                    className={`mr-2 ${hoverMotion.iconSubtle}`}
                   />
                   Begin Partnership
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </Modal>

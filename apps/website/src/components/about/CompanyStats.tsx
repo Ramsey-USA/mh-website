@@ -92,7 +92,7 @@ export function CompanyStats({
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className={`h-full flex flex-col text-center p-6 sm:p-8 bg-white dark:bg-gray-800 ${cornerRadius.card} border border-gray-200 dark:border-gray-700 hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group shadow-lg hover:scale-[1.02]`}
+            className={`h-full flex flex-col text-center p-6 sm:p-8 bg-white dark:bg-gray-800 ${cornerRadius.card} border border-gray-200 dark:border-gray-700 hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group shadow-lg`}
           >
             <MaterialIcon
               icon={stat.iconName}

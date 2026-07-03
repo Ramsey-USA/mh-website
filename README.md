@@ -684,12 +684,20 @@ pnpm run type-check
 
 # Linting
 pnpm run lint
+
+# Navigation route ownership guardrail
+pnpm run nav:contract:check
 ```
 
 ### Testing Documentation
 
 - [Testing Guide](testing/mh-testing-guide.md)
 - [PWA Quick Reference](docs/technical/pwa-quick-reference.md)
+
+### Navigation Contract Guardrail
+
+Navigation ownership is enforced by `apps/website/src/components/navigation/__tests__/navigation-route-ownership.test.ts`.
+This contract ensures navigation links remain within route namespaces owned by the website app and dashboard app (`/hub*` and `/dashboard*`) so broken internal navigation paths are caught during CI.
 
 ---
 

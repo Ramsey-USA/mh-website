@@ -49,17 +49,18 @@ export function PitchDeckCTA(props: Readonly<PitchDeckCTAProps>) {
               </p>
             </div>
           </div>
-          <Link href={PITCH_DECK_HREF}>
-            <Button
-              variant="secondary"
-              size="lg"
-              onClick={handleClick}
-              aria-label="Request MH Construction pitch deck"
-            >
+          <Button
+            variant="secondary"
+            size="lg"
+            onClick={handleClick}
+            aria-label="Request MH Construction pitch deck"
+            asChild
+          >
+            <Link href={PITCH_DECK_HREF}>
               <MaterialIcon icon="request_page" size="md" className="mr-2" />
               Request Deck
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </div>
     );
@@ -85,17 +86,18 @@ export function PitchDeckCTA(props: Readonly<PitchDeckCTAProps>) {
             Our pitch deck covers everything you need to know
           </p>
         </div>
-        <Link href={PITCH_DECK_HREF} className="shrink-0">
-          <Button
-            variant="primary"
-            size="sm"
-            onClick={handleClick}
-            aria-label="Request MH Construction pitch deck"
-          >
+        <Button
+          variant="primary"
+          size="sm"
+          onClick={handleClick}
+          aria-label="Request MH Construction pitch deck"
+          asChild
+        >
+          <Link href={PITCH_DECK_HREF} className="shrink-0">
             <MaterialIcon icon="request_page" size="sm" className="mr-1" />
             Request
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </div>
     );
   }
@@ -103,10 +105,10 @@ export function PitchDeckCTA(props: Readonly<PitchDeckCTAProps>) {
   // Card variant (default)
   return (
     <div
-      className={`group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full ${className}`}
+      className={`group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 flex flex-col h-full ${className}`}
     >
       <div className="flex justify-center mb-6">
-        <div className="rounded-xl bg-linear-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+        <div className="rounded-xl bg-linear-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg transition-colors duration-300">
           <MaterialIcon
             icon="picture_as_pdf"
             size="xl"
@@ -147,22 +149,23 @@ export function PitchDeckCTA(props: Readonly<PitchDeckCTAProps>) {
           <span>Project portfolio highlights</span>
         </li>
       </ul>
-      <Link href={PITCH_DECK_HREF} className="block">
-        <Button
-          variant="primary"
-          size="lg"
-          className="w-full group/btn"
-          onClick={handleClick}
-          aria-label="Request MH Construction pitch deck"
-        >
+      <Button
+        variant="primary"
+        size="lg"
+        className="w-full group/btn"
+        onClick={handleClick}
+        aria-label="Request MH Construction pitch deck"
+        asChild
+      >
+        <Link href={PITCH_DECK_HREF} className="block">
           <MaterialIcon
             icon="request_page"
             size="lg"
-            className="mr-2 group-hover/btn:scale-110 transition-transform"
+            className="mr-2 transition-colors"
           />
           Request Pitch Deck
-        </Button>
-      </Link>
+        </Link>
+      </Button>
     </div>
   );
 }

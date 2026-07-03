@@ -5,9 +5,9 @@ import { buildDualSeoTitle } from "@/lib/branding/page-names";
 export const metadata: Metadata = {
   title: buildDualSeoTitle("services", "Legacy Route Redirect"),
   description:
-    "Legacy service detail route redirected to the home services section.",
+    "Legacy service detail route redirected to the services overview page.",
   alternates: {
-    canonical: "https://www.mhc-gc.com/",
+    canonical: "https://www.mhc-gc.com/services",
   },
   robots: {
     index: false,
@@ -16,5 +16,5 @@ export const metadata: Metadata = {
 };
 
 export default function ServiceDetailPage() {
-  permanentRedirect("/#services");
+  permanentRedirect("/services");
 }

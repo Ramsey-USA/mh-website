@@ -16,6 +16,7 @@ pnpm run test                                 # Run website tests from repo root
 pnpm --filter @mhc/website run test:watch     # Run in watch mode (re-runs on file changes)
 pnpm --filter @mhc/website run test:coverage  # Run with coverage report
 pnpm run test:ci                              # CI mode (website suite)
+pnpm run nav:contract:check                   # Navigation route ownership contract
 ```
 
 ### Test File Locations
@@ -138,6 +139,15 @@ The global header system is validated in `src/components/layout/__tests__/Naviga
 - Verifies the language selector, compact theme toggle, and menu button all render together
 - Verifies the tooltip copy for the logo, language selector, and phone CTA remains available to the DOM
 - Verifies the full-screen menu overlay still closes via toggle, backdrop, escape, and navigation link selection
+
+## Navigation Route Ownership Contract
+
+Navigation route ownership is validated in `src/components/navigation/__tests__/navigation-route-ownership.test.ts`.
+
+- Confirms all global menu links resolve to routes owned by either the website app or dashboard app
+- Confirms PageNavigation link arrays and Navigation overlay CTA links stay inside owned route namespaces
+- Enforces ownership split used in deployment routing: website pages plus dashboard-owned `/hub*` and `/dashboard*`
+- Fails fast in CI if a new navigation href points to an unknown internal route
 
 ## Test Coverage
 

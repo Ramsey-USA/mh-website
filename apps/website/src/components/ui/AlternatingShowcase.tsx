@@ -109,7 +109,7 @@ export function AlternatingShowcase({
                     src={item.image}
                     alt={`${item.title} - ${item.tagline}`}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover transition-colors duration-500"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     loading="lazy"
                     quality={68}

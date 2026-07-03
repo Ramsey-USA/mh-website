@@ -63,6 +63,25 @@ Any change that fails one of the checks below is non-compliant.
 - Confirm CTA language and trust messaging match established cross-page terminology.
 - Confirm no accreditation or trust component was removed during refactors.
 - Confirm metadata naming remains aligned with page content and brand taxonomy.
+- Confirm section rhythm uses one approved tier consistently across the page.
+- Confirm CTA clusters follow primary-secondary-tertiary emphasis hierarchy.
+- Confirm adjacent section headers maintain planned cadence (display vs section scale).
+- Confirm deferred placeholders match final section shell styling.
+
+### Congruency Guardrails for Tooling
+
+Where feasible, enforce these patterns using lint rules or validation scripts:
+
+1. Flag deprecated section spacing shells except allowlisted legacy surfaces.
+2. Flag route CTA composition that wraps `Button` with `Link` instead of `Button asChild`.
+3. Flag repeated ad-hoc motion transforms (`hover:scale-*`, `hover:-translate-*`, `group-hover:rotate-*`) outside approved component exceptions.
+4. Flag utility-important class usage (`!`) in production page/component class strings.
+5. Flag deferred placeholders that do not pass through final section className/variant props.
+
+Exception handling:
+
+1. Document scope, reason, and removal/refactor plan for each temporary exception.
+2. Keep exceptions file-scoped and time-bounded.
 
 ---
 

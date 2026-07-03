@@ -11,6 +11,11 @@ import {
 import { Card, CardContent, Button, IconContainer } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
+import {
+  cornerRadius,
+  hoverMotion,
+  transitionDuration,
+} from "@/lib/styles/design-tokens";
 
 interface ProcessStep {
   title: string;
@@ -108,19 +113,23 @@ export function ConstructionProcessSection({
                   gradient={gradient}
                   className="shrink-0 z-10 ring-4 ring-white dark:ring-gray-800"
                 >
-                  <span className="font-black text-2xl text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <span
+                    className={`font-black text-2xl text-white drop-shadow-lg ${hoverMotion.iconSubtle}`}
+                  >
                     {index + 1}
                   </span>
-                  <div className="absolute inset-0 rounded-full bg-brand-primary/50 animate-ping opacity-20"></div>
+                  <div
+                    className={`absolute inset-0 ${cornerRadius.full} bg-brand-primary/50 animate-ping opacity-20`}
+                  ></div>
                 </IconContainer>
 
                 <Card
-                  className={`group flex-1 border-l-4 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 ${accentClass}`}
+                  className={`group flex-1 border-l-4 hover:shadow-2xl transition-all ${transitionDuration.normal} ${hoverMotion.translateUpLarge} ${accentClass}`}
                 >
                   <CardContent className="p-6 sm:p-8">
                     <div className="mb-4 flex items-center gap-3">
                       <div
-                        className={`w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${badgeClass}`}
+                        className={`w-12 h-12 ${cornerRadius.element} flex items-center justify-center ${hoverMotion.iconSubtle} ${badgeClass}`}
                       >
                         <MaterialIcon
                           icon={icon}
@@ -146,7 +155,7 @@ export function ConstructionProcessSection({
                         {step.tags.map((tag) => (
                           <span
                             key={`${step.title}-${tag}`}
-                            className={`rounded-full px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${badgeClass}`}
+                            className={`${cornerRadius.full} px-3 py-1.5 text-sm font-medium transition-colors ${transitionDuration.fast} ${badgeClass}`}
                           >
                             {tag}
                           </span>
@@ -163,7 +172,7 @@ export function ConstructionProcessSection({
         {/* CTA Section */}
         <FadeInWhenVisible>
           <div
-            className={`bg-linear-to-br from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 shadow-xl mx-auto border-2 border-brand-primary dark:border-brand-primary/50 rounded-2xl max-w-4xl text-center ${
+            className={`bg-linear-to-br from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 shadow-xl mx-auto border-2 border-brand-primary dark:border-brand-primary/50 ${cornerRadius.icon} max-w-4xl text-center ${
               compactCta ? "mt-10 p-6 lg:p-8" : "mt-16 p-8 lg:p-12"
             }`}
           >
@@ -193,20 +202,21 @@ export function ConstructionProcessSection({
               {cta.description}
             </p>
             <div className="flex justify-center">
-              <Link href="/projects">
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  className="transition-all duration-300 min-w-65"
-                >
+              <Button
+                variant="secondary"
+                size="lg"
+                className={`transition-all ${transitionDuration.normal} min-w-65 ${hoverMotion.button}`}
+                asChild
+              >
+                <Link href="/projects">
                   <MaterialIcon
                     icon="photo_library"
                     size="lg"
                     className="mr-3"
                   />
                   <span className="font-medium">{cta.projectsButton}</span>
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </FadeInWhenVisible>

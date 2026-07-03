@@ -8,6 +8,7 @@ import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponent
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
 import { Card, CardContent, Button } from "@/components/ui";
+import { cornerRadius } from "@/lib/styles/design-tokens";
 
 export function GovernmentProjectsSection({
   title,
@@ -34,7 +35,9 @@ export function GovernmentProjectsSection({
           <Card className="relative bg-linear-to-br from-white via-white to-brand-primary/5 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 border-2 border-brand-primary shadow-xl overflow-hidden">
             <CardContent className="relative p-6 sm:p-8 lg:p-10">
               <div className="mb-5 flex items-center gap-3">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-brand-primary to-brand-secondary shadow-lg">
+                <div
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center ${cornerRadius.element} bg-linear-to-br from-brand-primary to-brand-secondary shadow-lg`}
+                >
                   <MaterialIcon
                     icon="account_balance"
                     size="lg"
@@ -55,14 +58,15 @@ export function GovernmentProjectsSection({
               </p>
 
               <div className="mt-6">
-                <Link
-                  href="/public-sector"
-                  className="inline-flex w-full sm:w-auto"
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                  asChild
                 >
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    className="w-full sm:w-auto"
+                  <Link
+                    href="/public-sector"
+                    className="inline-flex w-full sm:w-auto"
                   >
                     <MaterialIcon
                       icon="account_balance"
@@ -70,8 +74,8 @@ export function GovernmentProjectsSection({
                       className="mr-2"
                     />
                     View Public/Government Services
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </CardContent>
           </Card>

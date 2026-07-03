@@ -6,6 +6,11 @@ import {
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  cornerRadius,
+  hoverMotion,
+  transitionDuration,
+} from "@/lib/styles/design-tokens";
 import { useTranslations } from "next-intl";
 
 export function PartnershipTypesSection() {
@@ -25,10 +30,16 @@ export function PartnershipTypesSection() {
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="mb-16 sm:mb-20 text-center">
           <div className="flex items-center justify-center mb-8 gap-4">
-            <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            <div
+              className={`h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 ${cornerRadius.full}`}
+            ></div>
             <div className="relative">
-              <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
-              <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+              <div
+                className={`absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl ${cornerRadius.full}`}
+              ></div>
+              <div
+                className={`relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 ${cornerRadius.icon} shadow-2xl border-2 border-white/50 dark:border-gray-600`}
+              >
                 <MaterialIcon
                   icon="diversity_3"
                   size="2xl"
@@ -36,7 +47,9 @@ export function PartnershipTypesSection() {
                 />
               </div>
             </div>
-            <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            <div
+              className={`h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 ${cornerRadius.full}`}
+            ></div>
           </div>
 
           <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
@@ -55,16 +68,24 @@ export function PartnershipTypesSection() {
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
           <div className="group relative flex h-full">
-            <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+            <div
+              className={`absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 ${cornerRadius.icon} opacity-20 group-hover:opacity-100 blur-xl transition-all ${transitionDuration.slow}`}
+            ></div>
 
-            <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+            <Card
+              className={`relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all ${transitionDuration.normal} group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800`}
+            >
               <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
               <div className="relative p-8 lg:p-10 flex flex-col flex-1">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="relative shrink-0">
-                    <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-2xl"></div>
-                    <div className="relative w-16 h-16 lg:w-18 lg:h-18 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <div
+                      className={`absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg ${cornerRadius.icon}`}
+                    ></div>
+                    <div
+                      className={`relative w-16 h-16 lg:w-18 lg:h-18 bg-linear-to-br from-brand-primary to-brand-primary-dark ${cornerRadius.icon} flex items-center justify-center shadow-xl ${hoverMotion.iconPlayful}`}
+                    >
                       <MaterialIcon
                         icon="handshake"
                         size="xl"
@@ -94,9 +115,11 @@ export function PartnershipTypesSection() {
                     {clientItems.map((item) => (
                       <li
                         key={`client-item-${item}`}
-                        className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200"
+                        className={`flex items-start gap-3 ${hoverMotion.translateUpLarge}`}
                       >
-                        <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
+                        <div
+                          className={`w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 ${cornerRadius.small} flex items-center justify-center mt-1 shrink-0`}
+                        >
                           <MaterialIcon
                             icon="check_circle"
                             size="sm"
@@ -112,20 +135,21 @@ export function PartnershipTypesSection() {
                 </div>
 
                 <div className="space-y-3 mt-auto">
-                  <Link href="/projects" className="block">
-                    <Button
-                      variant="secondary"
-                      size="lg"
-                      className="w-full hover:scale-105 transition-transform duration-300 group"
-                    >
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    className={`w-full ${hoverMotion.button} group`}
+                    asChild
+                  >
+                    <Link href="/projects" className="block">
                       <MaterialIcon
                         icon="photo_library"
                         size="md"
-                        className="mr-2 group-hover:scale-110 transition-transform duration-300"
+                        className={`mr-2 ${hoverMotion.iconSubtle}`}
                       />
                       {t("services.partnership.clientCard.buttons.viewWork")}
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                   <p className="text-center text-gray-600 dark:text-gray-300 text-sm">
                     <MaterialIcon
                       icon="phone"
@@ -141,16 +165,24 @@ export function PartnershipTypesSection() {
           </div>
 
           <div className="group relative flex h-full">
-            <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+            <div
+              className={`absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-700/40 ${cornerRadius.icon} opacity-20 group-hover:opacity-100 blur-xl transition-all ${transitionDuration.slow}`}
+            ></div>
 
-            <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+            <Card
+              className={`relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all ${transitionDuration.normal} group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800`}
+            >
               <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
               <div className="relative p-8 lg:p-10 flex flex-col flex-1">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="relative shrink-0">
-                    <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-2xl"></div>
-                    <div className="relative w-16 h-16 lg:w-18 lg:h-18 bg-linear-to-br from-brand-secondary to-bronze-700 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <div
+                      className={`absolute -inset-2 bg-linear-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg ${cornerRadius.icon}`}
+                    ></div>
+                    <div
+                      className={`relative w-16 h-16 lg:w-18 lg:h-18 bg-linear-to-br from-brand-secondary to-bronze-700 ${cornerRadius.icon} flex items-center justify-center shadow-xl ${hoverMotion.iconPlayful}`}
+                    >
                       <MaterialIcon
                         icon="construction"
                         size="xl"
@@ -180,9 +212,11 @@ export function PartnershipTypesSection() {
                     {tradeItems.map((item) => (
                       <li
                         key={`trade-item-${item}`}
-                        className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200"
+                        className={`flex items-start gap-3 ${hoverMotion.translateUpLarge}`}
                       >
-                        <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 shrink-0">
+                        <div
+                          className={`w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 ${cornerRadius.small} flex items-center justify-center mt-1 shrink-0`}
+                        >
                           <MaterialIcon
                             icon="check_circle"
                             size="sm"
@@ -198,20 +232,21 @@ export function PartnershipTypesSection() {
                 </div>
 
                 <div className="space-y-3 mt-auto">
-                  <Link href="/allies" className="block">
-                    <Button
-                      variant="secondary"
-                      size="lg"
-                      className="w-full hover:scale-105 transition-transform duration-300 group"
-                    >
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    className={`w-full ${hoverMotion.button} group`}
+                    asChild
+                  >
+                    <Link href="/allies" className="block">
                       <MaterialIcon
                         icon="construction"
                         size="md"
-                        className="mr-2 group-hover:scale-110 transition-transform duration-300"
+                        className={`mr-2 ${hoverMotion.iconSubtle}`}
                       />
                       {t("services.partnership.tradeCard.buttons.joinNetwork")}
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                   <p className="text-center text-gray-600 dark:text-gray-300 text-sm">
                     <MaterialIcon
                       icon="phone"
@@ -229,9 +264,13 @@ export function PartnershipTypesSection() {
 
         <div className="mt-16 lg:mt-20 mx-auto max-w-4xl">
           <Card className="relative overflow-hidden border-2 border-brand-primary/30 bg-white p-6 shadow-xl dark:bg-gray-900 lg:p-8">
-            <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brand-primary/10 blur-3xl"></div>
+            <div
+              className={`pointer-events-none absolute -right-16 -top-16 h-40 w-40 ${cornerRadius.full} bg-brand-primary/10 blur-3xl`}
+            ></div>
             <div className="relative flex items-start gap-4">
-              <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-primary/10 dark:bg-brand-primary/20">
+              <div
+                className={`mt-1 flex h-10 w-10 shrink-0 items-center justify-center ${cornerRadius.element} bg-brand-primary/10 dark:bg-brand-primary/20`}
+              >
                 <MaterialIcon
                   icon="info"
                   size="md"

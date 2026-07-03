@@ -6,7 +6,7 @@
  *
  * Replaces repeated pattern:
  * ```tsx
- * <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+ * <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
  * ```
  *
  * @example
@@ -82,7 +82,7 @@ export function GlowEffect({
         gradientVariants[gradient],
         sizeVariants[size],
         roundedVariants[rounded],
-        animate && "group-hover:opacity-100 group-hover:animate-pulse",
+        animate && "group-hover:opacity-100",
         className,
       )}
       aria-hidden="true"

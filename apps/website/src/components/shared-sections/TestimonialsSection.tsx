@@ -17,6 +17,7 @@ interface TestimonialsSectionProps {
   autoPlayInterval?: number;
   id?: string;
   animated?: boolean;
+  headerSize?: "display" | "section";
   testimonials: Testimonial[];
 }
 
@@ -29,6 +30,7 @@ export function TestimonialsSection({
   autoPlayInterval = 5000,
   id,
   animated = false,
+  headerSize = "display",
   testimonials,
 }: TestimonialsSectionProps) {
   return (
@@ -43,6 +45,7 @@ export function TestimonialsSection({
       }}
       animated={animated}
       className={className}
+      headerSize={headerSize}
     >
       <TestimonialsCarousel
         testimonials={testimonials}

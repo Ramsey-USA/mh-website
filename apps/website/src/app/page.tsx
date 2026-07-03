@@ -16,9 +16,9 @@ import {
 import { normalizeLocale } from "@/lib/i18n/locale";
 import enHome from "@/../messages/home/en.json";
 import esHome from "@/../messages/home/es.json";
+import { BrandedContentSection } from "@/components/templates";
 
 import { HeroSection, WhyPartnerSection } from "@/components/home";
-import { ServicesShowcaseDeferred } from "@/components/home/ServicesShowcaseDeferred";
 import { TestimonialsSectionDeferred } from "@/components/home/TestimonialsSectionDeferred";
 import { TimelineDeferred } from "@/components/home/TimelineDeferred";
 const NextStepsSection = dynamic(
@@ -34,13 +34,24 @@ const HOME_COPY_BY_LOCALE = {
   en: enHome,
   es: esHome,
 } as const;
+const HOME_SECTION_SPACING = "py-10 sm:py-12 lg:py-16";
+const HOME_SECTION_SPACING_TIGHT_TOP =
+  "pt-8 sm:pt-10 lg:pt-14 pb-10 sm:pb-12 lg:pb-16";
+const HOME_CARD_CLASS =
+  "rounded-2xl border border-gray-200/90 dark:border-gray-700 bg-white/95 dark:bg-gray-800/95 p-5 sm:p-6 shadow-md";
+const HOME_CTA_PRIMARY_CLASS =
+  "inline-flex items-center justify-center rounded-xl bg-brand-primary px-5 py-3 text-sm sm:text-base font-bold text-white shadow hover:bg-brand-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2";
+const HOME_CTA_SECONDARY_CLASS =
+  "inline-flex items-center justify-center rounded-xl border-2 border-brand-primary/70 dark:border-brand-primary-light/70 bg-brand-primary/10 dark:bg-brand-primary/20 px-5 py-3 text-sm sm:text-base font-bold text-brand-primary-dark dark:text-brand-primary-light shadow-sm hover:bg-brand-primary/15 dark:hover:bg-brand-primary/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2";
+const HOME_FAQ_CARD_CLASS =
+  "rounded-xl border border-gray-200/80 dark:border-gray-700/80 bg-gray-50/85 dark:bg-gray-800/85 p-4 shadow-sm";
 
 export const metadata: Metadata = withGeoMetadata({
   title: {
-    absolute: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | AG, Winery, Commercial TI, and Municipal Builds | MH Construction`,
+    absolute: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Commercial Construction, Tenant Improvements, Municipal, and Light Industrial | MH Construction`,
   },
   description:
-    "Construction partner for AG and winery communities, commercial tenant improvements, and municipal builds. Specialties include pole buildings, door and hardware installation, and project management powered by Procore.",
+    "Commercial construction partner for agricultural and winery communities, tenant improvements, municipal projects, and light industrial scopes across WA, OR, and ID. Relationship-first delivery with Procore-backed project management.",
   keywords: [
     "general contractor Pasco, WA",
     "commercial construction services",
@@ -83,9 +94,9 @@ export const metadata: Metadata = withGeoMetadata({
     canonical: SITE_URL,
   },
   openGraph: {
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | AG, Winery, Commercial TI, and Municipal Builds | MH Construction`,
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Commercial Construction, Tenant Improvements, Municipal, and Light Industrial | MH Construction`,
     description:
-      "AG and winery community projects, commercial tenant improvements, and municipal builds with Procore-based project management.",
+      "Commercial construction services for agricultural and winery Client Partners, tenant improvements, municipal, and light industrial projects with disciplined scope control and Procore-based delivery.",
     url: SITE_URL,
     siteName: "MH Construction",
     type: "website",
@@ -103,9 +114,9 @@ export const metadata: Metadata = withGeoMetadata({
     card: "summary_large_image",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | AG, Winery, Commercial TI, and Municipal Builds | MH Construction`,
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Commercial Construction, Tenant Improvements, Municipal, and Light Industrial | MH Construction`,
     description:
-      "AG and winery community projects, commercial tenant improvements, and municipal builds with pole building and door/hardware specialties.",
+      "Commercial construction services with agricultural and winery expertise, occupied-space tenant improvement delivery, municipal execution, and light industrial project management.",
     images: ["/images/og-default.jpg"],
   },
 });
@@ -164,319 +175,136 @@ export default async function Home() {
     requestHeaders.get("user-agent") ?? "",
   );
   const enableHomeTelemetry = isProduction && !isLighthouseAudit;
-  const agWineryLaneHref =
-    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-funnel&utm_content=path-build-expand_focus-ag-winery#services";
-  const commercialTiLaneHref =
-    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-funnel&utm_content=path-modernize-spaces_focus-occupied-ti#services";
-  const municipalLaneHref =
-    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-funnel&utm_content=path-plan-control_focus-public-sector#services";
-  const agWineryProofHref =
-    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-funnel&utm_content=path-build-expand_focus-ag-winery_proof#services";
-  const commercialTiProofHref =
-    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-funnel&utm_content=path-modernize-spaces_focus-occupied-ti_proof#services";
-  const municipalProofHref =
-    "/?utm_source=homepage&utm_medium=cta&utm_campaign=services-funnel&utm_content=path-plan-control_focus-public-sector_proof#services";
-  const ownershipCopy =
+  const splashCopy =
     locale === "es"
       ? {
-          sectionSubtitle: "Etapa 4 · Gobernanza Operativa",
-          sectionTitle: "Gobernanza de Proyecto y Controles de Aprobación",
-          sectionDescription:
-            "Antes de comprometer presupuesto o cronograma, vea responsables por etapa, ruta de escalamiento y umbrales de aprobación que sostienen la trazabilidad en Procore.",
-          cards: [
+          overviewSubtitle: "Resumen de la Empresa",
+          overviewTitle:
+            "Construcción Comercial con Enfoque en Relaciones y Ejecución Disciplinada",
+          overviewDescription:
+            "MH Construction entrega proyectos agrícolas y de bodegas, tenant improvements comerciales, obra municipal e industrial ligero con control de alcance, transparencia y coordinación en Procore.",
+          overviewButtons: [
             {
-              title: "Responsable por Etapa",
-              bullets: [
-                "Estimación lidera preconstrucción.",
-                "PM y superintendencia lideran ejecución.",
-                "Owner/President confirma cierre final.",
-              ],
-              detailsTitle: "Ver detalle",
-              detailsText:
-                "La continuidad se mantiene con la misma cadena de responsables desde la planificación hasta el soporte posterior al cierre.",
+              href: "/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=primary-services",
+              label: "Ver Servicios",
             },
             {
-              title: "Ruta de Escalamiento",
-              bullets: [
-                "Superintendente -> PM -> COO -> Owner.",
-                "Si PM no está disponible: Steve o COO.",
-                "Ruta definida para decisiones rápidas.",
-              ],
-              detailsTitle: "Ver detalle",
-              detailsText:
-                "La misma ruta se refleja en coordinación de campo, control de costo y handoff de cierre.",
+              href: "/projects?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=proof-projects",
+              label: "Ver Proyectos",
             },
             {
-              title: "Umbrales de Aprobación",
-              bullets: [
-                "Los cambios siguen controles de aprobación definidos.",
-                "Las decisiones relevantes escalan por liderazgo ejecutivo.",
-                "Municipal se ajusta por requisito de agencia.",
-              ],
-              detailsTitle: "Ver detalle",
-              detailsText:
-                "Este control protege el presupuesto y mantiene transparencia para cliente, equipo de campo y oficina.",
+              href: "/contact?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=start-contact",
+              label: "Hablar con el Equipo",
+            },
+          ],
+          serviceSubtitle: "Servicios Principales",
+          serviceTitle:
+            "Servicios de Construcción Comercial por Tipo de Proyecto",
+          serviceDescription:
+            "Nuestra operación es principalmente comercial. También evaluamos Custom Home Builds selectivos cuando el alcance y la ruta de entrega están alineados.",
+          serviceCards: [
+            {
+              title: "Agrícola y Bodegas",
+              desc: "Infraestructura especializada, secuenciación técnica y coordinación de campo para operaciones agrícolas y de bodega.",
+            },
+            {
+              title: "Tenant Improvements Comerciales",
+              desc: "Mejoras para inquilinos en espacios activos con control de cronograma, puertas/herrajes y continuidad operativa.",
+            },
+            {
+              title: "Municipal e Industrial Ligero",
+              desc: "Entrega orientada a cumplimiento, documentación de cierre y estándares de seguridad en proyectos públicos e industriales.",
+            },
+          ],
+          processSubtitle: "Cómo Trabajamos",
+          processTitle: "Proceso de Entrega de Proyectos en Seis Etapas",
+          trustSubtitle: "Confianza y Rendición de Cuentas",
+          trustTitle: "Por Qué Client Partners Eligen Nuestro Equipo Comercial",
+          trustDescription:
+            "Resultados consistentes, comunicación clara y una cadena operativa responsable desde preconstrucción hasta cierre.",
+          testimonialSubtitle: "Prueba de Clientes",
+          testimonialTitle: "Testimonios de Clientes y Resultados de Proyecto",
+          testimonialDescription:
+            "Comentarios de Client Partners en proyectos agrícolas/de bodega, tenant improvements comerciales y proyectos municipales.",
+          finalSubtitle: "Siguiente Paso",
+          finalTitle:
+            "Comience con una Revisión de Alcance para Construcción Comercial",
+          finalDescription:
+            "Si su proyecto es comercial o necesita evaluar ajuste de alcance, nuestro equipo puede orientar la siguiente decisión.",
+          finalButtons: [
+            {
+              href: "/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=final-services",
+              label: "Revisar Servicios",
+            },
+            {
+              href: "/contact?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=final-contact",
+              label: "Solicitar Conversación",
             },
           ],
         }
       : {
-          sectionSubtitle: "Stage 4 · Operating Governance",
-          sectionTitle: "Project Governance and Approval Controls",
-          sectionDescription:
-            "Before committing budget and schedule, review ownership by stage, escalation path, and approval controls that keep Procore traceability intact.",
-          cards: [
+          overviewSubtitle: "Company Overview",
+          overviewTitle:
+            "Commercial Construction Built on Relationship-First Execution",
+          overviewDescription:
+            "MH Construction delivers agricultural and winery, commercial tenant improvement, municipal, and light industrial projects with disciplined scope control, transparent communication, and Procore-backed project management.",
+          overviewButtons: [
             {
-              title: "Ownership by Stage",
-              bullets: [
-                "Estimating leads preconstruction controls.",
-                "PM and superintendent teams lead active execution.",
-                "Owner/President confirms final closeout.",
-              ],
-              detailsTitle: "View detail",
-              detailsText:
-                "Continuity stays intact through one accountability chain from planning through post-closeout support.",
+              href: "/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=primary-services",
+              label: "Explore Services",
             },
             {
-              title: "Escalation Path",
-              bullets: [
-                "Superintendent -> PM -> COO -> Owner.",
-                "If PM is unavailable: escalate to Steve or COO.",
-                "Defined escalation reduces field decision delays.",
-              ],
-              detailsTitle: "View detail",
-              detailsText:
-                "The same path is used for field coordination, cost control, and closeout handoff.",
+              href: "/projects?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=proof-projects",
+              label: "View Projects",
             },
             {
-              title: "Approval Controls",
-              bullets: [
-                "Changes follow defined approval controls.",
-                "Material decisions escalate through executive review.",
-                "Municipal governance flexes by agency requirement.",
-              ],
-              detailsTitle: "View detail",
-              detailsText:
-                "This keeps field decisions fast while preserving authority limits and transparent reporting.",
+              href: "/contact?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=start-contact",
+              label: "Talk With Our Team",
             },
           ],
-        };
-
-  const specialtiesCopy =
-    locale === "es"
-      ? {
-          subtitle: "Etapa 1 · Capacidades Base",
-          title:
-            "Capacidades Base y PreConstruction Planning para Cada Tipo de Proyecto",
-          description:
-            "Estas tres capacidades actuan como items clave de interes: cada una cumple una funcion distinta para validar preconstruccion, ordenar handoffs y dirigir la ruta correcta (AG/bodegas, TI comercial o municipal).",
-          items: [
+          serviceSubtitle: "Core Service Focus",
+          serviceTitle: "Commercial Construction Services by Project Type",
+          serviceDescription:
+            "Our delivery is primarily commercial. We also entertain select Custom Home Builds when scope fit and delivery requirements align.",
+          serviceCards: [
             {
-              title: "Pole Buildings",
-              desc: "Estructuras post-frame y PEMB diseñadas para rendimiento operativo, con definicion temprana de cargas, envolvente y secuencia de montaje.",
-              href: agWineryLaneHref,
-              cta: "Ir a Frente AG/Bodegas",
+              title: "Agricultural and Winery Projects",
+              desc: "Specialized infrastructure, technical sequencing, and field coordination for agricultural and winery operations.",
             },
             {
-              title: "Instalación de Puertas y Herrajes",
-              desc: "Paquetes de puertas y herrajes gestionados por fases para espacios activos, con control de compatibilidades, seguridad y cumplimiento por hito.",
-              href: commercialTiLaneHref,
-              cta: "Ir a Frente TI Comercial",
+              title: "Commercial Tenant Improvements",
+              desc: "Occupied-space tenant improvements with schedule control, door/hardware integration, and business continuity planning.",
             },
             {
-              title: "PreConstruction Planning y Gestión en Procore",
-              desc: "Gobernanza de RFIs, submittals, costos y decisiones en Procore para mantener trazabilidad tecnica desde alcance inicial hasta cierre documentado.",
-              href: municipalLaneHref,
-              cta: "Ir a Frente Municipal",
+              title: "Municipal and Light Industrial",
+              desc: "Compliance-forward delivery with audit-ready closeout and safety-first execution for public and industrial scopes.",
             },
           ],
-        }
-      : {
-          subtitle: "Stage 1 · Core Capabilities",
-          title:
-            "Core Capabilities and PreConstruction Planning Behind Every Project Type",
-          description:
-            "These three capabilities are our special items of interest: each one serves a distinct role in preconstruction validation, handoff control, and lane selection for AG/winery, commercial TI, or municipal delivery.",
-          items: [
+          processSubtitle: "How We Deliver",
+          processTitle: "Construction Project Delivery Process in Six Stages",
+          trustSubtitle: "Trust and Accountability",
+          trustTitle:
+            "Why Client Partners Choose Our Commercial Construction Team",
+          trustDescription:
+            "Consistent execution, direct communication, and accountable operating controls from planning through closeout.",
+          testimonialSubtitle: "Client Proof",
+          testimonialTitle: "Construction Client Testimonials and Outcomes",
+          testimonialDescription:
+            "Feedback from Client Partners across agricultural/winery, commercial tenant improvement, and municipal-facing project scopes.",
+          finalSubtitle: "Next Step",
+          finalTitle: "Start with a Commercial Construction Scope Review",
+          finalDescription:
+            "If your project is commercial or needs a fit-first review, our team can help you define the best delivery path.",
+          finalButtons: [
             {
-              title: "Pole Buildings",
-              desc: "Post-frame and PEMB execution tuned for operational performance, with early definition of loads, envelope strategy, and erection sequence.",
-              href: agWineryLaneHref,
-              cta: "Go to AG/Winery Lane",
+              href: "/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=final-services",
+              label: "Review Services",
             },
             {
-              title: "Door and Hardware Installation",
-              desc: "Phased door and hardware packages for occupied facilities, emphasizing compatibility checks, life-safety requirements, and turnover readiness.",
-              href: commercialTiLaneHref,
-              cta: "Go to Commercial TI Lane",
-            },
-            {
-              title:
-                "PreConstruction Planning and Project Management in Procore",
-              desc: "Procore-centered control of RFIs, submittals, costs, and milestone decisions to preserve technical traceability from scope lock through closeout.",
-              href: municipalLaneHref,
-              cta: "Go to Municipal Lane",
+              href: "/contact?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=final-contact",
+              label: "Request Consultation",
             },
           ],
-        };
-
-  const marketCtaCopy =
-    locale === "es"
-      ? {
-          subtitle: "Etapa 8 · Siguiente Paso",
-          title: "Seleccione su Tipo de Proyecto y Entre al Frente Correcto",
-          description:
-            "Seleccione su tipo de proyecto y avance a una revisión enfocada de alcance, cronograma y ruta de ejecución.",
-          buttons: [
-            {
-              href: agWineryLaneHref,
-              label: "Agendar Revisión de Alcance AG/Bodegas",
-            },
-            {
-              href: commercialTiLaneHref,
-              label: "Agendar Revisión de Plan TI Comercial",
-            },
-            {
-              href: municipalLaneHref,
-              label: "Agendar Revisión de Entrega Municipal",
-            },
-          ],
-        }
-      : {
-          subtitle: "Stage 8 · Next Step",
-          title: "Choose Your Project Type and Enter the Right Lane",
-          description:
-            "Pick your project type and move into a focused review for scope, schedule, and delivery path.",
-          buttons: [
-            {
-              href: agWineryLaneHref,
-              label: "Book AG/Winery Scope Review",
-            },
-            {
-              href: commercialTiLaneHref,
-              label: "Book Commercial TI Planning Review",
-            },
-            {
-              href: municipalLaneHref,
-              label: "Book Municipal Delivery Review",
-            },
-          ],
-        };
-
-  const proofByMarketCopy =
-    locale === "es"
-      ? {
-          subtitle: "Etapa 3 · Validación por Frente",
-          title: "Prueba de Ejecución por Frente",
-          description:
-            "Compare evidencia real por tipo de proyecto antes de avanzar a revisión técnica y de presupuesto.",
-          lanes: [
-            {
-              projectType: "AG y Bodegas",
-              proof:
-                "Entrega especializada para AG y bodegas con instalación de pond liners para contención de wastewater/sludge runoff, más coordinación técnica para alcances con acero inoxidable y silos mayores.",
-              href: agWineryProofHref,
-              cta: "Evaluar Ajuste de Alcance AG/Bodegas",
-            },
-            {
-              projectType: "TI Comercial",
-              proof:
-                "Tenant improvements en espacios activos con control en Procore, instalación de puertas/herrajes y secuenciación por fases para proteger operación.",
-              href: commercialTiProofHref,
-              cta: "Evaluar Ajuste de Entrega TI",
-            },
-            {
-              projectType: "Municipal",
-              proof:
-                "Entrega municipal con trazabilidad de aprobaciones, autoridad de seguridad y documentación de cierre alineada a requisito de agencia.",
-              href: municipalProofHref,
-              cta: "Evaluar Ajuste Municipal y Cumplimiento",
-            },
-          ],
-        }
-      : {
-          subtitle: "Stage 3 · Lane Validation",
-          title: "Delivery Evidence by Lane",
-          description:
-            "Compare field proof by project type before moving into technical and budget review.",
-          lanes: [
-            {
-              projectType: "AG and Winery Communities",
-              proof:
-                "Specialty delivery for AG and winery scopes with pond liner containment for wastewater/sludge runoff, plus technical coordination for stainless-steel and major-silo impacts.",
-              href: agWineryProofHref,
-              cta: "Check AG/Winery Scope Fit",
-            },
-            {
-              projectType: "Commercial Tenant Improvements",
-              proof:
-                "Occupied-space TI delivery with Procore controls, door/hardware packages, and phased sequencing that protects live operations.",
-              href: commercialTiProofHref,
-              cta: "Check Commercial TI Delivery Fit",
-            },
-            {
-              projectType: "Municipal Builds",
-              proof:
-                "Municipal delivery with approval traceability, defined safety authority, and agency-ready closeout records.",
-              href: municipalProofHref,
-              cta: "Check Municipal Compliance Fit",
-            },
-          ],
-        };
-
-  const servicesShowcaseIntroCopy =
-    locale === "es"
-      ? {
-          subtitle: "Etapa 2 · Seleccione su Frente de Servicio",
-          title: "Elija su Tipo de Proyecto con un Flujo Guiado de Tres Pasos",
-          description:
-            "Primero elija una ruta de entrega, luego su enfoque de proyecto y finalmente abra el servicio especifico para revisar alcance, beneficios y siguiente accion.",
-        }
-      : {
-          subtitle: "Stage 2 · Select Your Service Lane",
-          title: "Choose Your Project Type in Three Guided Steps",
-          description:
-            "Pick a delivery path, narrow by project focus, then open the specific service card for scope detail and next action.",
-        };
-
-  const processCopy =
-    locale === "es"
-      ? {
-          subtitle: "Etapa 5 · Plan de Ejecucion",
-          title: "Modelo Operativo de Seis Etapas",
-        }
-      : {
-          subtitle: "Stage 5 · Delivery Plan",
-          title: "Six-Stage Operating Model",
-        };
-
-  const trustIntroCopy =
-    locale === "es"
-      ? {
-          subtitle: "Etapa 6 · Ajuste de Socio",
-          title: "Modelo de Relación y Rendición de Cuentas",
-          description:
-            "Después de validar la ruta técnica, confirme cómo operamos como socio durante y después del cierre.",
-        }
-      : {
-          subtitle: "Stage 6 · Partner Fit",
-          title: "Relationship and Accountability Model",
-          description:
-            "After validating technical route, confirm how we operate as your partner through closeout and support.",
-        };
-
-  const testimonialsCopy =
-    locale === "es"
-      ? {
-          subtitle: "Etapa 7 · Evidencia de Clientes",
-          title: "Lo que Dicen Nuestros Client Partners",
-          description:
-            "Validación final por tipo de proyecto: resultados compartidos por clientes AG/bodegas, TI comercial y municipal.",
-        }
-      : {
-          subtitle: "Stage 7 · Client Evidence",
-          title: "What Client Partners Report",
-          description:
-            "Final project-type validation from AG/winery, commercial TI, and municipal-facing client partners.",
         };
 
   return (
@@ -490,158 +318,104 @@ export default async function Home() {
       {/* Home Page Hero Section */}
       <HeroSection locale={locale} copy={homeCopy.hero} />
 
-      <section className="bg-white dark:bg-gray-900 py-6 sm:py-8 lg:py-10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center mb-8">
-            <p className="text-sm sm:text-base font-semibold uppercase tracking-[0.12em] text-brand-secondary">
-              {specialtiesCopy.subtitle}
-            </p>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white leading-tight">
-              {specialtiesCopy.title}
-            </h2>
-            <p className="mt-4 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              {specialtiesCopy.description}
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-            {specialtiesCopy.items.map((item) => (
-              <article
-                key={item.title}
-                className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-5 sm:p-6 shadow-sm"
-              >
-                <h3 className="text-xl font-extrabold text-gray-900 dark:text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                  {item.desc}
-                </p>
-                <Link
-                  href={item.href}
-                  className="mt-4 inline-flex items-center text-sm sm:text-base font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
-                >
-                  {item.cta}
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Showcase of Services Section - Primary discovery path */}
-      <section className="bg-white dark:bg-gray-900 pt-2 sm:pt-3 lg:pt-4">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="text-sm sm:text-base font-semibold uppercase tracking-[0.12em] text-brand-secondary">
-              {servicesShowcaseIntroCopy.subtitle}
-            </p>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white leading-tight">
-              {servicesShowcaseIntroCopy.title}
-            </h2>
-            <p className="mt-4 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              {servicesShowcaseIntroCopy.description}
-            </p>
-          </div>
-        </div>
-      </section>
-      <ServicesShowcaseDeferred
-        className="py-6 sm:py-8 lg:py-10 xl:py-12"
-        maxVisibleCards={6}
-      />
-
-      <section className="bg-white dark:bg-gray-900 py-8 sm:py-10 lg:py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center mb-8 sm:mb-10">
-            <p className="text-sm sm:text-base font-semibold uppercase tracking-[0.12em] text-brand-secondary">
-              {proofByMarketCopy.subtitle}
-            </p>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white leading-tight">
-              {proofByMarketCopy.title}
-            </h2>
-            <p className="mt-4 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              {proofByMarketCopy.description}
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-            {proofByMarketCopy.lanes.map((lane) => (
-              <article
-                key={lane.projectType}
-                className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-5 sm:p-6 shadow-sm"
-              >
-                <h3 className="text-xl font-extrabold text-gray-900 dark:text-white">
-                  {lane.projectType}
-                </h3>
-                <p className="mt-3 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                  {lane.proof}
-                </p>
-                <Link
-                  href={lane.href}
-                  className="mt-4 inline-flex items-center text-sm sm:text-base font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
-                >
-                  {lane.cta}
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="ownership-controls"
-        className="bg-white dark:bg-gray-900 py-8 sm:py-10 lg:py-12"
+      <BrandedContentSection
+        id="company-overview"
+        variant="white"
+        className={HOME_SECTION_SPACING}
+        header={{
+          icon: "domain",
+          iconVariant: "primary",
+          subtitle: splashCopy.overviewSubtitle,
+          title: splashCopy.overviewTitle,
+          description: splashCopy.overviewDescription,
+        }}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center mb-8 sm:mb-10">
-            <p className="text-sm sm:text-base font-semibold uppercase tracking-[0.12em] text-brand-secondary">
-              {ownershipCopy.sectionSubtitle}
-            </p>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white leading-tight">
-              {ownershipCopy.sectionTitle}
-            </h2>
-            <p className="mt-4 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              {ownershipCopy.sectionDescription}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-            {ownershipCopy.cards.map((card) => (
-              <article
-                key={card.title}
-                className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-5 sm:p-6 shadow-sm"
-              >
-                <h3 className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white">
-                  {card.title}
-                </h3>
-                <ul className="mt-4 space-y-2">
-                  {card.bullets.map((bullet) => (
-                    <li
-                      key={`${card.title}-${bullet}`}
-                      className="flex items-start gap-2 text-sm sm:text-base text-gray-700 dark:text-gray-200"
-                    >
-                      <span className="mt-1.5 inline-block h-2 w-2 rounded-full bg-brand-primary" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-                <details className="mt-4 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 p-3 sm:p-4">
-                  <summary className="cursor-pointer select-none text-sm sm:text-base font-semibold text-brand-primary dark:text-brand-primary-light">
-                    {card.detailsTitle}
-                  </summary>
-                  <p className="mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                    {card.detailsText}
-                  </p>
-                </details>
-              </article>
-            ))}
-          </div>
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
+            {locale === "es" ? "Revise " : "Review "}
+            <Link
+              href="/services?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=overview-services"
+              className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
+            >
+              {locale === "es"
+                ? "servicios de construcción comercial"
+                : "commercial construction services"}
+            </Link>
+            {locale === "es" ? ", vea nuestro " : ", see our "}
+            <Link
+              href="/projects?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=overview-projects"
+              className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
+            >
+              {locale === "es"
+                ? "portafolio de proyectos"
+                : "construction project portfolio"}
+            </Link>
+            {locale === "es" ? " o " : " or "}
+            <Link
+              href="/contact?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=overview-contact"
+              className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
+            >
+              {locale === "es"
+                ? "contacte a nuestro equipo"
+                : "contact our construction team"}
+            </Link>
+            .
+          </p>
         </div>
-      </section>
+        <div className="mx-auto mt-6 grid max-w-5xl grid-cols-1 gap-3 sm:gap-4 md:grid-cols-3">
+          {splashCopy.overviewButtons.map((button, index) => (
+            <Link
+              key={button.label}
+              href={button.href}
+              className={
+                index === 0 ? HOME_CTA_PRIMARY_CLASS : HOME_CTA_SECONDARY_CLASS
+              }
+            >
+              {button.label}
+            </Link>
+          ))}
+        </div>
+      </BrandedContentSection>
 
-      {/* Our Process Timeline Section - Reinforce confidence before conversion */}
+      <BrandedContentSection
+        id="service-overview"
+        variant="gray"
+        className={HOME_SECTION_SPACING}
+        header={{
+          icon: "construction",
+          iconVariant: "secondary",
+          subtitle: splashCopy.serviceSubtitle,
+          title: splashCopy.serviceTitle,
+          description: splashCopy.serviceDescription,
+        }}
+      >
+        <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-3">
+          {splashCopy.serviceCards.map((card) => (
+            <article key={card.title} className={HOME_CARD_CLASS}>
+              <h3 className="text-xl font-extrabold text-gray-900 dark:text-white">
+                {card.title}
+              </h3>
+              <p className="mt-3 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                {card.desc}
+              </p>
+              <Link
+                href="/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=service-card"
+                className="mt-4 inline-flex items-center text-sm sm:text-base font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
+              >
+                {locale === "es"
+                  ? "Ver detalle de servicios comerciales"
+                  : "View commercial service details"}
+              </Link>
+            </article>
+          ))}
+        </div>
+      </BrandedContentSection>
+
       <TimelineDeferred
         id="our-process"
         icon="timeline"
-        subtitle={processCopy.subtitle}
-        title={processCopy.title}
+        subtitle={splashCopy.processSubtitle}
+        title={splashCopy.processTitle}
         description={
           <>
             {homeCopy.process.descriptionPart1}{" "}
@@ -666,71 +440,130 @@ export default async function Home() {
         collapseStepsLabel={
           locale === "es" ? "Mostrar menos pasos" : "Show fewer steps"
         }
-        className="bg-gray-50 dark:bg-gray-800 py-8 sm:py-10 lg:py-12"
+        className={`bg-gray-50 dark:bg-gray-800 ${HOME_SECTION_SPACING}`}
       />
 
-      {/* Why Partner With MH Construction Section - Partnership philosophy */}
-      <section className="bg-white dark:bg-gray-900 pt-2 sm:pt-3 lg:pt-4">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="text-sm sm:text-base font-semibold uppercase tracking-[0.12em] text-brand-secondary">
-              {trustIntroCopy.subtitle}
-            </p>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white leading-tight">
-              {trustIntroCopy.title}
-            </h2>
-            <p className="mt-4 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              {trustIntroCopy.description}
-            </p>
-          </div>
-        </div>
-      </section>
       <WhyPartnerSection
         sectionVariant="white"
-        className="py-8 sm:py-10 lg:py-12"
+        className={HOME_SECTION_SPACING}
+        headerSubtitle={splashCopy.trustSubtitle}
+        headerTitle={splashCopy.trustTitle}
+        headerDescription={splashCopy.trustDescription}
+        headerSize="section"
         condensed
         condensedVisibleCount={2}
         locale={locale}
       />
 
-      {/* Enhanced Client Partner Testimonials - Social proof after trust and stats */}
       <TestimonialsSectionDeferred
         id="testimonials"
-        subtitle={testimonialsCopy.subtitle}
-        title={testimonialsCopy.title}
-        description={testimonialsCopy.description}
+        subtitle={splashCopy.testimonialSubtitle}
+        title={splashCopy.testimonialTitle}
+        description={splashCopy.testimonialDescription}
         testimonials={clientTestimonials}
-        className="py-8 sm:py-10 lg:py-12"
+        className={HOME_SECTION_SPACING}
         animated={false}
+        headerSize="section"
       />
 
-      <section className="bg-gray-50 dark:bg-gray-800 py-6 sm:py-8 lg:py-10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm sm:text-base font-semibold uppercase tracking-[0.12em] text-brand-secondary">
-            {marketCtaCopy.subtitle}
-          </p>
-          <h2 className="text-center text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 dark:text-white leading-tight">
-            {marketCtaCopy.title}
-          </h2>
-          <p className="mt-3 text-center text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-            {marketCtaCopy.description}
-          </p>
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
-            {marketCtaCopy.buttons.map((button) => (
-              <Link
-                key={button.label}
-                href={button.href}
-                className="inline-flex items-center justify-center rounded-xl bg-brand-primary px-5 py-3 text-sm sm:text-base font-bold text-white shadow hover:bg-brand-primary-dark transition-colors"
-              >
-                {button.label}
-              </Link>
-            ))}
-          </div>
+      <BrandedContentSection
+        id="home-faq"
+        variant="white"
+        className={HOME_SECTION_SPACING}
+        headerSize="section"
+        header={{
+          icon: "quiz",
+          iconVariant: "bronze",
+          subtitle:
+            locale === "es" ? "Preguntas Frecuentes" : "Construction FAQ",
+          title:
+            locale === "es"
+              ? "Preguntas Clave Antes de Iniciar un Proyecto"
+              : "Key Questions Before Starting a Commercial Project",
+        }}
+      >
+        <div className="mx-auto max-w-5xl space-y-3">
+          <details className={HOME_FAQ_CARD_CLASS}>
+            <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white">
+              {locale === "es"
+                ? "¿Qué tipos de proyectos atienden?"
+                : "What project types do you handle?"}
+            </summary>
+            <p className="mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+              {locale === "es"
+                ? "Nos enfocamos principalmente en construcción comercial: agrícola y bodegas, tenant improvements comerciales, municipal e industrial ligero."
+                : "We focus primarily on commercial construction: agricultural and winery projects, commercial tenant improvements, municipal, and light industrial scopes."}
+            </p>
+          </details>
+
+          <details className={HOME_FAQ_CARD_CLASS}>
+            <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white">
+              {locale === "es"
+                ? "¿Operan en WA, OR e ID?"
+                : "Do you operate across WA, OR, and ID?"}
+            </summary>
+            <p className="mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+              {locale === "es"
+                ? "Sí. MH Construction opera con licencia en los tres estados con gestión en Procore y control de documentación."
+                : "Yes. MH Construction is licensed across all three states with Procore-backed project management and documentation control."}
+            </p>
+          </details>
+
+          <details className={HOME_FAQ_CARD_CLASS}>
+            <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white">
+              {locale === "es"
+                ? "¿Cómo inicio una conversación de alcance?"
+                : "How do I start a scope conversation?"}
+            </summary>
+            <p className="mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+              {locale === "es"
+                ? "Comparta alcance, cronograma y ubicación en la página de contacto para una revisión inicial de ajuste."
+                : "Share scope, schedule, and location details through the contact page for a fit-first project review."}
+            </p>
+          </details>
         </div>
-      </section>
+
+        <div className="mt-6 text-center">
+          <Link
+            href="/faq?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=faq-section"
+            className={HOME_CTA_SECONDARY_CLASS}
+          >
+            {locale === "es"
+              ? "Ver todas las preguntas frecuentes"
+              : "View all frequently asked questions"}
+          </Link>
+        </div>
+      </BrandedContentSection>
+
+      <BrandedContentSection
+        id="home-final-cta"
+        variant="gray"
+        className={HOME_SECTION_SPACING_TIGHT_TOP}
+        header={{
+          icon: "flag",
+          iconVariant: "secondary",
+          subtitle: splashCopy.finalSubtitle,
+          title: splashCopy.finalTitle,
+          description: splashCopy.finalDescription,
+        }}
+      >
+        <div className="mx-auto mt-6 grid max-w-3xl grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2">
+          {splashCopy.finalButtons.map((button, index) => (
+            <Link
+              key={button.label}
+              href={button.href}
+              className={
+                index === 0 ? HOME_CTA_PRIMARY_CLASS : HOME_CTA_SECONDARY_CLASS
+              }
+            >
+              {button.label}
+            </Link>
+          ))}
+        </div>
+      </BrandedContentSection>
 
       {/* Next Steps Section */}
-      <NextStepsSection locale={locale} />
+      <NextStepsSection locale={locale} className={HOME_SECTION_SPACING} />
     </>
   );
 }

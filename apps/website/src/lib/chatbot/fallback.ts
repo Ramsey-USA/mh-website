@@ -190,7 +190,7 @@ const ENGLISH_INTENT_RESPONSES = [
       "build",
       "construction",
     ],
-    response: `MH Construction provides commercial construction, industrial work, healthcare and medical facilities, civic and nonprofit projects, public-sector construction, design-build support, tenant improvements, and pre-construction planning. You can see more at ${SITE_HOST}/#services or call ${CONTACT_PHONE}.`,
+    response: `MH Construction provides commercial construction, industrial work, healthcare and medical facilities, civic and nonprofit projects, public-sector construction, design-build support, tenant improvements, and pre-construction planning. You can see more at ${SITE_HOST}/services or call ${CONTACT_PHONE}.`,
   },
   {
     keywords: [
@@ -379,7 +379,7 @@ function getSpanishFallbackResponse(message: string): string {
       "que ofrecen",
     ])
   ) {
-    return `MH Construction ofrece construcción comercial, trabajo industrial, proyectos médicos y de salud, proyectos cívicos y sin fines de lucro, apoyo de diseño y construcción, mejoras para inquilinos y planificación previa a la construcción. Puede ver más en ${SITE_HOST}/#services o llamar al ${CONTACT_PHONE}.`;
+    return `MH Construction ofrece construcción comercial, trabajo industrial, proyectos médicos y de salud, proyectos cívicos y sin fines de lucro, apoyo de diseño y construcción, mejoras para inquilinos y planificación previa a la construcción. Puede ver más en ${SITE_HOST}/services o llamar al ${CONTACT_PHONE}.`;
   }
 
   if (

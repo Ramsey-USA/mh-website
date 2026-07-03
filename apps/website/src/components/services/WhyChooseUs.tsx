@@ -10,6 +10,11 @@ import {
 import { whyChooseUs } from "./servicesData";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import {
+  cornerRadius,
+  hoverMotion,
+  transitionDuration,
+} from "@/lib/styles/design-tokens";
+import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
@@ -26,7 +31,10 @@ export function WhyChooseUs({
   description,
 }: Readonly<WhyChooseUsProps>) {
   return (
-    <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+    <section
+      id="trust-in-action"
+      className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+    >
       <DiagonalStripePattern />
       <BrandColorBlobs />
 
@@ -34,10 +42,16 @@ export function WhyChooseUs({
         <FadeInWhenVisible>
           <div className="mb-16 sm:mb-20 text-center">
             <div className="flex items-center justify-center mb-8 gap-4">
-              <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div
+                className={`h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 ${cornerRadius.full}`}
+              ></div>
               <div className="relative">
-                <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                <div
+                  className={`absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl ${cornerRadius.full}`}
+                ></div>
+                <div
+                  className={`relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 ${cornerRadius.icon} shadow-2xl border-2 border-white/50 dark:border-gray-600`}
+                >
                   <MaterialIcon
                     icon="military_tech"
                     size="2xl"
@@ -45,7 +59,9 @@ export function WhyChooseUs({
                   />
                 </div>
               </div>
-              <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div
+                className={`h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 ${cornerRadius.full}`}
+              ></div>
             </div>
 
             <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
@@ -66,11 +82,17 @@ export function WhyChooseUs({
         <StaggeredFadeIn className={gridPresets.cards4("md", "gap-6 lg:gap-8")}>
           {whyChooseUs.map((reason) => {
             const cardContent = (
-              <Card className="group relative h-full overflow-hidden border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-brand-primary/30">
-                <div className="absolute top-0 right-0 h-32 w-32 translate-x-16 -translate-y-16 rounded-full bg-brand-primary/5 blur-2xl transition-transform duration-700 group-hover:scale-150 dark:bg-brand-primary/10"></div>
+              <Card
+                className={`group relative h-full overflow-hidden border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg transition-all ${transitionDuration.normal} hover:shadow-2xl hover:border-brand-primary/30`}
+              >
+                <div
+                  className={`absolute top-0 right-0 h-32 w-32 translate-x-16 -translate-y-16 ${cornerRadius.full} bg-brand-primary/5 blur-2xl transition-colors ${transitionDuration.slow} ${hoverMotion.imageZoom} dark:bg-brand-primary/10`}
+                ></div>
 
                 <CardHeader className="relative shrink-0">
-                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-brand-primary to-brand-primary-dark shadow-lg transition-all duration-300 group-hover:rotate-3 group-hover:scale-110">
+                  <div
+                    className={`mb-4 flex h-14 w-14 items-center justify-center ${cornerRadius.icon} bg-linear-to-br from-brand-primary to-brand-primary-dark shadow-lg ${hoverMotion.iconPlayful}`}
+                  >
                     <MaterialIcon
                       icon={reason.iconName}
                       size="xl"

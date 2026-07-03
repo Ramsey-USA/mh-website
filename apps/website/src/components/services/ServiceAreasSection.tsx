@@ -12,6 +12,11 @@ import { gridPresets } from "@/lib/styles/layout-variants";
 import { Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
+import {
+  cornerRadius,
+  hoverMotion,
+  transitionDuration,
+} from "@/lib/styles/design-tokens";
 
 interface ServiceArea {
   title: string;
@@ -62,7 +67,9 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
     >
       <FadeInWhenVisible>
         <div className="mx-auto mb-8 grid max-w-4xl gap-3 sm:grid-cols-3">
-          <Card className="rounded-xl border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80">
+          <Card
+            className={`${cornerRadius.element} border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80`}
+          >
             <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Service Hubs
             </p>
@@ -70,7 +77,9 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
               {serviceAreas.length}
             </p>
           </Card>
-          <Card className="rounded-xl border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80">
+          <Card
+            className={`${cornerRadius.element} border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80`}
+          >
             <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Coverage Points
             </p>
@@ -78,7 +87,9 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
               {totalAreas}
             </p>
           </Card>
-          <Card className="rounded-xl border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80">
+          <Card
+            className={`${cornerRadius.element} border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80`}
+          >
             <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Location Guides
             </p>
@@ -94,12 +105,16 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
           {serviceAreas.map((area) => (
             <Card
               key={area.title}
-              className="group relative overflow-hidden border-2 border-brand-primary/20 bg-linear-to-br from-white via-white to-brand-primary/10 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-brand-primary hover:shadow-2xl dark:border-brand-primary/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800/90 dark:hover:border-brand-primary-light dark:hover:shadow-brand-primary/20"
+              className={`group relative overflow-hidden border-2 border-brand-primary/20 bg-linear-to-br from-white via-white to-brand-primary/10 p-6 sm:p-7 shadow-lg transition-all ${transitionDuration.normal} hover:border-brand-primary hover:shadow-2xl dark:border-brand-primary/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800/90 dark:hover:border-brand-primary-light dark:hover:shadow-brand-primary/20 ${hoverMotion.translateUpLarge}`}
             >
-              <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-brand-primary/10 blur-2xl transition-transform duration-700 group-hover:scale-150 dark:bg-brand-primary/15"></div>
+              <div
+                className={`absolute -top-10 -right-10 h-28 w-28 ${cornerRadius.full} bg-brand-primary/10 blur-2xl transition-colors ${transitionDuration.slow} ${hoverMotion.imageZoom} dark:bg-brand-primary/15`}
+              ></div>
 
               <div className="relative mb-5 flex items-center gap-4">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-brand-primary to-brand-primary-dark shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                <div
+                  className={`flex h-14 w-14 shrink-0 items-center justify-center ${cornerRadius.icon} bg-linear-to-br from-brand-primary to-brand-primary-dark shadow-lg ${hoverMotion.iconPlayful}`}
+                >
                   <MaterialIcon
                     icon={area.iconName}
                     size="xl"
@@ -124,7 +139,9 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
                     const link = area.links?.[originalIndex] ?? null;
                     const content = (
                       <>
-                        <div className="mr-3 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-brand-primary/10 transition-transform duration-200 group-hover/item:scale-110 dark:bg-brand-primary/20">
+                        <div
+                          className={`mr-3 flex h-6 w-6 shrink-0 items-center justify-center ${cornerRadius.small} bg-brand-primary/10 transition-colors ${transitionDuration.fast} dark:bg-brand-primary/20`}
+                        >
                           <MaterialIcon
                             icon="check_circle"
                             size="sm"
@@ -155,12 +172,14 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
                         {link ? (
                           <Link
                             href={link}
-                            className="flex items-center rounded-xl border border-brand-primary/15 bg-white/80 px-3 py-3 transition-all duration-200 hover:border-brand-secondary/40 hover:bg-white dark:border-brand-primary/20 dark:bg-gray-900/70 dark:hover:bg-gray-900"
+                            className={`flex items-center ${cornerRadius.element} border border-brand-primary/15 bg-white/80 px-3 py-3 transition-all ${transitionDuration.fast} hover:border-brand-secondary/40 hover:bg-white dark:border-brand-primary/20 dark:bg-gray-900/70 dark:hover:bg-gray-900`}
                           >
                             {content}
                           </Link>
                         ) : (
-                          <div className="flex items-center rounded-xl border border-brand-primary/10 bg-white/60 px-3 py-3 dark:border-brand-primary/20 dark:bg-gray-900/60">
+                          <div
+                            className={`flex items-center ${cornerRadius.element} border border-brand-primary/10 bg-white/60 px-3 py-3 dark:border-brand-primary/20 dark:bg-gray-900/60`}
+                          >
                             {content}
                           </div>
                         )}
@@ -186,7 +205,7 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
           <div className="mx-auto mt-8 max-w-4xl text-center">
             <Link
               href="/locations"
-              className="inline-flex items-center rounded-full border border-brand-primary/30 bg-white px-5 py-2.5 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary hover:text-white dark:border-brand-primary/40 dark:bg-gray-900"
+              className={`inline-flex items-center ${cornerRadius.full} border border-brand-primary/30 bg-white px-5 py-2.5 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary hover:text-white dark:border-brand-primary/40 dark:bg-gray-900`}
             >
               View full location coverage
               <MaterialIcon icon="arrow_forward" size="sm" className="ml-2" />

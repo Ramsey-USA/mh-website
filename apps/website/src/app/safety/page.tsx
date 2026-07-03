@@ -9,7 +9,6 @@ import { StructuredData } from "@/components/seo/SeoMeta";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { PageTrackingClient } from "@/components/analytics";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
-import { PWAInstallCTA } from "@/components/pwa";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import {
   formatDualPageName,
@@ -794,13 +793,11 @@ export default function SafetyPage() {
                 .
               </p>
 
-              <div className="flex flex-col items-center gap-4">
-                <PWAInstallCTA className="w-full max-w-sm" variant="button" />
-                <p className="text-sm text-slate-400">
-                  Safety documentation and workflows available for authorized
-                  team members.
-                </p>
-              </div>
+              <p className="text-sm text-slate-400">
+                Safety documentation and workflows are available for authorized
+                team members in the MH Construction app. Use the Install App
+                button in the site header or footer.
+              </p>
             </div>
           </div>
         </div>

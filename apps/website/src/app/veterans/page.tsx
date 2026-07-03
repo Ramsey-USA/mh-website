@@ -218,7 +218,7 @@ export default async function VeteransPage() {
           {/* Veteran Foundation - Our Leadership & Values */}
           <section
             id="veteran-leadership"
-            className="relative py-20 lg:py-32 xl:py-40"
+            className="relative py-12 sm:py-16 lg:py-20 xl:py-24"
           >
             <div className="relative z-10 mx-auto px-4 container">
               {/* Section Header */}
@@ -272,7 +272,7 @@ export default async function VeteransPage() {
                   >
                     {/* Colored Border Glow */}
                     <div
-                      className={`absolute -inset-2 bg-linear-to-br ${value.iconBgGradient} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
+                      className={`absolute -inset-2 bg-linear-to-br ${value.iconBgGradient} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500`}
                     ></div>
 
                     <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
@@ -289,7 +289,7 @@ export default async function VeteransPage() {
                               className={`absolute -inset-2 bg-linear-to-br ${value.iconBgGradient} opacity-30 blur-lg rounded-2xl`}
                             ></div>
                             <div
-                              className={`relative inline-flex items-center justify-center w-16 h-16 bg-linear-to-br ${value.iconBgGradient} rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 transition-all duration-300`}
+                              className={`relative inline-flex items-center justify-center w-16 h-16 bg-linear-to-br ${value.iconBgGradient} rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 transition-all duration-300`}
                             >
                               <MaterialIcon
                                 icon={value.icon}
@@ -301,7 +301,7 @@ export default async function VeteransPage() {
                           </div>
                           <div className="text-right">
                             <div
-                              className={`text-3xl sm:text-4xl font-black group-hover:scale-105 transition-transform duration-300 ${
+                              className={`text-3xl sm:text-4xl font-black transition-colors duration-300 ${
                                 value.accentColor === "bronze-500"
                                   ? "text-bronze-700 dark:text-bronze-400"
                                   : value.accentColor === "brand-secondary"
@@ -358,7 +358,7 @@ export default async function VeteransPage() {
                               className="flex items-start gap-3"
                             >
                               <div
-                                className={`mt-0.5 shrink-0 w-5 h-5 rounded-full bg-linear-to-br ${value.iconBgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                                className={`mt-0.5 shrink-0 w-5 h-5 rounded-full bg-linear-to-br ${value.iconBgGradient} flex items-center justify-center transition-colors duration-300`}
                               >
                                 <MaterialIcon
                                   icon="check"
@@ -385,7 +385,7 @@ export default async function VeteransPage() {
                   style={{ "--delay": "0.1s" } as React.CSSProperties}
                 >
                   <div className="group relative flex h-full">
-                    <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
                     <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
@@ -402,7 +402,7 @@ export default async function VeteransPage() {
                               ariaLabel={t(
                                 "veteransPage.leadership.jeremy.aria",
                               )}
-                              className="text-brand-primary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                              className="text-brand-primary drop-shadow-lg transition-all duration-300"
                             />
                           </div>
                         </div>
@@ -426,7 +426,7 @@ export default async function VeteransPage() {
                   style={{ "--delay": "0.2s" } as React.CSSProperties}
                 >
                   <div className="group relative flex h-full">
-                    <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
                     <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
@@ -441,7 +441,7 @@ export default async function VeteransPage() {
                               size="5xl"
                               theme="veteran"
                               ariaLabel={t("veteransPage.leadership.matt.aria")}
-                              className="text-brand-secondary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                              className="text-brand-secondary drop-shadow-lg transition-all duration-300"
                             />
                           </div>
                         </div>
@@ -465,7 +465,7 @@ export default async function VeteransPage() {
           {/* Combat Veteran Discount Section */}
           <section
             id="combat-veteran-discount"
-            className="relative py-20 lg:py-32 xl:py-40"
+            className="relative py-12 sm:py-16 lg:py-20 xl:py-24"
           >
             <div className="relative z-10 mx-auto px-4 container">
               {/* Section Header - Military Construction Standard */}
@@ -512,7 +512,7 @@ export default async function VeteransPage() {
               <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
                 {combatCards.map((card, cardIndex) => (
                   <div key={card.key} className="group relative flex h-full">
-                    <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
                     <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:border-transparent group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
                       <div
                         className={`h-2 ${
@@ -538,7 +538,7 @@ export default async function VeteransPage() {
                               ariaLabel={t(
                                 `veteransPage.combat.cards.${card.key}.aria`,
                               )}
-                              className={`drop-shadow-lg group-hover:scale-110 transition-all duration-300 ${
+                              className={`drop-shadow-lg transition-all duration-300 ${
                                 cardIndex === 0
                                   ? "text-brand-primary"
                                   : "text-brand-secondary"
@@ -588,7 +588,7 @@ export default async function VeteransPage() {
                           <>
                             {/* Content Left */}
                             <div className="flex-1 text-right">
-                              <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-primary dark:group-hover:border-brand-primary-light">
+                              <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:border-brand-primary dark:group-hover:border-brand-primary-light">
                                 <div className="flex items-center justify-end gap-4 mb-4">
                                   <div>
                                     <h4 className="font-black text-gray-900 dark:text-white text-xl mb-1">
@@ -597,7 +597,7 @@ export default async function VeteransPage() {
                                       )}
                                     </h4>
                                   </div>
-                                  <div className="shrink-0 w-14 h-14 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                                  <div className="shrink-0 w-14 h-14 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg transition-colors duration-300">
                                     <MaterialIcon
                                       icon={step.icon}
                                       size="lg"
@@ -616,7 +616,7 @@ export default async function VeteransPage() {
 
                             {/* Center Circle */}
                             <div className="shrink-0 relative z-10">
-                              <div className="w-16 h-16 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                              <div className="w-16 h-16 bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-xl shadow-2xl border-4 border-white dark:border-gray-900 transition-colors duration-300">
                                 {step.num}
                               </div>
                             </div>
@@ -631,16 +631,16 @@ export default async function VeteransPage() {
 
                             {/* Center Circle */}
                             <div className="shrink-0 relative z-10">
-                              <div className="w-16 h-16 bg-linear-to-br from-brand-secondary to-bronze-700 rounded-full flex items-center justify-center text-white font-black text-xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                              <div className="w-16 h-16 bg-linear-to-br from-brand-secondary to-bronze-700 rounded-full flex items-center justify-center text-white font-black text-xl shadow-2xl border-4 border-white dark:border-gray-900 transition-colors duration-300">
                                 {step.num}
                               </div>
                             </div>
 
                             {/* Content Right */}
                             <div className="flex-1 text-left">
-                              <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-secondary dark:group-hover:border-brand-secondary-light">
+                              <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:border-brand-secondary dark:group-hover:border-brand-secondary-light">
                                 <div className="flex items-center gap-4 mb-4">
-                                  <div className="shrink-0 w-14 h-14 bg-linear-to-br from-brand-secondary to-bronze-700 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
+                                  <div className="shrink-0 w-14 h-14 bg-linear-to-br from-brand-secondary to-bronze-700 rounded-xl flex items-center justify-center shadow-lg transition-colors duration-300">
                                     <MaterialIcon
                                       icon={step.icon}
                                       size="lg"
@@ -775,7 +775,7 @@ export default async function VeteransPage() {
           {/* Year-Round Veteran Support - Impact by the Numbers */}
           <section
             id="year-round-support"
-            className="relative py-20 lg:py-32 xl:py-40"
+            className="relative py-12 sm:py-16 lg:py-20 xl:py-24"
           >
             <div className="relative z-10 mx-auto px-4 container">
               {/* Section Header - Military Construction Standard */}
@@ -825,14 +825,14 @@ export default async function VeteransPage() {
                 {supportStats.map((stat) => (
                   <Card
                     key={stat.key}
-                    className="group h-full flex flex-col border-2 border-gray-200 bg-white p-6 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 dark:hover:shadow-brand-primary/20 sm:p-8"
+                    className="group h-full flex flex-col border-2 border-gray-200 bg-white p-6 text-center shadow-lg transition-all duration-300 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 dark:hover:shadow-brand-primary/20 sm:p-8"
                   >
                     <div className="relative inline-block mb-4 mx-auto">
                       <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/30 to-brand-secondary/30 opacity-20 blur-lg rounded-full group-hover:opacity-40 transition-opacity"></div>
                       <div className="relative">
                         <MaterialIcon
                           icon={stat.icon}
-                          className="text-brand-primary group-hover:scale-110 transition-transform"
+                          className="text-brand-primary transition-colors"
                           size="2xl"
                           theme="veteran"
                         />
@@ -855,9 +855,9 @@ export default async function VeteransPage() {
               <div className={`${gridPresets.cards3("md")} relative z-10`}>
                 <div className="group relative flex h-full scroll-reveal">
                   {/* Animated Border Glow */}
-                  <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                  <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
-                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 group-hover:border-transparent">
+                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 group-hover:border-transparent">
                     {/* Top Accent Bar */}
                     <div className="h-2 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
@@ -872,7 +872,7 @@ export default async function VeteransPage() {
                             ariaLabel={t(
                               "veteransPage.support.programs.hiring.aria",
                             )}
-                            className="text-brand-primary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                            className="text-brand-primary drop-shadow-lg transition-all duration-300"
                           />
                         </div>
                       </div>
@@ -904,9 +904,9 @@ export default async function VeteransPage() {
 
                 <div className="group relative flex h-full scroll-reveal">
                   {/* Animated Border Glow */}
-                  <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                  <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
-                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 group-hover:border-transparent">
+                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 group-hover:border-transparent">
                     {/* Top Accent Bar */}
                     <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
@@ -921,7 +921,7 @@ export default async function VeteransPage() {
                             ariaLabel={t(
                               "veteransPage.support.programs.allies.aria",
                             )}
-                            className="text-brand-secondary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                            className="text-brand-secondary drop-shadow-lg transition-all duration-300"
                           />
                         </div>
                       </div>
@@ -953,9 +953,9 @@ export default async function VeteransPage() {
 
                 <div className="group relative flex h-full scroll-reveal">
                   {/* Animated Border Glow */}
-                  <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                  <div className="absolute -inset-2 bg-linear-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
-                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 group-hover:border-transparent">
+                  <Card className="relative flex w-full flex-col overflow-hidden border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 group-hover:border-transparent">
                     {/* Top Accent Bar */}
                     <div className="h-2 bg-linear-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
@@ -970,7 +970,7 @@ export default async function VeteransPage() {
                             ariaLabel={t(
                               "veteransPage.support.programs.training.aria",
                             )}
-                            className="text-brand-secondary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                            className="text-brand-secondary drop-shadow-lg transition-all duration-300"
                           />
                         </div>
                       </div>
@@ -1008,7 +1008,7 @@ export default async function VeteransPage() {
           {/* Strategic Veteran Partnerships Section */}
           <section
             id="veteran-partnerships"
-            className="relative py-20 lg:py-32 xl:py-40"
+            className="relative py-12 sm:py-16 lg:py-20 xl:py-24"
           >
             <div className="absolute inset-0 opacity-10 pointer-events-none">
               <Image
