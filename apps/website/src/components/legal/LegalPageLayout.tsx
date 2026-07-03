@@ -10,6 +10,10 @@ interface LegalPageLayoutProps {
   title: string;
   lastUpdated: string;
   structuredData: Record<string, unknown>;
+  eyebrow?: string;
+  description?: string;
+  backToHomeLabel?: string;
+  lastUpdatedLabel?: string;
   children: ReactNode;
 }
 
@@ -18,6 +22,10 @@ export function LegalPageLayout({
   title,
   lastUpdated,
   structuredData,
+  eyebrow = "Policy Brief",
+  description = "Clear policies and transparent standards for every Client Partner.",
+  backToHomeLabel = "Back to Home",
+  lastUpdatedLabel = "Last Updated",
   children,
 }: LegalPageLayoutProps) {
   return (
@@ -26,10 +34,10 @@ export function LegalPageLayout({
       <StructuredData data={structuredData} />
 
       <PageHero
-        eyebrow="Policy Brief"
+        eyebrow={eyebrow}
         title={title}
-        highlight={`Last Updated ${lastUpdated}`}
-        description="Clear policies and transparent standards for every Client Partner."
+        highlight={`${lastUpdatedLabel} ${lastUpdated}`}
+        description={description}
       />
 
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
@@ -39,7 +47,7 @@ export function LegalPageLayout({
             className="mb-6 inline-flex items-center space-x-2 text-brand-primary transition-colors hover:text-brand-primary-dark"
           >
             <MaterialIcon icon="arrow_back" size="sm" />
-            <span>Back to Home</span>
+            <span>{backToHomeLabel}</span>
           </Link>
 
           <h2 className="mb-4 text-3xl font-black text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
@@ -47,7 +55,7 @@ export function LegalPageLayout({
           </h2>
 
           <p className="text-gray-600 dark:text-gray-300">
-            Last Updated: {lastUpdated}
+            {lastUpdatedLabel}: {lastUpdated}
           </p>
         </div>
 

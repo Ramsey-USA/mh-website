@@ -2,10 +2,14 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 
 interface LegalContactCardProps {
   showAddress?: boolean;
+  phoneLabel?: string;
+  emailLabel?: string;
 }
 
 export function LegalContactCard({
   showAddress = true,
+  phoneLabel = "Phone",
+  emailLabel = "Email",
 }: LegalContactCardProps) {
   return (
     <div className="rounded-lg bg-gray-100 p-6 dark:bg-gray-800">
@@ -20,7 +24,7 @@ export function LegalContactCard({
             <br />
           </>
         )}
-        Phone:{" "}
+        {phoneLabel}:{" "}
         <a
           href={`tel:${COMPANY_INFO.phone.tel}`}
           className="text-brand-primary hover:underline"
@@ -28,7 +32,7 @@ export function LegalContactCard({
           {COMPANY_INFO.phone.display}
         </a>
         <br />
-        Email:{" "}
+        {emailLabel}:{" "}
         <a
           href={`mailto:${COMPANY_INFO.email.main}`}
           className="text-brand-primary hover:underline"

@@ -12,7 +12,7 @@ const ServicesShowcase = dynamic(
     ssr: false,
     loading: () => (
       <section
-        className="bg-white py-12 sm:py-16 lg:py-20 xl:py-24"
+        className="bg-white py-12 sm:py-16 lg:py-20 xl:py-24 dark:bg-gray-900"
         id="services"
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -77,7 +77,7 @@ export function ServicesShowcaseDeferred({
         />
       ) : (
         <section
-          className="bg-white py-12 sm:py-16 lg:py-20 xl:py-24"
+          className="bg-white py-12 sm:py-16 lg:py-20 xl:py-24 dark:bg-gray-900"
           id="services"
         >
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">

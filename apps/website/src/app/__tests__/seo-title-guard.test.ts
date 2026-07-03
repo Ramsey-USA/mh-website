@@ -54,6 +54,37 @@ function findBrandedRouteTitles(appDir: string): RouteTitleMatch[] {
   return results;
 }
 
+function findHelperBackedRouteTitles(appDir: string): string[] {
+  const routeFiles = walkFiles(appDir);
+  const results: string[] = [];
+
+  for (const filePath of routeFiles) {
+    if (filePath.endsWith(path.join("src", "app", "layout.tsx"))) {
+      continue;
+    }
+
+    const content = fs.readFileSync(filePath, "utf8");
+    const hasMetadataDeclaration =
+      content.includes("export const metadata") ||
+      content.includes("export async function generateMetadata");
+
+    if (!hasMetadataDeclaration) {
+      continue;
+    }
+
+    const hasHelperTitleSignal =
+      content.includes("buildDualSeoTitle(") ||
+      content.includes("formatDualPageName(") ||
+      content.includes("getDualPageNameByKey(");
+
+    if (hasHelperTitleSignal) {
+      results.push(filePath);
+    }
+  }
+
+  return results;
+}
+
 describe("SEO title suffix guard", () => {
   it("keeps root title template neutral when routes already include branded titles", () => {
     const appDir = path.join(process.cwd(), "src", "app");
@@ -63,6 +94,7 @@ describe("SEO title suffix guard", () => {
     const templateMatch = rootLayoutContent.match(/template\s*:\s*"([^"]+)"/);
     const rootTemplate = templateMatch?.[1] ?? "";
     const brandedRouteTitles = findBrandedRouteTitles(appDir);
+    const helperBackedRouteTitles = findHelperBackedRouteTitles(appDir);
 
     // Guardrails:
     // 1) Root title template must stay neutral.
@@ -86,6 +118,8 @@ describe("SEO title suffix guard", () => {
       );
     }
 
-    expect(brandedRouteTitles.length).toBeGreaterThan(0);
+    expect(
+      brandedRouteTitles.length + helperBackedRouteTitles.length,
+    ).toBeGreaterThan(0);
   });
 });

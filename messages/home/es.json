@@ -60,7 +60,7 @@
   "services": {
     "sectionSubtitle": "Selector de Servicios",
     "sectionTitle": "Filtre por Ruta de Entrega y Enfoque de Proyecto",
-    "sectionDescription": "Use los filtros para encontrar rapidamente la tarjeta de servicio que mejor se ajusta al alcance y prioridades de entrega de su proyecto. Nuestra operación es principalmente comercial y también evaluamos Custom Home Builds selectivos por ajuste.",
+    "sectionDescription": "Use los filtros para encontrar rápidamente la tarjeta de servicio que mejor se ajusta al alcance y prioridades de su proyecto. Nuestra operación es principalmente comercial y evaluamos Custom Home Builds cuando hay ajuste de alcance.",
     "funnel": {
       "pathStepLabel": "Paso 1: Elija una ruta de entrega",
       "focusStepLabel": "Paso 2: Elija el enfoque de su proyecto",
@@ -106,8 +106,8 @@
         ],
         "benefits": [
           "Elimine decisiones costosas de último momento",
-          "Confiabilidad comprobada",
-          "Transparencia completa",
+          "Ritmo de entrega predecible",
+          "Visibilidad clara de costos y alcance",
           "Más de 150 años de experiencia combinada"
         ],
         "cta": "Explorar Servicios"
@@ -142,8 +142,8 @@
         ],
         "benefits": [
           "Licencia en 3 estados (WA, OR, ID)",
-          "Enfoque en calidad primero",
-          "Historial comprobado",
+          "Reportes listos para agencia",
+          "Controles de calidad hasta el cierre",
           "Gestión completa de proyectos"
         ],
         "cta": "Ver Proyectos"
@@ -187,17 +187,17 @@
       {
         "title": "Renovaciones Comerciales y Custom Home Builds Selectivos",
         "subtitle": "Operación Comercial Primero con Residencial por Ajuste",
-        "description": "La renovación comercial es nuestra ruta principal y también consideramos Custom Home Builds selectivos cuando alcance, cronograma y ruta de entrega están alineados.",
+        "description": "La renovación comercial es nuestra ruta principal y también consideramos Custom Home Builds cuando alcance, cronograma y ruta de entrega están alineados.",
         "features": [
           "Planificación y ejecución de renovaciones comerciales",
           "Integración de puertas y herrajes cuando aplique",
-          "Evaluación selectiva de custom homes por ajuste de alcance",
+          "Evaluación de custom homes según ajuste de alcance y cronograma",
           "Expectativas claras de preconstrucción antes del compromiso"
         ],
         "benefits": [
-          "Enfoque principal en ejecución comercial",
-          "Calificación clara para custom homes",
-          "Planificación transparente antes de movilizar",
+          "Criterios de calificación definidos",
+          "Revisión transparente de alcance y cronograma",
+          "Alineación de preconstrucción antes de movilizar",
           "Estándares consistentes de calidad y comunicación"
         ],
         "cta": "Iniciar Calificación"

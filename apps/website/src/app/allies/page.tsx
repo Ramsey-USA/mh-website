@@ -783,7 +783,7 @@ export default async function AlliesPage() {
               {sortedVendors.map((vendor) => (
                 <div
                   key={vendor.name}
-                  className="group flex items-center justify-center rounded-xl border-2 bg-white shadow-md transition-all duration-300 hover:shadow-xl"
+                  className="group flex items-center justify-center rounded-xl border-2 bg-white shadow-md transition-all duration-300 hover:shadow-xl dark:bg-gray-800 dark:shadow-black/30"
                   style={{
                     borderColor: vendor.brandColors
                       ? `${vendor.brandColors.primary}60`

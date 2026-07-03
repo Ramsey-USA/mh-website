@@ -51,6 +51,10 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Resources", url: "https://www.mhc-gc.com/resources" },
 ]);
 
+const resourcesMissionLine = "Built on Quality, Backed by Trust.";
+const resourcesSupportingLine =
+  "No gaps. No guesswork. Just accountable follow-through.";
+
 export default function ResourcesPage() {
   const safetyManual = manuals.find((doc) => doc.id === "safety-manual");
 
@@ -70,6 +74,14 @@ export default function ResourcesPage() {
               { label: "Resources", href: "/resources" },
             ]}
           />
+
+          <p className="mt-4 mb-8 text-sm sm:text-base text-gray-600 dark:text-gray-300">
+            Download field-ready manuals, forms, and compliance documents from
+            one organized library.
+          </p>
+          <span className="sr-only">
+            {resourcesMissionLine} {resourcesSupportingLine}
+          </span>
 
           {/* Bonding & Insurance Agency CTA */}
           <FadeInWhenVisible>
@@ -95,9 +107,9 @@ export default function ResourcesPage() {
                     </span>
                   </div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                    View the OSHA 29 CFR 1926-compliant safety overview with
-                    compliance credentials, section mapping, and direct PDF
-                    access for pre-qualification and surety review.
+                    Access our OSHA-aligned safety overview with credentials,
+                    section mapping, and direct PDFs for pre-qualification and
+                    surety review.
                   </p>
                   <div className="flex flex-wrap gap-2 mt-3">
                     <SafetyComplianceBadge variant="osha" />
@@ -138,8 +150,8 @@ export default function ResourcesPage() {
                   </span>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Open every individual QR code at full size and download the
-                  PNG directly from one central gallery.
+                  Open each QR code at full size and download PNG files from a
+                  single gallery.
                 </p>
               </div>
               <MaterialIcon
@@ -216,12 +228,6 @@ export default function ResourcesPage() {
                     />
                     Browse Interactive Index
                   </Link>
-                  <Button asChild variant="outline" size="sm">
-                    <Link href="/resources">
-                      <MaterialIcon icon="arrow_back" size="sm" />
-                      Back to Resources
-                    </Link>
-                  </Button>
                 </div>
               </Card>
             )}

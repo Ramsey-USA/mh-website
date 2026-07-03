@@ -60,7 +60,7 @@
   "services": {
     "sectionSubtitle": "Service Matcher",
     "sectionTitle": "Filter by Delivery Path and Project Focus",
-    "sectionDescription": "Use the filters to quickly find the service card that best fits your project scope and delivery priorities. Our core delivery is commercial, with select Custom Home Builds by fit.",
+    "sectionDescription": "Use the filters to quickly find the service card that best fits your project scope and priorities. Our core work is commercial, with select custom home builds by fit.",
     "funnel": {
       "pathStepLabel": "Step 1: Choose a delivery path",
       "focusStepLabel": "Step 2: Choose your project focus",
@@ -106,8 +106,8 @@
         ],
         "benefits": [
           "Eliminate costly last-minute decisions",
-          "Proven reliability",
-          "Complete transparency",
+          "Predictable delivery cadence",
+          "Clear cost and scope visibility",
           "Cross-discipline field and management experience"
         ],
         "cta": "Explore Services"
@@ -142,8 +142,8 @@
         ],
         "benefits": [
           "3-state licensing (WA, OR, ID)",
-          "Quality-first focus",
-          "Proven track record",
+          "Agency-ready reporting",
+          "Quality controls through closeout",
           "Complete project management"
         ],
         "cta": "View Projects"
@@ -187,17 +187,17 @@
       {
         "title": "Commercial Renovations and Select Custom Home Builds",
         "subtitle": "Commercial-First Delivery with Residential by Fit",
-        "description": "Commercial renovation remains our primary lane, and we also entertain select Custom Home Builds when scope, schedule, and delivery fit align.",
+        "description": "Commercial renovation remains our primary lane, and we also take on custom home builds when scope, schedule, and delivery conditions align.",
         "features": [
           "Commercial renovation planning and execution",
           "Door and hardware integration where required",
-          "Selective custom home review by scope fit",
+          "Custom home review based on scope and timeline fit",
           "Clear preconstruction expectations before commitment"
         ],
         "benefits": [
-          "Commercial-first execution focus",
-          "Clear qualification for custom homes",
-          "Transparent planning before mobilization",
+          "Defined qualification criteria",
+          "Transparent scope and schedule review",
+          "Preconstruction alignment before mobilization",
           "Consistent quality and communication standards"
         ],
         "cta": "Start Qualification"

@@ -60,6 +60,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 
 const SITE_URL = "https://www.mhc-gc.com";
+const testimonialsMissionLine = "Built on Quality, Backed by Trust.";
+const testimonialsSupportingLine =
+  "No gaps. No guesswork. Just accountable follow-through.";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -107,20 +110,19 @@ function StaticTestimonialsSection({
     <section
       id="client-testimonials"
       data-lighthouse-audit="true"
-      className="bg-linear-to-b from-gray-50 via-white to-gray-100 py-16 sm:py-20 lg:py-24"
+      className="bg-linear-to-b from-gray-50 via-white to-gray-100 py-16 sm:py-20 lg:py-24 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-12 max-w-4xl text-center">
           <p className="mb-3 font-semibold uppercase tracking-[0.3em] text-brand-primary text-sm">
             Trusted By Our Partners
           </p>
-          <h2 className="font-black text-gray-900 text-3xl sm:text-4xl lg:text-5xl tracking-tight">
+          <h2 className="font-black text-gray-900 text-3xl sm:text-4xl lg:text-5xl tracking-tight dark:text-white">
             What Our Client Partners Say
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-gray-600 text-base sm:text-lg leading-relaxed">
-            Read testimonials from valued Client Partners across the Pacific
-            Northwest who have experienced our collaborative excellence
-            firsthand.
+          <p className="mx-auto mt-4 max-w-3xl text-gray-600 text-base sm:text-lg leading-relaxed dark:text-gray-300">
+            Verified feedback from Client Partners across the Pacific Northwest
+            on communication, quality, and delivery follow-through.
           </p>
         </div>
 
@@ -128,7 +130,7 @@ function StaticTestimonialsSection({
           {testimonials.map((testimonial) => (
             <article
               key={testimonial.id}
-              className="rounded-3xl border border-gray-200 bg-white p-6 sm:p-8 shadow-xl shadow-gray-200/60"
+              className="rounded-3xl border border-gray-200 bg-white p-6 sm:p-8 shadow-xl shadow-gray-200/60 dark:border-gray-700 dark:bg-gray-800 dark:shadow-black/30"
             >
               <div className="mb-5 flex items-center gap-1 text-brand-secondary">
                 {Array.from({ length: testimonial.rating || 5 }).map((_, i) => (
@@ -140,15 +142,15 @@ function StaticTestimonialsSection({
                   />
                 ))}
               </div>
-              <blockquote className="text-lg leading-relaxed italic text-gray-700">
+              <blockquote className="text-lg leading-relaxed italic text-gray-700 dark:text-gray-300">
                 "{testimonial.quote}"
               </blockquote>
-              <div className="mt-6 border-t border-gray-100 pt-5">
-                <p className="text-lg font-black text-gray-900">
+              <div className="mt-6 border-t border-gray-100 pt-5 dark:border-gray-700">
+                <p className="text-lg font-black text-gray-900 dark:text-white">
                   {testimonial.name}
                 </p>
                 {testimonial.location && (
-                  <p className="mt-1 text-sm text-gray-600">
+                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
                     {testimonial.location}
                   </p>
                 )}
@@ -287,7 +289,7 @@ export default async function TestimonialsPage(props?: {
               id="client-testimonials"
               subtitle="Trusted By Our Partners"
               title="What Our Client Partners Say"
-              description="Verified testimonials from Client Partners across the Pacific Northwest."
+              description={`Verified testimonials from Client Partners across the Pacific Northwest. ${testimonialsMissionLine} ${testimonialsSupportingLine}`}
               testimonials={testimonials}
               autoPlay={true}
               autoPlayInterval={5000}
@@ -330,7 +332,7 @@ export default async function TestimonialsPage(props?: {
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   Our four core values show up in measurable results across
                   commercial, industrial, and government projects throughout
-                  Washington, Oregon, and Idaho.
+                  Washington, Oregon, and Idaho for Client Partners.
                 </p>
               </div>
 
@@ -365,27 +367,9 @@ export default async function TestimonialsPage(props?: {
                       <span className="font-bold text-brand-primary">
                         Transparent pricing
                       </span>{" "}
-                      with no hidden costs. Realistic timelines and honest
-                      assessments every time.
+                      with clear expectations, realistic timelines, and no
+                      hidden costs.
                     </p>
-                    <div className="text-xs text-gray-600 dark:text-gray-300 space-y-1">
-                      <div className="flex items-center gap-1">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary"
-                        />
-                        <span>Open-book pricing</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary"
-                        />
-                        <span>No surprises, just solutions</span>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
@@ -418,27 +402,8 @@ export default async function TestimonialsPage(props?: {
                       <span className="font-bold text-brand-primary">
                         Promise-keeping culture
                       </span>{" "}
-                      backed by 70% referral business and 650+ completed
-                      projects.
+                      backed by repeat partnerships and long-term referrals.
                     </p>
-                    <div className="text-xs text-gray-600 dark:text-gray-300 space-y-1">
-                      <div className="flex items-center gap-1">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary"
-                        />
-                        <span>We finish what we start</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary"
-                        />
-                        <span>Your word is your bond — so is ours</span>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
@@ -471,27 +436,9 @@ export default async function TestimonialsPage(props?: {
                       <span className="font-bold text-brand-primary">
                         Verified credentials
                       </span>{" "}
-                      spanning safety performance, field experience, and
-                      tri-state licensing.
+                      across safety performance, field leadership, and tri-state
+                      licensing.
                     </p>
-                    <div className="text-xs text-gray-600 dark:text-gray-300 space-y-1">
-                      <div className="flex items-center gap-1">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary"
-                        />
-                        <span>Disciplined execution applied</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary"
-                        />
-                        <span>Expert credentials</span>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
@@ -524,27 +471,8 @@ export default async function TestimonialsPage(props?: {
                       <span className="font-bold text-brand-primary">
                         Zero-gap quality
                       </span>{" "}
-                      with meticulous attention to detail. Zero accidents, zero
-                      shortcuts.
+                      with detail-focused planning, coordination, and closeout.
                     </p>
-                    <div className="text-xs text-gray-600 dark:text-gray-300 space-y-1">
-                      <div className="flex items-center gap-1">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary"
-                        />
-                        <span>Every detail matters</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-brand-primary"
-                        />
-                        <span>Comprehensive quality control</span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -797,8 +725,8 @@ export default async function TestimonialsPage(props?: {
             </span>
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl mb-10 text-white/90 font-light">
-            Join Client Partners across the Pacific Northwest who trust MH
-            Construction for reliable delivery.
+            Partner with a veteran-led team focused on clear communication and
+            accountable delivery.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild variant="secondary" size="lg">

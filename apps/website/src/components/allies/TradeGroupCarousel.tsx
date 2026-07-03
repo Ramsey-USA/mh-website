@@ -65,7 +65,7 @@ export function TradeGroupCarousel({
     >
       {/* Logo or icon fallback */}
       <div
-        className="relative flex items-center justify-center rounded-2xl w-44 h-44 border-4 bg-white shadow-xl overflow-hidden"
+        className="relative flex items-center justify-center rounded-2xl w-44 h-44 border-4 bg-white shadow-xl overflow-hidden dark:bg-gray-800 dark:shadow-black/30"
         style={
           vendor.brandColors
             ? { borderColor: `${vendor.brandColors.primary}60` }
@@ -258,7 +258,7 @@ export function TradeGroupCarousel({
         {/* Brand accent bar */}
         <div
           className={cn(
-            "h-1.5 w-full flex-shrink-0",
+            "h-1.5 w-full shrink-0",
             !vendor.brandColors && `bg-linear-to-r ${vendor.accentColor}`,
           )}
           style={

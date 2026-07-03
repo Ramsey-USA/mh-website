@@ -223,9 +223,38 @@ export default async function RootLayout({
   const enableRuntimeEnhancements = isProduction && !isLighthouseAudit;
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className="dark" suppressHydrationWarning>
       <head>
         <FaviconLinks />
+        <Script
+          id="set-theme-before-hydration"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(() => {
+              try {
+                const storageKey = "mh-construction-theme";
+                const stored = localStorage.getItem(storageKey);
+                const theme =
+                  stored === "dark" || stored === "light" || stored === "system"
+                    ? stored
+                    : "dark";
+                const prefersDark =
+                  window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches;
+                const shouldUseDark =
+                  theme === "dark" || (theme === "system" && prefersDark);
+
+                document.documentElement.classList.toggle("dark", shouldUseDark);
+                document.documentElement.style.colorScheme = shouldUseDark
+                  ? "dark"
+                  : "light";
+              } catch {
+                document.documentElement.classList.add("dark");
+                document.documentElement.style.colorScheme = "dark";
+              }
+            })();`,
+          }}
+        />
         {/* Google Analytics */}
         {isProduction && process.env["NEXT_PUBLIC_GA_MEASUREMENT_ID"] && (
           <GoogleAnalytics

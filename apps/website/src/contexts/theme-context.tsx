@@ -32,6 +32,22 @@ const initialState: ThemeProviderState = {
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
+function isValidTheme(theme: string | null): theme is Theme {
+  return theme === "dark" || theme === "light" || theme === "system";
+}
+
+function resolveIsDark(theme: Theme) {
+  if (theme === "dark") {
+    return true;
+  }
+
+  if (theme === "light") {
+    return false;
+  }
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
 export function ThemeProvider({
   children,
   defaultTheme = "dark",
@@ -42,31 +58,35 @@ export function ThemeProvider({
 
   useEffect(() => {
     setMounted(true);
-    const storedTheme = localStorage.getItem(storageKey) as Theme;
-    if (storedTheme) {
+    const storedTheme = localStorage.getItem(storageKey);
+    if (isValidTheme(storedTheme)) {
       setThemeState(storedTheme);
+    } else {
+      setThemeState(defaultTheme);
     }
-  }, [storageKey]);
+  }, [defaultTheme, storageKey]);
 
   useEffect(() => {
     if (!mounted) return;
 
     const root = window.document.documentElement;
     const applyTheme = () => {
-      root.classList.toggle(
-        "dark",
-        theme === "dark" ||
-          (theme === "system" &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches),
-      );
+      const isDark = resolveIsDark(theme);
+      root.classList.toggle("dark", isDark);
+      root.style.colorScheme = isDark ? "dark" : "light";
     };
 
     applyTheme();
 
     if (theme === "system") {
       const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-      mediaQuery.addEventListener("change", applyTheme);
-      return () => mediaQuery.removeEventListener("change", applyTheme);
+      if (typeof mediaQuery.addEventListener === "function") {
+        mediaQuery.addEventListener("change", applyTheme);
+        return () => mediaQuery.removeEventListener("change", applyTheme);
+      }
+
+      mediaQuery.addListener(applyTheme);
+      return () => mediaQuery.removeListener(applyTheme);
     }
 
     return undefined;
@@ -84,18 +104,10 @@ export function ThemeProvider({
     () => ({
       theme,
       setTheme,
-      isDarkMode:
-        mounted &&
-        (theme === "dark" ||
-          (theme === "system" &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches)),
+      isDarkMode: mounted && resolveIsDark(theme),
     }),
     [theme, setTheme, mounted],
   );
-
-  if (!mounted) {
-    return <>{children}</>;
-  }
 
   return (
     <ThemeProviderContext.Provider value={value}>

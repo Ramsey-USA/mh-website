@@ -44,6 +44,9 @@ export function ServicesHero() {
             <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
               {COMPANY_INFO.slogan.primary}
             </span>
+            <span className="block text-white/85 text-xs xs:text-sm sm:text-base mt-1">
+              {COMPANY_INFO.slogan.secondary}
+            </span>
           </h1>
         </div>
       </div>

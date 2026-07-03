@@ -251,7 +251,7 @@ export default async function QrCodesPage() {
                           href={imageHref}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block bg-white p-5"
+                          className="block bg-white p-5 dark:bg-gray-800"
                           aria-label={`Open ${entry.description} QR code`}
                         >
                           <div className="relative aspect-square overflow-hidden rounded-xl border border-gray-100 bg-white shadow-inner dark:border-gray-700">

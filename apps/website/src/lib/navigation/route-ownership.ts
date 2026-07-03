@@ -1,6 +1,7 @@
 const WEBSITE_NAV_ROUTE_EXACT = new Set([
   "/",
   "/accessibility",
+  "/jeremy-thamert",
   "/sitemap.xml",
 ]);
 

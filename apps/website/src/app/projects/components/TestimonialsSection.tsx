@@ -25,9 +25,9 @@ interface TestimonialsSectionProps {
 export function TestimonialsSection({
   projects,
   testimonials,
-  title = "Stories",
-  subtitle = "Partnership Success",
-  description = "Real experiences from Client Partners who've witnessed our four core values in action: Built on Quality, Backed by Trust. Squared away from start to finish.",
+  title = "Project Testimonials",
+  subtitle = "Client Partner Feedback",
+  description = "Direct feedback from Client Partners on communication, craftsmanship, and follow-through.",
   clientPartnerLabel = "Client Partner",
   starRatingAriaSuffix = "star rating",
 }: Readonly<TestimonialsSectionProps>) {
@@ -44,7 +44,7 @@ export function TestimonialsSection({
   return (
     <section
       id="testimonials"
-      className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+      className="relative bg-white dark:bg-gray-900 py-10 sm:py-14 lg:py-18 xl:py-20 overflow-hidden"
     >
       <DiagonalStripePattern />
       <BrandColorBlobs />
@@ -52,9 +52,9 @@ export function TestimonialsSection({
       <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="mx-auto max-w-4xl">
           {/* Section Header - Military Construction Standard */}
-          <div className="mb-16 sm:mb-20 text-center">
+          <div className="mb-12 sm:mb-14 text-center">
             {/* Icon with decorative lines */}
-            <div className="flex items-center justify-center mb-8 gap-4">
+            <div className="flex items-center justify-center mb-6 gap-3 sm:gap-4">
               <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               <div className="relative">
                 <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
@@ -70,17 +70,17 @@ export function TestimonialsSection({
             </div>
 
             {/* Two-line gradient heading */}
-            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+            <h2 className="mb-5 sm:mb-6 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl leading-tight tracking-tighter overflow-visible">
+              <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-3xl lg:text-4xl tracking-tight overflow-visible py-1">
                 {subtitle}
               </span>
-              <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+              <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 pb-2 leading-tight">
                 {title}
               </span>
             </h2>
 
             {/* Description with colored keyword highlighting */}
-            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            <p className="mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed tracking-wide px-2">
               {description}
             </p>
           </div>

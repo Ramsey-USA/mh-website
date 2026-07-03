@@ -286,6 +286,90 @@ const departmentConfig: Record<string, { icon: string; id: string }> = {
   },
 };
 
+function DepartmentProfilesSection({
+  department,
+  members,
+  icon,
+  sectionId,
+  heading,
+  emptyStateTitle,
+  emptyStateDescription,
+  brandingStamps,
+}: Readonly<{
+  department: string;
+  members: VintageTeamMember[];
+  icon: string;
+  sectionId: string;
+  heading: { subtitle: string; title: string; description: string };
+  emptyStateTitle: string;
+  emptyStateDescription: string;
+  brandingStamps: ReturnType<typeof getAllIndividualBrandingStamps>;
+}>) {
+  const hasMembers = members.length > 0;
+
+  return (
+    <div key={department} id={sectionId} className="relative scroll-mt-20">
+      {/* Department header - Military Construction Standard */}
+      <div className="mb-12 sm:mb-14 md:mb-16 text-center">
+        {/* Icon with decorative lines */}
+        <div className="flex items-center justify-center mb-8 gap-4">
+          <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+          <div className="relative">
+            <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+            <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+              <MaterialIcon
+                icon={icon}
+                size="2xl"
+                className="text-white drop-shadow-lg"
+              />
+            </div>
+          </div>
+          <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+        </div>
+
+        <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+          <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+            {heading.subtitle}
+          </span>
+          <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+            {heading.title}
+          </span>
+        </h3>
+
+        {heading.description && (
+          <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            {heading.description}
+          </p>
+        )}
+      </div>
+
+      {/* Team member profiles */}
+      <div className="space-y-8 sm:space-y-10 md:space-y-12">
+        {hasMembers ? (
+          members.map((member, index) => (
+            <div key={member.slug} className="scroll-reveal">
+              <TeamProfileSection
+                member={member}
+                index={index}
+                brandingStamp={brandingStamps[member.slug] ?? null}
+              />
+            </div>
+          ))
+        ) : (
+          <div className="scroll-reveal rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 bg-white/80 dark:bg-gray-800/80 p-6 sm:p-8 text-center shadow-sm">
+            <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+              {emptyStateTitle}
+            </p>
+            <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
+              {emptyStateDescription}
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -556,75 +640,20 @@ export default async function TeamPage() {
                   title: department,
                   description: "",
                 };
-                const hasMembers = members.length > 0;
-
                 return (
-                  <div
+                  <DepartmentProfilesSection
                     key={department}
-                    id={config.id}
-                    className="relative scroll-mt-20"
-                  >
-                    {/* Department header - Military Construction Standard */}
-                    <div className="mb-12 sm:mb-14 md:mb-16 text-center">
-                      {/* Icon with decorative lines */}
-                      <div className="flex items-center justify-center mb-8 gap-4">
-                        <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                        <div className="relative">
-                          <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                          <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                            <MaterialIcon
-                              icon={config.icon}
-                              size="2xl"
-                              className="text-white drop-shadow-lg"
-                            />
-                          </div>
-                        </div>
-                        <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                      </div>
-
-                      <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                        <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                          {heading.subtitle}
-                        </span>
-                        <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                          {heading.title}
-                        </span>
-                      </h3>
-
-                      {/* Description with better styling */}
-                      {heading.description && (
-                        <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                          {heading.description}
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Team member profiles */}
-                    <div className="space-y-8 sm:space-y-10 md:space-y-12">
-                      {hasMembers ? (
-                        members.map((member, index) => (
-                          <div key={member.slug} className="scroll-reveal">
-                            <TeamProfileSection
-                              member={member}
-                              index={index}
-                              brandingStamp={
-                                brandingStamps[member.slug] ?? null
-                              }
-                            />
-                          </div>
-                        ))
-                      ) : (
-                        <div className="scroll-reveal rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 bg-white/80 dark:bg-gray-800/80 p-6 sm:p-8 text-center shadow-sm">
-                          <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
-                            {t("team.departments.emptyState.title")}
-                          </p>
-                          <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
-                            {t("team.departments.emptyState.description")}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
+                    department={department}
+                    members={members}
+                    icon={config.icon}
+                    sectionId={config.id}
+                    heading={heading}
+                    emptyStateTitle={t("team.departments.emptyState.title")}
+                    emptyStateDescription={t(
+                      "team.departments.emptyState.description",
+                    )}
+                    brandingStamps={brandingStamps}
+                  />
                 );
               })}
             </div>
@@ -698,75 +727,20 @@ export default async function TeamPage() {
                   title: department,
                   description: "",
                 };
-                const hasMembers = members.length > 0;
-
                 return (
-                  <div
+                  <DepartmentProfilesSection
                     key={department}
-                    id={config.id}
-                    className="relative scroll-mt-20"
-                  >
-                    {/* Department header - Military Construction Standard */}
-                    <div className="mb-12 sm:mb-14 md:mb-16 text-center">
-                      {/* Icon with decorative lines */}
-                      <div className="flex items-center justify-center mb-8 gap-4">
-                        <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                        <div className="relative">
-                          <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                          <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                            <MaterialIcon
-                              icon={config.icon}
-                              size="2xl"
-                              className="text-white drop-shadow-lg"
-                            />
-                          </div>
-                        </div>
-                        <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                      </div>
-
-                      <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                        <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                          {heading.subtitle}
-                        </span>
-                        <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                          {heading.title}
-                        </span>
-                      </h3>
-
-                      {/* Description with better styling */}
-                      {heading.description && (
-                        <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                          {heading.description}
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Team member profiles */}
-                    <div className="space-y-8 sm:space-y-10 md:space-y-12">
-                      {hasMembers ? (
-                        members.map((member, index) => (
-                          <div key={member.slug} className="scroll-reveal">
-                            <TeamProfileSection
-                              member={member}
-                              index={index}
-                              brandingStamp={
-                                brandingStamps[member.slug] ?? null
-                              }
-                            />
-                          </div>
-                        ))
-                      ) : (
-                        <div className="scroll-reveal rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 bg-white/80 dark:bg-gray-800/80 p-6 sm:p-8 text-center shadow-sm">
-                          <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
-                            {t("team.departments.emptyState.title")}
-                          </p>
-                          <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
-                            {t("team.departments.emptyState.description")}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
+                    department={department}
+                    members={members}
+                    icon={config.icon}
+                    sectionId={config.id}
+                    heading={heading}
+                    emptyStateTitle={t("team.departments.emptyState.title")}
+                    emptyStateDescription={t(
+                      "team.departments.emptyState.description",
+                    )}
+                    brandingStamps={brandingStamps}
+                  />
                 );
               })}
             </div>

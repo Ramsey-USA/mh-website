@@ -235,7 +235,7 @@ export function HeroSectionClient({
             onClick={toggleMute}
             className={`rounded px-2 py-1 text-[10px] font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/70 ${
               isMuted
-                ? "bg-brand-secondary text-gray-950 shadow-md shadow-brand-secondary/45 ring-1 ring-brand-secondary/80 hover:bg-brand-secondary/90"
+                ? "bg-brand-secondary text-gray-950 shadow-md shadow-brand-secondary/45 ring-1 ring-brand-secondary/80 motion-safe:animate-pulse motion-safe:duration-1000 hover:bg-brand-secondary/90"
                 : "text-white/85 hover:bg-black/30 hover:text-white"
             }`}
             aria-label={isMuted ? "Unmute hero video" : "Mute hero video"}

@@ -97,6 +97,7 @@ export default function ContactPageClient({
   enableTelemetry = true,
 }: Readonly<{ enableTelemetry?: boolean }>) {
   const t = useTranslations();
+  const officeEmail = COMPANY_INFO.email.main;
   const quickContact = buildQuickContact(t);
   const mainCTAs = buildMainCTAs(t);
 
@@ -545,13 +546,13 @@ export default function ContactPageClient({
                           {t("contact.pathways.shared.emailLabel")}
                         </p>
                         <a
-                          href="mailto:office@mhc-gc.com?subject=Project%20Inquiry"
+                          href={`mailto:${officeEmail}?subject=Project%20Inquiry`}
                           className="text-brand-primary hover:text-brand-secondary-text text-lg font-bold transition-colors"
                           aria-label={t(
                             "contact.pathways.client.emailAriaLabel",
                           )}
                         >
-                          office@mhc-gc.com
+                          {officeEmail}
                         </a>
                       </div>
                     </div>
@@ -569,7 +570,7 @@ export default function ContactPageClient({
                     {t("contact.pathways.client.ctaHeading")}
                   </h4>
                   <Link
-                    href="/contact"
+                    href={`tel:${COMPANY_INFO.phone.tel}`}
                     className="flex items-center justify-between bg-brand-primary hover:bg-brand-secondary text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg group"
                   >
                     <div className="flex items-center gap-3">
@@ -579,7 +580,7 @@ export default function ContactPageClient({
                         theme="military"
                         ariaLabel="Contact Us"
                       />
-                      <span>{t("contact.pathways.client.ctaContact")}</span>
+                      <span>{COMPANY_INFO.phone.display}</span>
                     </div>
                     <MaterialIcon icon="arrow_forward" size="md" />
                   </Link>
@@ -659,13 +660,13 @@ export default function ContactPageClient({
                           {t("contact.pathways.shared.emailLabel")}
                         </p>
                         <a
-                          href="mailto:office@mhc-gc.com?subject=Ally%20Inquiry"
+                          href={`mailto:${officeEmail}?subject=Ally%20Inquiry`}
                           className="text-brand-secondary-text hover:text-bronze-600 text-lg font-bold transition-colors dark:text-brand-secondary-light"
                           aria-label={t(
                             "contact.pathways.allies.emailAriaLabel",
                           )}
                         >
-                          office@mhc-gc.com
+                          {officeEmail}
                         </a>
                       </div>
                     </div>

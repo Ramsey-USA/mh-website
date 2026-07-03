@@ -21,7 +21,7 @@ const processSteps = [
     tags: ["Scope", "Budget", "Risk"],
   },
   {
-    title: "PreConstruction Planning",
+    title: "Preconstruction Planning",
     description:
       "Lock sequence logic, constructability assumptions, permit path, and procurement readiness for cleaner field starts.",
     tags: ["Planning", "Precon", "Controls"],
@@ -60,7 +60,7 @@ export default function ServicesPage() {
       <ConstructionExpertiseSection
         subtitle="Commercial-First Delivery"
         title="Services Built for Commercial, Industrial, and Public Projects"
-        description="Our core delivery is commercial construction. We support agricultural and winery communities, occupied tenant improvements, municipal work, and select Custom Home Builds when scope fit and delivery conditions align."
+        description="Our core delivery is commercial construction. We support agricultural and winery communities, occupied tenant improvements, municipal work, and select custom home builds when scope and delivery conditions align."
       />
 
       <CoreServicesSection
@@ -73,7 +73,7 @@ export default function ServicesPage() {
       <SpecialtyServicesSection
         services={specialtyServices}
         subtitle="Specialty Services"
-        title="Specialized Scopes Across Our WA-OR-ID Footprint"
+        title="Specialized Scopes Across Washington, Oregon, and Idaho"
         description="Specialty capabilities for sector-specific constraints, occupied facilities, and technical delivery requirements."
       />
 
@@ -87,7 +87,7 @@ export default function ServicesPage() {
         serviceAreas={serviceAreas}
         subtitle="Service Areas"
         title="Regional Coverage with Local Delivery Accountability"
-        description="Tri-Cities headquartered and licensed across Washington, Oregon, and Idaho with field-ready delivery support."
+        description="Tri-Cities headquartered with field-ready delivery support for Client Partners and project teams across the region."
         maxLocationsPerArea={8}
         showAllLocationsCta
       />
@@ -95,7 +95,7 @@ export default function ServicesPage() {
       <WhyChooseUs
         subtitle="Trust Signals"
         title="Why Client Partners Choose MH Construction"
-        description="Documented safety performance, transparent communication, and disciplined execution from planning through turnover."
+        description="Documented safety performance, transparent communication, and reliable follow-through from planning through turnover."
       />
 
       <ConstructionProcessSection
@@ -106,7 +106,7 @@ export default function ServicesPage() {
         cta={{
           title: "Evaluate Project Fit",
           description:
-            "Review recent work and delivery patterns before scheduling your scope and planning conversation.",
+            "Review recent work and delivery patterns before scheduling your scope conversation.",
           contactButton: "Contact Us",
           projectsButton: "View Projects",
         }}

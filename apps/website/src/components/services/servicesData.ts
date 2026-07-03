@@ -48,7 +48,7 @@ export const coreServices: CoreService[] = [
     title: "Commercial Construction Management",
     subtitle: "Project Management Leadership Powered by Procore",
     description:
-      "We manage agricultural and winery projects, commercial tenant improvements, and municipal builds with Procore-led controls, clear accountability, and disciplined field execution across WA, OR, and ID.",
+      "We manage agricultural and winery projects, commercial tenant improvements, and municipal builds with Procore-led controls, clear accountability, and disciplined field execution across Washington, Oregon, and Idaho.",
     features: [
       "Procore project controls and documentation",
       "RFI, submittal, and change workflows",
@@ -81,7 +81,7 @@ export const coreServices: CoreService[] = [
       'We lock scope architecture, budget logic, permitting strategy, and trade sequence before mobilization. "Creating Value, from Proven Results." reflects this front-end discipline and helps prevent scope drift, change pressure, and avoidable delays.',
     features: [
       "Site and infrastructure analysis",
-      "WA/OR/ID code compliance planning",
+      "Washington, Oregon, and Idaho code compliance planning",
       "Budget constraints and cost controls",
       "Schedule and sequencing planning",
       "Client Partner design intent integration",
@@ -176,9 +176,9 @@ export const specialtyServices: SpecialtyService[] = [
   {
     iconName: "store",
     title: "Markets We Serve",
-    subtitle: "Diverse Business Solutions Across WA, OR, ID",
+    subtitle: "Diverse Business Solutions Across Washington, Oregon, and Idaho",
     description:
-      "We focus on agricultural and winery communities, commercial tenant improvements, and municipal organizations across WA, OR, and ID. Specialty scopes include pole buildings, door and hardware installation, and winery pond liner delivery for wastewater and sludge control.",
+      "We focus on agricultural and winery communities, commercial tenant improvements, and municipal organizations across the region. Specialty scopes include pole buildings, door and hardware installation, and winery pond liner delivery for wastewater and sludge control.",
     markets: [
       "Religious and community facilities",
       "Retail and office commercial buildings",
@@ -196,12 +196,12 @@ export const specialtyServices: SpecialtyService[] = [
   {
     iconName: "domain",
     title: "Tenant Improvements",
-    subtitle: "Transform Your Commercial Space Across Our Tri-State Footprint",
+    subtitle: "Transform Your Commercial Space Across the Tri-State Region",
     description:
-      "We deliver commercial tenant improvement scopes from full build-outs to focused renovations, including door and hardware packages for occupied facilities. Procore workflows keep RFIs, submittals, and schedule impacts visible.",
+      "We deliver tenant improvement scopes from full build-outs to focused renovations, including door and hardware packages for occupied facilities. Procore workflows keep RFIs, submittals, and schedule impacts visible.",
     capabilities: [
       "Complete build-out and renovation delivery",
-      "Licensed across WA, OR, and ID",
+      "Licensed across Washington, Oregon, and Idaho",
       "Fast-turn sequencing for operations",
       "Field guidance from planning to closeout",
       "Door and hardware installation for occupied facilities",

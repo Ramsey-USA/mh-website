@@ -1,6 +1,10 @@
 /** @jest-environment jsdom */
 import { render, screen } from "@testing-library/react";
 
+jest.mock("@/lib/i18n/locale.server", () => ({
+  getServerLocale: jest.fn(async () => "en"),
+}));
+
 jest.mock("next/link", () => ({
   __esModule: true,
   default: ({
@@ -43,21 +47,21 @@ jest.mock("@/lib/constants/company", () => ({
 import PrivacyPolicyPage from "../page";
 
 describe("PrivacyPolicyPage", () => {
-  it("renders the Privacy Policy heading", () => {
-    render(<PrivacyPolicyPage />);
+  it("renders the Privacy Policy heading", async () => {
+    render(await PrivacyPolicyPage());
     const headings = screen.getAllByRole("heading", {
       name: /Privacy Policy/i,
     });
     expect(headings.length).toBeGreaterThan(0);
   });
 
-  it("renders contact information", () => {
-    render(<PrivacyPolicyPage />);
+  it("renders contact information", async () => {
+    render(await PrivacyPolicyPage());
     expect(screen.getByText("office@mhc-gc.com")).toBeInTheDocument();
   });
 
-  it("renders back-to-home link", () => {
-    render(<PrivacyPolicyPage />);
+  it("renders back-to-home link", async () => {
+    render(await PrivacyPolicyPage());
     const link = screen.getByRole("link", { name: /back to home/i });
     expect(link).toHaveAttribute("href", "/");
   });

@@ -15,6 +15,7 @@
     "lint:fix": "pnpm --filter @mhc/dashboard lint:fix && pnpm --filter @mhc/website lint:fix",
     "type-check": "pnpm --filter './apps/*' type-check",
     "test": "pnpm --filter @mhc/website test",
+    "test:all": "pnpm -r --if-present run test",
     "nav:contract:check": "pnpm --filter @mhc/website nav:contract:check",
     "chat": "pnpm --filter @mhc/website chat",
     "chat:smoke": "pnpm --filter @mhc/website chat:smoke",

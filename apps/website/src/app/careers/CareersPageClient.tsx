@@ -325,19 +325,7 @@ export default function CareersPageClient() {
               title={t("whyChoose.showcase.title")}
               subtitle={t("whyChoose.showcase.subtitle")}
               icon="star"
-              description={
-                <>
-                  {t("whyChoose.description.prefix")}{" "}
-                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    {t("whyChoose.description.highlight1")}
-                  </span>{" "}
-                  {t("whyChoose.description.middle")}{" "}
-                  <span className="font-bold text-gray-900 dark:text-white">
-                    {t("whyChoose.description.highlight2")}
-                  </span>{" "}
-                  {t("whyChoose.description.suffix")}
-                </>
-              }
+              description={undefined}
               sectionId="why-work-here"
               iconVariant="secondary"
             />
@@ -813,7 +801,7 @@ export default function CareersPageClient() {
                         className="transition-all duration-300 min-w-65"
                         asChild
                       >
-                        <Link href="/contact" prefetch={false}>
+                        <a href={`tel:${COMPANY_INFO.phone.tel}`}>
                           <MaterialIcon
                             icon="phone"
                             size="lg"
@@ -824,7 +812,7 @@ export default function CareersPageClient() {
                               phone: COMPANY_INFO.phone.display,
                             })}
                           </span>
-                        </Link>
+                        </a>
                       </Button>
                     </div>
 
@@ -1284,7 +1272,9 @@ export default function CareersPageClient() {
                   className="transition-all duration-300 min-w-65"
                   asChild
                 >
-                  <Link href="/contact" prefetch={false}>
+                  <a
+                    href={`mailto:${COMPANY_INFO.email.main}?subject=Career%20Inquiry`}
+                  >
                     <MaterialIcon
                       icon="campaign"
                       size="lg"
@@ -1293,7 +1283,7 @@ export default function CareersPageClient() {
                       className="mr-3"
                     />
                     <span className="font-medium">{t("noRole.contactHr")}</span>
-                  </Link>
+                  </a>
                 </Button>
               </div>
               <p className="mt-8 text-gray-500 dark:text-gray-300 text-lg">

@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useMemo } from "react";
 import { usePageTracking } from "@/lib/analytics/hooks";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { useTranslations } from "next-intl";
@@ -21,28 +22,6 @@ const ProjectsStatsSection = dynamic(
   {
     ssr: false,
     loading: () => <SimpleSkeleton height="h-64" />,
-  },
-);
-
-const VeteranBenefitsBanner = dynamic(
-  () =>
-    import("./components/VeteranBenefitsBanner").then((mod) => ({
-      default: mod.VeteranBenefitsBanner,
-    })),
-  {
-    ssr: false,
-    loading: () => <SimpleSkeleton height="h-48" />,
-  },
-);
-
-const CapabilitiesSection = dynamic(
-  () =>
-    import("./components/CapabilitiesSection").then((mod) => ({
-      default: mod.CapabilitiesSection,
-    })),
-  {
-    ssr: false,
-    loading: () => <SimpleSkeleton />,
   },
 );
 
@@ -80,29 +59,33 @@ export default function ProjectsPageClient() {
   const t = useTranslations("projectsPageShell");
   const tTestimonials = useTranslations("testimonialsData");
 
-  const featuredClientTestimonials = (
-    tTestimonials.raw("clientTestimonials") as Array<{
-      id: string;
-      name: string;
-      location?: string;
-      project?: string;
-      company?: string;
-      rating?: number;
-      quote: string;
-      featured?: boolean;
-      date?: string;
-      category?: string;
-    }>
-  )
-    .map(
-      (testimonial) =>
-        ({
-          ...testimonial,
-          type: "client",
-        }) as Testimonial,
-    )
-    .filter((testimonial) => testimonial.featured)
-    .slice(0, 6);
+  const featuredClientTestimonials = useMemo(
+    () =>
+      (
+        tTestimonials.raw("clientTestimonials") as Array<{
+          id: string;
+          name: string;
+          location?: string;
+          project?: string;
+          company?: string;
+          rating?: number;
+          quote: string;
+          featured?: boolean;
+          date?: string;
+          category?: string;
+        }>
+      )
+        .map(
+          (testimonial) =>
+            ({
+              ...testimonial,
+              type: "client",
+            }) as Testimonial,
+        )
+        .filter((testimonial) => testimonial.featured)
+        .slice(0, 6),
+    [tTestimonials],
+  );
 
   // ALL HOOKS MUST BE CALLED BEFORE ANY CONDITIONAL RETURNS
   const {
@@ -157,13 +140,7 @@ export default function ProjectsPageClient() {
           selectedCategory={selectedCategory}
         />
 
-        {/* Capabilities Section - Explain what the portfolio proves */}
-        <CapabilitiesSection />
-
-        {/* Veteran-Owned Benefits Banner */}
-        <VeteranBenefitsBanner />
-
-        {/* Stats Section - Proof after portfolio visibility */}
+        {/* Stats Section - Keep one concise proof block */}
         <ProjectsStatsSection />
 
         {/* Testimonials Section */}

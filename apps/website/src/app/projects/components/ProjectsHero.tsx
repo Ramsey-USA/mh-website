@@ -27,7 +27,7 @@ export function ProjectsHero() {
               Projects → Outcomes
             </span>
             <span className="block text-brand-secondary">
-              650+ Projects Delivered Across WA, OR, and ID
+              Project Portfolio Across Washington, Oregon, and Idaho
             </span>
             <span className="block text-brand-primary">
               {COMPANY_INFO.slogan.secondary}

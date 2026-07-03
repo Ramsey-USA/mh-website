@@ -47,6 +47,9 @@ export interface HeroSectionEnforcerProps {
   /** Optional serving area information */
   serving?: string;
 
+  /** Optional supporting slogan (defaults to approved supporting line) */
+  supportingSlogan?: string;
+
   /** Additional className overrides (should not break canonical structure) */
   contentClassName?: string;
 
@@ -66,6 +69,7 @@ export function HeroSectionEnforcer({
   showNavigation = true,
   backgroundElement,
   slogan = "Built on Quality, Backed by Trust.",
+  supportingSlogan = "No gaps. No guesswork. Just accountable follow-through.",
   serving,
   contentClassName = "",
   children,
@@ -131,6 +135,11 @@ export function HeroSectionEnforcer({
 
             {/* Company Slogan */}
             <span className="block text-white mt-2">{slogan}</span>
+
+            {/* Supporting Slogan */}
+            <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
+              {supportingSlogan}
+            </span>
 
             {/* Optional Serving Area */}
             {serving && (
