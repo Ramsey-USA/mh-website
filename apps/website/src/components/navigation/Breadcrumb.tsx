@@ -84,10 +84,7 @@ export function Breadcrumb({
             const isLast = index === items.length - 1;
             const normalizedLabel = normalizeBreadcrumbTaxonomyLabel(
               item.label,
-              {
-                href: item.href,
-                index,
-              },
+              item.href === undefined ? { index } : { href: item.href, index },
             );
             const semanticHref = item.href ?? (isLast ? pathname : undefined);
             const semanticItemUrl = semanticHref

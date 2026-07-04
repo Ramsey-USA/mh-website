@@ -44,7 +44,7 @@ function FAQCategoryItem({
 }: {
   question: string;
   answer: string;
-  link?: { text: string; href: string };
+  link: { text: string; href: string } | undefined;
 }) {
   return (
     <details className="group rounded-3xl border border-gray-200 bg-white shadow-sm transition-colors duration-300 hover:border-brand-primary/40 open:border-brand-primary/40 dark:border-gray-700 dark:bg-gray-900/90">
@@ -210,6 +210,8 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   },
 };
 
+const DEFAULT_FAQ_ROUTE_PLAN: FAQRoutePlan = FAQ_ROUTE_PLANS["general"]!;
+
 export function generateStaticParams() {
   return getFAQCategorySlugs().map((category) => ({ category }));
 }
@@ -286,7 +288,7 @@ export default async function FAQCategoryPage({
       },
     })),
   };
-  const routePlan = FAQ_ROUTE_PLANS[faqCategory.id] ?? FAQ_ROUTE_PLANS.general;
+  const routePlan = FAQ_ROUTE_PLANS[faqCategory.id] ?? DEFAULT_FAQ_ROUTE_PLAN;
 
   return (
     <>
