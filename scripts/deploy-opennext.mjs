@@ -15,6 +15,7 @@ const repoRoot = resolve(appRoot, "../..");
 const openNextRoot = join(appRoot, ".open-next");
 const openNextWorker = join(openNextRoot, "worker.js");
 const openNextAssets = join(openNextRoot, "assets");
+const wranglerTmpRoot = join(appRoot, ".wrangler", "tmp");
 const headersConfigPath = join(appRoot, "public", "_headers");
 
 const SOURCE_PATHS = [
@@ -303,6 +304,94 @@ function run(command, args, extraEnv = {}) {
   }
 }
 
+function runAndCapture(command, args, extraEnv = {}) {
+  return spawnSync(command, args, {
+    cwd: appRoot,
+    env: {
+      ...process.env,
+      ...extraEnv,
+    },
+    encoding: "utf8",
+  });
+}
+
+function emitCapturedOutput(result) {
+  if (result.stdout) {
+    process.stdout.write(result.stdout);
+  }
+  if (result.stderr) {
+    process.stderr.write(result.stderr);
+  }
+}
+
+function clearWranglerTmp() {
+  rmSync(wranglerTmpRoot, { recursive: true, force: true });
+}
+
+function isMiddlewareLoaderResolveFailure(result) {
+  const combined = `${result.stdout ?? ""}\n${result.stderr ?? ""}`;
+  return (
+    combined.includes("Could not resolve") &&
+    combined.includes("middleware-loader.entry.ts")
+  );
+}
+
+function deployWithRetry(extraEnv = {}) {
+  clearWranglerTmp();
+
+  const firstAttempt = runAndCapture("pnpm", ["exec", "wrangler", "deploy"], {
+    WRANGLER_SEND_METRICS: "false",
+    CLOUDFLARE_API_TOKEN:
+      process.env.CLOUDFLARE_API_TOKEN ?? process.env.CF_API_TOKEN,
+    ...extraEnv,
+  });
+
+  emitCapturedOutput(firstAttempt);
+
+  if (firstAttempt.error) {
+    console.error(
+      "✖ Failed to run wrangler deploy:",
+      firstAttempt.error.message,
+    );
+    process.exit(1);
+  }
+
+  if (firstAttempt.status === 0) {
+    return;
+  }
+
+  if (!isMiddlewareLoaderResolveFailure(firstAttempt)) {
+    process.exit(firstAttempt.status ?? 1);
+  }
+
+  console.warn(
+    "⚠ Detected transient middleware-loader bundle resolution failure. Cleaning .wrangler/tmp and retrying deploy once...",
+  );
+
+  clearWranglerTmp();
+
+  const secondAttempt = runAndCapture("pnpm", ["exec", "wrangler", "deploy"], {
+    WRANGLER_SEND_METRICS: "false",
+    CLOUDFLARE_API_TOKEN:
+      process.env.CLOUDFLARE_API_TOKEN ?? process.env.CF_API_TOKEN,
+    ...extraEnv,
+  });
+
+  emitCapturedOutput(secondAttempt);
+
+  if (secondAttempt.error) {
+    console.error(
+      "✖ Failed to run wrangler deploy:",
+      secondAttempt.error.message,
+    );
+    process.exit(1);
+  }
+
+  if (secondAttempt.status !== 0) {
+    process.exit(secondAttempt.status ?? 1);
+  }
+}
+
 const buildCurrent =
   existsSync(openNextWorker) &&
   existsSync(openNextAssets) &&
@@ -325,8 +414,4 @@ runPreflightChecks();
 pruneTempAssets();
 assertWorkersAssetLimit();
 
-run("pnpm", ["exec", "wrangler", "deploy"], {
-  WRANGLER_SEND_METRICS: "false",
-  CLOUDFLARE_API_TOKEN:
-    process.env.CLOUDFLARE_API_TOKEN ?? process.env.CF_API_TOKEN,
-});
+deployWithRetry();
