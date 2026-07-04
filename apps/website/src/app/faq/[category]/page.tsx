@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { PageTrackingClient } from "@/components/analytics";
 import { Button, Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
@@ -13,15 +14,86 @@ import {
 } from "@/lib/branding/page-names";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { getFAQCategoryBySlug, getFAQCategorySlugs } from "@/lib/data/faq-data";
+import {
+  faqCategories,
+  getFAQCategoryBySlug,
+  getFAQCategorySlugs,
+} from "@/lib/data/faq-data";
+import {
+  DiagonalStripePattern,
+  BrandColorBlobs,
+} from "@/components/ui/backgrounds";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
+const FAQ_CATEGORY_CONTENT_ID = "faq-category-content";
+
+function isExternalHref(href: string): boolean {
+  return /^https?:\/\//.test(href);
+}
 
 type FAQRoutePlan = {
   service: { href: string; label: string };
   location: { href: string; label: string };
   support: { href: string; label: string };
 };
+
+function FAQCategoryItem({
+  question,
+  answer,
+  link,
+}: {
+  question: string;
+  answer: string;
+  link?: { text: string; href: string };
+}) {
+  return (
+    <details className="group rounded-3xl border border-gray-200 bg-white shadow-sm transition-colors duration-300 hover:border-brand-primary/40 open:border-brand-primary/40 dark:border-gray-700 dark:bg-gray-900/90">
+      <summary className="flex cursor-pointer items-start justify-between gap-4 p-5 transition-colors duration-300 hover:bg-gray-50/80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary dark:hover:bg-gray-800/70 sm:p-6">
+        <h2 className="pr-2 text-lg font-bold leading-snug text-gray-900 dark:text-white sm:text-xl">
+          {question}
+        </h2>
+        <span className="inline-flex shrink-0 rounded-xl border border-brand-primary/25 bg-brand-primary/10 p-2 text-brand-primary transition-transform duration-300 group-open:rotate-180 dark:border-brand-primary/35 dark:bg-brand-primary/20 dark:text-brand-primary-light">
+          <MaterialIcon
+            icon="expand_more"
+            className="text-current"
+            size="md"
+            ariaLabel="Expand answer"
+          />
+        </span>
+      </summary>
+      <div className="border-t border-gray-200 px-5 pb-5 pt-3 dark:border-gray-700 sm:px-6 sm:pb-6">
+        <p className="text-base leading-7 text-gray-700 dark:text-gray-300">
+          {answer}
+        </p>
+        {link ? (
+          isExternalHref(link.href) ? (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-primary transition-colors duration-300 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary dark:text-brand-primary-light"
+            >
+              <MaterialIcon
+                icon="open_in_new"
+                size="sm"
+                ariaLabel="Opens in a new tab"
+              />
+              {link.text}
+            </a>
+          ) : (
+            <Link
+              href={link.href}
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-primary transition-colors duration-300 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary dark:text-brand-primary-light"
+            >
+              <MaterialIcon icon="arrow_forward" size="sm" />
+              {link.text}
+            </Link>
+          )
+        ) : null}
+      </div>
+    </details>
+  );
+}
 
 const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   general: {
@@ -214,12 +286,7 @@ export default async function FAQCategoryPage({
       },
     })),
   };
-  const defaultRoutePlan = FAQ_ROUTE_PLANS["general"];
-  const routePlan = FAQ_ROUTE_PLANS[faqCategory.id] ?? defaultRoutePlan;
-
-  if (!routePlan) {
-    notFound();
-  }
+  const routePlan = FAQ_ROUTE_PLANS[faqCategory.id] ?? FAQ_ROUTE_PLANS.general;
 
   return (
     <>
@@ -228,22 +295,34 @@ export default async function FAQCategoryPage({
       <StructuredData data={faqSchema} />
 
       <main className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <section className="hero-section hero-safe-top-lg border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 pb-14 text-white sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-5xl">
-            <Breadcrumbs
-              items={[
-                { label: "Home", href: "/" },
-                { label: "FAQ", href: "/faq" },
-                { label: faqCategory.title },
-              ]}
-              className="mb-6 text-white/70"
-            />
+        <a
+          href={`#${FAQ_CATEGORY_CONTENT_ID}`}
+          className="sr-only z-40 focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-gray-900 focus:shadow-lg focus:outline-2 focus:outline-offset-2 focus:outline-brand-primary"
+        >
+          Skip to category questions
+        </a>
 
-            <div className="max-w-3xl">
+        <section className="hero-section hero-safe-top-lg relative overflow-hidden border-b border-gray-200 px-4 pb-14 text-white sm:px-6 lg:px-8">
+          <div className="absolute inset-0 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950">
+            <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80" />
+          </div>
+
+          <div className="relative mx-auto max-w-5xl">
+            <div className="max-w-4xl">
+              <div className="mb-4 flex justify-start">
+                <div className="relative rounded-2xl border-2 border-white/30 bg-linear-to-br from-white/15 to-white/5 p-4 shadow-2xl backdrop-blur-sm">
+                  <MaterialIcon
+                    icon={faqCategory.icon}
+                    size="xl"
+                    className="text-brand-secondary"
+                    ariaLabel="FAQ Category Icon"
+                  />
+                </div>
+              </div>
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
-                FAQ Hub
+                Intel Brief -&gt; FAQ Category
               </p>
-              <h1 className="text-3xl font-black tracking-tight sm:text-5xl">
+              <h1 className="text-3xl font-black tracking-tight sm:text-5xl lg:text-6xl">
                 {faqCategory.title}
               </h1>
               <p className="mt-5 text-lg leading-8 text-white/85">
@@ -256,39 +335,63 @@ export default async function FAQCategoryPage({
               <p className="mt-4 text-sm font-semibold text-brand-secondary/90 sm:text-base">
                 {COMPANY_INFO.slogan.quinary}
               </p>
+
+              <nav
+                aria-label="Switch FAQ category"
+                className="mt-6 flex flex-wrap gap-3"
+              >
+                {faqCategories.map((item) => {
+                  const isCurrent = item.id === faqCategory.id;
+                  return (
+                    <Link
+                      key={item.id}
+                      href={`/faq/${item.id}`}
+                      className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary sm:text-sm ${
+                        isCurrent
+                          ? "border-brand-secondary/70 bg-brand-secondary/20 text-white"
+                          : "border-white/30 bg-white/10 text-white/90 hover:border-brand-secondary/70 hover:bg-brand-secondary/20"
+                      }`}
+                      aria-current={isCurrent ? "page" : undefined}
+                    >
+                      <MaterialIcon icon={item.icon} size="sm" />
+                      {item.title}
+                    </Link>
+                  );
+                })}
+              </nav>
             </div>
           </div>
         </section>
 
-        <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <div className="mx-auto max-w-5xl">
-            <div className="grid gap-6">
-              {faqCategory.questions.map((question) => (
-                <Card
-                  key={question.question}
-                  className="border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900"
-                >
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-                    {question.question}
-                  </h2>
-                  <p className="mt-4 text-base leading-7 text-gray-700 dark:text-gray-300">
-                    {question.answer}
-                  </p>
-                  {question.link ? (
-                    <Link
-                      href={question.link.href}
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:underline dark:text-brand-primary-light"
-                    >
-                      <MaterialIcon icon="arrow_forward" size="sm" />
-                      {question.link.text}
-                    </Link>
-                  ) : null}
-                </Card>
-              ))}
-            </div>
+        <Breadcrumbs
+          items={[
+            { label: "Home", href: "/" },
+            { label: "FAQ", href: "/faq" },
+            { label: faqCategory.title },
+          ]}
+        />
 
-            <Card className="mt-10 border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
-              <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
+        <section
+          id={FAQ_CATEGORY_CONTENT_ID}
+          className="relative overflow-hidden px-4 py-12 sm:px-6 lg:px-8 lg:py-16"
+        >
+          <DiagonalStripePattern />
+          <BrandColorBlobs />
+
+          <div className="mx-auto max-w-5xl">
+            <StaggeredFadeIn className="space-y-5">
+              {faqCategory.questions.map((question) => (
+                <FAQCategoryItem
+                  key={question.question}
+                  question={question.question}
+                  answer={question.answer}
+                  link={question.link}
+                />
+              ))}
+            </StaggeredFadeIn>
+
+            <Card className="mt-10 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900/90">
+              <p className="text-xs font-bold uppercase tracking-[0.24em] text-brand-secondary">
                 Move To Scope
               </p>
               <h2 className="mt-3 text-xl font-bold text-gray-900 dark:text-white">
@@ -301,21 +404,21 @@ export default async function FAQCategoryPage({
               <div className="mt-5 grid gap-3 sm:grid-cols-3">
                 <Link
                   href={routePlan.service.href}
-                  className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+                  className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors duration-300 hover:border-brand-primary hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100 dark:hover:bg-gray-900"
                 >
                   <span>{routePlan.service.label}</span>
                   <MaterialIcon icon="arrow_forward" size="sm" />
                 </Link>
                 <Link
                   href={routePlan.location.href}
-                  className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+                  className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors duration-300 hover:border-brand-primary hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100 dark:hover:bg-gray-900"
                 >
                   <span>{routePlan.location.label}</span>
                   <MaterialIcon icon="arrow_forward" size="sm" />
                 </Link>
                 <Link
                   href={routePlan.support.href}
-                  className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+                  className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors duration-300 hover:border-brand-primary hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100 dark:hover:bg-gray-900"
                 >
                   <span>{routePlan.support.label}</span>
                   <MaterialIcon icon="arrow_forward" size="sm" />
@@ -323,7 +426,7 @@ export default async function FAQCategoryPage({
               </div>
             </Card>
 
-            <Card className="mt-10 border border-brand-primary/20 bg-brand-primary/5 p-6 dark:border-brand-primary/30 dark:bg-brand-primary/10">
+            <Card className="mt-10 rounded-3xl border border-brand-primary/20 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 p-6 dark:border-brand-primary/30 dark:from-brand-primary/10 dark:to-brand-primary/20">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 Need a direct answer?
               </h2>
@@ -332,7 +435,13 @@ export default async function FAQCategoryPage({
                 conversation when the project needs a decision.
               </p>
               <Button asChild className="mt-5">
-                <Link href="/contact">Contact the team</Link>
+                <Link
+                  href="/contact"
+                  className="focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary"
+                  aria-label="Contact our team for direct consultation"
+                >
+                  Schedule a Consultation
+                </Link>
               </Button>
             </Card>
           </div>

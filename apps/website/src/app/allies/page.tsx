@@ -728,15 +728,7 @@ export default async function AlliesPage() {
               </h2>
 
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                {t("allies.network.descriptionPrefix")}{" "}
-                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  {t("allies.network.descriptionEmphasis")}
-                </span>{" "}
-                {t("allies.network.descriptionMiddle")}{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  {t("allies.network.descriptionStrong")}
-                </span>
-                .
+                {t("allies.network.singleLocalizedDescription")}
               </p>
 
               {/* Listing Criteria */}
@@ -893,15 +885,7 @@ export default async function AlliesPage() {
                 </h2>
 
                 <p className="mx-auto mb-8 max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  {t("allies.cta.descriptionPrefix")}{" "}
-                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    {t("allies.cta.descriptionEmphasis")}
-                  </span>
-                  ? {t("allies.cta.descriptionMiddle")}{" "}
-                  <span className="font-bold text-gray-900 dark:text-white">
-                    {t("allies.cta.descriptionStrong")}
-                  </span>
-                  .
+                  {t("allies.cta.singleLocalizedDescription")}
                 </p>
               </div>
 

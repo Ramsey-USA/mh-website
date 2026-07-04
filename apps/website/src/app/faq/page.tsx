@@ -76,48 +76,58 @@ const faqSchema = {
   ),
 };
 
+const FAQ_HUB_OVERVIEW_ID = "faq-hub-overview";
+
+function isExternalHref(href: string): boolean {
+  return /^https?:\/\//.test(href);
+}
+
 /**
  * FAQ Accordion Component - Modern Card Design
  */
 function FAQItem({ question, answer, link }: Readonly<FAQQuestion>) {
   return (
-    <details className="group relative">
-      {/* Animated Border Glow */}
-      <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
-
-      <div className="relative border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent rounded-xl overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300">
-        {/* Top Accent Bar */}
-        <div className="h-1 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker group-open:h-2 transition-all duration-300"></div>
-
-        <summary className="flex items-center justify-between p-6 cursor-pointer bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors duration-200">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white pr-4">
-            {question}
-          </h3>
-          <div className="relative inline-block shrink-0">
-            <div className="absolute -inset-1 bg-brand-primary/20 dark:bg-brand-primary/30 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="relative rounded-lg bg-linear-to-br from-brand-primary to-brand-primary-dark p-2 transition-colors duration-300">
+    <details className="group rounded-3xl border border-gray-200 bg-white shadow-sm transition-colors duration-300 hover:border-brand-primary/40 open:border-brand-primary/40 dark:border-gray-700 dark:bg-gray-900/90">
+      <summary className="flex cursor-pointer items-start justify-between gap-4 p-5 transition-colors duration-300 hover:bg-gray-50/80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary dark:hover:bg-gray-800/70 sm:p-6">
+        <h3 className="pr-2 text-base font-bold leading-snug text-gray-900 dark:text-white sm:text-lg">
+          {question}
+        </h3>
+        <span className="inline-flex shrink-0 rounded-xl border border-brand-primary/25 bg-brand-primary/10 p-2 text-brand-primary transition-transform duration-300 group-open:rotate-180 dark:border-brand-primary/35 dark:bg-brand-primary/20 dark:text-brand-primary-light">
+          <MaterialIcon
+            icon="expand_more"
+            className="text-current"
+            size="md"
+            ariaLabel="Expand answer"
+          />
+        </span>
+      </summary>
+      <div className="border-t border-gray-200 px-5 pb-5 pt-3 dark:border-gray-700 sm:px-6 sm:pb-6">
+        <p className="text-base leading-relaxed text-gray-700 dark:text-gray-300">
+          {answer}
+        </p>
+        {link &&
+          (isExternalHref(link.href) ? (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary transition-colors duration-300 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary dark:text-brand-primary-light"
+            >
+              {link.text}
               <MaterialIcon
-                icon="expand_more"
-                className="text-white transform group-open:rotate-180 transition-transform duration-300"
-                size="md"
-                ariaLabel="Expand answer"
+                icon="open_in_new"
+                size="sm"
+                ariaLabel="Opens in a new tab"
               />
-            </div>
-          </div>
-        </summary>
-        <div className="p-6 pt-2 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-700">
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base">
-            {answer}
-          </p>
-          {link && (
+            </a>
+          ) : (
             <Link
               href={link.href}
-              className="inline-flex items-center gap-1.5 mt-4 text-sm font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
+              className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary transition-colors duration-300 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary dark:text-brand-primary-light"
             >
               {link.text}
             </Link>
-          )}
-        </div>
+          ))}
       </div>
     </details>
   );
@@ -135,6 +145,13 @@ export default function FAQPage() {
       <StructuredData data={faqSchema} />
 
       <div className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <a
+          href={`#${FAQ_HUB_OVERVIEW_ID}`}
+          className="sr-only z-40 focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-gray-900 focus:shadow-lg focus:outline-2 focus:outline-offset-2 focus:outline-brand-primary"
+        >
+          Skip to FAQ content
+        </a>
+
         {/* Hero Section */}
         <section
           className="hero-section relative flex items-end justify-end text-white overflow-hidden"
@@ -147,17 +164,27 @@ export default function FAQPage() {
           </div>
 
           {/* Header Text - Bottom Right */}
-          <div className="hero-safe-top hero-safe-bottom relative z-30 mx-3 sm:ml-auto sm:mr-5 lg:mr-7 xl:mr-10 mb-4 pointer-events-none transition-opacity duration-300 sm:w-[min(88vw,44rem)] sm:max-w-176">
+          <div className="hero-safe-top hero-safe-bottom relative z-30 mb-32 ml-auto mr-4 max-w-2xl pointer-events-none pb-2 transition-opacity duration-300 sm:mb-36 sm:mr-6 md:mb-40 lg:mb-44 lg:mr-8 xl:mr-12">
+            <div className="mb-4 flex justify-end">
+              <div className="relative rounded-2xl border-2 border-white/30 bg-linear-to-br from-white/15 to-white/5 p-4 shadow-2xl backdrop-blur-sm">
+                <MaterialIcon
+                  icon="help"
+                  size="2xl"
+                  className="text-brand-secondary"
+                  ariaLabel="FAQ Hero Icon"
+                />
+              </div>
+            </div>
             <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
               <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
                 <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                  FAQ
+                  Intel Brief -&gt; FAQ
                 </span>
                 <span className="block text-brand-secondary">
-                  Direct Answers. Clear Decisions.
+                  Direct Answers. Clear Guidance.
                 </span>
                 <span className="block text-brand-primary">
-                  Construction Questions, Answered
+                  Mission-Ready Information.
                 </span>
                 <span className="block text-white/90">
                   {COMPANY_INFO.slogan.primary}
@@ -191,12 +218,15 @@ export default function FAQPage() {
         />
 
         {/* Introduction Section */}
-        <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+        <section
+          id={FAQ_HUB_OVERVIEW_ID}
+          className="relative overflow-hidden bg-white py-12 dark:bg-gray-900 sm:py-16 lg:py-20 xl:py-24"
+        >
           <DiagonalStripePattern />
           <BrandColorBlobs />
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto text-center mb-16">
+            <div className="mx-auto mb-16 max-w-5xl text-center">
               <FadeInWhenVisible>
                 <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
                   Clear answers on services, process, pricing, and execution. If
@@ -205,34 +235,54 @@ export default function FAQPage() {
                 </p>
               </FadeInWhenVisible>
 
+              <nav
+                aria-label="FAQ categories quick jump"
+                className="mb-10 flex flex-wrap items-center justify-center gap-3"
+              >
+                {faqCategories.map((category) => (
+                  <a
+                    key={category.id}
+                    href={`#${category.id}`}
+                    className="inline-flex items-center gap-2 rounded-full border border-brand-primary/20 bg-white/80 px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition-colors duration-300 hover:border-brand-primary hover:text-brand-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary dark:border-gray-600 dark:bg-gray-800/80 dark:text-gray-200 dark:hover:border-brand-primary-light dark:hover:text-brand-primary-light"
+                  >
+                    <MaterialIcon
+                      icon={category.icon}
+                      size="sm"
+                      className="text-brand-primary dark:text-brand-primary-light"
+                    />
+                    {category.title}
+                  </a>
+                ))}
+              </nav>
+
               {/* Trust Stat Badges */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300">
-                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 transition-colors duration-300">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+                <div className="rounded-2xl border border-brand-primary/20 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 p-6 text-center transition-colors duration-300 hover:border-brand-primary dark:border-brand-primary/30 dark:from-brand-primary/15 dark:to-brand-primary/25">
+                  <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     {totalFAQCount}+
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     Questions Answered
                   </div>
                 </div>
-                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300">
-                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 transition-colors duration-300">
+                <div className="rounded-2xl border border-brand-primary/20 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 p-6 text-center transition-colors duration-300 hover:border-brand-primary dark:border-brand-primary/30 dark:from-brand-primary/15 dark:to-brand-primary/25">
+                  <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     {faqCategories.length}
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     Topic Categories
                   </div>
                 </div>
-                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300">
-                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 transition-colors duration-300">
+                <div className="rounded-2xl border border-brand-primary/20 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 p-6 text-center transition-colors duration-300 hover:border-brand-primary dark:border-brand-primary/30 dark:from-brand-primary/15 dark:to-brand-primary/25">
+                  <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     0.64
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     EMR Safety Record
                   </div>
                 </div>
-                <div className="group text-center p-6 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300">
-                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 transition-colors duration-300">
+                <div className="rounded-2xl border border-brand-primary/20 bg-linear-to-br from-brand-primary/5 to-brand-primary/10 p-6 text-center transition-colors duration-300 hover:border-brand-primary dark:border-brand-primary/30 dark:from-brand-primary/15 dark:to-brand-primary/25">
+                  <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     3
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
@@ -249,7 +299,8 @@ export default function FAQPage() {
           <section
             key={category.id}
             id={category.id}
-            className={`relative py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden ${
+            aria-labelledby={`${category.id}-title`}
+            className={`relative scroll-mt-28 overflow-hidden py-12 sm:py-16 lg:py-20 xl:py-24 ${
               categoryIndex % 2 === 0
                 ? "bg-white dark:bg-gray-900"
                 : "bg-gray-50 dark:bg-gray-800"
@@ -258,39 +309,40 @@ export default function FAQPage() {
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-5xl mx-auto">
                 {/* Section Header */}
-                <div className="mb-12 sm:mb-16 text-center">
+                <div className="mb-12 text-center sm:mb-16">
                   <FadeInWhenVisible delay={categoryIndex * 0.1}>
-                    {/* Icon with decorative lines */}
-                    <div className="flex items-center justify-center mb-8 gap-4">
-                      <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                      <div className="relative">
-                        <div className="absolute -inset-4 bg-linear-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                        <div className="relative bg-linear-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                          <MaterialIcon
-                            icon={category.icon}
-                            size="2xl"
-                            className="text-white drop-shadow-lg"
-                          />
-                        </div>
+                    <div className="mb-8 flex items-center justify-center gap-4">
+                      <div className="h-px w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600"></div>
+                      <div className="rounded-2xl border border-brand-primary/30 bg-linear-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg">
+                        <MaterialIcon
+                          icon={category.icon}
+                          size="xl"
+                          className="text-white"
+                        />
                       </div>
-                      <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                      <div className="h-px w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600"></div>
                     </div>
 
-                    {/* Two-line gradient heading */}
-                    <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                      <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    <h2
+                      id={`${category.id}-title`}
+                      className="mb-4 text-3xl font-black leading-tight tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl lg:text-5xl"
+                    >
+                      <span className="mb-2 block text-sm font-bold uppercase tracking-[0.2em] text-brand-secondary sm:text-base">
                         FAQ Category
                       </span>
-                      <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                      <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent">
                         {category.title}
                       </span>
                     </h2>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold mb-2">
+                    <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                       {category.questions.length} Questions
+                    </p>
+                    <p className="mx-auto max-w-3xl text-base leading-relaxed text-gray-700 dark:text-gray-300 sm:text-lg">
+                      {category.metaDescription}
                     </p>
                   </FadeInWhenVisible>
 
-                  <StaggeredFadeIn className="space-y-4">
+                  <StaggeredFadeIn className="space-y-4 sm:space-y-5">
                     {category.questions.map((q) => (
                       <FAQItem
                         key={q.question}
@@ -341,23 +393,26 @@ export default function FAQPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button asChild size="lg" variant="primary">
-                  <Link href="/contact">
+                  <Link
+                    href="/contact"
+                    className="focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary"
+                  >
                     <MaterialIcon
                       icon="diversity_3"
                       className="mr-2"
                       theme="military"
-                      ariaLabel="Schedule Face-to-Face Consultation"
+                      ariaLabel="Schedule Consultation"
                     />
-                    Schedule Face-to-Face Consultation
+                    Schedule a Consultation
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <a href="tel:+15093086489">
-                    <MaterialIcon
-                      icon="phone"
-                      className="mr-2"
-                      ariaLabel="Call Us"
-                    />
+                  <a
+                    href="tel:+15093086489"
+                    className="focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary"
+                    aria-label="Call us at 509-308-6489"
+                  >
+                    <MaterialIcon icon="phone" className="mr-2" />
                     (509) 308-6489
                   </a>
                 </Button>

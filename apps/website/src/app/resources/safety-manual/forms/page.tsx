@@ -18,13 +18,13 @@ const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyForms.seoName, PAGE_TERMINOLOGY.safetyForms.mhBrandName)} | MH Construction`,
   description:
-    "Index of MH Construction's MISH safety forms. Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Authorized personnel may download blank forms; completed forms are restricted.",
+    "Index of MH Construction's Safety Forms for the Safety Program (MISH Safety & Health Program / Safety Manual). Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Authorized personnel may download blank forms; completed forms are restricted.",
   alternates: { canonical: `${SITE_URL}/resources/safety-manual/forms` },
   robots: { index: true, follow: true },
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyForms.seoName, PAGE_TERMINOLOGY.safetyForms.mhBrandName)} | MH Construction`,
     description:
-      "Index of MISH safety forms with downloadable blank templates and restricted completion records.",
+      "Index of Safety Program (MISH Safety & Health Program / Safety Manual) forms with downloadable blank templates and restricted completion records.",
     type: "website",
     url: `${SITE_URL}/resources/safety-manual/forms`,
   },
@@ -33,9 +33,27 @@ export const metadata: Metadata = {
 const breadcrumbs = [
   { label: "Home", href: "/" },
   { label: "Resources", href: "/resources" },
-  { label: "Safety Manual", href: "/safety" },
-  { label: "Table of Contents", href: "/resources/safety-manual/contents" },
-  { label: "Safety Forms", href: "/resources/safety-manual/forms" },
+  {
+    label: formatDualPageName(
+      PAGE_TERMINOLOGY.safetyManual.seoName,
+      PAGE_TERMINOLOGY.safetyManual.mhBrandName,
+    ),
+    href: "/resources/safety-manual/contents",
+  },
+  {
+    label: formatDualPageName(
+      PAGE_TERMINOLOGY.safetyContents.seoName,
+      PAGE_TERMINOLOGY.safetyContents.mhBrandName,
+    ),
+    href: "/resources/safety-manual/contents",
+  },
+  {
+    label: formatDualPageName(
+      PAGE_TERMINOLOGY.safetyForms.seoName,
+      PAGE_TERMINOLOGY.safetyForms.mhBrandName,
+    ),
+    href: "/resources/safety-manual/forms",
+  },
 ];
 
 /** Strip the `safety-form-` id prefix to get a stable QR anchor id. */
@@ -62,18 +80,18 @@ export default function SafetyManualFormsPage() {
               size="sm"
               className="text-brand-secondary"
             />
-            Safety Forms
+            Safety Forms (MISH)
           </div>
           <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/80">
-            Field Forms <span aria-hidden>→</span> Safety Forms
+            Safety Manual <span aria-hidden>→</span> Safety Forms
           </p>
           <h1 className="text-2xl font-black text-white sm:text-3xl md:text-4xl leading-tight">
-            MISH Safety Forms
+            Safety Forms (MISH Program)
           </h1>
           <p className="mt-3 max-w-3xl text-sm text-white/80 sm:text-base">
-            Field-ready safety forms for MH Construction crews and Trade
+            Field-ready safety forms for MH Construction crews and Client
             Partners. Each form aligns with a MISH section and is part of our
-            written Safety &amp; Health Program.
+            written Safety Program delivered as the Safety Manual.
           </p>
           <p className="mt-3 text-xs font-semibold text-brand-secondary">
             Blank templates for field use and documentation control

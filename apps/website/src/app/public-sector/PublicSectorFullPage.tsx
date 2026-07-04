@@ -57,39 +57,33 @@ const grantSupportServices = [
     icon: "military_tech",
     title: "Cost Analysis",
     description:
-      "Disciplined cost estimation for reliable fiscal projections in government procurement",
+      "Disciplined preconstruction estimating and budget validation for agency procurement planning",
     features: [
-      "Detailed line-item cost breakdowns per federal standards",
-      "Material cost projections with supply chain risk analysis",
-      "Labor cost estimates based on prevailing wage requirements",
-      "Contingency planning and operational risk assessment",
-      "Professional documentation meeting federal acquisition regulations",
+      "Line-item cost breakdowns aligned with agency documentation requirements",
+      "Labor assumptions coordinated to prevailing wage obligations",
+      "Risk-informed contingencies and procurement-ready estimate packages",
     ],
   },
   {
     icon: "gps_fixed",
     title: "Design Validation",
     description:
-      "Technical assessment to confirm constructability, schedule realism, and execution readiness",
+      "Technical review that confirms constructability, schedule realism, and field readiness",
     features: [
-      "Constructability review and tactical analysis",
-      "Mission feasibility studies and site security assessments",
-      "Realistic operational timeline development",
-      "Phase-by-phase execution planning with checkpoints",
-      "Critical path analysis and design validation for mission success",
+      "Constructability and sequencing review before procurement commitments",
+      "Site and operational constraints documented for stakeholder alignment",
+      "Milestone-based execution plans with clear decision checkpoints",
     ],
   },
   {
     icon: "verified",
     title: "Compliance Assurance",
     description:
-      "Navigate public-sector requirements with disciplined planning and clear documentation",
+      "Requirement mapping and documentation support for confident public-sector execution",
     features: [
-      "Federal acquisition regulation (FAR) compliance review",
-      "Security clearance coordination and documentation",
-      "Building code verification and regulatory compliance",
-      "Environmental and operational security compliance",
-      "Quality assurance meeting federal standards",
+      "FAR and owner specification alignment checks",
+      "Permit, code, and agency documentation readiness reviews",
+      "Quality-control hold points and compliance record workflows",
     ],
   },
 ];
@@ -150,10 +144,10 @@ const governmentProjects = [
     icon: "science",
     title: "DOE & Hanford Operations",
     examples: [
-      "Security Support Facilities",
-      "Administrative Command Centers",
-      "Operational Training Centers",
-      "Critical Safety Systems",
+      "Facility modernization scopes",
+      "Operations-support upgrades",
+      "Specialized systems coordination",
+      "High-compliance construction packages",
     ],
   },
 ];
@@ -161,36 +155,36 @@ const governmentProjects = [
 // Federal contracting types
 const grantTypes = [
   {
-    category: "Federal Contracts",
+    category: "Federal Agency Contracts",
     icon: "flag",
     programs: [
-      "Department of Energy (DOE) Facilities",
-      "General Services Administration (GSA) Buildings",
-      "Department of Defense (DoD) Infrastructure",
-      "FEMA Emergency Response Construction",
-      "Veterans Affairs (VA) Facilities",
+      "Department of Energy (DOE)",
+      "General Services Administration (GSA)",
+      "Department of Defense (DoD)",
+      "FEMA emergency response",
+      "Veterans Affairs (VA)",
     ],
   },
   {
-    category: "State & Municipal Contracts",
+    category: "State & Local Agency Contracts",
     icon: "location_city",
     programs: [
-      "Washington State Government Facilities",
-      "Oregon State Infrastructure Projects",
-      "Idaho Government Building Contracts",
-      "County Administrative Facilities",
-      "Municipal Emergency Services Buildings",
+      "Washington agency projects",
+      "Oregon public infrastructure scopes",
+      "Idaho municipal facility work",
+      "County operations upgrades",
+      "Local emergency-services facilities",
     ],
   },
   {
-    category: "Critical Infrastructure Projects",
+    category: "Critical Infrastructure Programs",
     icon: "star",
     programs: [
-      "Security-Enhanced Facilities",
-      "Emergency Operations Centers",
-      "Training and Readiness Facilities",
-      "Critical Infrastructure Upgrades",
-      "Operational Support Buildings",
+      "Security-enhanced facilities",
+      "Emergency operations centers",
+      "Readiness and training facilities",
+      "Infrastructure resilience upgrades",
+      "Operational support buildings",
     ],
   },
 ];
@@ -246,9 +240,9 @@ const hanfordCapabilities = [
   },
   {
     icon: "health_and_safety",
-    title: "Award-Winning Safety Protocols",
+    title: "Hanford Safety Readiness",
     description:
-      ".64 EMR performance (40% better than industry), OSHA VPP Star designation, and disciplined safety system implementation",
+      "Integrated planning for high-compliance environments with disciplined field safety execution",
   },
   {
     icon: "diversity_3",
@@ -266,32 +260,6 @@ const hanfordCapabilities = [
     title: "Military-Grade Quality Assurance",
     description:
       "Quality control aligned to strict public-sector standards and documented review workflows",
-  },
-];
-
-// Federal contract success factors
-const successFactors = [
-  {
-    icon: "description",
-    title: "Documentation Standards",
-    description: "Public-sector formatting and complete project specifications",
-  },
-  {
-    icon: "schedule",
-    title: "Schedule Control",
-    description:
-      "Operational schedules with contingencies and detailed planning",
-  },
-  {
-    icon: "verified_user",
-    title: "Federal Compliance Verification",
-    description: "Requirements addressed with supporting documentation",
-  },
-  {
-    icon: "military_tech",
-    title: "Veteran-Owned Qualified Contractor",
-    description:
-      "Veteran-led leadership with established public-sector controls, documented process discipline, and accountable delivery oversight",
   },
 ];
 
@@ -316,11 +284,8 @@ export default function PublicSectorFullPage() {
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
                 Public Sector Construction
               </span>
-              <span className="block text-brand-secondary">
-                Veteran-Owned Government Construction
-              </span>
               <span className="block text-brand-primary">
-                Federal Compliance-Driven Delivery
+                Mission-Ready, Compliance-Driven
               </span>
               <span className="block text-white/90">
                 Built for agency requirements, schedule discipline, and clear
@@ -328,9 +293,6 @@ export default function PublicSectorFullPage() {
               </span>
               <span className="block text-white/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
                 {COMPANY_INFO.slogan.primary}
-              </span>
-              <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
-                {COMPANY_INFO.slogan.quaternary}
               </span>
             </h1>
           </div>
@@ -345,10 +307,7 @@ export default function PublicSectorFullPage() {
       </section>
       {/* Breadcrumb Navigation */}
       <Breadcrumb
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Public Sector Projects" },
-        ]}
+        items={[{ label: "Home", href: "/" }, { label: "Government" }]}
       />
       {/* Grant Support Services */}
       <section
@@ -695,10 +654,10 @@ export default function PublicSectorFullPage() {
 
             <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
               <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                Federal Contract
+                Contract
               </span>
               <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                Categories
+                Pathways
               </span>
             </h2>
 
@@ -741,10 +700,10 @@ export default function PublicSectorFullPage() {
 
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Federal Contract
+                  Delivery
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Execution Process
+                  Process
                 </span>
               </h2>
 
@@ -901,95 +860,6 @@ export default function PublicSectorFullPage() {
           </StaggeredFadeIn>
         </div>
       </section>
-      {/* Success Factors */}
-      <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
-        <DiagonalStripePattern />
-        <BrandColorBlobs />
-        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="mx-auto max-w-6xl">
-            {/* Section Header */}
-            <div className="mb-16 sm:mb-20 text-center">
-              <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-linear-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-linear-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                    <MaterialIcon
-                      icon="emoji_events"
-                      size="2xl"
-                      className="text-white drop-shadow-lg"
-                    />
-                  </div>
-                </div>
-                <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-              </div>
-
-              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Mission Success
-                </span>
-                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Factors
-                </span>
-              </h2>
-
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                What ensures{" "}
-                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  federal contract success
-                </span>{" "}
-                and how we deliver with{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  award-winning safety, veteran leadership, and accountable
-                  project controls.
-                </span>
-              </p>
-            </div>
-
-            <div className="gap-6 grid md:grid-cols-2">
-              {successFactors.map((factor) => (
-                <div
-                  key={factor.title}
-                  className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 overflow-hidden"
-                >
-                  {/* Animated border glow */}
-                  <div
-                    className="absolute -inset-2 bg-linear-to-r from-slate-600/40 to-gray-700/40 blur-xl opacity-20 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
-                    aria-hidden="true"
-                  />
-                  {/* Top accent bar */}
-                  <div className="h-2 bg-linear-to-r from-slate-600 via-gray-700 to-slate-600" />
-                  <div className="relative p-6 sm:p-8 pt-8">
-                    <div className="flex items-start">
-                      <div className="relative inline-block shrink-0 mr-6">
-                        <div
-                          className="absolute -inset-2 bg-linear-to-r from-slate-600/40 to-gray-700/40 blur-lg opacity-70"
-                          aria-hidden="true"
-                        />
-                        <div className="relative bg-linear-to-br from-slate-600 via-gray-700 to-slate-800 p-3 rounded-xl shadow-xl">
-                          <MaterialIcon
-                            icon={factor.icon}
-                            size="lg"
-                            className="text-white drop-shadow-lg transition-colors duration-300"
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
-                          {factor.title}
-                        </h3>
-                        <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                          {factor.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
       {/* CTA Section - Strong Government Theme */}
       <section
         id="contact"
@@ -1038,11 +908,9 @@ export default function PublicSectorFullPage() {
                 </span>{" "}
                 for{" "}
                 <span className="font-bold text-white">
-                  clear planning and compliant delivery
+                  compliant planning and clear delivery
                 </span>
-                {
-                  ". Contact our team to discuss project requirements and next steps."
-                }
+                . Share your scope, timeline, and agency requirements.
               </p>
             </div>
 
@@ -1147,19 +1015,18 @@ export default function PublicSectorFullPage() {
                   href: "/veterans/public-sector-construction",
                   title: "Veteran Public Sector Path",
                   detail:
-                    "Connect veteran-led values to public-sector delivery planning.",
+                    "See how veteran leadership supports public-sector delivery.",
                 },
                 {
                   href: "/public-sector/veteran-led-compliance",
                   title: "Compliance Workflow",
                   detail:
-                    "Review intake, compliance mapping, and execution controls.",
+                    "Review intake, compliance mapping, and control points.",
                 },
                 {
                   href: "/public-sector/tri-state-government-construction",
                   title: "Tri-State Coverage",
-                  detail:
-                    "Align WA, OR, and ID coverage with project strategy.",
+                  detail: "Confirm coverage across WA, OR, and ID.",
                 },
               ].map((bridge) => (
                 <TrackedBridgeLink

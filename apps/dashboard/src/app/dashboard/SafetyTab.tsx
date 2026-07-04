@@ -618,6 +618,26 @@ export function SafetyTab({ token }: SafetyTabProps) {
 
   return (
     <div className="space-y-8">
+      <section data-print-section="true">
+        <div className="rounded-xl border border-brand-secondary/45 bg-brand-primary-darker/60 p-4">
+          <p className="inline-flex items-center gap-2 rounded-full border border-brand-secondary/40 bg-brand-primary-darker/55 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-brand-secondary-light">
+            <MaterialIcon
+              icon="shield"
+              size="sm"
+              className="text-brand-secondary"
+            />
+            Safety Program Context
+          </p>
+          <h2 className="mt-3 text-lg font-black text-white uppercase tracking-wide">
+            Safety Program (MISH Safety &amp; Health Program / Safety Manual)
+          </h2>
+          <p className="mt-1 text-sm text-brand-secondary-light/85">
+            This dashboard tab manages jobs, form submissions, and download
+            activity aligned with the current MISH revision.
+          </p>
+        </div>
+      </section>
+
       {/* Jobs section */}
       <section data-print-section="true">
         <div className="flex items-center justify-between mb-4 gap-3 flex-wrap">

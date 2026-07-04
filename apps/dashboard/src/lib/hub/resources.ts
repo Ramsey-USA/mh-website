@@ -1,11 +1,18 @@
 import { unstable_cache } from "next/cache";
-import { forms, manuals } from "@/lib/data/documents";
+import {
+  forms,
+  handbookForms,
+  manuals,
+  safetyForms,
+} from "@/lib/data/documents";
 
 export interface HubSafetySummary {
   sectionCount: number;
   revisionNumber: string;
   handbookRevision: string;
   handbookSections: number;
+  safetyFormCount: number;
+  handbookFormCount: number;
   formCount: number;
 }
 
@@ -21,6 +28,8 @@ const getCachedSafetySummary = unstable_cache(
       revisionNumber: safetyManual?.revisionNumber ?? "3",
       handbookRevision: employeeHandbook?.revisionNumber ?? "1.0",
       handbookSections: employeeHandbook?.totalSections ?? 6,
+      safetyFormCount: safetyForms.length,
+      handbookFormCount: handbookForms.length,
       formCount: forms.length,
     });
   },

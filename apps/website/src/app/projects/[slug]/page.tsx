@@ -323,15 +323,6 @@ export default async function ProjectCaseStudyPage({
       <main className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <section className="hero-section hero-safe-top-lg border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 pb-14 text-white sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
-            <Breadcrumbs
-              items={[
-                { label: "Home", href: "/" },
-                { label: "Projects", href: "/projects" },
-                { label: title },
-              ]}
-              className="mb-6 text-white/70"
-            />
-
             <div className="max-w-3xl">
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
                 Case Study
@@ -351,6 +342,14 @@ export default async function ProjectCaseStudyPage({
             </div>
           </div>
         </section>
+
+        <Breadcrumbs
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Projects", href: "/projects" },
+            { label: title },
+          ]}
+        />
 
         <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,0.9fr)]">

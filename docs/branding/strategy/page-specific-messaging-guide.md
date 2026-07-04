@@ -25,6 +25,8 @@ act transparently, and prioritize substance over style. While our **four-value p
 (Honesty, Integrity, Professionalism, Thoroughness) remains constant, each page group reflects these values
 in ways that resonate with its specific audience.
 
+For page-level slogan selection, use the canonical matrix in [Page Slogans](./page-specific-slogans.md).
+
 **Core Identity:** Veteran-Owned Since January 2025. Your word is your bond — so is ours.
 
 ### Core Foundation
@@ -40,6 +42,8 @@ in ways that resonate with its specific audience.
 **"Built on Quality, Backed by Trust."** is our PRIMARY SLOGAN and should be prominently
 featured across the site. However, each page group also has freedom to create and use
 supplementary messaging that speaks to its unique purpose while always reflecting our four core values.
+When a page needs a distinct slogan rather than a group voice line, use the approved page-specific slogan in
+[Page Slogans](./page-specific-slogans.md).
 
 ### 🔗 Related Standards
 

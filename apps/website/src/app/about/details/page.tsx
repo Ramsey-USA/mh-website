@@ -117,7 +117,7 @@ export default function AboutDetailsPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <Breadcrumb
               items={[
-                { label: commonT("back"), href: "/" },
+                { label: "Home", href: "/" },
                 { label: commonT("about.hero.sectionTitle"), href: "/about" },
                 { label: copy.breadcrumbCurrent },
               ]}

@@ -70,6 +70,23 @@ describe("generateBreadcrumbSchema()", () => {
     expect(services[0]!.name).toBe("Home");
     expect(services).toHaveLength(2);
   });
+
+  it("normalizes taxonomy aliases for schema clarity", () => {
+    const { itemListElement } = generateBreadcrumbSchema([
+      { name: "Home", url: "/" },
+      { name: "Government", url: "/public-sector" },
+      { name: "Safety Hub", url: "/safety" },
+    ]);
+
+    expect(itemListElement[1]!.name).toMatch(/Government/i);
+    expect(itemListElement[2]!.name).toMatch(/Safety Program/i);
+  });
+
+  it("keeps canonical public sector naming in breadcrumb patterns", () => {
+    expect(breadcrumbPatterns.government[1]!.name).toBe("Government");
+    expect(breadcrumbPatterns.team[1]!.name).toBe("Team");
+    expect(breadcrumbPatterns.safety[1]!.name).toBe("Safety Program");
+  });
 });
 
 // ── howto-schema ──────────────────────────────────────────────────────────────

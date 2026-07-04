@@ -534,11 +534,8 @@
     "hero": {
       "iconAria": "Red estratégica de socios",
       "kicker": "Socios comerciales",
-      "titleLine1": "Alianzas Estratégicas Construidas en Confianza, Rendimiento y Éxito Mutuo",
-      "titleLine2": "Alianzas Verificadas - Construyendo Éxito a Través de Socios de Confianza",
-      "titleLine3Prefix": "Alianzas construidas para calidad, ",
-      "notWord": "Y",
-      "titleLine3Suffix": "cumplimiento a largo plazo",
+      "titleLine1": "Alianzas Estratégicas Construidas en Confianza",
+      "titleLine2": "Socios Verificados Listos para Ejecutar",
       "breadcrumbHome": "Inicio",
       "breadcrumbCurrent": "Red de Socios Comerciales"
     },
@@ -547,9 +544,9 @@
       "subtitle": "Por que construir con",
       "title": "MH Construction",
       "quote": "\"El retorno es la relación - demostrado con el tiempo.\"",
-      "descriptionPrefix": "Desde 2010, MH Construction ha construido una reputacion de comunicación honesta, pagos puntuales y una cultura de seguridad sin igual",
+      "descriptionPrefix": "Desde 2010, MH Construction ha construido una reputación de comunicación honesta, pagos puntuales y disciplina en seguridad.",
       "metric": "(.64 EMR - 40% más seguro que el promedio de la industria)",
-      "descriptionSuffix": "Nuestros estándares de liderazgo priorizan responsabilidad, cumplimiento y expectativas justas para cada socio.",
+      "descriptionSuffix": "El liderazgo se basa en responsabilidad, cumplimiento y expectativas justas.",
       "cite": "- Equipo de liderazgo de MH Construction",
       "values": {
         "handshakes": {
@@ -574,10 +571,7 @@
       "iconAria": "Red de Socios Comerciales",
       "subtitle": "Nuestra",
       "title": "Red de Socios Comerciales",
-      "descriptionPrefix": "Empresas verificadas agrupadas por especialidad y listadas",
-      "descriptionEmphasis": "alfabéticamente dentro de cada categoría",
-      "descriptionMiddle": "Los socios se seleccionan por licencia, alineación con seguridad, historial de desempeño y valores compartidos -",
-      "descriptionStrong": "revisados trimestralmente para asegurar una representación justa y actualizada",
+      "singleLocalizedDescription": "Las empresas verificadas se agrupan por especialidad, se listan alfabéticamente dentro de cada categoría y se revisan trimestralmente por licencia, alineación con seguridad, historial de desempeño y valores compartidos.",
       "criteria": {
         "aria": "Criterios de listado",
         "label": "Criterios de Listado",
@@ -593,10 +587,7 @@
       "iconAria": "Conviertase en aliado",
       "subtitle": "Conviertase en",
       "title": "Socio Comercial",
-      "descriptionPrefix": "¿Listo para hacer crecer su negocio con un",
-      "descriptionEmphasis": "contratista general regional confiable",
-      "descriptionMiddle": "Buscamos activamente Socios Comerciales confiables y calificados que valoren la calidad, la comunicación honesta y",
-      "descriptionStrong": "relaciones comerciales sostenibles basadas en el éxito mutuo",
+      "singleLocalizedDescription": "¿Listo para crecer con un contratista general regional confiable? Buscamos Socios Comerciales calificados que valoren la calidad, la comunicación honesta y resultados duraderos. Built on communication and follow-through (Construidos en comunicación y seguimiento).",
       "buttonPrimaryAria": "Solicitar",
       "buttonPrimary": "Iniciar conversación de asociación",
       "buttonSecondaryAria": "Portafolio",
@@ -609,7 +600,7 @@
     "accreditations": {
       "kicker": "Acreditado y Certificado",
       "title": "Asóciese con un contratista general de confianza",
-      "description": "Nuestras acreditaciones reflejan nuestro compromiso con la calidad, la etica y la seguridad"
+      "description": "Nuestras acreditaciones refuerzan la confianza, la calidad y la seguridad"
     }
   },
   "locations": {

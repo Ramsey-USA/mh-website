@@ -15,27 +15,32 @@ import jeremyProfile from "@/lib/data/team/jeremy-thamert.json";
 const canonicalUrl = "https://www.mhc-gc.com/jeremy-thamert";
 const jeremyStamp = getIndividualBrandingStamp("jeremy-thamert");
 const jeremySeoTitle = buildDualSeoTitle("team", "Jeremy Thamert Profile");
+const jeremyPageSlogan =
+  "Command Staff you can count on in the field and office.";
+const jeremySeoDescription =
+  "Jeremy Thamert is Owner & President of MH Construction in Pasco, WA. Learn how the Army veteran leads with clear communication, disciplined delivery, and relationship-first accountability across WA, OR, and ID.";
 
 export const metadata: Metadata = withGeoMetadata({
   title: jeremySeoTitle,
-  description:
-    "Jeremy Thamert is Owner & President of MH Construction. Learn about his Army veteran background, leadership approach, and relationship-first delivery model across WA, OR, and ID.",
+  description: jeremySeoDescription,
   keywords: [
     "Jeremy Thamert",
     "Jeremy Thamert MH Construction",
     "Jeremy Thamert Owner and President",
     "Jeremy Thamert veteran construction leader",
     "MH Construction leadership",
+    "MH Construction team",
     "veteran-owned construction leadership",
     "Pasco Washington construction leadership",
+    "Owner and President of MH Construction",
+    "Our Team leadership profile",
   ],
   alternates: {
     canonical: canonicalUrl,
   },
   openGraph: {
     title: jeremySeoTitle,
-    description:
-      "Owner & President Jeremy Thamert leads MH Construction with disciplined planning, direct communication, and accountable delivery.",
+    description: `${jeremyPageSlogan} Jeremy Thamert leads MH Construction with disciplined planning, direct communication, and accountable delivery from Pasco, WA.`,
     url: canonicalUrl,
     images: [
       {
@@ -49,8 +54,7 @@ export const metadata: Metadata = withGeoMetadata({
   twitter: {
     card: "summary_large_image",
     title: jeremySeoTitle,
-    description:
-      "Army veteran and construction operator Jeremy Thamert leads MH Construction with relationship-first standards.",
+    description: `${jeremyPageSlogan} Army veteran Jeremy Thamert leads MH Construction with relationship-first standards in WA, OR, and ID.`,
     images: [jeremyProfile.avatar],
   },
 });
@@ -65,6 +69,10 @@ const personSchema = {
   image: `https://www.mhc-gc.com${jeremyProfile.avatar}`,
   url: canonicalUrl,
   email: jeremyProfile.email,
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": canonicalUrl,
+  },
   worksFor: {
     "@type": "Organization",
     "@id": "https://www.mhc-gc.com/#organization",
@@ -157,14 +165,20 @@ export default function JeremyThamertPage() {
               <p className="mt-2 text-lg font-semibold text-brand-secondary sm:text-xl">
                 Owner & President, MH Construction
               </p>
+              <p className="mt-4 max-w-3xl text-sm font-semibold tracking-wide text-brand-primary uppercase sm:text-base">
+                {COMPANY_INFO.slogan.primary}
+              </p>
+              <p className="mt-2 max-w-3xl text-sm font-semibold tracking-wide text-brand-secondary uppercase sm:text-base">
+                {jeremyPageSlogan}
+              </p>
               <p className="mt-5 max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg dark:text-gray-200">
                 {jeremyProfile.bio}
               </p>
-              <p className="mt-5 text-sm font-medium text-gray-600 dark:text-gray-300">
-                {COMPANY_INFO.slogan.primary} This leadership profile documents
-                Jeremy&apos;s role in maintaining clear communication,
-                disciplined execution, and long-term client trust across
-                Washington, Oregon, and Idaho.
+              <p className="mt-5 max-w-3xl text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                Veteran-owned since {COMPANY_INFO.details.veteranOwnedSince} in
+                Pasco, WA, this leadership profile documents Jeremy&apos;s role
+                in maintaining clear communication, disciplined execution, and
+                long-term client trust across Washington, Oregon, and Idaho.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
@@ -211,7 +225,7 @@ export default function JeremyThamertPage() {
 
         <Breadcrumb
           items={[
-            { label: "Back", href: "/" },
+            { label: "Home", href: "/" },
             { label: "Team", href: "/team" },
             { label: "Jeremy Thamert" },
           ]}

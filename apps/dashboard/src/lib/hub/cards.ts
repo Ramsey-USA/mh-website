@@ -16,8 +16,8 @@ export interface HubCardDefinition {
 
 export const HUB_CARDS: readonly HubCardDefinition[] = [
   {
-    title: "Safety Program",
-    subtitle: "Credentials, standards, and program overview",
+    title: "Safety Program (MISH / Safety Manual)",
+    subtitle: "Credentials, standards, and safety program overview",
     href: "/safety",
     icon: "shield",
     badge: "Program",
@@ -38,15 +38,16 @@ export const HUB_CARDS: readonly HubCardDefinition[] = [
     badge: "Current",
   },
   {
-    title: "Field Forms",
-    subtitle: "Current MISH and handbook forms for field and office workflows",
+    title: "Safety + Handbook Forms",
+    subtitle:
+      "Current Safety Program (MISH) and Employee Handbook forms for field and office workflows",
     href: "/resources",
     icon: "description",
     badge: "Role-Gated Downloads",
   },
   {
     title: "Manuals and SOPs",
-    subtitle: "Safety manuals and operations documentation",
+    subtitle: "Safety Manual, reference guides, and operations documentation",
     href: "/resources",
     icon: "library_books",
     badge: "Reference",

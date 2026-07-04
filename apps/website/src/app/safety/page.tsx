@@ -20,7 +20,7 @@ const SITE_URL = "https://www.mhc-gc.com";
 export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyProgram.seoName, PAGE_TERMINOLOGY.safetyProgram.mhBrandName)} | 0.64 EMR | AGC-WA Award | MH Construction Tri-State`,
   description:
-    "MH Construction's safety program — 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written safety program aligned for WA, OR, and ID operations.",
+    "MH Construction Safety Program (MISH Safety & Health Program / Safety Manual) — 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written safety program aligned for WA, OR, and ID operations.",
   keywords: [
     "MH Construction safety culture",
     "zero incident culture construction",
@@ -35,7 +35,7 @@ export const metadata: Metadata = withGeoMetadata({
     "OSHA 30 hour certified contractor",
     "safety record construction contractor",
     "Experience Modification Rate EMR",
-    "construction accident prevention program",
+    "MISH safety and health program",
     "safety accountability construction team",
     "job hazard analysis construction",
     "toolbox talks safety program",
@@ -49,7 +49,7 @@ export const metadata: Metadata = withGeoMetadata({
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyProgram.seoName, PAGE_TERMINOLOGY.safetyProgram.mhBrandName)} | 0.64 EMR, AGC-WA Award | MH Construction`,
     description:
-      "Safety is a value, not a rule. 0.64 EMR (40% below industry avg), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written safety program.",
+      "Safety is leadership in daily practice. 0.64 EMR (40% below industry avg), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written MISH safety program (Safety Manual).",
     url: `${SITE_URL}/safety`,
     siteName: "MH Construction",
     type: "website",
@@ -87,13 +87,16 @@ export const metadata: Metadata = withGeoMetadata({
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", url: "https://www.mhc-gc.com" },
-  { name: "Safety Program", url: "https://www.mhc-gc.com/safety" },
+  {
+    name: "Safety Program (MISH Safety & Health Program / Safety Manual)",
+    url: "https://www.mhc-gc.com/safety",
+  },
 ]);
 
 const safetySchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "MH Construction Safety Program",
+  name: "MH Construction Safety Program (MISH Safety & Health Program / Safety Manual)",
   description:
     "Safety program with 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written safety program aligned with OSHA, AGC, WISHA, Oregon OSHA, and Idaho requirements.",
   provider: {
@@ -169,7 +172,7 @@ const safetyFaqSchema = {
       name: "What is MH Construction's written safety program?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "MH Construction maintains a 50-section written safety program (Revision 3, effective April 7, 2026) covering all OSHA-required construction safety standards. The program is aligned with OSHA 29 CFR 1926, AGC CSEA, WISHA (Washington), Oregon OSHA, and Idaho requirements. It is available for review by bonding agents, insurers, and Client Partners at mhc-gc.com/safety.",
+        text: "MH Construction maintains a 50-section written safety program (Revision 3, effective April 7, 2026), referred to as the MISH Safety & Health Program and delivered as the Safety Manual. The program is aligned with OSHA 29 CFR 1926, AGC CSEA, WISHA (Washington), Oregon OSHA, and Idaho requirements. It is available for review by bonding agents, insurers, and Client Partners at mhc-gc.com/safety.",
       },
     },
     {
@@ -222,7 +225,7 @@ const CREDENTIALS = [
   },
   {
     icon: "menu_book",
-    title: "50-Section Written Safety Program",
+    title: "50-Section MISH Safety Program (Safety Manual)",
     body: "MH Construction maintains a comprehensive written safety program (Revision 3, eff. April 7, 2026) covering all OSHA-required topics. Aligned with 29 CFR 1926, AGC CSEA, WISHA, Oregon OSHA, and Idaho requirements.",
     tag: "Rev 3 · April 2026",
   },
@@ -281,7 +284,7 @@ const COMMITMENTS = [
   {
     icon: "military_tech",
     title: "Service-Earned Discipline",
-    body: "Our veteran leadership brought a simple truth from the military: consistent habits, not sporadic rules, are what keep people alive. That discipline lives on every job site.",
+    body: "Our veteran-owned leadership emphasizes a simple truth: consistent habits, not sporadic rules, are what keep people safe. That discipline lives on every job site.",
   },
   {
     icon: "visibility",
@@ -321,7 +324,7 @@ const STATS = [
   {
     value: "50",
     label: "Program Sections",
-    sub: "Comprehensive written safety program",
+    sub: "MISH written safety program (Safety Manual)",
     icon: "menu_book",
   },
 ] as const;
@@ -359,15 +362,6 @@ export default function SafetyPage() {
         data={[breadcrumbSchema, safetySchema, safetyFaqSchema]}
       />
 
-      {/* Breadcrumb */}
-      <div className="bg-slate-900 border-b border-slate-700">
-        <div className="max-w-6xl mx-auto px-4 py-3">
-          <Breadcrumb
-            items={[{ label: "Home", href: "/" }, { label: "Safety Program" }]}
-          />
-        </div>
-      </div>
-
       {/* ── Hero ── */}
       <section
         className="hero-section relative flex items-end justify-end text-white overflow-hidden"
@@ -391,18 +385,21 @@ export default function SafetyPage() {
             <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
               {/* Page Identity */}
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                Safety HQ → Safety Program
+                {formatDualPageName(
+                  PAGE_TERMINOLOGY.safety.seoName,
+                  PAGE_TERMINOLOGY.safety.mhBrandName,
+                )}
               </span>
               {/* Page Mantra */}
               <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
-                Award-Winning Safety: 0.64 EMR, Zero Compromises
+                0.64 EMR, AGC-WA Recognition, OSHA VPP Star
               </span>
               {/* Tagline */}
               <span className="block text-brand-primary">
-                Zero-Incident Operations | Mission-Critical Safety Culture
+                MISH Safety &amp; Health Program (Safety Manual)
               </span>
               <span className="block text-white/90">
-                Field controls first. Production follows.
+                Clear standards. Consistent field follow-through.
               </span>
               <span className="block text-white/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
                 {COMPANY_INFO.slogan.primary}
@@ -422,6 +419,23 @@ export default function SafetyPage() {
         />
       </section>
 
+      {/* Breadcrumb */}
+      <div className="bg-slate-900 border-b border-slate-700">
+        <div className="max-w-6xl mx-auto px-4 py-3">
+          <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              {
+                label: formatDualPageName(
+                  PAGE_TERMINOLOGY.safetyProgram.seoName,
+                  PAGE_TERMINOLOGY.safetyProgram.mhBrandName,
+                ),
+              },
+            ]}
+          />
+        </div>
+      </div>
+
       {/* ── Credentials ── */}
       <section id="credentials" className="bg-white dark:bg-gray-900 py-20">
         <div className="max-w-6xl mx-auto px-4">
@@ -436,8 +450,8 @@ export default function SafetyPage() {
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               OSHA VPP Star designation, AGC-WA Top EMR Awards, and a 50-section
-              written safety program — verifiable proof our standards exceed
-              requirements.
+              MISH written safety program (delivered as our Safety Manual) —
+              verifiable proof our standards exceed requirements.
             </p>
           </div>
 
@@ -529,20 +543,22 @@ export default function SafetyPage() {
                   MH Construction
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm py-1 leading-normal">
-                  Written Safety Program
+                  MISH Safety &amp; Health Program
                 </span>
               </h2>
               <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
                 Our 50-section written safety program covers every OSHA-required
-                construction safety topic — from fall protection and excavation
-                to electrical safety and hazardous materials. It is the
-                operational foundation for every site we run.
+                construction safety topic and is delivered in the field as our
+                Safety Manual. From fall protection and excavation to electrical
+                safety and hazardous materials, it is the operational foundation
+                for every site we run.
               </p>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
                 Aligned with federal OSHA 29 CFR 1926, AGC CSEA prequalification
                 standards, WISHA, Oregon OSHA, and Idaho requirements. Available
                 in full to bonding agents, insurers, and Client Partners through
-                our secure staff portal.
+                our secure staff portal. Legacy APP references remain in
+                historical source material for continuity.
               </p>
 
               <div className="grid grid-cols-2 gap-4">
@@ -769,10 +785,11 @@ export default function SafetyPage() {
               </h2>
 
               <p className="text-slate-300 text-lg max-w-xl mx-auto mb-4 leading-relaxed">
-                The MH Construction app is our staff portal — safety manual,
-                field forms, toolbox talks, incident reports, and employee
-                handbook. Real-time snapshots of job-site safety compliance.
-                Free to install. Role-gated for team members.
+                The MH Construction app is our staff portal for the MISH Safety
+                &amp; Health Program (Safety Manual), field forms, toolbox
+                talks, incident reports, and employee handbook. Real-time
+                snapshots of job-site safety compliance. Free to install.
+                Role-gated for team members.
               </p>
               <p className="text-slate-400 text-sm max-w-md mx-auto mb-8">
                 Bonding agents and insurers may request documentation access
@@ -817,7 +834,7 @@ export default function SafetyPage() {
           <p className="text-gray-600 dark:text-gray-400 text-lg max-w-xl mx-auto mb-8 leading-relaxed">
             Our safety record is open for review. Call us directly or send an
             email — we&apos;ll walk you through our credentials and answer any
-            questions about compliance, EMR, or our written safety program.
+            questions about compliance, EMR, or our written MISH safety program.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg" variant="primary">

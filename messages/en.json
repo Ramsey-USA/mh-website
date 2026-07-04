@@ -534,11 +534,8 @@
     "hero": {
       "iconAria": "Strategic partnership network",
       "kicker": "Trade Partners",
-      "titleLine1": "Strategic Partnerships Built on Trust, Performance, and Mutual Success",
-      "titleLine2": "Vetted Trade Partner Network Built on Trust and Performance",
-      "titleLine3Prefix": "Partnerships built for quality, ",
-      "notWord": "AND",
-      "titleLine3Suffix": "long-term follow-through",
+      "titleLine1": "Strategic Partnerships Built on Trust",
+      "titleLine2": "Vetted Trade Partners Ready to Perform",
       "breadcrumbHome": "Home",
       "breadcrumbCurrent": "Trade Partner Network"
     },
@@ -547,9 +544,9 @@
       "subtitle": "Why Build With",
       "title": "MH Construction",
       "quote": "\"The return is the relationship - proven over time.\"",
-      "descriptionPrefix": "Since 2010, MH Construction has built a reputation for honest communication, prompt payment, and disciplined safety standards",
+      "descriptionPrefix": "Since 2010, MH Construction has built a reputation for honest communication, prompt payment, and disciplined safety standards.",
       "metric": "(.64 EMR - 40% safer than industry average)",
-      "descriptionSuffix": "Our leadership standards emphasize accountability, follow-through, and fair partnership expectations.",
+      "descriptionSuffix": "Leadership here means accountability, follow-through, and fair expectations.",
       "cite": "- MH Construction Leadership Team",
       "values": {
         "handshakes": {
@@ -574,10 +571,7 @@
       "iconAria": "Trade partner network",
       "subtitle": "Our",
       "title": "Trade Partner Network",
-      "descriptionPrefix": "Vetted companies grouped by trade and listed",
-      "descriptionEmphasis": "alphabetically within each category",
-      "descriptionMiddle": "Partners are selected for licensing, safety alignment, performance history, and shared values -",
-      "descriptionStrong": "and reviewed quarterly for fair, current representation",
+      "singleLocalizedDescription": "Vetted companies are grouped by trade, listed alphabetically within each category, and reviewed quarterly for licensing, safety alignment, performance history, and shared values.",
       "criteria": {
         "aria": "Listing criteria",
         "label": "Listing Criteria",
@@ -593,10 +587,7 @@
       "iconAria": "Become an ally",
       "subtitle": "Become an",
       "title": "Trade Partner",
-      "descriptionPrefix": "Ready to grow your business with a",
-      "descriptionEmphasis": "reliable regional general contractor",
-      "descriptionMiddle": "We are seeking reliable, skilled trade partners who value quality workmanship, honest communication, and",
-      "descriptionStrong": "long-term business relationships built on mutual success",
+      "singleLocalizedDescription": "Ready to grow with a reliable regional general contractor? We are looking for skilled trade partners who value quality workmanship, honest communication, and long-term results. Built on communication and follow-through.",
       "buttonPrimaryAria": "Apply",
       "buttonPrimary": "Begin Partnership Discussion",
       "buttonSecondaryAria": "Portfolio",
@@ -609,7 +600,7 @@
     "accreditations": {
       "kicker": "Accredited and Certified",
       "title": "Partner with a Trusted General Contractor",
-      "description": "Our accreditations reflect our commitment to quality, ethics, and safety"
+      "description": "Our accreditations reinforce trust, quality, and safety"
     }
   },
   "locations": {

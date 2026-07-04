@@ -53,14 +53,6 @@ export default function VeteranLedCompliancePage() {
     <main className="bg-white dark:bg-gray-950 min-h-screen">
       <section className="hero-section hero-safe-top-lg border-b border-gray-200 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 px-4 pb-14 text-white sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
-          <Breadcrumbs
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Government", href: "/public-sector" },
-              { label: "Veteran-Led Compliance" },
-            ]}
-            className="mb-6 text-white/70"
-          />
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
             Compliance Pathway
           </p>
@@ -80,6 +72,14 @@ export default function VeteranLedCompliancePage() {
           </p>
         </div>
       </section>
+
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Government", href: "/public-sector" },
+          { label: "Veteran-Led Compliance" },
+        ]}
+      />
 
       <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="mx-auto max-w-5xl">

@@ -157,7 +157,7 @@ export default function ContactPageClient({
         {/* Breadcrumb Navigation */}
         <Breadcrumb
           items={[
-            { label: t("common.back"), href: "/" },
+            { label: "Home", href: "/" },
             { label: t("contact.hero.breadcrumb") },
           ]}
         />

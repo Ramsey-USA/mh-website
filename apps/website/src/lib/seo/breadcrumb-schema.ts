@@ -4,6 +4,8 @@
  */
 
 import { getDualPageName } from "@/lib/branding/page-names";
+import { COMPANY_INFO } from "@/lib/constants/company";
+import { normalizeBreadcrumbTaxonomyLabel } from "@/lib/navigation/breadcrumb-taxonomy";
 
 export interface BreadcrumbItem {
   name: string;
@@ -14,14 +16,35 @@ function toDualSchemaLabel(name: string): string {
   return getDualPageName(name);
 }
 
+function toAbsoluteUrl(url: string): string {
+  if (/^https?:\/\//i.test(url)) return url;
+  const siteUrl = COMPANY_INFO.urls.getSiteUrl().replace(/\/$/, "");
+  const normalizedPath = url.startsWith("/") ? url : `/${url}`;
+  return `${siteUrl}${normalizedPath}`;
+}
+
 export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
+  const normalizedItems = items
+    .map((item, index) => {
+      const url = toAbsoluteUrl(item.url);
+      const name = toDualSchemaLabel(
+        normalizeBreadcrumbTaxonomyLabel(item.name, {
+          href: item.url,
+          index,
+        }),
+      );
+      return { name, url };
+    })
+    .filter((item) => item.name.length > 0 && item.url.length > 0);
+
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, _index) => ({
+    itemListElement: normalizedItems.map((item, _index) => ({
       "@type": "ListItem",
       position: _index + 1,
-      name: toDualSchemaLabel(item.name),
+      "@id": `${item.url}#breadcrumb-${_index + 1}`,
+      name: item.name,
       item: item.url,
     })),
   };
@@ -45,7 +68,7 @@ export const breadcrumbPatterns = {
   ],
   team: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Our Team", url: "https://www.mhc-gc.com/team" },
+    { name: "Team", url: "https://www.mhc-gc.com/team" },
   ],
   contact: [
     { name: "Home", url: "https://www.mhc-gc.com" },
@@ -64,7 +87,7 @@ export const breadcrumbPatterns = {
   government: [
     { name: "Home", url: "https://www.mhc-gc.com" },
     {
-      name: "Government Projects",
+      name: "Government",
       url: "https://www.mhc-gc.com/public-sector",
     },
   ],
@@ -94,7 +117,7 @@ export const breadcrumbPatterns = {
   ],
   safety: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Safety Hub", url: "https://www.mhc-gc.com/safety" },
+    { name: "Safety Program", url: "https://www.mhc-gc.com/safety" },
   ],
   accessibility: [
     { name: "Home", url: "https://www.mhc-gc.com" },

@@ -77,8 +77,9 @@ export const ALL_SECTIONS: readonly RfqSection[] = [
   },
   {
     id: "safety",
-    label: "Safety Program",
-    description: "MISH program overview, OSHA compliance, EMR, safety hub link",
+    label: "Safety Program (MISH / Safety Manual)",
+    description:
+      "MISH Safety & Health Program overview, OSHA compliance, EMR, and safety access links",
     required: false,
   },
   {
@@ -98,9 +99,9 @@ export const ALL_SECTIONS: readonly RfqSection[] = [
 export const DEFAULT_EXHIBITS: readonly ExhibitConfig[] = [
   {
     id: "A",
-    label: "Safety Program: Table of Contents",
+    label: "Safety Manual: Table of Contents (MISH Program)",
     description:
-      "MH Construction Industrial Safety and Health Program (MISH) — Table of Contents with all 50 sections",
+      "MH Construction Safety Program (MISH Safety & Health Program) table of contents with all 50 sections",
     file: "safety-manual-toc.pdf",
     enabled: false,
   },

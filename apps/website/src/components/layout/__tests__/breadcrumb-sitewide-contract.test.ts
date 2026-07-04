@@ -74,4 +74,60 @@ describe("Sitewide breadcrumb placement contract", () => {
       ),
     ).toBe(true);
   });
+
+  it("prevents Back-style labels in breadcrumb item definitions", () => {
+    const candidateFiles = [
+      ...collectFiles(appRoot, [".ts", ".tsx"]),
+      ...collectFiles(componentRoot, [".ts", ".tsx"]),
+    ].filter((filePath) => !filePath.includes("__tests__"));
+
+    const breadcrumbFiles = candidateFiles.filter((filePath) => {
+      const content = fs.readFileSync(filePath, "utf8");
+      return (
+        content.includes("<Breadcrumb") || content.includes("<Breadcrumbs")
+      );
+    });
+
+    const backLabelPatterns = [
+      /label:\s*["']Back["']/,
+      /label:\s*t\(["']common\.back["']\)/,
+      /label:\s*commonT\(["']back["']\)/,
+    ];
+
+    const filesWithBackLabels = breadcrumbFiles.filter((filePath) => {
+      const content = fs.readFileSync(filePath, "utf8");
+      return backLabelPatterns.some((pattern) => pattern.test(content));
+    });
+
+    expect(filesWithBackLabels).toEqual([]);
+  });
+
+  it("prevents ambiguous legacy breadcrumb taxonomy labels", () => {
+    const candidateFiles = [
+      ...collectFiles(appRoot, [".ts", ".tsx"]),
+      ...collectFiles(componentRoot, [".ts", ".tsx"]),
+    ].filter((filePath) => !filePath.includes("__tests__"));
+
+    const breadcrumbFiles = candidateFiles.filter((filePath) => {
+      const content = fs.readFileSync(filePath, "utf8");
+      return (
+        content.includes("<Breadcrumb") || content.includes("<Breadcrumbs")
+      );
+    });
+
+    const legacyTaxonomyPatterns = [
+      /label:\s*["']Government Projects["']\s*,\s*href:\s*["']\/public-sector["']/,
+      /label:\s*["']Public Sector["']\s*,\s*href:\s*["']\/public-sector["']/,
+      /label:\s*["']Public Sector Projects["']/,
+      /label:\s*["']Safety Hub["']\s*,\s*href:\s*["']\/safety["']/,
+      /label:\s*["']Our Team["']\s*,\s*href:\s*["']\/team["']/,
+    ];
+
+    const filesWithLegacyTaxonomy = breadcrumbFiles.filter((filePath) => {
+      const content = fs.readFileSync(filePath, "utf8");
+      return legacyTaxonomyPatterns.some((pattern) => pattern.test(content));
+    });
+
+    expect(filesWithLegacyTaxonomy).toEqual([]);
+  });
 });

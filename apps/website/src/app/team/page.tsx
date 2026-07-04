@@ -556,7 +556,7 @@ export default async function TeamPage() {
         {/* Breadcrumb Navigation */}
         <Breadcrumb
           items={[
-            { label: t("common.back"), href: "/" },
+            { label: "Home", href: "/" },
             { label: t("team.hero.breadcrumb") },
           ]}
         />

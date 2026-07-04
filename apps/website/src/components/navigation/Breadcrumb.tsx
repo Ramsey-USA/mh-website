@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { useLocale } from "@/hooks/useLocale";
 import { getDualPageName } from "@/lib/branding/page-names";
+import { COMPANY_INFO } from "@/lib/constants/company";
+import { normalizeBreadcrumbTaxonomyLabel } from "@/lib/navigation/breadcrumb-taxonomy";
 
 export interface BreadcrumbItem {
   label: string;
@@ -18,6 +21,12 @@ interface BreadcrumbProps {
 
 function getBreadcrumbDisplayLabel(label: string): string {
   return getDualPageName(label);
+}
+
+function toAbsoluteBreadcrumbUrl(href: string, siteUrl: string): string {
+  if (/^https?:\/\//i.test(href)) return href;
+  const normalizedHref = href.startsWith("/") ? href : `/${href}`;
+  return `${siteUrl}${normalizedHref}`;
 }
 
 /**
@@ -54,14 +63,16 @@ export function Breadcrumb({
   source = "page",
 }: BreadcrumbProps) {
   const locale = useLocale();
+  const pathname = usePathname();
   const isEs = locale === "es";
+  const siteUrl = COMPANY_INFO.urls.getSiteUrl().replace(/\/$/, "");
 
   return (
     <nav
       aria-label={isEs ? "Navegacion de ruta" : "Breadcrumb navigation"}
       data-mh-breadcrumb="true"
       data-mh-breadcrumb-source={source}
-      className={`bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 py-3 ${className}`}
+      className={`border-b border-brand-secondary/35 bg-linear-to-r from-brand-primary-darker via-brand-primary to-brand-primary-dark py-3 ${className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ol
@@ -71,6 +82,17 @@ export function Breadcrumb({
         >
           {items.map((item, index) => {
             const isLast = index === items.length - 1;
+            const normalizedLabel = normalizeBreadcrumbTaxonomyLabel(
+              item.label,
+              {
+                href: item.href,
+                index,
+              },
+            );
+            const semanticHref = item.href ?? (isLast ? pathname : undefined);
+            const semanticItemUrl = semanticHref
+              ? toAbsoluteBreadcrumbUrl(semanticHref, siteUrl)
+              : undefined;
 
             return (
               <li
@@ -84,7 +106,7 @@ export function Breadcrumb({
                   <MaterialIcon
                     icon="chevron_right"
                     size="sm"
-                    className="text-gray-600 dark:text-gray-500 mx-1"
+                    className="mx-1 text-brand-secondary-light/90"
                     aria-hidden="true"
                   />
                 )}
@@ -92,24 +114,29 @@ export function Breadcrumb({
                 {isLast || !item.href ? (
                   // Current page - not clickable
                   <span
-                    className="text-gray-900 dark:text-white font-medium"
+                    className="font-semibold text-brand-secondary-light"
                     aria-current="page"
                     itemProp="name"
+                    title={getBreadcrumbDisplayLabel(normalizedLabel)}
                   >
-                    {getBreadcrumbDisplayLabel(item.label)}
+                    {getBreadcrumbDisplayLabel(normalizedLabel)}
                   </span>
                 ) : (
                   // Clickable parent page link
                   <Link
                     href={item.href}
                     itemProp="item"
-                    className="text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 rounded px-1"
+                    className="rounded px-1 text-white/90 transition-colors duration-200 hover:text-brand-secondary-light focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2 focus:ring-offset-brand-primary-dark"
+                    title={getBreadcrumbDisplayLabel(normalizedLabel)}
                   >
                     <span itemProp="name">
-                      {getBreadcrumbDisplayLabel(item.label)}
+                      {getBreadcrumbDisplayLabel(normalizedLabel)}
                     </span>
                   </Link>
                 )}
+                {semanticItemUrl ? (
+                  <meta itemProp="item" content={semanticItemUrl} />
+                ) : null}
                 <meta itemProp="position" content={String(index + 1)} />
               </li>
             );

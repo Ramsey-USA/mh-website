@@ -104,7 +104,7 @@ export default function AboutPage() {
 
         <Breadcrumb
           items={[
-            { label: commonT("back"), href: "/" },
+            { label: "Home", href: "/" },
             { label: commonT("about.hero.sectionTitle") },
           ]}
         />

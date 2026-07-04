@@ -90,7 +90,7 @@ const TAB_CONFIG: Readonly<
 > = {
   analytics: { icon: "dashboard", label: "Analytics" },
   leads: { icon: "person_search", label: "Leads CRM" },
-  safety: { icon: "safety_check", label: "Safety" },
+  safety: { icon: "safety_check", label: "Safety Program" },
   drivers: { icon: "directions_car", label: "Drivers" },
   "access-log": { icon: "verified_user", label: "Access Log" },
   rfq: { icon: "description", label: "RFQ Builder" },

@@ -65,7 +65,6 @@ export default function EmployeeHandbookPage() {
 
       <section className="bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-14 sm:px-6">
         <div className="mx-auto max-w-5xl text-white">
-          <Breadcrumb items={breadcrumbs} className="mb-5 text-white/60" />
           <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
             <MaterialIcon
               icon="menu_book"
@@ -117,6 +116,8 @@ export default function EmployeeHandbookPage() {
           </div>
         </div>
       </section>
+
+      <Breadcrumb items={breadcrumbs} />
 
       <div className="border-b border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-800/40 dark:bg-amber-900/20">
         <div className="mx-auto flex max-w-5xl items-start gap-3 text-sm text-amber-800 dark:text-amber-300">

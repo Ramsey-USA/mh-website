@@ -16,7 +16,7 @@
  *   ROUTE_SMOKE_DEV_STARTUP_TIMEOUT_MS=240000
  *   ROUTE_SMOKE_ROUTE_BACKOFF_MS=100
  *   ROUTE_SMOKE_FAIL_BACKOFF_MS=1000
- *   ROUTE_SMOKE_MAX_RECOVERIES=3
+ *   ROUTE_SMOKE_MAX_RECOVERIES=12
  *   ROUTE_SMOKE_REPORT_FILE=.tmp/route-smoke-report.json
  *   ROUTE_SMOKE_CHECK_BRANDING=1
  */
@@ -57,7 +57,7 @@ const failBackoffMs = Math.max(
 );
 const maxRecoveries = Math.max(
   0,
-  Number(process.env.ROUTE_SMOKE_MAX_RECOVERIES || 3),
+  Number(process.env.ROUTE_SMOKE_MAX_RECOVERIES || 12),
 );
 const reportFilePath = path.isAbsolute(
   process.env.ROUTE_SMOKE_REPORT_FILE || "",
@@ -433,6 +433,14 @@ async function recoverServerIfNeeded(reason) {
   }
 
   if (recoveryAttempts >= maxRecoveries) {
+    const stillDown = !(await isBaseUrlReachableQuick());
+    if (stillDown) {
+      const tail = managedDevLogTail.slice(-20).join("\n");
+      throw new Error(
+        `Managed dev server is unreachable while checking ${reason}, and recovery limit (${maxRecoveries}) has been reached.${tail ? `\nRecent managed dev output:\n${tail}` : ""}`,
+      );
+    }
+
     console.log(
       `Recovery skipped for ${reason}: max recoveries (${maxRecoveries}) reached.`,
     );
@@ -560,6 +568,11 @@ async function main() {
 
   const results = [];
   for (const route of routes) {
+    // If the server is currently down, recover before spending request retries.
+    // This avoids cascading false negatives once the managed process crashes.
+    // eslint-disable-next-line no-await-in-loop
+    await recoverServerIfNeeded(`${route} (preflight)`);
+
     // Sequential checks are easier on local dev servers during first compile.
     // This reduces false negatives from startup load spikes.
     // eslint-disable-next-line no-await-in-loop

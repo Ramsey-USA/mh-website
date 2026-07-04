@@ -16,6 +16,10 @@ jest.mock("next/link", () => ({
   }) => <a href={href}>{children}</a>,
 }));
 
+jest.mock("next/navigation", () => ({
+  usePathname: () => "/services/roofing",
+}));
+
 jest.mock("@/components/icons/MaterialIcon", () => ({
   MaterialIcon: () => <span data-testid="chevron" />,
 }));
@@ -99,5 +103,44 @@ describe("Breadcrumb", () => {
     // Last item "About" should be non-linked (isLast = true)
     const about = screen.getByText(dualAboutLabel);
     expect(about.tagName).toBe("SPAN");
+  });
+
+  it("normalizes first breadcrumb back label to home semantics", () => {
+    render(
+      <Breadcrumb
+        items={[
+          { label: "Back", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: "Roofing" },
+        ]}
+      />,
+    );
+
+    expect(screen.getByRole("link", { name: dualHomeLabel })).toHaveAttribute(
+      "href",
+      "/",
+    );
+  });
+
+  it("normalizes taxonomy aliases for consistent section clarity", () => {
+    render(
+      <Breadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Government", href: "/public-sector" },
+          { label: "Safety Hub" },
+        ]}
+      />,
+    );
+
+    expect(
+      screen.getByRole("link", {
+        name: /government/i,
+      }),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/safety program/i)).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
   });
 });

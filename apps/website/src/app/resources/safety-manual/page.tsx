@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyManual.seoName, PAGE_TERMINOLOGY.safetyManual.mhBrandName)} | MH Construction`,
   description:
-    "Safety manual entry route forwarding to the published table of contents.",
+    "Safety Manual (MISH Safety & Health Program) entry route forwarding to the published table of contents.",
   alternates: {
     canonical: "https://www.mhc-gc.com/resources/safety-manual/contents",
   },

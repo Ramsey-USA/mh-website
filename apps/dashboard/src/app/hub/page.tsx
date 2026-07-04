@@ -9,7 +9,7 @@ import { getHubSafetySummary } from "@/lib/hub/resources";
 export const metadata: Metadata = {
   title: "Operations Hub | MH Construction",
   description:
-    "Operations Hub dashboard for Safety Manual access, forms, incident reporting, and employee handbook resources.",
+    "Operations Hub dashboard for Safety Program (MISH Safety & Health Program / Safety Manual) access, forms, incident reporting, and employee handbook resources.",
   robots: {
     index: false,
     follow: false,
@@ -33,6 +33,8 @@ export default async function HubPage() {
     revisionNumber,
     handbookRevision,
     handbookSections,
+    safetyFormCount,
+    handbookFormCount,
     formCount,
   } = await getHubSafetySummary();
 
@@ -55,15 +57,22 @@ export default async function HubPage() {
               Operations Dashboard
             </h1>
             <p className="mt-4 text-base text-brand-secondary-light/95 sm:text-lg">
-              Access the Safety Manual, field documentation, and team resources
-              from one dashboard built for mobile and desktop PWA workflows.
+              Access the Safety Program (MISH Safety &amp; Health Program),
+              delivered as the Safety Manual, plus field documentation and team
+              resources from one dashboard built for mobile and desktop PWA
+              workflows.
             </p>
             <p className="mt-2 text-sm text-brand-secondary-light/85">
-              MISH Rev {revisionNumber} · {sectionCount} sections.
+              MISH Rev {revisionNumber} · {sectionCount} sections in the Safety
+              Manual.
             </p>
             <p className="mt-1 text-sm text-brand-secondary-light/85">
               Employee Handbook Rev {handbookRevision} · {handbookSections}{" "}
-              sections · {formCount} current forms.
+              sections · {handbookFormCount} handbook forms.
+            </p>
+            <p className="mt-1 text-sm text-brand-secondary-light/85">
+              Safety Program forms: {safetyFormCount} · Total active forms:{" "}
+              {formCount}.
             </p>
             <p className="mt-3 text-sm text-brand-secondary-light/85">
               Built on Quality, Backed by Trust.

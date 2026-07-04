@@ -21,7 +21,7 @@ const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyContents.seoName, PAGE_TERMINOLOGY.safetyContents.mhBrandName)} | MH Construction`,
   description:
-    "Browse all 50 sections of MH Construction's MISH Safety & Health Program. Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Full manual access requires login.",
+    "Browse all 50 sections of MH Construction's Safety Program (MISH Safety & Health Program), delivered as the Safety Manual. Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Full manual access requires login.",
   alternates: {
     canonical: `${siteUrl}/resources/safety-manual/contents`,
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyContents.seoName, PAGE_TERMINOLOGY.safetyContents.mhBrandName)} | MH Construction`,
     description:
-      "50-section MISH Safety & Health Program index with cluster navigation and credentialed access pathways.",
+      "50-section Safety Manual (MISH Safety & Health Program) index with cluster navigation and credentialed access pathways.",
     type: "website",
     url: `${siteUrl}/resources/safety-manual/contents`,
   },
@@ -41,8 +41,20 @@ export const metadata: Metadata = {
 const breadcrumbs = [
   { label: "Home", href: "/" },
   { label: "Resources", href: "/resources" },
-  { label: "Safety Manual", href: "/safety" },
-  { label: "Table of Contents", href: "/resources/safety-manual/contents" },
+  {
+    label: formatDualPageName(
+      PAGE_TERMINOLOGY.safetyManual.seoName,
+      PAGE_TERMINOLOGY.safetyManual.mhBrandName,
+    ),
+    href: "/resources/safety-manual/contents",
+  },
+  {
+    label: formatDualPageName(
+      PAGE_TERMINOLOGY.safetyContents.seoName,
+      PAGE_TERMINOLOGY.safetyContents.mhBrandName,
+    ),
+    href: "/resources/safety-manual/contents",
+  },
 ];
 
 // Cluster groupings — single source of truth in
@@ -75,7 +87,7 @@ export default function SafetyManualContentsPage() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
               <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/80">
-                Field Manual <span aria-hidden>→</span> Safety Manual
+                Safety Program <span aria-hidden>→</span> Safety Manual
               </p>
               <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
                 <MaterialIcon
@@ -86,7 +98,7 @@ export default function SafetyManualContentsPage() {
                 Public Index
               </div>
               <h1 className="text-2xl font-black text-white sm:text-3xl md:text-4xl leading-tight">
-                MISH Safety Manual{" "}
+                Safety Manual (MISH Safety &amp; Health Program){" "}
                 <span className="block text-brand-secondary">
                   Table of Contents
                 </span>
@@ -123,7 +135,7 @@ export default function SafetyManualContentsPage() {
                     size="sm"
                     className="text-white"
                   />
-                  Safety Program
+                  Safety Program (MISH)
                 </Link>
               </Button>
             </div>
@@ -143,7 +155,7 @@ export default function SafetyManualContentsPage() {
               href="/safety"
               className="underline hover:text-amber-900 dark:hover:text-amber-200"
             >
-              the Safety Program page
+              the Safety Program (MISH) page
             </Link>
             .
           </span>
@@ -214,12 +226,12 @@ export default function SafetyManualContentsPage() {
             className="mx-auto mb-3 text-brand-primary"
           />
           <h2 className="mb-2 text-lg font-bold text-brand-primary dark:text-white">
-            Full Manual — Restricted Access
+            Full Safety Manual Access — Restricted
           </h2>
           <p className="mb-4 text-sm text-gray-600 dark:text-gray-400 max-w-md mx-auto">
             The complete {manual?.totalSections ?? 50}-section MISH Safety
-            Manual is available to authorized personnel. Sign in or request
-            access below.
+            Manual (Safety Program) is available to authorized personnel. Sign
+            in or request access below.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link

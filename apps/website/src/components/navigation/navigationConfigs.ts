@@ -61,6 +61,7 @@ const navigationLabelTranslations: Record<string, string> = {
   Logistics: "Logistica",
   "Logistics Command": "Comando logistico",
   "MISH Program": "Programa MISH",
+  "MISH Program / Safety Manual": "Programa MISH / Manual de seguridad",
   "Mission Commanders": "Comandantes de mision",
   News: "Noticias",
   "Office Location": "Ubicacion de oficina",
@@ -626,7 +627,7 @@ export const navigationConfigs = {
     },
     {
       href: "#program",
-      label: "MISH Program",
+      label: "MISH Program / Safety Manual",
       mobileLabel: "Program",
       icon: "menu_book",
     },
