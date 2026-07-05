@@ -17,7 +17,7 @@ This document defines the official MH Construction hero section standard impleme
 across all website pages, with veteran-focused messaging, military operations terminology,
 and visual-first design philosophy.
 
-**Canonical Baseline Source:** `apps/website/src/components/home/HeroSection.tsx`
+**Canonical Baseline Source:** `apps/website/src/components/home/HeroSectionClient.tsx`
 
 If this document conflicts with implemented Home Hero behavior, the Home Hero source
 is the tie-breaker until this document is updated.

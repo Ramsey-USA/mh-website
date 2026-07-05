@@ -80,7 +80,7 @@ export function TestimonialGrid({
               </h2>
             )}
             {subtitle && (
-              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 wrap-break-word">
+              <p className="font-body mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 wrap-break-word">
                 {subtitle}
               </p>
             )}
@@ -99,7 +99,7 @@ export function TestimonialGrid({
               <h3 className="mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl text-center">
                 {t("comingSoonTitle")}
               </h3>
-              <p className="max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
+              <p className="font-body max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
                 {t("comingSoonDescription")}
               </p>
             </Card>

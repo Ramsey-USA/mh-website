@@ -30,12 +30,12 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
   ),
 }));
 
-// Freeze time well before July 4, 2026 so we always see the countdown
-const FROZEN_NOW = new Date("2026-04-21T00:00:00.000Z").getTime();
+const FROZEN_APRIL = new Date("2026-04-21T00:00:00.000Z").getTime();
+const FROZEN_JULY = new Date("2026-07-10T12:00:00.000Z").getTime();
 
 beforeEach(() => {
   jest.useFakeTimers();
-  jest.setSystemTime(FROZEN_NOW);
+  jest.setSystemTime(FROZEN_APRIL);
 
   // Stub canvas getContext so the fireworks path doesn't throw in jsdom
   jest.spyOn(HTMLCanvasElement.prototype, "getContext").mockReturnValue(null);
@@ -47,39 +47,49 @@ afterEach(() => {
 });
 
 describe("SemiquincentennialBanner", () => {
-  it("renders the countdown section with an accessible region label", () => {
+  it("renders the celebration section with an accessible region label", () => {
     render(<SemiquincentennialBanner />);
     expect(
       screen.getByRole("region", {
-        name: /United States 250th Anniversary Countdown/i,
+        name: /United States July Celebration Ribbon/i,
       }),
     ).toBeInTheDocument();
   });
 
-  it("renders the heading and tagline", () => {
+  it("renders the heading and support tagline", () => {
     render(<SemiquincentennialBanner />);
     expect(
-      screen.getByRole("heading", { name: /Countdown to July 4, 2026/i }),
+      screen.getByRole("heading", {
+        name: /Celebrating America Throughout July/i,
+      }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/America's Semiquincentennial/i),
+      screen.getByText(/America's Semiquincentennial Support Month/i),
     ).toBeInTheDocument();
   });
 
-  it("shows a non-zero day count when far from July 4, 2026", () => {
+  it("shows the non-July support copy outside July", () => {
     render(<SemiquincentennialBanner />);
-    const daysLabel = screen.getByText("Days");
-    const daysValue = daysLabel.previousSibling as HTMLElement;
-    const days = Number.parseInt(daysValue.textContent ?? "0", 10);
-    expect(days).toBeGreaterThan(0);
+    expect(
+      screen.getByText(
+        /Join us in supporting our communities and celebrating American values/i,
+      ),
+    ).toBeInTheDocument();
   });
 
-  it("renders all four countdown unit labels", () => {
+  it("shows the July support copy during July", () => {
+    jest.setSystemTime(FROZEN_JULY);
     render(<SemiquincentennialBanner />);
-    expect(screen.getByText("Days")).toBeInTheDocument();
-    expect(screen.getByText("Hrs")).toBeInTheDocument();
-    expect(screen.getByText("Min")).toBeInTheDocument();
-    expect(screen.getByText("Sec")).toBeInTheDocument();
+
+    act(() => {
+      jest.advanceTimersByTime(60_000);
+    });
+
+    expect(
+      screen.getByText(
+        /We proudly stand with our communities in honoring America all month long/i,
+      ),
+    ).toBeInTheDocument();
   });
 
   it("renders at least one AmericanFlag icon", () => {
@@ -108,44 +118,11 @@ describe("SemiquincentennialBanner", () => {
     expect(() => fireEvent.click(btn)).not.toThrow();
   });
 
-  it("countdown div has aria-live=polite and aria-atomic=true", () => {
+  it("does not render countdown unit labels", () => {
     render(<SemiquincentennialBanner />);
-    const liveRegion = document.querySelector("[aria-live='polite']");
-    expect(liveRegion).not.toBeNull();
-    expect(liveRegion).toHaveAttribute("aria-atomic", "true");
-  });
-
-  it("shows the 'seconds' value update after one tick", () => {
-    render(<SemiquincentennialBanner />);
-    const initialSeconds = Number.parseInt(
-      (screen.getByText("Sec").previousSibling as HTMLElement).textContent ??
-        "0",
-      10,
-    );
-
-    act(() => {
-      jest.advanceTimersByTime(1_000);
-    });
-
-    const updatedSeconds = Number.parseInt(
-      (screen.getByText("Sec").previousSibling as HTMLElement).textContent ??
-        "0",
-      10,
-    );
-    // After 1 second the value should change by 1 (or wrap from 00 to 59)
-    const expected = initialSeconds === 0 ? 59 : initialSeconds - 1;
-    expect(updatedSeconds).toBe(expected);
-  });
-
-  it("renders the 'Happy Birthday' variant when the date has passed", () => {
-    // Advance past July 4, 2026
-    jest.setSystemTime(new Date("2026-07-05T00:00:00.000Z").getTime());
-    render(<SemiquincentennialBanner />);
-    expect(
-      screen.getByText(/Happy 250th Birthday, America/i),
-    ).toBeInTheDocument();
-    expect(
-      screen.queryByRole("button", { name: /Launch fireworks/i }),
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText("Days")).not.toBeInTheDocument();
+    expect(screen.queryByText("Hrs")).not.toBeInTheDocument();
+    expect(screen.queryByText("Min")).not.toBeInTheDocument();
+    expect(screen.queryByText("Sec")).not.toBeInTheDocument();
   });
 });

@@ -37,6 +37,7 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { AccreditationsLogoRow } from "@/components/shared-sections";
 import { getTranslations } from "next-intl/server";
@@ -573,7 +574,7 @@ export default async function AlliesPage() {
           <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
             <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                {t("allies.hero.kicker")}
+                {t("allies.hero.kicker")} -&gt; Partners
               </span>
               <span className="block text-brand-secondary">
                 {t("allies.hero.titleLine1")}
@@ -585,7 +586,7 @@ export default async function AlliesPage() {
                 {COMPANY_INFO.slogan.primary}
               </span>
               <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
-                {COMPANY_INFO.slogan.quinary}
+                {getHeroPageSlogan("allies").slogan}
               </span>
             </h1>
           </div>
@@ -642,7 +643,7 @@ export default async function AlliesPage() {
                 </span>
               </h2>
 
-              <p className="mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                   {t("allies.partnership.quote")}
                 </span>{" "}
@@ -682,7 +683,7 @@ export default async function AlliesPage() {
                       <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-lg">
                         {t(`allies.partnership.values.${value.key}.title`)}
                       </h3>
-                      <p className="grow text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                      <p className="font-body grow text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                         {t(
                           `allies.partnership.values.${value.key}.description`,
                         )}
@@ -727,7 +728,7 @@ export default async function AlliesPage() {
                 </span>
               </h2>
 
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 {t("allies.network.singleLocalizedDescription")}
               </p>
 
@@ -740,7 +741,7 @@ export default async function AlliesPage() {
                     className="text-brand-primary dark:text-brand-primary-light shrink-0"
                     ariaLabel={t("allies.network.criteria.aria")}
                   />
-                  <span className="text-xs font-bold uppercase tracking-widest text-brand-primary dark:text-brand-primary-light">
+                  <span className="font-heading text-xs font-bold uppercase tracking-widest text-brand-primary dark:text-brand-primary-light">
                     {t("allies.network.criteria.label")}
                   </span>
                 </div>
@@ -884,7 +885,7 @@ export default async function AlliesPage() {
                   </span>
                 </h2>
 
-                <p className="mx-auto mb-8 max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto mb-8 max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   {t("allies.cta.singleLocalizedDescription")}
                 </p>
               </div>
@@ -948,7 +949,7 @@ export default async function AlliesPage() {
         {/* Accreditations & Certifications */}
         <section className="order-3 relative py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
+            <p className="font-heading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
               {t("allies.accreditations.kicker")}
             </p>
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">

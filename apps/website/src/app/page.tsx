@@ -395,7 +395,7 @@ export default async function Home() {
               <h3 className="text-xl font-extrabold text-gray-900 dark:text-white">
                 {card.title}
               </h3>
-              <p className="mt-3 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="font-body mt-3 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
                 {card.desc}
               </p>
               <Link
@@ -489,7 +489,7 @@ export default async function Home() {
                 ? "¿Qué tipos de proyectos atienden?"
                 : "What project types do you handle?"}
             </summary>
-            <p className="mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
               {locale === "es"
                 ? "Nos enfocamos principalmente en construcción comercial: agrícola y bodegas, tenant improvements comerciales, municipal e industrial ligero."
                 : "We focus primarily on commercial construction: agricultural and winery projects, commercial tenant improvements, municipal, and light industrial scopes."}
@@ -502,7 +502,7 @@ export default async function Home() {
                 ? "¿Operan en WA, OR e ID?"
                 : "Do you operate across WA, OR, and ID?"}
             </summary>
-            <p className="mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
               {locale === "es"
                 ? "Sí. MH Construction opera con licencia en los tres estados con gestión en Procore y control de documentación."
                 : "Yes. MH Construction is licensed across all three states with Procore-backed project management and documentation control."}
@@ -515,7 +515,7 @@ export default async function Home() {
                 ? "¿Cómo inicio una conversación de alcance?"
                 : "How do I start a scope conversation?"}
             </summary>
-            <p className="mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
               {locale === "es"
                 ? "Comparta alcance, cronograma y ubicación en la página de contacto para una revisión inicial de ajuste."
                 : "Share scope, schedule, and location details through the contact page for a fit-first project review."}

@@ -770,7 +770,7 @@ export function TeamProfileSection({
 
             {educationTokens.length > 0 && (
               <div className="mb-3">
-                <p className="text-xs uppercase tracking-wide text-brand-secondary-text dark:text-gray-300 font-semibold mb-1.5">
+                <p className="font-heading text-xs uppercase tracking-wide text-brand-secondary-text dark:text-gray-300 font-semibold mb-1.5">
                   Education
                 </p>
                 <div className="flex flex-wrap gap-1.5">
@@ -788,7 +788,7 @@ export function TeamProfileSection({
 
             {featuredCertifications.length > 0 && (
               <div>
-                <p className="text-xs uppercase tracking-wide text-brand-secondary-text dark:text-gray-300 font-semibold mb-1.5">
+                <p className="font-heading text-xs uppercase tracking-wide text-brand-secondary-text dark:text-gray-300 font-semibold mb-1.5">
                   Certifications
                 </p>
                 <div className="flex flex-wrap gap-1.5">
@@ -826,7 +826,7 @@ export function TeamProfileSection({
               />
               Profile Snapshot
             </h4>
-            <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed font-normal">
+            <p className="font-body text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed font-normal">
               {getBioPreview(member.bio)}
             </p>
             <button
@@ -1307,7 +1307,7 @@ export function TeamProfileSection({
         backdropAriaLabel={`Close full profile modal for ${member.name}`}
       >
         <div className="space-y-4">
-          <p className="text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-200">
+          <p className="font-body text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-200">
             {member.bio}
           </p>
           {member.careerHighlights.length > 0 && (

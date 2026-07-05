@@ -129,7 +129,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
                   />
                 </div>
                 <div className="flex-1 pt-1">
-                  <p className="mb-2 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white/80">
+                  <p className="font-heading mb-2 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white/80">
                     Core Service Detail
                   </p>
                   <h2
@@ -147,7 +147,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
           )}
         >
           <div className="p-6 sm:p-8 max-h-[calc(90vh-200px)] overflow-y-auto">
-            <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
+            <p className="font-body text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
               {currentService.description}
             </p>
 
@@ -230,7 +230,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
               <div
                 className={`bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-4 ${cornerRadius.element} border border-brand-primary/30 mb-6`}
               >
-                <p className="text-gray-800 dark:text-gray-200 text-sm sm:text-base leading-relaxed font-medium">
+                <p className="font-body text-gray-800 dark:text-gray-200 text-sm sm:text-base leading-relaxed font-medium">
                   <MaterialIcon
                     icon="phone"
                     size="sm"

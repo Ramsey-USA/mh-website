@@ -4,9 +4,6 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { AmericanFlag } from "@/components/icons/AmericanFlag";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
-// July 4, 2026 00:00:00 Pacific Daylight Time (UTC-7)
-const SEMIQUINCENTENNIAL_DATE = new Date("2026-07-04T07:00:00.000Z");
-
 // Patriotic color pairs (primary + accent) for each burst
 const FIREWORK_COLOR_PAIRS: [string, string][] = [
   ["#B22234", "#FFD700"], // Old Glory Red + Gold
@@ -17,26 +14,8 @@ const FIREWORK_COLOR_PAIRS: [string, string][] = [
   ["#B22234", "#3C3B6E"], // Red + Blue
 ];
 
-interface TimeLeft {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-  isPast: boolean;
-}
-
-function getTimeLeft(): TimeLeft {
-  const diff = SEMIQUINCENTENNIAL_DATE.getTime() - Date.now();
-  if (diff <= 0) {
-    return { days: 0, hours: 0, minutes: 0, seconds: 0, isPast: true };
-  }
-  return {
-    days: Math.floor(diff / 86_400_000),
-    hours: Math.floor((diff % 86_400_000) / 3_600_000),
-    minutes: Math.floor((diff % 3_600_000) / 60_000),
-    seconds: Math.floor((diff % 60_000) / 1_000),
-    isPast: false,
-  };
+function isJuly(now: Date = new Date()): boolean {
+  return now.getMonth() === 6;
 }
 
 interface Particle {
@@ -61,34 +40,20 @@ interface Rocket {
   colors: [string, string];
 }
 
-// Stable placeholder used for the very first render so the server-rendered
-// HTML always matches the client's first paint. The real countdown is
-// computed on mount inside an effect, avoiding React hydration error #418.
-const INITIAL_TIME_LEFT: TimeLeft = {
-  days: 0,
-  hours: 0,
-  minutes: 0,
-  seconds: 0,
-  isPast: false,
-};
-
 export function SemiquincentennialBanner() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(INITIAL_TIME_LEFT);
-  const [mounted, setMounted] = useState(false);
+  const [isJulyCelebration, setIsJulyCelebration] = useState(false);
   const animFrameRef = useRef<number | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Compute the real countdown on mount (post-hydration), then tick every second.
-  // The interval is cleared as soon as isPast becomes true to avoid pointless
-  // re-renders after the celebration date has passed.
+  // Resolve month state on mount and refresh periodically so the ribbon can
+  // transition naturally if the page remains open across month boundaries.
   useEffect(() => {
-    setMounted(true);
-    setTimeLeft(getTimeLeft());
+    setIsJulyCelebration(isJuly());
+
     const id = setInterval(() => {
-      const t = getTimeLeft();
-      setTimeLeft(t);
-      if (t.isPast) clearInterval(id);
-    }, 1_000);
+      setIsJulyCelebration(isJuly());
+    }, 60_000);
+
     return () => clearInterval(id);
   }, []);
 
@@ -330,40 +295,9 @@ export function SemiquincentennialBanner() {
     animFrameRef.current = requestAnimationFrame(animate);
   }, []);
 
-  // Auto-launch when the celebration day arrives
-  useEffect(() => {
-    if (timeLeft.isPast) {
-      launchFireworks();
-    }
-  }, [timeLeft.isPast, launchFireworks]);
-
-  if (mounted && timeLeft.isPast) {
-    return (
-      <section
-        aria-label="Happy 250th Birthday, America!"
-        className="relative overflow-hidden bg-linear-to-r from-[#B22234] via-[#3C3B6E] to-[#B22234] py-4 text-center"
-      >
-        <div className="flex items-center justify-center gap-4">
-          <AmericanFlag size="sm" animated />
-          <span className="text-lg font-bold text-white drop-shadow">
-            Happy 250th Birthday, America! July 4, 2026 — Semiquincentennial
-          </span>
-          <AmericanFlag size="sm" animated />
-        </div>
-      </section>
-    );
-  }
-
-  const countdownUnits = [
-    { value: timeLeft.days, label: "Days" },
-    { value: timeLeft.hours, label: "Hrs" },
-    { value: timeLeft.minutes, label: "Min" },
-    { value: timeLeft.seconds, label: "Sec" },
-  ] as const;
-
   return (
     <section
-      aria-label="United States 250th Anniversary Countdown — July 4, 2026"
+      aria-label="United States July Celebration Ribbon"
       className="relative overflow-hidden bg-linear-to-r from-[#0f0808] via-[#0f0f2a] to-[#0f0808] border-t border-b border-[#B22234]/40"
     >
       {/* Top patriotic stripe */}
@@ -379,45 +313,17 @@ export function SemiquincentennialBanner() {
 
           {/* Title */}
           <div className="text-center sm:text-left">
-            <p className="text-[10px] font-semibold uppercase tracking-widest text-[#BD9264]">
-              America&apos;s Semiquincentennial · 250 Years Since 1776
+            <p className="font-heading text-[10px] font-semibold uppercase tracking-widest text-[#BD9264]">
+              America&apos;s Semiquincentennial Support Month
             </p>
             <h2 className="text-sm sm:text-base font-bold text-white leading-snug">
-              Countdown to July 4, 2026
+              Celebrating America Throughout July
             </h2>
-          </div>
-
-          {/* Countdown digits */}
-          <div
-            aria-live="polite"
-            aria-atomic="true"
-            aria-label={`${timeLeft.days} days, ${timeLeft.hours} hours, ${timeLeft.minutes} minutes, ${timeLeft.seconds} seconds remaining`}
-            className="flex items-center gap-1.5 sm:gap-2"
-            suppressHydrationWarning
-          >
-            {countdownUnits.map(({ value, label }, i) => (
-              <div key={label} className="flex items-center gap-1.5 sm:gap-2">
-                {i > 0 && (
-                  <span
-                    aria-hidden="true"
-                    className="text-[#B22234] font-bold text-xl leading-none select-none"
-                  >
-                    :
-                  </span>
-                )}
-                <div className="flex flex-col items-center w-10 sm:w-12">
-                  <span
-                    className="text-2xl sm:text-3xl font-bold tabular-nums leading-none text-white"
-                    suppressHydrationWarning
-                  >
-                    {String(value).padStart(2, "0")}
-                  </span>
-                  <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider text-[#BD9264] leading-none mt-0.5">
-                    {label}
-                  </span>
-                </div>
-              </div>
-            ))}
+            <p className="text-xs sm:text-sm text-white/90">
+              {isJulyCelebration
+                ? "We proudly stand with our communities in honoring America all month long."
+                : "Join us in supporting our communities and celebrating American values."}
+            </p>
           </div>
 
           {/* Celebrate button */}

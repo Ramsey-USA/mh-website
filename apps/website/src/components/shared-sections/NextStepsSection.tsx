@@ -145,7 +145,7 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
           <div
             className={`bg-linear-to-r from-brand-secondary to-brand-secondary-dark -top-4 left-1/2 absolute px-5 py-1.5 ${cornerRadius.full} -translate-x-1/2 shadow-lg border border-brand-secondary/30`}
           >
-            <span className="font-bold text-xs text-white uppercase tracking-wider flex items-center gap-1.5">
+            <span className="font-heading font-bold text-xs text-white uppercase tracking-wider flex items-center gap-1.5">
               <MaterialIcon icon="star" size="sm" className="text-yellow-300" />
               {copy.tag}
             </span>
@@ -164,7 +164,7 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
           <h3 className="mb-4 font-bold text-xl sm:text-2xl text-center text-gray-900 dark:text-white leading-tight">
             {copy.option2Title}
           </h3>
-          <p className="mb-5 text-center text-gray-600 text-sm sm:text-base dark:text-gray-300 leading-relaxed">
+          <p className="font-body mb-5 text-center text-gray-600 text-sm sm:text-base dark:text-gray-300 leading-relaxed">
             {copy.option2Description}
           </p>
           <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow">
@@ -214,7 +214,7 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
           <h3 className="mb-4 font-bold text-xl sm:text-2xl text-center text-gray-900 dark:text-white leading-tight">
             {copy.option3Title}
           </h3>
-          <p className="mb-5 text-center text-gray-600 text-sm sm:text-base dark:text-gray-300 leading-relaxed">
+          <p className="font-body mb-5 text-center text-gray-600 text-sm sm:text-base dark:text-gray-300 leading-relaxed">
             {copy.option3Description}
           </p>
           <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 grow">

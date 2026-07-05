@@ -15,6 +15,7 @@ import {
   SAFETY_MANUAL_CLUSTERS,
   clusterForSection,
 } from "@/lib/data/safety-manual-clusters";
+import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
 
 const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 
@@ -86,12 +87,12 @@ export default function SafetyManualContentsPage() {
           <Breadcrumb items={breadcrumbs} className="mb-5 text-white/60" />
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
-              <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/80">
+              <p className="font-heading mb-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/80">
                 Safety Program <span aria-hidden>→</span> Safety Manual
               </p>
-              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
+              <div className="font-heading mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
                 <MaterialIcon
-                  icon="menu_book"
+                  icon={FORM_MANUAL_ICONS.source}
                   size="sm"
                   className="text-brand-secondary"
                 />
@@ -103,10 +104,10 @@ export default function SafetyManualContentsPage() {
                   Table of Contents
                 </span>
               </h1>
-              <p className="mt-2 text-sm text-white/70">
+              <p className="font-body mt-2 text-sm text-white/70">
                 Revision {revisionNumber} &middot; Effective {revisionDate}
               </p>
-              <p className="mt-2 text-xs font-semibold text-brand-secondary">
+              <p className="font-heading mt-2 text-xs font-semibold text-brand-secondary">
                 Public index for section navigation and access requests
               </p>
             </div>
@@ -131,7 +132,7 @@ export default function SafetyManualContentsPage() {
               <Button asChild variant="outline" size="lg">
                 <Link href="/safety">
                   <MaterialIcon
-                    icon="shield"
+                    icon={FORM_MANUAL_ICONS.access}
                     size="sm"
                     className="text-white"
                   />
@@ -177,7 +178,7 @@ export default function SafetyManualContentsPage() {
               >
                 <Link
                   href={`/resources/safety-manual/${cluster.slug}`}
-                  className="mb-3 block border-b border-brand-primary/20 pb-2 text-xs font-bold uppercase tracking-wider text-brand-primary hover:text-brand-primary-dark dark:text-brand-secondary dark:hover:text-brand-secondary/80"
+                  className="font-heading mb-3 block border-b border-brand-primary/20 pb-2 text-xs font-bold uppercase tracking-wider text-brand-primary hover:text-brand-primary-dark dark:text-brand-secondary dark:hover:text-brand-secondary/80"
                 >
                   {cluster.name}
                 </Link>
@@ -228,7 +229,7 @@ export default function SafetyManualContentsPage() {
           <h2 className="mb-2 text-lg font-bold text-brand-primary dark:text-white">
             Full Safety Manual Access — Restricted
           </h2>
-          <p className="mb-4 text-sm text-gray-600 dark:text-gray-400 max-w-md mx-auto">
+          <p className="font-body mb-4 text-sm text-gray-600 dark:text-gray-400 max-w-md mx-auto">
             The complete {manual?.totalSections ?? 50}-section MISH Safety
             Manual (Safety Program) is available to authorized personnel. Sign
             in or request access below.

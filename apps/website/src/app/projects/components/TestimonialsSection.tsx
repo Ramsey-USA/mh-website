@@ -80,7 +80,7 @@ export function TestimonialsSection({
             </h2>
 
             {/* Description with colored keyword highlighting */}
-            <p className="mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed tracking-wide px-2">
+            <p className="font-body mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed tracking-wide px-2">
               {description}
             </p>
           </div>

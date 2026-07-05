@@ -1,5 +1,6 @@
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 export function LocationsHero() {
   return (
@@ -28,7 +29,7 @@ export function LocationsHero() {
               Built on Quality, Backed by Trust.
             </span>
             <span className="block text-brand-secondary/80 text-xs xs:text-sm sm:text-base mt-1">
-              Professional on the line. Thorough in the details.
+              {getHeroPageSlogan("locations").slogan}
             </span>
           </h1>
         </div>

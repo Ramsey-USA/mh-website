@@ -1,7 +1,7 @@
 # Brand Congruency Master Checklist
 
 **Category:** Branding - Governance  
-**Last Updated:** July 3, 2026  
+**Last Updated:** July 4, 2026  
 **Status:** Active - Canonical
 
 ## Purpose
@@ -22,6 +22,7 @@ or documentation that can affect MH brand consistency.
 1. **Exceptions:** Approved design/color exceptions remain scoped to documented components only.
 1. **Duplicate phrasing policy:** Public-facing copy does not repeat guarded phrasing or sentence-level boilerplate within the same page file.
 1. **Dictionary parity:** New public page labels are added to `src/lib/branding/page-names.ts` aliases before rollout.
+1. **Visual evidence:** Branding-sensitive changes include required cross-surface visual evidence in PR notes.
 
 ## Required Review Order
 
@@ -47,6 +48,17 @@ Record one result in the PR description or review notes:
 
 - `PASS`: All checklist items satisfied.
 - `FAIL`: Include concrete remediation steps and file targets.
+
+## Required Evidence for Branding-Sensitive Changes
+
+Record this evidence in the PR description or review notes:
+
+1. Mobile and desktop before/after screenshots for each affected route family.
+2. At least one focus-visible keyboard pass for changed interactive clusters.
+3. Confirmation of loading/error/offline/not-found state congruency where affected.
+4. Confirmation that trust/accreditation surfaces remain present and legible.
+5. PASS/FAIL result for this master checklist.
+6. PASS/FAIL result for the development companion checklist when implementation changes are included.
 
 ## Required Validation for Terminology/Copy Changes
 

@@ -14,6 +14,7 @@ import {
 } from "@/lib/branding/page-names";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import {
   faqCategories,
   getFAQCategoryBySlug,
@@ -26,6 +27,7 @@ import {
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 const FAQ_CATEGORY_CONTENT_ID = "faq-category-content";
+const FAQ_CATEGORY_HERO_SLOGAN = getHeroPageSlogan("faqCategory").slogan;
 
 function isExternalHref(href: string): boolean {
   return /^https?:\/\//.test(href);
@@ -324,7 +326,7 @@ export default async function FAQCategoryPage({
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
                 Intel Brief -&gt; FAQ Category
               </p>
-              <h1 className="text-3xl font-black tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
                 {faqCategory.title}
               </h1>
               <p className="mt-5 text-lg leading-8 text-white/85">
@@ -335,7 +337,7 @@ export default async function FAQCategoryPage({
                 {COMPANY_INFO.slogan.primary}
               </p>
               <p className="mt-4 text-sm font-semibold text-brand-secondary/90 sm:text-base">
-                {COMPANY_INFO.slogan.quinary}
+                {FAQ_CATEGORY_HERO_SLOGAN}
               </p>
 
               <nav
@@ -348,7 +350,7 @@ export default async function FAQCategoryPage({
                     <Link
                       key={item.id}
                       href={`/faq/${item.id}`}
-                      className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary sm:text-sm ${
+                      className={`font-heading inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary sm:text-sm ${
                         isCurrent
                           ? "border-brand-secondary/70 bg-brand-secondary/20 text-white"
                           : "border-white/30 bg-white/10 text-white/90 hover:border-brand-secondary/70 hover:bg-brand-secondary/20"

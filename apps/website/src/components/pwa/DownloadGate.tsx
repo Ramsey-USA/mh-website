@@ -90,7 +90,7 @@ export function DownloadGate({
         </span>
       </div>
 
-      <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+      <p className="font-body text-xs leading-relaxed text-slate-500 dark:text-slate-400">
         Downloads and printing are available to team members. Use the Install
         App button in the site header or footer, then log in with your team
         passcode to access this document.

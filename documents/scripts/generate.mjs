@@ -51,6 +51,68 @@ const SITE_URL = "https://www.mhc-gc.com";
 const PDF_METADATA_AUTHOR = "Matt Ramsey, Safety Officer";
 const PDF_METADATA_CREATOR = "MH Construction Document Pipeline";
 const PDF_METADATA_SUBJECT = "Accident · Injury · Safety · Health Program";
+const PDF_FONT_STACK_BODY =
+  '"DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif';
+const PDF_FONT_STACK_HEADING =
+  '"mendl-sans-dusk", "Mendl Sans Dusk", "DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
+const MATERIAL_ICONS_FONT_FILE = "MaterialIcons-Regular.woff2";
+const MATERIAL_ICON_LIGATURES = Object.freeze({
+  info: "info",
+  dangerOutline: "error_outline",
+  warning: "warning",
+  caution: "gpp_maybe",
+  checkboxEmpty: "check_box_outline_blank",
+  checklist: "fact_check",
+  formField: "edit_note",
+  narrative: "description",
+  table: "table_chart",
+  signature: "draw",
+  route: "route",
+  access: "verified_user",
+  source: "menu_book",
+  localDev: "dns",
+});
+const MATERIAL_ICON_LIGATURE_SET = new Set(
+  Object.values(MATERIAL_ICON_LIGATURES),
+);
+let PDF_MATERIAL_ICONS_STYLE_TAG;
+
+function resolveMaterialIconsFontPath() {
+  const candidates = [
+    resolve(DOCS_DIR, `../../public/fonts/${MATERIAL_ICONS_FONT_FILE}`),
+    resolve(
+      DOCS_DIR,
+      `../../apps/website/public/fonts/${MATERIAL_ICONS_FONT_FILE}`,
+    ),
+    resolve(ROOT, `public/fonts/${MATERIAL_ICONS_FONT_FILE}`),
+    resolve(ROOT, `apps/website/public/fonts/${MATERIAL_ICONS_FONT_FILE}`),
+  ];
+  return candidates.find((candidate) => existsSync(candidate)) || null;
+}
+
+function buildPdfMaterialIconsStyleTag() {
+  const materialIconsFontPath = resolveMaterialIconsFontPath();
+  if (!materialIconsFontPath) {
+    return "";
+  }
+  const fontUrl = pathToFileURL(materialIconsFontPath).toString();
+  return `<style data-pdf-material-icons="true">\n@font-face {\n  font-family: "Material Icons";\n  font-style: normal;\n  font-weight: 400;\n  font-display: swap;\n  src: url("${fontUrl}") format("woff2");\n}\n.material-icons,\n.mi {\n  font-family: "Material Icons", sans-serif;\n  font-weight: 400;\n  font-style: normal;\n  font-size: 1em;\n  display: inline-block;\n  line-height: 1;\n  text-transform: none;\n  letter-spacing: normal;\n  word-wrap: normal;\n  white-space: nowrap;\n  direction: ltr;\n  vertical-align: -0.125em;\n  -webkit-font-smoothing: antialiased;\n  text-rendering: optimizeLegibility;\n  -moz-osx-font-smoothing: grayscale;\n  font-feature-settings: "liga";\n}\n.mi-inline {\n  font-size: 1em;\n  vertical-align: -0.125em;\n}\n</style>`;
+}
+
+function getPdfMaterialIconsStyleTag() {
+  if (PDF_MATERIAL_ICONS_STYLE_TAG === undefined) {
+    PDF_MATERIAL_ICONS_STYLE_TAG = buildPdfMaterialIconsStyleTag();
+  }
+  return PDF_MATERIAL_ICONS_STYLE_TAG;
+}
+
+function getMaterialIconLigature(name) {
+  const ligature = MATERIAL_ICON_LIGATURES[name];
+  if (!ligature) {
+    throw new Error(`Unknown material icon ligature key: ${name}`);
+  }
+  return ligature;
+}
 
 // ── Cluster mapping — MIRROR of src/lib/data/safety-manual-clusters.ts ──────
 // Used to deep-link section/tab QRs to /resources/safety-manual/{cluster}#mish-NN
@@ -97,7 +159,9 @@ function resolveMishSectionTargets(manualSection) {
     if (entry == null) continue;
     const text = String(entry).trim();
     if (!text || text === "—") continue;
-    const match = text.match(/(\d{1,2})/);
+    const mishMatch = /^mish\s*-?\s*(\d{1,2})$/i.exec(text);
+    const numericOnlyMatch = /^(\d{1,2})$/.exec(text);
+    const match = mishMatch || numericOnlyMatch;
     if (!match) continue;
     const numeric = Number(match[1]);
     if (!Number.isFinite(numeric) || numeric < 1 || numeric > 50) continue;
@@ -622,6 +686,30 @@ function applyBrandTokens(html) {
   return out;
 }
 
+function normalizePdfTypography(html) {
+  const normalized = String(html)
+    .replaceAll(
+      '"mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Segoe UI", Arial, sans-serif',
+      PDF_FONT_STACK_HEADING,
+    )
+    .replaceAll(
+      '"DIN 2014", "Segoe UI", Arial, sans-serif',
+      PDF_FONT_STACK_BODY,
+    );
+
+  const materialIconsStyleTag = getPdfMaterialIconsStyleTag();
+  if (!materialIconsStyleTag) {
+    return normalized;
+  }
+  if (normalized.includes('data-pdf-material-icons="true"')) {
+    return normalized;
+  }
+  if (/<\/head>/i.test(normalized)) {
+    return normalized.replace(/<\/head>/i, `${materialIconsStyleTag}\n</head>`);
+  }
+  return `${materialIconsStyleTag}\n${normalized}`;
+}
+
 // ── Physical Tab + Tier mapping ────────────────────────────────────────────
 /**
  * Map a MISH section number to a physical binder tab reference.
@@ -720,7 +808,9 @@ const TOC_CLUSTERS = [
  * Add or remove numbers here to change which entries are highlighted.
  */
 const TOC_CALLOUT_ITEMS = new Set([21, 48]);
-const TOC_CONTINUATION_START = 20;
+const TOC_PAGE_1_MAX = 9;
+const TOC_PAGE_2_MAX = 23;
+const TOC_CONT_PAGE_UNIT_BUDGET = 30;
 
 /**
  * Fallback MISH title map.
@@ -824,6 +914,83 @@ function buildTocFormEntryHtml(formId, formTitle) {
   );
 }
 
+function buildTocFormCode(form) {
+  const rawId = String(form?.id || "").trim();
+  if (!rawId) return "FORM";
+
+  const mishMatch = /^MISH\s*-?\s*(\d{1,2})$/i.exec(rawId);
+  if (mishMatch) {
+    return `FORM ${String(Number(mishMatch[1])).padStart(2, "0")}`;
+  }
+
+  const explicitFormMatch = /^FORM\s+(.+)$/i.exec(rawId);
+  if (explicitFormMatch) {
+    return `FORM ${explicitFormMatch[1].trim().toUpperCase()}`;
+  }
+
+  return rawId.toUpperCase();
+}
+
+function compareFormsForToc(a, b) {
+  const rank = (form) => {
+    const id = String(form?.id || "").trim();
+    const mishMatch = /^MISH\s*-?\s*(\d{1,2})$/i.exec(id);
+    if (mishMatch)
+      return { bucket: 0, numeric: Number(mishMatch[1]), text: id };
+
+    const formMatch = /^FORM\s+(.+)$/i.exec(id);
+    if (formMatch) {
+      const numeric = Number(String(formMatch[1]).match(/\d+/)?.[0] || NaN);
+      return {
+        bucket: 1,
+        numeric: Number.isFinite(numeric) ? numeric : Number.POSITIVE_INFINITY,
+        text: id,
+      };
+    }
+
+    return { bucket: 2, numeric: Number.POSITIVE_INFINITY, text: id };
+  };
+
+  const left = rank(a);
+  const right = rank(b);
+  if (left.bucket !== right.bucket) return left.bucket - right.bucket;
+  if (left.numeric !== right.numeric) return left.numeric - right.numeric;
+  return left.text.localeCompare(right.text, undefined, {
+    numeric: true,
+    sensitivity: "base",
+  });
+}
+
+function buildTocSectionFormsMap(forms) {
+  const map = new Map();
+  for (const form of forms) {
+    const targets = resolveMishSectionTargets(form?.manualSection);
+    for (const target of targets) {
+      if (!map.has(target.numeric)) {
+        map.set(target.numeric, []);
+      }
+      map.get(target.numeric).push(form);
+    }
+  }
+
+  for (const [sectionNum, sectionForms] of map.entries()) {
+    const deduped = [];
+    const seenIds = new Set();
+    for (const form of sectionForms) {
+      const key = String(form?.id || form?.slug || "")
+        .trim()
+        .toLowerCase();
+      if (!key || seenIds.has(key)) continue;
+      seenIds.add(key);
+      deduped.push(form);
+    }
+    deduped.sort(compareFormsForToc);
+    map.set(sectionNum, deduped);
+  }
+
+  return map;
+}
+
 function normalizeTocTitle(value) {
   const text = String(value || "").trim();
   if (!text) return text;
@@ -890,7 +1057,7 @@ function buildClusterHtml(clusterName, nums, titleMap, formsMap = null) {
     if (formsMap && formsMap.has(n)) {
       const sectionForms = formsMap.get(n);
       for (const form of sectionForms) {
-        rows.push(buildTocFormEntryHtml(form.id, form.title));
+        rows.push(buildTocFormEntryHtml(buildTocFormCode(form), form.title));
       }
     }
   }
@@ -948,17 +1115,103 @@ function buildTocClustersHtml(titleMap, presentNums, formsMap = null) {
   return parts.join("\n");
 }
 
-function splitTocNumsByPage(presentNums) {
+function findTocClusterNameForSection(sectionNum) {
+  const cluster = TOC_CLUSTERS.find(
+    (entry) => sectionNum >= entry.min && sectionNum <= entry.max,
+  );
+  return cluster?.name || "Additional Programs";
+}
+
+function splitTocNumsByFlow(presentNums, formsMap = null) {
   const page1 = new Set();
   const page2 = new Set();
+  const continuationPages = [new Set()];
+
+  let currentPageIndex = 0;
+  let currentPageUnits = 0;
+  let currentCluster = "";
+
+  const remainingNums = [...presentNums]
+    .filter((n) => n > TOC_PAGE_2_MAX)
+    .sort((a, b) => a - b);
+
   for (const n of presentNums) {
-    if (n < TOC_CONTINUATION_START) {
+    if (n <= TOC_PAGE_1_MAX) {
       page1.add(n);
       continue;
     }
-    page2.add(n);
+    if (n <= TOC_PAGE_2_MAX) {
+      page2.add(n);
+    }
   }
-  return { page1, page2 };
+
+  for (const n of remainingNums) {
+    const clusterName = findTocClusterNameForSection(n);
+    const headingUnits = clusterName === currentCluster ? 0 : 1;
+    const formCount = formsMap?.get(n)?.length || 0;
+    const entryUnits = 1 + formCount;
+    const neededUnits = headingUnits + entryUnits;
+
+    if (
+      currentPageUnits > 0 &&
+      currentPageUnits + neededUnits > TOC_CONT_PAGE_UNIT_BUDGET
+    ) {
+      currentPageIndex += 1;
+      continuationPages[currentPageIndex] = new Set();
+      currentPageUnits = 0;
+      currentCluster = "";
+    }
+
+    continuationPages[currentPageIndex].add(n);
+    currentPageUnits += neededUnits;
+    currentCluster = clusterName;
+  }
+
+  const page3 = continuationPages[0] || new Set();
+  const extraPages = continuationPages.slice(1).filter((page) => page.size > 0);
+
+  return { page1, page2, page3, extraPages };
+}
+
+function buildTocContinuationPageHtml(pageNumber, clustersHtml) {
+  return [
+    `<div class="toc-page toc-page--cont">`,
+    `  <div class="toc-ribbon" aria-hidden="true"></div>`,
+    `  <div class="toc-content">`,
+    `    <header class="toc-header toc-header--cont">`,
+    `      <p class="toc-cont-mark">{{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>MISH Program Table of Contents (continued)</p>`,
+    `      <p class="toc-cont-page">Page ${pageNumber}</p>`,
+    `    </header>`,
+    `    <main class="toc-body">${clustersHtml}</main>`,
+    `    <footer class="footer">`,
+    `      <div class="contact">`,
+    `        <div class="label">Company Contact</div>`,
+    `        <div class="name">{{BRAND_COMPANY_NAME}}</div>`,
+    `        {{BRAND_ADDRESS_STREET}}<br />`,
+    `        {{BRAND_ADDRESS_CITYSTATEZIP}}<br />`,
+    `        {{BRAND_PHONE}} &middot; {{BRAND_WEBSITE}}`,
+    `        <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>`,
+    `      </div>`,
+    `      <div class="trust">`,
+    `        <div class="label">Accreditation and Trust</div>`,
+    `        <div class="logos">`,
+    `          <img class="logo-agc" src="{{BRAND_AGC_HORIZONTAL}}" alt="AGC membership" />`,
+    `          <img class="logo-bbb" src="{{BRAND_BBB_SEAL}}" alt="BBB accredited business" />`,
+    `          <img class="logo-vob" src="{{BRAND_WA_VOB_LOGO}}" alt="Washington certified veteran owned business" />`,
+    `        </div>`,
+    `        <div class="chambers" aria-label="Chamber of Commerce memberships">`,
+    `          <img src="{{BRAND_CHAMBER_PASCO}}" alt="Pasco Chamber of Commerce member" />`,
+    `          <img src="{{BRAND_CHAMBER_KENNEWICK}}" alt="Tri-City Regional Chamber of Commerce member" />`,
+    `          <img src="{{BRAND_CHAMBER_RICHLAND}}" alt="Richland Chamber of Commerce member" />`,
+    `        </div>`,
+    `      </div>`,
+    `    </footer>`,
+    `    <div class="veteran-strip" aria-label="Veteran owned business statement">`,
+    `      Veteran-Owned <span class="sep">&#9733;</span> Safety-Driven <span class="sep">&#9733;</span> Built on Quality, Backed by Trust`,
+    `    </div>`,
+    `  </div>`,
+    `</div>`,
+  ].join("\n");
 }
 
 // ── Puppeteer header / footer templates ────────────────────────────────────
@@ -984,7 +1237,7 @@ function buildSectionHeaderHtml(
     sectionTitle.length > 38 ? sectionTitle.slice(0, 35) + "…" : sectionTitle;
   const tabRef = sectionToTab(sectionNum);
   const mishRef = sectionToMishRef(sectionNum);
-  const font = "'DIN 2014','Helvetica Neue',Arial,sans-serif";
+  const font = PDF_FONT_STACK_BODY;
   const pad = "padding:0 0.55in 0 1.25in";
 
   // Page bubble — Puppeteer replaces <span class="pageNumber"> / <span class="totalPages">
@@ -1059,7 +1312,7 @@ function buildSectionHeaderHtml(
  * document context with no access to components.css.
  */
 function buildSectionFooterHtml() {
-  const font = `'DIN 2014','Helvetica Neue',Arial,sans-serif`;
+  const font = PDF_FONT_STACK_BODY;
   const contactMeta = "Company Contact";
   const trustMeta = "Accreditation and Trust";
   // Use precomputed base64 data URLs from BRAND_TOKENS — file:// cannot load in
@@ -1143,7 +1396,8 @@ async function renderHtmlToPdf(
   tmpName = "_tmp_render.html",
 ) {
   const tmpHtml = join(DOCS_DIR, tmpName);
-  await writeFile(tmpHtml, html, "utf-8");
+  const normalizedHtml = normalizePdfTypography(html);
+  await writeFile(tmpHtml, normalizedHtml, "utf-8");
   await renderPdf(tmpHtml, pdfPath, pageOpts);
   if (!process.env.DEBUG_KEEP_HTML) unlinkSync(tmpHtml);
 }
@@ -1175,7 +1429,8 @@ async function renderHtmlToPdf(
  */
 async function extractFieldRectsFromHtml(html, tmpName = "_tmp_measure.html") {
   const tmpHtml = join(DOCS_DIR, tmpName);
-  await writeFile(tmpHtml, html, "utf-8");
+  const normalizedHtml = normalizePdfTypography(html);
+  await writeFile(tmpHtml, normalizedHtml, "utf-8");
   const browser = await getBrowser();
   const page = await browser.newPage();
   // Match Puppeteer Letter PDF default: 8.5×11in @ 96dpi = 816×1056 CSS px.
@@ -1471,19 +1726,244 @@ function deriveFormNamespace(formEntry) {
   return id.replaceAll(/[^a-z0-9]/g, "");
 }
 
+async function loadDocxDerivedFormHtml(formEntry) {
+  if (!formEntry?.docxPath) return "";
+
+  const sourcePath = join(DOCS_DIR, "forms", formEntry.docxPath);
+  if (!existsSync(sourcePath)) {
+    console.warn(
+      `⚠️  DOCX source not found for ${formEntry.id}: ${formEntry.docxPath}`,
+    );
+    return "";
+  }
+
+  try {
+    const mammothMod = await import("mammoth");
+    const convertToHtml =
+      mammothMod?.convertToHtml || mammothMod?.default?.convertToHtml;
+    if (typeof convertToHtml !== "function") {
+      throw new Error("mammoth.convertToHtml is unavailable");
+    }
+
+    const result = await convertToHtml({ path: sourcePath });
+    const cleaned = cleanWordHtml(result?.value || "");
+    if (!cleaned) return "";
+
+    const sanitized = sanitizeDocxFormSnippet(cleaned);
+    if (!sanitized) return "";
+
+    // Keep fallback bodies concise so chrome and fillable fields remain visible.
+    const blockMatches =
+      sanitized.match(/<(h4|p|ul|ol|table)[\s\S]*?<\/\1>/gi) || [];
+    const snippetBlocks = blockMatches.slice(0, 20);
+    return snippetBlocks.join("\n").trim();
+  } catch (error) {
+    console.warn(
+      `⚠️  Failed to derive DOCX content for ${formEntry.id}: ${error?.message || error}`,
+    );
+    return "";
+  }
+}
+
+function sanitizeDocxFormSnippet(html) {
+  if (!html) return "";
+  const STRIP_PARAGRAPH_PATTERNS = [
+    /^MH\s+CONSTRUCTION\s*,?\s*INC\.?\s*$/i,
+    /^Industrial\s+Safety\s+(?:&|&amp;|and)\s*Health\s+Program\s*\(MISH\)\s*$/i,
+    /^FORM\s*-?\s*MISH\s*-?\s*\d+/i,
+    /^Rev\.?\s*\d+\s*\|\s*Effective\s*:/i,
+    /^Prepared\s+by\s*:/i,
+    /^Reviewed\s+by\s*:/i,
+    /^Project\s+Information\s*:?\s*$/i,
+  ];
+
+  let out = html;
+
+  out = out.replaceAll(/<p>([\s\S]*?)<\/p>/gi, (match, inner) => {
+    const text = inner
+      .replaceAll(/<[^>]+>/g, " ")
+      .replaceAll(/\s+/g, " ")
+      .trim();
+    if (!text) return "";
+    if (/^[\-—―_\s]{10,}$/.test(text)) return "";
+    if (STRIP_PARAGRAPH_PATTERNS.some((pattern) => pattern.test(text))) {
+      return "";
+    }
+    return match;
+  });
+
+  // Drop generic project-information heading blocks that are repeated across
+  // most forms and make fallback bodies look identical at a glance.
+  out = out.replaceAll(
+    /<h4 class="sec-subhead">([\s\S]*?)<\/h4>/gi,
+    (match, inner) => {
+      const text = inner
+        .replaceAll(/<[^>]+>/g, " ")
+        .replaceAll(/\s+/g, " ")
+        .trim();
+      if (/^project\s+information$/i.test(text)) return "";
+      return match;
+    },
+  );
+
+  // Drop empty list bullets emitted by Word export placeholders.
+  out = out.replaceAll(/<li class="sec-bullet">\s*(?:&nbsp;|\s)*<\/li>/gi, "");
+  out = out.replaceAll(/<(ul|ol)([^>]*)>\s*<\/\1>/gi, "");
+
+  // Remove compliance boilerplate table(s) that repeat in every form.
+  out = out.replaceAll(/<table[\s\S]*?<\/table>/gi, (tableHtml) =>
+    isGenericDocxTable(tableHtml) ? "" : tableHtml,
+  );
+
+  return out.trim();
+}
+
+function isGenericDocxTable(tableHtml) {
+  const text = tableHtml
+    .replaceAll(/<[^>]+>/g, " ")
+    .replaceAll(/&nbsp;/gi, " ")
+    .replaceAll(/\s+/g, " ")
+    .trim();
+
+  if (!text) return true;
+  if (/Regulatory\s+Authority/i.test(text)) return true;
+
+  // Common preamble rows used by many forms that should not dominate the
+  // fallback body preview.
+  const projectInfoHits = [
+    /Project\s+Name\s*\/?\s*Number/i,
+    /Job\s+Site\s+Address/i,
+    /Supervisor\s*\/?\s*Foreman/i,
+    /Employee\s+Name\(s\)/i,
+    /Subcontractor/i,
+  ].filter((rx) => rx.test(text)).length;
+  if (projectInfoHits >= 3) return true;
+
+  return false;
+}
+
+async function buildDefaultFillablePages(formEntry) {
+  const sectionRef = Array.isArray(formEntry?.manualSection)
+    ? formEntry.manualSection.join(" · ")
+    : formEntry?.manualSection || "MISH Reference";
+  const docxSnippet = await loadDocxDerivedFormHtml(formEntry);
+  const docxSections = docxSnippet
+    ? [
+        {
+          type: "htmlBlock",
+          title: "Form-Specific Content",
+          html: docxSnippet,
+        },
+      ]
+    : [];
+
+  const hasDocxSpecificContent = docxSections.length > 0;
+
+  const defaultEntrySections = hasDocxSpecificContent
+    ? [
+        {
+          type: "narrative",
+          title: "Supplemental Site Notes",
+          subtitle:
+            "Use only when additional details are required beyond the form body.",
+          name: "details",
+          height: "1.4in",
+        },
+      ]
+    : [
+        {
+          type: "fieldGrid",
+          title: "Form Details",
+          columns: 2,
+          items: [
+            { name: "meta.project", label: "Project / Job" },
+            { name: "meta.location", label: "Site Location" },
+            { name: "meta.supervisor", label: "Supervisor" },
+            { name: "meta.preparedBy", label: "Prepared By" },
+            { name: "meta.date", label: "Date" },
+            { name: "meta.shift", label: "Shift / Time" },
+          ],
+        },
+        {
+          type: "narrative",
+          title: "Field Entry",
+          subtitle: "Record all required details clearly and completely.",
+          name: "details",
+          height: "2.6in",
+        },
+        {
+          type: "signatures",
+          title: "Sign-Off",
+          blocks: [
+            { role: "Employee", name: "sign.employee" },
+            { role: "Supervisor", name: "sign.supervisor" },
+          ],
+        },
+      ];
+
+  return [
+    {
+      kind: "first",
+      sections: [
+        {
+          type: "refNote",
+          html: `<p><strong>${escapeHtml(formEntry?.title || "Form")}</strong> — Complete in the field and route according to project records control for ${escapeHtml(sectionRef)}.</p>`,
+        },
+        ...defaultEntrySections,
+        ...docxSections,
+      ],
+    },
+  ];
+}
+
+function getFillablePages(formEntry) {
+  if (formEntry?.fillable?.pages?.length) return formEntry.fillable.pages;
+  return buildDefaultFillablePages(formEntry);
+}
+
 function fqName(ns, name) {
   if (!name) return "";
   return name.includes(".") ? name : `${ns}.${name}`;
 }
 
+function renderMaterialIcon(ligature, extraClasses = "") {
+  const className = ["mi", "mi-inline", extraClasses].filter(Boolean).join(" ");
+  return `<span class="${className}" aria-hidden="true">${escapeHtml(ligature)}</span>`;
+}
+
+function resolveSectionBandIconLigature(section, sectionType) {
+  const explicitIcon = String(section?.icon || "").trim();
+  if (explicitIcon) {
+    if (Object.hasOwn(MATERIAL_ICON_LIGATURES, explicitIcon)) {
+      return getMaterialIconLigature(explicitIcon);
+    }
+    if (MATERIAL_ICON_LIGATURE_SET.has(explicitIcon)) {
+      return explicitIcon;
+    }
+    throw new Error(
+      `Unknown fillable section icon "${explicitIcon}" for section type "${sectionType}". Use canonical icon keys from MATERIAL_ICON_LIGATURES.`,
+    );
+  }
+
+  const defaultsByType = {
+    checkGrid: getMaterialIconLigature("checklist"),
+    fieldGrid: getMaterialIconLigature("formField"),
+    narrative: getMaterialIconLigature("narrative"),
+    dataTable: getMaterialIconLigature("table"),
+    regTable: getMaterialIconLigature("table"),
+    signatures: getMaterialIconLigature("signature"),
+  };
+  return defaultsByType[sectionType] || null;
+}
+
 function renderSection(section, ns) {
   switch (section.type) {
     case "refNote":
-      return `<div class="ref-note">${section.html || ""}</div>`;
+      return `<div class="ref-note"><span class="ref-note-icon">${renderMaterialIcon(getMaterialIconLigature("info"))}</span><div class="ref-note-content">${section.html || ""}</div></div>`;
 
     case "checkGrid": {
       const cols = section.columns || 4;
-      const band = renderBand(section);
+      const band = renderBand(section, "checkGrid");
       const cells = (section.items || [])
         .map(
           (it) =>
@@ -1495,7 +1975,7 @@ function renderSection(section, ns) {
 
     case "fieldGrid": {
       const cols = section.columns || 2;
-      const band = section.title ? renderBand(section) : "";
+      const band = section.title ? renderBand(section, "fieldGrid") : "";
       const cells = (section.items || [])
         .map((it) => {
           const ftype = it.multiline ? ' data-field-type="multiline"' : "";
@@ -1506,13 +1986,18 @@ function renderSection(section, ns) {
     }
 
     case "narrative": {
-      const band = section.title ? renderBand(section) : "";
+      const band = section.title ? renderBand(section, "narrative") : "";
       const height = section.height || "1.55in";
       return `${band}<div class="narrative-cell" style="height:${height}" data-field="${escapeAttr(fqName(ns, section.name))}" data-field-type="multiline"></div>`;
     }
 
+    case "htmlBlock": {
+      const band = section.title ? renderBand(section, "narrative") : "";
+      return `${band}<div class="docx-block">${section.html || ""}</div>`;
+    }
+
     case "dataTable": {
-      const band = renderBand(section);
+      const band = renderBand(section, "dataTable");
       const head =
         `<thead><tr>` +
         section.columns
@@ -1537,7 +2022,7 @@ function renderSection(section, ns) {
     }
 
     case "regTable": {
-      const band = renderBand(section);
+      const band = renderBand(section, "regTable");
       const head =
         `<thead><tr>` +
         section.columns
@@ -1561,9 +2046,9 @@ function renderSection(section, ns) {
     }
 
     case "signatures": {
-      const band = section.title ? renderBand(section) : "";
+      const band = section.title ? renderBand(section, "signatures") : "";
       const note = section.refNote
-        ? `<div class="ref-note">${section.refNote}</div>`
+        ? `<div class="ref-note"><span class="ref-note-icon">${renderMaterialIcon(getMaterialIconLigature("info"))}</span><div class="ref-note-content">${section.refNote}</div></div>`
         : "";
       const cells = (section.blocks || [])
         .map((b) => {
@@ -1589,12 +2074,16 @@ function renderSection(section, ns) {
   }
 }
 
-function renderBand(section) {
+function renderBand(section, sectionType = "") {
   if (!section.title) return "";
+  const ligature = resolveSectionBandIconLigature(section, sectionType);
+  const icon = ligature
+    ? `<span class="sec-band-icon">${renderMaterialIcon(ligature)}</span>`
+    : "";
   const sub = section.subtitle
     ? ` <span class="sec-sub">${escapeHtml(section.subtitle)}</span>`
     : "";
-  return `<div class="sec-band">${escapeHtml(section.title)}${sub}</div>`;
+  return `<div class="sec-band">${icon}${escapeHtml(section.title)}${sub}</div>`;
 }
 
 function escapeAttr(s) {
@@ -1630,8 +2119,8 @@ function renderSheet(page, idx, ns, formEntry) {
         </div>
       </footer>
       <div class="veteran-strip">
-        Veteran-Owned <span class="sep">&#9733;</span> Mission-First
-        <span class="sep">&#9733;</span> Built on Honor, Integrity &amp; Trust
+        Veteran-Owned <span class="sep">&#9733;</span> Safety-Driven
+        <span class="sep">&#9733;</span> Built on Quality, Backed by Trust
       </div>`;
 
   if (idx === 0 || page.kind === "first") {
@@ -1643,10 +2132,16 @@ function renderSheet(page, idx, ns, formEntry) {
       </div>
       <header class="header">
         <img class="logo" src="{{BRAND_LOGO_COLOR}}" alt="MH Construction logo" />
-        <div class="form-id-card">
-          <div class="form-id">${escapeHtml(formEntry.id || "")}</div>
-          <div class="form-title">${escapeHtml(formEntry.title || "")}</div>
-          <div class="form-meta">Rev ${escapeHtml(formEntry.revision || "—")} &nbsp;&middot;&nbsp; ${escapeHtml(formEntry.effectiveDate || "—")}</div>
+        <div class="qr-card">
+          <a href="{{FORM_QR_LINK_URL}}" target="_blank" rel="noopener noreferrer" aria-label="Open digital package for ${escapeHtml(formEntry.id || "form")}">
+            <img src="{{FORM_QR_DATA_URL}}" alt="Scan to open digital package for ${escapeHtml(formEntry.id || "form")}" />
+          </a>
+          <div class="qr-text">
+            <p class="qr-label">Digital Access</p>
+            <div class="qr-headline">${escapeHtml(formEntry.id || "")}</div>
+            <p class="qr-meta">${escapeHtml(formEntry.title || "")}</p>
+            <p class="qr-meta">Rev ${escapeHtml(formEntry.revision || "—")} &middot; ${escapeHtml(formEntry.effectiveDate || "—")}</p>
+          </div>
         </div>
       </header>
       <main class="body-area">
@@ -1689,11 +2184,9 @@ async function generateFillableForm(formEntry) {
   const rawTemplate = await readFile(templatePath, "utf-8");
 
   const ns = deriveFormNamespace(formEntry);
-  const pages = formEntry.fillable?.pages || [];
-  if (pages.length === 0) {
-    console.warn(`⚠️  ${formEntry.id} has no fillable.pages; skipping.`);
-    return;
-  }
+  const pages = await getFillablePages(formEntry);
+  const formPublicUrl = `${SITE_URL}/docs/safety/forms/${slug}.pdf`;
+  const formQrDataUrl = await buildQrDataUrl(formPublicUrl);
 
   const body = pages
     .map((p, i) => renderSheet(p, i, ns, formEntry))
@@ -1703,7 +2196,9 @@ async function generateFillableForm(formEntry) {
     .replaceAll("{{FORM_ID}}", escapeHtml(formEntry.id || ""))
     .replaceAll("{{FORM_TITLE}}", escapeHtml(formEntry.title || ""))
     .replace("{{FORM_BODY}}", body);
-  html = applyBrandTokens(html);
+  html = applyBrandTokens(html)
+    .replaceAll("{{FORM_QR_DATA_URL}}", formQrDataUrl)
+    .replaceAll("{{FORM_QR_LINK_URL}}", escapeHtml(formPublicUrl));
 
   const fillableDir = join(OUTPUT_DIR, "form-fillables");
   await ensureDir(fillableDir);
@@ -1786,6 +2281,13 @@ async function generateAllFillableForms() {
   }
 }
 
+function slugForFormPackage(formEntry) {
+  return (formEntry.slug || formEntry.id || "form")
+    .toLowerCase()
+    .replaceAll(/[^a-z0-9]+/g, "-")
+    .replaceAll(/^-+|-+$/g, "");
+}
+
 // ── Cover + Fillable bundle ──────────────────────────────────────────────────
 /**
  * Build the deliverable form package (cover sheet + fillable body) for a
@@ -1795,42 +2297,29 @@ async function generateAllFillableForms() {
  * `documents/output/form-packages/{slug}.pdf`.
  */
 async function generateFormPackage(formEntry) {
-  const slug = (formEntry.slug || formEntry.id || "form")
-    .toLowerCase()
-    .replaceAll(/[^a-z0-9]+/g, "-")
-    .replaceAll(/^-+|-+$/g, "");
+  const slug = slugForFormPackage(formEntry);
 
   console.log(`\n📦 Building form package: ${formEntry.id} → ${slug}.pdf`);
 
   // 1. Ensure the cover exists (regenerate just this one for freshness).
   await generateFormCoverFor(formEntry);
 
-  // 2. Ensure the fillable body exists.
-  if (!formEntry.fillable?.pages?.length) {
-    console.warn(
-      `⚠️  ${formEntry.id} has no fillable.pages; skipping package.`,
-    );
-    return;
-  }
+  // 2. Always generate a fillable package body with canonical form chrome.
   await generateFillableForm(formEntry);
+  const bodyPath = join(OUTPUT_DIR, "form-fillables", `${slug}.pdf`);
 
   const coverPath = join(OUTPUT_DIR, "form-covers", `${slug}_cover.pdf`);
-  const fillablePath = join(OUTPUT_DIR, "form-fillables", `${slug}.pdf`);
   if (!existsSync(coverPath)) {
     console.error(`❌  Cover PDF missing: ${coverPath}`);
     return;
   }
-  if (!existsSync(fillablePath)) {
-    console.error(`❌  Fillable PDF missing: ${fillablePath}`);
+  if (!existsSync(bodyPath)) {
+    console.error(`❌  Package body PDF missing: ${bodyPath}`);
     return;
   }
 
-  // 3. Merge: start from the fillable PDF (so its AcroForm catalog and
-  // field dictionaries are preserved), then insert cover pages at the
-  // front. pdf-lib's copyPages preserves widget annotations on copied
-  // pages, and because the destination IS the original fillable doc,
-  // the AcroForm root and field references stay intact.
-  const merged = await PDFDocument.load(await readFile(fillablePath));
+  // 3. Merge: start from the body PDF, then insert cover pages at the front.
+  const merged = await PDFDocument.load(await readFile(bodyPath));
   const coverDoc = await PDFDocument.load(await readFile(coverPath));
 
   const coverPages = await merged.copyPages(
@@ -1866,15 +2355,15 @@ async function generateFormPackageById(key) {
 
 async function generateAllFormPackages() {
   const forms = await loadFormsManifest();
-  const eligible = forms.filter((f) => f.fillable?.pages?.length);
+  const eligible = forms;
   if (eligible.length === 0) {
-    console.log("ℹ️  No forms with `fillable` schema in the manifest.");
+    console.log("ℹ️  No forms were found in forms-manifest.json.");
     return;
   }
   const packagesDir = join(OUTPUT_DIR, "form-packages");
   await ensureDir(packagesDir);
   const validPackageNames = new Set(
-    eligible.map((formEntry) => `${slugForForm(formEntry)}.pdf`),
+    eligible.map((formEntry) => `${slugForFormPackage(formEntry)}.pdf`),
   );
   validPackageNames.add(HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME);
   for (const existingFile of await readdir(packagesDir)) {
@@ -2308,48 +2797,42 @@ async function generateToc() {
   }
 
   // ── 2. Build cluster HTML and inject into template ──────────────────────
-  const { page1, page2 } = splitTocNumsByPage(presentNums);
-
-  // Load forms and build formsMap keyed by section number
+  // Load forms and build formsMap keyed by section number using each form's
+  // manualSection linkage so associated forms always render under the
+  // corresponding MISH section in print order.
   let formsMap = new Map();
   try {
     const forms = await loadFormsManifest();
-    const mishForms = forms.filter((f) =>
-      String(f.id || "").startsWith("MISH "),
+    const sectionLinkedForms = forms.filter(
+      (f) => resolveMishSectionTargets(f.manualSection).length > 0,
     );
+    formsMap = buildTocSectionFormsMap(sectionLinkedForms);
 
-    // Sort forms by ID numerically
-    mishForms.sort((a, b) => {
-      const numA = Number(String(a.id || "").match(/\d+/)?.[0] || 0);
-      const numB = Number(String(b.id || "").match(/\d+/)?.[0] || 0);
-      return numA - numB;
-    });
-
-    // Map forms by section number (e.g., MISH 01 → section 1)
-    for (const form of mishForms) {
-      const sectionNum = Number(String(form.id || "").match(/\d+/)?.[0] || 0);
-      if (sectionNum > 0) {
-        if (!formsMap.has(sectionNum)) {
-          formsMap.set(sectionNum, []);
-        }
-        formsMap.get(sectionNum).push(form);
-      }
-    }
-
-    console.log(`  ℹ  Added ${mishForms.length} MISH form(s) to TOC sections`);
+    console.log(
+      `  ℹ  Added ${sectionLinkedForms.length} associated form(s) across ${formsMap.size} MISH section(s)`,
+    );
   } catch (err) {
     console.warn(`  ⚠  Could not load forms manifest: ${err.message}`);
   }
 
+  const { page1, page2, page3, extraPages } = splitTocNumsByFlow(
+    presentNums,
+    formsMap,
+  );
+
   const tocPage1Html = buildTocClustersHtml(titleMap, page1, formsMap);
   const tocPage2Html = buildTocClustersHtml(titleMap, page2, formsMap);
+  const tocPage3Html = buildTocClustersHtml(titleMap, page3, formsMap);
+  const hasPage3 = page3.size > 0;
+  const tocExtraPagesHtml = extraPages
+    .map((pageNums, index) =>
+      buildTocContinuationPageHtml(
+        4 + index,
+        buildTocClustersHtml(titleMap, pageNums, formsMap),
+      ),
+    )
+    .join("\n");
 
-  // Page 3 is now disabled since forms are integrated into TOC
-  let tocPage3Html = "";
-  let hasPage3 = false;
-
-  // QR code pointing to the public web TOC page (not the full manual)
-  const tocQrDataUrl = await buildQrDataUrl(BRAND.qrCodes.tableOfContents);
   const raw = await readFile(CANONICAL_TOC_TEMPLATE_PATH, "utf-8");
   // Use replaceAll with function form: the template has the placeholder in both
   // the developer comment and the <main> body — .replace() would only hit the
@@ -2366,7 +2849,25 @@ async function generateToc() {
       }
       return tocPage3Html;
     })
-    .replace("{{QR_TOC_URL}}", tocQrDataUrl);
+    .replaceAll("{{TOC_PAGE_3_NUMBER}}", () => "3")
+    .replaceAll("{{TOC_EXTRA_PAGES_HTML}}", () => tocExtraPagesHtml);
+
+  // Dynamic continuation pages inject BRAND tokens, so run a final brand pass.
+  html = applyBrandTokens(html);
+
+  const unresolvedTocTokens = html.match(/\{\{TOC_[A-Z0-9_]+\}\}/g) || [];
+  if (unresolvedTocTokens.length > 0) {
+    throw new Error(
+      `Unresolved TOC template token(s): ${[...new Set(unresolvedTocTokens)].join(", ")}`,
+    );
+  }
+
+  const unresolvedBrandTokens = html.match(/\{\{BRAND_[A-Z0-9_]+\}\}/g) || [];
+  if (unresolvedBrandTokens.length > 0) {
+    throw new Error(
+      `Unresolved brand token(s): ${[...new Set(unresolvedBrandTokens)].join(", ")}`,
+    );
+  }
 
   if (process.env.DEBUG_TOC) {
     const page3HtmlCount = (html.match(/mish-entry/g) || []).length;
@@ -2380,11 +2881,11 @@ async function generateToc() {
     console.log(`  📋 Page 3 cluster exists: ${page3ClusterExists}`);
   }
 
-  // Conditionally show/hide page 3 based on whether forms exist
+  // Conditionally show/hide page 3 based on whether a third section slice exists
   if (hasPage3) {
     const before = html;
     html = html.replace(
-      'id="toc-page-3" style="display: none;"',
+      /id="toc-page-3"\s+style="display:\s*none;?"/,
       'id="toc-page-3"',
     );
     if (before !== html) {
@@ -2619,6 +3120,190 @@ async function validateCanonicalFooterClassUsage() {
   if (violations.length > 0) {
     throw new Error(
       `Guardrail validation failed: only canonical footer classes are allowed in manuals templates.\n  - ${violations.join("\n  - ")}`,
+    );
+  }
+}
+
+async function collectHtmlTemplateFiles(dirPath) {
+  if (!existsSync(dirPath)) return [];
+
+  const out = [];
+  const entries = await readdir(dirPath, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = join(dirPath, entry.name);
+    if (entry.isDirectory()) {
+      out.push(...(await collectHtmlTemplateFiles(fullPath)));
+      continue;
+    }
+    if (entry.isFile() && entry.name.endsWith(".html")) {
+      out.push(fullPath);
+    }
+  }
+  return out;
+}
+
+async function validateManualTemplateTypographyGuardrails() {
+  const manualsDir = join(DOCS_DIR, "manuals");
+  const formsDir = join(DOCS_DIR, "forms");
+  const htmlFiles = [
+    ...(await collectHtmlTemplateFiles(manualsDir)),
+    ...(await collectHtmlTemplateFiles(formsDir)),
+  ];
+
+  const violations = [];
+  for (const templatePath of htmlFiles) {
+    const html = await readFile(templatePath, "utf-8");
+
+    if (
+      /\bAbolition\b/i.test(html) ||
+      /"mendl-sans-dusk"\s*,\s*"Mendl Sans Dusk"\s*,\s*"Abolition"/i.test(
+        html,
+      ) ||
+      /"DIN 2014"\s*,\s*"Helvetica Neue"\s*,\s*Arial\s*,\s*"Liberation Sans"/i.test(
+        html,
+      )
+    ) {
+      violations.push(
+        `${templatePath}: contains legacy font stack token(s) (Abolition and/or legacy DIN fallback sequence)`,
+      );
+    }
+
+    const headingDecl = html.match(/--font-heading\s*:\s*([^;]+);/i)?.[1] || "";
+    const bodyDecl = html.match(/--font-body\s*:\s*([^;]+);/i)?.[1] || "";
+
+    if (!headingDecl) {
+      violations.push(`${templatePath}: missing --font-heading declaration`);
+    } else {
+      const headingRequired = [
+        "mendl-sans-dusk",
+        "Mendl Sans Dusk",
+        "DIN 2014",
+        "ui-sans-serif",
+        "system-ui",
+        "Roboto",
+      ];
+      const missing = headingRequired.filter(
+        (token) => !headingDecl.includes(token),
+      );
+      if (missing.length > 0) {
+        violations.push(
+          `${templatePath}: --font-heading missing required token(s): ${missing.join(", ")}`,
+        );
+      }
+    }
+
+    if (!bodyDecl) {
+      violations.push(`${templatePath}: missing --font-body declaration`);
+    } else {
+      const bodyRequired = [
+        "DIN 2014",
+        "ui-sans-serif",
+        "system-ui",
+        "Roboto",
+        "Noto Sans",
+      ];
+      const missing = bodyRequired.filter((token) => !bodyDecl.includes(token));
+      if (missing.length > 0) {
+        violations.push(
+          `${templatePath}: --font-body missing required token(s): ${missing.join(", ")}`,
+        );
+      }
+    }
+  }
+
+  if (violations.length > 0) {
+    throw new Error(
+      `Guardrail validation failed: manual/form template typography drift detected.\n  - ${violations.join("\n  - ")}`,
+    );
+  }
+}
+
+async function validateManualTemplateMaterialIconGuardrails() {
+  const requiredIconVars = {
+    "--icon-material-info": MATERIAL_ICON_LIGATURES.info,
+    "--icon-material-danger-outline": MATERIAL_ICON_LIGATURES.dangerOutline,
+    "--icon-material-warning": MATERIAL_ICON_LIGATURES.warning,
+    "--icon-material-caution": MATERIAL_ICON_LIGATURES.caution,
+    "--icon-material-checkbox-empty": MATERIAL_ICON_LIGATURES.checkboxEmpty,
+    "--icon-material-checklist": MATERIAL_ICON_LIGATURES.checklist,
+    "--icon-material-form-field": MATERIAL_ICON_LIGATURES.formField,
+    "--icon-material-narrative": MATERIAL_ICON_LIGATURES.narrative,
+    "--icon-material-table": MATERIAL_ICON_LIGATURES.table,
+    "--icon-material-signature": MATERIAL_ICON_LIGATURES.signature,
+    "--icon-material-route": MATERIAL_ICON_LIGATURES.route,
+    "--icon-material-access": MATERIAL_ICON_LIGATURES.access,
+    "--icon-material-source": MATERIAL_ICON_LIGATURES.source,
+    "--icon-material-local-dev": MATERIAL_ICON_LIGATURES.localDev,
+  };
+  const manualsDir = join(DOCS_DIR, "manuals");
+  const formsDir = join(DOCS_DIR, "forms");
+  const manualEntries = existsSync(manualsDir)
+    ? await readdir(manualsDir, { withFileTypes: true })
+    : [];
+  const formEntries = existsSync(formsDir)
+    ? await readdir(formsDir, { withFileTypes: true })
+    : [];
+  const iconTokenFiles = [
+    join(DOCS_DIR, "styles/components.css"),
+    ...manualEntries
+      .filter((entry) => entry.isFile() && entry.name.endsWith(".html"))
+      .map((entry) => join(manualsDir, entry.name)),
+    ...formEntries
+      .filter((entry) => entry.isFile() && entry.name.endsWith(".html"))
+      .map((entry) => join(formsDir, entry.name)),
+  ];
+
+  const printBasePath = join(DOCS_DIR, "styles/print-base.css");
+  if (!existsSync(printBasePath)) {
+    throw new Error(`Template not found: ${printBasePath}`);
+  }
+  const printBaseCss = await readFile(printBasePath, "utf-8");
+
+  const violations = [];
+  for (const [varName, ligature] of Object.entries(requiredIconVars)) {
+    const expected = `${varName}: "${ligature}";`;
+    if (!printBaseCss.includes(expected)) {
+      violations.push(
+        `${printBasePath}: missing canonical icon variable ${expected}`,
+      );
+    }
+  }
+
+  for (const filePath of iconTokenFiles) {
+    if (!existsSync(filePath)) {
+      violations.push(`${filePath}: required icon token file is missing`);
+      continue;
+    }
+    const source = await readFile(filePath, "utf-8");
+
+    const cssTokenMatches = source.matchAll(/content:\s*"([a-z0-9_]+)"\s*;/gi);
+    for (const match of cssTokenMatches) {
+      const token = String(match[1] || "").trim();
+      if (!token) continue;
+      if (!MATERIAL_ICON_LIGATURE_SET.has(token)) {
+        violations.push(
+          `${filePath}: non-canonical Material Icon ligature token "${token}" found in CSS content`,
+        );
+      }
+    }
+
+    const inlineIconMatches = source.matchAll(
+      /<span[^>]*class="[^"]*(?:\bmi\b|\bmaterial-icons\b)[^"]*"[^>]*>([^<]+)<\/span>/gi,
+    );
+    for (const match of inlineIconMatches) {
+      const token = String(match[1] || "").trim();
+      if (!token) continue;
+      if (!MATERIAL_ICON_LIGATURE_SET.has(token)) {
+        violations.push(
+          `${filePath}: non-canonical Material Icon ligature token "${token}" found in inline icon markup`,
+        );
+      }
+    }
+  }
+
+  if (violations.length > 0) {
+    throw new Error(
+      `Guardrail validation failed: material icon ligature map drift detected.\n  - ${violations.join("\n  - ")}`,
     );
   }
 }
@@ -3167,6 +3852,14 @@ async function runSpineGuardrailsCheck() {
   console.log("  ✓  Spine layout and labeling guardrails verified");
 }
 
+async function runTypographyGuardrailsCheck() {
+  console.log("\n🛡️  Running typography guardrails check…");
+  await validateManualTemplateTypographyGuardrails();
+  console.log("  ✓  Manual/form template typography guardrails verified");
+  await validateManualTemplateMaterialIconGuardrails();
+  console.log("  ✓  Material icon map guardrails verified");
+}
+
 async function runGuardrailsCheck() {
   console.log("\n🛡️  Running document guardrails check…");
   const formTemplatePath = join(DOCS_DIR, "manuals/form-fillable.html");
@@ -3189,6 +3882,12 @@ async function runGuardrailsCheck() {
 
   await validateCanonicalFooterClassUsage();
   console.log("  ✓  Canonical footer class usage verified");
+
+  await validateManualTemplateTypographyGuardrails();
+  console.log("  ✓  Manual/form template typography guardrails verified");
+
+  await validateManualTemplateMaterialIconGuardrails();
+  console.log("  ✓  Material icon map guardrails verified");
 
   await validateManualCoverCohesionGuardrails();
   console.log("  ✓  Cover cohesion guardrails verified");
@@ -3434,7 +4133,7 @@ function buildContentsPdfHtml(sections) {
     <style>
       @page { size: Letter; margin: 0.75in 0.75in 0.75in 1.0in; }
       body {
-        font-family: "DIN 2014", "Segoe UI", Arial, sans-serif;
+        font-family: ${PDF_FONT_STACK_BODY};
         color: #1f2937;
         font-size: 11pt;
         line-height: 1.35;
@@ -3450,7 +4149,7 @@ function buildContentsPdfHtml(sections) {
         margin-bottom: 0.06in;
       }
       h1 {
-        font-family: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Segoe UI", Arial, sans-serif;
+        font-family: ${PDF_FONT_STACK_HEADING};
         font-size: 20pt;
         margin: 0;
         color: {{BRAND_COLOR_PRIMARY}};
@@ -3463,19 +4162,11 @@ function buildContentsPdfHtml(sections) {
       table {
         width: 100%;
         border-collapse: collapse;
-        const inset = widgetInsets[f.type] || widgetInsets.text;
-        const widgetX = x + inch(inset.left);
-        const widgetW = Math.max(8, w - inch(inset.left + inset.right));
-        const widgetTop = f.y + inset.top;
-        const widgetH = Math.max(
-          f.type === "multiline" ? 18 : 8.64,
-          h - inch(inset.top + inset.bottom),
-        );
-        border-bottom: 1px solid #e5e7eb;
       }
-          x: widgetX,
-          y: ph - inch(widgetTop) - widgetH,
-          width: widgetW,
+      tbody td {
+        border-bottom: 1px solid #e5e7eb;
+        padding: 0.08in 0.03in;
+        vertical-align: top;
       }
       .num {
         width: 1.15in;
@@ -3543,7 +4234,7 @@ function buildReferencePdfHtml(sections) {
         --muted: #f6f8f7;
       }
       body {
-        font-family: "DIN 2014", "Segoe UI", Arial, sans-serif;
+        font-family: ${PDF_FONT_STACK_BODY};
         color: #1f2937;
         font-size: 9.5pt;
         line-height: 1.3;
@@ -3601,7 +4292,7 @@ function buildReferencePdfHtml(sections) {
         text-transform: uppercase;
       }
       h1 {
-        font-family: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Segoe UI", Arial, sans-serif;
+        font-family: ${PDF_FONT_STACK_HEADING};
         font-size: 17pt;
         margin: 0;
         color: {{BRAND_COLOR_PRIMARY}};
@@ -3622,7 +4313,7 @@ function buildReferencePdfHtml(sections) {
         color: #ffffff;
         text-transform: uppercase;
         letter-spacing: 0.18em;
-        font-family: "DIN 2014", "Segoe UI", Arial, sans-serif;
+        font-family: ${PDF_FONT_STACK_BODY};
         font-size: 6.5pt;
         font-weight: 800;
         padding: 2pt 10pt;
@@ -3973,7 +4664,9 @@ async function renderFormCover(form, brandedTemplate, coversDir) {
       (c) =>
         `  <div class="qr-card">` +
         `<div class="qr-meta">${escapeHtml(c.meta)}</div>` +
+        `<a class="qr-link" href="${escapeAttr(c.url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(c.label)} reference">` +
         `<img class="qr-img" src="${c.dataUrl}" alt="QR code linking to ${escapeHtml(c.label)}" />` +
+        `</a>` +
         `<p class="qr-target">${escapeHtml(c.label)}</p>` +
         `</div>`,
     ),
@@ -3996,6 +4689,19 @@ async function renderFormCover(form, brandedTemplate, coversDir) {
       : form.retention ||
         "Retain completed form per project and company records policy.";
 
+  const sectionLabel =
+    mishTargets.length > 1 ? "Manual References" : "Manual Reference";
+  const briefingHead = "Field Briefing";
+  const briefingAriaLabel = `Field briefing for ${form.id || "form"}`;
+  const briefingAuthority =
+    mishTargets.length > 0
+      ? `Required by ${sectionLabels}.`
+      : "Required by applicable project safety procedures and site directives.";
+  const briefingUse =
+    form.use ||
+    "Complete clearly in the field before work starts and route to the responsible supervisor.";
+  const briefingRevision = `Rev ${form.revision || "—"} • Effective ${form.effectiveDate || "—"}`;
+
   const tokens = {
     "{{FORM_ID}}": escapeHtml(form.id || "FORM"),
     "{{FORM_TITLE}}": escapeHtml(form.title || "Untitled Form"),
@@ -4005,13 +4711,29 @@ async function renderFormCover(form, brandedTemplate, coversDir) {
     "{{FORM_REVISION}}": escapeHtml(form.revision || "—"),
     "{{FORM_EFFECTIVE_DATE}}": escapeHtml(form.effectiveDate || "—"),
     "{{FORM_MANUAL_SECTION}}": escapeHtml(sectionLabels),
+    "{{FORM_SECTION_LABEL}}": escapeHtml(sectionLabel),
     "{{FORM_OWNER}}": escapeHtml(ownerLabel),
+    "{{FORM_BRIEFING_HEAD}}": escapeHtml(briefingHead),
+    "{{FORM_BRIEFING_ARIA_LABEL}}": escapeHtml(briefingAriaLabel),
+    "{{FORM_BRIEFING_AUTHORITY}}": escapeHtml(briefingAuthority),
+    "{{FORM_BRIEFING_USE}}": escapeHtml(briefingUse),
+    "{{FORM_BRIEFING_RETENTION}}": escapeHtml(retentionLabel),
+    "{{FORM_BRIEFING_REVISION}}": escapeHtml(briefingRevision),
     "{{FORM_RETENTION}}": escapeHtml(retentionLabel),
     "{{QR_STRIP_HTML}}": qrStripHtml,
   };
   let html = brandedTemplate;
   for (const [token, value] of Object.entries(tokens)) {
     html = html.replaceAll(token, value);
+  }
+
+  const unresolvedFormTokens = Array.from(
+    new Set(html.match(/\{\{FORM_[A-Z0-9_]+\}\}/g) || []),
+  );
+  if (unresolvedFormTokens.length > 0) {
+    throw new Error(
+      `Form cover token replacement failed for ${form.id || form.slug || "unknown form"}: unresolved token(s) ${unresolvedFormTokens.join(", ")}`,
+    );
   }
 
   const pdfPath = join(coversDir, `${safeSlug}_cover.pdf`);
@@ -5977,6 +6699,9 @@ async function main() {
         break;
       case "guardrails-check":
         await runGuardrailsCheck();
+        break;
+      case "guardrails-typography-check":
+        await runTypographyGuardrailsCheck();
         break;
       case "spine-guardrails":
         await runSpineGuardrailsCheck();

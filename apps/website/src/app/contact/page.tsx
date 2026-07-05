@@ -6,6 +6,7 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 const generalContractorSchema = {
   "@context": "https://schema.org",
@@ -57,7 +58,10 @@ export default async function ContactPage() {
         data={generateBreadcrumbSchema(breadcrumbPatterns.contact)}
       />
       <StructuredData data={generalContractorSchema} />
-      <ContactPageClient enableTelemetry={enableTelemetry} />
+      <ContactPageClient
+        enableTelemetry={enableTelemetry}
+        heroSlogan={getHeroPageSlogan("contact").slogan}
+      />
     </>
   );
 }

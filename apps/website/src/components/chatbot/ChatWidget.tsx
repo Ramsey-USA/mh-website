@@ -393,7 +393,7 @@ export function ChatWidget() {
                     </div>
                   </div>
                   <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl rounded-tl-sm px-3 py-2 max-w-[85%]">
-                    <p className="text-sm text-gray-800 dark:text-gray-200 leading-relaxed">
+                    <p className="font-body text-sm text-gray-800 dark:text-gray-200 leading-relaxed">
                       {copy.welcomeMessage}
                     </p>
                   </div>

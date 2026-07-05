@@ -56,7 +56,7 @@ export function ProjectsStatsSection() {
             </h2>
 
             {/* Description */}
-            <p className="mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed tracking-wide px-2">
+            <p className="font-body mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed tracking-wide px-2">
               A concise view of project volume, safety discipline, and regional
               delivery coverage across WA, OR, and ID.
             </p>

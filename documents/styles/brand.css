@@ -79,10 +79,12 @@
 
   /* ── Typography ─────────────────────────────────── */
   --font-body:
-    "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+    "DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   --font-heading:
-    "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Helvetica Neue", Arial,
-    "Liberation Sans", sans-serif;
+    "mendl-sans-dusk", "Mendl Sans Dusk", "DIN 2014", ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
   --font-mono: "Courier New", Courier, monospace;
 
   /* ── Print Type Scale ───────────────────────────── */

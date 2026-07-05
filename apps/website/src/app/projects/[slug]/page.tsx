@@ -14,12 +14,14 @@ import {
 } from "@/lib/data/project-case-studies";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { PortfolioService } from "@/lib/services/portfolio-service";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
+const PROJECT_DETAIL_HERO_SLOGAN = getHeroPageSlogan("projectDetail").slogan;
 
 type RelatedRoute = {
   href: string;
@@ -325,9 +327,9 @@ export default async function ProjectCaseStudyPage({
           <div className="mx-auto max-w-6xl">
             <div className="max-w-3xl">
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
-                Case Study
+                Case Study -&gt; Project Detail
               </p>
-              <h1 className="text-3xl font-black tracking-tight sm:text-5xl">
+              <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
                 {title}
               </h1>
               <p className="mt-5 text-lg leading-8 text-white/85">
@@ -337,7 +339,7 @@ export default async function ProjectCaseStudyPage({
                 {COMPANY_INFO.slogan.primary}
               </p>
               <p className="mt-2 text-sm font-semibold text-brand-secondary/80 sm:text-base">
-                {COMPANY_INFO.slogan.secondary}
+                {PROJECT_DETAIL_HERO_SLOGAN}
               </p>
             </div>
           </div>

@@ -33,26 +33,64 @@ export const SLOGAN_RULES = {
 
   /** Files that must display both primary and supporting slogans */
   heroFiles: [
-    "src/components/home/HeroSection.tsx",
+    "src/components/home/HeroSectionClient.tsx",
     "src/components/about/AboutHero.tsx",
     "src/components/services/ServicesHero.tsx",
     "src/components/locations/LocationPageContent.tsx",
+    "src/components/locations/LocationsHero.tsx",
+    "src/components/testimonials/TestimonialsHero.tsx",
+    "src/components/resources/ResourcesHero.tsx",
     "src/app/projects/components/ProjectsHero.tsx",
     "src/app/team/page.tsx",
     "src/app/contact/ContactPageClient.tsx",
-    "src/app/locations/page.tsx",
     "src/app/projects/[slug]/page.tsx",
-    "src/app/testimonials/page.tsx",
     "src/app/faq/page.tsx",
     "src/app/faq/[category]/page.tsx",
     "src/app/veterans/page.tsx",
     "src/app/safety/page.tsx",
     "src/app/careers/CareersPageClient.tsx",
-    "src/app/resources/page.tsx",
     "src/app/public-sector/PublicSectorFullPage.tsx",
     "src/app/public-sector/veteran-led-compliance/page.tsx",
     "src/app/public-sector/tri-state-government-construction/page.tsx",
     "src/app/allies/page.tsx",
+  ] as const,
+
+  /** Required page-key assignment per hero file for unique hero slogan enforcement */
+  heroFilePageKeyMap: {
+    "src/components/home/HeroSectionClient.tsx": "home",
+    "src/components/about/AboutHero.tsx": "about",
+    "src/components/services/ServicesHero.tsx": "services",
+    "src/components/locations/LocationPageContent.tsx": "locationDetail",
+    "src/components/locations/LocationsHero.tsx": "locations",
+    "src/components/testimonials/TestimonialsHero.tsx": "testimonials",
+    "src/components/resources/ResourcesHero.tsx": "resources",
+    "src/app/projects/components/ProjectsHero.tsx": "projects",
+    "src/app/team/page.tsx": "team",
+    "src/app/contact/ContactPageClient.tsx": "contact",
+    "src/app/projects/[slug]/page.tsx": "projectDetail",
+    "src/app/faq/page.tsx": "faq",
+    "src/app/faq/[category]/page.tsx": "faqCategory",
+    "src/app/veterans/page.tsx": "veterans",
+    "src/app/safety/page.tsx": "safety",
+    "src/app/careers/CareersPageClient.tsx": "careers",
+    "src/app/public-sector/PublicSectorFullPage.tsx": "publicSector",
+    "src/app/public-sector/veteran-led-compliance/page.tsx":
+      "veteranLedCompliance",
+    "src/app/public-sector/tri-state-government-construction/page.tsx":
+      "triStateGovernmentConstruction",
+    "src/app/allies/page.tsx": "allies",
+  } as const,
+
+  /** Hero heading tokens for look consistency with homepage baseline */
+  heroTypographyTokens: [
+    "text-lg",
+    "xs:text-xl",
+    "sm:text-2xl",
+    "md:text-3xl",
+    "lg:text-4xl",
+    "xl:text-5xl",
+    "font-black",
+    "leading-tight",
   ] as const,
 };
 

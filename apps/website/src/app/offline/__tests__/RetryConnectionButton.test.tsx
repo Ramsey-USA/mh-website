@@ -43,10 +43,11 @@ describe("RetryConnectionButton", () => {
     expect(() => fireEvent.click(screen.getByRole("button"))).not.toThrow();
   });
 
-  it("renders a refresh SVG icon inside the button", () => {
+  it("renders a decorative Material Icon inside the button", () => {
     const { container } = render(<RetryConnectionButton />);
-    const svg = container.querySelector("svg");
-    expect(svg).not.toBeNull();
-    expect(svg).toHaveAttribute("aria-hidden", "true");
+    const icon = container.querySelector("span.material-icons");
+    expect(icon).not.toBeNull();
+    expect(icon).toHaveTextContent("refresh");
+    expect(icon).toHaveAttribute("aria-hidden", "true");
   });
 });

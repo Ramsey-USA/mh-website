@@ -12,6 +12,7 @@ import {
   serviceAreas,
   specialtyServices,
 } from "@/components/services";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 const processSteps = [
   {
@@ -55,7 +56,7 @@ const processSteps = [
 export default function ServicesPage() {
   return (
     <>
-      <ServicesHero />
+      <ServicesHero heroSlogan={getHeroPageSlogan("services").slogan} />
 
       <ConstructionExpertiseSection
         subtitle="Commercial-First Delivery"

@@ -68,7 +68,7 @@ export function CoolDesertNightsPageClient() {
                   </h1>
                 )}
               </div>
-              <p className="max-w-3xl text-base leading-relaxed text-white/90 sm:text-lg">
+              <p className="font-body max-w-3xl text-base leading-relaxed text-white/90 sm:text-lg">
                 {isMissionComplete
                   ? t("hero.descriptionComplete")
                   : t("hero.descriptionBriefing")}

@@ -253,7 +253,7 @@ export function AwardsSection() {
                       {item.achievement}
                     </p>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-relaxed">
+                  <p className="font-body text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-relaxed">
                     {item.details}
                   </p>
                 </div>

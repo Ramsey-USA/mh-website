@@ -417,12 +417,12 @@ export function ServicesShowcase({
     >
       <div className="mb-8 sm:mb-10 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 sm:p-6">
         <div className="space-y-5">
-          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="font-body text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
             {t.funnel.helperText}
           </p>
 
           <div>
-            <p className="mb-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-600 dark:text-gray-300">
+            <p className="font-heading mb-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-600 dark:text-gray-300">
               {t.funnel.pathStepLabel}
             </p>
             <div className="flex flex-wrap gap-2">
@@ -445,7 +445,7 @@ export function ServicesShowcase({
           </div>
 
           <div>
-            <p className="mb-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-600 dark:text-gray-300">
+            <p className="font-heading mb-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-600 dark:text-gray-300">
               {t.funnel.focusStepLabel}
             </p>
             <div className="flex flex-wrap gap-2">
@@ -556,7 +556,7 @@ export function ServicesShowcase({
                   </p>
                 </CardHeader>
                 <CardContent className="flex flex-col grow pt-0 px-0">
-                  <p className="mb-4 text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed wrap-break-word">
+                  <p className="font-body mb-4 text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed wrap-break-word">
                     {service.description}
                   </p>
                   <div className="mt-auto pt-4 sm:pt-5">
@@ -572,7 +572,7 @@ export function ServicesShowcase({
                           size="md"
                           className="text-brand-primary dark:text-brand-primary-light transition-all duration-300"
                         />
-                        <span className="font-bold text-xs sm:text-sm uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
+                        <span className="font-heading font-bold text-xs sm:text-sm uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
                           {t.clickForDetails}
                         </span>
                         <MaterialIcon
@@ -665,7 +665,7 @@ export function ServicesShowcase({
           )}
         >
           <div className="p-6 sm:p-8 overflow-y-auto max-h-[calc(90vh-200px)]">
-            <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
+            <p className="font-body text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
               {currentService.description}
             </p>
 

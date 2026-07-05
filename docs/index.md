@@ -39,7 +39,7 @@ Branding markdown update note: see [Branding Markdown Sweep Log (2026-07-02)](./
 ## Single Sources of Truth
 
 - **[Brand Constants](./branding/brand-constants.md)** — Canonical brand values
-- **[Page Slogans](./branding/strategy/page-specific-slogans.md)** — Canonical unique page-level slogans
+- **[Page Slogans](./branding/strategy/page-specific-slogans.md)** — Strategy mirror of runtime canonical unique page-level hero slogans
 - **[Brand Congruency Master Checklist](./branding/governance/brand-congruency-master-checklist.md)** — Canonical branding merge gate
 - **[Website Guardrails Coverage Map](./branding/governance/website-guardrails-coverage.md)** — Website-wide branding guardrail coverage requirements
 - **[Canonical Contracts Matrix](./branding/governance/website-guardrails-coverage.md#canonical-contracts-matrix-development-routing)** — Component-level routing table for development congruency

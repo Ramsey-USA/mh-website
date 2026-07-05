@@ -442,7 +442,7 @@ export function JobApplicationModal({
             >
               {isEs ? "Solicitud recibida" : "Application Received"}
             </h3>
-            <p className="mb-6 text-base sm:text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
+            <p className="font-body mb-6 text-base sm:text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
               {isEs
                 ? "Gracias por contactar a MH Construction. Nuestro equipo ya tiene su información y la revisará según las necesidades actuales de contratación y el trabajo próximo. Creemos que"
                 : "Thank you for reaching out to MH Construction. Our team has your information and will review it against current hiring needs and upcoming work. We believe"}{" "}
@@ -538,7 +538,7 @@ export function JobApplicationModal({
                   size="md"
                   className="text-bronze-300"
                 />
-                <span className="font-semibold text-bronze-300 text-sm tracking-wide uppercase">
+                <span className="font-heading font-semibold text-bronze-300 text-sm tracking-wide uppercase">
                   {applicationContext.badge}
                 </span>
               </div>
@@ -571,7 +571,7 @@ export function JobApplicationModal({
                 <div className="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm">
                   <div className="mb-2 flex items-center gap-2 text-bronze-300">
                     <MaterialIcon icon="badge" size="sm" />
-                    <span className="text-xs font-semibold uppercase tracking-wide">
+                    <span className="font-heading text-xs font-semibold uppercase tracking-wide">
                       {isEs ? "Paso 1" : "Step 1"}
                     </span>
                   </div>
@@ -584,7 +584,7 @@ export function JobApplicationModal({
                 <div className="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm">
                   <div className="mb-2 flex items-center gap-2 text-bronze-300">
                     <MaterialIcon icon="work" size="sm" />
-                    <span className="text-xs font-semibold uppercase tracking-wide">
+                    <span className="font-heading text-xs font-semibold uppercase tracking-wide">
                       {isEs ? "Paso 2" : "Step 2"}
                     </span>
                   </div>
@@ -597,7 +597,7 @@ export function JobApplicationModal({
                 <div className="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm">
                   <div className="mb-2 flex items-center gap-2 text-bronze-300">
                     <MaterialIcon icon="description" size="sm" />
-                    <span className="text-xs font-semibold uppercase tracking-wide">
+                    <span className="font-heading text-xs font-semibold uppercase tracking-wide">
                       {isEs ? "Paso 3" : "Step 3"}
                     </span>
                   </div>
@@ -628,7 +628,7 @@ export function JobApplicationModal({
                         ? "Directo y simple por diseño"
                         : "Direct and simple by design"}
                     </h3>
-                    <p className="mt-1 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
+                    <p className="font-body mt-1 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
                       {isEs
                         ? "Comenzamos con lo esencial. Si necesitamos más detalle, lo pediremos en una conversación de seguimiento directa."
                         : "We start with the essentials. If we need more detail, we will ask in a direct follow-up conversation."}
@@ -934,7 +934,7 @@ export function JobApplicationModal({
                       className="text-brand-secondary-text dark:text-brand-secondary"
                     />
                   </div>
-                  <p className="text-sm leading-relaxed text-gray-800 dark:text-gray-100">
+                  <p className="font-body text-sm leading-relaxed text-gray-800 dark:text-gray-100">
                     <span className="font-semibold">
                       {isEs
                         ? "El objetivo es una conversación directa"

@@ -74,7 +74,7 @@ export function SpecialtyServiceCard(
           </div>
 
           <div
-            className={`mt-3 inline-flex items-center ${cornerRadius.full} border border-brand-secondary/30 bg-brand-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-secondary dark:border-brand-secondary/40 dark:bg-brand-secondary/15`}
+            className={`font-heading mt-3 inline-flex items-center ${cornerRadius.full} border border-brand-secondary/30 bg-brand-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-secondary dark:border-brand-secondary/40 dark:bg-brand-secondary/15`}
           >
             {isExpanded ? "Details Open" : "Tap for Details"}
           </div>
@@ -82,7 +82,7 @@ export function SpecialtyServiceCard(
 
         {!isExpanded && (
           <CardContent className="grow pt-0 px-4 sm:px-5 lg:px-6 pb-4 sm:pb-5 lg:pb-6">
-            <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed wrap-break-word line-clamp-3">
+            <p className="font-body text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed wrap-break-word line-clamp-3">
               {service.description}
             </p>
             <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700">
@@ -101,7 +101,7 @@ export function SpecialtyServiceCard(
           <CardContent
             className={`grow pt-0 px-4 sm:px-5 lg:px-6 pb-4 sm:pb-5 lg:pb-6 animate-in slide-in-from-top ${transitionDuration.normal}`}
           >
-            <p className="mb-4 text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed wrap-break-word">
+            <p className="font-body mb-4 text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed wrap-break-word">
               {service.description}
             </p>
 
@@ -243,7 +243,7 @@ export function SpecialtyServiceCard(
                 <div
                   className={`bg-brand-secondary/10 dark:bg-brand-secondary/20 p-3 border-l-4 border-brand-secondary ${cornerRadius.small}`}
                 >
-                  <p className="font-medium text-gray-700 dark:text-gray-300 text-xs leading-relaxed wrap-break-word">
+                  <p className="font-body font-medium text-gray-700 dark:text-gray-300 text-xs leading-relaxed wrap-break-word">
                     <MaterialIcon
                       icon="info"
                       className="inline mr-1.5 text-brand-secondary text-xs sm:text-sm"
@@ -258,7 +258,7 @@ export function SpecialtyServiceCard(
                 <div
                   className={`bg-linear-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-3 border-l-4 border-brand-primary ${cornerRadius.small}`}
                 >
-                  <p className="font-medium text-gray-800 dark:text-gray-200 text-xs leading-relaxed wrap-break-word">
+                  <p className="font-body font-medium text-gray-800 dark:text-gray-200 text-xs leading-relaxed wrap-break-word">
                     <MaterialIcon
                       icon="phone"
                       className="inline mr-1.5 text-brand-primary text-xs sm:text-sm"

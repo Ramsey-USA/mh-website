@@ -42,6 +42,7 @@ import { createDbClient } from "@/lib/db/client";
 import { logger } from "@/lib/utils/logger";
 import { getTranslations } from "next-intl/server";
 import { getAllIndividualBrandingStamps } from "@/lib/content/individual-branding-stamps";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 // Lazy load below-the-fold heavy components for better mobile performance
 const TestimonialGrid = dynamic(() =>
@@ -337,7 +338,7 @@ function DepartmentProfilesSection({
         </h3>
 
         {heading.description && (
-          <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+          <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
             {heading.description}
           </p>
         )}
@@ -527,7 +528,7 @@ export default async function TeamPage() {
             <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
               <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
                 <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                  {t("team.hero.kicker")}
+                  {t("team.hero.kicker")} -&gt; Team
                 </span>
                 <span className="block text-brand-secondary">
                   {t("team.hero.titleLine1")}
@@ -539,7 +540,7 @@ export default async function TeamPage() {
                   {COMPANY_INFO.slogan.primary}
                 </span>
                 <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
-                  {COMPANY_INFO.slogan.secondary}
+                  {getHeroPageSlogan("team").slogan}
                 </span>
               </h1>
             </div>
@@ -567,7 +568,7 @@ export default async function TeamPage() {
               Leadership Spotlight
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed">
+              <p className="font-body text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed">
                 Learn more about Jeremy Thamert, Owner &amp; President, and the
                 relationship-first leadership model guiding MH Construction.
               </p>
@@ -620,7 +621,7 @@ export default async function TeamPage() {
               </h2>
 
               {/* Description with colored keyword highlighting */}
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 {t("team.overview.description")}
               </p>
             </div>
@@ -695,7 +696,7 @@ export default async function TeamPage() {
               </h2>
 
               {/* Description with colored keywords */}
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 {t("team.employeeTestimonials.description")}
               </p>
             </div>
@@ -779,7 +780,7 @@ export default async function TeamPage() {
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   {t("team.culture.description")}
                 </p>
               </div>
@@ -813,7 +814,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           {t("team.culture.cards.teamUnity.title")}
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
+                        <p className="font-body text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           {t("team.culture.cards.teamUnity.description")}
                         </p>
                       </div>
@@ -853,7 +854,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           {t("team.culture.cards.mutualSupport.title")}
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
+                        <p className="font-body text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           {t("team.culture.cards.mutualSupport.description")}
                         </p>
                       </div>
@@ -889,7 +890,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           {t("team.culture.cards.sharedSuccess.title")}
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
+                        <p className="font-body text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           {t("team.culture.cards.sharedSuccess.description")}
                         </p>
                       </div>
@@ -941,7 +942,7 @@ export default async function TeamPage() {
                               "team.culture.highlights.items.veteranDiscipline.title",
                             )}
                           </h4>
-                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                          <p className="font-body text-gray-600 dark:text-gray-300 leading-relaxed">
                             {t(
                               "team.culture.highlights.items.veteranDiscipline.description",
                             )}
@@ -962,7 +963,7 @@ export default async function TeamPage() {
                               "team.culture.highlights.items.communication.title",
                             )}
                           </h4>
-                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                          <p className="font-body text-gray-600 dark:text-gray-300 leading-relaxed">
                             {t(
                               "team.culture.highlights.items.communication.description",
                             )}
@@ -981,7 +982,7 @@ export default async function TeamPage() {
                           <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
                             {t("team.culture.highlights.items.safety.title")}
                           </h4>
-                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                          <p className="font-body text-gray-600 dark:text-gray-300 leading-relaxed">
                             {t(
                               "team.culture.highlights.items.safety.description",
                             )}
@@ -1002,7 +1003,7 @@ export default async function TeamPage() {
                           <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-secondary dark:group-hover:text-brand-secondary-light transition-colors duration-300">
                             {t("team.culture.highlights.items.community.title")}
                           </h4>
-                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                          <p className="font-body text-gray-600 dark:text-gray-300 leading-relaxed">
                             {t(
                               "team.culture.highlights.items.community.description",
                             )}
@@ -1021,7 +1022,7 @@ export default async function TeamPage() {
                           <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-secondary dark:group-hover:text-brand-secondary-light transition-colors duration-300">
                             {t("team.culture.highlights.items.balance.title")}
                           </h4>
-                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                          <p className="font-body text-gray-600 dark:text-gray-300 leading-relaxed">
                             {t(
                               "team.culture.highlights.items.balance.description",
                             )}
@@ -1042,7 +1043,7 @@ export default async function TeamPage() {
                               "team.culture.highlights.items.relationships.title",
                             )}
                           </h4>
-                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                          <p className="font-body text-gray-600 dark:text-gray-300 leading-relaxed">
                             {t(
                               "team.culture.highlights.items.relationships.description",
                             )}
@@ -1099,7 +1100,7 @@ export default async function TeamPage() {
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   {t("team.careerGrowth.description")}
                 </p>
               </div>
@@ -1135,7 +1136,7 @@ export default async function TeamPage() {
                             "team.careerGrowth.cards.continuousTraining.title",
                           )}
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
+                        <p className="font-body text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           {t(
                             "team.careerGrowth.cards.continuousTraining.description",
                           )}
@@ -1176,7 +1177,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           {t("team.careerGrowth.cards.crossTraining.title")}
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
+                        <p className="font-body text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           {t(
                             "team.careerGrowth.cards.crossTraining.description",
                           )}
@@ -1217,7 +1218,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           {t("team.careerGrowth.cards.mentorship.title")}
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
+                        <p className="font-body text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           {t("team.careerGrowth.cards.mentorship.description")}
                         </p>
                       </div>
@@ -1253,7 +1254,7 @@ export default async function TeamPage() {
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           {t("team.careerGrowth.cards.careerPaths.title")}
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
+                        <p className="font-body text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           {t("team.careerGrowth.cards.careerPaths.description")}
                         </p>
                       </div>
@@ -1294,7 +1295,7 @@ export default async function TeamPage() {
                             "team.careerGrowth.cards.leadershipDevelopment.title",
                           )}
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
+                        <p className="font-body text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           {t(
                             "team.careerGrowth.cards.leadershipDevelopment.description",
                           )}
@@ -1337,7 +1338,7 @@ export default async function TeamPage() {
                             "team.careerGrowth.cards.industryInvolvement.title",
                           )}
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
+                        <p className="font-body text-gray-600 dark:text-gray-300 text-center leading-relaxed grow">
                           {t(
                             "team.careerGrowth.cards.industryInvolvement.description",
                           )}
@@ -1489,7 +1490,7 @@ export default async function TeamPage() {
                     {t("team.careersCta.title")}
                   </span>
                 </h3>
-                <p className="mb-6 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                <p className="font-body mb-6 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                   {t("team.careersCta.description")}
                 </p>
                 <Button
@@ -1544,7 +1545,7 @@ export default async function TeamPage() {
                   </span>
                 </h3>
 
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   {t("team.founderTribute.description")}
                 </p>
               </div>
@@ -1584,7 +1585,7 @@ export default async function TeamPage() {
                         />
                         {t("team.founderTribute.tributeStatementTitle")}
                       </h5>
-                      <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                      <p className="font-body text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
                         {t("team.founderTribute.tributeStatementBody")}
                       </p>
                     </div>

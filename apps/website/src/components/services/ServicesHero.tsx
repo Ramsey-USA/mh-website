@@ -4,7 +4,9 @@ import { useTranslations } from "next-intl";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { cornerRadius, transitionDuration } from "@/lib/styles/design-tokens";
 
-export function ServicesHero() {
+export function ServicesHero({
+  heroSlogan = COMPANY_INFO.slogan.secondary,
+}: Readonly<{ heroSlogan?: string }>) {
   const t = useTranslations("home");
 
   return (
@@ -28,9 +30,9 @@ export function ServicesHero() {
         <div
           className={`${cornerRadius.icon} border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5`}
         >
-          <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black text-white leading-tight tracking-tight">
+          <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
             <span className="block text-brand-secondary text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl mb-1">
-              {t("services.hero.sectionSubtitle")}
+              {t("services.hero.sectionSubtitle")} -&gt; Services
             </span>
             <span className="block text-brand-secondary">
               {t("services.hero.sectionTitle")}
@@ -45,7 +47,7 @@ export function ServicesHero() {
               {COMPANY_INFO.slogan.primary}
             </span>
             <span className="block text-white/85 text-xs xs:text-sm sm:text-base mt-1">
-              {COMPANY_INFO.slogan.secondary}
+              {heroSlogan}
             </span>
           </h1>
         </div>

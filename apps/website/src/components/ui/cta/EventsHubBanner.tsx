@@ -55,7 +55,7 @@ export function EventsHubBanner() {
           >
             Explore Sponsored and Hosted Events
           </h2>
-          <p className="max-w-4xl text-sm leading-relaxed text-gray-200 sm:text-base">
+          <p className="font-body max-w-4xl text-sm leading-relaxed text-gray-200 sm:text-base">
             Visit the MH Construction Events Hub for featured placements,
             community event highlights, and upcoming sponsored or hosted event
             sections.

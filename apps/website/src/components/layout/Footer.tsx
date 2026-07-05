@@ -19,6 +19,7 @@ import {
   TrackedLocationLink,
 } from "@/components/analytics/TrackedContactLinks";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { PAGE_ICONS, SOCIAL_ICONS } from "@/lib/constants/navigation-icons";
 import { WaVobBadge } from "@/components/ui/WaVobBadge";
 import { trackFormSubmit } from "@/lib/analytics/tracking";
 import { useLocale } from "@/hooks/useLocale";
@@ -89,10 +90,14 @@ const footerNavCol2Hrefs = [
 ] as const;
 
 const footerUtilityLinks: FooterUtilityLinkItem[] = [
-  { href: "/privacy", icon: "shield", label: "Privacy" },
-  { href: "/terms", icon: "gavel", label: "Terms" },
-  { href: "/accessibility", icon: "accessibility", label: "Accessibility" },
-  { href: "/sitemap.xml", icon: "account_tree", label: "Sitemap" },
+  { href: "/privacy", icon: PAGE_ICONS.privacy, label: "Privacy" },
+  { href: "/terms", icon: PAGE_ICONS.terms, label: "Terms" },
+  {
+    href: "/accessibility",
+    icon: PAGE_ICONS.accessibility,
+    label: "Accessibility",
+  },
+  { href: "/sitemap.xml", icon: PAGE_ICONS.sitemap, label: "Sitemap" },
 ];
 
 const linkedCities = [
@@ -151,7 +156,7 @@ const serviceAreaCityChipClassName =
 const socialLinks: SocialLinkItem[] = [
   {
     href: COMPANY_INFO.social.facebook,
-    icon: "thumb_up",
+    icon: SOCIAL_ICONS.facebook,
     ariaLabel:
       "Follow MH Construction on Facebook for project updates and partnership stories",
     title: "Follow our partnership stories on Facebook",
@@ -162,7 +167,7 @@ const socialLinks: SocialLinkItem[] = [
   },
   {
     href: COMPANY_INFO.social.instagram,
-    icon: "photo_camera",
+    icon: SOCIAL_ICONS.instagram,
     ariaLabel: "View MH Construction project photos and reels on Instagram",
     title: "See partnership projects on Instagram",
     hoverClassName:
@@ -172,7 +177,7 @@ const socialLinks: SocialLinkItem[] = [
   },
   {
     href: COMPANY_INFO.social.twitter,
-    icon: "alternate_email",
+    icon: SOCIAL_ICONS.twitter,
     ariaLabel:
       "Follow MH Construction on X (formerly Twitter) for construction industry updates",
     title: "Follow partnership updates on X (Twitter)",
@@ -183,7 +188,7 @@ const socialLinks: SocialLinkItem[] = [
   },
   {
     href: COMPANY_INFO.social.youtube,
-    icon: "smart_display",
+    icon: SOCIAL_ICONS.youtube,
     ariaLabel:
       "Watch MH Construction project videos and success stories on YouTube",
     title: "Watch partnership success stories on YouTube",
@@ -194,7 +199,7 @@ const socialLinks: SocialLinkItem[] = [
   },
   {
     href: COMPANY_INFO.social.linkedin,
-    icon: "business_center",
+    icon: SOCIAL_ICONS.linkedin,
     ariaLabel:
       "Connect with MH Construction on LinkedIn for professional networking and industry insights",
     title: "Connect with our partnership team on LinkedIn",
@@ -471,7 +476,7 @@ function FooterActionCardContent(props: {
       </div>
       <div className="min-w-0 grow">
         <div
-          className={`${accentClasses.eyebrow} mb-0.5 text-xs font-bold uppercase tracking-wide`}
+          className={`font-heading ${accentClasses.eyebrow} mb-0.5 text-xs font-bold uppercase tracking-wide`}
         >
           {eyebrow}
         </div>
@@ -518,11 +523,11 @@ function FooterSectionHeader(props: FooterSectionHeaderProps) {
         <div className="flex flex-col leading-tight">
           <h3
             id={headingId}
-            className="font-semibold text-brand-primary text-sm uppercase tracking-wide"
+            className="font-heading font-semibold text-brand-primary text-sm uppercase tracking-wide"
           >
             {title}
           </h3>
-          <span className="text-[10px] uppercase tracking-wide text-brand-secondary/80">
+          <span className="font-heading text-[10px] uppercase tracking-wide text-brand-secondary/80">
             {subtitle}
           </span>
         </div>
@@ -537,7 +542,7 @@ function FooterSectionHeader(props: FooterSectionHeaderProps) {
             <p className="text-center text-sm sm:text-base font-bold text-white drop-shadow-lg">
               {tooltipTitle}
             </p>
-            <p className="text-center text-xs sm:text-sm text-brand-secondary/90 mt-2 font-medium leading-relaxed">
+            <p className="font-body text-center text-xs sm:text-sm text-brand-secondary/90 mt-2 font-medium leading-relaxed">
               {tooltipDescription}
             </p>
           </div>
@@ -646,7 +651,7 @@ function ServiceAreasDropdown(props: {
           className="absolute bottom-full left-0 z-50 mb-2 w-72 rounded-xl border border-brand-primary/40 bg-linear-to-b from-gray-800 to-gray-900 p-3 shadow-xl shadow-brand-primary/20"
           aria-label={isEs ? "Areas de servicio" : "Service areas"}
         >
-          <div className="mb-2 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-brand-primary">
+          <div className="font-heading mb-2 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-brand-primary">
             <MaterialIcon
               icon="location_on"
               size="sm"
@@ -1083,7 +1088,7 @@ export default function Footer() {
                     />
                   </div>
                   <div className="grow">
-                    <div className="text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
+                    <div className="font-heading text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
                       {copy.stayUpdated}
                     </div>
                     <div className="text-gray-300 font-bold text-sm xs:text-base group-hover:text-brand-primary transition-colors">

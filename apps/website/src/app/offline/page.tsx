@@ -57,7 +57,7 @@ export default function OfflinePage() {
           Cached project resources remain available.
         </p>
 
-        <p className="text-white/70 mb-8 leading-relaxed">
+        <p className="font-body text-white/70 mb-8 leading-relaxed">
           You&apos;re offline, but the app is still available from cache. Any
           resources you already opened remain available until your connection
           returns.
@@ -66,7 +66,7 @@ export default function OfflinePage() {
         <div
           className={`bg-brand-primary-dark/60 border border-brand-secondary/20 ${cornerRadius.icon} p-6 mb-8 text-left space-y-3`}
         >
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-secondary mb-4">
+          <p className="font-heading text-xs font-bold uppercase tracking-widest text-brand-secondary mb-4">
             Available offline
           </p>
           {OFFLINE_FEATURES.map((item) => (

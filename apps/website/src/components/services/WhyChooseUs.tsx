@@ -73,7 +73,7 @@ export function WhyChooseUs({
               </span>
             </h2>
 
-            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
               {description}
             </p>
           </div>
@@ -105,7 +105,7 @@ export function WhyChooseUs({
                 </CardHeader>
 
                 <CardContent className="relative flex grow flex-col">
-                  <p className="mb-4 grow text-base leading-relaxed text-gray-700 dark:text-gray-300">
+                  <p className="font-body mb-4 grow text-base leading-relaxed text-gray-700 dark:text-gray-300">
                     {reason.description}
                   </p>
                   {reason.ctaLink ? (

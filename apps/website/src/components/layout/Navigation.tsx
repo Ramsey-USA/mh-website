@@ -212,7 +212,7 @@ export function Navigation() {
                       <p className="text-center text-base sm:text-lg font-bold text-white drop-shadow-lg">
                         MH Construction
                       </p>
-                      <p className="text-center text-xs sm:text-sm text-brand-secondary/90 mt-2 font-medium leading-relaxed">
+                      <p className="font-body text-center text-xs sm:text-sm text-brand-secondary/90 mt-2 font-medium leading-relaxed">
                         {isEs ? "Volver al inicio" : "Return to homepage"}
                       </p>
                     </div>
@@ -235,7 +235,7 @@ export function Navigation() {
                       <p className="text-center text-base sm:text-lg font-bold text-white drop-shadow-lg">
                         {isEs ? "Idioma" : "Language"}
                       </p>
-                      <p className="text-center text-xs sm:text-sm text-brand-secondary/90 mt-2 font-medium leading-relaxed">
+                      <p className="font-body text-center text-xs sm:text-sm text-brand-secondary/90 mt-2 font-medium leading-relaxed">
                         {isEs
                           ? "Cambiar entre español e inglés"
                           : "Switch between Spanish and English"}
@@ -276,7 +276,7 @@ export function Navigation() {
                       <p className="text-center text-base sm:text-lg font-bold text-white drop-shadow-lg whitespace-nowrap">
                         {COMPANY_INFO.phone.display}
                       </p>
-                      <p className="text-center text-xs sm:text-sm text-brand-secondary/90 mt-2 font-medium leading-relaxed">
+                      <p className="font-body text-center text-xs sm:text-sm text-brand-secondary/90 mt-2 font-medium leading-relaxed">
                         {isEs
                           ? "Toca para llamar al equipo"
                           : "Tap to call our team"}
@@ -304,7 +304,7 @@ export function Navigation() {
                       <p className="text-center text-base sm:text-lg font-bold text-white drop-shadow-lg">
                         {isEs ? "Tema" : "Theme"}
                       </p>
-                      <p className="text-center text-xs sm:text-sm text-brand-secondary/90 mt-2 font-medium leading-relaxed">
+                      <p className="font-body text-center text-xs sm:text-sm text-brand-secondary/90 mt-2 font-medium leading-relaxed">
                         {isEs
                           ? "Alterna entre tema claro y oscuro"
                           : "Toggle between light and dark theme"}
@@ -360,7 +360,7 @@ export function Navigation() {
                       <p className="text-center text-base sm:text-lg font-bold text-white drop-shadow-lg">
                         {isEs ? "Menu" : "Menu"}
                       </p>
-                      <p className="text-center text-xs sm:text-sm text-brand-secondary/90 mt-2 font-medium leading-relaxed">
+                      <p className="font-body text-center text-xs sm:text-sm text-brand-secondary/90 mt-2 font-medium leading-relaxed">
                         {isMenuOpen
                           ? isEs
                             ? "Cerrar navegacion"

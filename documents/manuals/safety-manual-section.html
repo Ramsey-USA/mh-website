@@ -17,8 +17,8 @@
          --ink: #12231b;
          --paper: #ffffff;
          --muted: #f6f8f7;
-         --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Helvetica Neue", Arial, sans-serif;
-         --font-body: "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+         --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+         --font-body: "DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
        }
 
        /* ── Suppress @page running headers/footers ────────────────────────────
@@ -354,7 +354,29 @@
 
        /* Addendum note paragraphs follow body indent */
        .section-body .addendum-note {
+         display: flex;
+         align-items: flex-start;
+         gap: 5pt;
          margin-left: 0.5in;
+       }
+       .section-body .addendum-note::before {
+         content: var(--icon-material-info);
+         font-family: "Material Icons", sans-serif;
+         font-style: normal;
+         font-weight: 400;
+         font-size: 10pt;
+         line-height: 1.2;
+         text-transform: none;
+         letter-spacing: normal;
+         white-space: nowrap;
+         direction: ltr;
+         font-feature-settings: "liga";
+         -webkit-font-smoothing: antialiased;
+         text-rendering: optimizeLegibility;
+         -moz-osx-font-smoothing: grayscale;
+         color: var(--brand-secondary-text);
+         vertical-align: -0.08em;
+         margin-top: 1pt;
        }
 
        /* PRECISION FIX 4 — Table gutter: 0.5" padding each side inside text block */

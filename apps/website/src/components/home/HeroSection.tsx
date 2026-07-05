@@ -1,4 +1,5 @@
 import { HeroSectionClient } from "@/components/home/HeroSectionClient";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 interface HeroSectionCopy {
   baseLabel: string;
@@ -16,9 +17,8 @@ interface HeroSectionProps {
 const DEFAULT_EN_COPY: HeroSectionCopy = {
   baseLabel: "Home",
   founded: "Founded 2010 • Veteran-Owned Since January 2025 • BABAA Supporter",
-  tagline: "Relationship-first construction across WA, OR, and ID",
-  mission:
-    "Built on Quality, Backed by Trust. Squared away from start to finish.",
+  tagline: getHeroPageSlogan("home").slogan,
+  mission: "Built on Quality, Backed by Trust.",
   serving:
     "Tri-Cities HQ (Pasco, Richland, Kennewick) | Licensed in WA, OR, ID",
 };

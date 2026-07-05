@@ -21,6 +21,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import { AccreditationsLogoRow } from "@/components/shared-sections";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
@@ -282,7 +283,7 @@ export default function PublicSectorFullPage() {
           <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
             <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                Public Sector Construction
+                Government -&gt; Public Sector Construction
               </span>
               <span className="block text-brand-primary">
                 Mission-Ready, Compliance-Driven
@@ -293,6 +294,9 @@ export default function PublicSectorFullPage() {
               </span>
               <span className="block text-white/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
                 {COMPANY_INFO.slogan.primary}
+              </span>
+              <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
+                {getHeroPageSlogan("publicSector").slogan}
               </span>
             </h1>
           </div>
@@ -343,7 +347,7 @@ export default function PublicSectorFullPage() {
               </span>
             </h2>
 
-            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                 Army-veteran-led team
               </span>{" "}
@@ -385,7 +389,7 @@ export default function PublicSectorFullPage() {
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-300 mb-6">
+                  <p className="font-body text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-300 mb-6">
                     {service.description}
                   </p>
                   <div className="border-t dark:border-gray-700 pt-6">
@@ -527,7 +531,7 @@ export default function PublicSectorFullPage() {
                 </span>
               </h2>
 
-              <p className="mx-auto max-w-5xl font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-5xl font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary-light">
                   Proven operational excellence
                 </span>{" "}
@@ -568,7 +572,7 @@ export default function PublicSectorFullPage() {
                     <h3 className="mb-2 font-bold text-white text-lg sm:text-xl">
                       {capability.title}
                     </h3>
-                    <p className="text-gray-200 text-sm sm:text-base leading-relaxed">
+                    <p className="font-body text-gray-200 text-sm sm:text-base leading-relaxed">
                       {capability.description}
                     </p>
                   </div>
@@ -661,7 +665,7 @@ export default function PublicSectorFullPage() {
               </span>
             </h2>
 
-            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                 Proven execution
               </span>{" "}
@@ -707,7 +711,7 @@ export default function PublicSectorFullPage() {
                 </span>
               </h2>
 
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                   Five-phase approach
                 </span>{" "}
@@ -795,7 +799,7 @@ export default function PublicSectorFullPage() {
               </span>
             </h2>
 
-            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                 Licensed and mission-ready
               </span>{" "}
@@ -901,7 +905,7 @@ export default function PublicSectorFullPage() {
               </h2>
 
               {/* Description with colored keyword highlighting */}
-              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-5xl mb-8 font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 Partner with{" "}
                 <span className="font-bold text-brand-primary-light">
                   veteran leadership
@@ -1038,10 +1042,10 @@ export default function PublicSectorFullPage() {
                   <h4 className="font-bold text-white text-base">
                     {bridge.title}
                   </h4>
-                  <p className="mt-2 text-sm text-gray-200 leading-relaxed">
+                  <p className="font-body mt-2 text-sm text-gray-200 leading-relaxed">
                     {bridge.detail}
                   </p>
-                  <span className="mt-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-primary-light">
+                  <span className="font-heading mt-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-primary-light">
                     Open pathway
                     <MaterialIcon icon="arrow_forward" size="sm" />
                   </span>
@@ -1066,7 +1070,7 @@ export default function PublicSectorFullPage() {
       <section className="relative py-12 sm:py-16 bg-gray-50 dark:bg-gray-800 overflow-hidden">
         <DiagonalStripePattern />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
+          <p className="font-heading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
             Mission-Ready Credentials
           </p>
           <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-8">

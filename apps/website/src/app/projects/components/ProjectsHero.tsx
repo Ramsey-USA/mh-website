@@ -6,6 +6,7 @@
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 export function ProjectsHero() {
   return (
@@ -30,7 +31,7 @@ export function ProjectsHero() {
               Project Portfolio Across Washington, Oregon, and Idaho
             </span>
             <span className="block text-brand-primary">
-              {COMPANY_INFO.slogan.secondary}
+              {getHeroPageSlogan("projects").slogan}
             </span>
             <span className="block text-white/90">
               {COMPANY_INFO.slogan.primary}

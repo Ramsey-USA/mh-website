@@ -47,6 +47,7 @@ const trustIndicators = [
 
 interface LocationPageProps {
   readonly location: LocationData;
+  readonly heroSlogan?: string;
 }
 
 type ServiceDeepLink = {
@@ -120,7 +121,10 @@ const LOCATION_BRIDGE_MAP: Record<string, BridgeDeepLink[]> = {
   ],
 };
 
-export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
+export function LocationPageContent({
+  location,
+  heroSlogan = "Local Mission Profile tuned to each city and project delivery lane.",
+}: Readonly<LocationPageProps>) {
   usePageTracking(`Location - ${location.city}`);
   const priorityServices = location.servicePriorities || [];
   const standardPositioningLine =
@@ -317,16 +321,19 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
               </h1>
 
               {/* Tagline */}
-              <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed font-light">
+              <p className="font-body max-w-3xl mx-auto text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed font-light">
                 {location.description}
               </p>
-              <p className="max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-brand-secondary/90 leading-relaxed font-medium">
+              <p className="font-body max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-brand-secondary/90 leading-relaxed font-medium">
                 {heroPriorityLine}
               </p>
 
               {/* Core Slogan */}
               <p className="text-sm sm:text-base md:text-lg text-white/80 font-medium">
                 "Built on Quality, Backed by Trust."
+              </p>
+              <p className="text-sm sm:text-base md:text-lg text-brand-secondary/90 font-medium">
+                {heroSlogan}
               </p>
 
               {/* CTA Buttons */}
@@ -390,7 +397,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                     in {location.city}, {location.state}
                   </span>
                 </h2>
-                <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-light mt-6">
+                <p className="font-body max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-light mt-6">
                   Comprehensive construction management services for commercial,
                   industrial, and government projects throughout {location.city}{" "}
                   and the {location.county} area.
@@ -426,7 +433,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                         {card.title}
                       </h3>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="font-body text-gray-600 dark:text-gray-300 leading-relaxed">
                       {card.description}
                     </p>
                   </div>
@@ -518,7 +525,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                       in {location.city}, {location.state}
                     </span>
                   </h2>
-                  <p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-light mt-4">
+                  <p className="font-body max-w-2xl mx-auto text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-light mt-4">
                     Proven work in the communities we serve — built with
                     honesty, integrity, professionalism, and thoroughness on
                     every project.
@@ -551,7 +558,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
 
                       {/* Description */}
                       {project.description && (
-                        <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p className="font-body text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                           {project.description}
                         </p>
                       )}
@@ -587,7 +594,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                         <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
                           Public &amp; Government Construction
                         </h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+                        <p className="font-body text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
                           MH Construction has a proven record on
                           mission-critical public safety and government
                           facilities — from active fire stations to municipal
@@ -663,7 +670,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                     {location.localExpertise.description.map((paragraph) => (
                       <p
                         key={paragraph}
-                        className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4 last:mb-0"
+                        className="font-body text-gray-600 dark:text-gray-300 leading-relaxed mb-4 last:mb-0"
                       >
                         {paragraph}
                       </p>
@@ -679,7 +686,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
         <section className="order-4 py-12 sm:py-16 bg-white dark:bg-gray-900">
           <SectionContainer padding="compact">
             <div className="text-center">
-              <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
+              <p className="font-heading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
                 Accredited & Certified
               </p>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -705,7 +712,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                 </span>
               </h2>
 
-              <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/90 leading-relaxed font-light">
+              <p className="font-body max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/90 leading-relaxed font-light">
                 Let's discuss how MH Construction can bring your vision to life
                 with a Veteran-Owned, relationship-first approach and
                 partnership-driven service.

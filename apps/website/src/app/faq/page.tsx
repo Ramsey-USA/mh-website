@@ -29,6 +29,7 @@ import {
   type FAQQuestion,
 } from "@/lib/data/faq-data";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.faq);
 
@@ -102,7 +103,7 @@ function FAQItem({ question, answer, link }: Readonly<FAQQuestion>) {
         </span>
       </summary>
       <div className="border-t border-gray-200 px-5 pb-5 pt-3 dark:border-gray-700 sm:px-6 sm:pb-6">
-        <p className="text-base leading-relaxed text-gray-700 dark:text-gray-300">
+        <p className="font-body text-base leading-relaxed text-gray-700 dark:text-gray-300">
           {answer}
         </p>
         {link &&
@@ -190,7 +191,7 @@ export default function FAQPage() {
                   {COMPANY_INFO.slogan.primary}
                 </span>
                 <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
-                  {COMPANY_INFO.slogan.quinary}
+                  {getHeroPageSlogan("faq").slogan}
                 </span>
               </h1>
             </div>
@@ -228,7 +229,7 @@ export default function FAQPage() {
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mx-auto mb-16 max-w-5xl text-center">
               <FadeInWhenVisible>
-                <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                <p className="font-body text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
                   Clear answers on services, process, pricing, and execution. If
                   your question is not listed, our team can help directly. No
                   gaps. No guesswork. Just accountable follow-through.
@@ -261,7 +262,7 @@ export default function FAQPage() {
                   <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     {totalFAQCount}+
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     Questions Answered
                   </div>
                 </div>
@@ -269,7 +270,7 @@ export default function FAQPage() {
                   <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     {faqCategories.length}
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     Topic Categories
                   </div>
                 </div>
@@ -277,7 +278,7 @@ export default function FAQPage() {
                   <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     0.64
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     EMR Safety Record
                   </div>
                 </div>
@@ -285,7 +286,7 @@ export default function FAQPage() {
                   <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     3
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     States Licensed
                   </div>
                 </div>
@@ -327,17 +328,17 @@ export default function FAQPage() {
                       id={`${category.id}-title`}
                       className="mb-4 text-3xl font-black leading-tight tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl lg:text-5xl"
                     >
-                      <span className="mb-2 block text-sm font-bold uppercase tracking-[0.2em] text-brand-secondary sm:text-base">
+                      <span className="font-heading mb-2 block text-sm font-bold uppercase tracking-[0.2em] text-brand-secondary sm:text-base">
                         FAQ Category
                       </span>
                       <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent">
                         {category.title}
                       </span>
                     </h2>
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                    <p className="font-heading mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                       {category.questions.length} Questions
                     </p>
-                    <p className="mx-auto max-w-3xl text-base leading-relaxed text-gray-700 dark:text-gray-300 sm:text-lg">
+                    <p className="font-body mx-auto max-w-3xl text-base leading-relaxed text-gray-700 dark:text-gray-300 sm:text-lg">
                       {category.metaDescription}
                     </p>
                   </FadeInWhenVisible>
@@ -387,7 +388,7 @@ export default function FAQPage() {
                   Questions?
                 </span>
               </h2>
-              <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+              <p className="font-body text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
                 We are here to help. Schedule a face-to-face consultation to
                 review your goals, get direct answers, and plan next steps.
               </p>

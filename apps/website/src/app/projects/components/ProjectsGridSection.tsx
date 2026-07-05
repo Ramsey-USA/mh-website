@@ -50,7 +50,7 @@ export function ProjectsGridSection({
                 Stories
               </span>
             </h2>
-            <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed tracking-wide px-2">
+            <p className="font-body mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed tracking-wide px-2">
               {projects.length}{" "}
               {projects.length === 1 ? "collaboration" : "collaborations"}{" "}
               showcasing our commitment to working WITH partners
@@ -75,7 +75,7 @@ export function ProjectsGridSection({
               <h3 className="mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl text-center">
                 Coming Soon
               </h3>
-              <p className="max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed mb-4">
+              <p className="font-body max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed mb-4">
                 Our project portfolio is under development. We're committed to
                 showcasing only real, completed partnerships with our valued
                 Client Partners.

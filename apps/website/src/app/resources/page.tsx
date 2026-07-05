@@ -19,6 +19,7 @@ import {
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 import { DownloadGate } from "@/components/pwa";
+import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
 
 export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
@@ -106,7 +107,7 @@ export default function ResourcesPage() {
                       New
                     </span>
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                  <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                     Access our OSHA-aligned safety overview with credentials,
                     section mapping, and direct PDFs for pre-qualification and
                     surety review.
@@ -149,7 +150,7 @@ export default function ResourcesPage() {
                     Browse
                   </span>
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                   Open each QR code at full size and download PNG files from a
                   single gallery.
                 </p>
@@ -167,7 +168,7 @@ export default function ResourcesPage() {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 bg-brand-primary rounded-lg flex items-center justify-center">
                 <MaterialIcon
-                  icon="menu_book"
+                  icon={FORM_MANUAL_ICONS.source}
                   size="sm"
                   className="text-white"
                 />
@@ -208,7 +209,7 @@ export default function ResourcesPage() {
                           rel="noopener noreferrer"
                         >
                           <MaterialIcon
-                            icon="fact_check"
+                            icon={FORM_MANUAL_ICONS.checklist}
                             size="sm"
                             className="text-white"
                           />
@@ -294,7 +295,7 @@ export default function ResourcesPage() {
                         </span>
                       </div>
                     </div>
-                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+                    <p className="font-body mt-2 line-clamp-2 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
                       {doc.description}
                     </p>
                     <div className="mt-3 flex items-center gap-1.5 text-sm font-semibold text-brand-primary dark:text-brand-secondary">
@@ -318,7 +319,7 @@ export default function ResourcesPage() {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 bg-brand-bronze rounded-lg flex items-center justify-center">
                 <MaterialIcon
-                  icon="description"
+                  icon={FORM_MANUAL_ICONS.narrative}
                   size="sm"
                   className="text-white"
                 />
@@ -354,7 +355,7 @@ export default function ResourcesPage() {
                         )}
                       </div>
                     </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-1 mb-4">
+                    <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-1 mb-4">
                       {doc.description}
                     </p>
                     <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-gray-700">

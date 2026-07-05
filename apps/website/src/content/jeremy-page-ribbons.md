@@ -3,245 +3,245 @@
 ## home
 
 eyebrow: Words from the General
-quote: On our home page, I want visitors to see exactly how we operate: relationship-first service, disciplined execution, and promises we stand behind.
+quote: This home page is my standing commitment to every client and partner: we lead with respect, plan with discipline, and finish the job in a way that strengthens trust.
 attribution: Jeremy Thamert, Owner & President
 
 ## about
 
 eyebrow: Words from the General
-quote: I owe clients clear commitments and disciplined follow-through. On the About page, I want people to know our standards are not marketing language; they are how we run every project, every day.
+quote: About us is simple from my point of view: service-earned values, clear accountability, and a team that treats every handshake like a promise worth keeping.
 attribution: Jeremy Thamert, Owner & President
 
 ## about/details
 
-eyebrow: Operations Admission
-quote: The details page reflects how I lead projects in real life: scope clarity up front, coordination in the field, and accountability through closeout.
+eyebrow: Words from the General
+quote: The details matter because people depend on them; I expect tight scope control, field-level coordination, and disciplined closeout on every assignment we accept.
 attribution: Jeremy Thamert, Owner & President
 
 ## team
 
-eyebrow: Team Admission
-quote: Great teams do not run on titles alone. On the Team page, my commitment is role clarity, daily accountability, and respect for every craft professional who carries our standards into the field.
+eyebrow: Words from the General
+quote: Our team runs on earned trust, not titles, and I expect each leader to protect the culture, mentor the next generation, and carry our standards with pride.
 attribution: Jeremy Thamert, Owner & President
 
 ## jeremy-thamert
 
-eyebrow: Personal Admission
-quote: My name is on this page, so the responsibility is personal. I am accountable for how we plan, communicate, and deliver work that earns trust long after closeout.
+eyebrow: Words from the General
+quote: My name on this page means personal accountability; I answer for how we communicate, how we lead, and how faithfully we deliver for the people who trust us.
 attribution: Jeremy Thamert, Owner & President
 
 ## services
 
-eyebrow: Service Admission
-quote: On services, my standard is simple: every scope we offer must be delivered with clear sequencing, reliable communication, and measurable quality.
+eyebrow: Words from the General
+quote: Services are not menu items to me; each one is a mission with clear sequencing, strong supervision, and communication clients can rely on from kickoff to closeout.
 attribution: Jeremy Thamert, Owner & President
 
 ## projects
 
-eyebrow: Delivery Admission
-quote: Our projects page exists to show outcomes, not hype. I believe our work should demonstrate consistency, safety, and accountability at every stage.
+eyebrow: Words from the General
+quote: Our projects should speak with facts, not hype, and I expect every completed job to reflect disciplined planning, safe execution, and pride in workmanship.
 attribution: Jeremy Thamert, Owner & President
 
 ## projects/[slug]
 
-eyebrow: Project Admission
-quote: Each project story is a record of responsibility. My goal is that every client sees disciplined management and dependable follow-through in the final result.
+eyebrow: Words from the General
+quote: Every project profile is an accountability record, and I want clients to see exactly how we solved problems, protected quality, and stood by our word.
 attribution: Jeremy Thamert, Owner & President
 
 ## testimonials
 
-eyebrow: Trust Admission
-quote: Testimonials matter because trust is earned, not claimed. I treat every review as proof that disciplined service still wins over the long term.
+eyebrow: Words from the General
+quote: Testimonials matter to me because they come from real relationships, and each one confirms that disciplined service and honest communication still win in the long run.
 attribution: Jeremy Thamert, Owner & President
 
 ## contact
 
-eyebrow: Communication Admission
-quote: On contact, my promise is direct response and honest expectations. Strong projects start with clear communication from the first conversation.
+eyebrow: Words from the General
+quote: Contact should feel straightforward and respectful, and my commitment is direct communication, honest expectations, and a clear next step from day one.
 attribution: Jeremy Thamert, Owner & President
 
 ## careers
 
-eyebrow: Workforce Admission
-quote: Our careers page reflects the culture I expect: respect for people, clear standards, and a team environment where accountability supports growth.
+eyebrow: Words from the General
+quote: Careers at MH are built for people who want meaningful work, shared standards, and leadership that supports growth with accountability and respect.
 attribution: Jeremy Thamert, Owner & President
 
 ## careers/print
 
-eyebrow: Hiring Admission
-quote: Even in print, our hiring message stays the same: we value professionalism, safety, and team members who take ownership of their work.
+eyebrow: Words from the General
+quote: Even in print, our hiring standard stays clear: show up prepared, protect your team, own your work, and help us build relationships that last.
 attribution: Jeremy Thamert, Owner & President
 
 ## veterans
 
-eyebrow: Veteran-Owned Admission
-quote: The veterans page is personal to me. Service taught me discipline and responsibility, and I carry those standards into every project we deliver.
+eyebrow: Words from the General
+quote: Veterans is personal for me; service taught me to lead with discipline and humility, and I carry that duty into every project and every client relationship.
 attribution: Jeremy Thamert, Owner & President
 
 ## veterans/public-sector-construction
 
-eyebrow: Public Work Admission
-quote: In veteran-led public-sector work, I hold us to rigorous planning, transparent communication, and complete accountability to agencies and communities.
+eyebrow: Words from the General
+quote: In veteran-led public-sector construction, I expect mission-level preparation, transparent reporting, and dependable delivery that honors the communities we serve.
 attribution: Jeremy Thamert, Owner & President
 
 ## public-sector
 
-eyebrow: Civic Delivery Admission
-quote: Public-sector clients deserve predictable execution and clean coordination. I expect our team to meet that standard on every municipal and agency project.
+eyebrow: Words from the General
+quote: Public-sector clients deserve steady execution and civic respect, and I hold our team to clean coordination, clear documentation, and accountable closeout.
 attribution: Jeremy Thamert, Owner & President
 
 ## public-sector/tri-state-government-construction
 
-eyebrow: Regional Admission
-quote: Across Washington, Oregon, and Idaho public work, my commitment is consistent controls, practical solutions, and dependable closeout.
+eyebrow: Words from the General
+quote: Across Washington, Oregon, and Idaho, my public-work commitment is consistent controls, practical leadership, and reliable follow-through on every agency mission.
 attribution: Jeremy Thamert, Owner & President
 
 ## public-sector/veteran-led-compliance
 
-eyebrow: Compliance Admission
-quote: Compliance is not a checkbox in our operation. I expect disciplined documentation and execution so clients can trust every requirement is met.
+eyebrow: Words from the General
+quote: Compliance is a leadership discipline, not a checkbox, and I expect every requirement to be documented, verified, and delivered with integrity.
 attribution: Jeremy Thamert, Owner & President
 
 ## resources
 
-eyebrow: Resource Admission
-quote: Our resources page reflects how I lead: we share practical information that helps teams make safer, clearer, and better-informed project decisions.
+eyebrow: Words from the General
+quote: Resources should equip people to make better decisions, so I insist on practical guidance that supports safety, clarity, and stronger outcomes in the field.
 attribution: Jeremy Thamert, Owner & President
 
 ## resources/safety-program
 
-eyebrow: Safety Program Admission
-quote: Safety leadership means standards that people can actually use in the field. I expect our program to be clear, enforceable, and lived daily.
+eyebrow: Words from the General
+quote: Our safety program is a daily leadership standard, and I expect it to be clear enough to follow, strong enough to enforce, and practical enough to protect every crew.
 attribution: Jeremy Thamert, Owner & President
 
 ## resources/safety-manual
 
-eyebrow: Manual Admission
-quote: Our safety manual exists to guide real decisions under real conditions. I am accountable for keeping those standards practical and rigorous.
+eyebrow: Words from the General
+quote: The safety manual exists for real-world decisions under pressure, and I am accountable for keeping those standards disciplined, usable, and current.
 attribution: Jeremy Thamert, Owner & President
 
 ## resources/safety-manual/contents
 
-eyebrow: Manual Contents Admission
-quote: The table of contents should make safety expectations easy to find and easy to apply. Clarity is part of compliance.
+eyebrow: Words from the General
+quote: The contents page should help a team find the right requirement fast, because speed with clarity is part of responsible safety leadership.
 attribution: Jeremy Thamert, Owner & President
 
 ## resources/safety-manual/forms
 
-eyebrow: Forms Admission
-quote: Forms are where standards become action. I expect every document to support clear reporting, accountability, and timely decisions.
+eyebrow: Words from the General
+quote: Forms are where policy becomes action, and I expect every document to improve reporting discipline, accountability, and timely field decisions.
 attribution: Jeremy Thamert, Owner & President
 
 ## resources/safety-manual/[cluster]
 
-eyebrow: Safety Cluster Admission
-quote: Each manual cluster is designed to keep teams aligned around practical controls that protect people, schedules, and client trust.
+eyebrow: Words from the General
+quote: Each safety cluster is built to align crews around practical controls that protect people, preserve schedules, and strengthen client confidence.
 attribution: Jeremy Thamert, Owner & President
 
 ## resources/safety-manual/section/[slug]
 
-eyebrow: Safety Section Admission
-quote: Every safety section represents a commitment to disciplined field behavior. I expect those standards to be understood and enforced.
+eyebrow: Words from the General
+quote: Every safety section carries a field-level command intent, and I expect those standards to be understood, practiced, and enforced without compromise.
 attribution: Jeremy Thamert, Owner & President
 
 ## safety
 
-eyebrow: Safety Admission
-quote: Safety is a leadership responsibility, not a department. I hold our teams to clear expectations and accountable execution every day.
+eyebrow: Words from the General
+quote: Safety is leadership in action, not a checkbox, and I hold our teams to disciplined habits that protect lives, families, and the mission.
 attribution: Jeremy Thamert, Owner & President
 
 ## safety/incident-report
 
-eyebrow: Incident Admission
-quote: Incident reporting must be direct, timely, and useful. I expect full transparency so we can act quickly and improve continuously.
+eyebrow: Words from the General
+quote: Incident reporting must be immediate, honest, and useful, and I expect full transparency so we can correct fast and care for our people the right way.
 attribution: Jeremy Thamert, Owner & President
 
 ## safety/intake
 
-eyebrow: Intake Admission
-quote: Safety intake is where we set expectations early. I want every submission to support prevention, communication, and shared responsibility.
+eyebrow: Words from the General
+quote: Safety intake sets the tone before work begins, and I expect each submission to build prevention, communication, and shared responsibility from the start.
 attribution: Jeremy Thamert, Owner & President
 
 ## safety/print/[id]
 
-eyebrow: Print Record Admission
-quote: Printable safety records are part of accountable operations. I expect documentation to be accurate, traceable, and field-ready.
+eyebrow: Words from the General
+quote: Printable safety records are operational accountability in writing, and I expect every record to be accurate, traceable, and ready for field use.
 attribution: Jeremy Thamert, Owner & President
 
 ## locations
 
-eyebrow: Coverage Admission
-quote: Our locations page is a commitment to consistent standards across regions. Clients should get the same reliability wherever we work.
+eyebrow: Words from the General
+quote: Locations represent our regional promise: wherever we serve, clients should receive the same disciplined standards, respectful communication, and dependable delivery.
 attribution: Jeremy Thamert, Owner & President
 
 ## locations/[city]
 
-eyebrow: Local Delivery Admission
-quote: On each city page, my expectation is local responsiveness with the same disciplined MH standards clients trust across the region.
+eyebrow: Words from the General
+quote: Every city page reflects local commitment with MH-level discipline, and I expect our teams to combine hometown responsiveness with proven operating standards.
 attribution: Jeremy Thamert, Owner & President
 
 ## faq
 
-eyebrow: FAQ Admission
-quote: Questions deserve straight answers. Our FAQ is built to provide practical clarity before a project starts.
+eyebrow: Words from the General
+quote: Questions deserve straight answers, and this FAQ is built so clients can make informed decisions with confidence before the first shovel hits the ground.
 attribution: Jeremy Thamert, Owner & President
 
 ## faq/[category]
 
-eyebrow: Category Admission
-quote: Each FAQ category should help clients make confident decisions with clear expectations and no guesswork.
+eyebrow: Words from the General
+quote: Each FAQ category is designed to remove uncertainty quickly, because confident decisions come from clear expectations and honest guidance.
 attribution: Jeremy Thamert, Owner & President
 
 ## privacy
 
-eyebrow: Privacy Admission
-quote: Protecting client and employee information is part of trust. I expect disciplined data handling and respectful communication at all times.
+eyebrow: Words from the General
+quote: Privacy is part of operational honor, and I expect disciplined data stewardship that protects client and employee information with care and respect.
 attribution: Jeremy Thamert, Owner & President
 
 ## terms
 
-eyebrow: Terms Admission
-quote: Clear terms support fair partnerships. I believe expectations should be explicit so both sides can operate with confidence.
+eyebrow: Words from the General
+quote: Terms should read with clarity and fairness, and I believe strong partnerships start when expectations are explicit and respected on both sides.
 attribution: Jeremy Thamert, Owner & President
 
 ## accessibility
 
-eyebrow: Accessibility Admission
-quote: Accessibility reflects respect. I expect our website and communication standards to be usable, inclusive, and continuously improved.
+eyebrow: Words from the General
+quote: Accessibility is a respect standard, and I expect our digital experience to stay usable, inclusive, and continuously improved for every visitor.
 attribution: Jeremy Thamert, Owner & President
 
 ## allies
 
-eyebrow: Partnership Admission
-quote: Strong allies strengthen project delivery. I value partnerships built on trust, competence, and shared accountability.
+eyebrow: Words from the General
+quote: Allies are force multipliers for delivery, and I value partnerships built on trust, competence, and shared accountability from mobilization through closeout.
 attribution: Jeremy Thamert, Owner & President
 
 ## events
 
-eyebrow: Community Admission
-quote: Events are where relationships become real. I see community presence as part of responsible leadership and long-term trust.
+eyebrow: Words from the General
+quote: Events are where community relationships are earned face to face, and I see that presence as part of patriotic service, responsible leadership, and long-term trust.
 attribution: Jeremy Thamert, Owner & President
 
 ## cool-desert-nights
 
-eyebrow: Event Admission
-quote: For Cool Desert Nights, our role is to show up with professionalism, support the community, and represent MH values with pride.
+eyebrow: Words from the General
+quote: At Cool Desert Nights, we show up to serve the community with professionalism, support local pride, and represent MH values with humility and discipline.
 attribution: Jeremy Thamert, Owner & President
 
 ## employee-handbook
 
-eyebrow: Handbook Admission
-quote: A handbook should set practical standards people can live by. I expect ours to reinforce safety, respect, and accountability.
+eyebrow: Words from the General
+quote: Our handbook is a leadership contract in plain language, and I expect it to reinforce safety, respect, accountability, and care for every team member.
 attribution: Jeremy Thamert, Owner & President
 
 ## qr-codes
 
-eyebrow: Access Admission
-quote: QR access should make information easier to reach without sacrificing clarity. Operational simplicity helps teams do the right thing faster.
+eyebrow: Words from the General
+quote: QR tools should remove friction without reducing clarity, and I expect this access path to help teams and clients get the right information quickly.
 attribution: Jeremy Thamert, Owner & President
 
 ## offline
 
-eyebrow: Continuity Admission
-quote: Even offline, clients and teams should have dependable access to essential information. Reliability includes moments when connectivity is limited.
+eyebrow: Words from the General
+quote: Even when connectivity drops, reliability should not, and I expect our offline experience to keep essential information available when people need it most.
 attribution: Jeremy Thamert, Owner & President

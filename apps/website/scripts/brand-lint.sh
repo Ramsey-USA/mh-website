@@ -174,13 +174,12 @@ check_pattern "\\bwork FOR you\\b" "BANNED PHRASE: use collaborative 'work WITH 
 check_emoji_in_source "${SCAN_FILES[@]}"
 
 # ─── Typography guardrails ───────────────────────────────────────────────────
-# Forbid abandoned/off-brand font names in source and docs (allow under
-# docs/branding/ which carries historical examples, and inside print-pipeline
-# fallback stacks where "Abolition" is a transitional secondary fallback).
+# Forbid abandoned/off-brand font names in website source and docs content.
+# Document print templates are validated separately by docs guardrails.
 check_pattern_typography() {
   local files=()
   for f in "${SCAN_FILES[@]}"; do
-    # Skip print pipeline (fonts intentionally list "Abolition" as a transitional fallback)
+    # Skip print pipeline; document typography is enforced by docs guardrails.
     [[ "$f" == documents/* ]] && continue
     # Skip the brand-lint script itself
     [[ "$f" == scripts/brand-lint.sh ]] && continue

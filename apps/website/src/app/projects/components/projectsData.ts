@@ -3,18 +3,24 @@
  * Static data and configuration for the projects page
  */
 
+import { CONTENT_ICONS } from "@/lib/constants/navigation-icons";
+
 // Category definitions
 export const categories = [
-  { id: "all", label: "All Projects", icon: "grid_view" },
-  { id: "commercial", label: "Commercial", icon: "business" },
-  { id: "industrial", label: "Industrial", icon: "factory" },
-  { id: "renovation", label: "Renovations", icon: "construction" },
+  { id: "all", label: "All Projects", icon: CONTENT_ICONS.grid_view },
+  { id: "commercial", label: "Commercial", icon: CONTENT_ICONS.business },
+  { id: "industrial", label: "Industrial", icon: CONTENT_ICONS.factory },
+  {
+    id: "renovation",
+    label: "Renovations",
+    icon: CONTENT_ICONS.construction,
+  },
 ];
 
 // Project statistics - Updated with 6 Differences Key Metrics
 export const projectStats = [
   {
-    icon: "health_and_safety",
+    icon: CONTENT_ICONS.health_and_safety,
     value: 0.64,
     suffix: " EMR",
     decimals: 2,
@@ -22,21 +28,21 @@ export const projectStats = [
     animated: true,
   },
   {
-    icon: "workspace_premium",
+    icon: CONTENT_ICONS.workspace_premium,
     value: 150,
     suffix: "+",
     label: "Years Combined Experience",
     animated: true,
   },
   {
-    icon: "military_tech",
+    icon: CONTENT_ICONS.military_tech,
     value: 650,
     suffix: "+",
     label: "Successful Projects",
     animated: true,
   },
   {
-    icon: "verified",
+    icon: CONTENT_ICONS.verified,
     value: 3,
     label: "States Licensed",
     animated: false,
@@ -46,37 +52,37 @@ export const projectStats = [
 // Service capabilities
 export const capabilities = [
   {
-    icon: "church",
+    icon: CONTENT_ICONS.church,
     title: "Religious Facilities",
     description:
       "We deliver churches, chapels, and community facilities with respectful planning, clear budgets, and practical execution for long-term use.",
   },
   {
-    icon: "store",
+    icon: CONTENT_ICONS.store,
     title: "Commercial Buildings",
     description:
       "We build and renovate offices, retail spaces, and civic facilities with durable materials, clear scope controls, and schedule discipline.",
   },
   {
-    icon: "medical_services",
+    icon: CONTENT_ICONS.medical_services,
     title: "Medical Facilities",
     description:
       "We deliver clinics and healthcare spaces with compliance-ready planning, careful sequencing, and operational continuity.",
   },
   {
-    icon: "wine_bar",
+    icon: CONTENT_ICONS.wine_bar,
     title: "Wineries & Vineyards",
     description:
       "We deliver winery and vineyard facilities with production-first layouts, specialty coordination, and AG-focused execution controls.",
   },
   {
-    icon: "precision_manufacturing",
+    icon: CONTENT_ICONS.precision_manufacturing,
     title: "Light Industrial Construction",
     description:
       "We deliver warehouses, processing plants, and light industrial facilities with safety-first controls and code-ready turnover.",
   },
   {
-    icon: "domain",
+    icon: CONTENT_ICONS.domain,
     title: "Tenant Improvements",
     description:
       "We complete commercial TI scopes with phased execution, door and hardware coordination, and minimal disruption to active operations.",
@@ -90,37 +96,37 @@ export type Capability = (typeof capabilities)[number];
 // Why Choose MH reasons
 export const whyChooseReasons = [
   {
-    iconName: "health_and_safety",
+    iconName: CONTENT_ICONS.health_and_safety,
     title: ".64 EMR - Award-Winning Safety",
     description:
       "AGC-WA recognized safety with a .64 EMR, about 40% better than industry baseline, supported by documented field controls and accountability.",
   },
   {
-    iconName: "workspace_premium",
+    iconName: CONTENT_ICONS.workspace_premium,
     title: "150+ Years of 'Combined' Experience",
     description:
       "Our team brings broad field and management experience across commercial, industrial, healthcare, and specialty facilities in the Pacific Northwest.",
   },
   {
-    iconName: "fact_check",
+    iconName: CONTENT_ICONS.fact_check,
     title: "Transparent Honesty",
     description:
       "Open-book pricing and direct updates keep scope, cost, and decisions visible throughout delivery.",
   },
   {
-    iconName: "diversity_3",
+    iconName: CONTENT_ICONS.diversity_3,
     title: "Partnership-Driven Trust",
     description:
       "We build long-term partnerships through consistent delivery, direct accountability, and ongoing support after closeout.",
   },
   {
-    iconName: "military_tech",
+    iconName: CONTENT_ICONS.military_tech,
     title: "650+ Successful Projects - Reliability",
     description:
       "650+ completed projects reflect structured execution, calm planning under pressure, and reliable follow-through from kickoff to closeout.",
   },
   {
-    iconName: "verified",
+    iconName: CONTENT_ICONS.verified,
     title: "3 State - Licensed & Insured",
     description:
       "Fully licensed and insured across Washington, Oregon, and Idaho with continuously maintained compliance credentials.",
@@ -134,35 +140,35 @@ export const partnershipProcess = [
     title: "Pre-Construction Planning",
     description:
       "Align scope, site requirements, and schedule targets early to prevent late-stage changes and scope gaps.",
-    icon: "gps_fixed",
+    icon: CONTENT_ICONS.gps_fixed,
   },
   {
     step: 2,
     title: "Budget Transparency",
     description:
       "Use open-book pricing with clear breakdowns so costs and decisions stay visible throughout execution.",
-    icon: "calculate",
+    icon: CONTENT_ICONS.calculate,
   },
   {
     step: 3,
     title: "Proactive Communication",
     description:
       "Maintain regular updates, field documentation, and immediate escalation when schedule, scope, or risk conditions change.",
-    icon: "campaign",
+    icon: CONTENT_ICONS.campaign,
   },
   {
     step: 4,
     title: "Quality Execution",
     description:
       "Run disciplined field execution with phase checkpoints to protect quality, safety, and long-term durability.",
-    icon: "task_alt",
+    icon: CONTENT_ICONS.task_alt,
   },
   {
     step: 5,
     title: "Seamless Close-Out",
     description:
       "Complete turnover with clean closeout documentation, then stay available for post-closeout support and follow-up.",
-    icon: "diversity_3",
+    icon: CONTENT_ICONS.diversity_3,
   },
 ];
 

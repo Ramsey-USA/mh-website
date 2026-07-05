@@ -1,8 +1,8 @@
 # Page Compliance Checklist
 
 **Purpose:** Systematic audit tool to verify page compliance with MH standards  
-**Version:** 1.4.0  
-**Last Updated:** July 3, 2026  
+**Version:** 1.6.0  
+**Last Updated:** July 4, 2026  
 **Use Case:** Run this checklist on any page to ensure consistency
 
 **Brand Congruency:** This checklist is a required gate for typography, color, voice, trust content, accessibility, and naming alignment.
@@ -19,6 +19,16 @@
 4. Fix ❌ items that fail
 5. Document any exceptions in comments
 
+### Required Inventory Before Scoring
+
+For each audited page, build these inventories first:
+
+1. **Section inventory:** List each major section in visual order (hero, discover, trust, proof, action, footer prelude).
+2. **Button/action inventory:** List every action control (Button component, link-styled action, raw `button`, submit controls).
+3. **Background inventory:** List every background layer (base fill, pattern layer, gradient/blob overlays, shell-specific backgrounds).
+
+If any inventory is missing, the page audit is incomplete.
+
 ---
 
 ## 🏗️ Page Structure
@@ -26,16 +36,19 @@
 ### Hero Section
 
 - [ ] Conforms to [Navigation Overlay and Header Action Visual Contract](../../branding/standards/unified-component-standards.md#navigation-overlay-and-header-action-visual-contract-canonical)
+- [ ] Hero aligns with homepage hero baseline characteristics unless route-specific exception is documented
 - [ ] Hero section exists and is first visible element
 - [ ] Full viewport height with `h-screen flex items-center justify-center`
 - [ ] Uses one of three approved hero patterns (see unified-component-standards.md)
 - [ ] Brand color emphasis on title (`text-brand-secondary` for hero titles)
+- [ ] Hero content stack preserves homepage baseline hierarchy (H1 -> subtitle -> supporting body copy)
 - [ ] Hero does not duplicate global-header contact actions or phone CTA controls
 - [ ] PageNavigation component at bottom (`absolute bottom-0 left-0 right-0`)
 - [ ] PageNavigation enables `showRemainingPagesOverlay` on hero bar
 - [ ] Hero nav row renders 6 cells (Home, Services, Projects, About, Contact, More)
 - [ ] `More` opens centered modal overlay with backdrop and close controls
 - [ ] Responsive padding: `pt-16 sm:pt-24 md:pt-32 lg:pt-40` and `pb-12 sm:pb-16 md:pb-20 lg:pb-28`
+- [ ] Any intentional hero divergence from homepage baseline is recorded with scope and rationale
 
 ### Global Header
 
@@ -57,6 +70,14 @@
 - [ ] Major section framing uses dual-label military pattern (clear primary label + military-themed secondary sublabel)
 - [ ] Section/navigation labels include military-themed language consistent with brand messaging standards
 
+### Non-Hero Section Uniformity (Required)
+
+- [ ] All non-hero sections use the same approved section shell cadence and spacing tier for the page
+- [ ] All non-hero section headers use the canonical H2 pattern unless explicitly scoped as H3/H4 supporting blocks
+- [ ] Body copy in non-hero sections uses approved body typography (`font-body` / `font-sans`) and approved size tiers
+- [ ] Icon treatments in non-hero sections use MaterialIcon with canonical container/glow style when decorative
+- [ ] Non-hero section visual treatment does not drift between neighboring sections without documented intent
+
 ### Universal Page Flow
 
 - [ ] Body sections follow `Discover -> Trust -> Proof -> Action`
@@ -73,6 +94,14 @@
 - [ ] NextStepsSection loaded via dynamic import with `ssr: true`
 - [ ] Global footer includes accreditation row and it is visible at all breakpoints
 - [ ] Accreditation row includes required trust credentials and valid outbound links (for example: AGC, BBB, insurance, chamber memberships)
+
+### Route and System States
+
+- [ ] `loading.tsx` state (if present) matches final section shell spacing and typography hierarchy
+- [ ] `error.tsx` and `global-error.tsx` states (if affected) preserve relationship-first tone and CTA hierarchy
+- [ ] `not-found.tsx` and offline experiences (if affected) remain on-brand and accessible
+- [ ] Dynamic route templates (slug/city/category/detail) preserve heading cadence and CTA tier consistency
+- [ ] State surfaces preserve trust continuity language where trust surfaces are expected
 
 ---
 
@@ -94,6 +123,12 @@
 - [ ] ❌ No `animate-pulse` on background elements
 - [ ] ❌ No radial gradient overlays
 
+### Scoped Exceptions (Backgrounds)
+
+- [ ] Campaign-specific or commemorative backgrounds are documented as scoped exceptions
+- [ ] Third-party or platform-specific brand colors do not become dominant page accents
+- [ ] Exception surfaces include owner, scope, and expiry in exception records
+
 ---
 
 ## 📝 Typography
@@ -108,6 +143,14 @@
 - [ ] Subtitle uses solid color: `text-gray-700 dark:text-gray-200`
 - [ ] Icon included with blur glow layer and decorative lines
 - [ ] Responsive scaling: `text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl`
+- [ ] Non-hero section headers maintain consistent visual weight and rhythm across adjacent sections
+
+### Body Font Consistency (Non-Hero Sections)
+
+- [ ] Non-hero section body copy uses DIN 2014 (`font-body` / `font-sans`) rather than ad-hoc alternate fonts
+- [ ] Body size tiers follow approved scale (`text-sm sm:text-base md:text-lg` or approved larger intro tier)
+- [ ] Paragraph line-height remains readability-first (`leading-relaxed` or approved equivalent)
+- [ ] Supporting metadata text follows approved small-body scale (`text-xs sm:text-sm md:text-base`)
 
 ### Font Weights
 
@@ -171,6 +214,7 @@
 - [ ] Import from: `@/components/icons/MaterialIcon`
 - [ ] Appropriate size prop used: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`
 - [ ] Icons have proper className for colors
+- [ ] Non-hero section icon usage is visually consistent section-to-section (size tier, container treatment, and color intent)
 
 ### Emoji-Free Policy (CRITICAL)
 
@@ -205,6 +249,19 @@
 
 ---
 
+## 📸 Required Evidence Capture (Branding-Sensitive Changes)
+
+- [ ] Mobile and desktop before/after screenshots recorded for affected route families
+- [ ] Focus-visible keyboard pass recorded for changed CTA/form clusters
+- [ ] State captures recorded for affected loading/error/offline/not-found and form lifecycle states
+- [ ] Master checklist result documented (PASS/FAIL)
+- [ ] Branding development companion result documented (PASS/FAIL)
+- [ ] Section inventory attached (or summarized) for each audited page
+- [ ] Button/action inventory attached (or summarized) for each audited page
+- [ ] Background inventory attached (or summarized) for each audited page
+
+---
+
 ## 🔘 Buttons & CTAs
 
 ### Button Component
@@ -216,6 +273,14 @@
 - [ ] Button hover and icon motion use centralized tokens from `@/lib/styles/design-tokens`
 - [ ] No ad-hoc inline hover transform classes (`hover:scale-*`, `group-hover:scale-*`, `group-hover:rotate-*`)
 - [ ] Minimum height: 44px (WCAG compliant)
+
+### Complete Action Inventory
+
+- [ ] Every visible CTA/action on the page is accounted for in the button/action inventory
+- [ ] Raw `button` usage is justified and documented if not using shared Button component
+- [ ] Link-styled actions preserve button hierarchy and visual emphasis contract
+- [ ] Primary, secondary, and tertiary action tiers are explicitly identified per section
+- [ ] Social/external platform action colors are scoped to platform-recognition surfaces only
 
 ### Touch Accessibility
 

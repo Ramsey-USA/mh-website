@@ -119,7 +119,7 @@ export function PitchDeckCTA(props: Readonly<PitchDeckCTAProps>) {
       <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
         MH Construction Pitch Deck
       </h3>
-      <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
+      <p className="font-body mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
         Request our pitch deck to explore our capabilities, values, and 650+
         project track record — we'll send it directly to you.
       </p>

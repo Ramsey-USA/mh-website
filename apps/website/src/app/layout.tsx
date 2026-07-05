@@ -352,7 +352,7 @@ export default async function RootLayout({
           />
         ) : null}
       </head>
-      <body className="font-sans">
+      <body className="font-body">
         {isProduction ? <SentryInit /> : null}
         {!isProduction ? (
           <Suspense>

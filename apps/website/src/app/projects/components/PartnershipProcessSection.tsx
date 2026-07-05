@@ -48,7 +48,7 @@ export function PartnershipProcessSection() {
             </h2>
 
             {/* Description with colored keyword highlighting */}
-            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
               From{" "}
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                 initial consultation to project completion
@@ -87,7 +87,7 @@ export function PartnershipProcessSection() {
                             <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl leading-tight">
                               {process.title}
                             </h3>
-                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <p className="font-body text-gray-700 dark:text-gray-300 leading-relaxed">
                               {process.description}
                             </p>
                           </div>

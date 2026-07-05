@@ -10,10 +10,12 @@ import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { PageTrackingClient } from "@/components/analytics";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
+import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
 
 const SITE_URL = "https://www.mhc-gc.com";
 
@@ -206,7 +208,7 @@ const safetyFaqSchema = {
 
 const CREDENTIALS = [
   {
-    icon: "verified_user",
+    icon: FORM_MANUAL_ICONS.access,
     title: "OSHA VPP Star Designation",
     body: "The highest level of workplace safety achievement in OSHA's Voluntary Protection Program — earned through demonstrated excellence in hazard prevention, management leadership, and worker involvement.",
     tag: "Elite Federal Recognition",
@@ -224,7 +226,7 @@ const CREDENTIALS = [
     tag: "Team Certified",
   },
   {
-    icon: "menu_book",
+    icon: FORM_MANUAL_ICONS.source,
     title: "50-Section MISH Safety Program (Safety Manual)",
     body: "MH Construction maintains a comprehensive written safety program (Revision 3, eff. April 7, 2026) covering all OSHA-required topics. Aligned with 29 CFR 1926, AGC CSEA, WISHA, Oregon OSHA, and Idaho requirements.",
     tag: "Rev 3 · April 2026",
@@ -233,7 +235,7 @@ const CREDENTIALS = [
 
 const CREDENTIAL_BADGES = [
   {
-    icon: "verified_user",
+    icon: FORM_MANUAL_ICONS.access,
     title: "OSHA VPP Star",
     subtitle: "Voluntary Protection Program",
     color: "bg-brand-primary",
@@ -263,7 +265,7 @@ const CREDENTIAL_BADGES = [
     color: "bg-brand-primary",
   },
   {
-    icon: "fact_check",
+    icon: FORM_MANUAL_ICONS.checklist,
     title: "AGC CSEA Aligned",
     subtitle: "Prequalification Ready",
     color: "bg-brand-secondary",
@@ -325,7 +327,7 @@ const STATS = [
     value: "50",
     label: "Program Sections",
     sub: "MISH written safety program (Safety Manual)",
-    icon: "menu_book",
+    icon: FORM_MANUAL_ICONS.source,
   },
 ] as const;
 
@@ -388,7 +390,8 @@ export default function SafetyPage() {
                 {formatDualPageName(
                   PAGE_TERMINOLOGY.safety.seoName,
                   PAGE_TERMINOLOGY.safety.mhBrandName,
-                )}
+                )}{" "}
+                -&gt; Safety Program
               </span>
               {/* Page Mantra */}
               <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
@@ -405,7 +408,7 @@ export default function SafetyPage() {
                 {COMPANY_INFO.slogan.primary}
               </span>
               <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
-                {COMPANY_INFO.slogan.quinary}
+                {getHeroPageSlogan("safety").slogan}
               </span>
             </h1>
           </div>
@@ -448,7 +451,7 @@ export default function SafetyPage() {
                 Safety Credentials
               </span>
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="font-body text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               OSHA VPP Star designation, AGC-WA Top EMR Awards, and a 50-section
               MISH written safety program (delivered as our Safety Manual) —
               verifiable proof our standards exceed requirements.
@@ -469,13 +472,13 @@ export default function SafetyPage() {
                   />
                 </div>
                 <div>
-                  <span className="inline-block text-xs font-bold uppercase tracking-widest text-brand-secondary mb-1">
+                  <span className="font-heading inline-block text-xs font-bold uppercase tracking-widest text-brand-secondary mb-1">
                     {item.tag}
                   </span>
                   <h3 className="font-black text-gray-900 dark:text-white mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                  <p className="font-body text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                     {item.body}
                   </p>
                 </div>
@@ -497,7 +500,7 @@ export default function SafetyPage() {
                 Safety Badges
               </span>
             </h2>
-            <p className="text-lg text-white/70 max-w-xl mx-auto">
+            <p className="font-body text-lg text-white/70 max-w-xl mx-auto">
               Third-party verified credentials available to bonding agents,
               insurers, and Client Partners on request.
             </p>
@@ -535,7 +538,7 @@ export default function SafetyPage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block text-xs font-bold uppercase tracking-widest text-brand-secondary mb-4">
+              <span className="font-heading inline-block text-xs font-bold uppercase tracking-widest text-brand-secondary mb-4">
                 Rev 3 · Effective April 7, 2026
               </span>
               <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl leading-tight tracking-tighter overflow-visible">
@@ -546,14 +549,14 @@ export default function SafetyPage() {
                   MISH Safety &amp; Health Program
                 </span>
               </h2>
-              <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
+              <p className="font-body text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
                 Our 50-section written safety program covers every OSHA-required
                 construction safety topic and is delivered in the field as our
                 Safety Manual. From fall protection and excavation to electrical
                 safety and hazardous materials, it is the operational foundation
                 for every site we run.
               </p>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
+              <p className="font-body text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
                 Aligned with federal OSHA 29 CFR 1926, AGC CSEA prequalification
                 standards, WISHA, Oregon OSHA, and Idaho requirements. Available
                 in full to bonding agents, insurers, and Client Partners through
@@ -578,7 +581,7 @@ export default function SafetyPage() {
                       <p className="font-bold text-gray-900 dark:text-white text-sm">
                         {item.title}
                       </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-relaxed">
+                      <p className="font-body text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-relaxed">
                         {item.body}
                       </p>
                     </div>
@@ -622,7 +625,7 @@ export default function SafetyPage() {
               Safety Record
             </span>
           </h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto mb-14 leading-relaxed">
+          <p className="font-body text-white/80 text-lg max-w-2xl mx-auto mb-14 leading-relaxed">
             Third-party verified. Peer-recognized. Our safety record is
             measurable, auditable, and consistently better than industry
             standard.
@@ -666,7 +669,7 @@ export default function SafetyPage() {
                 In Daily Habits
               </span>
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
+            <p className="font-body text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
               Not in posters. Not in policy manuals. In what we actually do,
               every single shift.
             </p>
@@ -704,7 +707,7 @@ export default function SafetyPage() {
                 Compliance
               </span>
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="font-body text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Complete compliance with OSHA, L&I, EPA, and all applicable state
               regulations. Protects your project from violations, fines, and
               work stoppages.
@@ -728,7 +731,7 @@ export default function SafetyPage() {
                   <h3 className="font-black text-gray-900 dark:text-white mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                  <p className="font-body text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                     {item.body}
                   </p>
                 </div>
@@ -746,7 +749,7 @@ export default function SafetyPage() {
             <h3 className="font-black text-gray-900 dark:text-white text-xl mb-3">
               Accountability Runs Both Ways
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
               Our leadership holds itself to the same standard we hold the team.
               When something goes wrong, we fix the system — not just the
               person. That&apos;s the chain-of-command principle applied to
@@ -784,7 +787,7 @@ export default function SafetyPage() {
                 </span>
               </h2>
 
-              <p className="text-slate-300 text-lg max-w-xl mx-auto mb-4 leading-relaxed">
+              <p className="font-body text-slate-300 text-lg max-w-xl mx-auto mb-4 leading-relaxed">
                 The MH Construction app is our staff portal for the MISH Safety
                 &amp; Health Program (Safety Manual), field forms, toolbox
                 talks, incident reports, and employee handbook. Real-time
@@ -831,7 +834,7 @@ export default function SafetyPage() {
           <h2 className="font-black text-gray-900 dark:text-white text-3xl sm:text-4xl mb-4 tracking-tight">
             Ready to Talk?
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-xl mx-auto mb-8 leading-relaxed">
+          <p className="font-body text-gray-600 dark:text-gray-400 text-lg max-w-xl mx-auto mb-8 leading-relaxed">
             Our safety record is open for review. Call us directly or send an
             email — we&apos;ll walk you through our credentials and answer any
             questions about compliance, EMR, or our written MISH safety program.

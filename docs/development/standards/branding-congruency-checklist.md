@@ -1,7 +1,7 @@
 # Branding Congruency Checklist
 
 **Category:** Development - Branding Governance  
-**Last Updated:** May 17, 2026  
+**Last Updated:** July 4, 2026  
 **Status:** ✅ Active
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../../branding/brand-constants.md).
@@ -10,13 +10,15 @@
 ## Purpose
 
 This file is the development implementation companion to the canonical branding merge gate.
-Use it for component and token-level checks after the master checklist is complete.
+Use it for component, template, and route-state checks after the master checklist is complete.
 
 ## Development Companion Checks
 
 1. **Visual consistency:** Corner radii and hover effects use centralized design tokens (see [Design System Standards](./design-system-standards.md)).
 1. **Exception scope:** Approved visual exceptions stay limited to their documented component.
 1. **Cross-surface alignment:** Related docs, metadata, and page content stay terminology-consistent after implementation changes.
+1. **State parity:** Loading/error/offline/not-found and interactive states preserve the same brand visual system.
+1. **Template parity:** Dynamic-route templates preserve heading cadence, CTA hierarchy, and trust continuity.
 
 ## Visual Consistency (New)
 
@@ -27,6 +29,61 @@ When adding or modifying UI components:
 - [ ] Transitions use `transitionDuration.*` tokens for consistent timing
 - [ ] No hardcoded border radius values in component code
 - [ ] No inline hover scale/rotate patterns
+
+## Comprehensive Surface Checklist
+
+Apply checks for each surface touched by the change:
+
+### App Shell and Global Surfaces
+
+- [ ] Header/navigation overlay follow canonical spacing, typography, and interaction patterns
+- [ ] Jeremy leadership ribbon remains present and visually consistent above footer
+- [ ] Footer trust/accreditation surfaces remain present and legible at all breakpoints
+
+### Route Templates and Page Bodies
+
+- [ ] Shared section shells preserve approved section rhythm tier across the page
+- [ ] Heading/subheading hierarchy matches canonical visual contract
+- [ ] CTA clusters maintain primary-secondary-tertiary emphasis and spacing
+- [ ] Adjacent related pages remain visually aligned (for example: Services -> Projects -> Contact)
+
+### Dynamic and State Surfaces
+
+- [ ] Dynamic routes (slug/city/category/detail) keep the same template-level visual contract
+- [ ] `loading.tsx` states visually match the final section shells
+- [ ] `error.tsx` and `global-error.tsx` preserve brand voice, trust language, and CTA hierarchy
+- [ ] `not-found.tsx` and offline experiences remain on-brand and accessible
+
+### Form and Feedback States
+
+- [ ] Empty, validation, pending, and submission-result states are visually consistent
+- [ ] Focus-visible styles are present and readable on all interactive controls
+- [ ] Trust indicators and bot-protection messaging remain visible and not visually downgraded
+
+### Media and Motion Surfaces
+
+- [ ] Video/image overlays use approved gradients and preserve text contrast
+- [ ] Icon usage follows Material icon standards (no emoji in source code)
+- [ ] Motion/hover behavior avoids ad-hoc transforms and matches approved token patterns
+
+## Logical Gap Repair Prompts
+
+Use these prompts before merge to catch missing coverage:
+
+1. Which adjacent route shares this template and could now drift visually?
+2. Which non-happy-path states (loading/error/offline/not-found) were affected indirectly?
+3. Which trust surface could be hidden, reordered, or visually de-emphasized at mobile width?
+4. Which metadata or breadcrumb label changed without visible heading updates (or vice versa)?
+5. Which component was restyled locally instead of using canonical tokenized variants?
+
+## Required Evidence Pack
+
+For branding-sensitive implementation changes, include:
+
+1. Mobile and desktop before/after screenshots for affected surfaces.
+2. One keyboard navigation pass (focus-visible) for changed interactive clusters.
+3. State captures for any changed loading/error/offline/not-found or form states.
+4. PASS/FAIL output from the master checklist and this companion checklist.
 
 See [Design System Standards](./design-system-standards.md) for complete guidelines.
 

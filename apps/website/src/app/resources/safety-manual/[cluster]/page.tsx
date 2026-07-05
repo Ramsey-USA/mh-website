@@ -18,6 +18,7 @@ import {
   getClusterBySlug,
   sectionsForCluster,
 } from "@/lib/data/safety-manual-clusters";
+import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
@@ -260,7 +261,7 @@ export default async function SafetyManualClusterPage({
           <Breadcrumb items={breadcrumbs} className="mb-5 text-white/60" />
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
+              <div className="font-heading mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
                 <MaterialIcon
                   icon="shield"
                   size="sm"
@@ -268,7 +269,7 @@ export default async function SafetyManualClusterPage({
                 />
                 {range}
               </div>
-              <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/80">
+              <p className="font-heading mb-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/80">
                 Field Manual <span aria-hidden>→</span> Safety Manual
               </p>
               <h1 className="text-2xl font-black text-white sm:text-3xl md:text-4xl leading-tight">
@@ -289,7 +290,7 @@ export default async function SafetyManualClusterPage({
               <Button asChild variant="outline" size="lg">
                 <Link href="/resources/safety-manual/contents">
                   <MaterialIcon
-                    icon="menu_book"
+                    icon={FORM_MANUAL_ICONS.source}
                     size="sm"
                     className="text-white"
                   />
@@ -346,7 +347,7 @@ export default async function SafetyManualClusterPage({
           className="lg:sticky lg:top-24 lg:self-start"
         >
           <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-            <p className="mb-2 text-xs font-bold uppercase tracking-wider text-brand-primary dark:text-brand-secondary">
+            <p className="font-heading mb-2 text-xs font-bold uppercase tracking-wider text-brand-primary dark:text-brand-secondary">
               Jump to section
             </p>
             <ul className="space-y-1">
@@ -420,7 +421,7 @@ export default async function SafetyManualClusterPage({
 
                 {/* Confidentiality + CTAs */}
                 <footer className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-brand-primary/10 pt-4">
-                  <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
+                  <p className="font-heading inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
                     <MaterialIcon icon="lock" size="sm" />
                     Proprietary — public preview only
                   </p>
@@ -453,10 +454,13 @@ export default async function SafetyManualClusterPage({
 
       <section className="mx-auto mt-2 w-full max-w-6xl px-4 sm:px-6">
         <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-          <p className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+          <p className="font-heading text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
             Route To Implementation
           </p>
           <h2 className="mt-2 text-xl font-bold text-gray-900 dark:text-gray-100">
+            <span className="mr-2 inline-flex align-middle text-brand-primary dark:text-brand-secondary">
+              <MaterialIcon icon={FORM_MANUAL_ICONS.route} size="sm" />
+            </span>
             Apply this safety guidance to active scopes
           </h2>
           <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-300">

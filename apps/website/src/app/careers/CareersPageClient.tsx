@@ -58,7 +58,9 @@ const getCultureIconBg = (color: string) => {
   return "bg-bronze-700";
 };
 
-export default function CareersPageClient() {
+export default function CareersPageClient({
+  heroSlogan = COMPANY_INFO.slogan.secondary,
+}: Readonly<{ heroSlogan?: string }>) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const t = useTranslations("careersPage");
@@ -179,7 +181,7 @@ export default function CareersPageClient() {
             <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
               <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
                 <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                  {t("hero.kicker")}
+                  {t("hero.kicker")} -&gt; Careers
                 </span>
                 <span className="block text-brand-secondary">
                   {t("hero.titleLine1")}
@@ -191,7 +193,7 @@ export default function CareersPageClient() {
                   {COMPANY_INFO.slogan.primary}
                 </span>
                 <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl mt-2">
-                  {COMPANY_INFO.slogan.secondary}
+                  {heroSlogan}
                 </span>
               </h1>
             </div>
@@ -245,7 +247,7 @@ export default function CareersPageClient() {
               </h2>
 
               {/* Description with colored keyword highlighting */}
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 {t("whyChoose.description.prefix")}{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                   {t("whyChoose.description.highlight1")}
@@ -262,7 +264,7 @@ export default function CareersPageClient() {
                 <div className="relative group">
                   <div className="absolute -inset-1 bg-linear-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-75 group-hover:opacity-100 transition duration-500"></div>
                   <Card className="relative border-brand-primary/20 bg-white px-8 py-6 shadow-xl dark:border-brand-primary/30 dark:bg-gray-800">
-                    <p className="text-center text-lg font-bold leading-relaxed text-gray-900 dark:text-white sm:text-xl md:text-2xl">
+                    <p className="font-body text-center text-lg font-bold leading-relaxed text-gray-900 dark:text-white sm:text-xl md:text-2xl">
                       {t("whyChoose.callout.quote")}
                     </p>
                     <p className="mt-2 text-center text-sm font-semibold text-brand-secondary-text dark:text-brand-secondary-light sm:text-base">
@@ -279,7 +281,7 @@ export default function CareersPageClient() {
                 <div className="text-4xl sm:text-5xl font-black text-brand-primary dark:text-brand-primary-light mb-2 transition-colors duration-300">
                   150+
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                   {t("whyChoose.stats.experience")}
                 </div>
               </Card>
@@ -287,7 +289,7 @@ export default function CareersPageClient() {
                 <div className="text-4xl sm:text-5xl font-black text-brand-secondary dark:text-brand-secondary-light mb-2 transition-colors duration-300">
                   .64
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                   {t("whyChoose.stats.safety")}
                 </div>
               </Card>
@@ -295,7 +297,7 @@ export default function CareersPageClient() {
                 <div className="text-4xl sm:text-5xl font-black text-bronze-700 dark:text-bronze-400 mb-2 transition-colors duration-300">
                   100%
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                   {t("whyChoose.stats.mentorship")}
                 </div>
               </Card>
@@ -303,7 +305,7 @@ export default function CareersPageClient() {
                 <div className="text-4xl sm:text-5xl font-black bg-linear-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent mb-2 transition-colors duration-300">
                   70%
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                   {t("whyChoose.stats.referral")}
                 </div>
               </Card>
@@ -364,7 +366,7 @@ export default function CareersPageClient() {
               </h2>
 
               {/* Description with colored keyword highlighting */}
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                   {t("benefits.description.highlight1")}
                 </span>{" "}
@@ -406,7 +408,7 @@ export default function CareersPageClient() {
                         {benefit.title}
                       </h3>
 
-                      <p className="grow text-sm leading-relaxed text-gray-600 dark:text-gray-300 sm:text-base">
+                      <p className="font-body grow text-sm leading-relaxed text-gray-600 dark:text-gray-300 sm:text-base">
                         {benefit.description}
                       </p>
                     </div>
@@ -452,7 +454,7 @@ export default function CareersPageClient() {
               </h2>
 
               {/* Description with colored keyword highlighting */}
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 {t("testimonials.description.prefix")}{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                   {t("testimonials.description.highlight1")}
@@ -502,7 +504,7 @@ export default function CareersPageClient() {
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                     {t("veterans.description.highlight1")}
                   </span>
@@ -518,7 +520,7 @@ export default function CareersPageClient() {
                   <div className="relative group">
                     <div className="absolute -inset-1 bg-linear-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-2xl blur-sm opacity-75 group-hover:opacity-100 transition duration-500"></div>
                     <Card className="relative border-2 border-brand-primary/30 bg-white px-8 py-6 shadow-xl dark:border-brand-primary/40 dark:bg-gray-800">
-                      <p className="font-black text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed flex items-center justify-center gap-3">
+                      <p className="font-body font-black text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed flex items-center justify-center gap-3">
                         <MaterialIcon
                           icon="military_tech"
                           size="lg"
@@ -547,7 +549,7 @@ export default function CareersPageClient() {
                   <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2">
                     {t("veterans.stats.priority.value")}
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     {t("veterans.stats.priority.label")}
                   </div>
                   <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">
@@ -563,7 +565,7 @@ export default function CareersPageClient() {
                   <div className="text-3xl sm:text-4xl font-black text-brand-secondary dark:text-brand-secondary-light mb-2">
                     100%
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     {t("veterans.stats.militaryFriendly.label")}
                   </div>
                   <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">
@@ -579,7 +581,7 @@ export default function CareersPageClient() {
                   <div className="text-3xl sm:text-4xl font-black text-bronze-700 dark:text-bronze-400 mb-2">
                     {t("veterans.stats.branches.value")}
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     {t("veterans.stats.branches.label")}
                   </div>
                   <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">
@@ -625,7 +627,7 @@ export default function CareersPageClient() {
                         </h3>
 
                         {/* Description */}
-                        <p className="grow text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                        <p className="font-body grow text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                           {benefit.description}
                         </p>
                       </div>
@@ -736,7 +738,7 @@ export default function CareersPageClient() {
               </h2>
 
               {/* Description with colored keyword highlighting */}
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 {t("positions.description.prefix")}{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                   {t("positions.description.highlight1")}
@@ -778,7 +780,7 @@ export default function CareersPageClient() {
                     </h3>
 
                     {/* Description */}
-                    <p className="mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+                    <p className="font-body mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
                       {t("readyToJoin.description")}
                     </p>
 
@@ -866,7 +868,7 @@ export default function CareersPageClient() {
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                     {t("journey.lead")}
                   </span>
@@ -944,7 +946,7 @@ export default function CareersPageClient() {
                                     />
                                   </div>
                                 </div>
-                                <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                                <p className="font-body text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                                   {t(
                                     `journey.timeline.steps.${step.key}.description`,
                                   )}
@@ -992,7 +994,7 @@ export default function CareersPageClient() {
                                     </h3>
                                   </div>
                                 </div>
-                                <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                                <p className="font-body text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                                   {t(
                                     `journey.timeline.steps.${step.key}.description`,
                                   )}
@@ -1042,7 +1044,7 @@ export default function CareersPageClient() {
                                 {t(`journey.timeline.steps.${step.key}.title`)}
                               </h3>
                             </div>
-                            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            <p className="font-body text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                               {t(
                                 `journey.timeline.steps.${step.key}.description`,
                               )}
@@ -1081,7 +1083,7 @@ export default function CareersPageClient() {
                           <h4 className="mb-3 font-black text-gray-900 dark:text-white text-xl">
                             {t("journey.details.fastTrack.title")}
                           </h4>
-                          <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                          <p className="font-body text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                             {t("journey.details.fastTrack.prefix")}{" "}
                             <span className="font-bold text-brand-primary">
                               {t("journey.details.fastTrack.highlight")}
@@ -1110,7 +1112,7 @@ export default function CareersPageClient() {
                           <h4 className="mb-3 font-black text-gray-900 dark:text-white text-xl">
                             {t("journey.details.typical.title")}
                           </h4>
-                          <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                          <p className="font-body text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                             {t("journey.details.typical.prefix")}{" "}
                             <span className="font-bold text-brand-secondary-text dark:text-brand-secondary-light">
                               {t("journey.details.typical.highlight")}
@@ -1140,7 +1142,7 @@ export default function CareersPageClient() {
                           <h4 className="mb-3 font-black text-gray-900 dark:text-white text-xl">
                             {t("journey.details.transparent.title")}
                           </h4>
-                          <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                          <p className="font-body text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                             {t("journey.details.transparent.prefix")}{" "}
                             <span className="font-bold text-bronze-700 dark:text-bronze-400">
                               {t("journey.details.transparent.highlight")}
@@ -1234,7 +1236,7 @@ export default function CareersPageClient() {
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   {t("noRole.intro")}{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                     {t("noRole.values")}
@@ -1312,7 +1314,7 @@ export default function CareersPageClient() {
             <h2 className="mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter drop-shadow-lg">
               {t("contactCta.questions")}
             </h2>
-            <p className="mx-auto max-w-3xl font-light text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8">
+            <p className="font-body mx-auto max-w-3xl font-light text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8">
               {t("contactCta.support")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -1341,7 +1343,7 @@ export default function CareersPageClient() {
         <section className="relative py-12 sm:py-16 bg-white dark:bg-gray-900">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <div className="scroll-reveal">
-              <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
+              <p className="font-heading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
                 {t("accreditations.kicker")}
               </p>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">

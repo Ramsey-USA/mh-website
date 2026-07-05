@@ -1,7 +1,7 @@
 # Website Guardrails Coverage Map
 
 **Category:** Branding - Governance  
-**Last Updated:** July 3, 2026  
+**Last Updated:** July 4, 2026  
 **Status:** Active - Website-Wide Requirement
 
 ## Purpose
@@ -25,7 +25,12 @@ Every in-scope website change must preserve all dimensions below:
 4. **Terminology:** UI, metadata, schema, and docs use canonical naming.
 5. **Accessibility:** Semantics, labels, contrast, keyboard flow remain compliant.
 6. **SEO naming:** Plain-language naming and route/metadata consistency.
-7. **Visual system:** Typography, color, and component behavior align with canonical standards.
+7. **Visual system:** Typography, color, spacing rhythm, and component behavior align with canonical standards.
+8. **State parity:** Default, hover, focus-visible, active, disabled, loading/skeleton, success, and error states are visually and behaviorally consistent.
+9. **Breakpoint parity:** Mobile, tablet, laptop, and desktop maintain hierarchy, spacing cadence, and CTA emphasis.
+10. **Theme parity:** Light/dark and pre-hydration theme behavior preserve color intent, contrast, and trust-surface readability.
+11. **Media parity:** Imagery, iconography, video treatments, and overlay gradients follow approved patterns and do not introduce off-brand styles.
+12. **System-surface parity:** Shared app shell surfaces (header, navigation overlay, ribbon, footer, error, loading, offline, and not-found) remain congruent with routed pages.
 
 ### Canonical Visual Enforcement Path (Buttons, Headings, Containers, Modals, Cards, Forms, Navigation, Footer Trust, and Hover Motion)
 
@@ -85,14 +90,140 @@ the canonical anchor wins and downstream files must be updated.
 
 ## Website Surface Coverage Matrix
 
-| Surface Class                    | Example Areas                                                      | Required Guardrail Check                                       |
-| -------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------- |
-| Marketing and conversion pages   | Home, About, Services hub/lane pages, Projects, Contact            | Master checklist + strategy companion when messaging changes   |
-| Trust and credential surfaces    | Footer, Contact trust strip, Allies, Public-Sector, Veterans       | Master checklist with trust continuity emphasis                |
-| SEO surfaces                     | Page titles, metadata utilities, schema, route indexing docs       | Master checklist + SEO consistency validation                  |
-| UI implementation surfaces       | Shared components, section templates, tokens, theming              | Master checklist + development companion checklist             |
-| Safety and resource surfaces     | Safety pages, resources, manuals/forms entry points                | Master checklist + trust/accessibility validation              |
-| Operational and support surfaces | FAQ, Careers, accessibility/privacy/terms, offline/PWA touchpoints | Master checklist with terminology and accessibility validation |
+| Surface Class                       | Example Areas                                                                              | Required Guardrail Check                                                        |
+| ----------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Marketing and conversion pages      | Home, About, Services hub/lane pages, Projects, Contact                                    | Master checklist + strategy companion when messaging changes                    |
+| Trust and credential surfaces       | Footer, Contact trust strip, Allies, Public Sector, Veterans                               | Master checklist with trust continuity emphasis                                 |
+| SEO surfaces                        | Page titles, metadata utilities, schema, route indexing docs                               | Master checklist + SEO consistency validation                                   |
+| UI implementation surfaces          | Shared components, section templates, tokens, theming context                              | Master checklist + development companion checklist                              |
+| Safety and resource surfaces        | Safety pages, resources, manuals/forms entry points                                        | Master checklist + trust/accessibility validation                               |
+| Operational and support surfaces    | FAQ, Careers, accessibility/privacy/terms, offline/PWA touchpoints                         | Master checklist with terminology and accessibility validation                  |
+| App-shell surfaces                  | Header, global navigation, Jeremy leadership ribbon, footer                                | Master checklist + canonical contracts matrix + development companion checklist |
+| Route-state surfaces                | `loading.tsx`, `error.tsx`, `global-error.tsx`, `not-found.tsx`, offline page              | Master checklist + accessibility/state parity checks                            |
+| Dynamic-route templates             | Locations city pages, project detail pages, FAQ category pages, manual section routes      | Master checklist + template parity check (heading, CTA tier, trust cadence)     |
+| Form lifecycle surfaces             | Empty, validation error, submit-pending, submit-success/failure, anti-bot trust indicators | Master checklist + form security + visual state parity check                    |
+| Legal and compliance pages          | Terms, Privacy, Accessibility, Public Sector compliance narratives                         | Master checklist + terminology + trust continuity checks                        |
+| Print/download surfaces             | Careers print, safety print outputs, downloadable form wrappers                            | Master checklist + documents/forms standards + accessibility readability        |
+| Campaign and commemorative surfaces | Semiquincentennial banners, founder tributes, seasonal notices                             | Master checklist + documented exception scope + expiry tracking                 |
+| Third-party color surfaces          | Social platform action clusters and external brand recognizers                             | Master checklist + third-party color exception guardrails                       |
+
+## Current Route Manifest (Tracked Pages and States)
+
+Use this manifest as the minimum route-surface inventory for branding audits.
+
+### Public Page Routes
+
+1. `/`
+2. `/about`
+3. `/about/details`
+4. `/accessibility`
+5. `/allies`
+6. `/careers`
+7. `/careers/print`
+8. `/contact`
+9. `/cool-desert-nights`
+10. `/employee-handbook`
+11. `/events`
+12. `/faq`
+13. `/faq/[category]`
+14. `/jeremy-thamert`
+15. `/locations`
+16. `/locations/[city]`
+17. `/offline`
+18. `/privacy`
+19. `/projects`
+20. `/projects/[slug]`
+21. `/public-sector`
+22. `/public-sector/tri-state-government-construction`
+23. `/public-sector/veteran-led-compliance`
+24. `/qr-codes`
+25. `/resources`
+26. `/resources/safety-program`
+27. `/resources/safety-manual`
+28. `/resources/safety-manual/contents`
+29. `/resources/safety-manual/forms`
+30. `/resources/safety-manual/[cluster]`
+31. `/resources/safety-manual/section/[slug]`
+32. `/safety`
+33. `/safety/incident-report`
+34. `/safety/intake`
+35. `/safety/print/[id]`
+36. `/services`
+37. `/team`
+38. `/terms`
+39. `/testimonials`
+40. `/veterans`
+41. `/veterans/public-sector-construction`
+
+### Shared State Surfaces
+
+1. Root error surface (`error.tsx`)
+2. Root global error surface (`global-error.tsx`)
+3. Root not-found surface (`not-found.tsx`)
+4. Route loading surfaces (where `loading.tsx` exists)
+
+### Layout Shell Surfaces
+
+Track layout wrappers because they can alter global spacing, breadcrumbs, banners, and trust rhythm across multiple child pages.
+
+1. `/about`
+2. `/accessibility`
+3. `/allies`
+4. `/careers`
+5. `/contact`
+6. `/faq`
+7. `/locations`
+8. `/offline`
+9. `/privacy`
+10. `/projects`
+11. `/public-sector`
+12. `/safety`
+13. `/safety/hub`
+14. `/safety/incident-report`
+15. `/services`
+16. `/team`
+17. `/terms`
+18. `/testimonials`
+19. `/veterans`
+
+### Manifest Maintenance Rule
+
+When a route is added, removed, or renamed, update this manifest in the same PR and include updated evidence in the branding gate results.
+
+## Comprehensive Sweep Protocol (Every Page, Section, Button, and Background)
+
+For comprehensive branding sweeps, produce all inventories below.
+
+### Required Inventories
+
+1. **Route inventory**: Every current page route and shared state surface.
+2. **Section inventory**: Every section shell and major section block on affected routes.
+3. **Button/action inventory**: Every primary, secondary, tertiary action control (Button, link-styled action, raw button/input submit).
+4. **Background inventory**: Every section and shell background treatment (pattern layers, gradients, blobs, overlays).
+
+### Recommended Sweep Commands
+
+1. `rg --files apps/website/src/app | rg '(page|layout|loading|error|global-error|not-found)\\.(tsx|ts|jsx|js)$'`
+2. `rg -n '<Button|<a |button\\s|type="submit"' apps/website/src --glob '!**/*.test.*'`
+3. `rg -n 'DiagonalStripePattern|bg-linear|bg-gradient|radial-gradient|from-brand|to-brand' apps/website/src --glob '!**/*.test.*'`
+4. `rg -n 'SectionShell|SectionContainer|BrandedContentSection|NextStepsSection|HeroSection' apps/website/src --glob '!**/*.test.*'`
+
+### Audit Output Requirement
+
+Record PASS/FAIL plus top remediations for each inventory in PR notes for branding-sensitive sweeps.
+
+## Visual Coverage Acceptance Criteria (Required Evidence)
+
+For branding-sensitive pull requests, include evidence that visual guardrails were checked across the modified surface and adjacent shared surfaces.
+
+Minimum evidence package:
+
+1. Before/after screenshots for mobile and desktop for each changed route family.
+2. At least one keyboard-focus pass capture for CTA clusters and form controls.
+3. Confirmation that loading/error/offline/not-found states remain visually congruent where affected.
+4. Confirmation that trust/accreditation blocks are preserved in both normal and constrained viewport layouts.
+5. Confirmation that metadata, breadcrumb labels, and visible headings remain terminology-aligned.
+6. PASS/FAIL result from the master checklist plus any required companion checklist.
 
 ## Minimum Review Workflow (Per Change)
 

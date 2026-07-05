@@ -39,6 +39,9 @@
     "guard:generated-artifacts": "bash scripts/validation/check-no-generated-artifacts.sh",
     "docs:extract": "node documents/scripts/extract.mjs",
     "docs:guardrails:check": "pnpm --filter @mhc/website docs:guardrails:check",
+    "docs:guardrails:typography:check": "pnpm --filter @mhc/website docs:guardrails:typography:check",
+    "font-system:check": "bash scripts/validation/check-font-system-usage.sh",
+    "icons:forms-manuals:check": "pnpm --filter @mhc/website icons:forms-manuals:check",
     "terminology:guardrails:check": "pnpm --filter @mhc/website terminology:guardrails:check",
     "docs:audit:mish-overrun": "pnpm --filter @mhc/website docs:audit:mish-overrun",
     "prepare": "node -e \"const {spawnSync}=require('node:child_process'); const result=spawnSync('git',['rev-parse','--is-inside-work-tree'],{stdio:'ignore'}); if (process.env.CI || result.status !== 0) process.exit(0)\" && husky"

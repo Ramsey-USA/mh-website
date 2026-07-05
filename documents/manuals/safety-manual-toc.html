@@ -14,6 +14,8 @@
         {{BRAND_REVISION_DATE}}     → 04/07/2026
         {{TOC_CLUSTERS_PAGE_1_HTML}} → generated dynamically from safety-manual.json
         {{TOC_CLUSTERS_PAGE_2_HTML}} → generated dynamically from safety-manual.json
+        {{TOC_CLUSTERS_PAGE_3_HTML}} → generated dynamically from safety-manual.json
+        TOC_EXTRA_PAGES_HTML         → generated dynamically for page 4+
                                        (see TOC_CLUSTERS / buildTocClustersHtml in generate.mjs)
     -->
     <style>
@@ -29,8 +31,18 @@
         --paper: #ffffff;
         --muted: #f6f8f7;
         /* MH brand fonts */
-        --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Helvetica Neue", Arial, sans-serif;
-        --font-body: "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+        --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        --font-body: "DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        --type-title: 22pt;
+        --type-cluster: 7.7pt;
+        --type-code: 8.2pt;
+        --type-entry: 8.7pt;
+        --type-form-code: 7.4pt;
+        --type-form-entry: 8.1pt;
+        --toc-body-left: 1.15in;
+        --toc-body-right: 1.05in;
+        --toc-body-top: 3.16in;
+        --toc-body-bottom: 2.02in;
       }
 
       *,
@@ -58,6 +70,7 @@
         font-family: var(--font-body);
         font-size: 9pt;
         line-height: 1.35;
+        text-rendering: optimizeLegibility;
       }
 
       /* Use flex-column so the footer is always at the bottom of the page */
@@ -129,8 +142,8 @@
         left: 0.92in;
         right: 0.9in;
         text-align: center;
-        padding-bottom: 14pt;
-        border-bottom: 1.2pt solid var(--brand-primary);
+        padding-bottom: 0;
+        border-bottom: 0.5pt solid var(--brand-primary);
       }
 
       .toc-header--cont {
@@ -138,7 +151,7 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
-        padding-bottom: 9pt;
+        padding-bottom: 0;
       }
 
       .toc-cont-mark {
@@ -164,6 +177,7 @@
         font-weight: 700;
         letter-spacing: 0.11em;
         text-transform: uppercase;
+        font-variant-numeric: tabular-nums;
       }
 
       .toc-logo {
@@ -209,12 +223,12 @@
 
       .toc-title {
         font-family: var(--font-heading);
-        font-size: 21pt;
+        font-size: var(--type-title);
         font-weight: 900;
         color: var(--brand-primary);
         margin: 0.03in 0 0.02in;
-        letter-spacing: 0.01em;
-        line-height: 1.05;
+        letter-spacing: 0.008em;
+        line-height: 1.03;
         text-transform: uppercase;
       }
 
@@ -230,31 +244,34 @@
 
       /* ── Body: dual-column grid ─────────────────────────── */
       .toc-body {
-        position: relative;
+        position: absolute;
         z-index: 1;
-        margin-top: 0.4in;
-        columns: 2;
-        column-gap: 0.28in;
-        column-fill: balance;
+        top: var(--toc-body-top);
+        left: var(--toc-body-left);
+        right: var(--toc-body-right);
+        bottom: var(--toc-body-bottom);
+        margin-top: 0.65in;
+        padding-top: 0.12in;
+        overflow: hidden;
       }
 
       .toc-page--cont .toc-content {
         padding-top: 1.42in;
       }
 
-      .toc-page--cont .toc-body {
-        margin-top: 0;
+      .toc-page--cont {
+        --toc-body-top: 1.12in;
+        --toc-body-bottom: 1.72in;
       }
 
-      #toc-page-3 .toc-body {
-        columns: 1;
-        column-fill: auto;
+      .toc-page--cont .toc-body {
+        margin-top: 0.05in;
       }
 
       /* Each operational cluster stays together in one column */
       .cluster {
-        break-inside: avoid;
-        margin-bottom: 0.18in;
+        break-inside: auto;
+        margin-bottom: 0.09in;
         padding: 0;
         background: transparent;
         border: none;
@@ -264,14 +281,14 @@
       /* Cluster heading — simple outline style */
       .cluster-head {
         font-family: var(--font-heading);
-        font-size: 7.5pt;
+        font-size: 7.55pt;
         font-weight: 700;
         color: var(--brand-primary);
         text-transform: uppercase;
-        letter-spacing: 0.12em;
-        margin: 0 0 0.08in 0;
-        padding: 0 0 5pt 0;
-        border-bottom: 1.5pt solid var(--brand-primary);
+        letter-spacing: 0.11em;
+        margin: 0 0 0.05in 0;
+        padding: 0 0 3pt 0;
+        border-bottom: 0.9pt solid var(--brand-primary);
         background: transparent;
         border-left: none;
         border-radius: 0;
@@ -286,11 +303,11 @@
 
       .mish-entry {
         display: flex;
-        align-items: flex-start;
-        gap: 0.12in;
-        padding: 3pt 0;
+        align-items: center;
+        gap: 0.09in;
+        padding: 2.7pt 0;
         font-family: var(--font-body);
-        line-height: 1.25;
+        line-height: 1.28;
         color: #000000;
       }
 
@@ -298,18 +315,20 @@
         display: block;
         flex-shrink: 0;
         width: auto;
-        min-width: 0.55in;
+        min-width: 0.53in;
         font-family: var(--font-heading);
         font-size: 8pt;
         font-weight: 800;
-        color: var(--brand-primary);
-        background: transparent;
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        padding: 0;
-        text-align: left;
-        line-height: 1.25;
+        color: #ffffff;
+        background: var(--brand-primary);
+        border: 0.6pt solid var(--brand-primary-dark);
+        border-radius: 5pt;
+        box-shadow: inset 0 -0.8pt 0 rgba(0, 0, 0, 0.12);
+        padding: 1.9pt 7.6pt;
+        text-align: center;
+        line-height: 1.2;
+        letter-spacing: 0.014em;
+        font-variant-numeric: tabular-nums;
       }
 
       .mish-wbs {
@@ -318,9 +337,10 @@
 
       .mish-entry .mish-title {
         flex: 1;
-        color: #000000;
-        font-size: 8.5pt;
-        line-height: 1.25;
+        color: #15261d;
+        font-family: var(--font-body);
+        font-size: 8.35pt;
+        line-height: 1.28;
         text-wrap: pretty;
         hyphens: auto;
         word-break: break-word;
@@ -328,46 +348,99 @@
 
       /* Callout — Tan Leather highlight for critical safety protocols */
       .mish-entry.callout {
-        background: #fff8f2;
-        border: 0.5pt solid var(--brand-secondary-light);
-        border-left: 2pt solid var(--brand-secondary);
-        padding-left: 5pt;
-        margin-left: -3pt;
+        background: #fbf7f1;
+        border: 0.35pt solid var(--brand-secondary-light);
+        border-left: 1.3pt solid var(--brand-secondary);
+        padding-left: 4pt;
+        margin-left: -2pt;
         border-radius: 0 2pt 2pt 0;
       }
 
       .mish-entry.callout .mish-code {
         color: var(--brand-secondary);
-        font-weight: 900;
+        font-weight: 800;
       }
 
       .mish-entry.callout .mish-title {
-        color: #000000;
+        color: #1b2a22;
+        font-style: normal;
         font-weight: 700;
       }
 
       /* Form entries — simple, left-indented */
       .mish-entry.mish-form {
         opacity: 1;
-        padding: 2pt 0 2pt 0.65in;
+        padding: 1.8pt 0 1.8pt 0.56in;
       }
 
       .mish-entry.mish-form .mish-code {
-        background: transparent;
-        color: var(--brand-secondary);
+        background: #f7efe5;
+        color: var(--brand-primary);
         font-weight: 600;
-        font-size: 7.5pt;
-        border: none;
-        box-shadow: none;
-        min-width: 0.48in;
-        padding: 0;
+        font-size: var(--type-form-code);
+        border: 0.5pt solid var(--brand-secondary);
+        box-shadow: inset 0 -0.6pt 0 rgba(0, 0, 0, 0.08);
+        min-width: 0.46in;
+        padding: 1.45pt 6.6pt;
+        letter-spacing: 0.012em;
+        border-radius: 999px;
+        font-variant-numeric: tabular-nums;
       }
 
       .mish-entry.mish-form .mish-title {
         font-style: italic;
-        color: #555555;
+        color: var(--brand-secondary-text);
         font-size: 8pt;
-        line-height: 1.23;
+        line-height: 1.24;
+      }
+
+      /* Continuation pages use the same typography and row rhythm as page 1. */
+      .toc-page--cont .cluster {
+        margin-bottom: 0.09in;
+      }
+
+      .toc-page--cont .cluster-head {
+        font-size: 7.55pt;
+        letter-spacing: 0.11em;
+        margin: 0 0 0.05in 0;
+        padding: 0 0 3pt 0;
+      }
+
+      .toc-page--cont .mish-entry {
+        gap: 0.09in;
+        padding: 2.35pt 0;
+        line-height: 1.28;
+      }
+
+      .toc-page--cont .mish-entry .mish-code {
+        min-width: 0.53in;
+        font-size: 8pt;
+        padding: 1.9pt 7.6pt;
+      }
+
+      .toc-page--cont .mish-entry .mish-title {
+        font-size: 8.35pt;
+        line-height: 1.28;
+      }
+
+      .toc-page--cont .mish-entry.mish-form {
+        padding: 1.55pt 0 1.55pt 0.56in;
+      }
+
+      .toc-page--cont .mish-entry.mish-form .mish-code {
+        min-width: 0.46in;
+        font-size: var(--type-form-code);
+        padding: 1.45pt 6.6pt;
+      }
+
+      .toc-page--cont .mish-entry.mish-form .mish-title {
+        font-size: 8pt;
+        line-height: 1.24;
+      }
+
+      /* Keep continuation-page callouts inside the printable body box. */
+      .toc-page--cont .mish-entry.callout {
+        margin-left: 0;
       }
 
       /* Footer — aligned to safety-manual-letterhead */
@@ -477,12 +550,6 @@
         margin: 0 6pt;
       }
 
-      .toc-footer-right,
-      .toc-footer-qr,
-      .toc-footer-qr img,
-      .toc-footer-qr-label {
-        display: none;
-      }
     </style>
   </head>
   <body>
@@ -560,13 +627,13 @@
           class="veteran-strip"
           aria-label="Veteran owned business statement"
         >
-          Veteran-Owned <span class="sep">&#9733;</span> Mission-First
-          <span class="sep">&#9733;</span> Built on Honor, Integrity &amp; Trust
+          Veteran-Owned <span class="sep">&#9733;</span> Safety-Driven
+          <span class="sep">&#9733;</span> Built on Quality, Backed by Trust
         </div>
       </div>
     </div>
 
-    <div class="toc-page toc-page--cont">
+    <div class="toc-page toc-page--cont" id="toc-page-2">
       <div class="toc-ribbon" aria-hidden="true"></div>
       <div class="toc-content">
         <header class="toc-header toc-header--cont">
@@ -627,22 +694,22 @@
           class="veteran-strip"
           aria-label="Veteran owned business statement"
         >
-          Veteran-Owned <span class="sep">&#9733;</span> Mission-First
-          <span class="sep">&#9733;</span> Built on Honor, Integrity &amp; Trust
+          Veteran-Owned <span class="sep">&#9733;</span> Safety-Driven
+          <span class="sep">&#9733;</span> Built on Quality, Backed by Trust
         </div>
       </div>
     </div>
 
-    <!-- ── Page 3: MISH Forms Appendix (if needed) ──────────────────── -->
+    <!-- ── Page 3: Table of Contents (if needed) ──────────────────── -->
     <div class="toc-page toc-page--cont" id="toc-page-3" style="display: none">
       <div class="toc-ribbon" aria-hidden="true"></div>
       <div class="toc-content">
         <header class="toc-header toc-header--cont">
           <p class="toc-cont-mark">
             {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>MISH Program
-            Forms Appendix
+            Table of Contents (continued)
           </p>
-          <p class="toc-cont-page">Page 3</p>
+          <p class="toc-cont-page">Page {{TOC_PAGE_3_NUMBER}}</p>
         </header>
 
         <main class="toc-body">{{TOC_CLUSTERS_PAGE_3_HTML}}</main>
@@ -695,10 +762,12 @@
           class="veteran-strip"
           aria-label="Veteran owned business statement"
         >
-          Veteran-Owned <span class="sep">&#9733;</span> Mission-First
-          <span class="sep">&#9733;</span> Built on Honor, Integrity &amp; Trust
+          Veteran-Owned <span class="sep">&#9733;</span> Safety-Driven
+          <span class="sep">&#9733;</span> Built on Quality, Backed by Trust
         </div>
       </div>
     </div>
+
+    {{TOC_EXTRA_PAGES_HTML}}
   </body>
 </html>

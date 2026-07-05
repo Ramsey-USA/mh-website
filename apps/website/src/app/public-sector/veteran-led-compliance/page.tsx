@@ -4,12 +4,16 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TrackedBridgeButton } from "@/components/analytics";
 import { Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
+const VETERAN_LED_COMPLIANCE_HERO_SLOGAN = getHeroPageSlogan(
+  "veteranLedCompliance",
+).slogan;
 
 export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Led Compliance Workflow | MH Construction`,
@@ -54,9 +58,9 @@ export default function VeteranLedCompliancePage() {
       <section className="hero-section hero-safe-top-lg border-b border-gray-200 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 px-4 pb-14 text-white sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
-            Compliance Pathway
+            Compliance Pathway -&gt; Veteran-Led Compliance
           </p>
-          <h1 className="text-3xl font-black tracking-tight sm:text-5xl">
+          <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
             Veteran-Led Compliance Workflow
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-white/85">
@@ -68,7 +72,7 @@ export default function VeteranLedCompliancePage() {
             {COMPANY_INFO.slogan.primary}
           </p>
           <p className="mt-4 text-sm font-semibold text-brand-secondary/90 sm:text-base">
-            {COMPANY_INFO.slogan.quaternary}
+            {VETERAN_LED_COMPLIANCE_HERO_SLOGAN}
           </p>
         </div>
       </section>

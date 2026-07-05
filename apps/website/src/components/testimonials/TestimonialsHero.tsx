@@ -1,6 +1,7 @@
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 export function TestimonialsHero() {
   return (
@@ -32,7 +33,7 @@ export function TestimonialsHero() {
               {COMPANY_INFO.slogan.primary}
             </span>
             <span className="block text-brand-secondary/80 text-xs xs:text-sm sm:text-base mt-1">
-              Clear facts. No spin. No surprises.
+              {getHeroPageSlogan("testimonials").slogan}
             </span>
           </h1>
         </div>

@@ -19,6 +19,11 @@ import { usePWA } from "@/hooks/usePWA";
 import { JeremyQuoteRibbon } from "@/components/shared-sections/JeremyQuoteRibbon";
 import type { IndividualBrandingStamp } from "@/lib/content/individual-branding-stamps";
 import { resolveJeremyRibbonKey } from "@/lib/content/jeremy-ribbon-routing";
+import {
+  FORM_MANUAL_ICONS,
+  PAGE_ICONS,
+  SEMANTIC_ICONS,
+} from "@/lib/constants/navigation-icons";
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -34,10 +39,10 @@ interface AppShellProps {
 }
 
 const QUICK_ACTIONS = [
-  { label: "Hub", href: "/hub", icon: "dashboard" },
-  { label: "Safety", href: "/safety", icon: "shield" },
+  { label: "Hub", href: "/hub", icon: PAGE_ICONS.hub },
+  { label: "Safety", href: "/safety", icon: SEMANTIC_ICONS.safety },
   { label: "Incident", href: "/safety/incident-report", icon: "report" },
-  { label: "Resources", href: "/resources", icon: "menu_book" },
+  { label: "Resources", href: "/resources", icon: FORM_MANUAL_ICONS.source },
 ] as const;
 
 function humanizePathSegment(segment: string): string {
@@ -292,7 +297,7 @@ export function AppShell({
             <Link
               href="/hub"
               prefetch={false}
-              className="inline-flex items-center gap-2 self-start rounded-full border border-brand-secondary/60 bg-brand-secondary/12 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-brand-secondary"
+              className="font-heading inline-flex items-center gap-2 self-start rounded-full border border-brand-secondary/60 bg-brand-secondary/12 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-brand-secondary"
             >
               <MaterialIcon icon="construction" size="sm" />
               PWA Command Deck

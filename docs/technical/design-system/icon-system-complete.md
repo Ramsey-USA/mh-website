@@ -23,18 +23,19 @@
 
 1. [Emoji-Free Policy](#emoji-free-policy-critical)
 2. [Material Icons Standards](#material-icons-standards)
-3. [Implementation Guide](#implementation-guide)
-4. [Sizing & Spacing](#sizing--spacing)
-5. [Hover Effects & Animations](#hover-effects--animations)
-6. [Accessibility](#accessibility)
-7. [Site-Wide Icon Inventory](#site-wide-icon-inventory)
+3. [Print Forms and Manuals Icon Map](#print-forms-and-manuals-icon-map)
+4. [Implementation Guide](#implementation-guide)
+5. [Sizing & Spacing](#sizing--spacing)
+6. [Hover Effects & Animations](#hover-effects--animations)
+7. [Accessibility](#accessibility)
+8. [Site-Wide Icon Inventory](#site-wide-icon-inventory)
    - [People Icon Standard](#-people-icon-standard-critical)
    - [Work & Career Icons](#-work--career-icons)
    - [Social Media Icons](#-social-media-icons)
    - [Information Context Icons](#ℹ️-information-context-icons)
    - [Core Brand Icons](#core-brand-icons)
    - [Navigation & UI Icons](#navigation--ui-icons)
-8. [Troubleshooting](#troubleshooting)
+9. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -151,9 +152,9 @@
 
 **Automated Enforcement:**
 
-- ESLint rules flag emoji usage
-- Pre-commit hooks scan for violations
-- CI/CD pipeline fails on emoji detection
+- Standards checklists and policy docs require Material Icon usage
+- PR review verifies icon consistency and emoji-free source code
+- Teams can add lint/CI validators as needed for stricter automation
 
 **Manual Review:**
 
@@ -190,6 +191,70 @@ It uses Google Material Icons (font-based rendering) loaded globally via the roo
 ```tsx
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 ```
+
+## 🧾 Print Forms and Manuals Icon Map
+
+The print pipeline now uses a canonical Material Icons ligature map for all forms/manual templates.
+
+### Approved Ligatures
+
+1. `info`
+2. `error_outline`
+3. `warning`
+4. `gpp_maybe`
+5. `check_box_outline_blank`
+6. `fact_check`
+7. `edit_note`
+8. `description`
+9. `table_chart`
+10. `draw`
+11. `route`
+12. `verified_user`
+13. `menu_book`
+14. `dns`
+
+### Canonical Token Variables
+
+Define and reuse these CSS variables:
+
+1. `--icon-material-info`
+2. `--icon-material-danger-outline`
+3. `--icon-material-warning`
+4. `--icon-material-caution`
+5. `--icon-material-checkbox-empty`
+6. `--icon-material-checklist`
+7. `--icon-material-form-field`
+8. `--icon-material-narrative`
+9. `--icon-material-table`
+10. `--icon-material-signature`
+11. `--icon-material-route`
+12. `--icon-material-access`
+13. `--icon-material-source`
+14. `--icon-material-local-dev`
+
+### Required Rules for Forms and Manuals
+
+1. Use `.mi` / `.material-icons` helpers only.
+2. Use the canonical variables for pseudo-element `content` values.
+3. Do not introduce ad-hoc ligatures directly in template CSS.
+4. Do not mix emoji or symbol glyphs as icon substitutes.
+
+### Author Cheat Sheet (Template Semantics)
+
+1. `checkGrid` sections: `fact_check`
+2. `fieldGrid` sections: `edit_note`
+3. `narrative` sections: `description`
+4. `dataTable` and `regTable` sections: `table_chart`
+5. `signatures` sections: `draw`
+6. Route/access/source/dev references: `route`, `verified_user`, `menu_book`, `dns`
+
+### Enforcement
+
+`documents/scripts/generate.mjs` guardrails validate:
+
+1. Canonical icon variables exist in print tokens.
+2. Inline `.mi` / `.material-icons` ligatures stay within the approved list.
+3. Template CSS `content: "...";` icon tokens stay within the approved list.
 
 ---
 
@@ -531,7 +596,7 @@ style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
 
 ### 👥 People Icon Standard (CRITICAL)
 
-> **📁 Source of Truth:** `/src/lib/constants/navigation-icons.ts` → `SEMANTIC_ICONS`
+> **📁 Source of Truth:** `packages/shared/src/lib/constants/navigation-icons.ts` → `SEMANTIC_ICONS`
 
 **MH Construction uses a strict standard for people-related icons:**
 
@@ -621,9 +686,9 @@ import { SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
 
 ### Navigation & UI Icons
 
-> **📁 Source of Truth:** `/src/lib/constants/navigation-icons.ts`
+> **📁 Source of Truth:** `packages/shared/src/lib/constants/navigation-icons.ts`
 >
-> All page navigation icons are centralized in this file. Import `PAGE_ICONS` or `SEMANTIC_ICONS` from this module to ensure consistency.
+> All page, section navigation, and content-data icons are centralized in this file. Use `PAGE_ICONS` for route/page-level navigation links, `SECTION_NAV_ICONS` for section jump-nav configs (for example `navigationConfigs.ts`), `CONTENT_ICONS` for icon-driven data modules, and `SEMANTIC_ICONS` for contextual icons inside content.
 
 **Standardized Page Icons:**
 
@@ -651,7 +716,12 @@ import { SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
 **Usage Example:**
 
 ```tsx
-import { PAGE_ICONS, SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
+import {
+  CONTENT_ICONS,
+  PAGE_ICONS,
+  SECTION_NAV_ICONS,
+  SEMANTIC_ICONS,
+} from "@/lib/constants/navigation-icons";
 
 // Direct lookup
 <MaterialIcon icon={PAGE_ICONS.services} /> // "build"
@@ -664,6 +734,14 @@ import { PAGE_ICONS, SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
 
 // Semantic/contextual icons (can differ from page icons)
 <MaterialIcon icon={SEMANTIC_ICONS.partnership} /> // "handshake"
+
+// Section navigation config
+const navItems = [
+  { href: "#process", label: "Our Process", icon: SECTION_NAV_ICONS.timeline },
+];
+
+// Content/data module icon
+const stats = [{ icon: CONTENT_ICONS.verified, label: "States Licensed" }];
 ```
 
 **User Actions:**

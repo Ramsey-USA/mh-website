@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
 import { DownloadGate } from "@/components/pwa";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -37,7 +38,7 @@ function Section({
 }) {
   return (
     <div className="mb-6 print:mb-4">
-      <h3 className="text-xs font-black uppercase tracking-widest text-gray-500 border-b border-gray-200 pb-1 mb-3 print:text-gray-600">
+      <h3 className="font-heading text-xs font-black uppercase tracking-widest text-gray-500 border-b border-gray-200 pb-1 mb-3 print:text-gray-600">
         {title}
       </h3>
       {children}
@@ -54,7 +55,7 @@ function Field({
 }) {
   return (
     <div className="mb-2">
-      <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider leading-none mb-0.5">
+      <p className="font-heading text-xs text-gray-500 font-semibold uppercase tracking-wider leading-none mb-0.5">
         {label}
       </p>
       <p className="text-sm text-gray-900">{value || "—"}</p>
@@ -510,7 +511,11 @@ export default function PrintPageClient() {
   if (error || !submission) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-4 text-center px-6">
-        <MaterialIcon icon="error_outline" size="xl" className="text-red-400" />
+        <MaterialIcon
+          icon={FORM_MANUAL_ICONS.dangerOutline}
+          size="xl"
+          className="text-red-400"
+        />
         <p className="text-gray-700 font-semibold">
           {error ?? "Submission not found."}
         </p>

@@ -87,11 +87,11 @@ export function Modal({
                         size="md"
                         className="text-bronze-300"
                       />
-                      <span className="font-semibold text-bronze-300 text-sm tracking-wide uppercase">
+                      <span className="font-heading font-semibold text-bronze-300 text-sm tracking-wide uppercase">
                         Built on Quality, Backed by Trust.
                       </span>
                     </div>
-                    <p className="mt-1 text-[11px] font-medium text-bronze-200/90 uppercase tracking-wide">
+                    <p className="font-heading mt-1 text-[11px] font-medium text-bronze-200/90 uppercase tracking-wide">
                       Professional on the line. Thorough in the details.
                     </p>
                   </div>

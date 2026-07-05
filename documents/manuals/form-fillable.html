@@ -16,10 +16,33 @@
         --ink: #12231b;
         --paper: #ffffff;
         --muted: #f6f8f7;
-        --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Helvetica Neue", Arial, sans-serif;
-        --font-body: "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans",
-          sans-serif;
+        --icon-material-info: "info";
+        --icon-material-danger-outline: "error_outline";
+        --icon-material-warning: "warning";
+        --icon-material-caution: "gpp_maybe";
+        --icon-material-checkbox-empty: "check_box_outline_blank";
+        --icon-material-checklist: "fact_check";
+        --icon-material-form-field: "edit_note";
+        --icon-material-narrative: "description";
+        --icon-material-table: "table_chart";
+        --icon-material-signature: "draw";
+        --icon-material-route: "route";
+        --icon-material-access: "verified_user";
+        --icon-material-source: "menu_book";
+        --icon-material-local-dev: "dns";
+        --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        --font-body: "DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
       }
+
+      /*
+       * Author cheat sheet — canonical section icon usage
+       * checkGrid  -> checklist (fact_check)
+       * fieldGrid  -> formField (edit_note)
+       * narrative  -> narrative (description)
+       * dataTable/regTable -> table (table_chart)
+       * signatures -> signature (draw)
+       * Optional schema override: section.icon = canonical key (or ligature)
+       */
 
       *, *::before, *::after {
         box-sizing: border-box;
@@ -33,6 +56,31 @@
         margin: 0; padding: 0; width: 8.5in;
         font-family: var(--font-body);
         background: var(--paper); color: var(--ink);
+      }
+
+      .material-icons,
+      .mi {
+        font-family: "Material Icons", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1em;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+        vertical-align: -0.125em;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+        font-feature-settings: "liga";
+      }
+
+      .mi-inline {
+        font-size: 1em;
+        vertical-align: -0.125em;
       }
 
       /* ── Sheet (chrome host) ─────────────────────────────────── */
@@ -96,43 +144,64 @@
         background: var(--brand-secondary);
       }
       .header .logo { width: 1.82in; height: auto; display: block; }
-      .header .form-id-card {
-        text-align: right;
-        font-family: var(--font-body);
-        color: var(--brand-primary-darker);
+      .header .qr-card {
+        display: flex;
+        align-items: center;
+        gap: 9pt;
+        border: 0.8pt solid var(--brand-secondary);
+        background: #fff;
+        padding: 7pt 10pt;
       }
-      .header .form-id-card .form-id {
-        font-family: var(--font-heading);
-        font-size: 16pt; font-weight: 900;
-        letter-spacing: 0.04em; color: var(--brand-primary);
-        line-height: 1.0;
+      .header .qr-card img {
+        width: 0.78in;
+        height: 0.78in;
+        display: block;
       }
-      .header .form-id-card .form-title {
-        font-size: 9.5pt; font-weight: 800;
-        letter-spacing: 0.04em; text-transform: uppercase;
-        color: var(--brand-primary-darker);
-        margin-top: 3pt;
+      .header .qr-card .qr-text {
+        text-align: left;
+        max-width: 1.95in;
       }
-      .header .form-id-card .form-meta {
-        margin-top: 3pt;
-        font-size: 7pt; letter-spacing: 0.12em;
+      .header .qr-card .qr-label {
+        font-size: 6.8pt;
+        font-weight: 800;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
         color: var(--brand-secondary);
-        font-weight: 700;
+        margin: 0 0 2pt;
+      }
+      .header .qr-card .qr-headline {
+        font-family: var(--font-heading);
+        font-size: 10.6pt;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--brand-primary);
+        line-height: 1.05;
+      }
+      .header .qr-card .qr-meta {
+        margin-top: 2pt;
+        font-size: 7.2pt;
+        color: var(--brand-primary-darker);
+        letter-spacing: 0.02em;
+        line-height: 1.2;
       }
 
       /* ── Body region ────────────────────────────────────────── */
       .body-area {
         position: absolute;
         top: 2.55in;
-        left: 0.92in; right: 0.9in;
-        bottom: 1.75in;
+        left: 1.15in;
+        right: 1.05in;
+        bottom: 2.10in;
         z-index: 1;
         font-family: var(--font-body);
         color: var(--ink);
       }
 
       .sec-band {
+        display: flex;
+        align-items: center;
+        gap: 5pt;
         font-family: var(--font-heading);
         font-size: 9.5pt;
         font-weight: 900;
@@ -146,6 +215,16 @@
         margin: 8pt 0 5pt;
       }
       .sec-band:first-child { margin-top: 0; }
+      .sec-band .sec-band-icon {
+        display: inline-flex;
+        align-items: center;
+        line-height: 1;
+      }
+      .sec-band .sec-band-icon .mi {
+        font-size: 10pt;
+        color: var(--brand-secondary-light);
+        vertical-align: -0.08em;
+      }
       .sec-band .sec-sub {
         color: var(--brand-secondary);
         font-weight: 700;
@@ -154,6 +233,9 @@
       }
 
       .ref-note {
+        display: flex;
+        align-items: flex-start;
+        gap: 5pt;
         font-size: 7.6pt;
         color: var(--brand-primary-darker);
         background: var(--muted);
@@ -162,6 +244,20 @@
         margin-bottom: 6pt;
         line-height: 1.35;
       }
+      .ref-note .ref-note-icon {
+        flex: 0 0 auto;
+        color: var(--brand-secondary-text);
+        line-height: 1;
+      }
+      .ref-note .ref-note-icon .mi {
+        font-size: 9pt;
+        vertical-align: -0.08em;
+      }
+      .ref-note .ref-note-content {
+        flex: 1;
+      }
+      .ref-note .ref-note-content > *:first-child { margin-top: 0; }
+      .ref-note .ref-note-content > *:last-child { margin-bottom: 0; }
       .ref-note.ref-note-tight-top {
         padding-top: 0;
         margin-top: -8pt;
@@ -173,7 +269,7 @@
         text-transform: uppercase;
         letter-spacing: 0.16em;
         color: var(--brand-secondary);
-        opacity: 0.55;
+        opacity: 0.32;
         margin-bottom: 2pt;
         display: block;
       }
@@ -223,6 +319,44 @@
         width: 9pt; height: 9pt;
         background: transparent;
         flex-shrink: 0;
+        color: var(--brand-secondary-text);
+        line-height: 1;
+      }
+      .check-box::before {
+        content: var(--icon-material-checkbox-empty);
+        display: block;
+        font-family: "Material Icons", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 9pt;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        white-space: nowrap;
+        direction: ltr;
+        font-feature-settings: "liga";
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      td.tcheck::before {
+        content: var(--icon-material-checkbox-empty);
+        display: inline-block;
+        font-family: "Material Icons", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 9pt;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        white-space: nowrap;
+        direction: ltr;
+        font-feature-settings: "liga";
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+        color: var(--brand-secondary-text);
+        vertical-align: -0.08em;
       }
 
       .data-table {
@@ -256,6 +390,44 @@
         border: 0.5pt solid var(--brand-secondary);
         background: var(--muted);
         margin-top: 2pt;
+      }
+
+      .docx-block {
+        margin: 3pt 0 6pt;
+        padding: 6pt 7pt;
+        border: 0.5pt solid var(--brand-secondary);
+        background: #fff;
+        font-size: 7.2pt;
+        line-height: 1.32;
+        color: var(--brand-primary-darker);
+        max-height: 2.75in;
+        overflow: hidden;
+      }
+      .docx-block h4 {
+        margin: 0 0 4pt;
+        font-size: 7.4pt;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--brand-primary);
+      }
+      .docx-block p {
+        margin: 0 0 4pt;
+      }
+      .docx-block ul,
+      .docx-block ol {
+        margin: 0 0 4pt;
+        padding-left: 14pt;
+      }
+      .docx-block table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 3pt 0 4pt;
+      }
+      .docx-block th,
+      .docx-block td {
+        border: 0.5pt solid var(--brand-secondary);
+        padding: 2pt 3pt;
+        vertical-align: top;
       }
 
       .sig-grid {
@@ -299,11 +471,11 @@
         position: absolute;
         left: 0.92in; right: 0.9in;
         bottom: 0.62in;
-        padding-top: 7pt;
+        padding-top: 9pt;
         border-top: 1.2pt solid var(--brand-primary);
         display: grid;
         grid-template-columns: 1.45fr 1fr;
-        gap: 0.20in;
+        gap: 0.25in;
         align-items: end;
         z-index: 2;
       }
@@ -314,51 +486,51 @@
         height: 0.6pt;
         background: var(--brand-secondary);
       }
-      .footer .contact { font-size: 7.4pt; line-height: 1.40; color: var(--brand-primary-darker); }
+      .footer .contact { font-size: 7.8pt; line-height: 1.45; color: var(--brand-primary-darker); }
       .footer .contact .label {
         color: var(--brand-secondary);
-        font-size: 6.4pt;
+        font-size: 6.6pt;
         letter-spacing: 0.16em;
         text-transform: uppercase;
         font-weight: 800;
-        margin-bottom: 2pt;
+        margin-bottom: 3pt;
       }
       .footer .contact .name {
         font-weight: 800;
         color: var(--brand-primary);
-        font-size: 8pt;
+        font-size: 8.2pt;
       }
       .footer .licenses {
-        margin-top: 3pt;
-        font-size: 7pt;
+        margin-top: 4pt;
+        font-size: 7.2pt;
         color: var(--brand-secondary);
         font-weight: 700;
       }
       .footer .trust { text-align: right; }
       .footer .trust .label {
         color: var(--brand-secondary);
-        font-size: 6.4pt;
+        font-size: 6.6pt;
         letter-spacing: 0.16em;
         text-transform: uppercase;
         font-weight: 800;
-        margin-bottom: 4pt;
+        margin-bottom: 5pt;
       }
       .footer .logos {
         display: flex; justify-content: flex-end;
-        align-items: flex-end; gap: 8pt;
+        align-items: flex-end; gap: 9pt;
       }
       .footer .logos img { display: block; width: auto; }
-      .logo-agc { height: 0.32in; }
-      .logo-bbb { height: 0.34in; }
-      .logo-vob { height: 0.44in; }
+      .logo-agc { height: 0.36in; }
+      .logo-bbb { height: 0.39in; }
+      .logo-vob { height: 0.5in; }
       .footer .chambers {
-        margin-top: 5pt;
+        margin-top: 6pt;
         display: flex; justify-content: flex-end;
-        align-items: center; gap: 9pt;
-        padding-top: 5pt;
+        align-items: center; gap: 10pt;
+        padding-top: 6pt;
         border-top: 0.4pt solid var(--brand-secondary);
       }
-      .footer .chambers img { display: block; width: auto; height: 0.26in; }
+      .footer .chambers img { display: block; width: auto; height: 0.3in; }
 
       .veteran-strip {
         position: absolute;
@@ -403,7 +575,12 @@
         color: var(--brand-secondary); margin: 0 7pt;
       }
       .sheet--cont .cont-header .cont-page { color: var(--brand-secondary); }
-      .sheet--cont .body-area { top: 1.10in; }
+      .sheet--cont .body-area {
+        top: 1.10in;
+        left: 1.15in;
+        right: 1.05in;
+        bottom: 2.10in;
+      }
     </style>
   </head>
   <body>

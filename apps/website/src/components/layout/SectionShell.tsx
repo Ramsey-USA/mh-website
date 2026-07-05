@@ -24,7 +24,7 @@ export function SectionShell({
     <div className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[18rem_minmax(0,1fr)] lg:px-8">
       <aside className="lg:sticky lg:top-24 lg:self-start">
         <div className="rounded-2xl border border-gray-200 bg-white/95 p-5 shadow-lg backdrop-blur dark:border-gray-700 dark:bg-gray-900/95">
-          <p className="text-xs font-bold uppercase tracking-[0.24em] text-brand-primary dark:text-brand-primary-light">
+          <p className="font-heading text-xs font-bold uppercase tracking-[0.24em] text-brand-primary dark:text-brand-primary-light">
             {navTitle}
           </p>
           <nav className="mt-4 space-y-2" aria-label={navLabel}>

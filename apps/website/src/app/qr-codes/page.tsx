@@ -142,14 +142,14 @@ export default async function QrCodesPage() {
                 size="sm"
                 className="text-brand-primary"
               />
-              <span className="text-brand-primary dark:text-brand-secondary text-sm font-semibold tracking-wide uppercase">
+              <span className="font-heading text-brand-primary dark:text-brand-secondary text-sm font-semibold tracking-wide uppercase">
                 QR Asset Library
               </span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-gray-900 dark:text-white mb-4 tracking-tight">
               Browse and Download Every QR Code
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="font-body text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Each code is available as a full-size PNG. Open the image to
               inspect it, or download it directly from the card below.
             </p>
@@ -167,7 +167,7 @@ export default async function QrCodesPage() {
                   Canonical location
                 </h2>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="font-body text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                 Files are stored in{" "}
                 <span className="font-semibold">
                   apps/website/public/images/qr-codes
@@ -187,7 +187,7 @@ export default async function QrCodesPage() {
                   Full-size preview
                 </h2>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="font-body text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                 Click any QR image to open it in a new tab at native resolution.
               </p>
             </Card>
@@ -202,7 +202,7 @@ export default async function QrCodesPage() {
                   Direct downloads
                 </h2>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="font-body text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                 Each card includes a download action for the specific PNG file.
               </p>
             </Card>
@@ -275,7 +275,7 @@ export default async function QrCodesPage() {
                                 {entry.filename}
                               </p>
                             </div>
-                            <span className="inline-flex items-center rounded-full border border-brand-primary/20 bg-brand-primary/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-brand-primary dark:border-brand-secondary/30 dark:bg-brand-secondary/10 dark:text-brand-secondary-light">
+                            <span className="font-heading inline-flex items-center rounded-full border border-brand-primary/20 bg-brand-primary/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-brand-primary dark:border-brand-secondary/30 dark:bg-brand-secondary/10 dark:text-brand-secondary-light">
                               {entry.variant}
                             </span>
                           </div>

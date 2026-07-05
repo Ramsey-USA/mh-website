@@ -146,7 +146,7 @@ export function ConstructionProcessSection({
                       </h3>
                     </div>
 
-                    <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+                    <p className="font-body mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
                       {step.description}
                     </p>
 
@@ -195,7 +195,7 @@ export function ConstructionProcessSection({
               {cta.title}
             </h3>
             <p
-              className={`text-gray-700 dark:text-gray-300 leading-relaxed ${
+              className={`font-body text-gray-700 dark:text-gray-300 leading-relaxed ${
                 compactCta ? "mb-5 text-base" : "mb-8 text-lg"
               }`}
             >

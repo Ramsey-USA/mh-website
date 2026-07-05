@@ -217,17 +217,17 @@ export function CoreValuesSection({
                       <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-sm sm:text-base">
                         {item.tagline}
                       </p>
-                      <p className="mt-2 font-semibold text-gray-900 dark:text-white text-sm sm:text-base leading-relaxed">
+                      <p className="font-body mt-2 font-semibold text-gray-900 dark:text-white text-sm sm:text-base leading-relaxed">
                         {item.valueSlogan}
                       </p>
-                      <p className="mt-1 font-medium text-brand-primary/90 dark:text-brand-primary-light/90 text-xs sm:text-sm leading-relaxed">
+                      <p className="font-body mt-1 font-medium text-brand-primary/90 dark:text-brand-primary-light/90 text-xs sm:text-sm leading-relaxed">
                         {item.supportingSlogan}
                       </p>
                     </div>
 
                     <div className="relative">
                       <p
-                        className={`font-normal text-gray-700 dark:text-gray-300 text-sm sm:text-base lg:text-base leading-relaxed ${
+                        className={`font-body font-normal text-gray-700 dark:text-gray-300 text-sm sm:text-base lg:text-base leading-relaxed ${
                           condensed && !isExpanded
                             ? "max-h-20 overflow-hidden"
                             : ""
@@ -273,7 +273,7 @@ export function CoreValuesSection({
                         />
                       </div>
                       <div className="flex-1">
-                        <p className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
+                        <p className="font-heading text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
                           {t.keyMetric}
                         </p>
                         <p className="font-bold text-sm sm:text-base lg:text-lg text-gray-900 dark:text-gray-100">

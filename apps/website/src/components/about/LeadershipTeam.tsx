@@ -78,7 +78,7 @@ export function LeadershipTeam({
               <MaterialIcon icon="stars" size="xl" className="text-white" />
               <div className="h-1 w-12 bg-white/50 rounded-full"></div>
             </div>
-            <p className="text-white/90 text-lg lg:text-xl leading-relaxed mb-6">
+            <p className="font-body text-white/90 text-lg lg:text-xl leading-relaxed mb-6">
               Military chain of command succeeds because each operator brings{" "}
               <span className="font-bold text-brand-secondary">
                 specialized mastery
@@ -95,7 +95,7 @@ export function LeadershipTeam({
               </span>
               .
             </p>
-            <div className="flex items-center justify-center gap-2 text-brand-secondary font-bold text-sm uppercase tracking-wider">
+            <div className="font-heading flex items-center justify-center gap-2 text-brand-secondary font-bold text-sm uppercase tracking-wider">
               <MaterialIcon icon="stars" size="md" />
               <span>Individual Excellence. Collective Mission.</span>
               <MaterialIcon icon="stars" size="md" />
@@ -132,7 +132,7 @@ export function LeadershipTeam({
                       </h3>
                     </div>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                  <p className="font-body text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                     {specialty.description}
                   </p>
                 </div>

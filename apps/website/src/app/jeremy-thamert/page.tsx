@@ -151,7 +151,7 @@ export default function JeremyThamertPage() {
         <section className="relative overflow-hidden border-b border-brand-primary/15 bg-linear-to-br from-brand-primary/10 via-white to-brand-secondary/10 py-12 sm:py-16 dark:from-brand-primary/20 dark:via-gray-900 dark:to-brand-secondary/20">
           <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:px-8">
             <div>
-              <p className="mb-3 text-sm font-semibold tracking-[0.2em] text-brand-primary uppercase">
+              <p className="font-heading mb-3 text-sm font-semibold tracking-[0.2em] text-brand-primary uppercase">
                 Leadership Profile
               </p>
               <h1 className="text-3xl font-black leading-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white">
@@ -165,16 +165,16 @@ export default function JeremyThamertPage() {
               <p className="mt-2 text-lg font-semibold text-brand-secondary sm:text-xl">
                 Owner & President, MH Construction
               </p>
-              <p className="mt-4 max-w-3xl text-sm font-semibold tracking-wide text-brand-primary uppercase sm:text-base">
+              <p className="font-heading mt-4 max-w-3xl text-sm font-semibold tracking-wide text-brand-primary uppercase sm:text-base">
                 {COMPANY_INFO.slogan.primary}
               </p>
-              <p className="mt-2 max-w-3xl text-sm font-semibold tracking-wide text-brand-secondary uppercase sm:text-base">
+              <p className="font-heading mt-2 max-w-3xl text-sm font-semibold tracking-wide text-brand-secondary uppercase sm:text-base">
                 {jeremyPageSlogan}
               </p>
-              <p className="mt-5 max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg dark:text-gray-200">
+              <p className="font-body mt-5 max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg dark:text-gray-200">
                 {jeremyProfile.bio}
               </p>
-              <p className="mt-5 max-w-3xl text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+              <p className="font-body mt-5 max-w-3xl text-sm leading-relaxed text-gray-600 dark:text-gray-300">
                 Veteran-owned since {COMPANY_INFO.details.veteranOwnedSince} in
                 Pasco, WA, this leadership profile documents Jeremy&apos;s role
                 in maintaining clear communication, disciplined execution, and
@@ -208,7 +208,7 @@ export default function JeremyThamertPage() {
                   priority
                 />
                 <div className="space-y-2 p-5">
-                  <p className="text-sm font-semibold tracking-widest text-brand-primary uppercase">
+                  <p className="font-heading text-sm font-semibold tracking-widest text-brand-primary uppercase">
                     {jeremyProfile.veteranStatus}
                   </p>
                   <p className="text-base font-semibold text-gray-800 dark:text-gray-100">
@@ -234,7 +234,7 @@ export default function JeremyThamertPage() {
         <section className="py-12 sm:py-16">
           <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:grid-cols-2 lg:grid-cols-4 sm:px-6 lg:px-8">
             <div className="rounded-xl border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
-              <p className="text-sm font-semibold tracking-wide text-brand-primary uppercase">
+              <p className="font-heading text-sm font-semibold tracking-wide text-brand-primary uppercase">
                 Years Experience
               </p>
               <p className="mt-2 text-3xl font-black text-gray-900 dark:text-white">
@@ -242,7 +242,7 @@ export default function JeremyThamertPage() {
               </p>
             </div>
             <div className="rounded-xl border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
-              <p className="text-sm font-semibold tracking-wide text-brand-primary uppercase">
+              <p className="font-heading text-sm font-semibold tracking-wide text-brand-primary uppercase">
                 Total Projects
               </p>
               <p className="mt-2 text-3xl font-black text-gray-900 dark:text-white">
@@ -250,7 +250,7 @@ export default function JeremyThamertPage() {
               </p>
             </div>
             <div className="rounded-xl border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
-              <p className="text-sm font-semibold tracking-wide text-brand-primary uppercase">
+              <p className="font-heading text-sm font-semibold tracking-wide text-brand-primary uppercase">
                 Client Satisfaction
               </p>
               <p className="mt-2 text-3xl font-black text-gray-900 dark:text-white">
@@ -258,7 +258,7 @@ export default function JeremyThamertPage() {
               </p>
             </div>
             <div className="rounded-xl border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
-              <p className="text-sm font-semibold tracking-wide text-brand-primary uppercase">
+              <p className="font-heading text-sm font-semibold tracking-wide text-brand-primary uppercase">
                 Safety Record
               </p>
               <p className="mt-2 text-3xl font-black text-gray-900 dark:text-white">
@@ -275,7 +275,7 @@ export default function JeremyThamertPage() {
                 <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
                   Leadership Focus
                 </h2>
-                <p className="mt-4 text-base leading-relaxed text-gray-700 dark:text-gray-200">
+                <p className="font-body mt-4 text-base leading-relaxed text-gray-700 dark:text-gray-200">
                   Jeremy Thamert leads MH Construction with a relationship-first
                   model that keeps project teams aligned from kickoff through
                   closeout. His role is to maintain clear owner communication,

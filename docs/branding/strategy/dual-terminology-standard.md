@@ -40,6 +40,19 @@ Do not use slogan-heavy aliases as standalone page labels in SEO-facing surfaces
 
 For cross-page consistency, all shared labels must resolve through the terminology dictionary in `apps/website/src/lib/branding/page-names.ts`.
 
+## Hero Slogan Alignment (Dual-Terminology)
+
+Hero slogans are content signals, not navigation labels, and must remain congruent with dual-terminology intent.
+
+1. Every page-level hero must use one unique page-specific slogan that portrays that page's purpose.
+2. Hero slogans should naturally echo the page's SEO name or MH brand name when it improves clarity.
+3. Do not reuse the same page-specific hero slogan across different hero surfaces.
+4. Keep hero slogans factual, concise, and relationship-first; avoid hype or gimmick phrasing.
+5. Keep SEO-facing labels plain-language even when hero slogans use MH brand voice.
+
+Canonical runtime source for hero slogan uniqueness: `apps/website/src/content/hero-page-slogans.md`.
+Strategy mirror for governance review: `docs/branding/strategy/page-specific-slogans.md`.
+
 ## Canonical Label Set
 
 ### Services

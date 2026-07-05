@@ -513,7 +513,7 @@ function buildFooter(brand, images) {
         },
         children: [
           new TextRun({
-            text: "  Veteran-Owned  ★  Mission-First  ★  Built on Honor, Integrity & Trust  ",
+            text: "  Veteran-Owned  ★  Safety-Driven  ★  Built on Quality, Backed by Trust  ",
             font: FONT_BODY,
             size: 16,
             bold: true,

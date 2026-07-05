@@ -120,7 +120,7 @@ export function PartnershipPhilosophy() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed font-medium italic">
+                <p className="font-body text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed font-medium italic">
                   "We deliver high-quality construction rooted in integrity,
                   transparent communication, and lasting partnerships."
                 </p>
@@ -137,7 +137,7 @@ export function PartnershipPhilosophy() {
               barVia="via-bronze-700"
               barTo="to-bronze-800"
             >
-              <p className="text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed font-medium italic">
+              <p className="font-body text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed font-medium italic">
                 "To be the Pacific Northwest's most trusted Veteran-Owned
                 construction partner - renowned for proven craftsmanship and
                 accountable integrity."
@@ -283,7 +283,7 @@ export function PartnershipPhilosophy() {
               icon="format_quote"
               className="mb-4 text-brand-primary text-4xl"
             />
-            <p className="mb-4 text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl italic leading-relaxed">
+            <p className="font-body mb-4 text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl italic leading-relaxed">
               "When you choose MH Construction, you're not hiring a contractor -
               you're gaining a partner who believes in face-to-face
               conversations, firm handshakes, and keeping promises. We bring

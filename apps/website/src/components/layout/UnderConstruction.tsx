@@ -52,7 +52,7 @@ export function UnderConstruction({
               </span>
             </h1>
 
-            <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-white/90 leading-relaxed px-4">
+            <p className="font-body max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-white/90 leading-relaxed px-4">
               {description ||
                 "We're refining this page to meet our exacting standards of accuracy and excellence."}
             </p>

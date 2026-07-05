@@ -427,6 +427,16 @@ Large display headers should not repeat at full intensity in consecutive section
 2. Use section-scale headers for supporting sections that follow immediately after another headline-heavy block.
 3. Keep subtitle-to-title hierarchy consistent across the page.
 
+### Non-Hero Section Uniformity Contract (Canonical)
+
+To preserve full-site congruency, non-hero sections must use a shared visual language.
+
+1. Non-hero section headers must follow canonical heading patterns from this document.
+2. Non-hero body copy must use approved body typography (DIN 2014 / `font-body` / `font-sans`) and approved size tiers.
+3. Non-hero icon usage must use MaterialIcon and consistent section-role sizing and container treatment.
+4. Non-hero section shells must preserve approved spacing rhythm, container width, and background system.
+5. Visual divergence between adjacent non-hero sections requires documented intent or approved exception scope.
+
 ### Deferred/Loading Visual Parity
 
 Deferred section placeholders must match the final rendered section shell.
@@ -550,6 +560,16 @@ All page sections MUST follow this standardized background:
 - ✅ `More` uses the same padding/typography/border attributes as the other 5 nav cells
 - ✅ Modern components: CTAs, badges, and stats ARE allowed when appropriate
 - ✅ Responsive padding: Top `pt-16` to `lg:pt-40`, Bottom `pb-12` to `lg:pb-28`
+
+### Hero Similarity Contract (Homepage Baseline)
+
+Hero sections share their own visual contract and must align to homepage hero characteristics.
+
+1. Hero layout baseline matches homepage structure: full-height shell, centered content stack, and bottom PageNavigation placement.
+2. Hero typography baseline matches homepage hierarchy: strong H1 emphasis, concise subtitle, and supporting body copy.
+3. Hero navigation baseline matches homepage behavior: six-cell row and `More` overlay interaction pattern where required.
+4. Hero color baseline preserves approved dark gradient atmosphere and brand-emphasis title treatment.
+5. Any route-specific hero divergence must be documented as intent or approved exception before merge.
 
 ```tsx
 <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">

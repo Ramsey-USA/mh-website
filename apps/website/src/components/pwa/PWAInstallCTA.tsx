@@ -113,7 +113,7 @@ export function PWAInstallCTA({
             Install Our App
           </h3>
 
-          <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
+          <p className="font-body mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
             Add MH Construction to your home screen for faster access and
             offline support.
           </p>
@@ -164,7 +164,7 @@ export function PWAInstallCTA({
       >
         {/* Optional badge */}
         <div className="bg-brand-primary -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2 shadow-md">
-          <span className="font-bold text-sm text-white uppercase tracking-wide">
+          <span className="font-heading font-bold text-sm text-white uppercase tracking-wide">
             New
           </span>
         </div>
@@ -183,7 +183,7 @@ export function PWAInstallCTA({
           Install Our App
         </h3>
 
-        <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
+        <p className="font-body mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
           Quick access with offline support. Add MH Construction to your home
           screen for faster loading and native app experience.
         </p>
@@ -268,7 +268,7 @@ export function PWAInstallCTA({
                   >
                     Install the app to access the Staff Hub.
                   </h2>
-                  <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/85 sm:text-base">
+                  <p className="font-body mt-3 max-w-3xl text-sm leading-relaxed text-white/85 sm:text-base">
                     The Staff Hub is the MH Construction staff portal — safety
                     manual, field forms, toolbox talks, incident reporting, and
                     the employee handbook. Free to install. Access requires your
@@ -301,7 +301,7 @@ export function PWAInstallCTA({
                   />
                   Install the App
                 </Button>
-                <p className="text-center text-xs leading-relaxed text-white/70 sm:text-left">
+                <p className="font-body text-center text-xs leading-relaxed text-white/70 sm:text-left">
                   Already installed?{" "}
                   <a
                     href="/hub"

@@ -48,7 +48,7 @@ export function VeteranBenefitsBanner() {
                     <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
                       Veteran-Owned Leadership
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                    <p className="font-body text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                       Veteran-owned operations with clear planning and
                       accountable project follow-through
                     </p>
@@ -82,7 +82,7 @@ export function VeteranBenefitsBanner() {
                     <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
                       Certified & Trusted
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                    <p className="font-body text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                       Licensed, bonded, and committed to quality construction
                     </p>
                   </div>

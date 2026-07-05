@@ -61,7 +61,7 @@ export function PartnershipTypesSection() {
             </span>
           </h2>
 
-          <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+          <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
             {t("services.partnership.sectionDescription")}
           </p>
         </div>
@@ -103,7 +103,7 @@ export function PartnershipTypesSection() {
                   </div>
                 </div>
 
-                <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+                <p className="font-body text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
                   {t("services.partnership.clientCard.description")}
                 </p>
 
@@ -200,7 +200,7 @@ export function PartnershipTypesSection() {
                   </div>
                 </div>
 
-                <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+                <p className="font-body text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
                   {t("services.partnership.tradeCard.description")}
                 </p>
 
@@ -281,7 +281,7 @@ export function PartnershipTypesSection() {
                 <p className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white leading-tight">
                   {t("services.partnership.bottomNote.title")}
                 </p>
-                <p className="mt-2 text-base sm:text-lg text-gray-800 dark:text-gray-200 leading-relaxed">
+                <p className="font-body mt-2 text-base sm:text-lg text-gray-800 dark:text-gray-200 leading-relaxed">
                   {t("services.partnership.bottomNote.description")}
                 </p>
               </div>

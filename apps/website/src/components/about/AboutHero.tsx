@@ -1,5 +1,6 @@
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 export function AboutHero({
   title,
@@ -26,7 +27,7 @@ export function AboutHero({
         <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
             <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-              {title}
+              {title} -&gt; About Us
             </span>
             <span className="block text-brand-secondary">{subtitle}</span>
             <span className="block text-brand-primary">{description}</span>
@@ -34,7 +35,7 @@ export function AboutHero({
               Built on Quality, Backed by Trust.
             </span>
             <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
-              Professional on the line. Thorough in the details.
+              {getHeroPageSlogan("about").slogan}
             </span>
           </h1>
         </div>

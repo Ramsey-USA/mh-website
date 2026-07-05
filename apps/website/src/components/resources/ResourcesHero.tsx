@@ -1,5 +1,6 @@
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 export function ResourcesHero() {
   return (
@@ -29,7 +30,7 @@ export function ResourcesHero() {
               Built on Quality, Backed by Trust.
             </span>
             <span className="block text-brand-secondary/80 text-xs xs:text-sm sm:text-base mt-1">
-              No gaps. No guesswork. Just accountable follow-through.
+              {getHeroPageSlogan("resources").slogan}
             </span>
           </h1>
         </div>

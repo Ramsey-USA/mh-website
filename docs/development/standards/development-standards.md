@@ -83,6 +83,87 @@ Exception handling:
 1. Document scope, reason, and removal/refactor plan for each temporary exception.
 2. Keep exceptions file-scoped and time-bounded.
 
+## Website-Wide Visual Guardrails (All Surfaces)
+
+Visual congruency is required for every user-visible surface, not only hero or body sections.
+
+### Required Surface Coverage
+
+For implementation and review, always include applicable checks for:
+
+1. **App shell**: Header, navigation overlay, leadership ribbon, footer trust/accreditation surfaces.
+2. **Primary routes**: Marketing, services, projects, contact, careers, resources, and trust-focused pages.
+3. **Dynamic templates**: Slug/city/category/detail route templates must preserve heading hierarchy, spacing cadence, CTA hierarchy, and trust blocks.
+4. **Route states**: Loading, error, global error, not-found, and offline states must follow the same typography, color, and spacing system.
+5. **Form lifecycle states**: Empty, validation error, pending submit, success/failure states must keep tokenized visual behavior and accessibility affordances.
+6. **Legal/compliance surfaces**: Privacy, terms, accessibility, and public-sector compliance pages must preserve plain-language naming and trust continuity.
+7. **Print/download surfaces**: Print-oriented pages and downloadable wrappers must preserve brand identity with readability-first spacing and contrast.
+
+### Required Visual-State Parity
+
+For each changed component or section family, verify:
+
+1. Default, hover, focus-visible, active, and disabled states are token-driven and consistent.
+2. Loading/skeleton states match final shell geometry and spacing rhythm.
+3. Error and empty states use consistent heading/CTA hierarchy and trust-preserving language.
+4. Mobile and desktop variants preserve section cadence and CTA emphasis.
+5. Theme behavior (light/dark/pre-hydration) does not cause trust-surface or contrast regressions.
+
+### Non-Hero Section Similarity Contract
+
+All body sections (everything except hero sections) must look and feel like part of one system.
+
+Required contract:
+
+1. Header consistency: non-hero sections use the canonical section-header treatment and consistent heading cadence.
+2. Body font consistency: non-hero body content uses approved body font stack and size tiers.
+3. Icon consistency: non-hero icons use MaterialIcon and maintain consistent size/container style by section role.
+4. Shell consistency: non-hero section wrappers preserve approved spacing tier, background system, and container width.
+5. Drift control: any intentional visual divergence between non-hero neighboring sections must be documented as scope intent or exception.
+
+### Hero Section Similarity Contract
+
+Hero sections are evaluated as a separate visual system and should align with homepage hero characteristics.
+
+1. Hero shell consistency: full-height layout, centered content stack, and bottom PageNavigation placement pattern.
+2. Hero typography consistency: H1, subtitle, and supporting body copy hierarchy follow homepage baseline rhythm.
+3. Hero interaction consistency: page-navigation row behavior and `More` overlay behavior remain aligned where this pattern is used.
+4. Hero visual consistency: approved hero gradient atmosphere and title emphasis treatment are preserved.
+5. Drift control: deviations from homepage hero baseline require documented route intent or approved exception.
+
+### Required Review Evidence
+
+Include the following in PR notes for branding-sensitive changes:
+
+1. Before/after screenshots for mobile and desktop.
+2. Keyboard-focus validation evidence for CTA and form clusters.
+3. Confirmation for affected loading/error/offline/not-found state congruency.
+4. PASS/FAIL output from `docs/branding/governance/brand-congruency-master-checklist.md`.
+5. PASS/FAIL output from `docs/development/standards/branding-congruency-checklist.md` when implementation changes are included.
+
+### Comprehensive Sweep Execution (Full-Site Audits)
+
+When requested to run a full-site branding sweep, do not sample only core pages.
+
+Required execution pattern:
+
+1. Build a full route/state inventory from `apps/website/src/app`.
+2. Build a section inventory from shared section/shell components and route files.
+3. Build a button/action inventory for every actionable control class.
+4. Build a background treatment inventory for section/shell layers.
+5. Record gaps and remediation targets with file paths.
+
+Minimum command set:
+
+1. `rg --files apps/website/src/app | rg '(page|layout|loading|error|global-error|not-found)\\.(tsx|ts|jsx|js)$'`
+2. `rg -n '<Button|<a |button\\s|type="submit"' apps/website/src --glob '!**/*.test.*'`
+3. `rg -n 'SectionShell|SectionContainer|BrandedContentSection|NextStepsSection|HeroSection' apps/website/src --glob '!**/*.test.*'`
+4. `rg -n 'DiagonalStripePattern|bg-linear|bg-gradient|radial-gradient|from-brand|to-brand' apps/website/src --glob '!**/*.test.*'`
+
+Exception note:
+
+1. Third-party platform colors and campaign-specific palettes are allowed only in documented scoped surfaces and must be treated as exceptions, not baseline style patterns.
+
 ---
 
 ## 🎨 Icon Usage Standards - Material Icons Only

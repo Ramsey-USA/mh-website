@@ -37,6 +37,20 @@
   --color-note-border: #386851;
   --color-note-text: #1e392c;
   --color-note-icon: #386851;
+  --icon-material-info: "info";
+  --icon-material-danger-outline: "error_outline";
+  --icon-material-warning: "warning";
+  --icon-material-caution: "gpp_maybe";
+  --icon-material-checkbox-empty: "check_box_outline_blank";
+  --icon-material-checklist: "fact_check";
+  --icon-material-form-field: "edit_note";
+  --icon-material-narrative: "description";
+  --icon-material-table: "table_chart";
+  --icon-material-signature: "draw";
+  --icon-material-route: "route";
+  --icon-material-access: "verified_user";
+  --icon-material-source: "menu_book";
+  --icon-material-local-dev: "dns";
   --color-stopwork: #b3261e;
   --color-stopwork-dark: #7a1a14;
   --color-stopwork-bg: #fff5f4;
@@ -52,10 +66,12 @@
   --surface-card-accent: #bd9264;
   --surface-card-radius: 4pt;
   --font-body:
-    "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+    "DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   --font-heading:
-    "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Helvetica Neue", Arial,
-    "Liberation Sans", sans-serif;
+    "mendl-sans-dusk", "Mendl Sans Dusk", "DIN 2014", ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
   --font-mono: "Courier New", Courier, monospace;
   --type-print-running-head: 8pt;
   --type-print-footer-small: 6.5pt;

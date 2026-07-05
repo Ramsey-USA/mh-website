@@ -62,7 +62,7 @@ export function TestimonialsCarousel({
           <h3 className="mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl text-center">
             Coming Soon
           </h3>
-          <p className="max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
+          <p className="font-body max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
             Client testimonials will be available soon. We're committed to
             sharing only authentic feedback from our valued partners.
           </p>

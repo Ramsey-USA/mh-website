@@ -192,7 +192,7 @@ export default function SafetyIncidentReportPage() {
           <h1 className="text-2xl font-black text-slate-900 dark:text-white">
             Team Access Required
           </h1>
-          <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+          <p className="font-body mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
             Incident reporting is available to authorized team members in the
             installed app. Sign in with your team credentials to continue.
           </p>
@@ -223,7 +223,7 @@ export default function SafetyIncidentReportPage() {
 
       <section className="bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-5xl text-white">
-          <p className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
+          <p className="font-heading inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
             <MaterialIcon
               icon="report"
               size="sm"

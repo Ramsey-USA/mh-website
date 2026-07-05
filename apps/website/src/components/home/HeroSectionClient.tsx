@@ -4,6 +4,16 @@ import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { useEffect, useRef, useState } from "react";
 
+const HERO_VIDEO_DEFAULT_INITIAL_DELAY_MS = 3200;
+const HERO_VIDEO_JULY_INITIAL_DELAY_MS = 7000;
+
+function getInitialHeroVideoDelayMs(now: Date = new Date()): number {
+  const isJuly = now.getMonth() === 6;
+  return isJuly
+    ? HERO_VIDEO_JULY_INITIAL_DELAY_MS
+    : HERO_VIDEO_DEFAULT_INITIAL_DELAY_MS;
+}
+
 interface HeroSectionCopy {
   baseLabel: string;
   founded: string;
@@ -14,6 +24,7 @@ interface HeroSectionCopy {
 
 interface HeroSectionClientProps {
   copy: HeroSectionCopy;
+  heroSlogan?: string;
   useVideoHero: boolean;
   hasWebm: boolean;
   hasMp4: boolean;
@@ -25,6 +36,7 @@ interface HeroSectionClientProps {
 
 export function HeroSectionClient({
   copy,
+  heroSlogan,
   useVideoHero,
   hasWebm,
   hasMp4,
@@ -34,6 +46,9 @@ export function HeroSectionClient({
   posterSrc,
 }: Readonly<HeroSectionClientProps>) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const hasStartedPlaybackRef = useRef(false);
+  const delayedStartTimerRef = useRef<number | null>(null);
+  const initialVideoDelayMsRef = useRef<number>(getInitialHeroVideoDelayMs());
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isVideoReady, setIsVideoReady] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
@@ -53,9 +68,19 @@ export function HeroSectionClient({
       setIsVideoPlaying(!video.paused && !video.ended);
     };
 
-    const attemptInitialPlayback = async () => {
+    const clearDelayedStartTimer = () => {
+      if (delayedStartTimerRef.current === null) {
+        return;
+      }
+
+      globalThis.clearTimeout(delayedStartTimerRef.current);
+      delayedStartTimerRef.current = null;
+    };
+
+    const attemptPlayback = async () => {
       try {
         await video.play();
+        hasStartedPlaybackRef.current = true;
       } catch {
         // Autoplay can be blocked by client/browser policy; keep poster/frame visible.
       } finally {
@@ -63,12 +88,62 @@ export function HeroSectionClient({
       }
     };
 
-    void attemptInitialPlayback();
+    const scheduleDelayedInitialPlayback = () => {
+      if (hasStartedPlaybackRef.current) {
+        void attemptPlayback();
+        return;
+      }
+
+      if (delayedStartTimerRef.current !== null) {
+        return;
+      }
+
+      delayedStartTimerRef.current = globalThis.setTimeout(() => {
+        delayedStartTimerRef.current = null;
+        if (!document.hidden) {
+          void attemptPlayback();
+        }
+      }, initialVideoDelayMsRef.current);
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        clearDelayedStartTimer();
+        video.pause();
+        syncPlaybackState();
+        return;
+      }
+
+      scheduleDelayedInitialPlayback();
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (!entry) {
+          return;
+        }
+
+        if (entry.isIntersecting) {
+          scheduleDelayedInitialPlayback();
+        } else {
+          clearDelayedStartTimer();
+          video.pause();
+          syncPlaybackState();
+        }
+      },
+      { threshold: 0.35 },
+    );
+
+    scheduleDelayedInitialPlayback();
     syncPlaybackState();
-    const timer = globalThis.setInterval(syncPlaybackState, 250);
+    observer.observe(video);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
-      globalThis.clearInterval(timer);
+      clearDelayedStartTimer();
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, [useVideoHero]);
 
@@ -79,11 +154,19 @@ export function HeroSectionClient({
     }
 
     if (video.paused || video.ended) {
+      if (delayedStartTimerRef.current !== null) {
+        globalThis.clearTimeout(delayedStartTimerRef.current);
+        delayedStartTimerRef.current = null;
+      }
+
       video.muted = false;
       setIsMuted(false);
       void video
         .play()
-        .then(() => setIsVideoPlaying(true))
+        .then(() => {
+          hasStartedPlaybackRef.current = true;
+          setIsVideoPlaying(true);
+        })
         .catch(() => setIsVideoPlaying(false));
       return;
     }
@@ -103,7 +186,10 @@ export function HeroSectionClient({
     setIsMuted(false);
     void video
       .play()
-      .then(() => setIsVideoPlaying(true))
+      .then(() => {
+        hasStartedPlaybackRef.current = true;
+        setIsVideoPlaying(true);
+      })
       .catch(() => setIsVideoPlaying(false));
   };
 
@@ -147,12 +233,13 @@ export function HeroSectionClient({
               autoPlay
               muted={isMuted}
               playsInline
-              preload="auto"
+              preload="metadata"
               poster={hasPoster ? posterSrc : undefined}
               aria-label="MH Construction homepage hero video highlighting project delivery leadership by Jeremy Thamert"
               onPlay={() => setIsVideoPlaying(true)}
               onPlaying={() => setIsVideoPlaying(true)}
               onCanPlay={() => setIsVideoReady(true)}
+              onWaiting={() => setIsVideoPlaying(false)}
               onLoadedData={(event) => {
                 setIsVideoReady(true);
                 setIsVideoPlaying(!event.currentTarget.paused);
@@ -188,13 +275,14 @@ export function HeroSectionClient({
         className={`hero-safe-top hero-safe-bottom relative z-10 mx-3 sm:ml-auto sm:mr-5 lg:mr-7 xl:mr-10 mb-4 pointer-events-none transition-opacity duration-300 sm:w-[min(88vw,44rem)] sm:max-w-176 ${isVideoPlaying ? "opacity-0" : "opacity-100"}`}
       >
         <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
-          <h1 className="text-right text-[clamp(1.35rem,3.5vw,2.75rem)] font-black text-white leading-[1.12] tracking-tight text-balance">
+          <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
             <span className="mb-1 block text-brand-secondary text-[clamp(0.8rem,1.8vw,1.4rem)] leading-[1.2]">
-              {copy.baseLabel}
+              {copy.baseLabel} -&gt; Command Center
             </span>
             <span className="mb-1 block text-brand-secondary/90 text-[clamp(0.75rem,1.5vw,1.15rem)] leading-[1.25]">
               {copy.tagline}
             </span>
+            {heroSlogan ? null : null}
             <span className="block text-white">{copy.mission}</span>
             <span className="mt-1.5 block text-brand-secondary/75 text-[clamp(0.65rem,1.1vw,0.9rem)] leading-[1.4]">
               {copy.founded} | {copy.serving}

@@ -21,6 +21,7 @@ const {
 const ROOT = process.cwd();
 const APP_DIR = path.join(ROOT, "src", "app");
 const SRC_DIR = path.join(ROOT, "src");
+const COMPONENTS_DIR = path.join(SRC_DIR, "components");
 
 const WA_VOB_BADGE_FILE = path.join(
   SRC_DIR,
@@ -81,7 +82,7 @@ const SERVICES_CONSOLIDATION_CONTRACT = {
   pageRoute: {
     relPath: "src/app/services/page.tsx",
     requiredSnippets: [
-      "<ServicesHero />",
+      "<ServicesHero",
       "<CoreServicesSection",
       "<ServiceAreasSection",
     ],
@@ -233,6 +234,59 @@ function checkTypographyContracts(errors) {
 
   if (!globalsSource.includes("--font-body")) {
     errors.push(`Missing --font-body token in ${rel(GLOBALS_CSS_FILE)}.`);
+  }
+}
+
+function checkTypographyRoleContracts(errors) {
+  const candidateFiles = [
+    ...walkFiles(
+      APP_DIR,
+      (filePath) =>
+        /\.tsx$/.test(filePath) &&
+        !filePath.includes("__tests__") &&
+        !filePath.includes("/api/"),
+    ),
+    ...walkFiles(
+      COMPONENTS_DIR,
+      (filePath) => /\.tsx$/.test(filePath) && !filePath.includes("__tests__"),
+    ),
+  ];
+
+  const classNamePattern =
+    /className\s*=\s*(?:"([^"]*)"|'([^']*)'|\{`([^`]*)`\})/g;
+  const paragraphPattern =
+    /<p\b[^>]*className\s*=\s*(?:"([^"]*)"|'([^']*)'|\{`([^`]*)`\})/g;
+
+  for (const filePath of candidateFiles) {
+    const source = fs.readFileSync(filePath, "utf8");
+
+    for (const match of source.matchAll(classNamePattern)) {
+      const classValue = match[1] || match[2] || match[3] || "";
+      const hasUppercaseTracking =
+        /\buppercase\b/.test(classValue) &&
+        /\btracking-(?:wide|wider|widest)\b/.test(classValue);
+
+      if (hasUppercaseTracking && !/\bfont-heading\b/.test(classValue)) {
+        errors.push(
+          `Typography role contract: add font-heading to uppercase tracking label in ${rel(filePath)}.`,
+        );
+        break;
+      }
+    }
+
+    for (const match of source.matchAll(paragraphPattern)) {
+      const classValue = match[1] || match[2] || match[3] || "";
+      const hasLeadingRelaxed = /\bleading-relaxed\b/.test(classValue);
+      const hasExplicitRole =
+        /\bfont-body\b/.test(classValue) || /\bfont-heading\b/.test(classValue);
+
+      if (hasLeadingRelaxed && !hasExplicitRole) {
+        errors.push(
+          `Typography role contract: add font-body (or explicit role) to leading-relaxed paragraph in ${rel(filePath)}.`,
+        );
+        break;
+      }
+    }
   }
 }
 
@@ -454,6 +508,7 @@ function main() {
   checkTrustSurfaceContracts(errors);
   checkWaVobVisualExceptionScope(errors);
   checkTypographyContracts(errors);
+  checkTypographyRoleContracts(errors);
   checkCanonicalTerminologyAnchors(errors);
   checkCanonicalDomainUsage(errors);
   checkPrimarySloganIntegrity(errors);

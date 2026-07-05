@@ -49,7 +49,7 @@ export function GovernmentProjectsSection({
                 </h3>
               </div>
 
-              <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="font-body text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                 We support government and grant-funded projects with disciplined
                 planning, documentation control, and compliance-focused
                 delivery. For complete capability details, procurement pathways,

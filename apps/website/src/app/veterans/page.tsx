@@ -14,6 +14,7 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { getTranslations } from "next-intl/server";
 
@@ -154,7 +155,7 @@ export default async function VeteransPage() {
             <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
               <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
                 <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                  {t("veteransPage.hero.kicker")}
+                  {t("veteransPage.hero.kicker")} -&gt; Veterans
                 </span>
                 <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
                   {t("veteransPage.hero.titleLine1")}
@@ -172,7 +173,7 @@ export default async function VeteransPage() {
                   {COMPANY_INFO.slogan.primary}
                 </span>
                 <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
-                  {COMPANY_INFO.slogan.tertiary}
+                  {getHeroPageSlogan("veterans").slogan}
                 </span>
               </h1>
             </div>
@@ -250,7 +251,7 @@ export default async function VeteransPage() {
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   {t("veteransPage.foundation.description.prefix")}{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                     {t("veteransPage.foundation.description.highlight1")}
@@ -311,7 +312,7 @@ export default async function VeteransPage() {
                             >
                               {value.stat}
                             </div>
-                            <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
+                            <div className="font-heading text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
                               {t(
                                 `veteransPage.foundation.values.${value.key}.statLabel`,
                               )}
@@ -340,7 +341,7 @@ export default async function VeteransPage() {
                         </p>
 
                         {/* Description */}
-                        <p className="mb-6 text-gray-700 dark:text-gray-200 text-sm sm:text-base leading-relaxed flex-1">
+                        <p className="font-body mb-6 text-gray-700 dark:text-gray-200 text-sm sm:text-base leading-relaxed flex-1">
                           {t(
                             `veteransPage.foundation.values.${value.key}.description`,
                           )}
@@ -412,7 +413,7 @@ export default async function VeteransPage() {
                         <p className="text-brand-primary font-semibold text-lg mb-6">
                           {t("veteransPage.leadership.jeremy.role")}
                         </p>
-                        <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                        <p className="font-body text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                           {t("veteransPage.leadership.jeremy.bio")}
                         </p>
                       </div>
@@ -451,7 +452,7 @@ export default async function VeteransPage() {
                         <p className="text-brand-secondary-text font-semibold text-lg mb-6 dark:text-brand-secondary-light">
                           {t("veteransPage.leadership.matt.role")}
                         </p>
-                        <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                        <p className="font-body text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                           {t("veteransPage.leadership.matt.bio")}
                         </p>
                       </div>
@@ -497,7 +498,7 @@ export default async function VeteransPage() {
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                     {t("veteransPage.combat.description.highlight1")}
                   </span>
@@ -549,7 +550,7 @@ export default async function VeteransPage() {
                         <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4">
                           {t(`veteransPage.combat.cards.${card.key}.title`)}
                         </h3>
-                        <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed grow">
+                        <p className="font-body text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed grow">
                           {t(
                             `veteransPage.combat.cards.${card.key}.description`,
                           )}
@@ -570,7 +571,7 @@ export default async function VeteransPage() {
                   <h3 className="text-gray-900 dark:text-white text-2xl sm:text-3xl font-bold mb-4">
                     {t("veteransPage.combat.timeline.title")}
                   </h3>
-                  <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto">
+                  <p className="font-body text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto">
                     {t("veteransPage.combat.timeline.description")}
                   </p>
                 </div>
@@ -605,7 +606,7 @@ export default async function VeteransPage() {
                                     />
                                   </div>
                                 </div>
-                                <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                                <p className="font-body text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                                   {t(
                                     `veteransPage.combat.timeline.steps.${step.key}.description`,
                                     { phone: COMPANY_INFO.phone.display },
@@ -655,7 +656,7 @@ export default async function VeteransPage() {
                                     </h4>
                                   </div>
                                 </div>
-                                <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                                <p className="font-body text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                                   {t(
                                     `veteransPage.combat.timeline.steps.${step.key}.description`,
                                     { phone: COMPANY_INFO.phone.display },
@@ -708,7 +709,7 @@ export default async function VeteransPage() {
                                 )}
                               </h4>
                             </div>
-                            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            <p className="font-body text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                               {t(
                                 `veteransPage.combat.timeline.steps.${step.key}.description`,
                                 { phone: COMPANY_INFO.phone.display },
@@ -765,7 +766,7 @@ export default async function VeteransPage() {
                     })}
                   </span>
                 </Link>
-                <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                <p className="font-body mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                   {t("veteransPage.combat.cta.note")}
                 </p>
               </div>
@@ -807,7 +808,7 @@ export default async function VeteransPage() {
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   {t("veteransPage.support.description.prefix")}{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                     {t("veteransPage.support.description.highlight1")}
@@ -844,7 +845,7 @@ export default async function VeteransPage() {
                     <div className="text-gray-900 dark:text-white font-bold text-base sm:text-lg mb-3">
                       {t(`veteransPage.support.stats.${stat.key}.label`)}
                     </div>
-                    <div className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mt-auto">
+                    <div className="font-body text-gray-600 dark:text-gray-300 text-sm leading-relaxed mt-auto">
                       {t(`veteransPage.support.stats.${stat.key}.description`)}
                     </div>
                   </Card>
@@ -879,7 +880,7 @@ export default async function VeteransPage() {
                       <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4 text-center">
                         {t("veteransPage.support.programs.hiring.title")}
                       </h3>
-                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed grow">
+                      <p className="font-body text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed grow">
                         {t("veteransPage.support.programs.hiring.description")}
                       </p>
                       <div className="text-center">
@@ -928,7 +929,7 @@ export default async function VeteransPage() {
                       <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4 text-center">
                         {t("veteransPage.support.programs.allies.title")}
                       </h3>
-                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed grow">
+                      <p className="font-body text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed grow">
                         {t("veteransPage.support.programs.allies.description")}
                       </p>
                       <div className="text-center">
@@ -977,7 +978,7 @@ export default async function VeteransPage() {
                       <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4 text-center">
                         {t("veteransPage.support.programs.training.title")}
                       </h3>
-                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed grow">
+                      <p className="font-body text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed grow">
                         {t(
                           "veteransPage.support.programs.training.description",
                         )}
@@ -1052,7 +1053,7 @@ export default async function VeteransPage() {
                 </h2>
 
                 {/* Description */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   {t("veteransPage.partnerships.description.prefix")}{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                     {t("veteransPage.partnerships.description.highlight1")}
@@ -1123,7 +1124,7 @@ export default async function VeteransPage() {
                               </p>
                             </div>
 
-                            <p className="font-normal text-gray-700 dark:text-gray-300 text-sm sm:text-base lg:text-base leading-relaxed">
+                            <p className="font-body font-normal text-gray-700 dark:text-gray-300 text-sm sm:text-base lg:text-base leading-relaxed">
                               {t(
                                 `veteransPage.partnerships.criteria.${item.key}.description`,
                               )}
@@ -1166,7 +1167,7 @@ export default async function VeteransPage() {
                       <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-2">
                         {t("veteransPage.partnerships.cta.title")}
                       </h4>
-                      <p className="text-gray-700 dark:text-gray-300 mb-4">
+                      <p className="font-body text-gray-700 dark:text-gray-300 mb-4">
                         {t("veteransPage.partnerships.cta.description")}
                       </p>
                       <Link
@@ -1187,7 +1188,7 @@ export default async function VeteransPage() {
           {/* Accreditations & Certifications */}
           <section className="relative py-12 sm:py-16">
             <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
-              <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
+              <p className="font-heading text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
                 {t("veteransPage.accreditations.kicker")}
               </p>
               <AccreditationsLogoRow />
@@ -1200,7 +1201,7 @@ export default async function VeteransPage() {
                 <h3 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white tracking-tight">
                   {t("veteransPage.bridgePaths.title")}
                 </h3>
-                <p className="mt-3 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                <p className="font-body mt-3 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                   {t("veteransPage.bridgePaths.description")}
                 </p>
               </div>
@@ -1237,7 +1238,7 @@ export default async function VeteransPage() {
                     <h4 className="mt-3 font-bold text-gray-900 dark:text-white text-lg">
                       {t(`veteransPage.bridgePaths.items.${pathway.key}.title`)}
                     </h4>
-                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="font-body mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                       {t(
                         `veteransPage.bridgePaths.items.${pathway.key}.description`,
                       )}

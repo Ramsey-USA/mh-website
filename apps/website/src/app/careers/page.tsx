@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import CareersPageClient from "./CareersPageClient";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 function CareersPageFallback() {
   return (
@@ -19,7 +20,7 @@ function CareersPageFallback() {
 export default function CareersPage() {
   return (
     <Suspense fallback={<CareersPageFallback />}>
-      <CareersPageClient />
+      <CareersPageClient heroSlogan={getHeroPageSlogan("careers").slogan} />
     </Suspense>
   );
 }

@@ -379,7 +379,7 @@ export function PageNavigation({
               <div className="h-1 rounded-full bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary" />
               <div className="mb-1 flex items-center justify-between border-b border-brand-secondary/30 px-2 py-2 dark:border-brand-secondary/35">
                 <div>
-                  <p className="text-[11px] font-semibold tracking-[0.12em] text-brand-secondary-text uppercase dark:text-brand-secondary-light">
+                  <p className="font-heading text-[11px] font-semibold tracking-[0.12em] text-brand-secondary-text uppercase dark:text-brand-secondary-light">
                     {overlayEyebrow} - {morePagesLabel}
                   </p>
                   <h3 className="font-heading text-sm font-bold tracking-wide text-brand-primary dark:text-brand-secondary-light sm:text-base">

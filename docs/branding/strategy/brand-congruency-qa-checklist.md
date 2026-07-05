@@ -57,6 +57,7 @@ npm run test -- --runInBand scripts/validation/__tests__/check-seo-route-indexin
 ## Release Checklist
 
 - Confirm each page-level hero has a primary and supporting slogan.
+- Confirm each page-level hero has a unique page-specific slogan aligned to page purpose.
 - Confirm every primary slogan occurrence has at least one supporting slogan in the same surface/file context.
 - Confirm all four core values have unique primary slogans.
 - Confirm all four core values have unique supporting slogans.

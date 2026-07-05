@@ -14,6 +14,7 @@ import safetyManualPublicJson from "../../../documents/content/safety-manual-pub
 import formsManifestJson from "../../../documents/forms/forms-manifest.json";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
+import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
 
 const SAFETY_PROGRAM_TITLE =
   mhcBrand.safetyProgramTitle || "MISH — Safety & Health Program";
@@ -797,7 +798,7 @@ const legacyManuals: DocumentEntry[] = [
     description:
       "Company employment policies, conduct expectations, workplace standards, benefits, and onboarding guidance. This handbook is maintained as a separate manual from MISH while using the same shared forms ecosystem where applicable.",
     category: "employee-manual",
-    icon: "book",
+    icon: FORM_MANUAL_ICONS.source,
     revisionYear: EMPLOYEE_HANDBOOK_REVISION_YEAR,
     revisionNumber: EMPLOYEE_HANDBOOK_REVISION_NUMBER,
     revisionDate: EMPLOYEE_HANDBOOK_REVISION_DATE,
@@ -975,15 +976,15 @@ function safetyFormIcon(entry: FormManifestEntry): string {
     return "report";
   }
   if (haystack.includes("inspection") || haystack.includes("checklist")) {
-    return "fact_check";
+    return FORM_MANUAL_ICONS.checklist;
   }
   if (haystack.includes("meeting") || haystack.includes("toolbox")) {
     return "record_voice_over";
   }
   if (haystack.includes("permit") || haystack.includes("authorization")) {
-    return "verified_user";
+    return FORM_MANUAL_ICONS.access;
   }
-  return "description";
+  return FORM_MANUAL_ICONS.formField;
 }
 
 function handbookFormSubtitle(entry: FormManifestEntry): string {
@@ -1012,7 +1013,7 @@ function handbookFormIcon(entry: FormManifestEntry): string {
   ) {
     return "home_work";
   }
-  return "description";
+  return FORM_MANUAL_ICONS.formField;
 }
 
 const currentSafetySections: DocumentSection[] = (
@@ -1158,7 +1159,7 @@ export const handbookForms: DocumentEntry[] = [
     description:
       "Blank company letterhead aligned to the employee handbook forms pipeline for official correspondence.",
     category: "form",
-    icon: "description",
+    icon: FORM_MANUAL_ICONS.formField,
     revisionYear: EMPLOYEE_HANDBOOK_REVISION_YEAR,
     revisionNumber: EMPLOYEE_HANDBOOK_REVISION_NUMBER,
     revisionDate: EMPLOYEE_HANDBOOK_REVISION_DATE,

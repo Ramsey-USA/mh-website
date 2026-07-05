@@ -17,12 +17,46 @@
         --paper: #ffffff;
         --muted: #f6f8f7;
         --line: #d7e3dc;
-        --font-heading: "mendl-sans-dusk","Mendl Sans Dusk","Abolition","Helvetica Neue",Arial,sans-serif;
-        --font-body: "DIN 2014","Helvetica Neue",Arial,"Liberation Sans",sans-serif;
+        --icon-material-info: "info";
+        --icon-material-danger-outline: "error_outline";
+        --icon-material-warning: "warning";
+        --icon-material-caution: "gpp_maybe";
+        --icon-material-checkbox-empty: "check_box_outline_blank";
+        --icon-material-checklist: "fact_check";
+        --icon-material-form-field: "edit_note";
+        --icon-material-narrative: "description";
+        --icon-material-table: "table_chart";
+        --icon-material-signature: "draw";
+        --icon-material-route: "route";
+        --icon-material-access: "verified_user";
+        --icon-material-source: "menu_book";
+        --icon-material-local-dev: "dns";
+        --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        --font-body: "DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
       }
       *,*::before,*::after { box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
       @page { size:letter portrait; margin:0; }
       html,body { margin:0; padding:0; width:8.5in; font-family:var(--font-body); background:var(--paper); color:var(--ink); }
+
+      .material-icons,
+      .mi {
+        font-family: "Material Icons", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1em;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+        vertical-align: -0.125em;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+        font-feature-settings: "liga";
+      }
 
       /* Sheet + double-border frame (mirrors letterhead exactly) */
       .sheet { position:relative; width:8.5in; height:11in; background:var(--paper); overflow:hidden; }
@@ -59,6 +93,9 @@
 
       /* Section headings */
       h2 { font-family:var(--font-heading); font-size:9pt; font-weight:900; letter-spacing:0.06em; text-transform:uppercase; color:var(--brand-primary); margin:8pt 0 4pt; }
+      .h2-with-icon { display:flex; align-items:center; gap:5pt; }
+      .h2-with-icon .h2-icon { color:var(--brand-secondary-text); line-height:1; }
+      .h2-with-icon .h2-icon .mi { font-size:10pt; vertical-align:-0.08em; }
 
       /* Tables */
       table { width:100%; border-collapse:collapse; margin-bottom:7pt; font-size:7.8pt; }
@@ -145,7 +182,7 @@
         </div>
 
         <!-- Route Map + Features side-by-side -->
-        <h2>Route Map &amp; Features</h2>
+        <h2 class="h2-with-icon"><span class="h2-icon"><span class="mi" aria-hidden="true">route</span></span>Route Map &amp; Features</h2>
         <table>
           <thead>
             <tr>
@@ -180,7 +217,7 @@
         <hr class="sep" />
 
         <!-- How to Gain Access -->
-        <h2>How to Gain Access</h2>
+        <h2 class="h2-with-icon"><span class="h2-icon"><span class="mi" aria-hidden="true">verified_user</span></span>How to Gain Access</h2>
         <div class="two-col">
           <div class="access-block">
             <div class="label">Hub Access</div>
@@ -201,7 +238,7 @@
         <hr class="sep" />
 
         <!-- Source file locations -->
-        <h2>Source File Locations</h2>
+        <h2 class="h2-with-icon"><span class="h2-icon"><span class="mi" aria-hidden="true">menu_book</span></span>Source File Locations</h2>
         <table>
           <thead>
             <tr>
@@ -252,7 +289,7 @@
         <hr class="sep" />
 
         <!-- Local Dev -->
-        <h2>Local Development URLs</h2>
+        <h2 class="h2-with-icon"><span class="h2-icon"><span class="mi" aria-hidden="true">dns</span></span>Local Development URLs</h2>
         <table>
           <thead>
             <tr>
@@ -319,8 +356,8 @@
       </footer>
 
       <div class="veteran-strip">
-        Veteran-Owned <span class="star">&#9733;</span> Mission-First
-        <span class="star">&#9733;</span> Built on Honor, Integrity &amp; Trust
+        Veteran-Owned <span class="star">&#9733;</span> Safety-Driven
+        <span class="star">&#9733;</span> Built on Quality, Backed by Trust
       </div>
     </div>
   </body>

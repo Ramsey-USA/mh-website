@@ -164,7 +164,7 @@ export function ValuesShowcase({
           </h2>
 
           {/* Description */}
-          <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+          <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
             {description}
           </p>
 
@@ -223,7 +223,7 @@ export function ValuesShowcase({
                   </h3>
 
                   {/* Short Description */}
-                  <p className="text-gray-700 dark:text-gray-300 text-center text-sm sm:text-base md:text-lg leading-relaxed mb-4 grow">
+                  <p className="font-body text-gray-700 dark:text-gray-300 text-center text-sm sm:text-base md:text-lg leading-relaxed mb-4 grow">
                     {value.shortDesc}
                   </p>
 
@@ -299,7 +299,7 @@ export function ValuesShowcase({
             )}
           >
             <div className="p-6 sm:p-8 overflow-y-auto max-h-[calc(90vh-200px)]">
-              <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
+              <p className="font-body text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
                 {currentValue.fullDescription}
               </p>
 
@@ -348,7 +348,7 @@ export function ValuesShowcase({
                     Built on Clear Standards
                   </h5>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                <p className="font-body text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                   These values are reinforced through practical planning,
                   disciplined field execution, and transparent follow-through in
                   every project we undertake.

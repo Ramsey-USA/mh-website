@@ -234,7 +234,7 @@ const translations = {
 function FormField({ label, wide = false }: { label: string; wide?: boolean }) {
   return (
     <div className={wide ? "col-span-2" : ""}>
-      <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-1.5 print:text-gray-700 uppercase tracking-wide">
+      <label className="font-heading block text-xs font-bold text-gray-700 dark:text-gray-200 mb-1.5 print:text-gray-700 uppercase tracking-wide">
         {label}
       </label>
       <div className="h-10 border-b-2 border-gray-300 dark:border-gray-600 hover:border-brand-primary dark:hover:border-brand-secondary transition-colors print:border-gray-400" />
@@ -244,7 +244,7 @@ function FormField({ label, wide = false }: { label: string; wide?: boolean }) {
 
 function SectionHeader({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="flex items-center gap-3 text-base font-black uppercase tracking-wider text-brand-primary dark:text-brand-secondary border-b-2 border-brand-primary dark:border-brand-secondary pb-2 mb-5 mt-10 first:mt-0 print:text-gray-800 print:border-gray-800">
+    <h2 className="font-heading flex items-center gap-3 text-base font-black uppercase tracking-wider text-brand-primary dark:text-brand-secondary border-b-2 border-brand-primary dark:border-brand-secondary pb-2 mb-5 mt-10 first:mt-0 print:text-gray-800 print:border-gray-800">
       <span className="shrink-0 w-1 h-6 bg-brand-primary dark:bg-brand-secondary rounded-full print:hidden" />
       {children}
     </h2>
@@ -274,7 +274,7 @@ function WorkHistoryBlock({ t }: { t: (typeof translations)["en"] }) {
         <FormField label={t.reasonLeaving} />
       </div>
       <div>
-        <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-1.5 uppercase tracking-wide">
+        <label className="font-heading block text-xs font-bold text-gray-700 dark:text-gray-200 mb-1.5 uppercase tracking-wide">
           {t.duties}
         </label>
         <div className="h-20 border-2 border-gray-300 dark:border-gray-600 rounded-lg print:border-gray-400" />
@@ -510,7 +510,7 @@ export default function PrintableApplicationClient() {
 
         {/* Authorization & Signature */}
         <SectionHeader>{t.authorization}</SectionHeader>
-        <p className="text-sm text-gray-700 mb-6 print:text-xs leading-relaxed">
+        <p className="font-body text-sm text-gray-700 mb-6 print:text-xs leading-relaxed">
           {t.authorizationText}
         </p>
         <div className="grid grid-cols-3 gap-6 print:gap-4">
@@ -528,7 +528,7 @@ export default function PrintableApplicationClient() {
           <p className="text-xs text-gray-500 text-center mb-2">
             <strong>{t.equalOpportunity}</strong>
           </p>
-          <p className="text-xs text-gray-500 text-center leading-relaxed">
+          <p className="font-body text-xs text-gray-500 text-center leading-relaxed">
             {t.equalOpportunityText}
           </p>
           <p className="text-xs text-brand-primary text-center mt-3 font-semibold print:text-gray-700">
@@ -541,7 +541,7 @@ export default function PrintableApplicationClient() {
 
         {/* Office Use Only Section */}
         <div className="mt-8 pt-4 border-t-2 border-dashed border-gray-300 print:mt-6 print:break-before-avoid">
-          <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-4">
+          <h3 className="font-heading text-xs font-black uppercase tracking-widest text-gray-400 mb-4">
             {t.officeUseOnly}
           </h3>
           <div className="grid grid-cols-3 gap-4">

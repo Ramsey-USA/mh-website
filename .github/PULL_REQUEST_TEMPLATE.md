@@ -52,6 +52,33 @@ Required Handoffs:
 
 Release Command Result:
 
+## Branding Visual Coverage Evidence (Required for Branding-Sensitive Changes)
+
+- [ ] Not a branding-sensitive change
+- [ ] Branding-sensitive change and evidence provided below
+
+### Surface Coverage
+
+- [ ] App shell coverage validated (header/nav overlay/ribbon/footer)
+- [ ] Route-state coverage validated (`loading.tsx`, `error.tsx`, `global-error.tsx`, `not-found.tsx`, offline where affected)
+- [ ] Dynamic template parity validated (slug/city/category/detail routes where affected)
+- [ ] Form lifecycle states validated (empty/error/pending/result where affected)
+
+### Visual Parity
+
+- [ ] Mobile and desktop screenshots attached for affected route families
+- [ ] Keyboard focus-visible pass captured for changed interactive clusters
+- [ ] Trust/accreditation surfaces confirmed visible at constrained viewport widths
+- [ ] Metadata/breadcrumb/heading terminology alignment confirmed
+
+### Branding Gate Results
+
+Master Checklist Result (PASS/FAIL):
+
+Development Companion Result (PASS/FAIL or N/A):
+
+Notes / Gaps Repaired:
+
 ### Exception Disclosure
 
 - [ ] No exception used

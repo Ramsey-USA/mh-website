@@ -15,15 +15,18 @@
 export const PAGE_ICONS = {
   // Primary Navigation
   home: "home",
+  events: "event",
   contact: "contact_phone",
   services: "build",
   projects: "photo_library",
   resources: "folder_open",
   safety: "verified_user",
+  hub: "dashboard",
   faq: "help",
 
   // Company Information
   about: "military_tech",
+  jeremyThamert: "person",
   team: "groups",
   allies: "handshake", // Partners page
   publicSector: "account_balance",
@@ -63,6 +66,7 @@ export const SEMANTIC_ICONS = {
   verified: "verified",
   certified: "verified_user",
   quality: "verified",
+  safety: "shield",
 
   // People Icons (STANDARDIZED)
   partnership: "handshake", // Allies, partners, trade partners
@@ -170,8 +174,124 @@ export const SECTION_ICONS = {
   connect: "share", // Social/Connect sections
 } as const;
 
+/**
+ * Section Navigation Icons - canonical icon literals for route-level section nav configs.
+ *
+ * Use in `apps/website/src/components/navigation/navigationConfigs.ts` so section
+ * navigation icon strings remain centralized and easy to audit.
+ */
+export const SECTION_NAV_ICONS = {
+  account_balance: "account_balance",
+  account_tree: "account_tree",
+  analytics: "analytics",
+  build: "build",
+  calendar_month: "calendar_month",
+  campaign: "campaign",
+  cloud_download: "cloud_download",
+  construction: "construction",
+  contact_phone: "contact_phone",
+  description: "description",
+  diversity_3: "diversity_3",
+  emoji_events: "emoji_events",
+  engineering: "engineering",
+  event: "event",
+  fact_check: "fact_check",
+  forum: "forum",
+  foundation: "foundation",
+  gpp_good: "gpp_good",
+  groups: "groups",
+  handshake: "handshake",
+  info: "info",
+  location_on: "location_on",
+  mail: "mail",
+  map: "map",
+  menu_book: "menu_book",
+  military_tech: "military_tech",
+  newspaper: "newspaper",
+  payments: "payments",
+  phone: "phone",
+  photo_camera: "photo_camera",
+  photo_library: "photo_library",
+  public: "public",
+  rate_review: "rate_review",
+  rocket_launch: "rocket_launch",
+  school: "school",
+  shield: "shield",
+  star: "star",
+  timeline: "timeline",
+  verified: "verified",
+  videocam: "videocam",
+  volunteer_activism: "volunteer_activism",
+  work: "work",
+  workspace_premium: "workspace_premium",
+} as const;
+
+/**
+ * Content/Data Icons - canonical literals for non-navigation content datasets.
+ *
+ * Use in data/config modules such as project datasets, FAQ categories,
+ * timeline content, and other icon-driven content definitions.
+ */
+export const CONTENT_ICONS = {
+  business: "business",
+  calculate: "calculate",
+  campaign: "campaign",
+  celebration: "celebration",
+  church: "church",
+  construction: "construction",
+  diversity_3: "diversity_3",
+  domain: "domain",
+  explore: "explore",
+  fact_check: "fact_check",
+  factory: "factory",
+  family_restroom: "family_restroom",
+  foundation: "foundation",
+  gps_fixed: "gps_fixed",
+  grid_view: "grid_view",
+  health_and_safety: "health_and_safety",
+  history: "history",
+  hub: "hub",
+  info: "info",
+  medical_services: "medical_services",
+  military_tech: "military_tech",
+  precision_manufacturing: "precision_manufacturing",
+  public: "public",
+  rocket_launch: "rocket_launch",
+  shield: "shield",
+  store: "store",
+  task_alt: "task_alt",
+  trending_up: "trending_up",
+  verified: "verified",
+  verified_user: "verified_user",
+  wine_bar: "wine_bar",
+  workspace_premium: "workspace_premium",
+} as const;
+
+/**
+ * Forms & Manuals Icons - canonical mapping shared with the print document
+ * pipeline so website safety/resources experiences use the same icon language.
+ */
+export const FORM_MANUAL_ICONS = {
+  info: "info",
+  dangerOutline: "error_outline",
+  warning: "warning",
+  caution: "gpp_maybe",
+  checkboxEmpty: "check_box_outline_blank",
+  checklist: "fact_check",
+  formField: "edit_note",
+  narrative: "description",
+  table: "table_chart",
+  signature: "draw",
+  route: "route",
+  access: "verified_user",
+  source: "menu_book",
+  localDev: "dns",
+} as const;
+
 export type PageIconKey = keyof typeof PAGE_ICONS;
 export type SemanticIconKey = keyof typeof SEMANTIC_ICONS;
 export type SocialIconKey = keyof typeof SOCIAL_ICONS;
 export type SectionIconKey = keyof typeof SECTION_ICONS;
+export type SectionNavIconKey = keyof typeof SECTION_NAV_ICONS;
+export type ContentIconKey = keyof typeof CONTENT_ICONS;
 export type CoreValueIconKey = keyof typeof CORE_VALUE_ICONS;

@@ -120,7 +120,7 @@ function StaticTestimonialsSection({
           <h2 className="font-black text-gray-900 text-3xl sm:text-4xl lg:text-5xl tracking-tight dark:text-white">
             What Our Client Partners Say
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-gray-600 text-base sm:text-lg leading-relaxed dark:text-gray-300">
+          <p className="font-body mx-auto mt-4 max-w-3xl text-gray-600 text-base sm:text-lg leading-relaxed dark:text-gray-300">
             Verified feedback from Client Partners across the Pacific Northwest
             on communication, quality, and delivery follow-through.
           </p>
@@ -329,7 +329,7 @@ export default async function TestimonialsPage(props?: {
                   </span>
                 </h2>
 
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   Our four core values show up in measurable results across
                   commercial, industrial, and government projects throughout
                   Washington, Oregon, and Idaho for Client Partners.
@@ -363,7 +363,7 @@ export default async function TestimonialsPage(props?: {
                         Honesty
                       </h3>
                     </div>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
+                    <p className="font-body text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
                       <span className="font-bold text-brand-primary">
                         Transparent pricing
                       </span>{" "}
@@ -398,7 +398,7 @@ export default async function TestimonialsPage(props?: {
                         Integrity
                       </h3>
                     </div>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
+                    <p className="font-body text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
                       <span className="font-bold text-brand-primary">
                         Promise-keeping culture
                       </span>{" "}
@@ -432,7 +432,7 @@ export default async function TestimonialsPage(props?: {
                         Professionalism
                       </h3>
                     </div>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
+                    <p className="font-body text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
                       <span className="font-bold text-brand-primary">
                         Verified credentials
                       </span>{" "}
@@ -467,7 +467,7 @@ export default async function TestimonialsPage(props?: {
                         Thoroughness
                       </h3>
                     </div>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
+                    <p className="font-body text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
                       <span className="font-bold text-brand-primary">
                         Zero-gap quality
                       </span>{" "}

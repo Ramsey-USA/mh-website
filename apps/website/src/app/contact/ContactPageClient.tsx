@@ -95,7 +95,8 @@ const buildMainCTAs = (t: ReturnType<typeof useTranslations>) => [
 
 export default function ContactPageClient({
   enableTelemetry = true,
-}: Readonly<{ enableTelemetry?: boolean }>) {
+  heroSlogan = COMPANY_INFO.slogan.tertiary,
+}: Readonly<{ enableTelemetry?: boolean; heroSlogan?: string }>) {
   const t = useTranslations();
   const officeEmail = COMPANY_INFO.email.main;
   const quickContact = buildQuickContact(t);
@@ -128,7 +129,7 @@ export default function ContactPageClient({
                 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight"
               >
                 <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                  {t("contact.hero.kicker")}
+                  {t("contact.hero.kicker")} -&gt; Contact
                 </span>
                 <span className="block text-brand-secondary">
                   {t("contact.hero.titleLine1")}
@@ -140,7 +141,7 @@ export default function ContactPageClient({
                   {COMPANY_INFO.slogan.primary}
                 </span>
                 <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
-                  {COMPANY_INFO.slogan.tertiary}
+                  {heroSlogan}
                 </span>
               </h1>
             </div>
@@ -204,7 +205,7 @@ export default function ContactPageClient({
               </h2>
 
               {/* Description */}
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 {t("contact.quickContact.description")}
               </p>
             </div>
@@ -243,7 +244,7 @@ export default function ContactPageClient({
                       <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
                         {contact.label}
                       </h3>
-                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                      <p className="font-body text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                         {contact.value}
                       </p>
                       <div
@@ -263,7 +264,7 @@ export default function ContactPageClient({
 
             {/* Trust Credentials */}
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-8 border-t border-gray-200 dark:border-gray-700">
-              <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+              <span className="font-heading text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 {t("contact.quickContact.accreditations")}
               </span>
               <a
@@ -481,7 +482,7 @@ export default function ContactPageClient({
                   {t("contact.pathways.title")}
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 wrap-break-word">
+              <p className="font-body mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 wrap-break-word">
                 {t("contact.pathways.description")}
               </p>
             </div>
@@ -505,7 +506,7 @@ export default function ContactPageClient({
                   </h3>
                 </div>
 
-                <p className="mb-6 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                <p className="font-body mb-6 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                   {t("contact.pathways.client.description")}
                 </p>
 
@@ -619,7 +620,7 @@ export default function ContactPageClient({
                   </h3>
                 </div>
 
-                <p className="mb-6 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                <p className="font-body mb-6 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                   {t("contact.pathways.allies.description")}
                 </p>
 
@@ -760,7 +761,7 @@ export default function ContactPageClient({
               </h2>
 
               {/* Description */}
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span itemProp="address">
                   3111 N Capitol Ave, Pasco, WA 99301
                 </span>
@@ -840,7 +841,7 @@ export default function ContactPageClient({
               </h2>
 
               {/* Description */}
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 {t("contact.options.description")}
               </p>
             </div>
@@ -905,7 +906,7 @@ export default function ContactPageClient({
                         <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl min-h-14 flex items-center justify-center">
                           {cta.label}
                         </h3>
-                        <p className="mb-6 text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed grow">
+                        <p className="font-body mb-6 text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed grow">
                           {cta.description}
                         </p>
                         <div
@@ -973,7 +974,7 @@ export default function ContactPageClient({
               </h2>
 
               {/* Description */}
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 {t("contact.serviceAreas.description")}
               </p>
             </div>

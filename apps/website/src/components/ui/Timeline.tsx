@@ -183,7 +183,7 @@ export function Timeline({
                               />
                             </div>
                           </div>
-                          <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                          <p className="font-body text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                             {step.desc}
                           </p>
                         </Card>
@@ -228,7 +228,7 @@ export function Timeline({
                               </h3>
                             </div>
                           </div>
-                          <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                          <p className="font-body text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                             {step.desc}
                           </p>
                         </Card>
@@ -278,7 +278,7 @@ export function Timeline({
                           {step.title}
                         </h3>
                       </div>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                      <p className="font-body text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                         {step.desc}
                       </p>
                     </Card>

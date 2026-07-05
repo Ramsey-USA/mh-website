@@ -223,8 +223,8 @@ export function BrandedContentSection({
             <p
               className={
                 headerSize === "section"
-                  ? "mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed tracking-wide px-2"
-                  : "mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"
+                  ? "font-body mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed tracking-wide px-2"
+                  : "font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2"
               }
             >
               {header.description}

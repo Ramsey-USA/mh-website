@@ -172,7 +172,7 @@ export function WhyPartnerSection({
       {/* Core Philosophy Callout */}
       <div className="flex justify-center mb-10 sm:mb-12">
         <div className="bg-white dark:bg-gray-800 px-8 py-6 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg">
-          <p className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
+          <p className="font-body font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
             {t.philosophy}
           </p>
         </div>
@@ -223,7 +223,7 @@ export function WhyPartnerSection({
                           {displayStat}
                         </div>
                       ) : null}
-                      <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
+                      <div className="font-heading text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
                         {value.statLabel}
                       </div>
                     </div>
@@ -242,7 +242,7 @@ export function WhyPartnerSection({
                   {/* Description */}
                   <div className="relative mb-5 flex-1">
                     <p
-                      className={`text-gray-700 dark:text-gray-200 text-sm sm:text-base leading-relaxed ${
+                      className={`font-body text-gray-700 dark:text-gray-200 text-sm sm:text-base leading-relaxed ${
                         condensed && !showAllStandards
                           ? "max-h-20 overflow-hidden"
                           : ""

@@ -6,6 +6,7 @@ import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import { getLocationBySlug, getLocationSlugs } from "@/lib/data/locations";
 import { generateLocationMetadata } from "@/lib/seo/location-metadata";
 
@@ -46,5 +47,10 @@ export default async function LocationPage({
     notFound();
   }
 
-  return <LocationPageContent location={location} />;
+  return (
+    <LocationPageContent
+      location={location}
+      heroSlogan={getHeroPageSlogan("locationDetail").slogan}
+    />
+  );
 }
