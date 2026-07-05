@@ -55,6 +55,7 @@ Use `package.json` as the canonical source for `pnpm run ...` entry points. This
 - `check-mobile-responsiveness.sh` - Mobile responsiveness audit helpers
 - `health-check-final.sh` - Final health check validation
 - `performance-gate.js` - Performance validation gate
+- `security-audit-gate.mjs` - Internal dependency vulnerability gate with severity thresholds
 - `smoke-safety-system.js` - Safety workflow smoke test
 - `validate-css-js-cohesion.sh` - CSS/JavaScript cohesion validation
 
@@ -122,6 +123,9 @@ Access these scripts via pnpm:
 - `pnpm --filter @mhc/website run quality:check` - Run full quality scan
 - `pnpm --filter @mhc/website run check:translations` - Validate translations
 - `pnpm --filter @mhc/website run docs:release` - Generate, merge, and publish document bundles
+- `pnpm run security:check` - Dependency vulnerability gate (prod deps, fail on moderate+)
+- `pnpm run security:check:prod` - Dependency vulnerability gate (prod deps, fail on high+)
+- `pnpm run security:check:strict` - Dependency vulnerability gate (prod deps, fail on low+)
 
 Scripts without npm aliases (run directly):
 

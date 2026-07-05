@@ -416,6 +416,9 @@ Create `.env.local`:
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 RESEND_API_KEY=re_xxxxx
 
+# Recommended (SEO indexing submission)
+INDEXNOW_KEY=your_8_to_128_char_alphanumeric_key
+
 # Optional (Cloudflare deployment)
 CLOUDFLARE_ACCOUNT_ID=your_account_id
 CLOUDFLARE_API_TOKEN=your_api_token
@@ -448,6 +451,9 @@ pnpm run type-check                           # Type-check all apps
 pnpm run lint                                 # Lint all apps
 pnpm run lint:fix                             # Auto-fix lint across all apps
 pnpm run format                               # Prettier format all files
+pnpm run security:check                       # Internal dependency audit gate (prod, fails on moderate+)
+pnpm run security:check:prod                  # Internal dependency audit gate (prod, fails on high+)
+pnpm run security:check:strict                # Internal dependency audit gate (prod, fails on low+)
 pnpm --filter @mhc/website run deploy         # Build + deploy website worker
 pnpm --filter @mhc/website run start          # Start website production server
 pnpm --filter @mhc/dashboard run start        # Start dashboard production server (port 3001)

@@ -521,8 +521,9 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 > **Note:** Deployment is handled entirely by Cloudflare Workers auto-deploy.
 > GitHub Actions (`.github/workflows/ci-cd.yml`) runs quality checks, tests, and
 > a build verification as a safety gate — it does **not** run `wrangler pages deploy`.
-> No `CLOUDFLARE_API_TOKEN` or `CLOUDFLARE_ACCOUNT_ID` GitHub secrets are required
-> unless you need manual `wrangler` deploys from a local machine.
+> GitHub Actions **does** require repository secrets for CI/deploy integrations.
+> Minimum required for current `ci-cd.yml` paths on `main`:
+> `INDEXNOW_KEY`, `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_API_TOKEN`.
 
 ### Every Deploy (Automatic via Git Push)
 

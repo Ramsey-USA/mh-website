@@ -177,10 +177,9 @@ Cloudflare dashboard secrets and `wrangler.toml` bindings.
 
 | Secret                    | Type      | Workflow                             | Purpose                                           |
 | ------------------------- | --------- | ------------------------------------ | ------------------------------------------------- |
-| `ADMIN_JEREMY_PASSWORD`   | Secret    | deployment                           | Admin dashboard login for Jeremy                  |
-| `ADMIN_MATT_PASSWORD`     | Secret    | deployment                           | Admin dashboard login for Matt                    |
-| `CLOUDFLARE_ACCOUNT_ID`   | Secret    | `generate-pdfs.yml`                  | Authenticates wrangler for R2 uploads             |
-| `CLOUDFLARE_API_TOKEN`    | Secret    | `generate-pdfs.yml`                  | Authenticates wrangler for R2 uploads             |
+| `CLOUDFLARE_ACCOUNT_ID`   | Secret    | `ci-cd.yml`, `generate-pdfs.yml`     | Authenticates wrangler/Cloudflare account actions |
+| `CLOUDFLARE_API_TOKEN`    | Secret    | `ci-cd.yml`, `generate-pdfs.yml`     | Authenticates wrangler/Cloudflare API operations  |
+| `INDEXNOW_KEY`            | Secret    | `ci-cd.yml`                          | Required main-branch SEO key-file and submit flow |
 | `EMAIL_FROM`              | Secret    | deployment                           | Resend sender address                             |
 | `FIELD_STAFF_PASSWORD`    | Secret    | `safety-smoke.yml` / deployment      | Safety Hub superintendent login                   |
 | `JWT_SECRET`              | Secret    | deployment                           | HMAC key for signing admin session tokens         |
@@ -212,6 +211,15 @@ and the authenticated job only runs when explicitly triggered.
 > **Note:** Cloudflare resource IDs (D1 database, KV namespaces, R2 buckets)
 > are configured as bindings in `wrangler.toml`, not as GitHub secrets.
 > Do not duplicate these IDs into repository secrets.
+
+### Minimum CI Secrets (Main Branch)
+
+For current main-branch CI/deploy checks in `.github/workflows/ci-cd.yml`,
+these repository secrets are required:
+
+- `INDEXNOW_KEY`
+- `CLOUDFLARE_ACCOUNT_ID`
+- `CLOUDFLARE_API_TOKEN`
 
 ---
 

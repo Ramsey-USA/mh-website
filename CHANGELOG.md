@@ -6,6 +6,8 @@ All notable changes to the MH Construction website are documented here.
 
 ## June 2026
 
+- **Jul 5:** CI/deployment security hardening and setup clarity pass — added an internal dependency vulnerability gate script (`scripts/validation/security-audit-gate.mjs`) with threshold-based commands (`security:check`, `security:check:prod`, `security:check:strict`); updated `ci-cd.yml` security audit gate to run the moderate-threshold check; upgraded workflow actions from `pnpm/action-setup@v4` and `actions/cache@v4` to Node-24-compatible `@v6`; improved IndexNow setup reliability by allowing `apps/website/scripts/verification/generate-indexnow-key-file.mjs` to load `INDEXNOW_KEY` from local env files and by masking key identifiers in logs; updated setup docs to clarify required GitHub repository secrets for main-branch CI/deploy flows (`INDEXNOW_KEY`, `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_API_TOKEN`).
+
 - **Jul 3:** Services funnel documentation standardization — aligned technical, branding, standards, and root docs to the implemented home services hierarchy (`Delivery Path -> Project Focus -> Specific Service Card`) and removed stale references to legacy tabbed/category flow or standalone services-page sequencing where discovery now occurs in `/#services`.
 
 - **Jul 2:** Services hub routing standardization — deprecated direct `/services` index navigation in favor of the home-page services hub anchor (`/#services`) across header, hamburger, footer, CTA links, chatbot references, and SEO breadcrumb helpers; retained dedicated delivery lane pages under `/services/[slug]`; updated sitemap behavior and aligned tests/docs for this canonical split (`/#services` for hub discovery, `/services/[slug]` for lane detail).

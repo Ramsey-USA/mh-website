@@ -259,8 +259,7 @@ async function renderHtmlToPdf(html, pdfPath, pdfOpts = {}, tmpSuffix = "tmp") {
  * Header layout: [MHC logo — far left] ... [Recipient org — right]
  */
 function buildRfqHeaderHtml() {
-  const font =
-    '"Inter", Roboto, sans-serif';
+  const font = '"Inter", Roboto, sans-serif';
   return [
     `<div style="width:100%;background:white;border-bottom:1.5pt solid ${BRAND.colors.secondary};`,
     `padding:0 0.75in 0 1.0in;height:0.65in;display:flex;align-items:center;`,
@@ -290,8 +289,7 @@ function buildRfqHeaderHtml() {
  * Footer layout: [Flag] [Address | Email | Phone | Licenses] [Accred logos] [QR]
  */
 function buildRfqFooterHtml(homepageQr) {
-  const font =
-    '"Inter", Roboto, sans-serif';
+  const font = '"Inter", Roboto, sans-serif';
   return [
     `<div style="width:100%;border-top:0.75pt solid ${BRAND.colors.secondary};`,
     `padding:0 0.75in 0 1.0in;height:0.65in;display:flex;align-items:center;`,

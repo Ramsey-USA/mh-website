@@ -56,10 +56,18 @@ Pipelines automatically trigger on:
 
 ```
 .github/workflows/
-├── ci-gate.yml          # Lint, type-check, test, audit
-├── deploy.yml           # Build and deploy to Cloudflare
-└── security-scan.yml    # Dependency audit, SAST
+├── ci-cd.yml            # Quality checks, security gate, build verification, deploy
+├── safety-smoke.yml     # Safety smoke checks (public/authenticated)
+└── lighthouse-weekly.yml # Scheduled Lighthouse reporting
 ```
+
+### Required Repository Secrets (Main Branch CI/Deploy)
+
+Current `ci-cd.yml` runs on `main` require these GitHub repository secrets:
+
+- `INDEXNOW_KEY`
+- `CLOUDFLARE_ACCOUNT_ID`
+- `CLOUDFLARE_API_TOKEN`
 
 ---
 

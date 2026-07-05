@@ -55,13 +55,18 @@ jobs:
       - name: Install Chromium system dependencies
         run: |
           sudo apt-get update -qq
+          if apt-cache show libasound2 >/dev/null 2>&1; then
+            ALSA_PKG="libasound2"
+          else
+            ALSA_PKG="libasound2t64"
+          fi
           sudo apt-get install -y --no-install-recommends \
             libatk-bridge2.0-0 libatk1.0-0 libcups2 libdbus-1-3 \
             libgbm1 libgtk-3-0 libnss3 libx11-6 libx11-xcb1 \
             libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 \
             libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 \
             xdg-utils ca-certificates fonts-liberation libappindicator3-1 \
-            libasound2 libpango-1.0-0 libpangocairo-1.0-0
+            "$ALSA_PKG" libpango-1.0-0 libpangocairo-1.0-0
 
       # ── 4. Install pnpm dependencies ──────────────────────────────────────
       - name: Install dependencies
