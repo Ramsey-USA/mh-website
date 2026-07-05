@@ -359,8 +359,49 @@ function buildRouteFreeWranglerConfig() {
   return fallbackConfigPath;
 }
 
+function deployWithoutRoutes(extraEnv = {}) {
+  const fallbackConfigPath = buildRouteFreeWranglerConfig();
+  const routeFreeAttempt = runAndCapture(
+    "pnpm",
+    ["exec", "wrangler", "deploy", "--config", fallbackConfigPath],
+    {
+      WRANGLER_SEND_METRICS: "false",
+      CLOUDFLARE_API_TOKEN:
+        process.env.CLOUDFLARE_API_TOKEN ?? process.env.CF_API_TOKEN,
+      ...extraEnv,
+    },
+  );
+
+  emitCapturedOutput(routeFreeAttempt);
+  rmSync(fallbackConfigPath, { force: true });
+
+  if (routeFreeAttempt.error) {
+    console.error(
+      "✖ Failed to run wrangler deploy:",
+      routeFreeAttempt.error.message,
+    );
+    process.exit(1);
+  }
+
+  if (routeFreeAttempt.status !== 0) {
+    process.exit(routeFreeAttempt.status ?? 1);
+  }
+}
+
 function deployWithRetry(extraEnv = {}) {
   clearWranglerTmp();
+
+  const shouldSkipRouteMutation =
+    process.env.CLOUDFLARE_MANAGE_ROUTES !== "true" &&
+    (process.env.CI === "true" || process.env.GITHUB_ACTIONS === "true");
+
+  if (shouldSkipRouteMutation) {
+    console.log(
+      "ℹ CI deploy uses route-free wrangler config by default; set CLOUDFLARE_MANAGE_ROUTES=true to enable route updates.",
+    );
+    deployWithoutRoutes(extraEnv);
+    return;
+  }
 
   const firstAttempt = runAndCapture("pnpm", ["exec", "wrangler", "deploy"], {
     WRANGLER_SEND_METRICS: "false",
@@ -387,37 +428,8 @@ function deployWithRetry(extraEnv = {}) {
     console.warn(
       "⚠ Route API auth failed; retrying deploy once with routes omitted so dashboard-managed routes remain untouched...",
     );
-
-    const fallbackConfigPath = buildRouteFreeWranglerConfig();
-    const routeFreeAttempt = runAndCapture(
-      "pnpm",
-      ["exec", "wrangler", "deploy", "--config", fallbackConfigPath],
-      {
-        WRANGLER_SEND_METRICS: "false",
-        CLOUDFLARE_API_TOKEN:
-          process.env.CLOUDFLARE_API_TOKEN ?? process.env.CF_API_TOKEN,
-        ...extraEnv,
-      },
-    );
-
-    emitCapturedOutput(routeFreeAttempt);
-
-    if (routeFreeAttempt.error) {
-      rmSync(fallbackConfigPath, { force: true });
-      console.error(
-        "✖ Failed to run wrangler deploy:",
-        routeFreeAttempt.error.message,
-      );
-      process.exit(1);
-    }
-
-    if (routeFreeAttempt.status === 0) {
-      rmSync(fallbackConfigPath, { force: true });
-      return;
-    }
-
-    rmSync(fallbackConfigPath, { force: true });
-    process.exit(routeFreeAttempt.status ?? 1);
+    deployWithoutRoutes(extraEnv);
+    return;
   }
 
   if (!isMiddlewareLoaderResolveFailure(firstAttempt)) {

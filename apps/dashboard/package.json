@@ -72,7 +72,7 @@
     "jest-environment-jsdom": "^30.4.1",
     "prettier": "^3.8.4",
     "typescript": "^6.0.3",
-    "wrangler": "^4.106.0"
+    "wrangler": "^4.107.0"
   },
   "engines": {
     "node": ">=22.0.0"
