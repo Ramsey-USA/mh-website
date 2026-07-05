@@ -2,14 +2,13 @@
 
 import {
   existsSync,
-  mkdirSync,
   readdirSync,
   readFileSync,
   rmSync,
   statSync,
   writeFileSync,
 } from "node:fs";
-import { join, resolve } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
 
 const appRoot = process.cwd();
@@ -351,9 +350,9 @@ function buildRouteFreeWranglerConfig() {
   const routeBlockPattern = /\n\[\[routes\]\][\s\S]*?(?=\n\[\[|\n\[[^\[]|$)/g;
   const routeFree = source.replace(routeBlockPattern, "\n").trimEnd() + "\n";
 
-  mkdirSync(wranglerTmpRoot, { recursive: true });
+  // Keep path resolution identical to wrangler.toml (main/assets paths remain valid).
   const fallbackConfigPath = join(
-    wranglerTmpRoot,
+    dirname(wranglerConfigPath),
     "wrangler.deploy-no-routes.toml",
   );
   writeFileSync(fallbackConfigPath, routeFree, "utf8");
@@ -404,6 +403,7 @@ function deployWithRetry(extraEnv = {}) {
     emitCapturedOutput(routeFreeAttempt);
 
     if (routeFreeAttempt.error) {
+      rmSync(fallbackConfigPath, { force: true });
       console.error(
         "✖ Failed to run wrangler deploy:",
         routeFreeAttempt.error.message,
@@ -412,9 +412,11 @@ function deployWithRetry(extraEnv = {}) {
     }
 
     if (routeFreeAttempt.status === 0) {
+      rmSync(fallbackConfigPath, { force: true });
       return;
     }
 
+    rmSync(fallbackConfigPath, { force: true });
     process.exit(routeFreeAttempt.status ?? 1);
   }
 
