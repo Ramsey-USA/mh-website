@@ -2,10 +2,12 @@
 
 import {
   existsSync,
+  mkdirSync,
   readdirSync,
   readFileSync,
   rmSync,
   statSync,
+  writeFileSync,
 } from "node:fs";
 import { join, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
@@ -336,6 +338,28 @@ function isMiddlewareLoaderResolveFailure(result) {
   );
 }
 
+function isWorkersRouteAuthFailure(result) {
+  const combined = `${result.stdout ?? ""}\n${result.stderr ?? ""}`;
+  return (
+    combined.includes("/workers/routes") &&
+    combined.includes("Authentication error [code: 10000]")
+  );
+}
+
+function buildRouteFreeWranglerConfig() {
+  const source = readFileSync(wranglerConfigPath, "utf8");
+  const routeBlockPattern = /\n\[\[routes\]\][\s\S]*?(?=\n\[\[|\n\[[^\[]|$)/g;
+  const routeFree = source.replace(routeBlockPattern, "\n").trimEnd() + "\n";
+
+  mkdirSync(wranglerTmpRoot, { recursive: true });
+  const fallbackConfigPath = join(
+    wranglerTmpRoot,
+    "wrangler.deploy-no-routes.toml",
+  );
+  writeFileSync(fallbackConfigPath, routeFree, "utf8");
+  return fallbackConfigPath;
+}
+
 function deployWithRetry(extraEnv = {}) {
   clearWranglerTmp();
 
@@ -358,6 +382,40 @@ function deployWithRetry(extraEnv = {}) {
 
   if (firstAttempt.status === 0) {
     return;
+  }
+
+  if (isWorkersRouteAuthFailure(firstAttempt)) {
+    console.warn(
+      "⚠ Route API auth failed; retrying deploy once with routes omitted so dashboard-managed routes remain untouched...",
+    );
+
+    const fallbackConfigPath = buildRouteFreeWranglerConfig();
+    const routeFreeAttempt = runAndCapture(
+      "pnpm",
+      ["exec", "wrangler", "deploy", "--config", fallbackConfigPath],
+      {
+        WRANGLER_SEND_METRICS: "false",
+        CLOUDFLARE_API_TOKEN:
+          process.env.CLOUDFLARE_API_TOKEN ?? process.env.CF_API_TOKEN,
+        ...extraEnv,
+      },
+    );
+
+    emitCapturedOutput(routeFreeAttempt);
+
+    if (routeFreeAttempt.error) {
+      console.error(
+        "✖ Failed to run wrangler deploy:",
+        routeFreeAttempt.error.message,
+      );
+      process.exit(1);
+    }
+
+    if (routeFreeAttempt.status === 0) {
+      return;
+    }
+
+    process.exit(routeFreeAttempt.status ?? 1);
   }
 
   if (!isMiddlewareLoaderResolveFailure(firstAttempt)) {

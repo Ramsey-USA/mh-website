@@ -127,7 +127,7 @@ custom_domain = true
 # Captures invocation logs and traces in the Cloudflare dashboard under
 # Workers & Pages → mhc-v2-website → Observability.
 [observability]
-enabled = false
+enabled = true
 head_sampling_rate = 1
 
 [observability.logs]
@@ -142,13 +142,11 @@ persist = true
 head_sampling_rate = 1
 
 # Deployment is triggered by `wrangler deploy` after `opennextjs-cloudflare build`.
-# The CI pipeline (.github/workflows/ci-cd.yml) is a quality gate only —
-# it does not run `wrangler deploy`.
+# The CI pipeline (.github/workflows/ci-cd.yml) runs quality gates and, on
+# pushes to `main`, executes `npm run deploy` (which wraps `wrangler deploy`).
 #
 # Bindings below (D1, R2) are read by Cloudflare Workers at deploy time.
-# KV namespaces are reserved for future use but not yet bound in the dashboard.
-# To activate KV, create the namespaces in the CF dashboard, then replace the
-# placeholder IDs below with real namespace IDs.
+# KV namespaces below are active and expected by production runtime features.
 
 # KV Namespaces
 #
