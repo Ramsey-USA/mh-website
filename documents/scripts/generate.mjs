@@ -51,10 +51,14 @@ const SITE_URL = "https://www.mhc-gc.com";
 const PDF_METADATA_AUTHOR = "Matt Ramsey, Safety Officer";
 const PDF_METADATA_CREATOR = "MH Construction Document Pipeline";
 const PDF_METADATA_SUBJECT = "Accident · Injury · Safety · Health Program";
-const PDF_FONT_STACK_BODY =
-  '"DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif';
+const PDF_FONT_STACK_BODY = '"Inter", Roboto, sans-serif';
 const PDF_FONT_STACK_HEADING =
-  '"mendl-sans-dusk", "Mendl Sans Dusk", "DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
+  '"mendl-sans-dusk", "Mendl Sans Dusk", "Inter", Roboto, sans-serif';
+const INTER_FONT_FILES = Object.freeze({
+  regular: "Inter-Regular.woff2",
+  semibold: "Inter-SemiBold.woff2",
+  bold: "Inter-Bold.woff2",
+});
 const MATERIAL_ICONS_FONT_FILE = "MaterialIcons-Regular.woff2";
 const MATERIAL_ICON_LIGATURES = Object.freeze({
   info: "info",
@@ -76,18 +80,56 @@ const MATERIAL_ICON_LIGATURE_SET = new Set(
   Object.values(MATERIAL_ICON_LIGATURES),
 );
 let PDF_MATERIAL_ICONS_STYLE_TAG;
+let PDF_INTER_STYLE_TAG;
 
-function resolveMaterialIconsFontPath() {
+function resolvePdfFontPath(fileName) {
   const candidates = [
-    resolve(DOCS_DIR, `../../public/fonts/${MATERIAL_ICONS_FONT_FILE}`),
-    resolve(
-      DOCS_DIR,
-      `../../apps/website/public/fonts/${MATERIAL_ICONS_FONT_FILE}`,
-    ),
-    resolve(ROOT, `public/fonts/${MATERIAL_ICONS_FONT_FILE}`),
-    resolve(ROOT, `apps/website/public/fonts/${MATERIAL_ICONS_FONT_FILE}`),
+    resolve(DOCS_DIR, `../../public/fonts/${fileName}`),
+    resolve(DOCS_DIR, `../../apps/website/public/fonts/${fileName}`),
+    resolve(ROOT, `public/fonts/${fileName}`),
+    resolve(ROOT, `apps/website/public/fonts/${fileName}`),
   ];
   return candidates.find((candidate) => existsSync(candidate)) || null;
+}
+
+function resolveMaterialIconsFontPath() {
+  return resolvePdfFontPath(MATERIAL_ICONS_FONT_FILE);
+}
+
+function buildPdfInterStyleTag() {
+  const regularPath = resolvePdfFontPath(INTER_FONT_FILES.regular);
+  const semiboldPath = resolvePdfFontPath(INTER_FONT_FILES.semibold);
+  const boldPath = resolvePdfFontPath(INTER_FONT_FILES.bold);
+
+  if (!regularPath && !semiboldPath && !boldPath) {
+    return "";
+  }
+
+  const declarations = [];
+  if (regularPath) {
+    declarations.push(
+      `@font-face {\n  font-family: "Inter";\n  font-style: normal;\n  font-weight: 400;\n  font-display: swap;\n  src: url("${pathToFileURL(regularPath).toString()}") format("woff2");\n}`,
+    );
+  }
+  if (semiboldPath) {
+    declarations.push(
+      `@font-face {\n  font-family: "Inter";\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url("${pathToFileURL(semiboldPath).toString()}") format("woff2");\n}`,
+    );
+  }
+  if (boldPath) {
+    declarations.push(
+      `@font-face {\n  font-family: "Inter";\n  font-style: normal;\n  font-weight: 700;\n  font-display: swap;\n  src: url("${pathToFileURL(boldPath).toString()}") format("woff2");\n}`,
+    );
+  }
+
+  return `<style data-pdf-inter-fonts="true">\n${declarations.join("\n\n")}\n</style>`;
+}
+
+function getPdfInterStyleTag() {
+  if (PDF_INTER_STYLE_TAG === undefined) {
+    PDF_INTER_STYLE_TAG = buildPdfInterStyleTag();
+  }
+  return PDF_INTER_STYLE_TAG;
 }
 
 function buildPdfMaterialIconsStyleTag() {
@@ -695,19 +737,32 @@ function normalizePdfTypography(html) {
     .replaceAll(
       '"DIN 2014", "Segoe UI", Arial, sans-serif',
       PDF_FONT_STACK_BODY,
-    );
+    )
+    .replaceAll('"Inter", "Segoe UI", Arial, sans-serif', PDF_FONT_STACK_BODY);
 
+  const interStyleTag = getPdfInterStyleTag();
   const materialIconsStyleTag = getPdfMaterialIconsStyleTag();
-  if (!materialIconsStyleTag) {
+  const needsInterStyle =
+    !!interStyleTag && !normalized.includes('data-pdf-inter-fonts="true"');
+  const needsMaterialStyle =
+    !!materialIconsStyleTag &&
+    !normalized.includes('data-pdf-material-icons="true"');
+
+  if (!needsInterStyle && !needsMaterialStyle) {
     return normalized;
   }
-  if (normalized.includes('data-pdf-material-icons="true"')) {
-    return normalized;
-  }
+
+  const styleInjection = [
+    needsInterStyle ? interStyleTag : "",
+    needsMaterialStyle ? materialIconsStyleTag : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
+
   if (/<\/head>/i.test(normalized)) {
-    return normalized.replace(/<\/head>/i, `${materialIconsStyleTag}\n</head>`);
+    return normalized.replace(/<\/head>/i, `${styleInjection}\n</head>`);
   }
-  return `${materialIconsStyleTag}\n${normalized}`;
+  return `${styleInjection}\n${normalized}`;
 }
 
 // ── Physical Tab + Tier mapping ────────────────────────────────────────────
@@ -3153,8 +3208,10 @@ async function validateManualTemplateTypographyGuardrails() {
   const violations = [];
   for (const templatePath of htmlFiles) {
     const html = await readFile(templatePath, "utf-8");
+    const isCoverTemplate = /(?:^|\/)\w[\w-]*-cover\.html$/i.test(templatePath);
 
     if (
+      /\bDIN\s*2014\b/i.test(html) ||
       /\bAbolition\b/i.test(html) ||
       /"mendl-sans-dusk"\s*,\s*"Mendl Sans Dusk"\s*,\s*"Abolition"/i.test(
         html,
@@ -3164,7 +3221,7 @@ async function validateManualTemplateTypographyGuardrails() {
       )
     ) {
       violations.push(
-        `${templatePath}: contains legacy font stack token(s) (Abolition and/or legacy DIN fallback sequence)`,
+        `${templatePath}: contains legacy font token(s) (deprecated DIN 2014, Abolition, and/or legacy DIN body sequence)`,
       );
     }
 
@@ -3177,9 +3234,7 @@ async function validateManualTemplateTypographyGuardrails() {
       const headingRequired = [
         "mendl-sans-dusk",
         "Mendl Sans Dusk",
-        "DIN 2014",
-        "ui-sans-serif",
-        "system-ui",
+        "Inter",
         "Roboto",
       ];
       const missing = headingRequired.filter(
@@ -3195,19 +3250,28 @@ async function validateManualTemplateTypographyGuardrails() {
     if (!bodyDecl) {
       violations.push(`${templatePath}: missing --font-body declaration`);
     } else {
-      const bodyRequired = [
-        "DIN 2014",
-        "ui-sans-serif",
-        "system-ui",
-        "Roboto",
-        "Noto Sans",
-      ];
+      const bodyRequired = ["Inter", "Roboto"];
       const missing = bodyRequired.filter((token) => !bodyDecl.includes(token));
       if (missing.length > 0) {
         violations.push(
           `${templatePath}: --font-body missing required token(s): ${missing.join(", ")}`,
         );
       }
+    }
+
+    if (
+      !isCoverTemplate &&
+      !/font-family\s*:\s*var\(--font-heading\)/i.test(html)
+    ) {
+      violations.push(
+        `${templatePath}: missing font-family usage for --font-heading`,
+      );
+    }
+
+    if (!/font-family\s*:\s*var\(--font-body\)/i.test(html)) {
+      violations.push(
+        `${templatePath}: missing font-family usage for --font-body`,
+      );
     }
   }
 

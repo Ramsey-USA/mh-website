@@ -9,3 +9,57 @@
 
 /* Material Icons */
 @import "../styles/material-icons.css";
+
+@layer utilities {
+  .mh-heading-display {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-mh-heading);
+    letter-spacing: var(--tracking-mh-heading);
+    line-height: var(--line-height-mh-heading);
+    text-wrap: balance;
+    font-feature-settings:
+      "case" 1,
+      "cpsp" 1,
+      "ss01" 1,
+      "ss02" 1;
+  }
+
+  .mh-heading-display-tight {
+    letter-spacing: var(--tracking-mh-heading-tight);
+  }
+
+  .mh-subheading-display {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-mh-subheading);
+    letter-spacing: var(--tracking-mh-subheading);
+    line-height: var(--line-height-mh-subheading);
+    text-transform: uppercase;
+    font-feature-settings:
+      "case" 1,
+      "cpsp" 1,
+      "ss01" 1;
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-mh-heading);
+    letter-spacing: var(--tracking-mh-heading);
+    line-height: var(--line-height-mh-heading);
+    text-wrap: balance;
+    font-feature-settings:
+      "case" 1,
+      "cpsp" 1,
+      "ss01" 1;
+  }
+}

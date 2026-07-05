@@ -117,10 +117,11 @@ Document typography uses the CSS variables defined in `documents/styles/brand.cs
 
 ### 3.2 Font Families
 
-All documents use the system font stack defined by `--font-body` and `--font-heading`:
+All documents use the branded stacks defined by `--font-body` and `--font-heading`:
 
 ```
-"Helvetica Neue", Arial, "Liberation Sans", sans-serif
+--font-body: "Inter", Roboto, sans-serif
+--font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "Inter", Roboto, sans-serif
 ```
 
 Monospace content (codes, license numbers, form IDs) uses `--font-mono`:

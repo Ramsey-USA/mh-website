@@ -578,7 +578,7 @@ async function buildHtml(markdown) {
         margin: 0;
         padding: 0;
         color: #1f2933;
-        font-family: "DIN 2014", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        font-family: "Inter", Roboto, sans-serif;
         font-size: 10.5pt;
         line-height: 1.55;
         background: #fff;

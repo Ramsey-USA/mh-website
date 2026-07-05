@@ -1,8 +1,9 @@
 /* ============================================
    MH BRAND FONTS
    Heading / Subheading: Mendl Sans Dusk
-   Body: DIN 2014
-   Served via Adobe Fonts (Typekit) kit jqs8bjh
+  Body: Inter
+  Heading served via Adobe Fonts (Typekit) kit jqs8bjh
+  Body served via next/font/google (Inter)
    Loaded via <link rel="stylesheet"> in layout.tsx so the browser
    fetches it in parallel with this file instead of sequentially
    via a render-blocking @import chain.
@@ -40,6 +41,36 @@
    ============================================ */
 
 @layer utilities {
+  /* MH display heading system: tuned to keep capitals crisp and distinctive. */
+  .mh-heading-display {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-mh-heading);
+    letter-spacing: var(--tracking-mh-heading);
+    line-height: var(--line-height-mh-heading);
+    text-wrap: balance;
+    font-feature-settings:
+      "case" 1,
+      "cpsp" 1,
+      "ss01" 1,
+      "ss02" 1;
+  }
+
+  .mh-heading-display-tight {
+    letter-spacing: var(--tracking-mh-heading-tight);
+  }
+
+  .mh-subheading-display {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-mh-subheading);
+    letter-spacing: var(--tracking-mh-subheading);
+    line-height: var(--line-height-mh-subheading);
+    text-transform: uppercase;
+    font-feature-settings:
+      "case" 1,
+      "cpsp" 1,
+      "ss01" 1;
+  }
+
   /* Mobile viewport fixes */
   .hero-section {
     height: calc(
@@ -227,6 +258,14 @@
   h5,
   h6 {
     font-family: var(--font-heading);
+    font-weight: var(--weight-mh-heading);
+    letter-spacing: var(--tracking-mh-heading);
+    line-height: var(--line-height-mh-heading);
+    text-wrap: balance;
+    font-feature-settings:
+      "case" 1,
+      "cpsp" 1,
+      "ss01" 1;
   }
 
   /* Optimize rendering performance */

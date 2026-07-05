@@ -43,15 +43,13 @@ export const EMAIL_STYLES = {
   /**
    * Body font stack for email.
    *
-   * Lists the brand body face ("DIN 2014") first so mail clients that have
-   * the brand font installed (e.g. Apple Mail with the desktop font) render
-   * on-brand. All other clients fall through to the system-ui stack — email
-   * cannot load Adobe Fonts (Typekit) so we never reference Mendl Sans Dusk
+   * Uses Inter as the primary email body font with Roboto as the only fallback.
+   * Email clients cannot load Adobe Fonts (Typekit), so we never reference
+   * Mendl Sans Dusk in email templates.
    * here. Keep this stack in sync with `--font-body` in `documents/styles/brand.css`
    * and `src/styles/variables.css` (web side).
    */
-  fontStack:
-    "'DIN 2014', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif",
+  fontStack: "'Inter', Roboto, sans-serif",
   /** Standard gradient background for header */
   headerGradient: `linear-gradient(135deg, ${EMAIL_COLORS.primary} 0%, ${EMAIL_COLORS.primaryDark} 100%)`,
   /** Info box with left border */

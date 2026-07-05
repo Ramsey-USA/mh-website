@@ -32,7 +32,7 @@ function fail(message) {
 }
 
 function pass(message) {
-  console.log(`PASS: ${message}`);
+  console.info(`PASS: ${message}`);
 }
 
 let hasFailures = false;
@@ -89,4 +89,4 @@ if (hasFailures) {
   process.exit(1);
 }
 
-console.log("\nDashboard guardrails check passed.");
+console.info("\nDashboard guardrails check passed.");

@@ -385,7 +385,7 @@ async function main() {
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
-<body style="font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#212121;margin:0;padding:0;background:#f5f5f5;">
+<body style="font-family:'Inter',Roboto,sans-serif;line-height:1.6;color:#212121;margin:0;padding:0;background:#f5f5f5;">
   <table width="100%" cellpadding="0" cellspacing="0" style="max-width:700px;margin:20px auto;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
     <tr>
       <td style="background:linear-gradient(135deg,#386851 0%,#1E392C 100%);padding:30px;text-align:center;">

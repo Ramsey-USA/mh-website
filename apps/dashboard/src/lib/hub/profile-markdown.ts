@@ -1,6 +1,7 @@
 import type { VintageTeamMember } from "@/lib/data/vintage-team";
 
 const CODE_BLOCK_TAG = "team-profile-payload";
+const CODE_FENCE = "```";
 
 function normalizeLineEndings(input: string): string {
   return input.replaceAll("\r\n", "\n");
@@ -47,7 +48,7 @@ export function teamProfileToMarkdown(member: VintageTeamMember): string {
 function extractPayloadBlock(markdown: string): string | null {
   const normalized = normalizeLineEndings(markdown);
   const tagged = new RegExp(
-    "```json\\s+" + CODE_BLOCK_TAG + "\\n([\\s\\S]*?)\\n```",
+    `${CODE_FENCE}json\\s+${CODE_BLOCK_TAG}\\n([\\s\\S]*?)\\n${CODE_FENCE}`,
     "i",
   );
   const taggedMatch = tagged.exec(normalized);

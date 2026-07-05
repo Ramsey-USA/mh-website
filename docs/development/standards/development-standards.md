@@ -67,6 +67,8 @@ Any change that fails one of the checks below is non-compliant.
 - Confirm CTA clusters follow primary-secondary-tertiary emphasis hierarchy.
 - Confirm adjacent section headers maintain planned cadence (display vs section scale).
 - Confirm deferred placeholders match final section shell styling.
+- Run `pnpm font-system:check` after any typography, layout font-loading, document-template, or branding-doc change.
+- Run `pnpm docs:sync` when canonical `docs/`, `messages/`, or `documents/` content changes so app mirrors stay aligned before validation.
 
 ### Congruency Guardrails for Tooling
 

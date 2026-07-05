@@ -747,7 +747,7 @@ async function createTextLabel(text, width, variant) {
       <text
         x="50%"
         y="50%"
-        font-family="Arial, sans-serif"
+        font-family="Inter, Roboto, sans-serif"
         font-size="${fontSize}"
         font-weight="bold"
         fill="${textColor}"

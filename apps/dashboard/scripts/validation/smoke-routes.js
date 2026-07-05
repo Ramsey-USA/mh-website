@@ -84,11 +84,11 @@ async function startManagedDevServerIfNeeded() {
 
   const probe = await checkRouteWithTimeout("/", initialProbeTimeoutMs);
   if (probe.status > 0 && isReachableStatus(probe.status)) {
-    console.log("Detected existing dashboard server; using current process.");
+    console.info("Detected existing dashboard server; using current process.");
     return;
   }
 
-  console.log(`Starting managed dashboard dev server: ${managedDevCommand}`);
+  console.info(`Starting managed dashboard dev server: ${managedDevCommand}`);
 
   managedDevProcess = require("node:child_process").spawn(
     "bash",
@@ -116,7 +116,7 @@ function stopManagedDevServer() {
   managedDevProcess = null;
 }
 
-async function checkRoute(route) {
+function checkRoute(route) {
   return checkRouteWithTimeout(route, timeoutMs);
 }
 
@@ -164,8 +164,8 @@ async function checkRouteWithTimeout(route, routeTimeoutMs) {
 }
 
 async function main() {
-  console.log(`Dashboard smoke base URL: ${baseUrl}`);
-  console.log(
+  console.info(`Dashboard smoke base URL: ${baseUrl}`);
+  console.info(
     `Expected statuses: ${Array.from(expectedStatuses)
       .sort((a, b) => a - b)
       .join(", ")}`,
@@ -179,7 +179,7 @@ async function main() {
     const result = await checkRoute(route);
     if (result.ok) {
       const suffix = result.location ? ` -> ${result.location}` : "";
-      console.log(`PASS ${route} (${result.status})${suffix}`);
+      console.info(`PASS ${route} (${result.status})${suffix}`);
     } else {
       if (result.status > 0) {
         console.error(`FAIL ${route} (${result.status})`);
@@ -198,7 +198,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log("\nDashboard smoke check passed.");
+  console.info("\nDashboard smoke check passed.");
 }
 
 void main()

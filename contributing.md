@@ -60,12 +60,17 @@ pnpm run lint
 # 2. Type check — catches TypeScript errors (runs again on pre-push)
 pnpm run type-check
 
-# 3. Build test — catches compilation issues early
+# 3. Font-system guardrail — catches typography drift in app code, documents, and branding docs
+pnpm run font-system:check
+
+# 4. Build test — catches compilation issues early
 pnpm run build
 
-# 4. Unit tests — run relevant tests
+# 5. Unit tests — run relevant tests
 pnpm run test
 ```
+
+**Typography changes require extra validation:** If you touch font loading, typography variables, document templates, or branding guidance docs, you must also run `pnpm docs:sync` followed by `pnpm font-system:check`.
 
 **Common Issues & Fixes:**
 
@@ -124,10 +129,12 @@ Before submitting a PR, confirm:
 
 - [ ] `pnpm run type-check` passes (zero errors)
 - [ ] `pnpm run lint` passes (zero warnings)
+- [ ] `pnpm run font-system:check` passes for typography, document, or branding-doc changes
 - [ ] `pnpm run build` succeeds
 - [ ] `pnpm run test` passes (all tests green)
 - [ ] For public copy/metadata/label changes, run `npm test -- src/app/__tests__/public-copy-phrasing-guard.test.ts src/lib/branding/__tests__/page-names.test.ts` in `apps/website`
 - [ ] Docs updated if the change affects documented behavior
+- [ ] `pnpm docs:sync` run after canonical `docs/`, `messages/`, or `documents/` updates
 - [ ] No `.env` secrets, `*.bak`, or generated output committed
 - [ ] Page-level changes pass the [Page Compliance Checklist](./docs/development/standards/page-compliance-checklist.md)
 - [ ] **Smoke test mocks updated** if you modified `COMPANY_INFO` or shared constants (see below)

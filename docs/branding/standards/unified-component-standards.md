@@ -117,7 +117,7 @@ The gradient text in section headers, as implemented across all pages, is the co
 
 ### MH Brand Typefaces
 
-Web brand fonts are loaded via the Adobe Fonts (Typekit) kit `jqs8bjh` (preconnected in the root layout, imported in `src/app/globals.css`).
+Web brand fonts use a split delivery model: Mendl Sans Dusk via the Adobe Fonts (Typekit) kit `jqs8bjh`, and Inter via `next/font/google`.
 
 **Heading / Subheading Font — Mendl Sans Dusk:**
 
@@ -125,6 +125,8 @@ Web brand fonts are loaded via the Adobe Fonts (Typekit) kit `jqs8bjh` (preconne
 font-family:
   "mendl-sans-dusk",
   "Mendl Sans Dusk",
+  var(--font-inter),
+  "Inter",
   ui-sans-serif,
   system-ui,
   -apple-system,
@@ -141,29 +143,31 @@ font-family:
 - CSS variable: `--font-heading`
 - Semantic `<h1>`–`<h6>` elements receive this face automatically via global CSS in `src/app/globals.css`
 
-**Body Font — DIN 2014:**
+**MH Header Utilities (required for branded display styling):**
 
-```css
-font-family:
-  "DIN 2014",
-  ui-sans-serif,
-  system-ui,
-  -apple-system,
-  BlinkMacSystemFont,
-  "Segoe UI",
-  Roboto,
-  "Helvetica Neue",
-  Arial,
-  "Noto Sans",
-  sans-serif;
+- `.mh-heading-display` - primary display heading treatment with tighter tracking, stronger weight, and capital-spacing features.
+- `.mh-heading-display-tight` - optional tighter variant for short single-line hero headings.
+- `.mh-subheading-display` - uppercase subheader treatment with expanded tracking and Mendl-like rhythm.
+
+```tsx
+<h2 className="mh-heading-display text-4xl md:text-6xl">NORTHWEST SAFETY LEADERSHIP</h2>
+<p className="mh-subheading-display text-sm md:text-base">CERTIFIED FIELD OPERATIONS</p>
 ```
 
-- Clean humanist sans-serif — high legibility at small and medium sizes
+These utilities enable OpenType capital spacing and stylistic sets where available, helping distinctive capitals (including the "N") read more like the Mendl display personality.
+
+**Body Font — Inter:**
+
+```css
+font-family: var(--font-inter), "Inter", Roboto, sans-serif;
+```
+
+- Clean grotesk/humanist sans-serif — high legibility at small and medium sizes
 - Used for: Body copy, paragraphs, captions, form labels, navigation items
 - Tailwind utility: `font-sans` / `font-body`
 - CSS variable: `--font-body`
 
-**Font Delivery (web):** Both faces are served by Adobe Fonts kit `jqs8bjh` (`https://use.typekit.net/jqs8bjh.css`). No `/public/fonts/` self-hosting is required for web. The print/PDF pipeline (`documents/`) loads its own fonts independently — see `documents/styles/brand.css`.
+**Font Delivery (web):** Mendl Sans Dusk is served by Adobe Fonts kit `jqs8bjh` (`https://use.typekit.net/jqs8bjh.css`), and Inter is loaded through `next/font/google`. No `/public/fonts/` self-hosting is required for web. The print/PDF pipeline (`documents/`) loads its own font stacks independently — see `documents/styles/brand.css`.
 
 ### Font Weights
 
@@ -432,7 +436,7 @@ Large display headers should not repeat at full intensity in consecutive section
 To preserve full-site congruency, non-hero sections must use a shared visual language.
 
 1. Non-hero section headers must follow canonical heading patterns from this document.
-2. Non-hero body copy must use approved body typography (DIN 2014 / `font-body` / `font-sans`) and approved size tiers.
+2. Non-hero body copy must use approved body typography (Inter / `font-body` / `font-sans`) and approved size tiers.
 3. Non-hero icon usage must use MaterialIcon and consistent section-role sizing and container treatment.
 4. Non-hero section shells must preserve approved spacing rhythm, container width, and background system.
 5. Visual divergence between adjacent non-hero sections requires documented intent or approved exception scope.

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { cookies, headers } from "next/headers";
 import Script from "next/script";
+import { Inter } from "next/font/google";
 import { Suspense } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import "./globals.css";
@@ -35,6 +36,12 @@ import {
 import { getMessages } from "next-intl/server";
 import { getAllJeremyRibbons } from "@/lib/content/jeremy-ribbons";
 import { getIndividualBrandingStamp } from "@/lib/content/individual-branding-stamps";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 const SEARCH_ENGINE_VERIFICATION_OTHER = Object.fromEntries(
   [
@@ -223,7 +230,11 @@ export default async function RootLayout({
   const enableRuntimeEnhancements = isProduction && !isLighthouseAudit;
 
   return (
-    <html lang={locale} className="dark" suppressHydrationWarning>
+    <html
+      lang={locale}
+      className={`${inter.variable} dark`}
+      suppressHydrationWarning
+    >
       <head>
         <FaviconLinks />
         <Script

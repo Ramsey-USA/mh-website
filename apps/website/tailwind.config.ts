@@ -140,6 +140,8 @@ const config = {
         sans: ["var(--font-body)"],
         heading: ["var(--font-heading)"],
         body: ["var(--font-body)"],
+        display: ["var(--font-heading)"],
+        subheading: ["var(--font-heading)"],
       },
       screens: {
         xs: "375px",

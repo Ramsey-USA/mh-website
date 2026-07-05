@@ -154,17 +154,15 @@ The four-value foundation system, in hierarchical order:
 
 ### Font System
 
-Web brand fonts are loaded via the Adobe Fonts (Typekit) kit `jqs8bjh`.
+Web brand fonts use a split delivery model: Mendl Sans Dusk via the Adobe Fonts (Typekit) kit `jqs8bjh`, and Inter via `next/font/google`.
 
-| Role                     | Font Family     | Fallback Stack                                                                         |
-| ------------------------ | --------------- | -------------------------------------------------------------------------------------- |
-| **Heading / Subheading** | Mendl Sans Dusk | `ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif`         |
-| **Body**                 | DIN 2014        | `ui-sans-serif, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif` |
+- **Heading / Subheading**: Mendl Sans Dusk (fallback `Inter, Roboto, sans-serif`)
+- **Body**: Inter (fallback `Roboto, sans-serif`)
 
 ### Usage Rules
 
 - **Mendl Sans Dusk** — used for all H1–H6 headings, subheadings, section titles, badge labels, and tab divider titles
-- **DIN 2014** — used for all body copy, paragraphs, captions, form labels, and navigation text
+- **Inter** — used for all body copy, paragraphs, captions, form labels, navigation text, and document body content
 - Semantic `<h1>`–`<h6>` elements automatically receive the heading face via global CSS; for non-semantic title elements (eyebrows, kickers, badge labels) explicitly add the `font-heading` Tailwind utility
 - Fallbacks activate automatically if brand fonts are not yet loaded
 
@@ -172,15 +170,16 @@ Web brand fonts are loaded via the Adobe Fonts (Typekit) kit `jqs8bjh`.
 
 ```css
 --font-heading:
-  "mendl-sans-dusk", "Mendl Sans Dusk", ui-sans-serif, system-ui, ...;
---font-body: "DIN 2014", ui-sans-serif, system-ui, ...;
+  "mendl-sans-dusk", "Mendl Sans Dusk", var(--font-inter), "Inter",
+  ui-sans-serif, system-ui, ...;
+--font-body: var(--font-inter), "Inter", Roboto, sans-serif;
 ```
 
 ### Tailwind Utilities
 
 ```html
 font-heading → Mendl Sans Dusk + fallbacks (headings) font-body / font-sans →
-DIN 2014 + fallbacks (body)
+Inter + fallbacks (body)
 ```
 
 ---

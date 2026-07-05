@@ -147,7 +147,7 @@ If any inventory is missing, the page audit is incomplete.
 
 ### Body Font Consistency (Non-Hero Sections)
 
-- [ ] Non-hero section body copy uses DIN 2014 (`font-body` / `font-sans`) rather than ad-hoc alternate fonts
+- [ ] Non-hero section body copy uses Inter (`font-body` / `font-sans`) rather than ad-hoc alternate fonts
 - [ ] Body size tiers follow approved scale (`text-sm sm:text-base md:text-lg` or approved larger intro tier)
 - [ ] Paragraph line-height remains readability-first (`leading-relaxed` or approved equivalent)
 - [ ] Supporting metadata text follows approved small-body scale (`text-xs sm:text-sm md:text-base`)
