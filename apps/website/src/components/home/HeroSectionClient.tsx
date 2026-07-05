@@ -47,7 +47,9 @@ export function HeroSectionClient({
 }: Readonly<HeroSectionClientProps>) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const hasStartedPlaybackRef = useRef(false);
-  const delayedStartTimerRef = useRef<number | null>(null);
+  const delayedStartTimerRef = useRef<ReturnType<
+    typeof globalThis.setTimeout
+  > | null>(null);
   const initialVideoDelayMsRef = useRef<number>(getInitialHeroVideoDelayMs());
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isVideoReady, setIsVideoReady] = useState(false);
