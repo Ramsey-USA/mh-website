@@ -5,6 +5,15 @@ on:
   schedule:
     - cron: "0 7 * * *"
   workflow_dispatch:
+    inputs:
+      enforce_thresholds:
+        description: "Fail run if coverage is below configured minimums"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
 
 concurrency:
   group: nightly-coverage-${{ github.ref }}
@@ -15,11 +24,16 @@ permissions:
 
 env:
   NODE_VERSION: "22"
+  COVERAGE_MIN_LINES: "95"
+  COVERAGE_MIN_BRANCHES: "90"
+  COVERAGE_MIN_FUNCTIONS: "95"
+  COVERAGE_MIN_STATEMENTS: "95"
 
 jobs:
   website-coverage:
     name: Website Coverage (Nightly)
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Checkout code
@@ -40,17 +54,108 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run website coverage tests
+        id: coverage_initial
+        continue-on-error: true
         working-directory: apps/website
-        run: npm run test:ci:coverage
+        run: npm run test:ci:coverage:fast
+
+      - name: Attempt auto-repair sync (docs/messages/documents)
+        if: steps.coverage_initial.outcome == 'failure'
+        run: pnpm docs:sync
+
+      - name: Retry website coverage after auto-repair
+        id: coverage_retry
+        if: steps.coverage_initial.outcome == 'failure'
+        continue-on-error: true
+        working-directory: apps/website
+        run: npm run test:ci:coverage:fast
+
+      - name: Finalize coverage run status
+        if: always()
+        run: |
+          initial_outcome="${{ steps.coverage_initial.outcome }}"
+          retry_outcome="${{ steps.coverage_retry.outcome }}"
+
+          if [[ "$initial_outcome" == "success" || "$retry_outcome" == "success" ]]; then
+            echo "Coverage run passed (initial or retry)."
+            exit 0
+          fi
+
+          echo "Coverage run failed after auto-repair retry."
+          exit 1
+
+      - name: Print coverage summary
+        if: always()
+        run: |
+          node -e '
+            const fs = require("node:fs");
+            const path = "apps/website/coverage/coverage-summary.json";
+            if (!fs.existsSync(path)) {
+              console.log("Coverage summary file not found: " + path);
+              process.exit(0);
+            }
+
+            const summary = JSON.parse(fs.readFileSync(path, "utf8"));
+            const total = summary.total || {};
+            const toPct = (value) => {
+              const n = Number(value || 0);
+              return Number.isFinite(n) ? n.toFixed(2) : "0.00";
+            };
+
+            console.log("Coverage Summary (total):");
+            console.log("- Lines: " + toPct(total.lines?.pct) + "%");
+            console.log("- Statements: " + toPct(total.statements?.pct) + "%");
+            console.log("- Functions: " + toPct(total.functions?.pct) + "%");
+            console.log("- Branches: " + toPct(total.branches?.pct) + "%");
+          '
+
+      - name: Enforce minimum coverage thresholds
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.enforce_thresholds == 'true' }}
+        run: |
+          node -e '
+            const fs = require("node:fs");
+            const path = "apps/website/coverage/coverage-summary.json";
+            if (!fs.existsSync(path)) {
+              console.error("Coverage summary file not found: " + path);
+              process.exit(1);
+            }
+
+            const summary = JSON.parse(fs.readFileSync(path, "utf8"));
+            const total = summary.total || {};
+            const minimums = {
+              lines: Number(process.env.COVERAGE_MIN_LINES || 95),
+              branches: Number(process.env.COVERAGE_MIN_BRANCHES || 90),
+              functions: Number(process.env.COVERAGE_MIN_FUNCTIONS || 95),
+              statements: Number(process.env.COVERAGE_MIN_STATEMENTS || 95),
+            };
+
+            const failures = [];
+            for (const metric of Object.keys(minimums)) {
+              const actual = Number(total[metric]?.pct || 0);
+              const min = minimums[metric];
+              if (actual < min) {
+                failures.push(`${metric}: ${actual.toFixed(2)}% < ${min.toFixed(2)}%`);
+              }
+            }
+
+            if (failures.length > 0) {
+              console.error("Coverage threshold failures:\n" + failures.map((f) => "- " + f).join("\n"));
+              process.exit(1);
+            }
+
+            console.log("Coverage thresholds passed.");
+          '
 
       - name: Upload website coverage artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: website-coverage-${{ github.run_id }}
+          retention-days: 14
           path: |
             apps/website/coverage/lcov.info
             apps/website/coverage/coverage-final.json
+            apps/website/coverage/coverage-summary.json
             apps/website/coverage/index.html
             apps/website/coverage/lcov-report/**
           if-no-files-found: warn

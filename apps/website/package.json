@@ -22,6 +22,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
+    "test:ci:fast": "jest --ci --maxWorkers=50% --bail",
+    "test:ci:coverage:fast": "jest --ci --coverage --maxWorkers=50% --bail",
     "nav:contract:check": "jest --runInBand src/components/navigation/__tests__/navigation-route-ownership.test.ts",
     "test:ci": "jest --ci --runInBand",
     "test:ci:coverage": "jest --ci --coverage --runInBand",

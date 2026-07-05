@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.locations.seoName, PAGE_TERMINOLOGY.locations.mhBrandName)} | MH Construction`,
     description:
-      "Regional market profiles for Washington, Oregon, and Idaho with verified project examples and local delivery context.",
+      "Regional service area profiles for Washington, Oregon, and Idaho with verified project examples and local delivery context.",
     url: `${SITE_URL}/locations`,
     type: "website",
     images: [
