@@ -7,9 +7,23 @@ import {
   rmSync,
   writeFileSync,
 } from "node:fs";
-import { join } from "node:path";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const INDEXNOW_KEY = (process.env.INDEXNOW_KEY || "").trim();
+const scriptDir = dirname(fileURLToPath(import.meta.url));
+const appRoot = resolve(scriptDir, "..", "..");
+const workspaceRoot = resolve(appRoot, "..", "..");
+
+const INDEXNOW_KEY = (
+  process.env.INDEXNOW_KEY ||
+  readEnvValue("INDEXNOW_KEY", [
+    join(appRoot, ".env.local"),
+    join(appRoot, ".env"),
+    join(workspaceRoot, ".env.local"),
+    join(workspaceRoot, ".env"),
+  ]) ||
+  ""
+).trim();
 const PUBLIC_DIR = join(process.cwd(), "public");
 
 if (!INDEXNOW_KEY) {
@@ -30,6 +44,7 @@ mkdirSync(PUBLIC_DIR, { recursive: true });
 
 const targetFileName = `${INDEXNOW_KEY}.txt`;
 const targetPath = join(PUBLIC_DIR, targetFileName);
+const maskedKey = maskKey(INDEXNOW_KEY);
 
 cleanupStaleIndexNowFiles(PUBLIC_DIR, targetFileName);
 
@@ -43,9 +58,9 @@ try {
 
 if (shouldWrite) {
   writeFileSync(targetPath, `${INDEXNOW_KEY}\n`, "utf8");
-  console.log(`[indexnow] Wrote ${targetFileName}`);
+  console.log(`[indexnow] Wrote key file for ${maskedKey}`);
 } else {
-  console.log(`[indexnow] Key file is current: ${targetFileName}`);
+  console.log(`[indexnow] Key file is current for ${maskedKey}`);
 }
 
 function cleanupStaleIndexNowFiles(publicDir, keepFileName) {
@@ -76,7 +91,54 @@ function cleanupStaleIndexNowFiles(publicDir, keepFileName) {
     // IndexNow proof files conventionally contain the exact key.
     if (content === basename) {
       rmSync(fullPath, { force: true });
-      console.log(`[indexnow] Removed stale key file: ${file.name}`);
+      console.log(`[indexnow] Removed stale key file for ${maskKey(basename)}`);
     }
   }
+}
+
+function maskKey(key) {
+  if (!key) {
+    return "(missing)";
+  }
+
+  if (key.length <= 8) {
+    return `${key[0]}***${key[key.length - 1]}`;
+  }
+
+  return `${key.slice(0, 4)}...${key.slice(-4)}`;
+}
+
+function readEnvValue(name, filePaths) {
+  for (const filePath of filePaths) {
+    let content = "";
+    try {
+      content = readFileSync(filePath, "utf8");
+    } catch {
+      continue;
+    }
+
+    const lines = content.split(/\r?\n/);
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith("#")) {
+        continue;
+      }
+
+      const separatorIndex = trimmed.indexOf("=");
+      if (separatorIndex === -1) {
+        continue;
+      }
+
+      const key = trimmed.slice(0, separatorIndex).trim();
+      if (key !== name) {
+        continue;
+      }
+
+      let value = trimmed.slice(separatorIndex + 1).trim();
+      value = value.replace(/^['\"]|['\"]$/g, "");
+      return value;
+    }
+  }
+
+  return "";
 }
