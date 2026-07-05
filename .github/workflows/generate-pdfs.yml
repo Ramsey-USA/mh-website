@@ -55,10 +55,10 @@ jobs:
       - name: Install Chromium system dependencies
         run: |
           sudo apt-get update -qq
-          if apt-cache show libasound2 >/dev/null 2>&1; then
-            ALSA_PKG="libasound2"
-          else
+          if apt-cache show libasound2t64 >/dev/null 2>&1; then
             ALSA_PKG="libasound2t64"
+          else
+            ALSA_PKG="libasound2"
           fi
           sudo apt-get install -y --no-install-recommends \
             libatk-bridge2.0-0 libatk1.0-0 libcups2 libdbus-1-3 \
