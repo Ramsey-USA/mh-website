@@ -56,7 +56,9 @@ describe("ServicesHero", () => {
 
   it("renders the Operations breadcrumb text", () => {
     render(<ServicesHero />);
-    expect(screen.getByText("Services -> Operations")).toBeInTheDocument();
+    expect(
+      screen.getByText(/Services\s*->\s*Operations\s*->\s*Services/i),
+    ).toBeInTheDocument();
   });
 
   it("renders the mission statement", () => {

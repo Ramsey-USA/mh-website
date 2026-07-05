@@ -119,32 +119,39 @@ export function HeroSectionClient({
       scheduleDelayedInitialPlayback();
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (!entry) {
-          return;
-        }
+    let observer: IntersectionObserver | null = null;
 
-        if (entry.isIntersecting) {
-          scheduleDelayedInitialPlayback();
-        } else {
-          clearDelayedStartTimer();
-          video.pause();
-          syncPlaybackState();
-        }
-      },
-      { threshold: 0.35 },
-    );
+    if (typeof globalThis.IntersectionObserver !== "undefined") {
+      observer = new globalThis.IntersectionObserver(
+        (entries) => {
+          const [entry] = entries;
+          if (!entry) {
+            return;
+          }
 
-    scheduleDelayedInitialPlayback();
+          if (entry.isIntersecting) {
+            scheduleDelayedInitialPlayback();
+          } else {
+            clearDelayedStartTimer();
+            video.pause();
+            syncPlaybackState();
+          }
+        },
+        { threshold: 0.35 },
+      );
+
+      observer.observe(video);
+    } else {
+      // Test environments like jsdom do not implement IntersectionObserver.
+      scheduleDelayedInitialPlayback();
+    }
+
     syncPlaybackState();
-    observer.observe(video);
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       clearDelayedStartTimer();
-      observer.disconnect();
+      observer?.disconnect();
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, [useVideoHero]);

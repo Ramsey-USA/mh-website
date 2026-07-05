@@ -7,16 +7,16 @@ describe("jeremy-ribbons", () => {
   it("returns a configured ribbon for known static routes", () => {
     const ribbon = getJeremyRibbon("about");
 
-    expect(ribbon.eyebrow).toBeTruthy();
-    expect(ribbon.quote).toContain("About page");
+    expect(ribbon.eyebrow).toBe("Words from the General");
+    expect(ribbon.quote).toContain("About us");
     expect(ribbon.attribution).toContain("Jeremy Thamert");
   });
 
   it("returns a configured ribbon for the services page key", () => {
     const ribbon = getJeremyRibbon("services");
 
-    expect(ribbon.eyebrow).toContain("Admission");
-    expect(ribbon.quote).toContain("services");
+    expect(ribbon.eyebrow).toBe("Words from the General");
+    expect(ribbon.quote).toContain("Services");
   });
 
   it("maps root path to the home ribbon", () => {

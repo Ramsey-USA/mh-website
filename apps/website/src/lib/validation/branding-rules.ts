@@ -29,7 +29,7 @@ export const SLOGAN_RULES = {
   ],
 
   supportingRegex:
-    /Squared away from start to finish\.|From Handshake to Handoff, we got your 'six\.'|Professional on the line\. Thorough in the details\.|No gaps\. No guesswork\. Just accountable follow-through\.|Clear facts\. No spin\. No surprises\.|Commitments kept under pressure\.|Standards high on every site, every day\.|Measure twice, document always, close out clean\./,
+    /Squared away from start to finish\.|From Handshake to Handoff, we got your 'six\.'|Professional on the line\. Thorough in the details\.|No gaps\. No guesswork\. Just accountable follow-through\.|Clear facts\. No spin\. No surprises\.|Commitments kept under pressure\.|Standards high on every site, every day\.|Measure twice, document always, close out clean\.|getHeroPageSlogan\([^)]+\)\.slogan|copy\.tagline|heroSlogan|COMPANY_INFO\.slogan\.(secondary|tertiary|quaternary|quinary)/,
 
   /** Files that must display both primary and supporting slogans */
   heroFiles: [

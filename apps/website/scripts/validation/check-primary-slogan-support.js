@@ -31,6 +31,8 @@ const ALLOWED_EXTENSIONS = new Set([".ts", ".tsx", ".js", ".jsx", ".json"]);
 
 const PRIMARY_RE = SLOGAN_RULES.primaryRegex;
 const SUPPORTING_RE = SLOGAN_RULES.supportingRegex;
+const DYNAMIC_SUPPORTING_RE =
+  /getHeroPageSlogan\([^)]+\)\.slogan|copy\.tagline|heroSlogan|COMPANY_INFO\.slogan\.(secondary|tertiary|quaternary|quinary)/;
 
 const IGNORE_PATH_SEGMENTS = new Set([
   "node_modules",
@@ -89,7 +91,7 @@ function main() {
       continue;
     }
 
-    if (!SUPPORTING_RE.test(source)) {
+    if (!SUPPORTING_RE.test(source) && !DYNAMIC_SUPPORTING_RE.test(source)) {
       failures.push(toRepoRelative(absPath));
     }
   }

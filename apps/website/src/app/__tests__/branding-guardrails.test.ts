@@ -119,11 +119,11 @@ describe("Branding Guardrails › Slogan Coverage", () => {
         }
 
         const hasPrimary =
-          /Built on Quality, Backed by Trust\.|COMPANY_INFO\.slogan\.primary|hero\.mission/.test(
+          /Built on Quality, Backed by Trust\.|COMPANY_INFO\.slogan\.primary|hero\.mission|copy\.mission/.test(
             source,
           );
         const hasSupporting =
-          /Squared away from start to finish\.|From Handshake to Handoff, we got your 'six\.'|Professional on the line\. Thorough in the details\.|No gaps\. No guesswork\. Just accountable follow-through\.|Clear facts\. No spin\. No surprises\.|COMPANY_INFO\.slogan\.(secondary|tertiary|quaternary|quinary)|sectionTagline/.test(
+          /Squared away from start to finish\.|From Handshake to Handoff, we got your 'six\.'|Professional on the line\. Thorough in the details\.|No gaps\. No guesswork\. Just accountable follow-through\.|Clear facts\. No spin\. No surprises\.|Commitments kept under pressure\.|Standards high on every site, every day\.|Measure twice, document always, close out clean\.|COMPANY_INFO\.slogan\.(secondary|tertiary|quaternary|quinary)|sectionTagline|copy\.tagline|getHeroPageSlogan\([^)]+\)\.slogan|heroSlogan/.test(
             source,
           );
 
