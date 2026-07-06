@@ -232,20 +232,20 @@ Expected savings: 20-30 seconds
 
 ### 1. Adding a New Branding Rule
 
-**Option A: Affects both Jest and CLI**
+#### Option A: Affects both Jest and CLI
 
 1. Add to `branding-rules.ts` (TypeScript) and mirror in `branding-rules.cjs` (CommonJS)
 2. Update Jest test in `branding-guardrails.test.ts`
 3. Update CLI script to import the new rule
 4. Test both paths
 
-**Option B: Jest-only rule**
+#### Option B: Jest-only rule
 
 1. Add directly to `branding-guardrails.test.ts`
 2. Use framework utilities from `branding-validator.ts`
 3. Test with `npm test -- branding-guardrails.test.ts`
 
-**Option C: CLI-only rule**
+#### Option C: CLI-only rule
 
 1. Add to `branding-rules.cjs`
 2. Update the relevant CLI script

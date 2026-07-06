@@ -1300,7 +1300,7 @@ on every page via `src/components/seo/SeoMeta.tsx`. This enables rich results in
 
 > Veteran-owned general contractor serving the Pacific Northwest since 2010. Commercial construction, design-build, tenant improvements. BBB A+ rated, 650+ projects completed. Call for free consultation.
 
-4. **Upload media**:
+1. **Upload media**:
    - **Logo:** Official MH Construction logo (square, 250x250+)
    - **Cover photo:** Hero image of team or flagship project
    - **Project photos:** 10+ labeled with project type and location

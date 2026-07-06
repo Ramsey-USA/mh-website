@@ -151,7 +151,7 @@ export const MY_NEW_RULES = [
 ];
 ```
 
-2. **Add test in `branding-guardrails.test.ts`:**
+1. **Add test in `branding-guardrails.test.ts`:**
 
 ```typescript
 describe("Branding Guardrails › My New Category", () => {
@@ -176,7 +176,7 @@ describe("Branding Guardrails › My New Category", () => {
 });
 ```
 
-3. **Optional: Update CLI scripts** to use the new rules (backward compatible):
+1. **Optional: Update CLI scripts** to use the new rules (backward compatible):
 
 ```javascript
 // Old way (still works):

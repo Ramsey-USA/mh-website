@@ -199,7 +199,7 @@ After:  Update primary slogan = edit 1 file (auto-propagates to all)
 
 ### Adding a New Branding Rule
 
-**Scenario 1: Rule Used by Both Jest & CLI**
+#### Scenario 1: Rule Used by Both Jest & CLI
 
 ```
 1. Add rule to src/lib/validation/branding-rules.ts
@@ -209,7 +209,7 @@ After:  Update primary slogan = edit 1 file (auto-propagates to all)
 5. Test both Jest and CLI execution
 ```
 
-**Scenario 2: Jest-Only Rule**
+#### Scenario 2: Jest-Only Rule
 
 ```
 1. Add directly to branding-guardrails.test.ts
@@ -217,7 +217,7 @@ After:  Update primary slogan = edit 1 file (auto-propagates to all)
 3. Test with: npm test -- branding-guardrails.test.ts
 ```
 
-**Scenario 3: CLI-Only Rule**
+#### Scenario 3: CLI-Only Rule
 
 ```
 1. Add to branding-rules.cjs
