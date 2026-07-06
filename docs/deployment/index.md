@@ -18,6 +18,8 @@ maintaining safety-critical CI gates.
   procedure for the production worker.
 - **[Cloudflare Compatibility Assessment](./cloudflare-compatibility.md)** — Dependency upgrade
   compatibility matrix for the Workers runtime.
+- **[Cloudflare Verification Runbook](./cloudflare-verification-runbook.md)** — Step-by-step
+  pass/fail validation for connection, bindings, security, and optimization settings.
 
 ### CI/CD
 

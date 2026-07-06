@@ -563,27 +563,93 @@ export default async function TeamPage() {
         />
 
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-          <div className="rounded-2xl border border-brand-secondary/25 bg-linear-to-r from-white via-brand-secondary/5 to-white dark:from-gray-900 dark:via-brand-secondary/15 dark:to-gray-900 p-5 sm:p-6 shadow-sm">
-            <p className="text-xs sm:text-sm font-semibold tracking-[0.18em] text-brand-primary uppercase mb-2">
-              Leadership Spotlight
-            </p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <p className="font-body text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed">
-                Learn more about Jeremy Thamert, Owner &amp; President, and the
-                relationship-first leadership model guiding MH Construction.
+          <div className="grid gap-4 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.95fr)]">
+            <div className="rounded-2xl border border-brand-secondary/25 bg-linear-to-r from-white via-brand-secondary/5 to-white dark:from-gray-900 dark:via-brand-secondary/15 dark:to-gray-900 p-5 sm:p-6 shadow-sm">
+              <p className="text-xs sm:text-sm font-semibold tracking-[0.18em] text-brand-primary uppercase mb-2">
+                On This Page
               </p>
-              <Button
-                asChild
-                variant="secondary"
-                size="sm"
-                className="shrink-0"
-              >
-                <Link href="/jeremy-thamert">
-                  <MaterialIcon icon="person" size="sm" className="mr-2" />
-                  View Jeremy Thamert Profile
-                </Link>
-              </Button>
+              <p className="font-body text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed max-w-2xl">
+                Skip straight to the part you need: team stories, company
+                culture, growth, or the founder tribute.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2 sm:gap-3">
+                {navigationConfigs.team.map((item) => (
+                  <Button
+                    key={item.href}
+                    asChild
+                    variant="secondary"
+                    size="sm"
+                    className="shrink-0"
+                  >
+                    <Link href={item.href} prefetch={false}>
+                      <MaterialIcon
+                        icon={item.icon}
+                        size="sm"
+                        className="mr-2"
+                      />
+                      {item.label}
+                    </Link>
+                  </Button>
+                ))}
+              </div>
             </div>
+
+            {founderTributeMember ? (
+              <div className="rounded-2xl border border-bronze-200 dark:border-bronze-700 bg-linear-to-br from-bronze-50/95 via-white to-brand-secondary/10 dark:from-bronze-900/20 dark:via-gray-900 dark:to-brand-secondary/15 p-5 sm:p-6 shadow-sm">
+                <p className="text-xs sm:text-sm font-semibold tracking-[0.18em] text-brand-secondary uppercase mb-2">
+                  Founding Snapshot
+                </p>
+                <div className="flex items-start gap-4">
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl border border-bronze-200 dark:border-bronze-700 bg-gray-100 dark:bg-gray-800">
+                    <Image
+                      src={
+                        founderTributeMember.avatar ??
+                        "/images/team/placeholder-team.webp"
+                      }
+                      alt={founderTributeMember.name}
+                      fill
+                      className="object-cover"
+                      sizes="64px"
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-lg sm:text-xl font-black text-gray-900 dark:text-white tracking-tight">
+                      {founderTributeMember.name}
+                    </h3>
+                    <p className="text-sm sm:text-base font-semibold text-brand-secondary-dark dark:text-brand-secondary-light">
+                      {founderTributeMember.role}
+                    </p>
+                    <p className="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {founderTributeMember.bio}
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300">
+                      <span className="rounded-full bg-white/80 dark:bg-gray-800/80 px-3 py-1 border border-bronze-200 dark:border-bronze-700">
+                        {founderTributeMember.yearsWithCompany}+ years with MH
+                      </span>
+                      <span className="rounded-full bg-white/80 dark:bg-gray-800/80 px-3 py-1 border border-bronze-200 dark:border-bronze-700">
+                        {founderTributeMember.careerStats.totalProjects}+
+                        projects
+                      </span>
+                    </div>
+                    <Button
+                      asChild
+                      variant="secondary"
+                      size="sm"
+                      className="mt-4"
+                    >
+                      <Link href="#founder-tribute" prefetch={false}>
+                        <MaterialIcon
+                          icon="foundation"
+                          size="sm"
+                          className="mr-2"
+                        />
+                        View founder tribute
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ) : null}
           </div>
         </section>
 
@@ -593,7 +659,7 @@ export default async function TeamPage() {
 
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             {/* Section Header - Military Construction Standard */}
-            <div className="mb-16 sm:mb-20 text-center">
+            <div className="mb-10 sm:mb-12 text-center">
               {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
                 <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
@@ -611,17 +677,17 @@ export default async function TeamPage() {
               </div>
 
               {/* Two-line gradient heading */}
-              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+              <h2 className="mb-4 sm:mb-5 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight overflow-visible">
+                <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight overflow-visible py-1">
                   {t("team.overview.subtitle")}
                 </span>
-                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 pb-2 leading-normal">
                   {t("team.overview.title")}
                 </span>
               </h2>
 
               {/* Description with colored keyword highlighting */}
-              <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed tracking-wide px-2">
                 {t("team.overview.description")}
               </p>
             </div>
@@ -668,7 +734,7 @@ export default async function TeamPage() {
         >
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             {/* Section Header - Military Construction Standard */}
-            <div className="mb-16 sm:mb-20 text-center">
+            <div className="mb-10 sm:mb-12 text-center">
               {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
                 <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
@@ -686,17 +752,17 @@ export default async function TeamPage() {
               </div>
 
               {/* Two-line gradient heading */}
-              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+              <h2 className="mb-4 sm:mb-5 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight overflow-visible">
+                <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight overflow-visible py-1">
                   {t("team.employeeTestimonials.subtitle")}
                 </span>
-                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 pb-2 leading-normal">
                   {t("team.employeeTestimonials.title")}
                 </span>
               </h2>
 
               {/* Description with colored keywords */}
-              <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <p className="font-body mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed tracking-wide px-2">
                 {t("team.employeeTestimonials.description")}
               </p>
             </div>
@@ -752,7 +818,7 @@ export default async function TeamPage() {
               className="mt-12 sm:mt-16 md:mt-20 lg:mt-24"
             >
               {/* Section Header - Military Construction Standard */}
-              <div className="mb-16 sm:mb-20 text-center">
+              <div className="mb-10 sm:mb-12 text-center">
                 {/* Icon with decorative lines */}
                 <div className="flex items-center justify-center mb-8 gap-4">
                   <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
@@ -770,17 +836,17 @@ export default async function TeamPage() {
                 </div>
 
                 {/* Two-line gradient heading */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                <h2 className="mb-4 sm:mb-5 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight overflow-visible">
+                  <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight overflow-visible py-1">
                     {t("team.culture.subtitle")}
                   </span>
-                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 pb-2 leading-normal">
                     {t("team.culture.title")}
                   </span>
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
-                <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed tracking-wide px-2">
                   {t("team.culture.description")}
                 </p>
               </div>
@@ -1072,7 +1138,7 @@ export default async function TeamPage() {
               className="mt-12 sm:mt-16 md:mt-20 lg:mt-24"
             >
               {/* Section Header - Military Construction Standard */}
-              <div className="mb-16 sm:mb-20 text-center">
+              <div className="mb-10 sm:mb-12 text-center">
                 {/* Icon with decorative lines */}
                 <div className="flex items-center justify-center mb-8 gap-4">
                   <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
@@ -1090,17 +1156,17 @@ export default async function TeamPage() {
                 </div>
 
                 {/* Two-line gradient heading */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                <h2 className="mb-4 sm:mb-5 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight overflow-visible">
+                  <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight overflow-visible py-1">
                     {t("team.careerGrowth.subtitle")}
                   </span>
-                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 pb-2 leading-normal">
                     {t("team.careerGrowth.title")}
                   </span>
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
-                <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed tracking-wide px-2">
                   {t("team.careerGrowth.description")}
                 </p>
               </div>
@@ -1520,7 +1586,7 @@ export default async function TeamPage() {
             <BrandColorBlobs />
 
             <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-              <div className="mb-12 sm:mb-14 md:mb-16 text-center">
+              <div className="mb-10 sm:mb-12 text-center">
                 <div className="flex items-center justify-center mb-8 gap-4">
                   <div className="h-1 w-16 bg-linear-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
@@ -1536,16 +1602,16 @@ export default async function TeamPage() {
                   <div className="h-1 w-16 bg-linear-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
 
-                <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                <h3 className="mb-4 sm:mb-5 font-black text-gray-900 dark:text-gray-100 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight overflow-visible">
+                  <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight overflow-visible py-1">
                     {t("team.founderTribute.subtitle")}
                   </span>
-                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 pb-2 leading-normal">
                     {t("team.founderTribute.title")}
                   </span>
                 </h3>
 
-                <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="font-body mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed tracking-wide px-2">
                   {t("team.founderTribute.description")}
                 </p>
               </div>
