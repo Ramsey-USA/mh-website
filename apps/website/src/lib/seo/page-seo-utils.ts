@@ -86,6 +86,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     description:
       "MH Construction delivers AG and winery facilities, commercial tenant improvements, and municipal projects with clear planning, disciplined field coordination, and licensed coverage across WA, OR, and ID.",
     keywords: buildPageKeywords("home", [
+      "Jeremy Thamert leadership",
       "MH Construction home",
       "veteran-owned contractor Pacific Northwest",
       "general contractor Pasco, WA",
@@ -440,6 +441,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     description:
       "Explore MH Construction services for AG and winery facilities, commercial tenant improvements, municipal work, and light industrial scopes across WA, OR, and ID, supported by Procore project controls.",
     keywords: buildPageKeywords("services", [
+      "Jeremy Thamert leadership",
       "commercial construction Tri-State WA OR ID",
       "master planning preconstruction services",
       "tenant improvement contractor",
@@ -608,6 +610,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     description:
       "Veteran-owned Tri-State contractor for government & public sector construction. Dedicated supporter of the Build America, Buy America Act (BABAA), grant support, and robust bonding capacity. Pasco, WA.",
     keywords: buildPageKeywords("public-sector", [
+      "Jeremy Thamert leadership",
       "Public Sector Government construction missions",
       "mission-ready construction operations",
       "federal compliance-driven standards",
@@ -934,6 +937,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
     description:
       "MH Construction's Trade Partner network includes electrical, signage, landscaping, glazing, specialties, fencing, insulation, plumbing, cabinetry, and drywall teams supporting projects throughout the Pacific Northwest.",
     keywords: buildPageKeywords("allies", [
+      "Jeremy Thamert leadership",
       "construction subcontractor opportunities Tri-State WA OR ID",
       "trade partner network Pacific Northwest",
       "veteran-owned contractor partnerships Washington",
@@ -1040,6 +1044,7 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
     description:
       "Verified client testimonials from commercial, industrial, and public-sector partners across MH Construction's WA, OR, and ID service area.",
     keywords: buildPageKeywords("testimonials", [
+      "Jeremy Thamert leadership",
       "construction testimonials",
       "client reviews MH Construction",
       "Tri-State contractor reviews",
@@ -1084,6 +1089,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
     description:
       "Submit a general career inquiry to MH Construction and connect with a team that values honesty, integrity, professionalism, and thoroughness across WA, OR, and ID operations.",
     keywords: buildPageKeywords("careers", [
+      "Jeremy Thamert leadership",
       "MH Construction careers",
       "join the mission construction career",
       "veteran-owned construction careers Pacific Northwest",
@@ -1266,6 +1272,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
     description:
       "Explore MH Construction's completed commercial, industrial, and government projects delivered across WA, OR, and ID, including work in Yakima, Spokane, and Walla Walla.",
     keywords: buildPageKeywords("projects", [
+      "Jeremy Thamert leadership",
       "construction portfolio Tri-State WA OR ID",
       "650 completed construction projects",
       "commercial construction projects Pacific Northwest",
@@ -1326,6 +1333,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     description:
       "Schedule a consultation with MH Construction for commercial, industrial, or public-sector work. We are headquartered in Pasco, WA and licensed across WA, OR, and ID. Call (509) 308-6489.",
     keywords: buildPageKeywords("contact", [
+      "Jeremy Thamert leadership",
       "contact construction consultation",
       "clear consultation process",
       "contact construction contractor Pasco WA",
@@ -1375,6 +1383,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
     description:
       "Get direct answers on project planning, delivery methods, pricing visibility, safety expectations, and consultation workflow for MH Construction projects across WA, OR, and ID.",
     keywords: buildPageKeywords("faq", [
+      "Jeremy Thamert leadership",
       "MH Construction FAQ",
       "direct answers construction guidance",
       "construction FAQ",
