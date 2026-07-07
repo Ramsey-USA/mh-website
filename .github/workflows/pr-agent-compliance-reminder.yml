@@ -30,6 +30,12 @@ jobs:
               return;
             }
 
+            const prAuthor = pr.user?.login || "";
+            if (prAuthor === "app/dependabot" || prAuthor === "dependabot[bot]") {
+              core.info("Dependabot PR detected. Skipping agent compliance enforcement.");
+              return;
+            }
+
             const body = (pr.body || "").replace(/\r/g, "");
             const errors = [];
 
