@@ -52,8 +52,10 @@ jobs:
 
       - name: Enforce IndexNow key for main checks
         if: >-
-          (github.event_name == 'pull_request' && github.base_ref == 'main') ||
+          github.actor != 'dependabot[bot]' &&
+          ((github.event_name == 'pull_request' && github.base_ref == 'main') ||
           (github.event_name == 'push' && github.ref == 'refs/heads/main')
+          )
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: |
@@ -242,6 +244,7 @@ jobs:
         run: pnpm install --frozen-lockfile --filter @mhc/website...
 
       - name: Enforce IndexNow key for production deploy
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: |
