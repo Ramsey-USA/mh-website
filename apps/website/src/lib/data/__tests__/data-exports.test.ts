@@ -7,6 +7,7 @@
 
 import { aboutTimelineSteps } from "../about-timeline";
 import { vintageTeamMembers } from "../vintage-team";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 describe("about-timeline data", () => {
   it("exports a non-empty array of timeline steps", () => {
@@ -36,6 +37,12 @@ describe("vintage-team data", () => {
       expect(typeof member.name).toBe("string");
       expect(typeof member.role).toBe("string");
       expect(typeof member.cardNumber).toBe("number");
+    });
+  });
+
+  it("routes all public team contact emails through the office inbox", () => {
+    vintageTeamMembers.forEach((member) => {
+      expect(member.email).toBe(COMPANY_INFO.email.main);
     });
   });
 });

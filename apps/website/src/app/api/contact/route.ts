@@ -30,11 +30,8 @@ export const dynamic = "force-dynamic";
 
 // Emails that callers are permitted to designate as the recipient.
 // Any value outside this set is silently replaced with the default.
-const ALLOWED_RECIPIENT_EMAILS = new Set([
+const ALLOWED_RECIPIENT_EMAILS: ReadonlySet<string> = new Set([
   COMPANY_INFO.email.main,
-  "matt@mhc-gc.com",
-  "arnold@mhc-gc.com",
-  "kimberly@mhc-gc.com",
 ]);
 
 interface ContactRequest {
@@ -109,12 +106,12 @@ async function handlePOST(request: NextRequest) {
     if (isAcknowledgment) {
       emailRecipients = [recipientEmail];
     } else if (isJobApplication) {
-      // Employee applications must notify office, matt, arnold, and Kimberly.
+      // Employee applications notify the shared office inbox and Matt.
       emailRecipients = [
         ...new Set([recipientEmail, ...EMAIL_RECIPIENTS.careers]),
       ];
     } else {
-      // All non-acknowledgment submissions go to office, Matt, and Arnold
+      // All non-acknowledgment submissions go to the shared office inbox and Matt.
       emailRecipients = [
         ...new Set([recipientEmail, ...EMAIL_RECIPIENTS.contact]),
       ];

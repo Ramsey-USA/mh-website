@@ -9,6 +9,7 @@ import type { IndividualBrandingStamp as IndividualBrandingStampType } from "@/l
 import { IndividualBrandingStamp } from "@/components/shared-sections/IndividualBrandingStamp";
 import { buildCertificationShowcase } from "@/lib/safety/certification-showcase";
 import { useState } from "react";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import { useTheme } from "@/contexts/theme-context";
 function getSkillLevel(score: number): {
   level: string;
@@ -1289,7 +1290,7 @@ export function TeamProfileSection({
           {/* Contact Button */}
           <div className="flex justify-center">
             <a
-              href={`mailto:${member.email || "office@mhc-gc.com"}?subject=Connect%20with%20${encodeURIComponent(member.name)}`}
+              href={`mailto:${COMPANY_INFO.email.main}?subject=Connect%20with%20${encodeURIComponent(member.name)}`}
               className={TEAM_PROFILE_SECTION_THEME.contactButton}
             >
               <MaterialIcon icon="mail" size="sm" className="text-white" />

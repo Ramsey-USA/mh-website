@@ -321,20 +321,7 @@ export const EMAIL_RECIPIENTS: {
   contact: string[];
   careers: string[];
 } = {
-  general: [
-    COMPANY_INFO.email.main,
-    COMPANY_INFO.email.admin,
-    COMPANY_INFO.email.superintendent,
-  ],
-  contact: [
-    COMPANY_INFO.email.main,
-    COMPANY_INFO.email.admin,
-    COMPANY_INFO.email.superintendent,
-  ],
-  careers: [
-    COMPANY_INFO.email.main,
-    COMPANY_INFO.email.admin,
-    COMPANY_INFO.email.superintendent,
-    COMPANY_INFO.email.hr, // Kim handles HR/hiring coordination
-  ],
+  general: [COMPANY_INFO.email.main, COMPANY_INFO.email.admin],
+  contact: [COMPANY_INFO.email.main, COMPANY_INFO.email.admin],
+  careers: [COMPANY_INFO.email.main, COMPANY_INFO.email.admin],
 };

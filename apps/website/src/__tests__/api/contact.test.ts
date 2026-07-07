@@ -186,7 +186,7 @@ describe("POST /api/contact", () => {
     expect(emailArgs.text).toContain("Project Type");
   });
 
-  it("uses allowlisted recipientEmail when provided (double-recipient path)", async () => {
+  it("ignores non-public recipientEmail overrides and uses office routing", async () => {
     const res = await POST(
       makePostRequest({
         ...validBody,
@@ -194,8 +194,11 @@ describe("POST /api/contact", () => {
       }),
     );
     expect(res.status).toBe(200);
+    const body = await res.json();
     const [[emailArgs]] = (mockSendEmail as jest.Mock).mock.calls;
     expect(Array.isArray(emailArgs.to)).toBe(true);
+    expect(body.data?.recipientEmail).toBe("office@mhc-gc.com");
+    expect(emailArgs.to).toContain("office@mhc-gc.com");
     expect(emailArgs.to).toContain("matt@mhc-gc.com");
   });
 
@@ -215,11 +218,9 @@ describe("POST /api/contact", () => {
     );
     expect(res.status).toBe(200);
     const [[emailArgs]] = (mockSendEmail as jest.Mock).mock.calls;
-    expect(emailArgs.to).toHaveLength(4);
+    expect(emailArgs.to).toHaveLength(2);
     expect(emailArgs.to).toContain("office@mhc-gc.com");
     expect(emailArgs.to).toContain("matt@mhc-gc.com");
-    expect(emailArgs.to).toContain("arnold@mhc-gc.com");
-    expect(emailArgs.to).toContain("kimberly@mhc-gc.com");
   });
 
   it("stores submission in DB when D1 is available", async () => {

@@ -102,7 +102,6 @@ function createDynamicMemberFromRow(
   cardNumber: number,
 ): VintageTeamMember {
   const role = row.role_title ?? row.position_title ?? "Team Member";
-  const email = row.employee_email?.trim();
   return {
     slug: row.slug,
     name: row.full_name ?? row.slug.replaceAll("-", " "),
@@ -139,7 +138,7 @@ function createDynamicMemberFromRow(
     careerHighlights: [],
     specialties: [],
     active: row.active !== 0,
-    ...(email ? { email } : {}),
+    email: COMPANY_INFO.email.main,
     funFact: "",
     certifications: "",
     hobbies: "",

@@ -1,8 +1,22 @@
 # Website Guardrails Coverage Map
 
 **Category:** Branding - Governance  
-**Last Updated:** July 4, 2026  
+**Last Updated:** July 7, 2026  
 **Status:** Active - Website-Wide Requirement
+
+## Public Email Guardrail
+
+Public-facing website surfaces must expose **only** `office@mhc-gc.com`.
+
+Internal monitoring rule:
+
+- Website-generated email notifications must still send to both `office@mhc-gc.com` and `matt@mhc-gc.com`.
+- No other `@mhc-gc.com` address may appear in public UI, public content, public team data, or public mailto links.
+
+Executable enforcement:
+
+- Run `npm run public-email:guardrails:check` from `apps/website`.
+- The website CI gate must keep this check enabled.
 
 ## Purpose
 
@@ -20,17 +34,18 @@ This document operationalizes the guardrails from:
 Every in-scope website change must preserve all dimensions below:
 
 1. **Voice:** Relationship-first, factual, no hype language.
-2. **Veteran framing:** Accurate veteran-owned wording and chronology.
-3. **Trust continuity:** Accreditation, licenses, and credibility signals remain present where required.
-4. **Terminology:** UI, metadata, schema, and docs use canonical naming.
-5. **Accessibility:** Semantics, labels, contrast, keyboard flow remain compliant.
-6. **SEO naming:** Plain-language naming and route/metadata consistency.
-7. **Visual system:** Typography, color, spacing rhythm, and component behavior align with canonical standards.
-8. **State parity:** Default, hover, focus-visible, active, disabled, loading/skeleton, success, and error states are visually and behaviorally consistent.
-9. **Breakpoint parity:** Mobile, tablet, laptop, and desktop maintain hierarchy, spacing cadence, and CTA emphasis.
-10. **Theme parity:** Light/dark and pre-hydration theme behavior preserve color intent, contrast, and trust-surface readability.
-11. **Media parity:** Imagery, iconography, video treatments, and overlay gradients follow approved patterns and do not introduce off-brand styles.
-12. **System-surface parity:** Shared app shell surfaces (header, navigation overlay, ribbon, footer, error, loading, offline, and not-found) remain congruent with routed pages.
+2. **Public contact routing:** Only `office@mhc-gc.com` appears on public website surfaces; internal email delivery still includes Matt for monitoring.
+3. **Veteran framing:** Accurate veteran-owned wording and chronology.
+4. **Trust continuity:** Accreditation, licenses, and credibility signals remain present where required.
+5. **Terminology:** UI, metadata, schema, and docs use canonical naming.
+6. **Accessibility:** Semantics, labels, contrast, keyboard flow remain compliant.
+7. **SEO naming:** Plain-language naming and route/metadata consistency.
+8. **Visual system:** Typography, color, spacing rhythm, and component behavior align with canonical standards.
+9. **State parity:** Default, hover, focus-visible, active, disabled, loading/skeleton, success, and error states are visually and behaviorally consistent.
+10. **Breakpoint parity:** Mobile, tablet, laptop, and desktop maintain hierarchy, spacing cadence, and CTA emphasis.
+11. **Theme parity:** Light/dark and pre-hydration theme behavior preserve color intent, contrast, and trust-surface readability.
+12. **Media parity:** Imagery, iconography, video treatments, and overlay gradients follow approved patterns and do not introduce off-brand styles.
+13. **System-surface parity:** Shared app shell surfaces (header, navigation overlay, ribbon, footer, error, loading, offline, and not-found) remain congruent with routed pages.
 
 ### Canonical Visual Enforcement Path (Buttons, Headings, Containers, Modals, Cards, Forms, Navigation, Footer Trust, and Hover Motion)
 
@@ -94,6 +109,7 @@ the canonical anchor wins and downstream files must be updated.
 | ----------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
 | Marketing and conversion pages      | Home, About, Services hub/lane pages, Projects, Contact                                    | Master checklist + strategy companion when messaging changes                    |
 | Trust and credential surfaces       | Footer, Contact trust strip, Allies, Public Sector, Veterans                               | Master checklist with trust continuity emphasis                                 |
+| Public contact surfaces             | Footer email, Contact page, Team page, chat fallback copy, legal cards, and mailto CTAs    | Public email guardrail + trust continuity validation                            |
 | SEO surfaces                        | Page titles, metadata utilities, schema, route indexing docs                               | Master checklist + SEO consistency validation                                   |
 | UI implementation surfaces          | Shared components, section templates, tokens, theming context                              | Master checklist + development companion checklist                              |
 | Safety and resource surfaces        | Safety pages, resources, manuals/forms entry points                                        | Master checklist + trust/accessibility validation                               |
@@ -207,6 +223,7 @@ For comprehensive branding sweeps, produce all inventories below.
 2. `rg -n '<Button|<a |button\\s|type="submit"' apps/website/src --glob '!**/*.test.*'`
 3. `rg -n 'DiagonalStripePattern|bg-linear|bg-gradient|radial-gradient|from-brand|to-brand' apps/website/src --glob '!**/*.test.*'`
 4. `rg -n 'SectionShell|SectionContainer|BrandedContentSection|NextStepsSection|HeroSection' apps/website/src --glob '!**/*.test.*'`
+5. `npm run public-email:guardrails:check`
 
 ### Audit Output Requirement
 

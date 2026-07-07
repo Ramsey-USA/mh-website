@@ -215,14 +215,26 @@ What actually happens.
 
 ## Critical: Email Recipients
 
-All form submissions (Contact, Consultations, Job Applications) send to **two addresses**:
+All website-originated email notifications (Contact, Consultations, Newsletter, Job Applications,
+phone tracking, and similar flows) route to **two internal recipients**:
 
 - **`office@mhc-gc.com`** — displayed publicly on the site
 - **`matt@mhc-gc.com`** — receives copies silently (never displayed in UI)
 
-**Never remove `matt@mhc-gc.com` from email recipient arrays.** Only `office@mhc-gc.com` belongs
-in any UI component. See the API routes in `src/app/api/contact/`, `api/consultations/`,
-and `api/job-applications/` for reference.
+Rules:
+
+- **Only `office@mhc-gc.com` may appear in public-facing website UI, content, team data, chat copy, and mailto links.**
+- **`matt@mhc-gc.com` must remain in internal recipient arrays so Matt can monitor every website email.**
+- **No other `@mhc-gc.com` address belongs on public website surfaces.**
+
+Enforcement:
+
+- Run `npm run public-email:guardrails:check` in `apps/website`.
+- The website `ci:gate` includes this guardrail automatically.
+
+Reference implementation lives in `packages/shared/src/lib/constants/company.ts`,
+`apps/website/src/app/api/contact/route.ts`, and the public contact/team surfaces under
+`apps/website/src`.
 
 ---
 

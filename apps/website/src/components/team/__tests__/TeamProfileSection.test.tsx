@@ -125,7 +125,7 @@ describe("TeamProfileSection", () => {
       screen.getByRole("link", { name: /contact team member/i }),
     ).toHaveAttribute(
       "href",
-      expect.stringContaining("mailto:alex@mhc-gc.com"),
+      expect.stringContaining("mailto:office@mhc-gc.com"),
     );
 
     await user.click(

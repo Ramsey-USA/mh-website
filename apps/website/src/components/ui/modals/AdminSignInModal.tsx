@@ -165,7 +165,7 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder="admin@mhc-gc.com"
+                placeholder="office@mhc-gc.com"
                 autoComplete="email"
               />
 

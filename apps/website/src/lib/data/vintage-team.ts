@@ -19,6 +19,7 @@ import mattRamsey from "./team/matt-ramsey.json";
 import jenniferTene from "./team/jennifer-tene.json";
 import derekParks from "./team/derek-parks.json";
 import lisaKandle from "./team/lisa-kandle.json";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 export interface VintageTeamMember {
   // Core identification
@@ -83,25 +84,8 @@ export interface VintageTeamMember {
   veteranStatus?: string;
   active: boolean;
   slug: string;
-  email?: string; // Individual team member email (firstname@mhc-gc.com)
+  email?: string; // Public team contact email; routed through the office inbox
 }
-
-/**
- * Maps each admin email to the corresponding team member slug so the PWA
- * questionnaire knows which profile to update when a specific admin is logged in.
- */
-export const ADMIN_EMAIL_TO_SLUG: Readonly<Record<string, string>> = {
-  "matt@mhc-gc.com": "matt-ramsey",
-  "jeremy@mhc-gc.com": "jeremy-thamert",
-  "arnold@mhc-gc.com": "arnold-garcia",
-};
-
-/**
- * The email address of the person responsible for approving team profile
- * submissions before they go live on the public team page.
- * Matt's own submissions are auto-approved.
- */
-export const APPROVER_EMAIL = "matt@mhc-gc.com";
 
 /**
  * Fields that a team member can update via the PWA questionnaire.
@@ -194,4 +178,7 @@ export const vintageTeamMembers: VintageTeamMember[] = [
   jenniferTene,
   derekParks,
   lisaKandle,
-] as VintageTeamMember[];
+].map((member) => ({
+  ...member,
+  email: COMPANY_INFO.email.main,
+})) as VintageTeamMember[];
