@@ -58,7 +58,7 @@ jobs:
 
       - name: Post Docs Contracts Guard Comment
         if: always() && github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         env:
           DOCS_GUARD_OUTPUT: ${{ steps.docs_contracts_guard.outputs.output }}
           DOCS_GUARD_EXIT_CODE: ${{ steps.docs_contracts_guard.outputs.exit_code }}

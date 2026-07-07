@@ -159,7 +159,7 @@ jobs:
 
       - name: Post benchmark comment
         if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         env:
           STANDARD_SECONDS: ${{ steps.delta.outputs.standard_seconds }}
           LOWMEM_SECONDS: ${{ steps.delta.outputs.lowmem_seconds }}
