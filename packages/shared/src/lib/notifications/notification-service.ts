@@ -5,6 +5,7 @@
  */
 
 import { logger } from "@/lib/utils/logger";
+import { getResendConfig } from "@/lib/email/runtime-config";
 
 export interface NotificationOptions {
   recipient: string;
@@ -35,7 +36,7 @@ async function sendEmail(
 
   try {
     // Check if Resend API key is configured
-    const resendApiKey = process.env["RESEND_API_KEY"];
+    const { apiKey: resendApiKey } = getResendConfig();
 
     if (!resendApiKey) {
       logger.warn("Resend API key not configured, skipping email");

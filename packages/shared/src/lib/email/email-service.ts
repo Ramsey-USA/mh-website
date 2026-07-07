@@ -7,6 +7,7 @@
 import { Resend } from "resend";
 import { logger } from "@/lib/utils/logger";
 import { EMAIL_RECIPIENTS } from "@/lib/constants/company";
+import { getResendConfig } from "@/lib/email/runtime-config";
 
 export interface EmailAttachment {
   content: string; // base64 encoded
@@ -45,10 +46,10 @@ export class EmailService {
    */
   private getResend(): { client: Resend; from: string } | null {
     if (!this.resend) {
-      const apiKey = process.env["RESEND_API_KEY"];
+      const { apiKey, fromEmail } = getResendConfig();
       if (!apiKey) return null;
       this.resend = new Resend(apiKey);
-      this.fromEmail = process.env["EMAIL_FROM"] || "office@mhc-gc.com";
+      this.fromEmail = fromEmail || "office@mhc-gc.com";
     }
     return { client: this.resend, from: this.fromEmail! };
   }

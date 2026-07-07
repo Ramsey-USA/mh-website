@@ -11,6 +11,7 @@
 
 import { logger } from "@/lib/utils/logger";
 import type { D1Database } from "@/lib/db/client";
+import { getResendConfig } from "@/lib/email/runtime-config";
 
 export interface ServiceStatus {
   name: string;
@@ -30,8 +31,7 @@ export interface ServiceHealthReport {
  * Check if Resend email service is configured
  */
 export function checkResendStatus(): ServiceStatus {
-  const apiKey = process.env["RESEND_API_KEY"];
-  const emailFrom = process.env["EMAIL_FROM"];
+  const { apiKey, fromEmail: emailFrom } = getResendConfig();
 
   return {
     name: "resend",
@@ -295,8 +295,10 @@ export function getQuickHealthStatus(): {
   email: boolean;
   sms: boolean;
 } {
+  const { apiKey, fromEmail } = getResendConfig();
+
   return {
-    email: Boolean(process.env["RESEND_API_KEY"] && process.env["EMAIL_FROM"]),
+    email: Boolean(apiKey && fromEmail),
     sms: Boolean(
       process.env["TWILIO_ACCOUNT_SID"] &&
       process.env["TWILIO_AUTH_TOKEN"] &&

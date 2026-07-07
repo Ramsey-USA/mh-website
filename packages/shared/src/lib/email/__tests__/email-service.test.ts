@@ -5,11 +5,17 @@
 // ── Resend mock ───────────────────────────────────────────────────────────────
 
 const mockSend = jest.fn();
+const mockGetCloudflareContext = jest.fn();
 
 jest.mock("resend", () => ({
   Resend: jest.fn().mockImplementation(() => ({
     emails: { send: mockSend },
   })),
+}));
+
+jest.mock("@opennextjs/cloudflare", () => ({
+  getCloudflareContext: (...args: unknown[]) =>
+    mockGetCloudflareContext(...args),
 }));
 
 jest.mock("@/lib/utils/logger", () => ({
@@ -54,6 +60,7 @@ function makeService(withKey = true) {
 describe("EmailService.sendEmail()", () => {
   beforeEach(() => {
     mockSend.mockReset();
+    mockGetCloudflareContext.mockReset();
   });
 
   afterEach(() => {
@@ -215,6 +222,27 @@ describe("EmailService.sendEmail()", () => {
     expect(result.success).toBe(false);
     expect(result.error).toMatch(/not configured/i);
     expect(mockSend).not.toHaveBeenCalled();
+  });
+
+  it("uses Cloudflare runtime env when process.env is unavailable", async () => {
+    mockGetCloudflareContext.mockReturnValue({
+      env: {
+        RESEND_API_KEY: "re_worker_key",
+        EMAIL_FROM: "worker@mhc-gc.com",
+      },
+    });
+    mockSend.mockResolvedValue({ data: { id: "msg_cf" }, error: null });
+
+    const svc = makeService(false);
+    const result = await svc.sendEmail({
+      to: "client@example.com",
+      subject: "Worker send",
+      html: "<p>Hello</p>",
+    });
+
+    expect(result.success).toBe(true);
+    const payload = mockSend.mock.calls[0]![0] as Record<string, unknown>;
+    expect(payload["from"]).toBe("worker@mhc-gc.com");
   });
 });
 

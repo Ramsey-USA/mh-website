@@ -46,6 +46,7 @@ jest.mock(
 
 describe("checkResendStatus()", () => {
   afterEach(() => {
+    mockGetCloudflareContext.mockReset();
     delete process.env["RESEND_API_KEY"];
     delete process.env["EMAIL_FROM"];
   });
@@ -62,6 +63,18 @@ describe("checkResendStatus()", () => {
     const s = checkResendStatus();
     expect(s.status).toBe("unconfigured");
     expect(s.error).toMatch(/RESEND_API_KEY|EMAIL_FROM/i);
+  });
+
+  it("returns healthy when Resend is configured via Cloudflare runtime env", () => {
+    mockGetCloudflareContext.mockReturnValue({
+      env: {
+        RESEND_API_KEY: "re_worker_key",
+        EMAIL_FROM: "worker@mhc-gc.com",
+      },
+    });
+
+    const s = checkResendStatus();
+    expect(s.status).toBe("healthy");
   });
 });
 
@@ -86,6 +99,7 @@ describe("checkTwilioStatus()", () => {
 
 describe("getQuickHealthStatus()", () => {
   afterEach(() => {
+    mockGetCloudflareContext.mockReset();
     delete process.env["RESEND_API_KEY"];
     delete process.env["EMAIL_FROM"];
     delete process.env["TWILIO_ACCOUNT_SID"];
@@ -102,6 +116,17 @@ describe("getQuickHealthStatus()", () => {
   it("returns email=true when Resend vars are set", () => {
     process.env["RESEND_API_KEY"] = "key";
     process.env["EMAIL_FROM"] = "from@test.com";
+    expect(getQuickHealthStatus().email).toBe(true);
+  });
+
+  it("returns email=true when Resend vars come from Cloudflare runtime env", () => {
+    mockGetCloudflareContext.mockReturnValue({
+      env: {
+        RESEND_API_KEY: "key",
+        EMAIL_FROM: "from@test.com",
+      },
+    });
+
     expect(getQuickHealthStatus().email).toBe(true);
   });
 
