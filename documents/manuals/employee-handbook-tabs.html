@@ -1236,5 +1236,18 @@
         </div>
       </div>
     </div>
+    <script>
+      document.querySelectorAll('.tab-page').forEach((page) => {
+        const sectionTitle = page.querySelector('.tab-section-title')?.textContent?.trim();
+        const signatureLabel = page.querySelector('.tab-sig-label');
+        const signatureBlock = page.querySelector('.tab-signature');
+        if (!sectionTitle || !signatureLabel || !signatureBlock) return;
+        signatureLabel.textContent = `${sectionTitle} Approval Signature`;
+        signatureBlock.setAttribute(
+          'aria-label',
+          `${sectionTitle} approval signature verification`,
+        );
+      });
+    </script>
   </body>
 </html>
