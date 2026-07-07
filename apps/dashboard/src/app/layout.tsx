@@ -38,18 +38,24 @@ export default function DashboardRootLayout(
   props: Readonly<{ children: React.ReactNode }>,
 ) {
   const { children } = props;
+  const enableAdobeFonts =
+    process.env["NEXT_PUBLIC_ENABLE_ADOBE_FONTS"] !== "false";
 
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://use.typekit.net" />
-        <link rel="dns-prefetch" href="https://use.typekit.net" />
-        <link
-          rel="stylesheet"
-          href="https://use.typekit.net/jqs8bjh.css"
-          media="all"
-          crossOrigin="anonymous"
-        />
+        {enableAdobeFonts ? (
+          <>
+            <link rel="preconnect" href="https://use.typekit.net" />
+            <link rel="dns-prefetch" href="https://use.typekit.net" />
+            <link
+              rel="stylesheet"
+              href="https://use.typekit.net/jqs8bjh.css"
+              media="all"
+              crossOrigin="anonymous"
+            />
+          </>
+        ) : null}
       </head>
       <body
         suppressHydrationWarning

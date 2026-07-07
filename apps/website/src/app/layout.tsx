@@ -227,6 +227,8 @@ export default async function RootLayout({
   const isLighthouseAudit = /Chrome-Lighthouse/i.test(
     requestHeaders.get("user-agent") ?? "",
   );
+  const enableAdobeFonts =
+    process.env["NEXT_PUBLIC_ENABLE_ADOBE_FONTS"] !== "false";
   const enableRuntimeEnhancements = isProduction && !isLighthouseAudit;
 
   return (
@@ -296,21 +298,25 @@ export default async function RootLayout({
           </>
         ) : null}
         <link rel="author" href="https://www.mhc-gc.com/jeremy-thamert" />
-        <link rel="preconnect" href="https://use.typekit.net" />
-        <link rel="dns-prefetch" href="https://use.typekit.net" />
-        <link
-          rel="stylesheet"
-          href="https://use.typekit.net/jqs8bjh.css"
-          media="all"
-          crossOrigin="anonymous"
-        />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://use.typekit.net/jqs8bjh.css"
-            crossOrigin="anonymous"
-          />
-        </noscript>
+        {enableAdobeFonts ? (
+          <>
+            <link rel="preconnect" href="https://use.typekit.net" />
+            <link rel="dns-prefetch" href="https://use.typekit.net" />
+            <link
+              rel="stylesheet"
+              href="https://use.typekit.net/jqs8bjh.css"
+              media="all"
+              crossOrigin="anonymous"
+            />
+            <noscript>
+              <link
+                rel="stylesheet"
+                href="https://use.typekit.net/jqs8bjh.css"
+                crossOrigin="anonymous"
+              />
+            </noscript>
+          </>
+        ) : null}
         <Script
           id="set-html-lang-from-cookie"
           strategy="beforeInteractive"
