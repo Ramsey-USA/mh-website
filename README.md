@@ -677,6 +677,10 @@ relationship-first language, disciplined execution, and direct communication.
 - **Rate Limiting:** Cloudflare protection
 - **HTTPS Only:** Enforced in production
 - **No Sensitive Logging:** PII excluded from logs
+- **Dependabot:** Version updates and security alerts for dependencies
+- **Dependency Review:** Pull requests are blocked on vulnerable dependency introductions
+- **Code Scanning:** GitHub Advanced Security CodeQL default setup enabled
+- **Private Vulnerability Reporting:** Coordinated disclosure process documented in `SECURITY.md`
 
 ### Admin Dashboard
 

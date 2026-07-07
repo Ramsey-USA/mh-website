@@ -57,6 +57,8 @@ Pipelines automatically trigger on:
 ```
 .github/workflows/
 ├── ci-cd.yml            # Quality checks, security gate, build verification, deploy
+├── dependency-review.yml # Pull request dependency risk gate
+├── security-nightly.yml # Scheduled strict dependency audit
 ├── safety-smoke.yml     # Safety smoke checks (public/authenticated)
 └── lighthouse-weekly.yml # Scheduled Lighthouse reporting
 ```
@@ -264,7 +266,7 @@ GitHub's native secret scanning detects:
 
 ### 4. SAST (Static Application Security Testing)
 
-Optional: CodeQL analysis (GitHub Advanced Security)
+CodeQL analysis is enabled through GitHub Advanced Security default setup.
 
 Detects:
 

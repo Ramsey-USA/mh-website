@@ -18,7 +18,7 @@ Alignment note (April 17, 2026): follow `docs/project/operational-hub-congruent-
 2. ESLint validation
 3. Prettier format check
 4. Test suite with CI settings
-5. Security audit (fail on high/critical vulnerabilities)
+5. Security audit (fail on moderate/high/critical vulnerabilities)
 6. Production build verification
 
 ## Required Commands
@@ -43,8 +43,8 @@ pnpm run build
 
 ## Security Rules
 
-- Security audit command must be `npm audit --omit=dev --audit-level=high`.
-- Any high or critical vulnerability blocks merge.
+- Security audit command must be `npm run security:check`.
+- Any moderate, high, or critical vulnerability blocks merge.
 - If `npm audit fix` cannot remediate a vulnerability, add a documented override or dependency upgrade in the same PR.
 
 ## Safety System Minimum Verification Checklist
@@ -95,10 +95,11 @@ Use this checklist for Safety feature changes before merge and after deployment.
 This repository enforces gates through:
 
 - `.github/workflows/ci-cd.yml`
-- `.github/workflows/code-quality.yml`
+- `.github/workflows/dependency-review.yml`
+- `.github/workflows/security-nightly.yml`
 - `.github/workflows/safety-smoke.yml`
 
-Both workflows must keep high-severity audit failures as blocking errors.
+PR and main-branch workflows must keep moderate-and-higher dependency failures as blocking errors.
 
 Post-deploy smoke checks run automatically against production after successful
 main-branch CI and can be run manually with workflow dispatch.
