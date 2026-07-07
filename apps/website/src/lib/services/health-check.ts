@@ -123,8 +123,7 @@ export async function checkKVStatus(): Promise<ServiceStatus> {
     const { getCloudflareContext } = await import("@opennextjs/cloudflare");
     const { env } = getCloudflareContext();
     const CACHE = (env as Record<string, unknown>)["CACHE"] as
-      | KVNamespace
-      | undefined;
+      KVNamespace | undefined;
 
     if (!CACHE) {
       return {

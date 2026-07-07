@@ -539,7 +539,8 @@ directory tree, page inventory, and component map.
 
 Colors, typography, icons, and component patterns are fully documented in
 [Unified Component Standards](docs/branding/standards/unified-component-standards.md)
-v7.1.0.
+v7.1.0. The current live website design baseline is aligned to those standards and the
+tokenized component system used across the main routes.
 
 ## Deployment
 

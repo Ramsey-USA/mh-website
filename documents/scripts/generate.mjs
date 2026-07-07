@@ -5,6 +5,7 @@
  *
  * Renders branded print-ready PDFs from HTML templates using Puppeteer.
  *
+          manualSignOnly: true,
  * Usage:
  *   npm run docs:generate                          # generate all safety manual PDFs
  *   npm run docs:generate -- --template cover      # cover only
@@ -21,6 +22,7 @@
  *
  * Output directory: documents/output/
  *   safety-manual-cover.pdf
+          manualSignOnly: true,
  *   safety-manual-spine.pdf
  *   safety-manual-tabs.pdf
  *   safety-manual-toc.pdf
@@ -1781,6 +1783,495 @@ function deriveFormNamespace(formEntry) {
   return id.replaceAll(/[^a-z0-9]/g, "");
 }
 
+function formIdEquals(formEntry, value) {
+  return String(formEntry?.id || "").toUpperCase() === value;
+}
+
+function isHandbookForm01(formEntry) {
+  return formIdEquals(formEntry, "HANDBOOK-FORM-01");
+}
+
+function isHandbookForm02(formEntry) {
+  return formIdEquals(formEntry, "HANDBOOK-FORM-02");
+}
+
+function isHandbookForm03(formEntry) {
+  return formIdEquals(formEntry, "HANDBOOK-FORM-03");
+}
+
+function isHandbookForm04(formEntry) {
+  return formIdEquals(formEntry, "HANDBOOK-FORM-04");
+}
+
+function isHandbookForm05(formEntry) {
+  return formIdEquals(formEntry, "HANDBOOK-FORM-05");
+}
+
+function isHandbookForm06(formEntry) {
+  return formIdEquals(formEntry, "HANDBOOK-FORM-06");
+}
+
+function isHandbookForm07(formEntry) {
+  return formIdEquals(formEntry, "HANDBOOK-FORM-07");
+}
+
+function isHandbookForm08(formEntry) {
+  return formIdEquals(formEntry, "HANDBOOK-FORM-08");
+}
+
+function isHandbookFormEntry(formEntry) {
+  const id = String(formEntry?.id || "").toUpperCase();
+  return id.startsWith("HANDBOOK-FORM-");
+}
+
+function isMishFormEntry(formEntry) {
+  const id = String(formEntry?.id || "").toUpperCase();
+  return /^MISH\s+\d{1,2}$/.test(id);
+}
+
+function buildHandbookForm04Pages(formEntry) {
+  const formTitle =
+    formEntry?.title || "Temporary Work From Home Application/Agreement";
+  return [
+    {
+      kind: "first",
+      sections: [
+        {
+          type: "fieldGrid",
+          title: formTitle,
+          columns: 4,
+          items: [
+            { name: "application.date", label: "Date" },
+            { name: "application.companyName", label: "Company Name" },
+            { name: "application.employeeName", label: "Employee Name" },
+            { name: "application.employeeTitle", label: "Employee Title" },
+            {
+              name: "application.workLocation",
+              label: "Requested Work Location",
+            },
+            {
+              name: "application.officeSupplies",
+              label: "Requested Office Supplies",
+            },
+            {
+              name: "application.remotePhone",
+              label: "Phone Number While Working Remote",
+            },
+            { name: "application.startDate", label: "Requested Start Date" },
+          ],
+        },
+        {
+          type: "narrative",
+          title: "Requested Work Schedule and Reason(s) for Request",
+          name: "application.scheduleAndReasons",
+          height: "0.9in",
+        },
+        {
+          type: "htmlBlock",
+          title: "Work From Home Commitment",
+          html: "<p>By signing this application, I affirm my commitment to adhere to all company policies, including those governing electronics use and remote work.</p>",
+        },
+        {
+          type: "signatures",
+          title: "Temporary Work From Home Approval Sign-Off",
+          manualSignOnly: true,
+          layout: "two-up",
+          blocks: [
+            {
+              role: "Employee",
+              name: "sign.employee",
+              signatureLabel: "Acknowledgement Signature",
+            },
+            {
+              role: "Supervisor / Manager",
+              name: "sign.supervisor",
+              signatureLabel: "Approval Signature",
+            },
+          ],
+        },
+        {
+          type: "checkGrid",
+          title: "Decision",
+          columns: 2,
+          items: [
+            { name: "decision.approved", label: "Approved" },
+            { name: "decision.denied", label: "Denied" },
+          ],
+        },
+        {
+          type: "narrative",
+          title: "Comments",
+          name: "decision.comments",
+          height: "0.55in",
+        },
+      ],
+    },
+  ];
+}
+
+function normalizeHandbookForm05Html(html) {
+  return String(html || "")
+    .replaceAll(
+      /<p[^>]*>\s*Employee\s+Acknowledgment\s+and\s+Agreement\s+of\s*<\/p>/gi,
+      "",
+    )
+    .replaceAll(
+      /<p[^>]*>\s*Computer\s+and\s+Electronics\s+Use\s+Policy\s*<\/p>/gi,
+      "",
+    )
+    .replaceAll(/<p[^>]*>\s*Employee\s+Name\s*:[\s\S]*?<\/p>/gi, "")
+    .replaceAll(/<p[^>]*>\s*Position\s*\/\s*Title\s*:[\s\S]*?<\/p>/gi, "")
+    .replaceAll(/<p[^>]*>\s*Signature\s*:[\s\S]*?<\/p>/gi, "")
+    .replaceAll(/<p[^>]*>\s*Date\s*:[\s\S]*?<\/p>/gi, "")
+    .replaceAll(
+      /<p[^>]*>\s*Return\s+this\s+form\s+to\s+the\s+office[\s\S]*?<\/p>/gi,
+      "",
+    )
+    .replaceAll(/<p[^>]*>\s*MH\s+Construction,?\s+Inc\.?\s*<\/p>/gi, "")
+    .replaceAll(/<p[^>]*>\s*3111\s+N\.\s*Capitol\s+Ave\.[\s\S]*?<\/p>/gi, "")
+    .replaceAll(/Employee\s+Name\s*:[\s_\.]+/gi, "")
+    .replaceAll(/Position\s*\/\s*Title\s*:[\s_\.]+/gi, "")
+    .replaceAll(/Signature\s*:[\s_\.]+/gi, "")
+    .replaceAll(/Date\s*:[\s_\.]+/gi, "")
+    .trim();
+}
+
+async function buildHandbookForm05Pages(formEntry) {
+  const formTitle =
+    formEntry?.title ||
+    "Employee Acknowledgment and Agreement of Computer and Electronics Use Policy";
+  const rawHtml = await loadDocxDerivedFormHtml(formEntry);
+  const normalizedHtml = normalizeHandbookForm05Html(rawHtml);
+  return [
+    {
+      kind: "first",
+      sections: [
+        {
+          type: "htmlBlock",
+          title: formTitle,
+          html: normalizedHtml,
+        },
+        {
+          type: "signatures",
+          title: "Computer and Electronics Use Policy Sign-Off",
+          manualSignOnly: true,
+          blocks: [
+            {
+              role: "Employee",
+              name: "sign.employee",
+              signatureLabel: "Acknowledgement Signature",
+            },
+            {
+              role: "Supervisor / Manager",
+              name: "sign.supervisor",
+              signatureLabel: "Approval Signature",
+            },
+          ],
+        },
+      ],
+    },
+  ];
+}
+
+function buildHandbookForm06Pages(formEntry) {
+  const formTitle = formEntry?.title || "Employee Photo Release Form";
+  return [
+    {
+      kind: "first",
+      sections: [
+        {
+          type: "fieldGrid",
+          title: formTitle,
+          subtitle: "Employee information and release selection",
+          columns: 4,
+          items: [
+            { name: "release.employeeName", label: "Employee Name" },
+            {
+              name: "release.employeeId",
+              label: "Employee ID",
+            },
+            { name: "release.departmentCrew", label: "Department / Crew" },
+            { name: "release.supervisor", label: "Supervisor" },
+          ],
+        },
+        {
+          type: "refNote",
+          html: "<p>This form authorizes MH Construction to capture and use employee photos, video, and related media for company business purposes. I authorize MH Construction to photograph and/or record me while performing work activities and to use this media for company communications, proposals, project documentation, recruiting, training, and digital/print marketing materials.</p>",
+        },
+        {
+          type: "checkGrid",
+          title: "Release Selection",
+          columns: 3,
+          items: [
+            { name: "release.fullGranted", label: "Full Release Granted" },
+            {
+              name: "release.limitedInternal",
+              label: "Limited Internal Use Only",
+            },
+            { name: "release.decline", label: "Decline Release" },
+          ],
+        },
+        {
+          type: "refNote",
+          html: "<p>Revocation requests must be submitted in writing to HR. Existing published materials prior to revocation may remain in archived records.</p>",
+        },
+        {
+          type: "signatures",
+          title: "Employee Photo Release Sign-Off",
+          manualSignOnly: true,
+          layout: "two-up",
+          blocks: [
+            {
+              role: "Employee",
+              name: "sign.employee",
+              signatureLabel: "Acknowledgement Signature",
+            },
+            {
+              role: "Witness / HR Representative",
+              name: "sign.supervisor",
+              signatureLabel: "Approval Signature",
+            },
+          ],
+        },
+      ],
+    },
+  ];
+}
+
+function buildHandbookForm07Pages(formEntry) {
+  const formTitle = formEntry?.title || "Client Photo Release Form";
+  return [
+    {
+      kind: "first",
+      sections: [
+        {
+          type: "fieldGrid",
+          title: formTitle,
+          subtitle: "Client and project information with release selection",
+          columns: 4,
+          items: [
+            {
+              name: "release.clientOrganizationName",
+              label: "Client / Organization",
+            },
+            { name: "release.projectName", label: "Project Name" },
+            { name: "release.projectAddress", label: "Project Address" },
+            {
+              name: "release.clientRepresentative",
+              label: "Client Rep.",
+            },
+          ],
+        },
+        {
+          type: "refNote",
+          html: "<p>This form authorizes MH Construction to capture and use project-related photos and video at client locations for agreed business and communication purposes. Client authorizes MH Construction to photograph and/or record project areas, installed work, and progress, subject to this agreement. Authorized use may include project documentation, proposals, qualifications packages, website and social proof, and related business communications.</p>",
+        },
+        {
+          type: "checkGrid",
+          title: "Release Selection",
+          columns: 3,
+          items: [
+            { name: "release.fullGranted", label: "Full Release Granted" },
+            {
+              name: "release.internalProposalOnly",
+              label: "Internal + Proposal Use Only",
+            },
+            {
+              name: "release.limitedRestricted",
+              label: "Limited / Restricted Use",
+            },
+          ],
+        },
+        {
+          type: "narrative",
+          title: "Restrictions or Notes",
+          name: "release.restrictionsOrNotes",
+          height: "0.8in",
+        },
+        {
+          type: "refNote",
+          html: "<p>For restricted sites, attach the project-specific media protocol and any owner approvals required for external publication.</p>",
+        },
+        {
+          type: "signatures",
+          title: "Client Photo Release Sign-Off",
+          manualSignOnly: true,
+          blocks: [
+            {
+              role: "Client Representative",
+              name: "sign.employee",
+              signatureLabel: "Acknowledgement Signature",
+            },
+            {
+              role: "MH Construction Representative",
+              name: "sign.supervisor",
+              signatureLabel: "Approval Signature",
+            },
+          ],
+        },
+      ],
+    },
+  ];
+}
+
+function buildHandbookForm08Pages(formEntry) {
+  const formTitle = formEntry?.title || "Purchase Approval General Expense";
+  return [
+    {
+      kind: "first",
+      sections: [
+        {
+          type: "fieldGrid",
+          title: formTitle,
+          subtitle: "Requestor and purchase information",
+          columns: 4,
+          items: [
+            { name: "request.dateSubmitted", label: "Date Submitted" },
+            { name: "request.dateNeededBy", label: "Date Needed By" },
+            { name: "request.requestorName", label: "Requestor Name" },
+            { name: "request.phoneEmail", label: "Phone / Email" },
+            { name: "request.expenseCategory", label: "Expense Category" },
+            { name: "request.accountGlCode", label: "Account / GL Code" },
+            { name: "request.vendorSupplier", label: "Vendor / Supplier" },
+            {
+              name: "request.vendorContactQuote",
+              label: "Vendor Contact / Quote No.",
+            },
+          ],
+        },
+        {
+          type: "checkGrid",
+          title: "Payment Type",
+          columns: 3,
+          items: [
+            { name: "payment.checking", label: "Checking" },
+            { name: "payment.chase", label: "Chase" },
+            { name: "payment.cabelas", label: "Cabela's" },
+            { name: "payment.lowes", label: "Lowe's" },
+            { name: "payment.homeDepot", label: "Home Depot" },
+          ],
+        },
+        {
+          type: "dataTable",
+          title: "Itemized Purchase Detail",
+          name: "request.items",
+          columns: [
+            { header: "Description", width: "38%" },
+            { header: "Qty", width: "10%" },
+            { header: "Unit Price", width: "16%" },
+            { header: "Line Total", width: "16%" },
+            { header: "Notes", width: "20%" },
+          ],
+          rows: 4,
+          rowHeight: "0.34in",
+        },
+        {
+          type: "fieldGrid",
+          title: "Summary Totals",
+          columns: 3,
+          items: [
+            { name: "request.subtotal", label: "Subtotal" },
+            { name: "request.taxFreight", label: "Tax / Freight" },
+            { name: "request.totalEstimate", label: "Total Estimate" },
+          ],
+        },
+        {
+          type: "narrative",
+          title: "Justification / Notes",
+          name: "request.justificationNotes",
+          height: "1.15in",
+        },
+      ],
+    },
+    {
+      kind: "cont",
+      title: `${formTitle} Approval Review`,
+      bodyPaddingTop: "0.14in",
+      sections: [
+        {
+          type: "checkGrid",
+          title: "Approval Decision",
+          columns: 3,
+          items: [
+            { name: "approval.approved", label: "Approved" },
+            { name: "approval.denied", label: "Denied" },
+            { name: "approval.moreInfo", label: "More Info Needed" },
+          ],
+        },
+        {
+          type: "fieldGrid",
+          title: "Approval Summary",
+          columns: 3,
+          items: [
+            { name: "approval.approvedAmount", label: "Approved Amount" },
+            { name: "approval.approvalDate", label: "Approval Date" },
+            { name: "approval.reference", label: "Reference / Notes" },
+          ],
+        },
+        {
+          type: "signatures",
+          title: "Purchase Approval Sign-Off",
+          manualSignOnly: true,
+          blocks: [
+            {
+              role: "Requestor",
+              name: "sign.employee",
+              signatureLabel: "Acknowledgement Signature",
+            },
+            {
+              role: "Approver",
+              name: "sign.supervisor",
+              signatureLabel: "Approval Signature",
+            },
+          ],
+        },
+        {
+          type: "narrative",
+          title: "Approver Comments",
+          name: "approval.comments",
+          height: "1.1in",
+        },
+      ],
+    },
+  ];
+}
+
+function isLegacySignatureBlockText(text) {
+  const hasSignatureCue =
+    /\bsign(?:ed|ature|atures|\s*off)\b/i.test(text) ||
+    /\bprint\s*name\b/i.test(text) ||
+    /\bname\s*\/\s*signature\b/i.test(text);
+  if (!hasSignatureCue) return false;
+  const detailCount = [
+    /\bdate\b/i,
+    /\bemployee\b/i,
+    /\bsupervisor\b/i,
+    /\bforeman\b/i,
+    /\bwitness\b/i,
+    /\bhr\b/i,
+  ].filter((rx) => rx.test(text)).length;
+  return detailCount >= 1;
+}
+
+function filterDocxBlocksForForm(formEntry, blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) return [];
+
+  const strictSignatureFiltering =
+    isHandbookForm01(formEntry) || isHandbookForm02(formEntry);
+  if (!strictSignatureFiltering) {
+    return blocks;
+  }
+
+  return blocks.filter((blockHtml) => {
+    const text = String(blockHtml || "")
+      .replaceAll(/<[^>]+>/g, " ")
+      .replaceAll(/&nbsp;/gi, " ")
+      .replaceAll(/\s+/g, " ")
+      .trim();
+    return !isLegacySignatureBlockText(text);
+  });
+}
+
 async function loadDocxDerivedFormHtml(formEntry) {
   if (!formEntry?.docxPath) return "";
 
@@ -1810,7 +2301,8 @@ async function loadDocxDerivedFormHtml(formEntry) {
     // Keep fallback bodies concise so chrome and fillable fields remain visible.
     const blockMatches =
       sanitized.match(/<(h4|p|ul|ol|table)[\s\S]*?<\/\1>/gi) || [];
-    const snippetBlocks = blockMatches.slice(0, 20);
+    const filteredBlocks = filterDocxBlocksForForm(formEntry, blockMatches);
+    const snippetBlocks = filteredBlocks.slice(0, 24);
     return snippetBlocks.join("\n").trim();
   } catch (error) {
     console.warn(
@@ -1818,6 +2310,22 @@ async function loadDocxDerivedFormHtml(formEntry) {
     );
     return "";
   }
+}
+
+function splitDocxSnippetIntoChunks(html, maxBlocksPerChunk = 5) {
+  if (!html || typeof html !== "string") return [];
+  const blocks = html.match(/<(h4|p|ul|ol|table)[\s\S]*?<\/\1>/gi) || [];
+  if (blocks.length === 0) return [];
+
+  const chunks = [];
+  for (let index = 0; index < blocks.length; index += maxBlocksPerChunk) {
+    const chunk = blocks
+      .slice(index, index + maxBlocksPerChunk)
+      .join("\n")
+      .trim();
+    if (chunk) chunks.push(chunk);
+  }
+  return chunks;
 }
 
 function sanitizeDocxFormSnippet(html) {
@@ -1829,6 +2337,10 @@ function sanitizeDocxFormSnippet(html) {
     /^Rev\.?\s*\d+\s*\|\s*Effective\s*:/i,
     /^Prepared\s+by\s*:/i,
     /^Reviewed\s+by\s*:/i,
+    /^Sign(?:ed|ature|atures|\s*off)\b/i,
+    /^Print\s+Name\b/i,
+    /^Name\s*\/\s*Signature\b/i,
+    /^Date\s*$/i,
     /^Project\s+Information\s*:?\s*$/i,
   ];
 
@@ -1856,6 +2368,8 @@ function sanitizeDocxFormSnippet(html) {
         .replaceAll(/<[^>]+>/g, " ")
         .replaceAll(/\s+/g, " ")
         .trim();
+      if (/^sign(?:ed|ature|atures|\s*off)?$/i.test(text)) return "";
+      if (/^sign(?:ature|off)\s+log$/i.test(text)) return "";
       if (/^project\s+information$/i.test(text)) return "";
       return match;
     },
@@ -1867,10 +2381,38 @@ function sanitizeDocxFormSnippet(html) {
 
   // Remove compliance boilerplate table(s) that repeat in every form.
   out = out.replaceAll(/<table[\s\S]*?<\/table>/gi, (tableHtml) =>
-    isGenericDocxTable(tableHtml) ? "" : tableHtml,
+    isGenericDocxTable(tableHtml) || isSignatureDocxTable(tableHtml)
+      ? ""
+      : tableHtml,
   );
 
   return out.trim();
+}
+
+function isSignatureDocxTable(tableHtml) {
+  const text = tableHtml
+    .replaceAll(/<[^>]+>/g, " ")
+    .replaceAll(/&nbsp;/gi, " ")
+    .replaceAll(/\s+/g, " ")
+    .trim();
+
+  if (!text) return false;
+
+  const hasSignatureCue = /\bsign(?:ed|ature|atures|\s*off)\b/i.test(text);
+  if (!hasSignatureCue) return false;
+
+  const cueCount = [
+    /\bprint\s*name\b/i,
+    /\bdate\b/i,
+    /\bemployee\b/i,
+    /\bsupervisor\b/i,
+    /\bforeman\b/i,
+    /\bprepared\s*by\b/i,
+    /\breviewed\s*by\b/i,
+    /\bcompetent\s*person\b/i,
+  ].filter((rx) => rx.test(text)).length;
+
+  return cueCount >= 2;
 }
 
 function isGenericDocxTable(tableHtml) {
@@ -1897,34 +2439,287 @@ function isGenericDocxTable(tableHtml) {
   return false;
 }
 
-async function buildDefaultFillablePages(formEntry) {
-  const sectionRef = Array.isArray(formEntry?.manualSection)
-    ? formEntry.manualSection.join(" · ")
-    : formEntry?.manualSection || "MISH Reference";
-  const docxSnippet = await loadDocxDerivedFormHtml(formEntry);
-  const docxSections = docxSnippet
-    ? [
+function parseMishSectionNumber(formEntry) {
+  const id = String(formEntry?.id || "");
+  const match = id.match(/^MISH\s+(\d{1,2})$/i);
+  if (!match) return null;
+  const value = Number(match[1]);
+  return Number.isFinite(value) ? value : null;
+}
+
+function getFormLayoutProfile(formEntry) {
+  const base = {
+    firstPageBudget: 165,
+    continuationPageBudget: 198,
+    docxChunkSize: 5,
+  };
+
+  if (isHandbookForm03(formEntry)) {
+    return {
+      ...base,
+      firstPageBudget: 1200,
+      continuationPageBudget: 1200,
+      docxChunkSize: 24,
+    };
+  }
+
+  if (isHandbookForm04(formEntry)) {
+    return {
+      ...base,
+      firstPageBudget: 1200,
+      continuationPageBudget: 1200,
+      docxChunkSize: 24,
+    };
+  }
+
+  if (isHandbookForm06(formEntry)) {
+    return {
+      ...base,
+      firstPageBudget: 1200,
+      continuationPageBudget: 1200,
+      docxChunkSize: 24,
+    };
+  }
+
+  const id = String(formEntry?.id || "").toUpperCase();
+  if (id.startsWith("HANDBOOK-FORM-")) {
+    return {
+      ...base,
+      firstPageBudget: 158,
+      continuationPageBudget: 188,
+      docxChunkSize: 4,
+    };
+  }
+
+  const mish = parseMishSectionNumber(formEntry);
+  if (!Number.isFinite(mish)) {
+    return base;
+  }
+
+  if (mish >= 1 && mish <= 10) {
+    return {
+      ...base,
+      firstPageBudget: 170,
+      continuationPageBudget: 204,
+      docxChunkSize: 6,
+    };
+  }
+  if (mish >= 11 && mish <= 24) {
+    return {
+      ...base,
+      firstPageBudget: 160,
+      continuationPageBudget: 192,
+      docxChunkSize: 5,
+    };
+  }
+  if (mish >= 25 && mish <= 37) {
+    return {
+      ...base,
+      firstPageBudget: 156,
+      continuationPageBudget: 186,
+      docxChunkSize: 4,
+    };
+  }
+  return {
+    ...base,
+    firstPageBudget: 152,
+    continuationPageBudget: 182,
+    docxChunkSize: 4,
+  };
+}
+
+function isToolboxTalkForm(formEntry) {
+  const id = String(formEntry?.id || "").toUpperCase();
+  const slug = String(formEntry?.slug || "").toLowerCase();
+  const title = String(formEntry?.title || "").toLowerCase();
+  return (
+    id === "MISH 09" ||
+    slug.includes("toolbox-talk") ||
+    title.includes("toolbox talk")
+  );
+}
+
+function buildDefaultSignatureSection(formEntry) {
+  const titleByForm = new Map([
+    ["HANDBOOK-FORM-01", "Company Vehicle Policy Acknowledgement Sign-Off"],
+    ["HANDBOOK-FORM-02", "Employee Handbook Receipt Sign-Off"],
+    [
+      "HANDBOOK-FORM-03",
+      "MISH (Accident Prevention Program) Acknowledgement Sign-Off",
+    ],
+  ]);
+  const id = String(formEntry?.id || "").toUpperCase();
+  const fallbackTitle = `${String(formEntry?.title || "Form").trim()} Sign-Off`;
+  return {
+    type: "signatures",
+    title: titleByForm.get(id) || fallbackTitle,
+    manualSignOnly:
+      isHandbookFormEntry(formEntry) || isMishFormEntry(formEntry),
+    blocks: [
+      {
+        role: "Employee",
+        name: "sign.employee",
+        signatureLabel: "Acknowledgement Signature",
+      },
+      {
+        role: "Supervisor",
+        name: "sign.supervisor",
+        signatureLabel: "Approval Signature",
+      },
+    ],
+  };
+}
+
+function buildToolboxTalkSignatureSections(formEntry) {
+  const formTitle = formEntry?.title || "Safety Meeting Toolbox Talk Log";
+  return [
+    {
+      type: "dataTable",
+      title: "Toolbox Talk Attendee Signatures",
+      name: "attendeeSignatures",
+      columns: [
+        { header: "Attendee Name", width: "30%" },
+        { header: "Employer / Trade", width: "26%" },
+        { header: "Signature", width: "28%" },
+        { header: "Date", width: "16%" },
+      ],
+      rows: 14,
+      rowHeight: "0.32in",
+    },
+    {
+      type: "signatures",
+      title: `${formTitle} Facilitator Verification`,
+      manualSignOnly: true,
+      blocks: [
         {
-          type: "htmlBlock",
-          title: "Form-Specific Content",
-          html: docxSnippet,
+          role: "Facilitator / Competent Person",
+          name: "sign.facilitator",
+          signatureLabel: "Acknowledgement Signature",
         },
-      ]
-    : [];
+        {
+          role: "Supervisor Approval",
+          name: "sign.supervisor",
+          signatureLabel: "Approval Signature",
+        },
+      ],
+    },
+  ];
+}
+
+async function buildDefaultFillablePages(formEntry) {
+  if (isHandbookForm04(formEntry)) {
+    return buildHandbookForm04Pages(formEntry);
+  }
+
+  if (isHandbookForm05(formEntry)) {
+    return buildHandbookForm05Pages(formEntry);
+  }
+
+  if (isHandbookForm06(formEntry)) {
+    return buildHandbookForm06Pages(formEntry);
+  }
+
+  if (isHandbookForm08(formEntry)) {
+    return buildHandbookForm08Pages(formEntry);
+  }
+
+  if (isHandbookForm07(formEntry)) {
+    return buildHandbookForm07Pages(formEntry);
+  }
+
+  const layoutProfile = getFormLayoutProfile(formEntry);
+  const formDisplayTitle = formEntry?.title || "Form Specific Content";
+  const docxSnippet = await loadDocxDerivedFormHtml(formEntry);
+  const docxChunks = splitDocxSnippetIntoChunks(
+    docxSnippet,
+    layoutProfile.docxChunkSize,
+  );
+  let docxSections = docxChunks.map((chunk, chunkIndex) => ({
+    type: "htmlBlock",
+    title:
+      chunkIndex === 0
+        ? formDisplayTitle
+        : `${formDisplayTitle} (continued ${chunkIndex + 1})`,
+    html: chunk,
+  }));
+
+  if (isHandbookForm02(formEntry)) {
+    docxSections = docxSections.slice(0, 1).map((section) => ({
+      ...section,
+      html: String(section.html || "")
+        .replaceAll(/<p[^>]*>\s*Printed\s*Name\s*:[\s_\.]*<\/p>/gi, "")
+        .replaceAll(/Printed\s*Name\s*:[\s_\.]+/gi, "")
+        .concat(
+          "\n<p>Return this form to the office, keep your handbook for future reference.</p>",
+        )
+        .trim(),
+    }));
+  }
+
+  if (isHandbookForm01(formEntry)) {
+    docxSections = docxSections.slice(0, 1);
+  }
+
+  if (isHandbookForm03(formEntry)) {
+    const combinedHtml = docxSections
+      .slice(0, 2)
+      .map((section) => String(section.html || "").trim())
+      .filter(Boolean)
+      .join("\n");
+    const normalizedHtml = combinedHtml
+      .replaceAll(
+        /Site-Specific\s+Safety\s+Plan/gi,
+        "MISH (Accident Prevention Program)",
+      )
+      .replaceAll(
+        /(?<!MISH\s)\bSafety\s+Plan\b(?!\s*\(APP\))/gi,
+        "MISH (Accident Prevention Program)",
+      )
+      .replaceAll(
+        /\bMISH\s+MISH\s+\(Accident\s+Prevention\s+Program\)\b/gi,
+        "MISH (Accident Prevention Program)",
+      )
+      .replaceAll(
+        /\bMISH\s+\(Accident\s+Prevention\s+Program\)\s*\(Accident\s+Prevention\s+Program\)\b/gi,
+        "MISH (Accident Prevention Program)",
+      )
+      .replaceAll(
+        /<p[^>]*>\s*(Employee\s+Name\s*\(Print\)|Employee\s+Signature|Supervisor\s*\/?\s*Manager\s+Name\s*\(Print\)|Supervisor\s*\/?\s*Manager\s+Signature|Date)\s*:[\s\S]*?<\/p>/gi,
+        "",
+      )
+      .replaceAll(
+        /(Employee\s+Name\s*\(Print\)|Employee\s+Signature|Supervisor\s*\/?\s*Manager\s+Name\s*\(Print\)|Supervisor\s*\/?\s*Manager\s+Signature|Date)\s*:[\s_\.]+/gi,
+        "",
+      )
+      .trim();
+    docxSections = combinedHtml
+      ? [
+          {
+            type: "htmlBlock",
+            title: formDisplayTitle,
+            html: normalizedHtml,
+          },
+        ]
+      : [];
+  }
 
   const hasDocxSpecificContent = docxSections.length > 0;
+  const signatureSection = buildDefaultSignatureSection(formEntry);
+  const postContentSignatureSections = isToolboxTalkForm(formEntry)
+    ? buildToolboxTalkSignatureSections(formEntry)
+    : [signatureSection];
 
   const defaultEntrySections = hasDocxSpecificContent
     ? [
-        {
-          type: "narrative",
-          title: "Supplemental Site Notes",
-          subtitle:
-            "Use only when additional details are required beyond the form body.",
-          name: "details",
-          height: "1.4in",
-        },
-      ]
+        ...(isHandbookForm01(formEntry)
+          ? [
+              docxSections[0],
+              ...postContentSignatureSections,
+              ...docxSections.slice(1),
+            ]
+          : docxSections),
+        ...(isHandbookForm01(formEntry) ? [] : postContentSignatureSections),
+      ].filter(Boolean)
     : [
         {
           type: "fieldGrid",
@@ -1949,24 +2744,23 @@ async function buildDefaultFillablePages(formEntry) {
         {
           type: "signatures",
           title: "Sign-Off",
-          blocks: [
-            { role: "Employee", name: "sign.employee" },
-            { role: "Supervisor", name: "sign.supervisor" },
-          ],
+          blocks: signatureSection.blocks,
         },
       ];
+
+  const fallbackIntroSection = {
+    type: "refNote",
+    html: `<p><strong>${escapeHtml(formEntry?.title || "Form")}</strong> — Complete in the field and route according to project records control.</p>`,
+  };
+
+  const firstPageSections = hasDocxSpecificContent
+    ? defaultEntrySections
+    : [fallbackIntroSection, ...defaultEntrySections];
 
   return [
     {
       kind: "first",
-      sections: [
-        {
-          type: "refNote",
-          html: `<p><strong>${escapeHtml(formEntry?.title || "Form")}</strong> — Complete in the field and route according to project records control for ${escapeHtml(sectionRef)}.</p>`,
-        },
-        ...defaultEntrySections,
-        ...docxSections,
-      ],
+      sections: firstPageSections,
     },
   ];
 }
@@ -1974,6 +2768,115 @@ async function buildDefaultFillablePages(formEntry) {
 function getFillablePages(formEntry) {
   if (formEntry?.fillable?.pages?.length) return formEntry.fillable.pages;
   return buildDefaultFillablePages(formEntry);
+}
+
+function parseInches(value, fallback = 1.55) {
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  if (typeof value !== "string") return fallback;
+  const match = value.trim().match(/^([0-9]+(?:\.[0-9]+)?)in$/i);
+  if (!match) return fallback;
+  const n = Number(match[1]);
+  return Number.isFinite(n) ? n : fallback;
+}
+
+function estimateSectionUnits(section) {
+  switch (section?.type) {
+    case "refNote":
+      return 14;
+    case "checkGrid": {
+      const cols = Math.max(1, Number(section.columns) || 4);
+      const rows = Math.ceil((section.items?.length || 0) / cols);
+      return 12 + rows * 8;
+    }
+    case "fieldGrid": {
+      const cols = Math.max(1, Number(section.columns) || 2);
+      const rows = Math.ceil((section.items?.length || 0) / cols);
+      return (section.title ? 10 : 2) + rows * 9;
+    }
+    case "narrative": {
+      const inches = parseInches(section.height, 1.55);
+      return (section.title ? 10 : 0) + Math.ceil(inches * 20);
+    }
+    case "dataTable":
+      return 12 + (section.rows || 1) * 8;
+    case "regTable":
+      return 12 + (section.rows?.length || 1) * 8;
+    case "signatures":
+      return 18 + Math.ceil((section.blocks?.length || 1) * 9);
+    case "htmlBlock": {
+      const html = String(section?.html || "");
+      const text = html
+        .replaceAll(/<[^>]+>/g, " ")
+        .replaceAll(/&nbsp;/gi, " ")
+        .replaceAll(/\s+/g, " ")
+        .trim();
+      const density = Math.max(0, Math.ceil(text.length / 190));
+      return (section.title ? 28 : 20) + density * 11;
+    }
+    default:
+      return 12;
+  }
+}
+
+function splitPageSectionsByBudget(page, budget) {
+  const sourceSections = Array.isArray(page?.sections) ? page.sections : [];
+  if (sourceSections.length === 0) return [page];
+
+  const chunks = [];
+  let current = [];
+  let currentUnits = 0;
+
+  for (const section of sourceSections) {
+    const units = estimateSectionUnits(section);
+    if (current.length > 0 && currentUnits + units > budget) {
+      chunks.push(current);
+      current = [];
+      currentUnits = 0;
+    }
+    current.push(section);
+    currentUnits += units;
+  }
+
+  if (current.length > 0) {
+    chunks.push(current);
+  }
+
+  return chunks.map((sections, chunkIndex) => ({
+    ...page,
+    kind: chunkIndex === 0 ? page.kind : "cont",
+    sections,
+  }));
+}
+
+function optimizeFillablePageLayout(pages, formEntry, layoutProfile) {
+  const out = [];
+  const profile = layoutProfile || getFormLayoutProfile(formEntry);
+  for (let i = 0; i < pages.length; i++) {
+    const page = pages[i] || {};
+    const isFirstVisualPage = out.length === 0;
+    const budget = isFirstVisualPage
+      ? profile.firstPageBudget
+      : profile.continuationPageBudget;
+    const splitPages = splitPageSectionsByBudget(page, budget);
+    out.push(...splitPages);
+  }
+
+  if (out.length > pages.length) {
+    console.log(
+      `  ℹ  Layout optimization: expanded ${formEntry.id} from ${pages.length} to ${out.length} page(s) for spacing legibility.`,
+    );
+  }
+
+  const total = out.length;
+  return out.map((page, index) => {
+    if (index === 0 || page.kind === "first") {
+      return page;
+    }
+    return {
+      ...page,
+      pageLabel: page.pageLabel || `Page ${index + 1} of ${total}`,
+    };
+  });
 }
 
 function fqName(ns, name) {
@@ -2064,11 +2967,14 @@ function renderSection(section, ns) {
         `</tr></thead>`;
       const rows = [];
       const tableNs = fqName(ns, section.name);
+      const rowHeightStyle = section.rowHeight
+        ? ` style="height:${escapeAttr(section.rowHeight)}"`
+        : "";
       for (let r = 1; r <= (section.rows || 1); r++) {
         const tds = section.columns
           .map(
             (_c, ci) =>
-              `<td data-cell="${escapeAttr(`${tableNs}.r${r}.c${ci + 1}`)}"></td>`,
+              `<td${rowHeightStyle} data-cell="${escapeAttr(`${tableNs}.r${r}.c${ci + 1}`)}"></td>`,
           )
           .join("");
         rows.push(`<tr>${tds}</tr>`);
@@ -2105,22 +3011,43 @@ function renderSection(section, ns) {
       const note = section.refNote
         ? `<div class="ref-note"><span class="ref-note-icon">${renderMaterialIcon(getMaterialIconLigature("info"))}</span><div class="ref-note-content">${section.refNote}</div></div>`
         : "";
+      const manualSignOnly = section.manualSignOnly === true;
       const cells = (section.blocks || [])
         .map((b) => {
           const printName = fqName(ns, `${b.name}.print`);
           const dateName = fqName(ns, `${b.name}.date`);
+          const roleText = String(b.role || "");
+          const resolvedSignatureLabel =
+            b.signatureLabel ||
+            (/supervisor|approval/i.test(roleText)
+              ? "Approval Signature"
+              : "Acknowledgement Signature");
           const wide = b.wide ? " sig-wide" : "";
+          const signatureFieldHtml = manualSignOnly
+            ? `<div class="field-line-stub"></div>`
+            : `<div class="field-line-stub" data-field="${escapeAttr(printName)}"></div>`;
+          const dateFieldHtml = manualSignOnly
+            ? `<div class="field-line-stub"></div>`
+            : `<div class="field-line-stub" data-field="${escapeAttr(dateName)}"></div>`;
           return `<div class="sig-cell${wide}">
+              <div class="sig-label">${escapeHtml(resolvedSignatureLabel)}</div>
               <div class="sig-role">${escapeHtml(b.role || "")}</div>
-              <div class="sig-line"></div>
-              <div class="sig-meta">
-                <div class="field-cell"><label class="field-label">Print Name</label><div class="field-line-stub" data-field="${escapeAttr(printName)}"></div></div>
-                <div class="field-cell"><label class="field-label">Date</label><div class="field-line-stub" data-field="${escapeAttr(dateName)}"></div></div>
+              <div class="sig-lines">
+                <div class="sig-line-pair">
+                  ${signatureFieldHtml}
+                  <div class="sig-field-label">Signature</div>
+                </div>
+                <div class="sig-line-pair">
+                  ${dateFieldHtml}
+                  <div class="sig-field-label">Date</div>
+                </div>
               </div>
             </div>`;
         })
         .join("");
-      return `${note}${band}<div class="sig-grid">${cells}</div>`;
+      const sigGridClass =
+        section.layout === "two-up" ? "sig-grid sig-grid--two-up" : "sig-grid";
+      return `${note}${band}<div class="${sigGridClass}">${cells}</div>`;
     }
 
     default:
@@ -2146,9 +3073,35 @@ function escapeAttr(s) {
 }
 
 function renderSheet(page, idx, ns, formEntry) {
-  const sectionsHtml = (page.sections || [])
+  const sections = Array.isArray(page.sections) ? page.sections : [];
+  const bottomSectionsCount = Math.max(
+    0,
+    Number(page.bottomSectionsCount) || 0,
+  );
+  const splitIndex =
+    bottomSectionsCount > 0 && bottomSectionsCount < sections.length
+      ? sections.length - bottomSectionsCount
+      : sections.length;
+  const mainSections = sections.slice(0, splitIndex);
+  const bottomSections = sections.slice(splitIndex);
+  const sectionsHtml = sections
     .map((s) => renderSection(s, ns))
     .join("\n        ");
+  const mainSectionsHtml = mainSections
+    .map((s) => renderSection(s, ns))
+    .join("\n          ");
+  const bottomSectionsHtml = bottomSections
+    .map((s) => renderSection(s, ns))
+    .join("\n          ");
+  const bodyStyle = page.bodyPaddingTop
+    ? ` style="padding-top:${escapeAttr(page.bodyPaddingTop)};"`
+    : "";
+  const bodyContentHtml =
+    bottomSections.length > 0
+      ? `<div class="body-main">\n          ${mainSectionsHtml}\n        </div>\n        <div class="body-bottom">\n          ${bottomSectionsHtml}\n        </div>`
+      : sectionsHtml;
+  const bodyClass =
+    bottomSections.length > 0 ? "body-area body-area--split" : "body-area";
 
   const footerHtml = `<footer class="footer">
         <div class="contact">
@@ -2199,8 +3152,8 @@ function renderSheet(page, idx, ns, formEntry) {
           </div>
         </div>
       </header>
-      <main class="body-area">
-        ${sectionsHtml}
+      <main class="${bodyClass}"${bodyStyle}>
+        ${bodyContentHtml}
       </main>
       ${footerHtml}
     </div>`;
@@ -2215,11 +3168,84 @@ function renderSheet(page, idx, ns, formEntry) {
         <div class="cont-mark">${escapeHtml(formEntry.id || "")}<span class="dot">&#8226;</span>${escapeHtml(contTitle)}</div>
         <div class="cont-page">${escapeHtml(pageLabel)}</div>
       </header>
-      <main class="body-area">
-        ${sectionsHtml}
+      <main class="${bodyClass}"${bodyStyle}>
+        ${bodyContentHtml}
       </main>
       ${footerHtml}
     </div>`;
+}
+
+function validateSignatureSectionTitleGuardrails(formEntry, pages) {
+  const enforce = isHandbookFormEntry(formEntry) || isMishFormEntry(formEntry);
+  if (!enforce) return;
+
+  const signatureTitles = (pages || []).flatMap((page) =>
+    (page?.sections || [])
+      .filter((section) => section?.type === "signatures")
+      .map((section) => String(section?.title || "").trim()),
+  );
+
+  const genericTitles = new Set(["Sign-Off", "Facilitator Verification"]);
+  const genericViolations = signatureTitles.filter((title) =>
+    genericTitles.has(title),
+  );
+  if (genericViolations.length > 0) {
+    throw new Error(
+      `Guardrail validation failed: signature section titles must be unique to the current page. Generic titles found: ${genericViolations.join(", ")}`,
+    );
+  }
+
+  const duplicates = signatureTitles.filter(
+    (title, index) => title && signatureTitles.indexOf(title) !== index,
+  );
+  if (duplicates.length > 0) {
+    throw new Error(
+      `Guardrail validation failed: duplicate signature section titles found in one form: ${[...new Set(duplicates)].join(", ")}`,
+    );
+  }
+}
+
+function validateHandbookSignatureGuardrails(
+  formEntry,
+  pages,
+  html,
+  fields = [],
+) {
+  const isManualSignatureForm =
+    isHandbookFormEntry(formEntry) || isMishFormEntry(formEntry);
+  if (!isManualSignatureForm) return;
+
+  const signatureSections = (pages || []).flatMap((page) =>
+    (page?.sections || []).filter((section) => section?.type === "signatures"),
+  );
+  const missingManualOnly = signatureSections.filter(
+    (section) => section?.manualSignOnly !== true,
+  );
+  if (missingManualOnly.length > 0) {
+    const labels = missingManualOnly
+      .map((section) => section?.title || "Untitled signature section")
+      .join(", ");
+    throw new Error(
+      `Guardrail validation failed: handbook and MISH signature sections must set manualSignOnly=true. Offending sections: ${labels}`,
+    );
+  }
+
+  if (/data-field="[^"]*sign\.[^"]*\.(?:print|date)"/i.test(html || "")) {
+    throw new Error(
+      "Guardrail validation failed: handbook and MISH forms must not render fillable signature/date fields in signature blocks.",
+    );
+  }
+
+  const offendingFields = (fields || []).filter((field) =>
+    /(^|\b)sign\.[^.]+\.(print|date)$/i.test(String(field?.name || "")),
+  );
+  if (offendingFields.length > 0) {
+    throw new Error(
+      `Guardrail validation failed: handbook and MISH forms emitted fillable signature/date widgets: ${offendingFields
+        .map((field) => field.name)
+        .join(", ")}`,
+    );
+  }
 }
 
 /**
@@ -2239,8 +3265,12 @@ async function generateFillableForm(formEntry) {
   const rawTemplate = await readFile(templatePath, "utf-8");
 
   const ns = deriveFormNamespace(formEntry);
-  const pages = await getFillablePages(formEntry);
-  const formPublicUrl = `${SITE_URL}/docs/safety/forms/${slug}.pdf`;
+  const layoutProfile = getFormLayoutProfile(formEntry);
+  const basePages = await getFillablePages(formEntry);
+  const pages = optimizeFillablePageLayout(basePages, formEntry, layoutProfile);
+  validateSignatureSectionTitleGuardrails(formEntry, pages);
+  const formPublicRelativePath = resolveFormPublicRelativePath(formEntry, slug);
+  const formPublicUrl = `${SITE_URL}/${formPublicRelativePath}`;
   const formQrDataUrl = await buildQrDataUrl(formPublicUrl);
 
   const body = pages
@@ -2254,6 +3284,8 @@ async function generateFillableForm(formEntry) {
   html = applyBrandTokens(html)
     .replaceAll("{{FORM_QR_DATA_URL}}", formQrDataUrl)
     .replaceAll("{{FORM_QR_LINK_URL}}", escapeHtml(formPublicUrl));
+
+  validateHandbookSignatureGuardrails(formEntry, pages, html);
 
   const fillableDir = join(OUTPUT_DIR, "form-fillables");
   await ensureDir(fillableDir);
@@ -2271,6 +3303,7 @@ async function generateFillableForm(formEntry) {
     html,
     `manuals/_tmp_fillable_${slug}_measure.html`,
   );
+  validateHandbookSignatureGuardrails(formEntry, pages, html, fields);
   await applyMeasuredFieldsToPdf(pdfPath, fields);
   console.log(
     `  ✓  ${pdfPath.replace(ROOT + "/", "")}  (${fields.length} fields)`,
@@ -2341,6 +3374,13 @@ function slugForFormPackage(formEntry) {
     .toLowerCase()
     .replaceAll(/[^a-z0-9]+/g, "-")
     .replaceAll(/^-+|-+$/g, "");
+}
+
+function resolveFormPublicRelativePath(formEntry, slug) {
+  const basePath = isHandbookFormEntry(formEntry)
+    ? "docs/employee/forms"
+    : "docs/safety/forms";
+  return `${basePath}/${slug}.pdf`;
 }
 
 // ── Cover + Fillable bundle ──────────────────────────────────────────────────
@@ -2439,8 +3479,9 @@ async function generateAllFormPackages() {
 // ── Publish form packages to public/ ─────────────────────────────────────────
 /**
  * Copy generated `documents/output/form-packages/{slug}.pdf` files into
- * `public/docs/safety/forms/` so the Next.js site can serve them at
- * `/docs/safety/forms/{slug}.pdf`. Run after `form-packages` (or
+ * `public/docs/safety/forms/` (MISH forms) and `public/docs/employee/forms/`
+ * (handbook forms) so the Next.js site can serve them at the canonical URLs.
+ * Run after `form-packages` (or
  * implicitly via `form-publish`).
  */
 async function publishFormPackages() {
@@ -2451,8 +3492,10 @@ async function publishFormPackages() {
     );
     process.exit(1);
   }
-  const publicDir = join(ROOT, "public/docs/safety/forms");
-  await ensureDir(publicDir);
+  const safetyPublicDir = join(ROOT, "public/docs/safety/forms");
+  const handbookPublicDir = join(ROOT, "public/docs/employee/forms");
+  await ensureDir(safetyPublicDir);
+  await ensureDir(handbookPublicDir);
 
   const { readdir, copyFile } = await import("node:fs/promises");
   const files = (await readdir(packagesDir)).filter((f) => f.endsWith(".pdf"));
@@ -2463,7 +3506,10 @@ async function publishFormPackages() {
   console.log(`\n🚚  Publishing ${files.length} form package(s) to public/…`);
   for (const f of files) {
     const src = join(packagesDir, f);
-    const dst = join(publicDir, f);
+    const targetDir = f.startsWith("form-handbook-")
+      ? handbookPublicDir
+      : safetyPublicDir;
+    const dst = join(targetDir, f);
     await copyFile(src, dst);
     console.log(`  ✓  ${dst.replace(ROOT + "/", "")}`);
   }

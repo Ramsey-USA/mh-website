@@ -258,8 +258,7 @@ async function handleGET(request: NextRequest, _user: JWTUser) {
     const { searchParams } = new URL(request.url);
     const status = sanitizeText(searchParams.get("status"), 40);
     const category = sanitizeText(searchParams.get("category"), 40) as
-      | SafetyIntakeCategory
-      | "";
+      SafetyIntakeCategory | "";
 
     const filters: string[] = [];
     const params: string[] = [];

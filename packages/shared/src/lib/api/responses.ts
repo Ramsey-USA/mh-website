@@ -9,8 +9,6 @@ import {
   type ApiSuccessResponse,
   type ApiErrorResponse,
   type HttpStatusCode,
-  type FormSubmissionResponse,
-  type PaginatedApiResponse,
 } from "@/lib/types/api";
 
 /**
@@ -23,7 +21,7 @@ export function createSuccessResponse<T = unknown>(
   data?: T,
   message?: string,
   status: HttpStatusCode = HttpStatus.OK,
-): NextResponse<ApiSuccessResponse<T>> {
+): NextResponse {
   const response: ApiSuccessResponse<T> = {
     success: true,
     ...(data !== undefined && { data }),
@@ -43,7 +41,7 @@ export function createErrorResponse(
   error: string,
   status: HttpStatusCode = HttpStatus.INTERNAL_SERVER_ERROR,
   message?: string,
-): NextResponse<ApiErrorResponse> {
+): NextResponse {
   const response: ApiErrorResponse = {
     success: false,
     error,
@@ -65,7 +63,7 @@ export function createFormSubmissionResponse(
   emailSent: boolean,
   message: string,
   dbStored?: boolean,
-): NextResponse<FormSubmissionResponse> {
+): NextResponse {
   return NextResponse.json({
     success: true,
     message,
@@ -93,7 +91,7 @@ export function createPaginatedResponse<T>(
     pageSize?: number;
     total?: number;
   },
-): NextResponse<PaginatedApiResponse<T>> {
+): NextResponse {
   return NextResponse.json({
     success: true,
     data,

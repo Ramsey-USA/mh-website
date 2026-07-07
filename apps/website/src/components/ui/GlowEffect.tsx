@@ -23,11 +23,7 @@ import { cn } from "@/lib/utils";
 export interface GlowEffectProps {
   /** Gradient color scheme */
   gradient?:
-    | "primary"
-    | "secondary"
-    | "primary-secondary"
-    | "primary-dark"
-    | "bronze";
+    "primary" | "secondary" | "primary-secondary" | "primary-dark" | "bronze";
   /** Size of the glow (inset values) */
   size?: "sm" | "md" | "lg";
   /** Border radius */

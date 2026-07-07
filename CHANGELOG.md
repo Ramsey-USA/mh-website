@@ -8,6 +8,8 @@ All notable changes to the MH Construction website are documented here.
 
 - **Jul 7:** GitHub Advanced Security and dependency governance alignment — enabled repository-level security hardening with private vulnerability reporting policy (`SECURITY.md`), Dependabot version-update configuration (`.github/dependabot.yml`), pull-request dependency risk enforcement (`.github/workflows/dependency-review.yml`), and scheduled strict dependency audit automation (`.github/workflows/security-nightly.yml`); removed duplicate custom CodeQL workflow in favor of GitHub Advanced Security CodeQL default setup as the single code-scanning source.
 
+- **Jul 7 (b):** Website design status sync — updated the design-system documentation and top-level project overview to reflect the current tokenized website design baseline and the latest green validation state across the main routes.
+
 - **Jul 5:** CI/deployment security hardening and setup clarity pass — added an internal dependency vulnerability gate script (`scripts/validation/security-audit-gate.mjs`) with threshold-based commands (`security:check`, `security:check:prod`, `security:check:strict`); updated `ci-cd.yml` security audit gate to run the moderate-threshold check; upgraded workflow actions from `pnpm/action-setup@v4` and `actions/cache@v4` to Node-24-compatible `@v6`; improved IndexNow setup reliability by allowing `apps/website/scripts/verification/generate-indexnow-key-file.mjs` to load `INDEXNOW_KEY` from local env files and by masking key identifiers in logs; updated setup docs to clarify required GitHub repository secrets for main-branch CI/deploy flows (`INDEXNOW_KEY`, `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_API_TOKEN`).
 
 - **Jul 3:** Services funnel documentation standardization — aligned technical, branding, standards, and root docs to the implemented home services hierarchy (`Delivery Path -> Project Focus -> Specific Service Card`) and removed stale references to legacy tabbed/category flow or standalone services-page sequencing where discovery now occurs in `/#services`.
@@ -203,9 +205,9 @@ rel="preload">` into every page that prefetched `/veterans` via `<Link>`, result
   settings in `wrangler.toml` and deployment guide v3.1.0 (Early Hints ON, HTTP/3 with QUIC ON,
   0-RTT Connection Resumption ON, Smart Tiered Cache ON); added Redirect Rule upgrade path for
   apex→www redirect (currently in middleware, can move to CDN-level rule for ~10-20 ms savings);
-  future upgrade potentials documented: Cloudflare Images (on-demand AVIF/WebP, ~$5/mo),
+  future upgrade potentials documented: Cloudflare Images (on-demand AVIF/WebP, ~~$5/mo),
   Email Routing (replace Resend for simple form emails, ~$100/yr savings), Bot Management
-  (~$20/mo), Analytics Engine binding
+  (~~$20/mo), Analytics Engine binding
 
 - **Mar 26:** Analytics Cloudflare KV pipeline — analytics events now flow from client to server
   via a beacon system (`navigator.sendBeacon` with `fetch(keepalive)` fallback) → `POST /api/analytics/collect`

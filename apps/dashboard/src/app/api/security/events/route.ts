@@ -28,20 +28,15 @@ async function handler(request: NextRequest) {
     if (request.method === "GET") {
       // Parse query parameters
       const eventTypes = searchParams.get("types")?.split(",") as
-        | AuditEventType[]
-        | undefined;
+        AuditEventType[] | undefined;
       const riskLevels = searchParams.get("risk")?.split(",") as
-        | RiskLevel[]
-        | undefined;
+        RiskLevel[] | undefined;
       const startDate = searchParams.get("start");
       const endDate = searchParams.get("end");
       const userId = searchParams.get("user") || undefined;
       const ipAddress = searchParams.get("ip") || undefined;
       const outcome = searchParams.get("outcome") as
-        | "success"
-        | "failure"
-        | "warning"
-        | undefined;
+        "success" | "failure" | "warning" | undefined;
       const limit = Math.max(
         1,
         parseInt(searchParams.get("limit") || "50") || 50,

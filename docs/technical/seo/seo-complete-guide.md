@@ -63,9 +63,7 @@ export function getNewPageSEO(): Metadata & { schemas: object[] } {
     description: "Optimized description (120-160 characters).",
     keywords: ["keyword1", "veteran-owned construction", "Pacific Northwest"],
     canonicalUrl: `${enhancedSEO.siteUrl}/new-page`,
-    schemas: [
-      /* your schemas */
-    ],
+    schemas: [/* your schemas */],
   });
 }
 ```
@@ -183,7 +181,7 @@ All lead-path pages follow the **Universal Page Flow Standard** — **Discover �
 5. Services Showcase (30-40%) - Primary construction service offerings ✅
 6. Strategic CTA Banner (40-45%) - Mid-page conversion (App + Pitch Deck + Contact) ✅
 7. **Testimonials (45-55%)** - Social proof at optimal depth (25-30% in user scroll) ✅
-8. Company Stats (55-65%) - Battle-tested excellence and credibility metrics ✅
+8. Company Stats (55-65%) - Proven excellence and credibility metrics ✅
 9. Our Process Timeline (65-80%) - Five-step transparent project workflow ✅
 10. Next Steps (80-100%) - Final conversion guidance ✅
 

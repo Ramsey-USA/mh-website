@@ -30,8 +30,7 @@ interface UserDataRequest {
 }
 
 type ValidationResult<T> =
-  | { valid: true; data: T }
-  | { valid: false; error: string };
+  { valid: true; data: T } | { valid: false; error: string };
 
 interface FunctionPolicy {
   requiresAuth: boolean;

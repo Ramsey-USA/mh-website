@@ -2,11 +2,17 @@
 
 ## Visual Consistency Guidelines
 
-Last Updated: May 17, 2026
+Last Updated: July 7, 2026
 
 ### Overview
 
 This document outlines the design system standards for maintaining visual consistency across the MH Construction website. All components MUST use centralized design tokens to ensure brand cohesion and maintainability.
+
+## Current Status
+
+- The website design system is currently on the centralized token baseline for corner radii, hover motion, and transition timing.
+- The latest brand and design validation on the active branch is green, with the primary website surfaces aligned to the approved MH visual language.
+- Continue using the canonical token sources in `/apps/website/src/lib/styles/design-tokens.ts` when updating route-level or shared UI components.
 
 ---
 

@@ -197,6 +197,15 @@
         font-family: var(--font-body);
         color: var(--ink);
       }
+      .body-area--split {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .body-main,
+      .body-bottom {
+        display: block;
+      }
 
       .sec-band {
         display: flex;
@@ -432,38 +441,62 @@
 
       .sig-grid {
         display: grid;
+        grid-template-columns: 1fr;
+        gap: 8pt;
+        margin-top: 6pt;
+      }
+      .sig-grid--two-up {
         grid-template-columns: 1fr 1fr;
-        gap: 6pt 10pt;
-        margin-top: 4pt;
+        gap: 8pt 10pt;
       }
       .sig-cell {
-        border: 0.5pt solid var(--brand-secondary);
-        padding: 4pt 6pt 5pt;
+        width: auto;
+        border: 0.75pt solid #d7e3dc;
+        border-radius: 4pt;
+        padding: 8pt 12pt;
+        background: #f6f8f7;
+        box-sizing: border-box;
       }
-      .sig-cell.sig-wide { grid-column: 1 / span 2; }
-      .sig-cell .sig-role {
-        font-family: var(--font-heading);
-        font-size: 8.2pt;
-        font-weight: 900;
-        letter-spacing: 0.05em;
+      .sig-cell.sig-wide { grid-column: 1 / span 1; }
+      .sig-cell .sig-label {
+        font-size: 6.4pt;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
         color: var(--brand-secondary);
-        margin-bottom: 3pt;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 7pt;
+        padding-bottom: 4pt;
+        border-bottom: 0.5pt solid var(--brand-secondary);
       }
-      .sig-cell .sig-line {
-        height: 0.24in;
-        border-bottom: 0.7pt solid var(--brand-secondary);
-        margin-bottom: 3pt;
+      .sig-cell .sig-role {
+        font-size: 8.2pt;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--brand-primary);
+        margin-bottom: 8pt;
       }
-      .sig-cell .sig-meta {
+      .sig-cell .sig-lines {
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 6pt;
+        grid-template-columns: 1.5fr 0.85fr;
+        gap: 12pt;
       }
-      .sig-cell .sig-meta .field-cell { padding-bottom: 10pt; }
-      .sig-cell .sig-meta .field-line-stub {
-        position: relative;
-        top: 10pt;
+      .sig-cell .sig-line-pair {
+        display: flex;
+        flex-direction: column;
+        gap: 3pt;
+      }
+      .sig-cell .sig-lines .field-line-stub {
+        height: 0.18in;
+        border-bottom: 1pt solid var(--brand-primary);
+      }
+      .sig-cell .sig-field-label {
+        font-size: 6pt;
+        color: var(--brand-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
       }
 
       /* ── Footer (every page) ─────────────────────────────── */

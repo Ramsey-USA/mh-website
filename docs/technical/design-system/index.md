@@ -1,7 +1,7 @@
 # Design System Documentation
 
 **Category:** Technical - Design System  
-**Last Updated:** May 4, 2026
+**Last Updated:** July 7, 2026
 
 ## Overview
 
@@ -10,6 +10,12 @@ Complete design system implementation guides for MH Construction interactive ele
 canonical UI component spec).
 
 **Brand Congruency:** Design-system implementations must use the canonical MH typography and color system so component behavior stays visually consistent across pages.
+
+## Current Status
+
+- The website design baseline is currently validated against the unified token system and brand guardrails.
+- Component and route-level design updates should continue to use the canonical standards below so the live UI stays visually consistent.
+- Use this index as the entry point for design-system work that affects buttons, icons, typography, and interaction patterns.
 
 ## Available Resources
 

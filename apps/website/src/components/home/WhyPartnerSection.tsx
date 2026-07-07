@@ -208,10 +208,7 @@ export function WhyPartnerSection({
                         interactive
                         {...(iconData.themePreset && {
                           theme: iconData.themePreset as
-                            | "veteran"
-                            | "military"
-                            | "tactical"
-                            | "default",
+                            "veteran" | "military" | "tactical" | "default",
                         })}
                       />
                     </div>

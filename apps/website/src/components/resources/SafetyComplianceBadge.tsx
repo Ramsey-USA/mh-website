@@ -1,14 +1,7 @@
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 export type BadgeVariant =
-  | "osha"
-  | "agc"
-  | "wisha"
-  | "pmbok"
-  | "dot"
-  | "veteran"
-  | "bbb"
-  | "travelers";
+  "osha" | "agc" | "wisha" | "pmbok" | "dot" | "veteran" | "bbb" | "travelers";
 
 interface Props {
   variant: BadgeVariant;
