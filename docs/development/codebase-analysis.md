@@ -503,12 +503,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "MH Construction | Veteran-Owned General Contractor",
   description: "...",
-  openGraph: {
-    /* og tags */
-  },
-  robots: {
-    /* indexing rules */
-  },
+  openGraph: {/* og tags */},
+  robots: {/* indexing rules */},
 };
 ```
 

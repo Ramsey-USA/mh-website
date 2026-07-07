@@ -105,8 +105,7 @@ async function handler(request: NextRequest): Promise<Response> {
     try {
       const { env } = getCloudflareContext();
       const ai = (env as Record<string, unknown>)["AI"] as
-        | AiBinding
-        | undefined;
+        AiBinding | undefined;
 
       if (ai) {
         const localeInstruction =

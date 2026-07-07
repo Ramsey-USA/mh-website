@@ -4,17 +4,10 @@
  */
 
 export type AuthorizationStatus =
-  | "authorized"
-  | "suspended"
-  | "revoked"
-  | "pending";
+  "authorized" | "suspended" | "revoked" | "pending";
 
 export type MvrStatus =
-  | "clear"
-  | "flagged"
-  | "suspended"
-  | "revoked"
-  | "pending";
+  "clear" | "flagged" | "suspended" | "revoked" | "pending";
 
 export interface AuthorizedDriver {
   readonly id: string;
@@ -54,11 +47,7 @@ export interface DriverAlertsResponse {
 }
 
 export type DriverFilter =
-  | "all"
-  | "authorized"
-  | "pending"
-  | "expiring"
-  | "cdl";
+  "all" | "authorized" | "pending" | "expiring" | "cdl";
 
 export const AUTH_STATUS_COLORS: Readonly<Record<AuthorizationStatus, string>> =
   {

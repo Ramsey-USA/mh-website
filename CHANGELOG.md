@@ -203,9 +203,9 @@ rel="preload">` into every page that prefetched `/veterans` via `<Link>`, result
   settings in `wrangler.toml` and deployment guide v3.1.0 (Early Hints ON, HTTP/3 with QUIC ON,
   0-RTT Connection Resumption ON, Smart Tiered Cache ON); added Redirect Rule upgrade path for
   apex→www redirect (currently in middleware, can move to CDN-level rule for ~10-20 ms savings);
-  future upgrade potentials documented: Cloudflare Images (on-demand AVIF/WebP, ~$5/mo),
+  future upgrade potentials documented: Cloudflare Images (on-demand AVIF/WebP, ~~$5/mo),
   Email Routing (replace Resend for simple form emails, ~$100/yr savings), Bot Management
-  (~$20/mo), Analytics Engine binding
+  (~~$20/mo), Analytics Engine binding
 
 - **Mar 26:** Analytics Cloudflare KV pipeline — analytics events now flow from client to server
   via a beacon system (`navigator.sendBeacon` with `fetch(keepalive)` fallback) → `POST /api/analytics/collect`

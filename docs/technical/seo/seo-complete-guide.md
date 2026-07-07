@@ -63,9 +63,7 @@ export function getNewPageSEO(): Metadata & { schemas: object[] } {
     description: "Optimized description (120-160 characters).",
     keywords: ["keyword1", "veteran-owned construction", "Pacific Northwest"],
     canonicalUrl: `${enhancedSEO.siteUrl}/new-page`,
-    schemas: [
-      /* your schemas */
-    ],
+    schemas: [/* your schemas */],
   });
 }
 ```

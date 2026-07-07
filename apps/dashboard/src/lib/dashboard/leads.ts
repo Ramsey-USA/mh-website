@@ -4,12 +4,7 @@
  */
 
 export type LeadStatus =
-  | "new"
-  | "contacted"
-  | "estimate_sent"
-  | "negotiating"
-  | "won"
-  | "lost";
+  "new" | "contacted" | "estimate_sent" | "negotiating" | "won" | "lost";
 
 export type LeadPriority = "low" | "medium" | "high" | "urgent";
 

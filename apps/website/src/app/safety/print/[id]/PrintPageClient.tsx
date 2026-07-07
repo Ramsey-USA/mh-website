@@ -16,10 +16,7 @@ interface Submission {
   job_number: string;
   job_name: string;
   form_type:
-    | "toolbox-talk"
-    | "jha"
-    | "site-safety-inspection"
-    | "incident-report";
+    "toolbox-talk" | "jha" | "site-safety-inspection" | "incident-report";
   submitted_by: string;
   data: unknown;
   print_count: number;

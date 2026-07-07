@@ -156,9 +156,7 @@ export const MY_NEW_RULES = [
 ```typescript
 describe("Branding Guardrails › My New Category", () => {
   it("my new rule description", () => {
-    const files = walkFiles(srcDir, {
-      /* options */
-    });
+    const files = walkFiles(srcDir, {/* options */});
     const violations = [];
 
     for (const file of files) {

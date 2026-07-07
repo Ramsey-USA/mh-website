@@ -79,10 +79,7 @@ const serviceIcons = [
 ];
 
 type ServicePathId =
-  | "all"
-  | "plan-control"
-  | "build-expand"
-  | "modernize-spaces";
+  "all" | "plan-control" | "build-expand" | "modernize-spaces";
 
 type ServiceFocusId =
   | "all"
@@ -159,10 +156,7 @@ export function ServicesShowcase({
   const trackFunnelInteraction = useCallback(
     (
       interaction:
-        | "path_select"
-        | "focus_select"
-        | "reset_filters"
-        | "modal_open",
+        "path_select" | "focus_select" | "reset_filters" | "modal_open",
       properties?: Record<string, unknown>,
     ) => {
       trackServiceInterest("Services Funnel", "click", {

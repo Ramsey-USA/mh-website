@@ -49,6 +49,7 @@ Founded 2010, Veteran-Owned Since January 2025
 
 - ❌ "Veteran-Owned Since 2025" (missing month) <!-- LINT-EXEMPT -->
 - ❌ "veteran-owned since January 2025" (incorrect capitalization) <!-- LINT-EXEMPT -->
+
 <!-- END-LINT-EXEMPT -->
 
 ---

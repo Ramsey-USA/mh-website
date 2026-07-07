@@ -197,8 +197,7 @@ describe("ChatWidget", () => {
     });
 
     const requestInit = mockFetch.mock.calls[0]?.[1] as
-      | { body?: string }
-      | undefined;
+      { body?: string } | undefined;
     expect(requestInit?.body).toContain('"locale":"en"');
   });
 

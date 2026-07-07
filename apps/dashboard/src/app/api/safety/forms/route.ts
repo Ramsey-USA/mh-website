@@ -17,10 +17,7 @@ import { sendToN8nAsync } from "@/lib/notifications/n8n-webhook";
 export const dynamic = "force-dynamic";
 
 export type FormType =
-  | "toolbox-talk"
-  | "site-safety-inspection"
-  | "incident-report"
-  | "jha";
+  "toolbox-talk" | "site-safety-inspection" | "incident-report" | "jha";
 
 export interface SafetyFormSubmission {
   id: string;

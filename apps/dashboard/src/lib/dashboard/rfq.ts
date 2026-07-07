@@ -31,11 +31,7 @@ export interface RfqConfig {
 }
 
 export type WizardStep =
-  | "rfq-info"
-  | "eval-criteria"
-  | "sections"
-  | "exhibits"
-  | "review";
+  "rfq-info" | "eval-criteria" | "sections" | "exhibits" | "review";
 
 export interface RfqSection {
   id: string;

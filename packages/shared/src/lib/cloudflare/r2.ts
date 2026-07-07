@@ -242,11 +242,7 @@ export class R2StorageService {
  */
 export function getR2Bucket(
   bucketName:
-    | "RESUMES"
-    | "FILE_ASSETS"
-    | "SAFETY_INTAKE"
-    | "SSSP_PLANS"
-    | "SSSP_OUTPUT",
+    "RESUMES" | "FILE_ASSETS" | "SAFETY_INTAKE" | "SSSP_PLANS" | "SSSP_OUTPUT",
 ): R2Bucket | null {
   try {
     const { env } = getCloudflareContext();
