@@ -59,6 +59,9 @@ jobs:
       - name: Install dependencies (website scope)
         run: pnpm install --frozen-lockfile --filter @mhc/website...
 
+      - name: Sync docs/messages/documents into app
+        run: bash scripts/docs/sync-to-app.sh
+
       - name: Benchmark standard build
         id: standard
         working-directory: apps/website
