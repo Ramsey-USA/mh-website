@@ -16,6 +16,41 @@
 import { Toucan } from "toucan-js";
 import type { NextRequest } from "next/server";
 
+function parseRate(rawValue: string | undefined, fallback: number): number {
+  if (!rawValue) {
+    return fallback;
+  }
+
+  const parsed = Number(rawValue);
+  if (!Number.isFinite(parsed)) {
+    return fallback;
+  }
+
+  return Math.min(1, Math.max(0, parsed));
+}
+
+function resolveReleaseVersion(): string {
+  const explicitVersion = process.env["NEXT_PUBLIC_APP_VERSION"];
+  if (explicitVersion) {
+    return explicitVersion;
+  }
+
+  const commitSha = process.env["VERCEL_GIT_COMMIT_SHA"];
+  if (commitSha) {
+    return commitSha.slice(0, 12);
+  }
+
+  return "unknown";
+}
+
+function getServerSampleRate(): number {
+  const isProduction = process.env.NODE_ENV === "production";
+  return parseRate(
+    process.env["SENTRY_SERVER_SAMPLE_RATE"],
+    isProduction ? 0.5 : 1,
+  );
+}
+
 /**
  * Create a Sentry instance for the current request
  * Call this at the start of API route handlers
@@ -34,8 +69,8 @@ export function createServerSentry(
     dsn,
     request: request as unknown as Request,
     environment: process.env.NODE_ENV || "production",
-    release: process.env["NEXT_PUBLIC_APP_VERSION"] || "unknown",
-    sampleRate: process.env.NODE_ENV === "production" ? 1.0 : 1.0,
+    release: resolveReleaseVersion(),
+    sampleRate: getServerSampleRate(),
   };
 
   // Only add context if provided (Cloudflare Workers execution context)
@@ -77,7 +112,8 @@ export function captureServerException(
   const sentry = new Toucan({
     dsn,
     environment: process.env.NODE_ENV || "production",
-    release: process.env["NEXT_PUBLIC_APP_VERSION"] || "unknown",
+    release: resolveReleaseVersion(),
+    sampleRate: getServerSampleRate(),
   });
 
   // Add route tag if provided
@@ -137,7 +173,8 @@ export function captureServerMessage(
   const sentry = new Toucan({
     dsn,
     environment: process.env.NODE_ENV || "production",
-    release: process.env["NEXT_PUBLIC_APP_VERSION"] || "unknown",
+    release: resolveReleaseVersion(),
+    sampleRate: getServerSampleRate(),
   });
 
   if (extra) {

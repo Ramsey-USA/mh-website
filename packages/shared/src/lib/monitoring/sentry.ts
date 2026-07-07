@@ -25,6 +25,44 @@ let isInitialized = false;
 let _sentry: SentryModule | null = null;
 let initPromise: Promise<void> | null = null;
 
+function parseRate(rawValue: string | undefined, fallback: number): number {
+  if (!rawValue) {
+    return fallback;
+  }
+
+  const parsed = Number(rawValue);
+  if (!Number.isFinite(parsed)) {
+    return fallback;
+  }
+
+  return Math.min(1, Math.max(0, parsed));
+}
+
+function parseBoolean(
+  rawValue: string | undefined,
+  fallback: boolean,
+): boolean {
+  if (!rawValue) {
+    return fallback;
+  }
+
+  return ["1", "true", "yes", "on"].includes(rawValue.toLowerCase());
+}
+
+function resolveReleaseVersion(): string {
+  const explicitVersion = process.env["NEXT_PUBLIC_APP_VERSION"];
+  if (explicitVersion) {
+    return explicitVersion;
+  }
+
+  const commitSha = process.env["VERCEL_GIT_COMMIT_SHA"];
+  if (commitSha) {
+    return commitSha.slice(0, 12);
+  }
+
+  return "unknown";
+}
+
 /**
  * Initialize Sentry for client-side error tracking
  * Call this once in your app initialization
@@ -34,6 +72,24 @@ export async function initSentry(): Promise<void> {
   if (!configuredDsn) {
     return;
   }
+
+  const isProduction = process.env.NODE_ENV === "production";
+  const tracesSampleRate = parseRate(
+    process.env["NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE"],
+    isProduction ? 0.1 : 1,
+  );
+  const replaySessionSampleRate = parseRate(
+    process.env["NEXT_PUBLIC_SENTRY_REPLAY_SESSION_SAMPLE_RATE"],
+    isProduction ? 0.02 : 0,
+  );
+  const replayOnErrorSampleRate = parseRate(
+    process.env["NEXT_PUBLIC_SENTRY_REPLAY_ON_ERROR_SAMPLE_RATE"],
+    isProduction ? 1 : 1,
+  );
+  const sendDefaultPii = parseBoolean(
+    process.env["NEXT_PUBLIC_SENTRY_SEND_DEFAULT_PII"],
+    false,
+  );
 
   if (isInitialized) {
     return;
@@ -81,20 +137,20 @@ export async function initSentry(): Promise<void> {
       _sentry.init({
         dsn: configuredDsn,
         environment: process.env.NODE_ENV || "production",
-        release: process.env["NEXT_PUBLIC_APP_VERSION"] || "unknown",
+        release: resolveReleaseVersion(),
 
         // Send default PII data (e.g., automatic IP address collection)
-        sendDefaultPii: true,
+        sendDefaultPii,
 
         // Adjust sample rate based on environment
-        tracesSampleRate: process.env.NODE_ENV === "production" ? 0.1 : 1,
+        tracesSampleRate,
 
         // Capture unhandled promise rejections
         integrations,
 
-        // Replay is disabled pending a safer singleton strategy.
-        replaysSessionSampleRate: 0,
-        replaysOnErrorSampleRate: 0,
+        // Keep low baseline replay volume while preserving error diagnostics.
+        replaysSessionSampleRate: replaySessionSampleRate,
+        replaysOnErrorSampleRate: replayOnErrorSampleRate,
 
         // Don't send errors in development unless explicitly enabled
         enabled:

@@ -818,7 +818,28 @@ export function generateLocalBusinessSchema() {
 type StructuredDataProps = Readonly<{ data: object | object[] }>;
 
 export function StructuredData({ data }: StructuredDataProps) {
-  const schemaData = Array.isArray(data) ? data : [data];
+  const rawSchemaData = Array.isArray(data) ? data : [data];
+
+  const schemaData = rawSchemaData
+    .filter(
+      (entry): entry is Record<string, unknown> =>
+        Boolean(entry) && typeof entry === "object" && !Array.isArray(entry),
+    )
+    .map((entry) => {
+      const context =
+        typeof entry["@context"] === "string" && entry["@context"].trim()
+          ? entry["@context"]
+          : "https://schema.org";
+
+      return {
+        ...entry,
+        "@context": context,
+      };
+    });
+
+  if (schemaData.length === 0) {
+    return null;
+  }
 
   // Sanitize JSON data for security
   const sanitizedData = JSON.stringify(schemaData)
