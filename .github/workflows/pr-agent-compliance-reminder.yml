@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Validate required agent compliance fields
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const pr = context.payload.pull_request;
@@ -27,6 +27,12 @@ jobs:
 
             if (pr.draft) {
               core.info("Draft PR detected. Skipping agent compliance enforcement until ready for review.");
+              return;
+            }
+
+            const prAuthor = pr.user?.login || "";
+            if (prAuthor === "app/dependabot" || prAuthor === "dependabot[bot]") {
+              core.info("Dependabot PR detected. Skipping agent compliance enforcement.");
               return;
             }
 
