@@ -8,6 +8,7 @@ MESSAGES_SOURCE_DIR="$ROOT_DIR/messages/"
 MESSAGES_TARGET_DIR="$ROOT_DIR/apps/website/messages/"
 DOCUMENTS_SOURCE_DIR="$ROOT_DIR/documents/"
 DOCUMENTS_TARGET_DIR="$ROOT_DIR/apps/website/documents/"
+RSYNC_FALLBACK_REPORTED=0
 
 sync_tree() {
   local source_dir="$1"
@@ -26,7 +27,10 @@ sync_tree() {
     return
   fi
 
-  echo "[docs:sync] rsync not found, using tar fallback for $source_dir" >&2
+  if [[ "$RSYNC_FALLBACK_REPORTED" -eq 0 ]]; then
+    echo "[docs:sync] rsync not found, using tar fallback sync mode" >&2
+    RSYNC_FALLBACK_REPORTED=1
+  fi
 
   rm -rf "$target_dir"
   mkdir -p "$target_dir"

@@ -13,6 +13,15 @@ import { fileURLToPath } from "node:url";
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const appRoot = resolve(scriptDir, "..", "..");
 const workspaceRoot = resolve(appRoot, "..", "..");
+const isCI = process.env.CI === "true";
+const requireIndexNowKey = ["1", "true", "yes", "on"].includes(
+  (process.env.INDEXNOW_REQUIRED || "").toLowerCase(),
+);
+const logMissingIndexNow =
+  !isCI ||
+  ["1", "true", "yes", "on"].includes(
+    (process.env.INDEXNOW_VERBOSE_MISSING || "").toLowerCase(),
+  );
 
 const INDEXNOW_KEY = (
   process.env.INDEXNOW_KEY ||
@@ -27,9 +36,19 @@ const INDEXNOW_KEY = (
 const PUBLIC_DIR = join(process.cwd(), "public");
 
 if (!INDEXNOW_KEY) {
-  console.log(
-    "[indexnow] INDEXNOW_KEY is not set; skipping key file generation.",
-  );
+  if (requireIndexNowKey) {
+    console.error(
+      "[indexnow] INDEXNOW_KEY is required in this environment but not set.",
+    );
+    process.exit(1);
+  }
+
+  if (logMissingIndexNow) {
+    console.log(
+      "[indexnow] INDEXNOW_KEY is not set; skipping key file generation.",
+    );
+  }
+
   process.exit(0);
 }
 

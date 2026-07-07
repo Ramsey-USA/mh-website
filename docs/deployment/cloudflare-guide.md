@@ -518,19 +518,18 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 - [ ] Apply D1 migrations (see D1 Migrations section below)
 - [ ] Verify Resend domain: add SPF + DKIM DNS records for `mhc-gc.com` in Resend dashboard
 
-> **Note:** Deployment is handled entirely by Cloudflare Workers auto-deploy.
-> GitHub Actions (`.github/workflows/ci-cd.yml`) runs quality checks, tests, and
-> a build verification as a safety gate — it does **not** run `wrangler pages deploy`.
-> GitHub Actions **does** require repository secrets for CI/deploy integrations.
+> **Note:** Deployment source of truth is GitHub Actions (`.github/workflows/ci-cd.yml`),
+> which runs quality checks and deploys with Wrangler on `main`.
+> Disable Cloudflare Dashboard Git auto-deploy to avoid duplicate builds and conflicting deploy paths.
+> GitHub Actions requires repository secrets for CI/deploy integrations.
 > Minimum required for current `ci-cd.yml` paths on `main`:
 > `INDEXNOW_KEY`, `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_API_TOKEN`.
 
 ### Every Deploy (Automatic via Git Push)
 
 - [ ] Push to `main` branch
-- [ ] GitHub Actions CI gate runs: type-check, lint, format, **76 tests**, build
-- [ ] Cloudflare Workers auto-deploys from `main` (independently of CI)
-- [ ] Monitor build in Cloudflare Dashboard → Deployments
+- [ ] GitHub Actions CI gate runs: type-check, lint, format, **76 tests**, build, deploy
+- [ ] Monitor deploy workflow in GitHub Actions (`CI/CD Pipeline` and `Deploy Pipeline Alerts`)
 - [ ] Build should complete in ~30–45 seconds
 - [ ] Verify `https://www.mhc-gc.com` is live
 

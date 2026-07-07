@@ -1,0 +1,118 @@
+name: Deploy Pipeline Alerts
+
+on:
+  workflow_run:
+    workflows: ["CI/CD Pipeline"]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+  actions: read
+  issues: write
+
+jobs:
+  open-alert-issue:
+    name: Open Failure Alert
+    if: >-
+      github.event.workflow_run.conclusion != 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create or update deployment alert issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const title = 'CI/CD deployment alert: main pipeline failure';
+            const run = context.payload.workflow_run;
+            const runUrl = run.html_url;
+            const sha = run.head_sha;
+            const branch = run.head_branch;
+
+            const body = [
+              'The main CI/CD pipeline did not complete successfully.',
+              '',
+              `- Workflow: ${run.name}`,
+              `- Conclusion: ${run.conclusion}`,
+              `- Branch: ${branch}`,
+              `- Commit: ${sha}`,
+              `- Run: ${runUrl}`,
+              '',
+              'Please investigate before the next production push.',
+            ].join('\n');
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'open',
+              labels: 'ci-alert',
+              per_page: 100,
+            });
+
+            const existing = issues.find((issue) => issue.title === title);
+
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: existing.number,
+                body,
+              });
+              core.info(`Updated existing alert issue #${existing.number}`);
+              return;
+            }
+
+            await github.rest.issues.create({
+              owner,
+              repo,
+              title,
+              body,
+              labels: ['ci-alert', 'ops', 'bug'],
+            });
+            core.info('Created new deployment alert issue');
+
+  close-alert-issue:
+    name: Close Existing Alert
+    if: >-
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve open deployment alert issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const title = 'CI/CD deployment alert: main pipeline failure';
+            const run = context.payload.workflow_run;
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'open',
+              labels: 'ci-alert',
+              per_page: 100,
+            });
+
+            const existing = issues.find((issue) => issue.title === title);
+            if (!existing) {
+              core.info('No open deployment alert issue to close');
+              return;
+            }
+
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: existing.number,
+              body: `Resolved by successful run: ${run.html_url}`,
+            });
+
+            await github.rest.issues.update({
+              owner,
+              repo,
+              issue_number: existing.number,
+              state: 'closed',
+            });
+
+            core.info(`Closed alert issue #${existing.number}`);

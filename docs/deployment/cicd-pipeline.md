@@ -392,9 +392,15 @@ wrangler tail --status ok --status error
 
 **Sources:**
 
+- GitHub Actions workflow runs (`CI/CD Pipeline`, `Deploy Pipeline Alerts`)
 - Cloudflare Analytics Engine
 - Sentry error tracking
 - Custom logging via audit-logger
+
+**Guidance:**
+
+- Use GitHub Actions as the primary monitor for build/deploy pipeline health.
+- Use Cloudflare + Sentry for runtime availability, latency, and error trends.
 
 ### Key Metrics
 

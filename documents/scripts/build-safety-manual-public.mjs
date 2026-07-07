@@ -37,6 +37,15 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
 const SOURCE = join(ROOT, "documents/content/safety-manual.json");
 const OUTPUT = join(ROOT, "documents/content/safety-manual-public.json");
+const isCI = process.env.CI === "true";
+const requireSafetyManualSource = ["1", "true", "yes", "on"].includes(
+  (process.env.SAFETY_MANUAL_SOURCE_REQUIRED || "").toLowerCase(),
+);
+const logMissingSafetyManual =
+  !isCI ||
+  ["1", "true", "yes", "on"].includes(
+    (process.env.SAFETY_MANUAL_VERBOSE_MISSING || "").toLowerCase(),
+  );
 
 // ── Allow-listed preview heading regex (mirror of
 //    src/lib/data/safety-manual-preview.ts). Keep these in sync. ───────────
@@ -90,10 +99,20 @@ function extractPreviewHtml(body, maxWords = 250) {
 
 async function main() {
   if (!existsSync(SOURCE)) {
-    console.warn(
-      "⚠  safety-manual.json not found — skipping public manifest derivation.",
-    );
-    console.warn("   Run `npm run docs:extract-word` first if needed.");
+    if (requireSafetyManualSource) {
+      console.error(
+        "✖ safety-manual.json is required in this environment but was not found.",
+      );
+      process.exit(1);
+    }
+
+    if (logMissingSafetyManual) {
+      console.log(
+        "ℹ safety-manual.json not found — skipping public manifest derivation.",
+      );
+      console.log("  Run `npm run docs:extract-word` first if needed.");
+    }
+
     process.exit(0);
   }
 

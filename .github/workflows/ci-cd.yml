@@ -1,8 +1,7 @@
 name: CI/CD Pipeline
 
-# Deployment is handled by Cloudflare Workers auto-deploy (watches main branch).
-# This pipeline is a quality gate: type-check, lint, test, and build must all
-# pass before code reaches production via Cloudflare Workers.
+# Source of truth: this workflow validates and deploys production via wrangler.
+# Disable Cloudflare Dashboard Git auto-deploy to avoid duplicate builds.
 
 on:
   push:
