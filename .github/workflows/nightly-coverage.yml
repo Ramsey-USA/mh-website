@@ -148,7 +148,7 @@ jobs:
 
       - name: Upload website coverage artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: website-coverage-${{ github.run_id }}
           retention-days: 14

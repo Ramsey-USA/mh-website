@@ -354,7 +354,16 @@ jest.mock("@/components/navigation/PageNavigation", () => ({
 }));
 
 jest.mock("@/components/navigation/navigationConfigs", () => ({
-  navigationConfigs: { safety: { sections: [] } },
+  navigationConfigs: {
+    faq: [],
+    veterans: [],
+    team: [],
+    services: [],
+    testimonials: [],
+    allies: [],
+    publicSector: [],
+    safety: { sections: [] },
+  },
 }));
 
 jest.mock("next/script", () => ({

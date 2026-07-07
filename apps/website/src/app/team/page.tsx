@@ -618,7 +618,7 @@ export default async function TeamPage() {
                     <p className="text-sm sm:text-base font-semibold text-brand-secondary-dark dark:text-brand-secondary-light">
                       {founderTributeMember.role}
                     </p>
-                    <p className="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                    <p className="font-body mt-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
                       {founderTributeMember.bio}
                     </p>
                     <div className="mt-3 flex flex-wrap gap-2 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300">
