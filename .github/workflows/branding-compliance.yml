@@ -56,7 +56,7 @@ jobs:
 
       - name: Post Branding Compliance Comment
         if: always() && github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         env:
           BRANDING_GATE_OUTPUT: ${{ steps.branding_gate.outputs.output }}
           BRANDING_GATE_EXIT_CODE: ${{ steps.branding_gate.outputs.exit_code }}
