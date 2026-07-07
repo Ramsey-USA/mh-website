@@ -816,7 +816,7 @@ export default function SafetyPage() {
               <p className="text-sm text-slate-400">
                 Safety documentation and workflows are available for authorized
                 team members in the MH Construction app. Use the Install App
-                button in the site header or footer.
+                button in the site footer.
               </p>
             </div>
           </div>

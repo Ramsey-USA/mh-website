@@ -252,4 +252,66 @@ describe("AppShell", () => {
       screen.queryByTestId("semiquincentennial-banner"),
     ).not.toBeInTheDocument();
   });
+
+  it("renders the route-specific Jeremy quote from dynamic ribbon keys", () => {
+    mockUsePathname.mockReturnValue("/projects/riverfront-retail");
+    mockUsePWA.mockReturnValue({
+      isStandalone: false,
+      isInstallable: true,
+      isIOS: false,
+    });
+
+    render(
+      <AppShell
+        jeremyRibbons={{
+          "projects/[slug]": {
+            eyebrow: "Words from the General",
+            quote: "Project ribbon quote",
+            attribution: "Jeremy Thamert, Owner & President",
+          },
+          default: {
+            eyebrow: "Words from the General",
+            quote: "Default ribbon quote",
+            attribution: "Jeremy Thamert, Owner & President",
+          },
+        }}
+      >
+        <div>Page Content</div>
+      </AppShell>,
+    );
+
+    expect(screen.getByText("Project ribbon quote")).toBeInTheDocument();
+    expect(screen.queryByText("Default ribbon quote")).not.toBeInTheDocument();
+  });
+
+  it("renders default Jeremy quote when route key is not available", () => {
+    mockUsePathname.mockReturnValue("/unmapped-route");
+    mockUsePWA.mockReturnValue({
+      isStandalone: false,
+      isInstallable: true,
+      isIOS: false,
+    });
+
+    render(
+      <AppShell
+        jeremyRibbons={{
+          about: {
+            eyebrow: "Words from the General",
+            quote: "About ribbon quote",
+            attribution: "Jeremy Thamert, Owner & President",
+          },
+          default: {
+            eyebrow: "Words from the General",
+            quote: "Default ribbon quote",
+            attribution: "Jeremy Thamert, Owner & President",
+          },
+        }}
+      >
+        <div>Page Content</div>
+      </AppShell>,
+    );
+
+    expect(screen.getByText("Default ribbon quote")).toBeInTheDocument();
+    expect(screen.queryByText("About ribbon quote")).not.toBeInTheDocument();
+  });
 });

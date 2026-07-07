@@ -347,6 +347,12 @@ export default function YourPageName() {
 
 **File:** `/lib/seo/page-seo-utils.ts`
 
+For every new indexable page route:
+
+1. Add a matching route key and quote in `src/content/jeremy-page-ribbons.md`.
+2. Ensure the SEO builder for that route includes route-aware Jeremy quote signals (use the shared keyword helper pattern in `page-seo-utils.ts`).
+3. Add or update SEO tests so keyword arrays include the route-specific Jeremy quote markers.
+
 ```typescript
 export function getYourPageSEO() {
   return {
@@ -435,6 +441,8 @@ Before deploying your new page:
 - [ ] Verify hero nav shows global 6-cell row (Home, Services, Projects, About, Contact, More)
 - [ ] Verify `More` opens modal overlay and all close behaviors work
 - [ ] Verify SEO metadata appears correctly
+- [ ] Verify route-specific Jeremy quote key exists in `src/content/jeremy-page-ribbons.md`
+- [ ] Verify page SEO keywords include route-aware Jeremy quote signals
 - [ ] Test with screen reader
 - [ ] Validate no TypeScript errors
 - [ ] Validate no ESLint warnings

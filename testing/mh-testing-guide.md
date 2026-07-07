@@ -72,7 +72,7 @@ src/
 │   ├── layout/__tests__/                         # Footer, LayoutComponents, Navigation
 │   ├── navigation/__tests__/                     # Breadcrumb, PageNavigation
 │   ├── performance/__tests__/
-│   ├── pwa/__tests__/                            # PWAInstallPrompt (retained), ServiceWorkerRegistration (x2), pwa-manager
+│   ├── pwa/__tests__/                            # PWAInstallCTA (footer-only), ServiceWorkerRegistration (x2), pwa-manager
 │   ├── seo/__tests__/                            # EnhancedSEO, SeoMeta
 │   ├── services/__tests__/                       # CoreServices, ServiceCard, ServicesHero, SpecialtyServiceCard, services-sections
 │   ├── team/__tests__/TeamProfileSection.test.tsx
@@ -144,7 +144,7 @@ The global header system is validated in `src/components/layout/__tests__/Naviga
 Coverage: **97.32% statements, 91.23% branches, 99.03% functions**
 
 - **Pages:** Home, careers, contact, dashboard, locations, offline, privacy, projects, public-sector, terms, testimonials, error, not-found, loading states
-- **Components:** Layout (Footer, Navigation), home sections (Hero, CoreValues, ServicesShowcase, WhyPartner), about (CompanyStats, ValuesShowcase), services (CoreServices, ServicesHero, SpecialtyServiceCard), chatbot, modals (Admin, Job Application, generic), UI (alerts, badges, cards, CTAs, inputs, images, skeletons), icons (AmericanFlag, MaterialIcon), team profiles, testimonials carousel, breadcrumbs, page navigation, animations, performance, PWA (install prompt, service worker), SEO (EnhancedSEO, SeoMeta), analytics (TrackedContactLinks), error boundary, branded content section
+- **Components:** Layout (Footer, Navigation), home sections (Hero, CoreValues, ServicesShowcase, WhyPartner), about (CompanyStats, ValuesShowcase), services (CoreServices, ServicesHero, SpecialtyServiceCard), chatbot, modals (Admin, Job Application, generic), UI (alerts, badges, cards, CTAs, inputs, images, skeletons), icons (AmericanFlag, MaterialIcon), team profiles, testimonials carousel, breadcrumbs, page navigation, animations, performance, PWA (footer install CTA, service worker), SEO (EnhancedSEO, SeoMeta), analytics (TrackedContactLinks), error boundary, branded content section
 - **API Routes:** Analytics (dashboard), auth (admin login, logout/refresh), chat, consultations, contact, form callbacks, functions, job applications, newsletter, security, phone call tracking, resume upload
 - **Libraries:** Analytics (app-level tracking helpers/components), API (form handler, responses), auth (context, JWT, middleware), chatbot knowledge base, Cloudflare R2, constants, data (exports, locations), DB (client, env), email (service, templates), notifications, performance (mobile optimizations), security (audit logger, rate limiters, security manager, scanners), SEO (page utils, schemas), portfolio service, styles (card/layout variants), utils (logger, utils)
 - **Integration:** Authentication flow, contact form submission

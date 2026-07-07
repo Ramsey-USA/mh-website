@@ -175,7 +175,7 @@ src/
 │   ├── navigation/                 # Navigation config & utilities
 │   ├── performance/                # Performance optimization components
 │   ├── projects/                   # Projects/portfolio components
-│   ├── pwa/                        # PWA install prompt components
+│   ├── pwa/                        # PWA components (service worker, offline, footer install CTA)
 │   ├── ratings/                    # Review/rating display components
 │   ├── seo/                        # SEO meta & structured data components
 │   ├── services/                   # Shared services hub/lane components

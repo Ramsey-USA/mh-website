@@ -68,9 +68,7 @@ describe("DownloadGate", () => {
     });
     // No admin/superintendent token → gate shows guidance
     expect(
-      screen.getByText(
-        /use the install app button in the site header or footer/i,
-      ),
+      screen.getByText(/use the install app button in the site footer/i),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /already installed\? open the app/i }),

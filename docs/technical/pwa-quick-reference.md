@@ -152,8 +152,7 @@ src/
 │   ├── PWAManager.tsx       ← Main coordinator
 │   ├── PWAOnly.tsx          ← Render only in installed PWA
 │   ├── ServiceWorkerRegistration.tsx
-│   ├── PWAInstallPrompt.tsx ← Retained for reference; no longer auto-shown (popup removed)
-│   ├── PWAInstallCTA.tsx    ← Branded install CTA — banner (homepage) + button variants
+│   ├── PWAInstallCTA.tsx    ← Branded install CTA (button variant used in Footer only)
 │   ├── OfflineIndicator.tsx ← Fixed offline/syncing banner
 │   ├── DownloadGate.tsx     ← Role-gated document downloads
 │   └── UpdateNotification.tsx

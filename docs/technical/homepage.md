@@ -110,14 +110,14 @@ The homepage follows the **Universal Page Flow Standard**: **Discover → Trust 
 > unique icons (Services = "engineering", About = "groups", Careers = "work",
 > etc.) and audience-specific messaging.
 
-### 2. PWA Install Banner (Conditional)
+### 2. Footer PWA Install CTA (Conditional)
 
 - **Component:** `PWAInstallCTA`
-- **Template Pattern:** Consistent across all pages
-- **Purpose:** Prompt users to install the Progressive Web App
+- **Template Pattern:** Global footer action surface
+- **Purpose:** Provide the only public install path for the Progressive Web App
   - Only shows when app is installable
-  - Banner variant for non-intrusive presentation
-  - Dismissible by user
+  - Rendered as a button in the footer action stack
+  - No popup or banner install prompt is used
 
 ### 3. Core Values Section (10-20%)
 

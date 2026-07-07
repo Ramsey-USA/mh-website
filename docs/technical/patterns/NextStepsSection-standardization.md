@@ -20,7 +20,7 @@ as the last section before the footer.
 - Standardized final CTA section for all main pages
 - Provides multiple conversion paths: consultation, estimate request, contact
 - Includes PitchDeckCTA integration
-- PWA install prompt
+- Excludes PWA install controls (install CTA is footer-only)
 - Responsive gradient backgrounds
 - Consistent messaging across the site
 

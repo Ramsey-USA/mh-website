@@ -54,16 +54,16 @@ All items below were completed March 28, 2026. New tests written per group:
 
 All items below were completed March 28, 2026. New tests written per group:
 
-| Group                   | Tests added | Notes                                                                     |
-| ----------------------- | ----------- | ------------------------------------------------------------------------- |
-| `components/ui/base`    | 19          | card.tsx (9), badge.tsx (5), alert.tsx (7) — new files                    |
-| `components/navigation` | 13          | Breadcrumb (7), PageNavigation (6) — new files                            |
-| `components/icons`      | 7           | AmericanFlag — hover/animated/size/aria coverage (new file)               |
-| `components/home`       | 16          | HeroSection (6), CoreValuesSection (4), WhyPartnerSection (6) — new files |
-| `components/services`   | 13          | ServicesHero (6), SpecialtyServiceCard (7) — new files                    |
-| `components/about`      | 6           | CompanyStats — default/custom props, animated vs static values (new file) |
-| `components/pwa`        | 9           | ServiceWorkerRegistration (4), PWAInstallPrompt (5) — new files           |
-| `lib/notifications`     | 22          | Full notification-service.ts coverage (new file)                          |
+| Group                   | Tests added | Notes                                                                      |
+| ----------------------- | ----------- | -------------------------------------------------------------------------- |
+| `components/ui/base`    | 19          | card.tsx (9), badge.tsx (5), alert.tsx (7) — new files                     |
+| `components/navigation` | 13          | Breadcrumb (7), PageNavigation (6) — new files                             |
+| `components/icons`      | 7           | AmericanFlag — hover/animated/size/aria coverage (new file)                |
+| `components/home`       | 16          | HeroSection (6), CoreValuesSection (4), WhyPartnerSection (6) — new files  |
+| `components/services`   | 13          | ServicesHero (6), SpecialtyServiceCard (7) — new files                     |
+| `components/about`      | 6           | CompanyStats — default/custom props, animated vs static values (new file)  |
+| `components/pwa`        | 9           | ServiceWorkerRegistration (4), footer install CTA coverage (5) — new files |
+| `lib/notifications`     | 22          | Full notification-service.ts coverage (new file)                           |
 
 **Net result:** +15 suites · +105 tests · statements 51.5% → 67.79% · branches 81.5% → 83.70% · functions 75.9% → 81.81%
 

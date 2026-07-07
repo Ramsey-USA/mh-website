@@ -70,7 +70,7 @@ jest.mock("../ServiceWorkerRegistration", () => ({
   },
 }));
 
-// PWAInstallPrompt is no longer mounted by PWAManager — popup was removed in favour of the banner.
+// PWAInstallPrompt is no longer mounted by PWAManager — install entry now lives in the footer CTA.
 
 jest.mock("next/navigation", () => ({
   usePathname: jest.fn().mockReturnValue("/"),
@@ -95,7 +95,7 @@ describe("PWAManager", () => {
       render(<PWAManager />);
     });
     expect(screen.getByTestId("sw-registration")).toBeTruthy();
-    // PWAInstallPrompt (popup) was removed; banner is rendered on the page level instead
+    // PWAInstallPrompt (popup) was removed; install entry is now the footer CTA.
     expect(screen.queryByTestId("pwa-install-prompt")).toBeNull();
   });
 

@@ -1,5 +1,12 @@
 "use client";
-import { useState, useRef, useEffect, useLayoutEffect, useMemo } from "react";
+import {
+  useState,
+  useRef,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  type FocusEvent,
+} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "@/components/ui/layout/ThemeToggle";
@@ -8,7 +15,6 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 import { LanguageToggle } from "@/components/ui/LanguageToggle";
 import { useLocale } from "@/hooks/useLocale";
 import { globalMenuItemsByLocale } from "@/components/layout/globalMenuItems";
-import { PWAInstallCTA } from "@/components/pwa";
 
 /**
  * Global Hamburger Navigation Component
@@ -53,6 +59,8 @@ import { PWAInstallCTA } from "@/components/pwa";
  * @see {@link /docs/project/architecture.md} - Project architecture documentation
  */
 export function Navigation() {
+  type HeaderTooltipId = "logo" | "language" | "phone" | "theme" | "menu";
+
   const locale = useLocale();
   const isEs = locale === "es";
   const menuItems = globalMenuItemsByLocale[isEs ? "es" : "en"];
@@ -69,8 +77,40 @@ export function Navigation() {
     return [...primaryPathItems, ...secondaryItems];
   }, [menuItems]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeTooltip, setActiveTooltip] = useState<HeaderTooltipId | null>(
+    null,
+  );
   const headerRef = useRef<HTMLElement>(null);
   const [menuTopOffset, setMenuTopOffset] = useState(0);
+
+  const getTooltipHandlers = (tooltipId: HeaderTooltipId) => ({
+    onMouseEnter: () => setActiveTooltip(tooltipId),
+    onMouseLeave: () => {
+      setActiveTooltip((currentTooltip) =>
+        currentTooltip === tooltipId ? null : currentTooltip,
+      );
+    },
+    onFocus: () => setActiveTooltip(tooltipId),
+    onBlur: (event: FocusEvent<HTMLElement>) => {
+      if (event.currentTarget.contains(event.relatedTarget as Node | null)) {
+        return;
+      }
+
+      setActiveTooltip((currentTooltip) =>
+        currentTooltip === tooltipId ? null : currentTooltip,
+      );
+    },
+  });
+
+  const getTooltipClassName = (
+    tooltipId: HeaderTooltipId,
+    widthClassName: string,
+  ) =>
+    `absolute top-full mt-2 z-50 transition-all duration-300 ${widthClassName} ${
+      activeTooltip === tooltipId
+        ? "opacity-100 scale-100"
+        : "opacity-0 scale-95 pointer-events-none"
+    } max-[768px]:hidden`;
 
   useLayoutEffect(() => {
     const root = document.documentElement;
@@ -184,7 +224,10 @@ export function Navigation() {
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-1.5 max-[768px]:grid-cols-1 max-[360px]:gap-1 xs:gap-2 sm:gap-2.5">
             <div className="flex items-center min-w-0 max-[768px]:justify-start">
               {/* Logo - anchored at the left edge */}
-              <div className="shrink-0 pointer-events-auto relative group/logo">
+              <div
+                className="shrink-0 pointer-events-auto relative"
+                {...getTooltipHandlers("logo")}
+              >
                 <Link
                   href="/"
                   className="flex items-center justify-center h-14 max-[360px]:h-14 xs:h-16 sm:h-18 lg:h-20 min-h-14 xs:min-h-16 sm:min-h-18 lg:min-h-20 min-w-24 xs:min-w-28 sm:min-w-28 lg:min-w-32 px-3 max-[360px]:px-2.5 xs:px-3.5 sm:px-4 lg:px-4.5 py-1.5 max-[360px]:py-1.5 xs:py-2 sm:py-2 transition-all duration-300 bg-slate-900 shadow-lg hover:shadow-xl rounded-lg sm:rounded-xl border-2 border-brand-secondary hover:border-brand-secondary-light outline-2 outline-offset-2 outline-brand-secondary/50 hover:outline-brand-secondary"
@@ -205,7 +248,12 @@ export function Navigation() {
                 </Link>
 
                 {/* Hover Tooltip - Logo */}
-                <div className="absolute top-full mt-2 left-0 z-50 transition-all duration-300 w-[min(92vw,14rem)] max-w-[calc(100vw-1rem)] opacity-0 scale-95 pointer-events-none group-hover/logo:opacity-100 group-hover/logo:pointer-events-auto group-focus-within/logo:opacity-100 group-focus-within/logo:scale-100 group-focus-within/logo:pointer-events-auto max-[768px]:hidden">
+                <div
+                  className={getTooltipClassName(
+                    "logo",
+                    "left-0 w-[min(92vw,14rem)] max-w-[calc(100vw-1rem)]",
+                  )}
+                >
                   <div className="relative">
                     <div className="absolute inset-0 -z-10 rounded-xl bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary blur-md opacity-35" />
                     <div className="px-6 py-4 bg-linear-to-br from-brand-primary/95 via-gray-900/95 to-brand-primary/95 dark:from-gray-900/98 dark:via-gray-800/98 dark:to-gray-900/98 border-2 border-brand-secondary rounded-xl shadow-2xl backdrop-blur-sm">
@@ -224,11 +272,19 @@ export function Navigation() {
 
             {/* Right-side controls */}
             <div className="pointer-events-auto justify-self-end flex items-center gap-2 max-[360px]:gap-1.5 xs:gap-2 sm:gap-3 shrink-0 max-[768px]:grid max-[768px]:grid-cols-[minmax(0,1fr)_auto_auto_auto] max-[768px]:items-center max-[768px]:justify-self-stretch max-[768px]:gap-2.5 max-[768px]:pt-1">
-              <div className="order-4 relative group/language max-[768px]:justify-self-end">
+              <div
+                className="order-4 relative max-[768px]:justify-self-end"
+                {...getTooltipHandlers("language")}
+              >
                 <LanguageToggle className="order-4" />
 
                 {/* Hover Tooltip - Language Toggle */}
-                <div className="absolute top-full mt-2 right-0 z-50 transition-all duration-300 w-[min(92vw,14rem)] max-w-[calc(100vw-1rem)] opacity-0 scale-95 pointer-events-none group-hover/language:opacity-100 group-hover/language:pointer-events-auto group-focus-within/language:opacity-100 group-focus-within/language:scale-100 group-focus-within/language:pointer-events-auto max-[768px]:hidden">
+                <div
+                  className={getTooltipClassName(
+                    "language",
+                    "right-0 w-[min(92vw,14rem)] max-w-[calc(100vw-1rem)]",
+                  )}
+                >
                   <div className="relative">
                     <div className="absolute inset-0 -z-10 rounded-xl bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary blur-md opacity-35" />
                     <div className="px-6 py-4 bg-linear-to-br from-brand-primary/95 via-gray-900/95 to-brand-primary/95 dark:from-gray-900/98 dark:via-gray-800/98 dark:to-gray-900/98 border-2 border-brand-secondary rounded-xl shadow-2xl backdrop-blur-sm">
@@ -246,7 +302,10 @@ export function Navigation() {
                 </div>
               </div>
 
-              <div className="order-1 flex relative group/phone max-[768px]:justify-self-stretch">
+              <div
+                className="order-1 flex relative max-[768px]:justify-self-stretch"
+                {...getTooltipHandlers("phone")}
+              >
                 <a
                   href={`tel:${COMPANY_INFO.phone.tel}`}
                   className={`${controlButtonClassName} gap-1.5 max-[768px]:w-full max-[768px]:justify-center`}
@@ -265,7 +324,12 @@ export function Navigation() {
                 </a>
 
                 {/* Hover Tooltip - Phone Number Showcase */}
-                <div className="absolute top-full mt-2 right-0 z-50 transition-all duration-300 w-[min(92vw,16rem)] max-w-[calc(100vw-1rem)] opacity-0 scale-95 pointer-events-none group-hover/phone:opacity-100 group-hover/phone:pointer-events-auto group-focus-within/phone:opacity-100 group-focus-within/phone:scale-100 group-focus-within/phone:pointer-events-auto max-[768px]:hidden">
+                <div
+                  className={getTooltipClassName(
+                    "phone",
+                    "right-0 w-[min(92vw,16rem)] max-w-[calc(100vw-1rem)]",
+                  )}
+                >
                   {/* Animated Phone Number Display */}
                   <div className="relative">
                     {/* Background glow effect */}
@@ -289,7 +353,10 @@ export function Navigation() {
                 </div>
               </div>
 
-              <div className="order-3 relative group/theme max-[768px]:justify-self-center">
+              <div
+                className="order-3 relative max-[768px]:justify-self-center"
+                {...getTooltipHandlers("theme")}
+              >
                 <ThemeToggle
                   compact
                   size="sm"
@@ -297,7 +364,12 @@ export function Navigation() {
                 />
 
                 {/* Hover Tooltip - Theme Toggle */}
-                <div className="absolute top-full mt-2 right-0 z-50 transition-all duration-300 w-[min(92vw,14rem)] max-w-[calc(100vw-1rem)] opacity-0 scale-95 pointer-events-none group-hover/theme:opacity-100 group-hover/theme:pointer-events-auto group-focus-within/theme:opacity-100 group-focus-within/theme:scale-100 group-focus-within/theme:pointer-events-auto max-[768px]:hidden">
+                <div
+                  className={getTooltipClassName(
+                    "theme",
+                    "right-0 w-[min(92vw,14rem)] max-w-[calc(100vw-1rem)]",
+                  )}
+                >
                   <div className="relative">
                     <div className="absolute inset-0 -z-10 rounded-xl bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary blur-md opacity-35" />
                     <div className="px-6 py-4 bg-linear-to-br from-brand-primary/95 via-gray-900/95 to-brand-primary/95 dark:from-gray-900/98 dark:via-gray-800/98 dark:to-gray-900/98 border-2 border-brand-secondary rounded-xl shadow-2xl backdrop-blur-sm">
@@ -315,14 +387,10 @@ export function Navigation() {
                 </div>
               </div>
 
-              <div className="order-5 max-[768px]:justify-self-stretch max-[768px]:col-span-4 max-[768px]:pt-1.5">
-                <PWAInstallCTA
-                  variant="button"
-                  className="w-full justify-center border border-brand-secondary/50 shadow-md hover:border-brand-secondary"
-                />
-              </div>
-
-              <div className="order-2 relative group/menu max-[768px]:justify-self-center">
+              <div
+                className="order-2 relative max-[768px]:justify-self-center"
+                {...getTooltipHandlers("menu")}
+              >
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className={`${controlButtonClassName}`}
@@ -353,7 +421,12 @@ export function Navigation() {
                 </button>
 
                 {/* Hover Tooltip - Menu Toggle */}
-                <div className="absolute top-full mt-2 right-0 z-50 transition-all duration-300 w-[min(92vw,14rem)] max-w-[calc(100vw-1rem)] opacity-0 scale-95 pointer-events-none group-hover/menu:opacity-100 group-hover/menu:pointer-events-auto group-focus-within/menu:opacity-100 group-focus-within/menu:scale-100 group-focus-within/menu:pointer-events-auto max-[768px]:hidden">
+                <div
+                  className={getTooltipClassName(
+                    "menu",
+                    "right-0 w-[min(92vw,14rem)] max-w-[calc(100vw-1rem)]",
+                  )}
+                >
                   <div className="relative">
                     <div className="absolute inset-0 -z-10 rounded-xl bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary blur-md opacity-35" />
                     <div className="px-6 py-4 bg-linear-to-br from-brand-primary/95 via-gray-900/95 to-brand-primary/95 dark:from-gray-900/98 dark:via-gray-800/98 dark:to-gray-900/98 border-2 border-brand-secondary rounded-xl shadow-2xl backdrop-blur-sm">

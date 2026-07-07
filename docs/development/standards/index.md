@@ -15,6 +15,7 @@ Use [Website Guardrails Coverage Map](../../branding/governance/website-guardrai
 ## Core Standards
 
 - **[Development Standards](./development-standards.md)** — Core code patterns and conventions
+- **[New Route Onboarding](./development-standards.md#new-route-onboarding-required)** — Required Jeremy ribbon and route-aware SEO quote integration for future indexable pages
 - **[Consistency Guide](./consistency-guide.md)** — **MANDATORY** site-wide consistency rules
 - **[Common Mistakes](./common-mistakes.md)** — 22 recurring errors to avoid
 - **[Hero Commercial Video Guardrails](./hero-commercial-video-guardrails.md)** — Required media build and validation gates for hero ads

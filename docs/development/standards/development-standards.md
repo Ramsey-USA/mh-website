@@ -70,6 +70,16 @@ Any change that fails one of the checks below is non-compliant.
 - Run `pnpm font-system:check` after any typography, layout font-loading, document-template, or branding-doc change.
 - Run `pnpm docs:sync` when canonical `docs/`, `messages/`, or `documents/` content changes so app mirrors stay aligned before validation.
 
+### New Route Onboarding (Required)
+
+For every new public or indexable page route:
+
+1. Add route-specific Jeremy ribbon copy in `apps/website/src/content/jeremy-page-ribbons.md` using a key that matches route resolution behavior.
+2. Ensure route-level SEO metadata is generated through `apps/website/src/lib/seo/page-seo-utils.ts` and includes route-aware Jeremy quote keyword signals.
+3. Avoid per-page hardcoded Jeremy ribbon quote variants outside shared ribbon content and shared routing/SEO helpers.
+4. Add or update tests for both route-key resolution and SEO keyword generation when introducing new route families.
+5. Run `pnpm --filter @mhc/website seo:jeremy:signals:check` and `pnpm --filter @mhc/website seo:jeremy:metadata:check` before merge.
+
 ### Congruency Guardrails for Tooling
 
 Where feasible, enforce these patterns using lint rules or validation scripts:
@@ -94,12 +104,13 @@ Visual congruency is required for every user-visible surface, not only hero or b
 For implementation and review, always include applicable checks for:
 
 1. **App shell**: Header, navigation overlay, leadership ribbon, footer trust/accreditation surfaces.
-2. **Primary routes**: Marketing, services, projects, contact, careers, resources, and trust-focused pages.
-3. **Dynamic templates**: Slug/city/category/detail route templates must preserve heading hierarchy, spacing cadence, CTA hierarchy, and trust blocks.
-4. **Route states**: Loading, error, global error, not-found, and offline states must follow the same typography, color, and spacing system.
-5. **Form lifecycle states**: Empty, validation error, pending submit, success/failure states must keep tokenized visual behavior and accessibility affordances.
-6. **Legal/compliance surfaces**: Privacy, terms, accessibility, and public-sector compliance pages must preserve plain-language naming and trust continuity.
-7. **Print/download surfaces**: Print-oriented pages and downloadable wrappers must preserve brand identity with readability-first spacing and contrast.
+2. **PWA install surface contract**: Public install entry remains footer-only (`PWAInstallCTA` in footer actions). Do not add install popups, banners, or header install buttons.
+3. **Primary routes**: Marketing, services, projects, contact, careers, resources, and trust-focused pages.
+4. **Dynamic templates**: Slug/city/category/detail route templates must preserve heading hierarchy, spacing cadence, CTA hierarchy, and trust blocks.
+5. **Route states**: Loading, error, global error, not-found, and offline states must follow the same typography, color, and spacing system.
+6. **Form lifecycle states**: Empty, validation error, pending submit, success/failure states must keep tokenized visual behavior and accessibility affordances.
+7. **Legal/compliance surfaces**: Privacy, terms, accessibility, and public-sector compliance pages must preserve plain-language naming and trust continuity.
+8. **Print/download surfaces**: Print-oriented pages and downloadable wrappers must preserve brand identity with readability-first spacing and contrast.
 
 ### Required Visual-State Parity
 

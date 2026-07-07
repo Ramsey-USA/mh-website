@@ -234,6 +234,7 @@ Use this section as the canonical licensing reference for docs and agent workflo
 
 - Canonical docs reference: docs/branding/brand-constants.md (this section)
 - Canonical footer implementation: src/components/layout/Footer.tsx
+- Canonical public PWA install entry: src/components/layout/Footer.tsx (footer only; no install popups/banners)
 - Canonical document-brand payload: documents/brands/mhc.json
 - Canonical footer regression tests: `src/components/layout/__tests__/Footer.test.tsx`
 

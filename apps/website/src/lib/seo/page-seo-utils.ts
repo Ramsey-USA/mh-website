@@ -15,6 +15,7 @@ import {
   MH_DUAL_PHRASES,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
+import { getJeremyRibbon } from "@/lib/content/jeremy-ribbons";
 
 const JEREMY_SEO_SIGNAL_KEYWORDS = [
   "Jeremy Thamert",
@@ -22,6 +23,31 @@ const JEREMY_SEO_SIGNAL_KEYWORDS = [
   "Jeremy Thamert Owner & President",
   "Jeremy Thamert construction leadership",
 ];
+
+function getJeremyQuoteSearchSignals(routeKey: string): string[] {
+  const ribbon = getJeremyRibbon(routeKey);
+  const normalizedQuote = ribbon.quote
+    .replace(/[“”"']/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  const teaser = normalizedQuote.split(" ").slice(0, 12).join(" ");
+
+  return [
+    `Jeremy Thamert ${routeKey} quote`,
+    `Jeremy Thamert leadership message ${routeKey}`,
+    `Jeremy Thamert quote ${teaser}`,
+  ];
+}
+
+function buildPageKeywords(routeKey: string, baseKeywords: string[]): string[] {
+  return Array.from(
+    new Set([
+      ...JEREMY_SEO_SIGNAL_KEYWORDS,
+      ...getJeremyQuoteSearchSignals(routeKey),
+      ...baseKeywords,
+    ]),
+  );
+}
 
 // Homepage SEO
 export function getHomepageSEO(): Metadata & { schemas: object[] } {
@@ -59,8 +85,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Commercial, Industrial, and Public-Sector Construction`,
     description:
       "MH Construction delivers AG and winery facilities, commercial tenant improvements, and municipal projects with clear planning, disciplined field coordination, and licensed coverage across WA, OR, and ID.",
-    keywords: [
-      ...JEREMY_SEO_SIGNAL_KEYWORDS,
+    keywords: buildPageKeywords("home", [
       "MH Construction home",
       "veteran-owned contractor Pacific Northwest",
       "general contractor Pasco, WA",
@@ -119,7 +144,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
       "proven construction process",
       "construction testimonials Pacific Northwest",
       "veteran construction values",
-    ],
+    ]),
     canonicalUrl: enhancedSEO.siteUrl,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
     schemas: [
@@ -297,7 +322,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.about.seoName, PAGE_TERMINOLOGY.about.mhBrandName)} | Service-Earned Values, Honest Relationships`,
     description:
       "Explore MH Construction's history, leadership, and trust foundations including BBB accreditation, regional chamber membership, and licensed operations across WA, OR, and ID.",
-    keywords: [
+    keywords: buildPageKeywords("about", [
       "veteran-owned construction company Tri-State WA OR ID",
       "MH Construction company history",
       "Jeremy Thamert Army veteran owner",
@@ -332,7 +357,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
       "Pendleton OR general contractor",
       "Eastern Washington construction history",
       "Pacific Northwest general contractor about",
-    ],
+    ]),
     canonicalUrl: aboutUrl,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
     schemas: [companyHistorySchema],
@@ -414,8 +439,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.services.seoName, PAGE_TERMINOLOGY.services.mhBrandName)} | Commercial and Industrial Construction Services`,
     description:
       "Explore MH Construction services for AG and winery facilities, commercial tenant improvements, municipal work, and light industrial scopes across WA, OR, and ID, supported by Procore project controls.",
-    keywords: [
-      ...JEREMY_SEO_SIGNAL_KEYWORDS,
+    keywords: buildPageKeywords("services", [
       "commercial construction Tri-State WA OR ID",
       "master planning preconstruction services",
       "tenant improvement contractor",
@@ -445,7 +469,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
       "winery construction Pacific Northwest",
       "religious facility construction",
       "grant-funded construction projects",
-    ],
+    ]),
     canonicalUrl: servicesUrl,
     ogImage: `${enhancedSEO.siteUrl}/images/og/services/commercial-construction.webp`,
     schemas: [...serviceSchemas, webPageSchema, breadcrumbSchema],
@@ -532,7 +556,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.team.seoName, PAGE_TERMINOLOGY.team.mhBrandName)} | Leadership and Field Management`,
     description:
       "Meet MH Construction's leadership team, including Jeremy Thamert and Arnold Garcia, guiding commercial, industrial, and public-sector work across WA, OR, and ID.",
-    keywords: [
+    keywords: buildPageKeywords("team", [
       "MH Construction team leadership",
       "veteran-owned construction team Tri-State WA OR ID",
       "Jeremy Thamert Army veteran owner",
@@ -549,7 +573,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
       "Pacific Northwest construction team",
       "Eastern Washington construction professionals",
       "veteran hiring construction company",
-    ],
+    ]),
     canonicalUrl: teamUrl,
     schemas: [...teamPersonSchemas, webPageSchema],
   });
@@ -583,8 +607,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Owned, Accountable Delivery`,
     description:
       "Veteran-owned Tri-State contractor for government & public sector construction. Dedicated supporter of the Build America, Buy America Act (BABAA), grant support, and robust bonding capacity. Pasco, WA.",
-    keywords: [
-      ...JEREMY_SEO_SIGNAL_KEYWORDS,
+    keywords: buildPageKeywords("public-sector", [
       "Public Sector Government construction missions",
       "mission-ready construction operations",
       "federal compliance-driven standards",
@@ -603,7 +626,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
       "Benton County construction",
       "Franklin County contractor",
       "Pacific Northwest public sector",
-    ],
+    ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/public-sector`,
     schemas: [webPageSchema, generateLocalBusinessSchema()],
   });
@@ -637,7 +660,7 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.veterans.seoName, PAGE_TERMINOLOGY.veterans.mhBrandName)} | Combat Veteran Discount, Year-Round Support`,
     description:
       "Learn how MH Construction supports veterans through combat veteran discounts, hiring initiatives, apprenticeships, and long-term community partnerships across the Pacific Northwest.",
-    keywords: [
+    keywords: buildPageKeywords("veterans", [
       "veteran-owned construction Tri-State",
       "combat veteran discount",
       "veteran hiring priority",
@@ -657,7 +680,7 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
       "military construction services",
       "Tri-State veteran contractor",
       "veteran-owned business Washington",
-    ],
+    ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/veterans`,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
     schemas: [webPageSchema, generateLocalBusinessSchema()],
@@ -910,8 +933,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName("Trade Partner Opportunities", PAGE_TERMINOLOGY.allies.mhBrandName)} | Allied Trade Partner Network`,
     description:
       "MH Construction's Trade Partner network includes electrical, signage, landscaping, glazing, specialties, fencing, insulation, plumbing, cabinetry, and drywall teams supporting projects throughout the Pacific Northwest.",
-    keywords: [
-      ...JEREMY_SEO_SIGNAL_KEYWORDS,
+    keywords: buildPageKeywords("allies", [
       "construction subcontractor opportunities Tri-State WA OR ID",
       "trade partner network Pacific Northwest",
       "veteran-owned contractor partnerships Washington",
@@ -929,7 +951,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "subcontractor opportunities Richland Kennewick Pasco Yakima Spokane",
       "construction digital handshake subcontractor",
       "Benton County Franklin County Yakima County trade partners",
-    ],
+    ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/allies`,
     schemas: [
       webPageSchema,
@@ -1017,8 +1039,7 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName("Client Reviews", PAGE_TERMINOLOGY.testimonials.mhBrandName)} | Trusted Partner Testimonials`,
     description:
       "Verified client testimonials from commercial, industrial, and public-sector partners across MH Construction's WA, OR, and ID service area.",
-    keywords: [
-      ...JEREMY_SEO_SIGNAL_KEYWORDS,
+    keywords: buildPageKeywords("testimonials", [
       "construction testimonials",
       "client reviews MH Construction",
       "Tri-State contractor reviews",
@@ -1027,7 +1048,7 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
       "Pacific Northwest construction reputation",
       "construction client testimonials Pasco WA",
       "verified contractor reviews",
-    ],
+    ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/testimonials`,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
     schemas: [collectionPageSchema, generateLocalBusinessSchema()],
@@ -1062,8 +1083,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.careers.seoName, PAGE_TERMINOLOGY.careers.mhBrandName)} | Build Your Future with MH Construction`,
     description:
       "Submit a general career inquiry to MH Construction and connect with a team that values honesty, integrity, professionalism, and thoroughness across WA, OR, and ID operations.",
-    keywords: [
-      ...JEREMY_SEO_SIGNAL_KEYWORDS,
+    keywords: buildPageKeywords("careers", [
       "MH Construction careers",
       "join the mission construction career",
       "veteran-owned construction careers Pacific Northwest",
@@ -1090,7 +1110,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
       "Eastern Washington contractor hiring",
       "construction career growth mentorship",
       "veteran priority consideration construction jobs",
-    ],
+    ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/careers`,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
     schemas: [
@@ -1245,8 +1265,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.projects.seoName, PAGE_TERMINOLOGY.projects.mhBrandName)} | Completed Commercial and Industrial Construction Projects`,
     description:
       "Explore MH Construction's completed commercial, industrial, and government projects delivered across WA, OR, and ID, including work in Yakima, Spokane, and Walla Walla.",
-    keywords: [
-      ...JEREMY_SEO_SIGNAL_KEYWORDS,
+    keywords: buildPageKeywords("projects", [
       "construction portfolio Tri-State WA OR ID",
       "650 completed construction projects",
       "commercial construction projects Pacific Northwest",
@@ -1266,7 +1285,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
       "70 percent referral rate contractor",
       "AGC Washington EMR Award projects",
       "WA OR ID construction portfolio",
-    ],
+    ]),
     canonicalUrl: projectsUrl,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
     schemas: [
@@ -1306,8 +1325,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.contact.seoName, PAGE_TERMINOLOGY.contact.mhBrandName)} | Your Project. Honest Guidance. Let's Connect.`,
     description:
       "Schedule a consultation with MH Construction for commercial, industrial, or public-sector work. We are headquartered in Pasco, WA and licensed across WA, OR, and ID. Call (509) 308-6489.",
-    keywords: [
-      ...JEREMY_SEO_SIGNAL_KEYWORDS,
+    keywords: buildPageKeywords("contact", [
       "contact construction consultation",
       "clear consultation process",
       "contact construction contractor Pasco WA",
@@ -1321,7 +1339,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
       "Benton County construction contact",
       "Franklin County general contractor",
       "Tri-State general contractor contact",
-    ],
+    ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/contact`,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
     schemas: [contactPageSchema, generateLocalBusinessSchema()],
@@ -1356,8 +1374,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.faq.seoName, PAGE_TERMINOLOGY.faq.mhBrandName)} | Direct Answers. Clear Guidance.`,
     description:
       "Get direct answers on project planning, delivery methods, pricing visibility, safety expectations, and consultation workflow for MH Construction projects across WA, OR, and ID.",
-    keywords: [
-      ...JEREMY_SEO_SIGNAL_KEYWORDS,
+    keywords: buildPageKeywords("faq", [
       "MH Construction FAQ",
       "direct answers construction guidance",
       "construction FAQ",
@@ -1386,7 +1403,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
       "change orders construction",
       "site feasibility studies",
       "government construction projects",
-    ],
+    ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/faq`,
     ogImage: `${enhancedSEO.siteUrl}/images/og/faq/general-information.webp`,
     schemas: [webPageSchema, generateConstructionFAQSchema()],

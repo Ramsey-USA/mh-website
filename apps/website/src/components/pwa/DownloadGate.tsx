@@ -92,8 +92,8 @@ export function DownloadGate({
 
       <p className="font-body text-xs leading-relaxed text-slate-500 dark:text-slate-400">
         Downloads and printing are available to team members. Use the Install
-        App button in the site header or footer, then log in with your team
-        passcode to access this document.
+        App button in the site footer, then log in with your team passcode to
+        access this document.
       </p>
 
       <div className="flex flex-wrap items-center gap-2">

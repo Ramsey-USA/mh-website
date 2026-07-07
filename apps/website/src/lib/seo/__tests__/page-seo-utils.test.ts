@@ -26,6 +26,11 @@ const mockGenerateBreadcrumbSchema = jest.fn((items) => ({
   type: "breadcrumb",
   items,
 }));
+const mockGetJeremyRibbon = jest.fn((routeKey: string) => ({
+  eyebrow: "Words from the General",
+  quote: `Quote for ${routeKey} route proving leadership continuity`,
+  attribution: "Jeremy Thamert, Owner & President",
+}));
 
 jest.mock("@/components/seo/EnhancedSEO", () => ({
   generateEnhancedMetadata: (input: unknown) =>
@@ -45,6 +50,10 @@ jest.mock("@/components/seo/EnhancedSEO", () => ({
       name: "MH Construction, Inc.",
     },
   },
+}));
+
+jest.mock("@/lib/content/jeremy-ribbons", () => ({
+  getJeremyRibbon: (routeKey: string) => mockGetJeremyRibbon(routeKey),
 }));
 
 import {
@@ -141,5 +150,25 @@ describe("page seo utils", () => {
     getFAQSEO();
 
     expect(mockGenerateEnhancedMetadata).toHaveBeenCalledTimes(12);
+  });
+
+  it("injects route-specific Jeremy quote signals into SEO keywords", () => {
+    const homepage = getHomepageSEO();
+    const projects = getProjectsSEO();
+
+    expect(mockGetJeremyRibbon).toHaveBeenCalledWith("home");
+    expect(mockGetJeremyRibbon).toHaveBeenCalledWith("projects");
+    expect(homepage.keywords).toEqual(
+      expect.arrayContaining([
+        "Jeremy Thamert home quote",
+        "Jeremy Thamert leadership message home",
+      ]),
+    );
+    expect(projects.keywords).toEqual(
+      expect.arrayContaining([
+        "Jeremy Thamert projects quote",
+        "Jeremy Thamert leadership message projects",
+      ]),
+    );
   });
 });

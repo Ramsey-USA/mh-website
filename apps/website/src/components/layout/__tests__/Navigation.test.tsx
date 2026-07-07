@@ -238,6 +238,31 @@ describe("Navigation", () => {
     ).toBeInTheDocument();
   });
 
+  it("hides the phone tooltip after the header trigger is no longer hovered", async () => {
+    const user = userEvent.setup();
+
+    render(<Navigation />);
+
+    const phoneLink = screen.getByRole("link", {
+      name: /call mh construction/i,
+    });
+    const tooltipText = screen.getByText(/tap to call our team/i);
+    const tooltipContainer = tooltipText.closest(".absolute");
+
+    expect(tooltipContainer).toHaveClass("opacity-0");
+    expect(tooltipContainer).toHaveClass("pointer-events-none");
+
+    await user.hover(phoneLink);
+
+    expect(tooltipContainer).toHaveClass("opacity-100");
+    expect(tooltipContainer).toHaveClass("scale-100");
+
+    await user.unhover(phoneLink);
+
+    expect(tooltipContainer).toHaveClass("opacity-0");
+    expect(tooltipContainer).toHaveClass("pointer-events-none");
+  });
+
   it("closes the menu after clicking each social media link", async () => {
     const user = userEvent.setup();
 

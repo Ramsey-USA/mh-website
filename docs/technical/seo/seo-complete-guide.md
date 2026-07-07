@@ -177,7 +177,7 @@ All lead-path pages follow the **Universal Page Flow Standard** — **Discover �
 **Full Documentation:** [Homepage Documentation](../homepage.md)
 
 1. Hero Section (0-10%) - Primary value proposition with dual-label navigation ✅
-2. PWA Install Banner (conditional) - App install prompt ✅
+2. Global Footer PWA Install CTA (conditional) - Footer-only install entry ✅
 3. Core Values (10-20%) - Four foundational principles (Honesty, Integrity, Professionalism, Thoroughness) ✅
 4. Why Partner (20-30%) - Partnership philosophy and differentiation ✅
 5. Services Showcase (30-40%) - Primary construction service offerings ✅
