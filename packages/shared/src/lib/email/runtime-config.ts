@@ -18,8 +18,8 @@ export function getRuntimeEnv(name: string): string | undefined {
 }
 
 export function getResendConfig(): {
-  apiKey?: string;
-  fromEmail?: string;
+  apiKey: string | undefined;
+  fromEmail: string | undefined;
 } {
   return {
     apiKey: getRuntimeEnv("RESEND_API_KEY"),
