@@ -60,11 +60,15 @@ function buildSlug(title) {
 }
 
 function decodeBasicEntities(text) {
-  return text
-    .replaceAll("&amp;", "&")
-    .replaceAll("&quot;", '"')
-    .replaceAll("&#39;", "'")
-    .replaceAll("&nbsp;", " ");
+  const ENTITY_MAP = {
+    amp: "&",
+    quot: '"',
+    "#39": "'",
+    nbsp: " ",
+  };
+
+  // Decode only known entities in one pass to avoid accidental double-unescaping.
+  return text.replace(/&(amp|quot|#39|nbsp);/g, (_, entity) => ENTITY_MAP[entity]);
 }
 
 function resolveCanonicalTitleFromBody(html, fallbackTitle) {
