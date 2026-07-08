@@ -68,7 +68,10 @@ function decodeBasicEntities(text) {
   };
 
   // Decode only known entities in one pass to avoid accidental double-unescaping.
-  return text.replace(/&(amp|quot|#39|nbsp);/g, (_, entity) => ENTITY_MAP[entity]);
+  return text.replace(
+    /&(amp|quot|#39|nbsp);/g,
+    (_, entity) => ENTITY_MAP[entity],
+  );
 }
 
 function resolveCanonicalTitleFromBody(html, fallbackTitle) {
