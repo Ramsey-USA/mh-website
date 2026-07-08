@@ -1283,36 +1283,19 @@ function buildTocContinuationPageHtml(pageNumber, clustersHtml) {
  *   ZONE 3  RIGHT  — Page bubble (Pg X / Y) + binder tab reference + revision
  *   ZONE 4  FAR R  — Section QR code (thumb-accessible scan target)
  */
-function buildSectionHeaderHtml(
-  sectionNum,
-  sectionTitle,
-  revNum,
-  revDate,
-  qrDataUrl,
-) {
+function buildSectionHeaderHtml(sectionNum, sectionTitle, qrDataUrl) {
   const titleShort =
     sectionTitle.length > 38 ? sectionTitle.slice(0, 35) + "…" : sectionTitle;
-  const tabRef = sectionToTab(sectionNum);
   const mishRef = sectionToMishRef(sectionNum);
   const font = PDF_FONT_STACK_BODY;
   const pad = "padding:0 0.55in 0 1.25in";
 
-  // Page bubble — Puppeteer replaces <span class="pageNumber"> / <span class="totalPages">
-  const pageBubble = [
-    `<span style="display:inline-flex;align-items:center;gap:3pt;`,
-    `background:${BRAND_COLORS.primary};color:#fff;padding:2pt 8pt;`,
-    `border-radius:9pt;font-size:8pt;font-weight:700;letter-spacing:0.03em;`,
-    `white-space:nowrap;margin-bottom:2pt;">`,
-    `Pg.\u00a0<span class="pageNumber"></span>\u00a0/\u00a0<span class="totalPages"></span>`,
-    `</span>`,
-  ].join("");
-
   const qrMark = qrDataUrl
     ? [
         `<div style="display:flex;flex-direction:column;align-items:center;gap:2pt;`,
-        `flex:0 0 auto;padding-left:8pt;">`,
+        `flex:0 0 auto;padding-right:8pt;align-self:stretch;justify-content:flex-end;">`,
         `<img src="${qrDataUrl}" alt="Scan MISH ${sectionNum}"`,
-        ` style="width:32pt;height:32pt;border-radius:2pt;`,
+        ` style="width:40pt;height:40pt;border-radius:2pt;`,
         `border:0.5pt solid ${BRAND_COLORS.secondary};display:block;" />`,
         `<span style="font-size:5pt;font-weight:700;color:${BRAND_COLORS.secondaryText};`,
         `text-transform:uppercase;letter-spacing:0.06em;">MISH ${sectionNum}</span>`,
@@ -1320,39 +1303,44 @@ function buildSectionHeaderHtml(
       ].join("")
     : "";
 
+  const rightLogoMark = LOGO_COLOR_DATA_URL
+    ? [
+        `<div style="display:flex;flex-direction:column;align-items:center;gap:2pt;`,
+        `flex:0 0 auto;padding-left:6pt;justify-content:center;">`,
+        `<img src="${LOGO_COLOR_DATA_URL}" alt="MH Construction"`,
+        ` style="height:40pt;max-width:114pt;width:auto;object-fit:contain;display:block;image-rendering:-webkit-optimize-contrast;" />`,
+        `</div>`,
+      ].join("")
+    : [
+        `<div style="display:flex;align-items:center;justify-content:center;`,
+        `flex:0 0 auto;padding-left:6pt;">`,
+        `<span style="font-size:10pt;font-weight:900;color:${BRAND_COLORS.primary};letter-spacing:0.04em;">MHC</span>`,
+        `</div>`,
+      ].join("");
+
   return [
-    `<div style="width:100%;background:white;border-bottom:1.5pt solid ${BRAND_COLORS.secondary};`,
+    `<div style="width:100%;background:linear-gradient(180deg,#ffffff 0%,#f7f8f7 100%);border-bottom:1.5pt solid ${BRAND_COLORS.secondary};`,
     `${pad};height:0.75in;display:flex;align-items:flex-start;position:relative;`,
     `justify-content:space-between;font-family:${font};padding-top:6pt;`,
     `-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box;gap:8pt;overflow:hidden;">`,
 
-    // ZONE 1 — MISH structural reference chip (matches body card chip) + title
+    // ZONE 1 — section QR code at far-left edge
+    qrMark,
+
+    // ZONE 2 — MISH structural reference + title
     `<div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden;gap:2pt;">`,
-    `<span style="display:inline-block;align-self:flex-start;background:${BRAND_COLORS.primary};color:#ffffff;`,
-    `font-size:7.5pt;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;`,
-    `padding:1.5pt 8pt;border-radius:9pt;line-height:1.1;white-space:nowrap;`,
-    `-webkit-print-color-adjust:exact;print-color-adjust:exact;">`,
+    `<span style="display:block;align-self:flex-start;color:${BRAND_COLORS.secondaryText};`,
+    `font-size:7.2pt;font-weight:700;letter-spacing:0.11em;text-transform:uppercase;`,
+    `line-height:1.1;white-space:nowrap;">`,
     `MISH\u00a0${sectionNum}\u00a0\u2014\u00a0MISH\u00a0${mishRef}`,
     `</span>`,
-    `<span style="font-size:7.5pt;font-weight:700;color:${BRAND_COLORS.primary};line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${titleShort}</span>`,
+    `<span style="font-size:11pt;font-weight:900;line-height:1.12;letter-spacing:-0.01em;`,
+    `color:${BRAND_COLORS.primaryDark};text-shadow:0 0 0.01pt rgba(18,35,27,0.2);`,
+    `white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${titleShort}</span>`,
     `</div>`,
 
-    // ZONE 2 — MHC logo truly centered via absolute positioning
-    `<div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;justify-content:center;align-items:center;pointer-events:none;">`,
-    LOGO_COLOR_DATA_URL
-      ? `<img src="${LOGO_COLOR_DATA_URL}" style="height:36pt;max-width:144pt;width:auto;object-fit:contain;image-rendering:-webkit-optimize-contrast;" alt="MH Construction" />`
-      : `<span style="font-size:12pt;font-weight:900;color:${BRAND_COLORS.primary};letter-spacing:0.04em;">MHC</span>`,
-    `</div>`,
-
-    // ZONE 3 — page bubble + tab location + revision
-    `<div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-start;gap:1pt;">`,
-    pageBubble,
-    `<span style="font-size:6.5pt;font-weight:700;color:${BRAND_COLORS.secondary};line-height:1.2;letter-spacing:0.04em;">BINDER LOCATION: TAB\u00a0${tabRef}</span>`,
-    `<span style="font-size:6.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;line-height:1.3;">Rev.\u00a0${revNum}\u00a0${revDate}</span>`,
-    `</div>`,
-
-    // ZONE 4 — section QR code
-    qrMark,
+    // ZONE 3 — MH logo at far right for additional header breathing room
+    rightLogoMark,
 
     `</div>`,
   ].join("");
@@ -1368,55 +1356,28 @@ function buildSectionHeaderHtml(
  * Styles are inlined because Puppeteer's footer template runs in an isolated
  * document context with no access to components.css.
  */
-function buildSectionFooterHtml() {
+function buildSectionFooterHtml(sectionNum, revNum, revDate) {
   const font = PDF_FONT_STACK_BODY;
-  const contactMeta = "Company Contact";
-  const trustMeta = "Accreditation and Trust";
-  // Use precomputed base64 data URLs from BRAND_TOKENS — file:// cannot load in
-  // Puppeteer's isolated header/footer context.
-  const agcLogo = BRAND_TOKENS["{{BRAND_AGC_HORIZONTAL}}"];
-  const bbbLogo = BBB_LOGO_DATA_URL || BRAND_TOKENS["{{BRAND_BBB_SEAL}}"];
-  const vobLogo = BRAND_TOKENS["{{BRAND_WA_VOB_LOGO}}"];
-
-  // Footer metrics mirror the form cover/footer chrome.
-  const contentRow = [
-    `<div style="width:100%;display:grid;grid-template-columns:1.6fr 1fr;align-items:end;`,
-    `gap:18pt;padding:0 0.9in 0 0.92in;background:#ffffff;box-sizing:border-box;">`,
-
-    // LEFT — Company Contact
-    `<div style="min-width:0;font-family:${font};line-height:1.42;color:${BRAND_COLORS.primaryDark};">`,
-    `<div style="font-size:7pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;color:${BRAND_COLORS.secondaryText};margin-bottom:4pt;">${contactMeta}</div>`,
-    `<div style="font-size:8.4pt;font-weight:800;color:${BRAND_COLORS.primaryDark};white-space:nowrap;">${BRAND.companyName}</div>`,
-    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.addressStreet}</div>`,
-    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.addressCityStateZip}</div>`,
-    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.phone} \u00b7 ${BRAND.website}</div>`,
-    `<div style="font-size:7.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;margin-top:5pt;">${BRAND_LICENSES_INLINE}</div>`,
-    `</div>`,
-
-    // CENTER-RIGHT — Accreditation & Trust (mirrors cover .trust block)
-    `<div style="min-width:0;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;gap:5pt;font-family:${font};">`,
-    `<div style="font-size:7pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;color:${BRAND_COLORS.secondaryText};text-align:right;white-space:nowrap;margin-bottom:5pt;">${trustMeta}</div>`,
-    `<div style="display:flex;align-items:flex-end;justify-content:flex-end;gap:9pt;">`,
-    agcLogo
-      ? `<img src="${agcLogo}" alt="AGC membership" style="height:0.38in;width:auto;display:block;" />`
-      : `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">AGC</span>`,
-    bbbLogo
-      ? `<img src="${bbbLogo}" alt="BBB accredited business" style="height:0.41in;width:auto;display:block;" />`
-      : `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">BBB</span>`,
-    vobLogo
-      ? `<img src="${vobLogo}" alt="Washington certified veteran owned business" style="height:0.55in;width:auto;display:block;" />`
-      : `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">VOB</span>`,
-    `</div>`,
-    `</div>`,
-
-    `</div>`,
-  ].join("");
-
+  const tabRef = sectionToTab(sectionNum);
+  const compactContact = `${BRAND.companyName} \u00b7 ${BRAND.phone} \u00b7 ${BRAND.website}`;
   return [
     `<div style="width:100%;height:100%;font-family:${font};`,
     `box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;`,
     `display:flex;flex-direction:column;justify-content:flex-end;">`,
-    contentRow,
+    `<div style="width:100%;box-sizing:border-box;border-top:1.5pt solid ${BRAND_COLORS.primary};padding-top:4pt;">`,
+    `<div style="width:100%;padding:0 0.75in 0 1.25in;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:baseline;gap:6pt;line-height:1.1;">`,
+    `<span style="font-size:6.2pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;letter-spacing:0.01em;">`,
+    `<span style="font-weight:800;color:${BRAND_COLORS.primaryDark};letter-spacing:0.04em;">MH CONSTRUCTION, INC.</span>`,
+    `\u00a0\u00b7\u00a0${compactContact.replace("MH Construction, Inc. \u00b7 ", "")}`,
+    `</span>`,
+    `<span style="font-size:5.9pt;font-weight:700;color:${BRAND_COLORS.secondaryText};white-space:nowrap;letter-spacing:0.01em;">`,
+    `TAB\u00a0${tabRef}\u00a0\u00b7\u00a0REV\u00a0${revNum}\u00a0\u00b7\u00a0${revDate}`,
+    `</span>`,
+    `<span style="font-size:7pt;font-weight:800;color:${BRAND_COLORS.primaryDark};white-space:nowrap;">`,
+    `Page\u00a0<span class="pageNumber"></span>\u00a0of\u00a0<span class="totalPages"></span>`,
+    `</span>`,
+    `</div>`,
+    `</div>`,
     `</div>`,
   ].join("");
 }
@@ -5172,6 +5133,42 @@ async function generateTabs() {
     : "safety-manual-tabs.html";
   let html = await readFile(join(DOCS_DIR, `manuals/${templateName}`), "utf-8");
 
+  // Keep tab headers aligned with canonical manifest section titles.
+  if (!isEmployeeHandbook && existsSync(MANIFEST)) {
+    try {
+      const { sections = [] } = JSON.parse(await readFile(MANIFEST, "utf-8"));
+      const titleMap = new Map(
+        sections
+          .map((section) => [
+            Number(section.number),
+            String(section.title || "").trim(),
+          ])
+          .filter(
+            ([number, title]) =>
+              Number.isFinite(number) && number > 0 && title.length > 0,
+          ),
+      );
+
+      for (let n = 1; n <= 44; n++) {
+        const canonicalTitle = titleMap.get(n);
+        if (!canonicalTitle) continue;
+        const nn = String(n).padStart(2, "0");
+        const sectionBlockPattern = new RegExp(
+          `(<!--\\s*Section\\s*${nn}\\s*-->[\\s\\S]*?<div class="tab-section-title">)([\\s\\S]*?)(</div>)`,
+          "i",
+        );
+        html = html.replace(
+          sectionBlockPattern,
+          `$1${escapeHtml(canonicalTitle)}$3`,
+        );
+      }
+    } catch (err) {
+      console.warn(
+        `  ⚠  Could not synchronize safety tab section titles from manifest: ${err.message}`,
+      );
+    }
+  }
+
   // ── Replace dashboard QR placeholder in footer (shared across all tabs) ──
   const dashboardQrDataUrl = await buildQrDataUrl(BRAND.qrCodes.dashboard);
   html = html.replaceAll("{{BRAND_QR_DASHBOARD}}", dashboardQrDataUrl);
@@ -5583,13 +5580,15 @@ async function generateSections(filter = null) {
     const headerHtml = buildSectionHeaderHtml(
       section.numberStr,
       section.title,
-      BRAND.revisionNumber,
-      BRAND.revisionDate,
       qrDataUrl,
     );
 
     // UX REFRESH 2026 — three-tier footer + thumb-zone QR FAB on every page
-    const footerHtml = buildSectionFooterHtml();
+    const footerHtml = buildSectionFooterHtml(
+      section.numberStr,
+      BRAND.revisionNumber,
+      BRAND.revisionDate,
+    );
 
     const pdfName = `${section.numberStr}-${section.slug}.pdf`;
     const pdfPath = join(sectionsDir, pdfName);
@@ -5603,7 +5602,7 @@ async function generateSections(filter = null) {
         margin: {
           top: "1.25in", // accommodates enlarged header logo + 0.35in gap
           right: "0.75in",
-          bottom: "1.75in", // clears full footer + line-height buffer (must match @page rule in safety-manual-section.html)
+          bottom: "0.4in", // compact footer + maximum usable body space
           left: "1.25in",
         },
       },

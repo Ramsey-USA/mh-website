@@ -163,6 +163,7 @@
 /* ── Revision History Table ─────────────────────────────── */
 .revision-table th {
   background-color: var(--color-primary-dark);
+  color: #ffffff;
 }
 
 /* ── Signature / Sign-off Lines ─────────────────────────── */
@@ -205,6 +206,7 @@
 }
 .attendance-table th {
   background-color: var(--color-primary);
+  color: #ffffff;
   font-size: var(--type-print-table);
 }
 .attendance-table td {
@@ -712,7 +714,7 @@
 /*
  * Column width distribution across the 4 data columns.
  * Applied via :nth-child so no <col> elements are needed in the HTML.
- * Total = 100% of the inset table width (calc(100% - 1in) from section template).
+ * Total = 100% of the rendered threshold table width (set by section template rules).
  */
 .threshold-table th:nth-child(1),
 .threshold-table td:nth-child(1) {
@@ -786,6 +788,18 @@
   font-size: var(--type-print-h4);
   font-weight: 700;
   letter-spacing: 0.03em;
+}
+
+/* Contrast guardrail: dark header/subheader surfaces must use white text. */
+.form-standalone-header,
+.form-badge-title,
+.data-container-header,
+.threshold-table th,
+.orientation-record-table th,
+.ptp-form-header,
+.ptp-section-label,
+.ptp-injured-table th {
+  color: #ffffff;
 }
 
 /* ── Signature Tables (FORM 02-A, 02-B) ────────────────────────────────── */

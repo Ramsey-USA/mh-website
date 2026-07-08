@@ -59,6 +59,25 @@ function buildSlug(title) {
     .replace(/^-|-$/g, "");
 }
 
+function decodeBasicEntities(text) {
+  return text
+    .replaceAll("&amp;", "&")
+    .replaceAll("&quot;", '"')
+    .replaceAll("&#39;", "'")
+    .replaceAll("&nbsp;", " ");
+}
+
+function resolveCanonicalTitleFromBody(html, fallbackTitle) {
+  // Primary source: section opener line like "MISH 01 — Safety & Health Program Overview"
+  const headingMatch = html.match(/MISH\s*\d{1,2}\s*[—-]\s*([^<\n]+)/i);
+  if (!headingMatch) {
+    return fallbackTitle;
+  }
+
+  const candidate = normalizeWhitespace(decodeBasicEntities(headingMatch[1]));
+  return candidate || fallbackTitle;
+}
+
 function parseSectionFromFilename(filename) {
   const name = basename(filename, extname(filename));
   const match = name.match(/MISH[-_](\d{1,2})(?:[-_](.*))?$/i);
@@ -147,6 +166,7 @@ async function main() {
     try {
       const html = await extractDocxHtml(filePath);
       const text = htmlToPlainText(html);
+      const canonicalTitle = resolveCanonicalTitleFromBody(html, meta.title);
       const wordCount = text.split(/\s+/).filter(Boolean).length;
       const summary = buildSummary(text);
 
@@ -155,8 +175,8 @@ async function main() {
         number: meta.number,
         numberStr: meta.numberStr,
         key: meta.key,
-        title: meta.title,
-        slug: buildSlug(meta.title),
+        title: canonicalTitle,
+        slug: buildSlug(canonicalTitle),
         filename: basename(filePath),
         pages: 0,
         wordCount,

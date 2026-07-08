@@ -17,7 +17,7 @@
       "number": 1,
       "numberStr": "01",
       "key": "MISH_01",
-      "title": "Safety Health Program Overview",
+      "title": "Safety & Health Program Overview",
       "slug": "safety-health-program-overview",
       "previewHtml": "<h1>1.0 PURPOSE &amp; SCOPE</h1><p><strong>1.1 </strong>MH Construction, Inc. is committed to providing a safe and healthful work environment for all employees, subcontractors, and visitors on every project.</p><p><strong>1.2 </strong>This Safety &amp; Health Program applies to all MHC operations, including commercial construction, remodel, restoration, and government contracts in Washington State.</p><p><strong>1.3 </strong>This program is aligned with the AGC Construction Safety Excellence Awards (CSEA) framework, OSHA 29 CFR 1926, WAC 296-155 (WISHA), and Travelers Risk Control best practices.</p>"
     },
@@ -26,7 +26,7 @@
       "number": 2,
       "numberStr": "02",
       "key": "MISH_02",
-      "title": "Injury Free Workplace Commitment",
+      "title": "Injury-Free Workplace Commitment",
       "slug": "injury-free-workplace-commitment",
       "previewHtml": ""
     },
@@ -35,7 +35,7 @@
       "number": 3,
       "numberStr": "03",
       "key": "MISH_03",
-      "title": "Safety Roles Responsibilities",
+      "title": "Safety Roles & Responsibilities",
       "slug": "safety-roles-responsibilities",
       "previewHtml": "<h1>1.0 PURPOSE</h1><p>This section defines the safety responsibilities of all personnel within MH Construction, Inc. Clear role definition is a foundational requirement of the AGC CSEA framework and OSHA 29 CFR 1926.20.</p>"
     },
@@ -44,7 +44,7 @@
       "number": 4,
       "numberStr": "04",
       "key": "MISH_04",
-      "title": "Safety Health Orientation",
+      "title": "Safety & Health Orientation",
       "slug": "safety-health-orientation",
       "previewHtml": ""
     },
@@ -53,7 +53,7 @@
       "number": 5,
       "numberStr": "05",
       "key": "MISH_05",
-      "title": "Safety Bulletin Boards Communication",
+      "title": "Safety Bulletin Boards & Communication",
       "slug": "safety-bulletin-boards-communication",
       "previewHtml": ""
     },
@@ -62,7 +62,7 @@
       "number": 6,
       "numberStr": "06",
       "key": "MISH_06",
-      "title": "Drug Alcohol Policy Testing",
+      "title": "Drug & Alcohol Policy & Testing",
       "slug": "drug-alcohol-policy-testing",
       "previewHtml": ""
     },
@@ -71,7 +71,7 @@
       "number": 7,
       "numberStr": "07",
       "key": "MISH_07",
-      "title": "Drug Alcohol Field Operations",
+      "title": "Drug & Alcohol Field Operations",
       "slug": "drug-alcohol-field-operations",
       "previewHtml": ""
     },
@@ -89,7 +89,7 @@
       "number": 9,
       "numberStr": "09",
       "key": "MISH_09",
-      "title": "Pre Job Safety Plan",
+      "title": "Pre-Job Safety Plan",
       "slug": "pre-job-safety-plan",
       "previewHtml": ""
     },
@@ -98,7 +98,7 @@
       "number": 10,
       "numberStr": "10",
       "key": "MISH_10",
-      "title": "Safety Health Meetings Inspections",
+      "title": "Safety & Health Meetings & Inspections",
       "slug": "safety-health-meetings-inspections",
       "previewHtml": ""
     },
@@ -107,7 +107,7 @@
       "number": 11,
       "numberStr": "11",
       "key": "MISH_11",
-      "title": "Accident Reporting Investigation",
+      "title": "Accident Reporting & Investigation",
       "slug": "accident-reporting-investigation",
       "previewHtml": ""
     },
@@ -188,7 +188,7 @@
       "number": 20,
       "numberStr": "20",
       "key": "MISH_20",
-      "title": "Signs Signals Barricades",
+      "title": "Signs, Signals & Barricades",
       "slug": "signs-signals-barricades",
       "previewHtml": ""
     },
@@ -206,7 +206,7 @@
       "number": 22,
       "numberStr": "22",
       "key": "MISH_22",
-      "title": "Scaffolding Use Handling",
+      "title": "Scaffolding Use & Handling",
       "slug": "scaffolding-use-handling",
       "previewHtml": ""
     },
@@ -215,7 +215,7 @@
       "number": 23,
       "numberStr": "23",
       "key": "MISH_23",
-      "title": "Ladder Use Care",
+      "title": "Ladder Use & Care",
       "slug": "ladder-use-care",
       "previewHtml": ""
     },
@@ -224,7 +224,7 @@
       "number": 24,
       "numberStr": "24",
       "key": "MISH_24",
-      "title": "Open Floors Holes",
+      "title": "Open Floors & Holes",
       "slug": "open-floors-holes",
       "previewHtml": ""
     },
@@ -233,7 +233,7 @@
       "number": 25,
       "numberStr": "25",
       "key": "MISH_25",
-      "title": "Excavation Trenching Shoring",
+      "title": "Excavation, Trenching & Shoring",
       "slug": "excavation-trenching-shoring",
       "previewHtml": ""
     },
@@ -251,7 +251,7 @@
       "number": 27,
       "numberStr": "27",
       "key": "MISH_27",
-      "title": "Lockout Tagout",
+      "title": "Lockout / Tagout",
       "slug": "lockout-tagout",
       "previewHtml": ""
     },
@@ -269,7 +269,7 @@
       "number": 29,
       "numberStr": "29",
       "key": "MISH_29",
-      "title": "Welding Cutting Heating",
+      "title": "Welding, Cutting & Heating",
       "slug": "welding-cutting-heating",
       "previewHtml": ""
     },
@@ -278,7 +278,7 @@
       "number": 30,
       "numberStr": "30",
       "key": "MISH_30",
-      "title": "Flammable Combustible Liquids",
+      "title": "Flammable & Combustible Liquids",
       "slug": "flammable-combustible-liquids",
       "previewHtml": ""
     },
@@ -296,7 +296,7 @@
       "number": 32,
       "numberStr": "32",
       "key": "MISH_32",
-      "title": "Compressed Gas Air",
+      "title": "Compressed Gas & Air",
       "slug": "compressed-gas-air",
       "previewHtml": ""
     },
@@ -314,7 +314,7 @@
       "number": 34,
       "numberStr": "34",
       "key": "MISH_34",
-      "title": "Distracted Driving Mobile Device Policy",
+      "title": "Distracted Driving & Mobile Device Policy",
       "slug": "distracted-driving-mobile-device-policy",
       "previewHtml": "<h1>1.0 PURPOSE &amp; SCOPE</h1><p><strong>1.1 </strong>This policy establishes MH Construction's requirements for the safe use of mobile technology devices while operating any vehicle on behalf of the company.</p><p><strong>1.2 </strong>This policy applies to all employees, subcontractors, and agents who operate company-owned, rented, leased, borrowed, or personally-owned vehicles for MHC business.</p><p><strong>1.3 </strong>Mobile technology devices include: cellular phones, smartphones, tablets, laptops, GPS/navigation systems, portable audio/video players, and any other electronic device.</p>"
     },
@@ -323,7 +323,7 @@
       "number": 35,
       "numberStr": "35",
       "key": "MISH_35",
-      "title": "Motor Vehicle Records Program",
+      "title": "Motor Vehicle Records (MVR) Program",
       "slug": "motor-vehicle-records-program",
       "previewHtml": "<h1>1.0 PURPOSE &amp; SCOPE</h1><p><strong>1.1 </strong>MH Construction requires Motor Vehicle Record (MVR) checks for all employees who operate vehicles on behalf of the company, including company-owned, rented, leased, borrowed, or personally-owned vehicles.</p><p><strong>1.2 </strong>MVR reviews help identify drivers with poor driving histories before incidents occur, reducing liability and protecting employees and the public.</p><p><strong>1.3 </strong>This program applies to all MHC employees, including supervisors, project managers, and field personnel who drive on MHC business.</p>"
     },
@@ -332,7 +332,7 @@
       "number": 36,
       "numberStr": "36",
       "key": "MISH_36",
-      "title": "Equipment Maintenance Inspection",
+      "title": "Equipment Maintenance & Inspection",
       "slug": "equipment-maintenance-inspection",
       "previewHtml": ""
     },
@@ -341,7 +341,7 @@
       "number": 37,
       "numberStr": "37",
       "key": "MISH_37",
-      "title": "Aerial Lifts Elevated Work Platforms",
+      "title": "Aerial Lifts & Elevated Work Platforms",
       "slug": "aerial-lifts-elevated-work-platforms",
       "previewHtml": ""
     },
@@ -368,7 +368,7 @@
       "number": 40,
       "numberStr": "40",
       "key": "MISH_40",
-      "title": "Forklift Power Industrial Truck Safety",
+      "title": "Forklift & Power Industrial Truck Safety",
       "slug": "forklift-power-industrial-truck-safety",
       "previewHtml": ""
     },
@@ -377,7 +377,7 @@
       "number": 41,
       "numberStr": "41",
       "key": "MISH_41",
-      "title": "Construction Equipment Modification Fabrication",
+      "title": "Construction Equipment Modification & Fabrication",
       "slug": "construction-equipment-modification-fabrication",
       "previewHtml": ""
     },
@@ -386,7 +386,7 @@
       "number": 42,
       "numberStr": "42",
       "key": "MISH_42",
-      "title": "Hand Power Tools",
+      "title": "Hand & Power Tools",
       "slug": "hand-power-tools",
       "previewHtml": ""
     },
@@ -404,7 +404,7 @@
       "number": 44,
       "numberStr": "44",
       "key": "MISH_44",
-      "title": "Concrete Masonry",
+      "title": "Concrete & Masonry",
       "slug": "concrete-masonry",
       "previewHtml": ""
     },
@@ -431,7 +431,7 @@
       "number": 47,
       "numberStr": "47",
       "key": "MISH_47",
-      "title": "Insurance Requirements Contractual Risk Transfer",
+      "title": "Insurance Requirements & Contractual Risk Transfer",
       "slug": "insurance-requirements-contractual-risk-transfer",
       "previewHtml": "<h1>1.0 PURPOSE</h1><p><strong>1.1 </strong>Effective contractual risk transfer protects MH Construction from liability resulting from subcontractor operations and requires subcontractors to take financial responsibility for their own exposures.</p><p><strong>1.2 </strong>All MHC subcontracts must include the insurance requirements defined in this section. Review with your insurance agent (Hub International Northwest) and legal counsel before finalizing any subcontract.</p>"
     },
@@ -449,7 +449,7 @@
       "number": 49,
       "numberStr": "49",
       "key": "MISH_49",
-      "title": "Incident Investigation Root Cause Analysis",
+      "title": "Incident Investigation & Root Cause Analysis",
       "slug": "incident-investigation-root-cause-analysis",
       "previewHtml": "<h1>1.0 PURPOSE</h1><p><strong>1.1 </strong>All incidents, near-misses, and property damage events must be investigated to identify root causes and prevent recurrence.</p><p><strong>1.2 </strong>Investigation is not about assigning blame — it is about identifying system failures and implementing corrective actions.</p>"
     },
@@ -458,7 +458,7 @@
       "number": 50,
       "numberStr": "50",
       "key": "MISH_50",
-      "title": "Return to Work Program",
+      "title": "Return-to-Work Program",
       "slug": "return-to-work-program",
       "previewHtml": "<h1>1.0 PURPOSE</h1><p><strong>1.1 </strong>MH Construction is committed to returning injured employees to productive work as quickly and safely as possible.</p><p><strong>1.2 </strong>A formal Return-to-Work (RTW) program reduces workers compensation costs, maintains employee morale, and demonstrates MHC's commitment to its workforce.</p>"
     }

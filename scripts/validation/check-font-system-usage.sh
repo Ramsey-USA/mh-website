@@ -10,6 +10,12 @@ echo "[font-system] Running documents typography guardrail..."
   npm run docs:guardrails:typography:check >/dev/null
 )
 
+echo "[font-system] Running manual template congruence guardrail..."
+(
+  cd "$ROOT_DIR"
+  npm run docs:guardrails:manual-congruence >/dev/null
+)
+
 echo "[font-system] Scanning repository for legacy font patterns..."
 
 # Keep denylist checks focused on source/template assets.

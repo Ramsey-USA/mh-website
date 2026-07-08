@@ -25,7 +25,7 @@
         Header & footer are fully managed by Puppeteer displayHeaderFooter;
         CSS @page margin-area rules are disabled to prevent double-rendering. */
        @page {
-         margin: 1.25in 0.75in 1.75in 1.25in;
+         margin: 1.25in 0.75in 0.4in 1.25in;
          @top-left {
            content: none;
            border: none;
@@ -126,8 +126,24 @@
       */
        .section-body {
          margin-top: 6pt;
-         font-size: 10pt;
+         font-family: var(--font-body);
+         font-size: var(--type-print-field);
+         color: #1f2937;
          line-height: var(--leading-field);
+         padding-bottom: 24pt;
+       }
+
+       .section-body p,
+       .section-body li,
+       .section-body .sec-num-text {
+         font-family: var(--font-body);
+         font-size: var(--type-print-field);
+         color: #1f2937;
+       }
+
+       .section-body strong {
+         color: var(--brand-primary-dark);
+         font-weight: 700;
        }
 
        /* Keep checklist and inspection tables readable without cell overflow. */
@@ -145,10 +161,11 @@
        /* not already carry a branded class (signature-table, threshold-table, */
        /* revision-info-table, ptp-*, orientation-record-table, etc.).        */
        .section-body .sec-data-table {
-         width: calc(100% - 1in);
-         margin: 8pt 0.5in 12pt;
+         width: calc(100% - 0.5in);
+         margin: 8pt 0 12pt 0.5in;
          border-collapse: collapse;
          border: 0.75pt solid var(--brand-secondary, #2d5e3e);
+         font-family: var(--font-body);
          font-size: var(--type-print-table, 9pt);
          page-break-inside: auto;
          break-inside: auto;
@@ -169,6 +186,13 @@
          padding: 3pt 6pt;
          border: 0.5pt solid #b9c4bd;
          vertical-align: top;
+         font-family: var(--font-body);
+         font-size: var(--type-print-table, 9pt);
+         line-height: 1.45;
+       }
+       .section-body .sec-data-table tr {
+         page-break-inside: avoid;
+         break-inside: avoid;
        }
        .section-body .sec-data-table tbody tr:nth-child(even) td {
          background: #f3f6f4;
@@ -193,10 +217,15 @@
          margin-left: 0;
        }
 
+       .section-body .form-standalone-header,
+       .section-body .form-badge-header {
+         color: #ffffff;
+       }
+
        /* Universal hanging indent — body text indented 0.5" from left anchor */
        .section-body p {
          margin-left: 0.5in;
-         margin-bottom: 9pt;
+         margin-bottom: 8pt;
        }
 
        /*
@@ -226,27 +255,25 @@
          margin-left: 0;
          padding: 6pt 12pt 5pt;
          text-indent: 0;
-         background: linear-gradient(
-           90deg,
-           var(--brand-primary),
-           var(--brand-primary)
-         );
-         color: #ffffff;
+         background: linear-gradient(90deg, rgba(56, 104, 81, 0.08), rgba(189, 146, 100, 0.12));
+         color: var(--brand-primary-dark);
          font-family: var(--font-heading);
-         font-size: 13pt;
+         font-size: 12.5pt;
          font-weight: 800;
-         letter-spacing: 0.05em;
+         letter-spacing: 0.035em;
          text-transform: uppercase;
-         border-left: 4pt solid var(--brand-secondary);
+         border-left: 3pt solid var(--brand-primary);
+         border-top: 0.5pt solid var(--brand-secondary);
+         border-bottom: 0.5pt solid var(--brand-secondary);
          border-radius: 3pt;
-         box-shadow: inset 0 -1pt 0 var(--brand-secondary);
+         box-shadow: none;
          page-break-after: avoid;
          break-after: avoid;
          -webkit-print-color-adjust: exact;
          print-color-adjust: exact;
        }
        .section-body p.sec-h.sec-h-0 > strong:first-child {
-         color: #ffffff;
+         color: var(--brand-secondary-text);
          margin-right: 8pt;
          font-weight: 900;
        }
@@ -285,14 +312,12 @@
          margin: 14pt 0 8pt;
          margin-left: 0;
          padding: 6pt 12pt 5pt;
-         background: linear-gradient(
-           90deg,
-           var(--brand-primary),
-           var(--brand-primary)
-         );
-         border-left: 4pt solid var(--brand-secondary);
+         background: linear-gradient(90deg, rgba(56, 104, 81, 0.08), rgba(189, 146, 100, 0.12));
+         border-left: 3pt solid var(--brand-primary);
+         border-top: 0.5pt solid var(--brand-secondary);
+         border-bottom: 0.5pt solid var(--brand-secondary);
          border-radius: 3pt;
-         box-shadow: inset 0 -1pt 0 var(--brand-secondary);
+         box-shadow: none;
          page-break-after: avoid;
          break-after: avoid;
          -webkit-print-color-adjust: exact;
@@ -300,11 +325,11 @@
        }
        .section-body .sec-num-row.sec-h-0 .sec-num,
        .section-body .sec-num-row.sec-h-0 .sec-num-text {
-         color: #ffffff;
+         color: var(--brand-primary-dark);
          font-family: var(--font-heading);
-         font-size: 13pt;
+         font-size: 12.5pt;
          font-weight: 800;
-         letter-spacing: 0.05em;
+         letter-spacing: 0.035em;
          text-transform: uppercase;
          min-width: 0;
        }
@@ -349,7 +374,14 @@
        .section-body > ul,
        .section-body > ol {
          margin-left: 0.75in;
+         margin-top: 5pt;
+         margin-bottom: 8pt;
          padding-left: 0;
+       }
+       .section-body .sec-list li,
+       .section-body ul li,
+       .section-body ol li {
+         margin-bottom: 3pt;
        }
 
        /* Addendum note paragraphs follow body indent */
@@ -379,30 +411,27 @@
          margin-top: 1pt;
        }
 
-       /* PRECISION FIX 4 — Table gutter: 0.5" padding each side inside text block */
-       .section-body
-         table:not(.revision-info-table):not(.threshold-table):not(
-           .signature-table
-         ) {
+       /* PRECISION FIX 4 — Table gutter: 0.5" left text lane, flush-right to content edge */
+       .section-body > table:not(.revision-info-table):not(.threshold-table):not(.signature-table):not(.sec-data-table) {
          margin-left: 0.5in;
-         margin-right: 0.5in;
-         width: calc(100% - 1in);
+         margin-right: 0;
+         width: calc(100% - 0.5in);
          box-sizing: border-box;
        }
 
        /* Signature table: full content-lane width with 0.5in gutter (matches body text lane) */
        .section-body .signature-table {
          margin-left: 0.5in;
-         margin-right: 0.5in;
-         width: calc(100% - 1in);
+         margin-right: 0;
+         width: calc(100% - 0.5in);
          box-sizing: border-box;
        }
 
        /* Threshold table gets its own 0.5" gutter treatment */
        .section-body .threshold-table {
          margin-left: 0.5in;
-         margin-right: 0.5in;
-         width: calc(100% - 1in);
+         margin-right: 0;
+         width: calc(100% - 0.5in);
          box-sizing: border-box;
        }
 
@@ -413,7 +442,7 @@
          position: relative;
          margin: 0 0 16pt;
          padding: 12pt 14pt 13pt;
-         background: linear-gradient(180deg, var(--muted) 0%, var(--paper) 76%);
+         background: linear-gradient(180deg, #ffffff 0%, var(--muted) 42%, var(--paper) 100%);
          border: 1pt solid var(--brand-secondary);
          border-left: 4pt solid var(--brand-primary);
          border-radius: 2pt;
@@ -464,25 +493,36 @@
          min-width: 0;
        }
        .shc-mish-chip {
-         display: inline-block;
-         background: var(--brand-primary);
-         color: #ffffff;
-         font-size: 8.5pt;
-         font-weight: 800;
-         letter-spacing: 0.08em;
+         display: block;
+         font-family: var(--font-heading);
+         color: var(--brand-secondary-text);
+         font-size: 8pt;
+         font-weight: 700;
+         letter-spacing: 0.12em;
          text-transform: uppercase;
-         padding: 2.5pt 10pt 2pt;
-         border-radius: 1.5pt;
-         box-shadow: inset 0 -1pt 0 var(--brand-secondary);
-         margin-bottom: 5pt;
+         margin-bottom: 4pt;
        }
        .shc-title {
-         font-size: 17.5pt;
-         font-weight: 700;
-         color: var(--brand-primary);
+         font-family: var(--font-heading);
+         font-size: 20pt;
+         font-weight: 900;
          margin: 0;
-         line-height: 1.15;
-         letter-spacing: -0.005em;
+         line-height: 1.08;
+         letter-spacing: -0.01em;
+         color: var(--brand-primary);
+         background: linear-gradient(
+           90deg,
+           var(--brand-primary-dark) 0%,
+           var(--brand-primary) 44%,
+           var(--brand-secondary-text) 60%,
+           var(--brand-primary) 100%
+         );
+         -webkit-background-clip: text;
+         background-clip: text;
+         -webkit-text-fill-color: transparent;
+         text-shadow: 0 0 0.01pt rgba(18, 35, 27, 0.2);
+         -webkit-print-color-adjust: exact;
+         print-color-adjust: exact;
        }
        .shc-rev-badge {
          flex: 0 0 auto;

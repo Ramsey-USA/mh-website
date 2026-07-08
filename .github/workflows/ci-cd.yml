@@ -70,6 +70,9 @@ jobs:
       - name: Enforce branding docs contracts guard
         run: npm run docs:guardrails:contracts
 
+      - name: Enforce manual template congruence guard
+        run: npm run docs:guardrails:manual-congruence
+
       - name: Detect Lighthouse artifact changes
         id: perf_changes
         run: |
