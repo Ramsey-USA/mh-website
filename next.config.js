@@ -232,8 +232,9 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     // Allow the quality values used at <Image quality="..." /> call sites.
-    // Default is [75]; we use 20 (LQIP/blur) and 85 (high-fidelity logos).
-    qualities: [20, 75, 85],
+    // Default is [75]; we use 20 (LQIP/blur), 72 (project cards), and 85
+    // (high-fidelity logos).
+    qualities: [20, 72, 75, 85],
     minimumCacheTTL: 2592000, // 30 days — safe because Next.js uses content-hash URLs
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
