@@ -43,13 +43,12 @@ export const EMAIL_STYLES = {
   /**
    * Body font stack for email.
    *
-   * Uses Inter as the primary email body font with Roboto as the only fallback.
-   * Email clients cannot load Adobe Fonts (Typekit), so we never reference
-   * Mendl Sans Dusk in email templates.
-   * here. Keep this stack in sync with `--font-body` in `documents/styles/brand.css`
+   * Uses the canonical Mendl-first stack with Roboto fallback.
+   * Keep this stack in sync with `--font-body` in `documents/styles/brand.css`
    * and `src/styles/variables.css` (web side).
    */
-  fontStack: "'Inter', Roboto, sans-serif",
+  fontStack:
+    "'mendl-sans-dawn', 'Mendl Sans Dawn', 'mendl-sans-dusk', 'Mendl Sans Dusk', Roboto, sans-serif",
   /** Standard gradient background for header */
   headerGradient: `linear-gradient(135deg, ${EMAIL_COLORS.primary} 0%, ${EMAIL_COLORS.primaryDark} 100%)`,
   /** Info box with left border */
