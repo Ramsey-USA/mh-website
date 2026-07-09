@@ -72,6 +72,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # ── 4b. Sync canonical docs into app workspace (apps/website/documents is gitignored) ──
+      - name: Sync docs into app workspace
+        run: pnpm docs:sync
+
       # ── 5. Resolve commit revision metadata ──────────────────────────────
       - name: Resolve revision metadata from git log
         id: rev
