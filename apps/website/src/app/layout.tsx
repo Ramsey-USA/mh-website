@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { cookies, headers } from "next/headers";
 import Script from "next/script";
-import { Inter } from "next/font/google";
 import { Suspense } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import "./globals.css";
@@ -36,12 +35,6 @@ import {
 import { getMessages } from "next-intl/server";
 import { getAllJeremyRibbons } from "@/lib/content/jeremy-ribbons";
 import { getIndividualBrandingStamp } from "@/lib/content/individual-branding-stamps";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 const SEARCH_ENGINE_VERIFICATION_OTHER = Object.fromEntries(
   [
@@ -227,16 +220,10 @@ export default async function RootLayout({
   const isLighthouseAudit = /Chrome-Lighthouse/i.test(
     requestHeaders.get("user-agent") ?? "",
   );
-  const enableAdobeFonts =
-    process.env["NEXT_PUBLIC_ENABLE_ADOBE_FONTS"] !== "false";
   const enableRuntimeEnhancements = isProduction && !isLighthouseAudit;
 
   return (
-    <html
-      lang={locale}
-      className={`${inter.variable} dark`}
-      suppressHydrationWarning
-    >
+    <html lang={locale} className="dark" suppressHydrationWarning>
       <head>
         <FaviconLinks />
         <Script
@@ -298,25 +285,6 @@ export default async function RootLayout({
           </>
         ) : null}
         <link rel="author" href="https://www.mhc-gc.com/jeremy-thamert" />
-        {enableAdobeFonts ? (
-          <>
-            <link rel="preconnect" href="https://use.typekit.net" />
-            <link rel="dns-prefetch" href="https://use.typekit.net" />
-            <link
-              rel="stylesheet"
-              href="https://use.typekit.net/jqs8bjh.css"
-              media="all"
-              crossOrigin="anonymous"
-            />
-            <noscript>
-              <link
-                rel="stylesheet"
-                href="https://use.typekit.net/jqs8bjh.css"
-                crossOrigin="anonymous"
-              />
-            </noscript>
-          </>
-        ) : null}
         <Script
           id="set-html-lang-from-cookie"
           strategy="beforeInteractive"

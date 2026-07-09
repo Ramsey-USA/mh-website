@@ -1,12 +1,7 @@
 /* ============================================
    MH BRAND FONTS
-   Heading / Subheading: Mendl Sans Dusk
-  Body: Inter
-  Heading served via Adobe Fonts (Typekit) kit jqs8bjh
-  Body served via next/font/google (Inter)
-   Loaded via <link rel="stylesheet"> in layout.tsx so the browser
-   fetches it in parallel with this file instead of sequentially
-   via a render-blocking @import chain.
+  Heading / Subheading: Mendl Sans Dusk (self-hosted)
+  Body: Mendl Sans Dawn (self-hosted)
    ============================================ */
 
 /* Import CSS variables for cohesive design system */
@@ -18,6 +13,115 @@
 /* Tailwind CSS v4 — point to legacy JS config for theme/plugins */
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
+
+/* Self-hosted MH brand font system */
+@font-face {
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mendl Sans Dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_SemiBold.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mendl Sans Dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_SemiBold.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mendl Sans Dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mendl-sans-dawn";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dawn_Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mendl Sans Dawn";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dawn_Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mendl-sans-dawn";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dawn_SemiBold.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mendl Sans Dawn";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dawn_SemiBold.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mendl-sans-dawn";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dawn_Bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mendl Sans Dawn";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dawn_Bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* Material Icons font setup */
 .material-icons {

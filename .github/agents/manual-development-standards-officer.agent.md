@@ -31,7 +31,7 @@ The approved letterhead (`documents/output/MHC-company-letterhead.pdf`, May 2026
 
 - **Uniform right margin**: `0.60in` — header, footer, identity row, veteran strip all share this value
 - **QR headline**: `MHC-GC.COM` (with dash) — never `MHCGC.COM`
-- **Body/AcroForm font**: Helvetica · 11pt · `#1E392C` (hunter green) across all body fields
+- **Body/AcroForm font**: Mendl Sans Dawn · 11pt · `#1E392C` (hunter green) with Roboto fallback across all body fields
 - **Double rule system**: `1.2pt solid #1E392C` primary + `0.6pt solid #BD9264` accent, offset −3.5pt on header, +2.5pt on footer
 - **Veteran strip**: `VETERAN-OWNED ★ MISSION-FIRST ★ BUILT ON HONOR, INTEGRITY & TRUST` · `bottom: 0.42in`
 
@@ -87,7 +87,7 @@ Display the PNG to the user before marking the step complete. For multi-page art
 
 - Colors: `BRAND_COLORS.{primary, primaryDark, secondary, secondaryText}` in JS; `var(--color-primary)`, `var(--color-primary-dark)`, `var(--color-primary-darker)`, `var(--color-secondary)`, `var(--color-secondary-text)`, `var(--color-stopwork)` in CSS.
 - Hardcoded color literals in `documents/styles/*.css` (`#386851`, `#1e392c`, `#12231b`, `#cc0000`, `#bd9264`, `#8a6b49`, `#b3261e`) are FORBIDDEN — always use the `--color-*` token. Lint rule: `grep -nE '#386851|#1e392c|#12231b|#cc0000|#bd9264' documents/styles/*.css` MUST return zero matches in `components.css`. Stop-work / alert text MUST use `var(--color-stopwork)`, never raw `#cc0000` (the brand stopwork red is `#b3261e`).
-- Fonts: `var(--font-heading)`, `var(--font-body)` — never literal `'DIN 2014'` outside generator constants.
+- Fonts: `var(--font-heading)`, `var(--font-body)` — avoid legacy typeface literals; enforce Mendl with Roboto fallback.
 - Logos/QR/AGC/BBB/VOB: `BRAND_TOKENS["{{BRAND_*}}"]` and `LOGO_COLOR_DATA_URL`.
 
 ### 9. Military-themed framing & accreditation presence

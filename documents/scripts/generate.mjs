@@ -35,7 +35,8 @@
 
 import puppeteer from "puppeteer";
 import QRCode from "qrcode";
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import { PDFDocument, rgb } from "pdf-lib";
+import fontkit from "@pdf-lib/fontkit";
 import {
   readFile,
   writeFile,
@@ -45,6 +46,7 @@ import {
 } from "node:fs/promises";
 import { readFileSync, existsSync, unlinkSync } from "node:fs";
 import { createRequire } from "node:module";
+import { execFileSync } from "node:child_process";
 import { join, resolve, dirname, extname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { createCanvas } from "@napi-rs/canvas";
@@ -53,15 +55,46 @@ const SITE_URL = "https://www.mhc-gc.com";
 const PDF_METADATA_AUTHOR = "Matt Ramsey, Safety Officer";
 const PDF_METADATA_CREATOR = "MH Construction Document Pipeline";
 const PDF_METADATA_SUBJECT = "Accident · Injury · Safety · Health Program";
-const PDF_FONT_STACK_BODY = '"Inter", Roboto, sans-serif';
+const PDF_FONT_STACK_BODY =
+  '"mendl-sans-dawn", "Mendl Sans Dawn", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif';
 const PDF_FONT_STACK_HEADING =
-  '"mendl-sans-dusk", "Mendl Sans Dusk", "Inter", Roboto, sans-serif';
-const INTER_FONT_FILES = Object.freeze({
-  regular: "Inter-Regular.woff2",
-  semibold: "Inter-SemiBold.woff2",
-  bold: "Inter-Bold.woff2",
-});
+  '"mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dawn", "Mendl Sans Dawn", Roboto, sans-serif';
 const MATERIAL_ICONS_FONT_FILE = "MaterialIcons-Regular.woff2";
+const MENDL_DUSK_FONT_FILES = Object.freeze({
+  regular: [
+    "MendlSansDusk-Regular.woff2",
+    "mendl-sans-dusk-regular.woff2",
+    "mendl-sans-dusk.woff2",
+    "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf",
+  ],
+  semibold: [
+    "MendlSansDusk-SemiBold.woff2",
+    "mendl-sans-dusk-semibold.woff2",
+    "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_SemiBold.otf",
+  ],
+  bold: [
+    "MendlSansDusk-Bold.woff2",
+    "mendl-sans-dusk-bold.woff2",
+    "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Bold.otf",
+  ],
+});
+const MENDL_DAWN_FONT_FILES = Object.freeze({
+  regular: [
+    "MendlSansDawn-Regular.woff2",
+    "mendl-sans-dawn-regular.woff2",
+    "Mendl Fonts/fonnts.com-Mendl_Sans_Dawn_Regular.otf",
+  ],
+  semibold: [
+    "MendlSansDawn-SemiBold.woff2",
+    "mendl-sans-dawn-semibold.woff2",
+    "Mendl Fonts/fonnts.com-Mendl_Sans_Dawn_SemiBold.otf",
+  ],
+  bold: [
+    "MendlSansDawn-Bold.woff2",
+    "mendl-sans-dawn-bold.woff2",
+    "Mendl Fonts/fonnts.com-Mendl_Sans_Dawn_Bold.otf",
+  ],
+});
 const MATERIAL_ICON_LIGATURES = Object.freeze({
   info: "info",
   dangerOutline: "error_outline",
@@ -82,7 +115,7 @@ const MATERIAL_ICON_LIGATURE_SET = new Set(
   Object.values(MATERIAL_ICON_LIGATURES),
 );
 let PDF_MATERIAL_ICONS_STYLE_TAG;
-let PDF_INTER_STYLE_TAG;
+let PDF_MENDL_STYLE_TAG;
 
 function resolvePdfFontPath(fileName) {
   const candidates = [
@@ -98,40 +131,82 @@ function resolveMaterialIconsFontPath() {
   return resolvePdfFontPath(MATERIAL_ICONS_FONT_FILE);
 }
 
-function buildPdfInterStyleTag() {
-  const regularPath = resolvePdfFontPath(INTER_FONT_FILES.regular);
-  const semiboldPath = resolvePdfFontPath(INTER_FONT_FILES.semibold);
-  const boldPath = resolvePdfFontPath(INTER_FONT_FILES.bold);
+function resolveFirstPdfFontPath(fileNames) {
+  for (const fileName of fileNames) {
+    const path = resolvePdfFontPath(fileName);
+    if (path) {
+      return path;
+    }
+  }
+  return null;
+}
 
-  if (!regularPath && !semiboldPath && !boldPath) {
+function cssFontFormatForFilePath(fontPath) {
+  const extension = extname(fontPath).toLowerCase();
+  if (extension === ".woff2") return "woff2";
+  if (extension === ".woff") return "woff";
+  if (extension === ".otf") return "opentype";
+  if (extension === ".ttf") return "truetype";
+  return "woff2";
+}
+
+function buildPdfMendlStyleTag() {
+  const duskRegularPath = resolveFirstPdfFontPath(
+    MENDL_DUSK_FONT_FILES.regular,
+  );
+  const duskSemiboldPath = resolveFirstPdfFontPath(
+    MENDL_DUSK_FONT_FILES.semibold,
+  );
+  const duskBoldPath = resolveFirstPdfFontPath(MENDL_DUSK_FONT_FILES.bold);
+  const dawnRegularPath = resolveFirstPdfFontPath(
+    MENDL_DAWN_FONT_FILES.regular,
+  );
+  const dawnSemiboldPath = resolveFirstPdfFontPath(
+    MENDL_DAWN_FONT_FILES.semibold,
+  );
+  const dawnBoldPath = resolveFirstPdfFontPath(MENDL_DAWN_FONT_FILES.bold);
+
+  if (
+    !duskRegularPath &&
+    !duskSemiboldPath &&
+    !duskBoldPath &&
+    !dawnRegularPath &&
+    !dawnSemiboldPath &&
+    !dawnBoldPath
+  ) {
     return "";
   }
 
   const declarations = [];
-  if (regularPath) {
-    declarations.push(
-      `@font-face {\n  font-family: "Inter";\n  font-style: normal;\n  font-weight: 400;\n  font-display: swap;\n  src: url("${pathToFileURL(regularPath).toString()}") format("woff2");\n}`,
-    );
-  }
-  if (semiboldPath) {
-    declarations.push(
-      `@font-face {\n  font-family: "Inter";\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url("${pathToFileURL(semiboldPath).toString()}") format("woff2");\n}`,
-    );
-  }
-  if (boldPath) {
-    declarations.push(
-      `@font-face {\n  font-family: "Inter";\n  font-style: normal;\n  font-weight: 700;\n  font-display: swap;\n  src: url("${pathToFileURL(boldPath).toString()}") format("woff2");\n}`,
-    );
-  }
+  const pushFaceDeclarations = (fontPath, weight, familyNames) => {
+    if (!fontPath) return;
+    const fontUrl = pathToFileURL(fontPath).toString();
+    const fontFormat = cssFontFormatForFilePath(fontPath);
+    for (const familyName of familyNames) {
+      declarations.push(
+        `@font-face {\n  font-family: "${familyName}";\n  font-style: normal;\n  font-weight: ${weight};\n  font-display: swap;\n  src: url("${fontUrl}") format("${fontFormat}");\n}`,
+      );
+    }
+  };
 
-  return `<style data-pdf-inter-fonts="true">\n${declarations.join("\n\n")}\n</style>`;
+  const mendlDuskFamilies = ["mendl-sans-dusk", "Mendl Sans Dusk"];
+  const mendlDawnFamilies = ["mendl-sans-dawn", "Mendl Sans Dawn"];
+
+  pushFaceDeclarations(duskRegularPath, 400, mendlDuskFamilies);
+  pushFaceDeclarations(duskSemiboldPath, 600, mendlDuskFamilies);
+  pushFaceDeclarations(duskBoldPath, 700, mendlDuskFamilies);
+  pushFaceDeclarations(dawnRegularPath, 400, mendlDawnFamilies);
+  pushFaceDeclarations(dawnSemiboldPath, 600, mendlDawnFamilies);
+  pushFaceDeclarations(dawnBoldPath, 700, mendlDawnFamilies);
+
+  return `<style data-pdf-mendl-fonts="true">\n${declarations.join("\n\n")}\n</style>`;
 }
 
-function getPdfInterStyleTag() {
-  if (PDF_INTER_STYLE_TAG === undefined) {
-    PDF_INTER_STYLE_TAG = buildPdfInterStyleTag();
+function getPdfMendlStyleTag() {
+  if (PDF_MENDL_STYLE_TAG === undefined) {
+    PDF_MENDL_STYLE_TAG = buildPdfMendlStyleTag();
   }
-  return PDF_INTER_STYLE_TAG;
+  return PDF_MENDL_STYLE_TAG;
 }
 
 function buildPdfMaterialIconsStyleTag() {
@@ -148,6 +223,22 @@ function getPdfMaterialIconsStyleTag() {
     PDF_MATERIAL_ICONS_STYLE_TAG = buildPdfMaterialIconsStyleTag();
   }
   return PDF_MATERIAL_ICONS_STYLE_TAG;
+}
+
+async function embedPdfMendlBodyFont(pdfDoc) {
+  const bodyPath =
+    resolveFirstPdfFontPath(MENDL_DAWN_FONT_FILES.regular) ||
+    resolveFirstPdfFontPath(MENDL_DUSK_FONT_FILES.regular);
+
+  if (!bodyPath) {
+    throw new Error(
+      "Unable to locate a Mendl body font for PDF field embedding.",
+    );
+  }
+
+  pdfDoc.registerFontkit(fontkit);
+  const fontBytes = await readFile(bodyPath);
+  return pdfDoc.embedFont(fontBytes, { subset: true });
 }
 
 function getMaterialIconLigature(name) {
@@ -739,23 +830,22 @@ function normalizePdfTypography(html) {
     .replaceAll(
       '"DIN 2014", "Segoe UI", Arial, sans-serif',
       PDF_FONT_STACK_BODY,
-    )
-    .replaceAll('"Inter", "Segoe UI", Arial, sans-serif', PDF_FONT_STACK_BODY);
+    );
 
-  const interStyleTag = getPdfInterStyleTag();
+  const mendlStyleTag = getPdfMendlStyleTag();
   const materialIconsStyleTag = getPdfMaterialIconsStyleTag();
-  const needsInterStyle =
-    !!interStyleTag && !normalized.includes('data-pdf-inter-fonts="true"');
+  const needsMendlStyle =
+    !!mendlStyleTag && !normalized.includes('data-pdf-mendl-fonts="true"');
   const needsMaterialStyle =
     !!materialIconsStyleTag &&
     !normalized.includes('data-pdf-material-icons="true"');
 
-  if (!needsInterStyle && !needsMaterialStyle) {
+  if (!needsMendlStyle && !needsMaterialStyle) {
     return normalized;
   }
 
   const styleInjection = [
-    needsInterStyle ? interStyleTag : "",
+    needsMendlStyle ? mendlStyleTag : "",
     needsMaterialStyle ? materialIconsStyleTag : "",
   ]
     .filter(Boolean)
@@ -765,6 +855,43 @@ function normalizePdfTypography(html) {
     return normalized.replace(/<\/head>/i, `${styleInjection}\n</head>`);
   }
   return `${styleInjection}\n${normalized}`;
+}
+
+function extractPdfTextByPageRange(pdfPath, pageRangeText) {
+  if (!pdfPath || !existsSync(pdfPath)) return "";
+
+  const raw = String(pageRangeText || "").trim();
+  const match = /^(\d+)(?:\s*-\s*(\d+))?$/.exec(raw);
+  if (!match) return "";
+
+  const start = Number(match[1]);
+  const end = Number(match[2] || match[1]);
+  if (
+    !Number.isFinite(start) ||
+    !Number.isFinite(end) ||
+    start < 1 ||
+    end < 1
+  ) {
+    return "";
+  }
+
+  try {
+    return execFileSync(
+      "pdftotext",
+      [
+        "-layout",
+        "-f",
+        String(Math.min(start, end)),
+        "-l",
+        String(Math.max(start, end)),
+        pdfPath,
+        "-",
+      ],
+      { encoding: "utf8" },
+    );
+  } catch {
+    return "";
+  }
 }
 
 // ── Physical Tab + Tier mapping ────────────────────────────────────────────
@@ -1286,73 +1413,74 @@ function buildTocContinuationPageHtml(pageNumber, clustersHtml) {
 function buildSectionHeaderHtml(
   sectionNum,
   sectionTitle,
-  revNum,
-  revDate,
   qrDataUrl,
+  options = {},
 ) {
+  const manualKind = options.manualKind === "handbook" ? "handbook" : "safety";
+  const isHandbookHeader = manualKind === "handbook";
   const titleShort =
     sectionTitle.length > 38 ? sectionTitle.slice(0, 35) + "…" : sectionTitle;
-  const tabRef = sectionToTab(sectionNum);
   const mishRef = sectionToMishRef(sectionNum);
+  const structureLabel = isHandbookHeader
+    ? `HANDBOOK SECTION\u00a0${sectionNum}`
+    : `MISH\u00a0${sectionNum}\u00a0\u2014\u00a0MISH\u00a0${mishRef}`;
+  const qrLabel = isHandbookHeader
+    ? `HB\u00a0${sectionNum}`
+    : `MISH\u00a0${sectionNum}`;
   const font = PDF_FONT_STACK_BODY;
   const pad = "padding:0 0.55in 0 1.25in";
-
-  // Page bubble — Puppeteer replaces <span class="pageNumber"> / <span class="totalPages">
-  const pageBubble = [
-    `<span style="display:inline-flex;align-items:center;gap:3pt;`,
-    `background:${BRAND_COLORS.primary};color:#fff;padding:2pt 8pt;`,
-    `border-radius:9pt;font-size:8pt;font-weight:700;letter-spacing:0.03em;`,
-    `white-space:nowrap;margin-bottom:2pt;">`,
-    `Pg.\u00a0<span class="pageNumber"></span>\u00a0/\u00a0<span class="totalPages"></span>`,
-    `</span>`,
-  ].join("");
 
   const qrMark = qrDataUrl
     ? [
         `<div style="display:flex;flex-direction:column;align-items:center;gap:2pt;`,
-        `flex:0 0 auto;padding-left:8pt;">`,
-        `<img src="${qrDataUrl}" alt="Scan MISH ${sectionNum}"`,
-        ` style="width:32pt;height:32pt;border-radius:2pt;`,
+        `flex:0 0 auto;padding-right:8pt;align-self:stretch;justify-content:flex-end;">`,
+        `<img src="${qrDataUrl}" alt="Scan section ${sectionNum}"`,
+        ` style="width:40pt;height:40pt;border-radius:2pt;`,
         `border:0.5pt solid ${BRAND_COLORS.secondary};display:block;" />`,
         `<span style="font-size:5pt;font-weight:700;color:${BRAND_COLORS.secondaryText};`,
-        `text-transform:uppercase;letter-spacing:0.06em;">MISH ${sectionNum}</span>`,
+        `text-transform:uppercase;letter-spacing:0.06em;">${qrLabel}</span>`,
         `</div>`,
       ].join("")
     : "";
 
+  const rightLogoMark = LOGO_COLOR_DATA_URL
+    ? [
+        `<div style="display:flex;flex-direction:column;align-items:center;gap:2pt;`,
+        `flex:0 0 auto;padding-left:6pt;justify-content:center;">`,
+        `<img src="${LOGO_COLOR_DATA_URL}" alt="MH Construction"`,
+        ` style="height:40pt;max-width:114pt;width:auto;object-fit:contain;display:block;image-rendering:-webkit-optimize-contrast;" />`,
+        `</div>`,
+      ].join("")
+    : [
+        `<div style="display:flex;align-items:center;justify-content:center;`,
+        `flex:0 0 auto;padding-left:6pt;">`,
+        `<span style="font-size:10pt;font-weight:900;color:${BRAND_COLORS.primary};letter-spacing:0.04em;">MHC</span>`,
+        `</div>`,
+      ].join("");
+
   return [
-    `<div style="width:100%;background:white;border-bottom:1.5pt solid ${BRAND_COLORS.secondary};`,
+    `<div style="width:100%;background:linear-gradient(180deg,#ffffff 0%,#f7f8f7 100%);border-bottom:1.5pt solid ${BRAND_COLORS.secondary};`,
     `${pad};height:0.75in;display:flex;align-items:flex-start;position:relative;`,
     `justify-content:space-between;font-family:${font};padding-top:6pt;`,
     `-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box;gap:8pt;overflow:hidden;">`,
 
-    // ZONE 1 — MISH structural reference chip (matches body card chip) + title
-    `<div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden;gap:2pt;">`,
-    `<span style="display:inline-block;align-self:flex-start;background:${BRAND_COLORS.primary};color:#ffffff;`,
-    `font-size:7.5pt;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;`,
-    `padding:1.5pt 8pt;border-radius:9pt;line-height:1.1;white-space:nowrap;`,
-    `-webkit-print-color-adjust:exact;print-color-adjust:exact;">`,
-    `MISH\u00a0${sectionNum}\u00a0\u2014\u00a0MISH\u00a0${mishRef}`,
-    `</span>`,
-    `<span style="font-size:7.5pt;font-weight:700;color:${BRAND_COLORS.primary};line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${titleShort}</span>`,
-    `</div>`,
-
-    // ZONE 2 — MHC logo truly centered via absolute positioning
-    `<div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;justify-content:center;align-items:center;pointer-events:none;">`,
-    LOGO_COLOR_DATA_URL
-      ? `<img src="${LOGO_COLOR_DATA_URL}" style="height:36pt;max-width:144pt;width:auto;object-fit:contain;image-rendering:-webkit-optimize-contrast;" alt="MH Construction" />`
-      : `<span style="font-size:12pt;font-weight:900;color:${BRAND_COLORS.primary};letter-spacing:0.04em;">MHC</span>`,
-    `</div>`,
-
-    // ZONE 3 — page bubble + tab location + revision
-    `<div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-start;gap:1pt;">`,
-    pageBubble,
-    `<span style="font-size:6.5pt;font-weight:700;color:${BRAND_COLORS.secondary};line-height:1.2;letter-spacing:0.04em;">BINDER LOCATION: TAB\u00a0${tabRef}</span>`,
-    `<span style="font-size:6.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;line-height:1.3;">Rev.\u00a0${revNum}\u00a0${revDate}</span>`,
-    `</div>`,
-
-    // ZONE 4 — section QR code
+    // ZONE 1 — section QR code at far-left edge
     qrMark,
+
+    // ZONE 2 — MISH structural reference + title
+    `<div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden;gap:2pt;">`,
+    `<span style="display:block;align-self:flex-start;color:${BRAND_COLORS.secondaryText};`,
+    `font-size:7.2pt;font-weight:700;letter-spacing:0.11em;text-transform:uppercase;`,
+    `line-height:1.1;white-space:nowrap;">`,
+    structureLabel,
+    `</span>`,
+    `<span style="font-size:11pt;font-weight:900;line-height:1.12;letter-spacing:-0.01em;`,
+    `color:${BRAND_COLORS.primaryDark};text-shadow:0 0 0.01pt rgba(18,35,27,0.2);`,
+    `white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${titleShort}</span>`,
+    `</div>`,
+
+    // ZONE 3 — MH logo at far right for additional header breathing room
+    rightLogoMark,
 
     `</div>`,
   ].join("");
@@ -1368,55 +1496,33 @@ function buildSectionHeaderHtml(
  * Styles are inlined because Puppeteer's footer template runs in an isolated
  * document context with no access to components.css.
  */
-function buildSectionFooterHtml() {
+function buildSectionFooterHtml(sectionNum, revNum, revDate, options = {}) {
+  const manualKind = options.manualKind === "handbook" ? "handbook" : "safety";
+  const isHandbookFooter = manualKind === "handbook";
   const font = PDF_FONT_STACK_BODY;
-  const contactMeta = "Company Contact";
-  const trustMeta = "Accreditation and Trust";
-  // Use precomputed base64 data URLs from BRAND_TOKENS — file:// cannot load in
-  // Puppeteer's isolated header/footer context.
-  const agcLogo = BRAND_TOKENS["{{BRAND_AGC_HORIZONTAL}}"];
-  const bbbLogo = BBB_LOGO_DATA_URL || BRAND_TOKENS["{{BRAND_BBB_SEAL}}"];
-  const vobLogo = BRAND_TOKENS["{{BRAND_WA_VOB_LOGO}}"];
-
-  // Footer metrics mirror the form cover/footer chrome.
-  const contentRow = [
-    `<div style="width:100%;display:grid;grid-template-columns:1.6fr 1fr;align-items:end;`,
-    `gap:18pt;padding:0 0.9in 0 0.92in;background:#ffffff;box-sizing:border-box;">`,
-
-    // LEFT — Company Contact
-    `<div style="min-width:0;font-family:${font};line-height:1.42;color:${BRAND_COLORS.primaryDark};">`,
-    `<div style="font-size:7pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;color:${BRAND_COLORS.secondaryText};margin-bottom:4pt;">${contactMeta}</div>`,
-    `<div style="font-size:8.4pt;font-weight:800;color:${BRAND_COLORS.primaryDark};white-space:nowrap;">${BRAND.companyName}</div>`,
-    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.addressStreet}</div>`,
-    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.addressCityStateZip}</div>`,
-    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.phone} \u00b7 ${BRAND.website}</div>`,
-    `<div style="font-size:7.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;margin-top:5pt;">${BRAND_LICENSES_INLINE}</div>`,
-    `</div>`,
-
-    // CENTER-RIGHT — Accreditation & Trust (mirrors cover .trust block)
-    `<div style="min-width:0;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;gap:5pt;font-family:${font};">`,
-    `<div style="font-size:7pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;color:${BRAND_COLORS.secondaryText};text-align:right;white-space:nowrap;margin-bottom:5pt;">${trustMeta}</div>`,
-    `<div style="display:flex;align-items:flex-end;justify-content:flex-end;gap:9pt;">`,
-    agcLogo
-      ? `<img src="${agcLogo}" alt="AGC membership" style="height:0.38in;width:auto;display:block;" />`
-      : `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">AGC</span>`,
-    bbbLogo
-      ? `<img src="${bbbLogo}" alt="BBB accredited business" style="height:0.41in;width:auto;display:block;" />`
-      : `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">BBB</span>`,
-    vobLogo
-      ? `<img src="${vobLogo}" alt="Washington certified veteran owned business" style="height:0.55in;width:auto;display:block;" />`
-      : `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">VOB</span>`,
-    `</div>`,
-    `</div>`,
-
-    `</div>`,
-  ].join("");
-
+  const tabRef = sectionToTab(sectionNum);
+  const centerMeta = isHandbookFooter
+    ? `SECTION\u00a0${sectionNum}\u00a0\u00b7\u00a0REV\u00a0${revNum}\u00a0\u00b7\u00a0${revDate}`
+    : `TAB\u00a0${tabRef}\u00a0\u00b7\u00a0REV\u00a0${revNum}\u00a0\u00b7\u00a0${revDate}`;
+  const compactContact = `${BRAND.companyName} \u00b7 ${BRAND.phone} \u00b7 ${BRAND.website}`;
   return [
     `<div style="width:100%;height:100%;font-family:${font};`,
     `box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;`,
     `display:flex;flex-direction:column;justify-content:flex-end;">`,
-    contentRow,
+    `<div style="width:100%;box-sizing:border-box;border-top:1.5pt solid ${BRAND_COLORS.primary};padding-top:4pt;">`,
+    `<div style="width:100%;padding:0 0.75in 0 1.25in;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:baseline;gap:6pt;line-height:1.1;">`,
+    `<span style="font-size:6.2pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;letter-spacing:0.01em;">`,
+    `<span style="font-weight:800;color:${BRAND_COLORS.primaryDark};letter-spacing:0.04em;">MH CONSTRUCTION, INC.</span>`,
+    `\u00a0\u00b7\u00a0${compactContact.replace("MH Construction, Inc. \u00b7 ", "")}`,
+    `</span>`,
+    `<span style="font-size:5.9pt;font-weight:700;color:${BRAND_COLORS.secondaryText};white-space:nowrap;letter-spacing:0.01em;">`,
+    centerMeta,
+    `</span>`,
+    `<span style="font-size:7pt;font-weight:800;color:${BRAND_COLORS.primaryDark};white-space:nowrap;">`,
+    `Page\u00a0<span class="pageNumber"></span>\u00a0of\u00a0<span class="totalPages"></span>`,
+    `</span>`,
+    `</div>`,
+    `</div>`,
     `</div>`,
   ].join("");
 }
@@ -1557,7 +1663,7 @@ async function applyMeasuredFieldsToPdf(pdfPath, fields) {
   const pdfDoc = await PDFDocument.load(pdfBytes);
   const form = pdfDoc.getForm();
   const pages = pdfDoc.getPages();
-  const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  const font = await embedPdfMendlBodyFont(pdfDoc);
   const inch = (n) => n * 72;
   const widgetInsets = {
     text: { left: 0.015, right: 0.015, top: 0.01, bottom: 0.055 },
@@ -1629,7 +1735,7 @@ async function addFillableFieldsToLetterhead(pdfPath) {
   const pages = pdfDoc.getPages();
   const page = pages[0];
   const page2 = pages[1]; // continuation page
-  const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  const font = await embedPdfMendlBodyFont(pdfDoc);
 
   const pageHeight = page.getHeight();
   const inch = (n) => n * 72;
@@ -4236,7 +4342,11 @@ async function collectHtmlTemplateFiles(dirPath) {
       out.push(...(await collectHtmlTemplateFiles(fullPath)));
       continue;
     }
-    if (entry.isFile() && entry.name.endsWith(".html")) {
+    if (
+      entry.isFile() &&
+      entry.name.endsWith(".html") &&
+      !entry.name.startsWith("_tmp_")
+    ) {
       out.push(fullPath);
     }
   }
@@ -4280,7 +4390,8 @@ async function validateManualTemplateTypographyGuardrails() {
       const headingRequired = [
         "mendl-sans-dusk",
         "Mendl Sans Dusk",
-        "Inter",
+        "mendl-sans-dawn",
+        "Mendl Sans Dawn",
         "Roboto",
       ];
       const missing = headingRequired.filter(
@@ -4296,7 +4407,13 @@ async function validateManualTemplateTypographyGuardrails() {
     if (!bodyDecl) {
       violations.push(`${templatePath}: missing --font-body declaration`);
     } else {
-      const bodyRequired = ["Inter", "Roboto"];
+      const bodyRequired = [
+        "mendl-sans-dawn",
+        "Mendl Sans Dawn",
+        "mendl-sans-dusk",
+        "Mendl Sans Dusk",
+        "Roboto",
+      ];
       const missing = bodyRequired.filter((token) => !bodyDecl.includes(token));
       if (missing.length > 0) {
         violations.push(
@@ -5172,6 +5289,42 @@ async function generateTabs() {
     : "safety-manual-tabs.html";
   let html = await readFile(join(DOCS_DIR, `manuals/${templateName}`), "utf-8");
 
+  // Keep tab headers aligned with canonical manifest section titles.
+  if (!isEmployeeHandbook && existsSync(MANIFEST)) {
+    try {
+      const { sections = [] } = JSON.parse(await readFile(MANIFEST, "utf-8"));
+      const titleMap = new Map(
+        sections
+          .map((section) => [
+            Number(section.number),
+            String(section.title || "").trim(),
+          ])
+          .filter(
+            ([number, title]) =>
+              Number.isFinite(number) && number > 0 && title.length > 0,
+          ),
+      );
+
+      for (let n = 1; n <= 44; n++) {
+        const canonicalTitle = titleMap.get(n);
+        if (!canonicalTitle) continue;
+        const nn = String(n).padStart(2, "0");
+        const sectionBlockPattern = new RegExp(
+          `(<!--\\s*Section\\s*${nn}\\s*-->[\\s\\S]*?<div class="tab-section-title">)([\\s\\S]*?)(</div>)`,
+          "i",
+        );
+        html = html.replace(
+          sectionBlockPattern,
+          `$1${escapeHtml(canonicalTitle)}$3`,
+        );
+      }
+    } catch (err) {
+      console.warn(
+        `  ⚠  Could not synchronize safety tab section titles from manifest: ${err.message}`,
+      );
+    }
+  }
+
   // ── Replace dashboard QR placeholder in footer (shared across all tabs) ──
   const dashboardQrDataUrl = await buildQrDataUrl(BRAND.qrCodes.dashboard);
   html = html.replaceAll("{{BRAND_QR_DASHBOARD}}", dashboardQrDataUrl);
@@ -5508,13 +5661,6 @@ function buildReferencePdfHtml(sections) {
 
 // ── Template: Section PDFs ────────────────────────────────────────────────────
 async function generateSections(filter = null) {
-  if (isEmployeeHandbook) {
-    console.log(
-      "\n📑 Skipping section PDF generation (handbook sections are in DOCX format)",
-    );
-    return;
-  }
-
   if (!existsSync(MANIFEST)) {
     const manifestName = isEmployeeHandbook
       ? "employee-handbook.json"
@@ -5526,15 +5672,41 @@ async function generateSections(filter = null) {
     process.exit(1);
   }
 
-  const { sections } = JSON.parse(await readFile(MANIFEST, "utf-8"));
+  const manifestData = JSON.parse(await readFile(MANIFEST, "utf-8"));
+  const { sections } = manifestData;
+  const handbookSourceFile = isEmployeeHandbook
+    ? String(manifestData?.document?.sourceFile || "").trim()
+    : "";
+  const handbookSourcePdfPath = handbookSourceFile
+    ? handbookSourceFile.startsWith("documents/")
+      ? join(ROOT, handbookSourceFile)
+      : join(DOCS_DIR, handbookSourceFile)
+    : "";
   const sectionsDir = join(OUTPUT_DIR, "sections");
   await ensureDir(sectionsDir);
 
   // Optional: render only a single section
-  const targets =
+  const rawTargets =
     filter === null
       ? sections
       : sections.filter((s) => String(s.number) === String(filter));
+  const targets = rawTargets.map((section) => {
+    const numeric = Number(section.number ?? section.numberStr);
+    const numberStr =
+      section.numberStr ||
+      String(Number.isFinite(numeric) ? numeric : 0).padStart(2, "0");
+    return {
+      ...section,
+      number: Number.isFinite(numeric) ? numeric : section.number,
+      numberStr,
+      slug:
+        section.slug ||
+        String(section.title || `section-${numberStr}`)
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-|-$/g, ""),
+    };
+  });
 
   console.log(`\n📑 Generating ${targets.length} section PDF(s)…`);
 
@@ -5549,18 +5721,65 @@ async function generateSections(filter = null) {
   for (const section of targets) {
     // Generate branded QR code pointing to the section's cluster anchor card
     // so the printed PDF matches the website's deep-link layout.
-    const sectionUrl =
-      clusterUrlForSection(Number(section.number)) ||
-      `${SITE_URL}/resources/safety-manual/contents`;
+    const sectionUrl = isEmployeeHandbook
+      ? `${ACTIVE_MANUAL_DIGITAL_URL}#section-${section.numberStr}`
+      : clusterUrlForSection(Number(section.number)) ||
+        `${SITE_URL}/resources/safety-manual/contents`;
     const qrDataUrl = await buildQrDataUrl(sectionUrl);
+
+    let sectionSource =
+      typeof section.body === "string" ? section.body.trim() : "";
+    if (
+      !sectionSource &&
+      isEmployeeHandbook &&
+      Number(section.number) > 1 &&
+      section.pages
+    ) {
+      sectionSource = extractPdfTextByPageRange(
+        handbookSourcePdfPath,
+        String(section.pages),
+      ).trim();
+    }
+    if (!sectionSource && isEmployeeHandbook && section.docxPath) {
+      const docxPathText = String(section.docxPath).trim();
+      const sectionDocxPath = docxPathText.startsWith("documents/")
+        ? join(ROOT, docxPathText)
+        : join(DOCS_DIR, docxPathText);
+      if (existsSync(sectionDocxPath)) {
+        const mammothMod = await import("mammoth");
+        const convertToHtml =
+          mammothMod?.convertToHtml || mammothMod?.default?.convertToHtml;
+        if (typeof convertToHtml === "function") {
+          const docxResult = await convertToHtml({ path: sectionDocxPath });
+          sectionSource = cleanWordHtml(docxResult?.value || "").trim();
+        }
+      } else {
+        console.warn(
+          `⚠️  Handbook section DOCX source not found: ${section.docxPath}`,
+        );
+      }
+    }
+    if (!sectionSource && section.subtitle) {
+      sectionSource = `<p>${escapeHtml(section.subtitle)}</p>`;
+    }
+    if (!sectionSource) {
+      sectionSource = "<p><em>No content provided.</em></p>";
+    }
 
     let sectionBody;
     if (section.number === 0) {
-      sectionBody = textToTocHtml(section.body);
-    } else if (section.body.trimStart().startsWith("<")) {
-      sectionBody = cleanWordHtml(section.body);
+      sectionBody = textToTocHtml(sectionSource);
+    } else if (sectionSource.trimStart().startsWith("<")) {
+      sectionBody = cleanWordHtml(sectionSource);
     } else {
-      sectionBody = textToHtml(section.body);
+      sectionBody = textToHtml(sectionSource);
+    }
+
+    if (isEmployeeHandbook) {
+      sectionBody = applyHandbookBrandTerminology(
+        sectionBody,
+        Number(section.number),
+      );
     }
 
     // Inject section data + brand tokens; run section-specific post-processing
@@ -5577,19 +5796,25 @@ async function generateSections(filter = null) {
     );
 
     // Post-process: 3-Hour Rule callout, Addendum A table, form page breaks
-    html = postProcessSectionHtml(html, section.number);
+    if (!isEmployeeHandbook) {
+      html = postProcessSectionHtml(html, section.number);
+    }
 
     // Build per-section Puppeteer native header and footer
     const headerHtml = buildSectionHeaderHtml(
       section.numberStr,
       section.title,
-      BRAND.revisionNumber,
-      BRAND.revisionDate,
       qrDataUrl,
+      { manualKind: isEmployeeHandbook ? "handbook" : "safety" },
     );
 
     // UX REFRESH 2026 — three-tier footer + thumb-zone QR FAB on every page
-    const footerHtml = buildSectionFooterHtml();
+    const footerHtml = buildSectionFooterHtml(
+      section.numberStr,
+      BRAND.revisionNumber,
+      BRAND.revisionDate,
+      { manualKind: isEmployeeHandbook ? "handbook" : "safety" },
+    );
 
     const pdfName = `${section.numberStr}-${section.slug}.pdf`;
     const pdfPath = join(sectionsDir, pdfName);
@@ -5603,7 +5828,7 @@ async function generateSections(filter = null) {
         margin: {
           top: "1.25in", // accommodates enlarged header logo + 0.35in gap
           right: "0.75in",
-          bottom: "1.75in", // clears full footer + line-height buffer (must match @page rule in safety-manual-section.html)
+          bottom: "0.4in", // compact footer + maximum usable body space
           left: "1.25in",
         },
       },
@@ -6127,6 +6352,42 @@ function cleanWordHtml(html) {
   out = out.replaceAll(/<col\s[^>]*\/?>/gi, "");
 
   return out.trim();
+}
+
+/**
+ * Apply conservative MH terminology normalization to handbook HTML while
+ * preserving comprehensive source policy content.
+ */
+function applyHandbookBrandTerminology(html, sectionNumber) {
+  let out = String(html || "");
+
+  const replacements = [
+    [/\bMH Construction\s+Inc\.?\b/g, "MH Construction, Inc."],
+    [/\bclients\b/g, "Client Partners"],
+    [/\bclient\b/g, "Client Partner"],
+    [/\bsubcontractors\b/g, "Trade Partners"],
+    [/\bsubcontractor\b/g, "Trade Partner"],
+    [/\bwork\s*from\s*home\b/gi, "remote-work"],
+  ];
+
+  for (const [pattern, replacement] of replacements) {
+    out = out.replaceAll(pattern, replacement);
+  }
+
+  out = out.replaceAll(/MH Construction,\s*Inc\.\.+/g, "MH Construction, Inc.");
+  out = out.replaceAll(/\bInc\.\.+/g, "Inc.");
+
+  if (
+    Number(sectionNumber) === 1 &&
+    !/Built on Quality, Backed by Trust\./i.test(out)
+  ) {
+    out = out.replace(
+      /<\/p>/i,
+      `</p><p><strong>Built on Quality, Backed by Trust.</strong></p>`,
+    );
+  }
+
+  return out;
 }
 
 /**

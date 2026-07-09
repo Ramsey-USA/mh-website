@@ -1,13 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   themeColor: [
@@ -42,7 +35,7 @@ export default function DashboardRootLayout(
     process.env["NEXT_PUBLIC_ENABLE_ADOBE_FONTS"] !== "false";
 
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         {enableAdobeFonts ? (
           <>

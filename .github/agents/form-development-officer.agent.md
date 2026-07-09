@@ -64,8 +64,8 @@ All measurements are canonical. Do not alter without explicit approval. These va
 - Body: `top: 2.34in` · typing box **`height: 6.5in`**
 
 ### AcroForm field styles
-- **All body fields**: Helvetica (Standard), 11pt, `rgb(0.118, 0.224, 0.173)` (#1E392C), scrolling disabled
-- **Single-line fields**: Helvetica Bold, 12pt, `rgb(0.118, 0.224, 0.173)`, transparent borders (`borderColor: rgb(1,1,1)`, `borderWidth: 0`)
+- **All body fields**: Mendl Sans Dawn, 11pt, `rgb(0.118, 0.224, 0.173)` (#1E392C), fallback Roboto, scrolling disabled
+- **Single-line fields**: Mendl Sans Dusk (Bold), 12pt, `rgb(0.118, 0.224, 0.173)`, fallback Roboto, transparent borders (`borderColor: rgb(1,1,1)`, `borderWidth: 0`)
 - Call `field.setFontSize()` AFTER `field.addToPage()` — the `/DA` entry does not exist before `addToPage`.
 
 ### Footer

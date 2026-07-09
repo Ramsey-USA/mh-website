@@ -164,7 +164,7 @@ When creating a new page hero section:
 | Trade Partners | "Building Success Together"                                                | B2B partnership          |
 | Veterans       | "Honoring Those Who Served"                                                | Veteran support          |
 
-**NOTE**: Booking, AI Estimator, and 3D Explorer pages have been removed (Dec 2025).
+**NOTE**: Booking, automated estimate, and 3D Explorer pages have been removed (Dec 2025).
 All consultation CTAs now direct to `/contact` for face-to-face consultation.
 
 ### 🎯 Direct Consultation Path (Dec 2025)
@@ -1022,7 +1022,7 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 ### Email Signature Standards
 
 ```html
-<div style="font-family: Inter, Roboto, sans-serif; color: #212121;">
+<div style="font-family: \"mendl-sans-dawn\", \"Mendl Sans Dawn\", \"mendl-sans-dusk\", \"Mendl Sans Dusk\", Roboto, sans-serif; color: #212121;">
   <div style="font-weight: 600; color: #386851; margin-bottom: 8px;">
     [Name] | [Title]
   </div>
@@ -1070,7 +1070,7 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 #### Visual Elements
 
 - [ ] Hunter Green (#386851) and Leather Tan (#BD9264) used correctly
-- [ ] Inter font family implemented
+- [ ] Mendl font family implemented
 - [ ] Material Icons used exclusively (no emojis)
 - [ ] Proper contrast ratios maintained (4.5:1 minimum)
 - [ ] Consistent spacing and layout

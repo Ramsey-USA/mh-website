@@ -17,15 +17,22 @@
          --ink: #12231b;
          --paper: #ffffff;
          --muted: #f6f8f7;
-         --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "Inter", Roboto, sans-serif;
-         --font-body: "Inter", Roboto, sans-serif;
+         --content-lane-indent: 0in;
+         --content-lane-width: calc(100% - var(--content-lane-indent));
+         --website-body-size: 10.4pt;
+         --website-body-leading: 1.68;
+         --website-body-color: #173327;
+         --website-body-tracking: 0.003em;
+         --website-subhead-tracking: 0.05em;
+         --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dawn", "Mendl Sans Dawn", Roboto, sans-serif;
+         --font-body: "mendl-sans-dawn", "Mendl Sans Dawn", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif;
        }
 
        /* ── Suppress @page running headers/footers ────────────────────────────
         Header & footer are fully managed by Puppeteer displayHeaderFooter;
         CSS @page margin-area rules are disabled to prevent double-rendering. */
        @page {
-         margin: 1.25in 0.75in 1.75in 1.25in;
+         margin: 1.25in 0.75in 0.4in 1.25in;
          @top-left {
            content: none;
            border: none;
@@ -126,8 +133,95 @@
       */
        .section-body {
          margin-top: 6pt;
-         font-size: 10pt;
+         font-family: var(--font-body);
+         font-size: var(--website-body-size);
+         color: var(--website-body-color);
          line-height: var(--leading-field);
+         letter-spacing: var(--website-body-tracking);
+         text-rendering: optimizeLegibility;
+         -webkit-font-smoothing: antialiased;
+         padding-bottom: 24pt;
+       }
+
+       .section-body p,
+       .section-body li,
+       .section-body .sec-num-text {
+         font-family: var(--font-body);
+         font-size: var(--website-body-size);
+         color: var(--website-body-color);
+         line-height: var(--website-body-leading);
+         letter-spacing: var(--website-body-tracking);
+       }
+
+       .section-body .sec-num-text {
+         font-weight: 500;
+       }
+
+       .section-body strong {
+         color: var(--brand-primary-dark);
+         font-weight: 700;
+       }
+
+       .section-body em {
+         color: var(--brand-secondary-text);
+         font-style: italic;
+       }
+
+       .section-body a {
+         color: var(--brand-primary);
+         text-decoration: underline;
+         text-decoration-color: var(--brand-secondary-light);
+         text-decoration-thickness: 0.06em;
+         text-underline-offset: 0.12em;
+         font-weight: 600;
+       }
+
+       .section-body blockquote {
+         position: relative;
+         margin: 12pt 0 14pt var(--content-lane-indent);
+         margin-right: 0;
+         width: var(--content-lane-width);
+         box-sizing: border-box;
+         padding: 11pt 12pt 10pt;
+         border-left: 3.5pt solid var(--brand-primary);
+         border-top: 0.5pt solid rgba(45, 94, 62, 0.28);
+         border-bottom: 0.5pt solid rgba(45, 94, 62, 0.28);
+         border-radius: 2pt;
+         background: linear-gradient(120deg, rgba(56, 104, 81, 0.1) 0%, rgba(189, 146, 100, 0.1) 100%);
+         color: #173327;
+         box-shadow: inset 0 0 0 0.5pt rgba(45, 94, 62, 0.2);
+         -webkit-print-color-adjust: exact;
+         print-color-adjust: exact;
+       }
+
+       .section-body blockquote::before {
+         content: "\201C";
+         position: absolute;
+         top: 3pt;
+         left: 8pt;
+         font-family: var(--font-heading);
+         font-size: 18pt;
+         line-height: 1;
+         color: rgba(45, 94, 62, 0.32);
+       }
+
+       .section-body blockquote p {
+         margin: 0;
+         padding-left: 8pt;
+         line-height: 1.52;
+         text-indent: 0;
+       }
+
+       .section-body blockquote p + p {
+         margin-top: 6pt;
+       }
+
+       .section-body blockquote p strong {
+         font-family: var(--font-heading);
+         font-size: 9pt;
+         letter-spacing: 0.06em;
+         text-transform: uppercase;
+         color: var(--brand-primary);
        }
 
        /* Keep checklist and inspection tables readable without cell overflow. */
@@ -145,10 +239,11 @@
        /* not already carry a branded class (signature-table, threshold-table, */
        /* revision-info-table, ptp-*, orientation-record-table, etc.).        */
        .section-body .sec-data-table {
-         width: calc(100% - 1in);
-         margin: 8pt 0.5in 12pt;
+         width: var(--content-lane-width);
+         margin: 8pt 0 12pt var(--content-lane-indent);
          border-collapse: collapse;
          border: 0.75pt solid var(--brand-secondary, #2d5e3e);
+         font-family: var(--font-body);
          font-size: var(--type-print-table, 9pt);
          page-break-inside: auto;
          break-inside: auto;
@@ -169,6 +264,13 @@
          padding: 3pt 6pt;
          border: 0.5pt solid #b9c4bd;
          vertical-align: top;
+         font-family: var(--font-body);
+         font-size: var(--type-print-table, 9pt);
+         line-height: 1.45;
+       }
+       .section-body .sec-data-table tr {
+         page-break-inside: avoid;
+         break-inside: avoid;
        }
        .section-body .sec-data-table tbody tr:nth-child(even) td {
          background: #f3f6f4;
@@ -193,10 +295,91 @@
          margin-left: 0;
        }
 
+       .section-body .form-standalone-header,
+       .section-body .form-badge-header {
+         color: #ffffff;
+       }
+
+       .section-body .sec-subhead,
+       .section-body h4.sec-subhead {
+         position: relative;
+         display: block;
+         margin: 14pt 0 8pt;
+         margin-left: 0;
+         padding: 6pt 12pt 5pt;
+         font-family: var(--font-heading);
+         font-size: 11pt;
+         font-weight: 800;
+         letter-spacing: var(--website-subhead-tracking);
+         text-transform: uppercase;
+         color: var(--brand-primary-dark);
+         background: linear-gradient(90deg, rgba(56, 104, 81, 0.1), rgba(189, 146, 100, 0.12));
+         border-left: 3pt solid var(--brand-primary);
+         border-top: 0.5pt solid rgba(45, 94, 62, 0.32);
+         border-bottom: 0.5pt solid rgba(45, 94, 62, 0.32);
+         border-radius: 3pt;
+         box-shadow: inset 0 0 0 0.5pt rgba(45, 94, 62, 0.14);
+         page-break-after: avoid;
+         break-after: avoid;
+         -webkit-print-color-adjust: exact;
+         print-color-adjust: exact;
+       }
+
+       .section-body .sec-subhead::before,
+       .section-body h4.sec-subhead::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         height: 1pt;
+         background: rgba(56, 104, 81, 0.2);
+       }
+
+       .section-body .sec-subhead > strong:first-child,
+       .section-body h4.sec-subhead > strong:first-child {
+         color: var(--brand-secondary-text);
+         font-weight: 900;
+         margin-right: 8pt;
+       }
+
        /* Universal hanging indent — body text indented 0.5" from left anchor */
        .section-body p {
-         margin-left: 0.5in;
+         margin-left: var(--content-lane-indent);
+         margin-right: 0;
          margin-bottom: 9pt;
+         max-width: var(--content-lane-width);
+         box-sizing: border-box;
+         text-wrap: pretty;
+         hanging-punctuation: first;
+         hyphens: auto;
+         widows: 2;
+         orphans: 2;
+       }
+
+       .section-body p + p {
+         margin-top: 3pt;
+       }
+
+       .section-body > p:has(> strong:only-child) {
+         margin: 10pt 0 7pt;
+       }
+
+       .section-body > p > strong:only-child {
+         display: inline-block;
+         padding: 3pt 8pt 2pt;
+         font-family: var(--font-heading);
+         font-size: 9.4pt;
+         font-weight: 800;
+         letter-spacing: 0.06em;
+         text-transform: uppercase;
+         color: var(--brand-primary-dark);
+         background: linear-gradient(90deg, rgba(56, 104, 81, 0.1), rgba(189, 146, 100, 0.12));
+         border-left: 2.5pt solid var(--brand-primary);
+         border-radius: 2pt;
+         box-shadow: 0 0 0 0.5pt rgba(45, 94, 62, 0.15);
+         -webkit-print-color-adjust: exact;
+         print-color-adjust: exact;
        }
 
        /*
@@ -207,7 +390,7 @@
       * Uses CSS :has() — supported by Chromium 105+ / Puppeteer.
       */
        .section-body p:has(> strong:first-child) {
-         text-indent: -0.5in;
+         text-indent: 0;
        }
 
        /* ──────────────────────────────────────────────────────────────────
@@ -226,34 +409,32 @@
          margin-left: 0;
          padding: 6pt 12pt 5pt;
          text-indent: 0;
-         background: linear-gradient(
-           90deg,
-           var(--brand-primary),
-           var(--brand-primary)
-         );
-         color: #ffffff;
+         background: linear-gradient(90deg, rgba(56, 104, 81, 0.08), rgba(189, 146, 100, 0.12));
+         color: var(--brand-primary-dark);
          font-family: var(--font-heading);
-         font-size: 13pt;
+         font-size: 12.5pt;
          font-weight: 800;
-         letter-spacing: 0.05em;
+         letter-spacing: 0.035em;
          text-transform: uppercase;
-         border-left: 4pt solid var(--brand-secondary);
+         border-left: 3pt solid var(--brand-primary);
+         border-top: 0.5pt solid var(--brand-secondary);
+         border-bottom: 0.5pt solid var(--brand-secondary);
          border-radius: 3pt;
-         box-shadow: inset 0 -1pt 0 var(--brand-secondary);
+         box-shadow: none;
          page-break-after: avoid;
          break-after: avoid;
          -webkit-print-color-adjust: exact;
          print-color-adjust: exact;
        }
        .section-body p.sec-h.sec-h-0 > strong:first-child {
-         color: #ffffff;
+         color: var(--brand-secondary-text);
          margin-right: 8pt;
          font-weight: 900;
        }
 
        .section-body p.sec-h.sec-h-1 {
-         margin-left: 0.5in;
-         text-indent: -0.5in;
+         margin-left: 0;
+         text-indent: 0;
          margin-top: 8pt;
        }
        .section-body p.sec-h.sec-h-1 > strong:first-child {
@@ -262,8 +443,8 @@
        }
 
        .section-body p.sec-h.sec-h-2 {
-         margin-left: 1in;
-         text-indent: -0.5in;
+         margin-left: 0;
+         text-indent: 0;
        }
        .section-body p.sec-h.sec-h-2 > strong:first-child {
          color: var(--brand-secondary);
@@ -271,8 +452,8 @@
        }
 
        .section-body p.sec-h.sec-h-3 {
-         margin-left: 1.5in;
-         text-indent: -0.5in;
+         margin-left: 0;
+         text-indent: 0;
        }
        .section-body p.sec-h.sec-h-3 > strong:first-child {
          color: var(--brand-secondary);
@@ -285,14 +466,12 @@
          margin: 14pt 0 8pt;
          margin-left: 0;
          padding: 6pt 12pt 5pt;
-         background: linear-gradient(
-           90deg,
-           var(--brand-primary),
-           var(--brand-primary)
-         );
-         border-left: 4pt solid var(--brand-secondary);
+         background: linear-gradient(90deg, rgba(56, 104, 81, 0.08), rgba(189, 146, 100, 0.12));
+         border-left: 3pt solid var(--brand-primary);
+         border-top: 0.5pt solid var(--brand-secondary);
+         border-bottom: 0.5pt solid var(--brand-secondary);
          border-radius: 3pt;
-         box-shadow: inset 0 -1pt 0 var(--brand-secondary);
+         box-shadow: none;
          page-break-after: avoid;
          break-after: avoid;
          -webkit-print-color-adjust: exact;
@@ -300,11 +479,11 @@
        }
        .section-body .sec-num-row.sec-h-0 .sec-num,
        .section-body .sec-num-row.sec-h-0 .sec-num-text {
-         color: #ffffff;
+         color: var(--brand-primary-dark);
          font-family: var(--font-heading);
-         font-size: 13pt;
+         font-size: 12.5pt;
          font-weight: 800;
-         letter-spacing: 0.05em;
+         letter-spacing: 0.035em;
          text-transform: uppercase;
          min-width: 0;
        }
@@ -312,27 +491,34 @@
          margin-right: 8pt;
        }
        .section-body .sec-num-row.sec-h-1 {
-         margin-left: 0.5in;
+         margin-left: 0;
        }
        .section-body .sec-num-row.sec-h-2 {
-         margin-left: 1in;
+         margin-left: 0;
        }
        .section-body .sec-num-row.sec-h-3 {
-         margin-left: 1.5in;
+         margin-left: 0;
        }
 
        /* h4.sec-subhead variant — promoted "X.Y" headings from text-PDF source */
        .section-body h4.sec-subhead.sec-h.sec-h-1 {
-         margin-left: 0.5in;
-         text-indent: -0.5in;
+         margin-left: 0;
+         text-indent: 0;
        }
        .section-body h4.sec-subhead.sec-h.sec-h-2 {
-         margin-left: 1in;
-         text-indent: -0.5in;
+         margin-left: 0;
+         text-indent: 0;
+         font-size: 10.4pt;
+         border-left-color: var(--brand-secondary);
+         background: linear-gradient(90deg, rgba(45, 94, 62, 0.08), rgba(189, 146, 100, 0.08));
        }
        .section-body h4.sec-subhead.sec-h.sec-h-3 {
-         margin-left: 1.5in;
-         text-indent: -0.5in;
+         margin-left: 0;
+         text-indent: 0;
+         font-size: 9.8pt;
+         letter-spacing: 0.03em;
+         border-left-color: rgba(45, 94, 62, 0.82);
+         background: linear-gradient(90deg, rgba(45, 94, 62, 0.05), rgba(189, 146, 100, 0.05));
        }
        .section-body h4.sec-subhead.sec-h > strong:first-child {
          color: var(--brand-secondary);
@@ -348,8 +534,15 @@
        .section-body > .sec-list,
        .section-body > ul,
        .section-body > ol {
-         margin-left: 0.75in;
-         padding-left: 0;
+         margin-left: 0;
+         margin-top: 5pt;
+         margin-bottom: 8pt;
+         padding-left: 13pt;
+       }
+       .section-body .sec-list li,
+       .section-body ul li,
+       .section-body ol li {
+         margin-bottom: 4pt;
        }
 
        /* Addendum note paragraphs follow body indent */
@@ -357,7 +550,7 @@
          display: flex;
          align-items: flex-start;
          gap: 5pt;
-         margin-left: 0.5in;
+         margin-left: 0;
        }
        .section-body .addendum-note::before {
          content: var(--icon-material-info);
@@ -379,30 +572,27 @@
          margin-top: 1pt;
        }
 
-       /* PRECISION FIX 4 — Table gutter: 0.5" padding each side inside text block */
-       .section-body
-         table:not(.revision-info-table):not(.threshold-table):not(
-           .signature-table
-         ) {
-         margin-left: 0.5in;
-         margin-right: 0.5in;
-         width: calc(100% - 1in);
+       /* PRECISION FIX 4 — Table gutter: 0.5" left text lane, flush-right to content edge */
+       .section-body > table:not(.revision-info-table):not(.threshold-table):not(.signature-table):not(.sec-data-table) {
+         margin-left: var(--content-lane-indent);
+         margin-right: 0;
+         width: var(--content-lane-width);
          box-sizing: border-box;
        }
 
        /* Signature table: full content-lane width with 0.5in gutter (matches body text lane) */
        .section-body .signature-table {
-         margin-left: 0.5in;
-         margin-right: 0.5in;
-         width: calc(100% - 1in);
+         margin-left: var(--content-lane-indent);
+         margin-right: 0;
+         width: var(--content-lane-width);
          box-sizing: border-box;
        }
 
        /* Threshold table gets its own 0.5" gutter treatment */
        .section-body .threshold-table {
-         margin-left: 0.5in;
-         margin-right: 0.5in;
-         width: calc(100% - 1in);
+         margin-left: var(--content-lane-indent);
+         margin-right: 0;
+         width: var(--content-lane-width);
          box-sizing: border-box;
        }
 
@@ -413,7 +603,7 @@
          position: relative;
          margin: 0 0 16pt;
          padding: 12pt 14pt 13pt;
-         background: linear-gradient(180deg, var(--muted) 0%, var(--paper) 76%);
+         background: linear-gradient(180deg, #ffffff 0%, var(--muted) 42%, var(--paper) 100%);
          border: 1pt solid var(--brand-secondary);
          border-left: 4pt solid var(--brand-primary);
          border-radius: 2pt;
@@ -464,25 +654,36 @@
          min-width: 0;
        }
        .shc-mish-chip {
-         display: inline-block;
-         background: var(--brand-primary);
-         color: #ffffff;
-         font-size: 8.5pt;
-         font-weight: 800;
-         letter-spacing: 0.08em;
+         display: block;
+         font-family: var(--font-heading);
+         color: var(--brand-secondary-text);
+         font-size: 8pt;
+         font-weight: 700;
+         letter-spacing: 0.12em;
          text-transform: uppercase;
-         padding: 2.5pt 10pt 2pt;
-         border-radius: 1.5pt;
-         box-shadow: inset 0 -1pt 0 var(--brand-secondary);
-         margin-bottom: 5pt;
+         margin-bottom: 4pt;
        }
        .shc-title {
-         font-size: 17.5pt;
-         font-weight: 700;
-         color: var(--brand-primary);
+         font-family: var(--font-heading);
+         font-size: 20pt;
+         font-weight: 900;
          margin: 0;
-         line-height: 1.15;
-         letter-spacing: -0.005em;
+         line-height: 1.08;
+         letter-spacing: -0.01em;
+         color: var(--brand-primary);
+         background: linear-gradient(
+           90deg,
+           var(--brand-primary-dark) 0%,
+           var(--brand-primary) 44%,
+           var(--brand-secondary-text) 60%,
+           var(--brand-primary) 100%
+         );
+         -webkit-background-clip: text;
+         background-clip: text;
+         -webkit-text-fill-color: transparent;
+         text-shadow: 0 0 0.01pt rgba(18, 35, 27, 0.2);
+         -webkit-print-color-adjust: exact;
+         print-color-adjust: exact;
        }
        .shc-rev-badge {
          flex: 0 0 auto;

@@ -16,7 +16,8 @@
  * Requires: pdf-lib (devDependency)
  */
 
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import { PDFDocument, rgb } from "pdf-lib";
+import fontkit from "@pdf-lib/fontkit";
 import { readFile, writeFile, readdir } from "fs/promises";
 import { join, resolve, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -69,6 +70,51 @@ const PDF_METADATA_SUBJECT = isEmployeeHandbook
 
 const FORMS_TOC_ROWS_FIRST_PAGE = 28;
 const FORMS_TOC_ROWS_OTHER_PAGES = 34;
+const MENDL_DUSK_FONT_FILES = Object.freeze({
+  bold: [
+    "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Bold.otf",
+    "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_SemiBold.otf",
+  ],
+});
+const MENDL_DAWN_FONT_FILES = Object.freeze({
+  regular: ["Mendl Fonts/fonnts.com-Mendl_Sans_Dawn_Regular.otf"],
+});
+
+function resolvePdfFontPath(fileName) {
+  const candidates = [
+    resolve(ROOT, `public/fonts/${fileName}`),
+    resolve(ROOT, `apps/website/public/fonts/${fileName}`),
+    resolve(ROOT, `../website/public/fonts/${fileName}`),
+    resolve(ROOT, `../../apps/website/public/fonts/${fileName}`),
+  ];
+  return candidates.find((candidate) => existsSync(candidate)) || null;
+}
+
+function resolveFirstPdfFontPath(fileNames) {
+  for (const fileName of fileNames) {
+    const path = resolvePdfFontPath(fileName);
+    if (path) {
+      return path;
+    }
+  }
+  return null;
+}
+
+async function embedMendlMergeFont(pdfDoc, { bold = false } = {}) {
+  const fontPath = bold
+    ? resolveFirstPdfFontPath(MENDL_DUSK_FONT_FILES.bold)
+    : resolveFirstPdfFontPath(MENDL_DAWN_FONT_FILES.regular);
+
+  if (!fontPath) {
+    throw new Error(
+      `Unable to locate ${bold ? "Mendl heading" : "Mendl body"} font for merge output.`,
+    );
+  }
+
+  pdfDoc.registerFontkit(fontkit);
+  const fontBytes = await readFile(fontPath);
+  return pdfDoc.embedFont(fontBytes, { subset: true });
+}
 
 function normalizeSlug(value) {
   return String(value || "")
@@ -194,8 +240,8 @@ function paginateFormEntries(entries) {
 
 async function buildFormsTocPdf(entries) {
   const doc = await PDFDocument.create();
-  const fontRegular = await doc.embedFont(StandardFonts.Helvetica);
-  const fontBold = await doc.embedFont(StandardFonts.HelveticaBold);
+  const fontRegular = await embedMendlMergeFont(doc);
+  const fontBold = await embedMendlMergeFont(doc, { bold: true });
 
   const pageWidth = 612;
   const pageHeight = 792;
@@ -519,10 +565,10 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
         );
       }
     } else {
-      // Filter to include only MISH forms for MISH merge, only handbook forms for handbook merge
+      // Filter to canonical manual form IDs only; exclude helper artifacts.
       const filtered = isEmployeeHandbook
-        ? formPackages.filter((pkg) => pkg.id.includes("HANDBOOK"))
-        : formPackages.filter((pkg) => pkg.id.includes("MISH"));
+        ? formPackages.filter((pkg) => /^HANDBOOK-FORM-\d+$/i.test(pkg.id))
+        : formPackages.filter((pkg) => /^MISH\s+\d{1,2}$/i.test(pkg.id));
 
       if (filtered.length === 0) {
         console.log(

@@ -123,6 +123,7 @@ function SemiquincentennialAfterHeroSlot() {
   const [slot, setSlot] = useState<HTMLElement | null>(null);
   const showSemiquincentennialBanner =
     pathname !== "/cool-desert-nights" && pathname !== "/events";
+  const INITIAL_SLOT_DELAY_MS = 250;
 
   useEffect(() => {
     setSlot(null);
@@ -169,7 +170,7 @@ function SemiquincentennialAfterHeroSlot() {
       setSlot(createdSlot);
     };
 
-    placeSlot();
+    timeoutId = globalThis.setTimeout(placeSlot, INITIAL_SLOT_DELAY_MS);
 
     return () => {
       cancelled = true;

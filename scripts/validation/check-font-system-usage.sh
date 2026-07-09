@@ -10,6 +10,12 @@ echo "[font-system] Running documents typography guardrail..."
   npm run docs:guardrails:typography:check >/dev/null
 )
 
+echo "[font-system] Running manual template congruence guardrail..."
+(
+  cd "$ROOT_DIR"
+  npm run docs:guardrails:manual-congruence >/dev/null
+)
+
 echo "[font-system] Scanning repository for legacy font patterns..."
 
 # Keep denylist checks focused on source/template assets.
@@ -102,40 +108,42 @@ run_check "Tactic Sans|Garamond|Poppins|Roboto Condensed" "Off-brand font family
 assert_contains "apps/website/src/styles/variables.css" "--font-heading:" "Website typography variables must define heading stack"
 assert_contains "apps/website/src/styles/variables.css" "mendl-sans-dusk" "Website heading stack must include Mendl Sans Dusk"
 assert_contains "apps/website/src/styles/variables.css" "--font-body:" "Website typography variables must define body stack"
-assert_contains "apps/website/src/styles/variables.css" "Inter" "Website body stack must include Inter"
+assert_contains "apps/website/src/styles/variables.css" "mendl-sans-dawn" "Website body stack must include Mendl Sans Dawn"
+assert_contains "apps/website/src/styles/variables.css" "Roboto" "Website font stacks must include Roboto fallback"
 assert_contains "apps/dashboard/src/styles/variables.css" "--font-heading:" "Dashboard typography variables must define heading stack"
 assert_contains "apps/dashboard/src/styles/variables.css" "mendl-sans-dusk" "Dashboard heading stack must include Mendl Sans Dusk"
 assert_contains "apps/dashboard/src/styles/variables.css" "--font-body:" "Dashboard typography variables must define body stack"
-assert_contains "apps/dashboard/src/styles/variables.css" "Inter" "Dashboard body stack must include Inter"
+assert_contains "apps/dashboard/src/styles/variables.css" "mendl-sans-dawn" "Dashboard body stack must include Mendl Sans Dawn"
+assert_contains "apps/dashboard/src/styles/variables.css" "Roboto" "Dashboard font stacks must include Roboto fallback"
 
-assert_contains "apps/website/src/app/layout.tsx" "use.typekit.net/jqs8bjh.css" "Website layout must load MH Typekit kit for Mendl Sans Dusk"
-assert_contains "apps/website/src/app/layout.tsx" "next/font/google" "Website layout must import next/font/google"
-assert_contains "apps/website/src/app/layout.tsx" "Inter" "Website layout must load Inter font"
+assert_contains "apps/website/src/app/globals.css" "@font-face" "Website globals must define self-hosted font faces"
+assert_contains "apps/website/src/app/globals.css" "Mendl_Sans_Dawn_Regular.otf" "Website globals must load Mendl Sans Dawn"
+assert_contains "apps/website/src/app/globals.css" "Mendl_Sans_Dusk_Regular.otf" "Website globals must load Mendl Sans Dusk"
 assert_contains "apps/dashboard/src/app/layout.tsx" "use.typekit.net/jqs8bjh.css" "Dashboard layout must load MH Typekit kit for Mendl Sans Dusk"
-assert_contains "apps/dashboard/src/app/layout.tsx" "next/font/google" "Dashboard layout must import next/font/google"
-assert_contains "apps/dashboard/src/app/layout.tsx" "Inter" "Dashboard layout must load Inter font"
+assert_contains "apps/dashboard/src/app/layout.tsx" "NEXT_PUBLIC_ENABLE_ADOBE_FONTS" "Dashboard layout must preserve Adobe Fonts toggle"
 
 assert_contains "documents/styles/brand.css" "--font-heading:" "Document brand stylesheet must define heading stack"
 assert_contains "documents/styles/brand.css" "mendl-sans-dusk" "Document heading stack must include Mendl Sans Dusk"
 assert_contains "documents/styles/brand.css" "--font-body:" "Document brand stylesheet must define body stack"
-assert_contains "documents/styles/brand.css" "Inter" "Document body stack must include Inter"
+assert_contains "documents/styles/brand.css" "mendl-sans-dawn" "Document body stack must include Mendl Sans Dawn"
+assert_contains "documents/styles/brand.css" "Roboto" "Document font stacks must include Roboto fallback"
 
-assert_contains "docs/branding/brand-constants.md" "Inter" "Root brand constants must document Inter body font"
-assert_contains "docs/branding/brand-constants.md" "next/font/google" "Root brand constants must document Inter delivery"
+assert_contains "docs/branding/brand-constants.md" "Mendl Sans Dawn" "Root brand constants must document Mendl Sans Dawn body font"
+assert_contains "docs/branding/brand-constants.md" "self-hosted Mendl family" "Root brand constants must document self-hosted Mendl delivery"
 assert_not_contains "docs/branding/brand-constants.md" "DIN 2014" "Root brand constants must not reference legacy DIN body font"
-assert_contains "docs/branding/standards/unified-component-standards.md" "Body Font — Inter" "Root unified standards must define Inter as body font"
-assert_contains "docs/branding/standards/unified-component-standards.md" "next/font/google" "Root unified standards must document Inter delivery"
+assert_contains "docs/branding/standards/unified-component-standards.md" "Body Font — Mendl Sans Dawn" "Root unified standards must define Mendl Sans Dawn as body font"
+assert_contains "docs/branding/standards/unified-component-standards.md" "self-hosted" "Root unified standards must document self-hosted Mendl delivery"
 assert_not_contains "docs/branding/standards/unified-component-standards.md" "DIN 2014" "Root unified standards must not reference legacy DIN body font"
-assert_contains "docs/development/standards/page-compliance-checklist.md" 'Non-hero section body copy uses Inter' "Root page checklist must require Inter body copy"
+assert_contains "docs/development/standards/page-compliance-checklist.md" 'Non-hero section body copy uses Mendl Sans Dawn' "Root page checklist must require Mendl Sans Dawn body copy"
 assert_not_contains "docs/development/standards/page-compliance-checklist.md" "DIN 2014" "Root page checklist must not reference legacy DIN body font"
 
-assert_contains "apps/website/docs/branding/brand-constants.md" "Inter" "App brand constants mirror must document Inter body font"
-assert_contains "apps/website/docs/branding/brand-constants.md" "next/font/google" "App brand constants mirror must document Inter delivery"
+assert_contains "apps/website/docs/branding/brand-constants.md" "Mendl Sans Dawn" "App brand constants mirror must document Mendl Sans Dawn body font"
+assert_contains "apps/website/docs/branding/brand-constants.md" "self-hosted Mendl family" "App brand constants mirror must document self-hosted Mendl delivery"
 assert_not_contains "apps/website/docs/branding/brand-constants.md" "DIN 2014" "App brand constants mirror must not reference legacy DIN body font"
-assert_contains "apps/website/docs/branding/standards/unified-component-standards.md" "Body Font — Inter" "App unified standards mirror must define Inter as body font"
-assert_contains "apps/website/docs/branding/standards/unified-component-standards.md" "next/font/google" "App unified standards mirror must document Inter delivery"
+assert_contains "apps/website/docs/branding/standards/unified-component-standards.md" "Body Font — Mendl Sans Dawn" "App unified standards mirror must define Mendl Sans Dawn as body font"
+assert_contains "apps/website/docs/branding/standards/unified-component-standards.md" "self-hosted" "App unified standards mirror must document self-hosted Mendl delivery"
 assert_not_contains "apps/website/docs/branding/standards/unified-component-standards.md" "DIN 2014" "App unified standards mirror must not reference legacy DIN body font"
-assert_contains "apps/website/docs/development/standards/page-compliance-checklist.md" 'Non-hero section body copy uses Inter' "App page checklist mirror must require Inter body copy"
+assert_contains "apps/website/docs/development/standards/page-compliance-checklist.md" 'Non-hero section body copy uses Mendl Sans Dawn' "App page checklist mirror must require Mendl Sans Dawn body copy"
 assert_not_contains "apps/website/docs/development/standards/page-compliance-checklist.md" "DIN 2014" "App page checklist mirror must not reference legacy DIN body font"
 
 if [[ $FAIL -ne 0 ]]; then

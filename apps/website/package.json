@@ -123,8 +123,8 @@
     "docs:publish:forms": "bash scripts/r2-publish-forms.sh",
     "docs:publish:employee-handbook": "bash scripts/r2-publish-employee-handbook.sh",
     "docs:verify:published": "bash scripts/validation/verify-published-docs-urls.sh",
-    "docs:all": "npm run docs:generate && npm run docs:generate:forms && npm run docs:merge && npm run docs:merge:digital",
-    "docs:release": "npm run docs:all && npm run docs:publish:safety && npm run docs:publish:forms",
+    "docs:all": "npm run docs:generate && npm run docs:generate:handbook && npm run docs:generate:forms && npm run docs:merge && npm run docs:merge:digital && npm run docs:merge:handbook && npm run docs:merge:handbook:digital",
+    "docs:release": "npm run docs:all && npm run docs:publish:safety && npm run docs:publish:forms && npm run docs:publish:employee-handbook",
     "rfq:generate": "node documents/scripts/rfq-generate.mjs",
     "rfq:generate:help": "node documents/scripts/rfq-generate.mjs --help",
     "rfq:preview": "node documents/scripts/rfq-preview.mjs",
@@ -218,6 +218,7 @@
   },
   "optionalDependencies": {
     "@napi-rs/canvas": "^1.0.2",
+    "@pdf-lib/fontkit": "^1.1.1",
     "chrome-launcher": "^1.2.1",
     "jsqr": "^1.4.0",
     "mammoth": "^1.12.0",

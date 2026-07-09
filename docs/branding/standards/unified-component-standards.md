@@ -117,24 +117,14 @@ The gradient text in section headers, as implemented across all pages, is the co
 
 ### MH Brand Typefaces
 
-Web brand fonts use a split delivery model: Mendl Sans Dusk via the Adobe Fonts (Typekit) kit `jqs8bjh`, and Inter via `next/font/google`.
+Web brand fonts use a self-hosted Mendl family model: Mendl Sans Dusk for heading/display roles and Mendl Sans Dawn for body/running text, loaded from `/public/fonts/Mendl Fonts/`.
 
 **Heading / Subheading Font — Mendl Sans Dusk:**
 
 ```css
 font-family:
-  "mendl-sans-dusk",
-  "Mendl Sans Dusk",
-  var(--font-inter),
-  "Inter",
-  ui-sans-serif,
-  system-ui,
-  -apple-system,
-  BlinkMacSystemFont,
-  "Segoe UI",
-  "Helvetica Neue",
-  Arial,
-  sans-serif;
+  "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dawn", "Mendl Sans Dawn",
+  Roboto, sans-serif;
 ```
 
 - Display sans-serif — strong brand identity at large sizes
@@ -156,10 +146,12 @@ font-family:
 
 These utilities enable OpenType capital spacing and stylistic sets where available, helping distinctive capitals (including the "N") read more like the Mendl display personality.
 
-**Body Font — Inter:**
+**Body Font — Mendl Sans Dawn:**
 
 ```css
-font-family: var(--font-inter), "Inter", Roboto, sans-serif;
+font-family:
+  "mendl-sans-dawn", "Mendl Sans Dawn", "mendl-sans-dusk", "Mendl Sans Dusk",
+  Roboto, sans-serif;
 ```
 
 - Clean grotesk/humanist sans-serif — high legibility at small and medium sizes
@@ -167,7 +159,7 @@ font-family: var(--font-inter), "Inter", Roboto, sans-serif;
 - Tailwind utility: `font-sans` / `font-body`
 - CSS variable: `--font-body`
 
-**Font Delivery (web):** Mendl Sans Dusk is served by Adobe Fonts kit `jqs8bjh` (`https://use.typekit.net/jqs8bjh.css`), and Inter is loaded through `next/font/google`. No `/public/fonts/` self-hosting is required for web. The print/PDF pipeline (`documents/`) loads its own font stacks independently — see `documents/styles/brand.css`.
+**Font Delivery (web):** Mendl Sans Dawn and Mendl Sans Dusk are self-hosted from `/public/fonts/Mendl Fonts/` and bound through global `@font-face` rules. The print/PDF pipeline uses the same family via `documents/scripts/generate.mjs` and shared tokens in `documents/styles/brand.css`.
 
 ### Font Weights
 
@@ -436,7 +428,7 @@ Large display headers should not repeat at full intensity in consecutive section
 To preserve full-site congruency, non-hero sections must use a shared visual language.
 
 1. Non-hero section headers must follow canonical heading patterns from this document.
-2. Non-hero body copy must use approved body typography (Inter / `font-body` / `font-sans`) and approved size tiers.
+2. Non-hero body copy must use approved body typography (Mendl Sans Dawn / `font-body` / `font-sans`) and approved size tiers.
 3. Non-hero icon usage must use MaterialIcon and consistent section-role sizing and container treatment.
 4. Non-hero section shells must preserve approved spacing rhythm, container width, and background system.
 5. Visual divergence between adjacent non-hero sections requires documented intent or approved exception scope.

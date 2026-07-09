@@ -187,7 +187,7 @@ check_pattern_typography() {
   done
   [[ ${#files[@]} -eq 0 ]] && return
   check_pattern "\\bAbolition\\b" "OFF-BRAND FONT: 'Abolition' is no longer the web heading face — use Mendl Sans Dusk (or var(--font-heading))" "${files[@]}"
-  check_pattern "Tactic Sans|Garamond|Poppins|Roboto Condensed" "OFF-BRAND FONT: legacy typeface name — use Mendl Sans Dusk (heading) or DIN 2014 (body)" "${files[@]}"
+  check_pattern "Tactic Sans|Garamond|Poppins|Roboto Condensed" "OFF-BRAND FONT: legacy typeface name — use Mendl Sans Dusk (heading) or Mendl Sans Dawn (body) with Roboto fallback" "${files[@]}"
 }
 check_pattern_typography
 

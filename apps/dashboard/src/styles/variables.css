@@ -62,14 +62,16 @@
 
   /* ============================================
      MH BRAND TYPOGRAPHY — Font Families
-     Heading / Subheading: Mendl Sans Dusk (Adobe Fonts)
-     Body: Inter (Google Fonts)
-     Fallbacks: Roboto only
+     Heading / Subheading: Mendl Sans Dusk (self-hosted)
+     Body: Mendl Sans Dawn (self-hosted)
+     Fallbacks: Mendl family variants, then generic sans-serif
      ============================================ */
   --font-heading:
-    "mendl-sans-dusk", "Mendl Sans Dusk", var(--font-inter), "Inter", Roboto,
-    sans-serif;
-  --font-body: var(--font-inter), "Inter", Roboto, sans-serif;
+    "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dawn", "Mendl Sans Dawn",
+    Roboto, sans-serif;
+  --font-body:
+    "mendl-sans-dawn", "Mendl Sans Dawn", "mendl-sans-dusk", "Mendl Sans Dusk",
+    Roboto, sans-serif;
   --line-height-mh-heading: 1.08;
   --line-height-mh-subheading: 1.2;
   --tracking-mh-heading: 0.0125em;
