@@ -202,7 +202,7 @@ export async function handleFormSubmission<T = unknown>(
 
     // The emailMessage callback returns plain text. When used as the HTML
     // body, escape it to prevent injection and wrap in <pre> for formatting.
-    const safeHtml = `<pre style="font-family:'mendl-sans-dawn', 'Mendl Sans Dawn', 'mendl-sans-dusk', 'Mendl Sans Dusk', Roboto, sans-serif;white-space:pre-wrap;">${escapeHtml(emailMessage)}</pre>`;
+    const safeHtml = `<pre style="font-family:'mendl-sans-dusk', 'Mendl Sans Dusk', 'mendl-sans-dusk', 'Mendl Sans Dusk', Roboto, sans-serif;white-space:pre-wrap;">${escapeHtml(emailMessage)}</pre>`;
 
     // Check if this is a job application with a resume that's small enough to attach
     let attachments: EmailAttachment[] | undefined;

@@ -117,13 +117,13 @@ The gradient text in section headers, as implemented across all pages, is the co
 
 ### MH Brand Typefaces
 
-Web brand fonts use a self-hosted Mendl family model: Mendl Sans Dusk for heading/display roles and Mendl Sans Dawn for body/running text, loaded from `/public/fonts/Mendl Fonts/`.
+Web brand fonts use a self-hosted Mendl family model: Mendl Sans Dusk for heading/display roles and Mendl Sans Dusk for body/running text, loaded from `/public/fonts/Mendl Fonts/`.
 
 **Heading / Subheading Font — Mendl Sans Dusk:**
 
 ```css
 font-family:
-  "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dawn", "Mendl Sans Dawn",
+  "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk",
   Roboto, sans-serif;
 ```
 
@@ -146,11 +146,11 @@ font-family:
 
 These utilities enable OpenType capital spacing and stylistic sets where available, helping distinctive capitals (including the "N") read more like the Mendl display personality.
 
-**Body Font — Mendl Sans Dawn:**
+**Body Font — Mendl Sans Dusk:**
 
 ```css
 font-family:
-  "mendl-sans-dawn", "Mendl Sans Dawn", "mendl-sans-dusk", "Mendl Sans Dusk",
+  "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk",
   Roboto, sans-serif;
 ```
 
@@ -159,7 +159,7 @@ font-family:
 - Tailwind utility: `font-sans` / `font-body`
 - CSS variable: `--font-body`
 
-**Font Delivery (web):** Mendl Sans Dawn and Mendl Sans Dusk are self-hosted from `/public/fonts/Mendl Fonts/` and bound through global `@font-face` rules. The print/PDF pipeline uses the same family via `documents/scripts/generate.mjs` and shared tokens in `documents/styles/brand.css`.
+**Font Delivery (web):** Mendl Sans Dusk and Mendl Sans Dusk are self-hosted from `/public/fonts/Mendl Fonts/` and bound through global `@font-face` rules. The print/PDF pipeline uses the same family via `documents/scripts/generate.mjs` and shared tokens in `documents/styles/brand.css`.
 
 ### Font Weights
 
@@ -428,7 +428,7 @@ Large display headers should not repeat at full intensity in consecutive section
 To preserve full-site congruency, non-hero sections must use a shared visual language.
 
 1. Non-hero section headers must follow canonical heading patterns from this document.
-2. Non-hero body copy must use approved body typography (Mendl Sans Dawn / `font-body` / `font-sans`) and approved size tiers.
+2. Non-hero body copy must use approved body typography (Mendl Sans Dusk / `font-body` / `font-sans`) and approved size tiers.
 3. Non-hero icon usage must use MaterialIcon and consistent section-role sizing and container treatment.
 4. Non-hero section shells must preserve approved spacing rhythm, container width, and background system.
 5. Visual divergence between adjacent non-hero sections requires documented intent or approved exception scope.

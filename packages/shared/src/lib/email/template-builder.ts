@@ -48,7 +48,7 @@ export const EMAIL_STYLES = {
    * and `src/styles/variables.css` (web side).
    */
   fontStack:
-    "'mendl-sans-dawn', 'Mendl Sans Dawn', 'mendl-sans-dusk', 'Mendl Sans Dusk', Roboto, sans-serif",
+    "'mendl-sans-dusk', 'Mendl Sans Dusk', 'mendl-sans-dusk', 'Mendl Sans Dusk', Roboto, sans-serif",
   /** Standard gradient background for header */
   headerGradient: `linear-gradient(135deg, ${EMAIL_COLORS.primary} 0%, ${EMAIL_COLORS.primaryDark} 100%)`,
   /** Info box with left border */

@@ -29,7 +29,7 @@ const BRAND_PLACEHOLDERS: Readonly<Record<string, string>> = {
 };
 
 const MENDL_DAWN_FONT_FILES = Object.freeze([
-  "Mendl Fonts/fonnts.com-Mendl_Sans_Dawn_Regular.otf",
+  "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf",
 ]);
 
 const MENDL_DUSK_FONT_FILES = Object.freeze([

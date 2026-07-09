@@ -77,7 +77,7 @@ const MENDL_DUSK_FONT_FILES = Object.freeze({
   ],
 });
 const MENDL_DAWN_FONT_FILES = Object.freeze({
-  regular: ["Mendl Fonts/fonnts.com-Mendl_Sans_Dawn_Regular.otf"],
+  regular: ["Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf"],
 });
 
 function resolvePdfFontPath(fileName) {

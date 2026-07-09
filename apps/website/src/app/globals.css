@@ -1,7 +1,7 @@
 /* ============================================
    MH BRAND FONTS
   Heading / Subheading: Mendl Sans Dusk (self-hosted)
-  Body: Mendl Sans Dawn (self-hosted)
+  Body: Mendl Sans Dusk (self-hosted)
    ============================================ */
 
 /* Import CSS variables for cohesive design system */
@@ -70,8 +70,8 @@
 }
 
 @font-face {
-  font-family: "mendl-sans-dawn";
-  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dawn_Regular.otf")
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf")
     format("opentype");
   font-weight: 400;
   font-style: normal;
@@ -79,8 +79,8 @@
 }
 
 @font-face {
-  font-family: "Mendl Sans Dawn";
-  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dawn_Regular.otf")
+  font-family: "Mendl Sans Dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf")
     format("opentype");
   font-weight: 400;
   font-style: normal;
@@ -88,8 +88,8 @@
 }
 
 @font-face {
-  font-family: "mendl-sans-dawn";
-  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dawn_SemiBold.otf")
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_SemiBold.otf")
     format("opentype");
   font-weight: 600;
   font-style: normal;
@@ -97,8 +97,8 @@
 }
 
 @font-face {
-  font-family: "Mendl Sans Dawn";
-  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dawn_SemiBold.otf")
+  font-family: "Mendl Sans Dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_SemiBold.otf")
     format("opentype");
   font-weight: 600;
   font-style: normal;
@@ -106,8 +106,8 @@
 }
 
 @font-face {
-  font-family: "mendl-sans-dawn";
-  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dawn_Bold.otf")
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Bold.otf")
     format("opentype");
   font-weight: 700;
   font-style: normal;
@@ -115,8 +115,8 @@
 }
 
 @font-face {
-  font-family: "Mendl Sans Dawn";
-  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dawn_Bold.otf")
+  font-family: "Mendl Sans Dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Bold.otf")
     format("opentype");
   font-weight: 700;
   font-style: normal;

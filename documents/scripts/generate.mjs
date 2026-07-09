@@ -56,9 +56,9 @@ const PDF_METADATA_AUTHOR = "Matt Ramsey, Safety Officer";
 const PDF_METADATA_CREATOR = "MH Construction Document Pipeline";
 const PDF_METADATA_SUBJECT = "Accident · Injury · Safety · Health Program";
 const PDF_FONT_STACK_BODY =
-  '"mendl-sans-dawn", "Mendl Sans Dawn", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif';
+  '"mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif';
 const PDF_FONT_STACK_HEADING =
-  '"mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dawn", "Mendl Sans Dawn", Roboto, sans-serif';
+  '"mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif';
 const MATERIAL_ICONS_FONT_FILE = "MaterialIcons-Regular.woff2";
 const MENDL_DUSK_FONT_FILES = Object.freeze({
   regular: [
@@ -81,18 +81,18 @@ const MENDL_DUSK_FONT_FILES = Object.freeze({
 const MENDL_DAWN_FONT_FILES = Object.freeze({
   regular: [
     "MendlSansDawn-Regular.woff2",
-    "mendl-sans-dawn-regular.woff2",
-    "Mendl Fonts/fonnts.com-Mendl_Sans_Dawn_Regular.otf",
+    "mendl-sans-dusk-regular.woff2",
+    "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf",
   ],
   semibold: [
     "MendlSansDawn-SemiBold.woff2",
-    "mendl-sans-dawn-semibold.woff2",
-    "Mendl Fonts/fonnts.com-Mendl_Sans_Dawn_SemiBold.otf",
+    "mendl-sans-dusk-semibold.woff2",
+    "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_SemiBold.otf",
   ],
   bold: [
     "MendlSansDawn-Bold.woff2",
-    "mendl-sans-dawn-bold.woff2",
-    "Mendl Fonts/fonnts.com-Mendl_Sans_Dawn_Bold.otf",
+    "mendl-sans-dusk-bold.woff2",
+    "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Bold.otf",
   ],
 });
 const MATERIAL_ICON_LIGATURES = Object.freeze({
@@ -190,7 +190,7 @@ function buildPdfMendlStyleTag() {
   };
 
   const mendlDuskFamilies = ["mendl-sans-dusk", "Mendl Sans Dusk"];
-  const mendlDawnFamilies = ["mendl-sans-dawn", "Mendl Sans Dawn"];
+  const mendlDawnFamilies = ["mendl-sans-dusk", "Mendl Sans Dusk"];
 
   pushFaceDeclarations(duskRegularPath, 400, mendlDuskFamilies);
   pushFaceDeclarations(duskSemiboldPath, 600, mendlDuskFamilies);
@@ -4390,8 +4390,8 @@ async function validateManualTemplateTypographyGuardrails() {
       const headingRequired = [
         "mendl-sans-dusk",
         "Mendl Sans Dusk",
-        "mendl-sans-dawn",
-        "Mendl Sans Dawn",
+        "mendl-sans-dusk",
+        "Mendl Sans Dusk",
         "Roboto",
       ];
       const missing = headingRequired.filter(
@@ -4408,8 +4408,8 @@ async function validateManualTemplateTypographyGuardrails() {
       violations.push(`${templatePath}: missing --font-body declaration`);
     } else {
       const bodyRequired = [
-        "mendl-sans-dawn",
-        "Mendl Sans Dawn",
+        "mendl-sans-dusk",
+        "Mendl Sans Dusk",
         "mendl-sans-dusk",
         "Mendl Sans Dusk",
         "Roboto",

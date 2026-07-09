@@ -578,7 +578,7 @@ async function buildHtml(markdown) {
         margin: 0;
         padding: 0;
         color: #1f2933;
-        font-family: "mendl-sans-dawn", "Mendl Sans Dawn", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif;
+        font-family: "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif;
         font-size: 10.5pt;
         line-height: 1.55;
         background: #fff;

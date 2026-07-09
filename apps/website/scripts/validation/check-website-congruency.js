@@ -227,7 +227,7 @@ function checkTypographyContracts(errors) {
   );
   const hasSelfHostedMendlContract =
     globalsSource.includes("@font-face") &&
-    globalsSource.includes("mendl-sans-dawn") &&
+    globalsSource.includes("mendl-sans-dusk") &&
     globalsSource.includes("mendl-sans-dusk");
 
   if (!hasLegacyTypekit && !hasSelfHostedMendlContract) {

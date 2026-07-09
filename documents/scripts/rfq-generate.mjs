@@ -260,7 +260,7 @@ async function renderHtmlToPdf(html, pdfPath, pdfOpts = {}, tmpSuffix = "tmp") {
  */
 function buildRfqHeaderHtml() {
   const font =
-    '"mendl-sans-dawn", "Mendl Sans Dawn", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif';
+    '"mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif';
   return [
     `<div style="width:100%;background:white;border-bottom:1.5pt solid ${BRAND.colors.secondary};`,
     `padding:0 0.75in 0 1.0in;height:0.65in;display:flex;align-items:center;`,
@@ -291,7 +291,7 @@ function buildRfqHeaderHtml() {
  */
 function buildRfqFooterHtml(homepageQr) {
   const font =
-    '"mendl-sans-dawn", "Mendl Sans Dawn", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif';
+    '"mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif';
   return [
     `<div style="width:100%;border-top:0.75pt solid ${BRAND.colors.secondary};`,
     `padding:0 0.75in 0 1.0in;height:0.65in;display:flex;align-items:center;`,
@@ -686,7 +686,7 @@ function generateCoverEmail() {
   <meta charset="UTF-8" />
   <title>Cover Email — ${escapeHtml(CONFIG.projectName || "RFQ")}</title>
   <style>
-    body { font-family: "mendl-sans-dawn", "Mendl Sans Dawn", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif; font-size: 11pt; color: #222; max-width: 600px; margin: 0 auto; padding: 20px; }
+    body { font-family: "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif; font-size: 11pt; color: #222; max-width: 600px; margin: 0 auto; padding: 20px; }
     .header { border-bottom: 2px solid #386851; padding-bottom: 12px; margin-bottom: 20px; }
     .header img { height: 50px; }
     .subject { font-size: 10pt; color: #8a6b49; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
