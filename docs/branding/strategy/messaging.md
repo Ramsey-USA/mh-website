@@ -17,7 +17,7 @@ Any visual treatments used with messaging, such as headers, cards, or CTA blocks
 - **Traditional Business:** Handshakes matter, promises kept, relationships last
 - **Personal Consultation:** All CTAs direct to `/contact` for human interaction
 
-> **Note:** Booking, AI Estimator, and 3D Explorer pages have been removed. All CTAs now
+> **Note:** Booking, automated estimate, and 3D Explorer pages have been removed. All CTAs now
 > direct to `/contact` for personal communication focused on honest relationships and
 > transparent pricing.
 
