@@ -519,10 +519,10 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
         );
       }
     } else {
-      // Filter to include only MISH forms for MISH merge, only handbook forms for handbook merge
+      // Filter to canonical manual form IDs only; exclude helper artifacts.
       const filtered = isEmployeeHandbook
-        ? formPackages.filter((pkg) => pkg.id.includes("HANDBOOK"))
-        : formPackages.filter((pkg) => pkg.id.includes("MISH"));
+        ? formPackages.filter((pkg) => /^HANDBOOK-FORM-\d+$/i.test(pkg.id))
+        : formPackages.filter((pkg) => /^MISH\s+\d{1,2}$/i.test(pkg.id));
 
       if (filtered.length === 0) {
         console.log(

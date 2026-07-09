@@ -78,9 +78,12 @@
   --surface-card-radius: 4pt;
 
   /* ── Typography ─────────────────────────────────── */
-  --font-body: "Inter", Roboto, sans-serif;
+  --font-body:
+    "mendl-sans-dawn", "Mendl Sans Dawn", "mendl-sans-dusk", "Mendl Sans Dusk",
+    Roboto, sans-serif;
   --font-heading:
-    "mendl-sans-dusk", "Mendl Sans Dusk", "Inter", Roboto, sans-serif;
+    "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dawn", "Mendl Sans Dawn",
+    Roboto, sans-serif;
   --font-mono: "Courier New", Courier, monospace;
 
   /* ── Print Type Scale ───────────────────────────── */

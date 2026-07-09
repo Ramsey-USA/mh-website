@@ -155,15 +155,15 @@ The four-value foundation system, in hierarchical order:
 
 ### Font System
 
-Web brand fonts use a split delivery model: Mendl Sans Dusk via the Adobe Fonts (Typekit) kit `jqs8bjh`, and Inter via `next/font/google`.
+Web brand fonts use a self-hosted Mendl family model: Mendl Sans Dusk for heading/display roles and Mendl Sans Dawn for body/running text, loaded from `/public/fonts/Mendl Fonts/`.
 
-- **Heading / Subheading**: Mendl Sans Dusk (fallback `Inter, Roboto, sans-serif`)
-- **Body**: Inter (fallback `Roboto, sans-serif`)
+- **Heading / Subheading**: Mendl Sans Dusk (fallback `Mendl Sans Dawn, Roboto, sans-serif`)
+- **Body**: Mendl Sans Dawn (fallback `Mendl Sans Dusk, Roboto, sans-serif`)
 
 ### Usage Rules
 
 - **Mendl Sans Dusk** — used for all H1–H6 headings, subheadings, section titles, badge labels, and tab divider titles
-- **Inter** — used for all body copy, paragraphs, captions, form labels, navigation text, and document body content
+- **Mendl Sans Dawn** — used for all body copy, paragraphs, captions, form labels, navigation text, and document body content
 - Semantic `<h1>`–`<h6>` elements automatically receive the heading face via global CSS; for non-semantic title elements (eyebrows, kickers, badge labels) explicitly add the `font-heading` Tailwind utility
 - Fallbacks activate automatically if brand fonts are not yet loaded
 
@@ -171,16 +171,18 @@ Web brand fonts use a split delivery model: Mendl Sans Dusk via the Adobe Fonts 
 
 ```css
 --font-heading:
-  "mendl-sans-dusk", "Mendl Sans Dusk", var(--font-inter), "Inter",
-  ui-sans-serif, system-ui, ...;
---font-body: var(--font-inter), "Inter", Roboto, sans-serif;
+  "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dawn", "Mendl Sans Dawn",
+  Roboto, sans-serif;
+--font-body:
+  "mendl-sans-dawn", "Mendl Sans Dawn", "mendl-sans-dusk", "Mendl Sans Dusk",
+  Roboto, sans-serif;
 ```
 
 ### Tailwind Utilities
 
 ```html
 font-heading → Mendl Sans Dusk + fallbacks (headings) font-body / font-sans →
-Inter + fallbacks (body)
+Mendl Sans Dawn + fallbacks (body)
 ```
 
 ---

@@ -801,7 +801,7 @@ function createPlaceholderImage() {
   const svg = `
     <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
       <rect width="100%" height="100%" fill="#f3f4f6"/>
-      <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#6b7280" font-family="Inter, Roboto, sans-serif" font-size="16">
+      <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#6b7280" font-family="mendl-sans-dawn, Mendl Sans Dawn, mendl-sans-dusk, Mendl Sans Dusk, Roboto, sans-serif" font-size="16">
         Image unavailable offline
       </text>
     </svg>

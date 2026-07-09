@@ -120,8 +120,8 @@ Document typography uses the CSS variables defined in `documents/styles/brand.cs
 All documents use the branded stacks defined by `--font-body` and `--font-heading`:
 
 ```
---font-body: "Inter", Roboto, sans-serif
---font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "Inter", Roboto, sans-serif
+--font-body: "mendl-sans-dawn", "Mendl Sans Dawn", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif
+--font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dawn", "Mendl Sans Dawn", Roboto, sans-serif
 ```
 
 Monospace content (codes, license numbers, form IDs) uses `--font-mono`:
@@ -130,7 +130,7 @@ Monospace content (codes, license numbers, form IDs) uses `--font-mono`:
 "Courier New", Courier, monospace
 ```
 
-**Web/printable routes** inherit the site font stack (Inter) from the app. This is acceptable — the type scale rules above still apply for sizing.
+**Web/printable routes** inherit the same self-hosted Mendl family stack from the app. This is acceptable — the type scale rules above still apply for sizing.
 
 ---
 

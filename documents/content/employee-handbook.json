@@ -23,7 +23,7 @@
     {
       "number": 1,
       "title": "Introduction",
-      "subtitle": "Welcome, Company Culture, Disclaimer",
+      "subtitle": "Welcome, Culture Standards, Policy Framework",
       "docxPath": "documents/content/MHC-Employee-Handbook-Sections/HANDBOOK-01_introduction.docx",
       "pages": "3-3",
       "forms": [
@@ -38,7 +38,7 @@
     {
       "number": 2,
       "title": "Company Policies",
-      "subtitle": "Employment Opportunity, Conduct, Leave, Property, Confidentiality",
+      "subtitle": "Workplace Standards: EEO, Conduct, Leave, Property, Confidentiality",
       "docxPath": "documents/content/MHC-Employee-Handbook-Sections/HANDBOOK-02_company-policies.docx",
       "pages": "4-18",
       "forms": [
@@ -65,7 +65,7 @@
     {
       "number": 3,
       "title": "Employment Basics",
-      "subtitle": "Hiring, Schedules, Attendance, Holidays",
+      "subtitle": "People Operations: Categories, Schedules, Attendance, PTO",
       "docxPath": "documents/content/MHC-Employee-Handbook-Sections/HANDBOOK-03_employment-basics.docx",
       "pages": "19-25",
       "forms": []
@@ -73,7 +73,7 @@
     {
       "number": 4,
       "title": "Compensation",
-      "subtitle": "Pay, Overtime, Bonuses, Garnishment",
+      "subtitle": "Pay Practices: Timekeeping, Overtime, Incentives, Garnishment",
       "docxPath": "documents/content/MHC-Employee-Handbook-Sections/HANDBOOK-04_compensation.docx",
       "pages": "26-27",
       "forms": []
@@ -81,7 +81,7 @@
     {
       "number": 5,
       "title": "Employee Benefits",
-      "subtitle": "Insurance, Retirement, Social Security",
+      "subtitle": "Coverage: Insurance, PMLA, Workers Comp, Retirement",
       "docxPath": "documents/content/MHC-Employee-Handbook-Sections/HANDBOOK-05_employee-benefits.docx",
       "pages": "27-29",
       "forms": []
@@ -89,7 +89,7 @@
     {
       "number": 6,
       "title": "Miscellaneous",
-      "subtitle": "Gifts, Weather, Safety, Agreements",
+      "subtitle": "Operations Support: Safety, Tools, Weather, Acknowledgments",
       "docxPath": "documents/content/MHC-Employee-Handbook-Sections/HANDBOOK-06_miscellaneous.docx",
       "pages": "30-36",
       "forms": [
