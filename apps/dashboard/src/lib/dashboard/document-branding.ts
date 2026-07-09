@@ -28,7 +28,7 @@ const BRAND_PLACEHOLDERS: Readonly<Record<string, string>> = {
   "{{MH_TRUST_LINE}}": DOCX_TRUST_LINE,
 };
 
-const MENDL_DAWN_FONT_FILES = Object.freeze([
+const MENDL_BODY_FONT_FILES = Object.freeze([
   "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf",
 ]);
 
@@ -65,7 +65,7 @@ async function embedDashboardMendlFont(
   const fontPath =
     (options?.bold ?? false)
       ? resolveFirstDashboardPdfFontPath(MENDL_DUSK_FONT_FILES)
-      : resolveFirstDashboardPdfFontPath(MENDL_DAWN_FONT_FILES);
+      : resolveFirstDashboardPdfFontPath(MENDL_BODY_FONT_FILES);
 
   if (!fontPath) {
     throw new Error(

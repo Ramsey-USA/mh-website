@@ -76,7 +76,7 @@ const MENDL_DUSK_FONT_FILES = Object.freeze({
     "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_SemiBold.otf",
   ],
 });
-const MENDL_DAWN_FONT_FILES = Object.freeze({
+const MENDL_BODY_FONT_FILES = Object.freeze({
   regular: ["Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf"],
 });
 
@@ -103,7 +103,7 @@ function resolveFirstPdfFontPath(fileNames) {
 async function embedMendlMergeFont(pdfDoc, { bold = false } = {}) {
   const fontPath = bold
     ? resolveFirstPdfFontPath(MENDL_DUSK_FONT_FILES.bold)
-    : resolveFirstPdfFontPath(MENDL_DAWN_FONT_FILES.regular);
+    : resolveFirstPdfFontPath(MENDL_BODY_FONT_FILES.regular);
 
   if (!fontPath) {
     throw new Error(

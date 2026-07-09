@@ -56,9 +56,9 @@ const PDF_METADATA_AUTHOR = "Matt Ramsey, Safety Officer";
 const PDF_METADATA_CREATOR = "MH Construction Document Pipeline";
 const PDF_METADATA_SUBJECT = "Accident · Injury · Safety · Health Program";
 const PDF_FONT_STACK_BODY =
-  '"mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif';
+  '"mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif';
 const PDF_FONT_STACK_HEADING =
-  '"mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif';
+  '"mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif';
 const MATERIAL_ICONS_FONT_FILE = "MaterialIcons-Regular.woff2";
 const MENDL_DUSK_FONT_FILES = Object.freeze({
   regular: [
@@ -78,19 +78,16 @@ const MENDL_DUSK_FONT_FILES = Object.freeze({
     "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Bold.otf",
   ],
 });
-const MENDL_DAWN_FONT_FILES = Object.freeze({
+const MENDL_BODY_FONT_FILES = Object.freeze({
   regular: [
-    "MendlSansDawn-Regular.woff2",
     "mendl-sans-dusk-regular.woff2",
     "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf",
   ],
   semibold: [
-    "MendlSansDawn-SemiBold.woff2",
     "mendl-sans-dusk-semibold.woff2",
     "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_SemiBold.otf",
   ],
   bold: [
-    "MendlSansDawn-Bold.woff2",
     "mendl-sans-dusk-bold.woff2",
     "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Bold.otf",
   ],
@@ -158,21 +155,21 @@ function buildPdfMendlStyleTag() {
     MENDL_DUSK_FONT_FILES.semibold,
   );
   const duskBoldPath = resolveFirstPdfFontPath(MENDL_DUSK_FONT_FILES.bold);
-  const dawnRegularPath = resolveFirstPdfFontPath(
-    MENDL_DAWN_FONT_FILES.regular,
+  const bodyRegularPath = resolveFirstPdfFontPath(
+    MENDL_BODY_FONT_FILES.regular,
   );
-  const dawnSemiboldPath = resolveFirstPdfFontPath(
-    MENDL_DAWN_FONT_FILES.semibold,
+  const bodySemiboldPath = resolveFirstPdfFontPath(
+    MENDL_BODY_FONT_FILES.semibold,
   );
-  const dawnBoldPath = resolveFirstPdfFontPath(MENDL_DAWN_FONT_FILES.bold);
+  const bodyBoldPath = resolveFirstPdfFontPath(MENDL_BODY_FONT_FILES.bold);
 
   if (
     !duskRegularPath &&
     !duskSemiboldPath &&
     !duskBoldPath &&
-    !dawnRegularPath &&
-    !dawnSemiboldPath &&
-    !dawnBoldPath
+    !bodyRegularPath &&
+    !bodySemiboldPath &&
+    !bodyBoldPath
   ) {
     return "";
   }
@@ -190,14 +187,14 @@ function buildPdfMendlStyleTag() {
   };
 
   const mendlDuskFamilies = ["mendl-sans-dusk", "Mendl Sans Dusk"];
-  const mendlDawnFamilies = ["mendl-sans-dusk", "Mendl Sans Dusk"];
+  const mendlBodyFamilies = ["mendl-sans-dusk", "Mendl Sans Dusk"];
 
   pushFaceDeclarations(duskRegularPath, 400, mendlDuskFamilies);
   pushFaceDeclarations(duskSemiboldPath, 600, mendlDuskFamilies);
   pushFaceDeclarations(duskBoldPath, 700, mendlDuskFamilies);
-  pushFaceDeclarations(dawnRegularPath, 400, mendlDawnFamilies);
-  pushFaceDeclarations(dawnSemiboldPath, 600, mendlDawnFamilies);
-  pushFaceDeclarations(dawnBoldPath, 700, mendlDawnFamilies);
+  pushFaceDeclarations(bodyRegularPath, 400, mendlBodyFamilies);
+  pushFaceDeclarations(bodySemiboldPath, 600, mendlBodyFamilies);
+  pushFaceDeclarations(bodyBoldPath, 700, mendlBodyFamilies);
 
   return `<style data-pdf-mendl-fonts="true">\n${declarations.join("\n\n")}\n</style>`;
 }
@@ -227,7 +224,7 @@ function getPdfMaterialIconsStyleTag() {
 
 async function embedPdfMendlBodyFont(pdfDoc) {
   const bodyPath =
-    resolveFirstPdfFontPath(MENDL_DAWN_FONT_FILES.regular) ||
+    resolveFirstPdfFontPath(MENDL_BODY_FONT_FILES.regular) ||
     resolveFirstPdfFontPath(MENDL_DUSK_FONT_FILES.regular);
 
   if (!bodyPath) {
