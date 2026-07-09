@@ -85,6 +85,7 @@ jobs:
       # ── 6. Generate cover, spine, tabs ───────────────────────────────────
       - name: Generate cover, spine, and tab dividers
         if: ${{ github.event.inputs.section == '' || github.event.inputs.section == null }}
+        working-directory: apps/website
         run: |
           BRAND="${{ github.event.inputs.brand || 'mhc' }}"
           npm run docs:generate -- --template cover --brand "$BRAND" \
@@ -100,6 +101,7 @@ jobs:
       # ── 7a. Generate ALL 45 section PDFs ─────────────────────────────────
       - name: Generate all section PDFs
         if: ${{ github.event.inputs.section == '' || github.event.inputs.section == null }}
+        working-directory: apps/website
         run: |
           BRAND="${{ github.event.inputs.brand || 'mhc' }}"
           npm run docs:generate -- --template sections --brand "$BRAND" \
@@ -109,6 +111,7 @@ jobs:
       # ── 7b. Generate a SINGLE section (manual dispatch only) ─────────────
       - name: Generate single section PDF
         if: ${{ github.event.inputs.section != '' && github.event.inputs.section != null }}
+        working-directory: apps/website
         run: |
           BRAND="${{ github.event.inputs.brand || 'mhc' }}"
           npm run docs:generate -- --template section \
@@ -120,6 +123,7 @@ jobs:
       # ── 8. Generate standalone forms ─────────────────────────────────────
       - name: Generate standalone forms
         if: ${{ github.event.inputs.section == '' || github.event.inputs.section == null }}
+        working-directory: apps/website
         run: |
           BRAND="${{ github.event.inputs.brand || 'mhc' }}"
           npm run docs:generate -- --template toolbox-talk --brand "$BRAND" \
@@ -129,6 +133,7 @@ jobs:
       # ── 8b. Validate forms-integrated manual merge (hard fail on mapping drift) ──
       - name: Validate merged manuals include mapped forms appendix
         if: ${{ github.event.inputs.section == '' || github.event.inputs.section == null }}
+        working-directory: apps/website
         run: |
           npm run docs:merge
           npm run docs:merge:digital
@@ -141,6 +146,7 @@ jobs:
 
       # ── 9. Upload PDFs to Cloudflare R2 ──────────────────────────────────
       - name: Upload PDFs to Cloudflare R2
+        working-directory: apps/website
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -165,10 +171,10 @@ jobs:
 
       # ── 10. Verify key handbook/manual/forms URLs are live ───────────────
       - name: Verify published handbook/manual/forms URLs
+        working-directory: apps/website
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           R2_BUCKET: mh-construction-assets
         run: |
-          cd apps/website
           npm run docs:verify:published
