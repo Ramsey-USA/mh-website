@@ -222,9 +222,17 @@ function checkTypographyContracts(errors) {
   const layoutSource = fs.readFileSync(ROOT_LAYOUT_FILE, "utf8");
   const globalsSource = fs.readFileSync(GLOBALS_CSS_FILE, "utf8");
 
-  if (!layoutSource.includes("https://use.typekit.net/jqs8bjh.css")) {
+  const hasLegacyTypekit = layoutSource.includes(
+    "https://use.typekit.net/jqs8bjh.css",
+  );
+  const hasSelfHostedMendlContract =
+    globalsSource.includes("@font-face") &&
+    globalsSource.includes("mendl-sans-dawn") &&
+    globalsSource.includes("mendl-sans-dusk");
+
+  if (!hasLegacyTypekit && !hasSelfHostedMendlContract) {
     errors.push(
-      `Root layout is missing the canonical Typekit stylesheet link in ${rel(ROOT_LAYOUT_FILE)}.`,
+      `Typography contract missing in ${rel(ROOT_LAYOUT_FILE)} / ${rel(GLOBALS_CSS_FILE)}: expected legacy Typekit link or self-hosted Mendl @font-face stack.`,
     );
   }
 
