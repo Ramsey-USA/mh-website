@@ -69,6 +69,7 @@ find "$FORMS_DIR" -name "*.pdf" -type f | sort | while read -r pdf_path; do
   esac
   echo "  ↑ $KEY"
   wrangler r2 object put "$BUCKET/$KEY" \
+    --remote \
     --file "$pdf_path" \
     --content-type "application/pdf"
   TOTAL=$((TOTAL + 1))

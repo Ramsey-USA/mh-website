@@ -130,6 +130,22 @@ Scripts without npm aliases (run directly):
 - `bash scripts/utilities/check-domain-setup.sh` - Check domain setup
 - `bash scripts/markdown/validate-markdown-links.sh` - Validate markdown links
 
+## Document Publish Guardrails
+
+For reliable reruns of PDF publish workflows:
+
+- Prefer API-token auth over interactive `wrangler login` when running from containers/remote shells.
+- Inject auth inline per command to avoid shell/session scope drift:
+
+```bash
+TOKEN="<cloudflare-api-token>"
+ACC="60ac45cad5eead847d2ae20dab3661da"
+CLOUDFLARE_API_TOKEN="$TOKEN" CLOUDFLARE_ACCOUNT_ID="$ACC" pnpm --filter @mhc/website run docs:publish:safety
+```
+
+- Always run `pnpm --filter @mhc/website run docs:verify:published` after publish.
+- Ensure Cloudflare WAF custom rule for `/docs/` `GET/HEAD` challenge skip remains active, or machine verifiers may receive edge challenges.
+
 ---
 
 **MH Construction** — Founded 2010, Veteran-Owned Since January 2025  

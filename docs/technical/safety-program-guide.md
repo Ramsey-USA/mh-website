@@ -88,7 +88,7 @@ documents/content/safety-manual.json                ← Auto-generated manifest 
            ▼  pnpm --filter @mhc/website run docs:generate + pnpm --filter @mhc/website run docs:generate:forms
 documents/output/sections/                          ← 50 generated PDFs served to field staff
 documents/output/form-packages/                     ← Generated form package PDFs (cover + fillable)
-documents/output/safety-manual-contents.pdf         ← Standalone table-of-contents PDF
+documents/output/safety-manual-toc.pdf              ← Standalone table-of-contents PDF (generator canonical name)
 documents/output/safety-manual-reference.pdf        ← Standalone section reference guide PDF
            │
            ▼  pnpm --filter @mhc/website run docs:merge + R2 publish
@@ -111,9 +111,9 @@ Published Safety artifacts should be stored in Cloudflare R2 whenever possible.
 Every Safety revision must produce both of these outputs:
 
 1. **QR-enabled section PDFs** for field use, with each section resolving back to its digital section route.
-2. **Complete bonding manual PDF** for surety, insurer, and prequalification review.
-3. **Standalone table-of-contents PDF** (`safety-manual-contents.pdf`) for quick field access.
-4. **Standalone reference guide PDF** (`safety-manual-reference.pdf`) for section lookup and compliance cross-reference.
+1. **Complete bonding manual PDF** for surety, insurer, and prequalification review.
+1. **Standalone table-of-contents PDF** for quick field access. Generator output file is `safety-manual-toc.pdf`; published delivery key is `/docs/safety/safety-manual-contents.pdf` (compatibility alias).
+1. **Standalone reference guide PDF** (`safety-manual-reference.pdf`) for section lookup and compliance cross-reference.
 
 ---
 
@@ -153,7 +153,7 @@ documents/
 │   ├── safety-manual-cover.pdf
 │   ├── safety-manual-spine.pdf
 │   ├── safety-manual-tabs.pdf
-│   ├── safety-manual-contents.pdf
+│   ├── safety-manual-toc.pdf
 │   ├── safety-manual-reference.pdf
 │   ├── sections/          ← Generated section PDFs (served to /hub field staff)
 │   └── form-packages/     ← Generated form package PDFs

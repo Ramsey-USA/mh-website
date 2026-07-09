@@ -14,6 +14,7 @@ fi
 echo "📤 Uploading Employee Handbook to R2..."
 echo "  ↑ $R2_KEY"
 wrangler r2 object put "$BUCKET/$R2_KEY" \
+  --remote \
   --file "$SOURCE_PDF" \
   --content-type "application/pdf"
 

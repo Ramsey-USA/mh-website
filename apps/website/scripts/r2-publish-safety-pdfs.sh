@@ -12,7 +12,7 @@
 # Resulting R2 keys (served via /docs/** Workers proxy):
 #   docs/safety/safety-manual-complete.pdf
 #   docs/safety/safety-manual-digital.pdf  (if present)
-#   docs/safety/safety-manual-contents.pdf (if present)
+#   docs/safety/safety-manual-contents.pdf (published from *_contents.pdf or *_toc.pdf)
 #   docs/safety/safety-manual-reference.pdf (if present)
 #   docs/safety/sections/00-table-of-contents.pdf
 #   docs/safety/sections/01-injury-free-workplace-plan.pdf
@@ -49,11 +49,24 @@ for pdf_name in "safety-manual-complete.pdf" "safety-manual-digital.pdf" "safety
     KEY="$R2_PREFIX/$pdf_name"
     echo "  ↑ $KEY"
     wrangler r2 object put "$BUCKET/$KEY" \
+      --remote \
       --file "$pdf_path" \
       --content-type "application/pdf"
     TOTAL=$((TOTAL + 1))
   fi
 done
+
+# Backward-compatibility: generator emits safety-manual-toc.pdf, but the site
+# expects safety-manual-contents.pdf. If contents is missing and toc exists,
+# publish toc bytes to the contents key.
+if [ ! -f "$OUTPUT_DIR/safety-manual-contents.pdf" ] && [ -f "$OUTPUT_DIR/safety-manual-toc.pdf" ]; then
+  KEY="$R2_PREFIX/safety-manual-contents.pdf"
+  echo "  ↑ $KEY (from safety-manual-toc.pdf)"
+  wrangler r2 object put "$BUCKET/$KEY" \
+    --file "$OUTPUT_DIR/safety-manual-toc.pdf" \
+    --content-type "application/pdf"
+  TOTAL=$((TOTAL + 1))
+fi
 
 # ── 2. Section PDFs ──────────────────────────────────────────────────────────
 if [ -d "$SECTIONS_DIR" ]; then
@@ -65,6 +78,7 @@ if [ -d "$SECTIONS_DIR" ]; then
     KEY="$R2_PREFIX/sections/$pdf_name"
     echo "  ↑ $KEY"
     wrangler r2 object put "$BUCKET/$KEY" \
+      --remote \
       --file "$pdf_path" \
       --content-type "application/pdf"
     TOTAL=$((TOTAL + 1))

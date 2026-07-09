@@ -186,6 +186,40 @@ Current publish workflow for approved artifacts:
 - `pnpm --filter @mhc/website run docs:publish:safety` → uploads manual artifacts to `docs/safety/` and section PDFs to `docs/safety/sections/`
 - `pnpm --filter @mhc/website run docs:publish:forms` → uploads form package PDFs from `documents/output/form-packages/` to `docs/safety/forms/`
 
+### PDF Publish Safety Runbook (Recommended)
+
+Use token-based Wrangler auth for repeatable uploads from local/dev-container shells.
+OAuth callbacks can fail in remote container workflows because callback URLs use localhost.
+
+Required token capabilities (Cloudflare API token):
+
+- Developer Platform → Workers R2 Storage → Edit
+- Developer Platform → Workers Scripts → Edit
+
+Recommended one-shot publish pattern (inject env vars inline to avoid shell-scope drift):
+
+```bash
+TOKEN="<cloudflare-api-token>"
+ACC="60ac45cad5eead847d2ae20dab3661da"
+
+CLOUDFLARE_API_TOKEN="$TOKEN" CLOUDFLARE_ACCOUNT_ID="$ACC" pnpm --filter @mhc/website run docs:publish:safety
+CLOUDFLARE_API_TOKEN="$TOKEN" CLOUDFLARE_ACCOUNT_ID="$ACC" pnpm --filter @mhc/website run docs:publish:forms
+CLOUDFLARE_API_TOKEN="$TOKEN" CLOUDFLARE_ACCOUNT_ID="$ACC" pnpm --filter @mhc/website run docs:publish:employee-handbook
+
+pnpm --filter @mhc/website run docs:verify:published
+```
+
+Cloudflare edge rule requirement for machine checks:
+
+- Add a top-priority custom rule to skip challenge/bot protections for docs delivery paths.
+- Suggested expression:
+
+```text
+(http.host eq "www.mhc-gc.com" and starts_with(http.request.uri.path, "/docs/") and http.request.method in {"GET" "HEAD"})
+```
+
+If this rule is missing, verification requests can return `403` with `cf-mitigated: challenge` even when R2 objects exist.
+
 ---
 
 ## Environment Variables

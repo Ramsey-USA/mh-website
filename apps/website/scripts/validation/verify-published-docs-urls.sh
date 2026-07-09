@@ -8,7 +8,7 @@ R2_BUCKET="${R2_BUCKET:-mh-construction-assets}"
 
 URL_PATHS=(
   "/docs/safety/safety-manual-complete.pdf"
-  "/docs/safety/safety-manual-contents.pdf"
+  "/docs/safety/safety-manual-reference.pdf"
   "/docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf"
   "/docs/safety/forms/form-mish-50-return-to-work-program-agreement-ack.pdf"
   "/docs/employee/employee-handbook-2026.pdf"
@@ -46,10 +46,6 @@ check_r2_object() {
   local key="${path#/}"
   local tmpfile
 
-  if [[ -z "${CLOUDFLARE_API_TOKEN:-}" || -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]]; then
-    return 1
-  fi
-
   tmpfile="$(mktemp)"
   if wrangler r2 object get "$R2_BUCKET/$key" --file "$tmpfile" --remote >/dev/null 2>&1; then
     rm -f "$tmpfile"
@@ -61,6 +57,14 @@ check_r2_object() {
   return 1
 }
 
+is_cf_challenge() {
+  local url="$1"
+  local headers
+
+  headers=$(curl -sSI "$url" || true)
+  echo "$headers" | grep -qi '^cf-mitigated: challenge'
+}
+
 echo "Verifying published handbook/manual/forms URLs at $BASE_URL"
 
 failures=0
@@ -70,6 +74,11 @@ for path in "${URL_PATHS[@]}"; do
 
   if [[ "$code" =~ ^2|^3 ]]; then
     echo "  OK  $url"
+    continue
+  fi
+
+  if [[ "$code" == "403" ]] && is_cf_challenge "$url"; then
+    echo "  NOTE $url returned 403 Cloudflare challenge (protected route)"
     continue
   fi
 

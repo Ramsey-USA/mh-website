@@ -55,6 +55,7 @@ homepage - same visual weight, spacing, animations, and polish.
 - **Adding PWA-only sections/tabs?** → [`usePWA` hook](src/hooks/usePWA.ts) · [`PWAOnly` component](src/components/pwa/PWAOnly.tsx) · [PWA Quick Reference — PWA-First Development](docs/technical/pwa-quick-reference.md#pwa-first-development)
 - **Using reusable components?** → [BrandedContentSection Template](docs/development/components/template-components.md)
 - **Deploying to Cloudflare?** → [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md)
+- **Publishing PDFs to /docs and seeing 403/404?** → [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md#pdf-publish-safety-runbook-recommended) + [Safety Program Guide](docs/technical/safety-program-guide.md#required-deliverables-per-revision)
 - **Understanding project structure?** → [Project Architecture](docs/project/architecture.md)
 
 That's it. Everything else is organized in `/docs/` by category (branding, technical, business, etc.).
