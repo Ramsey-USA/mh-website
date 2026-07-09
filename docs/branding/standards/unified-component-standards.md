@@ -117,14 +117,12 @@ The gradient text in section headers, as implemented across all pages, is the co
 
 ### MH Brand Typefaces
 
-Web brand fonts use a self-hosted Mendl family model: Mendl Sans Dusk for heading/display roles and Mendl Sans Dusk for body/running text, loaded from `/public/fonts/Mendl Fonts/`.
+Web brand fonts use a self-hosted Mendl Sans Dusk model for both heading/display and body/running text, loaded from `/public/fonts/Mendl Fonts/`.
 
 **Heading / Subheading Font — Mendl Sans Dusk:**
 
 ```css
-font-family:
-  "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk",
-  Roboto, sans-serif;
+font-family: "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif;
 ```
 
 - Display sans-serif — strong brand identity at large sizes
@@ -149,9 +147,7 @@ These utilities enable OpenType capital spacing and stylistic sets where availab
 **Body Font — Mendl Sans Dusk:**
 
 ```css
-font-family:
-  "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk",
-  Roboto, sans-serif;
+font-family: "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif;
 ```
 
 - Clean grotesk/humanist sans-serif — high legibility at small and medium sizes
@@ -159,7 +155,7 @@ font-family:
 - Tailwind utility: `font-sans` / `font-body`
 - CSS variable: `--font-body`
 
-**Font Delivery (web):** Mendl Sans Dusk and Mendl Sans Dusk are self-hosted from `/public/fonts/Mendl Fonts/` and bound through global `@font-face` rules. The print/PDF pipeline uses the same family via `documents/scripts/generate.mjs` and shared tokens in `documents/styles/brand.css`.
+**Font Delivery (web):** Mendl Sans Dusk is self-hosted from `/public/fonts/Mendl Fonts/` and bound through global `@font-face` rules. The print/PDF pipeline uses the same family via `documents/scripts/generate.mjs` and shared tokens in `documents/styles/brand.css`.
 
 ### Font Weights
 

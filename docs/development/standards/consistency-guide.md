@@ -1022,7 +1022,7 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 ### Email Signature Standards
 
 ```html
-<div style="font-family: \"mendl-sans-dusk\", \"Mendl Sans Dusk\", \"mendl-sans-dusk\", \"Mendl Sans Dusk\", Roboto, sans-serif; color: #212121;">
+<div style="font-family: \"mendl-sans-dusk\", \"Mendl Sans Dusk\", Roboto, sans-serif; color: #212121;">
   <div style="font-weight: 600; color: #386851; margin-bottom: 8px;">
     [Name] | [Title]
   </div>

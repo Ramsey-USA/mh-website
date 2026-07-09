@@ -155,7 +155,7 @@ The four-value foundation system, in hierarchical order:
 
 ### Font System
 
-Web brand fonts use a self-hosted Mendl family model: Mendl Sans Dusk for heading/display roles and Mendl Sans Dusk for body/running text, loaded from `/public/fonts/Mendl Fonts/`.
+Web brand fonts use a self-hosted Mendl Sans Dusk model for both heading/display and body/running text, loaded from `/public/fonts/Mendl Fonts/`.
 
 - **Heading / Subheading**: Mendl Sans Dusk (fallback `Mendl Sans Dusk, Roboto, sans-serif`)
 - **Body**: Mendl Sans Dusk (fallback `Mendl Sans Dusk, Roboto, sans-serif`)
@@ -170,13 +170,20 @@ Web brand fonts use a self-hosted Mendl family model: Mendl Sans Dusk for headin
 ### CSS Variables
 
 ```css
---font-heading:
-  "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk",
-  Roboto, sans-serif;
---font-body:
-  "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk",
-  Roboto, sans-serif;
+--font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif;
+--font-body: "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif;
 ```
+
+### Dusk Weight Utilization
+
+- **300 (Light):** supporting descriptions and low-emphasis helper copy
+- **400 (Regular):** default body copy and long-form readability
+- **500 (Medium):** UI labels, metadata, and secondary emphasis
+- **600 (SemiBold):** subheadings, section labels, and navigation emphasis
+- **700 (Bold):** card titles, strong calls-to-action, and highlight lines
+- **900 (Black):** hero headlines and primary section anchors
+
+This weight map keeps one family while preserving clear visual hierarchy and scanability.
 
 ### Tailwind Utilities
 

@@ -120,8 +120,8 @@ Document typography uses the CSS variables defined in `documents/styles/brand.cs
 All documents use the branded stacks defined by `--font-body` and `--font-heading`:
 
 ```
---font-body: "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif
---font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif
+--font-body: "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif
+--font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif
 ```
 
 Monospace content (codes, license numbers, form IDs) uses `--font-mono`:
