@@ -87,7 +87,7 @@ Display the PNG to the user before marking the step complete. For multi-page art
 
 - Colors: `BRAND_COLORS.{primary, primaryDark, secondary, secondaryText}` in JS; `var(--color-primary)`, `var(--color-primary-dark)`, `var(--color-primary-darker)`, `var(--color-secondary)`, `var(--color-secondary-text)`, `var(--color-stopwork)` in CSS.
 - Hardcoded color literals in `documents/styles/*.css` (`#386851`, `#1e392c`, `#12231b`, `#cc0000`, `#bd9264`, `#8a6b49`, `#b3261e`) are FORBIDDEN — always use the `--color-*` token. Lint rule: `grep -nE '#386851|#1e392c|#12231b|#cc0000|#bd9264' documents/styles/*.css` MUST return zero matches in `components.css`. Stop-work / alert text MUST use `var(--color-stopwork)`, never raw `#cc0000` (the brand stopwork red is `#b3261e`).
-- Fonts: `var(--font-heading)`, `var(--font-body)` — never literal `'DIN 2014'` outside generator constants.
+- Fonts: `var(--font-heading)`, `var(--font-body)` — avoid legacy typeface literals; enforce Mendl with Roboto fallback.
 - Logos/QR/AGC/BBB/VOB: `BRAND_TOKENS["{{BRAND_*}}"]` and `LOGO_COLOR_DATA_URL`.
 
 ### 9. Military-themed framing & accreditation presence

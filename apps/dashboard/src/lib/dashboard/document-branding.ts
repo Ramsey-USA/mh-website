@@ -1,11 +1,9 @@
-import {
-  PDFDocument,
-  StandardFonts,
-  degrees,
-  rgb,
-  type PDFPage,
-} from "pdf-lib";
+import { PDFDocument, degrees, rgb, type PDFFont, type PDFPage } from "pdf-lib";
+import fontkit from "@pdf-lib/fontkit";
 import JSZip from "jszip";
+import { readFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
+import { resolve } from "node:path";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
 const PDF_BRAND_TOP_BAR_HEIGHT = 42;
@@ -29,6 +27,56 @@ const BRAND_PLACEHOLDERS: Readonly<Record<string, string>> = {
   "{{MH_ADDRESS}}": COMPANY_INFO.address.full,
   "{{MH_TRUST_LINE}}": DOCX_TRUST_LINE,
 };
+
+const MENDL_DAWN_FONT_FILES = Object.freeze([
+  "Mendl Fonts/fonnts.com-Mendl_Sans_Dawn_Regular.otf",
+]);
+
+const MENDL_DUSK_FONT_FILES = Object.freeze([
+  "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Bold.otf",
+  "Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_SemiBold.otf",
+]);
+
+function resolveDashboardPdfFontPath(fileName: string): string | null {
+  const candidates = [
+    resolve(process.cwd(), `public/fonts/${fileName}`),
+    resolve(process.cwd(), `../website/public/fonts/${fileName}`),
+    resolve(process.cwd(), `apps/website/public/fonts/${fileName}`),
+    resolve(process.cwd(), `../../apps/website/public/fonts/${fileName}`),
+  ];
+
+  return candidates.find((candidate) => existsSync(candidate)) ?? null;
+}
+
+function resolveFirstDashboardPdfFontPath(fileNames: readonly string[]) {
+  for (const fileName of fileNames) {
+    const path = resolveDashboardPdfFontPath(fileName);
+    if (path) {
+      return path;
+    }
+  }
+  return null;
+}
+
+async function embedDashboardMendlFont(
+  pdfDoc: PDFDocument,
+  options?: { bold?: boolean },
+) {
+  const fontPath =
+    (options?.bold ?? false)
+      ? resolveFirstDashboardPdfFontPath(MENDL_DUSK_FONT_FILES)
+      : resolveFirstDashboardPdfFontPath(MENDL_DAWN_FONT_FILES);
+
+  if (!fontPath) {
+    throw new Error(
+      `Unable to locate ${(options?.bold ?? false) ? "Mendl heading" : "Mendl body"} font for dashboard PDF branding.`,
+    );
+  }
+
+  pdfDoc.registerFontkit(fontkit);
+  const fontBytes = await readFile(fontPath);
+  return pdfDoc.embedFont(fontBytes, { subset: true });
+}
 
 function escapeXml(text: string): string {
   return text
@@ -126,6 +174,8 @@ function drawPdfBrandingHeader(
   pageHeight: number,
   title: string,
   subtitle: string,
+  headingFont: PDFFont,
+  bodyFont: PDFFont,
 ) {
   page.drawRectangle({
     x: 0,
@@ -147,6 +197,7 @@ function drawPdfBrandingHeader(
     x: 22,
     y: pageHeight - 28,
     size: 11,
+    font: headingFont,
     color: WHITE_RGB,
   });
 
@@ -154,6 +205,7 @@ function drawPdfBrandingHeader(
     x: 22,
     y: pageHeight - 38,
     size: 8,
+    font: bodyFont,
     color: WHITE_RGB,
   });
 }
@@ -163,6 +215,7 @@ function drawPdfBrandingFooter(
   pageWidth: number,
   pageNumber: number,
   pageCount: number,
+  bodyFont: PDFFont,
 ) {
   const footerLine = `${COMPANY_INFO.address.cityState} | ${COMPANY_INFO.phone.display} | ${COMPANY_INFO.email.main}`;
   const trustLine = DOCX_TRUST_LINE;
@@ -179,6 +232,7 @@ function drawPdfBrandingFooter(
     x: 22,
     y: PDF_FOOTER_MARGIN + 8,
     size: 7,
+    font: bodyFont,
     color: BRAND_PRIMARY_DARK_RGB,
   });
 
@@ -186,6 +240,7 @@ function drawPdfBrandingFooter(
     x: 22,
     y: PDF_FOOTER_MARGIN,
     size: 7,
+    font: bodyFont,
     color: BRAND_SECONDARY_RGB,
   });
 
@@ -193,6 +248,7 @@ function drawPdfBrandingFooter(
     x: pageWidth - 90,
     y: PDF_FOOTER_MARGIN + 4,
     size: 8,
+    font: bodyFont,
     color: BRAND_PRIMARY_DARK_RGB,
   });
 }
@@ -201,11 +257,13 @@ function drawPdfWatermark(
   page: PDFPage,
   pageWidth: number,
   pageHeight: number,
+  headingFont: PDFFont,
 ) {
   page.drawText(COMPANY_INFO.legalName, {
     x: pageWidth * 0.2,
     y: pageHeight * 0.45,
     size: 34,
+    font: headingFont,
     color: rgb(0.92, 0.94, 0.93),
     rotate: degrees(34),
   });
@@ -223,14 +281,22 @@ export async function brandPdfDocument(
   const title = `${COMPANY_INFO.name} Branded Document`;
   const subtitle = `Generated ${new Date().toLocaleDateString("en-US")}`;
 
-  await pdfDoc.embedFont(StandardFonts.Helvetica);
-  await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+  const bodyFont = await embedDashboardMendlFont(pdfDoc);
+  const headingFont = await embedDashboardMendlFont(pdfDoc, { bold: true });
 
   pages.forEach((page, index) => {
     const { width, height } = page.getSize();
-    drawPdfBrandingHeader(page, width, height, title, subtitle);
-    drawPdfBrandingFooter(page, width, index + 1, pages.length);
-    drawPdfWatermark(page, width, height);
+    drawPdfBrandingHeader(
+      page,
+      width,
+      height,
+      title,
+      subtitle,
+      headingFont,
+      bodyFont,
+    );
+    drawPdfBrandingFooter(page, width, index + 1, pages.length, bodyFont);
+    drawPdfWatermark(page, width, height, headingFont);
   });
 
   pdfDoc.setAuthor(COMPANY_INFO.legalName);

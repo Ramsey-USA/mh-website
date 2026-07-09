@@ -35,7 +35,8 @@
 
 import puppeteer from "puppeteer";
 import QRCode from "qrcode";
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import { PDFDocument, rgb } from "pdf-lib";
+import fontkit from "@pdf-lib/fontkit";
 import {
   readFile,
   writeFile,
@@ -222,6 +223,22 @@ function getPdfMaterialIconsStyleTag() {
     PDF_MATERIAL_ICONS_STYLE_TAG = buildPdfMaterialIconsStyleTag();
   }
   return PDF_MATERIAL_ICONS_STYLE_TAG;
+}
+
+async function embedPdfMendlBodyFont(pdfDoc) {
+  const bodyPath =
+    resolveFirstPdfFontPath(MENDL_DAWN_FONT_FILES.regular) ||
+    resolveFirstPdfFontPath(MENDL_DUSK_FONT_FILES.regular);
+
+  if (!bodyPath) {
+    throw new Error(
+      "Unable to locate a Mendl body font for PDF field embedding.",
+    );
+  }
+
+  pdfDoc.registerFontkit(fontkit);
+  const fontBytes = await readFile(bodyPath);
+  return pdfDoc.embedFont(fontBytes, { subset: true });
 }
 
 function getMaterialIconLigature(name) {
@@ -1646,7 +1663,7 @@ async function applyMeasuredFieldsToPdf(pdfPath, fields) {
   const pdfDoc = await PDFDocument.load(pdfBytes);
   const form = pdfDoc.getForm();
   const pages = pdfDoc.getPages();
-  const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  const font = await embedPdfMendlBodyFont(pdfDoc);
   const inch = (n) => n * 72;
   const widgetInsets = {
     text: { left: 0.015, right: 0.015, top: 0.01, bottom: 0.055 },
@@ -1718,7 +1735,7 @@ async function addFillableFieldsToLetterhead(pdfPath) {
   const pages = pdfDoc.getPages();
   const page = pages[0];
   const page2 = pages[1]; // continuation page
-  const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  const font = await embedPdfMendlBodyFont(pdfDoc);
 
   const pageHeight = page.getHeight();
   const inch = (n) => n * 72;
