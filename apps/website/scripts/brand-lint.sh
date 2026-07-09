@@ -187,6 +187,8 @@ check_pattern_typography() {
   done
   [[ ${#files[@]} -eq 0 ]] && return
   check_pattern "\\bAbolition\\b" "OFF-BRAND FONT: 'Abolition' is no longer the web heading face — use Mendl Sans Dusk (or var(--font-heading))" "${files[@]}"
+  check_pattern "Mendl Sans Dawn|mendl_sans_dawn|Mendl_Sans_Dawn" "OFF-BRAND FONT: 'Mendl Sans Dawn' is deprecated — use Mendl Sans Dusk (or var(--font-body/--font-heading))" "${files[@]}"
+  check_pattern "\\bInter\\b" "OFF-BRAND FONT: 'Inter' must not be used as a primary family — use Mendl Sans Dusk (with Roboto fallback only)" "${files[@]}"
   check_pattern "Tactic Sans|Garamond|Poppins|Roboto Condensed" "OFF-BRAND FONT: legacy typeface name — use Mendl Sans Dusk (heading) or Mendl Sans Dusk (body) with Roboto fallback" "${files[@]}"
 }
 check_pattern_typography

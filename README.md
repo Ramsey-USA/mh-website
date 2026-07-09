@@ -72,7 +72,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 - The canonical font system is enforced across app code, documents, and contributor docs.
 - Headings and subheadings must use Mendl Sans Dusk.
-- Body copy must use Inter.
+- Body copy must use Mendl Sans Dusk (with Roboto fallback where needed).
 - Run `pnpm font-system:check` after changing typography, document templates, layout font loading, or branding docs.
 - `pnpm font-system:check` now validates root source files and synced app mirrors, so documentation drift is caught alongside code drift.
 

@@ -35,7 +35,7 @@ The approved letterhead (`documents/output/MHC-company-letterhead.pdf`, May 2026
 - **Right margin**: `0.60in` uniform across identity row, header, footer, and veteran strip
 - **Body left/right**: `left: 1.15in`, `right: 0.60in`
 - **QR headline**: `MHC-GC.COM` (with dash) — never `MHCGC.COM`
-- **Body font**: Mendl Sans Dawn · 11pt · hunter green `#1E392C` · fallback Roboto · scrolling disabled
+- **Body font**: Mendl Sans Dusk · 11pt · hunter green `#1E392C` · fallback Roboto · scrolling disabled
 - **Accreditation order**: AGC `0.36in` → BBB `0.39in` → VOB `0.5in` (MANDATORY, never reorder)
 - **Veteran strip**: `bottom: 0.42in` · `VETERAN-OWNED ★ MISSION-FIRST ★ BUILT ON HONOR, INTEGRITY & TRUST`
 - **Double rule system**: primary `1.2pt solid #1E392C` + accent `0.6pt solid #BD9264` offset, used consistently on header bottom and footer top
