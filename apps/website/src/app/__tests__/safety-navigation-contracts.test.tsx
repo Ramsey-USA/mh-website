@@ -3,6 +3,8 @@
  */
 
 import { render, screen, waitFor } from "@testing-library/react";
+import { getDocumentById } from "@/lib/data/documents";
+import { clusterForSection } from "@/lib/data/safety-manual-clusters";
 
 jest.mock("next/link", () => ({
   __esModule: true,
@@ -118,15 +120,21 @@ describe("Safety navigation contracts", () => {
         }) => Promise<void>;
       };
 
+    const manual = getDocumentById("safety-manual");
+    const section = manual?.sections?.find((s) => s.slug === "fall-protection");
+    const expectedHref = section
+      ? clusterForSection(Number(section.number))?.href
+      : null;
+
+    expect(expectedHref).toBeTruthy();
+
     await expect(
       SectionPage({
         params: Promise.resolve({ slug: "fall-protection" }),
       }),
     ).rejects.toThrow(/NEXT_REDIRECT/);
 
-    expect(mockPermanentRedirect).toHaveBeenCalledWith(
-      "/resources/safety-manual/fall-and-access-safety#mish-21",
-    );
+    expect(mockPermanentRedirect).toHaveBeenCalledWith(expectedHref);
   });
 
   it("308-redirects unknown section slugs to the Table of Contents", async () => {
