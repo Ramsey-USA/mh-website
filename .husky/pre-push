@@ -1,5 +1,15 @@
 set -e
 
+ensure_hook_dependencies() {
+	if ! pnpm --filter @mhc/dashboard exec tsc --version >/dev/null 2>&1 || ! pnpm --filter @mhc/website exec tsc --version >/dev/null 2>&1; then
+		echo "⚠️  TypeScript toolchain links are missing. Reinstalling workspace dependencies..."
+		pnpm install --frozen-lockfile || pnpm install
+	fi
+}
+
 echo "🔍 Pre-push: running full type checks..."
+
+ensure_hook_dependencies
+
 npm run --silent type-check
 echo "✅ Pre-push: type checks passed!"

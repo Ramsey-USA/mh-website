@@ -1,6 +1,15 @@
 set -e
 
+ensure_hook_dependencies() {
+  if ! pnpm exec lint-staged --version >/dev/null 2>&1; then
+    echo "⚠️  lint-staged is unavailable. Reinstalling workspace dependencies..."
+    pnpm install --frozen-lockfile || pnpm install
+  fi
+}
+
 echo "🔍 Pre-commit: running quality checks..."
+
+ensure_hook_dependencies
 
 # Run lint-staged (eslint + prettier on staged files)
 echo "\n✨ Linting staged files..."
