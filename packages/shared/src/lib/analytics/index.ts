@@ -18,3 +18,11 @@ export {
   trackJourneyMilestone,
   trackLandingPage,
 } from "./marketing-tracking";
+export { GoogleAnalytics, analytics } from "./components/GoogleAnalytics";
+export { useAnalytics } from "./components/EnhancedAnalytics";
+export { PageTrackingClient } from "./components/PageTrackingClient";
+export {
+  TrackedPhoneLink,
+  TrackedEmailLink,
+  TrackedLocationLink,
+} from "./components/TrackedContactLinks";

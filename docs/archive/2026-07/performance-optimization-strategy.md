@@ -3,7 +3,7 @@
 **Category:** Development - Archive Summary  
 **Status:** Archived Summary  
 **Archived On:** July 10, 2026  
-**Original Location:** [docs/development/PERFORMANCE_OPTIMIZATION_STRATEGY.md](../../development/PERFORMANCE_OPTIMIZATION_STRATEGY.md)  
+**Original Location:** `docs/development/PERFORMANCE_OPTIMIZATION_STRATEGY.md`  
 **Active Replacement Source:** [docs/performance/index.md](../../performance/index.md)
 
 ## Snapshot Context

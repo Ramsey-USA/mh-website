@@ -1,23 +1,24 @@
 #!/usr/bin/env node
 
-const { spawnSync } = require("node:child_process");
-const { resolve } = require("node:path");
+"use strict";
 
-const root = spawnSync("git", ["rev-parse", "--show-toplevel"], {
-  encoding: "utf8",
-});
+const path = require("path");
+const { spawnSync } = require("child_process");
 
-if (root.status !== 0) {
-  process.stderr.write(root.stderr || "Failed to resolve repository root.\n");
-  process.exit(root.status ?? 1);
-}
-
-const target = resolve(
-  root.stdout.trim(),
-  "apps/website/scripts/test-basic-performance.js",
+const scriptPath = path.join(
+  __dirname,
+  "..",
+  "apps",
+  "website",
+  "scripts",
+  "test-basic-performance.js",
 );
-const result = spawnSync(process.execPath, [target, ...process.argv.slice(2)], {
-  stdio: "inherit",
-});
+const result = spawnSync(
+  process.execPath,
+  [scriptPath, ...process.argv.slice(2)],
+  {
+    stdio: "inherit",
+  },
+);
 
 process.exit(result.status ?? 1);

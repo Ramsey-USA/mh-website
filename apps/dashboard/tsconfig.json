@@ -62,6 +62,8 @@
       "@/lib/security/*": ["../../packages/shared/src/lib/security/*"],
       "@/lib/utils": ["../../packages/shared/src/lib/utils"],
       "@/lib/utils/*": ["../../packages/shared/src/lib/utils/*"],
+      "@/lib/icons": ["../../packages/shared/src/lib/icons"],
+      "@/lib/icons/*": ["../../packages/shared/src/lib/icons/*"],
       "@/lib/constants/company": [
         "../../packages/shared/src/lib/constants/company"
       ],
@@ -77,6 +79,8 @@
       "@/lib/constants/timing": [
         "../../packages/shared/src/lib/constants/timing"
       ],
+      "@/lib/shared-data/team": ["../../packages/shared/src/lib/data/team"],
+      "@/lib/shared-data/team/*": ["../../packages/shared/src/lib/data/team/*"],
       "@/lib/constants": ["../../packages/shared/src/lib/constants"],
       "@/lib/constants/*": ["../../packages/shared/src/lib/constants/*"],
       "@/lib/types": ["../../packages/shared/src/lib/types"],

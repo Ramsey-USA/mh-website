@@ -33,23 +33,11 @@ jobs:
 
     steps:
       # ── 1. Checkout (full history for accurate revision counting) ─────────
-      - name: Checkout repository
-        uses: actions/checkout@v5
+      - name: Setup workspace
+        uses: ./.github/actions/setup-workspace
         with:
-          fetch-depth: 0
-
-      # ── 2. pnpm + Node.js setup ──────────────────────────────────────────
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          version: 10
-
-      # ── 3. Node.js setup ─────────────────────────────────────────────────
-      - name: Setup Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v6
-        with:
+          fetch-depth: "0"
           node-version: ${{ env.NODE_VERSION }}
-          cache: "pnpm"
 
       # ── 3. Chromium system dependencies (required by Puppeteer) ──────────
       - name: Install Chromium system dependencies
@@ -67,10 +55,6 @@ jobs:
             libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 \
             xdg-utils ca-certificates fonts-liberation libappindicator3-1 \
             "$ALSA_PKG" libpango-1.0-0 libpangocairo-1.0-0
-
-      # ── 4. Install pnpm dependencies ──────────────────────────────────────
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --loglevel error
 
       # ── 4b. Validate canonical docs/messages/documents layout ──
       - name: Validate canonical docs layout

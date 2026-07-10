@@ -20,22 +20,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
+      - name: Setup workspace
+        uses: ./.github/actions/setup-workspace
         with:
-          version: 10
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
+          fetch-depth: "0"
           node-version: "22"
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --loglevel error
 
       - name: Enforce generated artifact guard
         run: npm run guard:generated-artifacts
@@ -140,24 +129,11 @@ jobs:
     if: github.event_name == 'push'
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
+      - name: Setup workspace
+        uses: ./.github/actions/setup-workspace
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          version: 10
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
+          checkout-token: ${{ secrets.GITHUB_TOKEN }}
           node-version: "22"
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --loglevel error
 
       - name: Auto-fix markdown issues
         run: |

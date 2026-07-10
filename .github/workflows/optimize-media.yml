@@ -21,25 +21,12 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
+      - name: Setup workspace
+        uses: ./.github/actions/setup-workspace
         with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          version: 10
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
+          fetch-depth: "0"
+          checkout-token: ${{ secrets.GITHUB_TOKEN }}
           node-version: "22"
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --loglevel error
 
       - name: Setup FFmpeg
         uses: FedericoCarboni/setup-ffmpeg@v3

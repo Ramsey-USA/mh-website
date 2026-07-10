@@ -19,6 +19,7 @@ but are retained for historical traceability.
 - [Performance Optimization Strategy](./performance-optimization-strategy.md)
 - [Large Component Refactoring](./large-component-refactoring.md)
 - [Codebase Analysis](./codebase-analysis.md)
+- [Markdown Consolidation Ledger (2026-07-10)](./markdown-consolidation-ledger-2026-07-10.md)
 
 ## Usage Rule
 

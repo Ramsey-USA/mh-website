@@ -1,7 +1,7 @@
 # MH Construction Documentation
 
 **Category:** Documentation - Master Index  
-**Last Updated:** July 3, 2026
+**Last Updated:** July 10, 2026
 
 ## Overview
 
@@ -35,6 +35,15 @@ Branding markdown update note: see [Branding Markdown Sweep Log (2026-07-02)](./
   congruency plan.
 - **[Technical](./technical/index.md)** — Homepage reference, design system, SEO, PWA, analytics,
   safety program, security, and integration guides.
+
+## Documentation Architecture Map
+
+Use this path to find canonical docs quickly and avoid duplicate guidance:
+
+1. Start at a category index (for example, [Technical](./technical/index.md) or [Branding](./branding/index.md)).
+2. Open the category's standards/governance files for canonical policy.
+3. Use companion references for implementation speed: [Color Quick Reference](./branding/standards/color-quick-reference.md), [Consistency Implementation Checklists](./development/standards/consistency-implementation-checklists.md), [SEO Section Ordering Reference](./technical/seo/section-ordering-reference.md), and [Services Integration Roadmap](./technical/services-integration-roadmap.md).
+4. For historical context, use [Archive](./archive/index.md) and the dated set index.
 
 ## Single Sources of Truth
 

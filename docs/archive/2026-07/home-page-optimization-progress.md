@@ -3,7 +3,7 @@
 **Category:** Performance - Archive Summary  
 **Status:** Archived Summary  
 **Archived On:** July 10, 2026  
-**Original Location:** [docs/home-page-optimization-progress.md](../../home-page-optimization-progress.md)  
+**Original Location:** `docs/home-page-optimization-progress.md`  
 **Active Replacement Sources:** [docs/performance/index.md](../../performance/index.md), [docs/performance/page-performance-audit.md](../../performance/page-performance-audit.md)
 
 ## Snapshot Context

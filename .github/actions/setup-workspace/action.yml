@@ -1,0 +1,55 @@
+name: Setup Workspace
+description: Checkout repository, setup pnpm and Node.js, then install dependencies.
+
+inputs:
+  fetch-depth:
+    description: Git history depth passed to actions/checkout.
+    required: false
+    default: "1"
+  checkout-token:
+    description: Optional token for actions/checkout (defaults to GITHUB_TOKEN when omitted).
+    required: false
+    default: ""
+  pnpm-version:
+    description: pnpm version for pnpm/action-setup.
+    required: false
+    default: "10"
+  node-version:
+    description: Node.js version for actions/setup-node.
+    required: false
+    default: "22"
+  install-command:
+    description: Install command to run after tool setup.
+    required: false
+    default: "pnpm install --frozen-lockfile --loglevel error"
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout repository (default token)
+      if: ${{ inputs.checkout-token == '' }}
+      uses: actions/checkout@v5
+      with:
+        fetch-depth: ${{ inputs.fetch-depth }}
+
+    - name: Checkout repository (custom token)
+      if: ${{ inputs.checkout-token != '' }}
+      uses: actions/checkout@v5
+      with:
+        fetch-depth: ${{ inputs.fetch-depth }}
+        token: ${{ inputs.checkout-token }}
+
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v6
+      with:
+        version: ${{ inputs.pnpm-version }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: pnpm
+
+    - name: Install dependencies
+      shell: bash
+      run: ${{ inputs.install-command }}

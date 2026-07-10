@@ -37,3 +37,42 @@ The following legacy files were condensed into this single archive reference:
 - `docs/development/standards/branding-congruency-checklist.md`
 
 Use the active references above for current policy and implementation expectations.
+
+## July 10, 2026 Continuation: Deduplication and Shared Extractions
+
+After this archive consolidation, a follow-on optimization pass completed additional
+codebase deduplication by moving repeated runtime modules into shared canonical
+locations and converting app-local copies into thin wrappers.
+
+### Completed Extractions
+
+- Analytics runtime components extracted to `packages/shared/src/lib/analytics/components/`
+  and consumed through app-level wrappers in `apps/website/src/components/analytics/`
+  and `apps/dashboard/src/components/analytics/`.
+- American flag icon runtime extracted to `packages/shared/src/lib/icons/AmericanFlag.tsx`
+  with app-level wrapper components retained.
+- Canonical style sources extracted to `packages/shared/src/styles/variables.css`
+  and `packages/shared/src/styles/material-icons.css`, with app style entry files
+  converted to `@import` wrappers.
+- Final mirrored team data extracted to `packages/shared/src/lib/data/team/`
+  (gator and mike-holstein), consumed via dedicated alias namespace
+  `@/lib/shared-data/team/*` to avoid collisions with local `@/lib/data/team/*` imports.
+
+### Drift Guard Outcome
+
+- `scripts/duplicates/sync-app-mirrors.sh` remains in place for policy continuity,
+  now supporting an empty mirror list with explicit skip messaging.
+- Mirror enforcement is currently configured with zero entries after extraction
+  completion; previous mirrored surfaces were converted to shared canon.
+
+### Validation Snapshot
+
+The continuation pass was validated with:
+
+- `npm run app:mirrors:sync:check`
+- `npm run scripts:sync:check`
+- `npm run migrations:sync:check`
+- `pnpm --filter @mhc/website type-check`
+- `pnpm --filter @mhc/dashboard type-check`
+- `apps/website npm run build`
+- `apps/dashboard npm run build`

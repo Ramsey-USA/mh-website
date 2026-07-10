@@ -1,0 +1,37 @@
+name: Setup Node Workflow
+description: Checkout repository and setup Node.js for Node-only workflow jobs.
+
+inputs:
+  fetch-depth:
+    description: Git history depth passed to actions/checkout.
+    required: false
+    default: "1"
+  checkout-token:
+    description: Optional token for actions/checkout (defaults to GITHUB_TOKEN when omitted).
+    required: false
+    default: ""
+  node-version:
+    description: Node.js version for actions/setup-node.
+    required: false
+    default: "22"
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout repository (default token)
+      if: ${{ inputs.checkout-token == '' }}
+      uses: actions/checkout@v5
+      with:
+        fetch-depth: ${{ inputs.fetch-depth }}
+
+    - name: Checkout repository (custom token)
+      if: ${{ inputs.checkout-token != '' }}
+      uses: actions/checkout@v5
+      with:
+        fetch-depth: ${{ inputs.fetch-depth }}
+        token: ${{ inputs.checkout-token }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version: ${{ inputs.node-version }}

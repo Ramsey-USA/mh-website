@@ -36,22 +36,10 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          version: 10
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
+      - name: Setup workspace
+        uses: ./.github/actions/setup-workspace
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --loglevel error
 
       - name: Run website coverage tests
         id: coverage_initial

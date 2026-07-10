@@ -39,11 +39,11 @@ See **[Standards Index](./standards/index.md)** for the full standards library, 
 ## Engineering Practices
 
 - **[JSDoc Standards](./JSDOC_STANDARDS.md)** — Component documentation conventions
-- **[Performance Optimization Strategy](./PERFORMANCE_OPTIMIZATION_STRATEGY.md)** — Page-level
-  performance playbook
+- **[Performance Documentation](../performance/index.md)** — Page-level performance
+  standards and audit references
 - **[Hero Commercial Video Guardrails](./standards/hero-commercial-video-guardrails.md)** — Canonical build and validation rules for hero videos
-- **[Large Component Refactoring](./LARGE_COMPONENT_REFACTORING.md)** — Decomposition guide
-- **[Codebase Analysis](./codebase-analysis.md)** — Comprehensive structural analysis
+- **[Development Standards](./standards/development-standards.md)** — Current refactor and decomposition guidance
+- **[Project Architecture](../project/architecture.md)** — Current structural analysis reference
 - **[Test Coverage — Next Steps](./testing-coverage-next-steps.md)** — Coverage audit roadmap
 
 ## Forward Plan Requirement

@@ -862,105 +862,15 @@ className = "transform-gpu will-change-transform";
 
 ---
 
-## ✅ Implementation Checklist
+## ✅ Implementation Gating Companion
 
-### Before Creating a New Page
+Execution checklists, consistency scan commands, validation commands, and QA
+review gates have moved to:
 
-- [ ] Choose hero pattern (image/video background or gradient)
-- [ ] NO veteran badges in hero or section headers
-- [ ] Use correct typography tier (hero vs standard section)
-- [ ] Include all responsive breakpoints in typography
-- [ ] Alternating section backgrounds (white/gray-50)
-- [ ] Container with proper padding: `relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl`
+- [Consistency Implementation Checklists](./consistency-implementation-checklists.md)
 
-### Before Creating a New Section
-
-- [ ] Use standard section structure template
-- [ ] Two-line header: subtitle + main title
-- [ ] NO section badges (only modals have badges)
-- [ ] Responsive typography with all breakpoints
-- [ ] FadeInWhenVisible wrapper on header
-- [ ] StaggeredFadeIn on grid content
-- [ ] Proper vertical padding uses approved rhythm tiers (`py-12 sm:py-16 lg:py-20 xl:py-24` or `py-10 sm:py-12 lg:py-16`)
-- [ ] CTA cluster follows primary-secondary-tertiary hierarchy
-- [ ] Header scale is chosen intentionally for cadence with adjacent sections
-- [ ] Deferred placeholder (if used) matches final section shell spacing and background
-- [ ] CTA route actions use `Button asChild` + `Link` composition
-- [ ] No utility-important (`!`) class overrides in section composition
-- [ ] Motion classes are tokenized or documented as explicit exceptions
-
-### Before Creating a New Component
-
-- [ ] Use MaterialIcon instead of emojis
-- [ ] Brand colors via Tailwind classes (never hardcoded)
-- [ ] Touch targets minimum 44px × 44px
-- [ ] Include `touch-manipulation` class
-- [ ] Full dark mode support
-- [ ] Responsive sizing with all breakpoints
-- [ ] Hover states with proper transitions
-- [ ] Accessibility attributes (aria-labels, roles)
-
-### Before Creating Forms
-
-- [ ] Input fields: `min-h-[44px]`
-- [ ] Include `touch-manipulation` class
-- [ ] Brand color focus rings
-- [ ] Error state styling
-- [ ] Helper text support
-- [ ] Dark mode support
-- [ ] Proper label associations
-
-### Mobile Optimization Checklist
-
-- [ ] All text readable at 320px width
-- [ ] Touch targets meet 44px minimum
-- [ ] No horizontal scroll at any breakpoint
-- [ ] Proper spacing between interactive elements
-- [ ] Images responsive with proper aspect ratios
-- [ ] Animations smooth on mobile devices
-- [ ] Forms usable with touch keyboards
-
-### Deferred Rendering Checklist
-
-- [ ] Loading placeholders inherit final section spacing classes.
-- [ ] Loading placeholders inherit final section background variant.
-- [ ] Placeholder structure approximates final content density to reduce layout pop.
-
----
-
-## 🚀 Quick Reference Commands
-
-### Search for Consistency Issues
-
-```bash
-# Find emojis in source code
-grep -r "[\u{1F600}-\u{1F64F}]" src/
-
-# Find hardcoded colors
-grep -r "#386851\|#BD9264" src/
-
-# Find missing touch-manipulation
-grep -rL "touch-manipulation" src/components/
-
-# Find missing responsive typography
-grep -L "xs:text-" src/app/*/page.tsx
-```
-
-### Validation
-
-```bash
-# Run type checking
-pnpm run type-check
-
-# Run linting
-pnpm run lint
-
-# Build test
-pnpm run build
-
-# Branding compliance check
-./scripts/validation/check-branding-compliance.sh
-```
+Use this guide for standards and architectural intent. Use the checklist
+companion for day-to-day implementation and pre-merge gating.
 
 ---
 
@@ -1135,7 +1045,7 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
   **CRITICAL** - 4 Core Page Groups strategy
 - **[Universal Page Flow Standard](./universal-page-flow-standard.md)** - Required body-content sequence and smaller-page rules
 - **[Brand Overview](../../branding/strategy/brand-overview.md)** - Complete brand standards
-- **[Brand Overview](../../branding/strategy/brand-overview.md)** - Complete brand standards
+- **[Consistency Implementation Checklists](./consistency-implementation-checklists.md)** - Execution checklist and QA companion
 - **[Design System Components](../../technical/design-system/buttons-ctas-complete-guide.md)** - Complete design system
 - **[Icon System](../../technical/design-system/icon-system-complete.md)** - Icon standards
 - **[Brand Strategy](../../branding/strategy/)** - Brand identity and messaging

@@ -1,7 +1,7 @@
 # Branding Documentation
 
 **Category:** Branding - Overview  
-**Last Updated:** July 3, 2026
+**Last Updated:** July 10, 2026
 
 ## Overview
 
@@ -73,7 +73,10 @@ On-demand specialist agents use explicit PASS/FAIL report contracts:
 
 Design and visual standards for consistent brand implementation.
 
+- **[Standards Index](./standards/index.md)** - Entry point for all branding standards
+
 - **[Color System](./standards/color-system.md)** - Brand colors (Hunter Green #386851, Leather Tan #BD9264)
+- **[Color Quick Reference](./standards/color-quick-reference.md)** - Compact color tables and implementation snippets
 - **[Hero Section Standards](./standards/hero-section-standards.md)** - Page header guidelines
 - **[Unified Component Standards](./standards/unified-component-standards.md)** - UI component patterns (v7.1.0)
 - **[Documents & Forms Branding Standards](./standards/documents-and-forms-standards.md)** - Print/download/manual/form identity standards
@@ -83,6 +86,8 @@ Design and visual standards for consistent brand implementation.
 ### Strategy
 
 Messaging, voice, and brand positioning guidelines.
+
+- **[Strategy Index](./strategy/index.md)** - Entry point for messaging and terminology strategy docs
 
 - **[Brand Overview](./strategy/brand-overview.md)** - Core brand identity
 - **[Messaging Guide](./strategy/messaging.md)** - Core messaging framework (v7.0.0)

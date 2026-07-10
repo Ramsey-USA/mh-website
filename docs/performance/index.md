@@ -16,8 +16,8 @@ Page-level performance audits and Core Web Vitals tracking for the MH Constructi
 
 ## Related
 
-- **[Performance Optimization Strategy](../development/PERFORMANCE_OPTIMIZATION_STRATEGY.md)** —
-  Engineering-side optimization playbook.
+- **[Performance Audit Guide](./page-performance-audit.md)** —
+  Engineering-side optimization checklist and remediation workflow.
 - **[Lighthouse Results](../../lighthouse-results/)** — Raw audit JSON from PageSpeed Insights.
 
 ## Quick Links

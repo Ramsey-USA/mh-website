@@ -1,3 +1,1 @@
-module.exports = {
-  getCloudflareContext: () => ({ env: {} }),
-};
+module.exports = require("../../../website/test/mocks/opennext-cloudflare.js");

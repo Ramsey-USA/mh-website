@@ -1,7 +1,7 @@
 # Development Standards
 
 **Category:** Development - Standards  
-**Last Updated:** July 3, 2026
+**Last Updated:** July 10, 2026
 
 ## Overview
 
@@ -17,6 +17,7 @@ Use [Website Guardrails Coverage Map](../../branding/governance/website-guardrai
 - **[Development Standards](./development-standards.md)** — Core code patterns and conventions
 - **[New Route Onboarding](./development-standards.md#new-route-onboarding-required)** — Required Jeremy ribbon and route-aware SEO quote integration for future indexable pages
 - **[Consistency Guide](./consistency-guide.md)** — **MANDATORY** site-wide consistency rules
+- **[Consistency Implementation Checklists](./consistency-implementation-checklists.md)** — Build-time and pre-merge execution checklist companion
 - **[Common Mistakes](./common-mistakes.md)** — 22 recurring errors to avoid
 - **[Hero Commercial Video Guardrails](./hero-commercial-video-guardrails.md)** — Required media build and validation gates for hero ads
 - **[Website Guardrails Coverage Map](../../branding/governance/website-guardrails-coverage.md#canonical-contracts-matrix-development-routing)** — Canonical contracts routing matrix for implementation and review

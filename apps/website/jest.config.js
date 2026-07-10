@@ -5,7 +5,7 @@
  * Unit and integration testing with coverage tracking
  *
  * @see https://nextjs.org/docs/app/building-your-application/testing/jest
- * @see testing/mh-testing-guide.md
+ * @see apps/website/testing/mh-testing-guide.md
  * @version 2.1.0
  * @lastUpdated 2026-04-29
  */

@@ -1,7 +1,7 @@
 # Technical Documentation
 
 **Category:** Technical - Overview  
-**Last Updated:** May 15, 2026
+**Last Updated:** July 10, 2026
 
 ## Overview
 
@@ -39,8 +39,7 @@ See **[Patterns Index](./patterns/index.md)** for reusable section patterns, inc
 
 ## SEO
 
-- **[Complete SEO & Search Optimization Guide](./seo/seo-complete-guide.md)** — Full SEO
-  implementation guide. Pair with the [SEO Quick Reference](../marketing/seo-quick-reference.md).
+- **[SEO Index](./seo/index.md)** — SEO guide set entry point for implementation and policy.
 - **[Route Indexing Policy Checklist](./seo/route-indexing-policy-checklist.md)** — Required
   process for classifying routes as indexable, noindex, or redirect and keeping sitemap coverage aligned.
 
@@ -76,6 +75,8 @@ See **[Patterns Index](./patterns/index.md)** for reusable section patterns, inc
 
 - **[External Services Integration Guide](./services-integration-guide.md)** — Twilio, Resend,
   Cloudflare bindings, and other external service wiring.
+- **[Services Integration Roadmap](./services-integration-roadmap.md)** — Priority rollout,
+  ownership checklist, and maturity planning.
 
 ## Reference
 

@@ -31,24 +31,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
+      - name: Setup workspace
+        uses: ./.github/actions/setup-workspace
         with:
-          fetch-depth: 0
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          version: 10
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
+          fetch-depth: "0"
           node-version: ${{ env.NODE_VERSION }}
-          cache: "pnpm"
-
-      - name: Install dependencies (workspace root)
-        run: pnpm install --frozen-lockfile --loglevel error
 
       - name: Enforce IndexNow key for main checks
         if: >-
@@ -69,6 +56,15 @@ jobs:
 
       - name: Enforce branding docs contracts guard
         run: npm run docs:guardrails:contracts
+
+      - name: Enforce migration mirror sync guard
+        run: npm run migrations:sync:check
+
+      - name: Enforce root script wrapper sync guard
+        run: npm run scripts:sync:check
+
+      - name: Enforce app mirror sync guard
+        run: npm run app:mirrors:sync:check
 
       - name: Enforce manual template congruence guard
         run: npm run docs:guardrails:manual-congruence
@@ -190,22 +186,10 @@ jobs:
     needs: quality-checks
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          version: 10
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
+      - name: Setup workspace
+        uses: ./.github/actions/setup-workspace
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --loglevel error
 
       - name: Run internal dependency security check
         run: npm run security:check
@@ -217,19 +201,11 @@ jobs:
     needs: [quality-checks]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          version: 10
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
+      - name: Setup workspace
+        uses: ./.github/actions/setup-workspace
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: "pnpm"
+          install-command: pnpm install --frozen-lockfile --filter @mhc/website... --loglevel error
 
       - name: Restore Next.js build cache (website)
         uses: actions/cache@v6
@@ -242,9 +218,6 @@ jobs:
           restore-keys: |
             nextjs-website-cache-${{ hashFiles('pnpm-lock.yaml') }}-
             nextjs-website-cache-
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --filter @mhc/website... --loglevel error
 
       - name: Enforce IndexNow key for production deploy
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -271,19 +244,11 @@ jobs:
     needs: [quality-checks]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          version: 10
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
+      - name: Setup workspace
+        uses: ./.github/actions/setup-workspace
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: "pnpm"
+          install-command: pnpm install --frozen-lockfile --filter @mhc/dashboard... --loglevel error
 
       - name: Restore Next.js build cache (dashboard)
         uses: actions/cache@v6
@@ -296,9 +261,6 @@ jobs:
           restore-keys: |
             nextjs-dashboard-cache-${{ hashFiles('pnpm-lock.yaml') }}-
             nextjs-dashboard-cache-
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --filter @mhc/dashboard... --loglevel error
 
       - name: Build dashboard
         working-directory: apps/dashboard
@@ -316,19 +278,11 @@ jobs:
       deployments: write
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          version: 10
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
+      - name: Setup workspace
+        uses: ./.github/actions/setup-workspace
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: "pnpm"
+          install-command: pnpm install --frozen-lockfile --filter @mhc/website... --loglevel error
 
       - name: Restore Next.js build cache (website)
         uses: actions/cache@v6
@@ -341,9 +295,6 @@ jobs:
           restore-keys: |
             nextjs-website-cache-${{ hashFiles('pnpm-lock.yaml') }}-
             nextjs-website-cache-
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --filter @mhc/website... --loglevel error
 
       - name: Build website
         working-directory: apps/website

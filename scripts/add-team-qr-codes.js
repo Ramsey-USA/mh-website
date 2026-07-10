@@ -1,79 +1,22 @@
-#!/usr/bin/env node
+"use strict";
 
-/**
- * Add QR Code Paths to Team Data
- *
- * This script automatically adds QR code image paths to each team member
- * in the team-data.json file, linking their digital profiles to business cards.
- *
- * Usage: node scripts/add-team-qr-codes.js
- */
-
-const fs = require("fs");
 const path = require("path");
+const { spawnSync } = require("child_process");
 
-// Path to team data file
-const TEAM_DATA_PATH = path.join(__dirname, "../src/lib/data/team-data.json");
+const scriptPath = path.join(
+  __dirname,
+  "..",
+  "apps",
+  "website",
+  "scripts",
+  "add-team-qr-codes.js",
+);
+const result = spawnSync(
+  process.execPath,
+  [scriptPath, ...process.argv.slice(2)],
+  {
+    stdio: "inherit",
+  },
+);
 
-// QR code directory path (for reference)
-const QR_CODE_DIR = "/media/qr-codes/team";
-
-/**
- * Generate QR code path for a team member based on their slug
- */
-function getQRCodePath(slug) {
-  return `${QR_CODE_DIR}/qr-team-${slug}-color.png`;
-}
-
-/**
- * Main function to update team data with QR codes
- */
-async function addQRCodesToTeamData() {
-  console.log("🎯 Adding QR Code Paths to Team Data...\n");
-
-  // Read team data
-  const teamData = JSON.parse(fs.readFileSync(TEAM_DATA_PATH, "utf8"));
-  console.log(`✓ Found ${teamData.length} team members\n`);
-
-  let updatedCount = 0;
-  let skippedCount = 0;
-
-  // Add QR code path to each team member
-  teamData.forEach((member) => {
-    if (!member.slug) {
-      console.log(`⚠ Skipping ${member.name} - no slug found`);
-      skippedCount++;
-      return;
-    }
-
-    const qrCodePath = getQRCodePath(member.slug);
-
-    if (member.qrCode) {
-      console.log(`⏭ ${member.name} - QR code already set: ${member.qrCode}`);
-      skippedCount++;
-    } else {
-      member.qrCode = qrCodePath;
-      console.log(`✓ ${member.name} - Added QR code: ${qrCodePath}`);
-      updatedCount++;
-    }
-  });
-
-  // Write updated data back to file
-  fs.writeFileSync(TEAM_DATA_PATH, JSON.stringify(teamData, null, 2), "utf8");
-
-  console.log("\n✅ Team data updated successfully!");
-  console.log(`   Updated: ${updatedCount} members`);
-  console.log(`   Skipped: ${skippedCount} members`);
-  console.log(`\n📋 Next steps:`);
-  console.log(`   1. Run: pnpm --filter @mhc/website run qr:generate`);
-  console.log(
-    `   2. QR codes will be generated in apps/website/public/images/qr-codes/`,
-  );
-  console.log(`   3. Team profiles will automatically display QR codes`);
-}
-
-// Run the script
-addQRCodesToTeamData().catch((error) => {
-  console.error("❌ Error:", error.message);
-  process.exit(1);
-});
+process.exit(result.status ?? 1);

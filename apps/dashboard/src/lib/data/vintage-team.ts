@@ -5,9 +5,9 @@
 // To add a new team member: create ./team/<slug>.json and add an import below
 
 import jeremyThamert from "./team/jeremy-thamert.json";
-import gator from "./team/gator.json";
+import gator from "@/lib/shared-data/team/gator.json";
 import kimThamert from "./team/kim-thamert.json";
-import mikeHolstein from "./team/mike-holstein.json";
+import mikeHolstein from "@/lib/shared-data/team/mike-holstein.json";
 import arnoldGarcia from "./team/arnold-garcia.json";
 import benWoodall from "./team/ben-woodall.json";
 import toddSchoeff from "./team/todd-schoeff.json";
