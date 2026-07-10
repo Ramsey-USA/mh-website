@@ -21,6 +21,9 @@ jobs:
       contents: write
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup workspace
         uses: ./.github/actions/setup-workspace
         with:

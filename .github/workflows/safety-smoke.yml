@@ -46,6 +46,9 @@ jobs:
       SAFETY_SMOKE_JWT_ISSUER: ${{ inputs.base_url || 'https://www.mhc-gc.com' }}
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup workflow runtime
         uses: ./.github/actions/setup-node-workflow
         with:
@@ -98,6 +101,9 @@ jobs:
       SAFETY_SMOKE_JWT_ISSUER: ${{ inputs.base_url || 'https://www.mhc-gc.com' }}
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup workflow runtime
         uses: ./.github/actions/setup-node-workflow
         with:
