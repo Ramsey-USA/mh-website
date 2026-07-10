@@ -38,6 +38,8 @@
     "lint:brand:ci": "BRAND_LINT_CHANGED_ONLY=true BRAND_LINT_BASE_SHA=${BASE_SHA:-} bash apps/website/scripts/brand-lint.sh",
     "docs:sync": "bash scripts/docs/sync-to-app.sh",
     "docs:sync:check": "bash scripts/docs/check-sync.sh",
+    "docs:preflight:pdf-output": "pnpm --filter @mhc/website run docs:preflight:pdf-output",
+    "docs:clean:legacy-output": "bash scripts/docs/clean-stale-pdf-output.sh",
     "docs:guardrails:contracts": "bash scripts/validation/check-branding-doc-contracts.sh",
     "guard:generated-artifacts": "bash scripts/validation/check-no-generated-artifacts.sh",
     "docs:extract": "node documents/scripts/extract.mjs",

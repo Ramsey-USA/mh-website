@@ -149,8 +149,15 @@ If sync check fails, run sync again and commit both source and mirrored updates.
 
 Document generation commands live in [apps/website](apps/website) package scripts and use canonical sources under [documents/](documents).
 
+Canonical output path when running these commands from repo root:
+
+- [documents/output/](documents/output)
+
+Stale mirror output at [apps/website/documents/output/](apps/website/documents/output) can accumulate outdated files from older workflows.
+
 ```bash
 # Generate templates/artifacts
+pnpm --filter @mhc/website run docs:preflight:pdf-output
 pnpm --filter @mhc/website run docs:generate
 pnpm --filter @mhc/website run docs:generate:forms
 pnpm --filter @mhc/website run docs:generate:handbook
@@ -166,6 +173,12 @@ pnpm --filter @mhc/website run docs:publish:employee-handbook
 
 # Verify public URLs
 pnpm --filter @mhc/website run docs:verify:published
+
+# Optional: remove stale app mirror PDF artifacts
+pnpm run docs:clean:legacy-output
+
+# Root shortcut for the same preflight check
+pnpm run docs:preflight:pdf-output
 ```
 
 End-to-end release shortcut:

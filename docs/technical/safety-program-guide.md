@@ -243,12 +243,19 @@ node documents/scripts/extract-word.mjs --input documents/content/MHC-MISH-APP-5
 ### Step 4 — Regenerate all print PDFs
 
 ```bash
+pnpm --filter @mhc/website run docs:preflight:pdf-output
 pnpm --filter @mhc/website run docs:generate
 pnpm --filter @mhc/website run docs:generate:forms
 ```
 
 This rebuilds all manual PDFs (cover, spine, tabs, sections) plus form package PDFs into
 `documents/output/`.
+
+If preflight reports stale legacy output, clean it with:
+
+```bash
+pnpm run docs:clean:legacy-output
+```
 
 For a single-command full rebuild, use:
 
@@ -346,6 +353,7 @@ pnpm run type-check && pnpm run lint && pnpm run build
 
 - `pnpm run docs:extract`: Extract PDF text to `safety-manual.json` (falls back to Word source if PDF source path is missing)
 - `pnpm --filter @mhc/website run docs:extract-word`: Extract Word docs to `safety-manual.json` (preferred)
+- `pnpm --filter @mhc/website run docs:preflight:pdf-output`: Fail fast if stale mirror output exists in `apps/website/documents/output/`
 - `pnpm --filter @mhc/website run docs:generate`: Generate MISH manual PDFs (cover, spine, tabs, all sections)
 - `pnpm --filter @mhc/website run docs:generate:forms`: Generate form package PDFs in `documents/output/form-packages/` from manifest fillable forms
 - `pnpm --filter @mhc/website run docs:all`: Generate MISH manual PDFs + form packages, then merge complete manuals
