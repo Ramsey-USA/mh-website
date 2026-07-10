@@ -313,7 +313,7 @@ const DOCS_DIR = join(ROOT, "documents");
 const OUTPUT_DIR = join(DOCS_DIR, "output");
 let MANIFEST = join(DOCS_DIR, "content/safety-manual.json");
 const FORMS_DIR = join(DOCS_DIR, "forms");
-const CANONICAL_DOCS_DIR = resolve(__dirname, "../../../../documents");
+const CANONICAL_DOCS_DIR = DOCS_DIR;
 const CANONICAL_OUTPUT_DIR = join(CANONICAL_DOCS_DIR, "output");
 const CANONICAL_TOC_TEMPLATE_PATH = join(
   CANONICAL_DOCS_DIR,
@@ -6037,6 +6037,14 @@ async function renderFormCover(form, brandedTemplate, coversDir) {
   const tokens = {
     "{{FORM_ID}}": escapeHtml(form.id || "FORM"),
     "{{FORM_TITLE}}": escapeHtml(form.title || "Untitled Form"),
+    "{{FORM_SUBTITLE}}": escapeHtml(
+      form.subtitle ||
+        "Controlled document for field execution and records continuity.",
+    ),
+    "{{FORM_CONTEXT_LEAD}}": escapeHtml(
+      form.contextLead ||
+        "Use this form to document work planning, execution checks, and closeout accountability.",
+    ),
     "{{FORM_CATEGORY_LABEL}}": escapeHtml(
       form.categoryLabel || form.category || "—",
     ),

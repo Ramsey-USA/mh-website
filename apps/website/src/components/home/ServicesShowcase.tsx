@@ -15,8 +15,8 @@ import {
 } from "@/components/ui";
 import { trackServiceInterest } from "@/lib/analytics/marketing-tracking";
 import { useLocale } from "@/hooks/useLocale";
-import en from "@/../messages/home/en.json";
-import es from "@/../messages/home/es.json";
+import en from "../../../../../messages/home/en.json";
+import es from "../../../../../messages/home/es.json";
 import { cornerRadius, hoverMotion } from "@/lib/styles/design-tokens";
 
 const ServicesDetailModal = dynamic(
@@ -89,6 +89,23 @@ type ServiceFocusId =
   | "industrial"
   | "occupied-ti"
   | "rapid-ti";
+
+type ServiceItem = {
+  title: string;
+  subtitle: string;
+  description: string;
+  features: string[];
+  benefits: string[];
+  cta?: string;
+  icon: string;
+  iconGradient: string;
+  iconGlow: string;
+  funnel: {
+    path: Exclude<ServicePathId, "all">;
+    focus: Exclude<ServiceFocusId, "all">;
+  };
+  link: string;
+};
 
 function getServiceFunnelMeta(title: string): {
   path: Exclude<ServicePathId, "all">;
@@ -171,9 +188,18 @@ export function ServicesShowcase({
   );
 
   // Build services array from translations with icon metadata
-  const services = useMemo(
+  const services = useMemo<ServiceItem[]>(
     () =>
-      (t.items || []).map((item, index) => ({
+      (
+        (t.items || []) as Array<{
+          title: string;
+          subtitle: string;
+          description: string;
+          features: string[];
+          benefits: string[];
+          cta?: string;
+        }>
+      ).map((item, index: number) => ({
         ...item,
         icon: serviceIcons[index]?.icon || "engineering",
         iconGradient:
@@ -680,7 +706,7 @@ export function ServicesShowcase({
                 </h4>
               </div>
               <ul className="space-y-3 ml-13">
-                {currentService.features.map((feature) => (
+                {currentService.features.map((feature: string) => (
                   <li key={feature} className="flex items-start">
                     <MaterialIcon
                       icon="check_circle"
@@ -712,7 +738,7 @@ export function ServicesShowcase({
                 </h4>
               </div>
               <ul className="space-y-3 ml-13">
-                {currentService.benefits.map((benefit) => (
+                {currentService.benefits.map((benefit: string) => (
                   <li key={benefit} className="flex items-start">
                     <MaterialIcon
                       icon="military_tech"

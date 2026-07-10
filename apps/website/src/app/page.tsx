@@ -14,8 +14,8 @@ import {
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 import { normalizeLocale } from "@/lib/i18n/locale";
-import enHome from "@/../messages/home/en.json";
-import esHome from "@/../messages/home/es.json";
+import enHome from "../../../../messages/home/en.json";
+import esHome from "../../../../messages/home/es.json";
 import { BrandedContentSection } from "@/components/templates";
 
 import { HeroSection, WhyPartnerSection } from "@/components/home";
@@ -154,7 +154,9 @@ export default async function Home() {
         type: "client",
       }) as Testimonial,
   );
-  const processSteps = homeCopy.process.steps.map((step, index) => ({
+  const processSteps = (
+    homeCopy.process.steps as Array<{ title: string; desc: string }>
+  ).map((step: { title: string; desc: string }, index: number) => ({
     num: index + 1,
     icon:
       [

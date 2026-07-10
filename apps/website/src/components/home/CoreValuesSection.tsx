@@ -7,8 +7,8 @@ import { BrandedContentSection } from "@/components/templates";
 import { CORE_VALUE_ICONS } from "@/lib/constants/navigation-icons";
 import { cornerRadius, hoverMotion } from "@/lib/styles/design-tokens";
 import type { SupportedLocale } from "@/lib/i18n/locale";
-import en from "@/../messages/home/en.json";
-import es from "@/../messages/home/es.json";
+import en from "../../../../../messages/home/en.json";
+import es from "../../../../../messages/home/es.json";
 
 const coreValuesBase = [
   {

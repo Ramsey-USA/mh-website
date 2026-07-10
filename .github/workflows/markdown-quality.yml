@@ -171,6 +171,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No markdown changes to commit"
           else
-            git commit -m "🔧 Auto-fix markdown formatting issues"
+            git commit -m "chore(markdown): auto-fix markdown formatting"
             git push
           fi

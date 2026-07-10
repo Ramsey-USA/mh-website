@@ -5,8 +5,8 @@ import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
 import type { SupportedLocale } from "@/lib/i18n/locale";
-import en from "@/../messages/home/en.json";
-import es from "@/../messages/home/es.json";
+import en from "../../../../../messages/home/en.json";
+import es from "../../../../../messages/home/es.json";
 
 const partnershipIcons = [
   {

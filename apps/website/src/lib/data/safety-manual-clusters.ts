@@ -15,7 +15,7 @@
  *    `src/app/resources/safety-manual/contents/page.tsx` ──
  */
 
-import safetyManualPublicJson from "../../../documents/content/safety-manual-public.json";
+import safetyManualPublicJson from "../../../../../documents/content/safety-manual-public.json";
 
 export interface SafetyManualCluster {
   /** URL-safe slug — verbose for SEO clarity. */

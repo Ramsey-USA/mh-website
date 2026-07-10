@@ -8,10 +8,10 @@
  * The `pdfPath` is relative to documents/output/ and served statically.
  */
 
-import mhcBrand from "../../../documents/brands/mhc.json";
-import employeeHandbookJson from "../../../documents/content/employee-handbook.json";
-import safetyManualPublicJson from "../../../documents/content/safety-manual-public.json";
-import formsManifestJson from "../../../documents/forms/forms-manifest.json";
+import mhcBrand from "../../../../../documents/brands/mhc.json";
+import employeeHandbookJson from "../../../../../documents/content/employee-handbook.json";
+import safetyManualPublicJson from "../../../../../documents/content/safety-manual-public.json";
+import formsManifestJson from "../../../../../documents/forms/forms-manifest.json";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";

@@ -409,16 +409,19 @@ Required chapter files:
 - chapter-5-employee-benefits.pdf
 - chapter-6-miscellaneous.pdf
 
-2. **Generate handbook print artifacts:**
+1. **Generate handbook print artifacts:**
+
    ```bash
    pnpm --filter @mhc/website run docs:generate:handbook:cover
    pnpm --filter @mhc/website run docs:generate:handbook:spine
    pnpm --filter @mhc/website run docs:generate:handbook:tabs
    ```
 
-pnpm --filter @mhc/website run docs:generate -- --template sections --manual handbook
+1. **Generate handbook sections:**
 
-````
+```bash
+pnpm --filter @mhc/website run docs:generate -- --template sections --manual handbook
+```
 
 ### Handbook Generation Flow
 
@@ -443,7 +446,7 @@ documents/content/mhc-employee-handbook-2026/
         ▼  pnpm --filter @mhc/website run docs:publish:employee-handbook
         (R2 FILE_ASSETS bucket)
         https://www.mhc-gc.com/docs/employee/employee-handbook-2026.pdf
-````
+```
 
 ### Handbook vs MISH Architecture Differences
 
