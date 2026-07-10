@@ -33,6 +33,7 @@ test-results/
 documents/output/
 documents/manuals/
 documents/content/safety-manual.json
+documents/content/mhc-employee-handbook-*/html-sources/
 
 # === Script-managed config files (own their formatting) ===
 apps/website/config/seo/route-indexing-policy.json
