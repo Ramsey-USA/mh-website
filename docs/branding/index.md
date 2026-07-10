@@ -11,7 +11,7 @@ and brand identity guidelines.
 ## 📌 Single Source of Truth
 
 - **[Brand Constants](./brand-constants.md)** - ⭐ **START HERE** - Canonical values for all brand elements
-- **[Page Slogans](./strategy/page-specific-slogans.md)** - Strategy mirror of runtime canonical page-level hero slogans
+- **[Page Slogans](./strategy/page-specific-slogans.md)** - Governance guide for runtime canonical page-level hero slogans
 - **[Agent Branding Policy](./agent-branding-policy.md)** - Fast enforcement policy for AI agent decisions
 - **[Brand Congruency Master Checklist](./governance/brand-congruency-master-checklist.md)** - Canonical pre-merge branding gate
 - **[Website Guardrails Coverage Map](./governance/website-guardrails-coverage.md)** - Required coverage map for all website surfaces
@@ -86,7 +86,7 @@ Messaging, voice, and brand positioning guidelines.
 
 - **[Brand Overview](./strategy/brand-overview.md)** - Core brand identity
 - **[Messaging Guide](./strategy/messaging.md)** - Core messaging framework (v7.0.0)
-- **[Page Slogans](./strategy/page-specific-slogans.md)** - Strategy mirror of runtime canonical slogan matrix for page-level surfaces
+- **[Page Slogans](./strategy/page-specific-slogans.md)** - Governance guide for runtime canonical slogan matrix for page-level surfaces
 - **[Dual Terminology Standard](./strategy/dual-terminology-standard.md)** - Canonical dual-label and arrow-format naming rules
 - **[Universal Terminology](./strategy/universal-terminology-guide.md)** - Consistent word choices
 - **[Page-Specific Messaging](./strategy/page-specific-messaging-guide.md)** - Voice by page type

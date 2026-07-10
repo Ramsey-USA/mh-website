@@ -1,7 +1,7 @@
 # Documentation Archive
 
 **Category:** Documentation - Archive  
-**Last Updated:** July 3, 2026
+**Last Updated:** July 10, 2026
 
 ## Purpose
 
@@ -24,6 +24,23 @@ Each archived file should include:
 3. Archived On date
 4. Original Location
 5. Active Replacement Source (or sources)
+
+## Retention and Pruning Policy
+
+Safe archive bloat reduction follows a path-stable model:
+
+1. Preserve file paths for any archive file referenced by active docs, stubs, or indexes.
+2. Prefer in-place compaction to `Archived Summary` over deleting files with inbound links.
+3. Keep date-set index files and top-level archive index files at all times.
+4. Before deleting any archive file, remove or update all inbound references first.
+5. After archive edits, run docs sync and markdown lint with guardrails before merge.
+
+Recommended compact summary sections:
+
+1. Snapshot Context
+2. Key Findings or Outcomes Preserved
+3. Decisions Carried Forward
+4. Active Replacement Source(s)
 
 ---
 

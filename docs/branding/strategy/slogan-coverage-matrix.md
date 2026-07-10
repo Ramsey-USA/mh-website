@@ -117,6 +117,6 @@ When adding a new page-level hero surface:
 
 1. Add one primary slogan line.
 2. Add one supporting slogan line.
-3. Add one unique page-specific slogan to `apps/website/src/content/hero-page-slogans.md`, then mirror it in `docs/branding/strategy/page-specific-slogans.md`.
+3. Add one unique page-specific slogan to `apps/website/src/content/hero-page-slogans.md`, then run the review checklist in `docs/branding/strategy/page-specific-slogans.md`.
 4. Add/update the mapping in `apps/website/scripts/validation/branding-rules.cjs` (and `apps/website/src/lib/validation/branding-rules.ts` when needed).
 5. Add the row to this matrix.

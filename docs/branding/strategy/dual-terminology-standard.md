@@ -51,7 +51,7 @@ Hero slogans are content signals, not navigation labels, and must remain congrue
 5. Keep SEO-facing labels plain-language even when hero slogans use MH brand voice.
 
 Canonical runtime source for hero slogan uniqueness: `apps/website/src/content/hero-page-slogans.md`.
-Strategy mirror for governance review: `docs/branding/strategy/page-specific-slogans.md`.
+Governance companion for review and authoring rules: `docs/branding/strategy/page-specific-slogans.md`.
 
 ## Canonical Label Set
 

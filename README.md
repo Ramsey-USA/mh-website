@@ -1,801 +1,217 @@
-# MH Construction – Founded 2010, Veteran-Owned Since January 2025
-
-**START HERE** - This is your single source of truth for the entire project.
-
-**Built on Quality, Backed by Trust.** — Founded by Mike Holstein in 2010,
-purchased by Army veteran Jeremy Thamert in 2025. Veteran-owned, relationship-first,
-honest communication, and proven craftsmanship.
-
-**(509) 308-6489** | **<office@mhc-gc.com>** | **mhc-gc.com**
-
----
-
-## For Developers: Complete Workflow
-
-**New to this project?** Follow this exact path:
-
-0. **[⚙️ Local Development Setup](.github/DEVELOPMENT_SETUP.md)** - **START HERE** if you're about to commit code. Learn what pre-commit hooks check, why commits fail, and how to fix common issues (duplicate imports, commit format, type errors).
-1. **Read this README** (you're here) - Project overview, tech stack, setup
-2. **Study the [Homepage](src/app/page.tsx)** as your reference standard - See
-   [Homepage Documentation](docs/technical/homepage.md) for complete breakdown
-3. **Review [Unified Component Standards](docs/branding/standards/unified-component-standards.md)
-   v7.1.0** - Complete design system (colors, typography, components)
-4. **Study [Component Cheatsheet](docs/development/quick-reference/component-cheatsheet.md)** -
-   Copy-paste patterns matching homepage style
-5. **Use [Page Template Guide](docs/development/standards/page-template-guide.md)** - Complete boilerplate for new pages
-6. **Build your page** using BrandedContentSection/template component patterns and cheatsheet references to match homepage cohesiveness
-7. **Audit with [Page Compliance Checklist](docs/development/standards/page-compliance-checklist.md)** -
-   150+ items to verify homepage-level quality
-8. **Verify cross-platform language/identity alignment** with [Operational Hub Congruent Plan](docs/project/operational-hub-congruent-plan.md)
-9. **Deploy** following standards
-
-**Key Principle:** Your page should feel like it belongs on the same site as the
-homepage - same visual weight, spacing, animations, and polish.
-
-**Daily Reference:**
-
-- [Common Mistakes Guide](docs/development/standards/common-mistakes.md) - 22 errors to avoid
-- [Development Standards](docs/development/standards/development-standards.md) - Code patterns
-- [Consistency Guide](docs/development/standards/consistency-guide.md) - **MANDATORY** reading
-- [Operational Hub Congruent Plan](docs/project/operational-hub-congruent-plan.md) - Website + PWA + document congruency rules
-- [Website Guardrails Coverage Map](docs/branding/governance/website-guardrails-coverage.md) - Required branding guardrail coverage across all website surfaces
-
-**When You Need Specific Features:**
-
-- **Working on the Partnership Guide chatbot?** →
-  [src/components/chatbot/](src/components/chatbot/) · [src/lib/chatbot/](src/lib/chatbot/) ·
-  [src/app/api/chat/route.ts](src/app/api/chat/route.ts)
-- **Adding analytics tracking?** → [Analytics Tracking Guide](docs/technical/analytics-tracking-guide.md)
-- **Implementing dark mode?** → [Dark Mode Quick Reference](docs/technical/dark-mode-quick-reference.md)
-- **Styling buttons/CTAs?** → [Buttons & CTAs Complete Guide](docs/technical/design-system/buttons-ctas-complete-guide.md)
-- **Adding icons?** → [Icon System Complete](docs/technical/design-system/icon-system-complete.md)
-- **Optimizing images/videos?** → [Automatic Media Optimization](docs/technical/automatic-media-optimization.md)
-- **Adding SEO metadata?** → [SEO Complete Guide](docs/technical/seo/seo-complete-guide.md) + [SEO Quick Reference](docs/marketing/seo-quick-reference.md)
-- **Making page installable (PWA)?** → [PWA Quick Reference](docs/technical/pwa-quick-reference.md)
-- **Adding PWA-only sections/tabs?** → [`usePWA` hook](src/hooks/usePWA.ts) · [`PWAOnly` component](src/components/pwa/PWAOnly.tsx) · [PWA Quick Reference — PWA-First Development](docs/technical/pwa-quick-reference.md#pwa-first-development)
-- **Using reusable components?** → [BrandedContentSection Template](docs/development/components/template-components.md)
-- **Deploying to Cloudflare?** → [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md)
-- **Publishing PDFs to /docs and seeing 403/404?** → [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md#pdf-publish-safety-runbook-recommended) + [Safety Program Guide](docs/technical/safety-program-guide.md#required-deliverables-per-revision)
-- **Understanding project structure?** → [Project Architecture](docs/project/architecture.md)
-
-That's it. Everything else is organized in `/docs/` by category (branding, technical, business, etc.).
-
-### Documentation Source of Truth
-
-- `docs/` is the canonical source for project documentation.
-- `messages/` is the canonical source for localization messages.
-- `documents/` is the canonical source for document-generation templates and scripts.
-- `apps/website/docs/`, `apps/website/messages/`, and `apps/website/documents/` are synced copies used by the website app.
-- Run `pnpm docs:sync` after updating docs, messages, or documents to refresh app copies.
-- `pnpm lint:markdown` now runs `pnpm docs:sync:check` first and fails if synced trees drift.
-
-### Typography Guardrail
-
-- The canonical font system is enforced across app code, documents, and contributor docs.
-- Headings and subheadings must use Mendl Sans Dusk.
-- Body copy must use Mendl Sans Dusk (with Roboto fallback where needed).
-- Run `pnpm font-system:check` after changing typography, document templates, layout font loading, or branding docs.
-- `pnpm font-system:check` now validates root source files and synced app mirrors, so documentation drift is caught alongside code drift.
-
----
-
-## Project Status (June 21, 2026)
-
-**Branding Congruency:** All public-facing copy in this repository must stay aligned with the canonical branding, trust, accessibility, and SEO naming standards in the docs.
-
-### Production-Ready Platform
-
-- **Build:** Active — OpenNext Cloudflare build pipeline (`pnpm --filter @mhc/website build`)
-- **Deployed:** Live — Cloudflare Workers (`mhc-gc.com`)
-- **Framework Stack:** Current — Next.js 16.2.9, React 19.2.7, Tailwind CSS 4.3.1, TypeScript 6.0.3
-- **TypeScript:** Strict — `type-check` workflow maintained in scripts and CI gate
-- **ESLint:** Enforced — lint commands are part of local and CI quality gates
-- **Tests:** Active — Jest suites for website and dashboard remain in CI workflows
-- **Coverage:** Monitored — `pnpm --filter @mhc/website run test:coverage`
-- **Nightly Coverage:** Monitored — [![Nightly Coverage](https://github.com/Ramsey-USA/mh-website/actions/workflows/nightly-coverage.yml/badge.svg)](https://github.com/Ramsey-USA/mh-website/actions/workflows/nightly-coverage.yml)
-- **SEO:** External validation via external tools
-- **Lighthouse:** Tracked via committed artifacts in `lighthouse-results/*.json` and `lighthouse-results/retest-2026-05-17-all-final/`
-- **Bundle Size:** Measured with `pnpm --filter @mhc/website run bundle:report`
-- **Dark Mode:** Complete
-- **PWA:** PWA-first — offline-ready, 5-layer caching, PWA-only sections via `usePWA` + `PWAOnly`
-- **Analytics:** Live — dashboard and event tracking active
-- **Documentation:** Optimized — indexed under [docs/index.md](docs/index.md)
+# MH Construction Monorepo
 
-### Recent Changes
+Built on Quality, Backed by Trust.
 
-See [CHANGELOG.md](CHANGELOG.md) for the full history of changes.
+Founded by Mike Holstein in 2010, veteran-owned since January 2025 under Jeremy Thamert.
 
-Operational planning source of truth: [Operational Hub Congruent Plan](docs/project/operational-hub-congruent-plan.md) (use this to resolve roadmap/build-plan sequencing conflicts).
+- Website: <https://www.mhc-gc.com>
+- Phone: (509) 308-6489
+- Email: <office@mhc-gc.com>
 
-**Apr 15 highlights:** Infrastructure buildout — Cloudflare Workers CI/CD wired to
-GitHub (auto-deploy on push); all bindings live (KV ×3, D1, R2 ×3, AI, Assets);
-Twilio SMS configured and env var mismatch fixed; Uptime Kuma expanded to 7
-monitors (Health API, Twilio, Resend, Cloudflare Status); D1 preview database
-routing bug fixed; tj-actions CVE remediated (v44 → v46.0.1); observability
-(logs + traces, 100% sampling) enabled. Documentation audit (earlier): brand
-consistency fixes across all markdown files.
+## What This Repository Contains
 
-**Jun 21 highlights:** Hero-to-navigation spacing standardization completed across
-shared hero components and route-level hero banners with reusable safe-area
-utilities in `apps/website/src/app/globals.css`.
+This is a pnpm monorepo for MH Construction's public website, operations dashboard, shared assets, and documentation pipelines.
 
-**Apr 18 highlights:** Safety and Operational Hub congruency normalization complete
-around canonical `/hub` routing (with active backward-compat redirect from
-`/safety/hub`), centralized safety form registry adoption across public + staff
-surfaces, docs alignment to current MISH revision/section model, and targeted
-branding/accessibility refinements for safety/hub UI (including improved small-text
-contrast rules and updated smoke-test handling for async server page rendering).
+```text
+apps/
+  website/      # Public site (Next.js + OpenNext + Cloudflare)
+  dashboard/    # Operations Hub (Next.js)
+packages/
+  shared/       # Shared constants and utilities
+docs/           # Canonical project documentation
+messages/       # Canonical localization messages
+documents/      # Canonical document templates/scripts (manual/forms/letterhead)
+scripts/        # Root automation and validation scripts
+```
 
-**Apr 8 highlights:** Documentation audit — corrected stale file paths, resolved
-demo-account security status, added /resources pages to architecture inventory,
-fixed failing sitemap test (mock closure issue).
+## Current State (July 2026)
 
-**Mar 26 highlights:** Build hygiene (`veterans/page.tsx` preload fix),
-Partnership Guide chatbot (Cloudflare Workers AI), Cloudflare edge
-optimizations (Early Hints, HSTS, middleware cleanup), Analytics KV pipeline
-(cross-visitor metrics), Footer accessibility refactor, Careers UX
-improvements.
+- Deployment: Cloudflare Workers via OpenNext
+- Frameworks: Next.js 16.2.10, React 19.2.7, Tailwind CSS 4.3.2, TypeScript 6.0.3
+- Runtime requirement: Node.js 22+
+- Primary quality gates: TypeScript, ESLint, Jest, markdown lint, docs sync contracts, branding guardrails
+- Canonical slogan and voice rules are enforced across docs and app surfaces
 
----
+For architecture and route inventory, use [docs/project/architecture.md](docs/project/architecture.md).
 
-## About MH Construction
+## Audience Paths
 
-**Veteran-Owned General Contractor** serving the Pacific Northwest since 2010.
+### New Developer (Website or Dashboard)
 
-### Core Identity
+Start here:
 
-- **Mission:** Built on Quality, Backed by Trust.
-- **Values:** Honesty, Integrity, Professionalism, Thoroughness
-- **Approach:** Face-to-face consultation, transparent pricing, veteran priority scheduling
-- **Service Area:** Tri-Cities HQ (Pasco, Richland, Kennewick) with Tri-State licensed coverage (WA, OR, ID), including Yakima, Spokane, and Walla Walla
-- **Specialties:** Commercial construction, industrial, public sector, master planning
+1. [.github/DEVELOPMENT_SETUP.md](.github/DEVELOPMENT_SETUP.md)
+1. [docs/development/standards/consistency-guide.md](docs/development/standards/consistency-guide.md)
+1. [docs/development/standards/page-template-guide.md](docs/development/standards/page-template-guide.md)
 
-### Business Philosophy
+Then run:
 
-- **Contact-First:** All paths lead to phone (509) 308-6489 or personal consultation
-- **Honest Messaging:** Authentic communication, no marketing buzzwords
-- **Veteran-Owned Perspective:** Service-earned discipline, clear communication, and priority scheduling across all branches
-- **No AI Gimmicks:** Removed AI-driven estimate tools, booking bots, and auto-closing funnels — replaced by
-  the Partnership Guide, which answers questions honestly and routes every visitor to a real
-  human conversation
+```bash
+pnpm install
+pnpm run dev
+pnpm run type-check
+pnpm run lint
+pnpm run test
+```
 
----
+### Ops and Docs Maintainer (Manuals, Forms, Publishing)
 
-## Credentials & Certifications
+Canonical edit locations:
 
-All credential data is centralized in `src/lib/constants/company.ts` under `COMPANY_INFO`. Logos
-are stored in `public/images/credentials/` as WebP files. Credentials are displayed in the Footer
-(all pages), Contact page, Allies page, and Public-Sector page.
+- [docs/](docs)
+- [messages/](messages)
+- [documents/](documents)
 
-### Canonical Contractor Licenses
-
-- WA: MHCONCI907R7
-- OR: 194331
-- ID: RCE-49250
-
-### License Verification Links
-
-- Washington: <https://secure.lni.wa.gov/verify/Detail.aspx?UBI=603069508&LIC=MHCONCI907R7&SAW=false>
-- Oregon: <https://egov.sos.state.or.us/br/pkg_web_name_srch_inq.show_detl?p_be_rsn=1514612&p_srce=BR_INQ&p_print=FALSE>
-- Idaho: <https://www.labor.idaho.gov/>
+Then run:
 
-| Credential                       | Data Key                                 | Logo Path                                                                             | Link                                                                                  |
-| -------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| **BBB Accredited A+**            | `COMPANY_INFO.bbb`                       | External BBB seal URLs (horizontal + vertical, light/dark variants)                   | `COMPANY_INFO.bbb.sealClickUrl`                                                       |
-| **AGC of Washington**            | Hardcoded `/images/logo/agc-member.webp` | `/images/logo/agc-member.webp`, `/images/logo/nwagc-logo.webp`                        | `https://www.agcwa.com/`                                                              |
-| **Travelers Insurance**          | `COMPANY_INFO.travelers`                 | `/images/logo/travelers-logo.png` (light), `travelers-logo-white.png` (dark)          | `COMPANY_INFO.travelers.website`                                                      |
-| **Pasco Chamber of Commerce**    | `COMPANY_INFO.chambers.pasco`            | `Pasco-Chamber-logo-color-transparent.webp` (light), `...-white-fullsize.webp` (dark) | `https://pascochamber.org/construction-equipment-contractors/`                        |
-| **Richland Chamber of Commerce** | `COMPANY_INFO.chambers.richland`         | `Richland-Chamber-logo-full-color.webp`                                               | `https://www.richlandchamber.org/member-directory`                                    |
-| **Tri-City Regional Chamber**    | `COMPANY_INFO.chambers.triCityRegional`  | `Kennewick-TriCity-Regional-Chamber-logo-horizontal.webp`                             | `https://web.tricityregionalchamber.com/Contractor-General/MH-Construction,-Inc-6318` |
-
-**Where credentials appear:**
-
-- **Footer** (`src/components/layout/Footer.tsx`) — All pages, Accreditations Row
-- **About page** (`src/app/about/page.tsx`) — Credential bar between Awards and Safety sections
-- **Contact page** (`src/app/contact/ContactPageClient.tsx`) — Trust Credentials strip
-- **Allies page** (`src/app/allies/page.tsx`) — Accredited & Certified section
-- **Public-Sector page** (`src/app/public-sector/page.tsx`) — Mission-Ready Credentials section
-- **Veterans page** (`src/app/veterans/page.tsx`) — Accredited & Certified section
-- **SEO structured data** (`src/components/seo/EnhancedSEO.tsx`) — `sameAs`, `memberOf`, `hasCredential` in Organization schema
-- **SEO structured data** (`src/components/seo/SeoMeta.tsx`) — `sameAs` in Organization schema
-
-> **Adding a new credential?** Update `COMPANY_INFO` in `src/lib/constants/company.ts`, add the
-> logo to `public/images/credentials/`, then add the display block to all four locations above.
-> Also update the smoke test mock in `src/app/__tests__/pages-smoke.test.tsx` and the contact
-> test mock in `src/app/contact/__tests__/ContactPageClient.test.tsx`.
-
----
-
-## Quick Start by Role
-
-### Designers & Branding
-
-- [Unified Component Standards](docs/branding/standards/unified-component-standards.md) - Complete design system v7.1.0
-- [Dual Terminology Standard](docs/branding/strategy/dual-terminology-standard.md) - **CANONICAL** dual-label and arrow-format terminology source of truth
-- [Color System](docs/branding/standards/color-system.md) - Brand colors (Hunter Green, Leather Tan)
-- [Brand Overview](docs/branding/strategy/brand-overview.md) - Brand identity & values
-- [Messaging Guide](docs/branding/strategy/messaging.md) - Core messaging v7.0.0
-
-### Marketing (Matt & Jeremy)
-
-- **[Analytics Guide for Matt & Jeremy](docs/business/analytics-guide-for-matt-and-jeremy.md)** - PRIMARY guide for all marketing intelligence
-- [SEO Quick Reference](docs/marketing/seo-quick-reference.md) - SEO optimization actions
-- [GBP Post Templates](docs/marketing/gbp-post-templates.md) - Google Business Profile posts
-
-### Content Writers
-
-- [Messaging Guide](docs/branding/strategy/messaging.md) - Core brand messaging v7.0.0
-- [Universal Terminology](docs/branding/strategy/universal-terminology-guide.md) - Approved word choices
-- [Page-Specific Messaging](docs/branding/strategy/page-specific-messaging-guide.md) - Voice per page
-
-### AI Agent Squad (GitHub Copilot)
-
-This project uses a military-themed agent squad in `.github/agents/`. **You do not need to remember agent names.** Just describe your task in plain English — Master at Arms routes automatically.
-
-Canonical invocation policy and required handoff order: [`.github/AGENT_INVOCATION_MATRIX.md`](.github/AGENT_INVOCATION_MATRIX.md).
-
-| Agent                            | File                                    | Specialty                                                                                    |
-| -------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------- |
-| **Master at Arms**               | `master-at-arms.agent.md`               | Umbrella enforcement — routes all branding, copy, design, and compliance tasks automatically |
-| **Brand Comms Captain**          | `brand-comms-captain.agent.md`          | Copy tone, CTAs, vocabulary, relationship-first language                                     |
-| **Trust Sentinel**               | `trust-sentinel.agent.md`               | BBB, Chambers, Travelers, AGC credential surfaces — Footer, About, Contact, Allies           |
-| **License Compliance Officer**   | `license-compliance-officer.agent.md`   | WA/OR/ID license numbers, verification links, and cross-surface licensing consistency        |
-| **SEO Signal Officer**           | `seo-signal-officer.agent.md`           | Metadata, page titles, nav labels, schema naming                                             |
-| **Accessibility Watch Officer**  | `accessibility-watch-officer.agent.md`  | WCAG 2.1 AA — semantics, contrast, keyboard, focus                                           |
-| **Safety Hub Liaison**           | `safety-hub-liaison.agent.md`           | `/hub` canonical routing, safety language congruency                                         |
-| **Dashboard Congruency Officer** | `dashboard-congruency-officer.agent.md` | Website/dashboard/hub parity checks and optimization hygiene                                 |
-| **Spanish Toggle Officer**       | `spanish-toggle-officer.agent.md`       | English/Spanish locale wiring, toggle behavior, translation coverage, and localization gates |
-| **Design Quartermaster**         | `design-quartermaster.agent.md`         | Design system enforcement — spacing, typography, component patterns                          |
-| **Telemetry Recon Officer**      | `telemetry-recon-officer.agent.md`      | On-demand analytics integrity — CTA coverage, event schema naming, dashboard continuity      |
-| **Performance Budget Officer**   | `performance-budget-officer.agent.md`   | On-demand speed protection — payload, bundle growth, and Core Web Vitals risk checks         |
-| **Documentation Drift Officer**  | `documentation-drift-officer.agent.md`  | On-demand docs/code alignment — stale references, path drift, workflow accuracy              |
-| **Release Command**              | `release-command.agent.md`              | Pre-merge gate — branding + lint + type-check + tests                                        |
-
-**How to invoke:** In GitHub Copilot Chat, type `@master-at-arms` and describe your task. Use the three Officer agents above as focused on-demand specialists for analytics, performance, and docs/code drift checks. Or simply ask Copilot — the instructions file routes enforcement automatically on every change.
-
-#### Agent Routing Matrix
-
-Use this quick map when deciding which agent to invoke directly:
-
-| Task Type                                                  | Primary Agent                    | Invocation Pattern                                                       |
-| ---------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------ |
-| Brand/copy/design compliance across page changes           | **Master at Arms**               | `@master-at-arms review this page update for full compliance`            |
-| CTA wording, tone, and relationship-first messaging        | **Brand Comms Captain**          | `@brand-comms-captain refine CTA copy for relationship-first voice`      |
-| Trust badges, credentials, and accreditation surfaces      | **Trust Sentinel**               | `@trust-sentinel verify credential surfaces were preserved`              |
-| License numbers and verification-link integrity (WA/OR/ID) | **License Compliance Officer**   | `@license-compliance-officer verify licensing consistency and links`     |
-| Metadata, nav labels, schema naming consistency            | **SEO Signal Officer**           | `@seo-signal-officer audit labels and schema naming`                     |
-| WCAG checks (semantics, contrast, keyboard/focus)          | **Accessibility Watch Officer**  | `@accessibility-watch-officer validate accessibility before merge`       |
-| `/hub` routing and safety-language congruency              | **Safety Hub Liaison**           | `@safety-hub-liaison verify hub route and safety language alignment`     |
-| Website/dashboard/hub parity and optimization hygiene      | **Dashboard Congruency Officer** | `@dashboard-congruency-officer verify cross-app parity and optimization` |
-| English/Spanish localization and language-toggle checks    | **Spanish Toggle Officer**       | `@spanish-toggle-officer validate full en/es toggle readiness`           |
-| Design system consistency and component pattern fidelity   | **Design Quartermaster**         | `@design-quartermaster align this UI to unified component standards`     |
-| Analytics coverage and event naming integrity (on-demand)  | **Telemetry Recon Officer**      | `@telemetry-recon-officer validate tracking coverage and event schema`   |
-| Payload/bundle/CWV regression review (on-demand)           | **Performance Budget Officer**   | `@performance-budget-officer check performance risk for this feature`    |
-| Docs and implementation drift checks (on-demand)           | **Documentation Drift Officer**  | `@documentation-drift-officer reconcile docs with these code changes`    |
-| Final pre-merge gate with risk summary                     | **Release Command**              | `@release-command run final readiness checks for this PR`                |
-
-For required handoffs and merge-gate sequence, follow [`.github/AGENT_INVOCATION_MATRIX.md`](.github/AGENT_INVOCATION_MATRIX.md).
-
-#### Specialist Report Contracts
-
-When invoking on-demand specialists, expect a PASS/FAIL report with these fields:
-
-- **Telemetry Recon Officer**: `Coverage Result`, `Missing Events`, `Naming Conflicts`, `Dashboard Impact`, `Required Remediations`
-- **Performance Budget Officer**: `Performance Result`, `Payload/Bundles at Risk`, `CWV Risk`, `Top Regressions`, `Prioritized Fixes`
-- **Documentation Drift Officer**: `Drift Result`, `Broken/Stale References`, `Workflow Mismatches`, `Canonical Source`, `Required Doc Updates`
-
-#### Slash Prompt Catalog
-
-Use these slash prompts for standardized compliance checks before merge or release:
-
-| Prompt                            | Agent                        | Typical Use                                                              |
-| --------------------------------- | ---------------------------- | ------------------------------------------------------------------------ |
-| `/Forms Rapid Triage Brief`       | `forms-logistics-officer`    | Fast PR go/no-go for changed forms/template/generator files              |
-| `/Forms Readiness Brief`          | `forms-logistics-officer`    | Full forms readiness gate before merge/release                           |
-| `/Manual Structure Rapid Triage`  | `manual-structure-officer`   | Fast PR go/no-go for manual layout and numbering changes                 |
-| `/Manual Structure Brief`         | `manual-structure-officer`   | Full manual layout/WBS readiness gate before merge/release               |
-| `/License Rapid Triage Brief`     | `license-compliance-officer` | Fast PR go/no-go for WA/OR/ID value and verification-link changes        |
-| `/License Readiness Brief`        | `license-compliance-officer` | Full licensing readiness gate before merge/release                       |
-| `/Spanish Toggle Rapid Triage`    | `spanish-toggle-officer`     | Fast PR go/no-go for locale wiring, toggle UI, and translation key edits |
-| `/Spanish Toggle Readiness Brief` | `spanish-toggle-officer`     | Full en/es localization readiness gate before merge/release              |
-
----
-
-## Tech Stack
-
-### Core Framework
-
-- **Next.js** 16.2.4 (App Router)
-- **React** 19.x (^19.0.0)
-- **TypeScript** 6.0.3 (strict mode)
-- **Tailwind CSS** 4.2.4
-- **Node.js** 22+
-
-### Deployment & Infrastructure
-
-- **Hosting:** Cloudflare Workers — `mhc-v2-website` (via OpenNext adapter)
-- **Database:** Cloudflare D1 (SQLite) + KV (cache, ISR, analytics) + R2 (files, resumes, safety intake)
-- **Email:** Resend API
-- **SMS:** Twilio (admin alerts for urgent form submissions)
-- **Analytics:** Google Analytics (gtag.js) event tracking
-- **Monitoring:** Uptime Kuma (self-hosted) — website, n8n, Portainer, Twilio, Resend, Cloudflare
-- **CI/CD:** GitHub Actions + Cloudflare Workers CI (auto-deploy on push to main)
-
-### Quality Control
-
-- **Pre-commit hooks:** Auto-run type-check and quality scans before each commit
-- **CI/CD pipeline:** Automated TypeScript, ESLint 10, tests, and build verification
-- **AI workflow:** Ask AI: _"Run quality check and fix issues"_ → instant fixes
-- **Manual commands:** `pnpm run type-check`, `pnpm run lint`, `pnpm --filter @mhc/website run quality:check`
-
-### Analytics + Lighthouse Workflow
-
-Use Google Analytics for behavior signal and Lighthouse for technical signal.
-
-1. **Collect behavior truth (GA):** validate high-value events (CTA clicks, form submits, key page views) in GA Realtime/DebugView.
-1. **Collect performance truth (Lighthouse):** measure target pages and capture Performance + Core Web Vitals indicators.
-1. **Correlate results:**
-
-- High traffic + poor Lighthouse score = highest fix priority.
-- High conversions + poor score = protect conversion path immediately.
-- Low traffic + poor score = optimize after high-impact routes.
-
-1. **Re-test after fixes:** compare Lighthouse before/after and watch GA conversion trends over the next release window.
-
-Recommended cadence:
-
-- Weekly: Lighthouse checks on core pages (`/` with `/#services` section behavior, `/projects`, `/contact`, `/careers`)
-- Per release: verify GA events and conversion funnels still fire as expected
-
-Migration status:
-
-- Services discovery model is complete and canonicalized to Home sections first (`/#services`).
-- Services hub interaction now uses a three-step hierarchy: `Delivery Path -> Project Focus -> Specific Service Card`, then modal detail and contact CTA.
-- Legacy `/services` and `/services/[slug]` behaviors are retained only as redirect compatibility to `/#services`.
-
-Use the release worksheet: [docs/performance/performance-triage-template.md](docs/performance/performance-triage-template.md)
-
-### Features & Capabilities
-
-- **PWA:** Service Worker v4.0.0, offline support, installable
-- **Dark Mode:** Full theme system with persistence
-- **SEO:** Dual-label titles, structured data, and external audit validation workflow
-- **Analytics:** Geographic tracking, CTA effectiveness, lead scoring (0-100)
-- **Media:** Auto-optimization to WebP/WebM via GitHub Actions
-- **Icons:** Google Material Icons (font-based, 400/500/600 weights)
-- **Forms:** Contact, consultations, and a streamlined job application flow with email notifications
-- **Partnership Guide:** Cloudflare Workers AI chatbot — answers questions about services,
-  Allies, and veteran benefits; guides all visitors toward direct human contact
-
----
+```bash
+pnpm run docs:sync
+pnpm run docs:sync:check
+pnpm --filter @mhc/website run docs:release
+pnpm --filter @mhc/website run docs:verify:published
+```
 
 ## Quick Start
 
 ### Prerequisites
 
-```bash
-# Required
-Node.js 22+
-pnpm 10+ (via Corepack)
-Git
+- Node.js 22+
+- pnpm (via Corepack)
+- Git
 
-# For Deployment
-Cloudflare account
-Resend API key
-```
-
-### Local Development
+### Install and Run
 
 ```bash
-# Clone repository
 git clone https://github.com/Ramsey-USA/mh-website.git
 cd mh-website
 
-# Install dependencies
 corepack enable
 pnpm install
 
-# Create environment file
 cp .env.local.example .env.local
-# Edit .env.local with your keys
-
-# Start development server
 pnpm run dev
-
-# Optional: generate public safety-manual manifest from Word source before build
-pnpm --filter @mhc/website run docs:extract-word
-
-# Visit http://localhost:3000
 ```
 
-### Environment Variables
+Environment template: [.env.local.example](.env.local.example).
 
-Create `.env.local`:
+Website dev runs on <http://localhost:3000>.
+
+Dashboard dev:
 
 ```bash
-# Required
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
-RESEND_API_KEY=re_xxxxx
-
-# Recommended (SEO indexing submission)
-INDEXNOW_KEY=your_8_to_128_char_alphanumeric_key
-
-# Optional (Cloudflare deployment)
-CLOUDFLARE_ACCOUNT_ID=your_account_id
-CLOUDFLARE_API_TOKEN=your_api_token
-D1_DATABASE_ID=your_d1_id
-
-# Optional (Google Analytics)
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-
-# Optional (Search engine verification meta tags)
-NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=google-site-verification-token
-NEXT_PUBLIC_BING_SITE_VERIFICATION=msvalidate-token
-NEXT_PUBLIC_YANDEX_VERIFICATION=yandex-verification-token
-NEXT_PUBLIC_YAHOO_SITE_VERIFICATION=yahoo-verification-token
-NEXT_PUBLIC_BAIDU_SITE_VERIFICATION=baidu-site-verification-token
+pnpm run dev:dashboard
 ```
 
----
+Dashboard runs on <http://localhost:3001>.
 
-## Available Scripts
+## Top 8 Commands
 
-Run all commands from repository root.
+Run from repository root unless noted.
 
-### Development
+| Goal                | Command                    |
+| ------------------- | -------------------------- |
+| Website dev         | `pnpm run dev`             |
+| Dashboard dev       | `pnpm run dev:dashboard`   |
+| Build all apps      | `pnpm run build:all`       |
+| Type-check all apps | `pnpm run type-check`      |
+| Lint all apps       | `pnpm run lint`            |
+| Test website        | `pnpm run test`            |
+| Sync source docs    | `pnpm run docs:sync`       |
+| Verify docs sync    | `pnpm run docs:sync:check` |
+
+For docs publishing commands, see [Safety Manual and Handbook Pipeline](#safety-manual-and-handbook-pipeline).
+For full quality gates, see [Quality Gate Before PR](#quality-gate-before-pr).
+
+## Documentation and Sync Rules
+
+Canonical sources:
+
+- [docs/](docs)
+- [messages/](messages)
+- [documents/](documents)
+
+Synced mirrors used by the website app:
+
+- [apps/website/docs/](apps/website/docs)
+- [apps/website/messages/](apps/website/messages)
+- [apps/website/documents/](apps/website/documents)
+
+After editing docs, messages, or documents, run:
 
 ```bash
-pnpm run dev                                  # Website dev server (http://localhost:3000)
-pnpm run build                                # Website OpenNext build
-pnpm run build:all                            # Build website + dashboard
-pnpm run type-check                           # Type-check all apps
-pnpm run lint                                 # Lint all apps
-pnpm run lint:fix                             # Auto-fix lint across all apps
-pnpm run format                               # Prettier format all files
-pnpm run security:check                       # Internal dependency audit gate (prod, fails on moderate+)
-pnpm run security:check:prod                  # Internal dependency audit gate (prod, fails on high+)
-pnpm run security:check:strict                # Internal dependency audit gate (prod, fails on low+)
-pnpm --filter @mhc/website run deploy         # Build + deploy website worker
-pnpm --filter @mhc/website run start          # Start website production server
-pnpm --filter @mhc/dashboard run start        # Start dashboard production server (port 3001)
+pnpm run docs:sync
+pnpm run docs:sync:check
 ```
 
-### Testing
+If sync check fails, run sync again and commit both source and mirrored updates.
+
+## Safety Manual and Handbook Pipeline
+
+Document generation commands live in [apps/website](apps/website) package scripts and use canonical sources under [documents/](documents).
 
 ```bash
-pnpm run test                                  # Website test suite
-pnpm run test:ci                               # Website CI tests
-pnpm --filter @mhc/website run test:ci:coverage # CI-style coverage run (website)
-pnpm run test:ci:all                           # CI tests across all apps
-pnpm --filter @mhc/website run test:watch      # Watch mode (website)
-pnpm --filter @mhc/website run test:coverage   # Coverage report (website)
-pnpm --filter @mhc/website run test:pwa        # PWA functionality tests
+# Generate templates/artifacts
+pnpm --filter @mhc/website run docs:generate
+pnpm --filter @mhc/website run docs:generate:forms
+pnpm --filter @mhc/website run docs:generate:handbook
+
+# Merge final PDFs
+pnpm --filter @mhc/website run docs:merge
+pnpm --filter @mhc/website run docs:merge:handbook
+
+# Publish to R2
+pnpm --filter @mhc/website run docs:publish:safety
+pnpm --filter @mhc/website run docs:publish:forms
+pnpm --filter @mhc/website run docs:publish:employee-handbook
+
+# Verify public URLs
+pnpm --filter @mhc/website run docs:verify:published
 ```
 
-### Quality & Maintenance
+End-to-end release shortcut:
 
 ```bash
-pnpm --filter @mhc/website run quality:check   # Website quality scan
-pnpm --filter @mhc/website run seo:sitemaps:submit # Submit updated sitemaps to supported engines
-pnpm run lint:markdown                          # Lint markdown files
-pnpm --filter @mhc/website run optimize:images # Convert images to WebP
-pnpm --filter @mhc/website run optimize:videos # Convert videos to WebM/MP4
-pnpm --filter @mhc/website run audit:images    # Analyze optimization opportunities
-pnpm --filter @mhc/website run clean           # Clean website build artifacts
+pnpm --filter @mhc/website run docs:release
 ```
 
----
+## Quality Gate Before PR
 
-## Dependency Maintenance
-
-See [CHANGELOG.md](CHANGELOG.md#dependency-overrides-march-2026) for current `npm audit` status and package override rationale.
-
-## Documentation Structure
-
-Documentation is organized by domain. The list below is intentionally high-level so it stays accurate as files are added, consolidated, or archived.
-
-```text
-docs/
-├── branding/       # Brand constants, standards, and messaging strategy
-├── business/       # Core values, services, and project specialization references
-├── development/    # Standards, quick references, templates, and testing notes
-├── deployment/     # Cloudflare deployment and safety release workflow docs
-├── marketing/      # GBP and marketing operations docs
-├── media/          # Media workflow and content strategy
-├── performance/    # Performance audits and optimization references
-├── project/        # Architecture, audits, and roadmap/planning docs
-└── technical/      # Technical implementation guides, SEO, patterns, integrations
-
-# Root-level guides
-contributing.md                                    # Contribution guidelines
-testing/mh-testing-guide.md                        # Testing overview and commands
-docs/business/analytics-guide-for-matt-and-jeremy.md  # PRIMARY marketing intelligence guide
-docs/marketing/seo-quick-reference.md              # Quick SEO actions
-
-# Config guides
-config/config-directory-guide.md        # Config directory overview
-config/cloudflare/edge-optimization.md  # Cloudflare edge optimization reference
-scripts/mh-scripts-guide.md             # Scripts overview and direct-run helpers
-```
-
-**Key Documentation:**
-
-- **Development:**
-  [Component Cheatsheet](docs/development/quick-reference/component-cheatsheet.md) |
-  [Compliance Checklist](docs/development/standards/page-compliance-checklist.md) |
-  [BrandedContentSection Template](docs/development/components/template-components.md)
-- **Design System:**
-  [Unified Component Standards](docs/branding/standards/unified-component-standards.md) v7.1.0
-  (consolidated typography & components)
-- **Marketing:** [Analytics Guide for Matt & Jeremy](docs/business/analytics-guide-for-matt-and-jeremy.md) | [SEO Quick Reference](docs/marketing/seo-quick-reference.md)
-
----
-
-## Project Architecture
-
-See [docs/project/architecture.md](docs/project/architecture.md) for the full
-directory tree, page inventory, and component map.
-
-## Design System
-
-Colors, typography, icons, and component patterns are fully documented in
-[Unified Component Standards](docs/branding/standards/unified-component-standards.md)
-v7.1.0. The current live website design baseline is aligned to those standards and the
-tokenized component system used across the main routes.
-
-## Deployment
-
-### Cloudflare Workers
-
-**Production Deployment:**
+Recommended local gate sequence:
 
 ```bash
-# Build + deploy
-pnpm --filter @mhc/website run deploy
-# Equivalent to: WRANGLER_SEND_METRICS=false opennextjs-cloudflare build && WRANGLER_SEND_METRICS=false npx wrangler deploy
-
-# Secrets — set via wrangler or dashboard
-# Workers & Pages → mhc-v2-website → Settings → Variables & Secrets
-```
-
-**URLs:**
-
-- Workers URL: `mhc-v2-website.twelthmann.workers.dev`
-- Preview URLs: `*-mhc-v2-website.twelthmann.workers.dev`
-- Production: `www.mhc-gc.com` (custom domain)
-
-**Build Configuration:**
-
-- Framework: Next.js (via OpenNext for Cloudflare)
-- Worker entry: `.open-next/worker.js` ← `main` in wrangler.toml
-- Assets: `.open-next/assets` ← `[assets]` binding in wrangler.toml
-- Node version: 22
-
-See [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md) for details.
-
----
-
-## Analytics System
-
-### Overview
-
-Custom analytics system with **100% page coverage** tracking visitor behavior, geographic data, and conversion metrics.
-
-### Key Features
-
-- **Geographic Tracking:** City, state, country (3-tier fallback)
-- **CTA Effectiveness:** Phone, email, address click tracking
-- **Journey Stages:** Awareness → Consideration → Decision → Engaged
-- **Lead Scoring:** 0-100 quality score based on behavior
-- **Service Interest:** Track which services attract attention
-- **Project Interest:** Monitor portfolio engagement
-- **Device Intelligence:** Mobile vs desktop behavior
-
-### Dashboard Access
-
-1. Visit any page on the website
-2. Press **Ctrl + Shift + A** on Windows/Linux or **Cmd + Shift + A** on macOS
-3. Dashboard opens at `/dashboard`
-
-This keeps the admin entry point off the visible footer UI while preserving quick internal access.
-
-### Analytics Testing
-
-```bash
-# Visit localhost:3000 and use Ctrl/Cmd + Shift + A to open the admin sign-in modal
-```
-
-### Documentation
-
-- **[Analytics Guide for Matt & Jeremy](docs/business/analytics-guide-for-matt-and-jeremy.md)** - Complete guide
-- **[Analytics Tracking Guide](docs/technical/analytics-tracking-guide.md)** -
-  Developer guide, quick reference cheatsheet, and dashboard access
-
----
-
-## SEO Optimization
-
-### Labeling Guidance
-
-Use clear, human-readable page labels across navigation, metadata, and structured data.
-Lead with plain-language terms like `Home`, `About`, `Services`, `Projects`, `Team`,
-`Testimonials`, `Careers`, and `Contact`.
-
-Use veteran identity where it is factual and differentiating, but avoid militarized aliases or
-slogan-heavy phrasing in titles, labels, and SEO copy. Current brand direction favors
-relationship-first language, disciplined execution, and direct communication.
-
-### SEO Validation
-
-- **All pages:** Validate with external audits (PageSpeed Insights, Search Console, and rich result tools)
-- **Structured data:** Organization, Service, Breadcrumb schemas
-- **Sitemap:** Auto-generated pages + media discovery (`public/images`, `public/videos`)
-- **Robots.txt:** AI crawler permissions (ChatGPT, Claude, Perplexity)
-- **llms.txt:** LLM-optimized content for accurate AI responses
-
-### GEO Enhancements (March 2026)
-
-- City-priority service targeting now applied to location metadata, schema, and visible page content
-- Nearby market expansion cues included where applicable (for example: Yakima/Zillah, Walla Walla/Dayton)
-- Internal location page linking strengthened for service discovery and consultation flow
-- Canonical host standardized for crawler consistency: `https://www.mhc-gc.com`
-
-### SEO Documentation
-
-- **[SEO Quick Reference](docs/marketing/seo-quick-reference.md)** - Quick actions
-- **[SEO Complete Guide](docs/technical/seo/seo-complete-guide.md)** - Full implementation
-- **[Browser Tab Titles](docs/technical/browser-tab-titles-inventory.md)** - Title inventory
-
----
-
-## Accessibility
-
-### WCAG 2.1 AA Compliance
-
-- ✅ Contrast ratios meet standards (light and dark modes)
-- ✅ Semantic HTML throughout
-- ✅ ARIA labels on interactive elements
-- ✅ Keyboard navigation support
-- ✅ Screen reader friendly
-- ✅ Focus indicators visible
-- ✅ Alt text on all images
-
-### Dark Mode
-
-- Three modes: light, dark, system preference
-- Automatic detection and persistence
-- Smooth transitions (no flash)
-- All components optimized
-
----
-
-## Security
-
-### Implemented Measures
-
-- **Environment Variables:** Secrets in `.env.local` (not committed)
-- **API Routes:** Server-side only, no client exposure
-- **Email Validation:** Server-side validation
-- **Rate Limiting:** Cloudflare protection
-- **HTTPS Only:** Enforced in production
-- **No Sensitive Logging:** PII excluded from logs
-- **Dependabot:** Version updates and security alerts for dependencies
-- **Dependency Review:** Pull requests are blocked on vulnerable dependency introductions
-- **Code Scanning:** GitHub Advanced Security CodeQL default setup enabled
-- **Private Vulnerability Reporting:** Coordinated disclosure process documented in `SECURITY.md`
-
-### Admin Dashboard
-
-Private keyboard shortcut authentication (`Ctrl/Cmd + Shift + A`) keeps internal analytics access
-available without exposing an obvious public footer trigger.
-
-### Security Documentation
-
-- [Admin Password Security](docs/technical/admin-password-security.md)
-- [Secrets Management](docs/technical/secrets-management.md)
-
----
-
-## Testing
-
-### Test Suites
-
-```bash
-# PWA tests
-pnpm --filter @mhc/website run test:pwa
-
-# Dark mode visual test
-open testing/dark-mode-visual-test.html
-
-# Type checking
 pnpm run type-check
-
-# Linting
 pnpm run lint
-
-# Navigation route ownership guardrail
+pnpm run test
+pnpm run lint:markdown
+pnpm run docs:sync:check
+pnpm run docs:guardrails:contracts
 pnpm run nav:contract:check
 ```
 
-### Testing Documentation
+For strict website parity with CI checks:
 
-- [Testing Guide](testing/mh-testing-guide.md)
-- [PWA Quick Reference](docs/technical/pwa-quick-reference.md)
+```bash
+pnpm --filter @mhc/website run ci:gate
+```
 
-### Navigation Contract Guardrail
+## Key References
 
-Navigation ownership is enforced by `apps/website/src/components/navigation/__tests__/navigation-route-ownership.test.ts`.
-This contract ensures navigation links remain within route namespaces owned by the website app and dashboard app (`/hub*` and `/dashboard*`) so broken internal navigation paths are caught during CI.
-
----
+- Development setup and commit hygiene: [.github/DEVELOPMENT_SETUP.md](.github/DEVELOPMENT_SETUP.md)
+- Documentation index: [docs/index.md](docs/index.md)
+- Architecture and route map: [docs/project/architecture.md](docs/project/architecture.md)
+- Component standards: [docs/branding/standards/unified-component-standards.md](docs/branding/standards/unified-component-standards.md)
+- Consistency guardrails: [docs/development/standards/consistency-guide.md](docs/development/standards/consistency-guide.md)
+- Page template: [docs/development/standards/page-template-guide.md](docs/development/standards/page-template-guide.md)
+- Page compliance checklist: [docs/development/standards/page-compliance-checklist.md](docs/development/standards/page-compliance-checklist.md)
+- Cloudflare deployment guide: [docs/deployment/cloudflare-guide.md](docs/deployment/cloudflare-guide.md)
 
 ## Contributing
 
-### Getting Started
+- Follow [contributing.md](contributing.md).
+- Keep branding, trust, accessibility, and SEO naming consistent with canonical docs.
+- Do not edit only mirrored app docs; update canonical source and sync.
 
-1. Review this README for comprehensive project overview
-2. Check [Development Standards](docs/development/standards/development-standards.md)
-3. Read [Consistency Guide](docs/development/standards/consistency-guide.md) MANDATORY
-4. Follow coding patterns and conventions
+## License
 
-### Pull Request Guidelines
-
-- Run `pnpm run type-check` (must pass)
-- Run `pnpm run lint` (must pass)
-- Test locally with `pnpm run build`
-- Update documentation if needed
-- Follow commit message conventions
-- Ensure added/renamed image files use lowercase kebab-case names (enforced by pre-commit)
-
-### Documentation Updates
-
-- All markdown files use **kebab-case** naming
-- Internal links must be relative
-- Archive completed work to `docs/archive/` (if needed)
-
----
-
-## Contact & Support
-
-### MH Construction
-
-- **Phone:** (509) 308-6489
-- **Email:** <office@mhc-gc.com>
-- **Website:** <https://www.mhc-gc.com>
-- **Address:** 3111 N Capitol Ave, Pasco, WA 99301
-
-### Repository
-
-- **GitHub:** <https://github.com/Ramsey-USA/mh-website>
-- **Issues:** Use GitHub Issues for bug reports
-- **Discussions:** Use GitHub Discussions for questions
-
----
-
-## License & Copyright
-
-**Copyright © 2026 MH Construction**  
-**Founded 2010 | Veteran-Owned Since January 2025**
-
-All rights reserved. This software and associated documentation files are proprietary.
-
----
-
-## About the Veteran Transition
-
-**January 2025** - MH Construction transitioned from founder Mike Holstein to Army veteran
-Jeremy Thamert, continuing 16 years of construction excellence with renewed veteran commitment.
-
-**Core Values Unchanged:**
-
-- Honesty in every interaction
-- Integrity in every decision
-- Professionalism in every project
-- Thoroughness in every detail
-
-**Built on Quality, Backed by Trust.**
-
----
-
-**Last Updated:** June 21, 2026  
-**Documentation Version:** 4.2 (status and platform snapshot refresh)
+Copyright © 2026 MH Construction.
+All rights reserved.
