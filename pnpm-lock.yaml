@@ -379,9 +379,6 @@ importers:
       prettier:
         specifier: ^3.9.4
         version: 3.9.4
-      puppeteer:
-        specifier: ^25.3.0
-        version: 25.3.0
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -416,6 +413,9 @@ importers:
       pngjs:
         specifier: ^7.0.0
         version: 7.0.0
+      puppeteer:
+        specifier: ^25.3.0
+        version: 25.3.0
       qrcode:
         specifier: ^1.5.4
         version: 1.5.4
