@@ -65,12 +65,18 @@ importers:
       lint-staged:
         specifier: ^17.0.8
         version: 17.0.8
+      mammoth:
+        specifier: ^1.12.0
+        version: 1.12.0
       markdownlint-cli2:
         specifier: ^0.23.0
         version: 0.23.0
       pdf-lib:
         specifier: ^1.17.1
         version: 1.17.1
+      pdf-parse:
+        specifier: ^2.4.5
+        version: 2.4.5
       pdfjs-dist:
         specifier: ^5.7.284
         version: 5.7.284
@@ -9295,7 +9301,6 @@ snapshots:
       '@napi-rs/canvas-linux-x64-gnu': 0.1.80
       '@napi-rs/canvas-linux-x64-musl': 0.1.80
       '@napi-rs/canvas-win32-x64-msvc': 0.1.80
-    optional: true
 
   '@napi-rs/canvas@1.0.2':
     optionalDependencies:
@@ -10908,8 +10913,7 @@ snapshots:
 
   '@vue/shared@3.5.33': {}
 
-  '@xmldom/xmldom@0.8.13':
-    optional: true
+  '@xmldom/xmldom@0.8.13': {}
 
   abort-controller@3.0.0:
     dependencies:
@@ -11163,15 +11167,13 @@ snapshots:
 
   balanced-match@4.0.4: {}
 
-  base64-js@1.5.1:
-    optional: true
+  base64-js@1.5.1: {}
 
   baseline-browser-mapping@2.10.42: {}
 
   blake3-wasm@2.1.5: {}
 
-  bluebird@3.4.7:
-    optional: true
+  bluebird@3.4.7: {}
 
   bmp-js@0.1.0:
     optional: true
@@ -11617,8 +11619,7 @@ snapshots:
 
   dijkstrajs@1.0.3: {}
 
-  dingbat-to-unicode@1.0.1:
-    optional: true
+  dingbat-to-unicode@1.0.1: {}
 
   doctrine@2.1.0:
     dependencies:
@@ -11664,7 +11665,6 @@ snapshots:
   duck@0.1.12:
     dependencies:
       underscore: 1.13.8
-    optional: true
 
   dunder-proto@1.0.1:
     dependencies:
@@ -13508,7 +13508,6 @@ snapshots:
       duck: 0.1.12
       option: 0.2.4
       underscore: 1.13.8
-    optional: true
 
   lru-cache@10.4.3: {}
 
@@ -13544,7 +13543,6 @@ snapshots:
       path-is-absolute: 1.0.1
       underscore: 1.13.8
       xmlbuilder: 10.1.1
-    optional: true
 
   markdown-it@14.2.0:
     dependencies:
@@ -14018,8 +14016,7 @@ snapshots:
 
   opener@1.5.2: {}
 
-  option@0.2.4:
-    optional: true
+  option@0.2.4: {}
 
   optionator@0.9.4:
     dependencies:
@@ -14126,12 +14123,10 @@ snapshots:
     dependencies:
       '@napi-rs/canvas': 0.1.80
       pdfjs-dist: 5.4.296
-    optional: true
 
   pdfjs-dist@5.4.296:
     optionalDependencies:
       '@napi-rs/canvas': 0.1.100
-    optional: true
 
   pdfjs-dist@5.7.284:
     optionalDependencies:
@@ -15060,8 +15055,7 @@ snapshots:
       has-symbols: 1.1.0
       which-boxed-primitive: 1.1.1
 
-  underscore@1.13.8:
-    optional: true
+  underscore@1.13.8: {}
 
   undici-types@5.26.5: {}
 
@@ -15351,8 +15345,7 @@ snapshots:
 
   xml@1.0.1: {}
 
-  xmlbuilder@10.1.1:
-    optional: true
+  xmlbuilder@10.1.1: {}
 
   xmlchars@2.2.0: {}
 

@@ -76,6 +76,9 @@ jobs:
       - name: Validate canonical docs layout
         run: pnpm docs:sync
 
+      - name: Build safety manual source manifests
+        run: pnpm docs:extract-word
+
       # ── 5. Resolve commit revision metadata ──────────────────────────────
       - name: Resolve revision metadata from git log
         id: rev

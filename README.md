@@ -2,7 +2,7 @@
 
 Built on Quality, Backed by Trust.
 
-Founded by Mike Holstein in 2010, veteran-owned since January 2025 under Jeremy Thamert.
+Founded by Mike Holstein in 2010, Veteran Owned since January 2025 under Jeremy Thamert.
 
 - Website: <https://www.mhc-gc.com>
 - Phone: (509) 308-6489
