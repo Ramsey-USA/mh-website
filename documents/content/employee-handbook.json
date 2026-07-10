@@ -97,12 +97,14 @@
           "id": "HANDBOOK-FORM-06",
           "slug": "form-handbook-06-employee-photo-release-form",
           "title": "Employee Photo Release Form",
+          "templatePath": "documents/forms/form-employee-photo-release.html",
           "purpose": "Captures employee authorization for company photo and media use"
         },
         {
           "id": "HANDBOOK-FORM-07",
           "slug": "form-handbook-07-client-photo-release-form",
           "title": "Client Photo Release Form",
+          "templatePath": "documents/forms/form-client-photo-release.html",
           "purpose": "Captures client authorization for project photo and media use"
         },
         {

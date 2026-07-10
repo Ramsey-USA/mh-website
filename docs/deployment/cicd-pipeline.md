@@ -78,11 +78,12 @@ Current `ci-cd.yml` runs on `main` require these GitHub repository secrets:
 ### Step 1: Install Dependencies
 
 ```bash
-pnpm install --frozen-lockfile
+pnpm install --frozen-lockfile --loglevel error
 ```
 
 - Uses `pnpm` for faster, more reliable installations
 - `--frozen-lockfile` ensures reproducible builds
+- `--loglevel error` keeps CI logs focused on actionable failures
 - Dependencies cached between runs for faster builds
 
 ### Step 2: Type Checking

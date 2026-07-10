@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Guardrail: generated reports and app mirror trees must never be committed.
+# Guardrail: generated reports and legacy app mirror trees must never be committed.
 ROOT_DIR="$(git rev-parse --show-toplevel)"
 cd "$ROOT_DIR"
 
@@ -34,7 +34,7 @@ for pattern in "${PATTERNS[@]}"; do
 done
 
 if [[ ${#violations[@]} -gt 0 ]]; then
-  echo "Generated artifacts or mirrored app trees are tracked in git:" >&2
+  echo "Generated artifacts or legacy app mirror trees are tracked in git:" >&2
   printf ' - %s\n' "${violations[@]}" >&2
   echo >&2
   echo "Fix:" >&2

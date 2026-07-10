@@ -10,7 +10,7 @@ fi
 ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT"
 
-# Keep docs/messages/documents mirrors aligned before linting markdown.
+# Enforce canonical docs/messages/documents layout before linting markdown.
 bash scripts/docs/check-sync.sh
 
 # Root lint workflow includes branding docs contract checks.
@@ -31,5 +31,4 @@ fi
 git ls-files '*.md' \
   ':!:.github/agents/**' \
   ':!:apps/website/public/images/qr-codes/README.md' \
-  ':!:apps/website/docs/**' \
   | xargs -r pnpm exec markdownlint-cli2 "${MARKDOWN_ARGS[@]}"

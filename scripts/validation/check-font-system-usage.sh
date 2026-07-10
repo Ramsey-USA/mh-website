@@ -147,17 +147,6 @@ assert_not_contains ".github/agents/form-development-officer.agent.md" "Mendl Sa
 assert_not_contains ".github/agents/manual-development-standards-officer.agent.md" "Mendl Sans Dawn" "Manual standards agent must not prescribe Mendl Sans Dawn"
 assert_not_contains ".github/agents/forms-logistics-officer.agent.md" "Mendl Sans Dawn" "Forms logistics agent must not prescribe Mendl Sans Dawn"
 
-assert_contains "apps/website/docs/branding/brand-constants.md" "Mendl Sans Dusk" "App brand constants mirror must document Mendl Sans Dusk body font"
-assert_contains "apps/website/docs/branding/brand-constants.md" "self-hosted Mendl Sans Dusk model" "App brand constants mirror must document self-hosted Mendl delivery"
-assert_not_contains "apps/website/docs/branding/brand-constants.md" "DIN 2014" "App brand constants mirror must not reference legacy DIN body font"
-assert_contains "apps/website/docs/branding/standards/unified-component-standards.md" "Body Font — Mendl Sans Dusk" "App unified standards mirror must define Mendl Sans Dusk as body font"
-assert_contains "apps/website/docs/branding/standards/unified-component-standards.md" "self-hosted" "App unified standards mirror must document self-hosted Mendl delivery"
-assert_not_contains "apps/website/docs/branding/standards/unified-component-standards.md" "DIN 2014" "App unified standards mirror must not reference legacy DIN body font"
-assert_contains "apps/website/docs/development/standards/page-compliance-checklist.md" 'Non-hero section body copy uses Mendl Sans Dusk' "App page checklist mirror must require Mendl Sans Dusk body copy"
-assert_not_contains "apps/website/docs/development/standards/page-compliance-checklist.md" "DIN 2014" "App page checklist mirror must not reference legacy DIN body font"
-assert_not_contains "apps/website/docs/branding/brand-constants.md" "\\bInter\\b" "App brand constants mirror must not reference Inter as a primary font"
-assert_not_contains "apps/website/docs/branding/brand-constants.md" "Mendl Sans Dawn" "App brand constants mirror must not reference Mendl Sans Dawn"
-
 if [[ $FAIL -ne 0 ]]; then
   echo ""
   echo "[font-system] Font system check failed."

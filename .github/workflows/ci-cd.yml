@@ -48,7 +48,7 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies (workspace root)
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --loglevel error
 
       - name: Enforce IndexNow key for main checks
         if: >-
@@ -205,7 +205,7 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --loglevel error
 
       - name: Run internal dependency security check
         run: npm run security:check
@@ -244,7 +244,7 @@ jobs:
             nextjs-website-cache-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile --filter @mhc/website...
+        run: pnpm install --frozen-lockfile --filter @mhc/website... --loglevel error
 
       - name: Enforce IndexNow key for production deploy
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -298,7 +298,7 @@ jobs:
             nextjs-dashboard-cache-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile --filter @mhc/dashboard...
+        run: pnpm install --frozen-lockfile --filter @mhc/dashboard... --loglevel error
 
       - name: Build dashboard
         working-directory: apps/dashboard
@@ -343,7 +343,7 @@ jobs:
             nextjs-website-cache-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile --filter @mhc/website...
+        run: pnpm install --frozen-lockfile --filter @mhc/website... --loglevel error
 
       - name: Build website
         working-directory: apps/website

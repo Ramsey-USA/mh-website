@@ -33,7 +33,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --loglevel error
 
       - name: Run strict dependency security check
         run: npm run security:check:strict

@@ -35,7 +35,7 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --loglevel error
 
       - name: Enforce generated artifact guard
         run: npm run guard:generated-artifacts
@@ -157,7 +157,7 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --loglevel error
 
       - name: Auto-fix markdown issues
         run: |

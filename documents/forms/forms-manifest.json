@@ -701,6 +701,7 @@
       "categoryIcon": "📋",
       "manualSection": ["HANDBOOK 06"],
       "docxPath": "MHC-HANDBOOK-FORMS/HANDBOOK-FORM-06_employee-photo-release-form.docx",
+      "htmlPath": "form-employee-photo-release.html",
       "revision": "1.0",
       "effectiveDate": "June 2026",
       "owner": "Human Resources"
@@ -714,6 +715,7 @@
       "categoryIcon": "📋",
       "manualSection": ["HANDBOOK 06"],
       "docxPath": "MHC-HANDBOOK-FORMS/HANDBOOK-FORM-07-client-photo-release-form.docx",
+      "htmlPath": "form-client-photo-release.html",
       "revision": "1.0",
       "effectiveDate": "June 2026",
       "owner": "Human Resources"

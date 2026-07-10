@@ -70,10 +70,10 @@ jobs:
 
       # ── 4. Install pnpm dependencies ──────────────────────────────────────
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --loglevel error
 
-      # ── 4b. Sync canonical docs into app workspace (apps/website/documents is gitignored) ──
-      - name: Sync docs into app workspace
+      # ── 4b. Validate canonical docs/messages/documents layout ──
+      - name: Validate canonical docs layout
         run: pnpm docs:sync
 
       # ── 5. Resolve commit revision metadata ──────────────────────────────

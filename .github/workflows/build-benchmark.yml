@@ -57,7 +57,7 @@ jobs:
             benchmark-nextjs-website-cache-
 
       - name: Install dependencies (website scope)
-        run: pnpm install --frozen-lockfile --filter @mhc/website...
+        run: pnpm install --frozen-lockfile --filter @mhc/website... --loglevel error
 
       - name: Sync docs/messages/documents into app
         run: bash scripts/docs/sync-to-app.sh

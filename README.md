@@ -30,6 +30,7 @@ scripts/        # Root automation and validation scripts
 - Frameworks: Next.js 16.2.10, React 19.2.7, Tailwind CSS 4.3.2, TypeScript 6.0.3
 - Runtime requirement: Node.js 22+
 - Primary quality gates: TypeScript, ESLint, Jest, markdown lint, docs sync contracts, branding guardrails
+- CI workflow installs use error-level pnpm logging to reduce non-blocking warning noise while preserving failure signals
 - Canonical slogan and voice rules are enforced across docs and app surfaces
 
 For architecture and route inventory, use [docs/project/architecture.md](docs/project/architecture.md).
@@ -116,13 +117,13 @@ Run from repository root unless noted.
 | Type-check all apps | `pnpm run type-check`      |
 | Lint all apps       | `pnpm run lint`            |
 | Test website        | `pnpm run test`            |
-| Sync source docs    | `pnpm run docs:sync`       |
-| Verify docs sync    | `pnpm run docs:sync:check` |
+| Validate docs setup | `pnpm run docs:sync`       |
+| Verify no mirrors   | `pnpm run docs:sync:check` |
 
 For docs publishing commands, see [Safety Manual and Handbook Pipeline](#safety-manual-and-handbook-pipeline).
 For full quality gates, see [Quality Gate Before PR](#quality-gate-before-pr).
 
-## Documentation and Sync Rules
+## Documentation Canonical Rules
 
 Canonical sources:
 
@@ -130,11 +131,7 @@ Canonical sources:
 - [messages/](messages)
 - [documents/](documents)
 
-Synced mirrors used by the website app:
-
-- [apps/website/docs/](apps/website/docs)
-- [apps/website/messages/](apps/website/messages)
-- [apps/website/documents/](apps/website/documents)
+Legacy app mirror trees under [apps/website](apps/website) are deprecated and should remain absent.
 
 After editing docs, messages, or documents, run:
 
@@ -143,7 +140,7 @@ pnpm run docs:sync
 pnpm run docs:sync:check
 ```
 
-If sync check fails, run sync again and commit both source and mirrored updates.
+If sync check fails, remove mirror duplicates under [apps/website/docs](apps/website/docs), [apps/website/messages](apps/website/messages), and [apps/website/documents](apps/website/documents).
 
 ## Safety Manual and Handbook Pipeline
 
@@ -174,7 +171,7 @@ pnpm --filter @mhc/website run docs:publish:employee-handbook
 # Verify public URLs
 pnpm --filter @mhc/website run docs:verify:published
 
-# Optional: remove stale app mirror PDF artifacts
+# Optional: remove stale legacy mirror PDF artifacts
 pnpm run docs:clean:legacy-output
 
 # Root shortcut for the same preflight check
@@ -222,7 +219,7 @@ pnpm --filter @mhc/website run ci:gate
 
 - Follow [contributing.md](contributing.md).
 - Keep branding, trust, accessibility, and SEO naming consistent with canonical docs.
-- Do not edit only mirrored app docs; update canonical source and sync.
+- Do not create or commit app mirror docs trees; keep canonical sources in [docs/](docs), [messages/](messages), and [documents/](documents).
 
 ## License
 

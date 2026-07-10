@@ -3,11 +3,24 @@ set -euo pipefail
 
 ROOT_DIR="$(git rev-parse --show-toplevel)"
 DOCS_SOURCE_DIR="$ROOT_DIR/docs"
-DOCS_TARGET_DIR="$ROOT_DIR/apps/website/docs"
 MESSAGES_SOURCE_DIR="$ROOT_DIR/messages"
-MESSAGES_TARGET_DIR="$ROOT_DIR/apps/website/messages"
 DOCUMENTS_SOURCE_DIR="$ROOT_DIR/documents"
-DOCUMENTS_TARGET_DIR="$ROOT_DIR/apps/website/documents"
+
+find_mirror_files() {
+  local base="$1"
+  local root_base="$ROOT_DIR/$base"
+  local app_base="$ROOT_DIR/apps/website/$base"
+
+  [[ -d "$root_base" && -d "$app_base" ]] || return 0
+
+  while IFS= read -r source_file; do
+    local rel="${source_file#${root_base}/}"
+    local mirror_file="$app_base/$rel"
+    if [[ -f "$mirror_file" ]]; then
+      echo "$mirror_file"
+    fi
+  done < <(find "$root_base" -type f)
+}
 
 if [[ ! -d "$DOCS_SOURCE_DIR" ]]; then
   echo "Missing source docs directory: $DOCS_SOURCE_DIR" >&2
@@ -24,49 +37,20 @@ if [[ ! -d "$DOCUMENTS_SOURCE_DIR" ]]; then
   exit 1
 fi
 
-if [[ ! -d "$DOCS_TARGET_DIR" ]]; then
-  echo "Missing target docs directory: $DOCS_TARGET_DIR" >&2
-  echo "Run: pnpm docs:sync" >&2
+mapfile -t docs_mirror_files < <(find_mirror_files "docs")
+mapfile -t messages_mirror_files < <(find_mirror_files "messages")
+mapfile -t documents_mirror_files < <(find_mirror_files "documents")
+
+total_mirror_files=$((
+  ${#docs_mirror_files[@]} + ${#messages_mirror_files[@]} + ${#documents_mirror_files[@]}
+))
+
+if [[ "$total_mirror_files" -gt 0 ]]; then
+  echo "Mirror files detected under apps/website; keep canonical docs/messages/documents at root only." >&2
+  printf '%s\n' "${docs_mirror_files[@]}" "${messages_mirror_files[@]}" "${documents_mirror_files[@]}" \
+    | sed '/^$/d' \
+    | head -n 50 >&2
   exit 1
 fi
 
-if [[ ! -d "$MESSAGES_TARGET_DIR" ]]; then
-  echo "Missing target messages directory: $MESSAGES_TARGET_DIR" >&2
-  echo "Run: pnpm docs:sync" >&2
-  exit 1
-fi
-
-if [[ ! -d "$DOCUMENTS_TARGET_DIR" ]]; then
-  echo "Missing target documents directory: $DOCUMENTS_TARGET_DIR" >&2
-  echo "Run: pnpm docs:sync" >&2
-  exit 1
-fi
-
-if ! diff -qr "$DOCS_SOURCE_DIR" "$DOCS_TARGET_DIR" > /dev/null; then
-  echo "Docs are out of sync between $DOCS_SOURCE_DIR and $DOCS_TARGET_DIR" >&2
-  echo "Run: pnpm docs:sync" >&2
-  diff -qr "$DOCS_SOURCE_DIR" "$DOCS_TARGET_DIR" | head -n 50 >&2
-  exit 1
-fi
-
-if ! diff -qr "$MESSAGES_SOURCE_DIR" "$MESSAGES_TARGET_DIR" > /dev/null; then
-  echo "Messages are out of sync between $MESSAGES_SOURCE_DIR and $MESSAGES_TARGET_DIR" >&2
-  echo "Run: pnpm docs:sync" >&2
-  diff -qr "$MESSAGES_SOURCE_DIR" "$MESSAGES_TARGET_DIR" | head -n 50 >&2
-  exit 1
-fi
-
-if ! diff -qr \
-  --exclude='output' \
-  --exclude='_tmp_*' \
-  "$DOCUMENTS_SOURCE_DIR" "$DOCUMENTS_TARGET_DIR" > /dev/null; then
-  echo "Documents are out of sync between $DOCUMENTS_SOURCE_DIR and $DOCUMENTS_TARGET_DIR" >&2
-  echo "Run: pnpm docs:sync" >&2
-  diff -qr \
-    --exclude='output' \
-    --exclude='_tmp_*' \
-    "$DOCUMENTS_SOURCE_DIR" "$DOCUMENTS_TARGET_DIR" | head -n 50 >&2
-  exit 1
-fi
-
-echo "Docs, messages, and documents are in sync"
+echo "Canonical docs/messages/documents layout is valid (no app mirror duplicates)."

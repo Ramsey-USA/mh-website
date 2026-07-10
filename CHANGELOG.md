@@ -6,6 +6,8 @@ All notable changes to the MH Construction website are documented here.
 
 ## June 2026
 
+- **Jul 10:** CI install-log noise suppression (no dependency version churn) — updated GitHub Actions workflows to run dependency installs with `pnpm install --frozen-lockfile --loglevel error` (including filtered install variants) so transitive deprecation and peer warning noise no longer drowns test/build output; preserved existing glob/transitive version graph and error/failure behavior for quality gates.
+
 - **Jul 7:** GitHub Advanced Security and dependency governance alignment — enabled repository-level security hardening with private vulnerability reporting policy (`SECURITY.md`), Dependabot version-update configuration (`.github/dependabot.yml`), pull-request dependency risk enforcement (`.github/workflows/dependency-review.yml`), and scheduled strict dependency audit automation (`.github/workflows/security-nightly.yml`); removed duplicate custom CodeQL workflow in favor of GitHub Advanced Security CodeQL default setup as the single code-scanning source.
 
 - **Jul 7 (b):** Website design status sync — updated the design-system documentation and top-level project overview to reflect the current tokenized website design baseline and the latest green validation state across the main routes.

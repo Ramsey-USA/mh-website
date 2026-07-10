@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Photo Release Form</title>
+    <style>
+      :root {
+        --brand-primary: #386851;
+        --brand-secondary: #bd9264;
+        --ink: #1f2933;
+        --muted: #52606d;
+        --font-heading:
+          "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk",
+          "Mendl Sans Dusk", Roboto, sans-serif;
+        --font-body:
+          "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk",
+          "Mendl Sans Dusk", Roboto, sans-serif;
+      }
+
+      @page {
+        size: letter;
+        margin: 0.55in;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--font-body);
+        color: var(--ink);
+        font-size: 11pt;
+        line-height: 1.35;
+      }
+
+      .page {
+        border: 1.3pt solid var(--brand-primary);
+        padding: 0.28in 0.34in 0.3in;
+      }
+
+      .header {
+        border-bottom: 1.5pt solid var(--brand-primary);
+        margin-bottom: 0.18in;
+        padding-bottom: 0.08in;
+      }
+
+      .kicker {
+        color: var(--brand-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 8.5pt;
+        margin-bottom: 0.04in;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: var(--font-heading);
+        color: var(--brand-primary);
+        font-size: 18pt;
+        letter-spacing: 0.02em;
+      }
+
+      .meta {
+        margin-top: 0.07in;
+        font-size: 9pt;
+        color: var(--muted);
+      }
+
+      .lead {
+        margin: 0.18in 0 0.14in;
+      }
+
+      .field-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.12in 0.16in;
+        margin-bottom: 0.18in;
+      }
+
+      .field {
+        border: 0.8pt solid #d4dde6;
+        padding: 0.09in 0.1in;
+        min-height: 0.56in;
+      }
+
+      .field-label {
+        font-size: 8pt;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        margin-bottom: 0.04in;
+        font-weight: 700;
+      }
+
+      .line {
+        border-bottom: 1pt solid #334e68;
+        min-height: 0.2in;
+      }
+
+      .section-title {
+        margin: 0.16in 0 0.08in;
+        color: var(--brand-primary);
+        font-size: 11pt;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      ol {
+        margin: 0.04in 0 0.04in 0.22in;
+        padding: 0;
+      }
+
+      li {
+        margin: 0 0 0.06in;
+      }
+
+      .checkbox-row {
+        display: flex;
+        gap: 0.16in;
+        margin: 0.1in 0 0.16in;
+      }
+
+      .checkbox-item {
+        display: flex;
+        align-items: center;
+        gap: 0.07in;
+      }
+
+      .box {
+        width: 0.16in;
+        height: 0.16in;
+        border: 1pt solid #334e68;
+      }
+
+      .signature-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.6fr;
+        gap: 0.16in;
+        margin-top: 0.14in;
+      }
+
+      .footnote {
+        margin-top: 0.16in;
+        font-size: 8.6pt;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <div class="kicker">MH Construction</div>
+        <h1>Client Photo Release Form</h1>
+        <div class="meta">
+          Document Type: Project Authorization | Revision: 1.0 | Effective: June
+          2026
+        </div>
+      </header>
+
+      <p class="lead">
+        This form authorizes MH Construction to capture and use project-related
+        photos/video at client locations for agreed business and communication
+        purposes.
+      </p>
+
+      <section class="field-grid">
+        <div class="field">
+          <div class="field-label">Client / Organization Name</div>
+          <div class="line"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">Project Name</div>
+          <div class="line"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">Project Address</div>
+          <div class="line"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">Client Representative</div>
+          <div class="line"></div>
+        </div>
+      </section>
+
+      <h2 class="section-title">Release Terms</h2>
+      <ol>
+        <li>
+          Client authorizes MH Construction to photograph and/or record project
+          areas, installed work, and progress, subject to this agreement.
+        </li>
+        <li>
+          Authorized use may include project documentation, proposals,
+          qualifications packages, website/social proof, recruiting, and
+          training materials.
+        </li>
+        <li>
+          No confidential data, security-sensitive controls, or personally
+          identifying client records may be published without separate written
+          approval.
+        </li>
+        <li>
+          Client may limit scope below. Revocation applies prospectively and
+          does not require recall of previously distributed materials.
+        </li>
+      </ol>
+
+      <h2 class="section-title">Selection</h2>
+      <div class="checkbox-row">
+        <div class="checkbox-item">
+          <span class="box"></span><span>Full Release Granted</span>
+        </div>
+        <div class="checkbox-item">
+          <span class="box"></span><span>Internal + Proposal Use Only</span>
+        </div>
+        <div class="checkbox-item">
+          <span class="box"></span><span>Limited/Restricted Use</span>
+        </div>
+      </div>
+
+      <section class="field" style="margin-bottom: 0.14in">
+        <div class="field-label">Restrictions or Notes</div>
+        <div class="line" style="min-height: 0.7in"></div>
+      </section>
+
+      <section class="signature-grid">
+        <div class="field">
+          <div class="field-label">Client Representative Signature</div>
+          <div class="line"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">Date</div>
+          <div class="line"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">MH Construction Representative</div>
+          <div class="line"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">Date</div>
+          <div class="line"></div>
+        </div>
+      </section>
+
+      <p class="footnote">
+        For restricted sites, attach the project-specific media protocol and any
+        owner approvals required for external publication.
+      </p>
+    </main>
+  </body>
+</html>
