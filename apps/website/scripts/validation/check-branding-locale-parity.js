@@ -16,8 +16,6 @@ const path = require("node:path");
 const APP_ROOT = process.cwd();
 const REPO_ROOT = path.resolve(APP_ROOT, "..", "..");
 
-const APP_EN_FILE = path.join(APP_ROOT, "messages", "home", "en.json");
-const APP_ES_FILE = path.join(APP_ROOT, "messages", "home", "es.json");
 const ROOT_EN_FILE = path.join(REPO_ROOT, "messages", "home", "en.json");
 const ROOT_ES_FILE = path.join(REPO_ROOT, "messages", "home", "es.json");
 
@@ -40,10 +38,6 @@ function readJson(filePath) {
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-function deepEqual(a, b) {
-  return JSON.stringify(a) === JSON.stringify(b);
 }
 
 function collectPaths(value, prefix = "", result = new Set()) {
@@ -69,14 +63,6 @@ function collectPaths(value, prefix = "", result = new Set()) {
     result.add(prefix);
   }
   return result;
-}
-
-function assertRootAppParity(appJson, rootJson, locale) {
-  if (!deepEqual(appJson, rootJson)) {
-    fail(
-      `Root/app home message payload drift detected for locale ${locale}. Run docs/message sync and resolve differences.`,
-    );
-  }
 }
 
 function assertEnPhrasesPresent(enString) {
@@ -123,17 +109,13 @@ function assertLocalePathParity(enJson, esJson) {
 }
 
 function main() {
-  const appEn = readJson(APP_EN_FILE);
-  const appEs = readJson(APP_ES_FILE);
   const rootEn = readJson(ROOT_EN_FILE);
   const rootEs = readJson(ROOT_ES_FILE);
 
-  assertRootAppParity(appEn, rootEn, "en");
-  assertRootAppParity(appEs, rootEs, "es");
-  assertLocalePathParity(appEn, appEs);
+  assertLocalePathParity(rootEn, rootEs);
 
-  const enString = JSON.stringify(appEn);
-  const esString = JSON.stringify(appEs);
+  const enString = JSON.stringify(rootEn);
+  const esString = JSON.stringify(rootEs);
   assertEnPhrasesPresent(enString);
   assertEsPhraseCompanions(esString);
 

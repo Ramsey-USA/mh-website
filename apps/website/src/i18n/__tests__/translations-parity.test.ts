@@ -22,8 +22,6 @@ import fs from "fs";
 
 const MSG_DIR = path.resolve(__dirname, "../../../../../messages");
 const HOME_MSG_DIR = path.join(MSG_DIR, "home");
-const APP_MSG_DIR = path.resolve(__dirname, "../../../messages");
-const APP_HOME_MSG_DIR = path.join(APP_MSG_DIR, "home");
 
 function loadJson(filePath: string): Record<string, unknown> {
   const raw = fs.readFileSync(filePath, "utf-8");
@@ -273,29 +271,10 @@ describe("Translation Files — Home Namespace Completeness", () => {
   });
 });
 
-describe("Translation Files — Root/App Mirror Parity", () => {
-  test("messages/en.json mirrors apps/website/messages/en.json", () => {
-    const rootEn = loadJson(path.join(MSG_DIR, "en.json"));
-    const appEn = loadJson(path.join(APP_MSG_DIR, "en.json"));
-    expect(rootEn).toEqual(appEn);
-  });
-
-  test("messages/es.json mirrors apps/website/messages/es.json", () => {
-    const rootEs = loadJson(path.join(MSG_DIR, "es.json"));
-    const appEs = loadJson(path.join(APP_MSG_DIR, "es.json"));
-    expect(rootEs).toEqual(appEs);
-  });
-
-  test("messages/home/en.json mirrors apps/website/messages/home/en.json", () => {
-    const rootEnHome = loadJson(path.join(HOME_MSG_DIR, "en.json"));
-    const appEnHome = loadJson(path.join(APP_HOME_MSG_DIR, "en.json"));
-    expect(rootEnHome).toEqual(appEnHome);
-  });
-
-  test("messages/home/es.json mirrors apps/website/messages/home/es.json", () => {
-    const rootEsHome = loadJson(path.join(HOME_MSG_DIR, "es.json"));
-    const appEsHome = loadJson(path.join(APP_HOME_MSG_DIR, "es.json"));
-    expect(rootEsHome).toEqual(appEsHome);
+describe("Translation Files — Canonical Source", () => {
+  test("messages are sourced from canonical root and app mirrors remain absent", () => {
+    const appMessagesDir = path.resolve(__dirname, "../../../messages");
+    expect(fs.existsSync(appMessagesDir)).toBe(false);
   });
 });
 

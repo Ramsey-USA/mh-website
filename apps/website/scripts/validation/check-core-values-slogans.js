@@ -14,8 +14,9 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const APP_ROOT = process.cwd();
-const EN_HOME_MESSAGES = path.join(APP_ROOT, "messages", "home", "en.json");
-const ES_HOME_MESSAGES = path.join(APP_ROOT, "messages", "home", "es.json");
+const REPO_ROOT = path.resolve(APP_ROOT, "..", "..");
+const EN_HOME_MESSAGES = path.join(REPO_ROOT, "messages", "home", "en.json");
+const ES_HOME_MESSAGES = path.join(REPO_ROOT, "messages", "home", "es.json");
 
 function fail(message) {
   console.error(`FAIL: ${message}`);

@@ -32,20 +32,8 @@ const CONSTANTS_FILE = path.join(
   "constants",
   "company.ts",
 );
-const EN_MESSAGES_FILE = path.join(APP_ROOT, "messages", "home", "en.json");
-const ES_MESSAGES_FILE = path.join(APP_ROOT, "messages", "home", "es.json");
-const ROOT_EN_MESSAGES_FILE = path.join(
-  REPO_ROOT,
-  "messages",
-  "home",
-  "en.json",
-);
-const ROOT_ES_MESSAGES_FILE = path.join(
-  REPO_ROOT,
-  "messages",
-  "home",
-  "es.json",
-);
+const EN_MESSAGES_FILE = path.join(REPO_ROOT, "messages", "home", "en.json");
+const ES_MESSAGES_FILE = path.join(REPO_ROOT, "messages", "home", "es.json");
 const CORE_VALUES_COMPONENT_FILE = path.join(
   APP_ROOT,
   "src",
@@ -221,61 +209,16 @@ function validateChecklist(checklistSource, constantsMap) {
   }
 }
 
-function validateRootMessageParity(rootMessages, appMessages, localeLabel) {
-  const rootValues = rootMessages?.coreValues?.values;
-  const appValues = appMessages?.coreValues?.values;
-
-  if (!Array.isArray(rootValues) || !Array.isArray(appValues)) {
-    fail(`Unable to compare root/app core values for locale ${localeLabel}.`);
-  }
-
-  if (rootValues.length !== appValues.length) {
-    fail(
-      `Root/app core value count mismatch for locale ${localeLabel}: root=${rootValues.length}, app=${appValues.length}`,
-    );
-  }
-
-  for (let i = 0; i < appValues.length; i += 1) {
-    const appRow = appValues[i];
-    const rootRow = rootValues[i];
-
-    const fieldsToMatch = [
-      "value",
-      "tagline",
-      "valueSlogan",
-      "supportingSlogan",
-      "description",
-      "stats",
-    ];
-
-    for (const field of fieldsToMatch) {
-      if (appRow?.[field] !== rootRow?.[field]) {
-        fail(
-          `Root/app ${field} mismatch for ${localeLabel} core value index ${i}.`,
-        );
-      }
-    }
-  }
-}
-
 function main() {
   const constantsSource = fs.readFileSync(CONSTANTS_FILE, "utf8");
   const enMessages = JSON.parse(fs.readFileSync(EN_MESSAGES_FILE, "utf8"));
   const esMessages = JSON.parse(fs.readFileSync(ES_MESSAGES_FILE, "utf8"));
-  const rootEnMessages = JSON.parse(
-    fs.readFileSync(ROOT_EN_MESSAGES_FILE, "utf8"),
-  );
-  const rootEsMessages = JSON.parse(
-    fs.readFileSync(ROOT_ES_MESSAGES_FILE, "utf8"),
-  );
   const componentSource = fs.readFileSync(CORE_VALUES_COMPONENT_FILE, "utf8");
   const checklistSource = fs.readFileSync(QA_CHECKLIST_FILE, "utf8");
 
   const constantsMap = extractConstantsCoreValues(constantsSource);
   const enValues = validateEnMessages(enMessages, constantsMap);
   validateEsMessages(esMessages, enValues);
-  validateRootMessageParity(rootEnMessages, enMessages, "en");
-  validateRootMessageParity(rootEsMessages, esMessages, "es");
   validateCoreValuesComponent(componentSource);
   validateChecklist(checklistSource, constantsMap);
 

@@ -19,6 +19,7 @@ const {
 } = require("./branding-rules.cjs");
 
 const ROOT = process.cwd();
+const REPO_ROOT = path.resolve(ROOT, "..", "..");
 const APP_DIR = path.join(ROOT, "src", "app");
 const SRC_DIR = path.join(ROOT, "src");
 const COMPONENTS_DIR = path.join(SRC_DIR, "components");
@@ -39,9 +40,7 @@ const SEO_ROUTE_POLICY_FILE = path.join(
 );
 const SITEMAP_FILE = path.join(APP_DIR, "sitemap.ts");
 const COMPANY_CONSTANTS_FILE = path.join(
-  ROOT,
-  "..",
-  "..",
+  REPO_ROOT,
   "packages",
   "shared",
   "src",
@@ -353,10 +352,7 @@ function checkPrimarySloganIntegrity(errors) {
       (filePath) =>
         /\.(ts|tsx|js|jsx)$/.test(filePath) && !filePath.includes("__tests__"),
     ),
-    ...walkFiles(path.join(ROOT, "messages"), (filePath) =>
-      /\.json$/.test(filePath),
-    ),
-    ...walkFiles(path.join(ROOT, "messages", "home"), (filePath) =>
+    ...walkFiles(path.join(REPO_ROOT, "messages"), (filePath) =>
       /\.json$/.test(filePath),
     ),
   ];
