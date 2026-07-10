@@ -107,7 +107,6 @@
     "docs:generate:handbook:cover": "node documents/scripts/generate.mjs --manual employee-handbook --template cover",
     "docs:generate:handbook:spine": "node documents/scripts/generate.mjs --manual employee-handbook --template spine",
     "docs:generate:handbook:tabs": "node documents/scripts/generate.mjs --manual employee-handbook --template tabs",
-    "docs:dissect:handbook": "node documents/scripts/dissect-employee-handbook.mjs",
     "docs:guardrails:check": "node documents/scripts/generate.mjs --template guardrails-check",
     "docs:guardrails:typography:check": "node documents/scripts/generate.mjs --template guardrails-typography-check",
     "font-system:check": "bash ../../scripts/validation/check-font-system-usage.sh",

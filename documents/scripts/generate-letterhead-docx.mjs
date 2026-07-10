@@ -396,13 +396,6 @@ function buildFooter(brand, images) {
     verticalAlign: VerticalAlign.CENTER,
     margins: { top: 0, bottom: 0, left: 100, right: 0 },
     children: [
-      plain("ACCREDITATION & TRUST", {
-        bold: true,
-        size: 13,
-        color: brand.colors.secondaryText,
-        spacingChars: 24,
-        alignment: AlignmentType.RIGHT,
-      }),
       new Paragraph({
         alignment: AlignmentType.RIGHT,
         spacing: { before: 60, after: 0 },
@@ -457,12 +450,6 @@ function buildFooter(brand, images) {
     verticalAlign: VerticalAlign.CENTER,
     margins: { top: 0, bottom: 0, left: 0, right: 100 },
     children: [
-      plain("COMPANY CONTACT", {
-        bold: true,
-        size: 13,
-        color: brand.colors.secondaryText,
-        spacingChars: 24,
-      }),
       plain(brand.companyName, {
         bold: true,
         size: 20,

@@ -65,13 +65,9 @@
   --surface-card-shadow: 0 0 0 0.4pt #e7e2da;
   --surface-card-accent: #bd9264;
   --surface-card-radius: 4pt;
-  --font-body:
-    "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk",
-    Roboto, sans-serif;
-  --font-heading:
-    "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk",
-    Roboto, sans-serif;
-  --font-mono: "Courier New", Courier, monospace;
+  --font-body: "mendl-sans-dusk", "Mendl Sans Dusk", sans-serif;
+  --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", sans-serif;
+  --font-mono: "mendl-sans-dusk", "Mendl Sans Dusk", monospace;
   --type-print-running-head: 8pt;
   --type-print-footer-small: 6.5pt;
   --type-print-footer: 7pt;

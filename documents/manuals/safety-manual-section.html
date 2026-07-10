@@ -24,15 +24,15 @@
          --website-body-color: #173327;
          --website-body-tracking: 0.003em;
          --website-subhead-tracking: 0.05em;
-         --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif;
-         --font-body: "mendl-sans-dusk", "Mendl Sans Dusk", "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif;
+         --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", sans-serif;
+         --font-body: "mendl-sans-dusk", "Mendl Sans Dusk", sans-serif;
        }
 
        /* ── Suppress @page running headers/footers ────────────────────────────
         Header & footer are fully managed by Puppeteer displayHeaderFooter;
         CSS @page margin-area rules are disabled to prevent double-rendering. */
        @page {
-             margin: 1.25in 0.75in 0.4in 1.25in;
+         margin: 1.25in 0.75in 1.05in 1.25in;
          @top-left {
            content: none;
            border: none;
@@ -602,7 +602,7 @@
        .section-header-card {
          position: relative;
          margin: 0 0 16pt;
-         padding: 12pt 14pt 13pt;
+         padding: 12pt 15pt 13pt;
          background: linear-gradient(180deg, #ffffff 0%, var(--muted) 42%, var(--paper) 100%);
          border: 1pt solid var(--brand-secondary);
          border-left: 4pt solid var(--brand-primary);
@@ -657,31 +657,34 @@
          display: block;
          font-family: var(--font-heading);
          color: var(--brand-secondary-text);
-         font-size: 8pt;
+         font-size: 7.2pt;
          font-weight: 700;
-         letter-spacing: 0.12em;
+         letter-spacing: 0.16em;
          text-transform: uppercase;
          margin-bottom: 4pt;
        }
        .shc-title {
          font-family: var(--font-heading);
-         font-size: 20pt;
-         font-weight: 900;
+         font-size: 19.25pt;
+         font-weight: 800;
          margin: 0;
          line-height: 1.08;
-         letter-spacing: -0.01em;
-         color: var(--brand-primary);
-         background: linear-gradient(
-           90deg,
-           var(--brand-primary-dark) 0%,
-           var(--brand-primary) 44%,
-           var(--brand-secondary-text) 60%,
-           var(--brand-primary) 100%
-         );
-         -webkit-background-clip: text;
-         background-clip: text;
-         -webkit-text-fill-color: transparent;
-         text-shadow: 0 0 0.01pt rgba(18, 35, 27, 0.2);
+         letter-spacing: -0.012em;
+         color: var(--brand-primary-dark);
+       }
+       .shc-subtitle {
+         margin-top: 6pt;
+         display: inline-block;
+         font-family: var(--font-heading);
+         font-size: 8pt;
+         font-weight: 700;
+         letter-spacing: 0.09em;
+         text-transform: uppercase;
+         color: var(--brand-secondary-text);
+         background: linear-gradient(90deg, rgba(56, 104, 81, 0.08), rgba(189, 146, 100, 0.14));
+         border-left: 2pt solid var(--brand-secondary);
+         border-radius: 2pt;
+         padding: 3pt 8pt 2pt;
          -webkit-print-color-adjust: exact;
          print-color-adjust: exact;
        }
@@ -693,23 +696,23 @@
          border: 0.5pt solid var(--brand-secondary);
          border-radius: 2pt;
          padding: 5pt 9pt 6pt;
-         min-width: 1.2in;
+         min-width: 1.18in;
        }
        .shc-rev-badge .shc-rev-label {
          display: block;
-         font-size: 6.5pt;
+         font-size: 6pt;
          font-weight: 800;
-         letter-spacing: 0.1em;
+         letter-spacing: 0.14em;
          text-transform: uppercase;
          color: var(--brand-secondary);
          margin-bottom: 1pt;
        }
        .shc-rev-badge .shc-rev-value {
          display: block;
-         font-size: 9pt;
-         font-weight: 700;
+         font-size: 8.5pt;
+         font-weight: 800;
          color: var(--brand-primary);
-         line-height: 1.15;
+         line-height: 1.08;
        }
 
        /* 3-column metadata grid — Document / MISH Reference / Program; Licenses spans full row */
@@ -742,17 +745,17 @@
          white-space: nowrap;
        }
        .shc-meta-label {
-         font-size: 6.8pt;
+         font-size: 6.4pt;
          font-weight: 800;
-         letter-spacing: 0.1em;
+         letter-spacing: 0.14em;
          text-transform: uppercase;
          color: var(--brand-secondary);
        }
        .shc-meta-value {
-         font-size: 9pt;
+         font-size: 8.6pt;
          font-weight: 600;
          color: #1f2937;
-         line-height: 1.3;
+         line-height: 1.22;
        }
        .shc-meta-value strong {
          color: var(--brand-primary);
@@ -829,8 +832,9 @@
 
     <!-- ── Decorative section header card ─────────────────────────────── -->
     <!-- Wraps the MISH designator + title and the document metadata in a    -->
-    <!-- single branded container so the section opens with a polished       -->
-    <!-- identity panel. Section QR stays in the running header only.         -->
+    <!-- single branded container so the section opens with the same        -->
+    <!-- polished identity panel pattern used by the handbook. Section QR    -->
+    <!-- stays in the running header only.                                   -->
     <section class="section-header-card" aria-label="Section identity">
       <div class="section-identity">
         {{BRAND_COMPANY_SHORT}}<span class="dot">•</span
@@ -853,13 +857,7 @@
         <div class="shc-meta-cell">
           <span class="shc-meta-label">Document</span>
           <span class="shc-meta-value"
-            ><strong>MISH {{SECTION_NUMBER}}</strong></span
-          >
-        </div>
-        <div class="shc-meta-cell">
-          <span class="shc-meta-label">MISH Reference</span>
-          <span class="shc-meta-value"
-            ><strong>MISH {{SECTION_MISH_REF}}</strong></span
+            ><strong>Safety Section {{SECTION_NUMBER}}</strong></span
           >
         </div>
         <div class="shc-meta-cell">
@@ -867,14 +865,6 @@
           <span class="shc-meta-value"
             >MH Construction Industrial Safety &amp; Health Program
             (<strong>MISH</strong>)</span
-          >
-        </div>
-        <div class="shc-meta-cell shc-meta-licenses">
-          <span class="shc-meta-label">Licenses</span>
-          <span class="shc-meta-value"
-            ><strong>WA</strong> {{BRAND_LICENSE_WA}} &middot;
-            <strong>OR</strong> {{BRAND_LICENSE_OR}} &middot;
-            <strong>ID</strong> {{BRAND_LICENSE_ID}}</span
           >
         </div>
       </div>

@@ -16,6 +16,12 @@ echo "[font-system] Running manual template congruence guardrail..."
   npm run docs:guardrails:manual-congruence >/dev/null
 )
 
+echo "[font-system] Running strict Mendl Sans Dusk font policy guardrail..."
+(
+  cd "$ROOT_DIR"
+  node scripts/validation/check-mendl-font-policy.mjs >/dev/null
+)
+
 echo "[font-system] Scanning repository for legacy font patterns..."
 
 # Keep denylist checks focused on source/template assets.
@@ -111,12 +117,10 @@ assert_contains "apps/website/src/styles/variables.css" "--font-heading:" "Websi
 assert_contains "apps/website/src/styles/variables.css" "mendl-sans-dusk" "Website heading stack must include Mendl Sans Dusk"
 assert_contains "apps/website/src/styles/variables.css" "--font-body:" "Website typography variables must define body stack"
 assert_contains "apps/website/src/styles/variables.css" "mendl-sans-dusk" "Website body stack must include Mendl Sans Dusk"
-assert_contains "apps/website/src/styles/variables.css" "Roboto" "Website font stacks must include Roboto fallback"
 assert_contains "apps/dashboard/src/styles/variables.css" "--font-heading:" "Dashboard typography variables must define heading stack"
 assert_contains "apps/dashboard/src/styles/variables.css" "mendl-sans-dusk" "Dashboard heading stack must include Mendl Sans Dusk"
 assert_contains "apps/dashboard/src/styles/variables.css" "--font-body:" "Dashboard typography variables must define body stack"
 assert_contains "apps/dashboard/src/styles/variables.css" "mendl-sans-dusk" "Dashboard body stack must include Mendl Sans Dusk"
-assert_contains "apps/dashboard/src/styles/variables.css" "Roboto" "Dashboard font stacks must include Roboto fallback"
 
 assert_contains "apps/website/src/app/globals.css" "@font-face" "Website globals must define self-hosted font faces"
 assert_contains "apps/website/src/app/globals.css" "Mendl_Sans_Dusk_Regular.otf" "Website globals must load Mendl Sans Dusk"
@@ -128,7 +132,6 @@ assert_contains "documents/styles/brand.css" "--font-heading:" "Document brand s
 assert_contains "documents/styles/brand.css" "mendl-sans-dusk" "Document heading stack must include Mendl Sans Dusk"
 assert_contains "documents/styles/brand.css" "--font-body:" "Document brand stylesheet must define body stack"
 assert_contains "documents/styles/brand.css" "mendl-sans-dusk" "Document body stack must include Mendl Sans Dusk"
-assert_contains "documents/styles/brand.css" "Roboto" "Document font stacks must include Roboto fallback"
 
 assert_contains "docs/branding/brand-constants.md" "Mendl Sans Dusk" "Root brand constants must document Mendl Sans Dusk body font"
 assert_contains "docs/branding/brand-constants.md" "self-hosted Mendl Sans Dusk model" "Root brand constants must document self-hosted Mendl delivery"

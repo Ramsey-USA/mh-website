@@ -11,8 +11,8 @@
     "phone": "(509) 308-6489",
     "website": "https://www.mhc-gc.com",
     "totalPages": 37,
-    "source": "pdf",
-    "sourceFile": "documents/content/MH Employee Handbook 2026.pdf",
+    "source": "chapter-pdfs",
+    "sourceDirectory": "documents/content/mhc-employee-handbook-2026",
     "manualFamily": "employee",
     "separateFrom": "safety-manual",
     "formsManifest": "documents/forms/forms-manifest.json",
@@ -24,7 +24,6 @@
       "number": 1,
       "title": "Introduction",
       "subtitle": "Welcome, Culture Standards, Policy Framework",
-      "docxPath": "documents/content/MHC-Employee-Handbook-Sections/HANDBOOK-01_introduction.docx",
       "pages": "3-3",
       "forms": [
         {
@@ -39,7 +38,6 @@
       "number": 2,
       "title": "Company Policies",
       "subtitle": "Workplace Standards: EEO, Conduct, Leave, Property, Confidentiality",
-      "docxPath": "documents/content/MHC-Employee-Handbook-Sections/HANDBOOK-02_company-policies.docx",
       "pages": "4-18",
       "forms": [
         {
@@ -66,7 +64,6 @@
       "number": 3,
       "title": "Employment Basics",
       "subtitle": "People Operations: Categories, Schedules, Attendance, PTO",
-      "docxPath": "documents/content/MHC-Employee-Handbook-Sections/HANDBOOK-03_employment-basics.docx",
       "pages": "19-25",
       "forms": []
     },
@@ -74,7 +71,6 @@
       "number": 4,
       "title": "Compensation",
       "subtitle": "Pay Practices: Timekeeping, Overtime, Incentives, Garnishment",
-      "docxPath": "documents/content/MHC-Employee-Handbook-Sections/HANDBOOK-04_compensation.docx",
       "pages": "26-27",
       "forms": []
     },
@@ -82,7 +78,6 @@
       "number": 5,
       "title": "Employee Benefits",
       "subtitle": "Coverage: Insurance, PMLA, Workers Comp, Retirement",
-      "docxPath": "documents/content/MHC-Employee-Handbook-Sections/HANDBOOK-05_employee-benefits.docx",
       "pages": "27-29",
       "forms": []
     },
@@ -90,7 +85,6 @@
       "number": 6,
       "title": "Miscellaneous",
       "subtitle": "Operations Support: Safety, Tools, Weather, Acknowledgments",
-      "docxPath": "documents/content/MHC-Employee-Handbook-Sections/HANDBOOK-06_miscellaneous.docx",
       "pages": "30-36",
       "forms": [
         {
@@ -110,6 +104,12 @@
           "slug": "form-handbook-07-client-photo-release-form",
           "title": "Client Photo Release Form",
           "purpose": "Captures client authorization for project photo and media use"
+        },
+        {
+          "id": "HANDBOOK-FORM-08",
+          "slug": "form-handbook-08-purchase-approval-general-expense",
+          "title": "Purchase Approval General Expense",
+          "purpose": "Routes employee handbook-related purchases and expense approvals"
         },
         {
           "id": "HANDBOOK-LETTERHEAD",
