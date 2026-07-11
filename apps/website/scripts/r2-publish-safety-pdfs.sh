@@ -28,9 +28,13 @@
 # ──────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
+source "$(dirname "${BASH_SOURCE[0]}")/lib/load-cloudflare-r2-env.sh"
+require_cloudflare_r2_env
+
+ROOT="$(git rev-parse --show-toplevel)"
 BUCKET="mh-construction-assets"
 R2_PREFIX="docs/safety"
-OUTPUT_DIR="documents/generated-pdfs"
+OUTPUT_DIR="$ROOT/documents/generated-pdfs"
 SECTIONS_DIR="$OUTPUT_DIR/sections"
 
 echo "🔍  Checking for generated Safety PDFs in $OUTPUT_DIR …"

@@ -196,7 +196,22 @@ Required token capabilities (Cloudflare API token):
 - Developer Platform → Workers R2 Storage → Edit
 - Developer Platform → Workers Scripts → Edit
 
-Recommended one-shot publish pattern (inject env vars inline to avoid shell-scope drift):
+Recommended persistent local setup:
+
+```bash
+cd /workspaces/mh-website
+cp .env.r2.local.example .env.r2.local
+# fill in CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN
+```
+
+The publish scripts automatically load Cloudflare credentials from:
+
+- `apps/website/.env.r2.local`
+- `apps/website/.env.local`
+- `.env.r2.local`
+- `.env.local`
+
+Recommended one-shot publish pattern (still supported when needed):
 
 ```bash
 TOKEN="<cloudflare-api-token>"
@@ -207,6 +222,12 @@ CLOUDFLARE_API_TOKEN="$TOKEN" CLOUDFLARE_ACCOUNT_ID="$ACC" pnpm --filter @mhc/we
 CLOUDFLARE_API_TOKEN="$TOKEN" CLOUDFLARE_ACCOUNT_ID="$ACC" pnpm --filter @mhc/website run docs:publish:employee-handbook
 
 pnpm --filter @mhc/website run docs:verify:published
+```
+
+After local credential setup, the normal publish flow becomes:
+
+```bash
+pnpm --filter @mhc/website run docs:publish:all
 ```
 
 Cloudflare edge rule requirement for machine checks:

@@ -172,8 +172,9 @@ export default async function QrCodesPage() {
                 <span className="font-semibold">
                   apps/website/public/images/qr-codes
                 </span>
-                and served from{" "}
-                <span className="font-semibold">/images/qr-codes</span>.
+                and are served through{" "}
+                <span className="font-semibold">/media/qr-codes</span>
+                with a local fallback.
               </p>
             </Card>
             <Card className="bg-white/90 p-5 shadow-sm backdrop-blur dark:bg-gray-800/90">
@@ -240,7 +241,7 @@ export default async function QrCodesPage() {
 
                 <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
                   {(groupedQrCodes[folder] ?? []).map((entry) => {
-                    const imageHref = `/images/qr-codes/${entry.relativePath}`;
+                    const imageHref = `/media/qr-codes/${entry.relativePath}`;
 
                     return (
                       <article

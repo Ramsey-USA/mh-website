@@ -12,6 +12,14 @@ import {
 import { securityMiddleware } from "./src/middleware/security";
 
 export async function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+
+  if (pathname.startsWith("/images/qr-codes/")) {
+    const targetUrl = request.nextUrl.clone();
+    targetUrl.pathname = pathname.replace("/images/", "/media/");
+    return Response.rewrite(targetUrl);
+  }
+
   // Apex → www redirect is handled by Cloudflare Redirect Rule "apex-to-www"
   // at the CDN edge (~10-20 ms faster than handling in Worker).
   // Rule: https://mhc-gc.com/* → https://www.mhc-gc.com/${1}
@@ -23,8 +31,6 @@ export async function middleware(request: NextRequest) {
   if (response) {
     // Keep response tagging lightweight; cache policy ownership lives in
     // route handlers and next.config.js headers.
-    const pathname = request.nextUrl.pathname;
-
     if (pathname.startsWith("/api/")) {
       response.headers.set("CF-Cache-Tag", "api");
       // Mutation requests must never be stored in any cache (browser or CDN)
@@ -92,6 +98,7 @@ export const config = {
      *   - _headers            Custom response headers file
      *   - _redirects          Redirect rules file
      */
+    "/images/qr-codes/:path*",
     "/((?!api/health|api/security/status|api/cf-|_next|favicon\\.ico|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|sitemap-index\\.xml|llms\\.txt|google[a-z0-9]+\\.html|_headers|_redirects|fonts|icons|images|videos).*)",
   ],
 };

@@ -21,6 +21,9 @@
 # ──────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
+source "$(dirname "${BASH_SOURCE[0]}")/lib/load-cloudflare-r2-env.sh"
+require_cloudflare_r2_env
+
 ROOT_DIR="$(git rev-parse --show-toplevel)"
 cd "$ROOT_DIR"
 

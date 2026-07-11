@@ -62,6 +62,7 @@ Use `package.json` as the canonical source for `pnpm run ...` entry points. This
 
 - `generate-qr-codes.js` - Generate QR codes (color & B&W variants with labels)
 - `build-qr-download-bundle.js` - Mirror QR codes into a download-friendly bundle
+- `r2-publish-qr-codes.sh` - Publish QR PNGs and manifest to Cloudflare R2
 - `add-team-qr-codes.js` - Add QR code references to team data
 - `add-team-skills.js` - Add skills to team data
 - `analyze-components.js` - Component analysis
@@ -71,6 +72,7 @@ Use `package.json` as the canonical source for `pnpm run ...` entry points. This
 - `fix-code-issues.js` - Fix common code issues
 - `lighthouse-guide.js` - Lighthouse workflow guide (use PageSpeed/DevTools for authoritative scores)
 - `r2-publish-forms.sh` - Publish forms PDFs to Cloudflare R2
+- `r2-publish-qr-codes.sh` - Publish QR code assets to Cloudflare R2
 - `r2-publish-safety-pdfs.sh` - Publish safety PDFs to Cloudflare R2
 - `r2-seed-pdfs.sh` - Seed PDF assets into Cloudflare R2
 - `seo-audit.js` - SEO audit tool
@@ -138,12 +140,32 @@ Scripts without npm aliases (run directly):
 For reliable reruns of PDF publish workflows:
 
 - Prefer API-token auth over interactive `wrangler login` when running from containers/remote shells.
-- Inject auth inline per command to avoid shell/session scope drift:
+- Preferred setup: store Cloudflare publish credentials once in a private local file, then reuse the normal publish commands.
+
+```bash
+cd /workspaces/mh-website
+cp .env.r2.local.example .env.r2.local
+# fill in CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN
+```
+
+- The publish and verification scripts automatically load auth from:
+  - `apps/website/.env.r2.local`
+  - `apps/website/.env.local`
+  - `.env.r2.local`
+  - `.env.local`
+
+- Inline auth still works when needed:
 
 ```bash
 TOKEN="<cloudflare-api-token>"
 ACC="60ac45cad5eead847d2ae20dab3661da"
 CLOUDFLARE_API_TOKEN="$TOKEN" CLOUDFLARE_ACCOUNT_ID="$ACC" pnpm --filter @mhc/website run docs:publish:safety
+```
+
+- Full publish after setup:
+
+```bash
+pnpm --filter @mhc/website run docs:publish:all
 ```
 
 - Always run `pnpm --filter @mhc/website run docs:verify:published` after publish.

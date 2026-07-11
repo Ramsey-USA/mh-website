@@ -38,6 +38,13 @@ check_secrets() {
         echo -e "${RED}⚠️  Potential AWS access key in: $file${NC}"
         ((issues++))
     fi
+
+    # Check for Cloudflare API tokens
+    if grep -qE "cfat_[A-Za-z0-9_-]{20,}" "$file" 2>/dev/null; then
+        echo -e "${RED}⚠️  Potential Cloudflare API token found in: $file${NC}"
+        grep -nE "cfat_[A-Za-z0-9_-]{20,}" "$file" | head -3
+        ((issues++))
+    fi
     
     # Check for private keys
     if grep -q "BEGIN.*PRIVATE KEY" "$file" 2>/dev/null; then
@@ -62,19 +69,19 @@ if [ -z "$STAGED_FILES" ]; then
     exit 0
 fi
 
-# Check if .env.local is accidentally staged
-if echo "$STAGED_FILES" | grep -q "\.env\.local"; then
-    echo -e "${RED}❌ ERROR: .env.local file is staged!${NC}"
-    echo "This file contains secrets and should NEVER be committed."
-    echo "Run: git reset HEAD .env.local"
+# Check if private local env files are accidentally staged
+if echo "$STAGED_FILES" | grep -qE '(^|/)\.env(\.r2)?\.local$'; then
+    echo -e "${RED}❌ ERROR: private local env file is staged!${NC}"
+    echo "These files can contain secrets and should NEVER be committed."
+    echo "Run: git reset HEAD .env.local .env.r2.local"
     exit 1
 fi
 
-# Check if any .env files (except .env.local.example) are staged
-if echo "$STAGED_FILES" | grep -E "\.env(\.[a-z]+)?$" | grep -v "\.env\.local\.example"; then
+# Check if any .env files (except committed examples) are staged
+if echo "$STAGED_FILES" | grep -E '(^|/)\.env(\.[A-Za-z0-9_-]+)?$' | grep -vE '\.env\.local\.example$|\.env\.r2\.local\.example$'; then
     echo -e "${RED}❌ ERROR: .env file(s) detected in staged files!${NC}"
     echo "Environment files with secrets should not be committed."
-    echo "Only .env.local.example (template) should be committed."
+    echo "Only committed example templates should be checked in."
     exit 1
 fi
 

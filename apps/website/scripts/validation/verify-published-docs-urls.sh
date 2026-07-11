@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+source "$(dirname "${BASH_SOURCE[0]}")/../lib/load-cloudflare-r2-env.sh"
+
 BASE_URL="${BASE_URL:-https://www.mhc-gc.com}"
 MAX_ATTEMPTS="${MAX_ATTEMPTS:-6}"
 SLEEP_SECONDS="${SLEEP_SECONDS:-10}"
@@ -45,6 +47,8 @@ check_r2_object() {
   local path="$1"
   local key="${path#/}"
   local tmpfile
+
+  require_cloudflare_r2_env
 
   tmpfile="$(mktemp)"
   if wrangler r2 object get "$R2_BUCKET/$key" --file "$tmpfile" --remote >/dev/null 2>&1; then

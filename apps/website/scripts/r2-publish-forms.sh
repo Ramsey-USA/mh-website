@@ -26,10 +26,14 @@
 # ──────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
+source "$(dirname "${BASH_SOURCE[0]}")/lib/load-cloudflare-r2-env.sh"
+require_cloudflare_r2_env
+
+ROOT="$(git rev-parse --show-toplevel)"
 BUCKET="mh-construction-assets"
 SAFETY_PREFIX="docs/safety/forms"
 EMPLOYEE_PREFIX="docs/employee/forms"
-FORMS_DIR="documents/generated-pdfs/form-packages"
+FORMS_DIR="$ROOT/documents/generated-pdfs/form-packages"
 
 echo "🔍  Checking for generated form package PDFs in $FORMS_DIR …"
 

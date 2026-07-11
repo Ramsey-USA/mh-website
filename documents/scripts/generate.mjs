@@ -359,12 +359,21 @@ const getArg = (flag) => {
   if (i === -1) return null;
   return args[i + 1];
 };
-const template = getArg("--template") || "all";
+const hasFlag = (flag) => args.includes(flag);
+const positionalTemplate = args.find((arg) => !arg.startsWith("-")) || null;
+const template = getArg("--template") || positionalTemplate || "all";
 const sectionNo = getArg("--section");
 const formArg = getArg("--form"); // e.g. "form-02-c" or "FORM 02-C"
 const revDateArg = getArg("--rev-date"); // e.g. "7/1/2026"
 const revNumArg = getArg("--rev-number"); // e.g. "3.0"
-const manualArg = (getArg("--manual") || "safety").trim().toLowerCase();
+const manualArg = (
+  getArg("--manual") ||
+  (hasFlag("--handbook") ? "employee-handbook" : null) ||
+  (hasFlag("--safety") ? "safety" : null) ||
+  "safety"
+)
+  .trim()
+  .toLowerCase();
 const isEmployeeHandbook =
   manualArg === "employee" ||
   manualArg === "employee-handbook" ||
