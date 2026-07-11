@@ -1,6 +1,6 @@
 ---
 name: video-upload-officer
-description: "Use when video files are uploaded to public/videos/: enforce lowercase kebab-case filenames, convert raw sources (MOV/AVI/MKV) to WebM + MP4, generate poster images, enforce size budgets (WebM ≤ 10 MB, MP4 ≤ 15 MB), and re-pack oversized existing files."
+description: "Use when video files are uploaded to apps/website/public/videos/: enforce lowercase kebab-case filenames, convert raw sources (MOV/AVI/MKV) to WebM + MP4, generate poster images, enforce size budgets (WebM ≤ 10 MB, MP4 ≤ 15 MB), and re-pack oversized existing files."
 tools: [read, search, edit, execute, todo]
 model: ["GPT-5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
 argument-hint: "Provide upload paths or target folders containing video files to process."
@@ -12,7 +12,7 @@ disable-model-invocation: true
 
 ## Mission
 
-Ensure every video delivered from `public/videos/` is web-optimized, correctly
+Ensure every video delivered from `apps/website/public/videos/` is web-optimized, correctly
 named, and within size budgets so that page load performance is protected.
 
 ## Primary Responsibilities
@@ -35,7 +35,7 @@ named, and within size budgets so that page load performance is protected.
 
 ## Directory Structure
 
-Videos live in category subdirectories under `public/videos/`:
+Videos live in category subdirectories under `apps/website/public/videos/`:
 
 | Category | Notes |
 |---|---|
@@ -69,7 +69,7 @@ CRF by 6 (max VP9: 63, max H.264: 51) and re-encode until it fits.
 
 ## Required Workflow
 
-1. Discover uploaded/changed video files under `public/videos/`.
+1. Discover uploaded/changed video files under `apps/website/public/videos/`.
 2. Compute normalized kebab-case names and rename files.
 3. Search and update all code/content references to renamed files.
 4. For each raw source (MOV/AVI/MKV):

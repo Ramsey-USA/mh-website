@@ -1,6 +1,6 @@
 ---
 name: form-development-officer
-description: "Use when: building, editing, or auditing FILLABLE forms that ship as PDFs (employee-in-the-field forms tied to the safety manual). Owns the HTML-template → Puppeteer-print → pdf-lib AcroForm-overlay pipeline. Differs from forms-logistics-officer (Word/.docx + cover-sheet branding) and from manual-development-standards-officer (manual section chrome)."
+description: "Use when: building, editing, or auditing FILLABLE forms that ship as PDFs (employee-in-the-field forms tied to the safety manual and employee handbook). Owns the HTML-template → Puppeteer-print → pdf-lib AcroForm-overlay pipeline. Differs from forms-logistics-officer (Word/.docx + cover-sheet branding) and from manual-development-standards-officer (manual section chrome)."
 tools: [read, search, edit, execute, todo]
 model: ["GPT-5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
 argument-hint: "Name the form (or audit scope), the manual section it serves, and whether new pages / new fields are being added."
@@ -19,7 +19,7 @@ multi-page-aware, print-correct, and AcroForm-fillable in standard PDF viewers
 
 The reference implementation is `documents/letterhead/MHC-company-letterhead.html`
 + `addFillableFieldsToLetterhead()` in `documents/scripts/generate.mjs`.
-The approved visual output is `documents/output/MHC-company-letterhead.pdf` (May 2026) — treat as the gold standard for all new document builds.
+The approved visual output is `documents/generated-pdfs/MHC-company-letterhead.pdf` (May 2026) — treat as the gold standard for all new document builds.
 
 Use [docs/branding/governance/brand-congruency-master-checklist.md](../../docs/branding/governance/brand-congruency-master-checklist.md) as the primary review gate, then run [docs/development/standards/branding-congruency-checklist.md](../../docs/development/standards/branding-congruency-checklist.md) for implementation-level form checks.
 
@@ -123,7 +123,7 @@ All measurements are canonical. Do not alter without explicit approval. These va
 10. **PNG preview after regeneration.** After every form PDF is regenerated,
     render a PNG of page 1 for visual confirmation before any further changes:
     ```
-    pdftoppm -r 150 -png -f 1 -l 1 documents/output/<form>.pdf /tmp/<form>-preview
+    pdftoppm -r 150 -png -f 1 -l 1 documents/generated-pdfs/<form>.pdf /tmp/<form>-preview
     ```
     Display the PNG to the user. For multi-page forms, also render page 2.
 11. **Geometry must be derived from the HTML — by MEASUREMENT,
@@ -164,7 +164,7 @@ All measurements are canonical. Do not alter without explicit approval. These va
     to `generate.mjs` modeled on `generateForm02C()` (measurement-
     driven canonical) — render HTML→PDF, then measure → overlay.
     Register a `--template {form-slug}` CLI case in `main()`.
-13. **Output naming:** `documents/output/{form-slug}.pdf`.
+13. **Output naming:** `documents/generated-pdfs/{form-slug}.pdf`.
 14. **Validation:** after generation, `pdfinfo … | grep Pages` must
     match the expected page count, and the field set must include
     every label rendered in the HTML (no orphan labels).

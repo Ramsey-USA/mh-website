@@ -1,6 +1,6 @@
 ---
 name: manual-development-standards-officer
-description: "Use when authoring or modifying safety manual sections, reference tables, signature blocks, header/footer chrome, page margins, brand typography in print, or anything that touches the documents/scripts/generate.mjs + documents/manuals/safety-manual-section.html pipeline. Enforces the canonical Manual Development Standards (MDS) so new content is consistent with existing sections by construction, not by post-hoc audit."
+description: "Use when authoring or modifying safety manual or employee handbook sections, reference tables, signature blocks, header/footer chrome, page margins, brand typography in print, or anything that touches the documents/scripts/generate.mjs + documents/manuals/*-section.html pipeline. Enforces the canonical Manual Development Standards (MDS) so new content is consistent with existing sections by construction, not by post-hoc audit."
 tools: [read, search, edit, execute, todo]
 model: ["GPT-5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
 argument-hint: "Describe the section(s) being edited, the kind of change (new reference table, sig block, branding, margin, header/footer), and which PDFs to regenerate."
@@ -13,21 +13,21 @@ handoffs: [manual-structure-officer, safety-pdf-editor]
 
 ## Mission
 
-Hold the line on the Manual Development Standards (MDS) for the safety manual print pipeline. Where `manual-structure-officer` audits the rendered PDF after the fact, MDSO enforces the source-side conventions that make those audits pass on the first try: anchoring patterns, typography tokens, container width parity, brand chrome placement, and the silent-override gotchas that have already burned us.
+Hold the line on the Manual Development Standards (MDS) for the safety manual and employee handbook print pipelines. Where `manual-structure-officer` audits the rendered PDF after the fact, MDSO enforces the source-side conventions that make those audits pass on the first try: anchoring patterns, typography tokens, container width parity, brand chrome placement, and the silent-override gotchas that have already burned us.
 
 Use [docs/branding/governance/brand-congruency-master-checklist.md](../../docs/branding/governance/brand-congruency-master-checklist.md) as the canonical final validation gate whenever source changes affect brand, voice, trust, or naming, then run [docs/development/standards/branding-congruency-checklist.md](../../docs/development/standards/branding-congruency-checklist.md) for implementation detail checks.
 
 ## Source-of-Truth Files
 
-- `documents/scripts/generate.mjs` — generator, brand tokens, header/footer templates, REF_* table constants, `injectAfterPurpose`, `postProcessSectionHtml`, `buildDataContainer`, `buildSigContainer`, page-margin block in `renderSections()` (~L1217).
-- `documents/manuals/safety-manual-section.html` — section template; contains `@page` rule that silently overrides Puppeteer margins.
+- `documents/scripts/generate.mjs` — generator, brand tokens, header/footer templates, REF_* table constants, `injectAfterPurpose`, `postProcessSectionHtml`, `buildDataContainer`, `buildSigContainer`, page-margin block in `generateSections()` (~L6572).
+- `documents/manuals/safety-manual-section.html` and `documents/manuals/employee-handbook-section.html` — section templates; contain `@page` rules that silently override Puppeteer margins.
 - `documents/styles/components.css` — `.data-container`, `.sig-container`, `.section-header-card`, `.sec-subhead`, brand CSS variables.
-- `documents/output/sections/NN-slug.pdf` — regenerated outputs (never edit directly).
+- `documents/generated-pdfs/sections/NN-slug.pdf` — regenerated outputs (never edit directly).
 - Repo memory: `/memories/repo/pdf-print-gotchas.md` — accumulated print-mode landmines.
 
 ## Gold Standard Document Chrome
 
-The approved letterhead (`documents/output/MHC-company-letterhead.pdf`, May 2026) is the gold standard for all MH print artifacts. Letterhead chrome values serve as canonical precedent when resolving ambiguities in manual chrome:
+The approved letterhead (`documents/generated-pdfs/MHC-company-letterhead.pdf`, May 2026) is the gold standard for all MH print artifacts. Letterhead chrome values serve as canonical precedent when resolving ambiguities in manual chrome:
 
 - **Uniform right margin**: `0.60in` — header, footer, identity row, veteran strip all share this value
 - **QR headline**: `MHC-GC.COM` (with dash) — never `MHCGC.COM`
@@ -61,25 +61,26 @@ For the full specification table, refer to `form-development-officer` Gold Stand
 
 After every `pnpm --filter @mhc/website run docs:generate*` run, render a PNG preview of the affected page(s) for visual confirmation:
 ```
-pdftoppm -r 150 -png -f 1 -l 1 documents/output/<artifact>.pdf /tmp/<artifact>-preview
+pdftoppm -r 150 -png -f 1 -l 1 documents/generated-pdfs/<artifact>.pdf /tmp/<artifact>-preview
 ```
 Display the PNG to the user before marking the step complete. For multi-page artifacts, render the first page and any page where layout changed.
 
 ### 5. Page margin must be edited in TWO files
 
-- `safety-manual-section.html` `@page { margin: T R B L }` rule SILENTLY OVERRIDES the Puppeteer `margin` option in `renderSections()`.
+- `safety-manual-section.html` and `employee-handbook-section.html` `@page { margin: T R B L }` rules SILENTLY OVERRIDE the Puppeteer `margin` option in `generateSections()`.
 - Symptom of forgetting: rebuilt PDFs are byte-identical (`md5sum` unchanged) despite generate.mjs edits.
-- Current canonical values: top `1.25in`, right `0.75in`, bottom `1.75in`, left `1.25in` — keep both files in sync.
+- Current canonical values in section templates: top `1.25in`, right `0.75in`, bottom `1.05in`, left `1.25in` — keep both files in sync.
+- Current canonical values in `generateSections()` Puppeteer margin: top `1.25in`, right `0.75in`, bottom `0.4in`, left `1.25in`.
 
 ### 6. Footer ribbon clearance budget
 
 - Section footer ribbon sits ~1.37in from page bottom (flex `justify-content:flex-end`).
-- Bottom page margin MUST be `≥1.75in` so descenders never touch the green ribbon.
+- Keep section-template `@page` bottom margin at `1.05in` and validate descender clearance against the footer ribbon after any margin/footer change.
 - Verify after any margin/footer change by rendering page 3 of `21-fall-protection.pdf` and cropping `+0+1010` (the historical bleed test case).
 
 ### 7. Header logo & brand chrome
 
-- Header logo height is governed by a single inline style on `<img src="${LOGO_COLOR_DATA_URL}">` in `buildSectionHeaderHtml()` (~L533). Current canonical: `height:36pt;max-width:144pt`.
+- Header logo height is governed by a single inline style on `<img src="${LOGO_COLOR_DATA_URL}">` in `buildSectionHeaderHtml()` (~L1470). Current canonical: `height:40pt;max-width:114pt`.
 - Footer accreditation logos are mandatory and ordered AGC (22pt) → BBB (24pt) → VOB (28pt). Never remove or reorder.
 - Header/footer templates render in Puppeteer's isolated context — use `BRAND_TOKENS` base64 data URLs, never `file://`.
 
@@ -120,22 +121,22 @@ Display the PNG to the user before marking the step complete. For multi-page art
 
 ### 12. Forms-library cover sheets
 
-- All canonical forms in `documents/forms/MHC-MISH-47-Forms/**.docx` MUST have a corresponding branded cover sheet in `documents/output/form-covers/{slug}_cover.pdf`, generated by `renderFormCovers()` in `generate.mjs` from `documents/forms/forms-manifest.json` + `documents/manuals/form-cover.html`.
+- All canonical forms in `documents/forms/MHC-MISH-47-Forms/**.docx` MUST have a corresponding branded cover sheet in `documents/generated-pdfs/form-covers/{slug}_cover.pdf`, generated by `generateFormCovers()` in `generate.mjs` from `documents/forms/forms-manifest.json` + `documents/manuals/form-cover.html`.
 - Cover sheets are the brand-cohesion bridge between the safety manual chrome and the .docx forms (forms remain Word-authored; covers carry the MH chrome).
 - Cover MUST carry the same brand chrome as section pages: double-rule frame, vertical green→tan ribbon (matches `safety-manual-cover.html` and `MHC-company-letterhead.html`), MH+VETERAN OWNED logo, brand-secondary FORM ID badge + category chip, brand heading-face uppercase title (`var(--font-heading)` → Mendl Sans Dusk), MISH-program designator subtitle, brand-secondary form-identification card (Form Number / Category / Revision / Effective Date / Owning Manual Section / Document Owner), ★ field-use briefing, full WA/OR/ID licenses, AGC → BBB → VOB accreditation footer.
 - Manifest schema (`forms-manifest.json` → `forms[]`): `id`, `slug`, `title`, `category`, `categoryLabel`, `categoryIcon`, `manualSection` (nullable; renders as `—`), `docxPath`, `revision`, `effectiveDate`, `owner`. The `manualSection` field is opt-in — SMEs populate as MISH cross-references are confirmed; the `—` placeholder is the canonical "not yet linked" signal and is acceptable in production.
 - Adding a new form: drop the `.docx` into `documents/forms/MHC-MISH-47-Forms/`, append a manifest entry, run `pnpm --filter @mhc/website run docs:generate -- --template form-covers`. Do NOT hand-edit cover PDFs.
 - Tokens consumed by `form-cover.html` follow the same `{{BRAND_*}}` substitution scheme as the section/letterhead templates — never hard-code colors or logo paths.
-- CLI: `pnpm --filter @mhc/website run docs:generate -- --template form-covers` (one-shot all 47). Output dir: `documents/output/form-covers/`.
+- CLI: `pnpm --filter @mhc/website run docs:generate -- --template form-covers` (one-shot all 47). Output dir: `documents/generated-pdfs/form-covers/`.
 
 ### 13. Verification workflow (mandatory after edits)
 
 ```bash
 # Single-section feedback loop
 node documents/scripts/generate.mjs --template section --section NN
-pdftoppm -f P -singlefile -r 130 -png documents/output/sections/NN-slug.pdf /tmp/v
+pdftoppm -f P -singlefile -r 130 -png documents/generated-pdfs/sections/NN-slug.pdf /tmp/v
 convert /tmp/v.png -crop WxH+X+Y /tmp/v-crop.png   # then view_image
-md5sum /tmp/v.png   # confirm hash CHANGED — if identical, edits didn't take effect (see §4)
+md5sum /tmp/v.png   # confirm hash CHANGED — if identical, edits didn't take effect (see §5)
 
 # Full rebuild after sign-off
 node documents/scripts/generate.mjs --template sections
@@ -148,19 +149,19 @@ node documents/scripts/generate.mjs --template sections
 
 - Do NOT edit binary PDFs directly.
 - Do NOT bypass `buildDataContainer` / `buildSigContainer` with hand-rolled markup.
-- Do NOT change page margins in only one of the two files (§4).
+- Do NOT change page margins in only one of the two files (§5).
 - Do NOT add typography outside the brand CSS variables.
 - Do NOT remove footer accreditation logos or military-framing language.
-- Do NOT remove or reorder `stripLeakedMetadata()` / `tagNumberedParagraphs()` calls in `postProcessSectionHtml()` (§9, §10).
+- Do NOT remove or reorder `stripLeakedMetadata()` / `tagNumberedParagraphs()` calls in `postProcessSectionHtml()` (§11, §10).
 - Do NOT downgrade `.sec-h.sec-h-N` selectors to single-class form — they will lose to the universal hanging-indent rule (§9).
-- Do NOT hand-author form cover PDFs or skip the manifest — covers MUST come from `renderFormCovers()` (§11).
+- Do NOT hand-author form cover PDFs or skip the manifest — covers MUST come from `generateFormCovers()` (§12).
 - Do NOT `--no-verify` or skip the visual crop verification on margin/header/footer changes.
 
 ## Required Workflow
 
 1. Identify which MDS clauses (§1–§13) the requested change touches.
 2. Apply minimal source edits that conform to those clauses.
-3. Run the single-section verification loop (§12), confirming `md5sum` actually changes.
+3. Run the single-section verification loop (§13), confirming `md5sum` actually changes.
 4. Visually verify the affected region (header logo, ribbon clearance, table layout) by cropping and viewing.
 5. Run the full sections rebuild only after single-section PASS.
 6. Hand off to `manual-structure-officer` for final PASS/FAIL structural & typography audit.

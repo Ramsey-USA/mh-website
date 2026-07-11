@@ -41,6 +41,9 @@ Do not require the user to memorize agent names.
 - UI pattern and visual standard enforcement -> design-quartermaster
 - Image/photo uploads, kebab-case filename normalization, and WebP cleanup -> photo-upload-naming-officer
 - Video uploads, WebM/MP4 conversion, poster generation, and video size budget -> video-upload-officer
+- CI workflow integrity, required checks, and pipeline contract enforcement -> ci-workflow-compliance-officer
+- Secret handling, auth-boundary checks, and security regression review -> security-secrets-guard-officer
+- SQL migration ordering, schema compatibility, and rollout safety -> migration-data-integrity-officer
 - Final PR readiness and risk summary -> release-command
 
 ## Mandatory References
@@ -95,8 +98,8 @@ Required branding corpus (read all):
    - SEO/navigation surfaces: preserve plain-language labels.
    - Marketing-heavy pages: retain relationship-first framing.
 5. Run quality checks when code changed:
-   - pnpm run type-check
-   - pnpm run lint
+   - `pnpm run type-check`
+   - `pnpm run lint`
    - Verify the master checklist and applicable companion checklist before completion
 6. Produce a Branding Compliance Report.
 7. If exception is needed, record it in .github/branding-exceptions.json with owner, ticket, and expiration.

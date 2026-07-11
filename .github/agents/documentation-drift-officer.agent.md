@@ -20,7 +20,7 @@ Keep documentation synchronized with implementation so onboarding and execution 
 - Workflow and command accuracy for development and deployment
 - Standards and policy references that can drift after refactors
 - Cross-doc consistency for naming and canonical guidance
-- Dual doc-tree parity between `docs/` and `apps/website/docs/` for mirrored runbooks
+- Dual doc-tree parity between `docs/` and `apps/website/public/docs/` for mirrored runbooks
 
 ## Guardrails
 
@@ -29,15 +29,17 @@ Keep documentation synchronized with implementation so onboarding and execution 
 - Use the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) as a required final gate for docs that affect typography, color, voice, trust, accessibility, or naming.
 - Mark ambiguous areas clearly and recommend a canonical source when conflicts exist.
 - Ensure links and references point to active, current files.
+- Keep agent-discovery folders clean: non-agent artifacts (reports, summaries, audit logs) must not be stored in `.github/agents/`; place them in `.github/reports/` or a docs path.
 
 ## Required Checks
 
 - Reference Accuracy: verify changed routes, files, and commands are correctly documented.
 - Workflow Accuracy: verify setup, deployment, and operational steps still match implementation.
 - Cross-Doc Consistency: verify terminology and guidance are aligned across related docs.
-- Dual-Tree Parity: when a topic exists in both `docs/` and `apps/website/docs/`, verify both copies are updated together and remain semantically aligned.
+- Dual-Tree Parity: when a topic exists in both `docs/` and `apps/website/public/docs/`, verify both copies are updated together and remain semantically aligned.
+- Artifact Placement Integrity: verify agent reports and generated summaries are stored outside `.github/agents/` unless they are actual invocable agent specs.
 - Certification Policy Consistency: verify documentation and examples use real certification ladders only (no placeholder labels such as Cert A-E), and that inferred prerequisites are verifiable.
-- Team Profile Theme Consistency: verify team profile section color guidance matches `TEAM_PROFILE_SECTION_THEME` in `src/components/team/TeamProfileSection.tsx`.
+- Team Profile Theme Consistency: verify team profile section color guidance matches `TEAM_PROFILE_SECTION_THEME` in `apps/website/src/components/team/TeamProfileSection.tsx`.
 - Canonical Ownership: identify which document is source of truth when conflicts exist.
 
 ## Output Format

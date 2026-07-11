@@ -1,6 +1,6 @@
 # Agent Invocation Matrix
 
-Last Updated: May 16, 2026
+Last Updated: July 11, 2026
 Status: Canonical
 
 This document is the canonical invocation policy for Copilot agents in this repository.
@@ -47,7 +47,11 @@ Use `master-at-arms` as the default umbrella command surface for:
 | Dashboard/hub parity and optimization hygiene              | `dashboard-congruency-officer`                   | `accessibility-watch-officer`, `website-terminology-command`, `trust-sentinel` as needed; include shared icon/map parity checks when website trust/map visuals are changed |
 | Analytics event/label continuity                           | `telemetry-recon-officer`                        | `dashboard-congruency-officer` when dashboard cards/labels change                                                                                                          |
 | Performance regressions and budget risk                    | `performance-budget-officer`                     | `dashboard-congruency-officer` for dashboard render/computation hotspots                                                                                                   |
+| CI workflows and required check contracts                  | `ci-workflow-compliance-officer`                 | `release-command` for final readiness and check-contract confirmation                                                                                                      |
+| Security secrets and auth-boundary changes                 | `security-secrets-guard-officer`                 | `release-command` for final risk call; domain specialists for affected surfaces                                                                                            |
+| SQL migrations and data-integrity risk                     | `migration-data-integrity-officer`               | Domain agent for affected runtime surface (`dashboard-congruency-officer`, `safety-hub-liaison`, or `team-roster-officer`) as needed                                       |
 | UI patterns and design-system fidelity                     | `design-quartermaster`                           | `accessibility-watch-officer` for interaction/access checks                                                                                                                |
+| Documentation drift and artifact placement hygiene         | `documentation-drift-officer`                    | `release-command` when drift spans deployment, CI, or policy docs                                                                                                          |
 | Forms/manual PDFs and generation                           | `forms-logistics-officer` or `safety-pdf-editor` | `manual-development-standards-officer`, `manual-structure-officer`                                                                                                         |
 | Pre-merge final go/no-go                                   | `release-command`                                | Domain specialists as required by changed files                                                                                                                            |
 
@@ -68,6 +72,7 @@ Additional requirement for dashboard/hub PRs:
 1. Every invoked agent must return its defined PASS/FAIL output contract.
 2. Do not mark work complete if any required agent returns FAIL.
 3. If an exception is used, record it in `.github/branding-exceptions.json` with owner, ticket, and expiry.
+4. Agent reports and summaries are not invocable agents; store them in `.github/reports/`, not `.github/agents/`.
 
 ## Mapping to PR Template
 

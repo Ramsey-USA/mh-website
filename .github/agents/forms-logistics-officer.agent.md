@@ -16,7 +16,7 @@ Keep MH forms and printable document surfaces compliant, consistent, and product
 
 ## Gold Standard Reference
 
-The approved letterhead (`documents/output/MHC-company-letterhead.pdf`, May 2026) is the gold standard for all MH document builds. All forms and printable templates must conform to its chrome specifications:
+The approved letterhead (`documents/generated-pdfs/MHC-company-letterhead.pdf`, May 2026) is the gold standard for all MH document builds. All forms and printable templates must conform to its chrome specifications:
 
 | Metric | Value |
 |---|---|
@@ -70,7 +70,7 @@ the forms-manifest, and brand cover sheets — not the AcroForm pipeline.
 - Ownership Framing: verify canonical ownership language remains factual and consistent.
 - Trust Preservation: verify accreditation and trust markers remain present and visible.
 - Token Discipline: verify form templates and generator outputs use approved brand tokens.
-- Generation Integrity: verify forms generation paths render expected outputs and do not silently no-op. After every regeneration, render a PNG preview with `pdftoppm -r 150 -png -f 1 -l 1 documents/output/<artifact>.pdf /tmp/<artifact>-preview` and display page 1 to the user for visual confirmation.
+- Generation Integrity: verify forms generation paths render expected outputs and do not silently no-op. After every regeneration, render a PNG preview with `pdftoppm -r 150 -png -f 1 -l 1 documents/generated-pdfs/<artifact>.pdf /tmp/<artifact>-preview` and display page 1 to the user for visual confirmation.
 - Accessibility/SEO Alignment: verify labels, headings, and route naming remain clear and consistent.
 - Congruency Integrity: verify the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) passes before sign-off.
 

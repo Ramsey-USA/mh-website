@@ -24,23 +24,23 @@ Use [docs/branding/governance/brand-congruency-master-checklist.md](../../docs/b
 
 | Area | Owned by this agent |
 |------|---------------------|
-| Per-member JSON data | `src/lib/data/team/<slug>.json` |
-| Roster assembly & order | `src/lib/data/vintage-team.ts` |
-| Profile rendering | `src/components/team/TeamProfileSection.tsx` |
-| Team page layout | `src/app/team/page.tsx` |
-| Avatar images | `public/images/team/<slug>.{jpg,webp}` |
-| QR code images | `public/images/qr-codes/team/qr-team-<slug>-color.png` |
-| QR code proxy route | `src/app/media/[...path]/route.ts` |
+| Per-member JSON data | `apps/website/src/lib/data/team/<slug>.json` |
+| Roster assembly & order | `apps/website/src/lib/data/vintage-team.ts` |
+| Profile rendering | `apps/website/src/components/team/TeamProfileSection.tsx` |
+| Team page layout | `apps/website/src/app/team/page.tsx` |
+| Avatar images | `apps/website/public/images/team/<slug>.{jpg,webp}` |
+| QR code images | `apps/website/public/images/qr-codes/team/qr-team-<slug>-color.png` |
+| QR code proxy route | `apps/website/src/app/media/[...path]/route.ts` |
 
 Founder tribute rendering rule:
 
-- `mike-holstein` is rendered in a dedicated end-of-page Founder tribute section on `src/app/team/page.tsx`
+- `mike-holstein` is rendered in a dedicated end-of-page Founder tribute section on `apps/website/src/app/team/page.tsx`
 - Do not include `mike-holstein` in department loops for "The Upper Brass"
 - Founder tribute presentation intentionally omits certification chips and radar chart visuals
 
 Color-role source of truth for team profile sections:
 
-- `TEAM_PROFILE_SECTION_THEME` in `src/components/team/TeamProfileSection.tsx`
+- `TEAM_PROFILE_SECTION_THEME` in `apps/website/src/components/team/TeamProfileSection.tsx`
 - Update role tokens in this constant first instead of hardcoding one-off class strings in each section
 
 ---
@@ -49,7 +49,7 @@ Color-role source of truth for team profile sections:
 
 ### 1. Create the JSON file
 
-Create `src/lib/data/team/<slug>.json` where `<slug>` is the member's
+Create `apps/website/src/lib/data/team/<slug>.json` where `<slug>` is the member's
 hyphenated lower-case name (e.g., `jane-smith`).
 
 **All required fields** (from `VintageTeamMember`):
@@ -113,7 +113,7 @@ hyphenated lower-case name (e.g., `jane-smith`).
 
 ### 2. Register in the roster file
 
-Open `src/lib/data/vintage-team.ts` and:
+Open `apps/website/src/lib/data/vintage-team.ts` and:
 
 1. Add an import at the top:
    ```ts
@@ -124,7 +124,7 @@ Open `src/lib/data/vintage-team.ts` and:
 
 ### 3. Add the avatar image
 
-Place the photo at `public/images/team/<slug>.{jpg,webp}`.
+Place the photo at `apps/website/public/images/team/<slug>.{jpg,webp}`.
 
 - Accepted formats: `.jpg`, `.webp`
 - Recommended resolution: 400 × 400 px minimum (square crop)
@@ -137,7 +137,7 @@ Place the photo at `public/images/team/<slug>.{jpg,webp}`.
 
 Place the QR code at:
 ```
-public/images/qr-codes/team/qr-team-<slug>-color.png
+apps/website/public/images/qr-codes/team/qr-team-<slug>-color.png
 ```
 
 The `qrCode` field in the JSON **must** use the `/media/` proxy prefix:
@@ -145,7 +145,7 @@ The `qrCode` field in the JSON **must** use the `/media/` proxy prefix:
 /media/qr-codes/team/qr-team-<slug>-color.png
 ```
 
-This path is served by `src/app/media/[...path]/route.ts`, which:
+This path is served by `apps/website/src/app/media/[...path]/route.ts`, which:
 - First attempts to load from the Cloudflare R2 bucket (production)
 - Falls back to redirecting to `/images/qr-codes/team/...` (local/dev)
 
@@ -160,7 +160,7 @@ digital business card scan target.
 
 ## Updating an Existing Team Member
 
-Edit `src/lib/data/team/<slug>.json` directly. Only the changed file
+Edit `apps/website/src/lib/data/team/<slug>.json` directly. Only the changed file
 appears in the diff. No other files need to change unless you are
 reordering the display sequence (edit `vintage-team.ts`).
 
@@ -170,7 +170,7 @@ reordering the display sequence (edit `vintage-team.ts`).
 
 1. Set `"active": false` in the JSON (soft removal, preserves history).
 2. To hide completely, remove their import and entry from
-   `src/lib/data/vintage-team.ts`.
+  `apps/website/src/lib/data/vintage-team.ts`.
 3. Retain the JSON file and image assets for archival.
 
 ---
@@ -221,9 +221,9 @@ credential pathways.
 - [ ] `slug` in the JSON matches the filename (without `.json`)
 - [ ] `cardNumber` is unique across all member files
 - [ ] `department` matches one of the five valid strings above
-- [ ] `avatar` path starts with `/images/team/` and the file exists in `public/`
+- [ ] `avatar` path starts with `/images/team/` and the file exists in `apps/website/public/`
 - [ ] `qrCode` path starts with `/media/qr-codes/team/` and the corresponding
-  file exists at `public/images/qr-codes/team/<filename>`
+  file exists at `apps/website/public/images/qr-codes/team/<filename>`
 - [ ] `email` follows the pattern `firstname@mhc-gc.com`
 - [ ] Member appears in `vintageTeamMembers` array in `vintage-team.ts`
 - [ ] `certifications` contains only real credentials (no placeholder labels like `Cert A-E`)
