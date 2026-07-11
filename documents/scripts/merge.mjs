@@ -29,6 +29,14 @@ const OUTPUT_DIR = join(ROOT, "documents/generated-pdfs");
 const SECTIONS = join(OUTPUT_DIR, "sections");
 const FORM_PACKAGES_DIR = join(OUTPUT_DIR, "form-packages");
 const FORMS_MANIFEST_PATH = join(ROOT, "documents/forms/forms-manifest.json");
+// Employee Handbook manifest — defines the ordered chapters whose branded body
+// PDFs (header/footer chrome, generated into documents/generated-pdfs/sections/)
+// are merged into the complete handbook. The uploaded MHC Employee Handbook 2026
+// PDFs remain the content source of truth; page counts follow the branded render.
+const HANDBOOK_MANIFEST_PATH = join(
+  ROOT,
+  "documents/content/employee-handbook.json",
+);
 
 // ── CLI flags ─────────────────────────────────────────────────────────────
 const manualIndex = process.argv.indexOf("--manual");
@@ -449,9 +457,15 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
     );
     process.exit(1);
   }
-  if (!isEmployeeHandbook && !existsSync(SECTIONS)) {
+  if (!existsSync(SECTIONS)) {
     console.error(
       "❌  Sections directory not found. Run `npm run docs:generate` first.",
+    );
+    process.exit(1);
+  }
+  if (isEmployeeHandbook && !existsSync(HANDBOOK_MANIFEST_PATH)) {
+    console.error(
+      `❌  Handbook manifest not found at ${HANDBOOK_MANIFEST_PATH}.`,
     );
     process.exit(1);
   }
@@ -482,6 +496,54 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
     }
   }
 
+  // ── Discover employee handbook chapter PDFs in manifest order ───────────
+  // Handbook chapters are merged from their branded, generated body PDFs
+  // (sections/NN-slug.pdf — with header/footer chrome), NOT the raw uploaded
+  // source PDFs. Page counts therefore follow the branded render, which may
+  // differ from the uploaded source once header/footer chrome reflows content.
+  let chapterFiles = [];
+  if (isEmployeeHandbook) {
+    const manifest = JSON.parse(
+      await readFile(HANDBOOK_MANIFEST_PATH, "utf-8"),
+    );
+    const manifestSections = Array.isArray(manifest?.sections)
+      ? manifest.sections
+      : [];
+
+    const missing = [];
+    for (const section of manifestSections) {
+      const numeric = Number(section?.number);
+      const numberStr = String(Number.isFinite(numeric) ? numeric : 0).padStart(
+        2,
+        "0",
+      );
+      const slug =
+        normalizeSlug(section?.slug) ||
+        normalizeSlug(section?.title) ||
+        `section-${numberStr}`;
+      const fileName = `${numberStr}-${slug}.pdf`;
+      if (!existsSync(join(SECTIONS, fileName))) {
+        missing.push(fileName);
+        continue;
+      }
+      chapterFiles.push({ numberStr, fileName });
+    }
+
+    if (missing.length > 0) {
+      console.error(
+        `❌  Missing branded handbook chapter PDF(s) in ${SECTIONS}:\n     ${missing.join("\n     ")}\n     Run \`npm run docs:generate -- --manual employee-handbook\` first.`,
+      );
+      process.exit(1);
+    }
+
+    if (chapterFiles.length === 0) {
+      console.error(
+        "❌  No handbook chapters defined in employee-handbook.json.",
+      );
+      process.exit(1);
+    }
+  }
+
   console.log(`  Cover:    ${COVER_FILE}`);
   console.log(`  TOC:      ${TOC_FILE}`);
   if (includeTabs) {
@@ -493,6 +555,11 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
   if (sectionFiles.length > 0) {
     console.log(
       `  Sections: ${sectionFiles.length} PDFs (${sectionFiles[0]} … ${sectionFiles.at(-1)})`,
+    );
+  }
+  if (chapterFiles.length > 0) {
+    console.log(
+      `  Chapters: ${chapterFiles.length} branded PDFs (${chapterFiles[0].fileName} … ${chapterFiles.at(-1).fileName})`,
     );
   }
   console.log("");
@@ -545,6 +612,14 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
     for (const file of sectionFiles) {
       const num = file.split("-")[0];
       await appendPdf(`Section ${num}`, join(SECTIONS, file));
+    }
+  }
+
+  // 4b. Employee handbook chapter body PDFs — branded generated sections
+  // (header/footer chrome). Content mirrors the uploaded 2026 source of truth.
+  if (isEmployeeHandbook) {
+    for (const { numberStr, fileName } of chapterFiles) {
+      await appendPdf(`Chapter ${numberStr}`, join(SECTIONS, fileName));
     }
   }
 

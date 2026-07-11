@@ -1,0 +1,44 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Company Vehicle Policies and Procedures Acknowledgement",
+          "subtitle": "Driver information",
+          "columns": 4,
+          "items": [
+            { "name": "driver.employeeName", "label": "Employee Name" },
+            { "name": "driver.licenseNumber", "label": "Driver's License No." },
+            { "name": "driver.licenseState", "label": "License State" },
+            { "name": "driver.assignedVehicle", "label": "Assigned Vehicle" }
+          ]
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Acknowledgement",
+          "html": "<p>I acknowledge that I have received, read, and understand the Company Vehicle Policies and Procedures of MH Construction, Inc. as described in the Employee Handbook. I understand that company vehicles are provided for company business only and agree to operate any assigned vehicle safely, lawfully, and in accordance with all company policies. I understand that I must hold a valid, unrestricted driver's license, that my Motor Vehicle Record (MVR) may be reviewed periodically, and that I must notify my manager immediately if my license is revoked, suspended, or restricted. I agree to keep any assigned vehicle clean, maintained, and secured, and to return all company property upon separation of employment.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Company Vehicle Acknowledgement Sign-Off",
+          "manualSignOnly": true,
+          "layout": "two-up",
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor / Manager",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

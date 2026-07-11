@@ -10,21 +10,23 @@
     "address": "3111 N. Capitol Ave., Pasco, WA 99301",
     "phone": "(509) 308-6489",
     "website": "https://www.mhc-gc.com",
-    "totalPages": 37,
+    "totalPages": 40,
     "source": "chapter-pdfs",
     "sourceDirectory": "documents/content/mhc-employee-handbook-2026",
     "manualFamily": "employee",
     "separateFrom": "safety-manual",
     "formsManifest": "documents/forms/forms-manifest.json",
     "formsPolicy": "handbook-owned",
-    "extractedAt": "2026-06-24T00:00:00.000Z"
+    "extractedAt": "2026-07-11T00:00:00.000Z"
   },
   "sections": [
     {
       "number": 1,
-      "title": "Introduction",
-      "subtitle": "Welcome, Culture Standards, Policy Framework",
-      "pages": "3-3",
+      "title": "Introduction & Company Overview",
+      "slug": "introduction-company-overview",
+      "subtitle": "Welcome, Who We Are, Culture, Handbook Use, Disclaimer",
+      "pages": "3-4",
+      "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/01-introduction-company-overview.html",
       "forms": [
         {
           "id": "HANDBOOK-FORM-02",
@@ -36,9 +38,70 @@
     },
     {
       "number": 2,
-      "title": "Company Policies",
-      "subtitle": "Workplace Standards: EEO, Conduct, Leave, Property, Confidentiality",
-      "pages": "4-18",
+      "title": "Employment Classifications & Schedules",
+      "slug": "employment-classifications-schedules",
+      "subtitle": "Categories, Schedules, Attendance, Reviews, Outside Employment",
+      "pages": "5-6",
+      "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/02-employment-classifications-schedules.html",
+      "forms": []
+    },
+    {
+      "number": 3,
+      "title": "Compensation & Benefits",
+      "slug": "compensation-benefits",
+      "subtitle": "Timekeeping, Pay, Overtime, Insurance, Leave Funds, Retirement",
+      "pages": "7-11",
+      "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/03-compensation-benefits.html",
+      "forms": [
+        {
+          "id": "HANDBOOK-FORM-08",
+          "slug": "form-handbook-08-purchase-approval-general-expense",
+          "title": "Purchase Approval General Expense",
+          "purpose": "Routes employee handbook-related purchases and expense approvals"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Code of Conduct",
+      "slug": "code-of-conduct",
+      "subtitle": "Conduct, Dress, Substance-Free, Gifts, Property, Confidentiality",
+      "pages": "12-14",
+      "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/04-code-of-conduct.html",
+      "forms": []
+    },
+    {
+      "number": 5,
+      "title": "Leave & Time-Off Policies",
+      "slug": "leave-time-off",
+      "subtitle": "Holidays, PTO, Bereavement, Sick Leave, Leave, Travel",
+      "pages": "15-18",
+      "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/05-leave-time-off.html",
+      "forms": []
+    },
+    {
+      "number": 6,
+      "title": "Health, Safety, & Security",
+      "slug": "health-safety-security",
+      "subtitle": "Safety Commitment, OSHA/JHA, Incident Reporting, Non-Violence",
+      "pages": "19-20",
+      "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/06-health-safety-security.html",
+      "forms": [
+        {
+          "id": "HANDBOOK-FORM-03",
+          "slug": "form-handbook-03-safety-policy-acknowledgement",
+          "title": "Employee Safety Policy Acknowledgement Form",
+          "purpose": "Confirms understanding of safety policies and requirements"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Technology & Data Use",
+      "slug": "technology-data-use",
+      "subtitle": "Acceptable Use, E-mail/Phone, Company Vehicles, Remote Work",
+      "pages": "21-24",
+      "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/07-technology-data-use.html",
       "forms": [
         {
           "id": "HANDBOOK-FORM-01",
@@ -57,62 +120,38 @@
           "slug": "form-handbook-05-computer-electronics-use-agreement",
           "title": "Employee Acknowledgment and Agreement of Computer and Electronics Use Policy",
           "purpose": "Confirms understanding of computer and electronics use policies"
-        }
-      ]
-    },
-    {
-      "number": 3,
-      "title": "Employment Basics",
-      "subtitle": "People Operations: Categories, Schedules, Attendance, PTO",
-      "pages": "19-25",
-      "forms": []
-    },
-    {
-      "number": 4,
-      "title": "Compensation",
-      "subtitle": "Pay Practices: Timekeeping, Overtime, Incentives, Garnishment",
-      "pages": "26-27",
-      "forms": []
-    },
-    {
-      "number": 5,
-      "title": "Employee Benefits",
-      "subtitle": "Coverage: Insurance, PMLA, Workers Comp, Retirement",
-      "pages": "27-29",
-      "forms": []
-    },
-    {
-      "number": 6,
-      "title": "Miscellaneous",
-      "subtitle": "Operations Support: Safety, Tools, Weather, Acknowledgments",
-      "pages": "30-36",
-      "forms": [
-        {
-          "id": "HANDBOOK-FORM-03",
-          "slug": "form-handbook-03-safety-policy-acknowledgement",
-          "title": "Employee Safety Policy Acknowledgement Form",
-          "purpose": "Confirms understanding of safety policies and requirements"
         },
         {
           "id": "HANDBOOK-FORM-06",
           "slug": "form-handbook-06-employee-photo-release-form",
           "title": "Employee Photo Release Form",
-          "templatePath": "documents/forms/form-employee-photo-release.html",
           "purpose": "Captures employee authorization for company photo and media use"
         },
         {
           "id": "HANDBOOK-FORM-07",
           "slug": "form-handbook-07-client-photo-release-form",
           "title": "Client Photo Release Form",
-          "templatePath": "documents/forms/form-client-photo-release.html",
           "purpose": "Captures client authorization for project photo and media use"
-        },
-        {
-          "id": "HANDBOOK-FORM-08",
-          "slug": "form-handbook-08-purchase-approval-general-expense",
-          "title": "Purchase Approval General Expense",
-          "purpose": "Routes employee handbook-related purchases and expense approvals"
-        },
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Disciplinary Action & Separation",
+      "slug": "disciplinary-action-separation",
+      "subtitle": "Performance Improvement, Discipline, Termination, Property Return",
+      "pages": "25-26",
+      "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/08-disciplinary-action-separation.html",
+      "forms": []
+    },
+    {
+      "number": 9,
+      "title": "Workplace Respect & Anti-Harassment",
+      "slug": "workplace-respect-anti-harassment",
+      "subtitle": "Respect Culture, Equal Opportunity, Anti-Harassment, Reporting",
+      "pages": "27-28",
+      "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/09-workplace-respect-anti-harassment.html",
+      "forms": [
         {
           "id": "HANDBOOK-LETTERHEAD",
           "slug": "form-handbook-company-letterhead",

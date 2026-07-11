@@ -1,0 +1,120 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Purchase Approval General Expense",
+          "subtitle": "Requestor and purchase information",
+          "columns": 4,
+          "items": [
+            { "name": "request.dateSubmitted", "label": "Date Submitted" },
+            { "name": "request.dateNeededBy", "label": "Date Needed By" },
+            { "name": "request.requestorName", "label": "Requestor Name" },
+            { "name": "request.phoneEmail", "label": "Phone / Email" },
+            { "name": "request.expenseCategory", "label": "Expense Category" },
+            { "name": "request.accountGlCode", "label": "Account / GL Code" },
+            { "name": "request.vendorSupplier", "label": "Vendor / Supplier" },
+            {
+              "name": "request.vendorContactQuote",
+              "label": "Vendor Contact / Quote No."
+            }
+          ]
+        },
+        {
+          "type": "checkGrid",
+          "title": "Payment Type",
+          "columns": 3,
+          "items": [
+            { "name": "payment.checking", "label": "Checking" },
+            { "name": "payment.chase", "label": "Chase" },
+            { "name": "payment.cabelas", "label": "Cabela's" },
+            { "name": "payment.lowes", "label": "Lowe's" },
+            { "name": "payment.homeDepot", "label": "Home Depot" }
+          ]
+        },
+        {
+          "type": "dataTable",
+          "title": "Itemized Purchase Detail",
+          "name": "request.items",
+          "columns": [
+            { "header": "Description", "width": "38%" },
+            { "header": "Qty", "width": "10%" },
+            { "header": "Unit Price", "width": "16%" },
+            { "header": "Line Total", "width": "16%" },
+            { "header": "Notes", "width": "20%" }
+          ],
+          "rows": 4,
+          "rowHeight": "0.34in"
+        },
+        {
+          "type": "fieldGrid",
+          "title": "Summary Totals",
+          "columns": 3,
+          "items": [
+            { "name": "request.subtotal", "label": "Subtotal" },
+            { "name": "request.taxFreight", "label": "Tax / Freight" },
+            { "name": "request.totalEstimate", "label": "Total Estimate" }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Justification / Notes",
+          "name": "request.justificationNotes",
+          "height": "1.15in"
+        }
+      ]
+    },
+    {
+      "kind": "cont",
+      "title": "Purchase Approval General Expense Approval Review",
+      "bodyPaddingTop": "0.14in",
+      "sections": [
+        {
+          "type": "checkGrid",
+          "title": "Approval Decision",
+          "columns": 3,
+          "items": [
+            { "name": "approval.approved", "label": "Approved" },
+            { "name": "approval.denied", "label": "Denied" },
+            { "name": "approval.moreInfo", "label": "More Info Needed" }
+          ]
+        },
+        {
+          "type": "fieldGrid",
+          "title": "Approval Summary",
+          "columns": 3,
+          "items": [
+            { "name": "approval.approvedAmount", "label": "Approved Amount" },
+            { "name": "approval.approvalDate", "label": "Approval Date" },
+            { "name": "approval.reference", "label": "Reference / Notes" }
+          ]
+        },
+        {
+          "type": "signatures",
+          "title": "Purchase Approval Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Requestor",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Approver",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Approver Comments",
+          "name": "approval.comments",
+          "height": "1.1in"
+        }
+      ]
+    }
+  ]
+}

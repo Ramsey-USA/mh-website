@@ -1,0 +1,77 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Temporary Work From Home Application/Agreement",
+          "columns": 4,
+          "items": [
+            { "name": "application.date", "label": "Date" },
+            { "name": "application.companyName", "label": "Company Name" },
+            { "name": "application.employeeName", "label": "Employee Name" },
+            { "name": "application.employeeTitle", "label": "Employee Title" },
+            {
+              "name": "application.workLocation",
+              "label": "Requested Work Location"
+            },
+            {
+              "name": "application.officeSupplies",
+              "label": "Requested Office Supplies"
+            },
+            {
+              "name": "application.remotePhone",
+              "label": "Phone Number While Working Remote"
+            },
+            { "name": "application.startDate", "label": "Requested Start Date" }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Requested Work Schedule and Reason(s) for Request",
+          "name": "application.scheduleAndReasons",
+          "height": "0.9in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Work From Home Commitment",
+          "html": "<p>By signing this application, I affirm my commitment to adhere to all company policies, including those governing electronics use and remote work.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Temporary Work From Home Approval Sign-Off",
+          "manualSignOnly": true,
+          "layout": "two-up",
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor / Manager",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        },
+        {
+          "type": "checkGrid",
+          "title": "Decision",
+          "columns": 2,
+          "items": [
+            { "name": "decision.approved", "label": "Approved" },
+            { "name": "decision.denied", "label": "Denied" }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Comments",
+          "name": "decision.comments",
+          "height": "0.55in"
+        }
+      ]
+    }
+  ]
+}

@@ -119,6 +119,7 @@ const MATERIAL_ICON_LIGATURE_SET = new Set(
 );
 let PDF_MATERIAL_ICONS_STYLE_TAG;
 let PDF_MENDL_STYLE_TAG;
+let PDF_MENDL_HF_FONT_STYLE;
 
 function resolvePdfFontPath(fileName) {
   const candidates = [
@@ -210,6 +211,49 @@ function getPdfMendlStyleTag() {
     PDF_MENDL_STYLE_TAG = buildPdfMendlStyleTag();
   }
   return PDF_MENDL_STYLE_TAG;
+}
+
+/**
+ * Build a Mendl Sans Dusk @font-face style tag with the font data inlined as a
+ * base64 data URL. Puppeteer renders `headerTemplate`/`footerTemplate` in an
+ * isolated document that does NOT inherit the page's fonts or file:// @font-face
+ * rules, so the running header/footer would otherwise fall back to a system
+ * sans-serif. Embedding the font as base64 forces Mendl Dusk in that context.
+ * Cached after first build.
+ */
+function getPdfMendlHeaderFooterFontStyle() {
+  if (PDF_MENDL_HF_FONT_STYLE !== undefined) return PDF_MENDL_HF_FONT_STYLE;
+  const weights = [
+    [MENDL_DUSK_FONT_FILES.regular, 400],
+    [MENDL_DUSK_FONT_FILES.semibold, 600],
+    [MENDL_DUSK_FONT_FILES.bold, 700],
+  ];
+  const faces = [];
+  for (const [files, weight] of weights) {
+    const fontPath = resolveFirstPdfFontPath(files);
+    if (!fontPath) continue;
+    try {
+      const b64 = readFileSync(fontPath).toString("base64");
+      const fmt = cssFontFormatForFilePath(fontPath);
+      const mime =
+        fmt === "opentype"
+          ? "font/otf"
+          : fmt === "truetype"
+            ? "font/ttf"
+            : fmt === "woff"
+              ? "font/woff"
+              : "font/woff2";
+      faces.push(
+        `@font-face{font-family:"mendl-sans-dusk";font-style:normal;font-weight:${weight};font-display:swap;src:url("data:${mime};base64,${b64}") format("${fmt}");}`,
+      );
+    } catch {
+      // Ignore unreadable font file; fall back to system sans-serif.
+    }
+  }
+  PDF_MENDL_HF_FONT_STYLE = faces.length
+    ? `<style>${faces.join("")}</style>`
+    : "";
+  return PDF_MENDL_HF_FONT_STYLE;
 }
 
 function buildPdfMaterialIconsStyleTag() {
@@ -1090,12 +1134,15 @@ const FALLBACK_MISH_TITLES = new Map([
 ]);
 
 const FALLBACK_HANDBOOK_TITLES = new Map([
-  [1, "Introduction"],
-  [2, "Company Policies"],
-  [3, "Employment Basics"],
-  [4, "Compensation"],
-  [5, "Employee Benefits"],
-  [6, "Miscellaneous"],
+  [1, "Introduction & Company Overview"],
+  [2, "Employment Classifications & Schedules"],
+  [3, "Compensation & Benefits"],
+  [4, "Code of Conduct"],
+  [5, "Leave & Time-Off Policies"],
+  [6, "Health, Safety, & Security"],
+  [7, "Technology & Data Use"],
+  [8, "Disciplinary Action & Separation"],
+  [9, "Workplace Respect & Anti-Harassment"],
 ]);
 
 const HANDBOOK_FORM_DISPLAY_NUMBER_OVERRIDES = new Map([
@@ -1708,6 +1755,22 @@ function buildSectionHeaderHtml(
     : `MISH\u00a0${sectionNum}`;
   const font = PDF_FONT_STACK_BODY;
   const pad = "padding:0 0.55in 0 1.25in";
+  const fontFaceStyle = getPdfMendlHeaderFooterFontStyle();
+  const revNum = options.revNum;
+  const revDate = options.revDate;
+  const tabToken = isHandbookHeader ? sectionNum : sectionToTab(sectionNum);
+  const metaRow = revNum
+    ? [
+        `<span style="display:flex;align-items:center;gap:4pt;margin-top:1.5pt;white-space:nowrap;">`,
+        `<span style="display:inline-block;padding:0.4pt 4pt;border-radius:3pt;`,
+        `background:linear-gradient(180deg,rgba(56,104,81,0.12),rgba(189,146,100,0.16));`,
+        `border:0.4pt solid ${BRAND_COLORS.secondary};color:${BRAND_COLORS.primaryDark};`,
+        `font-size:6pt;font-weight:800;letter-spacing:0.05em;">TAB\u00a0${tabToken}</span>`,
+        `<span style="font-size:6.3pt;font-weight:700;color:${BRAND_COLORS.secondaryText};letter-spacing:0.02em;">`,
+        `REV\u00a0${revNum}\u00a0\u00b7\u00a0${revDate}</span>`,
+        `</span>`,
+      ].join("")
+    : "";
 
   const qrMark = qrDataUrl
     ? [
@@ -1738,6 +1801,7 @@ function buildSectionHeaderHtml(
       ].join("");
 
   return [
+    fontFaceStyle,
     `<div style="width:100%;background:linear-gradient(180deg,#ffffff 0%,#f7f8f7 100%);border-bottom:1.5pt solid ${BRAND_COLORS.secondary};`,
     `${pad};height:0.75in;display:flex;align-items:flex-start;position:relative;`,
     `justify-content:space-between;font-family:${font};padding-top:6pt;`,
@@ -1756,6 +1820,7 @@ function buildSectionHeaderHtml(
     `<span style="font-size:11pt;font-weight:900;line-height:1.12;letter-spacing:-0.01em;`,
     `color:${BRAND_COLORS.primaryDark};text-shadow:0 0 0.01pt rgba(18,35,27,0.2);`,
     `white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${titleShort}</span>`,
+    metaRow,
     `</div>`,
 
     // ZONE 3 — MH logo at far right for additional header breathing room
@@ -1776,26 +1841,20 @@ function buildSectionHeaderHtml(
  * document context with no access to components.css.
  */
 function buildSectionFooterHtml(sectionNum, revNum, revDate, options = {}) {
-  const manualKind = options.manualKind === "handbook" ? "handbook" : "safety";
-  const isHandbookFooter = manualKind === "handbook";
   const font = PDF_FONT_STACK_BODY;
-  const tabRef = sectionToTab(sectionNum);
-  const centerMeta = isHandbookFooter
-    ? `SECTION\u00a0${sectionNum}\u00a0\u00b7\u00a0REV\u00a0${revNum}\u00a0\u00b7\u00a0${revDate}`
-    : `TAB\u00a0${tabRef}\u00a0\u00b7\u00a0REV\u00a0${revNum}\u00a0\u00b7\u00a0${revDate}`;
+  const fontFaceStyle = getPdfMendlHeaderFooterFontStyle();
   const compactContact = `${BRAND.companyName} \u00b7 ${BRAND.phone} \u00b7 ${BRAND.website}`;
   return [
+    fontFaceStyle,
     `<div style="width:100%;height:100%;font-family:${font};`,
     `box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;`,
     `display:flex;flex-direction:column;justify-content:flex-end;">`,
-    `<div style="width:100%;box-sizing:border-box;border-top:1.5pt solid ${BRAND_COLORS.primary};padding-top:4pt;">`,
-    `<div style="width:100%;padding:0 0.75in 0 1.25in;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:baseline;gap:6pt;line-height:1.1;">`,
+    `<div style="width:100%;box-sizing:border-box;border-top:1.5pt solid ${BRAND_COLORS.primary};">`,
+    `<div style="width:100%;height:0.5pt;background:${BRAND_COLORS.secondary};margin-bottom:3.5pt;"></div>`,
+    `<div style="width:100%;padding:0 0.75in 0 1.25in;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:6pt;line-height:1.1;">`,
     `<span style="font-size:6.2pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;letter-spacing:0.01em;">`,
     `<span style="font-weight:800;color:${BRAND_COLORS.primaryDark};letter-spacing:0.04em;">MH CONSTRUCTION, INC.</span>`,
     `\u00a0\u00b7\u00a0${compactContact.replace("MH Construction, Inc. \u00b7 ", "")}`,
-    `</span>`,
-    `<span style="font-size:5.9pt;font-weight:700;color:${BRAND_COLORS.secondaryText};white-space:nowrap;letter-spacing:0.01em;">`,
-    centerMeta,
     `</span>`,
     `<span style="font-size:7pt;font-weight:800;color:${BRAND_COLORS.primaryDark};white-space:nowrap;">`,
     `Page\u00a0<span class="pageNumber"></span>\u00a0of\u00a0<span class="totalPages"></span>`,
@@ -3702,11 +3761,38 @@ async function loadFormsManifest() {
   }
   const manifest = JSON.parse(await readFile(manifestPath, "utf-8"));
   const forms = Array.isArray(manifest.forms) ? manifest.forms : [];
-  return forms.map((entry) => ({
-    ...entry,
-    revision: ENFORCED_REVISION_NUMBER,
-    effectiveDate: ENFORCED_REVISION_DATE,
-  }));
+  return Promise.all(
+    forms.map(async (entry) => {
+      const resolved = {
+        ...entry,
+        revision: ENFORCED_REVISION_NUMBER,
+        effectiveDate: ENFORCED_REVISION_DATE,
+      };
+      // Per-form fillable schema file (individual, editable, git-trackable).
+      // documents/forms/<fillableFile> holds the `pages` schema rendered by the
+      // shared fillable engine (getFillablePages → renderSheet). This is the
+      // authoritative source for handbook forms; it supersedes the legacy
+      // DOCX-derived + hardcoded builder paths.
+      if (entry.fillableFile) {
+        const schemaPath = join(DOCS_DIR, "forms", entry.fillableFile);
+        if (existsSync(schemaPath)) {
+          try {
+            const schema = JSON.parse(await readFile(schemaPath, "utf-8"));
+            resolved.fillable = { ...(resolved.fillable || {}), ...schema };
+          } catch (err) {
+            console.warn(
+              `⚠️  Failed to load fillable schema for ${entry.id} (${entry.fillableFile}): ${err?.message || err}`,
+            );
+          }
+        } else {
+          console.warn(
+            `⚠️  fillableFile not found for ${entry.id}: ${entry.fillableFile}`,
+          );
+        }
+      }
+      return resolved;
+    }),
+  );
 }
 
 function findFormEntry(forms, key) {
@@ -5774,9 +5860,9 @@ async function validateHandbookCoverTabsFooterGuardrails() {
       },
       {
         regex:
-          /Introduction[\s\S]*?Company Policies[\s\S]*?Employment Basics[\s\S]*?Compensation[\s\S]*?Employee Benefits[\s\S]*?Miscellaneous/i,
+          /Introduction &amp; Company Overview[\s\S]*?Employment Classifications &amp; Schedules[\s\S]*?Compensation &amp; Benefits[\s\S]*?Code of Conduct[\s\S]*?Leave &amp; Time-Off Policies[\s\S]*?Health, Safety, &amp; Security[\s\S]*?Technology &amp; Data Use[\s\S]*?Disciplinary Action &amp; Separation[\s\S]*?Workplace Respect &amp; Anti-Harassment/i,
         message:
-          "Employee handbook tabs must include handbook chapter titles (Introduction through Miscellaneous)",
+          "Employee handbook tabs must include handbook chapter titles (Introduction & Company Overview through Workplace Respect & Anti-Harassment)",
       },
       {
         regex:
@@ -6965,6 +7051,24 @@ async function generateSections(filter = null) {
 
     let sectionSource =
       typeof section.body === "string" ? section.body.trim() : "";
+    // Authored, editable chapter body: employee-handbook.json `bodyFile` points
+    // to an MH-branded HTML fragment under
+    // documents/content/mhc-employee-handbook-2026/sections/. This is the
+    // authoritative, human-editable source for the handbook chapters and takes
+    // precedence over raw PDF page-range extraction.
+    if (!sectionSource && isEmployeeHandbook && section.bodyFile) {
+      const bodyFileText = String(section.bodyFile).trim();
+      const sectionBodyPath = bodyFileText.startsWith("documents/")
+        ? join(ROOT, bodyFileText)
+        : join(DOCS_DIR, bodyFileText);
+      if (existsSync(sectionBodyPath)) {
+        sectionSource = (await readFile(sectionBodyPath, "utf-8")).trim();
+      } else {
+        console.warn(
+          `⚠️  Handbook section bodyFile not found: ${section.bodyFile}`,
+        );
+      }
+    }
     if (
       !sectionSource &&
       isEmployeeHandbook &&
@@ -7041,7 +7145,11 @@ async function generateSections(filter = null) {
       section.numberStr,
       section.title,
       qrDataUrl,
-      { manualKind: isEmployeeHandbook ? "handbook" : "safety" },
+      {
+        manualKind: isEmployeeHandbook ? "handbook" : "safety",
+        revNum: BRAND.revisionNumber,
+        revDate: BRAND.revisionDate,
+      },
     );
 
     // UX REFRESH 2026 — three-tier footer + thumb-zone QR FAB on every page
@@ -7064,7 +7172,8 @@ async function generateSections(filter = null) {
         margin: {
           top: "1.25in", // accommodates enlarged header logo + 0.35in gap
           right: "0.75in",
-          bottom: "0.4in", // compact footer + maximum usable body space
+          bottom: "0.3in", // footer anchored to top of this band → keep tight so
+          // the gap beneath the footer stays minimal while remaining print-safe
           left: "1.25in",
         },
       },

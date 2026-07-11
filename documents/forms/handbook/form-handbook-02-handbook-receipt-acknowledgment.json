@@ -1,0 +1,37 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Employee Handbook Receipt Acknowledgment",
+          "subtitle": "Employee information",
+          "columns": 3,
+          "items": [
+            { "name": "receipt.employeeName", "label": "Employee Name" },
+            { "name": "receipt.department", "label": "Department / Crew" },
+            { "name": "receipt.dateReceived", "label": "Date Received" }
+          ]
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Acknowledgement",
+          "html": "<p>I acknowledge that I have received my copy of the MH Construction, Inc. Employee Handbook. I understand that it is my responsibility to read and comply with the policies contained in the handbook and any revisions made to it. I understand that this handbook is a general guide and is not a contract of employment, and that MH Construction, Inc. may change, amend, or discontinue any policy at any time, with or without notice.</p><p>Return this form to the office and keep your handbook for future reference.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Handbook Receipt Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

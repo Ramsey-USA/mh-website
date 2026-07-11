@@ -1,0 +1,43 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Employee Safety Policy Acknowledgement",
+          "subtitle": "Employee information",
+          "columns": 3,
+          "items": [
+            { "name": "safety.employeeName", "label": "Employee Name" },
+            { "name": "safety.jobTitle", "label": "Job Title / Crew" },
+            { "name": "safety.date", "label": "Date" }
+          ]
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Acknowledgement",
+          "html": "<p>I acknowledge that I have received, read, and understand the safety policies of MH Construction, Inc. as described in the Employee Handbook and the MISH (Accident Prevention Program). I understand that safety is a shared responsibility and a condition of my employment. I agree to follow all applicable OSHA standards, site-specific safety requirements, and the daily Job Hazard Analysis (Tailgate) for my scope of work, to wear all required personal protective equipment, and to report any injury, near-miss, or unsafe condition to my supervisor immediately. I understand that I have both the authority and the obligation to stop work when a condition is unsafe.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Safety Policy Acknowledgement Sign-Off",
+          "manualSignOnly": true,
+          "layout": "two-up",
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor / Manager",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

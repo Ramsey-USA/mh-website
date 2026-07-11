@@ -1,0 +1,71 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Client Photo Release Form",
+          "subtitle": "Client and project information with release selection",
+          "columns": 4,
+          "items": [
+            {
+              "name": "release.clientOrganizationName",
+              "label": "Client / Organization"
+            },
+            { "name": "release.projectName", "label": "Project Name" },
+            { "name": "release.projectAddress", "label": "Project Address" },
+            { "name": "release.clientRepresentative", "label": "Client Rep." }
+          ]
+        },
+        {
+          "type": "refNote",
+          "html": "<p>This form authorizes MH Construction to capture and use project-related photos and video at client locations for agreed business and communication purposes. Client authorizes MH Construction to photograph and/or record project areas, installed work, and progress, subject to this agreement. Authorized use may include project documentation, proposals, qualifications packages, website and social proof, and related business communications.</p>"
+        },
+        {
+          "type": "checkGrid",
+          "title": "Release Selection",
+          "columns": 3,
+          "items": [
+            { "name": "release.fullGranted", "label": "Full Release Granted" },
+            {
+              "name": "release.internalProposalOnly",
+              "label": "Internal + Proposal Use Only"
+            },
+            {
+              "name": "release.limitedRestricted",
+              "label": "Limited / Restricted Use"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Restrictions or Notes",
+          "name": "release.restrictionsOrNotes",
+          "height": "0.8in"
+        },
+        {
+          "type": "refNote",
+          "html": "<p>For restricted sites, attach the project-specific media protocol and any owner approvals required for external publication.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Client Photo Release Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Client Representative",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "MH Construction Representative",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

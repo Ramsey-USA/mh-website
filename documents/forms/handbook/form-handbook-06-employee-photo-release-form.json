@@ -1,0 +1,60 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Employee Photo Release Form",
+          "subtitle": "Employee information and release selection",
+          "columns": 4,
+          "items": [
+            { "name": "release.employeeName", "label": "Employee Name" },
+            { "name": "release.employeeId", "label": "Employee ID" },
+            { "name": "release.departmentCrew", "label": "Department / Crew" },
+            { "name": "release.supervisor", "label": "Supervisor" }
+          ]
+        },
+        {
+          "type": "refNote",
+          "html": "<p>This form authorizes MH Construction to capture and use employee photos, video, and related media for company business purposes. I authorize MH Construction to photograph and/or record me while performing work activities and to use this media for company communications, proposals, project documentation, recruiting, training, and digital/print marketing materials.</p>"
+        },
+        {
+          "type": "checkGrid",
+          "title": "Release Selection",
+          "columns": 3,
+          "items": [
+            { "name": "release.fullGranted", "label": "Full Release Granted" },
+            {
+              "name": "release.limitedInternal",
+              "label": "Limited Internal Use Only"
+            },
+            { "name": "release.decline", "label": "Decline Release" }
+          ]
+        },
+        {
+          "type": "refNote",
+          "html": "<p>Revocation requests must be submitted in writing to HR. Existing published materials prior to revocation may remain in archived records.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Employee Photo Release Sign-Off",
+          "manualSignOnly": true,
+          "layout": "two-up",
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Witness / HR Representative",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
