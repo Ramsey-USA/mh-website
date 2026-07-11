@@ -64,6 +64,8 @@ apps/website/documents/
 
 # === Documents pipeline (PDFs served from R2, generated locally) ===
 documents/generated-pdfs/
+documents/output/
+tmp/pdf-debug/
 documents/downloads/**/*.pdf
 documents/content/safety-manual.json
 documents/_tmp_*
