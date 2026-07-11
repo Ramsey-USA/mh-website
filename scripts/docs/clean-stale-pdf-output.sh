@@ -2,8 +2,8 @@
 set -euo pipefail
 
 ROOT_DIR="$(git rev-parse --show-toplevel)"
-CANONICAL_OUTPUT_DIR="$ROOT_DIR/documents/output"
-STALE_MIRROR_OUTPUT_DIR="$ROOT_DIR/apps/website/documents/output"
+CANONICAL_OUTPUT_DIR="$ROOT_DIR/documents/generated-pdfs"
+STALE_MIRROR_OUTPUT_DIR="$ROOT_DIR/apps/website/documents/generated-pdfs"
 
 if [ ! -d "$STALE_MIRROR_OUTPUT_DIR" ]; then
   echo "No stale mirror output directory found at $STALE_MIRROR_OUTPUT_DIR"

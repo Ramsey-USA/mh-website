@@ -1,0 +1,6 @@
+Contact: mailto:office@mhc-gc.com
+Expires: 2027-07-10T23:59:59Z
+Preferred-Languages: en, es
+Canonical: https://mhc-gc.com/.well-known/security.txt
+Policy: https://mhc-gc.com/privacy
+Hiring: https://mhc-gc.com/careers

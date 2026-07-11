@@ -1049,6 +1049,14 @@ To regenerate all QR codes:
 node scripts/generate-qr-codes.js
 \`\`\`
 
+To build the download-friendly mirror:
+
+\`\`\`bash
+pnpm --filter @mhc/website run qr:bundle:downloads
+\`\`\`
+
+The mirrored assets live under \`public/images/qr-downloads/\`.
+
 To update URLs or add new QR codes, edit \`scripts/generate-qr-codes.js\`.
 `;
 
@@ -1099,7 +1107,7 @@ async function main() {
   const failCount = results.filter((r) => !r.success).length;
   const uniqueQRCount = qrCodes.length;
 
-  console.info("\n" + "=".repeat(50));
+  console.info(`\n${"=".repeat(50)}`);
   console.info(`✅ Successfully generated: ${successCount} QR code files`);
   console.info(
     `   (${uniqueQRCount} unique QR codes × 2 variants = ${successCount})`,
@@ -1107,7 +1115,7 @@ async function main() {
   if (failCount > 0) {
     console.info(`❌ Failed: ${failCount} QR code files`);
   }
-  console.info("=".repeat(50) + "\n");
+  console.info(`${"=".repeat(50)}\n`);
 
   console.info("📁 Files created:");
   console.info(`   ${OUTPUT_DIR}/`);

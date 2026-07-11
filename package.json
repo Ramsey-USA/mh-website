@@ -52,6 +52,7 @@
     "docs:guardrails:check": "pnpm --filter @mhc/website docs:guardrails:check",
     "docs:guardrails:typography:check": "pnpm --filter @mhc/website docs:guardrails:typography:check",
     "docs:guardrails:manual-congruence": "node scripts/validation/check-manual-template-congruence.mjs",
+    "docs:bundle:downloads": "pnpm --filter @mhc/website run docs:bundle:downloads",
     "font-system:check": "bash scripts/validation/check-font-system-usage.sh",
     "icons:forms-manuals:check": "pnpm --filter @mhc/website icons:forms-manuals:check",
     "terminology:guardrails:check": "pnpm --filter @mhc/website terminology:guardrails:check",

@@ -6,8 +6,8 @@
 # (mh-construction-assets) under the "docs/safety/" key prefix.
 #
 # Run AFTER:
-#   npm run docs:generate   (creates documents/output/sections/*.pdf)
-#   npm run docs:merge      (creates documents/output/safety-manual-complete.pdf)
+#   npm run docs:generate   (creates documents/generated-pdfs/sections/*.pdf)
+#   npm run docs:merge      (creates documents/generated-pdfs/safety-manual-complete.pdf)
 #
 # Resulting R2 keys (served via /docs/** Workers proxy):
 #   docs/safety/safety-manual-complete.pdf
@@ -30,7 +30,7 @@ set -euo pipefail
 
 BUCKET="mh-construction-assets"
 R2_PREFIX="docs/safety"
-OUTPUT_DIR="documents/output"
+OUTPUT_DIR="documents/generated-pdfs"
 SECTIONS_DIR="$OUTPUT_DIR/sections"
 
 echo "🔍  Checking for generated Safety PDFs in $OUTPUT_DIR …"

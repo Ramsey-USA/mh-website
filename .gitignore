@@ -63,7 +63,8 @@ apps/website/messages/
 apps/website/documents/
 
 # === Documents pipeline (PDFs served from R2, generated locally) ===
-documents/output/
+documents/generated-pdfs/
+documents/downloads/**/*.pdf
 documents/content/safety-manual.json
 documents/_tmp_*
 documents/**/_tmp_*
@@ -118,4 +119,4 @@ eng.traineddata
 # pnpm-lock.yaml
 package-lock.json
 # yarn.lock
-apps/website/documents/output/
+apps/website/documents/generated-pdfs/

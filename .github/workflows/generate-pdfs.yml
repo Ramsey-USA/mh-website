@@ -147,7 +147,7 @@ jobs:
         run: |
           npm install -g wrangler
           BUCKET="mh-construction-assets"
-          SRC="documents/output"
+          SRC="documents/generated-pdfs"
 
           echo "📤 Uploading PDFs to R2 bucket: $BUCKET (prefix: docs/)"
 

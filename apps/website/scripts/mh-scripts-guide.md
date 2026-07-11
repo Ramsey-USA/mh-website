@@ -61,6 +61,7 @@ Use `package.json` as the canonical source for `pnpm run ...` entry points. This
 ### 🎯 **Root Level - Core Operations**
 
 - `generate-qr-codes.js` - Generate QR codes (color & B&W variants with labels)
+- `build-qr-download-bundle.js` - Mirror QR codes into a download-friendly bundle
 - `add-team-qr-codes.js` - Add QR code references to team data
 - `add-team-skills.js` - Add skills to team data
 - `analyze-components.js` - Component analysis
@@ -111,6 +112,8 @@ Access these scripts via npm:
 Access these scripts via pnpm:
 
 - `pnpm --filter @mhc/website run qr:generate` - Generate all QR codes (color & B&W variants)
+- `pnpm --filter @mhc/website run qr:bundle:downloads` - Build the QR download mirror
+- `pnpm --filter @mhc/website run qr:all` - Generate and mirror QR codes
 - `pnpm --filter @mhc/website run qr:test` - Test QR code output
 - `pnpm --filter @mhc/website run qr:check` - Verify QR code presence
 - `pnpm --filter @mhc/website run clean` - Run cleanup script

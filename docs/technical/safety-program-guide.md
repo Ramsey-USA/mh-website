@@ -86,13 +86,13 @@ documents/content/MHC-MISH-APP-50-Sections/         ← Canonical Word source bu
 documents/content/safety-manual.json                ← Auto-generated manifest (50 sections)
            │
            ▼  pnpm --filter @mhc/website run docs:generate + pnpm --filter @mhc/website run docs:generate:forms
-documents/output/sections/                          ← 50 generated PDFs served to field staff
-documents/output/form-packages/                     ← Generated form package PDFs (cover + fillable)
-documents/output/safety-manual-toc.pdf              ← Standalone table-of-contents PDF (generator canonical name)
-documents/output/safety-manual-reference.pdf        ← Standalone section reference guide PDF
+documents/generated-pdfs/sections/                  ← 50 generated PDFs served to field staff
+documents/generated-pdfs/form-packages/             ← Generated form package PDFs (cover + fillable)
+documents/generated-pdfs/safety-manual-toc.pdf      ← Standalone table-of-contents PDF (generator canonical name)
+documents/generated-pdfs/safety-manual-reference.pdf ← Standalone section reference guide PDF
            │
            ▼  pnpm --filter @mhc/website run docs:merge + R2 publish
-documents/output/safety-manual-complete.pdf         ← Complete bonding-company manual
+documents/generated-pdfs/safety-manual-complete.pdf ← Complete bonding-company manual
            │
            ▼  Manual update
 src/lib/data/documents.ts                           ← Web registry (revisionDate, section list)
@@ -249,7 +249,7 @@ pnpm --filter @mhc/website run docs:generate:forms
 ```
 
 This rebuilds all manual PDFs (cover, spine, tabs, sections) plus form package PDFs into
-`documents/output/`.
+`documents/generated-pdfs/`.
 
 If preflight reports stale legacy output, clean it with:
 
@@ -353,9 +353,9 @@ pnpm run type-check && pnpm run lint && pnpm run build
 
 - `pnpm run docs:extract`: Extract PDF text to `safety-manual.json` (falls back to Word source if PDF source path is missing)
 - `pnpm --filter @mhc/website run docs:extract-word`: Extract Word docs to `safety-manual.json` (preferred)
-- `pnpm --filter @mhc/website run docs:preflight:pdf-output`: Fail fast if stale mirror output exists in `apps/website/documents/output/`
+- `pnpm --filter @mhc/website run docs:preflight:pdf-output`: Fail fast if stale mirror output exists in `apps/website/documents/generated-pdfs/`
 - `pnpm --filter @mhc/website run docs:generate`: Generate MISH manual PDFs (cover, spine, tabs, all sections)
-- `pnpm --filter @mhc/website run docs:generate:forms`: Generate form package PDFs in `documents/output/form-packages/` from manifest fillable forms
+- `pnpm --filter @mhc/website run docs:generate:forms`: Generate form package PDFs in `documents/generated-pdfs/form-packages/` from manifest fillable forms
 - `pnpm --filter @mhc/website run docs:all`: Generate MISH manual PDFs + form packages, then merge complete manuals
 - `pnpm --filter @mhc/website run docs:generate:cover`: Generate MISH cover PDF
 - `pnpm --filter @mhc/website run docs:generate:spine`: Generate MISH spine PDF
@@ -431,14 +431,14 @@ documents/content/mhc-employee-handbook-2026/
      ▼  documents/content/employee-handbook.json (manifest)
      │
      ▼  handbook section generation (chapter PDFs)
-       documents/output/sections/01-*.pdf ... 06-*.pdf
+      documents/generated-pdfs/sections/01-*.pdf ... 06-*.pdf
      │
      ▼  handbook shell artifacts
         ├─► pnpm --filter @mhc/website run docs:generate:handbook:cover
         ├─► pnpm --filter @mhc/website run docs:generate:handbook:spine
         └─► pnpm --filter @mhc/website run docs:generate:handbook:tabs
         │
-        ▼  documents/output/
+        ▼  documents/generated-pdfs/
             employee-handbook-cover.pdf
             employee-handbook-spine.pdf
             employee-handbook-tabs.pdf

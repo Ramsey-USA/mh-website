@@ -7,7 +7,7 @@
 # key prefixes.
 #
 # Run AFTER:
-#   npm run docs:generate:forms   (creates documents/output/form-packages/*.pdf)
+#   npm run docs:generate:forms   (creates documents/generated-pdfs/form-packages/*.pdf)
 #
 # Resulting R2 keys (served via /docs/** Workers proxy):
 #   docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf
@@ -29,7 +29,7 @@ set -euo pipefail
 BUCKET="mh-construction-assets"
 SAFETY_PREFIX="docs/safety/forms"
 EMPLOYEE_PREFIX="docs/employee/forms"
-FORMS_DIR="documents/output/form-packages"
+FORMS_DIR="documents/generated-pdfs/form-packages"
 
 echo "🔍  Checking for generated form package PDFs in $FORMS_DIR …"
 

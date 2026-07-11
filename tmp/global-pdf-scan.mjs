@@ -2,7 +2,7 @@ import { readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 
-const root = "apps/website/documents/output";
+const root = "apps/website/documents/generated-pdfs";
 const stack = [root];
 const pdfs = [];
 

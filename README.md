@@ -148,9 +148,13 @@ Document generation commands live in [apps/website](apps/website) package script
 
 Canonical output path when running these commands from repo root:
 
-- [documents/output/](documents/output)
+- [documents/generated-pdfs/](documents/generated-pdfs)
 
-Stale mirror output at [apps/website/documents/output/](apps/website/documents/output) can accumulate outdated files from older workflows.
+Download-friendly bundle:
+
+- [documents/downloads/](documents/downloads)
+
+Stale mirror output at [apps/website/documents/generated-pdfs/](apps/website/documents/generated-pdfs) can accumulate outdated files from older workflows.
 
 ```bash
 # Generate templates/artifacts

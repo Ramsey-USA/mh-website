@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(git rev-parse --show-toplevel)"
-STALE_MIRROR_OUTPUT_DIR="$ROOT_DIR/apps/website/documents/output"
+STALE_MIRROR_OUTPUT_DIR="$ROOT_DIR/apps/website/documents/generated-pdfs"
 
 if [ ! -d "$STALE_MIRROR_OUTPUT_DIR" ]; then
   echo "PDF preflight passed: no stale mirror output directory found."

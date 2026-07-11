@@ -16,11 +16,12 @@
  *   npm run docs:generate -- --template sections   # all 44 section PDFs
  *   npm run docs:generate -- --template section --section 11  # single section
  *   npm run docs:generate -- --template website-pages # website banner/section inventory
+ *   npm run docs:generate -- --template website-image-needs # website image needs inventory
  *   npm run docs:generate -- --template toolbox-talk          # standalone form
  *   npm run docs:generate -- --template form-covers           # all 47 form cover sheets
  *   node documents/scripts/generate.mjs --template cover
  *
- * Output directory: documents/output/
+ * Output directory: documents/generated-pdfs/
  *   safety-manual-cover.pdf
           manualSignOnly: true,
  *   safety-manual-spine.pdf
@@ -44,7 +45,13 @@ import {
   readdir,
   copyFile,
 } from "node:fs/promises";
-import { readFileSync, existsSync, unlinkSync } from "node:fs";
+import {
+  readFileSync,
+  existsSync,
+  unlinkSync,
+  readdirSync,
+  statSync,
+} from "node:fs";
 import { createRequire } from "node:module";
 import { execFileSync } from "node:child_process";
 import { join, resolve, dirname, extname } from "node:path";
@@ -310,7 +317,7 @@ function resolveMishSectionTargets(manualSection) {
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
 const DOCS_DIR = join(ROOT, "documents");
-const OUTPUT_DIR = join(DOCS_DIR, "output");
+const OUTPUT_DIR = join(DOCS_DIR, "generated-pdfs");
 let MANIFEST = join(DOCS_DIR, "content/safety-manual.json");
 const FORMS_DIR = join(DOCS_DIR, "forms");
 const CANONICAL_DOCS_DIR = DOCS_DIR;
@@ -699,6 +706,19 @@ try {
   }
 }
 
+// ── WA Veteran Owned Business logo data URL (used in footer templates) ───────
+const _waVobPath = join(
+  ROOT,
+  "apps/website/public/images/logo/veteran-owned-business.jpg",
+);
+let WA_VOB_LOGO_DATA_URL = "";
+try {
+  const _waVobBuf = readFileSync(_waVobPath);
+  WA_VOB_LOGO_DATA_URL = `data:image/jpeg;base64,${_waVobBuf.toString("base64")}`;
+} catch {
+  /* WA VOB logo not found — footer/template tokens will use brand-config fallback */
+}
+
 // ── Travelers Insurance logo base64 (used in Puppeteer footer template) ────
 const _travelersPath = join(
   DOCS_DIR,
@@ -787,7 +807,9 @@ function buildBrandTokens(brand) {
     ),
     "{{BRAND_BBB_SEAL}}":
       BBB_LOGO_DATA_URL || resolvePath(brand.partnerLogos?.bbbSeal || ""),
-    "{{BRAND_WA_VOB_LOGO}}": resolvePath(brand.certificationLogos?.waVob || ""),
+    "{{BRAND_WA_VOB_LOGO}}":
+      WA_VOB_LOGO_DATA_URL ||
+      resolvePath(brand.certificationLogos?.waVob || ""),
     "{{BRAND_CHAMBER_PASCO}}": resolvePath(brand.chamberLogos?.pasco || ""),
     "{{BRAND_CHAMBER_RICHLAND}}": resolvePath(
       brand.chamberLogos?.richland || "",
@@ -3492,7 +3514,7 @@ function resolveFormPublicRelativePath(formEntry, slug) {
  * single manifest entry. Regenerates the cover and the fillable PDF first
  * so the package always reflects the current manifest, then merges them
  * with pdf-lib (preserving AcroForm widgets via copyPages) into
- * `documents/output/form-packages/{slug}.pdf`.
+ * `documents/generated-pdfs/form-packages/{slug}.pdf`.
  */
 async function generateFormPackage(formEntry) {
   const slug = slugForFormPackage(formEntry);
@@ -3569,7 +3591,7 @@ async function generateAllFormPackages() {
     if (validPackageNames.has(existingFile)) continue;
     unlinkSync(join(packagesDir, existingFile));
     console.log(
-      `  ✓  Removed stale form package: documents/output/form-packages/${existingFile}`,
+      `  ✓  Removed stale form package: documents/generated-pdfs/form-packages/${existingFile}`,
     );
   }
   console.log(`\n📦  Building ${eligible.length} form package(s)…`);
@@ -3581,7 +3603,7 @@ async function generateAllFormPackages() {
 
 // ── Publish form packages to public/ ─────────────────────────────────────────
 /**
- * Copy generated `documents/output/form-packages/{slug}.pdf` files into
+ * Copy generated `documents/generated-pdfs/form-packages/{slug}.pdf` files into
  * `public/docs/safety/forms/` (MISH forms) and `public/docs/employee/forms/`
  * (handbook forms) so the Next.js site can serve them at the canonical URLs.
  * Run after `form-packages` (or
@@ -3638,6 +3660,7 @@ async function getBrowser() {
   if (!_browser) {
     _browser = await puppeteer.launch({
       headless: true,
+      timeout: 120000,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
   }
@@ -3896,6 +3919,728 @@ async function generateWebsitePagesInventory() {
   );
 }
 
+const WEBSITE_IMAGE_NEEDS = [
+  {
+    area: "Brand identity",
+    needs:
+      "Primary logo variants, alternate marks, and trust badges used across headers, footers, and print-ready assets.",
+    sources:
+      "public/images/logo/ · public/images/credentials/ · public/images/compliance/",
+  },
+  {
+    area: "Open Graph and share cards",
+    needs:
+      "Custom preview art for the homepage, services, projects, safety, team, careers, contact, resources, and handbook pages.",
+    sources: "public/images/og/",
+  },
+  {
+    area: "Homepage and hero visuals",
+    needs:
+      "The main homepage hero image plus any high-impact banner art used on landing pages and campaign pages.",
+    sources:
+      "public/images/home-hero-poster.jpg · public/images/projects/ · public/images/events/ · public/images/news/",
+  },
+  {
+    area: "Team photography",
+    needs:
+      "Individual portraits, alternate crops, and the team group photo for profile sections and leadership pages.",
+    sources: "public/images/team/",
+  },
+  {
+    area: "Safety visuals",
+    needs:
+      "Safety culture, quality control, EMR/awards, compliance, and supporting snapshots for safety-focused pages.",
+    sources: "public/images/safety/",
+  },
+  {
+    area: "Social media graphics",
+    needs:
+      "Announcement art, reusable post templates, and testimonial graphics for social promotion and branded updates.",
+    sources: "public/images/social/",
+  },
+  {
+    area: "QR code assets",
+    needs:
+      "QR source images plus the download-friendly mirror used for print collateral and document handouts.",
+    sources: "public/images/qr-codes/ · public/images/qr-downloads/",
+  },
+  {
+    area: "Background and utility art",
+    needs:
+      "Patterns, textures, placeholders, and supporting graphics used to fill gaps without breaking layout consistency.",
+    sources:
+      "public/images/patterns/ · public/images/textures/ · public/images/placeholder*.webp",
+  },
+  {
+    area: "Geographic and vendor visuals",
+    needs:
+      "State, vendor, culture, and testimonial imagery that supports region pages, partner references, and credibility sections.",
+    sources:
+      "public/images/states/ · public/images/vendors/ · public/images/culture/ · public/images/testimonials/",
+  },
+];
+
+function escapeHtmlForImageAudit(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function parseImageNeedSources(sourceString) {
+  return sourceString
+    .split("·")
+    .map((segment) => segment.trim())
+    .filter(Boolean);
+}
+const IMAGE_ASSET_EXTENSIONS = new Set([
+  ".png",
+  ".jpg",
+  ".jpeg",
+  ".webp",
+  ".svg",
+  ".gif",
+  ".avif",
+]);
+
+function isImageAssetFileName(fileName) {
+  return IMAGE_ASSET_EXTENSIONS.has(extname(fileName).toLowerCase());
+}
+
+function collectImageNames(dirPath, maxItems = 5) {
+  const collected = [];
+
+  function walk(currentPath, prefix = "") {
+    if (collected.length >= maxItems) return;
+    const entries = readdirSync(currentPath, { withFileTypes: true });
+
+    for (const entry of entries) {
+      if (collected.length >= maxItems) break;
+      if (entry.name.startsWith(".")) continue;
+
+      const fullPath = join(currentPath, entry.name);
+      const relName = prefix ? `${prefix}/${entry.name}` : entry.name;
+
+      if (entry.isDirectory()) {
+        walk(fullPath, relName);
+        continue;
+      }
+
+      if (entry.isFile() && isImageAssetFileName(entry.name)) {
+        collected.push(relName);
+      }
+    }
+  }
+
+  walk(dirPath);
+  return collected;
+}
+
+function countImageAssets(dirPath) {
+  let total = 0;
+
+  function walk(currentPath) {
+    const entries = readdirSync(currentPath, { withFileTypes: true });
+
+    for (const entry of entries) {
+      if (entry.name.startsWith(".")) continue;
+      const fullPath = join(currentPath, entry.name);
+
+      if (entry.isDirectory()) {
+        walk(fullPath);
+        continue;
+      }
+
+      if (entry.isFile() && isImageAssetFileName(entry.name)) {
+        total += 1;
+      }
+    }
+  }
+
+  walk(dirPath);
+  return total;
+}
+
+function isDirectoryPathSpec(spec) {
+  return spec.endsWith("/");
+}
+
+function wildcardRegexFromSpec(spec) {
+  const escaped = spec
+    .replace(/[.+^${}()|[\]\\]/g, "\\$&")
+    .replaceAll("*", ".*");
+  return new RegExp(`^${escaped}$`, "i");
+}
+
+function evaluateSourceSpec(spec) {
+  const relativeSpec = spec.replace(/^\/+/, "");
+  const absoluteSpec = join(ROOT, "apps/website", relativeSpec);
+
+  // Wildcard patterns are evaluated against files in their parent directory.
+  if (relativeSpec.includes("*")) {
+    const lastSlashIndex = absoluteSpec.lastIndexOf("/");
+    const parentDir =
+      lastSlashIndex === -1
+        ? dirname(absoluteSpec)
+        : absoluteSpec.slice(0, lastSlashIndex);
+    const pattern =
+      lastSlashIndex === -1
+        ? absoluteSpec
+        : absoluteSpec.slice(lastSlashIndex + 1);
+    const matcher = wildcardRegexFromSpec(pattern);
+
+    if (!existsSync(parentDir) || !statSync(parentDir).isDirectory()) {
+      return { spec, ok: false, kind: "wildcard", matches: 0, sampleNames: [] };
+    }
+
+    const matches = readdirSync(parentDir)
+      .filter((name) => matcher.test(name) && isImageAssetFileName(name))
+      .sort((left, right) =>
+        left.localeCompare(right, undefined, { numeric: true }),
+      );
+
+    return {
+      spec,
+      ok: matches.length > 0,
+      kind: "wildcard",
+      matches: matches.length,
+      sampleNames: matches.slice(0, 5),
+    };
+  }
+
+  if (!existsSync(absoluteSpec)) {
+    return {
+      spec,
+      ok: false,
+      kind: isDirectoryPathSpec(relativeSpec) ? "directory" : "file",
+      matches: 0,
+      sampleNames: [],
+    };
+  }
+
+  const stats = statSync(absoluteSpec);
+  if (stats.isDirectory()) {
+    const fileCount = countImageAssets(absoluteSpec);
+    return {
+      spec,
+      ok: fileCount > 0,
+      kind: "directory",
+      matches: fileCount,
+      sampleNames: collectImageNames(absoluteSpec, 5),
+    };
+  }
+
+  const fileName = relativeSpec.split("/").pop() || relativeSpec;
+  return { spec, ok: true, kind: "file", matches: 1, sampleNames: [fileName] };
+}
+
+function buildWebsiteImageNeedsAudit(rows) {
+  return rows.map((row) => {
+    const checks = parseImageNeedSources(row.sources).map(evaluateSourceSpec);
+    const okCount = checks.filter((check) => check.ok).length;
+    const totalCount = checks.length;
+
+    return {
+      ...row,
+      checks,
+      okCount,
+      totalCount,
+      statusLabel:
+        okCount === totalCount
+          ? "Complete"
+          : okCount === 0
+            ? "Missing"
+            : "Partial",
+    };
+  });
+}
+
+function buildWebsiteImageNeedsRowsHtml(auditRows) {
+  return auditRows
+    .map((row) => {
+      const checksHtml = row.checks
+        .map((check) => {
+          const badgeLabel = check.ok ? "OK" : "Missing";
+          const badgeClass = check.ok ? "ok" : "missing";
+          const detail =
+            check.kind === "directory"
+              ? `${check.matches} item${check.matches === 1 ? "" : "s"}`
+              : check.kind === "wildcard"
+                ? `${check.matches} match${check.matches === 1 ? "" : "es"}`
+                : check.ok
+                  ? "file present"
+                  : "file missing";
+
+          const sampleNamesText = check.sampleNames.length
+            ? `Names: ${check.sampleNames.join(", ")}${
+                check.matches > check.sampleNames.length
+                  ? ` (+${check.matches - check.sampleNames.length} more)`
+                  : ""
+              }`
+            : "Names: none found";
+
+          return `<div class="source-row"><span class="badge ${badgeClass}">${badgeLabel}</span><span class="source-path">${escapeHtmlForImageAudit(check.spec)}</span><span class="source-detail">${detail}</span><span class="source-names">${escapeHtmlForImageAudit(sampleNamesText)}</span></div>`;
+        })
+        .join("");
+
+      return `
+        <tr>
+          <td class="area">${escapeHtmlForImageAudit(row.area)}<div class="row-status">${row.okCount}/${row.totalCount} sources · ${row.statusLabel}</div></td>
+          <td class="needs">${escapeHtmlForImageAudit(row.needs)}</td>
+          <td class="sources">${checksHtml}</td>
+        </tr>`;
+    })
+    .join("");
+}
+
+function buildWebsiteImageNeedsPagesHtml(
+  auditRows,
+  reportDate,
+  coverageText,
+  logoSrc,
+) {
+  const chunks = chunkItems(auditRows, 2);
+
+  return chunks
+    .map((pageRows, pageIndex) => {
+      const pageNumber = pageIndex + 1;
+      const totalPages = chunks.length;
+
+      return `
+        <section class="page">
+          <div class="ribbon"></div>
+          <div class="content">
+            <header class="header">
+              <div class="logo-wrap">
+                <img class="logo" src="${escapeHtmlForImageAudit(logoSrc)}" alt="MH Construction logo" />
+              </div>
+              <div class="header-copy">
+                <p class="eyebrow">{{BRAND_COMPANY_NAME}} · Image Tracking</p>
+                <h1 class="title">Website Image Needs Audit</h1>
+                <p class="subtitle">Missing-file audit for the image families the website relies on most. Long source paths are wrapped to avoid text bleed in print.</p>
+              </div>
+            </header>
+
+            <div class="meta-row">
+              <div class="meta-card">
+                <p class="meta-label">Report Date</p>
+                <p class="meta-value">${reportDate}</p>
+              </div>
+              <div class="meta-card">
+                <p class="meta-label">Download Location</p>
+                <p class="meta-value">documents/downloads/shared/website-image-needs.pdf</p>
+              </div>
+              <div class="meta-card">
+                <p class="meta-label">Coverage</p>
+                <p class="meta-value">${coverageText}</p>
+              </div>
+            </div>
+
+            <div class="table-shell">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Area</th>
+                    <th>What The Website Needs</th>
+                    <th>Source Coverage Audit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${buildWebsiteImageNeedsRowsHtml(pageRows)}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <footer class="footer">
+            <p class="footer-note">Missing source paths are marked with a red Missing badge. Keep core image families complete before adding one-off assets.</p>
+            <p class="footer-page">Page ${pageNumber} of ${totalPages}</p>
+          </footer>
+        </section>`;
+    })
+    .join("");
+}
+
+async function generateWebsiteImageNeeds() {
+  console.log("\n🖼️  Generating website image needs sheet…");
+  await ensureDir(OUTPUT_DIR);
+  const reportDate = new Date().toISOString().slice(0, 10);
+  const auditRows = buildWebsiteImageNeedsAudit(WEBSITE_IMAGE_NEEDS);
+  const totalChecks = auditRows.reduce((sum, row) => sum + row.totalCount, 0);
+  const passedChecks = auditRows.reduce((sum, row) => sum + row.okCount, 0);
+  const coveragePercent =
+    totalChecks === 0 ? 0 : Math.round((passedChecks / totalChecks) * 100);
+  const coverageText = `${passedChecks}/${totalChecks} sources present (${coveragePercent}%)`;
+  const headerLogoSrc =
+    LOGO_COLOR_DATA_URL || BRAND_TOKENS["{{BRAND_LOGO_COLOR}}"] || "";
+
+  const html = applyBrandTokens(`
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MH Construction Website Image Needs</title>
+        <style>
+          :root {
+            --brand-primary: {{BRAND_COLOR_PRIMARY}};
+            --brand-primary-dark: {{BRAND_COLOR_PRIMARY_DARK}};
+            --brand-primary-darker: {{BRAND_COLOR_PRIMARY_DARKER}};
+            --brand-secondary: {{BRAND_COLOR_SECONDARY}};
+            --brand-secondary-light: {{BRAND_COLOR_SECONDARY_LIGHT}};
+            --ink: #102119;
+            --paper: #ffffff;
+            --muted: #f5f8f6;
+            --grid: #d8e1dc;
+            --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", sans-serif;
+            --font-body: "mendl-sans-dusk", "Mendl Sans Dusk", sans-serif;
+          }
+
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+          }
+
+          @page {
+            size: letter landscape;
+            margin: 0;
+          }
+
+          html,
+          body {
+            margin: 0;
+            padding: 0;
+            width: 11in;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--font-body);
+          }
+
+          .page {
+            position: relative;
+            width: 11in;
+            min-height: 8.5in;
+            background: var(--paper);
+            overflow: hidden;
+          }
+
+          .page + .page {
+            page-break-before: always;
+            break-before: page;
+          }
+
+          .page::before {
+            content: "";
+            position: absolute;
+            inset: 0.22in;
+            border: 1.2pt solid var(--brand-primary);
+            pointer-events: none;
+          }
+
+          .page::after {
+            content: "";
+            position: absolute;
+            inset: 0.34in;
+            border: 0.6pt solid var(--brand-secondary);
+            pointer-events: none;
+          }
+
+          .ribbon {
+            position: absolute;
+            top: 0.44in;
+            left: 0.44in;
+            bottom: 0.44in;
+            width: 0.28in;
+            background: linear-gradient(180deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+          }
+
+          .content {
+            position: relative;
+            z-index: 1;
+            padding: 0.54in 0.92in 1.18in 0.94in;
+          }
+
+          .header {
+            display: grid;
+            grid-template-columns: 1.72in minmax(0, 1fr);
+            gap: 12pt;
+            align-items: start;
+          }
+
+          .logo-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1.62in;
+            min-height: 0.98in;
+            padding: 8pt;
+            border: 0.9pt solid var(--brand-secondary);
+            border-radius: 6pt;
+            background: var(--muted);
+          }
+
+          .logo {
+            width: 100%;
+            max-width: 1.42in;
+            height: auto;
+            display: block;
+            object-fit: contain;
+          }
+
+          .header-copy {
+            min-width: 0;
+          }
+
+          .eyebrow {
+            margin: 0 0 8pt 0;
+            color: var(--brand-secondary);
+            font-family: var(--font-heading);
+            font-size: 7pt;
+            font-weight: 900;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+          }
+
+          .title {
+            margin: 0;
+            max-width: 6.7in;
+            color: var(--brand-primary);
+            font-family: var(--font-heading);
+            font-size: 20pt;
+            font-weight: 900;
+            line-height: 0.96;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+          }
+
+          .subtitle {
+            margin: 9pt 0 0;
+            max-width: 6.6in;
+            color: var(--brand-primary-darker);
+            font-size: 9pt;
+            line-height: 1.42;
+          }
+
+          .meta-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 16pt;
+            align-items: flex-start;
+            margin-top: 16pt;
+            margin-bottom: 14pt;
+            padding: 10pt 12pt;
+            border: 0.9pt solid var(--brand-secondary);
+            border-radius: 8pt;
+            background: linear-gradient(180deg, #ffffff 0%, var(--muted) 100%);
+          }
+
+          .meta-card {
+            flex: 1;
+          }
+
+          .meta-label {
+            margin: 0 0 4pt;
+            color: var(--brand-secondary);
+            font-size: 6.8pt;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+          }
+
+          .meta-value {
+            margin: 0;
+            color: var(--brand-primary-darker);
+            font-size: 8.2pt;
+            line-height: 1.35;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            white-space: normal;
+          }
+
+          .table-shell {
+            border: 1pt solid var(--brand-primary);
+            border-radius: 8pt;
+            overflow: hidden;
+          }
+
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+          }
+
+          thead th {
+            padding: 8pt 10pt;
+            background: linear-gradient(90deg, var(--brand-primary) 0%, var(--brand-primary-dark) 100%);
+            color: #fff;
+            font-size: 6.7pt;
+            font-weight: 800;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            text-align: left;
+            vertical-align: bottom;
+          }
+
+          tbody td {
+            padding: 8pt 10pt;
+            border-top: 0.6pt solid var(--grid);
+            vertical-align: top;
+            font-size: 8pt;
+            line-height: 1.3;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            white-space: normal;
+          }
+
+          tbody tr:nth-child(even) td {
+            background: #fafcfb;
+          }
+
+          tr {
+            page-break-inside: avoid;
+            break-inside: avoid;
+          }
+
+          .area {
+            width: 1.7in;
+            font-weight: 800;
+            color: var(--brand-primary-darker);
+          }
+
+          .needs {
+            width: 3.75in;
+          }
+
+          .sources {
+            width: 2.95in;
+            color: var(--brand-primary-dark);
+            font-size: 7.7pt;
+          }
+
+          .source-row {
+            display: block;
+            margin-bottom: 4pt;
+            break-inside: avoid;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+          }
+
+          .source-row:last-child {
+            margin-bottom: 0;
+          }
+
+          .badge {
+            display: inline-block;
+            min-width: 38pt;
+            margin-right: 5pt;
+            padding: 1pt 5pt;
+            border-radius: 10pt;
+            font-size: 6.4pt;
+            font-weight: 800;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            text-align: center;
+            vertical-align: top;
+          }
+
+          .badge.ok {
+            background: #e5f3ec;
+            color: #1e5e43;
+            border: 0.5pt solid #2f7a58;
+          }
+
+          .badge.missing {
+            background: #fff0eb;
+            color: #8a2f1d;
+            border: 0.5pt solid #b84e37;
+          }
+
+          .source-path {
+            font-weight: 700;
+          }
+
+          .source-detail {
+            margin-left: 44pt;
+            display: block;
+            font-size: 7pt;
+            color: var(--brand-primary-darker);
+          }
+
+          .source-names {
+            margin-left: 44pt;
+            display: block;
+            margin-top: 2pt;
+            font-size: 6.7pt;
+            line-height: 1.3;
+            color: var(--brand-primary-dark);
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            white-space: normal;
+          }
+
+          .row-status {
+            margin-top: 4pt;
+            font-size: 6.8pt;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--brand-secondary);
+          }
+
+          .footer {
+            position: absolute;
+            left: 0.94in;
+            right: 0.92in;
+            bottom: 0.46in;
+            display: flex;
+            justify-content: space-between;
+            gap: 16pt;
+            align-items: center;
+            border-top: 1pt solid var(--brand-secondary);
+            padding-top: 8pt;
+          }
+
+          .footer-note {
+            margin: 0;
+            color: var(--brand-primary-darker);
+            font-size: 7.4pt;
+            line-height: 1.35;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            white-space: normal;
+          }
+
+          .footer-page {
+            margin: 0;
+            flex: 0 0 auto;
+            color: var(--brand-primary);
+            font-size: 7pt;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            white-space: nowrap;
+          }
+        </style>
+      </head>
+      <body>
+        ${buildWebsiteImageNeedsPagesHtml(auditRows, reportDate, coverageText, headerLogoSrc)}
+      </body>
+    </html>
+  `);
+  const pdfPath = join(OUTPUT_DIR, "website-image-needs.pdf");
+  await renderHtmlToPdf(
+    html,
+    pdfPath,
+    { margin: { top: 0, right: 0, bottom: 0, left: 0 }, landscape: true },
+    "manuals/_tmp_website_image_needs.html",
+  );
+}
+
 async function generateLetterhead() {
   console.log("\n✉️  Generating consolidated company letterhead…");
   const pdfPath = join(OUTPUT_DIR, CONSOLIDATED_LETTERHEAD_FILE_NAME);
@@ -3955,7 +4700,7 @@ async function generateSpine() {
  * Sections added to or removed from the manifest are automatically reflected
  * the next time this function runs — no manual edits to the template needed.
  *
- * Output: documents/output/safety-manual-toc.pdf
+ * Output: documents/generated-pdfs/safety-manual-toc.pdf
  */
 async function generateToc() {
   if (isEmployeeHandbook) {
@@ -5444,6 +6189,7 @@ function buildContentsPdfHtml(sections) {
       <div class="brand">{{BRAND_COMPANY_NAME}}</div>
       <h1>Safety Manual Table of Contents</h1>
       <div class="meta">Generated ${generatedOn} • Revision {{BRAND_REVISION_NUMBER}} ({{BRAND_REVISION_DATE}})</div>
+                <img class="logo" src="{{BRAND_LOGO_COLOR}}" alt="MH Construction logo" />
     </div>
 
     <table aria-label="Safety manual section index">
@@ -5902,7 +6648,7 @@ async function generateForms() {
 /**
  * Render one branded cover sheet PDF per form listed in
  * `documents/forms/forms-manifest.json`. Cover sheets live in
- * `documents/output/form-covers/` and carry the same chrome as
+ * `documents/generated-pdfs/form-covers/` and carry the same chrome as
  * `safety-manual-cover.html` (frame, ribbon, identity bar, accreditation
  * footer, ★ VETERAN OWNED ★ tagline) plus a section-header-style
  * Form-Identification-and-Control card. Source `.docx` files in
@@ -8073,6 +8819,9 @@ async function main() {
       case "website-page-inventory":
         await generateWebsitePagesInventory();
         break;
+      case "website-image-needs":
+        await generateWebsiteImageNeeds();
+        break;
       case "guardrails-check":
         await runGuardrailsCheck();
         break;
@@ -8106,7 +8855,7 @@ async function main() {
         break;
     }
 
-    console.log(`\n✅  Done. PDFs written to: documents/output/`);
+    console.log(`\n✅  Done. PDFs written to: documents/generated-pdfs/`);
   } finally {
     if (_browser) await _browser.close();
   }

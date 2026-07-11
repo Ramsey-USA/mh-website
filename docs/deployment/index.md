@@ -20,6 +20,11 @@ maintaining safety-critical CI gates.
   compatibility matrix for the Workers runtime.
 - **[Cloudflare Verification Runbook](./cloudflare-verification-runbook.md)** — Step-by-step
   pass/fail validation for connection, bindings, security, and optimization settings.
+- **[Cloudflare Security Hardening Runbook](./cloudflare-security-hardening-runbook.md)** —
+  Prioritized remediation for WAF, account hardening, DNS proxy posture, bot controls, and
+  email authentication records.
+- **[Cloudflare Dashboard Fast Path](./cloudflare-dashboard-fast-path.md)** — Search-term-driven
+  checklist for completing hardening when dashboard navigation changes.
 
 ### CI/CD
 

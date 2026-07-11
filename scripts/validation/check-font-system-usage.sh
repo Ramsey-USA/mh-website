@@ -39,8 +39,8 @@ INCLUDE_GLOBS=(
 EXCLUDE_GLOBS=(
   "!**/node_modules/**"
   "!**/.next/**"
-  "!**/documents/output/**"
-  "!**/apps/website/documents/output/**"
+  "!**/documents/generated-pdfs/**"
+  "!**/apps/website/documents/generated-pdfs/**"
   "!**/documents/_tmp_*"
   "!**/apps/website/documents/_tmp_*"
   "!documents/scripts/generate.mjs"

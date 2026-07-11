@@ -909,7 +909,7 @@ function ReviewStep({
           <li>
             Output will be in{" "}
             <code className="bg-brand-primary-darker/80 px-1 rounded">
-              documents/output/rfq/
+              documents/generated-pdfs/rfq/
             </code>
             :
             <ul className="mt-1 ml-4 space-y-0.5 text-brand-secondary-light/70">

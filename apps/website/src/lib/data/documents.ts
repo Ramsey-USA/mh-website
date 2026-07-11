@@ -5,7 +5,7 @@
  * Used by the /resources web pages to list available manuals and forms.
  *
  * To add a new document: add an entry to the relevant array below.
- * The `pdfPath` is relative to documents/output/ and served statically.
+ * The `pdfPath` is relative to documents/generated-pdfs/ and served statically.
  */
 
 import mhcBrand from "../../../../../documents/brands/mhc.json";

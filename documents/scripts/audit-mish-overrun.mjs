@@ -11,7 +11,10 @@ import puppeteer from "puppeteer";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
 const MANUALS_DIR = path.join(ROOT, "documents/manuals");
-const REPORT_PATH = path.join(ROOT, "documents/output/mish-overrun-audit.json");
+const REPORT_PATH = path.join(
+  ROOT,
+  "documents/generated-pdfs/mish-overrun-audit.json",
+);
 
 const PREPARE = process.argv.includes("--prepare");
 const STRICT = !process.argv.includes("--no-strict");

@@ -28,8 +28,8 @@ const SKIP_DIRS = new Set([
   ".next",
   "dist",
   "coverage",
-  "documents/output",
-  "apps/website/documents/output",
+  "documents/generated-pdfs",
+  "apps/website/documents/generated-pdfs",
 ]);
 
 const GENERIC_ALLOWED = new Set([

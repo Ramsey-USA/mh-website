@@ -30,7 +30,7 @@ playwright-report/
 test-results/
 
 # === Generated documents / assets ===
-documents/output/
+documents/generated-pdfs/
 documents/manuals/
 documents/content/safety-manual.json
 

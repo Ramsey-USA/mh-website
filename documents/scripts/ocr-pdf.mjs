@@ -26,7 +26,7 @@ import { createWorker } from "tesseract.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
-const DEFAULT_OUT_DIR = join(ROOT, "documents/output/ocr");
+const DEFAULT_OUT_DIR = join(ROOT, "documents/generated-pdfs/ocr");
 
 function getArg(flag) {
   const idx = process.argv.indexOf(flag);

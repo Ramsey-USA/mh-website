@@ -184,7 +184,7 @@ binding and `/docs/**` proxy path. Public Safety uploads should use a dedicated
 Current publish workflow for approved artifacts:
 
 - `pnpm --filter @mhc/website run docs:publish:safety` → uploads manual artifacts to `docs/safety/` and section PDFs to `docs/safety/sections/`
-- `pnpm --filter @mhc/website run docs:publish:forms` → uploads form package PDFs from `documents/output/form-packages/` to `docs/safety/forms/`
+- `pnpm --filter @mhc/website run docs:publish:forms` → uploads form package PDFs from `documents/generated-pdfs/form-packages/` to `docs/safety/forms/`
 
 ### PDF Publish Safety Runbook (Recommended)
 

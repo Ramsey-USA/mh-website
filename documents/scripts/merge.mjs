@@ -7,11 +7,11 @@
  * Order: cover → TOC → tab dividers → sections 01–50.
  *
  * Usage:
- *   npm run docs:merge                       # merge from documents/output/
+ *   npm run docs:merge                       # merge from documents/generated-pdfs/
  *   node documents/scripts/merge.mjs         # same
  *
- * Input:  documents/output/ (cover, toc, tabs, sections/)
- * Output: documents/output/safety-manual-complete.pdf
+ * Input:  documents/generated-pdfs/ (cover, toc, tabs, sections/)
+ * Output: documents/generated-pdfs/safety-manual-complete.pdf
  *
  * Requires: pdf-lib (devDependency)
  */
@@ -25,7 +25,7 @@ import { existsSync } from "fs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
-const OUTPUT_DIR = join(ROOT, "documents/output");
+const OUTPUT_DIR = join(ROOT, "documents/generated-pdfs");
 const SECTIONS = join(OUTPUT_DIR, "sections");
 const FORM_PACKAGES_DIR = join(OUTPUT_DIR, "form-packages");
 const FORMS_MANIFEST_PATH = join(ROOT, "documents/forms/forms-manifest.json");
@@ -475,7 +475,9 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
       });
 
     if (sectionFiles.length === 0) {
-      console.error("❌  No section PDFs found in documents/output/sections/.");
+      console.error(
+        "❌  No section PDFs found in documents/generated-pdfs/sections/.",
+      );
       process.exit(1);
     }
   }
@@ -556,7 +558,7 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
     if (formPackages.length === 0) {
       if (!isEmployeeHandbook) {
         console.error(
-          "❌  No form packages found in documents/output/form-packages/. Run `npm run docs:generate:forms` first.",
+          "❌  No form packages found in documents/generated-pdfs/form-packages/. Run `npm run docs:generate:forms` first.",
         );
         process.exit(1);
       } else {

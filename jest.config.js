@@ -89,7 +89,7 @@ const customJestConfig = {
     "/backups/",
     "/coverage/",
     "/lighthouse-results/",
-    "/documents/output/",
+    "/documents/generated-pdfs/",
     "/public/docs/",
     // Shared test utilities — not test suites themselves
     "/__tests__/helpers/",
@@ -108,7 +108,7 @@ const customJestConfig = {
     "<rootDir>/.wrangler/",
     "<rootDir>/coverage/",
     "<rootDir>/lighthouse-results/",
-    "<rootDir>/documents/output/",
+    "<rootDir>/documents/generated-pdfs/",
     "<rootDir>/public/docs/",
     "<rootDir>/backups/",
   ],
