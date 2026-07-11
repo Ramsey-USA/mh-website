@@ -59,6 +59,14 @@ jobs:
             xdg-utils ca-certificates fonts-liberation libappindicator3-1 \
             "$ALSA_PKG" libpango-1.0-0 libpangocairo-1.0-0
 
+      - name: Install Chrome browser for Puppeteer
+        id: setup-chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Export Puppeteer executable path
+        run: |
+          echo "PUPPETEER_EXECUTABLE_PATH=${{ steps.setup-chrome.outputs.chrome-path }}" >> "$GITHUB_ENV"
+
       # ── 4b. Validate canonical docs/messages/documents layout ──
       - name: Validate canonical docs layout
         run: pnpm docs:sync
