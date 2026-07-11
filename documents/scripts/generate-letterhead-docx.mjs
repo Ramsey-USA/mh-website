@@ -65,20 +65,26 @@ async function loadAllImages(brand, docsDir) {
   const P = (rel) => resolve(root, rel);
   return {
     logo: await loadImageBytes(A("assets/logo-color.png")),
-    agc: await loadImageBytes(A("assets/AGC-seal-v1.webp")),
+    agc: await loadImageBytes(
+      P("apps/website/public/images/credentials/agc-wa-logo.webp"),
+    ),
     bbb: await loadImageBytes(A("assets/bbb/bbb-accredited-seal.png")),
     vob: await loadImageBytes(
-      P("public/images/logo/veteran-owned-business.jpg"),
+      P("apps/website/public/images/logo/veteran-owned-business.jpg"),
     ),
     pasco: await loadImageBytes(
-      P("public/images/credentials/Pasco-Chamber-logo-color-transparent.png"),
+      P(
+        "apps/website/public/images/credentials/Pasco-Chamber-logo-color-transparent.png",
+      ),
     ),
     richland: await loadImageBytes(
-      P("public/images/credentials/Richland-Chamber-logo-full-color.png"),
+      P(
+        "apps/website/public/images/credentials/Richland-Chamber-logo-full-color.png",
+      ),
     ),
     kennewick: await loadImageBytes(
       P(
-        "public/images/credentials/Kennewick-TriCity-Regional-Chamber-logo-horizontal.png",
+        "apps/website/public/images/credentials/Kennewick-TriCity-Regional-Chamber-logo-horizontal.png",
       ),
     ),
   };

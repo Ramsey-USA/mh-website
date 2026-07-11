@@ -30,6 +30,10 @@ Enforce structural consistency for printable manuals so every safety-manual sect
 - Never break or skip required WBS numbering sequence in manual sections.
 - Never introduce typography outside approved tokenized print scale.
 - Never allow header/footer bands, logos, or hero/content blocks to touch or overlap border frames; enforce an explicit inner safe-area padding standard on every manual artifact.
+- Never allow chip/pill corner-radius drift for chapter/form/program identifier pills; enforce the standardized `1.5pt` radius across safety and handbook templates.
+- Never allow spine metadata spacing drift; enforce `.spine-logo-wrap { gap: 0; }` and `.spine-meta { padding-top: 0.1in; gap: 0.1in; }` on both safety and handbook spines.
+- Never allow tab geometry/signature drift; enforce canonical frame/ribbon/footer/veteran-strip offsets and the standardized approval-signature block contract on both safety and handbook tabs.
+- Never allow tab signature rhythm drift; enforce tuned two-lane metrics (`.tab-sig-row` gap `10pt`, divider lane inset `10pt`, role-to-line spacing `6pt`, signature-line gap `10pt`) across both tab templates.
 - Use the Brand Congruency Master Checklist (docs/branding/governance/brand-congruency-master-checklist.md) as a required final gate for any manual or print-layout change.
 
 ## Required Checks
@@ -37,7 +41,11 @@ Enforce structural consistency for printable manuals so every safety-manual sect
 - Page Box Consistency: page size, print margins, running header/footer offsets.
 - Spacing Consistency: section blocks, form fields, callouts, signature regions.
 - Border Clearance Consistency: decorative border/frame inner edge is respected by a defined safe-area padding for header/footer/logo/content regions on cover, spine, tabs, and section templates.
+- Spine Meta Consistency: logo-to-year/revision spacing is implemented through `.spine-meta` and remains parity-locked across safety and handbook spine templates.
+- Tabs Parity Consistency: tab frame/ribbon/footer/veteran-strip geometry, chamber-logo row, and approval-signature block remain contract-locked across safety and handbook templates.
+- Tabs Signature Rhythm Consistency: two-signer lane spacing and signer-line rhythm remain parity-locked at the approved 10pt/6pt contract values across both manuals.
 - Typography Consistency: family, weight, and size by semantic role.
+- Pillbox Consistency: chapter/form/program chips use canonical `1.5pt` corner radius in all manual/handbook TOC and related print templates.
 - WBS Numbering Consistency: hierarchical numbering format and sequence integrity.
 - Generation Consistency: output PDFs preserve structural rules from templates.
 - PDF Artifact Consistency: regenerated PDFs match expected page size, page count expectations, and title/author/creator metadata conventions.

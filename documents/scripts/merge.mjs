@@ -437,7 +437,7 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
     );
     process.exit(1);
   }
-  if (!isEmployeeHandbook && !existsSync(tocPath)) {
+  if (!existsSync(tocPath)) {
     console.error(
       `❌  TOC PDF not found. Run \`npm run docs:generate\` first.`,
     );
@@ -483,9 +483,7 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
   }
 
   console.log(`  Cover:    ${COVER_FILE}`);
-  if (!isEmployeeHandbook) {
-    console.log(`  TOC:      ${TOC_FILE}`);
-  }
+  console.log(`  TOC:      ${TOC_FILE}`);
   if (includeTabs) {
     console.log(`  Tabs:     ${TABS_FILE}`);
   }
@@ -534,10 +532,8 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
   // 1. Cover page
   await appendPdf("Cover", coverPath);
 
-  // 2. Table of contents (MISH only)
-  if (!isEmployeeHandbook) {
-    await appendPdf("Table of Contents", tocPath);
-  }
+  // 2. Table of contents
+  await appendPdf("Table of Contents", tocPath);
 
   // 3. Tab dividers (skip for digital/no-tabs variant)
   if (includeTabs) {
@@ -633,7 +629,7 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
 
 async function main() {
   if (noTabs) {
-    // Digital variant: cover + sections (+ TOC for MISH, + forms unless --no-forms)
+    // Digital variant: cover + TOC + sections (+ forms unless --no-forms)
     const title = isEmployeeHandbook
       ? "MH Construction Employee Handbook — Digital"
       : "MH Construction Safety Manual — Digital";

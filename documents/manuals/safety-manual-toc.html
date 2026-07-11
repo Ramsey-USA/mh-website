@@ -268,6 +268,44 @@
         margin-top: 0.05in;
       }
 
+      .cluster-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 1pt;
+      }
+
+      .toc-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 0.16in;
+        align-items: start;
+      }
+
+      .toc-row + .toc-row {
+        border-top: 0.35pt solid #e5ddd2;
+        padding-top: 0.1in;
+      }
+
+      .toc-row-left,
+      .toc-row-right {
+        min-width: 0;
+      }
+
+      .toc-row-right .mish-entry.mish-form {
+        padding: 1.4pt 0;
+      }
+
+      .toc-row-right .mish-entry.mish-form .mish-title {
+        font-style: normal;
+      }
+
+      .toc-row-empty {
+        font-size: 8pt;
+        font-weight: 700;
+        color: var(--brand-secondary-text);
+        line-height: 1.4;
+      }
+
       /* Each operational cluster stays together in one column */
       .cluster {
         break-inside: auto;
@@ -322,7 +360,7 @@
         color: #ffffff;
         background: var(--brand-primary);
         border: 0.6pt solid var(--brand-primary-dark);
-        border-radius: 5pt;
+        border-radius: 1.5pt;
         box-shadow: inset 0 -0.8pt 0 rgba(0, 0, 0, 0.12);
         padding: 1.9pt 7.6pt;
         text-align: center;
@@ -344,6 +382,23 @@
         text-wrap: pretty;
         hyphens: auto;
         word-break: break-word;
+        display: flex;
+        flex-direction: column;
+        gap: 1pt;
+      }
+
+      .mish-entry .mish-title-main {
+        display: block;
+      }
+
+      .mish-entry .mish-meta {
+        display: block;
+        font-size: 6.2pt;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--brand-secondary-text);
+        line-height: 1.2;
       }
 
       /* Callout — Tan Leather highlight for critical safety protocols */
@@ -383,7 +438,7 @@
         min-width: 0.46in;
         padding: 1.45pt 6.6pt;
         letter-spacing: 0.012em;
-        border-radius: 999px;
+        border-radius: 1.5pt;
         font-variant-numeric: tabular-nums;
       }
 
@@ -394,53 +449,8 @@
         line-height: 1.24;
       }
 
-      /* Continuation pages use the same typography and row rhythm as page 1. */
-      .toc-page--cont .cluster {
-        margin-bottom: 0.09in;
-      }
-
-      .toc-page--cont .cluster-head {
-        font-size: 7.55pt;
-        letter-spacing: 0.11em;
-        margin: 0 0 0.05in 0;
-        padding: 0 0 3pt 0;
-      }
-
-      .toc-page--cont .mish-entry {
-        gap: 0.09in;
-        padding: 2.35pt 0;
-        line-height: 1.28;
-      }
-
-      .toc-page--cont .mish-entry .mish-code {
-        min-width: 0.53in;
-        font-size: 8pt;
-        padding: 1.9pt 7.6pt;
-      }
-
-      .toc-page--cont .mish-entry .mish-title {
-        font-size: 8.35pt;
-        line-height: 1.28;
-      }
-
-      .toc-page--cont .mish-entry.mish-form {
-        padding: 1.55pt 0 1.55pt 0.56in;
-      }
-
-      .toc-page--cont .mish-entry.mish-form .mish-code {
-        min-width: 0.46in;
-        font-size: var(--type-form-code);
-        padding: 1.45pt 6.6pt;
-      }
-
-      .toc-page--cont .mish-entry.mish-form .mish-title {
-        font-size: 8pt;
-        line-height: 1.24;
-      }
-
-      /* Keep continuation-page callouts inside the printable body box. */
-      .toc-page--cont .mish-entry.callout {
-        margin-left: 0;
+      .mish-entry.mish-form .mish-meta {
+        font-style: normal;
       }
 
       /* Footer — aligned to safety-manual-letterhead */

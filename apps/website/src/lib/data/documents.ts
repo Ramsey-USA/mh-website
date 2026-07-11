@@ -27,14 +27,14 @@ const SAFETY_PROGRAM_LAST_SECTION = String(
   Math.max(SAFETY_PROGRAM_TOTAL_SECTIONS - 1, 0),
 ).padStart(2, "0");
 const SAFETY_PROGRAM_REVISION_YEAR = Number(mhcBrand.revisionYear) || 2026;
-const SAFETY_PROGRAM_REVISION_NUMBER = mhcBrand.revisionNumber || "3";
-const SAFETY_PROGRAM_REVISION_DATE = mhcBrand.revisionDate || "04/07/2026";
+const SAFETY_PROGRAM_REVISION_NUMBER = mhcBrand.revisionNumber || "3.0";
+const SAFETY_PROGRAM_REVISION_DATE = mhcBrand.revisionDate || "7/1/2026";
 const EMPLOYEE_HANDBOOK_TITLE = "Employee Handbook";
 const EMPLOYEE_HANDBOOK_SUBTITLE =
   "MH Construction Employee Policies and Procedures";
 const EMPLOYEE_HANDBOOK_REVISION_YEAR = 2026;
-const EMPLOYEE_HANDBOOK_REVISION_NUMBER = "1.0";
-const EMPLOYEE_HANDBOOK_REVISION_DATE = "05/01/2026";
+const EMPLOYEE_HANDBOOK_REVISION_NUMBER = "3.0";
+const EMPLOYEE_HANDBOOK_REVISION_DATE = "7/1/2026";
 
 export type SectionCategory =
   | "Personnel & Policy"
@@ -72,7 +72,7 @@ export interface DocumentEntry {
   revisionYear: number;
   /** Revision number string, e.g. "2" */
   revisionNumber?: string;
-  /** Revision effective date, e.g. "04/07/2026" */
+  /** Revision effective date, e.g. "7/1/2026" */
   revisionDate?: string;
   totalSections?: number;
   totalPages?: number;

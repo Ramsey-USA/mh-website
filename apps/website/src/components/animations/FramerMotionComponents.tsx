@@ -66,22 +66,46 @@ export function FadeInWhenVisible({
   const [observerReady, setObserverReady] = useState(false);
 
   useEffect(() => {
-    setObserverReady(true);
+    let cancelled = false;
+    let timeoutId: ReturnType<typeof globalThis.setTimeout> | null = null;
+    let initialRafId: number | null = null;
+    let checkRafId: number | null = null;
+
+    if (!cancelled) {
+      setObserverReady(true);
+    }
     const el = ref.current;
     if (!el) return;
     const check = () => {
-      requestAnimationFrame(() => {
-        if (!ref.current) return;
+      checkRafId = requestAnimationFrame(() => {
+        if (cancelled || !ref.current) return;
         const rect = ref.current.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
           setForceShow(true);
         }
       });
     };
-    requestAnimationFrame(() => {
+    initialRafId = requestAnimationFrame(() => {
+      if (cancelled) return;
       check();
-      setTimeout(check, TIMING.PERFORMANCE.VISIBILITY_CHECK);
+      timeoutId = globalThis.setTimeout(
+        check,
+        TIMING.PERFORMANCE.VISIBILITY_CHECK,
+      );
     });
+
+    return () => {
+      cancelled = true;
+      if (initialRafId !== null) {
+        cancelAnimationFrame(initialRafId);
+      }
+      if (checkRafId !== null) {
+        cancelAnimationFrame(checkRafId);
+      }
+      if (timeoutId !== null) {
+        globalThis.clearTimeout(timeoutId);
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

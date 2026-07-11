@@ -62,10 +62,9 @@ const SITE_URL = "https://www.mhc-gc.com";
 const PDF_METADATA_AUTHOR = "Matt Ramsey, Safety Officer";
 const PDF_METADATA_CREATOR = "MH Construction Document Pipeline";
 const PDF_METADATA_SUBJECT = "Accident · Injury · Safety · Health Program";
-const PDF_FONT_STACK_BODY =
-  '"mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif';
+const PDF_FONT_STACK_BODY = '"mendl-sans-dusk", "Mendl Sans Dusk", sans-serif';
 const PDF_FONT_STACK_HEADING =
-  '"mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif';
+  '"mendl-sans-dusk", "Mendl Sans Dusk", sans-serif';
 const MATERIAL_ICONS_FONT_FILE = "MaterialIcons-Regular.woff2";
 const MENDL_DUSK_FONT_FILES = Object.freeze({
   regular: [
@@ -326,6 +325,10 @@ const CANONICAL_TOC_TEMPLATE_PATH = join(
   CANONICAL_DOCS_DIR,
   "manuals/safety-manual-toc.html",
 );
+const CANONICAL_HANDBOOK_TOC_TEMPLATE_PATH = join(
+  CANONICAL_DOCS_DIR,
+  "manuals/employee-handbook-toc.html",
+);
 const SAFETY_LETTERHEAD_TEMPLATE_PATH = join(
   DOCS_DIR,
   "manuals/safety-manual-letterhead.html",
@@ -359,8 +362,8 @@ const getArg = (flag) => {
 const template = getArg("--template") || "all";
 const sectionNo = getArg("--section");
 const formArg = getArg("--form"); // e.g. "form-02-c" or "FORM 02-C"
-const revDateArg = getArg("--rev-date"); // e.g. "04/07/2026"
-const revNumArg = getArg("--rev-number"); // e.g. "2"
+const revDateArg = getArg("--rev-date"); // e.g. "7/1/2026"
+const revNumArg = getArg("--rev-number"); // e.g. "3.0"
 const manualArg = (getArg("--manual") || "safety").trim().toLowerCase();
 const isEmployeeHandbook =
   manualArg === "employee" ||
@@ -398,8 +401,8 @@ try {
 }
 
 // ── Runtime revision enforcement (master-operator consistency requirement) ───
-const ENFORCED_REVISION_DATE = "04/07/2026";
-const ENFORCED_REVISION_NUMBER = "3";
+const ENFORCED_REVISION_DATE = "7/1/2026";
+const ENFORCED_REVISION_NUMBER = "3.0";
 BRAND.revisionDate = ENFORCED_REVISION_DATE;
 BRAND.revisionNumber = ENFORCED_REVISION_NUMBER;
 
@@ -1077,22 +1080,72 @@ const FALLBACK_MISH_TITLES = new Map([
   [50, "Return-to-Work Program"],
 ]);
 
+const FALLBACK_HANDBOOK_TITLES = new Map([
+  [1, "Introduction"],
+  [2, "Company Policies"],
+  [3, "Employment Basics"],
+  [4, "Compensation"],
+  [5, "Employee Benefits"],
+  [6, "Miscellaneous"],
+]);
+
+const HANDBOOK_FORM_DISPLAY_NUMBER_OVERRIDES = new Map([
+  ["01", "02"],
+  ["02", "01"],
+  ["03", "05"],
+  ["05", "03"],
+]);
+
+function remapHandbookFormIdForDisplay(rawId) {
+  const normalized = String(rawId || "").trim();
+  if (/^HANDBOOK-LETTERHEAD$/i.test(normalized)) {
+    return "HANDBOOK-FORM-09";
+  }
+
+  const match = /^HANDBOOK-FORM-(\d{2})$/i.exec(normalized);
+  if (!match) return normalized;
+
+  const originalNum = match[1];
+  const mappedNum =
+    HANDBOOK_FORM_DISPLAY_NUMBER_OVERRIDES.get(originalNum) || originalNum;
+  return `HANDBOOK-FORM-${mappedNum}`;
+}
+
+function getDisplayFormId(rawId) {
+  return remapHandbookFormIdForDisplay(rawId);
+}
+
 /**
  * Render one <li> entry for a single MISH section.
  * Applies the .callout modifier for items in TOC_CALLOUT_ITEMS.
  * Includes MISH structural reference for binder navigation.
  */
-function buildTocEntryHtml(num, title) {
-  const code = `MISH ${String(num).padStart(2, "0")}`;
+function buildTocEntryHtml(num, title, options = {}) {
+  const codePrefix = options.codePrefix || "MISH";
+  const calloutSet = options.calloutSet ?? TOC_CALLOUT_ITEMS;
+  const code = `${codePrefix} ${String(num).padStart(2, "0")}`;
+  const sectionMetaMap = options.sectionMetaMap || new Map();
+  const sectionMeta = sectionMetaMap.get(Number(num)) || {};
+  const tabLabel =
+    sectionMeta.tabLabel ||
+    (Number.isFinite(Number(num)) && Number(num) > 0
+      ? `TAB ${sectionToTab(num)}`
+      : "TAB —");
+  const pageLabel =
+    sectionMeta.pageLabel ||
+    (sectionMeta.pageCount > 0
+      ? `${sectionMeta.pageCount} page${sectionMeta.pageCount === 1 ? "" : "s"}`
+      : "Pages: TBD");
+  const revisionLabel = `REV ${sectionMeta.revision || ENFORCED_REVISION_NUMBER}`;
   const mishRef = sectionToMishRef(num);
   const displayTitle = normalizeTocTitle(title);
-  const isCallout = TOC_CALLOUT_ITEMS.has(num);
+  const isCallout = calloutSet instanceof Set && calloutSet.has(num);
   const cls = isCallout ? "mish-entry callout" : "mish-entry";
   return (
     `<li class="${cls}">` +
     `<span class="mish-code">${escapeHtml(code)}</span>` +
     `<span class="mish-wbs">MISH ${escapeHtml(mishRef)}</span>` +
-    `<span class="mish-title">${escapeHtml(displayTitle)}</span>` +
+    `<span class="mish-title"><span class="mish-title-main">${escapeHtml(displayTitle)}</span><span class="mish-meta">${escapeHtml(tabLabel)} \u00b7 ${escapeHtml(pageLabel)} \u00b7 ${escapeHtml(revisionLabel)}</span></span>` +
     `</li>`
   );
 }
@@ -1101,8 +1154,9 @@ function buildTocEntryHtml(num, title) {
  * Build a TOC entry for a form. Forms are listed by ID and title.
  * Forms are typically in the appendix rather than the main section numbering.
  */
-function buildTocFormEntryHtml(formId, formTitle) {
+function buildTocFormEntryHtml(formId, formTitle, options = {}) {
   const displayTitle = normalizeTocTitle(formTitle);
+  const formRevision = options.formRevision || ENFORCED_REVISION_NUMBER;
   // Convert form ID to FORM XX numbering (e.g., MISH 01 -> FORM 01)
   const formNum = String(formId || "").match(/\d+/)?.[0] || "";
   const formCode = formNum
@@ -1112,13 +1166,93 @@ function buildTocFormEntryHtml(formId, formTitle) {
     `<li class="mish-entry mish-form">` +
     `<span class="mish-code">${escapeHtml(formCode)}</span>` +
     `<span class="mish-wbs"></span>` +
-    `<span class="mish-title">${escapeHtml(displayTitle)}</span>` +
+    `<span class="mish-title"><span class="mish-title-main">${escapeHtml(displayTitle)}</span><span class="mish-meta">${escapeHtml(`REV ${formRevision}`)}</span></span>` +
     `</li>`
   );
 }
 
+function parsePageCountFromValue(value) {
+  if (typeof value === "number" && Number.isFinite(value) && value > 0) {
+    return Math.trunc(value);
+  }
+
+  const text = String(value || "").trim();
+  if (!text) return 0;
+
+  const rangeMatch = text.match(/^(\d+)\s*-\s*(\d+)$/);
+  if (rangeMatch) {
+    const start = Number(rangeMatch[1]);
+    const end = Number(rangeMatch[2]);
+    if (Number.isFinite(start) && Number.isFinite(end) && end >= start) {
+      return end - start + 1;
+    }
+  }
+
+  const numericMatch = text.match(/^(\d+)$/);
+  if (numericMatch) {
+    const numeric = Number(numericMatch[1]);
+    return Number.isFinite(numeric) && numeric > 0 ? numeric : 0;
+  }
+
+  return 0;
+}
+
+async function getPdfPageCount(pdfPath) {
+  if (!existsSync(pdfPath)) return 0;
+  try {
+    const pdfBytes = await readFile(pdfPath);
+    const pdfDoc = await PDFDocument.load(pdfBytes);
+    return pdfDoc.getPageCount();
+  } catch {
+    return 0;
+  }
+}
+
+async function buildSectionMetaMap(sections = []) {
+  const map = new Map();
+
+  for (const section of sections) {
+    const sectionNum = Number(section?.number);
+    if (!Number.isFinite(sectionNum) || sectionNum <= 0) continue;
+
+    const sectionNumStr = String(section?.numberStr || sectionNum).padStart(
+      2,
+      "0",
+    );
+    const sectionSlug = String(section?.slug || "")
+      .trim()
+      .toLowerCase()
+      .replaceAll(/[^a-z0-9]+/g, "-")
+      .replaceAll(/^-+|-+$/g, "");
+
+    let pageCount = parsePageCountFromValue(section?.pages);
+    if (pageCount <= 0 && sectionSlug) {
+      const sectionPdfPath = join(
+        OUTPUT_DIR,
+        "sections",
+        `${sectionNumStr}-${sectionSlug}.pdf`,
+      );
+      pageCount = await getPdfPageCount(sectionPdfPath);
+    }
+
+    const pageLabel =
+      pageCount > 0
+        ? `${pageCount} page${pageCount === 1 ? "" : "s"}`
+        : "Pages: TBD";
+
+    map.set(sectionNum, {
+      tabLabel: `TAB ${sectionToTab(sectionNum)}`,
+      pageCount,
+      pageLabel,
+      revision: ENFORCED_REVISION_NUMBER,
+    });
+  }
+
+  return map;
+}
+
 function buildTocFormCode(form) {
-  const rawId = String(form?.id || "").trim();
+  const rawId = getDisplayFormId(form?.id || "");
   if (!rawId) return "FORM";
 
   const mishMatch = /^MISH\s*-?\s*(\d{1,2})$/i.exec(rawId);
@@ -1136,7 +1270,16 @@ function buildTocFormCode(form) {
 
 function compareFormsForToc(a, b) {
   const rank = (form) => {
-    const id = String(form?.id || "").trim();
+    const id = getDisplayFormId(form?.id || "");
+    const handbookMatch = /^HANDBOOK-FORM-(\d{1,2})$/i.exec(id);
+    if (handbookMatch) {
+      return {
+        bucket: 0,
+        numeric: Number(handbookMatch[1]),
+        text: id,
+      };
+    }
+
     const mishMatch = /^MISH\s*-?\s*(\d{1,2})$/i.exec(id);
     if (mishMatch)
       return { bucket: 0, numeric: Number(mishMatch[1]), text: id };
@@ -1248,19 +1391,27 @@ function normalizeTocTitle(value) {
  * Render one <div class="cluster"> block.
  * Empty clusters (no live sections) are omitted.
  */
-function buildClusterHtml(clusterName, nums, titleMap, formsMap = null) {
+function buildClusterHtml(
+  clusterName,
+  nums,
+  titleMap,
+  formsMap = null,
+  options = {},
+) {
   if (nums.length === 0) return "";
   const rows = [];
 
   for (const n of nums) {
     const title = titleMap.get(n) || `Section ${n}`;
-    rows.push(buildTocEntryHtml(n, title));
+    rows.push(buildTocEntryHtml(n, title, options));
 
     // Add any forms corresponding to this section
     if (formsMap && formsMap.has(n)) {
       const sectionForms = formsMap.get(n);
       for (const form of sectionForms) {
-        rows.push(buildTocFormEntryHtml(buildTocFormCode(form), form.title));
+        rows.push(
+          buildTocFormEntryHtml(buildTocFormCode(form), form.title, options),
+        );
       }
     }
   }
@@ -1287,7 +1438,12 @@ function buildClusterHtml(clusterName, nums, titleMap, formsMap = null) {
  * @param {Set<number>}  presentNums       Section numbers present in manifest
  * @returns {string} HTML injected into {{TOC_CLUSTERS_HTML}}
  */
-function buildTocClustersHtml(titleMap, presentNums, formsMap = null) {
+function buildTocClustersHtml(
+  titleMap,
+  presentNums,
+  formsMap = null,
+  options = {},
+) {
   const parts = [];
   const assignedNums = new Set();
 
@@ -1299,7 +1455,13 @@ function buildTocClustersHtml(titleMap, presentNums, formsMap = null) {
         assignedNums.add(n);
       }
     }
-    const html = buildClusterHtml(cluster.name, nums, titleMap, formsMap);
+    const html = buildClusterHtml(
+      cluster.name,
+      nums,
+      titleMap,
+      formsMap,
+      options,
+    );
     if (html) parts.push(html);
   }
 
@@ -1312,6 +1474,93 @@ function buildTocClustersHtml(titleMap, presentNums, formsMap = null) {
     overflow,
     titleMap,
     formsMap,
+    options,
+  );
+  if (overflowHtml) parts.push(overflowHtml);
+
+  return parts.join("\n");
+}
+
+function buildClusterAlignedHtml(
+  clusterName,
+  nums,
+  titleMap,
+  formsMap = null,
+  options = {},
+) {
+  if (nums.length === 0) return "";
+
+  const rows = nums
+    .map((n) => {
+      const title = titleMap.get(n) || `Section ${n}`;
+      const chapterHtml = buildTocEntryHtml(n, title, options);
+      const sectionForms = formsMap?.get(n) || [];
+      const formsHtml =
+        sectionForms.length > 0
+          ? `<ul class="mish-list">${sectionForms
+              .map((form) =>
+                buildTocFormEntryHtml(
+                  buildTocFormCode(form),
+                  form.title,
+                  options,
+                ),
+              )
+              .join("")}</ul>`
+          : `<div class="toc-row-empty">&#8212;</div>`;
+
+      return (
+        `<div class="toc-row">` +
+        `<div class="toc-row-left"><ul class="mish-list">${chapterHtml}</ul></div>` +
+        `<div class="toc-row-right">${formsHtml}</div>` +
+        `</div>`
+      );
+    })
+    .join("");
+
+  return (
+    `<div class="cluster">` +
+    `<h2 class="cluster-head">${escapeHtml(clusterName)}</h2>` +
+    `<div class="cluster-rows">${rows}</div>` +
+    `</div>`
+  );
+}
+
+function buildTocAlignedClustersHtml(
+  titleMap,
+  presentNums,
+  formsMap = null,
+  options = {},
+) {
+  const parts = [];
+  const assignedNums = new Set();
+
+  for (const cluster of TOC_CLUSTERS) {
+    const nums = [];
+    for (let n = cluster.min; n <= cluster.max; n++) {
+      if (presentNums.has(n)) {
+        nums.push(n);
+        assignedNums.add(n);
+      }
+    }
+    const html = buildClusterAlignedHtml(
+      cluster.name,
+      nums,
+      titleMap,
+      formsMap,
+      options,
+    );
+    if (html) parts.push(html);
+  }
+
+  const overflow = [...presentNums]
+    .filter((n) => !assignedNums.has(n))
+    .sort((a, b) => a - b);
+  const overflowHtml = buildClusterAlignedHtml(
+    "Additional Programs",
+    overflow,
+    titleMap,
+    formsMap,
+    options,
   );
   if (overflowHtml) parts.push(overflowHtml);
 
@@ -1376,19 +1625,22 @@ function splitTocNumsByFlow(presentNums, formsMap = null) {
   return { page1, page2, page3, extraPages };
 }
 
-function buildTocContinuationPageHtml(pageNumber, clustersHtml) {
+function buildTocContinuationPageHtml(
+  pageNumber,
+  clustersHtml,
+  continuationLabel = "MISH Program Table of Contents",
+) {
   return [
     `<div class="toc-page toc-page--cont">`,
     `  <div class="toc-ribbon" aria-hidden="true"></div>`,
     `  <div class="toc-content">`,
     `    <header class="toc-header toc-header--cont">`,
-    `      <p class="toc-cont-mark">{{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>MISH Program Table of Contents (continued)</p>`,
+    `      <p class="toc-cont-mark">{{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>${escapeHtml(continuationLabel)} (continued)</p>`,
     `      <p class="toc-cont-page">Page ${pageNumber}</p>`,
     `    </header>`,
     `    <main class="toc-body">${clustersHtml}</main>`,
     `    <footer class="footer">`,
     `      <div class="contact">`,
-    `        <div class="label">Company Contact</div>`,
     `        <div class="name">{{BRAND_COMPANY_NAME}}</div>`,
     `        {{BRAND_ADDRESS_STREET}}<br />`,
     `        {{BRAND_ADDRESS_CITYSTATEZIP}}<br />`,
@@ -1396,7 +1648,6 @@ function buildTocContinuationPageHtml(pageNumber, clustersHtml) {
     `        <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>`,
     `      </div>`,
     `      <div class="trust">`,
-    `        <div class="label">Accreditation and Trust</div>`,
     `        <div class="logos">`,
     `          <img class="logo-agc" src="{{BRAND_AGC_HORIZONTAL}}" alt="AGC membership" />`,
     `          <img class="logo-bbb" src="{{BRAND_BBB_SEAL}}" alt="BBB accredited business" />`,
@@ -3403,7 +3654,7 @@ async function generateFillableForm(formEntry) {
     .join("\n    ");
 
   let html = rawTemplate
-    .replaceAll("{{FORM_ID}}", escapeHtml(formEntry.id || ""))
+    .replaceAll("{{FORM_ID}}", escapeHtml(getDisplayFormId(formEntry.id || "")))
     .replaceAll("{{FORM_TITLE}}", escapeHtml(formEntry.title || ""))
     .replace("{{FORM_BODY}}", body);
   html = applyBrandTokens(html)
@@ -3441,7 +3692,12 @@ async function loadFormsManifest() {
     throw new Error(`forms-manifest.json not found at ${manifestPath}`);
   }
   const manifest = JSON.parse(await readFile(manifestPath, "utf-8"));
-  return Array.isArray(manifest.forms) ? manifest.forms : [];
+  const forms = Array.isArray(manifest.forms) ? manifest.forms : [];
+  return forms.map((entry) => ({
+    ...entry,
+    revision: ENFORCED_REVISION_NUMBER,
+    effectiveDate: ENFORCED_REVISION_DATE,
+  }));
 }
 
 function findFormEntry(forms, key) {
@@ -4703,28 +4959,41 @@ async function generateSpine() {
  * Output: documents/generated-pdfs/safety-manual-toc.pdf
  */
 async function generateToc() {
-  if (isEmployeeHandbook) {
-    console.log(
-      "\n📋 Skipping Table of Contents (handbook uses simple section listing)",
-    );
-    return;
-  }
-
-  console.log("\n📋 Generating MISH Table of Contents…");
+  const tocLabel = isEmployeeHandbook
+    ? "Employee Handbook Table of Contents"
+    : "MISH Table of Contents";
+  console.log(`\n📋 Generating ${tocLabel}…`);
   await ensureDir(OUTPUT_DIR);
   await ensureDir(CANONICAL_OUTPUT_DIR);
 
+  const tocTemplatePath = isEmployeeHandbook
+    ? CANONICAL_HANDBOOK_TOC_TEMPLATE_PATH
+    : CANONICAL_TOC_TEMPLATE_PATH;
+  const tocOutputFileName = isEmployeeHandbook
+    ? "employee-handbook-toc.pdf"
+    : "safety-manual-toc.pdf";
+  const continuationLabel = isEmployeeHandbook
+    ? "Employee Handbook Table of Contents"
+    : "MISH Program Table of Contents";
+  const entryOptions = isEmployeeHandbook
+    ? { codePrefix: "CH", calloutSet: new Set() }
+    : { codePrefix: "MISH", calloutSet: TOC_CALLOUT_ITEMS };
+
   // ── 1. Resolve section titles ───────────────────────────────────────────
-  let titleMap = new Map(FALLBACK_MISH_TITLES);
-  let presentNums = new Set(FALLBACK_MISH_TITLES.keys());
+  let titleMap = new Map(
+    isEmployeeHandbook ? FALLBACK_HANDBOOK_TITLES : FALLBACK_MISH_TITLES,
+  );
+  let presentNums = new Set(titleMap.keys());
+  let manifestSections = [];
 
   if (existsSync(MANIFEST)) {
     try {
       const { sections } = JSON.parse(await readFile(MANIFEST, "utf-8"));
+      manifestSections = Array.isArray(sections) ? sections : [];
       // Rebuild from manifest — skip Section 00 (legacy TOC section)
       const liveMap = new Map();
       const liveNums = new Set();
-      for (const s of sections) {
+      for (const s of manifestSections) {
         const n = Number(s.number);
         if (n > 0) {
           liveMap.set(n, s.title || `Section ${n}`);
@@ -4737,52 +5006,113 @@ async function generateToc() {
         console.log(`  ℹ  Using manifest: ${liveNums.size} section(s) found`);
       }
     } catch {
-      console.warn(
-        "  ⚠  safety-manual.json unreadable — using fallback titles",
-      );
+      const manifestLabel = isEmployeeHandbook
+        ? "employee-handbook.json"
+        : "safety-manual.json";
+      console.warn(`  ⚠  ${manifestLabel} unreadable — using fallback titles`);
     }
   } else {
-    console.log("  ℹ  safety-manual.json not found — using fallback titles");
+    const manifestLabel = isEmployeeHandbook
+      ? "employee-handbook.json"
+      : "safety-manual.json";
+    console.log(`  ℹ  ${manifestLabel} not found — using fallback titles`);
   }
+
+  const sectionMetaMap = await buildSectionMetaMap(manifestSections);
+  const tocRenderOptions = {
+    ...entryOptions,
+    sectionMetaMap,
+    formRevision: ENFORCED_REVISION_NUMBER,
+  };
 
   // ── 2. Build cluster HTML and inject into template ──────────────────────
   // Load forms and build formsMap keyed by section number using each form's
   // manualSection linkage so associated forms always render under the
   // corresponding MISH section in print order.
   let formsMap = new Map();
-  try {
-    const forms = await loadFormsManifest();
-    const sectionLinkedForms = forms.filter(
-      (f) => resolveMishSectionTargets(f.manualSection).length > 0,
-    );
-    formsMap = buildTocSectionFormsMap(sectionLinkedForms);
+  if (isEmployeeHandbook) {
+    let handbookFormsCount = 0;
+    for (const section of manifestSections) {
+      const sectionNum = Number(section?.number);
+      const sectionForms = Array.isArray(section?.forms) ? section.forms : [];
+      if (
+        !Number.isFinite(sectionNum) ||
+        sectionNum <= 0 ||
+        !sectionForms.length
+      )
+        continue;
+      const mappedForms = sectionForms.map((form) => ({
+        id:
+          form?.id || form?.slug || `CH-${String(sectionNum).padStart(2, "0")}`,
+        title: form?.title || "Associated handbook form",
+      }));
+      mappedForms.sort(compareFormsForToc);
+      formsMap.set(sectionNum, mappedForms);
+      handbookFormsCount += sectionForms.length;
+    }
 
-    console.log(
-      `  ℹ  Added ${sectionLinkedForms.length} associated form(s) across ${formsMap.size} MISH section(s)`,
-    );
-  } catch (err) {
-    console.warn(`  ⚠  Could not load forms manifest: ${err.message}`);
+    if (handbookFormsCount > 0) {
+      console.log(
+        `  ℹ  Added ${handbookFormsCount} associated form(s) across ${formsMap.size} handbook chapter(s)`,
+      );
+    }
+  } else {
+    try {
+      const forms = await loadFormsManifest();
+      const sectionLinkedForms = forms.filter(
+        (f) => resolveMishSectionTargets(f.manualSection).length > 0,
+      );
+      formsMap = buildTocSectionFormsMap(sectionLinkedForms);
+
+      console.log(
+        `  ℹ  Added ${sectionLinkedForms.length} associated form(s) across ${formsMap.size} MISH section(s)`,
+      );
+    } catch (err) {
+      console.warn(`  ⚠  Could not load forms manifest: ${err.message}`);
+    }
   }
+
+  const buildPageClustersHtml = (nums) => {
+    if (!isEmployeeHandbook) {
+      return buildTocAlignedClustersHtml(
+        titleMap,
+        nums,
+        formsMap,
+        tocRenderOptions,
+      );
+    }
+
+    const chapterNums = [...nums].sort((a, b) => a - b);
+    return buildClusterAlignedHtml(
+      "Employee Handbook Chapters",
+      chapterNums,
+      titleMap,
+      formsMap,
+      tocRenderOptions,
+    );
+  };
 
   const { page1, page2, page3, extraPages } = splitTocNumsByFlow(
     presentNums,
     formsMap,
   );
 
-  const tocPage1Html = buildTocClustersHtml(titleMap, page1, formsMap);
-  const tocPage2Html = buildTocClustersHtml(titleMap, page2, formsMap);
-  const tocPage3Html = buildTocClustersHtml(titleMap, page3, formsMap);
+  const tocPage1Html = buildPageClustersHtml(page1);
+  const tocPage2Html = buildPageClustersHtml(page2);
+  const tocPage3Html = buildPageClustersHtml(page3);
+  const hasPage2 = page2.size > 0;
   const hasPage3 = page3.size > 0;
   const tocExtraPagesHtml = extraPages
     .map((pageNums, index) =>
       buildTocContinuationPageHtml(
         4 + index,
-        buildTocClustersHtml(titleMap, pageNums, formsMap),
+        buildPageClustersHtml(pageNums),
+        continuationLabel,
       ),
     )
     .join("\n");
 
-  const raw = await readFile(CANONICAL_TOC_TEMPLATE_PATH, "utf-8");
+  const raw = await readFile(tocTemplatePath, "utf-8");
   // Use replaceAll with function form: the template has the placeholder in both
   // the developer comment and the <main> body — .replace() would only hit the
   // comment. Function form also prevents $ in the replacement being interpreted
@@ -4831,6 +5161,20 @@ async function generateToc() {
   }
 
   // Conditionally show/hide page 3 based on whether a third section slice exists
+  if (!hasPage2) {
+    const before = html;
+    html = html.replace(
+      /id="toc-page-2"/,
+      'id="toc-page-2" style="display: none"',
+    );
+    if (before !== html) {
+      console.log(`  ✓  Page 2 hidden (no overflow content)`);
+    } else {
+      console.warn(`  ⚠  Failed to hide page 2 (toc-page-2 tag not found)`);
+    }
+  }
+
+  // Conditionally show/hide page 3 based on whether a third section slice exists
   if (hasPage3) {
     const before = html;
     html = html.replace(
@@ -4854,7 +5198,7 @@ async function generateToc() {
   }
 
   // ── 3. Render to PDF ────────────────────────────────────────────────────
-  const pdfPath = join(CANONICAL_OUTPUT_DIR, "safety-manual-toc.pdf");
+  const pdfPath = join(CANONICAL_OUTPUT_DIR, tocOutputFileName);
 
   // Additional debug: verify page 3 is visible in HTML before rendering
   if (html.includes('id="toc-page-3"')) {
@@ -4877,7 +5221,7 @@ async function generateToc() {
     },
     "manuals/_tmp_toc.html",
   );
-  const appPdfPath = join(OUTPUT_DIR, "safety-manual-toc.pdf");
+  const appPdfPath = join(OUTPUT_DIR, tocOutputFileName);
   if (appPdfPath !== pdfPath) {
     await copyFile(pdfPath, appPdfPath);
   }
@@ -4959,7 +5303,46 @@ function validateTocTemplateGuardrails(templateHtml, templatePath) {
       message:
         "Missing canonical TOC footer metrics (bottom 0.62in, grid 1.45fr 1fr)",
     },
+    {
+      regex:
+        /\.toc-row\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1fr\)\s+minmax\(0,\s*1fr\)[\s\S]*?gap:\s*0\.16in/i,
+      message:
+        "Missing canonical TOC row alignment grid (two equal columns, 0.16in gap)",
+    },
+    {
+      regex: /\.toc-row\s*\+\s*\.toc-row\s*\{[\s\S]*?padding-top:\s*0\.1in/i,
+      message:
+        "Missing canonical TOC row spacing (0.1in top padding between rows)",
+    },
   ]);
+
+  const forbiddenPatterns = [
+    {
+      regex:
+        /\.toc-page--cont\s+\.mish-entry(?:\s|\.|\{)|\.toc-page--cont\s+\.cluster-head(?:\s|\.|\{)/i,
+      message:
+        "Continuation-page specific entry spacing overrides are not allowed; continuation pages must inherit page-1 spacing.",
+    },
+    {
+      regex: /<div\s+class="label">\s*Company Contact\s*<\/div>/i,
+      message: "TOC footer must not render legacy Company Contact label text.",
+    },
+    {
+      regex: /<div\s+class="label">\s*Accreditation and Trust\s*<\/div>/i,
+      message:
+        "TOC footer must not render legacy Accreditation and Trust label text.",
+    },
+  ];
+
+  const violations = forbiddenPatterns
+    .filter(({ regex }) => regex.test(templateHtml))
+    .map(({ message }) => `  - ${message}`);
+
+  if (violations.length > 0) {
+    throw new Error(
+      `Guardrail validation failed for TOC template (${templatePath}):\n${violations.join("\n")}`,
+    );
+  }
 }
 
 function normalizeParityBlock(source) {
@@ -5129,13 +5512,7 @@ async function validateManualTemplateTypographyGuardrails() {
     if (!headingDecl) {
       violations.push(`${templatePath}: missing --font-heading declaration`);
     } else {
-      const headingRequired = [
-        "mendl-sans-dusk",
-        "Mendl Sans Dusk",
-        "mendl-sans-dusk",
-        "Mendl Sans Dusk",
-        "Roboto",
-      ];
+      const headingRequired = ["mendl-sans-dusk", "Mendl Sans Dusk"];
       const missing = headingRequired.filter(
         (token) => !headingDecl.includes(token),
       );
@@ -5149,13 +5526,7 @@ async function validateManualTemplateTypographyGuardrails() {
     if (!bodyDecl) {
       violations.push(`${templatePath}: missing --font-body declaration`);
     } else {
-      const bodyRequired = [
-        "mendl-sans-dusk",
-        "Mendl Sans Dusk",
-        "mendl-sans-dusk",
-        "Mendl Sans Dusk",
-        "Roboto",
-      ];
+      const bodyRequired = ["mendl-sans-dusk", "Mendl Sans Dusk"];
       const missing = bodyRequired.filter((token) => !bodyDecl.includes(token));
       if (missing.length > 0) {
         violations.push(
@@ -5412,9 +5783,26 @@ async function validateHandbookCoverTabsFooterGuardrails() {
       },
       {
         regex:
-          /\.tab-sig-lines[\s\S]*?grid-template-columns:\s*1\.5fr\s+0\.85fr/i,
+          /\.tab-sig-row[\s\S]*?grid-template-columns:\s*1fr\s+1fr[\s\S]*?gap:\s*10pt/i,
         message:
-          "Tabs signature lines must preserve standard ratio (long signature, shorter date)",
+          "Tabs signature row must preserve two-signer layout and tuned lane spacing (1fr 1fr, gap 10pt)",
+      },
+      {
+        regex:
+          /\.tab-sig-cell\s*\+\s*\.tab-sig-cell[\s\S]*?padding-left:\s*10pt/i,
+        message:
+          "Tabs signature second lane must preserve divider inset spacing (padding-left 10pt)",
+      },
+      {
+        regex:
+          /\.tab-sig-lines[\s\S]*?grid-template-columns:\s*1\.5fr\s+0\.85fr[\s\S]*?gap:\s*10pt/i,
+        message:
+          "Tabs signature lines must preserve standard ratio and tuned field spacing (1.5fr 0.85fr, gap 10pt)",
+      },
+      {
+        regex: /\.tab-sig-role[\s\S]*?margin-bottom:\s*6pt/i,
+        message:
+          "Tabs signer role block must preserve tuned role-to-line rhythm (margin-bottom 6pt)",
       },
       {
         regex: /aria-label="Approval signature verification"/i,
@@ -5428,6 +5816,16 @@ async function validateHandbookCoverTabsFooterGuardrails() {
         regex: /<div class="tab-sig-role">President\s*&amp;\s*Owner<\/div>/i,
         message:
           "Tabs signature block must include the President & Owner signer role",
+      },
+      {
+        regex: /<div class="tab-sig-name">Kimberly Thamert<\/div>/i,
+        message:
+          "Tabs signature block must include Kimberly Thamert for handbook approvals",
+      },
+      {
+        regex: /<div class="tab-sig-role">HR Representative<\/div>/i,
+        message:
+          "Tabs signature block must include the HR Representative signer role",
       },
     ],
   );
@@ -5648,9 +6046,27 @@ async function validateSafetyTabsVisualStandardGuardrails() {
       },
       {
         regex:
+          /\.footer[\s\S]*?border-top:\s*1\.2pt\s+solid\s+var\(--brand-primary\)[\s\S]*?grid-template-columns:\s*1\.45fr\s+1fr/i,
+        message:
+          "Safety tabs footer must use canonical letterhead geometry and top border",
+      },
+      {
+        regex:
           /\.footer[\s\S]*?position:\s*absolute[\s\S]*?left:\s*0\.92in[\s\S]*?right:\s*0\.9in[\s\S]*?bottom:\s*0\.62in/i,
         message:
           "Safety tabs footer must stay inset from ribbon (absolute at left 0.92in, right 0.9in, bottom 0.62in)",
+      },
+      {
+        regex: /class="chambers"[\s\S]*?\{\{BRAND_CHAMBER_PASCO\}\}/i,
+        message: "Safety tabs footer must include Pasco chamber logo row",
+      },
+      {
+        regex: /\{\{BRAND_CHAMBER_KENNEWICK\}\}/i,
+        message: "Safety tabs footer must include Kennewick chamber logo",
+      },
+      {
+        regex: /\{\{BRAND_CHAMBER_RICHLAND\}\}/i,
+        message: "Safety tabs footer must include Richland chamber logo",
       },
       {
         regex:
@@ -5660,9 +6076,9 @@ async function validateSafetyTabsVisualStandardGuardrails() {
       },
       {
         regex:
-          /\.tab-section-title[\s\S]*?margin-bottom:\s*0\.16in[\s\S]*?width:\s*100%/i,
+          /\.tab-section-title[\s\S]*?text-transform:\s*uppercase[\s\S]*?margin-bottom:\s*0\.16in[\s\S]*?width:\s*100%/i,
         message:
-          "Safety tabs title block must reserve canonical spacing (margin-bottom 0.16in, width 100%)",
+          "Safety tabs title block must be uppercase and keep canonical spacing (margin-bottom 0.16in, width 100%)",
       },
       {
         regex:
@@ -5672,9 +6088,26 @@ async function validateSafetyTabsVisualStandardGuardrails() {
       },
       {
         regex:
-          /\.tab-sig-lines[\s\S]*?grid-template-columns:\s*1\.5fr\s+0\.85fr/i,
+          /\.tab-sig-row[\s\S]*?grid-template-columns:\s*1fr\s+1fr[\s\S]*?gap:\s*10pt/i,
         message:
-          "Safety tabs signature lines must preserve standard ratio (long signature, shorter date)",
+          "Safety tabs signature row must preserve two-signer layout and tuned lane spacing (1fr 1fr, gap 10pt)",
+      },
+      {
+        regex:
+          /\.tab-sig-cell\s*\+\s*\.tab-sig-cell[\s\S]*?padding-left:\s*10pt/i,
+        message:
+          "Safety tabs signature second lane must preserve divider inset spacing (padding-left 10pt)",
+      },
+      {
+        regex:
+          /\.tab-sig-lines[\s\S]*?grid-template-columns:\s*1\.5fr\s+0\.85fr[\s\S]*?gap:\s*10pt/i,
+        message:
+          "Safety tabs signature lines must preserve standard ratio and tuned field spacing (1.5fr 0.85fr, gap 10pt)",
+      },
+      {
+        regex: /\.tab-sig-role[\s\S]*?margin-bottom:\s*6pt/i,
+        message:
+          "Safety tabs signer role block must preserve tuned role-to-line rhythm (margin-bottom 6pt)",
       },
       {
         regex: /aria-label="Approval signature verification"/i,
@@ -5689,6 +6122,17 @@ async function validateSafetyTabsVisualStandardGuardrails() {
         regex: /<div class="tab-sig-role">President\s*&amp;\s*Owner<\/div>/i,
         message:
           "Safety tabs signature block must include the President & Owner signer role",
+      },
+      {
+        regex: /<div class="tab-sig-name">Matt Ramsey<\/div>/i,
+        message:
+          "Safety tabs signature block must include Matt Ramsey for AGC/Safety sign-off",
+      },
+      {
+        regex:
+          /<div class="tab-sig-role">AGC Representative\s*\|\s*Safety Officer<\/div>/i,
+        message:
+          "Safety tabs signature block must include the AGC Representative | Safety Officer role",
       },
       {
         regex: /\bMISH\b/i,
@@ -5708,12 +6152,22 @@ async function validateSafetyTabsVisualStandardGuardrails() {
   }
 
   if (
-    /Matt Ramsey|QC Verification|Quality control signature verification|tab-sig-date-row|tab-sig-date-label|tab-sig-header/i.test(
+    /QC Verification|Quality control signature verification|tab-sig-date-row|tab-sig-date-label|tab-sig-header/i.test(
       tabsHtml,
     )
   ) {
     throw new Error(
       "Guardrail validation failed: safety tabs contain legacy signature/QC patterns. Use the standardized single-signer approval block.",
+    );
+  }
+
+  if (
+    /Employee Handbook\s*\d+\.\d+|Employee Handbook\s*00|Employee Handbook\s*0\.0|<span class="tab-header-wbs">\s*Employee Handbook|<span class="tab-header-tier">\s*Chapter\s+\d+/i.test(
+      tabsHtml,
+    )
+  ) {
+    throw new Error(
+      "Guardrail validation failed: safety-manual tabs contain employee-handbook chapter language. Tabs must remain MISH section-driven.",
     );
   }
 }
@@ -5756,9 +6210,27 @@ async function validateSpineTemplateGuardrails() {
         "Spine must enforce no trailing page break (page-break-after/break-after set to avoid)",
     },
     {
-      regex: /\.spine-logo-wrap\s*\{[\s\S]*?gap:\s*0\.1in/i,
+      regex:
+        /\.spine::before\s*\{[\s\S]*?border:\s*1\.2pt\s+solid\s+var\(--brand-primary\)/i,
       message:
-        "Spine logo block must keep expanded logo-to-year spacing (gap 0.1in)",
+        "Spine outer frame must use canonical primary token (var(--brand-primary))",
+    },
+    {
+      regex:
+        /\.spine-ribbon\s*\{[\s\S]*?var\(--brand-primary\)\s*0%[\s\S]*?var\(--brand-primary\)\s*68%[\s\S]*?var\(--brand-secondary\)\s*100%/i,
+      message:
+        "Spine ribbon gradient must use canonical primary-to-secondary stops",
+    },
+    {
+      regex: /\.spine-logo-wrap\s*\{[\s\S]*?gap:\s*0\b/i,
+      message:
+        "Spine logo wrapper must keep gap: 0 and delegate logo-to-meta spacing to .spine-meta",
+    },
+    {
+      regex:
+        /\.spine-meta\s*\{[\s\S]*?display:\s*flex[\s\S]*?flex-direction:\s*column[\s\S]*?align-items:\s*center[\s\S]*?gap:\s*0\.1in[\s\S]*?padding-top:\s*0\.1in/i,
+      message:
+        "Spine must keep the canonical metadata stack spacing (.spine-meta gap + padding-top at 0.1in)",
     },
     {
       regex: /\.spine-year\s*\{[\s\S]*?\}[\s\S]*?\.spine-revision\s*\{/i,
@@ -5767,9 +6239,9 @@ async function validateSpineTemplateGuardrails() {
     },
     {
       regex:
-        /<div class="spine-logo-wrap">[\s\S]*?<span class="spine-year">\{\{BRAND_REVISION_YEAR\}\}<\/span>[\s\S]*?<span class="spine-revision">Revision 3\.0<\/span>/i,
+        /<div class="spine-logo-wrap">[\s\S]*?<div class="spine-meta">[\s\S]*?<span class="spine-year">\{\{BRAND_REVISION_YEAR\}\}<\/span>[\s\S]*?<span class="spine-revision">Revision 3\.0<\/span>[\s\S]*?<\/div>/i,
       message:
-        "Spine logo stack must show revision year followed by Revision 3.0",
+        "Spine logo stack must keep a .spine-meta wrapper with revision year followed by Revision 3.0",
     },
     {
       regex:
@@ -5784,8 +6256,10 @@ async function validateSpineTemplateGuardrails() {
     [
       ...sharedSpineChecks,
       {
-        regex: /<span class="spine-title">MISH Safety Manual<\/span>/i,
-        message: "Safety spine title must be MISH Safety Manual",
+        regex:
+          /<span class="spine-company">Accident Prevention Program \(APP\)<\/span>[\s\S]*?<span class="spine-title">MH Construction Safety &amp; Health \(MISH\) Program<\/span>/i,
+        message:
+          "Safety spine text must show Accident Prevention Program (APP) plus MH Construction Safety & Health (MISH) Program",
       },
     ],
   );
@@ -5808,9 +6282,13 @@ async function validateSpineTemplateGuardrails() {
     );
   }
 
-  if (/MISH Safety Manual/i.test(handbookSpineHtml)) {
+  if (
+    /Accident Prevention Program \(APP\)|MH\s+Construction\s+Safety\s*&(?:amp;)?\s*Health \(MISH\) Program/i.test(
+      handbookSpineHtml,
+    )
+  ) {
     throw new Error(
-      "Guardrail validation failed: employee handbook spine contains safety manual title language.",
+      "Guardrail validation failed: employee handbook spine contains safety spine title language.",
     );
   }
 }
@@ -5839,12 +6317,18 @@ async function runGuardrailsCheck() {
   validateFormFillableTemplateGuardrails(formTemplate, formTemplatePath);
   console.log("  ✓  Form template guardrails verified");
 
-  if (!existsSync(CANONICAL_TOC_TEMPLATE_PATH)) {
-    throw new Error(`TOC template not found: ${CANONICAL_TOC_TEMPLATE_PATH}`);
+  const tocTemplatePaths = [
+    CANONICAL_TOC_TEMPLATE_PATH,
+    CANONICAL_HANDBOOK_TOC_TEMPLATE_PATH,
+  ];
+  for (const tocTemplatePath of tocTemplatePaths) {
+    if (!existsSync(tocTemplatePath)) {
+      throw new Error(`TOC template not found: ${tocTemplatePath}`);
+    }
+    const tocTemplate = await readFile(tocTemplatePath, "utf-8");
+    validateTocTemplateGuardrails(tocTemplate, tocTemplatePath);
   }
-  const tocTemplate = await readFile(CANONICAL_TOC_TEMPLATE_PATH, "utf-8");
-  validateTocTemplateGuardrails(tocTemplate, CANONICAL_TOC_TEMPLATE_PATH);
-  console.log("  ✓  TOC template guardrails verified");
+  console.log("  ✓  TOC template guardrails verified (safety + handbook)");
 
   await validateHandbookLetterheadFooterParity();
   console.log("  ✓  Handbook letterhead footer parity verified");
@@ -6781,7 +7265,7 @@ async function renderFormCover(form, brandedTemplate, coversDir) {
   const briefingRevision = `Rev ${form.revision || "—"} • Effective ${form.effectiveDate || "—"}`;
 
   const tokens = {
-    "{{FORM_ID}}": escapeHtml(form.id || "FORM"),
+    "{{FORM_ID}}": escapeHtml(getDisplayFormId(form.id || "FORM")),
     "{{FORM_TITLE}}": escapeHtml(form.title || "Untitled Form"),
     "{{FORM_SUBTITLE}}": escapeHtml(
       form.subtitle ||
@@ -7010,6 +7494,12 @@ function cleanWordHtml(html) {
   ];
 
   let out = html;
+
+  // Enforce canonical revision metadata in legacy section intro lines.
+  out = out.replaceAll(
+    /Revision\s*(?:N\/A|[0-9.]+)\s*\|\s*Effective:\s*(?:\*+\s*)?(?:N\/A|[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4})\s*\|\s*Safety Officer:\s*(?:\*+\s*)?[^<|]+/gi,
+    `Revision ${ENFORCED_REVISION_NUMBER} | Effective: ${ENFORCED_REVISION_DATE} | Safety Officer: Matt Ramsey`,
+  );
 
   // Normalize known legacy numbering references to the current program range.
   out = out.replaceAll(/\bMISH\s*1-42\b/gi, "MISH 1-50");

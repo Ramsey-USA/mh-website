@@ -515,16 +515,18 @@
 
       /* ── Footer (every page) ─────────────────────────────── */
       .footer {
-        position: absolute;
-        left: 0.92in; right: 0.9in;
-        bottom: 0.62in;
-        padding-top: 9pt;
-        border-top: 1.2pt solid var(--brand-primary);
-        display: grid;
-        grid-template-columns: 1.45fr 1fr;
-        gap: 0.25in;
-        align-items: end;
-        z-index: 2;
+          position: absolute;
+          left: 0.92in;
+          right: 0.9in;
+          bottom: 0.62in;
+          z-index: 2;
+          padding-top: 9pt;
+          background: var(--paper);
+          border-top: 1.2pt solid var(--brand-primary);
+          display: grid;
+          grid-template-columns: 1.45fr 1fr;
+          gap: 0.25in;
+          align-items: end;
       }
       .footer::before {
         content: "";

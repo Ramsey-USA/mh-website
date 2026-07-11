@@ -5,6 +5,8 @@ import { notFound, redirect } from "next/navigation";
 import { PageTrackingClient } from "@/components/analytics";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { Button, Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
@@ -323,11 +325,14 @@ export default async function ProjectCaseStudyPage({
       <StructuredData data={[projectSchema, localBusinessSchema]} />
 
       <main className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <section className="hero-section hero-safe-top-lg border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 pb-14 text-white sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-6xl">
+        <section
+          className="hero-section relative flex items-end justify-end text-white hero-safe-top-lg border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 pb-14 sm:px-6 lg:px-8 overflow-hidden"
+          style={{ height: "calc(100vh - var(--mh-nav-offset, 6.5rem))" }}
+        >
+          <div className="mx-auto max-w-6xl w-full ml-auto">
             <div className="max-w-3xl">
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
-                Case Study -&gt; Project Detail
+                Case Study → Project Detail
               </p>
               <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
                 {title}
@@ -343,6 +348,12 @@ export default async function ProjectCaseStudyPage({
               </p>
             </div>
           </div>
+
+          <PageNavigation
+            items={navigationConfigs.projects}
+            showRemainingPagesOverlay
+            className="absolute bottom-0 left-0 right-0"
+          />
         </section>
 
         <Breadcrumbs

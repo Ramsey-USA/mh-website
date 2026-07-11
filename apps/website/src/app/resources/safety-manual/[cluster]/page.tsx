@@ -24,8 +24,8 @@ import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 
 const safetyManualEntry = manuals.find((m) => m.id === "safety-manual");
-const REVISION_NUMBER = safetyManualEntry?.revisionNumber ?? "3";
-const REVISION_DATE = safetyManualEntry?.revisionDate ?? "04/07/2026";
+const REVISION_NUMBER = safetyManualEntry?.revisionNumber ?? "3.0";
+const REVISION_DATE = safetyManualEntry?.revisionDate ?? "7/1/2026";
 
 type SafetyRoutePlan = {
   service: { href: string; label: string };

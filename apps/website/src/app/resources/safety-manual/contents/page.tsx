@@ -68,8 +68,8 @@ const CALLOUT_ITEMS = new Set([21, 48]);
 export default function SafetyManualContentsPage() {
   const manual = manuals.find((m) => m.id === "safety-manual");
   const sections = manual?.sections ?? [];
-  const revisionNumber = manual?.revisionNumber ?? "3";
-  const revisionDate = manual?.revisionDate ?? "04/07/2026";
+  const revisionNumber = manual?.revisionNumber ?? "3.0";
+  const revisionDate = manual?.revisionDate ?? "7/1/2026";
 
   const sectionMap = new Map(sections.map((s) => [Number(s.number), s]));
 

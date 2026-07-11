@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import type { ChatWidget } from "@/components/chatbot/ChatWidget";
 
-type ChatWidgetComponentType =
-  (typeof import("@/components/chatbot/ChatWidget"))["ChatWidget"];
+type ChatWidgetComponentType = typeof ChatWidget;
 
 const CHAT_WIDGET_EXCLUDED_PREFIXES = [
   "/dashboard",
@@ -26,6 +26,7 @@ export default function ChatWidgetLazy() {
   useEffect(() => {
     if (isExcludedRoute) {
       setShouldRender(false);
+      setChatWidgetComponent(null);
       return;
     }
 
@@ -85,7 +86,9 @@ export default function ChatWidgetLazy() {
       })
       .catch(() => {
         // Keep the shell stable if the widget bundle fails to load.
-        setShouldRender(false);
+        if (!cancelled) {
+          setShouldRender(false);
+        }
       });
 
     return () => {

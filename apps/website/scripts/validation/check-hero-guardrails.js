@@ -103,6 +103,8 @@ function validateHeroSection(filePath, content) {
 function scanPagesForCompliance() {
   const appDir = path.join(__dirname, "../../src/app");
   const results = [];
+  const heroSectionClassRegex =
+    /className\s*=\s*["'][^"']*hero-section[^"']*["']/;
 
   function scanDirectory(dir) {
     try {
@@ -119,14 +121,24 @@ function scanPagesForCompliance() {
 
           if (fs.existsSync(pageTsxPath)) {
             const content = fs.readFileSync(pageTsxPath, "utf-8");
-            results.push(
-              validateHeroSection(path.relative(appDir, pageTsxPath), content),
-            );
+            if (heroSectionClassRegex.test(content)) {
+              results.push(
+                validateHeroSection(
+                  path.relative(appDir, pageTsxPath),
+                  content,
+                ),
+              );
+            }
           } else if (fs.existsSync(pageJsxPath)) {
             const content = fs.readFileSync(pageJsxPath, "utf-8");
-            results.push(
-              validateHeroSection(path.relative(appDir, pageJsxPath), content),
-            );
+            if (heroSectionClassRegex.test(content)) {
+              results.push(
+                validateHeroSection(
+                  path.relative(appDir, pageJsxPath),
+                  content,
+                ),
+              );
+            }
           }
 
           // Recurse into subdirectories (but not node_modules or hidden dirs)

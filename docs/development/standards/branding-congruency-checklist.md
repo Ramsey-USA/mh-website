@@ -1,7 +1,7 @@
 # Branding Congruency Checklist
 
 **Category:** Development - Branding Governance  
-**Last Updated:** July 4, 2026  
+**Last Updated:** July 11, 2026  
 **Status:** ✅ Active
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../../branding/brand-constants.md).
@@ -17,6 +17,10 @@ Use it for component, template, and route-state checks after the master checklis
 1. **Visual consistency:** Corner radii and hover effects use centralized design tokens (see [Design System Standards](./design-system-standards.md)).
 1. **Exception scope:** Approved visual exceptions stay limited to their documented component.
 1. **Cross-surface alignment:** Related docs, metadata, and page content stay terminology-consistent after implementation changes.
+1. **Print chip consistency:** For manual/handbook TOC and form-cover templates, program/chapter/form identifier chips keep the canonical `1.5pt` corner radius with safety/handbook parity.
+1. **Print TOC structure consistency:** Chapter/form rows remain associated in two-column TOC layout, continuation pages retain page-1 spacing, TOC row spacing remains `0.1in`, safety/handbook TOC footer structures stay label-free and matched, and handbook TOC suppresses empty continuation pages.
+1. **Print spine metadata consistency:** Spine templates use `.spine-meta` for logo-to-year/revision spacing with `.spine-logo-wrap { gap: 0; }`, `.spine-meta { padding-top: 0.1in; gap: 0.1in; }`, and safety/handbook parity.
+1. **Print tabs consistency:** Tab templates keep canonical frame/ribbon/footer/veteran-strip geometry, two-part approval-signature block contract (handbook: Jeremy + Kimberly, safety: Jeremy + Matt) with per-signer signature/date lane ratio `1.5fr 0.85fr`, fixed tuned spacing (`.tab-sig-row` gap `10pt`, divider inset `10pt`, role margin-bottom `6pt`, `.tab-sig-lines` gap `10pt`), chamber-logo row presence, and safety/handbook content separation.
 1. **State parity:** Loading/error/offline/not-found and interactive states preserve the same brand visual system.
 1. **Template parity:** Dynamic-route templates preserve heading cadence, CTA hierarchy, and trust continuity.
 

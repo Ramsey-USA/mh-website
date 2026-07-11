@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TrackedBridgeButton, TrackedBridgeLink } from "@/components/analytics";
 import { Card } from "@/components/ui";
@@ -46,10 +48,13 @@ const stateCoverage = [
 export default function TriStateGovernmentConstructionPage() {
   return (
     <main className="bg-white dark:bg-gray-950 min-h-screen">
-      <section className="hero-section hero-safe-top-lg border-b border-gray-200 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 px-4 pb-14 text-white sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl">
+      <section
+        className="hero-section relative flex items-end justify-end text-white hero-safe-top-lg border-b border-gray-200 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 px-4 pb-14 sm:px-6 lg:px-8 overflow-hidden"
+        style={{ height: "calc(100vh - var(--mh-nav-offset, 6.5rem))" }}
+      >
+        <div className="mx-auto max-w-5xl w-full ml-auto">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
-            Regional Authority -&gt; Tri-State Government Construction
+            Regional Authority → Tri-State Government Construction
           </p>
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
             Tri-State Government Construction Coverage
@@ -66,6 +71,12 @@ export default function TriStateGovernmentConstructionPage() {
             {TRI_STATE_GOVERNMENT_HERO_SLOGAN}
           </p>
         </div>
+
+        <PageNavigation
+          items={navigationConfigs.publicSector}
+          showRemainingPagesOverlay
+          className="absolute bottom-0 left-0 right-0"
+        />
       </section>
 
       <Breadcrumbs

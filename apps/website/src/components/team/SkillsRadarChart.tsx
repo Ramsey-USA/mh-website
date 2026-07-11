@@ -74,9 +74,11 @@ export function SkillsRadarChart({
   useEffect(() => {
     if (!chartRef) return;
 
+    let cancelled = false;
+
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0]?.isIntersecting) {
+        if (!cancelled && entries[0]?.isIntersecting) {
           setIsVisible(true);
           observer.disconnect();
         }
@@ -88,7 +90,10 @@ export function SkillsRadarChart({
 
     observer.observe(chartRef);
 
-    return () => observer.disconnect();
+    return () => {
+      cancelled = true;
+      observer.disconnect();
+    };
   }, [chartRef]);
 
   const chartColors = {

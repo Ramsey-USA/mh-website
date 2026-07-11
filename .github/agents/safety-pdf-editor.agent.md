@@ -47,8 +47,30 @@ For the full specification table, refer to `form-development-officer` Gold Stand
 - `safety-manual-toc.html` uses **inlined CSS** (no `@import`) — do not restore the `@import url("../styles/brand.css")` line; the brand variables are embedded directly in `<style>`.
 - The `{{TOC_CLUSTERS_HTML}}` placeholder appears twice in the template (comment block + `<main>`). The generator uses `.replaceAll(..., () => ...)` (function form) to catch both and prevent `$`-pattern misinterpretation. Do not revert to `.replace()`.
 - `renderHtmlToPdf` for the TOC must include `displayHeaderFooter: false` explicitly — Puppeteer newer versions default to `true`, which injects a spurious running header/footer over the page-designed header and footer.
-- The TOC footer carries three elements in order: company contact (left), `★ VETERAN OWNED ★` badge + QR code labeled "SCAN FOR TOC" (center), revision info (right). The QR encodes `BRAND.qrCodes.tableOfContents` → `https://www.mhc-gc.com/resources/safety-manual/contents`.
+- TOC footer parity contract (safety + handbook): same footer structure as handbook TOC, with no legacy footer label lines ("Company Contact" or "Accreditation and Trust").
 - The generator emits `safety-manual-toc.pdf`. Publish script aliasing handles `safety-manual-contents.pdf` automatically for backward compatibility during R2 upload.
+- Standardized pillbox corner contract: TOC/program/form/chapter chips must use `border-radius: 1.5pt` (no `5pt`, `6pt`, or `999px`). This applies to both `safety-manual-toc.html` and `employee-handbook-toc.html` and to any generated TOC/reference HTML chip classes.
+- TOC chapter/form layout contract: chapter rows and associated forms must be paired in the same row (chapter left, its forms right). Do not render detached forms panels that break chapter association.
+- TOC continuation-page spacing contract: page 2+ must inherit the same column and row spacing as page 1. Do not add continuation-only spacing overrides that alter column rhythm.
+- TOC row spacing contract: `.toc-row + .toc-row` must keep `padding-top: 0.1in` in both TOC templates.
+- Employee handbook TOC pagination contract: hide `toc-page-2` when there is no overflow content; never ship an empty handbook TOC continuation page.
+
+## Spine Template Notes
+
+- Safety and handbook spine templates must keep structural parity for logo stack, divider rhythm, badges, and footer ribbon treatment.
+- Spine logo spacing contract: `.spine-logo-wrap` stays at `gap: 0`; the logo-to-year/revision offset is enforced through `.spine-meta` with `padding-top: 0.1in` and `gap: 0.1in`.
+- The revision stack must remain wrapped in `.spine-meta` and include both `{{BRAND_REVISION_YEAR}}` and `Revision 3.0`.
+- Do not move year/revision back into `.spine-logo-wrap` as direct siblings of the logo image.
+
+## Tabs Template Notes
+
+- Safety and handbook tabs must keep shared frame/ribbon/footer geometry parity: outer frame `inset: 0.22in`, inner frame `inset: 0.33in`, left ribbon `top/bottom/left: 0.45in` with `width: 0.28in`, footer at `left: 0.92in`, `right: 0.9in`, `bottom: 0.62in`, and veteran strip at `bottom: 0.42in`.
+- Tabs footer must preserve canonical letterhead geometry (`border-top: 1.2pt solid var(--brand-primary)` and `grid-template-columns: 1.45fr 1fr`) plus chamber logo row presence (Pasco, Kennewick, Richland).
+- Tabs signature block contract: `aria-label="Approval signature verification"`, two signer lanes (`.tab-sig-row` at `1fr 1fr`), and per-signer signature/date lines at ratio `1.5fr 0.85fr`.
+- Tabs signature spacing contract: keep `.tab-sig-row` gap at `10pt`, `.tab-sig-cell + .tab-sig-cell` padding-left at `10pt`, `.tab-sig-role` margin-bottom at `6pt`, and `.tab-sig-lines` gap at `10pt`.
+- Handbook tabs signer set: `Jeremy Thamert` (`President & Owner`) plus `Kimberly Thamert` (`HR Representative`).
+- Safety tabs signer set: `Jeremy Thamert` (`President & Owner`) plus `Matt Ramsey` (`AGC Representative | Safety Officer`).
+- Content separation contract: safety tabs remain MISH section-driven; handbook tabs remain chapter-driven and must not leak safety section language.
 
 ## Critical Gotchas (cross-cutting)
 
@@ -56,10 +78,11 @@ For the full specification table, refer to `form-development-officer` Gold Stand
 - **Header/footer templates run in an isolated context.** `file://` URLs and external CSS do NOT load. Use `BRAND_TOKENS` base64 data URLs (e.g. `LOGO_COLOR_DATA_URL`, `BBB_LOGO_DATA_URL`, `BRAND_TOKENS["{{BRAND_AGC_HORIZONTAL}}"]`).
 - **Footer accreditation logos are mandatory** — AGC (22pt) → BBB (24pt) → VOB (28pt). Never remove or reorder on any artifact (cover, section footer, TOC, reference).
 - **Footer ribbon clearance budget** — section footer ribbon sits ~1.37in from page bottom. Keep template `@page` bottom margin at `1.05in` and validate descender clearance via page 3 of `21-fall-protection.pdf` (historical bleed test case) after margin/footer changes.
-- **Header logo height is 36pt** (canonical, +20% baseline) at the inline style on `<img src="${LOGO_COLOR_DATA_URL}">` in `buildSectionHeaderHtml()`.
+- **Header logo height is 40pt** (canonical, +20% baseline) at the inline style on `<img src="${LOGO_COLOR_DATA_URL}">` in `buildSectionHeaderHtml()`.
 - **Hierarchical section numbering** — `X.0` policy headings render as a brand-green→dark gradient banner; `X.Y` / `X.Y.Z` / `X.Y.Z.W` cascade at 0.5"/1.0"/1.5" hanging indents. Driven by `tagNumberedParagraphs()` (must run LAST in `postProcessSectionHtml`) and CSS `.section-body p.sec-h.sec-h-N` (double-class for specificity). See MDSO §10.
 - **Leaked DOCX metadata strip** — `stripLeakedMetadata()` MUST run FIRST in `postProcessSectionHtml()` to remove the orphan `Title / Number / Mish NN / Revision / Effective Date / Page 1 of N` block that the master header table leaks into every section body. Already covered by `.section-header-card` on page 1. See MDSO §11.
-- **Forms-library cover sheets** — each canonical `.docx` form in `documents/forms/MHC-MISH-47-Forms/` has a branded cover at `documents/generated-pdfs/form-covers/{slug}_cover.pdf`, generated by `renderFormCovers()` from `forms-manifest.json` + `form-cover.html`. Covers carry the same MH chrome (double-rule frame, vertical green→tan ribbon, AGC→BBB→VOB ribbon) as the manual cover/letterhead. Do NOT hand-edit; regenerate via `pnpm --filter @mhc/website run docs:generate -- --template form-covers`. See MDSO §12.
+- **Forms-library cover sheets** — each canonical `.docx` form in `documents/forms/MHC-MISH-47-Forms/` has a branded cover at `documents/generated-pdfs/form-covers/{slug}_cover.pdf`, generated by `generateFormCovers()` from `forms-manifest.json` + `form-cover.html`. Covers carry the same MH chrome (double-rule frame, vertical green→tan ribbon, AGC→BBB→VOB ribbon) as the manual cover/letterhead. Do NOT hand-edit; regenerate via `pnpm --filter @mhc/website run docs:generate -- --template form-covers`. See MDSO §12.
+- **Pillbox radius drift is a release blocker** — if any chapter/form/program chip radius diverges from `1.5pt`, regenerate TOC/form-cover artifacts after correcting source templates.
 - **Puppeteer 30s timeouts** in this dev container are intermittent — simple retry usually works; do not switch `waitUntil` away from `"load"`.
 
 ## Guardrails

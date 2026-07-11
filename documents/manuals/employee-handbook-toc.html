@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Handbook Table of Contents</title>
+    <!--
+      Template tokens substituted at build time by generate.mjs:
+        {{BRAND_LOGO_COLOR}}        → base64 data-URI of logo-color.png
+        {{BRAND_COLOR_PRIMARY}}     → #386851 Hunter Green
+        {{BRAND_COLOR_SECONDARY}}   → #BD9264 Tan Leather
+        {{BRAND_COMPANY_NAME}}      → MH Construction, Inc.
+        {{BRAND_REVISION_NUMBER}}   → 3
+        {{BRAND_REVISION_DATE}}     → 04/07/2026
+        {{TOC_CLUSTERS_PAGE_1_HTML}} → generated dynamically from safety-manual.json
+        {{TOC_CLUSTERS_PAGE_2_HTML}} → generated dynamically from safety-manual.json
+        {{TOC_CLUSTERS_PAGE_3_HTML}} → generated dynamically from safety-manual.json
+        TOC_EXTRA_PAGES_HTML         → generated dynamically for page 4+
+                                       (see TOC_CLUSTERS / buildTocClustersHtml in generate.mjs)
+    -->
+    <style>
+      /* ── Brand CSS variables (inlined to avoid @import resolution issues) ── */
+      :root {
+        --brand-primary: {{BRAND_COLOR_PRIMARY}};
+        --brand-primary-dark: {{BRAND_COLOR_PRIMARY_DARK}};
+        --brand-primary-darker: {{BRAND_COLOR_PRIMARY_DARKER}};
+        --brand-secondary: {{BRAND_COLOR_SECONDARY}};
+        --brand-secondary-light: {{BRAND_COLOR_SECONDARY_LIGHT}};
+        --brand-secondary-text: {{BRAND_COLOR_SECONDARY_TEXT}};
+        --ink: #12231b;
+        --paper: #ffffff;
+        --muted: #f6f8f7;
+        /* MH brand fonts */
+        --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", sans-serif;
+        --font-body: "mendl-sans-dusk", "Mendl Sans Dusk", sans-serif;
+        --type-title: 22pt;
+        --type-cluster: 7.7pt;
+        --type-code: 8.2pt;
+        --type-entry: 8.7pt;
+        --type-form-code: 7.4pt;
+        --type-form-entry: 8.1pt;
+        --toc-body-left: 1.15in;
+        --toc-body-right: 1.05in;
+        --toc-body-top: 3.16in;
+        --toc-body-bottom: 2.02in;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      @page {
+        size: letter portrait;
+        margin: 0;
+      }
+
+      /* ── Base ───────────────────────────────────────────── */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 8.5in;
+        background: var(--paper);
+        color: var(--ink);
+        /* Mendl family stack for body copy */
+        font-family: var(--font-body);
+        font-size: 9pt;
+        line-height: 1.35;
+        text-rendering: optimizeLegibility;
+      }
+
+      /* Use flex-column so the footer is always at the bottom of the page */
+      .toc-page {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 8.5in;
+        min-height: 11in;
+        padding: 0;
+        background: var(--paper);
+        overflow: hidden;
+      }
+
+      .toc-page + .toc-page {
+        page-break-before: always;
+        break-before: page;
+      }
+
+      .toc-page::before {
+        content: "";
+        position: absolute;
+        top: 0.22in;
+        left: 0.22in;
+        right: 0.22in;
+        height: 10.56in;
+        border: 1.2pt solid var(--brand-primary);
+        pointer-events: none;
+      }
+
+      .toc-page::after {
+        content: "";
+        position: absolute;
+        top: 0.33in;
+        left: 0.33in;
+        right: 0.33in;
+        height: 10.34in;
+        border: 0.6pt solid var(--brand-secondary);
+        pointer-events: none;
+      }
+
+      .toc-ribbon {
+        position: absolute;
+        top: 0.45in;
+        left: 0.45in;
+        height: 10.10in;
+        width: 0.28in;
+        background: linear-gradient(
+          180deg,
+          var(--brand-primary) 0%,
+          var(--brand-primary) 68%,
+          var(--brand-secondary) 100%
+        );
+      }
+
+      .toc-content {
+        position: static;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 11in;
+        padding: 1.5in 1.05in 1.86in 1.15in;
+      }
+
+      /* ── Page Header ─────────────────────────────────────── */
+      .toc-header {
+        position: absolute;
+        top: 0.95in;
+        left: 0.92in;
+        right: 0.9in;
+        text-align: center;
+        padding-bottom: 0;
+        border-bottom: 0.5pt solid var(--brand-primary);
+      }
+
+      .toc-header--cont {
+        top: 0.72in;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding-bottom: 0;
+      }
+
+      .toc-cont-mark {
+        margin: 0;
+        font-family: var(--font-heading);
+        font-size: 11pt;
+        font-weight: 900;
+        letter-spacing: 0.05em;
+        color: var(--brand-primary);
+        text-transform: uppercase;
+      }
+
+      .toc-cont-mark .dot {
+        color: var(--brand-secondary);
+        margin: 0 7pt;
+      }
+
+      .toc-cont-page {
+        margin: 0;
+        color: var(--brand-secondary);
+        font-family: var(--font-body);
+        font-size: 7.6pt;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .toc-logo {
+        height: 1.7in;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .toc-logo-wrap {
+        background: var(--muted);
+        border: 1pt solid var(--brand-secondary);
+        border-radius: 6pt;
+        padding: 0.08in 0.18in;
+        margin: 0 auto 0.12in;
+        width: fit-content;
+      }
+
+      .toc-rule {
+        width: 2.2in;
+        height: 2pt;
+        background: linear-gradient(90deg, transparent, var(--brand-secondary), transparent);
+        border-radius: 1pt;
+        margin: 0 auto 0.12in;
+      }
+
+      /* Program chip — mirrors cover's MHC-APP chip */
+      .toc-program-chip {
+        width: fit-content;
+        margin: 0 auto 0.08in;
+        background: var(--brand-primary);
+        border: 0.8pt solid var(--brand-secondary);
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-family: var(--font-body);
+        font-size: 6.5pt;
+        font-weight: 800;
+        padding: 2pt 10pt;
+        border-radius: 1.5pt;
+        box-shadow: inset 0 -1pt 0 var(--brand-secondary);
+      }
+
+      .toc-title {
+        font-family: var(--font-heading);
+        font-size: var(--type-title);
+        font-weight: 900;
+        color: var(--brand-primary);
+        margin: 0.03in 0 0.02in;
+        letter-spacing: 0.008em;
+        line-height: 1.03;
+        text-transform: uppercase;
+      }
+
+      .toc-subtitle {
+        font-family: var(--font-body);
+        font-size: 8.2pt;
+        font-weight: 700;
+        color: var(--brand-primary);
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      /* ── Body: dual-column grid ─────────────────────────── */
+      .toc-body {
+        position: absolute;
+        z-index: 1;
+        top: var(--toc-body-top);
+        left: var(--toc-body-left);
+        right: var(--toc-body-right);
+        bottom: var(--toc-body-bottom);
+        margin-top: 0.65in;
+        padding-top: 0.12in;
+        overflow: hidden;
+      }
+
+      .toc-page--cont .toc-content {
+        padding-top: 1.42in;
+      }
+
+      .toc-page--cont {
+        --toc-body-top: 1.12in;
+        --toc-body-bottom: 1.72in;
+      }
+
+      .toc-page--cont .toc-body {
+        margin-top: 0.05in;
+      }
+
+      .cluster-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 1pt;
+      }
+
+      .toc-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 0.16in;
+        align-items: start;
+      }
+
+      .toc-row + .toc-row {
+        border-top: 0.35pt solid #e5ddd2;
+        padding-top: 0.1in;
+      }
+
+      .toc-row-left,
+      .toc-row-right {
+        min-width: 0;
+      }
+
+      .toc-row-right .mish-entry.mish-form {
+        padding: 1.4pt 0;
+      }
+
+      .toc-row-right .mish-entry.mish-form .mish-title {
+        font-style: normal;
+      }
+
+      .toc-row-empty {
+        font-size: 8pt;
+        font-weight: 700;
+        color: var(--brand-secondary-text);
+        line-height: 1.4;
+      }
+
+      /* Each operational cluster stays together in one column */
+      .cluster {
+        break-inside: auto;
+        margin-bottom: 0.09in;
+        padding: 0;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+      }
+
+      /* Cluster heading — simple outline style */
+      .cluster-head {
+        font-family: var(--font-heading);
+        font-size: 7.55pt;
+        font-weight: 700;
+        color: var(--brand-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.11em;
+        margin: 0 0 0.05in 0;
+        padding: 0 0 3pt 0;
+        border-bottom: 0.9pt solid var(--brand-primary);
+        background: transparent;
+        border-left: none;
+        border-radius: 0;
+      }
+
+      /* MISH entry list */
+      .mish-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .mish-entry {
+        display: flex;
+        align-items: center;
+        gap: 0.09in;
+        padding: 2.7pt 0;
+        font-family: var(--font-body);
+        line-height: 1.28;
+        color: #000000;
+      }
+
+      .mish-entry .mish-code {
+        display: block;
+        flex-shrink: 0;
+        width: auto;
+        min-width: 0.53in;
+        font-family: var(--font-heading);
+        font-size: 8pt;
+        font-weight: 800;
+        color: #ffffff;
+        background: var(--brand-primary);
+        border: 0.6pt solid var(--brand-primary-dark);
+        border-radius: 1.5pt;
+        box-shadow: inset 0 -0.8pt 0 rgba(0, 0, 0, 0.12);
+        padding: 1.9pt 7.6pt;
+        text-align: center;
+        line-height: 1.2;
+        letter-spacing: 0.014em;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .mish-wbs {
+        display: none;
+      }
+
+      .mish-entry .mish-title {
+        flex: 1;
+        color: #15261d;
+        font-family: var(--font-body);
+        font-size: 8.35pt;
+        line-height: 1.28;
+        text-wrap: pretty;
+        hyphens: auto;
+        word-break: break-word;
+        display: flex;
+        flex-direction: column;
+        gap: 1pt;
+      }
+
+      .mish-entry .mish-title-main {
+        display: block;
+      }
+
+      .mish-entry .mish-meta {
+        display: block;
+        font-size: 6.2pt;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--brand-secondary-text);
+        line-height: 1.2;
+      }
+
+      /* Callout — Tan Leather highlight for critical safety protocols */
+      .mish-entry.callout {
+        background: #fbf7f1;
+        border: 0.35pt solid var(--brand-secondary-light);
+        border-left: 1.3pt solid var(--brand-secondary);
+        padding-left: 4pt;
+        margin-left: -2pt;
+        border-radius: 0 2pt 2pt 0;
+      }
+
+      .mish-entry.callout .mish-code {
+        color: var(--brand-secondary);
+        font-weight: 800;
+      }
+
+      .mish-entry.callout .mish-title {
+        color: #1b2a22;
+        font-style: normal;
+        font-weight: 700;
+      }
+
+      /* Form entries — simple, left-indented */
+      .mish-entry.mish-form {
+        opacity: 1;
+        padding: 1.8pt 0 1.8pt 0.56in;
+      }
+
+      .mish-entry.mish-form .mish-code {
+        background: #f7efe5;
+        color: var(--brand-primary);
+        font-weight: 600;
+        font-size: var(--type-form-code);
+        border: 0.5pt solid var(--brand-secondary);
+        box-shadow: inset 0 -0.6pt 0 rgba(0, 0, 0, 0.08);
+        min-width: 0.46in;
+        padding: 1.45pt 6.6pt;
+        letter-spacing: 0.012em;
+        border-radius: 1.5pt;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .mish-entry.mish-form .mish-title {
+        font-style: italic;
+        color: var(--brand-secondary-text);
+        font-size: 8pt;
+        line-height: 1.24;
+      }
+
+      .mish-entry.mish-form .mish-meta {
+        font-style: normal;
+      }
+
+      /* Footer — aligned to safety-manual-letterhead */
+      .footer {
+        position: absolute;
+        left: 0.92in;
+        right: 0.9in;
+        bottom: 0.62in;
+        z-index: 2;
+        padding-top: 9pt;
+        background: var(--paper);
+        border-top: 1.2pt solid var(--brand-primary);
+        display: grid;
+        grid-template-columns: 1.45fr 1fr;
+        gap: 0.25in;
+        align-items: end;
+      }
+      .footer::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 2.5pt;
+        height: 0.6pt;
+        background: var(--brand-secondary);
+      }
+      .contact {
+        font-size: 7.8pt;
+        line-height: 1.45;
+        color: var(--brand-primary-darker);
+      }
+      .contact .label {
+        color: var(--brand-secondary);
+        font-size: 6.6pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 3pt;
+      }
+      .contact .name {
+        font-size: 8.2pt;
+        font-weight: 800;
+        color: var(--brand-primary);
+      }
+      .contact .licenses {
+        margin-top: 4pt;
+        font-size: 7.2pt;
+        color: var(--brand-secondary);
+        font-weight: 700;
+      }
+      .trust {
+        text-align: right;
+      }
+      .trust .label {
+        color: var(--brand-secondary);
+        font-size: 6.6pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 5pt;
+      }
+      .logos {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 9pt;
+      }
+      .logos img {
+        display: block;
+        width: auto;
+      }
+      .logo-agc { height: 0.36in; }
+      .logo-bbb { height: 0.39in; }
+      .logo-vob { height: 0.5in; }
+
+      .chambers {
+        margin-top: 6pt;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10pt;
+        padding-top: 6pt;
+        border-top: 0.4pt solid var(--brand-secondary);
+      }
+      .chambers img {
+        display: block;
+        width: auto;
+        height: 0.3in;
+      }
+
+      .veteran-strip {
+        position: absolute;
+        left: 0.92in;
+        right: 0.9in;
+        bottom: 0.42in;
+        background: var(--paper);
+        text-align: center;
+        font-size: 6.6pt;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: var(--brand-secondary);
+        z-index: 2;
+      }
+      .veteran-strip .sep {
+        color: var(--brand-secondary);
+        margin: 0 6pt;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="toc-page">
+      <div class="toc-ribbon" aria-hidden="true"></div>
+      <div class="toc-content">
+        <!-- ── Header ─────────────────────────────────────────── -->
+        <header class="toc-header">
+          <div class="toc-logo-wrap">
+            <img
+              class="toc-logo"
+              src="{{BRAND_LOGO_COLOR}}"
+              alt="MH Construction, Inc."
+            />
+          </div>
+          <div class="toc-rule" aria-hidden="true"></div>
+          <div class="toc-program-chip">Employee Handbook Index</div>
+          <h1 class="toc-title">Employee Handbook Table of Contents</h1>
+          <p class="toc-subtitle">
+            MH Construction Employee Handbook Program
+          </p>
+        </header>
+
+        <!-- ── Dual-Column Body ───────────────────────────────── -->
+        <!-- Content is generated dynamically by generate.mjs buildTocClustersHtml(). -->
+        <!-- Cluster definitions and callout rules live in TOC_CLUSTERS / TOC_CALLOUT_ITEMS. -->
+        <main class="toc-body">{{TOC_CLUSTERS_PAGE_1_HTML}}</main>
+
+        <!-- ── Footer ─────────────────────────────────────────── -->
+        <footer class="footer">
+          <div class="contact">
+            <div class="name">{{BRAND_COMPANY_NAME}}</div>
+            {{BRAND_ADDRESS_STREET}}<br />
+            {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
+            {{BRAND_PHONE}} &middot; {{BRAND_WEBSITE}}
+            <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
+          </div>
+          <div class="trust">
+            <div class="logos">
+              <img
+                class="logo-agc"
+                src="{{BRAND_AGC_HORIZONTAL}}"
+                alt="AGC membership"
+              />
+              <img
+                class="logo-bbb"
+                src="{{BRAND_BBB_SEAL}}"
+                alt="BBB accredited business"
+              />
+              <img
+                class="logo-vob"
+                src="{{BRAND_WA_VOB_LOGO}}"
+                alt="Washington certified veteran owned business"
+              />
+            </div>
+            <div class="chambers" aria-label="Chamber of Commerce memberships">
+              <img
+                src="{{BRAND_CHAMBER_PASCO}}"
+                alt="Pasco Chamber of Commerce member"
+              />
+              <img
+                src="{{BRAND_CHAMBER_KENNEWICK}}"
+                alt="Tri-City Regional Chamber of Commerce member"
+              />
+              <img
+                src="{{BRAND_CHAMBER_RICHLAND}}"
+                alt="Richland Chamber of Commerce member"
+              />
+            </div>
+          </div>
+        </footer>
+        <div
+          class="veteran-strip"
+          aria-label="Veteran owned business statement"
+        >
+          Veteran-Owned <span class="sep">&#9733;</span> Safety-Driven
+          <span class="sep">&#9733;</span> Built on Quality, Backed by Trust
+        </div>
+      </div>
+    </div>
+
+    <div class="toc-page toc-page--cont" id="toc-page-2">
+      <div class="toc-ribbon" aria-hidden="true"></div>
+      <div class="toc-content">
+        <header class="toc-header toc-header--cont">
+          <p class="toc-cont-mark">
+            {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>MISH Program
+            Table of Contents (continued)
+          </p>
+          <p class="toc-cont-page">Page 2</p>
+        </header>
+
+        <main class="toc-body">{{TOC_CLUSTERS_PAGE_2_HTML}}</main>
+
+        <footer class="footer">
+          <div class="contact">
+            <div class="name">{{BRAND_COMPANY_NAME}}</div>
+            {{BRAND_ADDRESS_STREET}}<br />
+            {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
+            {{BRAND_PHONE}} &middot; {{BRAND_WEBSITE}}
+            <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
+          </div>
+          <div class="trust">
+            <div class="logos">
+              <img
+                class="logo-agc"
+                src="{{BRAND_AGC_HORIZONTAL}}"
+                alt="AGC membership"
+              />
+              <img
+                class="logo-bbb"
+                src="{{BRAND_BBB_SEAL}}"
+                alt="BBB accredited business"
+              />
+              <img
+                class="logo-vob"
+                src="{{BRAND_WA_VOB_LOGO}}"
+                alt="Washington certified veteran owned business"
+              />
+            </div>
+            <div class="chambers" aria-label="Chamber of Commerce memberships">
+              <img
+                src="{{BRAND_CHAMBER_PASCO}}"
+                alt="Pasco Chamber of Commerce member"
+              />
+              <img
+                src="{{BRAND_CHAMBER_KENNEWICK}}"
+                alt="Tri-City Regional Chamber of Commerce member"
+              />
+              <img
+                src="{{BRAND_CHAMBER_RICHLAND}}"
+                alt="Richland Chamber of Commerce member"
+              />
+            </div>
+          </div>
+        </footer>
+        <div
+          class="veteran-strip"
+          aria-label="Veteran owned business statement"
+        >
+          Veteran-Owned <span class="sep">&#9733;</span> Safety-Driven
+          <span class="sep">&#9733;</span> Built on Quality, Backed by Trust
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Page 3: Table of Contents (if needed) ──────────────────── -->
+    <div class="toc-page toc-page--cont" id="toc-page-3" style="display: none">
+      <div class="toc-ribbon" aria-hidden="true"></div>
+      <div class="toc-content">
+        <header class="toc-header toc-header--cont">
+          <p class="toc-cont-mark">
+            {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>MISH Program
+            Table of Contents (continued)
+          </p>
+          <p class="toc-cont-page">Page {{TOC_PAGE_3_NUMBER}}</p>
+        </header>
+
+        <main class="toc-body">{{TOC_CLUSTERS_PAGE_3_HTML}}</main>
+
+        <footer class="footer">
+          <div class="contact">
+            <div class="name">{{BRAND_COMPANY_NAME}}</div>
+            {{BRAND_ADDRESS_STREET}}<br />
+            {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
+            {{BRAND_PHONE}} &middot; {{BRAND_WEBSITE}}
+            <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
+          </div>
+          <div class="trust">
+            <div class="logos">
+              <img
+                class="logo-agc"
+                src="{{BRAND_AGC_HORIZONTAL}}"
+                alt="AGC membership"
+              />
+              <img
+                class="logo-bbb"
+                src="{{BRAND_BBB_SEAL}}"
+                alt="BBB accredited business"
+              />
+              <img
+                class="logo-vob"
+                src="{{BRAND_WA_VOB_LOGO}}"
+                alt="Washington certified veteran owned business"
+              />
+            </div>
+            <div class="chambers" aria-label="Chamber of Commerce memberships">
+              <img
+                src="{{BRAND_CHAMBER_PASCO}}"
+                alt="Pasco Chamber of Commerce member"
+              />
+              <img
+                src="{{BRAND_CHAMBER_KENNEWICK}}"
+                alt="Tri-City Regional Chamber of Commerce member"
+              />
+              <img
+                src="{{BRAND_CHAMBER_RICHLAND}}"
+                alt="Richland Chamber of Commerce member"
+              />
+            </div>
+          </div>
+        </footer>
+        <div
+          class="veteran-strip"
+          aria-label="Veteran owned business statement"
+        >
+          Veteran-Owned <span class="sep">&#9733;</span> Safety-Driven
+          <span class="sep">&#9733;</span> Built on Quality, Backed by Trust
+        </div>
+      </div>
+    </div>
+
+    {{TOC_EXTRA_PAGES_HTML}}
+  </body>
+</html>

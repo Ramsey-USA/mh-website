@@ -129,6 +129,16 @@ Display the PNG to the user before marking the step complete. For multi-page art
 - Tokens consumed by `form-cover.html` follow the same `{{BRAND_*}}` substitution scheme as the section/letterhead templates — never hard-code colors or logo paths.
 - CLI: `pnpm --filter @mhc/website run docs:generate -- --template form-covers` (one-shot all 47). Output dir: `documents/generated-pdfs/form-covers/`.
 
+### 14. Standardized pillbox corner radius (manual + handbook)
+
+- Canonical pillbox corner radius is `1.5pt` for all document chips used as program/form/chapter identifiers.
+- Applies to TOC chips in both manuals (`.toc-program-chip`, chapter/form code chips) and branded form-cover chips (`.program-chip`, category chip variants).
+- `5pt`, `6pt`, and `999px` radius values are prohibited for these chip classes unless an approved exception is documented.
+- Any chip radius update must be mirrored across both safety and handbook templates to maintain visual parity.
+- TOC chapter/form relationship must remain row-aligned in two columns: chapter content on the left, only its associated forms on the right.
+- TOC continuation pages must keep page-1 column spacing and row rhythm; continuation-only spacing overrides are prohibited.
+- Employee handbook TOC must suppress page 2 when no overflow exists; blank continuation pages are not allowed.
+
 ### 13. Verification workflow (mandatory after edits)
 
 ```bash
@@ -155,11 +165,12 @@ node documents/scripts/generate.mjs --template sections
 - Do NOT remove or reorder `stripLeakedMetadata()` / `tagNumberedParagraphs()` calls in `postProcessSectionHtml()` (§11, §10).
 - Do NOT downgrade `.sec-h.sec-h-N` selectors to single-class form — they will lose to the universal hanging-indent rule (§9).
 - Do NOT hand-author form cover PDFs or skip the manifest — covers MUST come from `generateFormCovers()` (§12).
+- Do NOT break spine metadata-stack parity: keep `.spine-logo-wrap { gap: 0; }` and `.spine-meta { padding-top: 0.1in; gap: 0.1in; }` in both spine templates.
 - Do NOT `--no-verify` or skip the visual crop verification on margin/header/footer changes.
 
 ## Required Workflow
 
-1. Identify which MDS clauses (§1–§13) the requested change touches.
+1. Identify which MDS clauses (§1–§14) the requested change touches.
 2. Apply minimal source edits that conform to those clauses.
 3. Run the single-section verification loop (§13), confirming `md5sum` actually changes.
 4. Visually verify the affected region (header logo, ribbon clearance, table layout) by cropping and viewing.

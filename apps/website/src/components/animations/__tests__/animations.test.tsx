@@ -303,4 +303,26 @@ describe("ScrollReveal", () => {
     expect(el.classList.contains("revealed")).toBe(false);
     document.body.removeChild(el);
   });
+
+  it("reveals immediately when IntersectionObserver is unavailable", () => {
+    const originalIntersectionObserver = window.IntersectionObserver;
+    // @ts-expect-error: test intentionally removes observer support.
+    delete window.IntersectionObserver;
+
+    const el = document.createElement("div");
+    el.classList.add("scroll-reveal");
+    document.body.appendChild(el);
+
+    render(<ScrollReveal />);
+
+    expect(el.classList.contains("js-controlled")).toBe(true);
+    expect(el.classList.contains("revealed")).toBe(true);
+
+    document.body.removeChild(el);
+    Object.defineProperty(window, "IntersectionObserver", {
+      writable: true,
+      configurable: true,
+      value: originalIntersectionObserver,
+    });
+  });
 });

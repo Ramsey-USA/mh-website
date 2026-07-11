@@ -8,6 +8,12 @@ export function useScrollReveal() {
     const scrollElements = document.querySelectorAll(".scroll-reveal");
     scrollElements.forEach((el) => el.classList.add("js-controlled"));
 
+    if (typeof IntersectionObserver === "undefined") {
+      // Fallback: reveal immediately when observer APIs are unavailable.
+      scrollElements.forEach((el) => el.classList.add("revealed"));
+      return;
+    }
+
     const observerOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px",
@@ -24,7 +30,7 @@ export function useScrollReveal() {
     scrollElements.forEach((el) => observer.observe(el));
 
     return () => {
-      scrollElements.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
     };
   }, []);
 }

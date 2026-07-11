@@ -1,8 +1,8 @@
 # MH Construction — Documents & Forms Branding Standards
 
 **Category:** Branding - Standards
-**Version:** 1.0.0
-**Last Updated:** April 18, 2026
+**Version:** 1.5.0
+**Last Updated:** July 11, 2026
 **Status:** ✅ Official Standard
 **Scope:** All print documents, downloadable PDFs, fillable forms, and printable web routes
 
@@ -235,6 +235,66 @@ Signature blocks must include:
 - Title/role line (where applicable)
 
 Font: `--font-body` at `--type-print-signature` (7pt).
+
+### 6.4 Pillbox / Chip Corner-Radius Standard (Print Artifacts)
+
+For document pillboxes/chips used as program, chapter, or form identifiers, the canonical corner radius is:
+
+```
+border-radius: 1.5pt;
+```
+
+Applies to:
+
+- Safety manual TOC chips (program/chapter/form chips)
+- Employee handbook TOC chips (program/chapter/form chips)
+- Form cover identifier chips (`FORM ID` and category chips)
+
+Rules:
+
+- Do not use `5pt`, `6pt`, or `999px` radius values for these chip classes.
+- Keep safety and handbook templates in parity when chip styles are updated.
+- Any exception must be documented in `.github/branding-exceptions.json` with owner and expiry.
+
+### 6.5 TOC Chapter/Form Alignment and Pagination Standard
+
+For safety-manual and employee-handbook TOC surfaces, chapter and form content must preserve strict association and spacing parity.
+
+Rules:
+
+- Use a paired two-column row pattern: chapter content on the left, that chapter's associated forms on the right.
+- Do not use detached forms panels that separate forms from their owning chapter row.
+- Keep TOC row spacing locked to `0.1in` on `.toc-row + .toc-row` for both manuals.
+- Continuation pages must inherit page-1 column spacing and row rhythm; do not introduce continuation-only spacing overrides.
+- Safety and handbook TOC footers must match in structure and text treatment; do not reintroduce legacy footer label lines ("Company Contact" / "Accreditation and Trust").
+- Employee handbook TOC must hide continuation page 2 when no overflow content exists.
+
+### 6.6 Spine Metadata Stack Spacing and Parity Standard
+
+For safety-manual and employee-handbook spine templates, logo and revision metadata spacing must stay structurally identical and token-safe.
+
+Rules:
+
+- Keep `.spine-logo-wrap` at `gap: 0`; do not use this wrapper for logo-to-year/revision spacing.
+- Use `.spine-meta` as the canonical metadata stack wrapper with `padding-top: 0.1in` and `gap: 0.1in`.
+- Keep both `{{BRAND_REVISION_YEAR}}` and `Revision 3.0` inside `.spine-meta` in this order.
+- Apply the same `.spine-meta` spacing contract to both `safety-manual-spine.html` and `employee-handbook-spine.html`.
+
+### 6.7 Tabs Frame, Footer, and Signature Parity Standard
+
+For safety-manual and employee-handbook tab templates, page geometry and approval-signature presentation must remain parity-locked.
+
+Rules:
+
+- Keep tab frame and ribbon geometry fixed: outer frame `inset: 0.22in`, inner frame `inset: 0.33in`, ribbon `top/bottom/left: 0.45in` with `width: 0.28in`.
+- Keep tab footer geometry fixed: `left: 0.92in`, `right: 0.9in`, `bottom: 0.62in`, `border-top: 1.2pt solid var(--brand-primary)`, and `grid-template-columns: 1.45fr 1fr`.
+- Keep chamber membership row present in tab footers with Pasco, Kennewick, and Richland logos.
+- Keep veteran strip placement fixed at `bottom: 0.42in` and preserve the canonical veteran/trust line treatment.
+- Keep tab signature contract fixed: `aria-label="Approval signature verification"`, a two-part signer row (`.tab-sig-row` at `1fr 1fr`), and per-signer signature/date lane ratio `1.5fr 0.85fr`.
+- Keep tab signature spacing contract fixed: `.tab-sig-row` gap `10pt`, `.tab-sig-cell + .tab-sig-cell` padding-left `10pt`, `.tab-sig-role` margin-bottom `6pt`, and `.tab-sig-lines` gap `10pt`.
+- Handbook tabs must include both signer lanes: `Jeremy Thamert` (`President & Owner`) and `Kimberly Thamert` (`HR Representative`).
+- Safety tabs must include both signer lanes: `Jeremy Thamert` (`President & Owner`) and `Matt Ramsey` (`AGC Representative | Safety Officer`).
+- Preserve content separation: safety tabs remain MISH section-driven and handbook tabs remain chapter-driven; cross-manual chapter/section language leakage is prohibited.
 
 ---
 

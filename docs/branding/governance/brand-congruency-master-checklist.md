@@ -1,7 +1,7 @@
 # Brand Congruency Master Checklist
 
 **Category:** Branding - Governance  
-**Last Updated:** July 4, 2026  
+**Last Updated:** July 11, 2026  
 **Status:** Active - Canonical
 
 ## Purpose
@@ -19,6 +19,10 @@ or documentation that can affect MH brand consistency.
 1. **Terminology:** Naming remains consistent across UI copy, metadata, schema, and docs.
 1. **Accessibility:** Semantic headings, labels, contrast, and keyboard flow remain valid.
 1. **SEO naming:** Labels and titles stay plain-language and canonical.
+1. **Document chip parity:** For print/document artifacts, program/chapter/form identifier pillboxes use the canonical `1.5pt` corner radius consistently across safety-manual and employee-handbook templates.
+1. **TOC association parity:** Print TOCs preserve chapter-to-form pairing (chapter left, associated forms right), continuation pages keep page-1 spacing, TOC row spacing remains locked at `0.1in`, safety/handbook footer structures match (no legacy footer labels), and handbook TOC does not render empty continuation pages.
+1. **Spine metadata parity:** Safety and handbook spines keep identical metadata-stack structure and spacing with `.spine-logo-wrap { gap: 0; }` and `.spine-meta { padding-top: 0.1in; gap: 0.1in; }`.
+1. **Tabs geometry and signature parity:** Safety and handbook tabs keep matched frame/ribbon/footer/veteran-strip geometry and canonical two-part approval-signature contracts: handbook (`Jeremy Thamert` + `Kimberly Thamert`) and safety (`Jeremy Thamert` + `Matt Ramsey`) with per-signer signature/date lane ratio `1.5fr 0.85fr`, tuned lane/role spacing (`10pt`/`6pt` rhythm), and no cross-manual language leakage.
 1. **Exceptions:** Approved design/color exceptions remain scoped to documented components only.
 1. **Duplicate phrasing policy:** Public-facing copy does not repeat guarded phrasing or sentence-level boilerplate within the same page file.
 1. **Dictionary parity:** New public page labels are added to `src/lib/branding/page-names.ts` aliases before rollout.

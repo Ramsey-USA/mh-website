@@ -7,6 +7,8 @@ import { Button, Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   formatDualPageName,
@@ -306,12 +308,15 @@ export default async function FAQCategoryPage({
           Skip to category questions
         </a>
 
-        <section className="hero-section hero-safe-top-lg relative overflow-hidden border-b border-gray-200 px-4 pb-14 text-white sm:px-6 lg:px-8">
+        <section
+          className="hero-section relative flex items-end justify-end text-white hero-safe-top-lg border-b border-gray-200 px-4 pb-14 sm:px-6 lg:px-8 overflow-hidden"
+          style={{ height: "calc(100vh - var(--mh-nav-offset, 6.5rem))" }}
+        >
           <div className="absolute inset-0 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950">
             <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80" />
           </div>
 
-          <div className="relative mx-auto max-w-5xl">
+          <div className="relative mx-auto max-w-5xl w-full ml-auto">
             <div className="max-w-4xl">
               <div className="mb-4 flex justify-start">
                 <div className="relative rounded-2xl border-2 border-white/30 bg-linear-to-br from-white/15 to-white/5 p-4 shadow-2xl backdrop-blur-sm">
@@ -324,7 +329,7 @@ export default async function FAQCategoryPage({
                 </div>
               </div>
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
-                Intel Brief -&gt; FAQ Category
+                Intel Brief → FAQ Category
               </p>
               <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
                 {faqCategory.title}
@@ -365,6 +370,12 @@ export default async function FAQCategoryPage({
               </nav>
             </div>
           </div>
+
+          <PageNavigation
+            items={navigationConfigs.faq}
+            showRemainingPagesOverlay
+            className="absolute bottom-0 left-0 right-0"
+          />
         </section>
 
         <Breadcrumbs

@@ -109,11 +109,18 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0.1in;
+        gap: 0;
         padding: 0.24in 0.16in 0.14in;
         flex-shrink: 0;
         position: relative;
         z-index: 1;
+      }
+      .spine-meta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.1in;
+        padding-top: 0.1in;
       }
       .spine-logo {
         width: 1.08in;
@@ -223,8 +230,10 @@
               src="{{BRAND_LOGO_COLOR}}"
               alt="MH Construction"
             />
-            <span class="spine-year">{{BRAND_REVISION_YEAR}}</span>
-            <span class="spine-revision">Revision 3.0</span>
+            <div class="spine-meta">
+              <span class="spine-year">{{BRAND_REVISION_YEAR}}</span>
+              <span class="spine-revision">Revision 3.0</span>
+            </div>
           </div>
 
           <div class="spine-divider"></div>

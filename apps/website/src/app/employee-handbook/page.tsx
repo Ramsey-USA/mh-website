@@ -47,8 +47,8 @@ function formAnchor(documentId: string): string {
 export default function EmployeeHandbookPage() {
   const manual = getDocumentById("employee-handbook");
   const sections = manual?.sections ?? [];
-  const revisionNumber = manual?.revisionNumber ?? "1.0";
-  const revisionDate = manual?.revisionDate ?? "05/01/2026";
+  const revisionNumber = manual?.revisionNumber ?? "3.0";
+  const revisionDate = manual?.revisionDate ?? "7/1/2026";
   const totalPages = manual?.totalPages ?? 37;
   const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 

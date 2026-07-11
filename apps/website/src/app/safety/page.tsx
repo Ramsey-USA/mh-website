@@ -174,7 +174,7 @@ const safetyFaqSchema = {
       name: "What is MH Construction's written safety program?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "MH Construction maintains a 50-section written safety program (Revision 3, effective April 7, 2026), referred to as the MISH Safety & Health Program and delivered as the Safety Manual. The program is aligned with OSHA 29 CFR 1926, AGC CSEA, WISHA (Washington), Oregon OSHA, and Idaho requirements. It is available for review by bonding agents, insurers, and Client Partners at mhc-gc.com/safety.",
+        text: "MH Construction maintains a 50-section written safety program (Revision 3.0, effective July 1, 2026), referred to as the MISH Safety & Health Program and delivered as the Safety Manual. The program is aligned with OSHA 29 CFR 1926, AGC CSEA, WISHA (Washington), Oregon OSHA, and Idaho requirements. It is available for review by bonding agents, insurers, and Client Partners at mhc-gc.com/safety.",
       },
     },
     {
@@ -391,7 +391,7 @@ export default function SafetyPage() {
                   PAGE_TERMINOLOGY.safety.seoName,
                   PAGE_TERMINOLOGY.safety.mhBrandName,
                 )}{" "}
-                -&gt; Safety Program
+                → Safety Program
               </span>
               {/* Page Mantra */}
               <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">

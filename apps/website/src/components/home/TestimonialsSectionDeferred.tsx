@@ -55,8 +55,12 @@ export function TestimonialsSectionDeferred(
   useEffect(() => {
     if (shouldRender) return;
 
+    let cancelled = false;
+
     if (typeof IntersectionObserver === "undefined") {
-      setShouldRender(true);
+      if (!cancelled) {
+        setShouldRender(true);
+      }
       return;
     }
 
@@ -65,7 +69,7 @@ export function TestimonialsSectionDeferred(
 
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
+        if (!cancelled && entries.some((entry) => entry.isIntersecting)) {
           setShouldRender(true);
           observer.disconnect();
         }
@@ -76,7 +80,10 @@ export function TestimonialsSectionDeferred(
     );
 
     observer.observe(target);
-    return () => observer.disconnect();
+    return () => {
+      cancelled = true;
+      observer.disconnect();
+    };
   }, [shouldRender]);
 
   return (
