@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup workspace
         uses: ./.github/actions/setup-workspace
@@ -99,7 +99,7 @@ jobs:
 
       - name: Push changes
         if: steps.verify-changes.outputs.changes == 'true'
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@v1.3.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}

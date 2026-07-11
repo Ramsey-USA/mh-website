@@ -72,9 +72,9 @@
 
 ### Core Technologies
 
-- **Framework**: Next.js 16.2.4 (App Router)
+- **Framework**: Next.js 16.2.10 (App Router)
 - **Language**: TypeScript 6.0.3
-- **Styling**: Tailwind CSS 4.2.4
+- **Styling**: Tailwind CSS 4.3.2
 - **Icons**: Google Material Icons (font-based)
 - **Animations**: CSS transitions + IntersectionObserver (native, no library dependency)
 - **Theme**: Dark/Light mode support

@@ -1,15 +1,15 @@
-# Cloudflare Compatibility Assessment for Dependency Upgrades
+# Cloudflare Compatibility Assessment for Current Dependency Stack
 
-**Date:** April 29, 2026  
-**Status:** ✅ **ALL UPGRADES ARE CLOUDFLARE-COMPATIBLE**
+**Date:** July 11, 2026  
+**Status:** ✅ **CURRENT STACK IS CLOUDFLARE-COMPATIBLE**
 
 ---
 
 ## Executive Summary
 
-Your planned upgrades are **fully compatible** with your Cloudflare Workers deployment. No breaking changes detected between your current Cloudflare setup and the target versions.
+Your current dependency stack is **fully compatible** with your Cloudflare Workers deployment. No breaking changes detected between the repository versions and Cloudflare adapter requirements.
 
-Current deployed stack (post-upgrade): Next.js 16.2.4, @opennextjs/cloudflare 1.19.4, wrangler 4.86.0.
+Current deployed stack: Next.js 16.2.10, @opennextjs/cloudflare 1.20.1, wrangler 4.110.0.
 
 ---
 
@@ -17,18 +17,18 @@ Current deployed stack (post-upgrade): Next.js 16.2.4, @opennextjs/cloudflare 1.
 
 ### Critical Path: @opennextjs/cloudflare + Next.js
 
-| Component                  | Current | Target | Compatibility       | Risk |
-| -------------------------- | ------- | ------ | ------------------- | ---- |
-| **Next.js**                | 16.2.4  | 16.2.4 | ✅ Supported        | NONE |
-| **@opennextjs/cloudflare** | 1.19.1  | 1.19.4 | ✅ Supports ≥16.2.3 | NONE |
-| **wrangler**               | 4.83.0  | 4.86.0 | ✅ Requires ≥4.84.1 | NONE |
+| Component                  | Current | Target  | Compatibility       | Risk |
+| -------------------------- | ------- | ------- | ------------------- | ---- |
+| **Next.js**                | 16.2.10 | 16.2.10 | ✅ Supported        | NONE |
+| **@opennextjs/cloudflare** | 1.20.1  | 1.20.1  | ✅ Supports ≥16.2.6 | NONE |
+| **wrangler**               | 4.110.0 | 4.110.0 | ✅ Requires ^4.86.0 | NONE |
 
 **Peer Dependency Check (from npm):**
 
 ```
-@opennextjs/cloudflare@1.19.4 requires:
-  • next: '>=15.5.15 <16 || >=16.2.3'  ✅ Your target 16.2.4 is explicitly supported
-  • wrangler: '^4.84.1'                 ✅ Your target 4.86.0 is within range
+@opennextjs/cloudflare@1.20.1 requires:
+  • next: '>=15.5.18 <16 || >=16.2.6'  ✅ Your current 16.2.10 is explicitly supported
+  • wrangler: '^4.86.0'                 ✅ Your current 4.110.0 is within range
 ```
 
 ---
@@ -43,7 +43,7 @@ Current deployed stack (post-upgrade): Next.js 16.2.4, @opennextjs/cloudflare 1.
 
 ### Upgrade Impact Analysis
 
-**Next.js 16.2.4 changes:**
+**Next.js 16.2.10 changes:**
 
 - Bundle size: Minimal impact (~0-5 KB difference vs 15.x)
 - Removed packages: None that would reduce bundle
@@ -54,12 +54,12 @@ Current deployed stack (post-upgrade): Next.js 16.2.4, @opennextjs/cloudflare 1.
 - TypeScript is dev-only (not bundled) ✅
 - No impact on Worker script size
 
-**Tailwind CSS 4.2.4:**
+**Tailwind CSS 4.3.2:**
 
 - Installation only; CSS is pre-compiled and optimized ✅
 - PostCSS configuration compatible ✅
 
-**ESLint 10.2.1:**
+**ESLint 9.39.4:**
 
 - Dev-only dependency ✅
 - No impact on Worker script
@@ -111,7 +111,7 @@ compatibility_date = "2026-03-25"
 
 **All upgrades support this flag:**
 
-- Next.js 16.2.4: ✅ Full nodejs_compat support
+- Next.js 16.2.10: ✅ Full nodejs_compat support
 - TypeScript 6: ✅ (dev-only)
 - Jose 6: ✅ Tested with Workers
 - All others: ✅ No changes needed
@@ -133,7 +133,7 @@ model = "@cf/meta/llama-3.1-8b-instruct"
 **None.** The chatbot logic is stable:
 
 - API routes ($`src/app/api/chat/route.ts`) use `getCloudflareContext()`
-- @opennextjs/cloudflare 1.19.4 includes full AI context support
+- @opennextjs/cloudflare 1.20.1 includes full AI context support
 - No code changes needed
 - Backward compatible ✅
 
@@ -194,7 +194,7 @@ images: {
 
 ### After Upgrades
 
-- Next.js 16.2.4: Enhanced streaming performance, better s-maxage support ✓
+- Next.js 16.2.10: Enhanced streaming performance, better s-maxage support ✓
 - Cache directives remain identical ✓
 - Stale-while-revalidate still supported ✓
 
@@ -219,7 +219,7 @@ images: {
 ```json
 {
   "postcss": ">=8.5.10", // Unchanged
-  "tailwindcss": "4.2.4", // Updated (v4 CSS engine)
+  "tailwindcss": "4.3.2", // Updated (v4 CSS engine)
   "@tailwindcss/*": "^0.5.x" // Unchanged
 }
 ```
@@ -262,7 +262,7 @@ import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 ### After Upgrades
 
-`getCloudflareContext()` API is **unchanged** in @opennextjs/cloudflare 1.19.4 ✅
+`getCloudflareContext()` API is **unchanged** in @opennextjs/cloudflare 1.20.1 ✅
 
 All the following remain working:
 
@@ -276,7 +276,7 @@ All the following remain working:
 
 This exact upgrade path is tested by the Next.js core team:
 
-- Next.js 16.2.4 + @opennextjs/cloudflare 1.19.4 = **officially supported**
+- Next.js 16.2.10 + @opennextjs/cloudflare 1.20.1 = **officially supported**
 - TypeScript 6 + Next.js 16 = **no known issues**
 - Tailwind CSS 4 with modern Node.js = **commonly deployed**
 
@@ -330,7 +330,7 @@ npx wrangler deploy
 ## FAQ
 
 **Q: Will Next.js 16 work with my Cloudflare Worker?**
-A: Yes. @opennextjs/cloudflare 1.19.4 explicitly supports `next: >=16.2.3`. Your 16.2.4 is the exact target.
+A: Yes. @opennextjs/cloudflare 1.20.1 explicitly supports `next: >=16.2.6`. Your 16.2.10 is within range.
 
 **Q: Does Tailwind CSS 4 change CSS output?**
 A: Yes, it uses CSS v4 syntax internally, but output is backward compatible with your Cloudflare cache headers.
@@ -345,7 +345,7 @@ A: No. No upgrades introduce new asset files. Your previous fix (removing flag-l
 A: No. All settings remain compatible. Your `compatibility_flags = ["nodejs_compat"]` is still required and works.
 
 **Q: Will my AI chatbot continue working?**
-A: Yes. The AI binding context API is unchanged in @opennextjs/cloudflare 1.19.4.
+A: Yes. The AI binding context API is unchanged in @opennextjs/cloudflare 1.20.1.
 
 **Q: Can I deploy immediately after upgrading?**
 A: Yes, but run `npx wrangler deploy --dry-run` first to verify asset/script sizes.
@@ -374,6 +374,6 @@ A: Yes, but run `npx wrangler deploy --dry-run` first to verify asset/script siz
 
 ---
 
-**Last Updated:** April 29, 2026  
-**Status:** Ready for deployment  
-**Next Step:** Execute Phase 1 (Pre-Upgrade Validation) from UPGRADE_PLAN.md
+**Last Updated:** July 11, 2026  
+**Status:** Verified against current repo dependency versions  
+**Next Step:** Re-run this check whenever Next.js, @opennextjs/cloudflare, or wrangler versions change

@@ -47,6 +47,7 @@
     "docs:preflight:pdf-output": "pnpm --filter @mhc/website run docs:preflight:pdf-output",
     "docs:clean:legacy-output": "bash scripts/docs/clean-stale-pdf-output.sh",
     "docs:guardrails:contracts": "bash scripts/validation/check-branding-doc-contracts.sh",
+    "docs:stack:congruency:check": "node scripts/validation/check-doc-stack-congruency.mjs",
     "guard:generated-artifacts": "bash scripts/validation/check-no-generated-artifacts.sh",
     "docs:extract": "node documents/scripts/extract.mjs",
     "docs:guardrails:check": "pnpm --filter @mhc/website docs:guardrails:check",
@@ -95,7 +96,7 @@
     "pdf-parse": "^2.4.5",
     "pdfjs-dist": "^5.7.284",
     "mammoth": "^1.12.0",
-    "prettier": "^3.9.4",
+    "prettier": "^3.9.5",
     "puppeteer": "^25.3.0",
     "qrcode": "^1.5.4",
     "tailwindcss": "^4.3.2"
@@ -114,7 +115,7 @@
     "basic-ftp": ">=5.3.1",
     "ip-address": ">=10.1.1",
     "@opennextjs/aws": "4.0.3",
-    "next": "16.2.9",
+    "next": "16.2.10",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "postcss": ">=8.5.10"

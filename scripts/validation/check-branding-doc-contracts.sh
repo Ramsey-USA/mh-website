@@ -30,6 +30,17 @@ check_no_inline_transform_examples() {
   fi
 }
 
+check_no_floating_workflow_action_refs() {
+  local workflow_dir="$1"
+  local regex='^[[:space:]]*uses:[[:space:]]*[^[:space:]]+@(master|main|HEAD)[[:space:]]*$'
+
+  if grep -RInE "$regex" "$workflow_dir" --include='*.yml' --include='*.yaml' > /tmp/workflow-action-pin-check.txt; then
+    echo "FAIL: Floating GitHub Action ref(s) found in workflow files" >&2
+    cat /tmp/workflow-action-pin-check.txt >&2
+    failures=1
+  fi
+}
+
 COVERAGE_FILE="docs/branding/governance/website-guardrails-coverage.md"
 BRANDING_CHECKLIST="docs/development/standards/branding-congruency-checklist.md"
 PAGE_CHECKLIST="docs/development/standards/page-compliance-checklist.md"
@@ -66,6 +77,9 @@ INLINE_TRANSFORM_REGEX='group-hover:scale-[0-9]|group-hover:rotate-[0-9]|group-h
 check_no_inline_transform_examples "docs/branding/standards/unified-component-standards.md" "$INLINE_TRANSFORM_REGEX"
 check_no_inline_transform_examples "docs/development/standards/consistency-guide.md" "$INLINE_TRANSFORM_REGEX"
 check_no_inline_transform_examples "docs/technical/design-system/buttons-ctas-complete-guide.md" "$INLINE_TRANSFORM_REGEX"
+
+# CI congruency: external GitHub Actions must use pinned tags/SHAs, never floating branches.
+check_no_floating_workflow_action_refs ".github/workflows"
 
 if [[ $failures -ne 0 ]]; then
   echo "Branding docs contract guard FAILED." >&2

@@ -603,8 +603,8 @@ export default function Home() {
 
 ```json
 {
-  "next": "16.2.4",
-  "react": "^19.0.0",
+  "next": "16.2.10",
+  "react": "^19.2.7",
   "typescript": "^6.0.3"
 }
 ```

@@ -63,6 +63,14 @@ Pipelines automatically trigger on:
 └── lighthouse-weekly.yml # Scheduled Lighthouse reporting
 ```
 
+### Action Version Pinning Policy
+
+To keep CI reproducible and aligned with security/congruency safeguards:
+
+- Do not use floating refs such as `@master`, `@main`, or `@HEAD` for external actions.
+- Use a pinned release tag (for example, `actions/checkout@v5`) or a full commit SHA.
+- Enforced by the docs/contracts safeguard command: `npm run docs:guardrails:contracts`.
+
 ### Required Repository Secrets (Main Branch CI/Deploy)
 
 Current `ci-cd.yml` runs on `main` require these GitHub repository secrets:
@@ -176,7 +184,7 @@ pnpm run test:ci
 
 **Configuration:**
 
-- **Test Runner:** Jest 30.3.0
+- **Test Runner:** Jest 30.4.2
 - **Environment:** jsdom (browser simulation)
 - **Watch Mode:** OFF in CI
 
