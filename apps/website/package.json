@@ -34,6 +34,8 @@
     "ci:gate": "npm run type-check && npm run lint && npm run slogan:coverage:check && npm run slogan:primary-support:check && npm run slogan:core-values:check && npm run brand:congruency:sync:check && npm run congruency:website:check && npm run congruency:locale:check && npm run revision:congruency:check && npm run icons:forms-manuals:check && npm run terminology:guardrails:check && npm run public-email:guardrails:check && npm run font-system:check && npm run docs:guardrails:check && npm run check:hero-guardrails && npm run format:check && npm run nav:contract:check && npm run test:ci && npm run check:hero-commercials && npm run audit:ci && npm run build",
     "smoke:safety": "node scripts/validation/smoke-safety-system.js",
     "smoke:routes": "node scripts/validation/smoke-routes.js",
+    "sweep:spanish:render": "bash scripts/validation/sweep-spanish-render.sh",
+    "report:spanish:coverage": "node scripts/validation/report-spanish-coverage.js",
     "smoke:branding:visual": "VISUAL_SMOKE_THRESHOLD_PERCENT=0.30 VISUAL_SMOKE_PROTOCOL_TIMEOUT_MS=240000 node scripts/validation/smoke-branding-visual.js",
     "smoke:branding:visual:baseline": "VISUAL_SMOKE_MODE=baseline VISUAL_SMOKE_THRESHOLD_PERCENT=0.30 VISUAL_SMOKE_PROTOCOL_TIMEOUT_MS=240000 node scripts/validation/smoke-branding-visual.js",
     "smoke:branding:visual:quick": "VISUAL_SMOKE_THRESHOLD_PERCENT=0.30 VISUAL_SMOKE_PROTOCOL_TIMEOUT_MS=240000 VISUAL_SMOKE_ROUTES=/ node scripts/validation/smoke-branding-visual.js",

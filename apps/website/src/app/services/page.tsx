@@ -13,6 +13,7 @@ import {
   specialtyServices,
 } from "@/components/services";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const processSteps = [
   {
@@ -53,15 +54,27 @@ const processSteps = [
   },
 ] as const;
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const isEs = (await getServerLocale()) === "es";
+
   return (
     <>
       <ServicesHero heroSlogan={getHeroPageSlogan("services").slogan} />
 
       <ConstructionExpertiseSection
-        subtitle="Commercial-First Delivery"
-        title="Services Built for Commercial, Industrial, and Public Projects"
-        description="Our core delivery is commercial construction. We support agricultural and winery communities, occupied tenant improvements, municipal work, and select custom home builds when scope and delivery conditions align."
+        subtitle={
+          isEs ? "Entrega Comercial Primero" : "Commercial-First Delivery"
+        }
+        title={
+          isEs
+            ? "Servicios para Proyectos Comerciales, Industriales y Públicos"
+            : "Services Built for Commercial, Industrial, and Public Projects"
+        }
+        description={
+          isEs
+            ? "Nuestra entrega principal es construcción comercial. También apoyamos comunidades agrícolas y bodegas, tenant improvements en espacios ocupados, obra municipal y algunos proyectos residenciales selectivos cuando el alcance está alineado."
+            : "Our core delivery is commercial construction. We support agricultural and winery communities, occupied tenant improvements, municipal work, and select custom home builds when scope and delivery conditions align."
+        }
       />
 
       <CoreServicesSection

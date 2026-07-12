@@ -13,6 +13,7 @@ import {
 import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
 import { getDocumentById, handbookForms } from "@/lib/data/documents";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.employeeHandbook.seoName, PAGE_TERMINOLOGY.employeeHandbook.mhBrandName)} | MH Construction`,
@@ -44,7 +45,8 @@ function formAnchor(documentId: string): string {
   return `form-${documentId.replace(/^handbook-form-/, "")}`;
 }
 
-export default function EmployeeHandbookPage() {
+export default async function EmployeeHandbookPage() {
+  const isEs = (await getServerLocale()) === "es";
   const manual = getDocumentById("employee-handbook");
   const sections = manual?.sections ?? [];
   const revisionNumber = manual?.revisionNumber ?? "3.0";
@@ -76,7 +78,7 @@ export default function EmployeeHandbookPage() {
           </div>
 
           <h1 className="mt-4 text-2xl font-black tracking-tight sm:text-3xl">
-            Employee Handbook
+            {isEs ? "Manual del Empleado" : "Employee Handbook"}
           </h1>
           <p className="font-heading mt-2 text-xs font-semibold uppercase tracking-wider text-brand-secondary/90">
             Built on Quality, Backed by Trust.
@@ -85,11 +87,9 @@ export default function EmployeeHandbookPage() {
             Revision {revisionNumber} &middot; Effective {revisionDate}
           </p>
           <p className="mt-4 max-w-3xl text-base text-slate-100 sm:text-lg">
-            Public index of MH Construction's employee handbook chapters and
-            handbook-owned policy forms. Use this page to verify the current
-            chapter structure, then open the public handbook table of contents
-            PDF. This view is designed for architects, insurers, bonding
-            reviewers, subcontractors, vendors, and future employees.
+            {isEs
+              ? "Indice publico de capitulos del manual del empleado de MH Construction y formularios de politica asociados. Use esta pagina para verificar la estructura vigente y abrir el PDF publico de tabla de contenido. Esta vista esta dirigida a arquitectos, aseguradoras, revisores de fianzas, subcontratistas, proveedores y futuros empleados."
+              : "Public index of MH Construction's employee handbook chapters and handbook-owned policy forms. Use this page to verify the current chapter structure, then open the public handbook table of contents PDF. This view is designed for architects, insurers, bonding reviewers, subcontractors, vendors, and future employees."}
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             {manual?.pdfPath && (

@@ -17,6 +17,7 @@ import {
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 type QrCodeEntry = {
   name: string;
@@ -114,6 +115,7 @@ function folderLabel(folder: string): string {
 }
 
 export default async function QrCodesPage() {
+  const isEs = (await getServerLocale()) === "es";
   const qrCodes = await loadQrCodes();
   const groupedQrCodes = groupByFolder(qrCodes);
   const folders = Object.keys(groupedQrCodes).sort();
@@ -130,8 +132,8 @@ export default async function QrCodesPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <Breadcrumb
             items={[
-              { label: "Home", href: "/" },
-              { label: "QR Codes", href: "/qr-codes" },
+              { label: isEs ? "Inicio" : "Home", href: "/" },
+              { label: isEs ? "Codigos QR" : "QR Codes", href: "/qr-codes" },
             ]}
           />
 
@@ -147,11 +149,14 @@ export default async function QrCodesPage() {
               </span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-gray-900 dark:text-white mb-4 tracking-tight">
-              Browse and Download Every QR Code
+              {isEs
+                ? "Explore y Descargue Cada Codigo QR"
+                : "Browse and Download Every QR Code"}
             </h1>
             <p className="font-body text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Each code is available as a full-size PNG. Open the image to
-              inspect it, or download it directly from the card below.
+              {isEs
+                ? "Cada codigo esta disponible como PNG en tamano completo. Abra la imagen para revisarla o descarguela directamente desde la tarjeta."
+                : "Each code is available as a full-size PNG. Open the image to inspect it, or download it directly from the card below."}
             </p>
           </section>
 

@@ -23,6 +23,16 @@ export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.locations.seoName, PAGE_TERMINOLOGY.locations.mhBrandName)} | MH Construction`,
   description:
     "Service coverage across Washington, Oregon, and Idaho with local project proof for AG and winery facilities, commercial tenant improvements, and municipal builds.",
+  keywords: [
+    "construction service areas WA OR ID",
+    "regional commercial construction coverage",
+    "local project delivery proof",
+    "owner representative location-based construction support",
+    "facilities team regional construction partner",
+    "municipal construction coverage map",
+    "agricultural and winery construction locations",
+    "tenant improvements regional contractor",
+  ],
   alternates: {
     canonical: `${SITE_URL}/locations`,
   },
@@ -38,6 +48,14 @@ export const metadata: Metadata = {
         alt: "MH Construction locations and service area coverage",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.locations.seoName, PAGE_TERMINOLOGY.locations.mhBrandName)} | MH Construction`,
+    description:
+      "Regional service area profiles with project proof and stakeholder-focused delivery context across WA, OR, and ID.",
+    creator: "@mhc_gc",
+    images: [`${SITE_URL}/images/og-default.webp`],
   },
   robots: { index: true, follow: true },
 };

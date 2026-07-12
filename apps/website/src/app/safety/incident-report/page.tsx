@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PageTrackingClient } from "@/components/analytics";
 import { Input, Textarea } from "@/components/ui/forms/Input";
@@ -24,6 +25,8 @@ function getAuthToken(): string | null {
 }
 
 export default function SafetyIncidentReportPage() {
+  const locale = useLocale();
+  const isEs = locale === "es";
   const [jobs, setJobs] = useState<Job[]>([]);
   const [loadingJobs, setLoadingJobs] = useState(true);
   const [isAuthorized, setIsAuthorized] = useState(false);
@@ -190,11 +193,12 @@ export default function SafetyIncidentReportPage() {
             className="mx-auto mb-3 text-brand-primary"
           />
           <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-            Team Access Required
+            {isEs ? "Se Requiere Acceso del Equipo" : "Team Access Required"}
           </h1>
           <p className="font-body mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Incident reporting is available to authorized team members in the
-            installed app. Sign in with your team credentials to continue.
+            {isEs
+              ? "El reporte de incidentes esta disponible para miembros autorizados del equipo en la aplicacion instalada. Inicie sesion con sus credenciales para continuar."
+              : "Incident reporting is available to authorized team members in the installed app. Sign in with your team credentials to continue."}
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
@@ -229,10 +233,12 @@ export default function SafetyIncidentReportPage() {
               size="sm"
               className="text-brand-secondary"
             />
-            Direct Incident Entry
+            {isEs ? "Registro Directo de Incidente" : "Direct Incident Entry"}
           </p>
           <h1 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">
-            Incident Report Submission
+            {isEs
+              ? "Envio de Reporte de Incidente"
+              : "Incident Report Submission"}
           </h1>
           <p className="mt-3 max-w-3xl text-sm text-slate-100 sm:text-base">
             Submit incident details immediately so safety leadership can review

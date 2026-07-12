@@ -20,6 +20,7 @@ import {
 } from "@/lib/branding/page-names";
 import { DownloadGate } from "@/components/pwa";
 import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
@@ -56,7 +57,8 @@ const resourcesMissionLine = "Built on Quality, Backed by Trust.";
 const resourcesSupportingLine =
   "No gaps. No guesswork. Just accountable follow-through.";
 
-export default function ResourcesPage() {
+export default async function ResourcesPage() {
+  const isEs = (await getServerLocale()) === "es";
   const safetyManual = manuals.find((doc) => doc.id === "safety-manual");
   const employeeHandbook = manuals.find(
     (doc) => doc.id === "employee-handbook",
@@ -74,17 +76,15 @@ export default function ResourcesPage() {
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20">
           <Breadcrumb
             items={[
-              { label: "Home", href: "/" },
-              { label: "Resources", href: "/resources" },
+              { label: isEs ? "Inicio" : "Home", href: "/" },
+              { label: isEs ? "Recursos" : "Resources", href: "/resources" },
             ]}
           />
 
           <p className="mt-4 mb-8 text-sm sm:text-base text-gray-600 dark:text-gray-300">
-            Download field-ready manuals, forms, and compliance documents from
-            one organized library. Public pages include MISH table-of-contents
-            resources and Employee Handbook index materials for bonding banks,
-            insurers, architects, subcontractors, vendors, and future employees,
-            while full workflow records remain access-controlled.
+            {isEs
+              ? "Descargue manuales, formatos y documentos de cumplimiento listos para campo desde una sola biblioteca organizada. Las paginas publicas incluyen recursos del indice MISH y materiales del Employee Handbook para aseguradoras, bancos de fianzas, arquitectos, subcontratistas, proveedores y futuros empleados, mientras que los registros completos permanecen con acceso controlado."
+              : "Download field-ready manuals, forms, and compliance documents from one organized library. Public pages include MISH table-of-contents resources and Employee Handbook index materials for bonding banks, insurers, architects, subcontractors, vendors, and future employees, while full workflow records remain access-controlled."}
           </p>
           <span className="sr-only">
             {resourcesMissionLine} {resourcesSupportingLine}

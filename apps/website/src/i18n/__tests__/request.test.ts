@@ -3,9 +3,11 @@
  */
 
 const mockCookies = jest.fn();
+const mockHeaders = jest.fn();
 
 jest.mock("next/headers", () => ({
   cookies: () => mockCookies(),
+  headers: () => mockHeaders(),
 }));
 
 jest.mock("next-intl/server", () => ({
@@ -17,6 +19,9 @@ import getRequestConfig from "../request";
 describe("i18n request config", () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockHeaders.mockResolvedValue({
+      get: jest.fn().mockReturnValue(null),
+    });
   });
 
   it("uses spanish locale and messages when locale cookie is es", async () => {
@@ -56,5 +61,23 @@ describe("i18n request config", () => {
     expect(
       (config.messages as { common: { signIn: string } }).common.signIn,
     ).toBe("Sign In");
+  });
+
+  it("prefers locale from rewritten path header over cookie", async () => {
+    mockCookies.mockResolvedValue({
+      get: jest.fn().mockReturnValue({ value: "en" }),
+    });
+    mockHeaders.mockResolvedValue({
+      get: jest.fn((name: string) =>
+        name === "x-mh-path-locale" ? "es" : null,
+      ),
+    });
+
+    const config = await getRequestConfig({} as never);
+
+    expect(config.locale).toBe("es");
+    expect(
+      (config.messages as { common: { signIn: string } }).common.signIn,
+    ).toBe("Iniciar sesión");
   });
 });

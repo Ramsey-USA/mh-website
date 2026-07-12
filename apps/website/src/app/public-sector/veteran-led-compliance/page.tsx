@@ -11,6 +11,7 @@ import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 const VETERAN_LED_COMPLIANCE_HERO_SLOGAN = getHeroPageSlogan(
@@ -21,8 +22,39 @@ export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Led Compliance Workflow | MH Construction`,
   description:
     "Review MH Construction's veteran-led workflow for public-sector preconstruction, procurement readiness, and execution oversight.",
+  keywords: [
+    "veteran-led compliance workflow",
+    "public-sector preconstruction planning",
+    "procurement-ready construction planning",
+    "public agency stakeholder alignment",
+    "government construction compliance support",
+    "municipal construction documentation workflow",
+    "BABAA-informed planning support",
+    "owner representative construction coordination",
+  ],
   alternates: {
     canonical: `${SITE_URL}/public-sector/veteran-led-compliance`,
+  },
+  openGraph: {
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Led Compliance Workflow | MH Construction`,
+    description:
+      "Veteran-led workflow for public-sector planning, procurement readiness, and transparent compliance reporting.",
+    url: `${SITE_URL}/public-sector/veteran-led-compliance`,
+    type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/images/og/services/municipal-government.webp`,
+        alt: "MH Construction veteran-led public-sector compliance workflow",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Veteran-Led Public-Sector Compliance Workflow | MH Construction",
+    description:
+      "Public-sector compliance planning with veteran-led execution controls and transparent stakeholder reporting.",
+    creator: "@mhc_gc",
+    images: [`${SITE_URL}/images/og/services/municipal-government.webp`],
   },
   robots: { index: true, follow: true },
 };
@@ -54,7 +86,9 @@ const workflow = [
   },
 ];
 
-export default function VeteranLedCompliancePage() {
+export default async function VeteranLedCompliancePage() {
+  const isEs = (await getServerLocale()) === "es";
+
   return (
     <main className="bg-white dark:bg-gray-950 min-h-screen">
       <section
@@ -63,15 +97,19 @@ export default function VeteranLedCompliancePage() {
       >
         <div className="mx-auto max-w-5xl w-full ml-auto">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
-            Compliance Pathway → Veteran-Led Compliance
+            {isEs
+              ? "Ruta de Cumplimiento -> Cumplimiento Liderado por Veteranos"
+              : "Compliance Pathway → Veteran-Led Compliance"}
           </p>
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-            Veteran-Led Compliance Workflow
+            {isEs
+              ? "Flujo de Cumplimiento Liderado por Veteranos"
+              : "Veteran-Led Compliance Workflow"}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-white/85">
-            A practical route from government requirements to field execution,
-            designed for disciplined delivery and transparent stakeholder
-            alignment.
+            {isEs
+              ? "Una ruta practica desde requisitos gubernamentales hasta ejecucion en campo, disenada para entrega disciplinada y alineacion transparente con partes interesadas."
+              : "A practical route from government requirements to field execution, designed for disciplined delivery and transparent stakeholder alignment."}
           </p>
           <p className="mt-3 text-sm font-semibold text-white/90 sm:text-base">
             {COMPANY_INFO.slogan.primary}
@@ -90,9 +128,13 @@ export default function VeteranLedCompliancePage() {
 
       <Breadcrumbs
         items={[
-          { label: "Home", href: "/" },
-          { label: "Government", href: "/public-sector" },
-          { label: "Veteran-Led Compliance" },
+          { label: isEs ? "Inicio" : "Home", href: "/" },
+          { label: isEs ? "Gobierno" : "Government", href: "/public-sector" },
+          {
+            label: isEs
+              ? "Cumplimiento Liderado por Veteranos"
+              : "Veteran-Led Compliance",
+          },
         ]}
       />
 

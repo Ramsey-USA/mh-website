@@ -7,6 +7,9 @@ const PAGEHUB_FOUNDATIONAL_KEYWORDS = [
   "Tri-Cities contractor",
   "Washington Oregon Idaho contractor",
   "veteran-owned contractor Pacific Northwest",
+  "Built on Quality, Backed by Trust.",
+  "commercial construction stakeholder alignment",
+  "client partner construction delivery",
 ];
 
 const PAGEHUB_COMMERCIAL_KEYWORDS = [
@@ -15,6 +18,12 @@ const PAGEHUB_COMMERCIAL_KEYWORDS = [
   "industrial construction",
   "construction management",
   "construction project management",
+  "stakeholder-focused construction planning",
+  "owner representative coordination",
+  "property and facilities construction support",
+  "public-sector stakeholder construction delivery",
+  "agricultural and winery project delivery",
+  "tenant improvements",
   "office remodeling",
   "commercial renovation",
   "building addition contractor",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 import {
   DEFAULT_LOCALE,
@@ -21,6 +21,8 @@ interface LanguageToggleProps {
 
 export function LanguageToggle({ className = "" }: LanguageToggleProps) {
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
   const [currentLocale, setCurrentLocale] =
     useState<SupportedLocale>(DEFAULT_LOCALE);
@@ -35,7 +37,17 @@ export function LanguageToggle({ className = "" }: LanguageToggleProps) {
     setClientLocale(next);
     setCurrentLocale(next);
 
+    const normalizedPathname =
+      pathname === "/en" || pathname === "/es"
+        ? "/"
+        : pathname.replace(/^\/(en|es)(?=\/|$)/, "") || "/";
+    const queryString = searchParams.toString();
+    const targetPath = queryString
+      ? `${normalizedPathname}?${queryString}`
+      : normalizedPathname;
+
     startTransition(() => {
+      router.replace(targetPath);
       router.refresh();
     });
   }

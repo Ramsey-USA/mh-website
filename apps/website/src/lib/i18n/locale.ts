@@ -3,6 +3,7 @@ export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
 
 export const DEFAULT_LOCALE: SupportedLocale = "en";
 export const LOCALE_COOKIE_NAME = "locale";
+export const PATH_LOCALE_HEADER_NAME = "x-mh-path-locale";
 const LOCALE_COOKIE_REGEX = new RegExp(
   String.raw`(?:^|;\s*)${LOCALE_COOKIE_NAME}=([^;]+)`,
 );

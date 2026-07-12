@@ -29,6 +29,13 @@ export function generateLocationMetadata(location: LocationData): Metadata {
   const zipKeywords = (location.serviceZipCodes || []).map(
     (zip) => `general contractor ${zip}`,
   );
+  const stakeholderKeywords = [
+    `${location.city} facilities construction support`,
+    `${location.city} municipal project planning`,
+    `${location.city} tenant improvements contractor`,
+    `${location.city} owner representative construction support`,
+    `${location.city} stakeholder-aligned construction delivery`,
+  ];
 
   return withGeoMetadata(
     {
@@ -40,6 +47,7 @@ export function generateLocationMetadata(location: LocationData): Metadata {
         ...nearbyAreaKeywords,
         ...projectKeywords,
         ...zipKeywords,
+        ...stakeholderKeywords,
       ],
       alternates: {
         canonical: `${siteUrl}/locations/${location.slug}`,
@@ -62,7 +70,7 @@ export function generateLocationMetadata(location: LocationData): Metadata {
       },
       twitter: {
         card: "summary_large_image",
-        title: `General Contractor ${location.city} ${location.state} | MH Construction`,
+        title: `General Contractor ${location.city}, ${location.state} | MH Construction`,
         description: location.seo.twitterDescription,
         creator: "@mhc_gc",
         images: [`${siteUrl}/images/og-default.jpg`],

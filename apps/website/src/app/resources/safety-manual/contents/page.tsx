@@ -16,6 +16,7 @@ import {
   clusterForSection,
 } from "@/lib/data/safety-manual-clusters";
 import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 
@@ -65,7 +66,8 @@ const CLUSTERS = SAFETY_MANUAL_CLUSTERS;
 // Callout items (critical safety — mirroring TOC_CALLOUT_ITEMS in generate.mjs)
 const CALLOUT_ITEMS = new Set([21, 48]);
 
-export default function SafetyManualContentsPage() {
+export default async function SafetyManualContentsPage() {
+  const isEs = (await getServerLocale()) === "es";
   const manual = manuals.find((m) => m.id === "safety-manual");
   const sections = manual?.sections ?? [];
   const revisionNumber = manual?.revisionNumber ?? "3.0";
@@ -99,17 +101,20 @@ export default function SafetyManualContentsPage() {
                 Public Index
               </div>
               <h1 className="text-2xl font-black text-white sm:text-3xl md:text-4xl leading-tight">
-                Safety Manual (MISH Safety &amp; Health Program){" "}
+                {isEs
+                  ? "Manual de Seguridad (Programa MISH de Seguridad y Salud)"
+                  : "Safety Manual (MISH Safety &amp; Health Program)"}{" "}
                 <span className="block text-brand-secondary">
-                  Table of Contents
+                  {isEs ? "Tabla de Contenido" : "Table of Contents"}
                 </span>
               </h1>
               <p className="font-body mt-2 text-sm text-white/70">
                 Revision {revisionNumber} &middot; Effective {revisionDate}
               </p>
               <p className="font-heading mt-2 text-xs font-semibold text-brand-secondary">
-                Public index for external review, section navigation, and access
-                requests
+                {isEs
+                  ? "Indice publico para revision externa, navegacion por secciones y solicitudes de acceso"
+                  : "Public index for external review, section navigation, and access requests"}
               </p>
             </div>
             <div className="flex gap-3 flex-wrap">

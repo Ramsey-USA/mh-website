@@ -13,6 +13,7 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 import { safetyForms } from "@/lib/data/documents";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 
@@ -62,7 +63,9 @@ function formAnchor(documentId: string): string {
   return `form-${documentId.replace(/^safety-form-/, "")}`;
 }
 
-export default function SafetyManualFormsPage() {
+export default async function SafetyManualFormsPage() {
+  const isEs = (await getServerLocale()) === "es";
+
   return (
     <>
       <StructuredData
@@ -87,13 +90,14 @@ export default function SafetyManualFormsPage() {
             Safety Manual <span aria-hidden>→</span> Safety Forms
           </p>
           <h1 className="text-2xl font-black text-white sm:text-3xl md:text-4xl leading-tight">
-            Safety Forms (MISH Safety &amp; Health Program)
+            {isEs
+              ? "Formularios de Seguridad (Programa MISH de Seguridad y Salud)"
+              : "Safety Forms (MISH Safety &amp; Health Program)"}
           </h1>
           <p className="mt-3 max-w-3xl text-sm text-white/80 sm:text-base">
-            Field-ready safety forms for MH Construction crews, subcontractors,
-            vendors, and external reviewers. Each form aligns with a MISH
-            section and is part of our written Safety Program delivered as the
-            Safety Manual.
+            {isEs
+              ? "Formularios de seguridad listos para campo para cuadrillas de MH Construction, subcontratistas, proveedores y revisores externos. Cada formulario se alinea con una seccion MISH y forma parte de nuestro Programa de Seguridad escrito."
+              : "Field-ready safety forms for MH Construction crews, subcontractors, vendors, and external reviewers. Each form aligns with a MISH section and is part of our written Safety Program delivered as the Safety Manual."}
           </p>
           <p className="mt-3 text-xs font-semibold text-brand-secondary">
             Blank templates for field use and documentation control

@@ -6,6 +6,7 @@ import {
   generateBreadcrumbSchema,
 } from "@/lib/seo/breadcrumb-schema";
 import { EventsLandingPageClient } from "./EventsLandingPageClient";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const eventsSeoTitle = buildDualSeoTitle(
   "events",
@@ -115,7 +116,9 @@ export const metadata: Metadata = withGeoMetadata({
   },
 });
 
-export default function EventsPage() {
+export default async function EventsPage() {
+  const isEs = (await getServerLocale()) === "es";
+
   return (
     <>
       <script
@@ -129,7 +132,15 @@ export default function EventsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(eventsHubStructuredData),
+          __html: JSON.stringify({
+            ...eventsHubStructuredData,
+            name: isEs
+              ? "Centro de Eventos de MH Construction"
+              : eventsHubStructuredData.name,
+            description: isEs
+              ? "Eventos patrocinados y organizados en Tri-Cities y el Noroeste del Pacífico, con historial, destacados y próximos eventos comunitarios."
+              : eventsHubStructuredData.description,
+          }),
         }}
       />
       <EventsLandingPageClient />

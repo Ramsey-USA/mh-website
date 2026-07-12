@@ -166,6 +166,21 @@ export async function generateMetadata({
     project?.seoMetadata.metaDescription ??
     project?.description ??
     "Completed construction project case study.";
+  const projectKeywords = Array.from(
+    new Set([
+      "construction case study",
+      "project delivery outcomes",
+      "stakeholder-aligned project execution",
+      "commercial construction project",
+      "tenant improvement project",
+      "municipal construction project",
+      "agricultural and winery construction project",
+      "light industrial construction project",
+      ...(project?.tags ?? []),
+      ...(project?.location.city ? [project.location.city] : []),
+      ...(project?.location.state ? [project.location.state] : []),
+    ]),
+  );
   const openGraphImage =
     caseStudy?.ogImage ??
     project?.images.find((image) => image.isFeatured)?.url ??
@@ -175,6 +190,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    keywords: projectKeywords,
     alternates: {
       canonical: `${SITE_URL}/projects/${canonicalSlug}`,
     },
@@ -189,6 +205,13 @@ export async function generateMetadata({
           alt: `${project?.title ?? caseStudy?.title ?? "Project"} case study`,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      creator: "@mhc_gc",
+      images: [`${SITE_URL}${openGraphImage}`],
     },
     robots: { index: true, follow: true },
   };

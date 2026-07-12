@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { cookies, headers } from "next/headers";
+import { headers } from "next/headers";
 import Script from "next/script";
 import { Suspense } from "react";
 import { NextIntlClientProvider } from "next-intl";
@@ -30,8 +30,8 @@ import {
   DEFAULT_LOCALE,
   LOCALE_COOKIE_NAME,
   SUPPORTED_LOCALES,
-  normalizeLocale,
 } from "@/lib/i18n/locale";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 import { getMessages } from "next-intl/server";
 import { getAllJeremyRibbons } from "@/lib/content/jeremy-ribbons";
 import { getIndividualBrandingStamp } from "@/lib/content/individual-branding-stamps";
@@ -60,20 +60,20 @@ export const metadata: Metadata = withGeoMetadata({
     template: "%s",
   },
   description:
-    "MH Construction, led by Owner & President Jeremy Thamert, delivers commercial, industrial, and public-sector project planning and delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters.",
+    "MH Construction, led by Owner & President Jeremy Thamert, partners with owners, facilities teams, and public agencies to plan and deliver commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across Washington, Oregon, and Idaho.",
   keywords: [
     "Jeremy Thamert",
     "Jeremy Thamert MH Construction",
     "Jeremy Thamert Owner and President",
     "MH Construction home",
-    "Tri-State construction center",
-    "disciplined execution construction",
-    "values-driven construction leadership",
-    "structured leadership construction approach",
-    "services overview",
-    "Projects portfolio terminology",
-    "Contact construction consultation",
-    "Pacific Northwest builder",
+    "Built on Quality, Backed by Trust.",
+    "relationship-first construction partner",
+    "stakeholder-focused construction delivery",
+    "owner representative construction coordination",
+    "facilities team construction support",
+    "municipal project stakeholder alignment",
+    "commercial construction consultation",
+    "Pacific Northwest general contractor",
     "general contractor",
     "general contractor Tri-State",
     "Richland general contractor",
@@ -86,13 +86,18 @@ export const metadata: Metadata = withGeoMetadata({
     "general contractor Pasco WA",
     "general contractor Kennewick WA",
     "construction services",
-    "veteran benefits construction",
+    "veteran-owned construction leadership",
     "Tri-State licensed contractor",
     "transparent construction partnerships",
+    "client partner construction communication",
     "construction project management",
-    "disciplined project management",
+    "Procore construction project management",
     "Washington Oregon Idaho contractor",
+    "agricultural and winery construction",
     "community-focused building",
+    "tenant improvements contractor",
+    "municipal construction services",
+    "light industrial construction",
     "concrete services",
     "carpentry contractor",
     "commercial construction",
@@ -104,9 +109,8 @@ export const metadata: Metadata = withGeoMetadata({
     "Omak general contractor",
     "Pendleton Oregon general contractor",
     "Eastern Washington contractor",
-    "all-branch military construction",
     "clear construction communication",
-    "proven construction excellence",
+    "accountable construction delivery",
   ],
   authors: [
     {
@@ -131,7 +135,7 @@ export const metadata: Metadata = withGeoMetadata({
       "Construction Planning and Delivery in WA, OR, and ID",
     ),
     description:
-      "Commercial, industrial, and public-sector planning and delivery from MH Construction under Owner & President Jeremy Thamert across Washington, Oregon, and Idaho.",
+      "Stakeholder-focused planning and delivery for commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across Washington, Oregon, and Idaho.",
     images: [
       {
         url: "/images/og-default.jpg",
@@ -150,7 +154,7 @@ export const metadata: Metadata = withGeoMetadata({
       "Construction Planning and Delivery in WA, OR, and ID",
     ),
     description:
-      "Commercial, industrial, and public-sector planning and delivery from MH Construction under Owner & President Jeremy Thamert across Washington, Oregon, and Idaho.",
+      "MH Construction partners with owners, facilities teams, and public agencies to deliver commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across WA, OR, and ID.",
     images: ["/images/og-default.jpg"],
   },
   robots: {
@@ -212,9 +216,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = await cookies();
   const requestHeaders = await headers();
-  const locale = normalizeLocale(cookieStore.get(LOCALE_COOKIE_NAME)?.value);
+  const locale = await getServerLocale();
   const messages = await getMessages();
   const isProduction = process.env.NODE_ENV === "production";
   const isLighthouseAudit = /Chrome-Lighthouse/i.test(

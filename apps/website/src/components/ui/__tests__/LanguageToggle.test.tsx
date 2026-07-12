@@ -6,16 +6,25 @@ import userEvent from "@testing-library/user-event";
 import { LanguageToggle } from "../LanguageToggle";
 
 const mockRefresh = jest.fn();
+const mockReplace = jest.fn();
+const mockUsePathname = jest.fn();
+const mockUseSearchParams = jest.fn();
 
 jest.mock("next/navigation", () => ({
   useRouter: () => ({
+    replace: mockReplace,
     refresh: mockRefresh,
   }),
+  usePathname: () => mockUsePathname(),
+  useSearchParams: () => mockUseSearchParams(),
 }));
 
 describe("LanguageToggle", () => {
   beforeEach(() => {
     mockRefresh.mockClear();
+    mockReplace.mockClear();
+    mockUsePathname.mockReturnValue("/contact");
+    mockUseSearchParams.mockReturnValue(new URLSearchParams());
     document.cookie = "locale=en; path=/";
     document.documentElement.lang = "en";
   });
@@ -41,6 +50,22 @@ describe("LanguageToggle", () => {
 
     expect(document.documentElement.lang).toBe("es");
     expect(document.cookie).toContain("locale=es");
+    expect(mockReplace).toHaveBeenCalledWith("/contact");
+    expect(mockRefresh).toHaveBeenCalledTimes(1);
+  });
+
+  it("normalizes locale-prefixed paths before navigation", async () => {
+    const user = userEvent.setup();
+    mockUsePathname.mockReturnValue("/es/services");
+    mockUseSearchParams.mockReturnValue(new URLSearchParams("source=header"));
+    document.cookie = "locale=es; path=/";
+    document.documentElement.lang = "es";
+
+    render(<LanguageToggle />);
+
+    await user.click(screen.getByRole("button", { name: "EN" }));
+
+    expect(mockReplace).toHaveBeenCalledWith("/services?source=header");
     expect(mockRefresh).toHaveBeenCalledTimes(1);
   });
 });

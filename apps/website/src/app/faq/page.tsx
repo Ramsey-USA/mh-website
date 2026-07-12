@@ -30,6 +30,7 @@ import {
 } from "@/lib/data/faq-data";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.faq);
 
@@ -137,10 +138,12 @@ function FAQItem({ question, answer, link }: Readonly<FAQQuestion>) {
 /**
  * FAQ Page Component
  */
-export default function FAQPage() {
+export default async function FAQPage() {
+  const isEs = (await getServerLocale()) === "es";
+
   return (
     <>
-      <PageTrackingClient pageName="FAQ" />
+      <PageTrackingClient pageName={isEs ? "Preguntas Frecuentes" : "FAQ"} />
       <StructuredData data={breadcrumbSchema} />
       <StructuredData data={howToSchema} />
       <StructuredData data={faqSchema} />
@@ -179,13 +182,17 @@ export default function FAQPage() {
             <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
               <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
                 <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                  Intel Brief → FAQ
+                  {isEs ? "Resumen -> FAQ" : "Intel Brief → FAQ"}
                 </span>
                 <span className="block text-brand-secondary">
-                  Direct Answers. Clear Guidance.
+                  {isEs
+                    ? "Respuestas directas. Guia clara."
+                    : "Direct Answers. Clear Guidance."}
                 </span>
                 <span className="block text-brand-primary">
-                  Mission-Ready Information.
+                  {isEs
+                    ? "Informacion lista para accion."
+                    : "Mission-Ready Information."}
                 </span>
                 <span className="block text-white/90">
                   {COMPANY_INFO.slogan.primary}
@@ -230,9 +237,9 @@ export default function FAQPage() {
             <div className="mx-auto mb-16 max-w-5xl text-center">
               <FadeInWhenVisible>
                 <p className="font-body text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-                  Clear answers on services, process, pricing, and execution. If
-                  your question is not listed, our team can help directly. No
-                  gaps. No guesswork. Just accountable follow-through.
+                  {isEs
+                    ? "Respuestas claras sobre servicios, proceso, costos y ejecucion. Si su pregunta no aparece, nuestro equipo puede ayudarle directamente. Sin vacios. Sin suposiciones. Solo seguimiento responsable."
+                    : "Clear answers on services, process, pricing, and execution. If your question is not listed, our team can help directly. No gaps. No guesswork. Just accountable follow-through."}
                 </p>
               </FadeInWhenVisible>
 

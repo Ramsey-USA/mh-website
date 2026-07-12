@@ -11,6 +11,7 @@ import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { buildDualSeoTitle } from "@/lib/branding/page-names";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import jeremyProfile from "@/lib/data/team/jeremy-thamert.json";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const canonicalUrl = "https://www.mhc-gc.com/jeremy-thamert";
 const jeremyStamp = getIndividualBrandingStamp("jeremy-thamert");
@@ -132,10 +133,14 @@ const breadcrumbSchema = {
   ],
 };
 
-export default function JeremyThamertPage() {
+export default async function JeremyThamertPage() {
+  const isEs = (await getServerLocale()) === "es";
+
   return (
     <>
-      <PageTrackingClient pageName="Jeremy Thamert" />
+      <PageTrackingClient
+        pageName={isEs ? "Perfil Jeremy Thamert" : "Jeremy Thamert"}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -152,7 +157,7 @@ export default function JeremyThamertPage() {
           <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:px-8">
             <div>
               <p className="font-heading mb-3 text-sm font-semibold tracking-[0.2em] text-brand-primary uppercase">
-                Leadership Profile
+                {isEs ? "Perfil de Liderazgo" : "Leadership Profile"}
               </p>
               <h1 className="text-3xl font-black leading-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white">
                 Jeremy Thamert
@@ -163,7 +168,9 @@ export default function JeremyThamertPage() {
                 </div>
               ) : null}
               <p className="mt-2 text-lg font-semibold text-brand-secondary sm:text-xl">
-                Owner & President, MH Construction
+                {isEs
+                  ? "Propietario y Presidente, MH Construction"
+                  : "Owner & President, MH Construction"}
               </p>
               <p className="font-heading mt-4 max-w-3xl text-sm font-semibold tracking-wide text-brand-primary uppercase sm:text-base">
                 {COMPANY_INFO.slogan.primary}
@@ -185,7 +192,9 @@ export default function JeremyThamertPage() {
                 <Button asChild variant="secondary" size="lg">
                   <Link href="/contact">
                     <MaterialIcon icon="phone" size="sm" className="mr-2" />
-                    Contact Jeremy&apos;s Team
+                    {isEs
+                      ? "Contactar al Equipo de Jeremy"
+                      : "Contact Jeremy&apos;s Team"}
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">

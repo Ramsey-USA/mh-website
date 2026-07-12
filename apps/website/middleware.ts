@@ -8,6 +8,7 @@ import {
   getPreferredLocaleFromAcceptLanguage,
   isSupportedLocale,
   LOCALE_COOKIE_NAME,
+  PATH_LOCALE_HEADER_NAME,
   SUPPORTED_LOCALES,
 } from "./src/lib/i18n/locale";
 import { securityMiddleware } from "./src/middleware/security";
@@ -32,7 +33,26 @@ export async function middleware(request: NextRequest) {
   if (isLocalePrefixed && !normalizedPath.startsWith("/api/")) {
     const rewriteUrl = request.nextUrl.clone();
     rewriteUrl.pathname = normalizedPath;
-    response = NextResponse.rewrite(rewriteUrl);
+    const requestHeaders = new Headers(request.headers);
+    if (localeFromPath) {
+      requestHeaders.set(PATH_LOCALE_HEADER_NAME, localeFromPath);
+      const rawCookie = request.headers.get("cookie") ?? "";
+      const cookieWithoutLocale = rawCookie
+        .split(";")
+        .map((part) => part.trim())
+        .filter(
+          (part) =>
+            part.length > 0 && !part.startsWith(`${LOCALE_COOKIE_NAME}=`),
+        );
+      cookieWithoutLocale.push(`${LOCALE_COOKIE_NAME}=${localeFromPath}`);
+      requestHeaders.set("cookie", cookieWithoutLocale.join("; "));
+    }
+
+    response = NextResponse.rewrite(rewriteUrl, {
+      request: {
+        headers: requestHeaders,
+      },
+    });
 
     for (const [name, value] of securityResponse.headers.entries()) {
       if (name.toLowerCase().startsWith("x-middleware-")) {

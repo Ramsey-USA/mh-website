@@ -4,52 +4,64 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
-export default function TermsOfServicePage() {
+export default async function TermsOfServicePage() {
+  const isEs = (await getServerLocale()) === "es";
+
   return (
     <LegalPageLayout
       // HeroSection is provided by LegalPageLayout.
-      pageName="Terms of Service"
-      title="Terms of Service"
+      pageName={isEs ? "Terminos del Servicio" : "Terms of Service"}
+      title={isEs ? "Terminos del Servicio" : "Terms of Service"}
       lastUpdated="December 22, 2025"
       structuredData={generateBreadcrumbSchema(breadcrumbPatterns.terms)}
     >
       <section className="mb-8">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-          Agreement to Terms
+          {isEs ? "Aceptacion de Terminos" : "Agreement to Terms"}
         </h2>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          By accessing or using the MH Construction, Inc. website and services,
-          you agree to be bound by these Terms of Service and all applicable
-          laws and regulations. If you do not agree with any of these terms, you
-          are prohibited from using or accessing this site.
+          {isEs
+            ? "Al acceder o usar el sitio web y los servicios de MH Construction, Inc., usted acepta quedar sujeto a estos Terminos del Servicio y a todas las leyes y regulaciones aplicables. Si no esta de acuerdo con alguno de estos terminos, no debe usar ni acceder a este sitio."
+            : "By accessing or using the MH Construction, Inc. website and services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site."}
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-          Use License
+          {isEs ? "Licencia de Uso" : "Use License"}
         </h2>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Permission is granted to temporarily access the materials on MH
-          Construction's website for personal, non-commercial transitory viewing
-          only. This is the grant of a license, not a transfer of title, and
-          under this license you may not:
+          {isEs
+            ? "Se concede permiso para acceder temporalmente a los materiales del sitio web de MH Construction solo para visualizacion personal, no comercial y transitoria. Esta es una licencia, no una transferencia de propiedad, y bajo esta licencia usted no puede:"
+            : "Permission is granted to temporarily access the materials on MH Construction's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:"}
         </p>
         <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-2">
-          <li>Modify or copy the materials</li>
           <li>
-            Use the materials for any commercial purpose or public display
+            {isEs
+              ? "Modificar o copiar los materiales"
+              : "Modify or copy the materials"}
           </li>
           <li>
-            Attempt to decompile or reverse engineer any software on the site
+            {isEs
+              ? "Usar los materiales para cualquier fin comercial o exhibicion publica"
+              : "Use the materials for any commercial purpose or public display"}
           </li>
           <li>
-            Remove any copyright or proprietary notations from the materials
+            {isEs
+              ? "Intentar descompilar o hacer ingenieria inversa de cualquier software del sitio"
+              : "Attempt to decompile or reverse engineer any software on the site"}
           </li>
           <li>
-            Transfer the materials to another person or mirror the materials on
-            any other server
+            {isEs
+              ? "Eliminar avisos de derechos de autor o de propiedad de los materiales"
+              : "Remove any copyright or proprietary notations from the materials"}
+          </li>
+          <li>
+            {isEs
+              ? "Transferir los materiales a otra persona o reflejarlos en cualquier otro servidor"
+              : "Transfer the materials to another person or mirror the materials on any other server"}
           </li>
         </ul>
       </section>

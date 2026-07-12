@@ -11,6 +11,7 @@ import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 const TRI_STATE_GOVERNMENT_HERO_SLOGAN = getHeroPageSlogan(
@@ -21,8 +22,39 @@ export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.triStateGovernmentConstruction.seoName, PAGE_TERMINOLOGY.triStateGovernmentConstruction.mhBrandName)} | MH Construction`,
   description:
     "Regional strategy for government construction across Washington, Oregon, and Idaho, aligned to location coverage and service pathways.",
+  keywords: [
+    "tri-state government construction",
+    "public agency construction WA OR ID",
+    "regional municipal construction strategy",
+    "government capital project planning",
+    "owner and architect public-sector coordination",
+    "public works construction coverage Washington Oregon Idaho",
+    "veteran-owned public-sector contractor",
+    "procurement-ready government construction support",
+  ],
   alternates: {
     canonical: `${SITE_URL}/public-sector/tri-state-government-construction`,
+  },
+  openGraph: {
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.triStateGovernmentConstruction.seoName, PAGE_TERMINOLOGY.triStateGovernmentConstruction.mhBrandName)} | MH Construction`,
+    description:
+      "Regional government construction strategy across WA, OR, and ID with location-backed coverage and stakeholder-aligned delivery pathways.",
+    url: `${SITE_URL}/public-sector/tri-state-government-construction`,
+    type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/images/og/services/municipal-government.webp`,
+        alt: "MH Construction tri-state government construction coverage",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tri-State Government Construction Coverage | MH Construction",
+    description:
+      "Public-sector planning and delivery coverage across Washington, Oregon, and Idaho with local service pathways.",
+    creator: "@mhc_gc",
+    images: [`${SITE_URL}/images/og/services/municipal-government.webp`],
   },
   robots: { index: true, follow: true },
 };
@@ -45,7 +77,9 @@ const stateCoverage = [
   },
 ];
 
-export default function TriStateGovernmentConstructionPage() {
+export default async function TriStateGovernmentConstructionPage() {
+  const isEs = (await getServerLocale()) === "es";
+
   return (
     <main className="bg-white dark:bg-gray-950 min-h-screen">
       <section
@@ -54,15 +88,19 @@ export default function TriStateGovernmentConstructionPage() {
       >
         <div className="mx-auto max-w-5xl w-full ml-auto">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
-            Regional Authority → Tri-State Government Construction
+            {isEs
+              ? "Autoridad Regional -> Construccion Gubernamental Triestatal"
+              : "Regional Authority → Tri-State Government Construction"}
           </p>
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-            Tri-State Government Construction Coverage
+            {isEs
+              ? "Cobertura de Construccion Gubernamental Triestatal"
+              : "Tri-State Government Construction Coverage"}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-white/85">
-            Plan public-sector delivery across Washington, Oregon, and Idaho
-            with a location-backed approach tied to service readiness and clear
-            project governance.
+            {isEs
+              ? "Planifique la entrega de obra publica en Washington, Oregon e Idaho con un enfoque respaldado por ubicacion, preparado para servicio y gobernanza clara del proyecto."
+              : "Plan public-sector delivery across Washington, Oregon, and Idaho with a location-backed approach tied to service readiness and clear project governance."}
           </p>
           <p className="mt-3 text-sm font-semibold text-white/90 sm:text-base">
             {COMPANY_INFO.slogan.primary}
@@ -81,9 +119,13 @@ export default function TriStateGovernmentConstructionPage() {
 
       <Breadcrumbs
         items={[
-          { label: "Home", href: "/" },
-          { label: "Government", href: "/public-sector" },
-          { label: "Tri-State Government Construction" },
+          { label: isEs ? "Inicio" : "Home", href: "/" },
+          { label: isEs ? "Gobierno" : "Government", href: "/public-sector" },
+          {
+            label: isEs
+              ? "Construccion Gubernamental Triestatal"
+              : "Tri-State Government Construction",
+          },
         ]}
       />
 

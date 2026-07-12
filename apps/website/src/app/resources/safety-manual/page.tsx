@@ -4,6 +4,7 @@ import {
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 import { redirect } from "next/navigation";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyManual.seoName, PAGE_TERMINOLOGY.safetyManual.mhBrandName)} | MH Construction`,
@@ -18,6 +19,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SafetyManualPage() {
-  redirect("/resources/safety-manual/contents");
+export default async function SafetyManualPage() {
+  const isEs = (await getServerLocale()) === "es";
+  redirect(
+    isEs
+      ? "/es/resources/safety-manual/contents"
+      : "/resources/safety-manual/contents",
+  );
 }

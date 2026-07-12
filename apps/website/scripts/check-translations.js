@@ -14,8 +14,27 @@
 const fs = require("fs");
 const path = require("path");
 
-const EN_PATH = path.resolve(__dirname, "../messages/en.json");
-const ES_PATH = path.resolve(__dirname, "../messages/es.json");
+function resolveMessagesPath(fileName) {
+  const candidatePaths = [
+    path.resolve(__dirname, "../messages", fileName),
+    path.resolve(__dirname, "../../../messages", fileName),
+  ];
+
+  const foundPath = candidatePaths.find((candidatePath) =>
+    fs.existsSync(candidatePath),
+  );
+
+  if (!foundPath) {
+    throw new Error(
+      `Unable to locate ${fileName}. Checked: ${candidatePaths.join(", ")}`,
+    );
+  }
+
+  return foundPath;
+}
+
+const EN_PATH = resolveMessagesPath("en.json");
+const ES_PATH = resolveMessagesPath("es.json");
 
 const en = JSON.parse(fs.readFileSync(EN_PATH, "utf8"));
 const es = JSON.parse(fs.readFileSync(ES_PATH, "utf8"));

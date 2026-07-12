@@ -1,5 +1,5 @@
 import { type Metadata } from "next";
-import { cookies, headers } from "next/headers";
+import { headers } from "next/headers";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { PageTrackingClient } from "@/components/analytics";
 import { HomePageSentrySupport } from "@/components/monitoring/HomePageSentrySupport";
@@ -13,7 +13,7 @@ import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
-import { normalizeLocale } from "@/lib/i18n/locale";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 import enHome from "../../../../messages/home/en.json";
 import esHome from "../../../../messages/home/es.json";
 import { BrandedContentSection } from "@/components/templates";
@@ -126,8 +126,7 @@ export default async function Home() {
 
   // Get enhanced SEO data for homepage
   const homepageSEO = getHomepageSEO();
-  const cookieStore = await cookies();
-  const locale = normalizeLocale(cookieStore.get("locale")?.value);
+  const locale = await getServerLocale();
   const tTestimonials = await getTranslations({
     locale,
     namespace: "testimonialsData",
