@@ -28,16 +28,16 @@ The mh-website uses a multi-stage CI/CD pipeline with:
 - **Automated Testing:** Unit tests, integration tests with code coverage
 - **Security Scanning:** Dependency audit, SAST, and vulnerability scanning
 - **Build Optimization:** Low-memory builds for Cloudflare Workers
-- **Deployment:** Automated deployment to Cloudflare Pages + Workers
+- **Deployment:** Automated deployment to Cloudflare Workers (OpenNext)
 
 ### Technology Stack
 
 - **CI/CD Platform:** GitHub Actions
-- **Deployment Target:** Cloudflare Pages + Workers
+- **Deployment Target:** Cloudflare Workers (OpenNext)
 - **Database:** Cloudflare D1 (SQLite)
 - **Storage:** Cloudflare R2
 - **KV Storage:** Cloudflare Workers KV
-- **Build Tool:** OpenNext.js (Next.js → Cloudflare adaptor)
+- **Build Tool:** OpenNext (`@opennextjs/cloudflare` 1.20.1) (Next.js -> Cloudflare adapter)
 
 ---
 

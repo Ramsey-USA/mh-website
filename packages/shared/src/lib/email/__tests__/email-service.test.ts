@@ -5,7 +5,6 @@
 // ── Resend mock ───────────────────────────────────────────────────────────────
 
 const mockSend = jest.fn();
-const mockGetCloudflareContext = jest.fn();
 
 jest.mock("resend", () => ({
   Resend: jest.fn().mockImplementation(() => ({
@@ -13,19 +12,15 @@ jest.mock("resend", () => ({
   })),
 }));
 
-jest.mock("@opennextjs/cloudflare", () => ({
-  getCloudflareContext: (...args: unknown[]) =>
-    mockGetCloudflareContext(...args),
-}));
+jest.mock("@opennextjs/cloudflare");
 
-jest.mock("@/lib/utils/logger", () => ({
-  logger: {
-    error: jest.fn(),
-    warn: jest.fn(),
-    info: jest.fn(),
-    log: jest.fn(),
-  },
-}));
+const { getCloudflareContext: mockGetCloudflareContext } = jest.requireMock(
+  "@opennextjs/cloudflare",
+) as {
+  getCloudflareContext: jest.Mock;
+};
+
+jest.mock("@/lib/utils/logger");
 
 jest.mock("@/lib/constants/company", () => ({
   EMAIL_RECIPIENTS: {
@@ -44,13 +39,32 @@ import {
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
+const DEFAULT_RESEND_API_KEY = "re_test_key";
+const DEFAULT_EMAIL_FROM = "office@mhc-gc.com";
+
+function setEmailEnv(
+  resendApiKey = DEFAULT_RESEND_API_KEY,
+  emailFrom = DEFAULT_EMAIL_FROM,
+) {
+  process.env["RESEND_API_KEY"] = resendApiKey;
+  process.env["EMAIL_FROM"] = emailFrom;
+}
+
+function clearEmailEnv() {
+  delete process.env["RESEND_API_KEY"];
+  delete process.env["EMAIL_FROM"];
+}
+
+function resetEmailTestState() {
+  mockSend.mockReset();
+  mockGetCloudflareContext.mockReset();
+}
+
 function makeService(withKey = true) {
   if (withKey) {
-    process.env["RESEND_API_KEY"] = "re_test_key";
-    process.env["EMAIL_FROM"] = "office@mhc-gc.com";
+    setEmailEnv();
   } else {
-    delete process.env["RESEND_API_KEY"];
-    delete process.env["EMAIL_FROM"];
+    clearEmailEnv();
   }
   return new EmailService();
 }
@@ -59,13 +73,11 @@ function makeService(withKey = true) {
 
 describe("EmailService.sendEmail()", () => {
   beforeEach(() => {
-    mockSend.mockReset();
-    mockGetCloudflareContext.mockReset();
+    resetEmailTestState();
   });
 
   afterEach(() => {
-    delete process.env["RESEND_API_KEY"];
-    delete process.env["EMAIL_FROM"];
+    clearEmailEnv();
   });
 
   it("returns success with messageId on a valid send", async () => {
@@ -248,14 +260,12 @@ describe("EmailService.sendEmail()", () => {
 
 describe("EmailService.sendToOffice()", () => {
   beforeEach(() => {
-    mockSend.mockReset();
-    process.env["RESEND_API_KEY"] = "re_test_key";
-    process.env["EMAIL_FROM"] = "office@mhc-gc.com";
+    resetEmailTestState();
+    setEmailEnv();
   });
 
   afterEach(() => {
-    delete process.env["RESEND_API_KEY"];
-    delete process.env["EMAIL_FROM"];
+    clearEmailEnv();
   });
 
   it("sends to all general recipients configured in EMAIL_RECIPIENTS", async () => {
@@ -301,14 +311,12 @@ describe("EmailService.sendToOffice()", () => {
 
 describe("EmailService.sendAcknowledgment()", () => {
   beforeEach(() => {
-    mockSend.mockReset();
-    process.env["RESEND_API_KEY"] = "re_test_key";
-    process.env["EMAIL_FROM"] = "office@mhc-gc.com";
+    resetEmailTestState();
+    setEmailEnv();
   });
 
   afterEach(() => {
-    delete process.env["RESEND_API_KEY"];
-    delete process.env["EMAIL_FROM"];
+    clearEmailEnv();
   });
 
   it("sends a success acknowledgment to the user's address", async () => {
@@ -329,11 +337,11 @@ describe("EmailService.sendAcknowledgment()", () => {
 
 describe("EmailService.isReady()", () => {
   afterEach(() => {
-    delete process.env["RESEND_API_KEY"];
+    clearEmailEnv();
   });
 
   it("returns true when RESEND_API_KEY is set", () => {
-    process.env["RESEND_API_KEY"] = "re_test_key";
+    process.env["RESEND_API_KEY"] = DEFAULT_RESEND_API_KEY;
     const svc = new EmailService();
     expect(svc.isReady()).toBe(true);
   });
@@ -347,14 +355,12 @@ describe("EmailService.isReady()", () => {
 
 describe("Convenience re-exports", () => {
   beforeEach(() => {
-    mockSend.mockReset();
-    process.env["RESEND_API_KEY"] = "re_test_key";
-    process.env["EMAIL_FROM"] = "office@mhc-gc.com";
+    resetEmailTestState();
+    setEmailEnv();
   });
 
   afterEach(() => {
-    delete process.env["RESEND_API_KEY"];
-    delete process.env["EMAIL_FROM"];
+    clearEmailEnv();
   });
 
   it("sendEmail() delegates to the singleton service", async () => {

@@ -559,7 +559,7 @@ const ACTIVE_MANUAL = isEmployeeHandbook
   : "safety-manual";
 const ACTIVE_MANUAL_LABEL = isEmployeeHandbook
   ? "Employee Handbook"
-  : "Safety Manual (MISH)";
+  : "MISH Safety & Health Program (Safety Manual)";
 
 MANIFEST = join(DOCS_DIR, `content/${ACTIVE_MANUAL}.json`);
 
@@ -6180,8 +6180,10 @@ async function validateManualCoverCohesionGuardrails() {
     [
       ...sharedCoverChecks,
       {
-        regex: /<div class="program-chip">MISH Safety Manual<\/div>/i,
-        message: "Safety cover must use the MISH Safety Manual chip label",
+        regex:
+          /<div class="program-chip">MISH Safety &amp; Health Program<\/div>/i,
+        message:
+          "Safety cover must use the MISH Safety & Health Program chip label",
       },
       {
         regex: /<h1 class="title">Safety<br\s*\/?>Manual<\/h1>/i,
@@ -6200,8 +6202,9 @@ async function validateManualCoverCohesionGuardrails() {
         message: "Safety cover QR heading must be Safety Manual Online",
       },
       {
-        regex: /Scan for current MISH edition/i,
-        message: "Safety cover QR label must reference current MISH edition",
+        regex: /Scan for current MISH program edition/i,
+        message:
+          "Safety cover QR label must reference current MISH program edition",
       },
     ],
   );
@@ -6245,7 +6248,9 @@ async function validateManualCoverCohesionGuardrails() {
   }
 
   if (
-    /MISH Safety Manual|Scan for current MISH edition/i.test(handbookCoverHtml)
+    /MISH Safety &amp; Health Program|Scan for current MISH program edition/i.test(
+      handbookCoverHtml,
+    )
   ) {
     throw new Error(
       "Guardrail validation failed: handbook cover contains safety-manual language.",

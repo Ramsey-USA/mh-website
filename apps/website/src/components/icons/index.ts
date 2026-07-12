@@ -9,5 +9,5 @@
 
 // Base icon components
 export { MaterialIcon } from "./MaterialIcon";
-export { AmericanFlag } from "./AmericanFlag";
+export { AmericanFlag } from "@/lib/icons/AmericanFlag";
 export { PNWStatesMap } from "./PNWStatesMap";

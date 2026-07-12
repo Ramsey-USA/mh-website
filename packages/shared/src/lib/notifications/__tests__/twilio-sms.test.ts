@@ -6,24 +6,32 @@ import {
   sendSmsAsync,
 } from "../twilio-sms";
 
-jest.mock("@/lib/utils/logger", () => ({
-  logger: {
-    info: jest.fn(),
-    warn: jest.fn(),
-    error: jest.fn(),
-  },
-}));
+jest.mock("@/lib/utils/logger");
 
 const mockFetch = jest.fn();
 global.fetch = mockFetch;
+
+const DEFAULT_TWILIO_ACCOUNT_SID = "AC123";
+const DEFAULT_TWILIO_AUTH_TOKEN = "token";
+const DEFAULT_TWILIO_FROM_NUMBER = "+15095550000";
+
+function setTwilioEnv() {
+  process.env["TWILIO_ACCOUNT_SID"] = DEFAULT_TWILIO_ACCOUNT_SID;
+  process.env["TWILIO_AUTH_TOKEN"] = DEFAULT_TWILIO_AUTH_TOKEN;
+  process.env["TWILIO_FROM_NUMBER"] = DEFAULT_TWILIO_FROM_NUMBER;
+}
+
+function clearTwilioEnv() {
+  delete process.env["TWILIO_ACCOUNT_SID"];
+  delete process.env["TWILIO_AUTH_TOKEN"];
+  delete process.env["TWILIO_FROM_NUMBER"];
+}
 
 describe("twilio sms notifications", () => {
   beforeEach(() => {
     mockFetch.mockReset();
     jest.clearAllMocks();
-    delete process.env["TWILIO_ACCOUNT_SID"];
-    delete process.env["TWILIO_AUTH_TOKEN"];
-    delete process.env["TWILIO_FROM_NUMBER"];
+    clearTwilioEnv();
   });
 
   it("returns unconfigured when Twilio credentials are missing", async () => {
@@ -43,9 +51,7 @@ describe("twilio sms notifications", () => {
   });
 
   it("rejects invalid phone numbers", async () => {
-    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
-    process.env["TWILIO_AUTH_TOKEN"] = "token";
-    process.env["TWILIO_FROM_NUMBER"] = "+15095550000";
+    setTwilioEnv();
 
     const result = await sendSms({
       to: "555-123-4567",
@@ -60,9 +66,7 @@ describe("twilio sms notifications", () => {
   });
 
   it("sends sms successfully and truncates long messages", async () => {
-    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
-    process.env["TWILIO_AUTH_TOKEN"] = "token";
-    process.env["TWILIO_FROM_NUMBER"] = "+15095550000";
+    setTwilioEnv();
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: async () => ({ sid: "SM123" }),
@@ -94,9 +98,7 @@ describe("twilio sms notifications", () => {
   });
 
   it("returns API error message when Twilio response is non-OK", async () => {
-    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
-    process.env["TWILIO_AUTH_TOKEN"] = "token";
-    process.env["TWILIO_FROM_NUMBER"] = "+15095550000";
+    setTwilioEnv();
     mockFetch.mockResolvedValueOnce({
       ok: false,
       status: 400,
@@ -119,9 +121,7 @@ describe("twilio sms notifications", () => {
   });
 
   it("falls back to default API error when message is absent", async () => {
-    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
-    process.env["TWILIO_AUTH_TOKEN"] = "token";
-    process.env["TWILIO_FROM_NUMBER"] = "+15095550000";
+    setTwilioEnv();
     mockFetch.mockResolvedValueOnce({
       ok: false,
       status: 500,
@@ -140,9 +140,7 @@ describe("twilio sms notifications", () => {
   });
 
   it("returns thrown error message when fetch throws Error", async () => {
-    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
-    process.env["TWILIO_AUTH_TOKEN"] = "token";
-    process.env["TWILIO_FROM_NUMBER"] = "+15095550000";
+    setTwilioEnv();
     mockFetch.mockRejectedValueOnce(new Error("network down"));
 
     const result = await sendSms({
@@ -157,9 +155,7 @@ describe("twilio sms notifications", () => {
   });
 
   it("returns Unknown error when fetch throws non-Error", async () => {
-    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
-    process.env["TWILIO_AUTH_TOKEN"] = "token";
-    process.env["TWILIO_FROM_NUMBER"] = "+15095550000";
+    setTwilioEnv();
     mockFetch.mockRejectedValueOnce("raw error");
 
     const result = await sendSms({
@@ -174,9 +170,7 @@ describe("twilio sms notifications", () => {
   });
 
   it("invokes async send flow without blocking caller", async () => {
-    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
-    process.env["TWILIO_AUTH_TOKEN"] = "token";
-    process.env["TWILIO_FROM_NUMBER"] = "+15095550000";
+    setTwilioEnv();
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: async () => ({ sid: "SMASYNC" }),
@@ -196,9 +190,7 @@ describe("twilio sms notifications", () => {
   });
 
   it("sends urgent submission notifications and logs failed recipients", async () => {
-    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
-    process.env["TWILIO_AUTH_TOKEN"] = "token";
-    process.env["TWILIO_FROM_NUMBER"] = "+15095550000";
+    setTwilioEnv();
     mockFetch.mockResolvedValueOnce({
       ok: false,
       status: 500,
@@ -219,9 +211,7 @@ describe("twilio sms notifications", () => {
   });
 
   it("routes alertMatt through async sms path with MHC prefix", async () => {
-    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
-    process.env["TWILIO_AUTH_TOKEN"] = "token";
-    process.env["TWILIO_FROM_NUMBER"] = "+15095550000";
+    setTwilioEnv();
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: async () => ({ sid: "SMMATT" }),

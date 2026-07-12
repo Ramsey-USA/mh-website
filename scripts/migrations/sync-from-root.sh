@@ -4,10 +4,7 @@ set -euo pipefail
 
 ROOT_DIR="$(git rev-parse --show-toplevel)"
 SOURCE_DIR="$ROOT_DIR/migrations"
-TARGETS=(
-  "$ROOT_DIR/apps/website/migrations"
-  "$ROOT_DIR/packages/shared/migrations"
-)
+TARGETS=()
 
 MODE="sync"
 if [[ "${1:-}" == "--check" ]]; then
@@ -25,6 +22,15 @@ for target in "${TARGETS[@]}"; do
     exit 1
   fi
 done
+
+if [[ ${#TARGETS[@]} -eq 0 ]]; then
+  if [[ "$MODE" == "check" ]]; then
+    echo "Root migrations are canonical; no migration mirrors configured."
+  else
+    echo "Root migrations are canonical; nothing to synchronize."
+  fi
+  exit 0
+fi
 
 sync_target() {
   local target_dir="$1"
@@ -57,7 +63,7 @@ for target in "${TARGETS[@]}"; do
 done
 
 if [[ "$MODE" == "check" ]]; then
-  echo "Migration mirrors are in sync with root migrations."
+  echo "Migration mirror is in sync with root migrations."
 else
-  echo "Synchronized migration mirrors from root migrations."
+  echo "Synchronized migration mirror from root migrations."
 fi

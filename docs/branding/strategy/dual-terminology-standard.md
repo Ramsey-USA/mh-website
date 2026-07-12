@@ -35,10 +35,17 @@ Use the same primary/secondary pair across all surfaces for each concept.
 | Handbook Public Surface    | Employee Handbook            | Public Index + Blank Forms                                                             | Website handbook page, downloadable handbook TOC/forms docs, handbook instructions     |
 | Internal Handbook Workflow | Employee Handbook Workflows  | Dashboard (Staff Hub) Required                                                         | Dashboard flows, handbook process docs, internal SOPs                                  |
 
+Rendered pair requirement:
+
+- Safety Program surfaces should render the pair as `MISH Safety & Health Program (Safety Manual)` when shown inline.
+- Employee workflow surfaces should render the pair as `Dashboard (Staff Hub)` when shown inline.
+
 ## Core Rule
 
 Use surface-specific dual terminology to preserve both clarity and MH brand voice.
 When a concept has a required primary/secondary pair above, do not collapse it to a single alias on one surface.
+When showing the pair inline in copy or labels, use the canonical rendered form exactly (for example,
+`Dashboard (Staff Hub)` and `MISH Safety & Health Program (Safety Manual)`).
 
 The terminology system may be expanded with new pairs when the business needs a stronger enterprise voice,
 provided the new language still reads like military-themed construction language and does not dilute the

@@ -19,6 +19,7 @@ Business docs should stay congruent with the canonical MH voice, trust language,
 - **[Core Values](./core-values.md)** - Four pillars: Honesty, Integrity, Professionalism, Thoroughness
 - **[Services](./services.md)** - Complete service offerings and capabilities
 - **[Project Specializations](./project-specializations.md)** - Specialized project types and capabilities
+- **[Analytics Guide for Matt and Jeremy](./analytics-guide-for-matt-and-jeremy.md)** - Operations-oriented analytics guide for leadership review and decisions
 - **[Cool Desert Nights 2026 Smoke n Shine Placements Archive](../events/cool-desert-nights-2026-public-choice-results.md)** - Archived event record in the dedicated Events documentation category
 
 ### Team Data

@@ -12,8 +12,6 @@ interface PageNavigationProps {
   items: NavigationItem[];
   className?: string;
   showRemainingPagesOverlay?: boolean;
-  /** @deprecated Use showRemainingPagesOverlay instead. */
-  showRemainingPagesDropdown?: boolean;
 }
 
 export const TOP_PAGES_EN = [
@@ -162,7 +160,6 @@ export function PageNavigation({
   items: _items,
   className = "",
   showRemainingPagesOverlay,
-  showRemainingPagesDropdown = false,
 }: PageNavigationProps) {
   const pathname = usePathname();
   const locale = useLocale();
@@ -193,8 +190,7 @@ export function PageNavigation({
     isActivePath(page.href),
   );
 
-  const isRemainingPagesMenuEnabled =
-    showRemainingPagesOverlay ?? showRemainingPagesDropdown;
+  const isRemainingPagesMenuEnabled = Boolean(showRemainingPagesOverlay);
 
   const moreLabel = locale === "es" ? "Más" : "More";
   const morePagesLabel = locale === "es" ? "Más páginas" : "More pages";

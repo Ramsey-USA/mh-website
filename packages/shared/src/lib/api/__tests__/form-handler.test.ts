@@ -15,9 +15,7 @@ jest.mock("next/server", () => ({
   },
 }));
 
-jest.mock("@/lib/utils/logger", () => ({
-  logger: { info: jest.fn(), error: jest.fn() },
-}));
+jest.mock("@/lib/utils/logger");
 
 jest.mock("@/lib/utils/escape-html", () => ({
   escapeHtml: jest.fn((s: string) => s),

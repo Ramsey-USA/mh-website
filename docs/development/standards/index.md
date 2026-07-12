@@ -28,7 +28,15 @@ Use [Website Guardrails Coverage Map](../../branding/governance/website-guardrai
 - **[Universal Page Flow Standard](./universal-page-flow-standard.md)** — Required body-content sequence
 - **[Page Compliance Checklist](./page-compliance-checklist.md)** — 150+ pre-merge verification items
 - **[Branding Congruency Checklist](./branding-congruency-checklist.md)** — Development companion checks for implementation consistency
+- **[Design System Standards](./design-system-standards.md)** — Implementation standards for design-system consistency and reusable UI decisions
+- **[Design Token Refactoring Summary](./design-token-refactoring-summary.md)** — Token architecture, migration notes, and verification outcomes
 - **[Brand Congruency Master Checklist](../../branding/governance/brand-congruency-master-checklist.md)** — Canonical branding merge gate
+
+## Historical Hero Audit Set
+
+- **[Hero Congruency Audit (2026-05-16)](./hero-congruency-audit-2026-05-16.md)** — Snapshot audit findings for hero surface parity
+- **[Hero Congruency Rollout Plan (2026-05-16)](./hero-congruency-rollout-plan-2026-05-16.md)** — Execution plan that followed the congruency audit
+- **[Hero Presence Inventory (2026-05-16)](./hero-presence-inventory-2026-05-16.md)** — Route-by-route hero presence inventory from the same audit cycle
 
 ## AI & Agent Guidance
 

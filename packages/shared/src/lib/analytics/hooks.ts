@@ -52,7 +52,10 @@ function isLighthouseRun(): boolean {
   }
 
   const userAgent = typeof navigator !== "undefined" ? navigator.userAgent : "";
-  return Boolean(window.__LIGHTHOUSE__) || /Chrome-Lighthouse/i.test(userAgent);
+  return (
+    Boolean((window as any).__LIGHTHOUSE__) ||
+    /Chrome-Lighthouse/i.test(userAgent)
+  );
 }
 
 /**

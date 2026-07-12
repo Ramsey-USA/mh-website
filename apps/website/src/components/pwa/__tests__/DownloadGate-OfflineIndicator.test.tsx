@@ -7,6 +7,7 @@
  */
 
 import { render, screen, act } from "@testing-library/react";
+import { clearLocalStorage, seedLocalStorage } from "@/test-utils/storage";
 
 // ── Shared mocks ──────────────────────────────────────────────────────────────
 
@@ -32,33 +33,18 @@ jest.mock("@/hooks/useOfflineStatus", () => ({
   useOfflineStatus: () => mockUseOfflineStatus(),
 }));
 
-// ── localStorage helpers ──────────────────────────────────────────────────────
-
-function setLocalStorage(
-  adminToken?: string,
-  adminUser?: string,
-  fieldToken?: string,
-  fieldUser?: string,
-) {
-  localStorage.clear();
-  if (adminToken) localStorage.setItem("admin_token", adminToken);
-  if (adminUser) localStorage.setItem("admin_user", adminUser);
-  if (fieldToken) localStorage.setItem("field_auth_token", fieldToken);
-  if (fieldUser) localStorage.setItem("field_user", fieldUser);
-}
-
 // =============================================================================
 // DownloadGate
 // =============================================================================
 
 describe("DownloadGate", () => {
   beforeEach(() => {
-    localStorage.clear();
+    clearLocalStorage();
     jest.clearAllMocks();
   });
 
   it("shows app access guidance on initial render when no auth is stored", async () => {
-    localStorage.clear();
+    clearLocalStorage();
     await act(async () => {
       render(
         <DownloadGate>
@@ -76,7 +62,10 @@ describe("DownloadGate", () => {
   });
 
   it("renders children when user has admin role in localStorage", async () => {
-    setLocalStorage("admin-token-xyz", JSON.stringify({ role: "admin" }));
+    seedLocalStorage({
+      admin_token: "admin-token-xyz",
+      admin_user: JSON.stringify({ role: "admin" }),
+    });
     await act(async () => {
       render(
         <DownloadGate>
@@ -90,12 +79,10 @@ describe("DownloadGate", () => {
   });
 
   it("renders children when user has superintendent role in localStorage", async () => {
-    setLocalStorage(
-      undefined,
-      undefined,
-      "field-token",
-      JSON.stringify({ role: "superintendent" }),
-    );
+    seedLocalStorage({
+      field_auth_token: "field-token",
+      field_user: JSON.stringify({ role: "superintendent" }),
+    });
     await act(async () => {
       render(
         <DownloadGate>
@@ -109,7 +96,7 @@ describe("DownloadGate", () => {
   });
 
   it("renders app access guidance when user is not authenticated", async () => {
-    localStorage.clear(); // no tokens
+    clearLocalStorage();
     await act(async () => {
       render(
         <DownloadGate>
@@ -124,7 +111,7 @@ describe("DownloadGate", () => {
   });
 
   it("always renders children when exempt prop is true", async () => {
-    localStorage.clear(); // no auth
+    clearLocalStorage();
     await act(async () => {
       render(
         <DownloadGate exempt>
@@ -136,12 +123,10 @@ describe("DownloadGate", () => {
   });
 
   it("renders app prompt when worker role is present (not admin/superintendent)", async () => {
-    setLocalStorage(
-      undefined,
-      undefined,
-      "field-token",
-      JSON.stringify({ role: "worker" }),
-    );
+    seedLocalStorage({
+      field_auth_token: "field-token",
+      field_user: JSON.stringify({ role: "worker" }),
+    });
     await act(async () => {
       render(
         <DownloadGate>
@@ -154,8 +139,7 @@ describe("DownloadGate", () => {
   });
 
   it("handles malformed JSON in localStorage without throwing", async () => {
-    localStorage.setItem("admin_token", "tok");
-    localStorage.setItem("admin_user", "INVALID_JSON");
+    seedLocalStorage({ admin_token: "tok", admin_user: "INVALID_JSON" });
     await expect(
       act(async () => {
         render(

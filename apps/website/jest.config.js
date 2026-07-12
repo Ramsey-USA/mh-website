@@ -26,6 +26,7 @@ const sharedLibs = [
   "auth",
   "security",
   "utils",
+  "icons",
   "constants",
   "types",
   "cloudflare",

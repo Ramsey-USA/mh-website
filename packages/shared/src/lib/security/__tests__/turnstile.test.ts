@@ -13,35 +13,40 @@
 
 import { verifyTurnstileToken } from "@/lib/security/turnstile";
 
-jest.mock("@/lib/utils/logger", () => ({
-  logger: {
-    info: jest.fn(),
-    warn: jest.fn(),
-    error: jest.fn(),
-  },
-}));
+jest.mock("@/lib/utils/logger");
 
 const mockFetch = jest.fn();
 global.fetch = mockFetch;
+
+const DEFAULT_TURNSTILE_SECRET = "test-secret";
+
+function setNodeEnv(value: string | undefined) {
+  Object.defineProperty(process.env, "NODE_ENV", {
+    value,
+    configurable: true,
+  });
+}
+
+function setTurnstileSecret(secret = DEFAULT_TURNSTILE_SECRET) {
+  process.env["TURNSTILE_SECRET_KEY"] = secret;
+}
+
+function clearTurnstileSecret() {
+  delete process.env["TURNSTILE_SECRET_KEY"];
+}
 
 describe("verifyTurnstileToken()", () => {
   const originalNodeEnv = process.env.NODE_ENV;
 
   afterEach(() => {
     jest.clearAllMocks();
-    delete process.env["TURNSTILE_SECRET_KEY"];
-    Object.defineProperty(process.env, "NODE_ENV", {
-      value: originalNodeEnv,
-      configurable: true,
-    });
+    clearTurnstileSecret();
+    setNodeEnv(originalNodeEnv);
   });
 
   it("returns failure in production when secret is missing", async () => {
-    Object.defineProperty(process.env, "NODE_ENV", {
-      value: "production",
-      configurable: true,
-    });
-    delete process.env["TURNSTILE_SECRET_KEY"];
+    setNodeEnv("production");
+    clearTurnstileSecret();
 
     const result = await verifyTurnstileToken("some-token");
     expect(result.success).toBe(false);
@@ -49,11 +54,8 @@ describe("verifyTurnstileToken()", () => {
   });
 
   it("skips verification outside production when secret is missing", async () => {
-    Object.defineProperty(process.env, "NODE_ENV", {
-      value: "test",
-      configurable: true,
-    });
-    delete process.env["TURNSTILE_SECRET_KEY"];
+    setNodeEnv("test");
+    clearTurnstileSecret();
 
     const result = await verifyTurnstileToken("some-token");
     expect(result.success).toBe(true);
@@ -61,7 +63,7 @@ describe("verifyTurnstileToken()", () => {
   });
 
   it("returns success when Cloudflare responds with success: true", async () => {
-    process.env["TURNSTILE_SECRET_KEY"] = "test-secret";
+    setTurnstileSecret();
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: async () => ({ success: true, "error-codes": [] }),
@@ -73,7 +75,7 @@ describe("verifyTurnstileToken()", () => {
   });
 
   it("returns failure when Cloudflare responds with success: false", async () => {
-    process.env["TURNSTILE_SECRET_KEY"] = "test-secret";
+    setTurnstileSecret();
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: async () => ({
@@ -88,7 +90,7 @@ describe("verifyTurnstileToken()", () => {
   });
 
   it("returns failure when Cloudflare API returns a non-OK HTTP status", async () => {
-    process.env["TURNSTILE_SECRET_KEY"] = "test-secret";
+    setTurnstileSecret();
     mockFetch.mockResolvedValueOnce({
       ok: false,
       status: 503,
@@ -100,7 +102,7 @@ describe("verifyTurnstileToken()", () => {
   });
 
   it("returns failure when fetch throws an error", async () => {
-    process.env["TURNSTILE_SECRET_KEY"] = "test-secret";
+    setTurnstileSecret();
     mockFetch.mockRejectedValueOnce(new Error("Network failure"));
 
     const result = await verifyTurnstileToken("some-token");
@@ -109,7 +111,7 @@ describe("verifyTurnstileToken()", () => {
   });
 
   it("includes remoteip in the request body when provided", async () => {
-    process.env["TURNSTILE_SECRET_KEY"] = "test-secret";
+    setTurnstileSecret();
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: async () => ({ success: true }),

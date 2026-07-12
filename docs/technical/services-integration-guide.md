@@ -13,7 +13,7 @@ Transactional email notifications (form submissions, alerts) route through **n8n
 
 > Alignment note (April 17, 2026): follow `docs/project/operational-hub-congruent-plan.md` for automation transition policy. n8n remains active production automation while Cloudflare Queues/Workflows equivalents are built in parallel; do not decommission n8n until parity and reliability gates are met.
 
-**Tech Stack:** Next.js 16 + Tailwind CSS + TypeScript — high-performance, mobile-responsive, tactical professional tone.
+**Tech Stack:** Next.js 16.2.10 + React 19.2.7 + Tailwind CSS 4.3.2 + TypeScript 6.0.3 on Cloudflare Workers via `@opennextjs/cloudflare` 1.20.1 (Wrangler 4.110.0) — high-performance, mobile-responsive, tactical professional tone.
 
 **Brand Congruency:** Integration outputs and service-driven messaging must preserve canonical MH terminology, trust language, and approved visual-language standards.
 
@@ -105,7 +105,7 @@ Transactional email notifications (form submissions, alerts) route through **n8n
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │  CLOUDFLARE WORKERS (Application Runtime + WAF)                             │
 │  ├── Worker: mhc-v2-website                                                 │
-│  ├── Runtime: @opennextjs/cloudflare (Next.js 16)                           │
+│  ├── Runtime: @opennextjs/cloudflare 1.20.1 (Next.js 16.2.10)               │
 │  ├── Framework: Tailwind CSS + TypeScript                                   │
 │  ├── Security: Enterprise WAF, Bot Protection, Turnstile (CAPTCHA)          │
 │  ├── Bindings:                                                              │

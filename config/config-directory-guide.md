@@ -45,10 +45,10 @@ All framework and build tool configurations are in the **project root** for bett
 | --------------------- | ------------------------------- | -------- |
 | `wrangler.toml`       | Cloudflare Workers deployment   | Root     |
 | `open-next.config.ts` | OpenNext adapter for Cloudflare | Root     |
-| `eslint.config.mjs`   | ESLint 10 flat config           | Root     |
-| `tsconfig.json`       | TypeScript strict mode          | Root     |
-| `next.config.js`      | Next.js 16 framework            | Root     |
-| `tailwind.config.ts`  | Tailwind CSS design system      | Root     |
+| `eslint.config.mjs`   | ESLint 9 flat config            | Root     |
+| `tsconfig.json`       | TypeScript 6 strict mode        | Root     |
+| `next.config.js`      | Next.js 16.2.x framework        | Root     |
+| `tailwind.config.ts`  | Tailwind CSS 4 design system    | Root     |
 | `jest.config.js`      | Jest testing framework          | Root     |
 | `postcss.config.js`   | PostCSS CSS processing          | Root     |
 | `cspell.json`         | CSpell spell checking           | Root     |

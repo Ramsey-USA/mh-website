@@ -17,7 +17,7 @@ import {
   VulnerabilityScanner,
   VulnerabilityType,
   type Vulnerability,
-} from "@/lib/security/vulnerability-scanner";
+} from "@/lib/security/scanner";
 
 export const dynamic = "force-dynamic";
 

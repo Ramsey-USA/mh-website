@@ -257,9 +257,9 @@ export default function SafetyManualContentsPage() {
             Full Safety Manual Access — Restricted
           </h2>
           <p className="font-body mb-4 text-sm text-gray-600 dark:text-gray-400 max-w-md mx-auto">
-            The complete {manual?.totalSections ?? 50}-section MISH Safety
-            Manual (Safety Program) is available to authorized personnel. Sign
-            in or request access below.
+            The complete {manual?.totalSections ?? 50}-section MISH Safety &amp;
+            Health Program (Safety Manual) is available to authorized personnel.
+            Sign in or request access below.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
@@ -267,7 +267,7 @@ export default function SafetyManualContentsPage() {
               className="inline-flex items-center gap-2 rounded-lg bg-brand-primary px-5 py-2.5 text-sm font-bold text-white shadow hover:bg-brand-primary-dark transition-colors"
             >
               <MaterialIcon icon="login" size="sm" className="text-white" />
-              Sign In — Dashboard / Staff Hub
+              Sign In — Dashboard (Staff Hub)
             </Link>
             <Link
               href="/contact"

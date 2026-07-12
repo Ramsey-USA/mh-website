@@ -4,6 +4,11 @@
 
 import { act, render, waitFor } from "@testing-library/react";
 import { useHubAdminAuth } from "../useHubAdminAuth";
+import {
+  mockFetchOnce,
+  mockFetchRejectOnce,
+  restoreFetch,
+} from "@/__tests__/helpers/api-test-utils";
 
 const pushMock = jest.fn();
 // Stable router reference — `useRouter` mocks that return a fresh object
@@ -24,28 +29,17 @@ function HookProbe({
   return null;
 }
 
-const originalFetch = globalThis.fetch;
-
 beforeEach(() => {
   pushMock.mockReset();
 });
 
 afterEach(() => {
-  globalThis.fetch = originalFetch;
+  restoreFetch();
 });
-
-function mockFetch(response: { ok: boolean; body?: unknown }): jest.Mock {
-  const fn = jest.fn().mockResolvedValue({
-    ok: response.ok,
-    json: async () => response.body ?? {},
-  });
-  globalThis.fetch = fn;
-  return fn;
-}
 
 describe("useHubAdminAuth", () => {
   it("returns authenticated state when refresh succeeds with admin role", async () => {
-    mockFetch({
+    mockFetchOnce({
       ok: true,
       body: {
         accessToken: "tok-123",
@@ -72,7 +66,7 @@ describe("useHubAdminAuth", () => {
   });
 
   it("redirects to '/' when refresh returns a non-admin role", async () => {
-    mockFetch({
+    mockFetchOnce({
       ok: true,
       body: {
         accessToken: "tok-456",
@@ -93,8 +87,7 @@ describe("useHubAdminAuth", () => {
   });
 
   it("redirects to '/' when refresh fails (network error)", async () => {
-    const fn = jest.fn().mockRejectedValue(new Error("offline"));
-    globalThis.fetch = fn;
+    mockFetchRejectOnce(new Error("offline"));
 
     await act(async () => {
       render(<HookProbe onState={() => {}} />);
@@ -106,7 +99,7 @@ describe("useHubAdminAuth", () => {
   });
 
   it("redirects when refresh returns 401", async () => {
-    mockFetch({ ok: false });
+    mockFetchOnce({ ok: false });
 
     await act(async () => {
       render(<HookProbe onState={() => {}} />);

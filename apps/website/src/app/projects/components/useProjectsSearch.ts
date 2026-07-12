@@ -12,7 +12,7 @@ import {
   useState,
 } from "react";
 import { PortfolioService } from "@/lib/services/portfolio-service";
-import { useAnalytics } from "@/components/analytics/EnhancedAnalytics";
+import { useAnalytics } from "@/lib/analytics/components/EnhancedAnalytics";
 
 export function useProjectsSearch() {
   const { trackSearchPerformed, trackSearchFilterUsed, trackSearchClear } =

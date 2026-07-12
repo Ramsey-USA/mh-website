@@ -10,7 +10,7 @@ import { useCallback } from "react";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import Link from "next/link";
-import { useAnalytics } from "@/components/analytics/EnhancedAnalytics";
+import { useAnalytics } from "@/lib/analytics/components/EnhancedAnalytics";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
 
 /** Contact page URL pre-filled with pitch deck request subject */
@@ -70,11 +70,12 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
             </div>
             <div className="text-white text-center sm:text-left">
               <p id="pwa-cta-heading" className="font-bold text-xl mb-1">
-                Access the MH Construction Staff Hub
+                Access MH Construction Dashboard (Staff Hub)
               </p>
               <p className="text-sm text-white/90">
-                Team members can open the Staff Hub for safety manuals, forms,
-                and operational workflows.
+                Team members can open Dashboard (Staff Hub) for the MISH Safety
+                &amp; Health Program (Safety Manual), forms, and operational
+                workflows.
               </p>
             </div>
           </div>
@@ -83,7 +84,7 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
             size="lg"
             onClick={trackPwaInstall}
             className="shrink-0"
-            aria-label="Open MH Construction Staff Hub"
+            aria-label="Open MH Construction Dashboard (Staff Hub)"
             asChild
           >
             <Link href="/hub" className="shrink-0">
@@ -93,7 +94,7 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
                 className="mr-2"
                 aria-hidden="true"
               />
-              Open Staff Hub
+              Open Dashboard (Staff Hub)
             </Link>
           </Button>
         </div>
@@ -224,7 +225,7 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
           size="lg"
           onClick={trackComboPwa}
           className="flex flex-col items-center gap-2 h-auto py-6 border-2 border-brand-bronze/30 hover:border-brand-bronze/60 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
-          aria-label="Open MH Construction Staff Hub"
+          aria-label="Open MH Construction Dashboard (Staff Hub)"
           asChild
         >
           <Link href="/hub" className="block">
@@ -235,7 +236,7 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
               className="text-brand-primary"
             />
             <span className="font-bold text-gray-900 dark:text-white">
-              Staff Hub
+              Dashboard (Staff Hub)
             </span>
             <span className="text-xs text-gray-600 dark:text-gray-300">
               Team portal access

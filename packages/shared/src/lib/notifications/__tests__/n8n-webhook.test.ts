@@ -1,22 +1,26 @@
 import { logger } from "@/lib/utils/logger";
 import { sendToN8n, sendToN8nAsync } from "../n8n-webhook";
 
-jest.mock("@/lib/utils/logger", () => ({
-  logger: {
-    info: jest.fn(),
-    warn: jest.fn(),
-    error: jest.fn(),
-  },
-}));
+jest.mock("@/lib/utils/logger");
 
 const mockFetch = jest.fn();
 global.fetch = mockFetch;
+
+const DEFAULT_N8N_WEBHOOK_URL = "https://n8n.example/webhook";
+
+function setN8nWebhookEnv(url = DEFAULT_N8N_WEBHOOK_URL) {
+  process.env["N8N_WEBHOOK_URL"] = url;
+}
+
+function clearN8nWebhookEnv() {
+  delete process.env["N8N_WEBHOOK_URL"];
+}
 
 describe("n8n webhook notifications", () => {
   beforeEach(() => {
     mockFetch.mockReset();
     jest.clearAllMocks();
-    delete process.env["N8N_WEBHOOK_URL"];
+    clearN8nWebhookEnv();
   });
 
   it("returns unconfigured when webhook URL is missing", async () => {
@@ -36,7 +40,7 @@ describe("n8n webhook notifications", () => {
   });
 
   it("sends payload successfully with generated submittedAt", async () => {
-    process.env["N8N_WEBHOOK_URL"] = "https://n8n.example/webhook";
+    setN8nWebhookEnv();
     mockFetch.mockResolvedValueOnce({ ok: true });
 
     const result = await sendToN8n({
@@ -68,7 +72,7 @@ describe("n8n webhook notifications", () => {
   });
 
   it("uses provided submittedAt value when supplied", async () => {
-    process.env["N8N_WEBHOOK_URL"] = "https://n8n.example/webhook";
+    setN8nWebhookEnv();
     mockFetch.mockResolvedValueOnce({ ok: true });
 
     const submittedAt = "2026-04-19T20:20:42.752Z";
@@ -84,7 +88,7 @@ describe("n8n webhook notifications", () => {
   });
 
   it("returns failure when webhook responds with non-OK status", async () => {
-    process.env["N8N_WEBHOOK_URL"] = "https://n8n.example/webhook";
+    setN8nWebhookEnv();
     mockFetch.mockResolvedValueOnce({
       ok: false,
       status: 500,
@@ -108,7 +112,7 @@ describe("n8n webhook notifications", () => {
   });
 
   it("returns thrown error message when fetch rejects with Error", async () => {
-    process.env["N8N_WEBHOOK_URL"] = "https://n8n.example/webhook";
+    setN8nWebhookEnv();
     mockFetch.mockRejectedValueOnce(new Error("network timeout"));
 
     const result = await sendToN8n({
@@ -123,7 +127,7 @@ describe("n8n webhook notifications", () => {
   });
 
   it("returns Unknown error when fetch rejects with non-Error", async () => {
-    process.env["N8N_WEBHOOK_URL"] = "https://n8n.example/webhook";
+    setN8nWebhookEnv();
     mockFetch.mockRejectedValueOnce("boom");
 
     const result = await sendToN8n({
@@ -138,7 +142,7 @@ describe("n8n webhook notifications", () => {
   });
 
   it("invokes async n8n send flow without blocking caller", async () => {
-    process.env["N8N_WEBHOOK_URL"] = "https://n8n.example/webhook";
+    setN8nWebhookEnv();
     mockFetch.mockResolvedValueOnce({ ok: true });
     sendToN8nAsync({
       type: "contact",

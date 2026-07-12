@@ -4,7 +4,7 @@ import Script from "next/script";
 import { Suspense } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import "./globals.css";
-import "../styles/material-icons.css";
+import "../../../../packages/shared/src/styles/material-icons.css";
 import { AppShell } from "@/components/layout/AppShell";
 import FaviconLinks from "@/components/layout/FaviconLinks";
 import { ThemeProvider } from "@/contexts/theme-context";
@@ -22,7 +22,7 @@ import {
 } from "@/components/seo/SeoMeta";
 import { SkipLink } from "@/components/ui/accessibility/SkipLink";
 import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
-import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { GoogleAnalytics } from "@/lib/analytics/components/GoogleAnalytics";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { buildDualSeoTitle } from "@/lib/branding/page-names";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";

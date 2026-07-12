@@ -15,9 +15,18 @@ const mockKV = {
   put: jest.fn<Promise<void>, [string, string, { expirationTtl?: number }]>(),
 };
 
-jest.mock("@opennextjs/cloudflare", () => ({
-  getCloudflareContext: () => ({ env: { CACHE: mockKV } }),
-}));
+jest.mock("@opennextjs/cloudflare");
+
+const { getCloudflareContext: mockGetCloudflareContext } = jest.requireMock(
+  "@opennextjs/cloudflare",
+) as {
+  getCloudflareContext: jest.Mock;
+};
+
+function setCloudflareContextEnv(env: Record<string, unknown>) {
+  mockGetCloudflareContext.mockReset();
+  mockGetCloudflareContext.mockReturnValue({ env });
+}
 
 import { rateLimit } from "@/lib/security/rate-limiter";
 
@@ -32,6 +41,7 @@ const makeHandler = () =>
 
 describe("rateLimit middleware — KV backend", () => {
   beforeEach(() => {
+    setCloudflareContextEnv({ CACHE: mockKV });
     mockKV.get.mockReset();
     mockKV.put.mockReset();
     mockKV.put.mockResolvedValue(undefined);

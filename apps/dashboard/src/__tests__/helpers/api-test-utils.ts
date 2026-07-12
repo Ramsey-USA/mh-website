@@ -9,6 +9,32 @@
 
 import { NextRequest, NextResponse } from "next/server";
 
+const originalFetch = globalThis.fetch;
+
+export function restoreFetch() {
+  globalThis.fetch = originalFetch;
+}
+
+export function mockFetchOnce(response: {
+  ok: boolean;
+  status?: number;
+  body?: unknown;
+}): jest.Mock {
+  const fn = jest.fn().mockResolvedValue({
+    ok: response.ok,
+    status: response.status ?? (response.ok ? 200 : 500),
+    json: async () => response.body ?? {},
+  });
+  globalThis.fetch = fn;
+  return fn;
+}
+
+export function mockFetchRejectOnce(error: Error): jest.Mock {
+  const fn = jest.fn().mockRejectedValue(error);
+  globalThis.fetch = fn;
+  return fn;
+}
+
 // ── Auth helpers ──────────────────────────────────────────────────────────────
 
 export const authedHeaders = { Authorization: "Bearer valid-token" };

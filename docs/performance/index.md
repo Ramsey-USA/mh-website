@@ -13,6 +13,7 @@ Page-level performance audits and Core Web Vitals tracking for the MH Constructi
 
 - **[Page Performance Audit](./page-performance-audit.md)** — Latest per-page performance audit
   results and remediation notes.
+- **[Performance Triage Template](./performance-triage-template.md)** — Standard template for documenting triage scope, evidence, and remediation actions.
 
 ## Related
 

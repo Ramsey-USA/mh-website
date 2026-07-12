@@ -2,11 +2,11 @@
  * Analytics Components
  * Re-exports all analytics tracking components
  *
- * GoogleAnalytics and analytics object: import directly from
- * "@/components/analytics/GoogleAnalytics"
+ * GoogleAnalytics and analytics object are re-exported from shared analytics modules.
  */
 
-export * from "./TrackedContactLinks";
+export * from "@/lib/analytics/components/TrackedContactLinks";
 export * from "./TrackedBridgeLinks";
-export * from "./EnhancedAnalytics";
-export * from "./PageTrackingClient";
+export * from "@/lib/analytics/components/EnhancedAnalytics";
+export * from "@/lib/analytics/components/PageTrackingClient";
+export * from "@/lib/analytics/components/GoogleAnalytics";

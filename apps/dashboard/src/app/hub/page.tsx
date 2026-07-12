@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { PageTrackingClient } from "@/components/analytics";
+import { PageTrackingClient } from "@/lib/analytics/components/PageTrackingClient";
 import { HubCard } from "@/components/hub/HubCard";
 import { HUB_CARDS, ADMIN_CARDS } from "@/lib/hub/cards";
 import { getHubSafetySummary } from "@/lib/hub/resources";

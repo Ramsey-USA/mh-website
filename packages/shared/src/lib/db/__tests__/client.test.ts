@@ -2,12 +2,7 @@
  * @jest-environment node
  */
 
-jest.mock("@/lib/utils/logger", () => ({
-  logger: {
-    debug: jest.fn(),
-    error: jest.fn(),
-  },
-}));
+jest.mock("@/lib/utils/logger");
 
 import {
   DbClient,

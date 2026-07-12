@@ -1,14 +1,14 @@
 /* MH Construction Dashboard - Global Styles */
 
-/* Import CSS variables for cohesive design system */
-@import "../styles/variables.css";
+/* Import CSS variables from shared design system */
+@import "../../../../packages/shared/src/styles/variables.css";
 
 /* Tailwind CSS */
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
 
 /* Material Icons */
-@import "../styles/material-icons.css";
+@import "../../../../packages/shared/src/styles/material-icons.css";
 
 @layer utilities {
   .mh-heading-display {

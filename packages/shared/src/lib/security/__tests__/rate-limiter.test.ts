@@ -7,11 +7,20 @@
 
 import { NextRequest, NextResponse } from "next/server";
 
-jest.mock("@opennextjs/cloudflare", () => ({
-  getCloudflareContext: () => {
-    throw new Error("Not in CF environment");
-  },
-}));
+jest.mock("@opennextjs/cloudflare");
+
+const { getCloudflareContext: mockGetCloudflareContext } = jest.requireMock(
+  "@opennextjs/cloudflare",
+) as {
+  getCloudflareContext: jest.Mock;
+};
+
+function setCloudflareContextUnavailable(message = "Not in CF environment") {
+  mockGetCloudflareContext.mockReset();
+  mockGetCloudflareContext.mockImplementation(() => {
+    throw new Error(message);
+  });
+}
 
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 
@@ -25,6 +34,10 @@ function makeRequest(ip = "10.0.0.1", path = "/api/test"): NextRequest {
 }
 
 describe("rateLimit middleware", () => {
+  beforeEach(() => {
+    setCloudflareContextUnavailable();
+  });
+
   it("passes the request to the handler when under the limit", async () => {
     const handler = makeHandler();
     const limited = rateLimit({ maxRequests: 5, windowMs: 60_000 })(handler);

@@ -47,7 +47,7 @@ const mockGetVulnerabilities = jest.fn().mockReturnValue([]);
 const mockQuickScan = jest.fn();
 const mockRunScan = jest.fn();
 
-jest.mock("@/lib/security/vulnerability-scanner", () => ({
+jest.mock("@/lib/security/scanner", () => ({
   VulnerabilityScanner: jest.fn().mockImplementation(() => ({
     getVulnerabilities: mockGetVulnerabilities,
     quickScan: mockQuickScan,

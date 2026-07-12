@@ -134,7 +134,8 @@ async function main() {
   const out = {
     document: {
       id: raw?.document?.id ?? "safety-manual",
-      title: raw?.document?.title ?? "Safety Manual",
+      title:
+        raw?.document?.title ?? "MISH Safety & Health Program (Safety Manual)",
       revisionYear: raw?.document?.revisionYear,
       revisionDate: raw?.document?.revisionDate,
       derivedAt: new Date().toISOString(),

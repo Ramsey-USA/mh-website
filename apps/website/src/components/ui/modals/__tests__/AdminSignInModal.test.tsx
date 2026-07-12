@@ -1,6 +1,8 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AdminSignInModal } from "../AdminSignInModal";
+import { mockFetch, restoreFetch } from "@/test-utils/fetch";
+import { clearLocalStorage } from "@/test-utils/storage";
 
 const pushMock = jest.fn();
 
@@ -37,20 +39,15 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
 }));
 
 describe("AdminSignInModal", () => {
-  const originalFetch = globalThis.fetch;
-
   beforeEach(() => {
-    globalThis.fetch = jest.fn() as jest.MockedFunction<typeof fetch>;
+    mockFetch();
     pushMock.mockReset();
-    globalThis.localStorage.clear();
+    clearLocalStorage();
   });
 
   afterEach(() => {
     jest.clearAllMocks();
-  });
-
-  afterAll(() => {
-    globalThis.fetch = originalFetch;
+    restoreFetch();
   });
 
   it("closes on escape and clears entered credentials on reopen", async () => {

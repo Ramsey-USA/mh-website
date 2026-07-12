@@ -6,6 +6,8 @@ All notable changes to the MH Construction website are documented here.
 
 ## June 2026
 
+- **Jul 12:** Runtime cleanup and consolidation sweep — removed several legacy compatibility surfaces and repeated wrappers across the website/dashboard codepaths, including deprecated page-navigation props, legacy offline queue storage, redundant analytics/icon/CTA shims, and thin API/security compatibility layers; centralized shared test helpers for fetch/storage setup and updated the affected focused tests to match the canonical paths.
+
 - **Jul 10:** CI install-log noise suppression (no dependency version churn) — updated GitHub Actions workflows to run dependency installs with `pnpm install --frozen-lockfile --loglevel error` (including filtered install variants) so transitive deprecation and peer warning noise no longer drowns test/build output; preserved existing glob/transitive version graph and error/failure behavior for quality gates.
 
 - **Jul 10 (b):** Cross-app deduplication extraction milestone — completed shared-canon extraction for duplicated analytics runtime components (`packages/shared/src/lib/analytics/components/`), icon runtime (`packages/shared/src/lib/icons/AmericanFlag.tsx`), style sources (`packages/shared/src/styles/variables.css`, `packages/shared/src/styles/material-icons.css`), and final mirrored team data (`packages/shared/src/lib/data/team/` for GATOR + mike-holstein); converted app-local duplicates to thin wrappers/imports, introduced dedicated shared team-data alias namespace (`@/lib/shared-data/team/*`) to avoid collisions with local team imports, and de-scoped app mirror enforcement to zero configured entries while preserving guard script/CI wiring (`scripts/duplicates/sync-app-mirrors.sh`).

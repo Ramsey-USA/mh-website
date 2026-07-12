@@ -4,8 +4,10 @@
 
 import { act, render, waitFor } from "@testing-library/react";
 import { useAdminTabData } from "../useAdminTabData";
-
-const originalFetch = globalThis.fetch;
+import {
+  mockFetchOnce,
+  restoreFetch,
+} from "@/__tests__/helpers/api-test-utils";
 
 interface Probe<T> {
   current: ReturnType<typeof useAdminTabData<T>> | null;
@@ -25,23 +27,13 @@ function HookProbe<T>({
 }
 
 afterEach(() => {
-  globalThis.fetch = originalFetch;
+  restoreFetch();
   jest.clearAllMocks();
 });
 
-function mockFetch<T>(body: T, ok = true): jest.Mock {
-  const fn = jest.fn().mockResolvedValue({
-    ok,
-    status: ok ? 200 : 500,
-    json: async () => body,
-  });
-  globalThis.fetch = fn;
-  return fn;
-}
-
 describe("useAdminTabData", () => {
   it("fetches with bearer token and reaches success state", async () => {
-    const fn = mockFetch({ items: [1, 2, 3] });
+    const fn = mockFetchOnce({ ok: true, body: { items: [1, 2, 3] } });
 
     const probe: Probe<{ items: number[] }> = { current: null };
     await act(async () => {
@@ -55,7 +47,7 @@ describe("useAdminTabData", () => {
   });
 
   it("transitions to error state on non-ok response", async () => {
-    mockFetch({}, false);
+    mockFetchOnce({ ok: false, body: {} });
 
     const probe: Probe<unknown> = { current: null };
     await act(async () => {
@@ -66,7 +58,7 @@ describe("useAdminTabData", () => {
   });
 
   it("does not fetch when token is null", async () => {
-    const fn = mockFetch({});
+    const fn = mockFetchOnce({ ok: true, body: {} });
 
     const probe: Probe<unknown> = { current: null };
     await act(async () => {
@@ -78,7 +70,7 @@ describe("useAdminTabData", () => {
   });
 
   it("refetch() re-runs the request", async () => {
-    const fn = mockFetch({ ok: true });
+    const fn = mockFetchOnce({ ok: true, body: { ok: true } });
 
     const probe: Probe<unknown> = { current: null };
     await act(async () => {

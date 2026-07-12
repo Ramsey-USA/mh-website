@@ -349,7 +349,7 @@ pnpm run type-check && pnpm run lint && pnpm run build
 
 ## Available npm Commands
 
-### Safety Manual (MISH) Commands
+### MISH Safety & Health Program (Safety Manual) Commands
 
 - `pnpm run docs:extract`: Extract PDF text to `safety-manual.json` (falls back to Word source if PDF source path is missing)
 - `pnpm --filter @mhc/website run docs:extract-word`: Extract Word docs to `safety-manual.json` (preferred)

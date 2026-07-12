@@ -8,21 +8,51 @@
  * NOTE: R2 bucket access is handled via @/lib/cloudflare/r2.ts — see r2.test.ts
  */
 
-const mockGetCloudflareContext = jest.fn();
+jest.mock("@opennextjs/cloudflare");
 
-jest.mock("@opennextjs/cloudflare", () => ({
-  getCloudflareContext: (...args: unknown[]) =>
-    mockGetCloudflareContext(...args),
-}));
+const { getCloudflareContext: mockGetCloudflareContext } = jest.requireMock(
+  "@opennextjs/cloudflare",
+) as {
+  getCloudflareContext: jest.Mock;
+};
 
-jest.mock("@/lib/utils/logger", () => ({
-  logger: {
-    error: jest.fn(),
-    warn: jest.fn(),
-    info: jest.fn(),
-    debug: jest.fn(),
-  },
-}));
+jest.mock("@/lib/utils/logger");
+
+type DbEnvModule = {
+  getD1Database: () => unknown;
+  getKVNamespace: (bindingName: string) => unknown;
+  isCloudflareWorkers: () => boolean;
+};
+
+function setCloudflareContextUnavailable(
+  message = "Not in a Cloudflare Workers environment",
+) {
+  mockGetCloudflareContext.mockReset();
+  mockGetCloudflareContext.mockImplementation(() => {
+    throw new Error(message);
+  });
+}
+
+function setCloudflareContextEnv(env: Record<string, unknown>) {
+  mockGetCloudflareContext.mockReset();
+  mockGetCloudflareContext.mockReturnValue({ env });
+}
+
+function loadDbEnvModule(): DbEnvModule {
+  let loaded: DbEnvModule | undefined;
+
+  jest.isolateModules(() => {
+    loaded =
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      require("@/lib/db/env") as DbEnvModule;
+  });
+
+  if (!loaded) {
+    throw new Error("Failed to load db/env test module");
+  }
+
+  return loaded;
+}
 
 describe("db/env — non-Cloudflare environment (getCloudflareContext throws)", () => {
   let getD1Database: () => unknown;
@@ -30,15 +60,10 @@ describe("db/env — non-Cloudflare environment (getCloudflareContext throws)", 
   let isCloudflareWorkers: () => boolean;
 
   beforeAll(async () => {
-    mockGetCloudflareContext.mockImplementation(() => {
-      throw new Error("Not in a Cloudflare Workers environment");
-    });
+    setCloudflareContextUnavailable();
 
-    jest.isolateModules(() => {
-      ({ getD1Database, getKVNamespace, isCloudflareWorkers } =
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        require("@/lib/db/env") as typeof import("@/lib/db/env"));
-    });
+    ({ getD1Database, getKVNamespace, isCloudflareWorkers } =
+      loadDbEnvModule());
   });
 
   it("getD1Database returns null", () => {
@@ -63,15 +88,10 @@ describe("db/env — Cloudflare environment (getCloudflareContext succeeds)", ()
   let isCloudflareWorkers: () => boolean;
 
   beforeAll(async () => {
-    mockGetCloudflareContext.mockReturnValue({
-      env: { DB: mockDB, CACHE: mockKV },
-    });
+    setCloudflareContextEnv({ DB: mockDB, CACHE: mockKV });
 
-    jest.isolateModules(() => {
-      ({ getD1Database, getKVNamespace, isCloudflareWorkers } =
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        require("@/lib/db/env") as typeof import("@/lib/db/env"));
-    });
+    ({ getD1Database, getKVNamespace, isCloudflareWorkers } =
+      loadDbEnvModule());
   });
 
   it("getD1Database returns the DB binding", () => {

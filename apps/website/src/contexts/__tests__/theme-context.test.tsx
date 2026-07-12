@@ -4,6 +4,7 @@
 import React from "react";
 import { render, screen, act, renderHook } from "@testing-library/react";
 import { ThemeProvider, useTheme } from "@/contexts/theme-context";
+import { clearLocalStorage } from "@/test-utils/storage";
 
 function ThemeConsumer() {
   const { theme, setTheme, isDarkMode } = useTheme();
@@ -35,7 +36,7 @@ describe("ThemeProvider", () => {
   });
 
   beforeEach(() => {
-    localStorage.clear();
+    clearLocalStorage();
     matchMediaMock.mockReturnValue({
       matches: false,
       addEventListener: jest.fn(),
@@ -90,6 +91,7 @@ describe("ThemeProvider", () => {
   });
 
   it("reads initial theme from localStorage", () => {
+    clearLocalStorage();
     localStorage.setItem("test-theme-read", "dark");
     render(
       <ThemeProvider storageKey="test-theme-read">

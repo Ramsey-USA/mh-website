@@ -10,6 +10,7 @@ type GtagParams = Record<string, GtagParamValue>;
 
 type WindowWithGtag = Window & {
   gtag?: (command: "event", eventName: string, params?: GtagParams) => void;
+  __LIGHTHOUSE__?: boolean;
 };
 
 function isLighthouseRun(): boolean {
@@ -18,7 +19,10 @@ function isLighthouseRun(): boolean {
   }
 
   const userAgent = typeof navigator !== "undefined" ? navigator.userAgent : "";
-  return Boolean(window.__LIGHTHOUSE__) || /Chrome-Lighthouse/i.test(userAgent);
+  return (
+    Boolean((window as WindowWithGtag).__LIGHTHOUSE__) ||
+    /Chrome-Lighthouse/i.test(userAgent)
+  );
 }
 
 function dispatchGoogleEvent(eventName: string, params: GtagParams = {}): void {

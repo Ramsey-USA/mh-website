@@ -21,9 +21,7 @@ jest.mock("../jwt", () => ({
 }));
 
 // Silence logger output during tests
-jest.mock("@/lib/utils/logger", () => ({
-  logger: { info: jest.fn(), warn: jest.fn(), error: jest.fn() },
-}));
+jest.mock("@/lib/utils/logger");
 
 function makeReq(authHeader?: string) {
   return new NextRequest("http://localhost/api/test", {

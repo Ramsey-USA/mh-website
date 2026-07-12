@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { JobApplicationModal } from "../JobApplicationModal";
+import { mockFetch, restoreFetch } from "@/test-utils/fetch";
 
 jest.mock("@/lib/analytics/tracking", () => ({
   trackFormSubmit: jest.fn(),
@@ -16,18 +17,13 @@ jest.mock("@/lib/utils/logger", () => ({
 }));
 
 describe("JobApplicationModal", () => {
-  const originalFetch = global.fetch;
-
   beforeEach(() => {
-    global.fetch = jest.fn() as jest.MockedFunction<typeof fetch>;
+    mockFetch();
   });
 
   afterEach(() => {
     jest.clearAllMocks();
-  });
-
-  afterAll(() => {
-    global.fetch = originalFetch;
+    restoreFetch();
   });
 
   it("shows veteran application context and preselects veteran status", () => {

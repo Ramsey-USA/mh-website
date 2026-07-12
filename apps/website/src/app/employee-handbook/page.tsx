@@ -111,7 +111,7 @@ export default function EmployeeHandbookPage() {
             <Button asChild variant="outline" size="lg">
               <Link href="/hub">
                 <MaterialIcon icon="login" size="sm" className="text-white" />
-                Dashboard / Staff Hub Sign-In
+                Dashboard (Staff Hub) Sign-In
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
@@ -287,7 +287,7 @@ export default function EmployeeHandbookPage() {
                     <Button asChild variant="outline" size="sm">
                       <Link href="/hub">
                         <MaterialIcon icon="login" size="sm" />
-                        Dashboard Sign-In
+                        Dashboard (Staff Hub) Sign-In
                       </Link>
                     </Button>
                   </div>
@@ -312,7 +312,7 @@ export default function EmployeeHandbookPage() {
             <Button asChild variant="primary" size="sm">
               <Link href="/hub">
                 <MaterialIcon icon="login" size="sm" className="text-white" />
-                Open Dashboard / Staff Hub
+                Open Dashboard (Staff Hub)
               </Link>
             </Button>
             <Button asChild variant="outline" size="sm">

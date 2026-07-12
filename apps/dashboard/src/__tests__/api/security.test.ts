@@ -69,7 +69,7 @@ jest.mock("@/lib/security/audit-logger", () => ({
 const mockGetVulnerabilities = jest.fn().mockReturnValue([]);
 const mockScanRequest = jest.fn().mockReturnValue([]);
 
-jest.mock("@/lib/security/vulnerability-scanner", () => ({
+jest.mock("@/lib/security/scanner", () => ({
   VulnerabilityScanner: jest.fn().mockImplementation(() => ({
     getVulnerabilities: mockGetVulnerabilities,
     scanRequest: mockScanRequest,

@@ -10,7 +10,7 @@
  *
  * Auth + fetch concerns are delegated to:
  *   - `@/hooks/useHubAdminAuth`  — refresh + role check + redirect
- *   - `@/lib/hub/api`            — `hubFetch` bearer wrapper
+ *   - `@/lib/admin-auth/api`     — `hubFetch` bearer wrapper
  */
 
 import { useState, useEffect, useCallback } from "react";
@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { DASHBOARD_SECTION_HEADER_CLASS } from "@/components/ui/forms/DashboardFormField";
 import { useHubAdminAuth } from "@/hooks/useHubAdminAuth";
-import { hubFetch } from "@/lib/hub/api";
+import { adminFetch as hubFetch } from "@/lib/admin-auth/api";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 

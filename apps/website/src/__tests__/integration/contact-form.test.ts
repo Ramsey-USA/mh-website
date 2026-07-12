@@ -6,9 +6,16 @@
  */
 
 import "@testing-library/jest-dom";
+import { mockFetch, restoreFetch } from "@/test-utils/fetch";
 
-// Mock fetch for API calls
-global.fetch = jest.fn();
+beforeEach(() => {
+  // Mock fetch for API calls
+  mockFetch();
+});
+
+afterEach(() => {
+  restoreFetch();
+});
 
 describe("Contact Form Integration Tests", () => {
   beforeEach(() => {

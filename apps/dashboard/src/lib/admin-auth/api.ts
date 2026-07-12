@@ -1,13 +1,12 @@
 /**
  * Shared client-side helpers for admin-only pages (/hub, /dashboard).
  *
- * Generalizes the pattern previously duplicated in `lib/hub/api.ts` and
+ * Generalizes the pattern previously duplicated in legacy hub helpers and
  * the inline bootstrap inside `app/dashboard/page.tsx`:
  *   1. Refresh the session via `/api/auth/refresh` and confirm admin role.
  *   2. Make subsequent requests with `Authorization: Bearer <token>`.
  *
- * Hub-specific exports remain available from `lib/hub/api.ts` for
- * backwards compatibility — they delegate here.
+ * Hub pages import these helpers directly for bearer-auth fetch flows.
  */
 
 export interface AdminUser {

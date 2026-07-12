@@ -41,7 +41,7 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
   MaterialIcon: ({ icon }: { icon: string }) => <span>{icon}</span>,
 }));
 
-import { SmokeBossFunnel } from "../SmokeBossFunnel";
+import { SmokeBossFunnel } from "../EventsHubBanner";
 
 describe("SmokeBossFunnel", () => {
   beforeEach(() => {

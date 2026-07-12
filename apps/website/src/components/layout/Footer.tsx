@@ -17,7 +17,7 @@ import {
   TrackedPhoneLink,
   TrackedEmailLink,
   TrackedLocationLink,
-} from "@/components/analytics/TrackedContactLinks";
+} from "@/lib/analytics/components/TrackedContactLinks";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { PAGE_ICONS, SOCIAL_ICONS } from "@/lib/constants/navigation-icons";
 import { WaVobBadge } from "@/components/ui/WaVobBadge";

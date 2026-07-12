@@ -5,7 +5,7 @@ import "@testing-library/jest-dom";
 import { render, screen, fireEvent, act } from "@testing-library/react";
 import { SemiquincentennialBanner } from "../SemiquincentennialBanner";
 
-jest.mock("@/components/icons/AmericanFlag", () => ({
+jest.mock("@/lib/icons/AmericanFlag", () => ({
   AmericanFlag: ({
     size,
     className,

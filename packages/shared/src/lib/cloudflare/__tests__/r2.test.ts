@@ -6,13 +6,13 @@
  * isSmallEnoughForEmail, and fileToBase64.
  */
 
-jest.mock("@opennextjs/cloudflare", () => ({
-  getCloudflareContext: jest.fn(),
-}));
+jest.mock("@opennextjs/cloudflare");
 
-jest.mock("@/lib/utils/logger", () => ({
-  logger: { info: jest.fn(), warn: jest.fn(), error: jest.fn() },
-}));
+const { getCloudflareContext } = jest.requireMock("@opennextjs/cloudflare") as {
+  getCloudflareContext: jest.Mock;
+};
+
+jest.mock("@/lib/utils/logger");
 
 import {
   R2StorageService,
@@ -22,6 +22,18 @@ import {
   fileToBase64,
   type R2Bucket,
 } from "../r2";
+
+function setCloudflareContextEnv(env: Record<string, unknown>) {
+  getCloudflareContext.mockReset();
+  getCloudflareContext.mockReturnValue({ env });
+}
+
+function setCloudflareContextUnavailable(message = "not in CF context") {
+  getCloudflareContext.mockReset();
+  getCloudflareContext.mockImplementation(() => {
+    throw new Error(message);
+  });
+}
 
 // ─── Mock bucket factory ──────────────────────────────────────────────────────
 
@@ -312,29 +324,25 @@ describe("R2StorageService.listFiles", () => {
 // ─── getR2Bucket ─────────────────────────────────────────────────────────────
 
 describe("getR2Bucket", () => {
-  const { getCloudflareContext } = jest.requireMock(
-    "@opennextjs/cloudflare",
-  ) as { getCloudflareContext: jest.Mock };
+  beforeEach(() => {
+    setCloudflareContextUnavailable();
+  });
 
   it("returns the bucket from CF env when available", () => {
     const fakeBucket = makeBucket();
-    getCloudflareContext.mockReturnValue({
-      env: { RESUMES: fakeBucket },
-    });
+    setCloudflareContextEnv({ RESUMES: fakeBucket });
     const result = getR2Bucket("RESUMES");
     expect(result).toBe(fakeBucket);
   });
 
   it("returns null when bucket is not in env", () => {
-    getCloudflareContext.mockReturnValue({ env: {} });
+    setCloudflareContextEnv({});
     const result = getR2Bucket("FILE_ASSETS");
     expect(result).toBeNull();
   });
 
   it("returns null when getCloudflareContext throws (non-CF context)", () => {
-    getCloudflareContext.mockImplementation(() => {
-      throw new Error("not in CF context");
-    });
+    setCloudflareContextUnavailable();
     const result = getR2Bucket("RESUMES");
     expect(result).toBeNull();
   });

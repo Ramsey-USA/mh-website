@@ -1,4 +1,3 @@
 export { PitchDeckCTA } from "./PitchDeckCTA";
 export { StrategicCTABanner } from "./StrategicCTABanner";
-export { EventsHubBanner } from "./EventsHubBanner";
-export { SmokeBossFunnel } from "./SmokeBossFunnel";
+export { EventsHubBanner, SmokeBossFunnel } from "./EventsHubBanner";

@@ -3,20 +3,14 @@
  */
 
 import { adminFetch, refreshAdminSession } from "../api";
+import {
+  mockFetchOnce,
+  restoreFetch,
+} from "@/__tests__/helpers/api-test-utils";
 
-const originalFetch = globalThis.fetch;
 afterEach(() => {
-  globalThis.fetch = originalFetch;
+  restoreFetch();
 });
-
-function mockFetchOnce(response: { ok: boolean; body?: unknown }): jest.Mock {
-  const fn = jest.fn().mockResolvedValue({
-    ok: response.ok,
-    json: async () => response.body ?? {},
-  });
-  globalThis.fetch = fn;
-  return fn;
-}
 
 describe("refreshAdminSession", () => {
   it("returns a session including email when present", async () => {

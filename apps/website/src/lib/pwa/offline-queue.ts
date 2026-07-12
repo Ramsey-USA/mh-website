@@ -7,7 +7,6 @@
  * DB name : MHConstructionDB  (shared with sw.js — must stay in sync)
  * Version : 1
  * Stores  : "offline-submissions"  { id, endpoint, data, queuedAt }
- *           "contact-forms"        { id, data }  (legacy — kept for compat)
  */
 
 const DB_NAME = "MHConstructionDB";
@@ -28,12 +27,6 @@ function openDB(): Promise<IDBDatabase> {
     req.onsuccess = () => resolve(req.result as IDBDatabase);
     req.onupgradeneeded = (event) => {
       const db = (event.target as IDBOpenDBRequest).result;
-      if (!db.objectStoreNames.contains("contact-forms")) {
-        db.createObjectStore("contact-forms", {
-          keyPath: "id",
-          autoIncrement: true,
-        });
-      }
       if (!db.objectStoreNames.contains(STORE)) {
         db.createObjectStore(STORE, { keyPath: "id", autoIncrement: true });
       }

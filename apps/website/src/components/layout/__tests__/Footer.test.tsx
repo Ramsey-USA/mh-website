@@ -9,6 +9,7 @@ import {
 import userEvent from "@testing-library/user-event";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import Footer from "../Footer";
+import { mockFetch, restoreFetch } from "@/test-utils/fetch";
 
 jest.mock("next/link", () => ({
   __esModule: true,
@@ -19,7 +20,7 @@ jest.mock("next/link", () => ({
   ),
 }));
 
-jest.mock("@/components/analytics/TrackedContactLinks", () => ({
+jest.mock("@/lib/analytics/components/TrackedContactLinks", () => ({
   TrackedPhoneLink: ({ children, trackId, trackProperties, ...props }: any) => (
     <a href={`tel:${COMPANY_INFO.phone.tel}`} {...props}>
       {children}
@@ -69,11 +70,12 @@ describe("Footer", () => {
   const keyboardEventTarget = globalThis as unknown as Window;
 
   beforeEach(() => {
-    globalThis.fetch = jest.fn();
+    mockFetch();
   });
 
   afterEach(() => {
     jest.resetAllMocks();
+    restoreFetch();
   });
 
   it("shows license numbers without relying on hover tooltips", () => {

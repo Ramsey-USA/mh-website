@@ -80,7 +80,6 @@ class MockTransaction {
 
 const globalStores = new Map<string, MockStore>();
 globalStores.set("offline-submissions", new MockStore());
-globalStores.set("contact-forms", new MockStore());
 
 class MockIDBDatabase extends EventTarget {
   objectStoreNames = {
@@ -117,7 +116,6 @@ describe("offline-queue", () => {
   beforeEach(() => {
     // Reset the store for each test
     globalStores.set("offline-submissions", new MockStore());
-    globalStores.set("contact-forms", new MockStore());
   });
 
   it("getPendingCount() returns 0 on a fresh database", async () => {
@@ -188,10 +186,6 @@ describe("offline-queue — onupgradeneeded", () => {
     await getPendingCount();
 
     expect(mockDBForUpgrade.createObjectStore).toHaveBeenCalledWith(
-      "contact-forms",
-      expect.objectContaining({ autoIncrement: true }),
-    );
-    expect(mockDBForUpgrade.createObjectStore).toHaveBeenCalledWith(
       "offline-submissions",
       expect.objectContaining({ autoIncrement: true }),
     );
@@ -249,7 +243,6 @@ describe("offline-queue — background sync registration", () => {
   afterEach(() => {
     // Reset stores and restore navigator.serviceWorker
     globalStores.set("offline-submissions", new MockStore());
-    globalStores.set("contact-forms", new MockStore());
     Object.defineProperty(global, "indexedDB", {
       value: { open: mockOpen },
       configurable: true,

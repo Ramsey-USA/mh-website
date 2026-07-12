@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { AmericanFlag } from "../AmericanFlag";
+import { AmericanFlag } from "@/lib/icons/AmericanFlag";
 
 describe("AmericanFlag", () => {
   it("renders with default props and accessible label", () => {

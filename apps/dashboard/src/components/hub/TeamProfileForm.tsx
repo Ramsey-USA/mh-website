@@ -8,7 +8,7 @@
  *
  * Auth, fetching, and form-state mapping live in dedicated modules:
  *   - `@/hooks/useHubAdminAuth`     — refresh + role check + redirect
- *   - `@/lib/hub/api`               — `hubFetch` bearer wrapper
+ *   - `@/lib/admin-auth/api`        — `hubFetch` bearer wrapper
  *   - `@/lib/hub/profile-mapping`   — pure form/payload conversion
  *
  * Keeping this component focused on rendering + user interaction.
@@ -24,7 +24,7 @@ import {
 import { HubFormSection } from "@/components/hub/HubFormSection";
 import { SkillRatingInput } from "@/components/hub/SkillRatingInput";
 import { useHubAdminAuth } from "@/hooks/useHubAdminAuth";
-import { hubFetch } from "@/lib/hub/api";
+import { adminFetch as hubFetch } from "@/lib/admin-auth/api";
 import {
   SKILL_FIELDS,
   formStateToPayload,

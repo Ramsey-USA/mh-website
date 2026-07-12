@@ -10,7 +10,7 @@ import { useCallback } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { useAnalytics } from "@/components/analytics/EnhancedAnalytics";
+import { useAnalytics } from "@/lib/analytics/components/EnhancedAnalytics";
 
 interface PitchDeckCTAProps {
   variant?: "banner" | "card" | "inline";

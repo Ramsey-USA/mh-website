@@ -2,15 +2,7 @@
  * @jest-environment node
  */
 
-jest.mock("@/lib/utils/logger", () => ({
-  logger: {
-    log: jest.fn(),
-    info: jest.fn(),
-    warn: jest.fn(),
-    error: jest.fn(),
-    debug: jest.fn(),
-  },
-}));
+jest.mock("@/lib/utils/logger");
 
 import { logger } from "@/lib/utils/logger";
 import { AuditEventType, AuditLogger, RiskLevel } from "../audit-logger";

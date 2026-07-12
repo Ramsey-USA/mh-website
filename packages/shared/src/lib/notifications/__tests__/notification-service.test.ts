@@ -4,23 +4,36 @@ import {
   sendNotificationWithRetry,
 } from "../notification-service";
 
-jest.mock("@/lib/utils/logger", () => ({
-  logger: {
-    info: jest.fn(),
-    warn: jest.fn(),
-    error: jest.fn(),
-  },
-}));
+jest.mock("@/lib/utils/logger");
 
 const mockFetch = jest.fn();
 global.fetch = mockFetch;
 
-beforeEach(() => {
-  mockFetch.mockReset();
+const DEFAULT_RESEND_API_KEY = "re_test_key";
+const DEFAULT_TWILIO_ACCOUNT_SID = "AC123";
+const DEFAULT_TWILIO_AUTH_TOKEN = "auth_token";
+const DEFAULT_TWILIO_FROM_NUMBER = "+15551234567";
+
+function setResendEnv() {
+  process.env["RESEND_API_KEY"] = DEFAULT_RESEND_API_KEY;
+}
+
+function setTwilioEnv() {
+  process.env["TWILIO_ACCOUNT_SID"] = DEFAULT_TWILIO_ACCOUNT_SID;
+  process.env["TWILIO_AUTH_TOKEN"] = DEFAULT_TWILIO_AUTH_TOKEN;
+  process.env["TWILIO_FROM_NUMBER"] = DEFAULT_TWILIO_FROM_NUMBER;
+}
+
+function clearNotificationEnv() {
   delete process.env["RESEND_API_KEY"];
   delete process.env["TWILIO_ACCOUNT_SID"];
   delete process.env["TWILIO_AUTH_TOKEN"];
   delete process.env["TWILIO_FROM_NUMBER"];
+}
+
+beforeEach(() => {
+  mockFetch.mockReset();
+  clearNotificationEnv();
 });
 
 // ─── Email ────────────────────────────────────────────────────────────────────
@@ -37,7 +50,7 @@ describe("sendNotification — email", () => {
   });
 
   it("sends email successfully and returns messageId", async () => {
-    process.env["RESEND_API_KEY"] = "re_test_key";
+    setResendEnv();
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: async () => ({ id: "msg_123" }),
@@ -55,7 +68,7 @@ describe("sendNotification — email", () => {
   });
 
   it("returns error on non-OK response from Resend", async () => {
-    process.env["RESEND_API_KEY"] = "re_test_key";
+    setResendEnv();
     mockFetch.mockResolvedValueOnce({
       ok: false,
       text: async () => "Bad request",
@@ -72,7 +85,7 @@ describe("sendNotification — email", () => {
   });
 
   it("handles fetch throw (network error)", async () => {
-    process.env["RESEND_API_KEY"] = "re_test_key";
+    setResendEnv();
     mockFetch.mockRejectedValueOnce(new Error("Network failure"));
 
     const result = await sendNotification({
@@ -86,7 +99,7 @@ describe("sendNotification — email", () => {
   });
 
   it("handles fetch throw non-Error object", async () => {
-    process.env["RESEND_API_KEY"] = "re_test_key";
+    setResendEnv();
     mockFetch.mockRejectedValueOnce("string error");
 
     const result = await sendNotification({
@@ -100,7 +113,7 @@ describe("sendNotification — email", () => {
   });
 
   it("uses default subject when none provided", async () => {
-    process.env["RESEND_API_KEY"] = "re_test_key";
+    setResendEnv();
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: async () => ({ id: "msg_default" }),
@@ -145,9 +158,7 @@ describe("sendNotification — sms", () => {
   });
 
   it("sends SMS successfully and returns messageId", async () => {
-    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
-    process.env["TWILIO_AUTH_TOKEN"] = "auth_token";
-    process.env["TWILIO_FROM_NUMBER"] = "+15551234567";
+    setTwilioEnv();
 
     mockFetch.mockResolvedValueOnce({
       ok: true,
@@ -165,9 +176,7 @@ describe("sendNotification — sms", () => {
   });
 
   it("returns error on non-OK Twilio response", async () => {
-    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
-    process.env["TWILIO_AUTH_TOKEN"] = "auth_token";
-    process.env["TWILIO_FROM_NUMBER"] = "+15551234567";
+    setTwilioEnv();
 
     mockFetch.mockResolvedValueOnce({
       ok: false,
@@ -185,9 +194,7 @@ describe("sendNotification — sms", () => {
   });
 
   it("handles Twilio fetch throw", async () => {
-    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
-    process.env["TWILIO_AUTH_TOKEN"] = "auth_token";
-    process.env["TWILIO_FROM_NUMBER"] = "+15551234567";
+    setTwilioEnv();
 
     mockFetch.mockRejectedValueOnce(new Error("Twilio timeout"));
 
@@ -248,7 +255,7 @@ describe("sendNotificationWithRetry", () => {
   });
 
   it("returns success on first attempt", async () => {
-    process.env["RESEND_API_KEY"] = "re_test_key";
+    setResendEnv();
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: async () => ({ id: "msg_retry_ok" }),
@@ -263,7 +270,7 @@ describe("sendNotificationWithRetry", () => {
   });
 
   it("retries and succeeds on second attempt", async () => {
-    process.env["RESEND_API_KEY"] = "re_test_key";
+    setResendEnv();
     mockFetch
       .mockResolvedValueOnce({ ok: false, text: async () => "server error" })
       .mockResolvedValueOnce({

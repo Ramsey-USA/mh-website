@@ -5,6 +5,7 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { getDocumentById } from "@/lib/data/documents";
 import { clusterForSection } from "@/lib/data/safety-manual-clusters";
+import { clearLocalStorage } from "@/test-utils/storage";
 
 jest.mock("next/link", () => ({
   __esModule: true,
@@ -96,7 +97,7 @@ jest.mock("next/navigation", () => ({
 describe("Safety navigation contracts", () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    globalThis.localStorage.clear();
+    clearLocalStorage();
   });
 
   it("routes safety manual card from resources page to the public safety resource center", () => {
@@ -107,7 +108,7 @@ describe("Safety navigation contracts", () => {
     render(<ResourcesPage />);
 
     const safetyManualLink = screen.getByRole("link", {
-      name: /MISH — Safety & Health Program/i,
+      name: /For Bonding Banks, Insurers, and Architects/i,
     });
     expect(safetyManualLink).toHaveAttribute("href", "/safety");
   });

@@ -266,13 +266,14 @@ export function PWAInstallCTA({
                     id="homepage-ops-hub-heading"
                     className="text-2xl font-bold leading-tight text-white sm:text-3xl"
                   >
-                    Install the app to access the Staff Hub.
+                    Install the app to access Dashboard (Staff Hub).
                   </h2>
                   <p className="font-body mt-3 max-w-3xl text-sm leading-relaxed text-white/85 sm:text-base">
-                    The Staff Hub is the MH Construction Dashboard for safety
-                    manual, field forms, toolbox talks, incident reporting, and
-                    the employee handbook. Free to install. Access requires your
-                    team passcode.
+                    Dashboard (Staff Hub) is the MH Construction app for the
+                    MISH Safety &amp; Health Program (Safety Manual), field
+                    forms, toolbox talks, incident reporting, and the employee
+                    handbook. Free to install. Access requires your team
+                    passcode.
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2.5 text-xs font-semibold text-white/90 sm:text-sm">
                     <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5">
@@ -307,7 +308,7 @@ export function PWAInstallCTA({
                     href="/hub"
                     className="underline hover:text-white/90 transition-colors"
                   >
-                    Open the Staff Hub
+                    Open Dashboard (Staff Hub)
                   </a>
                 </p>
               </div>

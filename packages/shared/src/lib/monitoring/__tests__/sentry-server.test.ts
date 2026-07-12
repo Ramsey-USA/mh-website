@@ -29,9 +29,7 @@ jest.mock("toucan-js", () => {
   return { Toucan, _instance: instance };
 });
 
-jest.mock("@/lib/utils/logger", () => ({
-  logger: { error: jest.fn(), info: jest.fn(), warn: jest.fn() },
-}));
+jest.mock("@/lib/utils/logger");
 
 interface ToucanMockInstance {
   setRequestBody: jest.Mock;
@@ -61,10 +59,20 @@ function makeRequest(url = "http://localhost/api/test") {
   return new NextRequest(url, { method: "GET" });
 }
 
+const DEFAULT_SENTRY_DSN = "https://key@sentry.io/123";
+
+function setSentryDsn(dsn = DEFAULT_SENTRY_DSN) {
+  process.env["SENTRY_DSN"] = dsn;
+}
+
+function clearSentryDsn() {
+  delete process.env["SENTRY_DSN"];
+}
+
 describe("createServerSentry()", () => {
   afterEach(() => {
     jest.clearAllMocks();
-    delete process.env["SENTRY_DSN"];
+    clearSentryDsn();
   });
 
   it("returns null when SENTRY_DSN is not set", () => {
@@ -72,7 +80,7 @@ describe("createServerSentry()", () => {
   });
 
   it("returns a Toucan instance when SENTRY_DSN is set", () => {
-    process.env["SENTRY_DSN"] = "https://key@sentry.io/123";
+    setSentryDsn();
     const sentry = createServerSentry(makeRequest());
     expect(sentry).not.toBeNull();
     expect(MockToucan).toHaveBeenCalled();
@@ -80,7 +88,7 @@ describe("createServerSentry()", () => {
   });
 
   it("creates Toucan with a context when ctx is provided", () => {
-    process.env["SENTRY_DSN"] = "https://key@sentry.io/123";
+    setSentryDsn();
     const ctx = { waitUntil: jest.fn() };
     createServerSentry(makeRequest(), ctx);
     const options = MockToucan.mock.calls[0][0];
@@ -91,7 +99,7 @@ describe("createServerSentry()", () => {
 describe("captureServerException()", () => {
   afterEach(() => {
     jest.clearAllMocks();
-    delete process.env["SENTRY_DSN"];
+    clearSentryDsn();
   });
 
   it("is a no-op when SENTRY_DSN is not set", () => {
@@ -100,7 +108,7 @@ describe("captureServerException()", () => {
   });
 
   it("captures an Error instance via Toucan", () => {
-    process.env["SENTRY_DSN"] = "https://key@sentry.io/123";
+    setSentryDsn();
     captureServerException(new Error("test error"));
     expect(mockToucanInstance.captureException).toHaveBeenCalledWith(
       expect.any(Error),
@@ -108,7 +116,7 @@ describe("captureServerException()", () => {
   });
 
   it("captures a non-Error value as a message", () => {
-    process.env["SENTRY_DSN"] = "https://key@sentry.io/123";
+    setSentryDsn();
     captureServerException("string error");
     expect(mockToucanInstance.captureMessage).toHaveBeenCalledWith(
       "string error",
@@ -117,7 +125,7 @@ describe("captureServerException()", () => {
   });
 
   it("sets route tag and extra context when provided", () => {
-    process.env["SENTRY_DSN"] = "https://key@sentry.io/123";
+    setSentryDsn();
     captureServerException(new Error("ctx error"), {
       route: "/api/test",
       extra: { foo: "bar" },
@@ -130,7 +138,7 @@ describe("captureServerException()", () => {
   });
 
   it("sets request tags when request is provided", () => {
-    process.env["SENTRY_DSN"] = "https://key@sentry.io/123";
+    setSentryDsn();
     captureServerException(new Error("req error"), {
       request: makeRequest("http://localhost/api/check"),
     });
@@ -139,7 +147,7 @@ describe("captureServerException()", () => {
   });
 
   it("filters out sensitive request headers", () => {
-    process.env["SENTRY_DSN"] = "https://key@sentry.io/123";
+    setSentryDsn();
     const req = new NextRequest("http://localhost/api/check", {
       headers: {
         authorization: "Bearer token",
@@ -162,7 +170,7 @@ describe("captureServerException()", () => {
 describe("captureServerMessage()", () => {
   afterEach(() => {
     jest.clearAllMocks();
-    delete process.env["SENTRY_DSN"];
+    clearSentryDsn();
   });
 
   it("is a no-op when SENTRY_DSN is not set", () => {
@@ -171,7 +179,7 @@ describe("captureServerMessage()", () => {
   });
 
   it("captures a message with the given level", () => {
-    process.env["SENTRY_DSN"] = "https://key@sentry.io/123";
+    setSentryDsn();
     captureServerMessage("deploy complete", "info");
     expect(mockToucanInstance.captureMessage).toHaveBeenCalledWith(
       "deploy complete",
@@ -180,7 +188,7 @@ describe("captureServerMessage()", () => {
   });
 
   it("adds extras when provided", () => {
-    process.env["SENTRY_DSN"] = "https://key@sentry.io/123";
+    setSentryDsn();
     captureServerMessage("msg", "warning", { key: "value" });
     expect(mockToucanInstance.setExtras).toHaveBeenCalledWith({ key: "value" });
   });
@@ -189,7 +197,7 @@ describe("captureServerMessage()", () => {
 describe("withServerSentry()", () => {
   afterEach(() => {
     jest.clearAllMocks();
-    delete process.env["SENTRY_DSN"];
+    clearSentryDsn();
   });
 
   it("passes through the handler result on success", async () => {
@@ -200,7 +208,7 @@ describe("withServerSentry()", () => {
   });
 
   it("re-throws errors and calls captureServerException when DSN is set", async () => {
-    process.env["SENTRY_DSN"] = "https://key@sentry.io/123";
+    setSentryDsn();
     const handler = jest.fn().mockRejectedValue(new Error("handler fail"));
     const wrapped = withServerSentry(handler, "/api/test");
     await expect(wrapped(makeRequest())).rejects.toThrow("handler fail");

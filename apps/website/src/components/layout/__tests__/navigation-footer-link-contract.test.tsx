@@ -50,7 +50,7 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
   MaterialIcon: ({ icon }: { icon: string }) => <span>{icon}</span>,
 }));
 
-jest.mock("@/components/analytics/TrackedContactLinks", () => ({
+jest.mock("@/lib/analytics/components/TrackedContactLinks", () => ({
   TrackedPhoneLink: ({ children, ...props }: any) => (
     <a href="tel:+15093086489" {...props}>
       {children}

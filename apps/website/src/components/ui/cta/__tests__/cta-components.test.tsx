@@ -24,7 +24,7 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
   ),
 }));
 
-jest.mock("@/components/analytics/EnhancedAnalytics", () => ({
+jest.mock("@/lib/analytics/components/EnhancedAnalytics", () => ({
   useAnalytics: () => ({
     trackEvent: jest.fn(),
   }),

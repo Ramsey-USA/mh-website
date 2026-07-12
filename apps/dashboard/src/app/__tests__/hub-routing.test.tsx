@@ -35,7 +35,7 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
   MaterialIcon: ({ icon }: { icon: string }) => <span>{icon}</span>,
 }));
 
-jest.mock("@/components/analytics", () => ({
+jest.mock("@/lib/analytics/components/PageTrackingClient", () => ({
   PageTrackingClient: () => null,
 }));
 

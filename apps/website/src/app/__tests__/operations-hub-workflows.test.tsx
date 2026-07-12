@@ -6,6 +6,7 @@
  */
 
 import { render, screen, waitFor } from "@testing-library/react";
+import { clearLocalStorage } from "@/test-utils/storage";
 
 jest.mock("next/link", () => ({
   __esModule: true,
@@ -35,7 +36,7 @@ jest.mock("@/components/analytics", () => ({
 describe("Safety incident-report page", () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    globalThis.localStorage.clear();
+    clearLocalStorage();
   });
 
   it("shows Team Access Required when incident route has no auth token", () => {

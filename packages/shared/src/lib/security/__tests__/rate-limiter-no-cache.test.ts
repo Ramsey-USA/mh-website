@@ -10,14 +10,27 @@
 
 import { NextRequest, NextResponse } from "next/server";
 
-jest.mock("@opennextjs/cloudflare", () => ({
-  // Context available but no CACHE binding — kv will be undefined → false branch of line 66
-  getCloudflareContext: () => ({ env: {} }),
-}));
+jest.mock("@opennextjs/cloudflare");
+
+const { getCloudflareContext: mockGetCloudflareContext } = jest.requireMock(
+  "@opennextjs/cloudflare",
+) as {
+  getCloudflareContext: jest.Mock;
+};
+
+function setCloudflareContextEnv(env: Record<string, unknown>) {
+  mockGetCloudflareContext.mockReset();
+  mockGetCloudflareContext.mockReturnValue({ env });
+}
 
 import { rateLimit } from "@/lib/security/rate-limiter";
 
 describe("rateLimit middleware — CF context present but no CACHE binding", () => {
+  beforeEach(() => {
+    // Context available but no CACHE binding — kv will be undefined.
+    setCloudflareContextEnv({});
+  });
+
   it("falls back to local store when env.CACHE is absent (covers kv falsy branch)", async () => {
     const handler = jest.fn(async (_req: NextRequest) =>
       NextResponse.json({ ok: true }),

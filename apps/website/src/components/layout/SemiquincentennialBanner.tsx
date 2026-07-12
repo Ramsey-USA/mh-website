@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import { AmericanFlag } from "@/components/icons/AmericanFlag";
+import { AmericanFlag } from "@/lib/icons/AmericanFlag";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 // Patriotic color pairs (primary + accent) for each burst

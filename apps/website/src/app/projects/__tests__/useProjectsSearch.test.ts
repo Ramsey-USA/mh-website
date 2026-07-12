@@ -4,7 +4,7 @@
  * Tests for the useProjectsSearch custom hook.
  */
 
-jest.mock("@/components/analytics/EnhancedAnalytics", () => ({
+jest.mock("@/lib/analytics/components/EnhancedAnalytics", () => ({
   useAnalytics: () => ({
     trackSearchPerformed: jest.fn(),
     trackSearchFilterUsed: jest.fn(),

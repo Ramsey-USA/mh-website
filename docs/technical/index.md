@@ -64,6 +64,7 @@ See **[Patterns Index](./patterns/index.md)** for reusable section patterns, inc
 
 - **[MH Construction Safety Program Guide](./safety-program-guide.md)** — Safety program
   reference and integration with the Safety Hub.
+- **[Forms Branding Guardrail Implementation](./forms-branding-guardrail-implementation.md)** — Implementation details for canonical safety-form border alignment and footer styling guardrails.
 
 ## Security
 

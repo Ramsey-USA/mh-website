@@ -52,7 +52,7 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
   MaterialIcon: ({ icon }: { icon: string }) => <span>{icon}</span>,
 }));
 
-jest.mock("@/components/icons/AmericanFlag", () => ({
+jest.mock("@/lib/icons/AmericanFlag", () => ({
   AmericanFlag: () => null,
 }));
 
