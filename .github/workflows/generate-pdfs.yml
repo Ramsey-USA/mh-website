@@ -127,11 +127,7 @@ jobs:
         if: ${{ github.event.inputs.section == '' || github.event.inputs.section == null }}
         working-directory: apps/website
         run: |
-          BRAND="${{ github.event.inputs.brand || 'mhc' }}"
           npm run docs:generate:forms
-          npm run docs:generate -- --template toolbox-talk --brand "$BRAND" \
-            --rev-date "${{ steps.rev.outputs.date }}" \
-            --rev-number "${{ steps.rev.outputs.number }}"
 
       # ── 8b. Validate forms-integrated manual merge (hard fail on mapping drift) ──
       - name: Validate merged manuals include mapped forms appendix

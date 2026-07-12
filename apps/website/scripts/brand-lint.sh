@@ -22,7 +22,7 @@ is_text_target() {
 
 is_excluded_file() {
   local file="$1"
-  [[ "$file" == docs/project/* ]] || [[ "$file" == docs/branding/* ]] || [[ "$file" == documents/content/* ]] || [[ "$file" == apps/website/documents/content/* ]]
+  [[ "$file" == docs/project/* ]] || [[ "$file" == docs/branding/* ]] || [[ "$file" == documents/content/* ]] || [[ "$file" == apps/website/documents/content/* ]] || [[ "$file" == tmp/* ]] || [[ "$file" == apps/website/tmp/* ]]
 }
 
 collect_files() {
