@@ -11,7 +11,7 @@ function useTranslations() {
       return [
         {
           id: "mock-1",
-          name: "Client Partner",
+          name: "Project Stakeholder",
           quote: "Trusted partnership and quality outcomes.",
         },
       ];

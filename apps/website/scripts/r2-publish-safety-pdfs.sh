@@ -67,6 +67,7 @@ if [ ! -f "$OUTPUT_DIR/safety-manual-contents.pdf" ] && [ -f "$OUTPUT_DIR/safety
   KEY="$R2_PREFIX/safety-manual-contents.pdf"
   echo "  ↑ $KEY (from safety-manual-toc.pdf)"
   wrangler r2 object put "$BUCKET/$KEY" \
+    --remote \
     --file "$OUTPUT_DIR/safety-manual-toc.pdf" \
     --content-type "application/pdf"
   TOTAL=$((TOTAL + 1))

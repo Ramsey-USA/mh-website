@@ -22,8 +22,10 @@ const OUTPUT_DIR = path.join(__dirname, "../public/images/qr-codes");
 const TEAM_DATA_PATHS = [
   path.join(__dirname, "../src/lib/data/team-data.json"),
   path.join(__dirname, "../src/data/team-data.json"),
+  path.join(__dirname, "../../../packages/shared/src/lib/data/team/gator.json"),
 ];
 const TEAM_DATA_DIR = path.join(__dirname, "../src/lib/data/team");
+const TEAM_QR_EXCLUDED_SLUGS = new Set(["mike-holstein"]);
 
 // Logo paths
 const LOGO_COLOR = path.join(__dirname, "../public/images/logo/mh-logo.png");
@@ -114,36 +116,6 @@ const QR_CODES = [
     description: "Contact Us",
     label: "www.mhc-gc.com/contact",
   },
-  {
-    name: "traho-overview",
-    url: `${BASE_URL}/about?ref=traho-rfq`,
-    description: "Traho RFQ - Company Overview",
-    label: "TRAHO OVERVIEW",
-  },
-  {
-    name: "traho-projects",
-    url: `${BASE_URL}/projects?ref=traho-rfq`,
-    description: "Traho RFQ - Project Portfolio",
-    label: "TRAHO PROJECTS",
-  },
-  {
-    name: "traho-services",
-    url: `${BASE_URL}/?ref=traho-rfq#services`,
-    description: "Traho RFQ - Service Lines",
-    label: "TRAHO SERVICES",
-  },
-  {
-    name: "traho-safety",
-    url: `${BASE_URL}/safety?ref=traho-rfq`,
-    description: "Traho RFQ - Safety Program",
-    label: "TRAHO SAFETY",
-  },
-  {
-    name: "traho-contact",
-    url: `${BASE_URL}/contact?ref=traho-rfq`,
-    description: "Traho RFQ - Direct Contact",
-    label: "TRAHO CONTACT",
-  },
   // Special pages
   {
     name: "allies",
@@ -219,9 +191,9 @@ const QR_CODES = [
   },
   {
     name: "employee-handbook",
-    url: `${BASE_URL}/docs/employee/employee-handbook-2026.pdf`,
+    url: `${BASE_URL}/employee-handbook`,
     description: "Employee Handbook",
-    label: "www.mhc-gc.com/docs/employee/employee-handbook-2026.pdf",
+    label: "www.mhc-gc.com/employee-handbook",
   },
 
   // Contact methods
@@ -471,7 +443,6 @@ const HANDBOOK_FORMS = loadHandbookForms();
 function getFolderForQR(name) {
   if (name.startsWith("team-")) return "team";
   if (SOCIAL_QR_NAMES.has(name)) return "social";
-  if (name.startsWith("traho-")) return "rfq";
   if (name.startsWith("safety-section-")) return "safety-sections";
   if (name.startsWith("safety-form-")) return "safety-forms";
   if (name.startsWith("handbook-form-")) return "handbook-forms";
@@ -496,7 +467,12 @@ function getFolderForQR(name) {
 
 function buildTeamQRCodes(teamData) {
   return teamData
-    .filter((member) => member?.active && member?.slug)
+    .filter(
+      (member) =>
+        member?.active &&
+        member?.slug &&
+        !TEAM_QR_EXCLUDED_SLUGS.has(String(member.slug)),
+    )
     .map((member) => ({
       name: `team-${member.slug}`,
       url:
@@ -510,6 +486,8 @@ function buildTeamQRCodes(teamData) {
 }
 
 function loadTeamQRCodes() {
+  const collectedTeamData = [];
+
   for (const candidate of TEAM_DATA_PATHS) {
     if (!fs.existsSync(candidate)) continue;
 
@@ -518,7 +496,9 @@ function loadTeamQRCodes() {
       const teamData = JSON.parse(teamDataRaw);
 
       if (Array.isArray(teamData)) {
-        return buildTeamQRCodes(teamData);
+        collectedTeamData.push(...teamData);
+      } else if (teamData && typeof teamData === "object") {
+        collectedTeamData.push(teamData);
       }
     } catch (error) {
       console.warn(
@@ -536,7 +516,7 @@ function loadTeamQRCodes() {
           JSON.parse(fs.readFileSync(path.join(TEAM_DATA_DIR, file), "utf8")),
         );
 
-      return buildTeamQRCodes(teamData);
+      collectedTeamData.push(...teamData);
     } catch (error) {
       console.warn(
         `⚠ Could not load team data from ${TEAM_DATA_DIR}. ${error instanceof Error ? error.message : String(error)}`,
@@ -544,8 +524,22 @@ function loadTeamQRCodes() {
     }
   }
 
-  console.warn("⚠ Could not load active team data; skipping team QR entries.");
-  return [];
+  if (collectedTeamData.length === 0) {
+    console.warn(
+      "⚠ Could not load active team data; skipping team QR entries.",
+    );
+    return [];
+  }
+
+  const dedupedTeamData = Array.from(
+    new Map(
+      collectedTeamData
+        .filter((member) => member && typeof member === "object" && member.slug)
+        .map((member) => [String(member.slug), member]),
+    ).values(),
+  );
+
+  return buildTeamQRCodes(dedupedTeamData);
 }
 
 function buildFinalQRCodeList() {

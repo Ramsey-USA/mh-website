@@ -203,7 +203,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
           name: "Arnold Garcia",
           jobTitle: "Vice President",
           description:
-            "10+ years with MH Construction leading client partnerships",
+            "10+ years with MH Construction leading project stakeholder relationships",
         },
       ],
       award: [

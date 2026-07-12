@@ -326,7 +326,7 @@ export default function YourPageName() {
         {/* Testimonials Section (Optional) */}
         <TestimonialsSection
           id="testimonials"
-          title="What Our Client Partners Say"
+          title="What Our Project Stakeholders Say"
           subtitle="Trusted By"
           description="Hear from valued partners who've experienced our commitment firsthand."
         />

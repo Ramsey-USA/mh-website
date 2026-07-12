@@ -32,7 +32,7 @@ Transactional email notifications (form submissions, alerts) route through **n8n
 | **Twilio**             | ✅ Configured      | SMS alerts for urgent submissions         |
 | **PostHog**            | ⏸️ Deferred        | Using Cloudflare Web Analytics ✅         |
 
-### Recent Updates (April 15, 2026)
+## Recent Updates (April 15, 2026)
 
 1. ✅ Deployed n8n, Portainer, Uptime Kuma on Hostinger VPS
 2. ✅ Configured Resend SMTP in n8n (domain verified)
@@ -44,7 +44,7 @@ Transactional email notifications (form submissions, alerts) route through **n8n
 8. ✅ Server-side Sentry via toucan-js for API route errors
 9. ✅ Twilio SMS alerts for consultations and urgent contacts
 10. ⏸️ PostHog deferred - using Cloudflare Web Analytics instead
-11. ✅ **Client-side Sentry configured** — `@sentry/browser` with DSN, `sendDefaultPii: true`, session replay enabled
+11. ✅ **Client + Server Sentry configured** — `@sentry/browser` with DSN, `sendDefaultPii: true`, session replay enabled
 
 ---
 
@@ -811,7 +811,7 @@ Both use the same Resend account with verified `mhc-gc.com` domain.
 ## Twilio (Communications)
 
 Twilio powers SMS notifications, local 509 phone numbers, and WhatsApp Business API
-integration for multi-channel client partner communication.
+integration for multi-channel project stakeholder communication.
 
 ### Configuration
 
@@ -994,7 +994,7 @@ The system prompt enforces these guardrails:
 1. **No fabrication** — If unsure, direct to phone/email
 2. **No pricing** — All cost questions → consultation
 3. **No timelines** — Project-specific → direct contact
-4. **Use proper terminology** — "Client Partners", "Trade Partners"
+4. **Use proper terminology** — "Project Stakeholders", "Trade Partners"
 5. **Ally referrals** — Recommend specific Allies with contact info
 6. **Navigation help** — Guide to appropriate website pages
 

@@ -26,7 +26,7 @@ const valueCategories: ValueCategory[] = [
     id: "partners",
     icon: "groups",
     title: "For Our Partners",
-    subtitle: "Client Partnership Excellence",
+    subtitle: "Stakeholder Partnership Excellence",
     shortDesc:
       "Predictable experience and long-term partnerships built on trust.",
     fullDescription:

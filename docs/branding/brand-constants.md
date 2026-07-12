@@ -252,22 +252,42 @@ Use this section as the canonical licensing reference for docs and agent workflo
 
 ## Terminology Standards
 
-### Partnership Language
+### Enterprise Language
 
-| Term                | Usage                                           |
-| ------------------- | ----------------------------------------------- |
-| **Client Partners** | Businesses/individuals who hire MH Construction |
-| **Trade Partners**  | Subcontractors, vendors, suppliers              |
-| **Allies**          | Trade partner network members                   |
+MH's terminology system is military-themed construction language that can be expanded and optimized to support
+enterprise communication while keeping the brand factual, disciplined, and trust-first.
+
+| Term                     | Usage                                                                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **Project Stakeholders** | External audiences across website/docs: owners, architects, bonding banks, insurers, subcontractors, vendors, and future employees |
+| **Trade Partners**       | Subcontractors, vendors, suppliers in delivery and procurement context                                                             |
+| **Allies**               | Trade partner network members                                                                                                      |
+
+**Usage note:** Use Project Stakeholders for external-review audiences. Use Trade Partners for subcontractors,
+vendors, and delivery-side relationships. Avoid reintroducing older partner phrasing in new copy.
+
+For PMBOK-style construction language and military-themed term mappings, see
+[Construction Terminology Glossary](./strategy/construction-terminology-glossary.md).
+
+### Enterprise Dual Terminology Matrix
+
+| Concept                      | Canonical Dual Term                                           | Scope                                                                           |
+| ---------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Safety Program               | **MISH Safety & Health Program (Safety Manual)**              | Website, dashboard safety modules, MISH PDFs, safety forms docs                 |
+| Employee Operations          | **Dashboard (Staff Hub)**                                     | Employee CTAs, dashboard shell, internal workflows, handbook process docs       |
+| Employee Handbook (Public)   | **Employee Handbook** + Public Index/Blank Forms language     | Website handbook page, handbook TOC/forms downloads, public docs                |
+| Employee Handbook (Internal) | **Employee Handbook Workflows** via **Dashboard (Staff Hub)** | Dashboard processes, internal SOPs, onboarding/training docs                    |
+| External Audience            | **Project Stakeholders**                                      | Public marketing copy, safety/compliance pages, proposals, public documentation |
 
 ### Avoid These Terms
 
-| Avoid                        | Use Instead                     |
-| ---------------------------- | ------------------------------- |
-| ❌ "retail-buyer labels"     | ✅ "Client Partners"            |
-| ❌ "clients" (alone)         | ✅ "Client Partners"            |
-| ❌ "subcontractor shorthand" | ✅ "Trade Partners"             |
-| ❌ "vendors"                 | ✅ "Trade Partners" or "Allies" |
+| Avoid                                              | Use Instead                     |
+| -------------------------------------------------- | ------------------------------- |
+| ❌ "retail-buyer labels"                           | ✅ "Project Stakeholders"       |
+| ❌ "clients" (alone)                               | ✅ "Project Stakeholders"       |
+| ❌ "subcontractor shorthand"                       | ✅ "Trade Partners"             |
+| ❌ "vendors" (alone where partner context matters) | ✅ "Trade Partners" or "Allies" |
+| ❌ "staff portal" (for employee workflow surfaces) | ✅ "Dashboard (Staff Hub)"      |
 
 ---
 

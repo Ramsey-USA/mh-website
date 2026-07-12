@@ -31,7 +31,7 @@ describe("ValuesShowcase", () => {
     expect(dialog).toBeInTheDocument();
     expect(within(dialog).getByText("For Our Partners")).toBeInTheDocument();
     expect(
-      within(dialog).getByText(/Client Partnership Excellence/i),
+      within(dialog).getByText(/Stakeholder Partnership Excellence/i),
     ).toBeInTheDocument();
     expect(
       within(dialog).getByText(

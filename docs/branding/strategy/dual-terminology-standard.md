@@ -1,11 +1,13 @@
 # Dual Terminology Standard
 
-**Last Updated:** July 3, 2026  
-**Status:** Canonical Reference (website terminology)
+**Last Updated:** July 12, 2026  
+**Status:** Canonical Reference (enterprise terminology)
 
 ## Purpose
 
-Define one source of truth for dual terminology used across MH Construction website surfaces.
+Define one source of truth for dual terminology used across MH Construction assets.
+This standard is intentionally military-themed construction language and may be expanded or optimized to
+create stronger enterprise language as long as clarity, trust, and brand congruency are preserved.
 
 **Brand Congruency:** Dual terminology must never weaken trust content, factual veteran-owned framing, or accessibility clarity.
 
@@ -17,10 +19,32 @@ This standard governs:
 - Browser tab titles (metadata)
 - Structured data name fields
 - CTA labels and chatbot page-reference labels
+- Dashboard labels and in-app workflow language
+- Public/manual PDF labels (MISH, handbook, forms, TOC surfaces)
+- Cross-document naming used in markdown standards, SOPs, and implementation guides
+
+## Enterprise Asset Coverage
+
+Use the same primary/secondary pair across all surfaces for each concept.
+
+| Concept                    | Primary Label                | Secondary/Clarifier                                                                    | Required Asset Coverage                                                                |
+| -------------------------- | ---------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Safety Program             | MISH Safety & Health Program | Safety Manual                                                                          | Website routes, dashboard modules, MISH PDFs, safety forms indexes, compliance docs    |
+| Employee Operations        | Dashboard                    | Staff Hub                                                                              | Website employee-facing CTAs, dashboard shell, handbook workflow docs, onboarding docs |
+| External Audience          | Project Stakeholders         | owners, architects, bonding banks, insurers, subcontractors, vendors, future employees | Website marketing copy, proposal text, trust/compliance pages, public manuals/indexes  |
+| Handbook Public Surface    | Employee Handbook            | Public Index + Blank Forms                                                             | Website handbook page, downloadable handbook TOC/forms docs, handbook instructions     |
+| Internal Handbook Workflow | Employee Handbook Workflows  | Dashboard (Staff Hub) Required                                                         | Dashboard flows, handbook process docs, internal SOPs                                  |
 
 ## Core Rule
 
 Use surface-specific dual terminology to preserve both clarity and MH brand voice.
+When a concept has a required primary/secondary pair above, do not collapse it to a single alias on one surface.
+
+The terminology system may be expanded with new pairs when the business needs a stronger enterprise voice,
+provided the new language still reads like military-themed construction language and does not dilute the
+canonical pairs above.
+
+For construction-process terms and PMBOK 6 alignment, use [Construction Terminology Glossary](./construction-terminology-glossary.md) as the companion reference.
 
 Canonical navigation pattern matrix:
 
@@ -29,6 +53,7 @@ Canonical navigation pattern matrix:
 3. Hamburger menu: plain-language SEO name primary with MH brand name on the secondary line.
 4. Footer navigation: plain-language SEO name primary with MH brand name as the supporting sublabel.
 5. Metadata/SEO title fields: canonical dual title helper format remains `SEO Name (MH Brand Name)` where dual titles are required.
+6. Dashboard and document surfaces: use the same concept pair as website surfaces (for example, `Dashboard (Staff Hub)` and `MISH Safety & Health Program (Safety Manual)`).
 
 Browser tab implementation rule:
 
@@ -54,6 +79,14 @@ Canonical runtime source for hero slogan uniqueness: `apps/website/src/content/h
 Governance companion for review and authoring rules: `docs/branding/strategy/page-specific-slogans.md`.
 
 ## Canonical Label Set
+
+### Enterprise-Wide Required Pairs
+
+- `MISH Safety & Health Program (Safety Manual)`
+- `Dashboard (Staff Hub)`
+- `Project Stakeholders` (external audiences)
+- `Employee Handbook` for public index/form labels
+- `Employee Handbook Workflows` for dashboard/internal process language
 
 ### Services
 
@@ -87,6 +120,28 @@ Governance companion for review and authoring rules: `docs/branding/strategy/pag
 - Metadata dual form remains canonical, for example `Locations (Regional Coverage)`.
 - UI surfaces should follow the surface matrix above rather than forced parenthetical rendering.
 
+## Construction Terminology Alignment
+
+The dual-terminology system should be able to express the core management ideas used in PMBOK 6 and common
+construction practice without losing the MH military-themed voice. Use these approved concept mappings when
+writing or reviewing process content.
+
+| PMBOK 6 / Construction Concept | Preferred MH Term Family           | Example MH Phrasing                                      |
+| ------------------------------ | ---------------------------------- | -------------------------------------------------------- |
+| Integration                    | Project coordination               | accountable follow-through, single-path coordination     |
+| Scope                          | Scope architecture                 | front-end scope controls, scope-fit planning             |
+| Schedule                       | Sequence logic                     | milestone discipline, execution cadence                  |
+| Cost                           | Budget control                     | open-book pricing, budget clarity                        |
+| Quality                        | QA/QC and inspection discipline    | quality checkpoints, first-time-right execution          |
+| Resources                      | Crew readiness and team allocation | field readiness, resource alignment                      |
+| Communications                 | Briefings and status updates       | clear communication, structured handoffs                 |
+| Risk                           | Risk modeling and contingencies    | risk-informed planning, controlled contingencies         |
+| Procurement                    | Procurement sequencing             | project-specific procurement, trade partner coordination |
+| Stakeholders                   | Project stakeholders               | review-ready communication, stakeholder updates          |
+
+When a PMBOK or process term has a direct MH equivalent, use the MH phrasing in public-facing copy and the
+PMBOK label only in technical or training references where the standard is explicitly required.
+
 ### Common Alias Coverage
 
 The terminology dictionary also recognizes common page-label variants so shared UI and metadata stay congruent:
@@ -116,6 +171,7 @@ The terminology dictionary also recognizes common page-label variants so shared 
 1. Never remove accreditation/trust surfaces while normalizing terminology.
 2. Never alter WA/OR/ID license values or verification links during terminology-only changes.
 3. Preserve factual ownership phrasing: `Founded 2010, Veteran-Owned Since January 2025`.
+4. Preserve audience clarity: external pages must address project stakeholders; internal workflows must route current employees to Dashboard (Staff Hub).
 
 ## Implementation References
 
@@ -133,6 +189,7 @@ The terminology dictionary also recognizes common page-label variants so shared 
 If terminology changes are approved:
 
 1. Update this file first.
-2. Update `apps/website/src/lib/branding/page-names.ts` (keys + aliases) first, then apply synchronized updates across affected surfaces.
+2. Update `apps/website/src/lib/branding/page-names.ts` (keys + aliases) first, then apply synchronized updates across website, dashboard, and document references.
 3. Run targeted tests for changed areas, including terminology and copy guard tests.
-4. Record any temporary exceptions in project governance notes.
+4. Update markdown governance references (`docs/branding/brand-constants.md`, `docs/branding/strategy/universal-terminology-guide.md`, and relevant indexes) so policy and implementation remain congruent.
+5. Record any temporary exceptions in project governance notes.

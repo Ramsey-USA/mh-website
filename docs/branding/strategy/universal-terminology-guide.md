@@ -1,6 +1,6 @@
 # Universal Terminology & Language Standards
 
-**Last Updated:** April 15, 2026 | **Version:** 1.1.0 | **Status:** Official Brand Standard
+**Last Updated:** July 12, 2026 | **Version:** 1.2.0 | **Status:** Official Brand Standard
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
@@ -22,28 +22,43 @@
 ## 🎯 Purpose
 
 This guide defines **universal language and terminology standards** that should be used consistently across all MH
-Construction communications—website, marketing materials, proposals, emails, and verbal communications. These
-standards ensure brand coherence and professional consistency company-wide.
+Construction communications—website, dashboard, marketing materials, proposals, emails, and verbal communications.
+These standards ensure brand coherence and professional consistency company-wide.
+The language model is military-themed construction language and may be expanded or optimized for enterprise use
+when the change improves clarity without weakening brand congruency.
+
+For PMBOK 6 alignment and construction vocabulary mapping, use
+[Construction Terminology Glossary](./construction-terminology-glossary.md) as the companion reference.
+
+### Enterprise Dual-Terminology Precedence
+
+For website + dashboard + documents + MISH + handbook naming parity, the canonical source is
+[Dual Terminology Standard](./dual-terminology-standard.md). If this file conflicts with that standard,
+the dual-terminology standard wins.
+
+This guide may describe preferred wording, but it does not narrow the approved enterprise language model. If a
+new enterprise term is introduced, it must still fit the military-themed construction voice and the governing
+dual-terminology rules.
 
 ### Core Principle
 
 **Consistency builds trust.** When we use the same terms the same way across all touchpoints, we strengthen our
-brand identity and make our message clearer to clients, partners, and team members.
+brand identity and make our message clearer to project stakeholders, trade partners, and team members.
 
 ---
 
 ## 📖 TERMINOLOGY CATEGORIES
 
-### 0. CLIENT-SAFE MESSAGE GUARDRAILS (GLOBAL)
+### 0. PROJECT-STAKEHOLDER-SAFE MESSAGE GUARDRAILS (GLOBAL)
 
-Use language that keeps potential Client Partners moving forward with clarity and confidence.
+Use language that keeps potential project stakeholders moving forward with clarity and confidence.
 
-**Avoid client-detouring phrasing:**
+**Avoid project-stakeholder-detouring phrasing:**
 
-- ❌ Hard dollar thresholds in client-facing copy (example: specific approval amounts)
-- ❌ Market-trader framing for client journeys (example: "pick your market" in CTA language)
+- ❌ Hard dollar thresholds in project-stakeholder-facing copy (example: specific approval amounts)
+- ❌ Market-trader framing for project stakeholder journeys (example: "pick your market" in CTA language)
 - ❌ Budget-first or cost-alarm phrasing before value/context
-- ❌ Internal escalation shorthand without clear client benefit
+- ❌ Internal escalation shorthand without clear project-stakeholder benefit
 
 **Preferred alternatives:**
 
@@ -65,36 +80,36 @@ Use language that keeps potential Client Partners moving forward with clarity an
 ✅ "Budget clarity and planning confidence"
 ```
 
-### 1. PARTNERSHIP LANGUAGE
+### 1. ENTERPRISE LANGUAGE
 
-#### **Client Partners** (PREFERRED - UNIVERSAL STANDARD)
+#### **Project Stakeholders** (PREFERRED - UNIVERSAL STANDARD)
 
-**Definition:** Businesses, organizations, or individuals who hire MH Construction for project work. They are the
-project owners/decision-makers.
+**Definition:** External audiences involved in project outcomes: owners, architects, bonding banks, insurers,
+subcontractors, vendors, and future employees.
 
 **When to Use:**
 
-- Referring to current or past clients
-- Describing client relationships
-- Marketing to potential clients
+- Referring to current or past project stakeholders
+- Describing stakeholder relationships
+- Marketing to owners, architects, bonding banks, insurers, subcontractors, vendors, and future employees
 - Throughout all website pages
 - In proposals and communications
 
 **Approved Variations:**
 
-- "Client Partner" (singular - PREFERRED)
-- "Client Partners" (plural)
-- "our Client Partners"
-- "Client Partner relationships"
+- "Project Stakeholder" (singular - PREFERRED)
+- "Project Stakeholders" (plural)
+- "our Project Stakeholders"
+- "stakeholder relationships"
 
 **Examples of Correct Usage:**
 
 ```text
-✅ "What Our Client Partners Say"
-✅ "Building trust with every Client Partner"
-✅ "Client Partner success is our success"
-✅ "We work WITH our Client Partners"
-✅ "Client Partner Testimonials"
+✅ "What Our Project Stakeholders Say"
+✅ "Building trust with every Project Stakeholder"
+✅ "Stakeholder success is our success"
+✅ "We work WITH our Project Stakeholders"
+✅ "Project Stakeholder Testimonials"
 ```
 
 **FORBIDDEN Terms (DO NOT USE):**
@@ -105,12 +120,16 @@ project owners/decision-makers.
 - ❌ "clientele" (too formal/pretentious)
 - ❌ "patrons" (incorrect industry usage)
 
+**Legacy note:** Historical assets may still contain older partner phrasing. During cleanup and migration,
+prefer "Project Stakeholder(s)" for public-facing and review-oriented content. Preserve legacy wording only
+where a file already depends on it and changing it would create unnecessary churn.
+
 ---
 
-#### **Trade Partners** (DISTINCT FROM CLIENT PARTNERS)
+#### **Trade Partners** (DISTINCT FROM PROJECT STAKEHOLDERS)
 
 **Definition:** Subcontractors, vendors, suppliers, and industry professionals we collaborate with on projects.
-They are NOT the client.
+They are NOT the project stakeholder.
 
 **When to Use:**
 
@@ -138,11 +157,11 @@ They are NOT the client.
 
 **CRITICAL DISTINCTION:**
 
-- **Client Partners** = Those who HIRE us (project owners)
-- **Trade Partners** = Those we HIRE or work alongside (subcontractors/vendors)
+- **Project Stakeholders** = Owners, architects, bonding banks, insurers, subcontractors, vendors, and future employees who need clear external-facing project language
+- **Trade Partners** = Those we work alongside in delivery and procurement (subcontractors/vendors)
 
-**Never interchange these terms.** Using "Trade Partners" when referring to clients, or "Client Partners" when
-referring to subcontractors creates confusion.
+**Never interchange these terms.** Using "Trade Partners" when referring to project stakeholders, or treating
+project stakeholders as trade partners, creates confusion.
 
 ---
 
@@ -172,6 +191,27 @@ referring to subcontractors creates confusion.
 ✅ "Collaborative excellence in every project"
 ✅ "Partnership Unity drives our team"
 ```
+
+### 2A. CONSTRUCTION MANAGEMENT ALIGNMENT (PMBOK 6)
+
+Use MH terminology to describe the same management ideas PMBOK 6 uses, but keep the MH voice grounded in
+military-themed construction language.
+
+| PMBOK 6 Area   | MH Term Family                                                         | Approved MH Phrasing Examples                                     |
+| -------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| Integration    | Project coordination, handoff control, command alignment               | "accountable follow-through", "single-path coordination"          |
+| Scope          | Scope architecture, scope control, deliverable boundaries              | "front-end scope controls", "scope-fit planning"                  |
+| Schedule       | Sequence logic, milestone checkpoints, execution cadence               | "milestone discipline", "clear sequence planning"                 |
+| Cost           | Budget control, cost intelligence, pricing visibility                  | "open-book pricing", "budget clarity"                             |
+| Quality        | QA/QC, first-time-right execution, inspection discipline               | "quality checkpoints", "documented standards"                     |
+| Resources      | Crew readiness, trade partner capacity, team allocation                | "field readiness", "resource alignment"                           |
+| Communications | Briefings, status updates, handoffs, stakeholder updates               | "clear communication", "project stakeholder updates"              |
+| Risk           | Risk modeling, contingency planning, issue response                    | "risk-informed planning", "controlled contingencies"              |
+| Procurement    | Procurement sequencing, trade partner coordination, lead-time planning | "project-specific procurement", "trade partner coordination"      |
+| Stakeholders   | Project stakeholders, allies, review audiences                         | "project stakeholder relationships", "review-ready communication" |
+
+**Rule:** If a term appears in a PMBOK-context doc, favor MH phrasing that maps cleanly to the same management
+concept. Do not introduce civilian consulting jargon if the MH term already covers the idea.
 
 ---
 
@@ -246,7 +286,7 @@ referring to subcontractors creates confusion.
 
 **AVOID:**
 
-- ❌ Over-using military jargon that clients won't understand
+- ❌ Over-using military jargon that project stakeholders won't understand
 - ❌ Making every construction term sound military ("deploy" for "deliver," etc.)
 - ❌ Trivializing military service with casual references
 
@@ -386,7 +426,7 @@ Pasco, WA 99301
 - Collaborative excellence (teamwork)
 - Safety excellence (EMR record)
 - Craftsmanship excellence (quality work)
-- Partnership Excellence (client relations)
+- Partnership Excellence (project stakeholder relations)
 
 **AVOID:**
 
@@ -486,7 +526,7 @@ Technology serves human connection, not replaces it:
 
 ### 8. PROJECT & CONTROL LANGUAGE
 
-#### Client Control & Management
+#### Project Stakeholder Control & Management
 
 **SIGNATURE PHRASE (Use consistently):**
 
@@ -495,7 +535,7 @@ Technology serves human connection, not replaces it:
 ```
 
 This phrase appears 8+ times across the website and should be used consistently when discussing project oversight
-and client involvement.
+and project stakeholder involvement.
 
 **Full Context Examples:**
 
@@ -505,7 +545,7 @@ and client involvement.
 ✅ "Transparent communication. You control it, we manage it—together with award-winning execution"
 ```
 
-**Client-Centric Language:**
+**Project-Stakeholder-Centric Language:**
 
 - "your vision"
 - "your project"
@@ -524,7 +564,7 @@ and client involvement.
 ```
 
 **Empowerment Language:**
-Always emphasize client is in control, we're supporting their success:
+Always emphasize project stakeholder is in control, we're supporting their success:
 
 ```text
 ✅ "You control it, we manage it"
@@ -666,7 +706,7 @@ Use these based on page context and messaging group:
 ```text
 ✓ Hero: "Built on Quality, Backed by Trust."
 ✅ Values: "Where handshakes matter and your word is your bond"
-✅ Testimonials: "What Our Client Partners Say"
+✅ Testimonials: "What Our Project Stakeholders Say"
 ✅ CTA: "Partner with veteran-owned excellence"
 ```
 
@@ -685,7 +725,7 @@ Use these based on page context and messaging group:
 ✓ Hero: "Your Vision, Our Precision • Built on Quality, Backed by Trust."
 ✅ Process: "We work WITH you to achieve your vision"
 ✅ Benefits: "You control it, we manage it—full visibility into every decision"
-✅ Testimonials: "What Our Client Partners Say About Our Services"
+✅ Testimonials: "What Our Project Stakeholders Say About Our Services"
 ```
 
 ---
@@ -714,14 +754,14 @@ Implementation rule:
 ### 1. Partnership Terminology Errors
 
 ```text
-❌ "Our clients appreciate our work"
-✅ "Our Client Partners appreciate our collaborative approach"
+❌ "Our project stakeholders appreciate our work"
+✅ "Our Project Stakeholders appreciate our collaborative approach"
 
 ❌ "We serve you"
 ✅ "We work WITH you"
 
 ❌ "Our partners" (ambiguous)
-✅ "Our Client Partners" OR "Our Trade Partners" (specific)
+✅ "Our Project Stakeholders" OR "Our Trade Partners" (specific)
 ```
 
 ### 2. Location Inconsistencies
@@ -770,7 +810,7 @@ Implementation rule:
 
 ### Before Publishing ANY Content
 
-- [ ] Partnership terms: "Client Partner" (not "client") and "Trade Partner" used correctly?
+- [ ] Partnership terms: "Project Stakeholder" and "Trade Partner" used correctly?
 - [ ] Veteran status: "Veteran-Owned" (capitalized, hyphenated)?
 - [ ] Location: States listed as WA, OR, ID (in that order)?
 - [ ] Safety: "0.6 EMR" with context (40% better)?
@@ -779,7 +819,7 @@ Implementation rule:
 - [ ] "Squared away from start to finish." used in Services/Home execution context?
 - [ ] "From Handshake to Handoff, we got your 'six.'" used in Contact or partnership continuity context?
 - [ ] Professionalism/Thoroughness support lines used in Trade Partner and execution copy?
-- [ ] "You control it, we manage it" used for client empowerment?
+- [ ] "You control it, we manage it" used for project stakeholder empowerment?
 - [ ] "Work WITH" (not "work FOR") phrasing?
 - [ ] Technology balanced with personal relationship emphasis?
 - [ ] Phone formatted: (509) 308-6489?
@@ -794,7 +834,7 @@ Based on codebase analysis of 260+ occurrences:
 **Most Frequent Terms (Use Confidently):**
 
 1. "Veteran-Owned" - 60+ occurrences
-2. "Client Partner/Partners" - 40+ occurrences (after recent updates)
+2. "Project Stakeholder/Stakeholders" - primary external-audience term
 3. "work WITH" - 20+ occurrences
 4. "partnership/Partnership" - 80+ occurrences
 5. "face-to-face" - 30+ occurrences
@@ -814,8 +854,8 @@ These frequencies indicate well-established terminology that should be maintaine
 **Initial Creation:**
 
 - Comprehensive terminology audit across entire codebase (260+ matches analyzed)
-- Established "Client Partner" as universal standard (vs generic "clients")
-- Defined clear distinction between Client Partners and Trade Partners
+- Established "Project Stakeholder" as the universal external-audience standard
+- Defined clear distinction between Project Stakeholders and Trade Partners
 - Standardized veteran-owned, location, safety, and technology terminology
 - Created usage examples and common mistakes guide
 - Integrated with page-specific messaging guide
@@ -838,8 +878,8 @@ These frequencies indicate well-established terminology that should be maintaine
 
 ### Phase 1: Critical Terms (Immediate)
 
-1. "Client Partner" vs "client" distinction
-2. "Trade Partner" vs "Client Partner" distinction
+1. "Project Stakeholder" vs "client" distinction
+2. "Trade Partner" vs "Project Stakeholder" distinction
 3. Primary slogan usage ("Built on Quality, Backed by Trust.")
 4. "work WITH" vs "work FOR"
 

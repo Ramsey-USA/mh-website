@@ -8,13 +8,18 @@ MAX_ATTEMPTS="${MAX_ATTEMPTS:-6}"
 SLEEP_SECONDS="${SLEEP_SECONDS:-10}"
 R2_BUCKET="${R2_BUCKET:-mh-construction-assets}"
 
-URL_PATHS=(
-  "/docs/safety/safety-manual-complete.pdf"
+PUBLIC_URL_PATHS=(
+  "/docs/safety/safety-manual-contents.pdf"
   "/docs/safety/safety-manual-reference.pdf"
+  "/docs/employee/employee-handbook-toc.pdf"
   "/docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf"
   "/docs/safety/forms/form-mish-50-return-to-work-program-agreement-ack.pdf"
-  "/docs/employee/employee-handbook-2026.pdf"
   "/docs/employee/forms/form-handbook-01-company-vehicle-acknowledgement.pdf"
+)
+
+RESTRICTED_URL_PATHS=(
+  "/docs/safety/safety-manual-complete.pdf"
+  "/docs/employee/employee-handbook-2026.pdf"
 )
 
 check_url() {
@@ -72,7 +77,7 @@ is_cf_challenge() {
 echo "Verifying published handbook/manual/forms URLs at $BASE_URL"
 
 failures=0
-for path in "${URL_PATHS[@]}"; do
+for path in "${PUBLIC_URL_PATHS[@]}"; do
   url="$BASE_URL$path"
   code=$(curl -sS -L -o /dev/null -w "%{http_code}" "$url" || true)
 
@@ -98,6 +103,31 @@ for path in "${URL_PATHS[@]}"; do
     fi
     failures=$((failures + 1))
   fi
+done
+
+for path in "${RESTRICTED_URL_PATHS[@]}"; do
+  url="$BASE_URL$path"
+  code=$(curl -sS -L -o /dev/null -w "%{http_code}" "$url" || true)
+
+  if [[ "$code" == "401" ]]; then
+    if check_r2_object "$path"; then
+      echo "  OK  $url (restricted endpoint returned 401; source object present in R2)"
+      continue
+    fi
+  fi
+
+  if [[ "$code" =~ ^2|^3 ]]; then
+    echo "  OK  $url"
+    continue
+  fi
+
+  if check_r2_object "$path"; then
+    echo "  NOTE $url returned $code, but restricted object exists in R2"
+    continue
+  fi
+
+  echo "  FAIL $url expected 401 (restricted) or 2xx, got $code" >&2
+  failures=$((failures + 1))
 done
 
 if [[ "$failures" -gt 0 ]]; then

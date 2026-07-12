@@ -28,7 +28,7 @@ construction expertise.
 
 Put your commercial building project in the right hands. MH Construction delivers full
 Construction Management (CM) services throughout our Tri-Cities headquarters market and Tri-State licensed footprint, including Pasco,
-Kennewick, and Richland, WA. Our priority is delivering an exceptional Client experience
+Kennewick, and Richland, WA. Our priority is delivering an exceptional Project Stakeholder experience
 from concept through completion.
 
 **Key Focus**: We believe meticulous Master Planning and thorough communication are
@@ -50,7 +50,7 @@ Trust our experienced team to manage the intricate details, allowing you to focu
 Planning a new commercial building demands intricate details and expert oversight. Put your
 project in the right hands by hiring MH Construction for comprehensive Construction
 Management (CM) services throughout our Tri-Cities headquarters market and broader Tri-State licensed footprint. Our priority is
-delivering an exceptional Client experience from start to finish. Our commitment to
+delivering an exceptional Project Stakeholder experience from start to finish. Our commitment to
 thorough communication and upfront planning is critical to streamlining the process,
 preventing costly on-the-fly decisions later on.
 
@@ -107,7 +107,7 @@ approved vendors tailored to your project goals. Our reliable Master Planning gi
 Allies the advanced notice necessary to streamline procurement and proactively
 manage long lead item delays, ensuring timely delivery and installation.
 
-_For Clients: We handle all vendor coordination so you don't have to worry about managing
+_For Project Stakeholders: We handle all vendor coordination so you don't have to worry about managing
 multiple relationships - we work with our established network of quality professionals._
 
 _For Allies: Join our approved vendor network for consistent project opportunities
@@ -133,7 +133,7 @@ We pay meticulous attention to detail throughout the entire procurement process.
 Is your project possible? And if so, how can it be cost-effective? MH Construction is
 committed to improving project planning and execution by conducting early-stage analysis
 of construction feasibility and cost considerations. We offer these critical
-Constructability and Budget Control Services to Clients throughout Washington, Oregon,
+Constructability and Budget Control Services to Project Stakeholders throughout Washington, Oregon,
 and Idaho.
 
 #### Partnership-Driven Process
@@ -145,7 +145,7 @@ collaborative relationship eliminates guesswork and allows us to determine:
 - **Logistics for specialty items** (like equipment and infrastructure)
 - **Precise parts ordering, timing, and cost control**
 
-_For Clients: We coordinate with our trusted Allies to ensure your project
+_For Project Stakeholders: We coordinate with our trusted Allies to ensure your project
 stays on schedule and within budget through expert collaboration._
 
 _For Allies: Join our network to participate in early-stage project planning
@@ -159,7 +159,7 @@ and secure consistent work through our constructability review process._
 
 Project Modularization involves strategically dividing a project into smaller, more
 manageable subprojects. This process simplifies design, execution, and maintenance.
-MH Construction focuses on Subproject Management to help Clients complete large, complex
+MH Construction focuses on Subproject Management to help Project Stakeholders complete large, complex
 projects more efficiently and consistently meet schedules across our Tri-State licensed footprint and the
 Northwest.
 
@@ -378,7 +378,7 @@ Schedule a personalized consultation with our experienced team for expert guidan
 
 ## Get Started Today
 
-### For Clients
+### For Project Stakeholders
 
 Ready to begin your construction partnership? We're here to listen, collaborate, and
 bring your vision to life through professional construction management.
@@ -389,7 +389,7 @@ bring your vision to life through professional construction management.
 
 Schedule a personalized consultation with our experienced team for detailed professional estimates and expert guidance.
 
-**Client Services:**
+**Project Stakeholder Services:**
 
 - **Schedule Free Consultation** - Meet with our project specialists (`event`)
 - **Book Site Visit** - On-location assessment (`place`)
@@ -412,7 +412,7 @@ Schedule a personalized consultation with our experienced team for detailed prof
 
 ## Contact Information
 
-### **Project Consultations** (Clients)
+### **Project Consultations** (Project Stakeholders)
 
 **Phone:** [(509) 308-6489](tel:+15093086489)
 **Email:** [office@mhc-gc.com](mailto:office@mhc-gc.com)

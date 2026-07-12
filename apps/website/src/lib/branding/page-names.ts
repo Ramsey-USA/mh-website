@@ -110,7 +110,6 @@ const PAGE_TERMINOLOGY_ALIASES: Record<string, PageTerminologyKey> = {
   partners: "allies",
   "our partners": "allies",
   "partner network": "allies",
-  "client partners": "allies",
   government: "publicSector",
   "government projects": "publicSector",
   "public sector": "publicSector",

@@ -452,7 +452,7 @@ export default function ContactPageClient({
           </div>
         </PWAOnly>
 
-        {/* Two Pathways - Allies vs Client Partners */}
+        {/* Two Pathways - Allies vs Project Stakeholders */}
         <section
           className="relative py-12 sm:py-16 lg:py-20 xl:py-24 bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden"
           aria-labelledby="partnership-pathways-heading"
@@ -489,7 +489,7 @@ export default function ContactPageClient({
 
             {/* Two-Column Grid for Pathways */}
             <div className={gridPresets.twoColumn("xl")}>
-              {/* Client Partner Services Pathway */}
+              {/* Project Stakeholder Services Pathway */}
               <div className="bg-white dark:bg-gray-900 border-4 border-brand-primary p-8 lg:p-10 rounded-3xl shadow-2xl hover:shadow-brand-primary/20 transition-all duration-300">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="bg-brand-primary/10 dark:bg-brand-primary/20 p-4 rounded-2xl">
@@ -497,7 +497,7 @@ export default function ContactPageClient({
                       icon="diversity_3"
                       size="3xl"
                       theme="military"
-                      ariaLabel="Client Partner Partnership"
+                      ariaLabel="Project stakeholder partnership"
                       className="text-brand-primary"
                     />
                   </div>
@@ -510,7 +510,7 @@ export default function ContactPageClient({
                   {t("contact.pathways.client.description")}
                 </p>
 
-                {/* Client Partner Contact Info */}
+                {/* Project Stakeholder Contact Info */}
                 <div className="bg-gray-50 dark:bg-gray-800 p-6 border-l-4 border-brand-primary rounded-xl mb-6">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
@@ -565,7 +565,7 @@ export default function ContactPageClient({
                   </div>
                 </div>
 
-                {/* Client Partner CTAs */}
+                {/* Project Stakeholder CTAs */}
                 <div className="space-y-3">
                   <h4 className="font-semibold text-gray-900 dark:text-white text-lg mb-4">
                     {t("contact.pathways.client.ctaHeading")}

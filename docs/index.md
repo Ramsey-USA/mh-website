@@ -11,6 +11,8 @@ developer workflow, then drill into the category you need.
 
 All documentation categories should remain congruent with the canonical brand language, trust content, and SEO naming rules documented in the Branding and Development standards.
 
+Enterprise naming across website, dashboard, MISH, handbook, and document assets must follow the canonical dual-terminology standard before any local copy edits are made.
+
 Latest update: June 30 congruency closure pass completed across core website copy and centralized SEO metadata/schema utilities, with one intentional canonical mission-text exception retained for standards alignment.
 
 Branding markdown update note: see [Branding Markdown Sweep Log (2026-07-02)](./branding/governance/markdown-sweep-2026-07-02.md).
@@ -49,6 +51,7 @@ Use this path to find canonical docs quickly and avoid duplicate guidance:
 
 - **[Brand Constants](./branding/brand-constants.md)** — Canonical brand values
 - **[Page Slogans](./branding/strategy/page-specific-slogans.md)** — Governance guide for the runtime canonical page-level hero slogan matrix
+- **[Dual Terminology Standard](./branding/strategy/dual-terminology-standard.md)** — Canonical enterprise dual-label naming rules
 - **[Brand Congruency Master Checklist](./branding/governance/brand-congruency-master-checklist.md)** — Canonical branding merge gate
 - **[Website Guardrails Coverage Map](./branding/governance/website-guardrails-coverage.md)** — Website-wide branding guardrail coverage requirements
 - **[Canonical Contracts Matrix](./branding/governance/website-guardrails-coverage.md#canonical-contracts-matrix-development-routing)** — Component-level routing table for development congruency

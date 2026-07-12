@@ -1,9 +1,9 @@
-# HANDBOOK-FORM-07 — Client Photo Release Form
+# HANDBOOK-FORM-07 — Project Stakeholder Photo Release Form
 
 - **Schema:** `form-handbook-07-client-photo-release-form.json`
 - **Chapter:** 7 — Technology & Data Use
 - **Owner:** Human Resources
-- **Purpose:** Captures a Client Partner's authorization for project photo and media use.
+- **Purpose:** Captures a Project Stakeholder's authorization for project photo and media use.
 
 ## Fields
 

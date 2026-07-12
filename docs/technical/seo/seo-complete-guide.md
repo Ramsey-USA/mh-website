@@ -471,7 +471,7 @@ export default function YourPage() {
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-509-551-5511",
-    "contactType": "client partner support",
+    "contactType": "project stakeholder support",
     "areaServed": ["WA", "OR", "ID"],
     "availableLanguage": ["English"]
   }

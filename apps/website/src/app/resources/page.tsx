@@ -58,6 +58,9 @@ const resourcesSupportingLine =
 
 export default function ResourcesPage() {
   const safetyManual = manuals.find((doc) => doc.id === "safety-manual");
+  const employeeHandbook = manuals.find(
+    (doc) => doc.id === "employee-handbook",
+  );
 
   return (
     <>
@@ -78,7 +81,10 @@ export default function ResourcesPage() {
 
           <p className="mt-4 mb-8 text-sm sm:text-base text-gray-600 dark:text-gray-300">
             Download field-ready manuals, forms, and compliance documents from
-            one organized library.
+            one organized library. Public pages include MISH table-of-contents
+            resources and Employee Handbook index materials for bonding banks,
+            insurers, architects, subcontractors, vendors, and future employees,
+            while full workflow records remain access-controlled.
           </p>
           <span className="sr-only">
             {resourcesMissionLine} {resourcesSupportingLine}
@@ -101,7 +107,7 @@ export default function ResourcesPage() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap mb-1">
                     <h2 className="text-base font-bold text-brand-primary dark:text-brand-secondary">
-                      For Bonding &amp; Insurance Agencies
+                      For Bonding Banks, Insurers, and Architects
                     </h2>
                     <span className="text-xs font-semibold bg-brand-primary text-white rounded-full px-2.5 py-0.5">
                       New
@@ -110,7 +116,8 @@ export default function ResourcesPage() {
                   <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                     Access our OSHA-aligned safety overview with credentials,
                     section mapping, and direct PDFs for pre-qualification and
-                    surety review.
+                    surety review. Public links are structured for fast external
+                    diligence and current-version verification.
                   </p>
                   <div className="flex flex-wrap gap-2 mt-3">
                     <SafetyComplianceBadge variant="osha" />
@@ -152,7 +159,9 @@ export default function ResourcesPage() {
                 </div>
                 <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                   Open each QR code at full size and download PNG files from a
-                  single gallery.
+                  single gallery. Subcontractors and vendors can quickly preview
+                  operating standards and routing paths before field
+                  coordination.
                 </p>
               </div>
               <MaterialIcon
@@ -162,6 +171,12 @@ export default function ResourcesPage() {
               />
             </Link>
           </Card>
+
+          <div className="mb-8 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-800/40 dark:bg-amber-900/20 dark:text-amber-300">
+            <strong>Current employees:</strong> day-to-day forms, incident
+            workflows, and internal records are handled in the Dashboard (Staff
+            Hub), not on public pages.
+          </div>
 
           {/* Manuals */}
           <div className="mb-12">
@@ -228,6 +243,43 @@ export default function ResourcesPage() {
                       className="text-brand-primary"
                     />
                     Browse Interactive Index
+                  </Link>
+                </div>
+              </Card>
+            )}
+
+            {employeeHandbook?.pdfPath && (
+              <Card className="mb-5 border-brand-secondary/20 bg-brand-secondary/5">
+                <div className="flex flex-wrap items-center gap-3 px-4 py-3">
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                    Employee Handbook:
+                  </span>
+                  <DownloadGate>
+                    <Button asChild variant="secondary" size="sm">
+                      <a
+                        href={employeeHandbook.pdfPath}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <MaterialIcon
+                          icon="download"
+                          size="sm"
+                          className="text-white"
+                        />
+                        Public TOC PDF
+                      </a>
+                    </Button>
+                  </DownloadGate>
+                  <Link
+                    href="/employee-handbook"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-brand-secondary px-3 py-1.5 text-sm font-semibold text-brand-secondary transition-colors hover:bg-brand-secondary/10"
+                  >
+                    <MaterialIcon
+                      icon="menu_book"
+                      size="sm"
+                      className="text-brand-secondary"
+                    />
+                    Browse Handbook Index
                   </Link>
                 </div>
               </Card>

@@ -36,7 +36,7 @@ function clearRefreshCookies(response: NextResponse) {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
-      path: "/api/auth",
+      path: "/",
       maxAge: 0,
     });
   }

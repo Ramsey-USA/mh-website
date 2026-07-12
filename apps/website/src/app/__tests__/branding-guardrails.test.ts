@@ -407,6 +407,55 @@ describe("Branding Guardrails › Public Copy Phrasing", () => {
 // ─────────────────────────────────────────────────────────────────────────────
 
 describe("Branding Guardrails › Trust Surfaces & SEO Contracts", () => {
+  it("keeps the construction terminology glossary present and aligned", () => {
+    const glossaryPath = path.join(
+      REPO_ROOT,
+      "docs",
+      "branding",
+      "strategy",
+      "construction-terminology-glossary.md",
+    );
+    const source = fs.readFileSync(glossaryPath, "utf8");
+
+    expect(source).toContain("# Construction Terminology Glossary");
+    expect(source).toContain("PMBOK 6 / Construction Concept");
+    expect(source).toContain("Project Stakeholders");
+    expect(source).toContain("Trade Partners");
+    expect(source).toContain("Scope architecture");
+    expect(source).toContain("Project-specific procurement");
+    expect(source).toContain("Crew readiness");
+  });
+
+  it("keeps Project Stakeholders and Trade Partners distinct in governance docs", () => {
+    const dualStandardPath = path.join(
+      REPO_ROOT,
+      "docs",
+      "branding",
+      "strategy",
+      "dual-terminology-standard.md",
+    );
+    const universalGuidePath = path.join(
+      REPO_ROOT,
+      "docs",
+      "branding",
+      "strategy",
+      "universal-terminology-guide.md",
+    );
+
+    const dualStandardSource = fs.readFileSync(dualStandardPath, "utf8");
+    const universalGuideSource = fs.readFileSync(universalGuidePath, "utf8");
+
+    expect(dualStandardSource).toContain("External Audience");
+    expect(dualStandardSource).toContain("Project Stakeholders");
+    expect(dualStandardSource).toContain("trade partner coordination");
+    expect(universalGuideSource).toContain("Never interchange these terms.");
+    expect(universalGuideSource).toContain("Project Stakeholders");
+    expect(universalGuideSource).toContain("Trade Partners");
+    expect(universalGuideSource).toContain(
+      "clear external-facing project language",
+    );
+  });
+
   it("maintains trust surface contracts across required pages", () => {
     const violations: string[] = [];
 

@@ -17,18 +17,18 @@ import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.employeeHandbook.seoName, PAGE_TERMINOLOGY.employeeHandbook.mhBrandName)} | MH Construction`,
   description:
-    "Public index of MH Construction's Employee Handbook sections and handbook-owned forms. Download the published handbook PDF and review the current policy and acknowledgment inventory.",
+    "Public index of MH Construction's Employee Handbook sections and handbook-owned forms. Download the public table of contents PDF and review the current policy and acknowledgment inventory.",
   alternates: {
     canonical: "https://www.mhc-gc.com/employee-handbook",
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.employeeHandbook.seoName, PAGE_TERMINOLOGY.employeeHandbook.mhBrandName)} | MH Construction`,
     description:
-      "Browse handbook chapters, review policy form inventory, and access the published Employee Handbook PDF.",
+      "Browse handbook chapters, review policy form inventory, and access the public Employee Handbook table of contents PDF.",
     type: "website",
     url: "https://www.mhc-gc.com/employee-handbook",
   },
@@ -78,14 +78,18 @@ export default function EmployeeHandbookPage() {
           <h1 className="mt-4 text-2xl font-black tracking-tight sm:text-3xl">
             Employee Handbook
           </h1>
+          <p className="font-heading mt-2 text-xs font-semibold uppercase tracking-wider text-brand-secondary/90">
+            Built on Quality, Backed by Trust.
+          </p>
           <p className="mt-2 text-sm text-white/70">
             Revision {revisionNumber} &middot; Effective {revisionDate}
           </p>
           <p className="mt-4 max-w-3xl text-base text-slate-100 sm:text-lg">
             Public index of MH Construction's employee handbook chapters and
             handbook-owned policy forms. Use this page to verify the current
-            chapter structure, then open the published handbook PDF or sign in
-            for internal workflows.
+            chapter structure, then open the public handbook table of contents
+            PDF. This view is designed for architects, insurers, bonding
+            reviewers, subcontractors, vendors, and future employees.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             {manual?.pdfPath && (
@@ -100,10 +104,16 @@ export default function EmployeeHandbookPage() {
                     size="sm"
                     className="text-white"
                   />
-                  Download Handbook PDF
+                  Download Handbook TOC PDF
                 </a>
               </Button>
             )}
+            <Button asChild variant="outline" size="lg">
+              <Link href="/hub">
+                <MaterialIcon icon="login" size="sm" className="text-white" />
+                Dashboard / Staff Hub Sign-In
+              </Link>
+            </Button>
             <Button asChild variant="outline" size="lg">
               <Link href="/resources">
                 <MaterialIcon
@@ -126,7 +136,21 @@ export default function EmployeeHandbookPage() {
           <span>
             <strong>Blank templates only.</strong> Completed acknowledgments,
             personnel records, and handbook workflow documents remain restricted
-            to authorized personnel.
+            to authorized personnel inside the Dashboard (Staff Hub).
+          </span>
+        </div>
+      </div>
+
+      <div className="border-b border-brand-primary/15 bg-brand-primary/5 px-4 py-3">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-primary">
+          <span className="rounded-full border border-brand-primary/25 bg-white px-3 py-1">
+            Veteran-Owned Since 2025
+          </span>
+          <span className="rounded-full border border-brand-primary/25 bg-white px-3 py-1">
+            BBB Accredited A+
+          </span>
+          <span className="rounded-full border border-brand-primary/25 bg-white px-3 py-1">
+            Public TOC + Blank Forms
           </span>
         </div>
       </div>
@@ -263,13 +287,40 @@ export default function EmployeeHandbookPage() {
                     <Button asChild variant="outline" size="sm">
                       <Link href="/hub">
                         <MaterialIcon icon="login" size="sm" />
-                        Sign In
+                        Dashboard Sign-In
                       </Link>
                     </Button>
                   </div>
                 </footer>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="mt-12 rounded-2xl border border-brand-primary/20 bg-brand-primary/5 p-6">
+          <h2 className="text-lg font-bold text-brand-primary dark:text-white">
+            Need Full Handbook Access?
+          </h2>
+          <p className="font-body mt-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+            Team members can access complete handbook workflows in the Dashboard
+            (Staff Hub). Architects, bonding banks, insurers, and compliance
+            reviewers can use this public index for current-version confirmation
+            and request credentialed access through our Safety and Compliance
+            team.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Button asChild variant="primary" size="sm">
+              <Link href="/hub">
+                <MaterialIcon icon="login" size="sm" className="text-white" />
+                Open Dashboard / Staff Hub
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="sm">
+              <Link href="/contact?topic=employee-handbook-access">
+                <MaterialIcon icon="mail" size="sm" />
+                Request Credentialed Access
+              </Link>
+            </Button>
           </div>
         </section>
       </main>

@@ -69,7 +69,7 @@ terminology blend** (December 2025 major update). This strategy:
 - **Reduces Generic Repetition** - Avoids overuse of single phrases
 - **Reinforces Mission-First Philosophy** - "Built on Quality, Backed by Trust."
 - **Improves Message Retention** - Variety helps visitors remember key messages
-- **Appeals to Veteran Clients** - Military-affiliated clients recognize authentic service language
+- **Appeals to Veteran Stakeholders** - Military-affiliated project stakeholders recognize authentic service language
 
 ### Implementation Guidelines (Updated December 2025)
 
@@ -113,7 +113,7 @@ recognition and accessibility.
 | Government     | Public Sector → Government  | "Mission-Ready Construction Operations - Federal Compliance-Driven"       | Veteran-Owned Excellence for Government Construction Missions                                                                                                                           |
 | Trade Partners | Allies → Partners           | "Vetted Vendor Partnerships - Building Success Through Trusted Alliances" | Strategic Partnerships Built on Trust, Performance, and Mutual Success                                                                                                                  |
 | Veterans       | Service First → Veterans    | "Honoring Those Who Served - All Branches, All Values"                    | Supporting Those Who Served - One Community, One Mission (Updated Dec 2025: Comprehensive foundation with combat veteran discount, year-round support programs, strategic partnerships) |
-| Testimonials   | Commendations → Reviews     | "After-Action Reports from Real Client Missions"                          | Verified Success Stories from Completed Missions                                                                                                                                        |
+| Testimonials   | Commendations → Reviews     | "After-Action Reports from Real Project Stakeholder Missions"             | Verified Success Stories from Completed Missions                                                                                                                                        |
 | FAQ            | Intel Brief → FAQ           | "Mission Intelligence - Your Construction Questions Answered"             | Direct Answers. Clear Guidance. Mission-Ready Information.                                                                                                                              |
 | Safety         | Safety HQ → Safety Program  | "Zero-Incident Operations \| Mission-Critical Safety Culture"             | Award-Winning Safety: 0.64 EMR, Zero Compromises                                                                                                                                        |
 

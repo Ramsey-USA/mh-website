@@ -8,11 +8,15 @@
 This directory contains all branding documentation for MH Construction, including design standards, strategic messaging,
 and brand identity guidelines.
 
+Enterprise dual terminology is governed as a shared system across website, dashboard, MISH, handbook, and document assets.
+
 ## 📌 Single Source of Truth
 
 - **[Brand Constants](./brand-constants.md)** - ⭐ **START HERE** - Canonical values for all brand elements
 - **[Page Slogans](./strategy/page-specific-slogans.md)** - Governance guide for runtime canonical page-level hero slogans
 - **[Agent Branding Policy](./agent-branding-policy.md)** - Fast enforcement policy for AI agent decisions
+- **[Dual Terminology Standard](./strategy/dual-terminology-standard.md)** - Canonical enterprise dual-label standard for website/dashboard/document surfaces
+- **[Construction Terminology Glossary](./strategy/construction-terminology-glossary.md)** - MH-to-PMBOK 6 construction vocabulary map
 - **[Brand Congruency Master Checklist](./governance/brand-congruency-master-checklist.md)** - Canonical pre-merge branding gate
 - **[Website Guardrails Coverage Map](./governance/website-guardrails-coverage.md)** - Required coverage map for all website surfaces
 
@@ -20,6 +24,7 @@ and brand identity guidelines.
 
 All branding edits must stay congruent with the messaging, trust, accessibility, and SEO naming rules used across the site.
 Typography and color decisions must also follow the canonical MH font system and color system so page layouts do not drift visually.
+When a label spans public and internal assets, use the enterprise dual terminology standard before making page-specific edits.
 For implementation work, pair this directory with [Development Standards](../development/standards/development-standards.md) and [AI Development Guidelines](../development/standards/ai-development-guidelines.md).
 
 ## How to Choose the Right Checklist

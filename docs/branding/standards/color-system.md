@@ -723,7 +723,7 @@ Homepage descriptions use colored text highlights for visual interest and emphas
 
 **Tan Highlights:** Partnership, relationships, community
 
-- Examples: "client partners", "lasting relationships", "collaboration"
+- Examples: "project stakeholders", "lasting relationships", "collaboration"
 
 **Bronze Highlights:** Premium services, achievements, craftsmanship
 
@@ -893,7 +893,7 @@ Combine multiple highlight colors within a single paragraph for visual richness:
 - Border: `2px solid #1E392C`
 - Text: `white`
 
-**Usage:** Primary CTAs, IRL Consultations, main actions, client partnerships
+**Usage:** Primary CTAs, IRL Consultations, main actions, project stakeholder actions
 
 ### Secondary Buttons (Leather Tan)
 
@@ -1117,7 +1117,7 @@ module.exports = {
 
 ### Button Usage by Context
 
-**Client Partnership Actions (Primary - Hunter Green):**
+**Project Stakeholder Actions (Primary - Hunter Green):**
 
 - "Schedule Free Consultation" (icon: `event`)
 - "Begin Partnership" (icon: `handshake`)

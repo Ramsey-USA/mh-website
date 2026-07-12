@@ -21,17 +21,21 @@ Use this reference with [Color System](./color-system.md) for fast implementatio
 
 ### Service/Partnership Color Associations
 
-| Service/Partnership    | Button Color            | Icon              | Example CTA                  |
-| ---------------------- | ----------------------- | ----------------- | ---------------------------- |
-| **IRL Consultation**   | Hunter Green (Primary)  | `event`           | "Schedule Free Consultation" |
-| **Client Partnership** | Hunter Green (Primary)  | `handshake`       | "Begin Partnership"          |
-| **Trade Partnership**  | Leather Tan (Secondary) | `construction`    | "Join Trade Network"         |
-| **Government/Federal** | Grayscale Gradient      | `account_balance` | "Request Grant Support"      |
+<!-- markdownlint-disable MD060 -->
+
+| Service/Partnership     | Button Color            | Icon              | Example CTA                  |
+| ----------------------- | ----------------------- | ----------------- | ---------------------------- |
+| **IRL Consultation**    | Hunter Green (Primary)  | `event`           | "Schedule Free Consultation" |
+| **Project Stakeholder** | Hunter Green (Primary)  | `handshake`       | "Begin Partnership"          |
+| **Trade Partnership**   | Leather Tan (Secondary) | `construction`    | "Join Trade Network"         |
+| **Government/Federal**  | Grayscale Gradient      | `account_balance` | "Request Grant Support"      |
 
 ### Contact Information Color Coding
 
-- **Client Partnerships:** Hunter Green theme (, <office@mhc-gc.com>)
+- **Project Stakeholders:** Hunter Green theme (, <office@mhc-gc.com>)
 - **Trade Partnerships:** Leather Tan theme (, <office@mhc-gc.com>)
+
+<!-- markdownlint-enable MD060 -->
 
 ## Implementation Examples
 

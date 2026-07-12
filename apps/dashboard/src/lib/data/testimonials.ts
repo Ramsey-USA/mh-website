@@ -1,7 +1,7 @@
 /**
  * Centralized Testimonials Data
  * Single source of truth for all testimonials across the website
- * Categories: Client Partner, employee, veteran
+ * Categories: Project Stakeholder, employee, veteran
  */
 
 export interface Testimonial {
@@ -9,9 +9,9 @@ export interface Testimonial {
   name: string;
   role?: string; // For employees
   title?: string; // For employees
-  location?: string; // For Client Partners
-  project?: string; // For Client Partners
-  company?: string; // For Client Partners
+  location?: string; // For Project Stakeholders
+  project?: string; // For Project Stakeholders
+  company?: string; // For Project Stakeholders
   rating?: number; // 1-5 stars
   quote: string;
   /** Client portrait — /images/testimonials/[id].webp (800 px wide) */
@@ -22,7 +22,7 @@ export interface Testimonial {
   videoUrl?: string;
   /** Pre-sized social card (1080×1080 px) — /images/social/testimonials/[id].webp */
   socialCard?: string;
-  type: "client" | "employee" | "veteran";
+  type: "stakeholder" | "employee" | "veteran";
   category?: string; // commercial, industrial, healthcare, etc.
   featured?: boolean;
   date?: string; // When testimonial was given
@@ -35,8 +35,8 @@ export interface Testimonial {
   platforms?: ("facebook" | "instagram" | "linkedin" | "twitter")[];
 }
 
-// CLIENT PARTNER TESTIMONIALS
-export const clientTestimonials: Testimonial[] = [
+// PROJECT STAKEHOLDER TESTIMONIALS
+export const projectStakeholderTestimonials: Testimonial[] = [
   {
     id: "client-006",
     name: "Captain for Special Projects",
@@ -47,7 +47,7 @@ export const clientTestimonials: Testimonial[] = [
     rating: 5,
     quote:
       "MH Construction defines how a professional contractor should perform. Excellent business ethics and fiscal responsibility while their construction knowledge is well above their peers. We value this relationship and hope to continue growing it on more Yakima County Fire District construction projects.",
-    type: "client",
+    type: "stakeholder",
     category: "government",
     featured: true,
   },
@@ -59,7 +59,7 @@ export const clientTestimonials: Testimonial[] = [
     rating: 5,
     quote:
       "MHC's team has been an absolute pleasure to partner with, having principles that are appreciated deeply by our LCSNW team. Those observed principles are ethics, curiosity, engagement, and sensitivity to perspectives, honesty, humbleness, safety, quality in craftsmanship and objective based solutions.",
-    type: "client",
+    type: "stakeholder",
     category: "commercial",
     featured: true,
   },
@@ -71,7 +71,7 @@ export const clientTestimonials: Testimonial[] = [
     rating: 5,
     quote:
       "MH did a tenant improvement for us last year and we couldn't be happier. They helped facilitate the process from initial design, permitting, and construction. Even with the large number of stakeholders at our company, MH handled everything in stride. Extremely happy with their processes, employees, subcontractors, transparency, and fairness.",
-    type: "client",
+    type: "stakeholder",
     category: "commercial",
     featured: true,
   },
@@ -83,7 +83,7 @@ export const clientTestimonials: Testimonial[] = [
     rating: 5,
     quote:
       "We've had MH Construction perform several commercial projects over the years. We have been very pleased with their workmanship, communication, and timeliness. We would not hesitate to utilize MH Construction in the future.",
-    type: "client",
+    type: "stakeholder",
     category: "commercial",
     featured: true,
   },
@@ -94,8 +94,8 @@ export const clientTestimonials: Testimonial[] = [
     project: "Commercial partnership projects",
     rating: 5,
     quote:
-      "We are grateful to be client partners of MH Construction and are very satisfied with the quality and professionalism of their work. Their team's attention to detail, timely communication, and reliable results have exceeded our expectations. We look forward to continuing our partnership with MH Construction on future projects and highly recommend their services to others.",
-    type: "client",
+      "We are grateful to be project stakeholders of MH Construction and are very satisfied with the quality and professionalism of their work. Their team's attention to detail, timely communication, and reliable results have exceeded our expectations. We look forward to continuing our partnership with MH Construction on future projects and highly recommend their services to others.",
+    type: "stakeholder",
     category: "commercial",
     featured: true,
   },
@@ -107,7 +107,7 @@ export const clientTestimonials: Testimonial[] = [
     rating: 5,
     quote:
       "We couldn't be happier with the quality of workmanship. Todd was great to deal with, keeping us in the loop throughout the build.",
-    type: "client",
+    type: "stakeholder",
     category: "commercial",
     featured: true,
   },
@@ -156,6 +156,6 @@ export const employeeTestimonials: Testimonial[] = [
 ];
 
 export function getAllTestimonials(featured?: boolean): Testimonial[] {
-  const all = [...clientTestimonials, ...employeeTestimonials];
+  const all = [...projectStakeholderTestimonials, ...employeeTestimonials];
   return featured ? all.filter((t) => t.featured) : all;
 }

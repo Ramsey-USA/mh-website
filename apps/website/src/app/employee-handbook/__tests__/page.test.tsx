@@ -61,9 +61,9 @@ describe("EmployeeHandbookPage", () => {
     await renderPage();
     expect(
       screen.getByRole("link", {
-        name: /download handbook pdf/i,
+        name: /download handbook toc pdf/i,
       }),
-    ).toHaveAttribute("href", "/docs/employee/employee-handbook-2026.pdf");
+    ).toHaveAttribute("href", "/docs/employee/employee-handbook-toc.pdf");
     expect(
       screen.getByRole("link", {
         name: /back to resources/i,

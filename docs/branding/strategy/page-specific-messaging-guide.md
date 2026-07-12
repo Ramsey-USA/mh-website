@@ -1,6 +1,6 @@
 # Page-Specific Messaging & Language Guide
 
-**Last Updated:** April 15, 2026 | **Version:** 3.1.0 | **Status:** Official Brand Standard - Veteran/Honesty Focus
+**Last Updated:** July 12, 2026 | **Version:** 3.2.0 | **Status:** Official Brand Standard - Veteran/Honesty Focus
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
@@ -26,6 +26,11 @@ act transparently, and prioritize substance over style. While our **four-value p
 in ways that resonate with its specific audience.
 
 For page-level slogan selection, use the canonical matrix in [Page Slogans](./page-specific-slogans.md).
+
+For enterprise naming and dual-label usage across website, dashboard, MISH, handbook, and document assets, use [Dual Terminology Standard](./dual-terminology-standard.md) as the governing source.
+
+That dual-terminology system is military-themed construction language and can be expanded or optimized to
+create stronger enterprise language when needed, as long as the approved structure and factual framing stay intact.
 
 **Core Identity:** Veteran-Owned Since January 2025. Your word is your bond — so is ours.
 
@@ -79,6 +84,9 @@ For **page section ordering**, all lead-path pages must follow the
 **Core Theme:** Building lasting relationships through trust  
 **Key Message:** Built on communication and follow-through (exclusive to this group)
 
+Enterprise note: public-facing pages that support external review audiences should use
+Project Stakeholders terminology, while current employee workflows should use Dashboard (Staff Hub).
+
 ### Group 4: Direct Communication
 
 **Pages:** Contact, FAQ
@@ -122,7 +130,7 @@ For **page section ordering**, all lead-path pages must follow the
 
 **Dual-Label Slogans (Military / Construction):**
 
-- "Service Over Self" / "Client Over Commission"
+- "Service Over Self" / "Project Stakeholder Over Commission"
 - "Mission Brief" / "Project Consultation"
 - "Your Bond" / "Our Word" (combined: "Your word is your bond — so is ours")
 - "Rally Point" / "Contact Hub"
@@ -245,14 +253,14 @@ appropriately.
 - Emphasize thoroughness and attention to detail
 - Highlight compliance and regulatory expertise (for government)
 - Use specific examples and measurable outcomes
-- Connect services to actual client needs
+- Connect services to actual project stakeholder needs
 
 ### Key Phrases (Group 2)
 
 - "Founded in 2010, Veteran-Owned Since January 2025"
 - "Military-trained attention to detail in every project"
-- "98% client satisfaction rate - proven results"
-- "70% referral rate - clients trust us enough to recommend us"
+- "98% project stakeholder satisfaction rate - proven results"
+- "70% referral rate - project stakeholders trust us enough to recommend us"
 - "Comprehensive planning with contingency scenarios"\n- "Multiple quality control checkpoints throughout"
 - "Federal compliance assured, regulatory standards exceeded"
 - "No detail overlooked, no shortcut taken"
@@ -456,12 +464,12 @@ appropriately.
 
 ## 📊 Messaging Matrix
 
-| Page Group                            | Primary Audience      | Dominant Emotion       | Core Values Focus                     | Call-to-Action Focus |
-| ------------------------------------- | --------------------- | ---------------------- | ------------------------------------- | -------------------- |
-| Veteran Foundation                    | All potential clients | Trust & Honesty        | All four values prominently displayed | "Let's talk"         |
-| Professional Services                 | Strategic clients     | Confidence & Expertise | Quality, Reliability, Thoroughness    | "Partner with us"    |
-| Partnership & Team (ROI RELATIONSHIP) | Partners/Team/Trade   | Urgency & ROI          | All four create the ROI               | "Get started now"    |
-| Direct Communication                  | Support seekers       | Accessibility & Trust  | Honesty, Professionalism, Integrity   | "Contact us"         |
+| Page Group                            | Primary Audience                   | Dominant Emotion       | Core Values Focus                     | Call-to-Action Focus |
+| ------------------------------------- | ---------------------------------- | ---------------------- | ------------------------------------- | -------------------- |
+| Veteran Foundation                    | All potential project stakeholders | Trust & Honesty        | All four values prominently displayed | "Let's talk"         |
+| Professional Services                 | Strategic project stakeholders     | Confidence & Expertise | Quality, Reliability, Thoroughness    | "Partner with us"    |
+| Partnership & Team (ROI RELATIONSHIP) | Partners/Team/Trade                | Urgency & ROI          | All four create the ROI               | "Get started now"    |
+| Direct Communication                  | Support seekers                    | Accessibility & Trust  | Honesty, Professionalism, Integrity   | "Contact us"         |
 
 ---
 

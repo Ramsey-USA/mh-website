@@ -41,7 +41,7 @@ aligned with our veteran-owned, honesty-first brand identity.
 - **Service Area**: Tri-State licensed (WA, OR, ID) | Tri-Cities headquarters (Pasco, Richland, Kennewick)
 - **Headquarters**: 3111 N Capitol Ave, Pasco, WA 99301
 - **Phone**: [(509) 308-6489](tel:+15093086489)
-- **Client Contact**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
+- **Project Stakeholder Contact**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
 - **Vendor Contact**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ### Brand Mission & Vision
@@ -113,7 +113,7 @@ Our 4 Core Values create 6 measurable differences:
    [Brand Constants §4-Tier VOB Certification Program](../brand-constants.md).
 
 **The Connection**: Our 4 values (Honesty, Integrity, Professionalism, Thoroughness) aren't just principles—
-they create measurable outcomes clients can see and experience on every project.
+they create measurable outcomes project stakeholders can see and experience on every project.
 
 ### Our Team
 
@@ -159,14 +159,14 @@ each of the 7 page groups expresses these attributes differently.
 - Use clear, direct language
 - Emphasize partnership and collaboration
 - Highlight veteran values and precision
-- Focus on client success stories
+- Focus on project stakeholder success stories
 - Maintain professional confidence
 
 **Don't:**
 
 - Use overly technical jargon without explanation
 - Sound pushy or sales-heavy
-- Minimize the importance of client input
+- Minimize the importance of project stakeholder input
 - Overpromise or make unrealistic claims
 
 ## Brand Values
@@ -196,7 +196,7 @@ immediate notification of changes
 > reputation is built on unwavering commitment to ethical practices."
 
 **Key Elements**: Choosing the right path, following through on commitments, taking responsibility,
-using specified materials, making client-first decisions
+using specified materials, making project-stakeholder-first decisions
 
 #### 3. Professionalism - Excellence in Every Interaction
 
@@ -256,10 +256,10 @@ partnership.
 
 **Measuring Our Success**:
 
-- 98% client satisfaction rate maintained
-- 70% of new business from client referrals
+- 98% project stakeholder satisfaction rate maintained
+- 70% of new business from project stakeholder referrals
 - Active involvement in Pacific Northwest communities
-- Many clients return for additional projects
+- Many project stakeholders return for additional projects
 - Respected by peers and competitors
 
 ### Our Owner-First Process
@@ -298,11 +298,11 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
 1. **Visual Identity**: Use approved colors, typography, and icon systems
 2. **Messaging**: Maintain consistent voice and tone across all communications
 3. **Quality Standards**: Every touchpoint reflects execution discipline
-4. **Partnership Focus**: Emphasize collaboration in all client interactions
+4. **Partnership Focus**: Emphasize collaboration in all project stakeholder interactions
 
 ### Brand Applications
 
-**Website**: Primary brand expression and client first impression
+**Website**: Primary brand expression and project-stakeholder first impression
 **Business Cards**: Clean, professional design with key contact information
 **Project Signage**: Visible representation at job sites
 **Proposals**: Professional documents reflecting expertise and attention to detail
@@ -316,14 +316,14 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
 - [ ] Visual elements use approved brand standards
 - [ ] Tone remains professional yet approachable
 - [ ] Veteran heritage appropriately represented
-- [ ] Client success emphasized over company promotion
+- [ ] Project stakeholder success emphasized over company promotion
 
 ### Review Process
 
 1. **Content Review**: Ensure messaging aligns with brand voice
 2. **Visual Review**: Verify design elements follow guidelines
 3. **Quality Check**: Confirm execution discipline in execution
-4. **Client Focus**: Validate partnership emphasis maintained
+4. **Project Stakeholder Focus**: Validate partnership emphasis maintained
 
 ## Related Documentation
 

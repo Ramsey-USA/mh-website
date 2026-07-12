@@ -11,9 +11,9 @@ export interface Testimonial {
   name: string;
   role?: string; // For employees
   title?: string; // For employees
-  location?: string; // For Client Partners
-  project?: string; // For Client Partners
-  company?: string; // For Client Partners
+  location?: string; // For project stakeholders
+  project?: string; // For project stakeholders
+  company?: string; // For project stakeholders
   rating?: number; // 1-5 stars
   quote: string;
   /** Client portrait — /images/testimonials/[id].webp (800 px wide) */

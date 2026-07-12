@@ -101,7 +101,7 @@ these core values in hierarchical order:
     Special Operations (marketing/safety), Logistics Command (admin), Field Officers (superintendents)
   - **cross-discipline field and management expertise** across all military branches
   - **Clear accountability** from executive leadership to field operations
-- "Reviews" / "Commendations" - Client testimonials
+- "Reviews" / "Commendations" - Project stakeholder testimonials
 - "Contact" / "Rally Point" - Get in touch
 
 **Documentation**: Global hero navigation system implemented site-wide.
@@ -155,7 +155,7 @@ Our voice balances execution discipline with partnership warmth, creating commun
 
 - **Trustworthy**: Reliable, consistent, honest communication
 - **Expert**: Knowledgeable, experienced, skilled in construction
-- **Partnership-Focused**: Collaborative, supportive, client-centered
+- **Partnership-Focused**: Collaborative, supportive, project-stakeholder-centered
 - **Results-Driven**: Efficient, effective, solution-oriented
 
 ### Tone Variations by Context
@@ -170,7 +170,7 @@ Our voice balances execution discipline with partnership warmth, creating commun
 > precision with traditional business values to deliver exceptional results through honest
 > communication and proven craftsmanship for commercial projects throughout the Pacific Northwest."
 
-#### Client Communications
+#### Project Stakeholder Communications
 
 **Tone**: Collaborative, supportive, transparent, personal
 
@@ -211,7 +211,7 @@ Our messaging is structured around five interconnected pillars that flow from ou
 - Doing right even when it costs more
 - Standing behind our work with comprehensive warranties
 
-- Making decisions that benefit the client
+- Making decisions that benefit the project stakeholder
 
 **Messaging Examples**:
 
@@ -308,7 +308,7 @@ Our 4 Core Values aren't just words on a wall—they create 6 measurable differe
 
 **Example**:
 
-> "Phase 2 completion achieved on schedule. All quality checkpoints met, with client
+> "Phase 2 completion achieved on schedule. All quality checkpoints met, with project stakeholder
 > approval documented. Moving to Phase 3 as planned."
 
 ## Core Messaging Framework
@@ -351,7 +351,7 @@ When discussing our team structure, emphasize:
 
 **Avoid:**
 
-- Overly militaristic language that might alienate civilian clients
+- Overly militaristic language that might alienate civilian stakeholders
 - Implying rigid hierarchy over collaboration
 - Focusing on rank over expertise and results
 
@@ -363,7 +363,7 @@ every interaction.
 
 #### Primary Slogan: "Built on Quality, Backed by Trust."
 
-Our foundational message emphasizing partnership over profit, client success over company gain.
+Our foundational message emphasizing partnership over profit, project stakeholder success over company gain.
 
 #### Relationship-Focused Slogan: "Built on communication and follow-through"
 
@@ -371,7 +371,7 @@ This powerful companion slogan reinforces our partnership-first philosophy. Use 
 
 - Hero sections emphasizing relationship-building
 - Marketing materials focused on long-term partnerships
-- Client communications highlighting value beyond numbers
+- Project stakeholder communications highlighting value beyond numbers
 - Content emphasizing trust and collaboration
 - Headings that highlight our relationship-driven approach
 
@@ -396,7 +396,7 @@ Use this slogan for:
 
 - Call-to-action sections inviting partnership
 - Marketing materials emphasizing vision and relationships
-- Client outreach highlighting partnership approach
+- Project stakeholder outreach highlighting partnership approach
 - Content that connects building with relationship-building
 - Headlines that invite collaboration
 
@@ -480,7 +480,7 @@ Our four-value professional foundation system guides all messaging and communica
 - Following through on every commitment
 - Taking responsibility for our work and words
 - Using specified materials without unauthorized substitutions
-- Making decisions that benefit clients, not our bottom line
+- Making decisions that benefit project stakeholders, not our bottom line
 
 **Example Applications**:
 
@@ -537,10 +537,10 @@ Trust is the ultimate goal—earned through consistent demonstration of all four
 
 **Measuring Our Success**:
 
-- 98% client satisfaction rate maintained
-- 70% of new business from client referrals
+- 98% project stakeholder satisfaction rate maintained
+- 70% of new business from project stakeholder referrals
 - Active involvement in Pacific Northwest communities
-- Many clients return for additional projects
+- Many project stakeholders return for additional projects
 - Respected by peers and competitors throughout the industry
 
 ### Additional Message Pillars
@@ -645,7 +645,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 
 #### Benefit-Focused Content
 
-- Lead with client benefits
+- Lead with project stakeholder benefits
 - Explain the "why" behind processes
 - Connect features to real outcomes
 
@@ -656,20 +656,20 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 
 #### Preferred Terms
 
-| Use This            | Instead of This           | Why                        |
-| ------------------- | ------------------------- | -------------------------- |
-| Partner/Partnership | Transactional role labels | Emphasizes collaboration   |
-| Work WITH you       | Service-to-you wording    | Shows true partnership     |
-| Precision           | Accuracy                  | Reflects military heritage |
-| Excellence          | Quality                   | Stronger commitment        |
-| Solution            | Fix/Resolution            | Proactive approach         |
-| Investment          | Cost/Price                | Value perspective          |
-| Timeline            | Deadline                  | Collaborative planning     |
-| Vision              | Requirements              | Client empowerment         |
-| Trust               | Satisfaction              | Ultimate goal emphasis     |
-| Thoroughness        | Attention                 | Comprehensive approach     |
-| Integrity           | Ethics                    | Deeper moral commitment    |
-| Craftsmanship       | Workmanship               | Artisan-level quality      |
+| Use This            | Instead of This           | Why                             |
+| ------------------- | ------------------------- | ------------------------------- |
+| Partner/Partnership | Transactional role labels | Emphasizes collaboration        |
+| Work WITH you       | Service-to-you wording    | Shows true partnership          |
+| Precision           | Accuracy                  | Reflects military heritage      |
+| Excellence          | Quality                   | Stronger commitment             |
+| Solution            | Fix/Resolution            | Proactive approach              |
+| Investment          | Cost/Price                | Value perspective               |
+| Timeline            | Deadline                  | Collaborative planning          |
+| Vision              | Requirements              | Project stakeholder empowerment |
+| Trust               | Satisfaction              | Ultimate goal emphasis          |
+| Thoroughness        | Attention                 | Comprehensive approach          |
+| Integrity           | Ethics                    | Deeper moral commitment         |
+| Craftsmanship       | Workmanship               | Artisan-level quality           |
 
 #### Core Values Language
 
@@ -712,23 +712,23 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 2. **Subheading**: Partnership approach
 3. **Overview**: What we do and why it matters
 4. **Our Values in Action**: How our four core values apply to this service
-5. **Process**: How we work WITH clients
-6. **Benefits**: What clients gain
+5. **Process**: How we work WITH project stakeholders
+6. **Benefits**: What project stakeholders gain
 7. **Call-to-Action**: Partnership invitation
 
 #### Project Case Study Template
 
-1. **Client Challenge**: What they needed
+1. **Project Stakeholder Challenge**: What they needed
 2. **Our Partnership Approach**: How we worked together
 3. **Values in Practice**: Which core values were demonstrated
 4. **Precision in Execution**: Military-quality delivery
 5. **Results**: Measurable outcomes
 6. **Trust Built**: How the relationship grew
-7. **Client Voice**: Partnership testimonial
+7. **Project Stakeholder Voice**: Partnership testimonial
 
 #### Blog Post Template
 
-1. **Industry Challenge**: Common client problem
+1. **Industry Challenge**: Common project stakeholder problem
 2. **Expert Insight**: Our professional perspective
 3. **Value Connection**: How our core values address the challenge
 4. **Partnership Solution**: Collaborative approach
@@ -828,13 +828,13 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 3. **Service Overview**: What we do
 4. **Values Demonstration**: Our four-value professional foundation
 5. **Trust Building**: How values create measurable trust
-6. **Client Success**: Proof of partnership and trust earned
+6. **Project Stakeholder Success**: Proof of partnership and trust earned
 7. **Call-to-Action**: Start the partnership
 
 #### Service Page Structure
 
 - **Headline**: Service + Partnership Benefit
-- **Overview**: Client-focused description
+- **Overview**: Project-stakeholder-focused description
 - **Values Application**: How our core values apply to this service
 - **Our Approach**: Partnership methodology
 - **Process**: Step-by-step collaboration
@@ -876,7 +876,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 
 ### Email Communications
 
-#### Client Update Template
+#### Project Stakeholder Update Template
 
 **Subject**: [Project Name] - Progress Update & Next Steps
 
@@ -885,7 +885,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 1. Progress summary with specifics (Reliability in action)
 2. Quality checkpoints met (Thoroughness demonstrated)
 3. Upcoming milestones and timelines (Honest communication)
-4. Any decisions needed from client (Partnership approach)
+4. Any decisions needed from project stakeholder (Partnership approach)
 5. Contact information for questions (Professional accessibility)
 6. Partnership appreciation and trust acknowledgment
 
@@ -895,7 +895,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 
 **Structure**:
 
-1. Understanding of client vision (Thoroughness)
+1. Understanding of project stakeholder vision (Thoroughness)
 2. Our four-value foundation and approach (Trust building)
 3. How our values apply to your specific project
 4. Proposed timeline and process (Reliability)
@@ -913,7 +913,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 - [ ] "Built on communication and follow-through" messaging present where appropriate
 - [ ] Military precision referenced appropriately
 - [ ] Veteran heritage mentioned authentically
-- [ ] Client benefits clearly communicated
+- [ ] Project stakeholder benefits clearly communicated
 - [ ] Transparent communication promised (Honesty value)
 - [ ] Local/regional expertise highlighted
 - [ ] Innovation and modern tools highlighted
@@ -930,7 +930,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 3. **Values Integration**: Are relevant core values appropriately demonstrated?
 4. **Trust Building**: Does content contribute to trust-centered philosophy?
 5. **Veteran Values**: Are military principles appropriately represented?
-6. **Client Benefit**: Is value clear to target audience?
+6. **Project Stakeholder Benefit**: Is value clear to target audience?
 7. **Quality Standards**: Does content reflect our excellence commitment?
 8. **Honesty & Transparency**: Is communication open and truthful?
 
@@ -938,7 +938,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 
 - **Marketing Materials**: Leadership Team approval required
 - **Website Content**: Marketing and Operations review
-- **Client Communications**: Project Manager and Leadership
+- **Project Stakeholder Communications**: Project Manager and Leadership
 - **Social Media**: Marketing Team with Leadership oversight
 - **Core Values Content**: Must align with core-values.md documentation
 

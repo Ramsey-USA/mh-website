@@ -48,7 +48,7 @@
       },
       "testimonials": {
         "sectionTitle": "Testimonials",
-        "sectionSubtitle": "Client Partner",
+        "sectionSubtitle": "Project Stakeholder",
         "sectionDescription": "Hear directly from our partners—where trust is earned, not claimed."
       },
       "news": {
@@ -435,16 +435,16 @@
     "pathways": {
       "subtitle": "Two Pathways to",
       "title": "Partnership Success",
-      "description": "Choose the right path for Client Partner delivery or Ally engagement. From Handshake to Handoff, we got your 'six.'",
+      "description": "Choose the right path for Project Stakeholder delivery or Ally engagement. From Handshake to Handoff, we got your 'six.'",
       "shared": {
         "emailLabel": "Email"
       },
       "client": {
-        "title": "For Client Partners",
+        "title": "For Project Stakeholders",
         "description": "Start with scope alignment, then move into disciplined delivery and closeout planning.",
         "callIconAria": "Client services phone",
-        "contactServiceLabel": "Client Partner Services",
-        "callAriaPrefix": "Call Client Partner services at",
+        "contactServiceLabel": "Project Stakeholder Services",
+        "callAriaPrefix": "Call Project Stakeholder services at",
         "emailIconAria": "Client services email",
         "emailAriaLabel": "Email office@mhc-gc.com for project inquiries",
         "note": "For estimates, planning, and project kickoff",
@@ -551,7 +551,7 @@
       "values": {
         "handshakes": {
           "title": "Where Handshakes Still Matter",
-          "description": "Your word is your bond. We treat Trade Partners with the same integrity and respect we give Client Partners."
+          "description": "Your word is your bond. We treat Trade Partners with the same integrity and respect we give Project Stakeholders."
         },
         "scheduling": {
           "title": "Reliable Scheduling and Open Communication",
@@ -978,10 +978,10 @@
       "current": "Projects"
     },
     "testimonials": {
-      "subtitle": "Client Partner Feedback",
+      "subtitle": "Project Stakeholder Feedback",
       "title": "Project Testimonials",
-      "description": "Direct feedback from Client Partners on communication, craftsmanship, and follow-through.",
-      "clientPartnerLabel": "Client Partner",
+      "description": "Direct feedback from Project Stakeholders on communication, craftsmanship, and follow-through.",
+      "clientPartnerLabel": "Project Stakeholder",
       "starRatingAriaSuffix": "star rating"
     }
   },
@@ -990,7 +990,7 @@
       "kicker": "Events",
       "titleComplete": "Events: Cool Desert Nights 2026 Debrief",
       "titleBriefing": "Events: Cool Desert Nights 2026 Briefing",
-      "descriptionComplete": "Thank you to the Richland and Kennewick community, event leadership, and Client Partners who made this event successful through coordinated execution.",
+      "descriptionComplete": "Thank you to the Richland and Kennewick community, event leadership, and Project Stakeholders who made this event successful through coordinated execution.",
       "descriptionBriefing": "Cool Desert Nights 2026 is scheduled for June 26-27 in Richland, WA, featuring classic cars, a Friday night cruise, and a Saturday Show 'n Shine in the Uptown Shopping Center.",
       "stats": {
         "eventWindow": {
@@ -1395,7 +1395,7 @@
         {
           "icon": "handshake",
           "title": "Integrity & Trust",
-          "description": "We build relationships based on honesty, transparency, and mutual respect. 70% of our business comes from referrals and repeat client partners.",
+          "description": "We build relationships based on honesty, transparency, and mutual respect. 70% of our business comes from referrals and repeat project stakeholders.",
           "color": "from-brand-primary to-brand-primary-dark"
         },
         {
@@ -1537,9 +1537,9 @@
         "sectionDescription": "Trust earned through transparency, proven safety, and a partnership model that outlasts project delivery."
       },
       "testimonials": {
-        "sectionTitle": "What Our Client Partners Say",
+        "sectionTitle": "What Our Project Stakeholders Say",
         "sectionSubtitle": "Trusted By Our Partners",
-        "sectionDescription": "Read testimonials from valued Client Partners across the Pacific Northwest who have experienced our collaborative excellence firsthand."
+        "sectionDescription": "Read testimonials from valued Project Stakeholders across the Pacific Northwest who have experienced our collaborative excellence firsthand."
       },
       "sectionSubtitle": "Full-Spectrum Construction",
       "sectionTitle": "Services Built on Trust",
@@ -1725,13 +1725,13 @@
       "partnership": {
         "sectionSubtitle": "Two Paths to",
         "sectionTitle": "Partnership Excellence",
-        "sectionDescription": "Whether you are a client partner planning a project or a trade partner seeking opportunities, MH Construction provides clear pathways to collaboration and success.",
+        "sectionDescription": "Whether you are a project stakeholder planning a project or a trade partner seeking opportunities, MH Construction provides clear pathways to collaboration and success.",
         "callLabel": "Call",
         "clientCard": {
-          "title": "Client Partner Relationships",
+          "title": "Project Stakeholder Relationships",
           "subtitle": "Project Collaboration",
-          "description": "For client partners planning projects across the Pacific Northwest. We turn vision into delivery through expert construction management and partnership-focused collaboration.",
-          "listTitle": "What We Offer Client Partners:",
+          "description": "For project stakeholders planning projects across the Pacific Northwest. We turn vision into delivery through expert construction management and partnership-focused collaboration.",
+          "listTitle": "What We Offer Project Stakeholders:",
           "items": [
             "Free consultations and project assessments",
             "Phased planning with scope and schedule alignment",
@@ -1907,8 +1907,8 @@
     },
     "testimonials": {
       "subtitle": "Trusted By Our Partners",
-      "title": "What Our Client Partners Say",
-      "description": "Read testimonials from valued Client Partners across the Pacific Northwest who have experienced our collaborative excellence firsthand."
+      "title": "What Our Project Stakeholders Say",
+      "description": "Read testimonials from valued Project Stakeholders across the Pacific Northwest who have experienced our collaborative excellence firsthand."
     },
     "process": {
       "subtitle": "Simple & Transparent",

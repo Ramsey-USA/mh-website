@@ -219,7 +219,7 @@ All form copy follows [Universal Terminology Guide](../strategy/universal-termin
 
 | Do                                 | Do Not                                  |
 | ---------------------------------- | --------------------------------------- |
-| Client Partners                    | clients, retail-buyer labels            |
+| Project Stakeholders               | clients, retail-buyer labels            |
 | Veteran-Owned Since January 2025   | Veteran-Owned (bare)                    |
 | Built on Quality, Backed by Trust. | paraphrases of the slogan               |
 | Operations                         | jobs (when using dual-label context)    |
@@ -342,7 +342,7 @@ brand-secondary-text → #8A6B49   (body text)
 The following are prohibited on all document and form surfaces:
 
 - ❌ Bare `"Veteran-Owned"` without `"Since January 2025"` when ownership status is being stated
-- ❌ `"clients"` or retail-buyer labels — use `"Client Partners"`
+- ❌ `"clients"` or retail-buyer labels — use `"Project Stakeholders"`
 - ❌ Emoji in document source (✓ checkmarks in HTML/CSS are acceptable; emoji characters are not)
 - ❌ Hardcoded hex colors that bypass `brand.css` / Tailwind tokens
 - ❌ Paraphrasing the primary slogan within the same document that states the canonical version

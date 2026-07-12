@@ -25,7 +25,7 @@ MH Construction operates on a comprehensive 4-principle system rooted in militar
 defines who we are and how we work. Each value builds toward our ultimate goal: **Trust** - the
 culmination of all other values working together.
 
-**Strategic Focus:** These service-earned values attract professional veterans and clients who value
+**Strategic Focus:** These service-earned values attract professional veterans and project stakeholders who value
 military precision applied to construction excellence.
 
 ---
@@ -74,7 +74,7 @@ comes before our profit.
 
 - Using specified materials and methods without unauthorized substitutions
 - Standing behind our work with comprehensive warranties - battle-tested quality
-- Making decisions that benefit the client mission, not just our bottom line
+- Making decisions that benefit the project mission, not just our bottom line
 - Following through on commitments with deployment-level discipline
 - Never cutting corners, even when no one is watching - service-earned standards
 
@@ -137,8 +137,8 @@ that same tactical thoroughness to every construction mission.
 Trust isn't just another value - it's the result when all other values are consistently demonstrated. Trust is:
 
 - **Earned**: Through consistent demonstration of our four core values
-- **Measurable**: Reflected in client satisfaction, referrals, and repeat business
-- **Foundational**: The basis for all our client relationships and community standing
+- **Measurable**: Reflected in project stakeholder satisfaction, referrals, and repeat business
+- **Foundational**: The basis for all our project stakeholder relationships and community standing
 - **Sustainable**: What allows us to build lasting partnerships beyond individual projects
 
 ### How We Build Trust
@@ -150,10 +150,10 @@ Trust isn't just another value - it's the result when all other values are consi
 
 ### Measuring Our Success
 
-- **Client Satisfaction**: 98% satisfaction rate maintained
-- **Referral Rate**: 70% of new business comes from client referrals
+- **Project Stakeholder Satisfaction**: 98% satisfaction rate maintained
+- **Referral Rate**: 70% of new business comes from project stakeholder referrals
 - **Community Standing**: Active involvement in Pacific Northwest communities
-- **Repeat Clients**: Many clients return for additional projects
+- **Repeat Project Stakeholders**: Many project stakeholders return for additional projects
 - **Industry Recognition**: Respected by peers and competitors
 - **BBB Accredited**: A+ Rating since April 7, 2026 — [View BBB Profile](https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036)
 
@@ -230,7 +230,7 @@ commitment to transparency, quality, and relationship-building.
 
 ## 💡 Why Our Values Matter
 
-### For Our Clients
+### For Our Project Stakeholders
 
 - **Predictable Experience**: You know what to expect from MH Construction
 - **Peace of Mind**: Confidence that your project is in capable, ethical hands
@@ -260,13 +260,13 @@ team committed to these four core values.**
 
 Every decision we make, every process we follow, and every interaction we have is measured against these values.
 They're not just words on a wall - they're the foundation of how we do business and the promise we make to every
-client and community we serve.
+project stakeholder and community we serve.
 
 **Remember**: Built on Quality, Backed by Trust. We're big enough to scale and small enough to stay personal.
 
 ---
 
-> _"These values aren't just our company culture - they're our commitment to every client, every project, and
+> _"These values aren't just our company culture - they're our commitment to every project stakeholder, every project, and
 > every community we have the privilege to serve."_
 >
 > **- MH Construction Leadership Team**
@@ -277,7 +277,7 @@ client and community we serve.
 
 Experience these values in action on your next construction project.
 
-### For Project Clients
+### For Project Stakeholders
 
 - **Schedule Free Consultation** - Discuss your project with our team
 
@@ -295,12 +295,12 @@ Experience these values in action on your next construction project.
 
 ### Values in Action: From Principles to Proof
 
-Our 4 Core Values aren't abstract concepts—they create 6 measurable differences that clients experience on every project:
+Our 4 Core Values aren't abstract concepts—they create 6 measurable differences that project stakeholders experience on every project:
 
 | Core Value          | Measurable Differences for You                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Honesty**         | **→ Transparent Honesty Difference**<br>• Open-book pricing with detailed breakdowns<br>• No hidden costs or surprise charges<br>• Complete visibility into every decision<br>• Real-time project updates                                                                                                                                                                                                                    |
-| **Integrity**       | **→ Partnership-Driven Trust Difference**<br>• 70% referral & repeat business (clients recommend us)<br>• Lifelong partnerships beyond project completion<br><br>**→ 650+ Successful Projects - Reliability Difference**<br>• We finish what we start, every time<br>• Proven track record of promise-keeping                                                                                                                |
+| **Integrity**       | **→ Partnership-Driven Trust Difference**<br>• 70% referral & repeat business (project stakeholders recommend us)<br>• Lifelong partnerships beyond project completion<br><br>**→ 650+ Successful Projects - Reliability Difference**<br>• We finish what we start, every time<br>• Proven track record of promise-keeping                                                                                                   |
 | **Professionalism** | **→ .64 EMR Award-Winning Safety Difference**<br>• Industry-leading safety (40% better than average)<br>• Professional safety standards on every job<br><br>**→ 150+ Years Combined Experience Difference**<br>• Deep expertise across all disciplines<br>• Proven methods refined through generations<br><br>**→ 3 State Licensed & Insured Difference**<br>• Licensed in WA, OR, ID<br>• Complete professional credentials |
 | **Thoroughness**    | **→ Enhanced Safety Performance**<br>• .64 EMR through attention to detail<br>• 3+ years without time-loss injury<br><br>**→ Zero-Gap Project Execution**<br>• 650+ projects completed with nothing missed<br>• Systematic quality control prevents problems                                                                                                                                                                 |
 

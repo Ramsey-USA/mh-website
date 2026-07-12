@@ -1,6 +1,6 @@
 /**
  * Testimonials Section
- * Displays Client Partner testimonials from completed projects
+ * Displays project stakeholder testimonials from completed projects
  */
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -26,9 +26,9 @@ export function TestimonialsSection({
   projects,
   testimonials,
   title = "Project Testimonials",
-  subtitle = "Client Partner Feedback",
-  description = "Direct feedback from Client Partners on communication, craftsmanship, and follow-through.",
-  clientPartnerLabel = "Client Partner",
+  subtitle = "Project Stakeholder Feedback",
+  description = "Direct feedback from project stakeholders on communication, craftsmanship, and follow-through.",
+  clientPartnerLabel = "Project Stakeholder",
   starRatingAriaSuffix = "star rating",
 }: Readonly<TestimonialsSectionProps>) {
   const testimonialsProjects = projects

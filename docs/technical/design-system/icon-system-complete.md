@@ -600,16 +600,16 @@ style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
 
 **MH Construction uses a strict standard for people-related icons:**
 
-| Icon    | Material Icon | Visual       | Represents                               |
-| ------- | ------------- | ------------ | ---------------------------------------- |
-| Allies  | `handshake`   | Two hands    | Partners, trade partners, subcontractors |
-| Clients | `group`       | Two people   | Client partners, project owners          |
-| Team    | `groups`      | Three people | Our staff, crew, employees               |
+| Icon                 | Material Icon | Visual       | Represents                                |
+| -------------------- | ------------- | ------------ | ----------------------------------------- |
+| Allies               | `handshake`   | Two hands    | Partners, trade partners, subcontractors  |
+| Project Stakeholders | `group`       | Two people   | Project owners, architects, bonding banks |
+| Team                 | `groups`      | Three people | Our staff, crew, employees                |
 
 **Mental Model:**
 
 - 🤝 **Handshake** = Allies (partnerships, working together)
-- 👥 **Two People** = Clients (the client partner relationship)
+- 👥 **Two People** = Project Stakeholders (the external review relationship)
 - 👥👤 **Three People** = Team (our internal crew)
 
 **Usage Examples:**
@@ -692,26 +692,31 @@ import { SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
 
 **Standardized Page Icons:**
 
-| Page          | Icon                | Usage                              |
-| ------------- | ------------------- | ---------------------------------- |
-| Home          | `home`              | Homepage navigation                |
-| Contact       | `contact_phone`     | Contact page links                 |
-| Services      | `build`             | Services hub section navigation    |
-| Projects      | `photo_library`     | Project portfolio links            |
-| Resources     | `folder_open`       | Resources/downloads page           |
-| Safety        | `verified_user`     | Safety information page            |
-| FAQ           | `help`              | FAQ/help page                      |
-| About         | `military_tech`     | About page (veteran-owned)         |
-| Team          | `groups`            | Team/staff page (3 people)         |
-| Allies        | `handshake`         | Partner trade partners (handshake) |
-| Public Sector | `account_balance`   | Government services hub section    |
-| Veterans      | `workspace_premium` | Veterans services hub section      |
-| Careers       | `work`              | Careers/jobs page                  |
-| Testimonials  | `star`              | Client partner reviews page        |
-| Privacy       | `shield`            | Privacy policy                     |
-| Terms         | `gavel`             | Terms of service                   |
-| Accessibility | `accessibility`     | Accessibility statement            |
-| Sitemap       | `account_tree`      | Site map page                      |
+| Page      | Icon            | Usage                           |
+| --------- | --------------- | ------------------------------- |
+| Home      | `home`          | Homepage navigation             |
+| Contact   | `contact_phone` | Contact page links              |
+| Services  | `build`         | Services hub section navigation |
+| Projects  | `photo_library` | Project portfolio links         |
+| Resources | `folder_open`   | Resources/downloads page        |
+| Safety    | `verified_user` | Safety information page         |
+| FAQ       | `help`          | FAQ/help page                   |
+
+<!-- markdownlint-disable MD060 -->
+
+| About | `military_tech` | About page (veteran-owned) |
+| Team | `groups` | Team/staff page (3 people) |
+| Allies | `handshake` | Partner trade partners (handshake) |
+| Public Sector | `account_balance` | Government services hub section |
+| Veterans | `workspace_premium` | Veterans services hub section |
+| Careers | `work` | Careers/jobs page |
+| Testimonials | `star` | Project stakeholder reviews page |
+| Privacy | `shield` | Privacy policy |
+| Terms | `gavel` | Terms of service |
+| Accessibility | `accessibility` | Accessibility statement |
+| Sitemap | `account_tree` | Site map page |
+
+<!-- markdownlint-enable MD060 -->
 
 **Usage Example:**
 

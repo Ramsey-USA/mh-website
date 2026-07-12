@@ -108,7 +108,8 @@ export default function SafetyManualContentsPage() {
                 Revision {revisionNumber} &middot; Effective {revisionDate}
               </p>
               <p className="font-heading mt-2 text-xs font-semibold text-brand-secondary">
-                Public index for section navigation and access requests
+                Public index for external review, section navigation, and access
+                requests
               </p>
             </div>
             <div className="flex gap-3 flex-wrap">
@@ -136,7 +137,17 @@ export default function SafetyManualContentsPage() {
                     size="sm"
                     className="text-white"
                   />
-                  Safety Program (MISH)
+                  MISH Safety &amp; Health Program
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link href="/resources/safety-manual/forms">
+                  <MaterialIcon
+                    icon={FORM_MANUAL_ICONS.formField}
+                    size="sm"
+                    className="text-white"
+                  />
+                  Safety Forms Index
                 </Link>
               </Button>
             </div>
@@ -150,15 +161,31 @@ export default function SafetyManualContentsPage() {
           <MaterialIcon icon="lock" size="sm" className="shrink-0" />
           <span>
             <strong>Full manual access is restricted.</strong> Credentialed
-            parties (bonding agencies, insurers, AGC members) may request access
+            parties (bonding banks, insurers, and architects) may request access
             via{" "}
             <Link
               href="/safety"
               className="underline hover:text-amber-900 dark:hover:text-amber-200"
             >
-              the Safety Program (MISH) page
+              the MISH Safety &amp; Health Program page
             </Link>
-            .
+            . Public visitors, architects, subcontractors, vendors, and future
+            employees can use this index, the TOC PDF, and blank safety forms.
+            Current employees should use the Dashboard (Staff Hub).
+          </span>
+        </div>
+      </div>
+
+      <div className="border-b border-brand-primary/15 bg-brand-primary/5 px-4 py-3">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-primary">
+          <span className="rounded-full border border-brand-primary/25 bg-white px-3 py-1">
+            Built on Quality, Backed by Trust.
+          </span>
+          <span className="rounded-full border border-brand-primary/25 bg-white px-3 py-1">
+            Veteran-Owned Leadership
+          </span>
+          <span className="rounded-full border border-brand-primary/25 bg-white px-3 py-1">
+            OSHA-Aligned Program Structure
           </span>
         </div>
       </div>
@@ -240,7 +267,7 @@ export default function SafetyManualContentsPage() {
               className="inline-flex items-center gap-2 rounded-lg bg-brand-primary px-5 py-2.5 text-sm font-bold text-white shadow hover:bg-brand-primary-dark transition-colors"
             >
               <MaterialIcon icon="login" size="sm" className="text-white" />
-              Sign In — Staff Hub
+              Sign In — Dashboard / Staff Hub
             </Link>
             <Link
               href="/contact"

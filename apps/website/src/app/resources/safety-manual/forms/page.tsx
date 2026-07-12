@@ -81,18 +81,19 @@ export default function SafetyManualFormsPage() {
               size="sm"
               className="text-brand-secondary"
             />
-            Safety Forms (MISH)
+            Safety Forms (MISH Safety &amp; Health Program)
           </div>
           <p className="font-heading mb-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/80">
             Safety Manual <span aria-hidden>→</span> Safety Forms
           </p>
           <h1 className="text-2xl font-black text-white sm:text-3xl md:text-4xl leading-tight">
-            Safety Forms (MISH Program)
+            Safety Forms (MISH Safety &amp; Health Program)
           </h1>
           <p className="mt-3 max-w-3xl text-sm text-white/80 sm:text-base">
-            Field-ready safety forms for MH Construction crews and Client
-            Partners. Each form aligns with a MISH section and is part of our
-            written Safety Program delivered as the Safety Manual.
+            Field-ready safety forms for MH Construction crews, subcontractors,
+            vendors, and external reviewers. Each form aligns with a MISH
+            section and is part of our written Safety Program delivered as the
+            Safety Manual.
           </p>
           <p className="mt-3 text-xs font-semibold text-brand-secondary">
             Blank templates for field use and documentation control
@@ -111,7 +112,7 @@ export default function SafetyManualFormsPage() {
               href="/hub"
               className="underline hover:text-amber-900 dark:hover:text-amber-200"
             >
-              sign in
+              sign in to Dashboard (Staff Hub)
             </Link>{" "}
             for authorized access.
           </span>

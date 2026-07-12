@@ -44,7 +44,7 @@ jest.mock("@/lib/data/testimonials", () => ({
       project: "Commercial Remodel",
       company: null,
       rating: 5,
-      type: "client",
+      type: "stakeholder",
       category: "remodel",
       image: "/images/john.jpg",
       socialCard: null,

@@ -129,7 +129,7 @@ Public libraries, performing arts, senior services, state parks, and nonprofit f
 community-serving projects that reflect MH Construction's investment in the Pacific Northwest
 beyond pure commercial volume.
 
-| Project                                                     | Client Type                 |
+| Project                                                     | Project Stakeholder Type    |
 | ----------------------------------------------------------- | --------------------------- |
 | Wenatchee Public Library Remodel                            | Public Library              |
 | ACT Theater Remodel                                         | Performing Arts             |
@@ -137,7 +137,7 @@ beyond pure commercial volume.
 | Sun Lakes Dry Falls State Park Visitor Center Renovations   | Washington State Parks      |
 | LCSNW Canal Project (Lutheran Community Services Northwest) | Nonprofit / Social Services |
 
-**Core value demonstrated:** Honesty — civic and nonprofit clients operate on public trust and
+**Core value demonstrated:** Honesty — civic and nonprofit project stakeholders operate on public trust and
 constrained budgets; transparent communication and honest pricing are non-negotiable.
 
 ---

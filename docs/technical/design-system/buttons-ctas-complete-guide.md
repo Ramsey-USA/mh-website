@@ -431,7 +431,7 @@ Always include veteran-owned and safety credentials when using government button
 
 - Collaborative relationship
 - Long-term trust
-- "Client Partner" terminology (preferred relationship-first phrasing)
+- "Project Stakeholder" terminology (preferred external-audience phrasing)
 - Partnership-first philosophy
 
 ---

@@ -57,7 +57,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Are you BBB accredited?",
         answer:
-          "Yes. MH Construction is Better Business Bureau accredited with an A+ rating (accredited April 7, 2026). That accreditation reflects our commitment to trust, transparency, and ethical business practices in every client partnership.",
+          "Yes. MH Construction is Better Business Bureau accredited with an A+ rating (accredited April 7, 2026). That accreditation reflects our commitment to trust, transparency, and ethical business practices in every project stakeholder relationship.",
         link: {
           text: "View BBB Business Profile →",
           href: "https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036",
@@ -272,9 +272,9 @@ export const faqCategories: FAQCategory[] = [
     ogImage: "/images/og/faq/working-together.webp",
     questions: [
       {
-        question: "What does 'Client Partner' mean?",
+        question: "What does 'project stakeholder' mean?",
         answer:
-          "We use 'Client Partner' instead of just 'client' because we believe in true partnership—working WITH you, not FOR you. Your success is our success. This isn't just terminology; it's our operating philosophy reflected in collaborative decision-making, transparent communication, and shared commitment to your project's success.",
+          "We use 'project stakeholder' to reflect true partnership—owners, architects, consultants, and teams working together. Your success is our success. This isn't just terminology; it's our operating philosophy reflected in collaborative decision-making, transparent communication, and shared commitment to project outcomes.",
       },
       {
         question: "How do you select Allies and vendors?",

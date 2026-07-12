@@ -32,7 +32,7 @@ const coreValuesBase = [
     valueSlogan: "Do right when no one is watching.",
     supportingSlogan: "Commitments kept under pressure.",
     description:
-      "Strong ethics-doing what is right even when no one is watching. Using specified materials and methods without substitutions. Comprehensive warranties-we stand behind our work. Making decisions that benefit Client Partners, not just our bottom line. Following through on commitments even when circumstances change. No shortcuts, period.",
+      "Strong ethics-doing what is right even when no one is watching. Using specified materials and methods without substitutions. Comprehensive warranties-we stand behind our work. Making decisions that benefit project stakeholders, not just our bottom line. Following through on commitments even when circumstances change. No shortcuts, period.",
     image: "/images/values/integrity.webp",
     iconBg: "bg-primary-700",
     stats: "Unwavering Ethics",

@@ -158,7 +158,7 @@ export function WhyPartnerSection({
             <>
               Review the operating standards behind every{" "}
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                client partnership
+                project stakeholder relationship
               </span>
               : safety leadership, transparent process controls, and{" "}
               <span className="font-bold text-gray-900 dark:text-white">

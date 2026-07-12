@@ -96,7 +96,7 @@ export const metadata: Metadata = withGeoMetadata({
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Commercial Construction, Tenant Improvements, Municipal, and Light Industrial | MH Construction`,
     description:
-      "Commercial construction services for agricultural and winery Client Partners, tenant improvements, municipal, and light industrial projects with disciplined scope control and Procore-based delivery.",
+      "Commercial construction services for agricultural and winery stakeholders, tenant improvements, municipal, and light industrial projects with disciplined scope control and Procore-based delivery.",
     url: SITE_URL,
     siteName: "MH Construction",
     type: "website",
@@ -221,13 +221,14 @@ export default async function Home() {
           processSubtitle: "Cómo Trabajamos",
           processTitle: "Proceso de Entrega de Proyectos en Seis Etapas",
           trustSubtitle: "Confianza y Rendición de Cuentas",
-          trustTitle: "Por Qué Client Partners Eligen Nuestro Equipo Comercial",
+          trustTitle:
+            "Por Qué Socios del Proyecto Eligen Nuestro Equipo Comercial",
           trustDescription:
             "Resultados consistentes, comunicación clara y una cadena operativa responsable desde preconstrucción hasta cierre.",
           testimonialSubtitle: "Prueba de Clientes",
           testimonialTitle: "Testimonios de Clientes y Resultados de Proyecto",
           testimonialDescription:
-            "Comentarios de Client Partners en proyectos agrícolas/de bodega, tenant improvements comerciales y proyectos municipales.",
+            "Comentarios de socios del proyecto en proyectos agrícolas/de bodega, tenant improvements comerciales y proyectos municipales.",
           finalSubtitle: "Siguiente Paso",
           finalTitle:
             "Comience con una Revisión de Alcance para Construcción Comercial",
@@ -286,13 +287,13 @@ export default async function Home() {
           processTitle: "Construction Project Delivery Process in Six Stages",
           trustSubtitle: "Trust and Accountability",
           trustTitle:
-            "Why Client Partners Choose Our Commercial Construction Team",
+            "Why Project Stakeholders Choose Our Commercial Construction Team",
           trustDescription:
-            "Consistent execution, direct communication, and accountable operating controls from planning through closeout.",
+            "Consistent execution, direct communication, and accountable operating controls from planning through closeout for owners, architects, bonding banks, insurers, and project teams.",
           testimonialSubtitle: "Client Proof",
           testimonialTitle: "Construction Client Testimonials and Outcomes",
           testimonialDescription:
-            "Feedback from Client Partners across agricultural/winery, commercial tenant improvement, and municipal-facing project scopes.",
+            "Feedback from project stakeholders across agricultural/winery, commercial tenant improvement, and municipal-facing project scopes.",
           finalSubtitle: "Next Step",
           finalTitle: "Start with a Commercial Construction Scope Review",
           finalDescription:

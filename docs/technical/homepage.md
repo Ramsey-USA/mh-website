@@ -179,7 +179,7 @@ The homepage follows the **Universal Page Flow Standard**: **Discover → Trust 
 - **Component:** `TestimonialsSection` (Lazy-loaded)
 - **Purpose:** Social proof at optimal depth (25-30% in user scroll)
 - **Features:**
-  - Client partner testimonials
+  - Project stakeholder testimonials
   - Trust-building credibility
   - Below-the-fold lazy loading for performance
   - SSR disabled with loading placeholder

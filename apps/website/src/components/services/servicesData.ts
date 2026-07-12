@@ -64,7 +64,7 @@ export const coreServices: CoreService[] = [
       "Schools and training facilities",
     ],
     benefits: [
-      "One source of truth through Procore for team and Client Partner visibility",
+      "One source of truth through Procore for team and stakeholder visibility",
       "Clear communication and documented decisions",
       "Reduced rework through upfront planning",
       "Disciplined execution across commercial sectors",
@@ -84,7 +84,7 @@ export const coreServices: CoreService[] = [
       "Washington, Oregon, and Idaho code compliance planning",
       "Budget constraints and cost controls",
       "Schedule and sequencing planning",
-      "Client Partner design intent integration",
+      "Stakeholder design intent integration",
       "Feasibility and risk analysis",
       "Multi-scenario budgeting when needed",
     ],
@@ -116,7 +116,7 @@ export const coreServices: CoreService[] = [
     benefits: [
       "Earlier visibility on long-lead risk",
       "Tighter material and schedule coordination",
-      "Reduced Client Partner burden for trade management",
+      "Reduced stakeholder burden for trade management",
       "Consistent quality through vetted partners",
       "Better field readiness at install milestones",
     ],
@@ -142,7 +142,7 @@ export const coreServices: CoreService[] = [
       "Trade-informed pricing and sequencing",
       "Fewer constructability conflicts in the field",
       "Stronger budget adherence",
-      "Earlier decision confidence for Client Partners and teams",
+      "Earlier decision confidence for stakeholders and teams",
       "Improved schedule predictability",
     ],
   },
@@ -216,7 +216,7 @@ export const specialtyServices: SpecialtyService[] = [
     title: "Commercial New Build-Outs",
     subtitle: "Ground-Up Commercial Builds Done Right",
     description:
-      "We deliver ground-up commercial facilities with early constructability mapping, disciplined field sequence control, and direct Client Partner communication from site readiness through turnover.",
+      "We deliver ground-up commercial facilities with early constructability mapping, disciplined field sequence control, and direct stakeholder communication from site readiness through turnover.",
     buildTypes: [
       "Retail stores and shopping centers",
       "Medical offices and clinics",

@@ -8,6 +8,11 @@
 
 import { NextResponse, type NextRequest } from "next/server";
 import { getR2Bucket, type R2Bucket } from "@/lib/cloudflare/r2";
+import {
+  extractTokenFromHeader,
+  verifyRefreshToken,
+  verifyToken,
+} from "@/lib/auth/jwt";
 import { logger } from "@/lib/utils/logger";
 
 export const dynamic = "force-dynamic";
@@ -18,6 +23,56 @@ const CONTENT_TYPES: Record<string, string> = {
   ".docx":
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 };
+
+// Public website-facing document set (partial access only).
+// Full manuals/sections remain employee-only and require authentication.
+const PUBLIC_DOC_KEY_PATTERNS = [
+  /^docs\/safety\/safety-manual-(?:contents|toc|reference)\.pdf$/i,
+  /^docs\/employee\/employee-handbook-toc\.pdf$/i,
+  /^docs\/safety\/forms\/[\w.-]+\.pdf$/i,
+  /^docs\/employee\/forms\/[\w.-]+\.pdf$/i,
+];
+
+const EMPLOYEE_UID_PREFIXES = ["admin-", "field-", "worker-", "traveler-"];
+
+function isPublicDocKey(key: string): boolean {
+  return PUBLIC_DOC_KEY_PATTERNS.some((pattern) => pattern.test(key));
+}
+
+function isEmployeeRefreshUid(uid: string | null): boolean {
+  if (!uid) return false;
+  return EMPLOYEE_UID_PREFIXES.some((prefix) => uid.startsWith(prefix));
+}
+
+async function hasEmployeeAccess(request: NextRequest): Promise<boolean> {
+  const token = extractTokenFromHeader(request.headers.get("authorization"));
+  if (token) {
+    const user = await verifyToken(token);
+    if (
+      user?.role &&
+      ["admin", "superintendent", "worker", "traveler"].includes(user.role)
+    ) {
+      return true;
+    }
+  }
+
+  const refreshCandidates = [
+    request.cookies.get("mh_refresh_token")?.value ?? null,
+    request.cookies.get("mh_field_refresh_token")?.value ?? null,
+    request.cookies.get("mh_worker_refresh_token")?.value ?? null,
+    request.cookies.get("mh_traveler_refresh_token")?.value ?? null,
+  ];
+
+  for (const refreshToken of refreshCandidates) {
+    if (!refreshToken) continue;
+    const refreshUid = await verifyRefreshToken(refreshToken);
+    if (isEmployeeRefreshUid(refreshUid)) {
+      return true;
+    }
+  }
+
+  return false;
+}
 
 function contentTypeFor(path: string): string {
   const ext = path.slice(path.lastIndexOf(".")).toLowerCase();
@@ -38,6 +93,20 @@ export async function GET(
   }
 
   const key = `docs/${segments.join("/")}`;
+
+  if (!isPublicDocKey(key)) {
+    const authorized = await hasEmployeeAccess(_request);
+    if (!authorized) {
+      return NextResponse.json(
+        {
+          error: "Authentication required",
+          detail:
+            "This document is restricted to authenticated employees. Use the Hub sign-in flow for full manual access.",
+        },
+        { status: 401 },
+      );
+    }
+  }
 
   let bucket: R2Bucket | null;
   try {

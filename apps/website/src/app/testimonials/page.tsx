@@ -73,7 +73,7 @@ const faqSchema = {
       name: "How do I leave a testimonial for MH Construction?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can leave a Google review through our testimonials page link, or contact us directly to share your experience. Client Partner feedback helps us improve delivery and helps other businesses make informed partnership decisions.",
+        text: "You can leave a Google review through our testimonials page link, or contact us directly to share your experience. Project stakeholder feedback helps us improve delivery and helps other businesses make informed partnership decisions.",
       },
     },
     {
@@ -81,7 +81,7 @@ const faqSchema = {
       name: "Are MH Construction testimonials verified?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes! All testimonials come from real Client Partners on completed projects across Washington, Oregon, and Idaho. We maintain the highest standards of authenticity—no paid reviews, no fabricated stories. Just honest feedback from valued partnerships in commercial, industrial, and government construction projects throughout the Pacific Northwest.",
+        text: "Yes! All testimonials come from real project stakeholders on completed projects across Washington, Oregon, and Idaho. We maintain the highest standards of authenticity—no paid reviews, no fabricated stories. Just honest feedback from valued partnerships in commercial, industrial, and government construction projects throughout the Pacific Northwest.",
       },
     },
     {
@@ -94,10 +94,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Can I speak with past MH Construction Client Partners?",
+      name: "Can I speak with past MH Construction project stakeholders?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We're happy to provide references during your consultation. We can connect you with past Client Partners who have completed similar commercial, industrial, or government projects. Their firsthand accounts reflect clear communication, schedule transparency, and quality workmanship.",
+        text: "We're happy to provide references during your consultation. We can connect you with past project stakeholders who have completed similar commercial, industrial, or government projects. Their firsthand accounts reflect clear communication, schedule transparency, and quality workmanship.",
       },
     },
   ],
@@ -118,11 +118,11 @@ function StaticTestimonialsSection({
             Trusted By Our Partners
           </p>
           <h2 className="font-black text-gray-900 text-3xl sm:text-4xl lg:text-5xl tracking-tight dark:text-white">
-            What Our Client Partners Say
+            What Our Project Stakeholders Say
           </h2>
           <p className="font-body mx-auto mt-4 max-w-3xl text-gray-600 text-base sm:text-lg leading-relaxed dark:text-gray-300">
-            Verified feedback from Client Partners across the Pacific Northwest
-            on communication, quality, and delivery follow-through.
+            Verified feedback from project stakeholders across the Pacific
+            Northwest on communication, quality, and delivery follow-through.
           </p>
         </div>
 
@@ -288,8 +288,8 @@ export default async function TestimonialsPage(props?: {
             <TestimonialsSection
               id="client-testimonials"
               subtitle="Trusted By Our Partners"
-              title="What Our Client Partners Say"
-              description={`Verified testimonials from Client Partners across the Pacific Northwest. ${testimonialsMissionLine} ${testimonialsSupportingLine}`}
+              title="What Our Project Stakeholders Say"
+              description={`Verified testimonials from project stakeholders across the Pacific Northwest. ${testimonialsMissionLine} ${testimonialsSupportingLine}`}
               testimonials={testimonials}
               autoPlay={true}
               autoPlayInterval={5000}
@@ -332,7 +332,7 @@ export default async function TestimonialsPage(props?: {
                 <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   Our four core values show up in measurable results across
                   commercial, industrial, and government projects throughout
-                  Washington, Oregon, and Idaho for Client Partners.
+                  Washington, Oregon, and Idaho for project stakeholders.
                 </p>
               </div>
 
@@ -678,8 +678,8 @@ export default async function TestimonialsPage(props?: {
               Client Testimonials Coming Soon
             </h2>
             <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-8">
-              We're collecting feedback from our valued Client Partners. Check
-              back soon to read about their experiences working with our
+              We're collecting feedback from our valued project stakeholders.
+              Check back soon to read about their experiences working with our
               construction team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

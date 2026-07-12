@@ -17,6 +17,8 @@ or documentation that can affect MH brand consistency.
 1. **Veteran framing:** Veteran-owned wording is accurate and factual.
 1. **Trust continuity:** Accreditation and trust signals are preserved where present.
 1. **Terminology:** Naming remains consistent across UI copy, metadata, schema, and docs.
+1. **Dual terminology:** Cross-asset naming follows `docs/branding/strategy/dual-terminology-standard.md` for website, dashboard, MISH, handbook, and document surfaces.
+1. **Construction glossary:** PMBOK 6 alignment and military-themed construction terms follow `docs/branding/strategy/construction-terminology-glossary.md`.
 1. **Accessibility:** Semantic headings, labels, contrast, and keyboard flow remain valid.
 1. **SEO naming:** Labels and titles stay plain-language and canonical.
 1. **Document chip parity:** For print/document artifacts, program/chapter/form identifier pillboxes use the canonical `1.5pt` corner radius consistently across safety-manual and employee-handbook templates.
@@ -35,6 +37,8 @@ or documentation that can affect MH brand consistency.
 3. `docs/branding/governance/website-guardrails-coverage.md`
 4. Relevant standards or strategy files for the surface being changed
 5. Companion checklist for your change type (if needed)
+
+For terminology and dual-label changes, pair this checklist with `docs/branding/strategy/dual-terminology-standard.md` and `docs/branding/strategy/universal-terminology-guide.md`.
 
 For visual implementation changes, include applicable canonical visual contracts in
 `docs/branding/standards/unified-component-standards.md` during review.

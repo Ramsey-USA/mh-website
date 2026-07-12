@@ -23,7 +23,7 @@ const navigationLabelTranslations: Record<string, string> = {
   Capabilities: "Capacidades",
   "Career Growth": "Crecimiento profesional",
   "Leadership Team": "Equipo de liderazgo",
-  "Client Partners": "Socios clientes",
+  "Project Stakeholders": "Socios del proyecto",
   "Client Stories": "Historias de clientes",
   "Client Testimonials": "Testimonios de clientes",
   Commanders: "Comandantes",

@@ -302,6 +302,18 @@ function hexToPdfRgb(hex) {
   );
 }
 
+const SECTION_FOOTER_LAYOUT = Object.freeze({
+  leftInsetIn: 0.92,
+  rightInsetIn: 0.9,
+  bottomInsetIn: 0.18,
+  heightPt: 34,
+  topBorderPt: 1.2,
+  separatorOffsetPt: 2.4,
+  separatorPt: 0.45,
+  row1OffsetPt: 12,
+  row2OffsetPt: 24,
+});
+
 async function stampSectionFooterPdf(pdfPath) {
   const pdfBytes = await readFile(pdfPath);
   const pdfDoc = await PDFDocument.load(pdfBytes);
@@ -316,10 +328,10 @@ async function stampSectionFooterPdf(pdfPath) {
   for (let pageIndex = 0; pageIndex < pageCount; pageIndex += 1) {
     const page = pdfDoc.getPage(pageIndex);
     const { width } = page.getSize();
-    const left = 0.92 * 72;
-    const right = 0.9 * 72;
-    const bottom = 0.18 * 72;
-    const footerHeight = 34;
+    const left = SECTION_FOOTER_LAYOUT.leftInsetIn * 72;
+    const right = SECTION_FOOTER_LAYOUT.rightInsetIn * 72;
+    const bottom = SECTION_FOOTER_LAYOUT.bottomInsetIn * 72;
+    const footerHeight = SECTION_FOOTER_LAYOUT.heightPt;
     const footerWidth = width - left - right;
     const top = bottom + footerHeight;
 
@@ -334,18 +346,21 @@ async function stampSectionFooterPdf(pdfPath) {
     page.drawLine({
       start: { x: left, y: top },
       end: { x: left + footerWidth, y: top },
-      thickness: 1.2,
+      thickness: SECTION_FOOTER_LAYOUT.topBorderPt,
       color: primary,
     });
     page.drawLine({
-      start: { x: left, y: top - 2.4 },
-      end: { x: left + footerWidth, y: top - 2.4 },
-      thickness: 0.45,
+      start: { x: left, y: top - SECTION_FOOTER_LAYOUT.separatorOffsetPt },
+      end: {
+        x: left + footerWidth,
+        y: top - SECTION_FOOTER_LAYOUT.separatorOffsetPt,
+      },
+      thickness: SECTION_FOOTER_LAYOUT.separatorPt,
       color: secondary,
     });
 
-    const row1Y = top - 12;
-    const row2Y = top - 24;
+    const row1Y = top - SECTION_FOOTER_LAYOUT.row1OffsetPt;
+    const row2Y = top - SECTION_FOOTER_LAYOUT.row2OffsetPt;
     const row1Text = `${BRAND.companyName} · ${BRAND.phone} · ${BRAND.website}`;
 
     page.drawText(row1Text, {
@@ -569,9 +584,8 @@ BRAND.revisionDate = ENFORCED_REVISION_DATE;
 BRAND.revisionNumber = ENFORCED_REVISION_NUMBER;
 
 const ACTIVE_MANUAL_DIGITAL_URL = isEmployeeHandbook
-  ? `${SITE_URL}/docs/employee/employee-handbook-2026.pdf`
-  : BRAND?.qrCodes?.digitalManual ||
-    `${SITE_URL}/docs/safety/safety-manual-complete.pdf`;
+  ? `${SITE_URL}/employee-handbook`
+  : `${SITE_URL}/resources/safety-manual/contents`;
 
 const WEBSITE_PAGE_INVENTORY = [
   {
@@ -6402,6 +6416,107 @@ async function validateSafetyTabsVisualStandardGuardrails() {
   }
 }
 
+function extractSectionFooterCssBlock(source, templatePath) {
+  const match = source.match(
+    /\.footer\s*\{[\s\S]*?\}([\s\S]*?\.footer::before\s*\{[\s\S]*?\})?[\s\S]*?\.logo-vob\s*\{[\s\S]*?\}/,
+  );
+  if (!match) {
+    throw new Error(
+      `Guardrail validation failed: could not locate section footer CSS block in ${templatePath}`,
+    );
+  }
+  return match[0];
+}
+
+async function validateSectionTemplateFooterCongruencyGuardrails() {
+  const safetySectionPath = join(
+    DOCS_DIR,
+    "manuals/safety-manual-section.html",
+  );
+  const handbookSectionPath = join(
+    DOCS_DIR,
+    "manuals/employee-handbook-section.html",
+  );
+
+  if (!existsSync(safetySectionPath)) {
+    throw new Error(`Template not found: ${safetySectionPath}`);
+  }
+  if (!existsSync(handbookSectionPath)) {
+    throw new Error(`Template not found: ${handbookSectionPath}`);
+  }
+
+  const [safetySectionHtml, handbookSectionHtml] = await Promise.all([
+    readFile(safetySectionPath, "utf-8"),
+    readFile(handbookSectionPath, "utf-8"),
+  ]);
+
+  const sharedSectionChecks = [
+    {
+      regex:
+        /@page\s*\{[\s\S]*?margin:\s*1\.25in\s+0\.75in\s+1\.2in\s+1\.25in/i,
+      message:
+        "Section template must preserve canonical page margins (top/right/bottom/left: 1.25in/0.75in/1.2in/1.25in)",
+    },
+    {
+      regex:
+        /\.section-info-row[\s\S]*?border-left:\s*4pt\s+solid\s+var\(--brand-primary\)[\s\S]*?box-shadow:\s*inset\s+0\s+-1pt\s+0\s+var\(--brand-secondary\)/i,
+      message:
+        "Section revision panel must preserve canonical accent border and inset shadow",
+    },
+    {
+      regex:
+        /\.footer[\s\S]*?display:\s*none\s*!important[\s\S]*?left:\s*0\.92in[\s\S]*?right:\s*0\.9in[\s\S]*?bottom:\s*0\.12in[\s\S]*?grid-template-columns:\s*1\.45fr\s+1fr/i,
+      message:
+        "Section template footer fallback block must preserve canonical inset/grid metrics and remain disabled (footer is stamped post-render)",
+    },
+    {
+      regex: /\.logo-agc\s*\{\s*height:\s*0\.36in;\s*\}/i,
+      message: "Section template footer logo sizing must include AGC at 0.36in",
+    },
+    {
+      regex: /\.logo-bbb\s*\{\s*height:\s*0\.39in;\s*\}/i,
+      message: "Section template footer logo sizing must include BBB at 0.39in",
+    },
+    {
+      regex: /\.logo-vob\s*\{\s*height:\s*0\.5in;\s*\}/i,
+      message: "Section template footer logo sizing must include VOB at 0.5in",
+    },
+  ];
+
+  validateTemplateGuardrails(
+    `safety section standard (${safetySectionPath})`,
+    safetySectionHtml,
+    sharedSectionChecks,
+  );
+
+  validateTemplateGuardrails(
+    `employee-handbook section standard (${handbookSectionPath})`,
+    handbookSectionHtml,
+    sharedSectionChecks,
+  );
+
+  const safetyFooterCss = normalizeParityBlock(
+    extractSectionFooterCssBlock(safetySectionHtml, safetySectionPath),
+  );
+  const handbookFooterCss = normalizeParityBlock(
+    extractSectionFooterCssBlock(handbookSectionHtml, handbookSectionPath),
+  );
+
+  if (safetyFooterCss !== handbookFooterCss) {
+    throw new Error(
+      "Guardrail validation failed: section footer CSS in employee-handbook-section.html must match safety-manual-section.html exactly.",
+    );
+  }
+
+  const stampedFooterTopIn =
+    SECTION_FOOTER_LAYOUT.bottomInsetIn + SECTION_FOOTER_LAYOUT.heightPt / 72;
+  if (Math.abs(stampedFooterTopIn - 0.6522) > 0.015) {
+    throw new Error(
+      "Guardrail validation failed: stamped section footer top line drifted from canonical baseline (~0.65in from page bottom).",
+    );
+  }
+}
+
 async function validateSpineTemplateGuardrails() {
   const safetySpinePath = join(DOCS_DIR, "manuals/safety-manual-spine.html");
   const handbookSpinePath = join(
@@ -6580,6 +6695,9 @@ async function runGuardrailsCheck() {
 
   await validateSafetyTabsVisualStandardGuardrails();
   console.log("  ✓  Safety tabs visual standard guardrails verified");
+
+  await validateSectionTemplateFooterCongruencyGuardrails();
+  console.log("  ✓  Section footer congruency guardrails verified");
 
   await validateSpineTemplateGuardrails();
   console.log("  ✓  Spine layout and labeling guardrails verified");
@@ -6787,8 +6905,7 @@ async function generateTabs() {
 
   // ── Generate and inject per-tab section QR codes ─────────────────────────
   // For MISH: Tabs 00–44 map to public section URLs; tab 00 = TOC landing page.
-  // For Employee Handbook: handbook currently publishes as a single PDF, so all
-  // tab QR codes route to the canonical public handbook document.
+  // For Employee Handbook: tab QR codes route to the public handbook index.
   for (let n = 0; n <= 44; n++) {
     const nn = String(n).padStart(2, "0");
     const token = `{{QR_TAB_${nn}}}`;

@@ -147,4 +147,4 @@ Normalization: removed section headers/footers, revision banners, contact boiler
   - · · SECTION 06 · REV 3.0 · 7/1/ Page 2 of 4 HANDBOOK SECTION 06 Miscellaneous HB 06 MISCELLANEOUS GIFTS AND TIPS EMPLOYEES ARE NOT TO ACCEPT GIFTS, TIPS, GRATUITIES, OR SPECIAL FAVORS FROM CUSTOMERS OR vendors.
   - · · SECTION 06 · REV 3.0 · 7/1/ Page 3 of 4 HANDBOOK SECTION 06 Miscellaneous HB 06 SAFETY Safety is always a top priority at MH Construction.
   - Safe work practices and good housekeeping habits are respon‐ sibilities each of us share.
-  - We provide our Client Partners and ourselves with a safer environment by keeping areas clear and hazard-free and not taking unnecessary risks.
+  - We provide our Project Stakeholders and ourselves with a safer environment by keeping areas clear and hazard-free and not taking unnecessary risks.

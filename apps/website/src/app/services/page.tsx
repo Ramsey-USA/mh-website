@@ -68,7 +68,7 @@ export default function ServicesPage() {
         services={coreServices}
         subtitle="Core Services"
         title="Execution Controls That Keep Projects Moving"
-        description="From preconstruction through closeout, these services keep scope, schedule, and accountability clear for Client Partners, teams, and stakeholders."
+        description="From preconstruction through closeout, these services keep scope, schedule, and accountability clear for owners, architects, bonding banks, insurers, and project teams."
       />
 
       <SpecialtyServicesSection
@@ -88,14 +88,14 @@ export default function ServicesPage() {
         serviceAreas={serviceAreas}
         subtitle="Service Areas"
         title="Regional Coverage with Local Delivery Accountability"
-        description="Tri-Cities headquartered with field-ready delivery support for Client Partners and project teams across the region."
+        description="Tri-Cities headquartered with field-ready delivery support for owners, architects, and project teams across the region."
         maxLocationsPerArea={8}
         showAllLocationsCta
       />
 
       <WhyChooseUs
         subtitle="Trust Signals"
-        title="Why Client Partners Choose MH Construction"
+        title="Why Project Stakeholders Choose MH Construction"
         description="Documented safety performance, transparent communication, and reliable follow-through from planning through turnover."
       />
 

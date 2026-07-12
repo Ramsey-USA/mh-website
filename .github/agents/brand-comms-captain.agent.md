@@ -12,7 +12,7 @@ disable-model-invocation: true
 
 ## Mission
 
-Protect MH voice quality in client partner-facing language.
+Protect MH voice quality in project stakeholder-facing language.
 
 ## Focus Areas
 

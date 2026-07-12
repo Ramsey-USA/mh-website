@@ -80,10 +80,10 @@ const NEXT_STEPS_COPY: Record<"en" | "es", NextStepsCopy> = {
     tag: "Most Popular",
     option2Title: "See Our Real Work",
     option2Description:
-      "Real projects. Real results. Real testimonials from Client Partners who trust us.",
+      "Real projects. Real results. Real testimonials from project stakeholders who trust us.",
     option2Bullets: [
       "650+ completed projects since 2010",
-      "98% Client Partner satisfaction rate",
+      "98% stakeholder satisfaction rate",
       "70% referral rate - proven excellence",
     ],
     option2Cta: "View Our Work",

@@ -48,7 +48,7 @@ export default function AboutPage() {
     : {
         label: "About MH Construction",
         heading: "Who we are",
-        body: "We are a veteran-owned general contractor serving the Pacific Northwest. We build long-term Client Partner relationships through direct communication, disciplined execution, and field-first safety.",
+        body: "We are a veteran-owned general contractor serving the Pacific Northwest. We build long-term stakeholder relationships through direct communication, disciplined execution, and field-first safety.",
         storyTitle: "Our story",
         storyP1:
           "Since 2010, we have worked alongside owners, operators, and design teams to deliver projects with practical planning and steady coordination.",

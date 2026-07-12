@@ -55,7 +55,7 @@ locations and converting app-local copies into thin wrappers.
   and `packages/shared/src/styles/material-icons.css`, with app style entry files
   converted to `@import` wrappers.
 - Final mirrored team data extracted to `packages/shared/src/lib/data/team/`
-  (gator and mike-holstein), consumed via dedicated alias namespace
+  (GATOR and mike-holstein), consumed via dedicated alias namespace
   `@/lib/shared-data/team/*` to avoid collisions with local `@/lib/data/team/*` imports.
 
 ### Drift Guard Outcome

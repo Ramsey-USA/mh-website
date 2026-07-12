@@ -269,7 +269,7 @@ export function PWAInstallCTA({
                     Install the app to access the Staff Hub.
                   </h2>
                   <p className="font-body mt-3 max-w-3xl text-sm leading-relaxed text-white/85 sm:text-base">
-                    The Staff Hub is the MH Construction staff portal — safety
+                    The Staff Hub is the MH Construction Dashboard for safety
                     manual, field forms, toolbox talks, incident reporting, and
                     the employee handbook. Free to install. Access requires your
                     team passcode.

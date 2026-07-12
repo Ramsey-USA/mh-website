@@ -30,7 +30,7 @@ const teamSpecialties = [
   },
   {
     icon: "handshake",
-    title: "Client Partnership",
+    title: "Stakeholder Partnership",
     description:
       "70% referral rate through earned trust and transparent communication",
   },
@@ -91,7 +91,7 @@ export function LeadershipTeam({
               ownership to field personnel contributes unique expertise toward
               one goal:{" "}
               <span className="font-bold text-white">
-                delivering exceptional results for our Client Partners
+                delivering exceptional results for our project stakeholders
               </span>
               .
             </p>

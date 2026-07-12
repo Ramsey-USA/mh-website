@@ -128,7 +128,7 @@ async function handler(request: NextRequest) {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
-      path: "/api/auth",
+      path: "/",
       maxAge: 60 * 60 * 24,
     });
 

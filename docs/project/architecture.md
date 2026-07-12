@@ -27,7 +27,7 @@
 - ✅ **Public Sector Page** (`/src/app/public-sector/page.tsx`) - Government & public sector project focus
 - ✅ **Allies Page** (`/src/app/allies/page.tsx`) - Trade partner / subcontractor network
 - ✅ **Veterans Page** (`/src/app/veterans/page.tsx`) - Veteran hiring and recognition
-- ✅ **Testimonials Page** (`/src/app/testimonials/page.tsx`) - Client partner reviews
+- ✅ **Testimonials Page** (`/src/app/testimonials/page.tsx`) - Project stakeholder reviews
 - ✅ **FAQ Page** (`/src/app/faq/page.tsx`) - Common questions and answers
 - ✅ **Privacy Policy** (`/src/app/privacy/page.tsx`) - Privacy policy
 - ✅ **Terms of Service** (`/src/app/terms/page.tsx`) - Terms of service
@@ -221,7 +221,7 @@ src/
 - **Graceful Fallback**: Keyword-based responses when AI binding is absent (local dev, quota exhaustion)
 - **Knowledge Base**: All 9 Allies with contact info, full services list, FAQ, veteran benefits, navigation help
 - **Brand-Safe System Prompt**: Forbids fabrication, cost estimates; enforces MH terminology
-  (Client Partners, Trade Partners, Veteran-Owned)
+  (Project Stakeholders, Trade Partners, Veteran-Owned)
 - **Responsive Widget**: Floating button on desktop → fullscreen drawer on mobile with iOS safe-area padding
 - **Security**: Input sanitized (max 500 chars), rate-limited to 60 req/min/IP (API preset), history capped at 10 turns
 - **SEO/GEO**: `contactPoint` in Organization schema, FAQ structured data, `public/llms.txt` updated
