@@ -288,6 +288,115 @@ async function embedPdfMendlBodyFont(pdfDoc) {
   return pdfDoc.embedFont(fontBytes, { subset: true });
 }
 
+function hexToPdfRgb(hex) {
+  const normalized = String(hex || "")
+    .replace("#", "")
+    .trim();
+  if (!/^[0-9a-fA-F]{6}$/.test(normalized)) {
+    return rgb(0, 0, 0);
+  }
+  return rgb(
+    parseInt(normalized.slice(0, 2), 16) / 255,
+    parseInt(normalized.slice(2, 4), 16) / 255,
+    parseInt(normalized.slice(4, 6), 16) / 255,
+  );
+}
+
+async function stampSectionFooterPdf(pdfPath) {
+  const pdfBytes = await readFile(pdfPath);
+  const pdfDoc = await PDFDocument.load(pdfBytes);
+  const font = await embedPdfMendlBodyFont(pdfDoc);
+
+  const primary = hexToPdfRgb(BRAND.colors.primary);
+  const primaryDark = hexToPdfRgb(BRAND.colors.primaryDark);
+  const secondary = hexToPdfRgb(BRAND.colors.secondary);
+  const secondaryText = hexToPdfRgb(BRAND.colors.secondaryText);
+  const pageCount = pdfDoc.getPageCount();
+
+  for (let pageIndex = 0; pageIndex < pageCount; pageIndex += 1) {
+    const page = pdfDoc.getPage(pageIndex);
+    const { width } = page.getSize();
+    const left = 0.92 * 72;
+    const right = 0.9 * 72;
+    const bottom = 0.18 * 72;
+    const footerHeight = 34;
+    const footerWidth = width - left - right;
+    const top = bottom + footerHeight;
+
+    page.drawRectangle({
+      x: left,
+      y: bottom,
+      width: footerWidth,
+      height: footerHeight,
+      color: rgb(1, 1, 1),
+      borderWidth: 0,
+    });
+    page.drawLine({
+      start: { x: left, y: top },
+      end: { x: left + footerWidth, y: top },
+      thickness: 1.2,
+      color: primary,
+    });
+    page.drawLine({
+      start: { x: left, y: top - 2.4 },
+      end: { x: left + footerWidth, y: top - 2.4 },
+      thickness: 0.45,
+      color: secondary,
+    });
+
+    const row1Y = top - 12;
+    const row2Y = top - 24;
+    const row1Text = `${BRAND.companyName} · ${BRAND.phone} · ${BRAND.website}`;
+
+    page.drawText(row1Text, {
+      x: left,
+      y: row1Y,
+      size: 7,
+      font,
+      color: primaryDark,
+    });
+
+    page.drawText(BRAND_LICENSES_INLINE, {
+      x: left,
+      y: row2Y,
+      size: 6.2,
+      font,
+      color: secondaryText,
+    });
+
+    const rawSlogan = String(
+      BRAND.tagline || "Built on Quality, Backed by Trust",
+    );
+    const slogan = rawSlogan.toUpperCase();
+    const sloganMaxWidth = footerWidth * 0.5;
+    let sloganSize = 6.2;
+    let sloganWidth = font.widthOfTextAtSize(slogan, sloganSize);
+    while (sloganWidth > sloganMaxWidth && sloganSize > 5.2) {
+      sloganSize -= 0.2;
+      sloganWidth = font.widthOfTextAtSize(slogan, sloganSize);
+    }
+    page.drawText(slogan, {
+      x: width - right - sloganWidth,
+      y: row2Y,
+      size: sloganSize,
+      font,
+      color: secondary,
+    });
+
+    const pageLabel = `Page ${pageIndex + 1} of ${pageCount}`;
+    const pageWidth = font.widthOfTextAtSize(pageLabel, 7);
+    page.drawText(pageLabel, {
+      x: width - right - pageWidth,
+      y: row1Y,
+      size: 7,
+      font,
+      color: primaryDark,
+    });
+  }
+
+  await writeFile(pdfPath, await pdfDoc.save());
+}
+
 function getMaterialIconLigature(name) {
   const ligature = MATERIAL_ICON_LIGATURES[name];
   if (!ligature) {
@@ -874,6 +983,18 @@ function buildBrandTokens(brand) {
       brand.chamberLogos?.kennewick || "",
     ),
     "{{BRAND_QR_DASHBOARD}}": resolvePath(brand.qrCodes?.dashboard || ""),
+    "{{BRAND_STATE_WA}}": resolvePath(
+      "../../apps/website/public/images/states/extracted/labeled/wa-washington.png",
+    ),
+    "{{BRAND_STATE_OR}}": resolvePath(
+      "../../apps/website/public/images/states/extracted/labeled/or-oregon.png",
+    ),
+    "{{BRAND_STATE_ID}}": resolvePath(
+      "../../apps/website/public/images/states/extracted/labeled/id-idaho.png",
+    ),
+    "{{BRAND_TEAM_GROUP_PHOTO}}": resolvePath(
+      "../../apps/website/public/images/team/mh-construction-team-group-2025.webp",
+    ),
   };
 }
 
@@ -1070,6 +1191,7 @@ const TOC_CALLOUT_ITEMS = new Set([21, 48]);
 const TOC_PAGE_1_MAX = 9;
 const TOC_PAGE_2_MAX = 23;
 const TOC_CONT_PAGE_UNIT_BUDGET = 30;
+const HANDBOOK_TOC_PAGE_1_MAX = 7;
 
 /**
  * Fallback MISH title map.
@@ -1630,7 +1752,19 @@ function findTocClusterNameForSection(sectionNum) {
   return cluster?.name || "Additional Programs";
 }
 
-function splitTocNumsByFlow(presentNums, formsMap = null) {
+function splitTocNumsByFlow(presentNums, formsMap = null, options = {}) {
+  const page1Max = Number.isFinite(options.page1Max)
+    ? options.page1Max
+    : TOC_PAGE_1_MAX;
+  const page2Max = Number.isFinite(options.page2Max)
+    ? options.page2Max
+    : TOC_PAGE_2_MAX;
+  const continuationPageUnitBudget = Number.isFinite(
+    options.continuationPageUnitBudget,
+  )
+    ? options.continuationPageUnitBudget
+    : TOC_CONT_PAGE_UNIT_BUDGET;
+
   const page1 = new Set();
   const page2 = new Set();
   const continuationPages = [new Set()];
@@ -1640,15 +1774,15 @@ function splitTocNumsByFlow(presentNums, formsMap = null) {
   let currentCluster = "";
 
   const remainingNums = [...presentNums]
-    .filter((n) => n > TOC_PAGE_2_MAX)
+    .filter((n) => n > page2Max)
     .sort((a, b) => a - b);
 
   for (const n of presentNums) {
-    if (n <= TOC_PAGE_1_MAX) {
+    if (n <= page1Max) {
       page1.add(n);
       continue;
     }
-    if (n <= TOC_PAGE_2_MAX) {
+    if (n <= page2Max) {
       page2.add(n);
     }
   }
@@ -1662,7 +1796,7 @@ function splitTocNumsByFlow(presentNums, formsMap = null) {
 
     if (
       currentPageUnits > 0 &&
-      currentPageUnits + neededUnits > TOC_CONT_PAGE_UNIT_BUDGET
+      currentPageUnits + neededUnits > continuationPageUnitBudget
     ) {
       currentPageIndex += 1;
       continuationPages[currentPageIndex] = new Set();
@@ -1754,7 +1888,7 @@ function buildSectionHeaderHtml(
     ? `HB\u00a0${sectionNum}`
     : `MISH\u00a0${sectionNum}`;
   const font = PDF_FONT_STACK_BODY;
-  const pad = "padding:0 0.55in 0 1.25in";
+  const pad = "padding:0 0.9in 0 0.92in";
   const fontFaceStyle = getPdfMendlHeaderFooterFontStyle();
   const revNum = options.revNum;
   const revDate = options.revDate;
@@ -5190,6 +5324,7 @@ async function generateToc() {
   const { page1, page2, page3, extraPages } = splitTocNumsByFlow(
     presentNums,
     formsMap,
+    isEmployeeHandbook ? { page1Max: HANDBOOK_TOC_PAGE_1_MAX } : {},
   );
 
   const tocPage1Html = buildPageClustersHtml(page1);
@@ -7152,14 +7287,6 @@ async function generateSections(filter = null) {
       },
     );
 
-    // UX REFRESH 2026 — three-tier footer + thumb-zone QR FAB on every page
-    const footerHtml = buildSectionFooterHtml(
-      section.numberStr,
-      BRAND.revisionNumber,
-      BRAND.revisionDate,
-      { manualKind: isEmployeeHandbook ? "handbook" : "safety" },
-    );
-
     const pdfName = `${section.numberStr}-${section.slug}.pdf`;
     const pdfPath = join(sectionsDir, pdfName);
     await renderHtmlToPdf(
@@ -7168,17 +7295,18 @@ async function generateSections(filter = null) {
       {
         displayHeaderFooter: true,
         headerTemplate: headerHtml,
-        footerTemplate: footerHtml,
+        footerTemplate: "<div></div>",
         margin: {
           top: "1.25in", // accommodates enlarged header logo + 0.35in gap
           right: "0.75in",
-          bottom: "0.3in", // footer anchored to top of this band → keep tight so
-          // the gap beneath the footer stays minimal while remaining print-safe
+          bottom: "1.2in", // must match the section template @page bottom margin
+          // so Puppeteer's footer overlay does not intrude into the body flow
           left: "1.25in",
         },
       },
       `manuals/_tmp_section_${section.numberStr}.html`,
     );
+    await stampSectionFooterPdf(pdfPath);
   }
 
   if (filter === null) {
