@@ -23,7 +23,7 @@ export function mockFetchOnce(response: {
   const fn = jest.fn().mockResolvedValue({
     ok: response.ok,
     status: response.status ?? (response.ok ? 200 : 500),
-    json: async () => response.body ?? {},
+    json: () => Promise.resolve(response.body ?? {}),
   });
   globalThis.fetch = fn;
   return fn;

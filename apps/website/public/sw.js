@@ -429,6 +429,13 @@ self.addEventListener("fetch", (event) => {
 
   // Handle different types of requests with optimized strategies
   if (url.origin === location.origin) {
+    // Next.js App Router flight payloads are streamed responses.
+    // Avoid SW cache/offline fallback for these to prevent truncated streams.
+    if (isNextFlightRequest(request)) {
+      event.respondWith(fetch(request));
+      return;
+    }
+
     // Same origin requests - use optimized caching strategy
     const strategy = getCacheStrategy(request);
 
@@ -753,6 +760,18 @@ function isStaticAsset(request) {
     request.url.includes("/icons/") ||
     request.url.includes("/manifest.json") ||
     /\.(js|css|woff|woff2|ttf|eot)$/i.test(request.url)
+  );
+}
+
+function isNextFlightRequest(request) {
+  const rscHeader = request.headers.get("RSC");
+  const routerStateHeader = request.headers.get("Next-Router-State-Tree");
+  const acceptHeader = request.headers.get("Accept") || "";
+
+  return (
+    rscHeader === "1" ||
+    Boolean(routerStateHeader) ||
+    acceptHeader.includes("text/x-component")
   );
 }
 
