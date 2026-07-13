@@ -148,7 +148,7 @@ describe("TestimonialsPage (with populated testimonials data)", () => {
     const page = await TestimonialsPage();
     render(page);
     expect(
-      screen.getAllByText(/Project Stakeholders/i).length,
+      screen.getAllByText(/Mission Partners/i).length,
     ).toBeGreaterThanOrEqual(1);
   });
 
@@ -189,7 +189,7 @@ describe("TestimonialsPage (with populated testimonials data)", () => {
     render(page);
     // testimonials.length > 0 → reviewCount shows
     expect(
-      screen.getAllByText(/2\+?|Project Stakeholders/i).length,
+      screen.getAllByText(/2\+?|Mission Partners/i).length,
     ).toBeGreaterThanOrEqual(1);
   });
 });

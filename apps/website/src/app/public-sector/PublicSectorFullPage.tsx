@@ -28,6 +28,7 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+import { MH_SLOGANS } from "@/lib/branding/page-names";
 
 const breadcrumbSchema = generateBreadcrumbSchema(
   breadcrumbPatterns.publicSector,
@@ -56,9 +57,8 @@ const InteractiveGrantSelector = dynamic(
 const grantSupportServices = [
   {
     icon: "military_tech",
-    title: "Cost Analysis",
-    description:
-      "Disciplined preconstruction estimating and budget validation for agency procurement planning",
+    title: "Mission Costing",
+    description: `${MH_SLOGANS.heroByRoute.publicSector} Disciplined predeployment estimating and budget validation for agency procurement planning`,
     features: [
       "Line-item cost breakdowns aligned with agency documentation requirements",
       "Labor assumptions coordinated to prevailing wage obligations",
@@ -67,18 +67,18 @@ const grantSupportServices = [
   },
   {
     icon: "gps_fixed",
-    title: "Design Validation",
+    title: "Mission Validation",
     description:
       "Technical review that confirms constructability, schedule realism, and field readiness",
     features: [
       "Constructability and sequencing review before procurement commitments",
-      "Site and operational constraints documented for stakeholder alignment",
-      "Milestone-based execution plans with clear decision checkpoints",
+      "Site and operational constraints documented for mission-partner alignment",
+      "Milestone-based operating plans with clear decision checkpoints",
     ],
   },
   {
     icon: "verified",
-    title: "Compliance Assurance",
+    title: "Assurance Controls",
     description:
       "Requirement mapping and documentation support for confident public-sector execution",
     features: [
@@ -93,7 +93,7 @@ const grantSupportServices = [
 const governmentProjects = [
   {
     icon: "military_tech",
-    title: "Federal Training Facilities",
+    title: "Federal Readiness Facilities",
     examples: [
       "Military Training Centers",
       "Federal Academies",
@@ -103,7 +103,7 @@ const governmentProjects = [
   },
   {
     icon: "account_balance",
-    title: "Government Operations Centers",
+    title: "Government Operations Hubs",
     examples: [
       "Federal Office Buildings",
       "Emergency Operations Centers",
@@ -113,7 +113,7 @@ const governmentProjects = [
   },
   {
     icon: "diversity_3",
-    title: "Community Mission Facilities",
+    title: "Community Support Facilities",
     examples: [
       "Military Chapels",
       "Community Centers on Base",
@@ -156,7 +156,7 @@ const governmentProjects = [
 // Federal contracting types
 const grantTypes = [
   {
-    category: "Federal Agency Contracts",
+    category: "Federal Mission Contracts",
     icon: "flag",
     programs: [
       "Department of Energy (DOE)",
@@ -167,7 +167,7 @@ const grantTypes = [
     ],
   },
   {
-    category: "State & Local Agency Contracts",
+    category: "State & Local Mission Contracts",
     icon: "location_city",
     programs: [
       "Washington agency projects",
@@ -194,9 +194,8 @@ const grantTypes = [
 const processSteps = [
   {
     step: 1,
-    title: "Scope Assessment",
-    description:
-      "Review project requirements, feasibility, and timeline assumptions",
+    title: "Mission Assessment",
+    description: "Review requirements, feasibility, and schedule assumptions",
     icon: "campaign",
   },
   {
@@ -713,7 +712,7 @@ export default function PublicSectorFullPage() {
 
               <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  Five-phase approach
+                  Five-movement approach
                 </span>{" "}
                 to public-sector delivery backed by{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
@@ -914,7 +913,7 @@ export default function PublicSectorFullPage() {
                 <span className="font-bold text-white">
                   compliant planning and clear delivery
                 </span>
-                . Share your scope, timeline, and agency requirements.
+                . Share your scope, target schedule, and agency requirements.
               </p>
             </div>
 

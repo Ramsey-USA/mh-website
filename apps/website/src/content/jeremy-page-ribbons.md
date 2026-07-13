@@ -3,37 +3,37 @@
 ## home
 
 eyebrow: Words from the General
-quote: This home page is my standing commitment to every client and partner: we lead with respect, plan with discipline, and finish the job in a way that strengthens trust.
+quote: This home page is my standing commitment to every client and partner: we lead with respect, plan with disciplined intent, and finish the job in a way that strengthens trust.
 attribution: Jeremy Thamert, Owner & President
 
 ## about
 
 eyebrow: Words from the General
-quote: About us is simple from my point of view: service-earned values, clear accountability, and a team that treats every handshake like a promise worth keeping.
+quote: About us is simple from my point of view: service-earned values, clear accountability, and a team that treats every handshake like a commitment to deliver.
 attribution: Jeremy Thamert, Owner & President
 
 ## about/details
 
 eyebrow: Words from the General
-quote: The details matter because people depend on them; I expect tight scope control, field-level coordination, and disciplined closeout on every assignment we accept.
+quote: The details matter because people depend on them; I expect tight scope control, field-level coordination, and disciplined turnover on every assignment we accept.
 attribution: Jeremy Thamert, Owner & President
 
 ## team
 
 eyebrow: Words from the General
-quote: Our team runs on earned trust, not titles, and I expect each leader to protect the culture, mentor the next generation, and carry our standards with pride.
+quote: Our team runs on earned trust, not titles, and I expect each leader to protect the culture, mentor the next generation, and carry our standards from briefing to buildout.
 attribution: Jeremy Thamert, Owner & President
 
 ## jeremy-thamert
 
 eyebrow: Words from the General
-quote: My name on this page means personal accountability; I answer for how we communicate, how we lead, and how faithfully we deliver for the people who trust us.
+quote: My name on this page means personal accountability; I answer for how we communicate, how we lead, and how faithfully we deliver for the people who trust us with the mission.
 attribution: Jeremy Thamert, Owner & President
 
 ## services
 
 eyebrow: Words from the General
-quote: Services are not menu items to me; each one is a mission with clear sequencing, strong supervision, and communication clients can rely on from kickoff to closeout.
+quote: Services are not menu items to me; each one is a mission with clear sequencing, strong supervision, and communication clients can rely on from kickoff to handoff.
 attribution: Jeremy Thamert, Owner & President
 
 ## projects
@@ -213,7 +213,7 @@ attribution: Jeremy Thamert, Owner & President
 ## allies
 
 eyebrow: Words from the General
-quote: Allies are force multipliers for delivery, and I value partnerships built on trust, competence, and shared accountability from mobilization through closeout.
+quote: Allies are force multipliers for delivery, and I value partnerships built on trust, competence, and shared accountability from mobilization through handoff.
 attribution: Jeremy Thamert, Owner & President
 
 ## events

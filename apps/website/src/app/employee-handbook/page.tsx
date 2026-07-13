@@ -8,6 +8,7 @@ import { Button } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import {
   formatDualPageName,
+  MH_SLOGANS,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
@@ -81,10 +82,10 @@ export default async function EmployeeHandbookPage() {
             {isEs ? "Manual del Empleado" : "Employee Handbook"}
           </h1>
           <p className="font-heading mt-2 text-xs font-semibold uppercase tracking-wider text-brand-secondary/90">
-            Built on Quality, Backed by Trust.
+            {MH_SLOGANS.primary}
           </p>
           <p className="font-heading mt-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/70">
-            Squared away from start to finish.
+            {MH_SLOGANS.supporting[0]}
           </p>
           <p className="mt-2 text-sm text-white/70">
             Revision {revisionNumber} &middot; Effective {revisionDate}

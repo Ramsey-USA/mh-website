@@ -81,6 +81,73 @@ export const MH_DUAL_PHRASES = {
   veteranOwnedDescriptor: "Veteran-Owned leadership",
 } as const;
 
+export const MH_SLOGANS = {
+  primary: MH_DUAL_PHRASES.primarySlogan,
+  supporting: [
+    MH_DUAL_PHRASES.supportingSlogan,
+    "From Handshake to Handoff, we got your 'six.'",
+    "Professional on the line. Thorough in the details.",
+    MH_DUAL_PHRASES.missionLine,
+    "Clear facts. No spin. No surprises.",
+    "Commitments kept under pressure.",
+    "Standards high on every site, every day.",
+    "Measure twice, document always, close out clean.",
+  ],
+  heroByRoute: {
+    home: "Straight answers from the Command Center.",
+    about: "Our Mission is built by people who keep their word.",
+    services: "Operations Briefs that keep scope clear and execution steady.",
+    projects: "Our Work proves itself in every finished project.",
+    projectDetail:
+      "Project SITREP clarity from first walkthrough to final closeout.",
+    contact: "Comms Desk access with a direct line to the right people.",
+    testimonials: "Field Commendations that speak for themselves.",
+    locations: "Regional Coverage with one consistent standard.",
+    locationDetail:
+      "Local Mission Profile tuned to each city and project delivery lane.",
+    team: "Command Staff you can count on in the field and office.",
+    careers: "Recruitment Command built on steady work and honest leadership.",
+    veterans: "Veteran Battalion service, respect, and practical support.",
+    allies: "Allied Network built on communication and follow-through.",
+    publicSector: "Civic Operations that stay accountable.",
+    publicSectorProjects: "Public Sector Projects delivered with discipline.",
+    veteranLedCompliance: "Compliance Command that respects the standard.",
+    triStateGovernmentConstruction:
+      "Regional Civic Delivery with steady oversight.",
+    hub: "Operations Hub for team coordination.",
+    safety:
+      "Safety Command with clear standards and consistent follow-through.",
+    safetyManual:
+      "Manual Operations with a clear reference for every safety step.",
+    safetyProgram: "Program Command built into daily operations.",
+    safetyForms: "Form Control that supports clean closeout.",
+    safetyContents: "Section Index that gets you there fast.",
+    resources: "Field Resources for the work ahead.",
+    incidentReport: "Incident Command for fast reporting on real-world issues.",
+    faq: "Intel Brief answers for common questions.",
+    faqCategory: "Category Recon that gets you to the exact answer faster.",
+    accessibility: "Access Standards that work for everyone.",
+    privacy: "Privacy Standards, plainly explained.",
+    terms: "Service Terms without the legal fog.",
+    offline: "Connection Status: what to expect when the connection drops.",
+    employeeHandbook: "Handbook Index with expectations clear from day one.",
+    qrCodes: "QR Library for quick access to the right page.",
+    events: "Formation Calendar where the calendar meets the crew.",
+    coolDesertNights: "Event Archive support that shows up prepared.",
+  } as const,
+} as const;
+
+export const MH_TERMINOLOGY = {
+  missionReadyConstruction: "Mission-Ready Construction",
+  missionReadyConstructionServices: "Mission-Ready Construction Services",
+  missionReadyFitOuts: "Mission-Ready Fit-Outs",
+  missionReadyBuildOuts: "Mission-Ready Build-Outs",
+  missionManagement: "Mission Management",
+  missionPlanning: "Mission Planning",
+  predeployment: "Predeployment",
+  handoff: "Handoff",
+} as const;
+
 const PAGE_TERMINOLOGY_ALIASES: Record<string, PageTerminologyKey> = {
   home: "home",
   "about us": "about",
@@ -160,6 +227,21 @@ const PHRASE_NORMALIZATION_ALIASES: Record<string, string> = {
     MH_DUAL_PHRASES.missionLine,
   "no gaps, no guesswork, just accountable follow-through":
     MH_DUAL_PHRASES.missionLine,
+  "commercial construction": MH_TERMINOLOGY.missionReadyConstruction,
+  "commercial construction services":
+    MH_TERMINOLOGY.missionReadyConstructionServices,
+  "commercial construction management": MH_TERMINOLOGY.missionManagement,
+  "construction project management": MH_TERMINOLOGY.missionManagement,
+  "project management": MH_TERMINOLOGY.missionManagement,
+  "master planning": MH_TERMINOLOGY.missionPlanning,
+  preconstruction: MH_TERMINOLOGY.predeployment,
+  "pre-construction": MH_TERMINOLOGY.predeployment,
+  "tenant improvements": MH_TERMINOLOGY.missionReadyFitOuts,
+  "tenant improvement": MH_TERMINOLOGY.missionReadyFitOuts,
+  "commercial new build-outs": MH_TERMINOLOGY.missionReadyBuildOuts,
+  "commercial new build outs": MH_TERMINOLOGY.missionReadyBuildOuts,
+  closeout: MH_TERMINOLOGY.handoff,
+  turnover: MH_TERMINOLOGY.handoff,
 };
 
 const PHRASE_REGEX_REPLACEMENTS: Array<[RegExp, string]> = [
@@ -173,6 +255,19 @@ const PHRASE_REGEX_REPLACEMENTS: Array<[RegExp, string]> = [
     /no gaps[.,]?\s*no guesswork[.,]?\s*just accountable follow[- ]through\.?/gi,
     MH_DUAL_PHRASES.missionLine,
   ],
+  [
+    /\bcommercial construction services\b/gi,
+    MH_TERMINOLOGY.missionReadyConstructionServices,
+  ],
+  [/\bcommercial construction\b/gi, MH_TERMINOLOGY.missionReadyConstruction],
+  [/\bconstruction project management\b/gi, MH_TERMINOLOGY.missionManagement],
+  [/\bproject management\b/gi, MH_TERMINOLOGY.missionManagement],
+  [/\bmaster planning\b/gi, MH_TERMINOLOGY.missionPlanning],
+  [/\bpre-?construction\b/gi, MH_TERMINOLOGY.predeployment],
+  [/\btenant improvements?\b/gi, MH_TERMINOLOGY.missionReadyFitOuts],
+  [/\bcommercial new build-?outs?\b/gi, MH_TERMINOLOGY.missionReadyBuildOuts],
+  [/\bcloseout\b/gi, MH_TERMINOLOGY.handoff],
+  [/\bturnover\b/gi, MH_TERMINOLOGY.handoff],
 ];
 
 export function formatDualPageName(
@@ -220,6 +315,10 @@ export function normalizeMhPhrasesInText(text: string): string {
 
 export function normalizeMhKeywordList(keywords: string[]): string[] {
   return keywords.map((keyword) => normalizeMhPhrasesInText(keyword));
+}
+
+export function normalizeMhSlogan(slogan: string): string {
+  return normalizeMhPhrasesInText(slogan).replace(/\s+/g, " ").trim();
 }
 
 export function buildDualSeoTitle(

@@ -1,6 +1,7 @@
 import ContactPageClient from "./ContactPageClient";
 import { headers } from "next/headers";
 import { StructuredData } from "@/components/seo/SeoMeta";
+import { MH_SLOGANS } from "@/lib/branding/page-names";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
@@ -40,7 +41,7 @@ const generalContractorSchema = {
     "@type": "State",
     name: "Washington",
   },
-  slogan: "Built on Quality, Backed by Trust.",
+  slogan: MH_SLOGANS.primary,
   mission: "No gaps. No guesswork. Just accountable follow-through.",
 };
 

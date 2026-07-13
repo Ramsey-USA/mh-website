@@ -67,7 +67,7 @@ describe("ServicesShowcase", () => {
 
     await user.click(
       screen.getByRole("button", {
-        name: /View details for Commercial Tenant Improvements/i,
+        name: /View .*Commercial Tenant Improvements/i,
       }),
     );
 
@@ -81,8 +81,8 @@ describe("ServicesShowcase", () => {
         /Commercial TI execution with phased coordination/i,
       ),
     ).toBeInTheDocument();
-    expect(within(dialog).getByText("What's Included")).toBeInTheDocument();
-    expect(within(dialog).getByText("Key Benefits")).toBeInTheDocument();
+    expect(within(dialog).getByText("Mission Scope")).toBeInTheDocument();
+    expect(within(dialog).getByText("Mission Advantages")).toBeInTheDocument();
     expect(trackServiceInterest).toHaveBeenCalledWith(
       "Commercial Tenant Improvements",
       "click",
@@ -104,7 +104,7 @@ describe("ServicesShowcase", () => {
 
     await user.click(
       screen.getByRole("button", {
-        name: /View details for AG and Winery Communities/i,
+        name: /View .*AG and Winery Communities/i,
       }),
     );
 
@@ -122,7 +122,7 @@ describe("ServicesShowcase", () => {
     render(<ServicesShowcase />);
 
     const card = screen.getByRole("button", {
-      name: /View details for AG and Winery Communities/i,
+      name: /View .*AG and Winery Communities/i,
     });
     card.focus();
     await user.keyboard("{Enter}");
@@ -147,7 +147,7 @@ describe("ServicesShowcase", () => {
 
   it("renders all six service cards", () => {
     render(<ServicesShowcase />);
-    const cards = screen.getAllByRole("button", { name: /View details for/i });
+    const cards = screen.getAllByRole("button", { name: /View .* for/i });
     expect(cards).toHaveLength(6);
   });
 });

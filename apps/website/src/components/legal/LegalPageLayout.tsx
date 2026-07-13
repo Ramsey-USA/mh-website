@@ -23,7 +23,7 @@ export function LegalPageLayout({
   lastUpdated,
   structuredData,
   eyebrow = "Policy Brief",
-  description = "Clear policies and transparent standards for every project stakeholder.",
+  description = "Clear policies and transparent standards for every mission partner.",
   backToHomeLabel = "Back to Home",
   lastUpdatedLabel = "Last Updated",
   children,

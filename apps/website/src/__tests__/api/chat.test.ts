@@ -300,14 +300,14 @@ describe("POST /api/chat", () => {
     const res = await POST(makeRequest({ message: "what do you do" }));
     expect(res.status).toBe(200);
     const body = await res.json();
-    expect(body.response).toContain("commercial construction");
+    expect(body.response).toContain("mission-ready construction");
   });
 
   it("returns services info for 'what can you build'", async () => {
     const res = await POST(makeRequest({ message: "what can you build" }));
     expect(res.status).toBe(200);
     const body = await res.json();
-    expect(body.response).toContain("pre-construction planning");
+    expect(body.response).toContain("predeployment planning");
   });
 
   // ── Trade keyword coverage for website fallback branch ────────────────────

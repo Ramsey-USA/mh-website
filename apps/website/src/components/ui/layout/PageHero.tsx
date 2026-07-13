@@ -1,5 +1,7 @@
 "use client";
 
+import { MH_SLOGANS } from "@/lib/branding/page-names";
+
 interface PageHeroProps {
   eyebrow: string;
   title: string;
@@ -13,7 +15,7 @@ export function PageHero({
   title,
   highlight,
   description,
-  missionLine = "Built on Quality, Backed by Trust. Squared away from start to finish.",
+  missionLine = MH_SLOGANS.primary,
 }: PageHeroProps) {
   return (
     <section

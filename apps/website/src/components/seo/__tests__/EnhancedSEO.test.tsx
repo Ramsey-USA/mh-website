@@ -3,6 +3,7 @@
  */
 
 import { render, screen } from "@testing-library/react";
+import { normalizeMhPhrasesInText } from "@/lib/branding/page-names";
 
 const mockWithGeoMetadata = jest.fn((metadata) => ({
   ...metadata,
@@ -148,7 +149,9 @@ describe("EnhancedSEO helpers", () => {
     const result = generateEnhancedMetadata({ schemas: [{ id: 1 }] });
 
     expect(result.title).toBe(enhancedSEO.defaultTitle);
-    expect(result.description).toBe(enhancedSEO.defaultDescription);
+    expect(result.description).toBe(
+      normalizeMhPhrasesInText(enhancedSEO.defaultDescription),
+    );
     expect(result.alternates?.canonical).toBe(enhancedSEO.siteUrl);
     expect(result.robots).toBe("index,follow");
     expect(result.schemas).toEqual([{ id: 1 }]);

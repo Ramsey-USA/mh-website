@@ -29,12 +29,12 @@ export function generateLocationMetadata(location: LocationData): Metadata {
   const zipKeywords = (location.serviceZipCodes || []).map(
     (zip) => `general contractor ${zip}`,
   );
-  const stakeholderKeywords = [
+  const missionPartnerKeywords = [
     `${location.city} facilities construction support`,
     `${location.city} municipal project planning`,
-    `${location.city} tenant improvements contractor`,
+    `${location.city} mission-ready fit-outs contractor`,
     `${location.city} owner representative construction support`,
-    `${location.city} stakeholder-aligned construction delivery`,
+    `${location.city} mission-partner-aligned construction delivery`,
   ];
 
   return withGeoMetadata(
@@ -47,7 +47,7 @@ export function generateLocationMetadata(location: LocationData): Metadata {
         ...nearbyAreaKeywords,
         ...projectKeywords,
         ...zipKeywords,
-        ...stakeholderKeywords,
+        ...missionPartnerKeywords,
       ],
       alternates: {
         canonical: `${siteUrl}/locations/${location.slug}`,

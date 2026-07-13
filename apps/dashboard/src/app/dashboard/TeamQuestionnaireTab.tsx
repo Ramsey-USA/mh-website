@@ -723,7 +723,7 @@ export function TeamQuestionnaireTab({ token }: TeamQuestionnaireTabProps) {
           </div>
           <div>
             <h2 className="text-2xl font-black text-white uppercase tracking-wide">
-              Team Questionnaire
+              Team Briefing
             </h2>
             <p className="text-sm text-brand-secondary-light/80 mt-1 max-w-4xl">
               Complete your full employee questionnaire here. This updates the

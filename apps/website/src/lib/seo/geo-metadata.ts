@@ -1,5 +1,9 @@
 import { type Metadata } from "next";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  MH_SLOGANS,
+  normalizeMhPhrasesInText,
+} from "@/lib/branding/page-names";
 
 const PAGEHUB_FOUNDATIONAL_KEYWORDS = [
   "general contractor Pasco, WA",
@@ -7,42 +11,52 @@ const PAGEHUB_FOUNDATIONAL_KEYWORDS = [
   "Tri-Cities contractor",
   "Washington Oregon Idaho contractor",
   "veteran-owned contractor Pacific Northwest",
-  "Built on Quality, Backed by Trust.",
-  "Squared away from start to finish.",
-  "commercial construction stakeholder alignment",
+  MH_SLOGANS.primary,
+  MH_SLOGANS.supporting[0],
+  "mission-ready construction mission-partner alignment",
   "client partner construction delivery",
 ];
 
 const PAGEHUB_COMMERCIAL_KEYWORDS = [
   "general contractor",
-  "commercial construction",
+  "mission-ready construction",
   "industrial construction",
-  "construction management",
-  "construction project management",
-  "stakeholder-focused construction planning",
+  "mission management",
+  "mission management",
+  "mission-partner-focused construction planning",
   "owner representative coordination",
   "property and facilities construction support",
-  "public-sector stakeholder construction delivery",
+  "public-sector mission-partner construction delivery",
   "agricultural and winery project delivery",
-  "tenant improvements",
+  "mission-ready fit-outs",
   "office remodeling",
-  "commercial renovation",
+  "mission-ready renovation",
   "building addition contractor",
   "construction design",
   "industrial facility construction",
-  "Commercial Construction Services",
+  "Mission-Ready Construction Services",
   "Industrial Facility Construction",
   "Office Remodeling And Renovation",
-  "Construction Management Solutions",
+  "Mission Management Solutions",
 ];
 
 const PAGEHUB_CANONICAL_PHRASES: Record<string, string> = {
   "general contractor pasco wa": "general contractor Pasco, WA",
   "general contractor pasco, wa": "general contractor Pasco, WA",
-  "commercial construction services": "Commercial Construction Services",
+  "commercial construction services": "Mission-Ready Construction Services",
+  "commercial construction": "mission-ready construction",
+  "construction management": "mission management",
+  "construction project management": "mission management",
+  "project management": "mission management",
+  "tenant improvements": "mission-ready fit-outs",
+  "tenant improvement": "mission-ready fit-outs",
+  preconstruction: "predeployment",
+  "pre-construction": "predeployment",
+  closeout: "handoff",
+  turnover: "handoff",
   "industrial facility construction": "Industrial Facility Construction",
   "office remodeling and renovation": "Office Remodeling And Renovation",
-  "construction management solutions": "Construction Management Solutions",
+  "construction management solutions": "Mission Management Solutions",
 };
 
 const COMPLIANCE_ROUTE_PREFIXES = [
@@ -312,7 +326,7 @@ function parseRoutePath(urlOrPath: string): string | null {
 function canonicalizePageHubPhrase(keyword: string): string {
   const normalizedKeyword = keyword.trim().replace(/\s+/g, " ");
   const canonical = PAGEHUB_CANONICAL_PHRASES[normalizedKeyword.toLowerCase()];
-  return canonical ?? normalizedKeyword;
+  return normalizeMhPhrasesInText(canonical ?? normalizedKeyword);
 }
 
 function normalizeKeywords(existingKeywords: Metadata["keywords"]): string[] {

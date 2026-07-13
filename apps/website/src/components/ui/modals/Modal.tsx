@@ -2,6 +2,7 @@
 
 import { useId, useRef, type ReactNode } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { MH_SLOGANS } from "@/lib/branding/page-names";
 import { useDialogBehavior } from "@/hooks/useDialogBehavior";
 
 interface ModalHeaderRenderOptions {
@@ -88,7 +89,7 @@ export function Modal({
                         className="text-bronze-300"
                       />
                       <span className="font-heading font-semibold text-bronze-300 text-sm tracking-wide uppercase">
-                        Built on Quality, Backed by Trust.
+                        {MH_SLOGANS.primary}
                       </span>
                     </div>
                     <p className="font-heading mt-1 text-[11px] font-medium text-bronze-200/90 uppercase tracking-wide">

@@ -170,7 +170,7 @@ export async function generateMetadata({
     new Set([
       "construction case study",
       "project delivery outcomes",
-      "stakeholder-aligned project execution",
+      "mission-partner-aligned project execution",
       "commercial construction project",
       "tenant improvement project",
       "municipal construction project",

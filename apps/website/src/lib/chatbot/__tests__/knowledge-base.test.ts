@@ -57,7 +57,7 @@ describe("Chatbot Knowledge Base", () => {
 
     it("uses approved terminology", () => {
       const prompt = buildSystemPrompt();
-      expect(prompt).toContain("project stakeholders");
+      expect(prompt).toContain("mission partners");
       expect(prompt).toContain("Trade Partners");
       expect(prompt).toContain("work WITH you");
     });

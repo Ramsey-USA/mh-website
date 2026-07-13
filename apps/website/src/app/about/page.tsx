@@ -14,6 +14,7 @@ import {
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { cornerRadius } from "@/lib/styles/design-tokens";
+import { MH_SLOGANS } from "@/lib/branding/page-names";
 
 export default function AboutPage() {
   const commonT = useTranslations("common");
@@ -29,13 +30,13 @@ export default function AboutPage() {
         storyP1:
           "Desde 2010 hemos trabajado junto a propietarios, operadores y equipos de diseño para entregar proyectos con enfoque práctico y coordinación constante.",
         storyP2:
-          "Hoy continuamos ese estándar con liderazgo veterano, administración en Procore y control de alcance para agricultura y bodegas, mejoras para inquilinos comerciales y obras municipales.",
+          "Hoy continuamos ese estándar con liderazgo veterano, administración en Procore y control de alcance para agricultura y bodegas, acondicionamientos comerciales y obras municipales.",
         focusTitle: "Lo que hacemos",
         focusItems: [
           "Construcción general para instalaciones nuevas y sitios ocupados",
           "Edificios post-frame para operaciones agrícolas e industriales",
           "Puertas y herrajes con cumplimiento y coordinación de cierre",
-          "Gestión de proyectos con trazabilidad de RFIs, entregables técnicos y secuencias de campo",
+          "Gestión de misiones con trazabilidad de RFIs, entregables técnicos y secuencias de campo",
         ],
         leadershipTitle: "Liderazgo",
         leadershipBody:
@@ -48,22 +49,20 @@ export default function AboutPage() {
     : {
         label: "About MH Construction",
         heading: "Who we are",
-        body: "We are a veteran-owned general contractor serving the Pacific Northwest. We build long-term stakeholder relationships through direct communication, disciplined execution, and field-first safety.",
+        body: "We are a veteran-owned general contractor serving the Pacific Northwest. We build long-term mission-partner relationships through direct communication, disciplined execution, and field-first safety.",
         storyTitle: "Our story",
         storyP1:
           "Since 2010, we have worked alongside owners, operators, and design teams to deliver projects with practical planning and steady coordination.",
-        storyP2:
-          "Today we continue that standard with veteran-owned leadership, Procore-based project administration, and scope control for agricultural and winery facilities, commercial tenant improvements, and municipal projects.",
+        storyP2: `Today we continue that standard with veteran-owned leadership, Procore-based mission administration, and scope control for agricultural and winery facilities, mission-ready fit-outs, and municipal projects. ${MH_SLOGANS.primary}`,
         focusTitle: "What we do",
         focusItems: [
           "General contracting for new facilities and occupied sites",
           "Post-frame building delivery for agricultural and industrial operations",
-          "Door and hardware installation with compliance and closeout coordination",
-          "Project management with RFI, submittal, and field-sequencing traceability",
+          "Door and hardware installation with compliance and handoff coordination",
+          "Mission management with RFI, submittal, and field-sequencing traceability",
         ],
         leadershipTitle: "Leadership",
-        leadershipBody:
-          "Our leadership model stays simple: clear decisions, direct communication, and full accountability from preconstruction through closeout.",
+        leadershipBody: `Our leadership model stays simple: clear decisions, direct communication, and full accountability from predeployment through handoff. ${MH_SLOGANS.supporting[0]}`,
         snapshotTitle: "Performance snapshot",
         safetyTitle: "Safety and compliance",
         safetyBody:

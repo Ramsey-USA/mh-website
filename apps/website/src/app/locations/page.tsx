@@ -22,16 +22,16 @@ const locationList = Object.values(locations);
 export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.locations.seoName, PAGE_TERMINOLOGY.locations.mhBrandName)} | MH Construction`,
   description:
-    "Service coverage across Washington, Oregon, and Idaho with local project proof for AG and winery facilities, commercial tenant improvements, and municipal builds.",
+    "Service coverage across Washington, Oregon, and Idaho with local mission proof for AG and winery facilities, mission-ready fit-outs, and municipal builds.",
   keywords: [
     "construction service areas WA OR ID",
-    "regional commercial construction coverage",
+    "regional mission-ready construction coverage",
     "local project delivery proof",
     "owner representative location-based construction support",
     "facilities team regional construction partner",
     "municipal construction coverage map",
     "agricultural and winery construction locations",
-    "tenant improvements regional contractor",
+    "fit-out regional contractor",
   ],
   alternates: {
     canonical: `${SITE_URL}/locations`,
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${formatDualPageName(PAGE_TERMINOLOGY.locations.seoName, PAGE_TERMINOLOGY.locations.mhBrandName)} | MH Construction`,
     description:
-      "Regional service area profiles with project proof and stakeholder-focused delivery context across WA, OR, and ID.",
+      "Regional service area profiles with project proof and mission-partner-focused delivery context across WA, OR, and ID.",
     creator: "@mhc_gc",
     images: [`${SITE_URL}/images/og-default.webp`],
   },
@@ -72,7 +72,7 @@ const locationsSchema = {
   url: `${SITE_URL}/locations`,
   name: `${formatDualPageName(PAGE_TERMINOLOGY.locations.seoName, PAGE_TERMINOLOGY.locations.mhBrandName)} | MH Construction`,
   description:
-    "Location-by-location service index for MH Construction across Washington, Oregon, and Idaho.",
+    "Location-by-location mission index for MH Construction across Washington, Oregon, and Idaho.",
   isPartOf: { "@id": `${SITE_URL}/#website` },
   about: { "@id": `${SITE_URL}/#organization` },
   breadcrumb: { "@id": `${SITE_URL}/locations#breadcrumb` },

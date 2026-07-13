@@ -173,7 +173,7 @@ const safetyFaqSchema = {
       name: "What is MH Construction's written safety program?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: `MH Construction maintains a 50-section written safety program (Revision 3.0, effective July 1, 2026), delivered as the ${MISH_PROGRAM_LABEL}. The program is aligned with OSHA 29 CFR 1926, AGC CSEA, WISHA (Washington), Oregon OSHA, and Idaho requirements. It is available for review by bonding banks, insurers, architects, and project stakeholders at mhc-gc.com/safety.`,
+        text: `MH Construction maintains a 50-section written safety program (Revision 3.0, effective July 1, 2026), delivered as the ${MISH_PROGRAM_LABEL}. The program is aligned with OSHA 29 CFR 1926, AGC CSEA, WISHA (Washington), Oregon OSHA, and Idaho requirements. It is available for review by bonding banks, insurers, architects, and mission partners at mhc-gc.com/safety.`,
       },
     },
     {
@@ -501,7 +501,7 @@ export default function SafetyPage() {
             </h2>
             <p className="font-body text-lg text-white/70 max-w-xl mx-auto">
               Third-party verified credentials available to bonding banks,
-              insurers, architects, and project stakeholders on request.
+              insurers, architects, and mission partners on request.
             </p>
           </div>
 
@@ -559,9 +559,8 @@ export default function SafetyPage() {
                 Aligned with federal OSHA 29 CFR 1926, AGC CSEA prequalification
                 standards, WISHA, Oregon OSHA, and Idaho requirements. Available
                 in full to bonding banks, insurers, architects, and project
-                stakeholders through our secure Dashboard (Staff Hub). Legacy
-                APP references remain in historical source material for
-                continuity.
+                partners through our secure Dashboard (Staff Hub). Legacy APP
+                references remain in historical source material for continuity.
               </p>
 
               <div className="grid grid-cols-2 gap-4">

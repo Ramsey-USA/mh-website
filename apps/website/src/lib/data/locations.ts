@@ -124,7 +124,7 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "Commercial tenant improvements",
+      "Mission-ready fit-outs",
       "AG and winery facility scope",
       "Municipal project coordination",
     ],
@@ -203,7 +203,7 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "Commercial tenant improvements",
+      "Mission-ready fit-outs",
       "AG and winery facility scope",
       "Municipal project coordination",
     ],
@@ -281,7 +281,7 @@ export const locations: Record<string, LocationData> = {
     },
     servicePriorities: [
       "Industrial builds",
-      "Commercial tenant improvements",
+      "Mission-ready fit-outs",
       "Door and hardware installation",
     ],
     nearbyAreas: ["Pasco", "Franklin County", "Zillah"],
@@ -360,7 +360,7 @@ export const locations: Record<string, LocationData> = {
     servicePriorities: [
       "Public works and municipal builds",
       "Fire station and emergency services remodeling",
-      "Commercial tenant improvements",
+      "Mission-ready fit-outs",
     ],
     nearbyAreas: ["Yakima", "Yakima Valley", "Zillah"],
     serviceZipCodes: ["98901", "98902", "98903", "98908"],
@@ -429,7 +429,7 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "Commercial tenant improvements",
+      "Mission-ready fit-outs",
       "Municipal project coordination",
       "Door and hardware installation",
     ],
@@ -487,11 +487,11 @@ export const locations: Record<string, LocationData> = {
       title: "Serving Tacoma and Pierce County",
       description: [
         "Tacoma and the greater Pierce County service area require disciplined planning, clear communication, and reliable execution across commercial and public-facing projects. MH Construction brings a Veteran-Owned, relationship-first operating model to every Tacoma engagement.",
-        "Licensed in Washington, Oregon, and Idaho, our team supports Tacoma clients with transparent front-end planning controls, proactive coordination, and accountability through closeout.",
+        "Licensed in Washington, Oregon, and Idaho, our team supports Tacoma clients with transparent front-end planning controls, proactive coordination, and accountability through handoff.",
       ],
     },
     servicePriorities: [
-      "Commercial tenant improvements",
+      "Mission-ready fit-outs",
       "Public-sector and municipal coordination",
       "Door and hardware installation",
     ],
@@ -546,7 +546,7 @@ export const locations: Record<string, LocationData> = {
       ],
     },
     servicePriorities: [
-      "Commercial tenant improvements",
+      "Mission-ready fit-outs",
       "AG and winery facility scope",
       "Municipal project coordination",
     ],
@@ -601,7 +601,7 @@ export const locations: Record<string, LocationData> = {
     },
     servicePriorities: [
       "AG and winery facility scope",
-      "Commercial tenant improvements",
+      "Mission-ready fit-outs",
       "Land and site development support",
     ],
     nearbyAreas: ["Walla Walla", "Walla Walla County", "Dayton"],
@@ -672,7 +672,7 @@ export const locations: Record<string, LocationData> = {
     servicePriorities: [
       "Agricultural facility builds",
       "Industrial and warehouse construction",
-      "Commercial tenant improvements",
+      "Mission-ready fit-outs",
     ],
     nearbyAreas: ["Hermiston", "Umatilla County", "Boardman", "Irrigon"],
     serviceZipCodes: ["97838"],
@@ -724,7 +724,7 @@ export const locations: Record<string, LocationData> = {
     },
     servicePriorities: [
       "Government and municipal projects",
-      "Commercial tenant improvements",
+      "Mission-ready fit-outs",
       "Industrial facility builds",
     ],
     nearbyAreas: [
@@ -836,7 +836,7 @@ export const locations: Record<string, LocationData> = {
     },
     servicePriorities: [
       "Agricultural and industrial builds",
-      "Rural commercial construction",
+      "Rural mission-ready construction",
       "Community infrastructure",
     ],
     nearbyAreas: ["Omak", "Okanogan County", "Okanogan", "Tonasket"],

@@ -119,7 +119,7 @@ describe("Branding Guardrails › Slogan Coverage", () => {
         }
 
         const hasPrimary =
-          /Built on Quality, Backed by Trust\.|COMPANY_INFO\.slogan\.primary|hero\.mission|copy\.mission/.test(
+          /Built on Quality, Backed by Trust\.|MH_SLOGANS\.primary|COMPANY_INFO\.slogan\.primary|hero\.mission|copy\.mission/.test(
             source,
           );
         const hasSupporting =
@@ -487,7 +487,7 @@ describe("Branding Guardrails › Trust Surfaces & SEO Contracts", () => {
     const homeSource = fs.readFileSync(homePagePath, "utf8");
 
     expect(homeSource).toContain("Home Page Hero Section");
-    expect(homeSource).toContain("Company Overview");
+    expect(homeSource).toContain("Mission Brief");
     expect(homeSource).toContain("utm_campaign=home-splash");
   });
 

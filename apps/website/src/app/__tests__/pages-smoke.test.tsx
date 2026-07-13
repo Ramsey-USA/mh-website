@@ -494,7 +494,7 @@ describe("Branding congruency smoke", () => {
     const homeSource = fs.readFileSync(homePagePath, "utf8");
 
     expect(homeSource).toContain("Home Page Hero Section");
-    expect(homeSource).toContain("Company Overview");
+    expect(homeSource).toContain("Mission Brief");
     expect(homeSource).toContain("utm_campaign=home-splash");
   });
 });

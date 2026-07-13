@@ -8,7 +8,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { IndividualBrandingStamp } from "@/components/shared-sections";
 import { getIndividualBrandingStamp } from "@/lib/content/individual-branding-stamps";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
-import { buildDualSeoTitle } from "@/lib/branding/page-names";
+import { buildDualSeoTitle, MH_SLOGANS } from "@/lib/branding/page-names";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import jeremyProfile from "@/lib/data/team/jeremy-thamert.json";
 import { getServerLocale } from "@/lib/i18n/locale.server";
@@ -16,8 +16,7 @@ import { getServerLocale } from "@/lib/i18n/locale.server";
 const canonicalUrl = "https://www.mhc-gc.com/jeremy-thamert";
 const jeremyStamp = getIndividualBrandingStamp("jeremy-thamert");
 const jeremySeoTitle = buildDualSeoTitle("team", "Jeremy Thamert Profile");
-const jeremyPageSlogan =
-  "Command Staff you can count on in the field and office.";
+const jeremyPageSlogan = MH_SLOGANS.heroByRoute.team;
 const jeremySeoDescription =
   "Jeremy Thamert is Owner & President of MH Construction in Pasco, WA. Learn how the Army veteran leads with clear communication, disciplined delivery, and relationship-first accountability across WA, OR, and ID.";
 

@@ -395,7 +395,7 @@ const faqSchema = {
       name: "What is MH Construction's leadership structure?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our leadership structure includes executive leadership, project management, marketing and safety, administration, and field superintendents.",
+        text: "Our leadership structure includes executive leadership, mission management, marketing and safety, administration, and field superintendents.",
       },
     },
     {

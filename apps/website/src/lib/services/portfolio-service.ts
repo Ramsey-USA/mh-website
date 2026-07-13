@@ -161,7 +161,7 @@ export const portfolioData: ProjectPortfolio[] = [
     clientTestimonial: {
       quote:
         "MH Construction went above and beyond for our operations team. They understood our workflow and delivered a space that performs every day.",
-      clientName: "Operations Director, Richland Project Stakeholder",
+      clientName: "Operations Director, Richland Mission Partner",
       rating: 5,
     },
     tags: ["commercial", "tenant-improvement", "veteran-owned", "office"],

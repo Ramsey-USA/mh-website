@@ -263,9 +263,23 @@ describe("PageHero", () => {
     expect(
       screen.getByText("Serving the Pacific Northwest since 2010"),
     ).toBeTruthy();
+    expect(screen.getByText("Built on Quality, Backed by Trust.")).toBeTruthy();
+  });
+
+  it("renders a custom mission line when provided", () => {
+    const { PageHero } = require("../layout/PageHero");
+    render(
+      <PageHero
+        eyebrow="Built for Washington"
+        title="Our Projects"
+        description="Serving the Pacific Northwest since 2010"
+        missionLine="Built on Quality, Backed by Trust. No gaps. No guesswork. Just accountable follow-through."
+      />,
+    );
+
     expect(
       screen.getByText(
-        "Built on Quality, Backed by Trust. Squared away from start to finish.",
+        "Built on Quality, Backed by Trust. No gaps. No guesswork. Just accountable follow-through.",
       ),
     ).toBeTruthy();
   });

@@ -49,7 +49,7 @@ const PRIVACY_COPY: Record<"en" | "es", PrivacyCopy> = {
     title: "Privacy Policy",
     eyebrow: "Policy Brief",
     heroDescription:
-      "Clear policies and transparent standards for every project stakeholder.",
+      "Clear policies and transparent standards for every mission partner.",
     backToHome: "Back to Home",
     lastUpdatedLabel: "Last Updated",
     commitmentTitle: "Our Commitment to Privacy",
@@ -68,7 +68,7 @@ const PRIVACY_COPY: Record<"en" | "es", PrivacyCopy> = {
     useTitle: "How We Use Your Information",
     useIntro: "We use the information we collect to:",
     useItems: [
-      "Respond to your inquiries and provide project stakeholder support",
+      "Respond to your inquiries and provide mission-partner support",
       "Process consultation requests and project proposals",
       "Evaluate employment applications",
       "Send newsletters and marketing communications (with your consent)",

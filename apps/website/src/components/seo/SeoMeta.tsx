@@ -3,6 +3,7 @@ import Script from "next/script";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import {
   buildDualSeoTitle,
+  MH_SLOGANS,
   normalizeMhKeywordList,
   normalizeMhPhrase,
   normalizeMhPhrasesInText,
@@ -27,14 +28,13 @@ const defaultSEO = {
     "Construction Services in Washington, Oregon, and Idaho",
   ),
   defaultDescription:
-    "MH Construction provides stakeholder-focused commercial, tenant improvement, municipal, agricultural and winery, and light industrial construction services across Washington, Oregon, and Idaho.",
+    "MH Construction provides mission-partner-focused commercial, tenant improvement, municipal, agricultural and winery, and light industrial construction services across Washington, Oregon, and Idaho.",
   defaultKeywords: [
     "construction",
     "general contractor",
     "general contractor Pasco, WA",
-    "Built on Quality, Backed by Trust.",
-    "Squared away from start to finish.",
-    "stakeholder-focused construction delivery",
+    MH_SLOGANS.primary,
+    "mission-partner-focused construction delivery",
     "relationship-first construction partner",
     "owner representative construction coordination",
     "facilities team construction support",
@@ -416,14 +416,14 @@ export function generateEnhancedOrganizationSchema() {
       {
         "@type": "ContactPoint",
         telephone: defaultSEO.companyInfo.telephone,
-        contactType: "project stakeholder support",
+        contactType: "mission-partner support",
         areaServed: ["US"],
         availableLanguage: ["English"],
       },
       {
         "@type": "ContactPoint",
         url: `${defaultSEO.siteUrl}`,
-        contactType: "project stakeholder support",
+        contactType: "mission-partner support",
         description:
           "AI-powered Partnership Guide — available 24/7 to answer questions about services, Trade Partners (Allies), veteran benefits, and project consultations.",
         availableLanguage: ["English"],

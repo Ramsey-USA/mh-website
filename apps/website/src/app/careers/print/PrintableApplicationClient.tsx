@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { MH_SLOGANS } from "@/lib/branding/page-names";
 import { useLocale } from "@/hooks/useLocale";
 import { setClientLocale, type SupportedLocale } from "@/lib/i18n/locale";
 
@@ -17,7 +18,7 @@ const translations = {
     title: "Employment Application",
     subtitle: "MH Construction, Inc.",
     tagline: "Founded 2010, Veteran-Owned Since January 2025",
-    brandSlogan: "Built on Quality, Backed by Trust.",
+    brandSlogan: MH_SLOGANS.primary,
     roiMessage: "Built on communication and follow-through",
     instructions: "Instructions",
     instructionsList: [
@@ -123,8 +124,7 @@ const translations = {
     title: "Solicitud de Empleo",
     subtitle: "MH Construction, Inc.",
     tagline: "Contratista General de Propiedad de Veteranos Desde Enero 2025",
-    brandSlogan:
-      "Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
+    brandSlogan: `${MH_SLOGANS.primary} (Construidos sobre calidad, respaldados por confianza.)`,
     roiMessage:
       "No gaps. No guesswork. Just accountable follow-through. (Sin brechas. Sin suposiciones. Solo seguimiento responsable.)",
     instructions: "Instrucciones",

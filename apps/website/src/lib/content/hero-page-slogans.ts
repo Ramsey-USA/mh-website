@@ -3,149 +3,149 @@ export interface HeroPageSlogan {
   slogan: string;
 }
 
+import { MH_SLOGANS } from "@/lib/branding/page-names";
+
 const HERO_PAGE_SLOGANS: Record<string, HeroPageSlogan> = {
   home: {
     seoName: "Home",
-    slogan: "Straight answers from the Command Center.",
+    slogan: MH_SLOGANS.heroByRoute.home,
   },
   about: {
     seoName: "About Us",
-    slogan: "Our Mission is built by people who keep their word.",
+    slogan: MH_SLOGANS.heroByRoute.about,
   },
   services: {
     seoName: "Services",
-    slogan: "Operations Briefs that keep scope clear and execution steady.",
+    slogan: MH_SLOGANS.heroByRoute.services,
   },
   projects: {
     seoName: "Projects",
-    slogan: "Our Work proves itself in every finished project.",
+    slogan: MH_SLOGANS.heroByRoute.projects,
   },
   projectDetail: {
     seoName: "Project Detail",
-    slogan: "Project SITREP clarity from first walkthrough to final closeout.",
+    slogan: MH_SLOGANS.heroByRoute.projectDetail,
   },
   contact: {
     seoName: "Contact",
-    slogan: "Comms Desk access with a direct line to the right people.",
+    slogan: MH_SLOGANS.heroByRoute.contact,
   },
   testimonials: {
     seoName: "Reviews",
-    slogan: "Field Commendations that speak for themselves.",
+    slogan: MH_SLOGANS.heroByRoute.testimonials,
   },
   locations: {
     seoName: "Locations",
-    slogan: "Regional Coverage with one consistent standard.",
+    slogan: MH_SLOGANS.heroByRoute.locations,
   },
   locationDetail: {
     seoName: "Location Detail",
-    slogan:
-      "Local Mission Profile tuned to each city and project delivery lane.",
+    slogan: MH_SLOGANS.heroByRoute.locationDetail,
   },
   team: {
     seoName: "Our Team",
-    slogan: "Command Staff you can count on in the field and office.",
+    slogan: MH_SLOGANS.heroByRoute.team,
   },
   careers: {
     seoName: "Careers",
-    slogan: "Recruitment Command built on steady work and honest leadership.",
+    slogan: MH_SLOGANS.heroByRoute.careers,
   },
   veterans: {
     seoName: "Veterans",
-    slogan: "Veteran Battalion service, respect, and practical support.",
+    slogan: MH_SLOGANS.heroByRoute.veterans,
   },
   allies: {
     seoName: "Partners",
-    slogan: "Allied Network built on communication and follow-through.",
+    slogan: MH_SLOGANS.heroByRoute.allies,
   },
   publicSector: {
     seoName: "Government",
-    slogan: "Civic Operations that stay accountable.",
+    slogan: MH_SLOGANS.heroByRoute.publicSector,
   },
   publicSectorProjects: {
     seoName: "Public Sector Projects",
-    slogan: "Public Sector Projects delivered with discipline.",
+    slogan: MH_SLOGANS.heroByRoute.publicSectorProjects,
   },
   veteranLedCompliance: {
     seoName: "Veteran-Led Compliance",
-    slogan: "Compliance Command that respects the standard.",
+    slogan: MH_SLOGANS.heroByRoute.veteranLedCompliance,
   },
   triStateGovernmentConstruction: {
     seoName: "Tri-State Government Construction",
-    slogan: "Regional Civic Delivery with steady oversight.",
+    slogan: MH_SLOGANS.heroByRoute.triStateGovernmentConstruction,
   },
-  hub: { seoName: "Team Hub", slogan: "Operations Hub for team coordination." },
+  hub: { seoName: "Team Hub", slogan: MH_SLOGANS.heroByRoute.hub },
   safety: {
     seoName: "Safety",
-    slogan:
-      "Safety Command with clear standards and consistent follow-through.",
+    slogan: MH_SLOGANS.heroByRoute.safety,
   },
   safetyManual: {
     seoName: "Safety Manual",
-    slogan: "Manual Operations with a clear reference for every safety step.",
+    slogan: MH_SLOGANS.heroByRoute.safetyManual,
   },
   safetyProgram: {
     seoName: "Safety Program",
-    slogan: "Program Command built into daily operations.",
+    slogan: MH_SLOGANS.heroByRoute.safetyProgram,
   },
   safetyForms: {
     seoName: "Safety Forms",
-    slogan: "Form Control that supports clean closeout.",
+    slogan: MH_SLOGANS.heroByRoute.safetyForms,
   },
   safetyContents: {
     seoName: "Table of Contents",
-    slogan: "Section Index that gets you there fast.",
+    slogan: MH_SLOGANS.heroByRoute.safetyContents,
   },
   resources: {
     seoName: "Resources",
-    slogan: "Field Resources for the work ahead.",
+    slogan: MH_SLOGANS.heroByRoute.resources,
   },
   incidentReport: {
     seoName: "Incident Report",
-    slogan: "Incident Command for fast reporting on real-world issues.",
+    slogan: MH_SLOGANS.heroByRoute.incidentReport,
   },
   faq: {
     seoName: "Help/FAQ",
-    slogan: "Intel Brief answers for common questions.",
+    slogan: MH_SLOGANS.heroByRoute.faq,
   },
   faqCategory: {
     seoName: "FAQ Category",
-    slogan: "Category Recon that gets you to the exact answer faster.",
+    slogan: MH_SLOGANS.heroByRoute.faqCategory,
   },
   accessibility: {
     seoName: "Accessibility",
-    slogan: "Access Standards that work for everyone.",
+    slogan: MH_SLOGANS.heroByRoute.accessibility,
   },
   privacy: {
     seoName: "Privacy Policy",
-    slogan: "Privacy Standards, plainly explained.",
+    slogan: MH_SLOGANS.heroByRoute.privacy,
   },
   terms: {
     seoName: "Terms of Service",
-    slogan: "Service Terms without the legal fog.",
+    slogan: MH_SLOGANS.heroByRoute.terms,
   },
   offline: {
     seoName: "Offline",
-    slogan: "Connection Status: what to expect when the connection drops.",
+    slogan: MH_SLOGANS.heroByRoute.offline,
   },
   employeeHandbook: {
     seoName: "Employee Handbook",
-    slogan: "Handbook Index with expectations clear from day one.",
+    slogan: MH_SLOGANS.heroByRoute.employeeHandbook,
   },
   qrCodes: {
     seoName: "QR Codes",
-    slogan: "QR Library for quick access to the right page.",
+    slogan: MH_SLOGANS.heroByRoute.qrCodes,
   },
   events: {
     seoName: "Events",
-    slogan: "Formation Calendar where the calendar meets the crew.",
+    slogan: MH_SLOGANS.heroByRoute.events,
   },
   coolDesertNights: {
     seoName: "Cool Desert Nights",
-    slogan: "Event Archive support that shows up prepared.",
+    slogan: MH_SLOGANS.heroByRoute.coolDesertNights,
   },
   default: {
     seoName: "Home",
-    slogan: "Straight answers from the Command Center.",
+    slogan: MH_SLOGANS.heroByRoute.home,
   },
 };
 

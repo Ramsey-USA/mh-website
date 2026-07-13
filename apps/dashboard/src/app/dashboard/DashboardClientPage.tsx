@@ -89,13 +89,13 @@ const TAB_CONFIG: Readonly<
   Record<DashboardTab, { icon: string; label: string }>
 > = {
   analytics: { icon: "dashboard", label: "Analytics" },
-  leads: { icon: "person_search", label: "Leads CRM" },
-  safety: { icon: "safety_check", label: "Safety Program" },
+  leads: { icon: "person_search", label: "Mission Leads" },
+  safety: { icon: "safety_check", label: "Mission Safety" },
   drivers: { icon: "directions_car", label: "Drivers" },
   "access-log": { icon: "verified_user", label: "Access Log" },
-  rfq: { icon: "description", label: "RFQ Builder" },
-  branding: { icon: "auto_fix_high", label: "Branding Studio" },
-  "team-questionnaire": { icon: "quiz", label: "Team Questionnaire" },
+  rfq: { icon: "description", label: "Mission Brief Builder" },
+  branding: { icon: "auto_fix_high", label: "Brand Command" },
+  "team-questionnaire": { icon: "quiz", label: "Team Briefing" },
 };
 
 function renderTabContent(
@@ -141,7 +141,7 @@ function renderTabContent(
 export default function DashboardClientPage({
   initialOverview,
 }: Readonly<{ initialOverview: DashboardData | null }>) {
-  usePageTracking("Analytics Dashboard");
+  usePageTracking("Mission Dashboard");
 
   const router = useRouter();
   const auth = useAdminAuth();
@@ -232,10 +232,10 @@ export default function DashboardClientPage({
               </div>
               <div>
                 <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-                  ANALYTICS DASHBOARD
+                  MISSION DASHBOARD
                 </h1>
                 <p className="text-sm text-brand-secondary font-bold uppercase tracking-wider">
-                  Welcome back, {userName} • Dashboard Active
+                  Welcome back, {userName} • Mission Board Active
                 </p>
                 <p className="text-xs text-brand-secondary-light/90 font-semibold tracking-wide">
                   Veteran-Owned Since January 2025 • Founded 2010

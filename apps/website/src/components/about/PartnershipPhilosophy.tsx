@@ -148,7 +148,7 @@ export function PartnershipPhilosophy() {
           <div className="gap-8 grid sm:grid-cols-1 md:grid-cols-2 mb-12">
             <PhilosophyCard
               icon="groups"
-              ariaLabel="Project stakeholder relationship"
+              ariaLabel="Mission-partner relationship"
               title="Stakeholder Partnership Approach"
               glowFrom="from-brand-secondary/40"
               glowTo="to-brand-secondary-dark/40"

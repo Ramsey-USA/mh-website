@@ -2,14 +2,14 @@
   "hero": {
     "baseLabel": "Base Central → Hogar",
     "founded": "Fundado en 2010 • Empresa veterana desde enero de 2025 • Partidario de BABAA (Ley Build America, Buy America)",
-    "tagline": "Construcción centrada en la relación en WA, OR e ID",
+    "tagline": "Entrega lista para la misión en WA, OR e ID",
     "mission": "Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
     "serving": "Sede en Tri-Cities (Pasco, Richland, Kennewick) | Licencia Tri-State en WA, OR, ID"
   },
   "coreValues": {
-    "sectionSubtitle": "Marco de Decisión",
-    "sectionTitle": "Cuatro Valores en la Práctica",
-    "sectionDescription": "Estos valores definen cómo tomamos decisiones sobre alcance, presupuesto y cronograma mientras protegemos la calidad y la rendición de cuentas. Professional on the line. Thorough in the details. (Profesionales en la línea. Minuciosos en cada detalle.)",
+    "sectionSubtitle": "Matriz de Misión",
+    "sectionTitle": "Cuatro Estándares en la Práctica Diaria",
+    "sectionDescription": "Estos estándares definen cómo tomamos decisiones sobre alcance, cadencia y entrega mientras protegemos la calidad y la rendición de cuentas. Professional on the line. Thorough in the details. (Profesionales en la línea. Minuciosos en cada detalle.)",
     "keyMetric": "Métrica Clave",
     "values": [
       {
@@ -47,52 +47,52 @@
     ]
   },
   "companyStats": {
-    "subtitle": "Resumen de Rendimiento",
+    "subtitle": "Resumen Operativo",
     "title": "Cifras que Puede Verificar",
-    "description": "Vista rápida del rendimiento en seguridad, profundidad del equipo, volumen de entrega y cobertura de licencias en Washington, Oregon e Idaho. No gaps. No guesswork. Just accountable follow-through. (Sin brechas. Sin suposiciones. Solo seguimiento responsable.)",
+    "description": "Lectura rápida del rendimiento en seguridad, profundidad del equipo, volumen de entrega y cobertura de licencias en Washington, Oregon e Idaho. No gaps. No guesswork. Just accountable follow-through. (Sin brechas. Sin suposiciones. Solo seguimiento responsable.)",
     "labels": {
-      "safety": "EMR de Seguridad Galardonado",
-      "experience": "Años de Experiencia Combinada",
-      "projects": "Proyectos Exitosos",
-      "states": "Estados con Licencia y Seguro"
+      "safety": "Lectura de Seguridad",
+      "experience": "Años de Servicio Combinado",
+      "projects": "Misiones Completadas",
+      "states": "Estados Cubiertos y Asegurados"
     }
   },
   "services": {
-    "sectionSubtitle": "Selector de Servicios",
-    "sectionTitle": "Filtre por Ruta de Entrega y Enfoque de Proyecto",
+    "sectionSubtitle": "Selector de Misiones",
+    "sectionTitle": "Filtre por Ruta de Misión y Área de Enfoque",
     "sectionDescription": "Use los filtros para encontrar rápidamente la tarjeta de servicio que mejor se ajusta al alcance y prioridades de su proyecto. Nuestra operación es principalmente comercial y evaluamos Custom Home Builds cuando hay ajuste de alcance.",
     "funnel": {
-      "pathStepLabel": "Paso 1: Elija una ruta de entrega",
-      "focusStepLabel": "Paso 2: Elija el enfoque de su proyecto",
-      "helperText": "Primero elija una ruta de entrega y luego el enfoque del proyecto. Abra cualquier tarjeta coincidente para revisar alcance, beneficios y siguientes acciones.",
-      "resultsLabel": "Servicios coincidentes: {count}",
+      "pathStepLabel": "Paso 1: Elija una ruta de misión",
+      "focusStepLabel": "Paso 2: Elija un área de enfoque",
+      "helperText": "Primero elija una ruta de misión y luego un área de enfoque. Abra cualquier tarjeta coincidente para revisar alcance, beneficios y siguientes acciones.",
+      "resultsLabel": "Misiones coincidentes: {count}",
       "resetFilters": "Restablecer filtros",
-      "noResultsTitle": "No hay servicios exactos para esa combinación de filtros",
+      "noResultsTitle": "No hay misiones exactas para esa combinación de filtros",
       "noResultsDescription": "Restablezca filtros para ver todos los servicios disponibles y elegir otra combinacion.",
       "pathOptions": {
-        "all": "Todas las rutas de entrega",
+        "all": "Todas las rutas de misión",
         "planControl": "Planificar y controlar",
-        "buildExpand": "Construir y expandir",
+        "buildExpand": "Construir y avanzar",
         "modernizeSpaces": "Modernizar espacios"
       },
       "focusOptions": {
-        "all": "Todos los enfoques",
+        "all": "Todas las áreas de enfoque",
         "agWinery": "AG y bodegas",
         "publicSector": "Sector público",
-        "procurement": "Adquisición y socios comerciales",
+        "procurement": "Logística y socios comerciales",
         "industrial": "Industrial ligero",
-        "occupiedTi": "TI en espacios activos",
-        "rapidTi": "TI de entrega rápida"
+        "occupiedTi": "Acondicionamiento en espacios activos",
+        "rapidTi": "Acondicionamiento de entrega rápida"
       }
     },
-    "clickForDetails": "Haga clic para detalles completos",
-    "viewDetailsAriaPrefix": "Ver detalles de",
+    "clickForDetails": "Abrir resumen de misión",
+    "viewDetailsAriaPrefix": "Ver resumen de misión de",
     "closeDetailsBackdropAria": "Cerrar modal de detalles del servicio",
     "closeModalAria": "Cerrar modal",
-    "whatsIncluded": "Qué Incluye",
-    "keyBenefits": "Beneficios Clave",
-    "learnMoreFallback": "Saber Más",
-    "contactCta": "Comenzar",
+    "whatsIncluded": "Alcance de la Misión",
+    "keyBenefits": "Ventajas de la Misión",
+    "learnMoreFallback": "Abrir Resumen",
+    "contactCta": "Iniciar Misión",
     "items": [
       {
         "title": "Comunidades AG y Bodegas",
@@ -206,20 +206,20 @@
   },
   "whyPartner": {
     "sectionSubtitle": "Responsabilidad Operativa",
-    "sectionTitle": "Quien Es Responsable en Cada Etapa",
+    "sectionTitle": "Quién Lleva el Turno en Cada Etapa",
     "sectionDescription": "Revise nuestro modelo de responsables, ruta de escalamiento y controles de aprobacion para mantener decisiones claras desde el inicio hasta el soporte posterior al cierre. From Handshake to Handoff, we got your 'six.' (Del primer apretón de manos a la entrega final, cubrimos su retaguardia.)",
     "philosophy": "Tu palabra es tu compromiso; la nuestra también. Punto.",
     "theROI": "No gaps. No guesswork. Just accountable follow-through. (Sin brechas. Sin suposiciones. Solo seguimiento responsable.)",
     "tradeCta": {
-      "prompt": "¿Es usted contratista de oficios?",
+      "prompt": "¿Es usted un socio comercial aliado?",
       "highlight": "Únase a nuestra red Ally.",
       "button": "Ver oportunidades para Socios Comerciales",
       "iconAria": "Socios comerciales"
     },
     "values": [
       {
-        "title": ".64 EMR - Seguridad Líder en la Industria",
-        "subtitle": "Cada Miembro del Equipo Regresa a Casa Seguro",
+        "title": ".64 EMR - Seguridad Probada en Terreno",
+        "subtitle": "Cada Operador Regresa a Casa Seguro",
         "description": "Reconocimiento AGC-WA Top EMR con .64 EMR (40% mejor que la industria), más de 3 años sin lesiones con pérdida de tiempo y designación OSHA VPP Star. Sin compromisos en seguridad.",
         "highlights": [
           ".64 EMR (40% mejor que la industria)",
@@ -231,7 +231,7 @@
       },
       {
         "title": "Más de 150 Años de Experiencia Combinada",
-        "subtitle": "Experiencia Comprobada en Construcción",
+        "subtitle": "Experiencia Operativa Comprobada",
         "description": "Nuestro equipo aporta más de 150 años de experiencia combinada. Veteranos y civiles trabajan juntos con métodos probados y refinados por generaciones.",
         "highlights": [
           "Más de 150 años de experiencia combinada",
@@ -243,7 +243,7 @@
       },
       {
         "title": "Transparencia Completa",
-        "subtitle": "Cero Sorpresas",
+        "subtitle": "Sin Sorpresas",
         "description": "Precios de libro abierto con visibilidad en costos, cronograma y decisiones. Sin costos ocultos y con evaluaciones honestas en cada fase.",
         "highlights": [
           "Precios de libro abierto",
@@ -293,25 +293,25 @@
     ]
   },
   "testimonials": {
-    "subtitle": "Voces de Clientes",
+    "subtitle": "Voces de Socios de Misión",
     "title": "Relaciones Probadas en Campo",
-    "description": "Prueba de Socios Cliente en AG/bodegas, TI comercial y mercados municipales en todo el Noroeste del Pacífico. Squared away from start to finish. (Listos y alineados de principio a fin.)"
+    "description": "Prueba de socios de misión en AG/bodegas, acondicionamientos y mercados municipales en todo el Noroeste del Pacífico. Squared away from start to finish. (Listos y alineados de principio a fin.)"
   },
   "process": {
     "subtitle": "Hoja de Ruta de Ejecución",
     "title": "Modelo Operativo de Seis Etapas",
-    "descriptionPart1": "Seis etapas claras desde",
-    "descriptionPart2": "la calificación inicial hasta el cierre",
+    "descriptionPart1": "Seis etapas claras desde el ingreso de la misión hasta el soporte posterior al cierre.",
+    "descriptionPart2": "",
     "descriptionPart3": ". La propiedad de responsabilidades, el escalamiento y las aprobaciones se mantienen visibles con",
     "descriptionPart4": "controles en Procore y documentación lista para entrega",
     "descriptionPart5": ". Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
     "steps": [
       {
-        "title": "Ingreso y Calificación",
+        "title": "Ingreso y Calificación de la Misión",
         "desc": "Desde el primer contacto se establecen objetivos, restricciones y criterio de éxito para elegir ruta con contexto validado, no con supuestos."
       },
       {
-        "title": "Planificación de Preconstrucción",
+        "title": "Planificación Pre-Despliegue",
         "desc": "Estimación lidera inteligencia de costos, arquitectura de alcance y modelado de riesgo para alinear secuencia, compras y presupuesto antes de movilizar campo."
       },
       {

@@ -46,7 +46,9 @@ describe("Sitewide tab title metadata contract", () => {
     },
     {
       file: "app/about/details/page.tsx",
-      requiredSnippets: ['buildDualSeoTitle("about", "Detailed Capabilities")'],
+      requiredSnippets: [
+        'buildDualSeoTitle("about", "Detailed Mission Capabilities")',
+      ],
     },
     {
       file: "app/safety/hub/layout.tsx",

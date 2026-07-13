@@ -1,6 +1,6 @@
 /**
  * Shared Testimonials Section Component
- * Displays project stakeholder testimonials in a consistent format across pages
+ * Displays mission-partner testimonials in a consistent format across pages
  * Used on: Homepage, About, Services, Projects pages
  */
 
@@ -22,7 +22,7 @@ interface TestimonialsSectionProps {
 }
 
 export function TestimonialsSection({
-  title = "What Our Project Stakeholders Say",
+  title = "What Our Mission Partners Say",
   subtitle = "What Our",
   description = "Hear from valued partners who've experienced our core values in action.",
   className = "",

@@ -626,10 +626,10 @@ export function SafetyTab({ token }: SafetyTabProps) {
               size="sm"
               className="text-brand-secondary"
             />
-            Safety Program Context
+            Mission Safety Context
           </p>
           <h2 className="mt-3 text-lg font-black text-white uppercase tracking-wide">
-            Safety Program (MISH Safety &amp; Health Program / Safety Manual)
+            Mission Safety (MISH Safety &amp; Health Program / Safety Manual)
           </h2>
           <p className="mt-1 text-sm text-brand-secondary-light/85">
             This dashboard tab manages jobs, form submissions, and download

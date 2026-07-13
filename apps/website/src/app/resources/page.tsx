@@ -17,6 +17,7 @@ import { manuals, forms } from "@/lib/data/documents";
 import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
+  MH_SLOGANS,
 } from "@/lib/branding/page-names";
 import { DownloadGate } from "@/components/pwa";
 import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
     description:
-      "Safety manuals, toolbox talks, and field forms from MH Construction for field crews and project stakeholders.",
+      "Safety manuals, toolbox talks, and field forms from MH Construction for field crews and mission partners.",
   },
 };
 
@@ -53,9 +54,8 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Resources", url: "https://www.mhc-gc.com/resources" },
 ]);
 
-const resourcesMissionLine = "Built on Quality, Backed by Trust.";
-const resourcesSupportingLine =
-  "No gaps. No guesswork. Just accountable follow-through.";
+const resourcesMissionLine = MH_SLOGANS.primary;
+const resourcesSupportingLine = MH_SLOGANS.supporting[1];
 
 export default async function ResourcesPage() {
   const isEs = (await getServerLocale()) === "es";

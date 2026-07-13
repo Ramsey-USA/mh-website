@@ -21,19 +21,19 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   {
     slug: "kennewick-commercial-office-renovation",
     projectId: "proj-001",
-    title: "Kennewick Commercial Office Renovation",
-    metaTitle: "Kennewick Commercial Office Renovation | MH Construction",
+    title: "Kennewick Mission-Ready Office Renovation",
+    metaTitle: "Kennewick Mission-Ready Office Renovation | MH Construction",
     metaDescription:
-      "A 12,000 sq ft commercial office renovation in Kennewick, WA with phased interior upgrades, modern circulation, and safety-first delivery.",
+      "A 12,000 sq ft mission-ready office renovation in Kennewick, WA with phased interior upgrades, modern circulation, and safety-first delivery.",
     ogImage: "/images/projects/kennewick-office-renovation.webp",
     description:
       "MH Construction delivered a phased interior renovation that improved office function, updated finishes, and kept the occupied environment under control.",
     location: { city: "Kennewick", state: "WA" },
     yearCompleted: 2024,
-    category: "Commercial",
+    category: "Mission-Ready",
     technicalSpecs: {
       squareFootage: 12000,
-      deliveryMethod: "Renovation",
+      deliveryMethod: "Mission-ready renovation",
       primaryScope: ["Interior remodel", "HVAC coordination", "ADA updates"],
       finishPackage: [
         "Engineered hardwood",
@@ -50,7 +50,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     results: [
       "Delivered a modernized workplace with minimal disruption.",
       "Aligned the interior finish schedule with owner operations.",
-      "Kept the jobsite clean and accessible through closeout.",
+      "Kept the jobsite clean and accessible through handoff.",
     ],
   },
   {
@@ -91,19 +91,20 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   {
     slug: "richland-corporate-office-tenant-improvement",
     projectId: "proj-003",
-    title: "Richland Corporate Office Tenant Improvement",
-    metaTitle: "Richland Corporate Office Tenant Improvement | MH Construction",
+    title: "Richland Corporate Office Mission-Ready Fit-Out",
+    metaTitle:
+      "Richland Corporate Office Mission-Ready Fit-Out | MH Construction",
     metaDescription:
-      "A 3,800 sq ft corporate office commercial tenant improvement in Richland, WA designed for accessible circulation, efficient systems, and careful finish detailing.",
+      "A 3,800 sq ft corporate office mission-ready fit-out in Richland, WA designed for accessible circulation, efficient systems, and careful finish detailing.",
     ogImage: "/images/projects/richland-custom-home.webp",
     description:
-      "MH Construction delivered a corporate office commercial tenant improvement with universal accessibility principles, premium finishes, door and hardware installation, and a clear delivery plan managed in Procore.",
+      "MH Construction delivered a corporate office mission-ready fit-out with universal accessibility principles, premium finishes, door and hardware installation, and a clear delivery plan managed in Procore.",
     location: { city: "Richland", state: "WA" },
     yearCompleted: 2024,
-    category: "Commercial",
+    category: "Mission-Ready",
     technicalSpecs: {
       squareFootage: 3800,
-      deliveryMethod: "Commercial tenant improvement",
+      deliveryMethod: "Mission-ready fit-out",
       primaryScope: [
         "Open collaboration zones",
         "Executive briefing room",
@@ -123,7 +124,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Final punch-list review with the owner",
     ],
     results: [
-      "Delivered a commercial workspace aligned to the operations brief.",
+      "Delivered a mission-ready workspace aligned to the operations brief.",
       "Kept the finish schedule aligned with client move-in milestones.",
       "Balanced quality, efficiency, and durable material selection.",
     ],
@@ -131,19 +132,20 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   {
     slug: "spokane-healthcare-clinic-tenant-improvement",
     projectId: "proj-004",
-    title: "Spokane Healthcare Clinic Tenant Improvement",
-    metaTitle: "Spokane Healthcare Clinic Tenant Improvement | MH Construction",
+    title: "Spokane Healthcare Clinic Mission-Ready Fit-Out",
+    metaTitle:
+      "Spokane Healthcare Clinic Mission-Ready Fit-Out | MH Construction",
     metaDescription:
-      "A 6,500 sq ft healthcare tenant improvement in Spokane, WA built for code compliance, patient flow, and durable clinic operations.",
+      "A 6,500 sq ft healthcare mission-ready fit-out in Spokane, WA built for code compliance, patient flow, and durable clinic operations.",
     ogImage: "/images/projects/spokane-healthcare-clinic.webp",
     description:
-      "MH Construction coordinated a healthcare commercial tenant improvement with clear patient flow, compliant finishes, door and hardware installation, and careful sequencing around occupied operations.",
+      "MH Construction coordinated a healthcare mission-ready fit-out with clear patient flow, compliant finishes, door and hardware installation, and careful sequencing around occupied operations.",
     location: { city: "Spokane", state: "WA" },
     yearCompleted: 2023,
-    category: "Commercial",
+    category: "Mission-Ready",
     technicalSpecs: {
       squareFootage: 6500,
-      deliveryMethod: "Commercial tenant improvement",
+      deliveryMethod: "Mission-ready fit-out",
       primaryScope: [
         "Exam rooms",
         "Procedure suites",

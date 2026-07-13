@@ -4,6 +4,7 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import {
   buildDualSeoTitle,
+  MH_SLOGANS,
   normalizeMhKeywordList,
   normalizeMhPhrasesInText,
 } from "@/lib/branding/page-names";
@@ -13,14 +14,14 @@ export const enhancedSEO = {
   siteName: COMPANY_INFO.name,
   defaultTitle: buildDualSeoTitle("home", "Construction Planning and Delivery"),
   defaultDescription:
-    "MH Construction delivers stakeholder-focused planning and execution across Washington, Oregon, and Idaho from Tri-Cities headquarters, including commercial, tenant improvement, municipal, agricultural and winery, and light industrial work.",
+    "MH Construction delivers mission-partner-focused planning and execution across Washington, Oregon, and Idaho from Tri-Cities headquarters, including commercial, tenant improvement, municipal, agricultural and winery, and light industrial work.",
   siteUrl: COMPANY_INFO.urls.getSiteUrl(),
   twitterHandle: COMPANY_INFO.social.twitterHandle,
   defaultKeywords: [
     "MH Construction home",
-    "Built on Quality, Backed by Trust.",
+    MH_SLOGANS.primary,
     "Veteran-Owned contractor",
-    "stakeholder-focused construction delivery",
+    "mission-partner-focused construction delivery",
     "relationship-first construction partner",
     "commercial construction consultation",
     "owner representative construction coordination",
@@ -49,7 +50,7 @@ export const enhancedSEO = {
     "light industrial construction",
     "agricultural and winery construction",
     "municipal construction services",
-    "public-sector stakeholder construction delivery",
+    "public-sector mission-partner construction delivery",
     "partnership construction approach",
     "collaborative building relationships",
     "Pacific Northwest general contractor",
@@ -278,7 +279,7 @@ export function generateEnhancedOrganizationSchema() {
     ],
     veteranOwned: true,
     ownershipType: "Veteran-Owned Small Business",
-    slogan: "Built on Quality, Backed by Trust.",
+    slogan: MH_SLOGANS.primary,
     mission:
       "Build lasting value through clear planning, disciplined execution, and reliable partnership across the Pacific Northwest. No gaps. No guesswork. Just accountable follow-through.",
     hasCredential: [
@@ -559,7 +560,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "What makes MH Construction different from other contractors?",
       answer:
-        "MH Construction combines veteran-led leadership, structured project controls, and direct communication. Founded in 2010 and Veteran-Owned, the team emphasizes planning discipline, schedule accountability, and long-term project stakeholder relationships.",
+        "MH Construction combines veteran-led leadership, structured project controls, and direct communication. Founded in 2010 and Veteran-Owned, the team emphasizes planning discipline, schedule accountability, and long-term mission-partner relationships.",
     },
     {
       question: "What safety record and awards does MH Construction hold?",
@@ -569,7 +570,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "What types of construction services do you provide?",
       answer:
-        "MH Construction provides commercial, industrial, and government project delivery, including general contracting, construction management, front-end scope planning, tenant improvements, light industrial builds, design-build, and facility renovations.",
+        "MH Construction provides commercial, industrial, and government project delivery, including general contracting, mission management, front-end scope planning, tenant improvements, light industrial builds, design-build, and facility renovations.",
     },
     {
       question: "How can I get started with my construction project?",

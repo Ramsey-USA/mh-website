@@ -28,11 +28,11 @@ const FadeInWhenVisible = dynamic(
 );
 
 export const metadata: Metadata = {
-  title: buildDualSeoTitle("about", "Detailed Capabilities"),
+  title: buildDualSeoTitle("about", "Detailed Mission Capabilities"),
   description:
-    "Detailed capabilities and operational specialties for MH Construction delivery lanes.",
+    "Detailed capabilities and operational specialties for MH Construction mission lanes.",
   alternates: {
-    canonical: "https://www.mhc-gc.com/about",
+    canonical: "https://www.mhc-gc.com/about/details",
   },
   robots: {
     index: false,
@@ -45,52 +45,53 @@ export default function AboutDetailsPage() {
   const aboutTitle = commonT("about.hero.sectionTitle").toLowerCase();
   const isSpanish =
     aboutTitle.includes("sobre") || aboutTitle.includes("nosotros");
+
   const copy = isSpanish
     ? {
         breadcrumbCurrent: "Capacidades detalladas",
         valuesDescription:
-          "Trabajamos con comunidades agrícolas y vinícolas, mejoras para inquilinos comerciales y obras municipales con comunicación directa, alcance claro y control operativo.",
+          "Atendemos comunidades agrícolas y vinícolas, acondicionamientos alineados a la misión y proyectos municipales con comunicación directa, alcance claro y operaciones responsables.",
         timelineDescription:
-          "Este historial muestra cómo evolucionamos para ejecutar edificios post-frame, puertas y herrajes, y gestión de proyectos en Procore en entornos regulados y de producción activa.",
+          "Esta cronología muestra cómo fortalecimos capacidad en edificios post-frame, puertas y herrajes, y gestión de misión en Procore para instalaciones reguladas y activas.",
         newsSubtitle: "Prueba operativa",
-        newsTitle: "Especialidades por mercado",
+        newsTitle: "Especialidades por ruta de misión",
         newsDescription:
-          "Capacidades reales para agricultura y bodegas, TI comercial y proyectos municipales, con seguridad, secuenciación y coordinación multi-equipo desde preconstrucción hasta entrega.",
+          "Capacidades reales para instalaciones AG y bodegas, acondicionamientos y proyectos municipales con seguridad, secuenciación y coordinación multi-equipo desde la definición del alcance hasta la entrega.",
         crmDescription:
-          "Coordinamos alcance, RFIs, submittals y secuencias de campo en Procore para reducir retrabajo y mantener la obra alineada con metas de operación.",
+          "Coordinamos alcance, RFIs, submittals y secuencias de campo en Procore para reducir retrabajo y sostener la ejecución alineada con objetivos operativos.",
         tradeDescription:
-          "Lideramos instalación de puertas y herrajes con control de apertura, cumplimiento y cierre coordinado para instalaciones nuevas y mejoras en operación.",
+          "Lideramos la instalación de puertas y herrajes con control de aperturas, alineación de cumplimiento y entrega coordinada para instalaciones nuevas y acondicionamientos activos.",
         safetyDescription:
-          "La ejecucion municipal y de sitios ocupados exige seguridad documentada, planes de control y trazabilidad en campo para mantener cumplimiento y continuidad.",
+          "La entrega en sitios municipales y ocupados exige seguridad documentada, planes de control y trazabilidad en campo para sostener cumplimiento y continuidad.",
         insightDescription:
-          "En agricultura y bodegas planificamos secuencias constructivas alrededor de equipos, produccion y ventanas de cosecha para minimizar interrupciones.",
+          "En trabajos agrícolas y de bodega, planeamos secuencias de obra alrededor de equipos, producción y ventanas de cosecha para reducir interrupciones.",
         veteranDescription:
-          "El liderazgo veterano sostiene una cultura de responsabilidad, disciplina de agenda y comunicación directa con dueños, operadores y equipos de diseño.",
+          "El liderazgo veterano sostiene responsabilidad, disciplina de agenda y comunicación directa con dueños, operadores y equipos de diseño.",
         footerNote:
-          "Si necesita el plan de ejecución para su sitio, compartimos enfoque, riesgos y próximos pasos desde la primera reunión.",
+          "Si necesita detalle de ejecución para su sitio, compartimos enfoque, riesgos y próximos pasos en la primera conversación.",
       }
     : {
         breadcrumbCurrent: "Detailed capabilities",
         valuesDescription:
-          "We serve AG and winery communities, commercial tenant improvements, and municipal projects with direct communication, clear scope, and accountable operations.",
+          "We serve AG and winery communities, mission-ready fit-outs, and municipal projects with direct communication, clear scope, and accountable operations.",
         timelineDescription:
-          "This timeline reflects how we built depth in pole buildings, door and hardware installation, and Procore-driven project management for regulated and active facilities.",
+          "This timeline shows how we built depth in post-frame buildings, door and hardware installation, and Procore-supported mission management for regulated and active facilities.",
         newsSubtitle: "Operational proof",
-        newsTitle: "Specialties by project type",
+        newsTitle: "Specialties by mission lane",
         newsDescription:
-          "Real capabilities for AG and winery facilities, commercial TI, and municipal builds with safety, sequencing, and multi-trade coordination from front-end scope definition through closeout.",
+          "Real capabilities for AG and winery facilities, fit-outs, and municipal builds with safety, sequencing, and multi-team coordination from front-end scope definition through handoff.",
         crmDescription:
-          "We manage scope, RFIs, submittals, and field sequencing in Procore to reduce rework and keep execution aligned with operating goals.",
+          "We coordinate scope, RFIs, submittals, and field sequences in Procore to reduce rework and keep execution aligned with operating goals.",
         tradeDescription:
-          "We lead door and hardware installation with opening control, compliance alignment, and coordinated closeout for new facilities and active tenant improvements.",
+          "We lead door and hardware installation with opening control, compliance alignment, and coordinated handoff for new facilities and active fit-outs.",
         safetyDescription:
           "Municipal and occupied-site delivery requires documented safety, control plans, and field traceability to maintain compliance and continuity.",
         insightDescription:
-          "For AG and winery work, we plan construction sequencing around equipment, production schedules, and harvest windows to limit disruption.",
+          "For AG and winery work, we plan mission sequencing around equipment, production schedules, and harvest windows to limit disruption.",
         veteranDescription:
           "Veteran-owned leadership drives accountability, schedule discipline, and direct communication with owners, operators, and design teams.",
         footerNote:
-          "If you need execution detail for your site, we can walk scope, risk controls, and next steps in the first conversation.",
+          "If you need execution detail for your site, we can walk through approach, risks, and next steps in the first conversation.",
       };
 
   return (

@@ -4,9 +4,9 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 
 export const metadata: Metadata = {
-  title: "Analytics Dashboard | MH Construction",
+  title: "Mission Dashboard | MH Construction",
   description:
-    "Internal analytics dashboard for MH Construction performance and conversion intelligence.",
+    "Internal mission dashboard for MH Construction performance and conversion intelligence.",
   alternates: {
     canonical: `${siteUrl}/dashboard`,
   },
@@ -15,16 +15,17 @@ export const metadata: Metadata = {
     follow: false,
   },
   openGraph: {
-    title: "Analytics Dashboard | MH Construction",
-    description: "Internal dashboard view for MH Construction analytics.",
+    title: "Mission Dashboard | MH Construction",
+    description:
+      "Internal dashboard view for MH Construction mission intelligence.",
     type: "website",
     locale: "en_US",
     url: `${siteUrl}/dashboard`,
   },
   twitter: {
     card: "summary",
-    title: "Analytics Dashboard | MH Construction",
-    description: "Internal analytics and geographic intelligence dashboard.",
+    title: "Mission Dashboard | MH Construction",
+    description: "Internal mission and geographic intelligence dashboard.",
   },
 };
 

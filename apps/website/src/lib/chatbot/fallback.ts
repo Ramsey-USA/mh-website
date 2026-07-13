@@ -190,7 +190,7 @@ const ENGLISH_INTENT_RESPONSES = [
       "build",
       "construction",
     ],
-    response: `MH Construction provides commercial construction, industrial work, healthcare and medical facilities, civic and nonprofit projects, public-sector construction, design-build support, tenant improvements, and pre-construction planning. You can see more at ${SITE_HOST}/services or call ${CONTACT_PHONE}.`,
+    response: `MH Construction provides mission-ready construction, industrial work, healthcare and medical facilities, civic and nonprofit projects, public-sector construction, design-build support, fit-outs, and predeployment planning. You can see more at ${SITE_HOST}/services or call ${CONTACT_PHONE}.`,
   },
   {
     keywords: [

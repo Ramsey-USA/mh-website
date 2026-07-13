@@ -24,8 +24,8 @@ describe("Chatbot Fallback", () => {
   it("returns a services answer for punctuation-heavy questions", () => {
     const response = getChatFallbackResponse("What do you do?");
 
-    expect(response).toContain("commercial construction");
-    expect(response).toContain("pre-construction planning");
+    expect(response).toContain("mission-ready construction");
+    expect(response).toContain("predeployment planning");
   });
 
   it("returns trust information for pluralized ratings questions", () => {

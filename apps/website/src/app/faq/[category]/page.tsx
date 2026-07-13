@@ -187,7 +187,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
   partnership: {
     service: {
       href: "/services",
-      label: "Project stakeholder service pathway",
+      label: "Mission-partner service pathway",
     },
     location: {
       href: "/locations/walla-walla",

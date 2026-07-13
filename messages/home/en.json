@@ -2,14 +2,14 @@
   "hero": {
     "baseLabel": "Home",
     "founded": "Founded 2010 • Veteran-Owned Since January 2025 • BABAA (Build America, Buy America Act) Supporter",
-    "tagline": "Accountable construction across WA, OR, and ID",
+    "tagline": "Mission-ready delivery across WA, OR, and ID",
     "mission": "Built on Quality, Backed by Trust.",
     "serving": "Tri-Cities HQ (Pasco, Richland, Kennewick) | Tri-State Licensed in WA, OR, ID"
   },
   "coreValues": {
-    "sectionSubtitle": "Decision Framework",
-    "sectionTitle": "Four Values in Daily Practice",
-    "sectionDescription": "These values set the standard for decisions on scope, budget, and schedule while protecting quality and accountability. Professional on the line. Thorough in the details.",
+    "sectionSubtitle": "Mission Matrix",
+    "sectionTitle": "Four Standards in Daily Practice",
+    "sectionDescription": "These standards set the tone for scope, cadence, and delivery while protecting quality and accountability. Professional on the line. Thorough in the details.",
     "keyMetric": "Key Metric",
     "values": [
       {
@@ -47,52 +47,52 @@
     ]
   },
   "companyStats": {
-    "subtitle": "Performance Snapshot",
+    "subtitle": "Operational Snapshot",
     "title": "Numbers You Can Verify",
-    "description": "Quick snapshot of safety performance, team depth, delivery volume, and licensing coverage across Washington, Oregon, and Idaho. No gaps. No guesswork. Just accountable follow-through.",
+    "description": "Quick readout of safety performance, team depth, delivery volume, and licensing coverage across Washington, Oregon, and Idaho. No gaps. No guesswork. Just accountable follow-through.",
     "labels": {
-      "safety": "Award-Winning Safety EMR",
-      "experience": "Years Combined Experience",
-      "projects": "Successful Projects",
-      "states": "States Licensed & Insured"
+      "safety": "Safety Readout",
+      "experience": "Years of Combined Service",
+      "projects": "Completed Missions",
+      "states": "States Covered & Insured"
     }
   },
   "services": {
-    "sectionSubtitle": "Service Matcher",
-    "sectionTitle": "Filter by Delivery Path and Project Focus",
-    "sectionDescription": "Use the filters to quickly find the service card that best fits your project scope and priorities. Our core work is commercial, with select custom home builds by fit.",
+    "sectionSubtitle": "Mission Matcher",
+    "sectionTitle": "Filter by Mission Path and Focus Area",
+    "sectionDescription": "Use the filters to quickly find the service card that best fits your scope and priorities. Our core work is commercial, with select custom home builds by fit.",
     "funnel": {
-      "pathStepLabel": "Step 1: Choose a delivery path",
-      "focusStepLabel": "Step 2: Choose your project focus",
-      "helperText": "Choose a delivery path first, then project focus. Open any matching card to review scope, benefits, and next actions.",
-      "resultsLabel": "Matching services: {count}",
+      "pathStepLabel": "Step 1: Choose a mission path",
+      "focusStepLabel": "Step 2: Choose your focus area",
+      "helperText": "Choose a mission path first, then a focus area. Open any matching card to review scope, benefits, and next actions.",
+      "resultsLabel": "Matching missions: {count}",
       "resetFilters": "Reset filters",
-      "noResultsTitle": "No exact services match this filter combo",
+      "noResultsTitle": "No exact missions match this filter combo",
       "noResultsDescription": "Reset filters to see all available services and choose a different combination.",
       "pathOptions": {
-        "all": "All delivery paths",
+        "all": "All mission paths",
         "planControl": "Plan & control",
-        "buildExpand": "Build & expand",
+        "buildExpand": "Build & advance",
         "modernizeSpaces": "Modernize spaces"
       },
       "focusOptions": {
-        "all": "All project focuses",
+        "all": "All focus areas",
         "agWinery": "AG & winery",
         "publicSector": "Public sector",
-        "procurement": "Procurement & trade partners",
+        "procurement": "Logistics & trade partners",
         "industrial": "Light industrial",
-        "occupiedTi": "Occupied-space TI",
-        "rapidTi": "Fast-turn TI"
+        "occupiedTi": "Occupied-space fit-out",
+        "rapidTi": "Fast-turn fit-out"
       }
     },
-    "clickForDetails": "Click for Full Details",
-    "viewDetailsAriaPrefix": "View details for",
+    "clickForDetails": "Open Mission Brief",
+    "viewDetailsAriaPrefix": "View mission brief for",
     "closeDetailsBackdropAria": "Close service details modal",
     "closeModalAria": "Close modal",
-    "whatsIncluded": "What's Included",
-    "keyBenefits": "Key Benefits",
-    "learnMoreFallback": "Learn More",
-    "contactCta": "Get Started",
+    "whatsIncluded": "Mission Scope",
+    "keyBenefits": "Mission Advantages",
+    "learnMoreFallback": "Open Brief",
+    "contactCta": "Start Mission",
     "items": [
       {
         "title": "AG and Winery Communities",
@@ -206,20 +206,20 @@
   },
   "whyPartner": {
     "sectionSubtitle": "Operational Accountability",
-    "sectionTitle": "Who Owns What at Every Stage",
+    "sectionTitle": "Who Holds the Watch at Every Stage",
     "sectionDescription": "Review our ownership model, escalation path, and approval controls so decisions stay clear from kickoff through post-closeout support. From Handshake to Handoff, we got your 'six.'",
     "philosophy": "Your word is your bond — so is ours. Period.",
     "theROI": "No gaps. No guesswork. Just accountable follow-through.",
     "tradeCta": {
-      "prompt": "Are you a trade contractor?",
+      "prompt": "Are you an allied trade partner?",
       "highlight": "Join our Ally network.",
       "button": "View Trade Partner Opportunities",
       "iconAria": "Trade partners"
     },
     "values": [
       {
-        "title": ".64 EMR - Industry-Leading Safety",
-        "subtitle": "Every Team Member Returns Home Safe",
+        "title": ".64 EMR - Battle-Tested Safety",
+        "subtitle": "Every Operator Returns Home Safe",
         "description": "Multiple AGC-WA Top EMR Awards with .64 EMR—40% better than industry average. 3+ years without time-loss injury and OSHA VPP Star designation. No compromises on safety, period.",
         "highlights": [
           ".64 EMR (40% better than industry)",
@@ -231,7 +231,7 @@
       },
       {
         "title": "150+ Years of Combined Experience",
-        "subtitle": "Proven Construction Expertise",
+        "subtitle": "Proven Operational Expertise",
         "description": "Our team brings 150+ years of combined construction expertise. Veterans and civilians working together, leveraging proven methods refined through generations. Deep experience you can trust.",
         "highlights": [
           "Cross-discipline field and management expertise",
@@ -243,7 +243,7 @@
       },
       {
         "title": "Complete Transparency",
-        "subtitle": "Zero Surprises",
+        "subtitle": "No Surprises",
         "description": "Open-book pricing with visibility into cost, timeline, and decisions. No hidden costs, and honest assessments at every phase.",
         "highlights": [
           "Open-book pricing",
@@ -293,25 +293,25 @@
     ]
   },
   "testimonials": {
-    "subtitle": "Project Stakeholder Voices",
+    "subtitle": "Mission Stakeholder Voices",
     "title": "Field-Tested Relationships",
-    "description": "Proof from AG/winery, commercial TI, and municipal-facing Project Stakeholders across the Pacific Northwest. Squared away from start to finish."
+    "description": "Proof from AG/winery, fit-out operations, and municipal-facing mission stakeholders across the Pacific Northwest. Squared away from start to finish."
   },
   "process": {
     "subtitle": "Execution Roadmap",
     "title": "Six-Stage Operating Model",
-    "descriptionPart1": "Six clear stages from",
-    "descriptionPart2": "intake through post-closeout support",
-    "descriptionPart3": ". Ownership, escalation, and approvals stay visible with",
+    "descriptionPart1": "Six clear stages from mission intake through post-closeout support.",
+    "descriptionPart2": "",
+    "descriptionPart3": "Ownership, escalation, and approvals stay visible with",
     "descriptionPart4": "Procore-backed controls and handoff-ready documentation",
     "descriptionPart5": ". Built on Quality, Backed by Trust.",
     "steps": [
       {
-        "title": "Intake and Qualification",
-        "desc": "Frame project intent, decision constraints, and success criteria at intake so lane selection starts from verified context instead of assumptions."
+        "title": "Mission Intake and Qualification",
+        "desc": "Frame mission intent, decision constraints, and success criteria at intake so lane selection starts from verified context instead of assumptions."
       },
       {
-        "title": "Preconstruction Planning",
+        "title": "Pre-Deployment Planning",
         "desc": "Run estimate intelligence, scope architecture, and risk modeling before mobilization so cost, sequence, and procurement stay synchronized. \"Creating Value, from Proven Results.\" anchors this planning discipline."
       },
       {

@@ -1,5 +1,6 @@
 import type { TimelineStep } from "@/components/ui/Timeline";
 import { CONTENT_ICONS } from "@/lib/constants/navigation-icons";
+import { MH_SLOGANS } from "@/lib/branding/page-names";
 
 /**
  * About Page Timeline Data
@@ -108,7 +109,7 @@ export const aboutTimelineSteps: TimelineStep[] = [
     num: 14,
     icon: CONTENT_ICONS.explore,
     title: "Continued Accountability-Focused Growth",
-    desc: "Built on Quality, Backed by Trust. No gaps. No guesswork. Just accountable follow-through. Founding partnership principles remain aligned with veteran-led operational discipline for durable construction relationships and dependable results. (2026 & Beyond)",
+    desc: `${MH_SLOGANS.primary} ${MH_SLOGANS.supporting[1]} Founding partnership principles remain aligned with veteran-led operational discipline for durable construction relationships and dependable results. (2026 & Beyond)`,
     position: "right",
   },
 ];

@@ -37,7 +37,7 @@ export const faqCategories: FAQCategory[] = [
         question:
           "What makes MH Construction different from other construction companies?",
         answer:
-          "We operate on four values: Honesty, Integrity, Professionalism, and Thoroughness. Founded in 2010 and Veteran-Owned, we deliver AG and winery projects, commercial tenant improvements, and municipal builds with Procore-led controls, plus specialty scope in pole buildings and door/hardware installation.",
+          "We operate on four values: Honesty, Integrity, Professionalism, and Thoroughness. Founded in 2010 and Veteran-Owned, we deliver AG and winery projects, mission-ready fit-outs, and municipal builds with Procore-led controls, plus specialty scope in pole buildings and door/hardware installation.",
       },
       {
         question: "Where are you licensed and what areas do you serve?",
@@ -47,7 +47,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "What types of projects do you specialize in?",
         answer:
-          "We specialize in AG and winery facilities, commercial tenant improvements, and municipal builds. Core services include Procore project management, front-end scope planning, procurement coordination, and constructability controls. Specialty scopes include pole buildings, PEMB/post-frame applications, and door/hardware installation.",
+          "We specialize in AG and winery facilities, mission-ready fit-outs, and municipal builds. Core services include Procore mission management, front-end scope planning, procurement coordination, and constructability controls. Specialty scopes include pole buildings, PEMB/post-frame applications, and door/hardware installation.",
       },
       {
         question: "Are you really Veteran-Owned?",
@@ -57,7 +57,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Are you BBB accredited?",
         answer:
-          "Yes. MH Construction is Better Business Bureau accredited with an A+ rating (accredited April 7, 2026). That accreditation reflects our commitment to trust, transparency, and ethical business practices in every project stakeholder relationship.",
+          "Yes. MH Construction is Better Business Bureau accredited with an A+ rating (accredited April 7, 2026). That accreditation reflects our commitment to trust, transparency, and ethical business practices in every mission-partner relationship.",
         link: {
           text: "View BBB Business Profile →",
           href: "https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036",
@@ -121,7 +121,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Do you have insurance and bonding?",
         answer:
-          "Yes, absolutely. As part of our Professionalism value, we maintain comprehensive insurance coverage and bonding as required for all project types. We meet or exceed all federal, state, and local requirements for commercial construction. Full details are provided during the consultation process.",
+          "Yes, absolutely. As part of our Professionalism value, we maintain comprehensive insurance coverage and bonding as required for all project types. We meet or exceed all federal, state, and local requirements for mission-ready construction. Full details are provided during the consultation process.",
       },
       {
         question: "What happens if something goes wrong?",
@@ -200,10 +200,10 @@ export const faqCategories: FAQCategory[] = [
   },
   {
     id: "technical",
-    title: "Technical & Project Management",
+    title: "Technical & Mission Management",
     icon: CONTENT_ICONS.gps_fixed,
     metaDescription:
-      "Review permitting, PEMB delivery, project management controls, and commercial construction logistics across the Tri-State footprint.",
+      "Review permitting, PEMB delivery, mission management controls, and mission-ready construction logistics across the Tri-State footprint.",
     ogImage: "/images/og/faq/technical-project-management.webp",
     questions: [
       {
@@ -227,7 +227,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "What is MH Construction's service area?",
         answer:
-          "We are headquartered in Pasco, WA (3111 N Capitol Ave) in the heart of the Tri-Cities — Pasco, Richland, and Kennewick — and are Tri-State licensed across Washington, Oregon, and Idaho. We serve communities throughout the Pacific Northwest including Yakima, Spokane, Walla Walla, Hermiston (OR), Pendleton (OR), Coeur d'Alene (ID), and Omak. Across this footprint, our focus is AG and winery communities, commercial tenant improvements, and municipal builds.",
+          "We are headquartered in Pasco, WA (3111 N Capitol Ave) in the heart of the Tri-Cities — Pasco, Richland, and Kennewick — and are Tri-State licensed across Washington, Oregon, and Idaho. We serve communities throughout the Pacific Northwest including Yakima, Spokane, Walla Walla, Hermiston (OR), Pendleton (OR), Coeur d'Alene (ID), and Omak. Across this footprint, our focus is AG and winery communities, mission-ready fit-outs, and municipal builds.",
       },
       {
         question: "Is MH Construction a certified Veteran-Owned business?",
@@ -247,7 +247,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Who supervises the job site daily?",
         answer:
-          "Every project is assigned a dedicated Superintendent to oversee daily operations, safety, and quality control. Our leadership team, including Vice President Arnold Garcia, ensures each job is managed in Procore for real-time oversight, including tenant improvement coordination, municipal documentation, and door/hardware scope tracking.",
+          "Every project is assigned a dedicated Superintendent to oversee daily operations, safety, and quality control. Our leadership team, including Vice President Arnold Garcia, ensures each job is managed in Procore for real-time oversight, including fit-out coordination, municipal documentation, and door/hardware scope tracking.",
       },
       {
         question:
@@ -259,7 +259,7 @@ export const faqCategories: FAQCategory[] = [
         question:
           "Can you help with site selection and feasibility studies in the Tri-Cities and across your Tri-State footprint?",
         answer:
-          "Yes. We assist clients in the pre-construction phase by evaluating land for utility access, zoning suitability (Industrial vs. Commercial), and soil conditions before you make a purchase, ensuring the site is viable for your vision.",
+          "Yes. We assist clients in the pre-deployment phase by evaluating land for utility access, zoning suitability (Industrial vs. Commercial), and soil conditions before you make a purchase, ensuring the site is viable for your vision.",
       },
     ],
   },
@@ -268,13 +268,13 @@ export const faqCategories: FAQCategory[] = [
     title: "Working Together",
     icon: CONTENT_ICONS.diversity_3,
     metaDescription:
-      "See how MH Construction approaches trade partners, client collaboration, subcontractor coordination, and post-closeout support.",
+      "See how MH Construction approaches trade partners, client collaboration, subcontractor coordination, and post-handoff support.",
     ogImage: "/images/og/faq/working-together.webp",
     questions: [
       {
-        question: "What does 'project stakeholder' mean?",
+        question: "What does 'mission partner' mean?",
         answer:
-          "We use 'project stakeholder' to reflect true partnership—owners, architects, consultants, and teams working together. Your success is our success. This isn't just terminology; it's our operating philosophy reflected in collaborative decision-making, transparent communication, and shared commitment to project outcomes.",
+          "We use 'mission partner' to reflect true partnership—owners, architects, consultants, and teams working together. Your success is our success. This isn't just terminology; it's our operating philosophy reflected in collaborative decision-making, transparent communication, and shared commitment to project outcomes.",
       },
       {
         question: "How do you select Allies and vendors?",

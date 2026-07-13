@@ -8,6 +8,8 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { enhancedSEO } from "@/components/seo/EnhancedSEO";
+import { MH_SLOGANS } from "@/lib/branding/page-names";
+import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
@@ -123,12 +125,11 @@ const LOCATION_BRIDGE_MAP: Record<string, BridgeDeepLink[]> = {
 
 export function LocationPageContent({
   location,
-  heroSlogan = "Local Mission Profile tuned to each city and project delivery lane.",
+  heroSlogan = getHeroPageSlogan("locationDetail").slogan,
 }: Readonly<LocationPageProps>) {
   usePageTracking(`Location - ${location.city}`);
   const priorityServices = location.servicePriorities || [];
-  const standardPositioningLine =
-    "Primary markets: AG and winery communities, commercial tenant improvements, and municipal builds. Core specialties: pole buildings, door and hardware installation, and project management powered by Procore. Squared away from start to finish.";
+  const standardPositioningLine = `Primary markets: AG and winery communities, mission-ready fit-outs, and municipal builds. Core specialties: pole buildings, door and hardware installation, and mission management powered by Procore. ${MH_SLOGANS.supporting[0]}`;
   const nearbyAreas = location.nearbyAreas || [];
   const locationTelephoneHref = `tel:${Array.from(location.telephone)
     .filter((char) => /\d/.test(char))
@@ -141,11 +142,11 @@ export function LocationPageContent({
   const serviceCards = [
     {
       icon: "business",
-      title: priorityServices[0] || "Commercial Construction",
+      title: priorityServices[0] || "Mission-Ready Construction",
       description:
         priorityServices.length > 0
-          ? `${priorityServices[0]} delivery tailored for ${location.city} and ${location.county}, with Procore-based project controls and commercial tenant improvement planning for AG and winery community operations.`
-          : "Office buildings, retail spaces, and municipal facilities supported by Procore-based construction management from concept to completion.",
+          ? `${priorityServices[0]} delivery tailored for ${location.city} and ${location.county}, with Procore-based mission controls and fit-out planning for AG and winery community operations.`
+          : "Office buildings, retail spaces, and municipal facilities supported by Procore-based mission management from concept to handoff.",
     },
     {
       icon: "factory",
@@ -165,9 +166,9 @@ export function LocationPageContent({
     },
     {
       icon: "home_repair_service",
-      title: "Construction Management",
+      title: "Mission Management",
       description:
-        "End-to-end coordination from front-end scope definition through closeout, powered by Procore with budget transparency, door/hardware tracking, and local permitting alignment.",
+        "End-to-end coordination from front-end scope definition through handoff, powered by Procore with budget transparency, door/hardware tracking, and local permitting alignment.",
     },
   ];
 
@@ -225,7 +226,7 @@ export function LocationPageContent({
     knowsAbout: [
       ...priorityServices,
       "AG and winery community construction",
-      "Commercial tenant improvements",
+      "Mission-ready fit-outs",
       "Municipal and government construction",
       "Pole buildings",
       "Door and hardware installation",
@@ -248,16 +249,16 @@ export function LocationPageContent({
       "Financing Available",
     ],
     currenciesAccepted: "USD",
-    slogan: "Built on Quality, Backed by Trust.",
+    slogan: MH_SLOGANS.primary,
     veteranOwned: true,
     serviceType: [
       ...(priorityServices.length > 0
         ? priorityServices
-        : ["Commercial Construction", "Municipal Construction"]),
-      "Commercial Tenant Improvements",
+        : ["Mission-Ready Construction", "Municipal Construction"]),
+      "Mission-ready fit-outs",
       "Pole Building Construction",
       "Door and Hardware Installation",
-      "Project Management powered by Procore",
+      "Mission Management powered by Procore",
     ],
     // GEO-proof: surface verified completed projects in structured data so search engines
     // can associate MH Construction with specific named projects and categories in this city.
@@ -330,7 +331,7 @@ export function LocationPageContent({
 
               {/* Core Slogan */}
               <p className="text-sm sm:text-base md:text-lg text-white/80 font-medium">
-                "Built on Quality, Backed by Trust."
+                {MH_SLOGANS.primary}
               </p>
               <p className="text-sm sm:text-base md:text-lg text-brand-secondary/90 font-medium">
                 {heroSlogan}

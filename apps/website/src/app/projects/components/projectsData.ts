@@ -117,13 +117,13 @@ export const whyChooseReasons = [
     iconName: CONTENT_ICONS.diversity_3,
     title: "Partnership-Driven Trust",
     description:
-      "We build long-term partnerships through consistent delivery, direct accountability, and ongoing support after closeout.",
+      "We build long-term partnerships through consistent delivery, direct accountability, and ongoing support after handoff.",
   },
   {
     iconName: CONTENT_ICONS.military_tech,
     title: "650+ Successful Projects - Reliability",
     description:
-      "650+ completed projects reflect structured execution, calm planning under pressure, and reliable follow-through from kickoff to closeout.",
+      "650+ completed projects reflect structured execution, calm planning under pressure, and reliable follow-through from kickoff to handoff.",
   },
   {
     iconName: CONTENT_ICONS.verified,
@@ -167,7 +167,7 @@ export const partnershipProcess = [
     step: 5,
     title: "Seamless Close-Out",
     description:
-      "Complete turnover with clean closeout documentation, then stay available for post-closeout support and follow-up.",
+      "Complete turnover with clean handoff documentation, then stay available for post-handoff support and follow-up.",
     icon: CONTENT_ICONS.diversity_3,
   },
 ];

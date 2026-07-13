@@ -45,10 +45,10 @@ export interface WhyChooseUsItem {
 export const coreServices: CoreService[] = [
   {
     iconName: "engineering",
-    title: "Commercial Construction Management",
-    subtitle: "Project Management Leadership Powered by Procore",
+    title: "Mission-Ready Construction Management",
+    subtitle: "Mission Management Leadership Powered by Procore",
     description:
-      "We manage agricultural and winery projects, commercial tenant improvements, and municipal builds with Procore-led controls, clear accountability, and disciplined field execution across Washington, Oregon, and Idaho.",
+      "We manage agricultural and winery projects, mission-ready fit-outs, and municipal builds with Procore-led controls, clear accountability, and disciplined field execution across Washington, Oregon, and Idaho.",
     features: [
       "Procore project controls and documentation",
       "RFI, submittal, and change workflows",
@@ -58,24 +58,24 @@ export const coreServices: CoreService[] = [
       "Church and religious facilities",
       "Winery, vineyard, and agricultural facilities",
       "Municipal and public buildings",
-      "Commercial tenant improvements and occupied renovations",
+      "Mission-ready fit-outs and occupied renovations",
       "Door and hardware packages",
       "Pole building and post-frame scopes",
       "Schools and training facilities",
     ],
     benefits: [
-      "One source of truth through Procore for team and stakeholder visibility",
+      "One source of truth through Procore for team and mission-partner visibility",
       "Clear communication and documented decisions",
       "Reduced rework through upfront planning",
       "Disciplined execution across commercial sectors",
-      "Direct accountability from kickoff through closeout",
+      "Direct accountability from kickoff through handoff",
     ],
     ctaText:
       "Ready to start? Call (509) 308-6489 or schedule a consultation to review scope, schedule, and delivery strategy.",
   },
   {
     iconName: "gps_fixed",
-    title: "Master Planning (Pre-Construction)",
+    title: "Mission Planning (Predeployment)",
     subtitle: "Unlock Your Building's Potential with Comprehensive Planning",
     description:
       'We lock scope architecture, budget logic, permitting strategy, and trade sequence before mobilization. "Creating Value, from Proven Results." reflects this front-end discipline and helps prevent scope drift, change pressure, and avoidable delays.',
@@ -116,7 +116,7 @@ export const coreServices: CoreService[] = [
     benefits: [
       "Earlier visibility on long-lead risk",
       "Tighter material and schedule coordination",
-      "Reduced stakeholder burden for trade management",
+      "Reduced mission-partner burden for trade management",
       "Consistent quality through vetted partners",
       "Better field readiness at install milestones",
     ],
@@ -125,7 +125,7 @@ export const coreServices: CoreService[] = [
   },
   {
     iconName: "assessment",
-    title: "Constructability & Budget Control",
+    title: "Constructability & Mission Budget Control",
     subtitle: "Proactive Feasibility Review & Strategic Cost Optimization",
     description:
       "We test constructability early, pressure-check budgets with trade input, and build a realistic execution plan. The result is fewer surprises and cleaner cost control during delivery.",
@@ -142,13 +142,13 @@ export const coreServices: CoreService[] = [
       "Trade-informed pricing and sequencing",
       "Fewer constructability conflicts in the field",
       "Stronger budget adherence",
-      "Earlier decision confidence for stakeholders and teams",
+      "Earlier decision confidence for mission partners and teams",
       "Improved schedule predictability",
     ],
   },
   {
     iconName: "grid_view",
-    title: "Modularization & Subproject Management",
+    title: "Modularization & Mission Package Coordination",
     subtitle: "Advanced Project Division for Complex Builds",
     description:
       "For complex programs, we divide work into controlled subprojects with phase-specific ownership. This keeps handoffs cleaner, resources focused, and schedules more stable.",
@@ -178,7 +178,7 @@ export const specialtyServices: SpecialtyService[] = [
     title: "Markets We Serve",
     subtitle: "Diverse Business Solutions Across Washington, Oregon, and Idaho",
     description:
-      "We focus on agricultural and winery communities, commercial tenant improvements, and municipal organizations across the region. Specialty scopes include pole buildings, door and hardware installation, and winery pond liner delivery for wastewater and sludge control.",
+      "We focus on agricultural and winery communities, mission-ready fit-outs, and municipal organizations across the region. Specialty scopes include pole buildings, door and hardware installation, and winery pond liner delivery for wastewater and sludge control.",
     markets: [
       "Religious and community facilities",
       "Retail and office commercial buildings",
@@ -195,10 +195,10 @@ export const specialtyServices: SpecialtyService[] = [
   },
   {
     iconName: "domain",
-    title: "Tenant Improvements",
-    subtitle: "Transform Your Commercial Space Across the Tri-State Region",
+    title: "Mission-Ready Fit-Outs",
+    subtitle: "Transform Occupied Space Across the Tri-State Region",
     description:
-      "We deliver tenant improvement scopes from full build-outs to focused renovations, including door and hardware packages for occupied facilities. Procore workflows keep RFIs, submittals, and schedule impacts visible.",
+      "We deliver mission-ready fit-out scopes from full build-outs to focused renovations, including door and hardware packages for occupied facilities. Procore workflows keep RFIs, submittals, and schedule impacts visible.",
     capabilities: [
       "Complete build-out and renovation delivery",
       "Licensed across Washington, Oregon, and Idaho",
@@ -209,14 +209,14 @@ export const specialtyServices: SpecialtyService[] = [
       "Proven tenant improvement delivery discipline",
     ],
     ctaText:
-      "Ready for tenant improvements? Call (509) 308-6489 to schedule a consultation or on-site scope assessment.",
+      "Ready for mission-ready fit-outs? Call (509) 308-6489 to schedule a consultation or on-site scope assessment.",
   },
   {
     iconName: "location_city",
-    title: "Commercial New Build-Outs",
-    subtitle: "Ground-Up Commercial Builds Done Right",
+    title: "Mission-Ready Build-Outs",
+    subtitle: "Ground-Up Mission Builds Done Right",
     description:
-      "We deliver ground-up commercial facilities with early constructability mapping, disciplined field sequence control, and direct stakeholder communication from site readiness through turnover.",
+      "We deliver ground-up mission-ready facilities with early constructability mapping, disciplined field sequence control, and direct mission-partner communication from site readiness through handoff.",
     buildTypes: [
       "Retail stores and shopping centers",
       "Medical offices and clinics",
@@ -228,7 +228,7 @@ export const specialtyServices: SpecialtyService[] = [
       "Boutique & Specialty Retail Spaces",
       "Restaurant and hospitality facilities",
     ],
-    note: "From concept through closeout, we focus on durability, constructability, and turnover readiness.",
+    note: "From concept through handoff, we focus on durability, constructability, and turnover readiness.",
   },
   {
     iconName: "precision_manufacturing",
@@ -280,7 +280,7 @@ export const specialtyServices: SpecialtyService[] = [
       "Integrated value engineering",
       "Streamlined decisions and communication",
     ],
-    note: "One integrated team means clearer decisions, faster issue resolution, and tighter execution from concept through closeout.",
+    note: "One integrated team means clearer decisions, faster issue resolution, and tighter execution from concept through handoff.",
   },
 ];
 

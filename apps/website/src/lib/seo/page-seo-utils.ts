@@ -14,6 +14,7 @@ import {
   formatDualPageName,
   MH_DUAL_PHRASES,
   PAGE_TERMINOLOGY,
+  normalizeMhKeywordList,
 } from "@/lib/branding/page-names";
 import { getJeremyRibbon } from "@/lib/content/jeremy-ribbons";
 
@@ -40,13 +41,15 @@ function getJeremyQuoteSearchSignals(routeKey: string): string[] {
 }
 
 function buildPageKeywords(routeKey: string, baseKeywords: string[]): string[] {
-  return Array.from(
+  const combinedKeywords = Array.from(
     new Set([
       ...JEREMY_SEO_SIGNAL_KEYWORDS,
       ...getJeremyQuoteSearchSignals(routeKey),
       ...baseKeywords,
     ]),
   );
+
+  return normalizeMhKeywordList(combinedKeywords);
 }
 
 // Homepage SEO
@@ -59,7 +62,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     url: enhancedSEO.siteUrl,
     name: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | MH Construction`,
     description:
-      "Commercial, industrial, and public-sector construction from MH Construction's Tri-Cities headquarters, serving Washington, Oregon, and Idaho.",
+      "Mission-ready construction and delivery from MH Construction's Tri-Cities headquarters, serving Washington, Oregon, and Idaho.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -82,9 +85,9 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Commercial, Industrial, and Public-Sector Construction`,
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Mission-Ready Delivery Across WA, OR, and ID`,
     description:
-      "MH Construction delivers AG and winery facilities, commercial tenant improvements, and municipal projects with clear planning, disciplined field coordination, and licensed coverage across WA, OR, and ID.",
+      "MH Construction delivers AG and winery facilities, commercial fit-out work, and municipal projects with clear planning, disciplined field coordination, and licensed coverage across WA, OR, and ID.",
     keywords: buildPageKeywords("home", [
       "Jeremy Thamert leadership",
       "MH Construction home",
@@ -94,30 +97,30 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
       "Richland general contractor",
       "Pasco general contractor",
       "Kennewick general contractor",
-      "commercial construction",
+      "mission-ready construction",
       "agricultural community construction",
       "winery community construction",
-      "municipal construction services",
+      "municipal delivery services",
       "industrial construction",
-      "construction management",
-      "Procore construction project management",
-      "construction project management",
+      "mission management",
+      "Procore mission management",
+      "mission management",
       "pole building contractor",
       "door and hardware installation contractor",
       "office remodeling",
-      "commercial renovation",
+      "mission-ready renovation",
       "building addition contractor",
       "construction design",
       "industrial facility construction",
-      "commercial construction services",
+      "mission-ready construction services",
       "office remodeling and renovation",
-      "construction management solutions",
+      "mission management solutions",
       "Benton County general contractor",
       "Franklin County general contractor",
-      "construction management services",
-      "commercial construction services",
-      "master planning and preconstruction services",
-      "tenant improvement services",
+      "mission management services",
+      "mission-ready construction services",
+      "mission planning and predeployment services",
+      "fit-out services",
       "light industrial construction",
       "general contractor Richland WA",
       "general contractor Pasco, WA",
@@ -203,7 +206,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
           name: "Arnold Garcia",
           jobTitle: "Vice President",
           description:
-            "10+ years with MH Construction leading project stakeholder relationships",
+            "10+ years with MH Construction leading mission-partner relationships",
         },
       ],
       award: [
@@ -214,7 +217,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
         "OSHA VPP Star Designation 2022",
       ],
       knowsAbout: [
-        "Commercial Construction",
+        "Mission-Ready Construction",
         "Industrial Construction",
         "Government Construction Projects",
         "Safety Excellence",
@@ -371,22 +374,22 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
 
   const constructionServices = [
     {
-      name: "Commercial Construction",
+      name: "Mission-Ready Construction",
       description:
-        "Commercial buildings, renovations, and business projects for AG and winery communities with transparent pricing and proven craftsmanship across the Pacific Northwest",
-      category: "Commercial Services",
+        "Mission-ready buildings, renovations, and business projects for AG and winery communities with transparent pricing and proven craftsmanship across the Pacific Northwest",
+      category: "Mission-Ready Services",
     },
     {
-      name: "Master Planning & Preconstruction",
+      name: "Mission Planning & Predeployment",
       description:
-        'Comprehensive preconstruction planning, feasibility studies, and master planning rooted in "Creating Value, from Proven Results."',
-      category: "Preconstruction Services",
+        'Comprehensive mission planning, feasibility studies, and predeployment alignment rooted in "Creating Value, from Proven Results."',
+      category: "Mission Planning Services",
     },
     {
-      name: "Tenant Improvements",
+      name: "Mission-Ready Fit-Outs",
       description:
-        "Commercial tenant improvements, interior buildouts, and door and hardware installation for occupied facilities throughout Eastern Washington",
-      category: "Tenant Improvement Services",
+        "Mission-ready fit-outs, interior buildouts, and door and hardware installation for occupied facilities throughout Eastern Washington",
+      category: "Fit-Out Services",
     },
     {
       name: "Light Industrial Construction",
@@ -401,10 +404,10 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
       category: "Government Services",
     },
     {
-      name: "Construction Management",
+      name: "Mission Management",
       description:
-        "Full-service project management in Procore with transparent communication, open-book pricing, and systematic quality control",
-      category: "Project Management",
+        "Full-service mission management in Procore with transparent communication, open-book pricing, and systematic quality control",
+      category: "Mission Management",
     },
   ];
 
@@ -419,7 +422,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     url: servicesUrl,
     name: `${formatDualPageName(PAGE_TERMINOLOGY.services.seoName, PAGE_TERMINOLOGY.services.mhBrandName)} | MH Construction`,
     description:
-      "Commercial services for owners, facilities teams, and public stakeholders including agricultural and winery projects, tenant improvements, municipal work, and light industrial delivery across WA, OR, and ID.",
+      "Mission-ready services for owners, facilities teams, and public mission partners including agricultural and winery projects, fit-outs, municipal work, and light industrial delivery across WA, OR, and ID.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${servicesUrl}#breadcrumb` },
@@ -437,28 +440,28 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.services.seoName, PAGE_TERMINOLOGY.services.mhBrandName)} | Commercial and Industrial Construction Services`,
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.services.seoName, PAGE_TERMINOLOGY.services.mhBrandName)} | Mission-Ready Construction Services`,
     description:
-      "Explore MH Construction services for agricultural and winery facilities, commercial tenant improvements, municipal work, and light industrial scopes across WA, OR, and ID, with stakeholder-aligned planning and Procore project controls.",
+      "Explore MH Construction services for agricultural and winery facilities, mission-ready fit-outs, municipal work, and light industrial scopes across WA, OR, and ID, with mission-partner-aligned planning and Procore mission controls.",
     keywords: buildPageKeywords("services", [
       "Jeremy Thamert leadership",
-      "commercial construction Tri-State WA OR ID",
-      "master planning preconstruction services",
+      "mission-ready construction Tri-State WA OR ID",
+      "mission planning predeployment services",
       "owner representative construction support",
       "facilities capital project support",
-      "project stakeholder alignment construction",
+      "mission partner alignment construction",
       "construction planning for occupied facilities",
       "tenant improvement contractor",
-      "commercial tenant improvements",
+      "mission-ready fit-outs",
       "agricultural construction contractor",
       "winery construction contractor",
       "municipal construction contractor",
       "pole building construction",
       "door and hardware installation",
-      "Procore project management",
+      "Procore mission management",
       "light industrial construction Pacific Northwest",
       "government construction veteran-owned",
-      "construction management services",
+      "mission management services",
       "general contractor Richland WA",
       "general contractor Pasco, WA",
       "general contractor Kennewick WA",
@@ -473,7 +476,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
       "WA OR ID licensed contractor",
       "public agency project planning support",
       "school district construction support",
-      "healthcare facility tenant improvements",
+      "healthcare facility mission-ready fit-outs",
       "medical facility construction",
       "winery construction Pacific Northwest",
       "religious facility construction",
@@ -502,7 +505,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
         "Owner & President of MH Construction, bringing 35+ years of construction expertise, 500+ completed projects, and 15 years of Army aviation service. Leads with integrity, discipline, and people-first philosophy.",
       alumniOf: "U.S. Army Aviation",
       knowsAbout: [
-        "Construction Management",
+        "Mission Management",
         "Safety Management",
         "Leadership Development",
         "Business Operations",
@@ -519,9 +522,9 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
       description:
         "Vice President with 40+ years of construction experience, overseeing all construction activities and staff mentoring.",
       knowsAbout: [
-        "Construction Management",
-        "Project Management",
-        "Commercial Construction",
+        "Mission Management",
+        "Construction Leadership",
+        "Mission-Ready Construction",
         "Team Leadership",
       ],
       url: `${teamUrl}#arnold-garcia`,
@@ -536,7 +539,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
       description:
         "Founder of MH Construction (founded 2010), created company foundation on integrity, quality, and partnership philosophy. Sold company to Jeremy Thamert in 2025.",
       knowsAbout: [
-        "Construction Management",
+        "Mission Management",
         "Business Development",
         "Quality Standards",
         "Company Values",
@@ -615,12 +618,12 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Owned, Accountable Delivery`,
     description:
-      "MH Construction supports public-sector stakeholders with veteran-owned leadership, procurement-ready planning, BABAA-informed execution pathways, and transparent delivery reporting across WA, OR, and ID.",
+      "MH Construction supports public-sector mission partners with veteran-owned leadership, procurement-ready planning, BABAA-informed execution pathways, and transparent delivery reporting across WA, OR, and ID.",
     keywords: buildPageKeywords("public-sector", [
       "Jeremy Thamert leadership",
       "public-sector construction planning",
       "public agency construction partner",
-      "owner and architect stakeholder alignment",
+      "owner and architect mission partner alignment",
       "municipal procurement-ready construction",
       "federal compliance construction standards",
       "Build America Buy America Act",
@@ -1019,7 +1022,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
             name: "What are the benefits of being an MH Construction Ally?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Allies receive consistent project volume, prompt payment, and collaborative planning with clear scope expectations, safety coordination, and reliable field communication from bid through closeout.",
+              text: "Allies receive consistent project volume, prompt payment, and collaborative planning with clear scope expectations, safety coordination, and reliable field communication from bid through handoff.",
             },
           },
         ],
@@ -1062,7 +1065,7 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
       "client reviews MH Construction",
       "Tri-State contractor reviews",
       "veteran-owned construction feedback",
-      "commercial construction testimonials",
+      "mission-ready construction testimonials",
       "Pacific Northwest construction reputation",
       "construction client testimonials Pasco WA",
       "verified contractor reviews",
@@ -1226,7 +1229,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
           "Award-winning safety culture (.64 EMR)",
         ],
         qualifications:
-          "Commitment to our 4 Core Values: Honesty, Integrity, Professionalism, and Thoroughness. Skills in construction management, field operations, or skilled trades welcome. Veterans encouraged to apply.",
+          "Commitment to our 4 Core Values: Honesty, Integrity, Professionalism, and Thoroughness. Skills in mission management, field operations, or skilled trades welcome. Veterans encouraged to apply.",
         industry: "Construction",
         occupationalCategory: "Construction and Extraction",
         jobBenefits:
@@ -1288,12 +1291,12 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
       "Jeremy Thamert leadership",
       "construction portfolio Tri-State WA OR ID",
       "construction case studies Pacific Northwest",
-      "owner stakeholder project outcomes",
+      "owner mission partner project outcomes",
       "facilities team project delivery examples",
       "municipal project case studies",
       "tenant improvement case studies",
       "agricultural and winery project case studies",
-      "commercial construction projects Pacific Northwest",
+      "mission-ready construction projects Pacific Northwest",
       "light industrial construction portfolio",
       "government construction projects veteran-owned",
       "tenant improvement portfolio",
@@ -1405,7 +1408,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
       "MH Construction FAQ",
       "direct answers construction guidance",
       "construction FAQ",
-      "construction management questions",
+      "mission management questions",
       "veteran-owned construction",
       "MH Construction questions",
       "construction process explained",
@@ -1415,7 +1418,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
       "Pacific Northwest construction",
       "construction consultation",
       "licensed WA OR ID",
-      "commercial construction FAQ",
+      "mission-ready construction FAQ",
       "construction project timeline",
       "Design-Build vs Design-Bid-Build",
       "Pre-Engineered Metal Buildings PEMB",
@@ -1426,7 +1429,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
       "Walla Walla construction",
       "Hermiston Oregon contractor",
       "Coeur d'Alene Idaho contractor",
-      "Procore construction management",
+      "Procore mission management",
       "change orders construction",
       "site feasibility studies",
       "government construction projects",

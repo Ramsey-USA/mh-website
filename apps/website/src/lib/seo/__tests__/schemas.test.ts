@@ -244,10 +244,10 @@ describe("withGeoMetadata()", () => {
 
     const keywords = (result.keywords as string[]) || [];
     expect(keywords).toContain("general contractor Pasco, WA");
-    expect(keywords).toContain("Commercial Construction Services");
+    expect(keywords).toContain("Mission-Ready Construction Services");
     expect(keywords).toContain("Industrial Facility Construction");
     expect(keywords).toContain("Office Remodeling And Renovation");
-    expect(keywords).toContain("Construction Management Solutions");
+    expect(keywords).toContain("Mission Management Solutions");
     expect(keywords).not.toContain("general contractor Pasco WA");
   });
 
@@ -278,7 +278,7 @@ describe("withGeoMetadata()", () => {
 
     const keywords = (result.keywords as string[]) || [];
     expect(keywords).toContain("general contractor Pasco, WA");
-    expect(keywords).toContain("Commercial Construction Services");
+    expect(keywords).toContain("Mission-Ready Construction Services");
     expect(keywords).toContain("Industrial Facility Construction");
     expect(keywords).toContain("custom services keyword");
   });

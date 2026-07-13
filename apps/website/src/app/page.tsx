@@ -11,6 +11,7 @@ import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
 import {
   formatDualPageName,
+  MH_SLOGANS,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 import { getServerLocale } from "@/lib/i18n/locale.server";
@@ -48,25 +49,24 @@ const HOME_FAQ_CARD_CLASS =
 
 export const metadata: Metadata = withGeoMetadata({
   title: {
-    absolute: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Commercial Construction, Tenant Improvements, Municipal, and Light Industrial | MH Construction`,
+    absolute: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Mission-Ready Construction, Fit-Outs, Municipal, and Light Industrial | MH Construction`,
   },
-  description:
-    "Commercial construction partner for agricultural and winery communities, tenant improvements, municipal projects, and light industrial scopes across WA, OR, and ID. Relationship-first delivery with Procore-backed project management.",
+  description: `Mission-ready construction partner for agricultural and winery communities, fit-outs, municipal projects, and light industrial scopes across WA, OR, and ID. Relationship-first delivery with Procore-backed mission management. ${MH_SLOGANS.primary}`,
   keywords: [
     "general contractor Pasco, WA",
-    "commercial construction services",
+    "mission-ready construction services",
     "agricultural community construction",
     "winery community construction",
-    "commercial tenant improvements",
+    "mission-ready fit-outs",
     "municipal construction",
     "pole building contractor",
     "door and hardware installation",
-    "Procore project management",
+    "Procore mission management",
     "industrial facility construction",
     "office remodeling and renovation",
-    "construction management solutions",
-    "construction project management",
-    "commercial renovation",
+    "mission management solutions",
+    "mission management",
+    "mission-ready renovation",
     "building addition contractor",
     "construction design",
     "general contractor Tri-State",
@@ -76,9 +76,9 @@ export const metadata: Metadata = withGeoMetadata({
     "Kennewick general contractor",
     "Benton County general contractor",
     "Franklin County general contractor",
-    "commercial construction Tri-State",
-    "construction management services",
-    "master planning preconstruction",
+    "mission-ready construction Tri-State",
+    "mission management services",
+    "mission planning predeployment",
     "tenant improvement contractor",
     "light industrial construction Pacific Northwest",
     "general contractor Yakima WA",
@@ -94,9 +94,8 @@ export const metadata: Metadata = withGeoMetadata({
     canonical: SITE_URL,
   },
   openGraph: {
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Commercial Construction, Tenant Improvements, Municipal, and Light Industrial | MH Construction`,
-    description:
-      "Commercial construction services for agricultural and winery stakeholders, tenant improvements, municipal, and light industrial projects with disciplined scope control and Procore-based delivery.",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Mission-Ready Construction, Fit-Outs, Municipal, and Light Industrial | MH Construction`,
+    description: `Mission-ready construction services for agricultural and winery communities, fit-outs, municipal, and light industrial projects with disciplined scope control and Procore-based delivery. ${MH_SLOGANS.primary}`,
     url: SITE_URL,
     siteName: "MH Construction",
     type: "website",
@@ -114,9 +113,8 @@ export const metadata: Metadata = withGeoMetadata({
     card: "summary_large_image",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Commercial Construction, Tenant Improvements, Municipal, and Light Industrial | MH Construction`,
-    description:
-      "Commercial construction services with agricultural and winery expertise, occupied-space tenant improvement delivery, municipal execution, and light industrial project management.",
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Mission-Ready Construction, Fit-Outs, Municipal, and Light Industrial | MH Construction`,
+    description: `Mission-ready construction services with agricultural and winery expertise, occupied-space fit-out delivery, municipal execution, and light industrial mission management. ${MH_SLOGANS.supporting[0]}`,
     images: ["/images/og-default.jpg"],
   },
 });
@@ -179,11 +177,11 @@ export default async function Home() {
   const splashCopy =
     locale === "es"
       ? {
-          overviewSubtitle: "Resumen de la Empresa",
+          overviewSubtitle: "Brief de la Misión",
           overviewTitle:
-            "Construcción Comercial con Enfoque en Relaciones y Ejecución Disciplinada",
+            "Entrega Lista para la Misión con Ejecución Disciplinada",
           overviewDescription:
-            "MH Construction entrega proyectos agrícolas y de bodegas, tenant improvements comerciales, obra municipal e industrial ligero con control de alcance, transparencia y coordinación en Procore.",
+            "MH Construction entrega proyectos agrícolas y de bodegas, acondicionamientos en espacios activos, obra municipal e industrial ligero con control de alcance, transparencia y coordinación en Procore.",
           overviewButtons: [
             {
               href: "/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=primary-services",
@@ -198,9 +196,8 @@ export default async function Home() {
               label: "Hablar con el Equipo",
             },
           ],
-          serviceSubtitle: "Servicios Principales",
-          serviceTitle:
-            "Servicios de Construcción Comercial por Tipo de Proyecto",
+          serviceSubtitle: "Sectores de Misión",
+          serviceTitle: "Servicios de Construcción por Sector de Despliegue",
           serviceDescription:
             "Nuestra operación es principalmente comercial. También evaluamos Custom Home Builds selectivos cuando el alcance y la ruta de entrega están alineados.",
           serviceCards: [
@@ -217,20 +214,19 @@ export default async function Home() {
               desc: "Entrega orientada a cumplimiento, documentación de cierre y estándares de seguridad en proyectos públicos e industriales.",
             },
           ],
-          processSubtitle: "Cómo Trabajamos",
-          processTitle: "Proceso de Entrega de Proyectos en Seis Etapas",
+          processSubtitle: "Cómo Ejecutamos",
+          processTitle: "Proceso de Ejecución de la Misión en Seis Fases",
           trustSubtitle: "Confianza y Rendición de Cuentas",
           trustTitle:
-            "Por Qué Socios del Proyecto Eligen Nuestro Equipo Comercial",
+            "Por Qué Socios de Misión Eligen Nuestro Equipo de Misión",
           trustDescription:
-            "Resultados consistentes, comunicación clara y una cadena operativa responsable desde preconstrucción hasta cierre.",
-          testimonialSubtitle: "Prueba de Clientes",
-          testimonialTitle: "Testimonios de Clientes y Resultados de Proyecto",
+            "Resultados consistentes, comunicación clara y una cadena operativa responsable desde la planificación hasta el cierre.",
+          testimonialSubtitle: "Prueba de Socios",
+          testimonialTitle: "Testimonios de Socios y Resultados de Misión",
           testimonialDescription:
-            "Comentarios de socios del proyecto en proyectos agrícolas/de bodega, tenant improvements comerciales y proyectos municipales.",
-          finalSubtitle: "Siguiente Paso",
-          finalTitle:
-            "Comience con una Revisión de Alcance para Construcción Comercial",
+            "Comentarios de socios de misión en proyectos agrícolas/de bodega, acondicionamientos comerciales y proyectos municipales.",
+          finalSubtitle: "Siguiente Movimiento",
+          finalTitle: "Comience con una Revisión de Alcance para la Misión",
           finalDescription:
             "Si su proyecto es comercial o necesita evaluar ajuste de alcance, nuestro equipo puede orientar la siguiente decisión.",
           finalButtons: [
@@ -245,11 +241,11 @@ export default async function Home() {
           ],
         }
       : {
-          overviewSubtitle: "Company Overview",
+          overviewSubtitle: "Mission Brief",
           overviewTitle:
-            "Commercial Construction Built on Relationship-First Execution",
+            "Mission-Ready Construction Built on Relationship-First Execution",
           overviewDescription:
-            "MH Construction delivers agricultural and winery, commercial tenant improvement, municipal, and light industrial projects with disciplined scope control, transparent communication, and Procore-backed project management.",
+            "MH Construction delivers agricultural and winery, commercial fit-out, municipal, and light industrial missions with disciplined scope control, transparent communication, and Procore-backed command-and-control.",
           overviewButtons: [
             {
               href: "/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=primary-services",
@@ -264,8 +260,8 @@ export default async function Home() {
               label: "Talk With Our Team",
             },
           ],
-          serviceSubtitle: "Core Service Focus",
-          serviceTitle: "Commercial Construction Services by Project Type",
+          serviceSubtitle: "Mission Sectors",
+          serviceTitle: "Construction Services by Deployment Sector",
           serviceDescription:
             "Our delivery is primarily commercial. We also entertain select Custom Home Builds when scope fit and delivery requirements align.",
           serviceCards: [
@@ -279,22 +275,21 @@ export default async function Home() {
             },
             {
               title: "Municipal and Light Industrial",
-              desc: "Compliance-forward delivery with audit-ready closeout and safety-first execution for public and industrial scopes.",
+              desc: "Compliance-forward delivery with audit-ready handoff packages and safety-first execution for public and industrial scopes.",
             },
           ],
-          processSubtitle: "How We Deliver",
-          processTitle: "Construction Project Delivery Process in Six Stages",
+          processSubtitle: "How We Execute",
+          processTitle: "Mission Delivery Process in Six Phases",
           trustSubtitle: "Trust and Accountability",
-          trustTitle:
-            "Why Project Stakeholders Choose Our Commercial Construction Team",
+          trustTitle: "Why Mission Partners Choose Our Mission Team",
           trustDescription:
-            "Consistent execution, direct communication, and accountable operating controls from planning through closeout for owners, architects, bonding banks, insurers, and project teams.",
-          testimonialSubtitle: "Client Proof",
-          testimonialTitle: "Construction Client Testimonials and Outcomes",
+            "Consistent execution, direct communication, and accountable operating controls from planning through mission handoff for owners, architects, bonding banks, insurers, and mission partners.",
+          testimonialSubtitle: "Mission Partner Proof",
+          testimonialTitle: "Mission Partner Testimonials and Outcomes",
           testimonialDescription:
-            "Feedback from project stakeholders across agricultural/winery, commercial tenant improvement, and municipal-facing project scopes.",
+            "Feedback from mission partners across agricultural/winery, commercial fit-out, and municipal-facing project scopes.",
           finalSubtitle: "Next Step",
-          finalTitle: "Start with a Commercial Construction Scope Review",
+          finalTitle: "Start with a Mission Scope Review",
           finalDescription:
             "If your project is commercial or needs a fit-first review, our team can help you define the best delivery path.",
           finalButtons: [
@@ -340,17 +335,15 @@ export default async function Home() {
               className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
             >
               {locale === "es"
-                ? "servicios de construcción comercial"
-                : "commercial construction services"}
+                ? "servicios listos para la misión"
+                : "mission-ready services"}
             </Link>
             {locale === "es" ? ", vea nuestro " : ", see our "}
             <Link
               href="/projects?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=overview-projects"
               className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
             >
-              {locale === "es"
-                ? "portafolio de proyectos"
-                : "construction project portfolio"}
+              {locale === "es" ? "archivo de misiones" : "mission portfolio"}
             </Link>
             {locale === "es" ? " o " : " or "}
             <Link
@@ -358,8 +351,8 @@ export default async function Home() {
               className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
             >
               {locale === "es"
-                ? "contacte a nuestro equipo"
-                : "contact our construction team"}
+                ? "contacte a nuestro equipo de misión"
+                : "contact our mission team"}
             </Link>
             .
           </p>
@@ -476,25 +469,24 @@ export default async function Home() {
         header={{
           icon: "quiz",
           iconVariant: "bronze",
-          subtitle:
-            locale === "es" ? "Preguntas Frecuentes" : "Construction FAQ",
+          subtitle: locale === "es" ? "Breve de Misión" : "Mission FAQ",
           title:
             locale === "es"
-              ? "Preguntas Clave Antes de Iniciar un Proyecto"
-              : "Key Questions Before Starting a Commercial Project",
+              ? "Preguntas Clave Antes de Iniciar una Misión"
+              : "Key Questions Before Starting a Mission",
         }}
       >
         <div className="mx-auto max-w-5xl space-y-3">
           <details className={HOME_FAQ_CARD_CLASS}>
             <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white">
               {locale === "es"
-                ? "¿Qué tipos de proyectos atienden?"
-                : "What project types do you handle?"}
+                ? "¿Qué tipos de misiones atienden?"
+                : "What mission types do you handle?"}
             </summary>
             <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
               {locale === "es"
-                ? "Nos enfocamos principalmente en construcción comercial: agrícola y bodegas, tenant improvements comerciales, municipal e industrial ligero."
-                : "We focus primarily on commercial construction: agricultural and winery projects, commercial tenant improvements, municipal, and light industrial scopes."}
+                ? "Nos enfocamos principalmente en construcción comercial: agrícola y bodegas, acondicionamientos comerciales, municipal e industrial ligero."
+                : "We focus primarily on mission-ready commercial work: agricultural and winery projects, fit-out operations, municipal, and light industrial scopes."}
             </p>
           </details>
 
@@ -507,20 +499,20 @@ export default async function Home() {
             <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
               {locale === "es"
                 ? "Sí. MH Construction opera con licencia en los tres estados con gestión en Procore y control de documentación."
-                : "Yes. MH Construction is licensed across all three states with Procore-backed project management and documentation control."}
+                : "Yes. MH Construction is licensed across all three states with Procore-backed mission management and documentation control."}
             </p>
           </details>
 
           <details className={HOME_FAQ_CARD_CLASS}>
             <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white">
               {locale === "es"
-                ? "¿Cómo inicio una conversación de alcance?"
-                : "How do I start a scope conversation?"}
+                ? "¿Cómo inicio una conversación de misión?"
+                : "How do I start a mission conversation?"}
             </summary>
             <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
               {locale === "es"
                 ? "Comparta alcance, cronograma y ubicación en la página de contacto para una revisión inicial de ajuste."
-                : "Share scope, schedule, and location details through the contact page for a fit-first project review."}
+                : "Share scope, schedule, and location details through the contact page for an initial mission-fit review."}
             </p>
           </details>
         </div>

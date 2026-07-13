@@ -236,7 +236,9 @@ describe("ChatWidget", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(/MH Construction provides commercial construction/i),
+        screen.getByText(
+          /MH Construction provides mission-ready construction/i,
+        ),
       ).toBeInTheDocument();
     });
   });
@@ -372,7 +374,9 @@ describe("ChatWidget", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(/MH Construction provides commercial construction/i),
+        screen.getByText(
+          /MH Construction provides mission-ready construction/i,
+        ),
       ).toBeInTheDocument();
     });
   });

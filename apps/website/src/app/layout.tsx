@@ -24,7 +24,7 @@ import { SkipLink } from "@/components/ui/accessibility/SkipLink";
 import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
 import { GoogleAnalytics } from "@/lib/analytics/components/GoogleAnalytics";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { buildDualSeoTitle } from "@/lib/branding/page-names";
+import { buildDualSeoTitle, MH_SLOGANS } from "@/lib/branding/page-names";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import {
   DEFAULT_LOCALE,
@@ -66,13 +66,13 @@ export const metadata: Metadata = withGeoMetadata({
     "Jeremy Thamert MH Construction",
     "Jeremy Thamert Owner and President",
     "MH Construction home",
-    "Built on Quality, Backed by Trust.",
-    "Squared away from start to finish.",
+    MH_SLOGANS.primary,
+    MH_SLOGANS.supporting[0],
     "relationship-first construction partner",
-    "stakeholder-focused construction delivery",
+    "mission-partner-focused construction delivery",
     "owner representative construction coordination",
     "facilities team construction support",
-    "municipal project stakeholder alignment",
+    "municipal mission-partner alignment",
     "commercial construction consultation",
     "Pacific Northwest general contractor",
     "general contractor",

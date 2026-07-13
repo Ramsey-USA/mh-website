@@ -339,7 +339,7 @@ export function BrandingTab({ token }: BrandingTabProps) {
           </div>
           <div>
             <h2 className="text-2xl font-black text-white uppercase tracking-wide">
-              Branding Studio
+              Brand Command
             </h2>
             <p className="text-sm text-brand-secondary-light/80 mt-1 max-w-3xl">
               Upload Word or PDF files to apply MH branding standards. The

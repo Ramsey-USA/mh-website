@@ -1,5 +1,6 @@
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { MH_SLOGANS } from "@/lib/branding/page-names";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 export function LocationsHero() {
@@ -26,7 +27,7 @@ export function LocationsHero() {
             </span>
             <span className="block text-white">Serving WA, OR, and ID</span>
             <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
-              Built on Quality, Backed by Trust.
+              {MH_SLOGANS.primary}
             </span>
             <span className="block text-brand-secondary/80 text-xs xs:text-sm sm:text-base mt-1">
               {getHeroPageSlogan("locations").slogan}

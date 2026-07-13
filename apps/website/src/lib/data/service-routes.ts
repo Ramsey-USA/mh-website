@@ -18,20 +18,20 @@ export interface ServiceRouteData {
 export const serviceRoutes: ServiceRouteData[] = [
   {
     slug: "commercial-construction",
-    title: "Commercial Construction",
-    metaTitle: "Commercial Construction Services | MH Construction",
+    title: "Mission-Ready Construction",
+    metaTitle: "Mission-Ready Construction Services | MH Construction",
     metaDescription:
-      "Plan and deliver commercial construction with a disciplined partner that keeps scope, budget, safety, and schedule aligned from kickoff through closeout.",
+      "Plan and deliver mission-ready construction with a disciplined partner that keeps scope, budget, safety, and schedule aligned from kickoff through handoff.",
     ogImage: "/images/og/services/commercial-construction.webp",
     summary:
-      "MH Construction delivers AG and winery facilities, commercial tenant improvements, and municipal-adjacent projects with Procore-led controls, clear ownership, and disciplined field execution.",
-    category: "Commercial Construction",
+      "MH Construction delivers AG and winery facilities, mission-ready fit-outs, and municipal-adjacent projects with Procore-led controls, clear ownership, and disciplined field execution.",
+    category: "Mission-Ready Construction",
     overview:
-      "Use this service for new builds and renovations where multiple trades, schedule pressure, and operating constraints must stay aligned. Core strengths include Procore project management, pole building delivery, door and hardware installation, and winery pond liner scopes for wastewater and sludge runoff control.",
+      "Use this service for new builds and renovations where multiple trades, schedule pressure, and operating constraints must stay aligned. Core strengths include Procore mission management, pole building delivery, door and hardware installation, and winery pond liner scopes for wastewater and sludge runoff control.",
     focusAreas: [
-      "Preconstruction scope alignment and risk review",
+      "Predeployment scope alignment and risk review",
       "Permitting and design-team coordination",
-      "Commercial shell and tenant improvement delivery",
+      "Commercial shell and fit-out delivery",
       "Door and hardware package execution",
       "Pole building and post-frame delivery",
       "Winery pond liner installation for wastewater and sludge control",
@@ -47,7 +47,7 @@ export const serviceRoutes: ServiceRouteData[] = [
       "Confirm scope, success criteria, and operating constraints.",
       "Lock schedule, procurement path, and responsibility matrix.",
       "Coordinate RFIs, submittals, inspections, and field production.",
-      "Close out with punch completion and turnover documentation.",
+      "Close out with punch completion and handoff documentation.",
     ],
     safetyCommitments: [
       "Daily pre-task planning and field hazard checks",
@@ -55,7 +55,7 @@ export const serviceRoutes: ServiceRouteData[] = [
       "Documented quality and safety checkpoints",
       "Defined escalation for change and hazard conditions",
     ],
-    ctaText: "Schedule a commercial project scope review",
+    ctaText: "Schedule a mission scope review",
     ctaHref: "/contact",
   },
   {
@@ -66,12 +66,12 @@ export const serviceRoutes: ServiceRouteData[] = [
       "Support municipal and government construction with compliance-aware planning, transparent communication, and disciplined field execution.",
     ogImage: "/images/og/services/municipal-government.webp",
     summary:
-      "MH Construction supports municipal and government delivery with compliance-focused planning, public stakeholder coordination, and Procore-based reporting.",
+      "MH Construction supports municipal and government delivery with compliance-focused planning, public mission-partner coordination, and Procore-based reporting.",
     category: "Municipal & Government",
     overview:
       "Use this service for civic buildings, public facilities, and agency renovations that require procurement discipline, auditable records, and active-site safety controls.",
     focusAreas: [
-      "Public works documentation and stakeholder reporting",
+      "Public works documentation and mission-partner reporting",
       "Grant-funded project process support",
       "Occupied-site renovation and continuity planning",
       "Accessibility and life-safety compliance",
@@ -79,14 +79,14 @@ export const serviceRoutes: ServiceRouteData[] = [
     technicalPriorities: [
       "Compliance tracking and audit trails",
       "Procurement transparency",
-      "Agency and stakeholder reporting",
+      "Agency and mission-partner reporting",
       "ADA-ready turnover",
     ],
     deliverySteps: [
       "Review public scope requirements and procurement rules.",
       "Build a field plan that protects access and operations.",
       "Track submittals, inspections, and required reporting.",
-      "Deliver closeout records and agency-ready handoff.",
+      "Deliver completion records and agency-ready handoff.",
     ],
     safetyCommitments: [
       "Controlled public access at active work zones",
@@ -108,12 +108,12 @@ export const serviceRoutes: ServiceRouteData[] = [
       "MH Construction delivers drywall and interior packages with reliable sequencing, finish discipline, and tight coordination for commercial TI and light industrial facilities.",
     category: "Drywall & Interiors",
     overview:
-      "Use this service for tenant improvements, interior partitions, insulation, and finish work where occupied operations and turnover deadlines matter. This service is focused on commercial and industrial scopes.",
+      "Use this service for fit-outs, interior partitions, insulation, and finish work where occupied operations and handoff deadlines matter. This service is focused on commercial and industrial scopes.",
     focusAreas: [
       "Metal stud framing and drywall installation",
       "Interior finish and interface coordination",
       "Occupied-space sequencing and protection",
-      "Punch-list control and closeout",
+      "Punch-list control and handoff",
     ],
     technicalPriorities: [
       "Surface and substrate readiness",
@@ -164,7 +164,7 @@ export const serviceRoutes: ServiceRouteData[] = [
       "Confirm damage scope and immediate stabilization needs.",
       "Build a phased plan to protect occupied operations.",
       "Restore structure, finishes, and systems in sequence.",
-      "Verify repaired areas against closeout requirements.",
+      "Verify repaired areas against handoff requirements.",
     ],
     safetyCommitments: [
       "Hazard containment and controlled work zones",

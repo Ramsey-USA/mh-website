@@ -19,6 +19,7 @@
  */
 
 import { type ReactNode } from "react";
+import { MH_SLOGANS } from "@/lib/branding/page-names";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import type { NavigationItem } from "@/components/navigation/navigationConfigs";
 
@@ -68,7 +69,7 @@ export function HeroSectionEnforcer({
   navigation,
   showNavigation = true,
   backgroundElement,
-  slogan = "Built on Quality, Backed by Trust.",
+  slogan = MH_SLOGANS.primary,
   supportingSlogan = "No gaps. No guesswork. Just accountable follow-through.",
   serving,
   contentClassName = "",

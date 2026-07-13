@@ -14,16 +14,17 @@ import {
 } from "@/components/services";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { MH_SLOGANS } from "@/lib/branding/page-names";
 
 const processSteps = [
   {
-    title: "Discovery and Scope Validation",
+    title: "Mission Discovery and Scope Validation",
     description:
-      "Align project goals, success criteria, budget boundaries, and operating constraints before design and procurement commitments.",
+      "Align mission goals, success criteria, budget boundaries, and operating constraints before design and procurement commitments.",
     tags: ["Scope", "Budget", "Risk"],
   },
   {
-    title: "Preconstruction Planning",
+    title: "Pre-Deployment Planning",
     description:
       "Lock sequence logic, constructability assumptions, permit path, and procurement readiness for cleaner field starts.",
     tags: ["Planning", "Precon", "Controls"],
@@ -31,7 +32,7 @@ const processSteps = [
   {
     title: "Execution and Coordination",
     description:
-      "Drive field production with superintendent oversight and PM control loops to keep schedule, communication, and quality aligned.",
+      "Drive field production with superintendent oversight and PM command loops to keep schedule, communication, and quality aligned.",
     tags: ["Execution", "Scheduling", "Coordination"],
   },
   {
@@ -41,15 +42,15 @@ const processSteps = [
     tags: ["QA", "Safety", "Compliance"],
   },
   {
-    title: "Closeout and Turnover",
+    title: "Closeout and Handoff",
     description:
-      "Complete punch, turnover packages, and handoff-ready documentation so project closeout is orderly and audit-ready.",
+      "Complete punch, handoff packages, and handoff-ready documentation so mission handoff is orderly and audit-ready.",
     tags: ["Closeout", "Documentation", "Turnover"],
   },
   {
     title: "Post-Closeout Support",
     description:
-      "Sustain continuity after turnover through warranty coordination, follow-up support, and structured communication.",
+      "Sustain continuity after handoff through warranty coordination, follow-up support, and structured communication.",
     tags: ["Support", "Warranty", "Continuity"],
   },
 ] as const;
@@ -63,25 +64,25 @@ export default async function ServicesPage() {
 
       <ConstructionExpertiseSection
         subtitle={
-          isEs ? "Entrega Comercial Primero" : "Commercial-First Delivery"
+          isEs ? "Entrega Lista para la Misión" : "Mission-Ready Delivery"
         }
         title={
           isEs
-            ? "Servicios para Proyectos Comerciales, Industriales y Públicos"
-            : "Services Built for Commercial, Industrial, and Public Projects"
+            ? "Servicios para Misiones Comerciales, Industriales y Públicas"
+            : "Services Built for Commercial, Industrial, and Public Missions"
         }
         description={
           isEs
-            ? "Nuestra entrega principal es construcción comercial. También apoyamos comunidades agrícolas y bodegas, tenant improvements en espacios ocupados, obra municipal y algunos proyectos residenciales selectivos cuando el alcance está alineado."
-            : "Our core delivery is commercial construction. We support agricultural and winery communities, occupied tenant improvements, municipal work, and select custom home builds when scope and delivery conditions align."
+            ? "Nuestra entrega principal es construcción comercial. También apoyamos comunidades agrícolas y bodegas, acondicionamientos en espacios ocupados, obra municipal y algunos proyectos residenciales selectivos cuando el alcance está alineado."
+            : `Our core delivery is mission-ready construction. We support agricultural and winery communities, occupied fit-outs, municipal work, and select custom home builds when scope and delivery conditions align. ${MH_SLOGANS.supporting[1]}`
         }
       />
 
       <CoreServicesSection
         services={coreServices}
         subtitle="Core Services"
-        title="Execution Controls That Keep Projects Moving"
-        description="From preconstruction through closeout, these services keep scope, schedule, and accountability clear for owners, architects, bonding banks, insurers, and project teams."
+        title="Execution Controls That Keep Missions Moving"
+        description="From predeployment through handoff, these services keep scope, schedule, and accountability clear for owners, architects, bonding banks, insurers, and project teams."
       />
 
       <SpecialtyServicesSection
@@ -93,14 +94,14 @@ export default async function ServicesPage() {
 
       <GovernmentProjectsSection
         subtitle="Public-Sector Delivery"
-        title="Government and Grant-Funded Project Support"
-        description="Compliance-forward planning and documentation support for municipal and public-sector delivery pathways."
+        title="Government and Grant-Funded Mission Support"
+        description={`Compliance-forward planning and documentation support for municipal and public-sector delivery pathways. ${MH_SLOGANS.supporting[2]}`}
       />
 
       <ServiceAreasSection
         serviceAreas={serviceAreas}
         subtitle="Service Areas"
-        title="Regional Coverage with Local Delivery Accountability"
+        title="Regional Coverage with Local Mission Accountability"
         description="Tri-Cities headquartered with field-ready delivery support for owners, architects, and project teams across the region."
         maxLocationsPerArea={8}
         showAllLocationsCta
@@ -108,17 +109,17 @@ export default async function ServicesPage() {
 
       <WhyChooseUs
         subtitle="Trust Signals"
-        title="Why Project Stakeholders Choose MH Construction"
-        description="Documented safety performance, transparent communication, and reliable follow-through from planning through turnover."
+        title="Why Mission Partners Choose MH Mission Teams"
+        description={`Documented safety performance, transparent communication, and reliable follow-through from planning through handoff. ${MH_SLOGANS.supporting[3]}`}
       />
 
       <ConstructionProcessSection
         subtitle="Delivery Process"
-        title="Six-Stage Operating Process"
-        description="A clear operating model that keeps planning, field execution, and closeout controls visible at every stage."
+        title="Six-Phase Operating Process"
+        description="A clear operating model that keeps planning, field execution, and handoff controls visible at every stage."
         steps={processSteps.map((step) => ({ ...step, tags: [...step.tags] }))}
         cta={{
-          title: "Evaluate Project Fit",
+          title: "Evaluate Mission Fit",
           description:
             "Review recent work and delivery patterns before scheduling your scope conversation.",
           contactButton: "Contact Us",

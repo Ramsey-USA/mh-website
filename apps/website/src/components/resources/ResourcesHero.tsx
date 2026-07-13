@@ -1,5 +1,6 @@
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { MH_SLOGANS } from "@/lib/branding/page-names";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 export function ResourcesHero() {
@@ -27,7 +28,7 @@ export function ResourcesHero() {
               Manuals, Toolbox Talks, Forms, and Safety Documentation
             </span>
             <span className="block text-brand-secondary/75 text-xs xs:text-sm sm:text-base mt-2">
-              Built on Quality, Backed by Trust.
+              {MH_SLOGANS.primary}
             </span>
             <span className="block text-brand-secondary/80 text-xs xs:text-sm sm:text-base mt-1">
               {getHeroPageSlogan("resources").slogan}

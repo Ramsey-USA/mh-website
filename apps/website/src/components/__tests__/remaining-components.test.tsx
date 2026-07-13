@@ -289,7 +289,7 @@ describe("TestimonialsSection", () => {
 
   it("renders with default props", () => {
     render(<TestimonialsSection testimonials={mockTestimonials} />);
-    expect(screen.getByText("What Our Project Stakeholders Say")).toBeTruthy();
+    expect(screen.getByText("What Our Mission Partners Say")).toBeTruthy();
     expect(screen.getByTestId("testimonials-carousel")).toBeTruthy();
   });
 

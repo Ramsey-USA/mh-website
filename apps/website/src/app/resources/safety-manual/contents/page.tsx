@@ -10,6 +10,7 @@ import { manuals } from "@/lib/data/documents";
 import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
+  MH_SLOGANS,
 } from "@/lib/branding/page-names";
 import {
   SAFETY_MANUAL_CLUSTERS,
@@ -117,7 +118,7 @@ export default async function SafetyManualContentsPage() {
                   : "Public index for external review, section navigation, and access requests"}
               </p>
               <p className="font-heading mt-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/70">
-                Squared away from start to finish.
+                {MH_SLOGANS.supporting[0]}
               </p>
             </div>
             <div className="flex gap-3 flex-wrap">
@@ -187,7 +188,7 @@ export default async function SafetyManualContentsPage() {
       <div className="border-b border-brand-primary/15 bg-brand-primary/5 px-4 py-3">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 font-heading text-xs font-semibold uppercase tracking-wider text-brand-primary">
           <span className="rounded-full border border-brand-primary/25 bg-white px-3 py-1">
-            Built on Quality, Backed by Trust.
+            {MH_SLOGANS.primary}
           </span>
           <span className="rounded-full border border-brand-primary/25 bg-white px-3 py-1">
             Veteran-Owned Leadership

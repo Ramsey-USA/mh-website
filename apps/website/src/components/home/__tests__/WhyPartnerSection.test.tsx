@@ -28,7 +28,7 @@ describe("WhyPartnerSection", () => {
   it("renders the EMR safety card", () => {
     render(<WhyPartnerSection />);
     expect(
-      screen.getByText(".64 EMR - Industry-Leading Safety"),
+      screen.getByText(".64 EMR - Battle-Tested Safety"),
     ).toBeInTheDocument();
   });
 

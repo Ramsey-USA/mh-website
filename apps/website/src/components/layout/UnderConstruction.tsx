@@ -1,4 +1,5 @@
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { MH_SLOGANS } from "@/lib/branding/page-names";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { Button } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
@@ -167,7 +168,7 @@ export function UnderConstruction({
                 </div>
 
                 <p className="text-center mt-6 font-semibold text-brand-primary dark:text-brand-primary-light text-lg">
-                  Built on Quality, Backed by Trust.
+                  {MH_SLOGANS.primary}
                 </p>
                 <p className="text-center mt-1 font-medium text-brand-primary/80 dark:text-brand-primary-light/80 text-sm">
                   No gaps. No guesswork. Just accountable follow-through.

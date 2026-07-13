@@ -18,6 +18,7 @@ import type { Testimonial } from "@/lib/data/testimonials";
 import { getTranslations } from "next-intl/server";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { CORE_VALUE_ICONS } from "@/lib/constants/navigation-icons";
+import { MH_SLOGANS } from "@/lib/branding/page-names";
 
 async function getIsLighthouseAudit(
   searchParamsPromise?: Promise<Record<string, string | string[] | undefined>>,
@@ -60,9 +61,8 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 
 const SITE_URL = "https://www.mhc-gc.com";
-const testimonialsMissionLine = "Built on Quality, Backed by Trust.";
-const testimonialsSupportingLine =
-  "No gaps. No guesswork. Just accountable follow-through.";
+const testimonialsMissionLine = MH_SLOGANS.primary;
+const testimonialsSupportingLine = MH_SLOGANS.supporting[1];
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -73,7 +73,7 @@ const faqSchema = {
       name: "How do I leave a testimonial for MH Construction?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can leave a Google review through our testimonials page link, or contact us directly to share your experience. Project stakeholder feedback helps us improve delivery and helps other businesses make informed partnership decisions.",
+        text: "You can leave a Google review through our testimonials page link, or contact us directly to share your experience. Mission-partner feedback helps us improve delivery and helps other businesses make informed partnership decisions.",
       },
     },
     {
@@ -81,7 +81,7 @@ const faqSchema = {
       name: "Are MH Construction testimonials verified?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes! All testimonials come from real project stakeholders on completed projects across Washington, Oregon, and Idaho. We maintain the highest standards of authenticity—no paid reviews, no fabricated stories. Just honest feedback from valued partnerships in commercial, industrial, and government construction projects throughout the Pacific Northwest.",
+        text: "Yes! All testimonials come from real mission partners on completed projects across Washington, Oregon, and Idaho. We maintain the highest standards of authenticity—no paid reviews, no fabricated stories. Just honest feedback from valued partnerships in commercial, industrial, and government construction projects throughout the Pacific Northwest.",
       },
     },
     {
@@ -94,10 +94,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Can I speak with past MH Construction project stakeholders?",
+      name: "Can I speak with past MH Construction mission partners?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We're happy to provide references during your consultation. We can connect you with past project stakeholders who have completed similar commercial, industrial, or government projects. Their firsthand accounts reflect clear communication, schedule transparency, and quality workmanship.",
+        text: "We're happy to provide references during your consultation. We can connect you with past mission partners who have completed similar commercial, industrial, or government projects. Their firsthand accounts reflect clear communication, schedule transparency, and quality workmanship.",
       },
     },
   ],
@@ -118,11 +118,11 @@ function StaticTestimonialsSection({
             Trusted By Our Partners
           </p>
           <h2 className="font-black text-gray-900 text-3xl sm:text-4xl lg:text-5xl tracking-tight dark:text-white">
-            What Our Project Stakeholders Say
+            What Our Mission Partners Say
           </h2>
           <p className="font-body mx-auto mt-4 max-w-3xl text-gray-600 text-base sm:text-lg leading-relaxed dark:text-gray-300">
-            Verified feedback from project stakeholders across the Pacific
-            Northwest on communication, quality, and delivery follow-through.
+            Verified feedback from mission partners across the Pacific Northwest
+            on communication, quality, and delivery follow-through.
           </p>
         </div>
 
@@ -288,8 +288,8 @@ export default async function TestimonialsPage(props?: {
             <TestimonialsSection
               id="client-testimonials"
               subtitle="Trusted By Our Partners"
-              title="What Our Project Stakeholders Say"
-              description={`Verified testimonials from project stakeholders across the Pacific Northwest. ${testimonialsMissionLine} ${testimonialsSupportingLine}`}
+              title="What Our Mission Partners Say"
+              description={`Verified testimonials from mission partners across the Pacific Northwest. ${testimonialsMissionLine} ${testimonialsSupportingLine}`}
               testimonials={testimonials}
               autoPlay={true}
               autoPlayInterval={5000}
@@ -332,7 +332,7 @@ export default async function TestimonialsPage(props?: {
                 <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   Our four core values show up in measurable results across
                   commercial, industrial, and government projects throughout
-                  Washington, Oregon, and Idaho for project stakeholders.
+                  Washington, Oregon, and Idaho for mission partners.
                 </p>
               </div>
 
@@ -678,8 +678,8 @@ export default async function TestimonialsPage(props?: {
               Client Testimonials Coming Soon
             </h2>
             <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-8">
-              We're collecting feedback from our valued project stakeholders.
-              Check back soon to read about their experiences working with our
+              We're collecting feedback from our valued mission partners. Check
+              back soon to read about their experiences working with our
               construction team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
