@@ -40,24 +40,33 @@ jest.mock("@/lib/constants/company", () => ({
   },
 }));
 
+jest.mock("@/lib/i18n/locale.server", () => ({
+  getServerLocale: jest.fn(() => Promise.resolve("en")),
+}));
+
 import TermsOfServicePage from "../page";
 
 describe("TermsOfServicePage", () => {
-  it("renders the Terms of Service heading", () => {
-    render(<TermsOfServicePage />);
+  async function renderPage() {
+    const ui = await TermsOfServicePage();
+    render(ui);
+  }
+
+  it("renders the Terms of Service heading", async () => {
+    await renderPage();
     const headings = screen.getAllByRole("heading", {
       name: /Terms of Service/i,
     });
     expect(headings.length).toBeGreaterThan(0);
   });
 
-  it("renders contact email", () => {
-    render(<TermsOfServicePage />);
+  it("renders contact email", async () => {
+    await renderPage();
     expect(screen.getAllByText("office@mhc-gc.com").length).toBeGreaterThan(0);
   });
 
-  it("renders back-to-home link", () => {
-    render(<TermsOfServicePage />);
+  it("renders back-to-home link", async () => {
+    await renderPage();
     const link = screen.getByRole("link", { name: /back to home/i });
     expect(link).toHaveAttribute("href", "/");
   });

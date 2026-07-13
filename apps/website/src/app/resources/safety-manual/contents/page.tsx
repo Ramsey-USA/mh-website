@@ -116,6 +116,9 @@ export default async function SafetyManualContentsPage() {
                   ? "Indice publico para revision externa, navegacion por secciones y solicitudes de acceso"
                   : "Public index for external review, section navigation, and access requests"}
               </p>
+              <p className="font-heading mt-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/70">
+                Squared away from start to finish.
+              </p>
             </div>
             <div className="flex gap-3 flex-wrap">
               <Button asChild variant="secondary" size="lg">
@@ -182,7 +185,7 @@ export default async function SafetyManualContentsPage() {
       </div>
 
       <div className="border-b border-brand-primary/15 bg-brand-primary/5 px-4 py-3">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-primary">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 font-heading text-xs font-semibold uppercase tracking-wider text-brand-primary">
           <span className="rounded-full border border-brand-primary/25 bg-white px-3 py-1">
             Built on Quality, Backed by Trust.
           </span>

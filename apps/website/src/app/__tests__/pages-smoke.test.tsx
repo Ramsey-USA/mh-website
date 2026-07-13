@@ -28,6 +28,16 @@ jest.mock("next/image", () => ({
   ),
 }));
 
+jest.mock("next/headers", () => ({
+  __esModule: true,
+  headers: jest.fn(async () => ({
+    get: () => null,
+  })),
+  cookies: jest.fn(async () => ({
+    get: () => undefined,
+  })),
+}));
+
 jest.mock("@opennextjs/cloudflare", () => ({
   __esModule: true,
   getCloudflareContext: () => ({
@@ -136,6 +146,11 @@ jest.mock("@/components/navigation/navigationConfigs", () => ({
     allies: [],
     publicSector: [],
   },
+}));
+
+jest.mock("../careers/print/PrintableApplicationClient", () => ({
+  __esModule: true,
+  default: () => <div data-testid="careers-print-client" />,
 }));
 
 jest.mock("@/components/shared-sections", () => ({
@@ -405,34 +420,30 @@ const REPO_ROOT = path.resolve(APP_ROOT, "..", "..");
 // ── About page ────────────────────────────────────────────────────────────────
 
 describe("About page", () => {
-  it("renders without throwing", () => {
-    const { default: AboutPage } = require("../about/page") as {
-      default: React.ComponentType;
-    };
-    expect(() => render(<AboutPage />)).not.toThrow();
+  it("renders without throwing", async () => {
+    const { default: AboutPage } = await import("../about/page");
+    const page = await AboutPage();
+    expect(() => render(page)).not.toThrow();
   });
 });
 
 // ── FAQ page ──────────────────────────────────────────────────────────────────
 
 describe("FAQ page", () => {
-  it("renders without throwing", () => {
-    const { default: FAQPage } = require("../faq/page") as {
-      default: React.ComponentType;
-    };
-    expect(() => render(<FAQPage />)).not.toThrow();
+  it("renders without throwing", async () => {
+    const { default: FAQPage } = await import("../faq/page");
+    const page = await FAQPage();
+    expect(() => render(page)).not.toThrow();
   });
 });
 
 // ── Services page ─────────────────────────────────────────────────────────────
 
 describe("Services page", () => {
-  it("renders without throwing", () => {
-    const { default: ServicesPage } = require("../services/page") as {
-      default: React.ComponentType;
-    };
-
-    expect(() => render(<ServicesPage />)).not.toThrow();
+  it("renders without throwing", async () => {
+    const { default: ServicesPage } = await import("../services/page");
+    const page = await ServicesPage();
+    expect(() => render(page)).not.toThrow();
   });
 });
 
@@ -540,33 +551,31 @@ describe("Public Sector page", () => {
 // ── Privacy page ──────────────────────────────────────────────────────────────
 
 describe("Privacy page", () => {
-  it("renders without throwing", () => {
-    const { default: PrivacyPage } = require("../privacy/page") as {
-      default: React.ComponentType;
-    };
-    expect(() => render(<PrivacyPage />)).not.toThrow();
+  it("renders without throwing", async () => {
+    const { default: PrivacyPage } = await import("../privacy/page");
+    const page = await PrivacyPage();
+    expect(() => render(page)).not.toThrow();
   });
 });
 
 // ── Terms page ────────────────────────────────────────────────────────────────
 
 describe("Terms page", () => {
-  it("renders without throwing", () => {
-    const { default: TermsPage } = require("../terms/page") as {
-      default: React.ComponentType;
-    };
-    expect(() => render(<TermsPage />)).not.toThrow();
+  it("renders without throwing", async () => {
+    const { default: TermsPage } = await import("../terms/page");
+    const page = await TermsPage();
+    expect(() => render(page)).not.toThrow();
   });
 });
 
 // ── Accessibility page ────────────────────────────────────────────────────────
 
 describe("Accessibility page", () => {
-  it("renders without throwing", () => {
-    const { default: AccessibilityPage } = require("../accessibility/page") as {
-      default: React.ComponentType;
-    };
-    expect(() => render(<AccessibilityPage />)).not.toThrow();
+  it("renders without throwing", async () => {
+    const { default: AccessibilityPage } =
+      await import("../accessibility/page");
+    const page = await AccessibilityPage();
+    expect(() => render(page)).not.toThrow();
   });
 });
 
@@ -585,67 +594,61 @@ describe("Allies page", () => {
 // ── Home page ─────────────────────────────────────────────────────────────────
 
 describe("Home page", () => {
-  it("renders without throwing", () => {
-    const { default: HomePage } = require("../page") as {
-      default: React.ComponentType;
-    };
-    expect(() => render(<HomePage />)).not.toThrow();
+  it("renders without throwing", async () => {
+    const { default: HomePage } = await import("../page");
+    const page = await HomePage();
+    expect(() => render(page)).not.toThrow();
   });
 });
 
 // ── Resources page ────────────────────────────────────────────────────────────
 
 describe("Resources page", () => {
-  it("renders without throwing", () => {
-    const { default: ResourcesPage } = require("../resources/page") as {
-      default: React.ComponentType;
-    };
-    expect(() => render(<ResourcesPage />)).not.toThrow();
+  it("renders without throwing", async () => {
+    const { default: ResourcesPage } = await import("../resources/page");
+    const page = await ResourcesPage();
+    expect(() => render(page as Parameters<typeof render>[0])).not.toThrow();
   });
 });
 
 // ── Resources Safety Program page ─────────────────────────────────────────────
 
 describe("Resources Safety Program page", () => {
-  it("renders without throwing", () => {
+  it("renders without throwing", async () => {
     const { default: SafetyProgramPage } =
-      require("../resources/safety-program/page") as {
-        default: React.ComponentType;
-      };
-    expect(() => render(<SafetyProgramPage />)).not.toThrow();
+      await import("../resources/safety-program/page");
+    const page = await SafetyProgramPage();
+    expect(() => render(page as Parameters<typeof render>[0])).not.toThrow();
   });
 });
 
 // ── Safety page ───────────────────────────────────────────────────────────────
 
 describe("Safety page", () => {
-  it("renders without throwing", () => {
-    const { default: SafetyPage } = require("../safety/page") as {
-      default: React.ComponentType;
-    };
-    expect(() => render(<SafetyPage />)).not.toThrow();
+  it("renders without throwing", async () => {
+    const { default: SafetyPage } = await import("../safety/page");
+    const page = await SafetyPage();
+    expect(() => render(page)).not.toThrow();
   });
 });
 
 // ── Safety Intake page ────────────────────────────────────────────────────────
 
 describe("Safety Intake page", () => {
-  it("renders without throwing", () => {
-    const { default: SafetyIntakePage } = require("../safety/intake/page") as {
-      default: React.ComponentType;
-    };
-    expect(() => render(<SafetyIntakePage />)).not.toThrow();
+  it("renders without throwing", async () => {
+    const { default: SafetyIntakePage } = await import("../safety/intake/page");
+    const page = await SafetyIntakePage();
+    expect(() => render(page as Parameters<typeof render>[0])).not.toThrow();
   });
 });
 
 // ── Careers Print page ────────────────────────────────────────────────────────
 
 describe("Careers Print page", () => {
-  it("renders without throwing", () => {
-    const { default: CareersPrintPage } = require("../careers/print/page") as {
-      default: React.ComponentType;
-    };
-    expect(() => render(<CareersPrintPage />)).not.toThrow();
+  it("renders without throwing", async () => {
+    const { default: CareersPrintPage } = await import("../careers/print/page");
+    const page = await CareersPrintPage();
+    expect(() => render(page)).not.toThrow();
   });
 });
 
@@ -706,12 +709,12 @@ describe("Safety Manual redirect page", () => {
     mockRedirect.mockClear();
   });
 
-  it("redirects to /resources/safety-manual/contents", () => {
+  it("redirects to /resources/safety-manual/contents", async () => {
     const { default: SafetyManualPage } =
       require("../resources/safety-manual/page") as {
         default: () => unknown;
       };
-    SafetyManualPage();
+    await SafetyManualPage();
     expect(mockRedirect).toHaveBeenCalledWith(
       "/resources/safety-manual/contents",
     );

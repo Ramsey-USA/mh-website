@@ -67,6 +67,7 @@ export const metadata: Metadata = withGeoMetadata({
     "Jeremy Thamert Owner and President",
     "MH Construction home",
     "Built on Quality, Backed by Trust.",
+    "Squared away from start to finish.",
     "relationship-first construction partner",
     "stakeholder-focused construction delivery",
     "owner representative construction coordination",

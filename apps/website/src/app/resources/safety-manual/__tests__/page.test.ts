@@ -15,11 +15,15 @@ jest.mock("next/navigation", () => ({
   },
 }));
 
+jest.mock("@/lib/i18n/locale.server", () => ({
+  getServerLocale: jest.fn(() => Promise.resolve("en")),
+}));
+
 import SafetyManualPage from "../page";
 
 describe("SafetyManualPage", () => {
-  it("redirects to the Table of Contents", () => {
-    expect(() => SafetyManualPage()).toThrow(
+  it("redirects to the Table of Contents", async () => {
+    await expect(SafetyManualPage()).rejects.toThrow(
       "NEXT_REDIRECT:/resources/safety-manual/contents",
     );
     expect(mockRedirect).toHaveBeenCalledWith(

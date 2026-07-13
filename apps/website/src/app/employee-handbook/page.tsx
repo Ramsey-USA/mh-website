@@ -83,6 +83,9 @@ export default async function EmployeeHandbookPage() {
           <p className="font-heading mt-2 text-xs font-semibold uppercase tracking-wider text-brand-secondary/90">
             Built on Quality, Backed by Trust.
           </p>
+          <p className="font-heading mt-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/70">
+            Squared away from start to finish.
+          </p>
           <p className="mt-2 text-sm text-white/70">
             Revision {revisionNumber} &middot; Effective {revisionDate}
           </p>
@@ -142,7 +145,7 @@ export default async function EmployeeHandbookPage() {
       </div>
 
       <div className="border-b border-brand-primary/15 bg-brand-primary/5 px-4 py-3">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-primary">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 font-heading text-xs font-semibold uppercase tracking-wider text-brand-primary">
           <span className="rounded-full border border-brand-primary/25 bg-white px-3 py-1">
             Veteran-Owned Since 2025
           </span>

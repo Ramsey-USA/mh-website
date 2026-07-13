@@ -4,15 +4,21 @@
 
 import { getServerLocale } from "../locale.server";
 
+const mockHeaders = jest.fn();
 const mockCookies = jest.fn();
 
 jest.mock("next/headers", () => ({
-  cookies: () => mockCookies(),
+  __esModule: true,
+  headers: jest.fn(() => mockHeaders()),
+  cookies: jest.fn(() => mockCookies()),
 }));
 
 describe("getServerLocale", () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockHeaders.mockResolvedValue({
+      get: jest.fn().mockReturnValue(null),
+    });
   });
 
   it("returns locale from cookie when supported", async () => {

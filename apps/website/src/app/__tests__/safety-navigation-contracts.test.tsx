@@ -80,6 +80,10 @@ jest.mock("@/lib/seo/breadcrumb-schema", () => ({
   generateBreadcrumbSchema: jest.fn(() => ({ "@type": "BreadcrumbList" })),
 }));
 
+jest.mock("@/lib/i18n/locale.server", () => ({
+  getServerLocale: jest.fn(() => Promise.resolve("en")),
+}));
+
 const mockRedirect = jest.fn();
 const mockPermanentRedirect = jest.fn();
 
@@ -100,12 +104,11 @@ describe("Safety navigation contracts", () => {
     clearLocalStorage();
   });
 
-  it("routes safety manual card from resources page to the public safety resource center", () => {
-    const { default: ResourcesPage } = require("../resources/page") as {
-      default: React.ComponentType;
-    };
+  it("routes safety manual card from resources page to the public safety resource center", async () => {
+    const { default: ResourcesPage } = await import("../resources/page");
 
-    render(<ResourcesPage />);
+    const ui = await ResourcesPage();
+    render(ui);
 
     const safetyManualLink = screen.getByRole("link", {
       name: /For Bonding Banks, Insurers, and Architects/i,
@@ -115,11 +118,7 @@ describe("Safety navigation contracts", () => {
 
   it("308-redirects safety manual section pages to their cluster anchor", async () => {
     const { default: SectionPage } =
-      require("../resources/safety-manual/section/[slug]/page") as {
-        default: (props: {
-          params: Promise<{ slug: string }>;
-        }) => Promise<void>;
-      };
+      await import("../resources/safety-manual/section/[slug]/page");
 
     const manual = getDocumentById("safety-manual");
     const section = manual?.sections?.find((s) => s.slug === "fall-protection");
@@ -140,11 +139,7 @@ describe("Safety navigation contracts", () => {
 
   it("308-redirects unknown section slugs to the Table of Contents", async () => {
     const { default: SectionPage } =
-      require("../resources/safety-manual/section/[slug]/page") as {
-        default: (props: {
-          params: Promise<{ slug: string }>;
-        }) => Promise<void>;
-      };
+      await import("../resources/safety-manual/section/[slug]/page");
 
     await expect(
       SectionPage({
@@ -162,26 +157,28 @@ describe("Safety navigation contracts", () => {
       .fn()
       .mockResolvedValueOnce({
         ok: true,
-        json: async () => ({
-          accessToken: "token-123",
-        }),
+        json: () =>
+          Promise.resolve({
+            accessToken: "token-123",
+          }),
       })
       .mockResolvedValueOnce({
         ok: true,
-        json: async () => ({
-          data: {
-            id: "submission-123",
-            job_id: "job-1",
-            job_number: "J-001",
-            job_name: "Sample Project",
-            form_type: "toolbox-talk",
-            submitted_by: "Test User",
-            data: JSON.stringify({ topic: "Lift plan review" }),
-            print_count: 0,
-            status: "submitted",
-            created_at: "2026-04-01T00:00:00.000Z",
-          },
-        }),
+        json: () =>
+          Promise.resolve({
+            data: {
+              id: "submission-123",
+              job_id: "job-1",
+              job_number: "J-001",
+              job_name: "Sample Project",
+              form_type: "toolbox-talk",
+              submitted_by: "Test User",
+              data: JSON.stringify({ topic: "Lift plan review" }),
+              print_count: 0,
+              status: "submitted",
+              created_at: "2026-04-01T00:00:00.000Z",
+            },
+          }),
       });
 
     Object.defineProperty(globalThis, "fetch", {
@@ -190,9 +187,7 @@ describe("Safety navigation contracts", () => {
     });
 
     const { default: PrintPageClient } =
-      require("../safety/print/[id]/PrintPageClient") as {
-        default: React.ComponentType;
-      };
+      await import("../safety/print/[id]/PrintPageClient");
 
     render(<PrintPageClient />);
 

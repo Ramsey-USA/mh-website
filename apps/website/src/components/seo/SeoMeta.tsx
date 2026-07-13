@@ -33,6 +33,7 @@ const defaultSEO = {
     "general contractor",
     "general contractor Pasco, WA",
     "Built on Quality, Backed by Trust.",
+    "Squared away from start to finish.",
     "stakeholder-focused construction delivery",
     "relationship-first construction partner",
     "owner representative construction coordination",

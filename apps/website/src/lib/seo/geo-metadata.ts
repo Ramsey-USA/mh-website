@@ -8,6 +8,7 @@ const PAGEHUB_FOUNDATIONAL_KEYWORDS = [
   "Washington Oregon Idaho contractor",
   "veteran-owned contractor Pacific Northwest",
   "Built on Quality, Backed by Trust.",
+  "Squared away from start to finish.",
   "commercial construction stakeholder alignment",
   "client partner construction delivery",
 ];
