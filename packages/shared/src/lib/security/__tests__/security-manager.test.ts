@@ -239,6 +239,50 @@ describe("SecurityManager", () => {
     );
   });
 
+  it("includes Cloudflare Turnstile origins in the default CSP", () => {
+    const manager = new SecurityManager();
+    const response = manager.applyResponseSecurity(
+      NextResponse.json({ ok: true }),
+      undefined,
+      undefined,
+    );
+
+    const csp = response.headers.get("Content-Security-Policy");
+
+    expect(csp).toContain(
+      "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com",
+    );
+    expect(csp).toContain(
+      "connect-src 'self' https://api.cloudflare.com https://www.google-analytics.com https://challenges.cloudflare.com",
+    );
+    expect(csp).toContain(
+      "frame-src 'self' https://www.google.com https://maps.google.com https://challenges.cloudflare.com",
+    );
+  });
+
+  it("adds the Sentry ingest origin to connect-src when NEXT_PUBLIC_SENTRY_DSN is configured", () => {
+    process.env["NEXT_PUBLIC_SENTRY_DSN"] =
+      "https://public@example.ingest.sentry.io/123456";
+
+    jest.resetModules();
+    const { SecurityManager: ReloadedSecurityManager } =
+      require("../security-manager") as typeof import("../security-manager");
+
+    const manager = new ReloadedSecurityManager();
+    const response = manager.applyResponseSecurity(
+      NextResponse.json({ ok: true }),
+      undefined,
+      undefined,
+    );
+
+    expect(response.headers.get("Content-Security-Policy")).toContain(
+      "https://example.ingest.sentry.io",
+    );
+
+    delete process.env["NEXT_PUBLIC_SENTRY_DSN"];
+    jest.resetModules();
+  });
+
   it("returns the provided config from getConfig", () => {
     const config = makeConfig({ validation: { maxFieldLength: 25 } });
     const manager = new SecurityManager(config);

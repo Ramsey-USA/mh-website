@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup workspace
         uses: ./.github/actions/setup-workspace
@@ -41,7 +41,7 @@ jobs:
           install-command: pnpm install --frozen-lockfile --filter @mhc/website... --loglevel error
 
       - name: Restore Next.js build cache (website)
-        uses: actions/cache@v6
+        uses: actions/cache@v4
         with:
           path: |
             apps/website/.next/cache
@@ -60,7 +60,7 @@ jobs:
         run: |
           rm -rf .next .open-next
           start_ts=$(date +%s)
-          npm run build:standard
+          npm run build:next
           end_ts=$(date +%s)
           duration=$((end_ts - start_ts))
           echo "seconds=$duration" >> "$GITHUB_OUTPUT"
@@ -73,7 +73,7 @@ jobs:
         run: |
           rm -rf .next .open-next
           start_ts=$(date +%s)
-          npm run build:lowmem
+          NODE_OPTIONS="--max-old-space-size=4096" npm run build:next
           end_ts=$(date +%s)
           duration=$((end_ts - start_ts))
           echo "seconds=$duration" >> "$GITHUB_OUTPUT"
@@ -151,7 +151,7 @@ jobs:
 
       - name: Post benchmark comment
         if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false
-        uses: actions/github-script@v9
+        uses: actions/github-script@v7
         env:
           STANDARD_SECONDS: ${{ steps.delta.outputs.standard_seconds }}
           LOWMEM_SECONDS: ${{ steps.delta.outputs.lowmem_seconds }}

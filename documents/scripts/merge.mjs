@@ -121,7 +121,9 @@ async function embedMendlMergeFont(pdfDoc, { bold = false } = {}) {
 
   pdfDoc.registerFontkit(fontkit);
   const fontBytes = await readFile(fontPath);
-  return pdfDoc.embedFont(fontBytes, { subset: true });
+  // Adobe Acrobat can flag subsetted OTF embeds with malformed /Widths
+  // on some font variants; embed full font for viewer compatibility.
+  return pdfDoc.embedFont(fontBytes, { subset: false });
 }
 
 function normalizeSlug(value) {
