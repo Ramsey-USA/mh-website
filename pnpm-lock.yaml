@@ -78,8 +78,8 @@ importers:
         specifier: ^2.4.5
         version: 2.4.5
       pdfjs-dist:
-        specifier: ^5.7.284
-        version: 5.7.284
+        specifier: ^6.1.200
+        version: 6.1.200
       prettier:
         specifier: ^3.9.5
         version: 3.9.5
@@ -290,8 +290,8 @@ importers:
         version: 5.3.0
     devDependencies:
       '@eslint/eslintrc':
-        specifier: ^3.3.5
-        version: 3.3.5
+        specifier: ^3.3.6
+        version: 3.3.6
       '@next/bundle-analyzer':
         specifier: 16.2.10
         version: 16.2.10
@@ -1453,6 +1453,10 @@ packages:
 
   '@eslint/eslintrc@3.3.5':
     resolution: {integrity: sha512-4IlJx0X0qftVsN5E+/vGujTRIFtwuLbNsVUe7TO6zYPDR1O6nFwvwhIKEKSrl6dZchmYBITazxKoUYOjdtjlRg==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@eslint/eslintrc@3.3.6':
+    resolution: {integrity: sha512-l2Ul9PrHsPCKcEY/ac7VgFj9D80C7S68sOKc618SyHDPK36s1XcFebXY0iTzUVn4Yq+YbwvSnDmCz9yxjX+QrA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/js@9.39.4':
@@ -5020,6 +5024,10 @@ packages:
     resolution: {integrity: sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==}
     engines: {node: '>= 4'}
 
+  ignore@7.0.6:
+    resolution: {integrity: sha512-BAg6QkE8W+TuQLrrw0Ugr7HegXduRuuj8/ti2kSOc+jz1dmx8/WNcjr6XGnq5YpDWxFwwaavqD0+jIUOKelTsw==}
+    engines: {node: '>= 4'}
+
   image-ssim@0.2.0:
     resolution: {integrity: sha512-W7+sO6/yhxy83L0G7xR8YAc5Z5QFtYEXXRV6EaE8tuYBZJnA3gVgp3q7X7muhLZVodeb9UfvjSbwt9VJwjIYAg==}
 
@@ -5492,6 +5500,10 @@ packages:
 
   js-yaml@4.2.0:
     resolution: {integrity: sha512-ePWsvanv0DWuDRsW8dnt+R4jQ31SCRCQ7hhNcPXZPsoBZiemuZNYGf7adZdqX2D86j6rvKp3RpCxVTSb8WQlOw==}
+    hasBin: true
+
+  js-yaml@4.3.0:
+    resolution: {integrity: sha512-1td788aAnnZ5qs7V2QIRl1owjtYpbKt749Y3xauqQgwIIGF/xXWz1wMTEBx5O3LK3lXLVuqXPdPxj2BoFHaW9Q==}
     hasBin: true
 
   js-yaml@5.2.0:
@@ -6241,10 +6253,6 @@ packages:
   pdfjs-dist@5.4.296:
     resolution: {integrity: sha512-DlOzet0HO7OEnmUmB6wWGJrrdvbyJKftI1bhMitK7O2N8W2gc757yyYBbINy9IDafXAV9wmKr9t7xsTaNKRG5Q==}
     engines: {node: '>=20.16.0 || >=22.3.0'}
-
-  pdfjs-dist@5.7.284:
-    resolution: {integrity: sha512-h4EdYQczmGhbOlqc3PPZwxevn7ApdWPbovAuWXOB/DjIyigSnwfy2oze7c6mRcSr9XgLp3eN3EeL4DyySTPMFw==}
-    engines: {node: '>=22.13.0 || >=24'}
 
   pdfjs-dist@6.1.200:
     resolution: {integrity: sha512-o8MolyzirkkLrcdsae/HEOiIcXWI7DS5zGpvqW8xTC2YUsW30rltFw2bDGvw/fskUdEMrQm2br68jzDS5BH2vw==}
@@ -8571,6 +8579,20 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@eslint/eslintrc@3.3.6':
+    dependencies:
+      ajv: 6.15.0
+      debug: 4.4.3
+      espree: 10.4.0
+      globals: 14.0.0
+      ignore: 5.3.2
+      import-fresh: 3.3.1
+      js-yaml: 4.3.0
+      minimatch: 3.1.5
+      strip-json-comments: 3.1.1
+    transitivePeerDependencies:
+      - supports-color
+
   '@eslint/js@9.39.4': {}
 
   '@eslint/object-schema@2.1.7': {}
@@ -10561,7 +10583,7 @@ snapshots:
       '@typescript-eslint/utils': 8.61.1(eslint@9.39.4(jiti@2.7.0))(typescript@6.0.3)
       '@typescript-eslint/visitor-keys': 8.61.1
       eslint: 9.39.4(jiti@2.7.0)
-      ignore: 7.0.5
+      ignore: 7.0.6
       natural-compare: 1.4.0
       ts-api-utils: 2.5.0(typescript@6.0.3)
       typescript: 6.0.3
@@ -12370,7 +12392,7 @@ snapshots:
     dependencies:
       '@sindresorhus/merge-streams': 4.0.0
       fast-glob: 3.3.3
-      ignore: 7.0.5
+      ignore: 7.0.6
       is-path-inside: 4.0.0
       slash: 5.1.0
       unicorn-magic: 0.4.0
@@ -12483,6 +12505,8 @@ snapshots:
   ignore@5.3.2: {}
 
   ignore@7.0.5: {}
+
+  ignore@7.0.6: {}
 
   image-ssim@0.2.0: {}
 
@@ -13181,6 +13205,10 @@ snapshots:
       esprima: 4.0.1
 
   js-yaml@4.2.0:
+    dependencies:
+      argparse: 2.0.1
+
+  js-yaml@4.3.0:
     dependencies:
       argparse: 2.0.1
 
@@ -14053,14 +14081,9 @@ snapshots:
     optionalDependencies:
       '@napi-rs/canvas': 0.1.100
 
-  pdfjs-dist@5.7.284:
-    optionalDependencies:
-      '@napi-rs/canvas': 0.1.100
-
   pdfjs-dist@6.1.200:
     optionalDependencies:
       '@napi-rs/canvas': 1.0.2
-    optional: true
 
   pg-int8@1.0.1: {}
 
