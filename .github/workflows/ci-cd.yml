@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup workspace
         uses: ./.github/actions/setup-workspace
@@ -140,7 +140,7 @@ jobs:
         run: npm run guardrails:dashboard
 
       - name: Restore Prettier cache
-        uses: actions/cache@v6
+        uses: actions/cache@v4
         with:
           path: .prettier-cache
           key: prettier-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
@@ -199,7 +199,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup workspace
         uses: ./.github/actions/setup-workspace
@@ -217,7 +217,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup workspace
         uses: ./.github/actions/setup-workspace
@@ -226,7 +226,7 @@ jobs:
           install-command: pnpm install --frozen-lockfile --filter @mhc/website... --loglevel error
 
       - name: Restore Next.js build cache (website)
-        uses: actions/cache@v6
+        uses: actions/cache@v4
         with:
           path: |
             apps/website/.next/cache
@@ -249,7 +249,12 @@ jobs:
 
       - name: Build website
         working-directory: apps/website
-        run: npm run build
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            npm run build:next
+          else
+            npm run build
+          fi
 
       - name: Check bundle size
         working-directory: apps/website
@@ -263,7 +268,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup workspace
         uses: ./.github/actions/setup-workspace
@@ -272,7 +277,7 @@ jobs:
           install-command: pnpm install --frozen-lockfile --filter @mhc/dashboard... --loglevel error
 
       - name: Restore Next.js build cache (dashboard)
-        uses: actions/cache@v6
+        uses: actions/cache@v4
         with:
           path: |
             apps/dashboard/.next/cache
@@ -300,7 +305,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup workspace
         uses: ./.github/actions/setup-workspace
@@ -309,7 +314,7 @@ jobs:
           install-command: pnpm install --frozen-lockfile --filter @mhc/website... --loglevel error
 
       - name: Restore Next.js build cache (website)
-        uses: actions/cache@v6
+        uses: actions/cache@v4
         with:
           path: |
             apps/website/.next/cache
