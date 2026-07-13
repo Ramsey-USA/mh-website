@@ -285,7 +285,9 @@ async function embedPdfMendlBodyFont(pdfDoc) {
 
   pdfDoc.registerFontkit(fontkit);
   const fontBytes = await readFile(bodyPath);
-  return pdfDoc.embedFont(fontBytes, { subset: true });
+  // Adobe Acrobat can flag subsetted OTF embeds with malformed /Widths
+  // on some font variants; embed full font for viewer compatibility.
+  return pdfDoc.embedFont(fontBytes, { subset: false });
 }
 
 function hexToPdfRgb(hex) {
@@ -508,6 +510,8 @@ const HANDBOOK_LETTERHEAD_TEMPLATE_PATH = join(
 const CONSOLIDATED_LETTERHEAD_FILE_NAME = "MHC-company-letterhead.pdf";
 const HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME =
   "form-handbook-company-letterhead.pdf";
+const SAFETY_FORMS_PACKAGE_FILE_NAME = "safety-manual-forms-package.pdf";
+const HANDBOOK_FORMS_PACKAGE_FILE_NAME = "employee-handbook-forms-package.pdf";
 const LEGACY_LETTERHEAD_FILE_NAMES = [
   "employee-handbook-letterhead.pdf",
   "safety-manual-letterhead.pdf",
@@ -4007,6 +4011,93 @@ function resolveFormPublicRelativePath(formEntry, slug) {
   return `${basePath}/${slug}.pdf`;
 }
 
+function parseNumericSegment(fileName, matcher) {
+  const match = matcher.exec(String(fileName || ""));
+  return match ? Number.parseInt(match[1], 10) : Number.POSITIVE_INFINITY;
+}
+
+function compareHandbookPackageNames(left, right) {
+  const leftIsLetterhead = left === HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME;
+  const rightIsLetterhead = right === HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME;
+  if (leftIsLetterhead && !rightIsLetterhead) return 1;
+  if (!leftIsLetterhead && rightIsLetterhead) return -1;
+
+  const leftNum = parseNumericSegment(left, /^form-handbook-(\d{1,2})(?:-|$)/i);
+  const rightNum = parseNumericSegment(
+    right,
+    /^form-handbook-(\d{1,2})(?:-|$)/i,
+  );
+  if (leftNum !== rightNum) {
+    return leftNum - rightNum;
+  }
+
+  return left.localeCompare(right, undefined, { numeric: true });
+}
+
+function compareSafetyPackageNames(left, right) {
+  const leftNum = parseNumericSegment(left, /^form-mish-(\d{1,2})(?:-|$)/i);
+  const rightNum = parseNumericSegment(right, /^form-mish-(\d{1,2})(?:-|$)/i);
+  if (leftNum !== rightNum) {
+    return leftNum - rightNum;
+  }
+
+  return left.localeCompare(right, undefined, { numeric: true });
+}
+
+async function generateCombinedFormSetPackage({
+  packagesDir,
+  packageFileName,
+  sourceFiles,
+  title,
+  subject,
+}) {
+  if (!Array.isArray(sourceFiles) || sourceFiles.length === 0) {
+    console.warn(
+      `⚠️  Skipping ${packageFileName}; no source form packages were provided.`,
+    );
+    return;
+  }
+
+  const merged = await PDFDocument.create();
+  let pageCount = 0;
+
+  for (const sourceFile of sourceFiles) {
+    const sourcePath = join(packagesDir, sourceFile);
+    if (!existsSync(sourcePath)) {
+      console.warn(
+        `⚠️  Missing source package for ${packageFileName}: ${sourcePath}`,
+      );
+      continue;
+    }
+
+    const sourceDoc = await PDFDocument.load(await readFile(sourcePath));
+    const copiedPages = await merged.copyPages(
+      sourceDoc,
+      sourceDoc.getPageIndices(),
+    );
+    for (const page of copiedPages) {
+      merged.addPage(page);
+    }
+    pageCount += copiedPages.length;
+  }
+
+  if (pageCount === 0) {
+    console.warn(
+      `⚠️  Skipping ${packageFileName}; all source package PDFs were missing or empty.`,
+    );
+    return;
+  }
+
+  merged.setTitle(title);
+  merged.setSubject(subject);
+  merged.setAuthor("MH Construction");
+  merged.setProducer("MH Construction Document Generator");
+
+  const outPath = join(packagesDir, packageFileName);
+  await writeFile(outPath, await merged.save());
+  console.log(`  ✓  ${outPath.replace(ROOT + "/", "")}  (${pageCount} pages)`);
+}
+
 // ── Cover + Fillable bundle ──────────────────────────────────────────────────
 /**
  * Build the deliverable form package (cover sheet + fillable body) for a
@@ -4085,6 +4176,8 @@ async function generateAllFormPackages() {
     eligible.map((formEntry) => `${slugForFormPackage(formEntry)}.pdf`),
   );
   validPackageNames.add(HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME);
+  validPackageNames.add(SAFETY_FORMS_PACKAGE_FILE_NAME);
+  validPackageNames.add(HANDBOOK_FORMS_PACKAGE_FILE_NAME);
   for (const existingFile of await readdir(packagesDir)) {
     if (!existingFile.endsWith(".pdf")) continue;
     if (validPackageNames.has(existingFile)) continue;
@@ -4098,6 +4191,39 @@ async function generateAllFormPackages() {
     await generateFormPackage(f);
   }
   await syncConsolidatedLetterheadIntoHandbookForms(packagesDir);
+
+  const safetyPackageFiles = eligible
+    .filter((formEntry) => isMishFormEntry(formEntry))
+    .map((formEntry) => `${slugForFormPackage(formEntry)}.pdf`)
+    .sort(compareSafetyPackageNames);
+
+  const handbookPackageFiles = eligible
+    .filter((formEntry) => isHandbookFormEntry(formEntry))
+    .map((formEntry) => `${slugForFormPackage(formEntry)}.pdf`)
+    .sort(compareHandbookPackageNames);
+
+  if (
+    existsSync(join(packagesDir, HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME)) &&
+    !handbookPackageFiles.includes(HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME)
+  ) {
+    handbookPackageFiles.push(HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME);
+  }
+
+  await generateCombinedFormSetPackage({
+    packagesDir,
+    packageFileName: SAFETY_FORMS_PACKAGE_FILE_NAME,
+    sourceFiles: safetyPackageFiles,
+    title: "Safety Manual Forms Package",
+    subject: "Safety manual forms with covers",
+  });
+
+  await generateCombinedFormSetPackage({
+    packagesDir,
+    packageFileName: HANDBOOK_FORMS_PACKAGE_FILE_NAME,
+    sourceFiles: handbookPackageFiles,
+    title: "Employee Handbook Forms Package",
+    subject: "Employee handbook forms with covers",
+  });
 }
 
 // ── Publish form packages to public/ ─────────────────────────────────────────
@@ -4130,9 +4256,10 @@ async function publishFormPackages() {
   console.log(`\n🚚  Publishing ${files.length} form package(s) to public/…`);
   for (const f of files) {
     const src = join(packagesDir, f);
-    const targetDir = f.startsWith("form-handbook-")
-      ? handbookPublicDir
-      : safetyPublicDir;
+    const targetDir =
+      f.startsWith("form-handbook-") || f === HANDBOOK_FORMS_PACKAGE_FILE_NAME
+        ? handbookPublicDir
+        : safetyPublicDir;
     const dst = join(targetDir, f);
     await copyFile(src, dst);
     console.log(`  ✓  ${dst.replace(ROOT + "/", "")}`);

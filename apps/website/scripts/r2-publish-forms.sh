@@ -12,9 +12,11 @@
 # Resulting R2 keys (served via /docs/** Workers proxy):
 #   docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf
 #   docs/safety/forms/form-mish-50-return-to-work-program-agreement-ack.pdf
+#   docs/safety/forms/safety-manual-forms-package.pdf
 #   docs/employee/forms/form-handbook-01-company-vehicle-acknowledgement.pdf
 #   docs/employee/forms/form-handbook-07-client-photo-release-form.pdf
 #   docs/employee/forms/form-handbook-company-letterhead.pdf
+#   docs/employee/forms/employee-handbook-forms-package.pdf
 #
 # Prerequisites:
 #   wrangler CLI installed and authenticated:
@@ -60,6 +62,12 @@ find "$FORMS_DIR" -name "*.pdf" -type f | sort | while read -r pdf_path; do
       echo "  ↷ skip $pdf_name (not part of website inventory)"
       continue
       ;;
+    safety-manual-forms-package.pdf)
+      KEY="$SAFETY_PREFIX/$pdf_name"
+      ;;
+    employee-handbook-forms-package.pdf)
+      KEY="$EMPLOYEE_PREFIX/$pdf_name"
+      ;;
     form-mish-*)
       KEY="$SAFETY_PREFIX/$pdf_name"
       ;;
@@ -87,6 +95,8 @@ echo ""
 echo "    Live URLs (via /docs/** proxy):"
 echo "    https://www.mhc-gc.com/docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf"
 echo "    https://www.mhc-gc.com/docs/safety/forms/form-mish-50-return-to-work-program-agreement-ack.pdf"
+echo "    https://www.mhc-gc.com/docs/safety/forms/safety-manual-forms-package.pdf"
 echo "    https://www.mhc-gc.com/docs/employee/forms/form-handbook-01-company-vehicle-acknowledgement.pdf"
 echo "    https://www.mhc-gc.com/docs/employee/forms/form-handbook-07-client-photo-release-form.pdf"
 echo "    https://www.mhc-gc.com/docs/employee/forms/form-handbook-company-letterhead.pdf"
+echo "    https://www.mhc-gc.com/docs/employee/forms/employee-handbook-forms-package.pdf"
