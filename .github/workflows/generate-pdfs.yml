@@ -61,7 +61,7 @@ jobs:
 
       - name: Install Chrome browser for Puppeteer
         id: setup-chrome
-        uses: browser-actions/setup-chrome@v1
+        uses: browser-actions/setup-chrome@v2
 
       - name: Export Puppeteer executable path
         run: |
