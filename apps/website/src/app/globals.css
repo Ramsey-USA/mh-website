@@ -180,13 +180,21 @@
     height: calc(
       100vh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
         1rem
-    );
+    ) !important;
+    height: calc(
+      100svh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
+        1rem
+    ) !important; /* Stable viewport height to avoid mobile address-bar jump */
     height: calc(
       100dvh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
         1rem
-    ); /* Dynamic viewport height for mobile */
+    ) !important; /* Dynamic viewport height for mobile */
     min-height: calc(
       100vh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
+        1rem
+    );
+    min-height: calc(
+      100svh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
         1rem
     );
     min-height: calc(

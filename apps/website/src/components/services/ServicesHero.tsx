@@ -13,7 +13,6 @@ export function ServicesHero({
     <section
       className="hero-section relative flex items-end justify-end text-white overflow-hidden"
       style={{
-        height: "calc(100svh - var(--mh-nav-offset, 6.5rem))",
         minHeight: "32rem",
       }}
     >

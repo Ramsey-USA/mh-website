@@ -54,10 +54,28 @@ export function HeroSectionClient({
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isVideoReady, setIsVideoReady] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [allowAutoPlayback, setAllowAutoPlayback] = useState(true);
   const showLegacyBackdrop = !isVideoReady;
 
   useEffect(() => {
-    if (!useVideoHero) {
+    const connection = (
+      navigator as Navigator & {
+        connection?: { saveData?: boolean };
+      }
+    ).connection;
+
+    const prefersReducedMotion =
+      typeof globalThis.matchMedia === "function" &&
+      globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const saveDataEnabled = connection?.saveData === true;
+
+    if (prefersReducedMotion || saveDataEnabled) {
+      setAllowAutoPlayback(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!useVideoHero || !allowAutoPlayback) {
       return;
     }
 
@@ -154,7 +172,7 @@ export function HeroSectionClient({
       observer?.disconnect();
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [useVideoHero]);
+  }, [allowAutoPlayback, useVideoHero]);
 
   const togglePlayPause = () => {
     const video = videoRef.current;
@@ -228,7 +246,6 @@ export function HeroSectionClient({
     <section
       data-page-hero="true"
       className="hero-section relative flex items-end justify-end text-white overflow-hidden"
-      style={{ height: "calc(100vh - var(--mh-nav-offset, 6.5rem))" }}
     >
       {/* Background - Video Support */}
       <div className="absolute inset-0">
@@ -239,10 +256,10 @@ export function HeroSectionClient({
               className={`absolute inset-0 h-full w-full object-contain object-[center_58%] min-[430px]:object-cover min-[430px]:object-[center_60%] sm:object-cover transition-opacity duration-300 ${
                 isVideoReady ? "opacity-100" : "opacity-0"
               }`}
-              autoPlay
+              autoPlay={allowAutoPlayback}
               muted={isMuted}
               playsInline
-              preload="metadata"
+              preload={allowAutoPlayback ? "metadata" : "none"}
               poster={hasPoster ? posterSrc : undefined}
               aria-label="MH Construction homepage hero video highlighting project delivery leadership by Jeremy Thamert"
               onPlay={() => setIsVideoPlaying(true)}
@@ -260,8 +277,8 @@ export function HeroSectionClient({
                 setIsVideoPlaying(false);
               }}
             >
-              {hasMp4 ? <source src={mp4Src} type="video/mp4" /> : null}
               {hasWebm ? <source src={webmSrc} type="video/webm" /> : null}
+              {hasMp4 ? <source src={mp4Src} type="video/mp4" /> : null}
             </video>
 
             <div

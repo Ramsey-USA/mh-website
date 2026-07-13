@@ -5,10 +5,7 @@ import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 export function TestimonialsHero() {
   return (
-    <section
-      className="hero-section relative flex items-end justify-end text-white overflow-hidden"
-      style={{ height: "calc(100vh - var(--mh-nav-offset, 6.5rem))" }}
-    >
+    <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
       {/* Background - Ready for photo or video */}
       <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
         {/* Overlay for text readability */}
