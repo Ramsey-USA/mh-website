@@ -31,6 +31,10 @@ const EMPLOYEE_HANDBOOK_FILES = [
 ];
 
 const SHARED_FILES = ["MHC-company-letterhead.pdf", "website-image-needs.pdf"];
+const FORM_SET_FILES = [
+  "employee-handbook-forms-package.pdf",
+  "safety-manual-forms-package.pdf",
+];
 
 async function removePdfFiles(dirPath) {
   if (!existsSync(dirPath)) {
@@ -104,7 +108,7 @@ function formatPathList(folderName, fileNames) {
 }
 
 async function writeDownloadIndex(formFiles) {
-  const content = `# Download Bundle\n\nThis folder is the download-friendly view of the generated PDFs.\n\n- [safety-manual/](./safety-manual/) - final Safety Manual PDFs for download\n- [employee-handbook/](./employee-handbook/) - final Employee Handbook PDFs for download\n- [shared/](./shared/) - common print assets like the company letterhead\n- [forms/](./forms/) - final form package PDFs for download\n\nExact download locations:\n\n## Safety Manual\n\n${formatPathList("safety-manual", SAFETY_MANUAL_FILES)}\n\n## Employee Handbook\n\n${formatPathList("employee-handbook", EMPLOYEE_HANDBOOK_FILES)}\n\n## Shared\n\n${formatPathList("shared", SHARED_FILES)}\n\n## Forms\n\n${formatPathList("forms", formFiles)}\n\nRefresh it with:\n\n\`\`\`bash\npnpm --filter @mhc/website run docs:bundle:downloads\n\`\`\`\n`;
+  const content = `# Download Bundle\n\nThis folder is the download-friendly view of the generated PDFs.\n\n- [safety-manual/](./safety-manual/) - final Safety Manual PDFs for download\n- [employee-handbook/](./employee-handbook/) - final Employee Handbook PDFs for download\n- [shared/](./shared/) - common print assets like the company letterhead\n- [forms/](./forms/) - final form package PDFs for download\n\nExact download locations:\n\n## Safety Manual\n\n${formatPathList("safety-manual", SAFETY_MANUAL_FILES)}\n\n## Employee Handbook\n\n${formatPathList("employee-handbook", EMPLOYEE_HANDBOOK_FILES)}\n\n## Shared\n\n${formatPathList("shared", SHARED_FILES)}\n\n## Form Sets\n\n${formatPathList("forms", FORM_SET_FILES)}\n\n## Forms\n\n${formatPathList("forms", formFiles)}\n\nRefresh it with:\n\n\`\`\`bash\npnpm --filter @mhc/website run docs:bundle:downloads\n\`\`\`\n`;
 
   const targetPath = join(DOWNLOADS_DIR, "README.md");
   await mkdir(DOWNLOADS_DIR, { recursive: true });
@@ -136,6 +140,14 @@ async function main() {
     join(SOURCE_DIR, "form-packages"),
     join(DOWNLOADS_DIR, "forms"),
   );
+  const missingFormSets = FORM_SET_FILES.filter(
+    (fileName) => !formFiles.includes(fileName),
+  );
+  if (missingFormSets.length > 0) {
+    throw new Error(
+      `Missing aggregate form-set PDFs in documents/generated-pdfs/form-packages/: ${missingFormSets.join(", ")}. Run docs:generate:forms first.`,
+    );
+  }
   await writeDownloadIndex(formFiles);
 
   console.log("✅  Download bundle written to: documents/downloads/");
