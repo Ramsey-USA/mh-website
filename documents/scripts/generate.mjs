@@ -13,7 +13,7 @@
  *   npm run docs:generate -- --template letterhead # official letterhead
  *   npm run docs:generate -- --template tabs       # all tab dividers
  *   npm run docs:generate -- --template spine-guardrails # spine guardrails only
- *   npm run docs:generate -- --template sections   # all 44 section PDFs
+ *   npm run docs:generate -- --template sections   # all 50 section PDFs
  *   npm run docs:generate -- --template section --section 11  # single section
  *   npm run docs:generate -- --template website-pages # website banner/section inventory
  *   npm run docs:generate -- --template website-image-needs # website image needs inventory
@@ -472,7 +472,8 @@ function resolveMishSectionTargets(manualSection) {
     const match = mishMatch || numericOnlyMatch;
     if (!match) continue;
     const numeric = Number(match[1]);
-    if (!Number.isFinite(numeric) || numeric < 1 || numeric > 50) continue;
+    if (!Number.isFinite(numeric) || numeric < 1 || numeric > MISH_MAX_SECTION)
+      continue;
     if (seen.has(numeric)) continue;
     const url = clusterUrlForSection(numeric);
     if (!url) continue;
@@ -561,6 +562,7 @@ if (!isEmployeeHandbook && manualArg !== "safety") {
 const ACTIVE_MANUAL = isEmployeeHandbook
   ? "employee-handbook"
   : "safety-manual";
+const MISH_MAX_SECTION = 50;
 const ACTIVE_MANUAL_LABEL = isEmployeeHandbook
   ? "Employee Handbook"
   : "MISH Safety & Health Program (Safety Manual)";
@@ -1581,6 +1583,10 @@ function normalizeTocTitle(value) {
       return word.charAt(0).toUpperCase() + word.slice(1);
     })
     .join(" ");
+}
+
+function normalizeManualSectionTitle(value) {
+  return normalizeTocTitle(value);
 }
 
 /**
@@ -5366,7 +5372,10 @@ async function generateToc() {
       for (const s of manifestSections) {
         const n = Number(s.number);
         if (n > 0) {
-          liveMap.set(n, s.title || `Section ${n}`);
+          liveMap.set(
+            n,
+            normalizeManualSectionTitle(s.title || `Section ${n}`),
+          );
           liveNums.add(n);
         }
       }
@@ -6514,6 +6523,22 @@ async function validateSafetyTabsVisualStandardGuardrails() {
         regex: /\bMISH\b/i,
         message: "Safety tabs must preserve MISH labeling",
       },
+      {
+        regex:
+          /\{\{QR_TAB_45\}\}[\s\S]*?\{\{QR_TAB_46\}\}[\s\S]*?\{\{QR_TAB_47\}\}[\s\S]*?\{\{QR_TAB_48\}\}[\s\S]*?\{\{QR_TAB_49\}\}[\s\S]*?\{\{QR_TAB_50\}\}/i,
+        message:
+          "Safety tabs must include QR placeholders for MISH 45 through MISH 50",
+      },
+      {
+        regex:
+          /MISH\s+5\.1[\s\S]*?MISH\s+5\.2[\s\S]*?MISH\s+5\.3[\s\S]*?MISH\s+5\.4[\s\S]*?MISH\s+5\.5[\s\S]*?MISH\s+5\.6/i,
+        message:
+          "Safety tabs must include Tier 5 WBS labels (MISH 5.1 through MISH 5.6)",
+      },
+      {
+        regex: /<div class="tab-section-number">50<\/div>/i,
+        message: "Safety tabs must render the Section 50 tab page",
+      },
     ],
   );
 
@@ -6976,11 +7001,11 @@ async function validateRenderedPdfParity(letterheadPdfPath, tocPdfPath) {
  * Generate tab divider PDFs with per-section QR codes.
  *
  * Each tab page in safety-manual-tabs.html contains a {{QR_TAB_NN}} token
- * (where NN is the zero-padded section number 00–44). This function generates
+ * (where NN is the zero-padded section number 00–50). This function generates
  * a section-specific QR code for each token and injects it before rendering.
  *
  * Tab 00 QR → public MISH Table of Contents URL
- * Tab 01–44 QR → individual section page URL
+ * Tab 01–50 QR → individual section page URL
  */
 async function generateTabs() {
   console.log(`\n🗂  Generating ${ACTIVE_MANUAL_LABEL} tab dividers…`);
@@ -7003,7 +7028,7 @@ async function generateTabs() {
         sections
           .map((section) => [
             Number(section.number),
-            String(section.title || "").trim(),
+            normalizeManualSectionTitle(String(section.title || "").trim()),
           ])
           .filter(
             ([number, title]) =>
@@ -7011,7 +7036,7 @@ async function generateTabs() {
           ),
       );
 
-      for (let n = 1; n <= 44; n++) {
+      for (let n = 1; n <= MISH_MAX_SECTION; n++) {
         const canonicalTitle = titleMap.get(n);
         if (!canonicalTitle) continue;
         const nn = String(n).padStart(2, "0");
@@ -7036,9 +7061,9 @@ async function generateTabs() {
   html = html.replaceAll("{{BRAND_QR_DASHBOARD}}", dashboardQrDataUrl);
 
   // ── Generate and inject per-tab section QR codes ─────────────────────────
-  // For MISH: Tabs 00–44 map to public section URLs; tab 00 = TOC landing page.
+  // For MISH: Tabs 00–50 map to public section URLs; tab 00 = TOC landing page.
   // For Employee Handbook: tab QR codes route to the public handbook index.
-  for (let n = 0; n <= 44; n++) {
+  for (let n = 0; n <= MISH_MAX_SECTION; n++) {
     const nn = String(n).padStart(2, "0");
     const token = `{{QR_TAB_${nn}}}`;
     if (!html.includes(token)) continue;
@@ -7048,7 +7073,7 @@ async function generateTabs() {
       sectionUrl = ACTIVE_MANUAL_DIGITAL_URL;
     } else {
       // Tab 00 → standalone Table of Contents page.
-      // Tabs 01–44 → cluster page anchored to that section's MISH id.
+      // Tabs 01–50 → cluster page anchored to that section's MISH id.
       sectionUrl =
         n === 0
           ? `${SITE_URL}/resources/safety-manual/contents`
@@ -7086,7 +7111,7 @@ function buildContentsPdfHtml(sections) {
       return (
         `<tr>` +
         `<td class="num">MISH ${number}</td>` +
-        `<td class="title">${escapeHtml(section.title || "")}</td>` +
+        `<td class="title">${escapeHtml(normalizeManualSectionTitle(section.title || ""))}</td>` +
         `</tr>`
       );
     })
@@ -7179,7 +7204,7 @@ function buildReferencePdfHtml(sections) {
       return (
         `<tr>` +
         `<td class="num">${escapeHtml(number)}</td>` +
-        `<td class="title">${escapeHtml(section.title || "")}</td>` +
+        `<td class="title">${escapeHtml(normalizeManualSectionTitle(section.title || ""))}</td>` +
         `<td class="cat">${escapeHtml(category)}</td>` +
         `<td class="ref">${escapeHtml(oshaRef)}</td>` +
         `<td class="pages">${escapeHtml(pages)}</td>` +
@@ -7401,10 +7426,14 @@ async function generateSections(filter = null) {
     const numberStr =
       section.numberStr ||
       String(Number.isFinite(numeric) ? numeric : 0).padStart(2, "0");
+    const displayTitle = normalizeManualSectionTitle(
+      section.title || `Section ${numberStr}`,
+    );
     return {
       ...section,
       number: Number.isFinite(numeric) ? numeric : section.number,
       numberStr,
+      displayTitle,
       slug:
         section.slug ||
         String(section.title || `section-${numberStr}`)
@@ -7511,7 +7540,7 @@ async function generateSections(filter = null) {
       templateHtml
         .replaceAll("{{SECTION_NUMBER}}", section.numberStr)
         .replaceAll("{{SECTION_MISH_REF}}", sectionToMishRef(section.number))
-        .replaceAll("{{SECTION_TITLE}}", escapeHtml(section.title))
+        .replaceAll("{{SECTION_TITLE}}", escapeHtml(section.displayTitle))
         .replaceAll("{{SECTION_BODY}}", sectionBody)
         .replaceAll("{{REVISION_YEAR}}", BRAND.revisionYear || "2026")
         .replaceAll("{{TOTAL_SECTIONS}}", String(sections.length))
@@ -7527,7 +7556,7 @@ async function generateSections(filter = null) {
     // Build per-section Puppeteer native header and footer
     const headerHtml = buildSectionHeaderHtml(
       section.numberStr,
-      section.title,
+      section.displayTitle,
       qrDataUrl,
       {
         manualKind: isEmployeeHandbook ? "handbook" : "safety",
