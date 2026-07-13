@@ -13,7 +13,68 @@ import { setClientLocale, type SupportedLocale } from "@/lib/i18n/locale";
 
 type Language = "en" | "es";
 
-const translations = {
+type ApplicationTranslations = {
+  title: string;
+  subtitle: string;
+  tagline: string;
+  brandSlogan: string;
+  roiMessage: string;
+  instructions: string;
+  instructionsList: string[];
+  officeAddress: string;
+  officeHours: string;
+  orEmail: string;
+  personalInfo: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+  positionInfo: string;
+  positionApplying: string;
+  positions: string[];
+  yearsExperience: string;
+  availability: string;
+  availabilityOptions: string[];
+  veteranStatus: string;
+  veteranOptions: string[];
+  referralSource: string;
+  workHistory: string;
+  workHistoryInstructions: string;
+  employer: string;
+  jobTitle: string;
+  dates: string;
+  duties: string;
+  reasonLeaving: string;
+  skills: string;
+  skillsInstructions: string;
+  skillsList: string[];
+  otherCertifications: string;
+  additionalInfo: string;
+  additionalInfoPrompt: string;
+  authorization: string;
+  authorizationText: string;
+  signature: string;
+  date: string;
+  printedName: string;
+  equalOpportunity: string;
+  equalOpportunityText: string;
+  veteranPriority: string;
+  careerPromise: string;
+  printButton: string;
+  backToCareers: string;
+  switchLanguage: string;
+  officeUseOnly: string;
+  dateReceived: string;
+  receivedBy: string;
+  position: string;
+  notes: string;
+};
+
+const translations: Record<Language, ApplicationTranslations> = {
   en: {
     title: "Employment Application",
     subtitle: "MH Construction, Inc.",
@@ -262,7 +323,7 @@ function CheckboxOption({ label }: { label: string }) {
   );
 }
 
-function WorkHistoryBlock({ t }: { t: (typeof translations)["en"] }) {
+function WorkHistoryBlock({ t }: { t: ApplicationTranslations }) {
   return (
     <div className="border-2 border-gray-200 dark:border-gray-700 rounded-xl p-5 mb-4 bg-gray-50/50 dark:bg-gray-800/50 print:border-gray-300 print:break-inside-avoid print:bg-white shadow-sm">
       <div className="grid grid-cols-2 gap-4 mb-4">
