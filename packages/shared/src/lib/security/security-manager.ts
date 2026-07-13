@@ -68,6 +68,23 @@ export interface SecurityConfig {
   };
 }
 
+function resolveSentryConnectSources(): string[] {
+  const configuredDsn = process.env["NEXT_PUBLIC_SENTRY_DSN"];
+  if (!configuredDsn) {
+    return [];
+  }
+
+  try {
+    const dsnUrl = new URL(configuredDsn);
+    return [`${dsnUrl.protocol}//${dsnUrl.host}`];
+  } catch {
+    return [];
+  }
+}
+
+const TURNSTILE_SOURCES = ["https://challenges.cloudflare.com"];
+const SENTRY_CONNECT_SOURCES = resolveSentryConnectSources();
+
 // Default Security Configuration
 const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
   rateLimit: {
@@ -103,6 +120,14 @@ const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
           "'unsafe-inline'",
           "https://www.googletagmanager.com",
           "https://www.google-analytics.com",
+          ...TURNSTILE_SOURCES,
+        ],
+        "script-src-elem": [
+          "'self'",
+          "'unsafe-inline'",
+          "https://www.googletagmanager.com",
+          "https://www.google-analytics.com",
+          ...TURNSTILE_SOURCES,
         ],
         "style-src": [
           "'self'",
@@ -126,11 +151,14 @@ const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
           "'self'",
           "https://api.cloudflare.com",
           "https://www.google-analytics.com",
+          ...TURNSTILE_SOURCES,
+          ...SENTRY_CONNECT_SOURCES,
         ],
         "frame-src": [
           "'self'",
           "https://www.google.com",
           "https://maps.google.com",
+          ...TURNSTILE_SOURCES,
         ],
         "frame-ancestors": ["'none'"],
         "worker-src": ["'self'", "blob:"],
