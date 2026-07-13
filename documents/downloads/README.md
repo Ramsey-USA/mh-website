@@ -33,8 +33,14 @@ Exact download locations:
 - [shared/MHC-company-letterhead.pdf](./shared/MHC-company-letterhead.pdf)
 - [shared/website-image-needs.pdf](./shared/website-image-needs.pdf)
 
+## Form Sets
+
+- [forms/employee-handbook-forms-package.pdf](./forms/employee-handbook-forms-package.pdf)
+- [forms/safety-manual-forms-package.pdf](./forms/safety-manual-forms-package.pdf)
+
 ## Forms
 
+- [forms/employee-handbook-forms-package.pdf](./forms/employee-handbook-forms-package.pdf)
 - [forms/form-handbook-01-company-vehicle-acknowledgement.pdf](./forms/form-handbook-01-company-vehicle-acknowledgement.pdf)
 - [forms/form-handbook-02-handbook-receipt-acknowledgment.pdf](./forms/form-handbook-02-handbook-receipt-acknowledgment.pdf)
 - [forms/form-handbook-03-safety-policy-acknowledgement.pdf](./forms/form-handbook-03-safety-policy-acknowledgement.pdf)
@@ -91,6 +97,7 @@ Exact download locations:
 - [forms/form-mish-48-emergency-response-plan-drill-and-acknowledgment-log.pdf](./forms/form-mish-48-emergency-response-plan-drill-and-acknowledgment-log.pdf)
 - [forms/form-mish-49-incident-investigation-root-cause-analysis-report.pdf](./forms/form-mish-49-incident-investigation-root-cause-analysis-report.pdf)
 - [forms/form-mish-50-return-to-work-program-agreement-ack.pdf](./forms/form-mish-50-return-to-work-program-agreement-ack.pdf)
+- [forms/safety-manual-forms-package.pdf](./forms/safety-manual-forms-package.pdf)
 
 Refresh it with:
 
