@@ -189,7 +189,7 @@ The homepage follows the **Universal Page Flow Standard**: **Discover → Trust 
 - **Component:** `CompanyStats` (Lazy-loaded)
 - **Purpose:** Credibility through measurable results
 - **Features:**
-  - Battle-tested excellence messaging
+  - Proven-quality excellence messaging
   - Proven track record display
   - Visual statistics presentation
   - Lazy-loaded for performance optimization
@@ -605,7 +605,7 @@ export default function Home() {
 {
   "next": "16.2.10",
   "react": "^19.2.7",
-  "typescript": "^7.0.2"
+  "typescript": "^6.0.3"
 }
 ```
 
