@@ -189,7 +189,7 @@ The homepage follows the **Universal Page Flow Standard**: **Discover → Trust 
 - **Component:** `CompanyStats` (Lazy-loaded)
 - **Purpose:** Credibility through measurable results
 - **Features:**
-  - Battle-tested excellence messaging
+  - Proven-quality excellence messaging
   - Proven track record display
   - Visual statistics presentation
   - Lazy-loaded for performance optimization
