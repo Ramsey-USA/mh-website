@@ -27,7 +27,7 @@ scripts/        # Root automation and validation scripts
 ## Current State (July 2026)
 
 - Deployment: Cloudflare Workers via OpenNext
-- Frameworks: Next.js 16.2.10, React 19.2.7, Tailwind CSS 4.3.2, TypeScript 6.0.3
+- Frameworks: Next.js 16.2.10, React 19.2.7, Tailwind CSS 4.3.2, TypeScript 7.0.2
 - Runtime and adapter: Node.js 22+, `@opennextjs/cloudflare` 1.20.1, Wrangler 4.110.0
 - Runtime requirement: Node.js 22+
 - Primary quality gates: TypeScript, ESLint, Jest, markdown lint, docs sync contracts, branding guardrails

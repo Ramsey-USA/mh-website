@@ -605,7 +605,7 @@ export default function Home() {
 {
   "next": "16.2.10",
   "react": "^19.2.7",
-  "typescript": "^6.0.3"
+  "typescript": "^7.0.2"
 }
 ```
 

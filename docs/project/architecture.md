@@ -74,7 +74,7 @@
 
 - **Framework**: Next.js 16.2.10 (App Router)
 - **UI Runtime**: React 19.2.7 + React DOM 19.2.7
-- **Language**: TypeScript 6.0.3
+- **Language**: TypeScript 7.0.2
 - **Styling**: Tailwind CSS 4.3.2
 - **Edge Adapter**: `@opennextjs/cloudflare` 1.20.1 + Wrangler 4.110.0
 - **Runtime Requirement**: Node.js 22+
