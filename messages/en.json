@@ -113,6 +113,83 @@
     "open": "Open",
     "close": "Close"
   },
+  "accessibilityPage": {
+    "pageName": "Accessibility",
+    "title": "Accessibility Statement",
+    "sections": {
+      "commitment": {
+        "heading": "Our Commitment",
+        "body": "MH Construction, Inc. is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards."
+      },
+      "measures": {
+        "heading": "Measures to Support Accessibility",
+        "intro": "MH Construction takes the following measures to ensure accessibility of our website:",
+        "items": [
+          "Include accessibility as part of our mission statement",
+          "Integrate accessibility into our procurement practices",
+          "Provide continual accessibility training for our staff",
+          "Assign clear accessibility goals and responsibilities",
+          "Employ formal accessibility quality assurance methods"
+        ]
+      },
+      "conformance": {
+        "heading": "Conformance Status",
+        "body1": "The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA.",
+        "body2": "Our website strives to be partially conformant with WCAG 2.1 level AA. Partially conformant means that some parts of the content do not fully conform to the accessibility standard."
+      },
+      "feedback": {
+        "heading": "Feedback",
+        "intro": "We welcome your feedback on the accessibility of our website. Please let us know if you encounter accessibility barriers:",
+        "responseEta": "We try to respond to feedback within 2 business days."
+      },
+      "technical": {
+        "heading": "Technical Specifications",
+        "intro": "Accessibility of our website relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer:",
+        "outro": "These technologies are relied upon for conformance with the accessibility standards used."
+      },
+      "limitations": {
+        "heading": "Limitations and Alternatives",
+        "body1": "Despite our best efforts to ensure accessibility of our website, there may be some limitations. Below is a description of known limitations, and potential solutions. Please contact us if you observe an issue not listed below.",
+        "body2": "If you need assistance with any content on our website, please contact us directly and we will provide the information in an alternative format or method that is accessible to you."
+      },
+      "assessment": {
+        "heading": "Assessment Approach",
+        "intro": "MH Construction assessed the accessibility of our website by the following approaches:",
+        "items": [
+          "Self-evaluation",
+          "Automated testing tools",
+          "Manual testing with assistive technologies"
+        ]
+      },
+      "improvement": {
+        "heading": "Continuous Improvement",
+        "intro": "We are committed to continuously improving the accessibility of our website. As part of our ongoing efforts, we:",
+        "items": [
+          "Regularly review and test our website for accessibility",
+          "Incorporate accessibility best practices in all new features",
+          "Provide training to our development team",
+          "Listen to feedback from our users"
+        ]
+      }
+    }
+  },
+  "offlinePage": {
+    "eyebrow": "Connection Status",
+    "title": "Offline Hub",
+    "highlight": "You are offline",
+    "description": "Critical resources remain available from cache while connectivity is restored.",
+    "cachedNotice": "Cached project resources remain available.",
+    "offlineBody": "You're offline, but the app is still available from cache. Any resources you already opened remain available until your connection returns.",
+    "availableOffline": "Available offline",
+    "features": [
+      "Previously loaded pages",
+      "Hub resources opened this session",
+      "Cached safety and field documents",
+      "Saved form drafts that sync after reconnect"
+    ],
+    "goHome": "Go Home",
+    "footer": "MH Construction, Inc. · Offline mode active"
+  },
   "team": {
     "hero": {
       "iconAria": "Chain of command team",

@@ -113,6 +113,83 @@
     "open": "Abrir",
     "close": "Cerrar"
   },
+  "accessibilityPage": {
+    "pageName": "Accesibilidad",
+    "title": "Declaración de Accesibilidad",
+    "sections": {
+      "commitment": {
+        "heading": "Nuestro Compromiso",
+        "body": "MH Construction, Inc. se compromete a garantizar la accesibilidad digital para personas con discapacidades. Mejoramos continuamente la experiencia del usuario para todos y aplicamos los estándares de accesibilidad correspondientes."
+      },
+      "measures": {
+        "heading": "Medidas para Respaldar la Accesibilidad",
+        "intro": "MH Construction toma las siguientes medidas para asegurar la accesibilidad de nuestro sitio web:",
+        "items": [
+          "Incluir la accesibilidad como parte de nuestra declaración de misión",
+          "Integrar la accesibilidad en nuestras prácticas de adquisición",
+          "Brindar capacitación continua en accesibilidad para nuestro personal",
+          "Asignar objetivos y responsabilidades claras de accesibilidad",
+          "Aplicar métodos formales de aseguramiento de calidad en accesibilidad"
+        ]
+      },
+      "conformance": {
+        "heading": "Estado de Conformidad",
+        "body1": "Las Pautas de Accesibilidad para el Contenido Web (WCAG) definen requisitos para que diseñadores y desarrolladores mejoren la accesibilidad para personas con discapacidades. Definen tres niveles de conformidad: Nivel A, Nivel AA y Nivel AAA.",
+        "body2": "Nuestro sitio web busca ser parcialmente conforme con WCAG 2.1 nivel AA. Parcialmente conforme significa que algunas partes del contenido no cumplen completamente con el estándar de accesibilidad."
+      },
+      "feedback": {
+        "heading": "Comentarios",
+        "intro": "Agradecemos sus comentarios sobre la accesibilidad de nuestro sitio web. Informe cualquier barrera de accesibilidad que encuentre:",
+        "responseEta": "Intentamos responder a los comentarios dentro de 2 días hábiles."
+      },
+      "technical": {
+        "heading": "Especificaciones Técnicas",
+        "intro": "La accesibilidad de nuestro sitio web depende de las siguientes tecnologías para funcionar con la combinación específica de navegador web y cualquier tecnología de asistencia o complemento instalado en su computadora:",
+        "outro": "Estas tecnologías se utilizan para cumplir con los estándares de accesibilidad aplicados."
+      },
+      "limitations": {
+        "heading": "Limitaciones y Alternativas",
+        "body1": "A pesar de nuestros mejores esfuerzos para asegurar la accesibilidad de nuestro sitio web, pueden existir algunas limitaciones. A continuación se describen limitaciones conocidas y posibles soluciones. Contáctenos si observa un problema que no figure a continuación.",
+        "body2": "Si necesita ayuda con cualquier contenido de nuestro sitio web, comuníquese directamente con nosotros y le proporcionaremos la información en un formato o método alternativo que sea accesible para usted."
+      },
+      "assessment": {
+        "heading": "Enfoque de Evaluación",
+        "intro": "MH Construction evaluó la accesibilidad de nuestro sitio web mediante los siguientes enfoques:",
+        "items": [
+          "Autoevaluación",
+          "Herramientas de prueba automatizadas",
+          "Pruebas manuales con tecnologías de asistencia"
+        ]
+      },
+      "improvement": {
+        "heading": "Mejora Continua",
+        "intro": "Estamos comprometidos con mejorar continuamente la accesibilidad de nuestro sitio web. Como parte de nuestros esfuerzos continuos, nosotros:",
+        "items": [
+          "Revisar y probar regularmente nuestro sitio web para accesibilidad",
+          "Incorporar mejores prácticas de accesibilidad en todas las funciones nuevas",
+          "Brindar capacitación a nuestro equipo de desarrollo",
+          "Escuchar comentarios de nuestros usuarios"
+        ]
+      }
+    }
+  },
+  "offlinePage": {
+    "eyebrow": "Estado de Conexión",
+    "title": "Centro sin conexión",
+    "highlight": "Está sin conexión",
+    "description": "Los recursos críticos siguen disponibles desde caché mientras se restablece la conectividad.",
+    "cachedNotice": "Los recursos del proyecto en caché siguen disponibles.",
+    "offlineBody": "Está sin conexión, pero la aplicación sigue disponible desde caché. Los recursos que ya abrió seguirán disponibles hasta que regrese su conexión.",
+    "availableOffline": "Disponible sin conexión",
+    "features": [
+      "Páginas cargadas previamente",
+      "Recursos del hub abiertos en esta sesión",
+      "Documentos de seguridad y campo en caché",
+      "Borradores guardados que se sincronizan al reconectar"
+    ],
+    "goHome": "Ir al Inicio",
+    "footer": "MH Construction, Inc. · Modo sin conexión activo"
+  },
   "team": {
     "hero": {
       "iconAria": "Equipo de cadena de mando",

@@ -2,25 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageTrackingClient } from "@/components/analytics";
 import { PageHero } from "@/components/ui/layout/PageHero";
+import { getServerLocale } from "@/lib/i18n/locale.server";
+import { getTranslations } from "next-intl/server";
 import { RetryConnectionButton } from "./RetryConnectionButton";
 import { cornerRadius } from "@/lib/styles/design-tokens";
 
-const OFFLINE_FEATURES = [
-  "Previously loaded pages",
-  "Hub resources opened this session",
-  "Cached safety and field documents",
-  "Saved form drafts that sync after reconnect",
-] as const;
+export default async function OfflinePage() {
+  const locale = await getServerLocale();
+  const t = await getTranslations({ locale });
+  const features = t.raw("offlinePage.features") as string[];
 
-export default function OfflinePage() {
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
       <PageTrackingClient pageName="Offline" />
       <PageHero
-        eyebrow="Connection Status"
-        title="Offline Hub"
-        highlight="You are offline"
-        description="Critical resources remain available from cache while connectivity is restored."
+        eyebrow={t("offlinePage.eyebrow")}
+        title={t("offlinePage.title")}
+        highlight={t("offlinePage.highlight")}
+        description={t("offlinePage.description")}
       />
 
       <div className="mx-auto max-w-lg w-full text-center px-4 pb-16 -mt-8 relative z-20">
@@ -54,22 +53,20 @@ export default function OfflinePage() {
         </div>
 
         <p className="text-white/80 text-sm mb-4">
-          Cached project resources remain available.
+          {t("offlinePage.cachedNotice")}
         </p>
 
         <p className="font-body text-white/70 mb-8 leading-relaxed">
-          You&apos;re offline, but the app is still available from cache. Any
-          resources you already opened remain available until your connection
-          returns.
+          {t("offlinePage.offlineBody")}
         </p>
 
         <div
           className={`bg-brand-primary-dark/60 border border-brand-secondary/20 ${cornerRadius.icon} p-6 mb-8 text-left space-y-3`}
         >
           <p className="font-heading text-xs font-bold uppercase tracking-widest text-brand-secondary mb-4">
-            Available offline
+            {t("offlinePage.availableOffline")}
           </p>
-          {OFFLINE_FEATURES.map((item) => (
+          {features.map((item) => (
             <div key={item} className="flex items-start gap-3">
               <span className="text-green-400 mt-0.5 shrink-0">✓</span>
               <span className="text-white/80 text-sm">{item}</span>
@@ -98,13 +95,11 @@ export default function OfflinePage() {
                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
               />
             </svg>
-            Go Home
+            {t("offlinePage.goHome")}
           </Link>
         </div>
 
-        <p className="mt-8 text-xs text-white/30">
-          MH Construction, Inc. · Offline mode active
-        </p>
+        <p className="mt-8 text-xs text-white/30">{t("offlinePage.footer")}</p>
       </div>
     </div>
   );

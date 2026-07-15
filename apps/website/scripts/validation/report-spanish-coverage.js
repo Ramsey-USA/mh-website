@@ -150,6 +150,15 @@ function classifyRoute(route, directSignals, indirectSignals) {
   return "MISSING-SIGNAL";
 }
 
+function escapeMarkdownTableCell(value) {
+  return String(value)
+    .replace(/\\/g, "\\\\")
+    .replace(/\|/g, "\\|")
+    .replace(/[\r\n]+/g, " ")
+    .replace(/[\u0000-\u001f\u007f]/g, " ")
+    .trim();
+}
+
 function main() {
   const pageFiles = walk(APP_DIR).filter((f) => f.endsWith("/page.tsx"));
 
@@ -194,7 +203,7 @@ function main() {
 
     const signals = [...row.directSignals, ...row.indirectSignals]
       .slice(0, 3)
-      .map((s) => s.replace(/\|/g, "\\|"))
+      .map((s) => escapeMarkdownTableCell(s))
       .join(", ");
 
     const notes =
@@ -204,9 +213,15 @@ function main() {
           ? "Likely language-invariant route"
           : "";
 
-    console.log(`| ${row.route} | ${row.status} | ${signals} | ${notes} |`);
+    const escapedRoute = escapeMarkdownTableCell(row.route);
+    const escapedStatus = escapeMarkdownTableCell(row.status);
+    const escapedNotes = escapeMarkdownTableCell(notes);
+
+    console.log(
+      `| ${escapedRoute} | ${escapedStatus} | ${signals} | ${escapedNotes} |`,
+    );
     reportLines.push(
-      `| ${row.route} | ${row.status} | ${signals} | ${notes} |\n`,
+      `| ${escapedRoute} | ${escapedStatus} | ${signals} | ${escapedNotes} |\n`,
     );
   }
 

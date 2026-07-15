@@ -1,38 +1,38 @@
-| Route                                            | Status           | Locale Signals                                                                                         | Notes                           |
-| :----------------------------------------------- | :--------------- | :----------------------------------------------------------------------------------------------------- | :------------------------------ |
-| /about                                           | LOCALIZED        | /useTranslations\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /about/details                                   | LOCALIZED        | /useTranslations\s*\(/                                                                                 |                                 |
-| /accessibility                                   | INVARIANT-REVIEW |                                                                                                        | Likely language-invariant route |
-| /allies                                          | LOCALIZED        | /getTranslations\s*\(/, /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                 |                                 |
-| /careers                                         | LOCALIZED        | CareersPageClient.tsx:/useTranslations\s*\(/                                                           |                                 |
-| /careers/print                                   | LOCALIZED        | PrintableApplicationClient.tsx:/useLocale\s*\(/, PrintableApplicationClient.tsx:/\b(?:locale\|isEs)\b/ |                                 |
-| /contact                                         | LOCALIZED        | ContactPageClient.tsx:/useTranslations\s*\(/, ContactPageClient.tsx:/\b(?:locale\|isEs)\b/             |                                 |
-| /cool-desert-nights                              | LOCALIZED        | CoolDesertNightsPageClient.tsx:/useTranslations\s*\(/                                                  |                                 |
-| /employee-handbook                               | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /events                                          | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /faq                                             | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /jeremy-thamert                                  | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /locations                                       | LOCALIZED        | /getTranslations\s*\(/                                                                                 |                                 |
-| /offline                                         | INVARIANT-REVIEW |                                                                                                        | Likely language-invariant route |
-| /privacy                                         | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /projects                                        | LOCALIZED        | ProjectsPageClient.tsx:/useTranslations\s*\(/                                                          |                                 |
-| /public-sector                                   | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /public-sector/tri-state-government-construction | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /public-sector/veteran-led-compliance            | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /qr-codes                                        | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /resources                                       | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /resources/safety-manual                         | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /resources/safety-manual/contents                | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /resources/safety-manual/forms                   | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /resources/safety-program                        | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /safety                                          | LOCALIZED        | /\b(?:locale\|isEs)\b/                                                                                 |                                 |
-| /safety/incident-report                          | LOCALIZED        | /useLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                               |                                 |
-| /safety/intake                                   | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /services                                        | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /team                                            | LOCALIZED        | /getTranslations\s*\(/                                                                                 |                                 |
-| /terms                                           | LOCALIZED        | /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                                         |                                 |
-| /testimonials                                    | LOCALIZED        | /getTranslations\s*\(/                                                                                 |                                 |
-| /veterans                                        | LOCALIZED        | /getTranslations\s*\(/, /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                 |                                 |
-| /veterans/public-sector-construction             | LOCALIZED        | /getTranslations\s*\(/, /getServerLocale\s*\(/, /\b(?:locale\|isEs)\b/                                 |                                 |
+| Route                                            | Status    | Locale Signals                                                                                             | Notes |
+| :----------------------------------------------- | :-------- | :--------------------------------------------------------------------------------------------------------- | :---- |
+| /about                                           | LOCALIZED | /useTranslations\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /about/details                                   | LOCALIZED | /useTranslations\\s*\\(/                                                                                   |       |
+| /accessibility                                   | LOCALIZED | /getTranslations\\s*\\(/, /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                               |       |
+| /allies                                          | LOCALIZED | /getTranslations\\s*\\(/, /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                               |       |
+| /careers                                         | LOCALIZED | CareersPageClient.tsx:/useTranslations\\s*\\(/                                                             |       |
+| /careers/print                                   | LOCALIZED | PrintableApplicationClient.tsx:/useLocale\\s*\\(/, PrintableApplicationClient.tsx:/\\b(?:locale\|isEs)\\b/ |       |
+| /contact                                         | LOCALIZED | ContactPageClient.tsx:/useTranslations\\s*\\(/, ContactPageClient.tsx:/\\b(?:locale\|isEs)\\b/             |       |
+| /cool-desert-nights                              | LOCALIZED | CoolDesertNightsPageClient.tsx:/useTranslations\\s*\\(/                                                    |       |
+| /employee-handbook                               | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /events                                          | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /faq                                             | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /jeremy-thamert                                  | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /locations                                       | LOCALIZED | /getTranslations\\s*\\(/                                                                                   |       |
+| /offline                                         | LOCALIZED | /getTranslations\\s*\\(/, /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                               |       |
+| /privacy                                         | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /projects                                        | LOCALIZED | ProjectsPageClient.tsx:/useTranslations\\s*\\(/                                                            |       |
+| /public-sector                                   | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /public-sector/tri-state-government-construction | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /public-sector/veteran-led-compliance            | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /qr-codes                                        | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /resources                                       | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /resources/safety-manual                         | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /resources/safety-manual/contents                | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /resources/safety-manual/forms                   | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /resources/safety-program                        | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /safety                                          | LOCALIZED | /\\b(?:locale\|isEs)\\b/                                                                                   |       |
+| /safety/incident-report                          | LOCALIZED | /useLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                               |       |
+| /safety/intake                                   | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /services                                        | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /team                                            | LOCALIZED | /getTranslations\\s*\\(/                                                                                   |       |
+| /terms                                           | LOCALIZED | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                         |       |
+| /testimonials                                    | LOCALIZED | /getTranslations\\s*\\(/                                                                                   |       |
+| /veterans                                        | LOCALIZED | /getTranslations\\s*\\(/, /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                               |       |
+| /veterans/public-sector-construction             | LOCALIZED | /getTranslations\\s*\\(/, /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                               |       |
 
-Summary: LOCALIZED=32 INVARIANT-REVIEW=2 MISSING-SIGNAL=0
+Summary: LOCALIZED=34 INVARIANT-REVIEW=0 MISSING-SIGNAL=0

@@ -1,16 +1,30 @@
 import { LegalContactCard } from "@/components/legal/LegalContactCard";
 import { LegalPageLayout } from "@/components/legal/LegalPageLayout";
+import { getServerLocale } from "@/lib/i18n/locale.server";
+import { getTranslations } from "next-intl/server";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 
-export default function AccessibilityPage() {
+export default async function AccessibilityPage() {
+  const locale = await getServerLocale();
+  const t = await getTranslations({ locale });
+  const measuresItems = t.raw(
+    "accessibilityPage.sections.measures.items",
+  ) as string[];
+  const assessmentItems = t.raw(
+    "accessibilityPage.sections.assessment.items",
+  ) as string[];
+  const improvementItems = t.raw(
+    "accessibilityPage.sections.improvement.items",
+  ) as string[];
+
   return (
     <LegalPageLayout
       // HeroSection is provided by LegalPageLayout.
-      pageName="Accessibility"
-      title="Accessibility Statement"
+      pageName={t("accessibilityPage.pageName")}
+      title={t("accessibilityPage.title")}
       lastUpdated="March 15, 2026"
       structuredData={generateBreadcrumbSchema(
         breadcrumbPatterns.accessibility,
@@ -18,72 +32,58 @@ export default function AccessibilityPage() {
     >
       <section className="mb-8">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-          Our Commitment
+          {t("accessibilityPage.sections.commitment.heading")}
         </h2>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          MH Construction, Inc. is committed to ensuring digital accessibility
-          for people with disabilities. We are continually improving the user
-          experience for everyone and applying the relevant accessibility
-          standards.
+          {t("accessibilityPage.sections.commitment.body")}
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-          Measures to Support Accessibility
+          {t("accessibilityPage.sections.measures.heading")}
         </h2>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          MH Construction takes the following measures to ensure accessibility
-          of our website:
+          {t("accessibilityPage.sections.measures.intro")}
         </p>
         <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-2">
-          <li>Include accessibility as part of our mission statement</li>
-          <li>Integrate accessibility into our procurement practices</li>
-          <li>Provide continual accessibility training for our staff</li>
-          <li>Assign clear accessibility goals and responsibilities</li>
-          <li>Employ formal accessibility quality assurance methods</li>
+          {measuresItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
         </ul>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-          Conformance Status
+          {t("accessibilityPage.sections.conformance.heading")}
         </h2>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          The Web Content Accessibility Guidelines (WCAG) defines requirements
-          for designers and developers to improve accessibility for people with
-          disabilities. It defines three levels of conformance: Level A, Level
-          AA, and Level AAA.
+          {t("accessibilityPage.sections.conformance.body1")}
         </p>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Our website strives to be partially conformant with WCAG 2.1 level AA.
-          Partially conformant means that some parts of the content do not fully
-          conform to the accessibility standard.
+          {t("accessibilityPage.sections.conformance.body2")}
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-          Feedback
+          {t("accessibilityPage.sections.feedback.heading")}
         </h2>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          We welcome your feedback on the accessibility of our website. Please
-          let us know if you encounter accessibility barriers:
+          {t("accessibilityPage.sections.feedback.intro")}
         </p>
         <LegalContactCard />
         <p className="text-gray-700 dark:text-gray-300 mt-4">
-          We try to respond to feedback within 2 business days.
+          {t("accessibilityPage.sections.feedback.responseEta")}
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-          Technical Specifications
+          {t("accessibilityPage.sections.technical.heading")}
         </h2>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Accessibility of our website relies on the following technologies to
-          work with the particular combination of web browser and any assistive
-          technologies or plugins installed on your computer:
+          {t("accessibilityPage.sections.technical.intro")}
         </p>
         <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-2">
           <li>HTML</li>
@@ -92,56 +92,47 @@ export default function AccessibilityPage() {
           <li>JavaScript</li>
         </ul>
         <p className="text-gray-700 dark:text-gray-300 mt-4">
-          These technologies are relied upon for conformance with the
-          accessibility standards used.
+          {t("accessibilityPage.sections.technical.outro")}
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-          Limitations and Alternatives
+          {t("accessibilityPage.sections.limitations.heading")}
         </h2>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Despite our best efforts to ensure accessibility of our website, there
-          may be some limitations. Below is a description of known limitations,
-          and potential solutions. Please contact us if you observe an issue not
-          listed below.
+          {t("accessibilityPage.sections.limitations.body1")}
         </p>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          If you need assistance with any content on our website, please contact
-          us directly and we will provide the information in an alternative
-          format or method that is accessible to you.
+          {t("accessibilityPage.sections.limitations.body2")}
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-          Assessment Approach
+          {t("accessibilityPage.sections.assessment.heading")}
         </h2>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          MH Construction assessed the accessibility of our website by the
-          following approaches:
+          {t("accessibilityPage.sections.assessment.intro")}
         </p>
         <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-2">
-          <li>Self-evaluation</li>
-          <li>Automated testing tools</li>
-          <li>Manual testing with assistive technologies</li>
+          {assessmentItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
         </ul>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-          Continuous Improvement
+          {t("accessibilityPage.sections.improvement.heading")}
         </h2>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          We are committed to continuously improving the accessibility of our
-          website. As part of our ongoing efforts, we:
+          {t("accessibilityPage.sections.improvement.intro")}
         </p>
         <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-2">
-          <li>Regularly review and test our website for accessibility</li>
-          <li>Incorporate accessibility best practices in all new features</li>
-          <li>Provide training to our development team</li>
-          <li>Listen to feedback from our users</li>
+          {improvementItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
         </ul>
       </section>
     </LegalPageLayout>
