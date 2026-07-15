@@ -142,7 +142,7 @@ const SAFETY_ROUTE_PLANS: Record<string, SafetyRoutePlan> = {
       label: "Kennewick materials execution area",
     },
     support: {
-      href: "/projects/kennewick-commercial-office-renovation",
+      href: "/projects/franklin-county-coroners-office-morgue",
       label: "View related field case study",
     },
   },

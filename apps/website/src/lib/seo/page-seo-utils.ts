@@ -20,9 +20,14 @@ import { getJeremyRibbon } from "@/lib/content/jeremy-ribbons";
 
 const JEREMY_SEO_SIGNAL_KEYWORDS = [
   "Jeremy Thamert",
+  "Jeremy Gale Thamert",
   "Jeremy Thamert MH Construction",
   "Jeremy Thamert Owner & President",
   "Jeremy Thamert construction leadership",
+  "Jeremy Thamert verified leadership profile",
+  "Jeremy Thamert Washington L&I contractor record",
+  "Jeremy Thamert veteran-owned construction leadership",
+  "Jeremy Thamert Pacific Northwest construction",
 ];
 
 function getJeremyQuoteSearchSignals(routeKey: string): string[] {

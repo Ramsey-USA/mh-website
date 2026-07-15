@@ -8,6 +8,7 @@ import {
   normalizeMhPhrase,
   normalizeMhPhrasesInText,
 } from "@/lib/branding/page-names";
+import jeremyProfile from "@/lib/data/team/jeremy-thamert.json";
 
 // Removed unused interface _SEOProps to satisfy lint rule
 interface GenerateMetadataProps {
@@ -336,11 +337,19 @@ export function generateWebsiteSchema() {
 }
 
 export function generateJeremyPersonSchema() {
+  const credentialLinks = jeremyProfile.credentialLinks ?? [];
+  const membershipLinks = jeremyProfile.membershipLinks ?? [];
+  const storyLinks = jeremyProfile.storyLinks ?? [];
+  const jeremyCredentialAndMembershipLinks = Array.from(
+    new Set([...credentialLinks, ...membershipLinks].map((link) => link.url)),
+  );
+
   return {
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": `${defaultSEO.siteUrl}/jeremy-thamert#person`,
     name: "Jeremy Thamert",
+    alternateName: "Jeremy Gale Thamert",
     givenName: "Jeremy",
     familyName: "Thamert",
     jobTitle: "Owner & President",
@@ -361,13 +370,32 @@ export function generateJeremyPersonSchema() {
       name: defaultSEO.siteName,
     },
     description:
-      "Jeremy Thamert is Owner & President of MH Construction, leading relationship-first project delivery across Washington, Oregon, and Idaho.",
+      "Jeremy Thamert is Owner & President of MH Construction, leading relationship-first project delivery across Washington, Oregon, and Idaho with verified public records, credential references, and independent stories.",
     knowsAbout: [
       "Construction Operations",
       "Project Delivery",
       "Safety Culture",
       "Veteran-Owned Business Leadership",
+      "Code Compliance",
+      "Plans Examination",
+      "Renewable Energy Coordination",
     ],
+    sameAs: jeremyCredentialAndMembershipLinks,
+    hasCredential: credentialLinks.map((link) => ({
+      "@type": "EducationalOccupationalCredential",
+      name: link.label,
+      url: link.url,
+    })),
+    memberOf: membershipLinks.map((link) => ({
+      "@type": "Organization",
+      name: link.label,
+      url: link.url,
+    })),
+    mentions: storyLinks.map((link) => ({
+      "@type": "CreativeWork",
+      name: link.label,
+      url: link.url,
+    })),
     subjectOf: {
       "@id": `${defaultSEO.siteUrl}/#video-jeremy-leadership`,
     },

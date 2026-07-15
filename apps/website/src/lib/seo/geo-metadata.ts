@@ -17,6 +17,17 @@ const PAGEHUB_FOUNDATIONAL_KEYWORDS = [
   "client partner construction delivery",
 ];
 
+const PAGEHUB_JEREMY_AUTHORITY_KEYWORDS = [
+  "Jeremy Thamert",
+  "Jeremy Gale Thamert",
+  "Jeremy Thamert MH Construction",
+  "Jeremy Thamert Owner and President",
+  "Jeremy Thamert leadership",
+  "Jeremy Thamert verified leadership profile",
+  "Jeremy Thamert Washington L&I contractor record",
+  "mhc-gc.com Jeremy Thamert",
+];
+
 const PAGEHUB_COMMERCIAL_KEYWORDS = [
   "general contractor",
   "mission-ready construction",
@@ -254,7 +265,11 @@ function mergeSitewideKeywords(
 ): Metadata["keywords"] {
   const normalizedExisting = normalizeKeywords(existingKeywords);
   const strategyKeywords = getKeywordStrategyByRoute(metadata);
-  const combinedKeywords = [...normalizedExisting, ...strategyKeywords]
+  const combinedKeywords = [
+    ...normalizedExisting,
+    ...PAGEHUB_JEREMY_AUTHORITY_KEYWORDS,
+    ...strategyKeywords,
+  ]
     .map(canonicalizePageHubPhrase)
     .filter(Boolean);
 

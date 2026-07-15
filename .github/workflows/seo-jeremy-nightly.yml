@@ -1,0 +1,201 @@
+---
+name: Jeremy SEO Guardrails (Nightly)
+
+on:
+  schedule:
+    - cron: "20 8 * * *"
+    - cron: "30 8 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: jeremy-seo-guardrails-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  NODE_VERSION: "22"
+  HUSKY: "0"
+
+jobs:
+  jeremy-seo-guardrails:
+    name: Jeremy SEO Guardrails
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup workspace
+        uses: ./.github/actions/setup-workspace
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Run Jeremy SEO guardrails
+        id: guardrails
+        continue-on-error: true
+        working-directory: apps/website
+        run: npm run seo:jeremy:guardrails:check
+
+      - name: Create or update Jeremy SEO alert issue
+        if: steps.guardrails.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const title = 'Jeremy SEO guardrails alert: nightly check failed';
+            const runUrl = `${process.env.GITHUB_SERVER_URL}/${owner}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+            const sha = context.sha;
+            const branch = context.ref.replace('refs/heads/', '');
+
+            const body = [
+              'Nightly Jeremy SEO guardrails check failed.',
+              '',
+              `- Workflow: ${context.workflow}`,
+              `- Branch: ${branch}`,
+              `- Commit: ${sha}`,
+              `- Run: ${runUrl}`,
+              '',
+              'Guardrails command: `npm run seo:jeremy:guardrails:check` (in `apps/website`)'
+            ].join('\n');
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'open',
+              labels: 'seo-alert',
+              per_page: 100,
+            });
+
+            const existing = issues.find((issue) => issue.title === title);
+
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: existing.number,
+                body,
+              });
+              core.info(`Updated existing SEO alert issue #${existing.number}`);
+              return;
+            }
+
+            await github.rest.issues.create({
+              owner,
+              repo,
+              title,
+              body,
+              labels: ['seo-alert', 'ops', 'bug'],
+            });
+            core.info('Created new Jeremy SEO alert issue');
+
+      - name: Close Jeremy SEO alert issue on success
+        if: steps.guardrails.outcome == 'success'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const title = 'Jeremy SEO guardrails alert: nightly check failed';
+            const runUrl = `${process.env.GITHUB_SERVER_URL}/${owner}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'open',
+              labels: 'seo-alert',
+              per_page: 100,
+            });
+
+            const existing = issues.find((issue) => issue.title === title);
+            if (!existing) {
+              core.info('No open Jeremy SEO alert issue to close');
+              return;
+            }
+
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: existing.number,
+              body: `Resolved by successful nightly run: ${runUrl}`,
+            });
+
+            await github.rest.issues.update({
+              owner,
+              repo,
+              issue_number: existing.number,
+              state: 'closed',
+            });
+
+            core.info(`Closed Jeremy SEO alert issue #${existing.number}`);
+
+      - name: Write weekly Jeremy SEO health summary
+        if: always() && github.event_name == 'schedule' && github.event.schedule == '30 8 * * 1'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const title = 'Jeremy SEO weekly health log';
+            const runUrl = `${process.env.GITHUB_SERVER_URL}/${owner}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+            const sha = context.sha;
+            const branch = context.ref.replace('refs/heads/', '');
+            const outcome = '${{ steps.guardrails.outcome }}';
+            const status = outcome === 'success' ? 'PASS' : 'FAIL';
+            const now = new Date().toISOString();
+
+            const body = [
+              `Weekly Jeremy SEO guardrails health check: **${status}**`,
+              '',
+              `- Timestamp: ${now}`,
+              `- Branch: ${branch}`,
+              `- Commit: ${sha}`,
+              `- Run: ${runUrl}`,
+              `- Command: npm run seo:jeremy:guardrails:check (apps/website)`,
+              '',
+              'This is a periodic audit log comment posted even when checks pass.'
+            ].join('\n');
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'open',
+              labels: 'seo-audit',
+              per_page: 100,
+            });
+
+            const existing = issues.find((issue) => issue.title === title);
+
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: existing.number,
+                body,
+              });
+              core.info(`Updated weekly SEO health log issue #${existing.number}`);
+              return;
+            }
+
+            await github.rest.issues.create({
+              owner,
+              repo,
+              title,
+              body,
+              labels: ['seo-audit', 'ops', 'chore'],
+            });
+            core.info('Created weekly Jeremy SEO health log issue');
+
+      - name: Finalize workflow status
+        if: always()
+        run: |
+          if [[ "${{ steps.guardrails.outcome }}" == "failure" ]]; then
+            echo "Jeremy SEO guardrails failed. See issue automation step for alert details."
+            exit 1
+          fi
+
+          echo "Jeremy SEO guardrails passed."

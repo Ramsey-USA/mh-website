@@ -4,7 +4,8 @@ import dynamic from "next/dynamic";
 import { useMemo } from "react";
 import { usePageTracking } from "@/lib/analytics/hooks";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { useTranslations } from "next-intl";
+import { JeremyAuthorityLinksStrip } from "@/components/shared-sections/JeremyAuthorityLinksStrip";
+import { useLocale, useTranslations } from "next-intl";
 import type { Testimonial } from "@/lib/data/testimonials";
 import { useProjectsSearch } from "./components/useProjectsSearch";
 
@@ -56,6 +57,8 @@ import {
 export default function ProjectsPageClient() {
   // Analytics tracking
   usePageTracking("Projects");
+  const locale = useLocale();
+  const isEs = locale.startsWith("es");
   const t = useTranslations("projectsPageShell");
   const tTestimonials = useTranslations("testimonialsData");
 
@@ -124,6 +127,10 @@ export default function ProjectsPageClient() {
             { label: t("breadcrumb.current") },
           ]}
         />
+
+        <div className="mx-auto max-w-7xl px-4 pb-4 pt-4 sm:px-6 lg:px-8">
+          <JeremyAuthorityLinksStrip isEs={isEs} />
+        </div>
 
         {/* Filter & Search Section - Primary discovery entry */}
         <ProjectsFilterSection

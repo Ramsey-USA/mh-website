@@ -124,7 +124,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
       label: "Kennewick project planning area",
     },
     support: {
-      href: "/projects/kennewick-commercial-office-renovation",
+      href: "/projects/auto-lot-nw",
       label: "Review a phased process case study",
     },
   },
@@ -180,7 +180,7 @@ const FAQ_ROUTE_PLANS: Record<string, FAQRoutePlan> = {
       label: "Pendleton technical delivery area",
     },
     support: {
-      href: "/projects/pasco-industrial-warehouse-build-out",
+      href: "/projects/darigold-pasco-production-facility",
       label: "Review industrial technical execution",
     },
   },

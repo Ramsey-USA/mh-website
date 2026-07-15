@@ -8,6 +8,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { AccreditationsLogoRow } from "@/components/shared-sections";
+import { JeremyAuthorityLinksStrip } from "@/components/shared-sections/JeremyAuthorityLinksStrip";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
@@ -215,6 +216,10 @@ export default async function VeteransPage() {
               },
             ]}
           />
+
+          <div className="container mx-auto px-4 pb-4 pt-4 sm:px-6 lg:px-8">
+            <JeremyAuthorityLinksStrip isEs={locale === "es"} />
+          </div>
 
           {/* Veteran Foundation - Our Leadership & Values */}
           <section

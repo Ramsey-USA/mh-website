@@ -453,6 +453,23 @@ export default async function TeamPage() {
     (member) => member.slug === "mike-holstein",
   );
 
+  const leadershipEvidenceCopy = {
+    label: t("team.leadershipSources.label"),
+    summary: t("team.leadershipSources.summary"),
+    links: [
+      {
+        href: "/jeremy-thamert#verified-sources",
+        label: t("team.leadershipSources.profileLabel"),
+        internal: true,
+      },
+      {
+        href: "https://secure.lni.wa.gov/verify/Detail.aspx?LIC=MHCONCI907R7",
+        label: t("team.leadershipSources.recordLabel"),
+        internal: false,
+      },
+    ],
+  };
+
   // Define department order matching the leadership structure
   const departmentOrder = [
     "The Upper Brass",
@@ -527,7 +544,7 @@ export default async function TeamPage() {
             <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
               <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
                 <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                  {t("team.hero.kicker")} → Team
+                  {t("team.hero.kicker")} → {t("team.pageUi.heroSuffix")}
                 </span>
                 <span className="block text-brand-secondary">
                   {t("team.hero.titleLine1")}
@@ -565,11 +582,10 @@ export default async function TeamPage() {
           <div className="grid gap-4 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.95fr)]">
             <div className="rounded-2xl border border-brand-secondary/25 bg-linear-to-r from-white via-brand-secondary/5 to-white dark:from-gray-900 dark:via-brand-secondary/15 dark:to-gray-900 p-5 sm:p-6 shadow-sm">
               <p className="text-xs sm:text-sm font-semibold tracking-[0.18em] text-brand-primary uppercase mb-2">
-                On This Page
+                {t("team.pageUi.onThisPage.title")}
               </p>
               <p className="font-body text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed max-w-2xl">
-                Skip straight to the part you need: team stories, company
-                culture, growth, or the founder tribute.
+                {t("team.pageUi.onThisPage.description")}
               </p>
               <div className="mt-4 flex flex-wrap gap-2 sm:gap-3">
                 {navigationConfigs.team.map((item) => (
@@ -591,12 +607,54 @@ export default async function TeamPage() {
                   </Button>
                 ))}
               </div>
+
+              <div className="mt-5 rounded-xl border border-brand-primary/15 bg-brand-primary/5 p-4 dark:bg-brand-primary/10">
+                <p className="text-xs sm:text-sm font-semibold tracking-[0.14em] uppercase text-brand-primary mb-2">
+                  {leadershipEvidenceCopy.label}
+                </p>
+                <p className="font-body text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed">
+                  {leadershipEvidenceCopy.summary}
+                </p>
+                <div className="mt-3 flex flex-col gap-2 text-sm sm:text-base font-semibold">
+                  {leadershipEvidenceCopy.links.map((link) =>
+                    link.internal ? (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="inline-flex items-start gap-2 text-brand-primary hover:text-brand-primary-dark dark:text-brand-primary-light dark:hover:text-brand-primary"
+                      >
+                        <MaterialIcon
+                          icon="open_in_new"
+                          size="sm"
+                          className="mt-0.5"
+                        />
+                        <span>{link.label}</span>
+                      </Link>
+                    ) : (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-start gap-2 text-brand-primary hover:text-brand-primary-dark dark:text-brand-primary-light dark:hover:text-brand-primary"
+                      >
+                        <MaterialIcon
+                          icon="open_in_new"
+                          size="sm"
+                          className="mt-0.5"
+                        />
+                        <span>{link.label}</span>
+                      </a>
+                    ),
+                  )}
+                </div>
+              </div>
             </div>
 
             {founderTributeMember ? (
               <div className="rounded-2xl border border-bronze-200 dark:border-bronze-700 bg-linear-to-br from-bronze-50/95 via-white to-brand-secondary/10 dark:from-bronze-900/20 dark:via-gray-900 dark:to-brand-secondary/15 p-5 sm:p-6 shadow-sm">
                 <p className="text-xs sm:text-sm font-semibold tracking-[0.18em] text-brand-secondary uppercase mb-2">
-                  Founding Snapshot
+                  {t("team.pageUi.founderSnapshot.title")}
                 </p>
                 <div className="flex items-start gap-4">
                   <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl border border-bronze-200 dark:border-bronze-700 bg-gray-100 dark:bg-gray-800">
@@ -623,11 +681,12 @@ export default async function TeamPage() {
                     </p>
                     <div className="mt-3 flex flex-wrap gap-2 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300">
                       <span className="rounded-full bg-white/80 dark:bg-gray-800/80 px-3 py-1 border border-bronze-200 dark:border-bronze-700">
-                        {founderTributeMember.yearsWithCompany}+ years with MH
+                        {founderTributeMember.yearsWithCompany}+{" "}
+                        {t("team.pageUi.founderSnapshot.yearsLabel")}
                       </span>
                       <span className="rounded-full bg-white/80 dark:bg-gray-800/80 px-3 py-1 border border-bronze-200 dark:border-bronze-700">
                         {founderTributeMember.careerStats.totalProjects}+
-                        projects
+                        {t("team.pageUi.founderSnapshot.projectsLabel")}
                       </span>
                     </div>
                     <Button
@@ -642,7 +701,7 @@ export default async function TeamPage() {
                           size="sm"
                           className="mr-2"
                         />
-                        View founder tribute
+                        {t("team.pageUi.founderSnapshot.cta")}
                       </Link>
                     </Button>
                   </div>

@@ -157,7 +157,7 @@ export function CoreValuesSection({
                       loop
                       playsInline
                       preload="metadata"
-                      poster="/videos/culture/poster-flag_honesty_loop.jpg"
+                      poster="/videos/culture/poster-flag-honesty-loop.jpg"
                       aria-hidden="true"
                     >
                       {item.videoWebm ? (

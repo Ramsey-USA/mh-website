@@ -1,0 +1,136 @@
+{
+  "projectMetadata": {
+    "projectName": "Darigold Pasco Production Facility",
+    "projectSlug": "darigold-pasco-production-facility",
+    "clientOrganization": "Darigold, Inc.",
+    "location": {
+      "city": "Pasco",
+      "state": "WA"
+    },
+    "projectType": "Industrial food-processing facility; MH Construction role TBD",
+    "industry": "Dairy processing and food manufacturing",
+    "startDate": "2022-09-08",
+    "completionDate": "TBD",
+    "projectStatus": "In Progress",
+    "confidentialityLevel": "Public",
+    "primaryContact": "TBD",
+    "ownerApprover": "TBD"
+  },
+  "executiveSummary": "Darigold's Pasco production facility began as a Port of Pasco industrial-development project and reached milk-processing startup in 2025. MH Construction field documentation captured exterior closeout conditions on 2025-10-22 across frontage, entrances, parking, loading-dock doors, glazing, accessibility, and EV charging areas. MH package-level scope confirmation remains pending.",
+  "clientBackground": "Darigold operates the Pasco production facility in the Port of Pasco Reimann Industrial Center as a rail-adjacent dairy-processing site serving regional farm supply and food-manufacturing distribution.",
+  "challenge": "Coordinate facility delivery context and attribution in a multi-party industrial project while maintaining strict verification standards for publicly published claims.",
+  "scopeOfWork": [
+    "MH contracted scope remains TBD pending contract-level documentation",
+    "Documented exterior closeout conditions on 2025-10-22",
+    "Captured frontage, entrances, parking, accessibility, loading-dock, and EV charging visible conditions",
+    "Installation and commissioning ownership for photographed elements remains TBD"
+  ],
+  "timelineAndMilestones": [
+    {
+      "date": "2022-09-08",
+      "name": "Groundbreaking documented",
+      "note": "Darigold and Port of Pasco announced construction of the new production facility."
+    },
+    {
+      "date": "2023-06-16",
+      "name": "Underground-plumbing permit issued",
+      "note": "City permit B23-0962 listed Darigold as owner and JRT Mechanical as contractor."
+    },
+    {
+      "date": "2025-06-04",
+      "name": "Milk processing underway announced",
+      "note": "Public opening announcement confirmed staged production startup."
+    },
+    {
+      "date": "2025-10-22",
+      "name": "MH exterior closeout field documentation captured",
+      "note": "Eleven documented capture groups covering exterior conditions and frontage elements."
+    }
+  ],
+  "executionDetails": "Public evidence reflects a multi-party delivery model. This package captures dated field evidence from MH media while deferring package-level trade ownership claims until verification is complete.",
+  "outcomesAndImpact": [
+    "Created a verified exterior closeout documentation package",
+    "Connected field conditions to public milestone context",
+    "Prepared staged web content with conservative scope language",
+    "Held publication-sensitive claims pending legal and scope verification"
+  ],
+  "clientTestimonial": {
+    "quote": "TBD",
+    "name": "TBD",
+    "title": "TBD",
+    "organization": "TBD",
+    "approvalStatus": "Pending"
+  },
+  "safetyAndComplianceNotes": {
+    "projectSpecificSafetyProtocols": "TBD",
+    "permitReference": "City permit B23-0962 (underground plumbing)",
+    "finalInspectionAndOccupancyDocumentation": "TBD",
+    "recordableIncidents": "TBD"
+  },
+  "mediaManifest": [
+    {
+      "assetFilename": "23-34-darigold-2025-10-22-main-entrance-p003-photo.webp",
+      "type": "Photo",
+      "dateTaken": "2025-10-22",
+      "orientation": "Landscape",
+      "caption": "Main entrance glazing and adjacent parking frontage at Darigold Pasco production facility.",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Hero"
+    },
+    {
+      "assetFilename": "23-34-darigold-2025-10-22-accessible-parking-p001-photo.webp",
+      "type": "Photo",
+      "dateTaken": "2025-10-22",
+      "orientation": "Landscape",
+      "caption": "Facility frontage showing marked accessible parking stalls.",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Gallery"
+    },
+    {
+      "assetFilename": "23-34-darigold-2025-10-22-loading-dock-doors-p008-photo.webp",
+      "type": "Photo",
+      "dateTaken": "2025-10-22",
+      "orientation": "Landscape",
+      "caption": "Row of loading dock doors with adjacent parking and circulation area.",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Gallery"
+    },
+    {
+      "assetFilename": "23-34-darigold-2025-10-22-main-entrance-p011-photo.webp",
+      "type": "Photo",
+      "dateTaken": "2025-10-22",
+      "orientation": "Landscape",
+      "caption": "Main entrance elevation with landscaped frontage and parking stalls.",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Supporting"
+    }
+  ],
+  "seoInputs": {
+    "suggestedPageTitle": "Darigold Pasco Production Facility | MH Construction",
+    "suggestedMetaDescription": "MH Construction field documentation from Darigold's Pasco production facility, covering exterior closeout conditions and public project milestones.",
+    "targetKeywords": [
+      "Darigold Pasco project",
+      "Pasco industrial construction",
+      "dairy processing facility",
+      "MH Construction",
+      "Reimann Industrial Center",
+      "food processing construction",
+      "construction closeout"
+    ],
+    "suggestedUrlSlug": "darigold-pasco-production-facility"
+  },
+  "approvalAndPublishingNotes": {
+    "legalReview": "TBD",
+    "clientApprovalDate": "TBD",
+    "publishReady": "No",
+    "redactionsNeeded": "Confirm MH contracted scope, media credit and usage rights, safety records, completion status, testimonial, and approver identity before publication."
+  },
+  "ingestion": {
+    "sourceFile": "documents/input/project-stories/darigold-processing-plant/2026-07_darigold-pasco-production-facility_story_v1.docx",
+    "ingestedOn": "2026-07-15"
+  }
+}

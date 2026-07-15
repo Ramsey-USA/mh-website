@@ -18,279 +18,7 @@ function buildProjectSearchText(project: ProjectPortfolio): string {
   );
 }
 
-// Sample portfolio projects for MH Construction
-// In production, populate this from Cloudflare D1 or KV via an admin dashboard.
 export const portfolioData: ProjectPortfolio[] = [
-  {
-    id: "proj-001",
-    title: "Kennewick Commercial Office Renovation",
-    description:
-      "Complete interior renovation of a 12,000 sq ft commercial office building, including structural upgrades, modern open-floor plan design, and energy-efficient HVAC installation.",
-    category: "renovation",
-    subcategory: "Commercial Office",
-    status: "completed",
-    location: { city: "Kennewick", state: "WA", isPublic: true },
-    images: [
-      {
-        id: "img-001-1",
-        url: "/images/projects/kennewick-office-renovation.jpg",
-        alt: "Kennewick commercial office after renovation",
-        isFeatured: true,
-        order: 1,
-      },
-    ],
-    details: {
-      squareFootage: 12000,
-      completionDate: new Date("2024-06-15"),
-      duration: "5 months",
-      budget: { range: "$400K – $600K", isPublic: true },
-      features: [
-        "Open-plan collaborative workspace",
-        "Energy-efficient LED lighting throughout",
-        "Updated ADA-compliant restrooms",
-        "Modern reception and lobby area",
-      ],
-      materials: [
-        "Engineered hardwood flooring",
-        "Steel framing",
-        "Low-VOC paint",
-      ],
-    },
-    tags: ["commercial", "renovation", "energy-efficient", "ADA-compliant"],
-    seoMetadata: {
-      slug: "kennewick-commercial-office-renovation",
-      metaTitle: "Kennewick Commercial Office Renovation | MH Construction",
-      metaDescription:
-        "MH Construction completed a 12,000 sq ft commercial office renovation in Kennewick, WA featuring modern open-plan design and energy-efficient upgrades.",
-      keywords: ["commercial renovation", "office remodel", "Kennewick WA"],
-    },
-    isPublished: true,
-    isFeatured: true,
-    createdAt: new Date("2024-01-10"),
-    updatedAt: new Date("2024-07-01"),
-    createdBy: "admin",
-  },
-  {
-    id: "proj-002",
-    title: "Pasco Industrial Warehouse Build-Out",
-    description:
-      "New 24,000 sq ft industrial warehouse construction for a regional distribution company, featuring reinforced concrete flooring, loading docks, and climate control.",
-    category: "industrial",
-    subcategory: "Distribution Warehouse",
-    status: "completed",
-    location: { city: "Pasco", state: "WA", isPublic: true },
-    images: [
-      {
-        id: "img-002-1",
-        url: "/images/projects/pasco-warehouse.jpg",
-        alt: "Pasco industrial warehouse exterior",
-        isFeatured: true,
-        order: 1,
-      },
-    ],
-    details: {
-      squareFootage: 24000,
-      completionDate: new Date("2023-11-30"),
-      duration: "8 months",
-      budget: { range: "$1.2M – $1.8M", isPublic: true },
-      features: [
-        "Six fully operational loading docks",
-        "Reinforced 6-inch concrete slab floor",
-        "Overhead crane infrastructure (5-ton capacity)",
-        "LED high-bay lighting system",
-        "Climate-controlled storage zones",
-      ],
-      materials: [
-        "Pre-engineered steel building system",
-        "Reinforced concrete",
-        "Insulated metal wall panels",
-      ],
-    },
-    tags: ["industrial", "warehouse", "new-construction", "commercial"],
-    seoMetadata: {
-      slug: "pasco-industrial-warehouse-build-out",
-      metaTitle: "Pasco Industrial Warehouse Construction | MH Construction",
-      metaDescription:
-        "24,000 sq ft industrial warehouse built by MH Construction in Pasco, WA with loading docks, heavy-duty flooring, and climate control.",
-      keywords: ["industrial construction", "warehouse build", "Pasco WA"],
-    },
-    isPublished: true,
-    isFeatured: true,
-    createdAt: new Date("2023-03-01"),
-    updatedAt: new Date("2023-12-01"),
-    createdBy: "admin",
-  },
-  {
-    id: "proj-003",
-    title: "Richland Corporate Office Tenant Improvement",
-    description:
-      "3,800 sq ft corporate office tenant improvement delivered in Richland, WA with universal accessibility upgrades, energy-efficient systems, and premium interior finishes.",
-    category: "commercial",
-    subcategory: "Corporate Office Tenant Improvement",
-    status: "completed",
-    location: { city: "Richland", state: "WA", isPublic: true },
-    images: [
-      {
-        id: "img-003-1",
-        url: "/images/projects/richland-custom-home.jpg",
-        alt: "Richland corporate office tenant improvement exterior view",
-        isFeatured: true,
-        order: 1,
-      },
-    ],
-    details: {
-      squareFootage: 3800,
-      completionDate: new Date("2024-03-20"),
-      duration: "10 months",
-      budget: { range: "$750K – $950K", isPublic: false },
-      features: [
-        "Open-concept collaboration zones with acoustic controls",
-        "Executive briefing room with integrated AV infrastructure",
-        "Built-in office storage and custom casework",
-        "ADA-compliant restrooms and circulation upgrades",
-        "EV-ready fleet parking and access controls",
-        "Solar-ready roof infrastructure",
-      ],
-      materials: [
-        "Engineered lumber framing",
-        "Hardie board exterior siding",
-        "Natural stone countertops",
-        "Andersen windows",
-      ],
-    },
-    clientTestimonial: {
-      quote:
-        "MH Construction went above and beyond for our operations team. They understood our workflow and delivered a space that performs every day.",
-      clientName: "Operations Director, Richland Mission Partner",
-      rating: 5,
-    },
-    tags: ["commercial", "tenant-improvement", "veteran-owned", "office"],
-    seoMetadata: {
-      slug: "richland-corporate-office-tenant-improvement",
-      metaTitle:
-        "Richland Corporate Office Tenant Improvement | MH Construction",
-      metaDescription:
-        "3,800 sq ft corporate office tenant improvement completed by MH Construction in Richland, WA with premium finishes, universal accessibility, and solar-ready infrastructure.",
-      keywords: [
-        "corporate office tenant improvement",
-        "commercial tenant improvement",
-        "Richland WA",
-      ],
-    },
-    isPublished: true,
-    isFeatured: true,
-    createdAt: new Date("2023-05-01"),
-    updatedAt: new Date("2024-04-01"),
-    createdBy: "admin",
-  },
-  {
-    id: "proj-004",
-    title: "Spokane Healthcare Clinic Tenant Improvement",
-    description:
-      "Comprehensive tenant improvement of a 6,500 sq ft medical clinic, including exam rooms, procedure suites, waiting areas, and full compliance with healthcare facility codes.",
-    category: "commercial",
-    subcategory: "Healthcare Tenant Improvement",
-    status: "completed",
-    location: { city: "Spokane", state: "WA", isPublic: true },
-    images: [
-      {
-        id: "img-004-1",
-        url: "/images/projects/spokane-healthcare-clinic.jpg",
-        alt: "Spokane medical clinic interior",
-        isFeatured: true,
-        order: 1,
-      },
-    ],
-    details: {
-      squareFootage: 6500,
-      completionDate: new Date("2023-08-01"),
-      duration: "6 months",
-      budget: { range: "$600K – $800K", isPublic: true },
-      features: [
-        "Eight fully equipped exam rooms",
-        "Two procedure suites with medical gas systems",
-        "Reception and waiting area with calming design",
-        "Staff break room and administrative offices",
-        "Full ADA compliance",
-        "Negative-pressure isolation room",
-      ],
-      materials: [
-        "Antimicrobial wall panels",
-        "Luxury vinyl tile flooring",
-        "Specialty medical-grade cabinetry",
-      ],
-    },
-    tags: ["commercial", "healthcare", "tenant-improvement", "ADA-compliant"],
-    seoMetadata: {
-      slug: "spokane-healthcare-clinic-tenant-improvement",
-      metaTitle: "Spokane Healthcare Clinic Construction | MH Construction",
-      metaDescription:
-        "6,500 sq ft medical clinic tenant improvement in Spokane, WA by MH Construction — fully compliant healthcare facility with procedure suites.",
-      keywords: ["healthcare construction", "medical clinic", "Spokane WA"],
-    },
-    isPublished: true,
-    isFeatured: false,
-    createdAt: new Date("2023-01-15"),
-    updatedAt: new Date("2023-09-01"),
-    createdBy: "admin",
-  },
-  {
-    id: "proj-005",
-    title: "West Richland Light Industrial Flex Facility",
-    description:
-      "Construction of a 16-suite light industrial flex facility with shared logistics infrastructure, energy-efficient systems, and phased occupancy turnover.",
-    category: "industrial",
-    subcategory: "Light Industrial Flex",
-    status: "completed",
-    location: { city: "West Richland", state: "WA", isPublic: true },
-    images: [
-      {
-        id: "img-005-1",
-        url: "/images/projects/west-richland-multifamily.jpg",
-        alt: "West Richland light industrial flex facility exterior",
-        isFeatured: true,
-        order: 1,
-      },
-    ],
-    details: {
-      squareFootage: 18000,
-      completionDate: new Date("2024-09-30"),
-      duration: "14 months",
-      budget: { range: "$2.2M – $2.8M", isPublic: true },
-      features: [
-        "16 configurable industrial suites",
-        "Covered loading and fleet parking",
-        "Shared operations and dispatch center",
-        "Dedicated utility service for each suite",
-        "High-efficiency mechanical and lighting systems",
-        "Phased occupancy turnover program",
-      ],
-      materials: [
-        "Pre-engineered steel framing",
-        "Fiber cement siding",
-        "Industrial-grade roofing",
-        "Insulated low-E glazing",
-      ],
-    },
-    tags: ["industrial", "flex-facility", "veteran-owned", "energy-efficient"],
-    seoMetadata: {
-      slug: "west-richland-light-industrial-flex-facility",
-      metaTitle:
-        "West Richland Light Industrial Flex Facility | MH Construction",
-      metaDescription:
-        "16-suite light industrial flex facility built by MH Construction in West Richland, WA with phased occupancy and energy-efficient design.",
-      keywords: [
-        "light industrial construction",
-        "flex facility build-out",
-        "West Richland WA",
-      ],
-    },
-    isPublished: true,
-    isFeatured: false,
-    createdAt: new Date("2023-07-01"),
-    updatedAt: new Date("2024-10-01"),
-    createdBy: "admin",
-  },
   {
     id: "proj-006",
     title: "LCSNW Tri-Cities Office Expansion",
@@ -303,8 +31,8 @@ export const portfolioData: ProjectPortfolio[] = [
     images: [
       {
         id: "img-006-1",
-        url: "/images/placeholder-project.webp",
-        alt: "LCSNW Tri-Cities Office Expansion project placeholder",
+        url: "/images/projects/project-default.webp",
+        alt: "LCSNW Tri-Cities Office Expansion project overview",
         isFeatured: true,
         order: 1,
       },
@@ -349,6 +77,393 @@ export const portfolioData: ProjectPortfolio[] = [
       ],
     },
     isPublished: false,
+    isFeatured: false,
+    createdAt: new Date("2026-07-15"),
+    updatedAt: new Date("2026-07-15"),
+    createdBy: "admin",
+  },
+  {
+    id: "proj-007",
+    title: "Volm Companies Remodel",
+    description:
+      "Commercial tenant improvement and exterior facade updates at Volm Companies' active Pasco distribution and manufacturing facility.",
+    category: "commercial",
+    subcategory: "Commercial Tenant Improvement",
+    status: "completed",
+    location: { city: "Pasco", state: "WA", isPublic: true },
+    images: [
+      {
+        id: "img-007-1",
+        url: "/images/projects/volm-companies/volm-companies-remodel-2020-02-05-main-entrance-and-signage-p001-photo.webp",
+        alt: "Volm Companies remodel main entrance, facade, and signage in Pasco",
+        isFeatured: true,
+        order: 1,
+      },
+      {
+        id: "img-007-2",
+        url: "/images/projects/volm-companies/volm-companies-remodel-2020-02-05-building-facade-p002-photo.webp",
+        alt: "Wide building facade view after Volm Companies tenant improvement",
+        isFeatured: false,
+        order: 2,
+      },
+      {
+        id: "img-007-3",
+        url: "/images/projects/volm-companies/volm-companies-remodel-2020-02-05-entrance-corner-p003-photo.webp",
+        alt: "Corner entrance view with updated facade and storefront glazing at Volm Companies",
+        isFeatured: false,
+        order: 3,
+      },
+      {
+        id: "img-007-4",
+        url: "/images/projects/volm-companies/volm-companies-remodel-2020-02-05-office-and-warehouse-facade-p004-photo.webp",
+        alt: "Office and warehouse facade overview at Volm Companies Pasco facility",
+        isFeatured: false,
+        order: 4,
+      },
+    ],
+    details: {
+      completionDate: new Date("2020-02-05"),
+      duration: "TBD",
+      budget: { range: "Not published", isPublic: false },
+      challenges: [
+        "Maintaining safe personnel and logistics access during active operations",
+        "Sequencing exterior updates without disrupting distribution workflows",
+      ],
+      features: [
+        "Exterior facade updates and tenant-improvement scope",
+        "Right-of-way coordination for curb, gutter, and sidewalk work",
+        "Main entrance and storefront glazing integration",
+        "Corporate signage coordination and exterior finishing",
+      ],
+      materials: [
+        "Exterior wall panel systems",
+        "Commercial glazing",
+        "Concrete sitework at right-of-way frontage",
+      ],
+    },
+    clientTestimonial: {
+      quote:
+        "This is a pretty impressive building and they have done a quality job the whole way through.",
+      clientName: "Daniel Mueller",
+      clientTitle: "President and CEO",
+      rating: 5,
+    },
+    tags: [
+      "commercial",
+      "tenant-improvement",
+      "pasco",
+      "exterior-facade",
+      "industrial-distribution",
+    ],
+    seoMetadata: {
+      slug: "volm-companies-remodel",
+      metaTitle:
+        "Volm Companies Remodel | Commercial Tenant Improvement in Pasco, WA",
+      metaDescription:
+        "MH Construction delivered exterior updates and commercial tenant improvements for the Volm Companies regional distribution facility in Pasco, WA.",
+      keywords: [
+        "commercial tenant improvement",
+        "Pasco WA construction",
+        "industrial remodel",
+        "exterior facade update",
+        "MH Construction projects",
+      ],
+    },
+    isPublished: true,
+    isFeatured: false,
+    createdAt: new Date("2026-07-15"),
+    updatedAt: new Date("2026-07-15"),
+    createdBy: "admin",
+  },
+  {
+    id: "proj-008",
+    title: "Darigold Pasco Production Facility",
+    description:
+      "Field-documented exterior closeout conditions at Darigold's Pasco production facility, captured by MH Construction during ongoing project activity.",
+    category: "industrial",
+    subcategory: "Food Processing Facility",
+    status: "in-progress",
+    location: { city: "Pasco", state: "WA", isPublic: true },
+    images: [
+      {
+        id: "img-008-1",
+        url: "/images/projects/darigold-processing-plant/23-34-darigold-2025-10-22-main-entrance-p003-photo.webp",
+        alt: "Darigold Pasco facility main entrance and parking frontage",
+        isFeatured: true,
+        order: 1,
+      },
+      {
+        id: "img-008-2",
+        url: "/images/projects/darigold-processing-plant/23-34-darigold-2025-10-22-accessible-parking-p001-photo.webp",
+        alt: "Darigold Pasco facility accessible parking and frontage",
+        isFeatured: false,
+        order: 2,
+      },
+      {
+        id: "img-008-3",
+        url: "/images/projects/darigold-processing-plant/23-34-darigold-2025-10-22-loading-dock-doors-p008-photo.webp",
+        alt: "Darigold Pasco facility loading dock door bank",
+        isFeatured: false,
+        order: 3,
+      },
+      {
+        id: "img-008-4",
+        url: "/images/projects/darigold-processing-plant/23-34-darigold-2025-10-22-main-entrance-p011-photo.webp",
+        alt: "Darigold Pasco facility main entrance landscaping and parking",
+        isFeatured: false,
+        order: 4,
+      },
+    ],
+    details: {
+      completionDate: new Date("2025-10-22"),
+      duration: "TBD",
+      budget: { range: "Not published", isPublic: false },
+      challenges: [
+        "Coordinating multi-party industrial delivery and active operations",
+        "Verifying package-level scope ownership before publication",
+      ],
+      features: [
+        "Exterior closeout condition documentation",
+        "Frontage, parking, and accessible-stall condition capture",
+        "Main entrance and loading-dock frontage capture",
+        "EV charging area and landscaped frontage capture",
+      ],
+      materials: [
+        "Industrial exterior cladding systems",
+        "Commercial glazing and storefront assemblies",
+        "Paved and striped sitework infrastructure",
+      ],
+    },
+    tags: [
+      "industrial",
+      "food-processing",
+      "pasco",
+      "field-documentation",
+      "closeout",
+    ],
+    seoMetadata: {
+      slug: "darigold-pasco-production-facility",
+      metaTitle: "Darigold Pasco Production Facility | MH Construction",
+      metaDescription:
+        "MH Construction field documentation from Darigold's Pasco production facility, covering exterior closeout conditions and public project milestones.",
+      keywords: [
+        "Darigold Pasco project",
+        "Pasco industrial construction",
+        "dairy processing facility",
+        "food processing construction",
+        "construction closeout",
+      ],
+    },
+    isPublished: true,
+    isFeatured: false,
+    createdAt: new Date("2026-07-15"),
+    updatedAt: new Date("2026-07-15"),
+    createdBy: "admin",
+  },
+  {
+    id: "proj-009",
+    title: "Franklin County Coroner's Office Morgue",
+    description:
+      "Municipal new construction of a 1,560-square-foot Coroner's Office morgue facility in Pasco, Washington, supporting local examination and secure receiving operations.",
+    category: "commercial",
+    subcategory: "Municipal Public-Sector Facility",
+    status: "completed",
+    location: { city: "Pasco", state: "WA", isPublic: true },
+    images: [
+      {
+        id: "img-009-1",
+        url: "/images/projects/franklin-county-morgue/franklin-county-morgue-2025-10-30-building-frontage-p006-photo.webp",
+        alt: "Franklin County Coroner's Office morgue building frontage in Pasco",
+        caption:
+          "Building frontage view showing entry area, windows, and adjacent paved approach.",
+        isFeatured: true,
+        order: 1,
+      },
+      {
+        id: "img-009-2",
+        url: "/images/projects/franklin-county-morgue/franklin-county-morgue-2025-10-30-service-bay-exterior-p008-photo.webp",
+        alt: "Service bay exterior and secure access area at Franklin County morgue",
+        caption:
+          "Service-bay corner showing overhead-door access, canopy, and perimeter fencing.",
+        isFeatured: false,
+        order: 2,
+      },
+      {
+        id: "img-009-3",
+        url: "/images/projects/franklin-county-morgue/franklin-county-morgue-2025-10-30-service-wall-p002-photo.webp",
+        alt: "Service wall and utility area at Franklin County Coroner's Office morgue",
+        caption:
+          "Service-wall elevation with paved access zone and wall-mounted utility equipment.",
+        isFeatured: false,
+        order: 3,
+      },
+      {
+        id: "img-009-4",
+        url: "/images/projects/franklin-county-morgue/franklin-county-morgue-2025-10-30-coroner-office-monument-sign-p012-photo.webp",
+        alt: "Franklin County Office of the Coroner monument sign",
+        caption:
+          "Monument sign identifying the Franklin County Office of the Coroner site.",
+        isFeatured: false,
+        order: 4,
+      },
+    ],
+    details: {
+      squareFootage: 1560,
+      completionDate: new Date("2025-09-01"),
+      duration: "TBD",
+      budget: { range: "Reported project cost: $960,000", isPublic: true },
+      challenges: [
+        "Coordinating multidisciplinary municipal design requirements",
+        "Building secure receiving and examination functions at an active county property",
+      ],
+      features: [
+        "Receiving and release garage with secure overhead-door access",
+        "Walk-in refrigeration and specialized examination space",
+        "Observation room and supporting restroom",
+        "Coordination of civil, structural, mechanical, plumbing, and electrical scopes",
+      ],
+      materials: [
+        "Commercial overhead-door system",
+        "Specialized refrigeration components",
+        "Municipal-grade exterior and sitework assemblies",
+      ],
+    },
+    clientTestimonial: {
+      quote:
+        "I'm so glad the way it turned out and the way it works for us. It's a really nice flow.",
+      clientName: "Curtis McGary",
+      clientTitle: "Franklin County Coroner",
+      rating: 5,
+    },
+    tags: [
+      "municipal",
+      "public-sector",
+      "pasco",
+      "coroner-facility",
+      "new-construction",
+    ],
+    seoMetadata: {
+      slug: "franklin-county-coroners-office-morgue",
+      metaTitle: "Franklin County Coroner's Office Morgue | MH Construction",
+      metaDescription:
+        "MH Construction served as general contractor for Franklin County's 1,560-square-foot Coroner's Office morgue facility in Pasco, Washington.",
+      keywords: [
+        "Franklin County Coroner's Office morgue",
+        "Pasco WA general contractor",
+        "municipal construction",
+        "autopsy facility",
+        "MH Construction",
+      ],
+    },
+    isPublished: true,
+    isFeatured: false,
+    createdAt: new Date("2026-07-15"),
+    updatedAt: new Date("2026-07-15"),
+    createdBy: "admin",
+  },
+  {
+    id: "proj-010",
+    title: "The Auto Lot",
+    description:
+      "Commercial automotive dealership project in Kennewick, WA, delivering a customer-facing showroom, storefront identity, and expanded site circulation.",
+    category: "commercial",
+    subcategory: "Automotive Dealership",
+    status: "completed",
+    location: { city: "Kennewick", state: "WA", isPublic: true },
+    images: [
+      {
+        id: "img-010-1",
+        url: "/images/projects/alverez-auto-lot/atc-e-20190128-p009.webp",
+        alt: "The Auto Lot storefront and front lot in Kennewick",
+        caption:
+          "Wide front view of The Auto Lot showroom facade, entry glazing, and parking layout.",
+        isFeatured: true,
+        order: 1,
+      },
+      {
+        id: "img-010-2",
+        url: "/images/projects/alverez-auto-lot/atc-e-20181226-p007.webp",
+        alt: "The Auto Lot entrance elevation and accessible parking",
+        caption:
+          "Front elevation showing glazed entrance, sign tower, and accessible parking striping.",
+        isFeatured: false,
+        order: 2,
+      },
+      {
+        id: "img-010-3",
+        url: "/images/projects/alverez-auto-lot/atc-e-20190130-p012.webp",
+        alt: "Side elevation of The Auto Lot with metal wall panels and paved lot",
+        caption:
+          "Side wall elevation with metal cladding, lot paving, and lighting elements.",
+        isFeatured: false,
+        order: 3,
+      },
+      {
+        id: "img-010-4",
+        url: "/images/projects/alverez-auto-lot/atc-e-20190417-p020.webp",
+        alt: "Rear corner view of The Auto Lot dealership facility",
+        caption:
+          "Rear corner view showing exterior envelope finishes and vehicle circulation area.",
+        isFeatured: false,
+        order: 4,
+      },
+      {
+        id: "img-010-5",
+        url: "/images/projects/alverez-auto-lot/atc-e-20190502-p025.webp",
+        alt: "Auto Lot dealership signage and paved display area",
+        caption:
+          "Freestanding dealership signage adjacent to vehicle display and paved frontage.",
+        isFeatured: false,
+        order: 5,
+      },
+      {
+        id: "img-010-6",
+        url: "/images/projects/alverez-auto-lot/atc-e-20190715-p036.webp",
+        alt: "Showroom-facing exterior of The Auto Lot in Kennewick",
+        caption:
+          "Exterior storefront and lot relationship supporting customer circulation at the site.",
+        isFeatured: false,
+        order: 6,
+      },
+    ],
+    details: {
+      squareFootage: 4200,
+      completionDate: new Date("2024-03-15"),
+      duration: "TBD",
+      budget: { range: "Not published", isPublic: false },
+      challenges: [
+        "Expanding from a constrained previous location to a larger public-facing site",
+        "Coordinating customer circulation, inventory display, and storefront visibility",
+      ],
+      features: [
+        "Glazed storefront and customer showroom environment",
+        "Indoor vehicle display and sales-facing interior layout",
+        "Paved inventory and parking circulation areas",
+        "Accessible parking routes and entry approach",
+        "Landscape beds and perimeter site improvements",
+      ],
+      materials: [
+        "Storefront glazing systems",
+        "Metal wall panel exterior envelope",
+        "Paved sitework and striping",
+      ],
+    },
+    tags: ["commercial", "automotive", "dealership", "kennewick", "showroom"],
+    seoMetadata: {
+      slug: "auto-lot-nw",
+      metaTitle:
+        "The Auto Lot Dealership Project | Kennewick, WA | MH Construction",
+      metaDescription:
+        "MH Construction served as general contractor for The Auto Lot, a completed 4,200-square-foot dealership and showroom in Kennewick, Washington.",
+      keywords: [
+        "The Auto Lot",
+        "Auto Lot NW",
+        "Kennewick commercial construction",
+        "automotive dealership construction",
+        "MH Construction",
+      ],
+    },
+    isPublished: true,
     isFeatured: false,
     createdAt: new Date("2026-07-15"),
     updatedAt: new Date("2026-07-15"),

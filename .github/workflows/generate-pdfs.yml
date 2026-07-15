@@ -141,7 +141,9 @@ jobs:
       - name: Audit MISH manual visual run-off (strict)
         if: ${{ github.event.inputs.section == '' || github.event.inputs.section == null }}
         working-directory: apps/website
-        run: npm run docs:audit:mish-overrun:check
+        run: |
+          npm run docs:audit:mish-overrun
+          npm run docs:audit:mish-overrun:check
 
       # ── 9. Upload PDFs to Cloudflare R2 ──────────────────────────────────
       - name: Upload PDFs to Cloudflare R2

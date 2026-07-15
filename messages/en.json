@@ -98,6 +98,47 @@
         "sectionTitle": "Next Steps",
         "sectionSubtitle": "Ready to Partner?",
         "sectionDescription": "Take the next step—connect with our team and experience the MH Construction difference."
+      },
+      "pageContent": {
+        "label": "About MH Construction",
+        "heading": "Who we are",
+        "body": "We are a veteran-owned general contractor serving the Pacific Northwest. We build long-term mission-partner relationships through direct communication, disciplined execution, and field-first safety.",
+        "storyTitle": "Our story",
+        "storyP1": "Since 2010, we have worked alongside owners, operators, and design teams to deliver projects with practical planning and steady coordination.",
+        "storyP2": "Today we continue that standard with veteran-owned leadership, Procore-based mission administration, and scope control for agricultural and winery facilities, mission-ready fit-outs, and municipal projects. Built on Quality, Backed by Trust.",
+        "focusTitle": "What we do",
+        "focusItems": [
+          "General contracting for new facilities and occupied sites",
+          "Post-frame building delivery for agricultural and industrial operations",
+          "Door and hardware installation with compliance and handoff coordination",
+          "Mission management with RFI, submittal, and field-sequencing traceability"
+        ],
+        "leadershipTitle": "Leadership",
+        "leadershipBody": "Our leadership model stays simple: clear decisions, direct communication, and full accountability from predeployment through handoff. Driven by Discipline. Defined by Results.",
+        "profileCta": "View Jeremy's Profile",
+        "viewTeamCta": "View Team",
+        "snapshotTitle": "Performance snapshot",
+        "snapshot": {
+          "emr": "Award-winning safety EMR",
+          "experience": "Years combined experience",
+          "projects": "Successful projects",
+          "states": "States licensed and insured"
+        },
+        "safetyTitle": "Safety and compliance",
+        "safetyBody": "Safety is embedded into daily operations. We maintain documented controls, practical field planning, and continuity for active facilities.",
+        "safetyCta": "View safety information",
+        "valuePills": {
+          "honesty": "Honesty",
+          "integrity": "Integrity",
+          "professionalism": "Professionalism",
+          "thoroughness": "Thoroughness"
+        }
+      },
+      "leadershipSources": {
+        "label": "Verified leadership sources",
+        "sourceIntro": "Validate Jeremy's leadership profile with public records and independent coverage:",
+        "source1Label": "Washington L&I contractor record",
+        "source2Label": "Independent military service story"
       }
     },
     "signIn": "Sign In",
@@ -111,7 +152,12 @@
     "cancel": "Cancel",
     "download": "Download",
     "open": "Open",
-    "close": "Close"
+    "close": "Close",
+    "jeremyRibbon": {
+      "exploreLabel": "Explore Jeremy leadership:",
+      "profileLink": "Jeremy Thamert Profile",
+      "sourcesLink": "Jeremy Verified Credentials and Stories"
+    }
   },
   "accessibilityPage": {
     "pageName": "Accessibility",
@@ -205,6 +251,25 @@
       "subtitle": "Meet Our",
       "title": "Leadership Team",
       "description": "Meet the veteran-led team serving AG and winery communities, commercial tenant improvements, and municipal builds across the Pacific Northwest."
+    },
+    "leadershipSources": {
+      "label": "Verified leadership sources",
+      "summary": "Review direct sources connected to Jeremy's profile and leadership record:",
+      "profileLabel": "Jeremy profile with verified sources",
+      "recordLabel": "Washington L&I contractor record"
+    },
+    "pageUi": {
+      "heroSuffix": "Team",
+      "onThisPage": {
+        "title": "On This Page",
+        "description": "Skip straight to the part you need: team stories, company culture, growth, or the founder tribute."
+      },
+      "founderSnapshot": {
+        "title": "Founding Snapshot",
+        "yearsLabel": "years with MH",
+        "projectsLabel": "projects",
+        "cta": "View founder tribute"
+      }
     },
     "departments": {
       "upperBrass": {
@@ -1528,6 +1593,17 @@
           "veteranStatus": true
         }
       ]
+    }
+  },
+  "jeremyProfile": {
+    "verifiedSources": {
+      "heroButton": "Verified Credentials & Stories",
+      "sectionTitle": "Verified Credentials and Story Sources",
+      "sectionBody": "These links support Jeremy's public leadership profile with government records, industry directories, and independent coverage. We use source-linked references to strengthen transparency and help visitors validate experience claims.",
+      "credentialsHeading": "Credentials and Records",
+      "storiesHeading": "Independent Stories and Community Coverage",
+      "connectBody": "Looking for project context or leadership coordination on your scope? Connect with Jeremy's team for a direct, relationship-first conversation.",
+      "connectCta": "Start a Conversation"
     }
   },
   "home": {

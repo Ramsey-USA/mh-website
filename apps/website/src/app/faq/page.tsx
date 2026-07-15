@@ -20,6 +20,7 @@ import {
 } from "@/lib/branding/page-names";
 import { generateHowToSchema } from "@/lib/seo/howto-schema";
 import { StructuredData } from "@/components/seo/SeoMeta";
+import { JeremyAuthorityLinksStrip } from "@/components/shared-sections/JeremyAuthorityLinksStrip";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -224,6 +225,10 @@ export default async function FAQPage() {
             },
           ]}
         />
+
+        <div className="mx-auto max-w-7xl px-4 pb-4 pt-4 sm:px-6 lg:px-8">
+          <JeremyAuthorityLinksStrip isEs={isEs} />
+        </div>
 
         {/* Introduction Section */}
         <section

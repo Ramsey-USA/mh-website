@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { useTranslations } from "next-intl";
 import type { JeremyRibbon } from "@/lib/content/jeremy-ribbons";
 import type { IndividualBrandingStamp as IndividualBrandingStampType } from "@/lib/content/individual-branding-stamps";
 import { IndividualBrandingStamp } from "@/components/shared-sections/IndividualBrandingStamp";
@@ -43,6 +45,7 @@ export function JeremyQuoteRibbon({
   stamp,
   className,
 }: JeremyQuoteRibbonProps) {
+  const t = useTranslations("common.jeremyRibbon");
   const displayAttribution = buildDisplayAttribution(ribbon.attribution);
 
   const classes = [
@@ -97,6 +100,23 @@ export function JeremyQuoteRibbon({
         <p className="font-heading relative mt-4 text-sm font-semibold tracking-wide text-brand-secondary dark:text-brand-secondary-light">
           - {displayAttribution}
         </p>
+        <div className="relative mt-4 flex flex-wrap items-center justify-center gap-2 text-xs font-semibold sm:text-sm">
+          <span className="text-gray-600 dark:text-gray-300">
+            {t("exploreLabel")}
+          </span>
+          <Link
+            href="/jeremy-thamert"
+            className="rounded-full border border-brand-primary/30 bg-white/80 px-3 py-1 text-brand-primary transition-colors hover:bg-brand-primary/10 dark:bg-gray-900/70 dark:text-brand-primary-light dark:hover:bg-brand-primary/20"
+          >
+            {t("profileLink")}
+          </Link>
+          <Link
+            href="/jeremy-thamert#verified-sources"
+            className="rounded-full border border-brand-secondary/30 bg-white/80 px-3 py-1 text-brand-secondary-dark transition-colors hover:bg-brand-secondary/10 dark:bg-gray-900/70 dark:text-brand-secondary-light dark:hover:bg-brand-secondary/20"
+          >
+            {t("sourcesLink")}
+          </Link>
+        </div>
       </div>
     </section>
   );

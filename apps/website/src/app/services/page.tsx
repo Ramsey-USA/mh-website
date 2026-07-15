@@ -12,6 +12,7 @@ import {
   serviceAreas,
   specialtyServices,
 } from "@/components/services";
+import { JeremyAuthorityLinksStrip } from "@/components/shared-sections/JeremyAuthorityLinksStrip";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { MH_SLOGANS } from "@/lib/branding/page-names";
@@ -61,6 +62,10 @@ export default async function ServicesPage() {
   return (
     <>
       <ServicesHero heroSlogan={getHeroPageSlogan("services").slogan} />
+
+      <div className="mx-auto max-w-7xl px-4 pb-4 pt-6 sm:px-6 lg:px-8">
+        <JeremyAuthorityLinksStrip isEs={isEs} />
+      </div>
 
       <ConstructionExpertiseSection
         subtitle={

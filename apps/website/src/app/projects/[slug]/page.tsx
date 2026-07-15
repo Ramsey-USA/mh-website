@@ -37,7 +37,21 @@ type ProjectRoutePlan = {
 };
 
 const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
-  "kennewick-commercial-office-renovation": {
+  "lcsnw-tri-cities": {
+    primaryService: {
+      href: "/services",
+      label: "Commercial Construction",
+    },
+    secondaryService: {
+      href: "/services",
+      label: "Restoration and Remodeling",
+    },
+    location: {
+      href: "/locations/kennewick",
+      label: "Kennewick Service Area",
+    },
+  },
+  "volm-companies-remodel": {
     primaryService: {
       href: "/services",
       label: "Commercial Construction",
@@ -47,11 +61,11 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
       label: "Drywall and Interiors",
     },
     location: {
-      href: "/locations/kennewick",
-      label: "Kennewick Service Area",
+      href: "/locations/pasco",
+      label: "Pasco Service Area",
     },
   },
-  "pasco-industrial-warehouse-build-out": {
+  "darigold-pasco-production-facility": {
     primaryService: {
       href: "/services",
       label: "Commercial Construction",
@@ -65,49 +79,21 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
       label: "Pasco Service Area",
     },
   },
-  "richland-corporate-office-tenant-improvement": {
+  "franklin-county-coroners-office-morgue": {
     primaryService: {
       href: "/services",
-      label: "Restoration and Remodeling",
-    },
-    secondaryService: {
-      href: "/services",
-      label: "Drywall and Interiors",
-    },
-    location: {
-      href: "/locations/richland",
-      label: "Richland Service Area",
-    },
-  },
-  "spokane-healthcare-clinic-tenant-improvement": {
-    primaryService: {
-      href: "/services",
-      label: "Drywall and Interiors",
+      label: "Municipal and Government",
     },
     secondaryService: {
       href: "/services",
       label: "Commercial Construction",
     },
     location: {
-      href: "/locations/spokane",
-      label: "Spokane Service Area",
+      href: "/locations/pasco",
+      label: "Pasco Service Area",
     },
   },
-  "west-richland-light-industrial-flex-facility": {
-    primaryService: {
-      href: "/services",
-      label: "Commercial Construction",
-    },
-    secondaryService: {
-      href: "/services",
-      label: "Restoration and Remodeling",
-    },
-    location: {
-      href: "/locations/west-richland",
-      label: "West Richland Service Area",
-    },
-  },
-  "lcsnw-tri-cities": {
+  "auto-lot-nw": {
     primaryService: {
       href: "/services",
       label: "Commercial Construction",

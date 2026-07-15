@@ -98,6 +98,47 @@
         "sectionTitle": "Próximos Pasos",
         "sectionSubtitle": "¿Listo para Asociarse?",
         "sectionDescription": "Dé el siguiente paso—conéctese con nuestro equipo y experimente la diferencia MH Construction."
+      },
+      "pageContent": {
+        "label": "Acerca de MH Construction",
+        "heading": "Quiénes somos",
+        "body": "Somos un contratista general veterano en el noroeste del Pacífico. Construimos relaciones de largo plazo mediante comunicación clara, ejecución disciplinada y seguridad en campo.",
+        "storyTitle": "Nuestra historia",
+        "storyP1": "Desde 2010 hemos trabajado junto a propietarios, operadores y equipos de diseño para entregar proyectos con enfoque práctico y coordinación constante.",
+        "storyP2": "Hoy continuamos ese estándar con liderazgo veterano, administración en Procore y control de alcance para agricultura y bodegas, acondicionamientos comerciales y obras municipales. Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
+        "focusTitle": "Lo que hacemos",
+        "focusItems": [
+          "Construcción general para instalaciones nuevas y sitios ocupados",
+          "Edificios post-frame para operaciones agrícolas e industriales",
+          "Puertas y herrajes con cumplimiento y coordinación de cierre",
+          "Gestión de misiones con trazabilidad de RFIs, entregables técnicos y secuencias de campo"
+        ],
+        "leadershipTitle": "Liderazgo",
+        "leadershipBody": "Nuestro liderazgo mantiene una estructura simple: decisiones claras, comunicación directa y seguimiento completo desde preconstrucción hasta entrega. Driven by Discipline. Defined by Results. (Impulsados por disciplina. Definidos por resultados.)",
+        "profileCta": "Ver perfil de Jeremy",
+        "viewTeamCta": "Ver equipo",
+        "snapshotTitle": "Resumen de desempeño",
+        "snapshot": {
+          "emr": "EMR de seguridad premiado",
+          "experience": "Años de experiencia combinada",
+          "projects": "Proyectos completados",
+          "states": "Estados con licencia y seguro"
+        },
+        "safetyTitle": "Seguridad y cumplimiento",
+        "safetyBody": "La seguridad es parte del método de trabajo diario. Mantenemos procesos documentados, control operativo en campo y continuidad para instalaciones activas.",
+        "safetyCta": "Ver información de seguridad",
+        "valuePills": {
+          "honesty": "Honesty (Honestidad)",
+          "integrity": "Integrity (Integridad)",
+          "professionalism": "Professionalism (Profesionalismo)",
+          "thoroughness": "Thoroughness (Minuciosidad)"
+        }
+      },
+      "leadershipSources": {
+        "label": "Fuentes verificadas de liderazgo",
+        "sourceIntro": "Verifique el perfil de liderazgo de Jeremy con registros y cobertura publica:",
+        "source1Label": "Registro de contratista en Washington L&I",
+        "source2Label": "Nota independiente sobre servicio militar"
       }
     },
     "signIn": "Iniciar sesión",
@@ -111,7 +152,12 @@
     "cancel": "Cancelar",
     "download": "Descargar",
     "open": "Abrir",
-    "close": "Cerrar"
+    "close": "Cerrar",
+    "jeremyRibbon": {
+      "exploreLabel": "Explora el liderazgo de Jeremy:",
+      "profileLink": "Perfil de Jeremy Thamert",
+      "sourcesLink": "Credenciales e historias verificadas de Jeremy"
+    }
   },
   "accessibilityPage": {
     "pageName": "Accesibilidad",
@@ -205,6 +251,25 @@
       "subtitle": "Conozca a Nuestro",
       "title": "Equipo de Liderazgo",
       "description": "Conozca al equipo veterano que atiende comunidades agrícolas y de bodegas, TI comercial y obras municipales en el Pacífico Noroeste."
+    },
+    "leadershipSources": {
+      "label": "Fuentes verificadas de liderazgo",
+      "summary": "Revise fuentes directas sobre el perfil de Jeremy y su liderazgo:",
+      "profileLabel": "Perfil de Jeremy con fuentes verificadas",
+      "recordLabel": "Registro de contratista en Washington L&I"
+    },
+    "pageUi": {
+      "heroSuffix": "Equipo",
+      "onThisPage": {
+        "title": "En esta página",
+        "description": "Vaya directo a lo que necesita: historias del equipo, cultura empresarial, crecimiento o el homenaje al fundador."
+      },
+      "founderSnapshot": {
+        "title": "Resumen fundacional",
+        "yearsLabel": "años en MH",
+        "projectsLabel": "proyectos",
+        "cta": "Ver homenaje al fundador"
+      }
     },
     "departments": {
       "upperBrass": {
@@ -1528,6 +1593,17 @@
           "veteranStatus": true
         }
       ]
+    }
+  },
+  "jeremyProfile": {
+    "verifiedSources": {
+      "heroButton": "Credenciales e historias verificadas",
+      "sectionTitle": "Fuentes verificadas de credenciales e historia",
+      "sectionBody": "Estos enlaces respaldan el perfil publico de liderazgo de Jeremy con registros gubernamentales, directorios de industria y cobertura independiente. Usamos referencias enlazadas para fortalecer la transparencia y permitir que los visitantes validen la experiencia.",
+      "credentialsHeading": "Credenciales y registros",
+      "storiesHeading": "Historias independientes y cobertura comunitaria",
+      "connectBody": "Necesita contexto de proyecto o coordinacion de liderazgo para su alcance? Conecte con el equipo de Jeremy para una conversacion directa y enfocada en la relacion.",
+      "connectCta": "Iniciar una conversacion"
     }
   },
   "home": {

@@ -38,6 +38,20 @@ const SEO_META_FILE = path.join(
   "seo",
   "SeoMeta.tsx",
 );
+const JEREMY_AUTHORITY_STRIP_FILE = path.join(
+  ROOT,
+  "src",
+  "components",
+  "shared-sections",
+  "JeremyAuthorityLinksStrip.tsx",
+);
+
+const REQUIRED_AUTHORITY_STRIP_PAGES = [
+  path.join(ROOT, "src", "app", "services", "page.tsx"),
+  path.join(ROOT, "src", "app", "projects", "ProjectsPageClient.tsx"),
+  path.join(ROOT, "src", "app", "veterans", "page.tsx"),
+  path.join(ROOT, "src", "app", "faq", "page.tsx"),
+];
 
 function fail(messages) {
   console.error("\nJeremy SEO signal check failed:\n");
@@ -140,6 +154,47 @@ function main() {
     errors.push(
       "Jeremy person schema id '/jeremy-thamert#person' must be present in SeoMeta.",
     );
+  }
+
+  if (!fs.existsSync(JEREMY_AUTHORITY_STRIP_FILE)) {
+    errors.push(
+      `Missing Jeremy authority strip component: ${path.relative(ROOT, JEREMY_AUTHORITY_STRIP_FILE)}.`,
+    );
+  } else {
+    const stripSource = fs.readFileSync(JEREMY_AUTHORITY_STRIP_FILE, "utf8");
+    if (
+      !stripSource.includes('aria-label="Jeremy leadership authority links"')
+    ) {
+      errors.push(
+        "JeremyAuthorityLinksStrip must include aria-label 'Jeremy leadership authority links'.",
+      );
+    }
+    if (!stripSource.includes('href="/jeremy-thamert"')) {
+      errors.push(
+        "JeremyAuthorityLinksStrip must include a profile link to '/jeremy-thamert'.",
+      );
+    }
+    if (!stripSource.includes('href="/jeremy-thamert#verified-sources"')) {
+      errors.push(
+        "JeremyAuthorityLinksStrip must include a verified sources link to '/jeremy-thamert#verified-sources'.",
+      );
+    }
+  }
+
+  for (const pageFile of REQUIRED_AUTHORITY_STRIP_PAGES) {
+    if (!fs.existsSync(pageFile)) {
+      errors.push(
+        `Missing required authority strip host page: ${path.relative(ROOT, pageFile)}.`,
+      );
+      continue;
+    }
+
+    const pageSource = fs.readFileSync(pageFile, "utf8");
+    if (!pageSource.includes("JeremyAuthorityLinksStrip")) {
+      errors.push(
+        `${path.relative(ROOT, pageFile)} must import and render JeremyAuthorityLinksStrip to preserve Jeremy authority-link distribution.`,
+      );
+    }
   }
 
   if (errors.length > 0) {

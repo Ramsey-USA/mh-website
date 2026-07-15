@@ -1,0 +1,135 @@
+{
+  "projectMetadata": {
+    "projectName": "Franklin County Coroner's Office Morgue",
+    "projectSlug": "franklin-county-coroners-office-morgue",
+    "clientOrganization": "Franklin County Coroner's Office",
+    "location": {
+      "city": "Pasco",
+      "state": "WA"
+    },
+    "projectType": "Municipal New Construction",
+    "industry": "Public Sector / Death Investigation",
+    "startDate": "TBD",
+    "completionDate": "2025-09-01",
+    "projectStatus": "Completed",
+    "confidentialityLevel": "Public",
+    "primaryContact": "Curtis McGary, Franklin County Coroner",
+    "ownerApprover": "TBD"
+  },
+  "executiveSummary": "Franklin County commissioned a new 1,560-square-foot Coroner's Office morgue at 1310 N 5th Avenue in Pasco to establish local, purpose-built autopsy and related death-investigation functions. MH Construction served as general contractor and delivered the facility from a multidisciplinary design package.",
+  "clientBackground": "The Franklin County Coroner's Office investigates suspicious, unnatural, violent, and sudden unexplained deaths within Franklin County and serves affected families through local public-sector operations.",
+  "challenge": "Deliver a secure, purpose-built municipal facility for receiving, refrigeration, examination, and observation functions while coordinating multidisciplinary design requirements at an active county property.",
+  "scopeOfWork": [
+    "General contracting for construction of the 1,560-square-foot, one-story Coroner's Office morgue",
+    "Coordination of civil, architectural, structural, mechanical, plumbing, and electrical work",
+    "Construction of secure receiving and release garage access",
+    "Installation and coordination of walk-in refrigeration, examination, and observation areas",
+    "Delivery of restroom, interior components, building systems, and associated exterior work"
+  ],
+  "timelineAndMilestones": [
+    {
+      "date": "2024-03-29",
+      "name": "Professional-services RFQ issued",
+      "note": "Franklin County opened procurement for planning, design, and construction-phase management services."
+    },
+    {
+      "date": "2024-10-04",
+      "name": "Design set issued",
+      "note": "Meier Architecture | Engineering issued public Coroner's Morgue Addition plans."
+    },
+    {
+      "date": "2025-09-01",
+      "name": "Facility completion reported",
+      "note": "Independent local reporting identified completion on September 1, 2025."
+    },
+    {
+      "date": "2025-10-29",
+      "name": "Community grand opening",
+      "note": "Franklin County Coroner's Office held public opening for the new facility."
+    }
+  ],
+  "executionDetails": "MH Construction coordinated municipal construction against a multidisciplinary design package and referenced code requirements, integrating secure vehicle access, refrigeration, examination, observation, and supporting building systems in a compact one-story footprint.",
+  "outcomesAndImpact": [
+    "Established local on-site autopsy capability for Franklin County",
+    "Reduced reliance on out-of-county travel for procedures",
+    "Improved operational coordination with law enforcement, funeral services, and donor-recovery partners",
+    "Delivered secure receiving, refrigeration, examination, and observation functions at county level"
+  ],
+  "clientTestimonial": {
+    "quote": "I'm so glad the way it turned out and the way it works for us. It's a really nice flow.",
+    "name": "Curtis McGary",
+    "title": "Franklin County Coroner",
+    "organization": "Franklin County Coroner's Office",
+    "approvalStatus": "Pending"
+  },
+  "safetyAndComplianceNotes": {
+    "projectSpecificSafetyProtocols": "Contract documents assign site-condition verification and jobsite safety responsibility to the contractor.",
+    "codesReferenced": "2021 building, electrical, plumbing, mechanical, energy, accessibility, and life-safety requirements",
+    "finalInspectionAndCloseoutStatus": "TBD",
+    "recordableIncidents": "TBD"
+  },
+  "mediaManifest": [
+    {
+      "assetFilename": "franklin-county-morgue-2025-10-30-building-frontage-p006-photo.webp",
+      "type": "Photo",
+      "dateTaken": "2025-10-30",
+      "orientation": "Landscape",
+      "caption": "Exterior medium view showing the building frontage windows entry area and adjacent pavement.",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Hero"
+    },
+    {
+      "assetFilename": "franklin-county-morgue-2025-10-30-service-bay-exterior-p008-photo.webp",
+      "type": "Photo",
+      "dateTaken": "2025-10-30",
+      "orientation": "Landscape",
+      "caption": "Exterior corner view showing the service-side wall overhead door canopy and chain-link fencing.",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Gallery"
+    },
+    {
+      "assetFilename": "franklin-county-morgue-2025-10-30-service-wall-p002-photo.webp",
+      "type": "Photo",
+      "dateTaken": "2025-10-30",
+      "orientation": "Landscape",
+      "caption": "Wide exterior view showing the building service wall paved area and wall-mounted utility equipment.",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Gallery"
+    },
+    {
+      "assetFilename": "franklin-county-morgue-2025-10-30-coroner-office-monument-sign-p012-photo.webp",
+      "type": "Photo",
+      "dateTaken": "2025-10-30",
+      "orientation": "Landscape",
+      "caption": "Exterior close-up view showing the Office of the Coroner monument sign.",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Supporting"
+    }
+  ],
+  "seoInputs": {
+    "suggestedPageTitle": "Franklin County Coroner's Office Morgue | MH Construction",
+    "suggestedMetaDescription": "MH Construction served as general contractor for Franklin County's 1,560-square-foot Coroner's Office morgue and autopsy facility in Pasco, Washington.",
+    "targetKeywords": [
+      "Franklin County Coroner's Office morgue",
+      "Pasco WA general contractor",
+      "municipal construction",
+      "autopsy facility",
+      "MH Construction"
+    ],
+    "suggestedUrlSlug": "franklin-county-coroners-office-morgue"
+  },
+  "approvalAndPublishingNotes": {
+    "legalReview": "TBD",
+    "clientApprovalDate": "TBD",
+    "publishReady": "No",
+    "redactionsNeeded": "Confirm media credit and usage rights, quote reuse approval, owner approver, and final inspection status before publication."
+  },
+  "ingestion": {
+    "sourceFile": "documents/input/project-stories/franklin-county-morgue/2026-07_franklin-county-coroners-office-morgue_story_v1.docx",
+    "ingestedOn": "2026-07-15"
+  }
+}

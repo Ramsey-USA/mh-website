@@ -1,0 +1,129 @@
+{
+  "projectMetadata": {
+    "projectName": "Volm Companies Remodel",
+    "projectSlug": "volm-companies-remodel",
+    "clientOrganization": "Volm Companies",
+    "location": {
+      "city": "Pasco",
+      "state": "WA"
+    },
+    "projectType": "Commercial Tenant Improvement",
+    "industry": "Packaging and Distribution",
+    "startDate": "TBD",
+    "completionDate": "2020-02-05",
+    "projectStatus": "Completed",
+    "confidentialityLevel": "Public",
+    "primaryContact": "TBD",
+    "ownerApprover": "TBD"
+  },
+  "executiveSummary": "MH Construction supported a commercial tenant improvement at the Volm Companies regional distribution and manufacturing facility in Pasco, WA. The project addressed exterior presentation and operational frontage at an active industrial site with controlled sequencing around personnel, customer access, and logistics traffic.",
+  "clientBackground": "Volm Companies provides equipment, packaging, and design solutions for fresh produce, frozen food, and agricultural industries. The Pasco facility serves as a key regional distribution and manufacturing hub supporting Pacific Northwest operations.",
+  "challenge": "Execute facade modifications and site improvements at an operating distribution center without disrupting daily manufacturing and logistics workflows.",
+  "scopeOfWork": [
+    "Exterior facade updates and commercial tenant improvements",
+    "Site work coordination including right-of-way and sidewalk improvements",
+    "Main entrance and storefront glazing integration",
+    "Corporate signage coordination and exterior finishing"
+  ],
+  "timelineAndMilestones": [
+    {
+      "date": "2019-05-21",
+      "name": "Permit Issuance",
+      "note": "City of Pasco issued right-of-way permit ROW19-0275 for curb, gutter, and sidewalk improvements associated with the tenant improvement."
+    },
+    {
+      "date": "2019-08-16",
+      "name": "Permit Finaled",
+      "note": "Right-of-way permit ROW19-0275 passed final inspection."
+    },
+    {
+      "date": "2020-02-05",
+      "name": "Final Photography",
+      "note": "Exterior facade and completed entrance documented by MH Construction."
+    }
+  ],
+  "executionDetails": "MH Construction managed exterior remodel and site improvements at 5702 Industrial Way using controlled sequencing and Procore-based project administration to protect ongoing operations.",
+  "outcomesAndImpact": [
+    "Modernized the Volm Pasco facility exterior to align with corporate presentation standards",
+    "Delivered updated entrance, wall panels, storefront glazing, and frontage condition",
+    "Completed right-of-way and tenant-improvement scopes with city permit closeout",
+    "Supported long-term operational continuity at an active regional distribution site"
+  ],
+  "clientTestimonial": {
+    "quote": "This is a pretty impressive building and they have done a quality job the whole way through.",
+    "name": "Daniel Mueller",
+    "title": "President and CEO",
+    "organization": "Volm Companies",
+    "approvalStatus": "Pending"
+  },
+  "safetyAndComplianceNotes": {
+    "projectSpecificSafetyProtocols": "Active-industrial-environment safety controls were used during site and frontage work.",
+    "permitReference": "City of Pasco ROW19-0275",
+    "finalInspectionAndOccupancyDocumentation": "Right-of-way permit finalized 2019-08-16",
+    "recordableIncidents": "TBD"
+  },
+  "mediaManifest": [
+    {
+      "assetFilename": "volm-companies-remodel-2020-02-05-main-entrance-and-signage-p001-photo.webp",
+      "type": "Photo",
+      "dateTaken": "2020-02-05",
+      "orientation": "Landscape",
+      "caption": "Exterior medium view showing the glazed main entrance, wall panel facade, storefront windows, and Volm Companies signage.",
+      "credit": "MH Construction",
+      "usageRights": "Internal/Portfolio",
+      "priority": "Hero"
+    },
+    {
+      "assetFilename": "volm-companies-remodel-2020-02-05-building-facade-p002-photo.webp",
+      "type": "Photo",
+      "dateTaken": "2020-02-05",
+      "orientation": "Landscape",
+      "caption": "Exterior wide view showing the full two-story front facade, main entrance, storefront glazing, signage, and landscaped frontage.",
+      "credit": "MH Construction",
+      "usageRights": "Internal/Portfolio",
+      "priority": "Gallery"
+    },
+    {
+      "assetFilename": "volm-companies-remodel-2020-02-05-entrance-corner-p003-photo.webp",
+      "type": "Photo",
+      "dateTaken": "2020-02-05",
+      "orientation": "Landscape",
+      "caption": "Exterior corner view showing the main entrance, facade updates, storefront windows, signage, and landscaped frontage.",
+      "credit": "MH Construction",
+      "usageRights": "Internal/Portfolio",
+      "priority": "Gallery"
+    },
+    {
+      "assetFilename": "volm-companies-remodel-2020-02-05-office-and-warehouse-facade-p004-photo.webp",
+      "type": "Photo",
+      "dateTaken": "2020-02-05",
+      "orientation": "Landscape",
+      "caption": "Exterior overview showing the two-story office front attached to the larger industrial building, parking area, and landscaped frontage.",
+      "credit": "MH Construction",
+      "usageRights": "Internal/Portfolio",
+      "priority": "Supporting"
+    }
+  ],
+  "seoInputs": {
+    "suggestedPageTitle": "Volm Companies Remodel | Commercial Tenant Improvement in Pasco, WA",
+    "suggestedMetaDescription": "MH Construction delivered exterior updates and commercial tenant improvements for the Volm Companies regional distribution facility in Pasco, WA.",
+    "targetKeywords": [
+      "commercial tenant improvement",
+      "Pasco WA construction",
+      "industrial remodel",
+      "exterior facade update",
+      "MH Construction projects"
+    ],
+    "suggestedUrlSlug": "volm-companies-remodel"
+  },
+  "approvalAndPublishingNotes": {
+    "legalReview": "Pending",
+    "clientApprovalDate": "TBD",
+    "publishReady": "No",
+    "redactionsNeeded": "Confirm client testimonial approval for reuse in remodel context."
+  },
+  "ingestion": {
+    "sourceFile": "documents/input/project-stories/volm-companies/2026-07_volm-companies-remodel_story_v1.docx",
+    "ingestedOn": "2026-07-15"
+  }
+}

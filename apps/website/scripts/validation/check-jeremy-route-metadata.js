@@ -19,6 +19,13 @@ const JEREMY_PROFILE_PAGE_FILE = path.join(
   "jeremy-thamert",
   "page.tsx",
 );
+const GEO_METADATA_FILE = path.join(
+  ROOT,
+  "src",
+  "lib",
+  "seo",
+  "geo-metadata.ts",
+);
 
 const JEREMY_REGEX = /Jeremy\s+Thamert|Jeremy/i;
 
@@ -131,6 +138,29 @@ function main() {
     if (!JEREMY_REGEX.test(jeremyProfileSource)) {
       errors.push(
         "Jeremy profile page metadata must include Jeremy name signal.",
+      );
+    }
+  }
+
+  if (!fs.existsSync(GEO_METADATA_FILE)) {
+    errors.push(
+      `Missing geo metadata file: ${path.relative(ROOT, GEO_METADATA_FILE)}.`,
+    );
+  } else {
+    const geoMetadataSource = fs.readFileSync(GEO_METADATA_FILE, "utf8");
+    if (!geoMetadataSource.includes("PAGEHUB_JEREMY_AUTHORITY_KEYWORDS")) {
+      errors.push(
+        "geo-metadata.ts must define PAGEHUB_JEREMY_AUTHORITY_KEYWORDS for sitewide Jeremy query reinforcement.",
+      );
+    }
+    if (!geoMetadataSource.includes("Jeremy Gale Thamert")) {
+      errors.push(
+        "PAGEHUB_JEREMY_AUTHORITY_KEYWORDS must include the legal-name variant 'Jeremy Gale Thamert'.",
+      );
+    }
+    if (!geoMetadataSource.includes("mhc-gc.com Jeremy Thamert")) {
+      errors.push(
+        "PAGEHUB_JEREMY_AUTHORITY_KEYWORDS must include the authority query phrase 'mhc-gc.com Jeremy Thamert'.",
       );
     }
   }

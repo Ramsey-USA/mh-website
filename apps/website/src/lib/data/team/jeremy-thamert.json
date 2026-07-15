@@ -21,15 +21,16 @@
     "mentorships": 8
   },
   "awards": "Presidential Leadership Excellence",
-  "bio": "Jeremy leads MH Construction with mission-level discipline, relationship-first leadership, and more than three decades of construction experience. A U.S. Army aviation veteran and seasoned operator, he aligns field execution, client communication, and long-term strategy so every project is delivered with accountability, precision, and trust.",
+  "bio": "Jeremy leads MH Construction with mission-level discipline, relationship-first leadership, and more than three decades of construction experience. A U.S. Army aviation veteran and seasoned operator, he aligns field execution, client communication, and long-term strategy so every project is delivered with accountability, precision, and trust. Public records and independent reporting document his background across military aviation, renewable-energy entrepreneurship, code-compliance credentials, and regional construction leadership.",
   "careerHighlights": [
     "Leads company-wide mission alignment from client kickoff through final closeout.",
     "Built and scaled multiple businesses with disciplined operational systems.",
+    "Maintains leadership visibility through verified public records, independent stories, and community participation.",
     "Guides strategic growth while protecting MH relationship-first standards.",
     "Mentors leaders to strengthen accountability, communication, and execution."
   ],
   "funFact": "Jeremy is most energized when aligning people, safety, and execution around one clear mission.",
-  "certifications": "Leadership Development, Safety Management, Procore Certified Admin",
+  "certifications": "Leadership Development, Safety Management, Procore Certified Admin, Oregon code-inspection and plans-examiner record identifiers",
   "hobbies": "Team Building, Strategy",
   "specialInterests": "People-First Leadership and Safety Culture",
   "specialties": [
@@ -43,6 +44,56 @@
   "active": true,
   "slug": "jeremy-thamert",
   "email": "office@mhc-gc.com",
+  "credentialLinks": [
+    {
+      "label": "Washington L&I Contractor Record - MH Construction, Inc.",
+      "url": "https://secure.lni.wa.gov/verify/Detail.aspx?LIC=MHCONCI907R7"
+    },
+    {
+      "label": "Washington Veteran-Owned Business Resources",
+      "url": "https://dva.wa.gov/veterans-service-members-and-their-families/veteran-owned-businesses"
+    },
+    {
+      "label": "Oregon BCD - 2025 Commercial Code Change Tracking",
+      "url": "https://www.oregon.gov/bcd/inspector-training/Documents/2025-code-change/2025-code-change-tracking.pdf"
+    },
+    {
+      "label": "Oregon BCD - Inspector Certification Manual",
+      "url": "https://www.oregon.gov/bcd/inspector-certs/Documents/Certmanual.pdf"
+    },
+    {
+      "label": "Oregon BCD - Code Change Training and Self-Certification",
+      "url": "https://www.oregon.gov/bcd/inspector-training/pages/code-change-reg.aspx"
+    }
+  ],
+  "storyLinks": [
+    {
+      "label": "Baker City Herald - A soldier's special and solemn duty",
+      "url": "https://bakercityherald.com/2010/08/18/a-soldiers-special-and-solemn-duty/"
+    },
+    {
+      "label": "La Grande Observer - Everyone knows it's windy",
+      "url": "https://lagrandeobserver.com/2008/10/15/everyone-knows-its-windy/"
+    },
+    {
+      "label": "Richland Chamber - Cool Desert Nights",
+      "url": "https://www.richlandchamber.org/cool-desert-nights"
+    },
+    {
+      "label": "Pacific Northwest BBQ Association - Cool Desert Nights event",
+      "url": "https://pnwba.com/event-6666551"
+    }
+  ],
+  "membershipLinks": [
+    {
+      "label": "Tri-City Regional Chamber - MH Construction listing",
+      "url": "https://web.tricityregionalchamber.com/Contractor-General/MH-Construction,-Inc-6318"
+    },
+    {
+      "label": "Inland Northwest AGC - MH Construction member directory",
+      "url": "https://business.nwagc.org/memberdirectory/Details/mh-construction-3229535"
+    }
+  ],
   "skills": {
     "leadership": 100,
     "technical": 70,

@@ -1,0 +1,161 @@
+{
+  "projectMetadata": {
+    "projectName": "The Auto Lot",
+    "projectSlug": "auto-lot-nw",
+    "clientOrganization": "The Auto Lot (formerly Alvarez Auto Sales)",
+    "location": {
+      "city": "Kennewick",
+      "state": "WA"
+    },
+    "projectType": "Commercial Automotive Dealership",
+    "industry": "Automotive Retail",
+    "startDate": "TBD",
+    "completionDate": "TBD",
+    "projectStatus": "Completed",
+    "confidentialityLevel": "Public",
+    "primaryContact": "Sergio Alvarez",
+    "ownerApprover": "TBD"
+  },
+  "executiveSummary": "MH Construction served as general contractor for The Auto Lot at 3809 Plaza Way in Kennewick, Washington, supporting the owner's transition from Alvarez Auto Sales to a larger public-facing dealership location. Public reporting cited a completed 4,200-square-foot facility with showroom, storefront glazing, paved inventory circulation, and site improvements.",
+  "clientBackground": "The Auto Lot is a family-owned used-vehicle dealership in Kennewick that transitioned from Alvarez Auto Sales to an expanded Plaza Way location to support greater inventory and customer flow.",
+  "challenge": "Expand from a constrained prior site to a higher-capacity dealership environment with visible branding, customer circulation, accessible routes, and coordinated building/site delivery.",
+  "scopeOfWork": [
+    "General contracting for a new commercial automotive dealership facility",
+    "Coordination of building and site work for showroom, offices, inventory circulation, and parking",
+    "Delivery of exterior envelope finishes, storefront systems, and dealership signage interfaces",
+    "Delivery of interior showroom finishes, display zones, and customer-facing elements",
+    "Coordination with project design documents and municipal review requirements"
+  ],
+  "timelineAndMilestones": [
+    {
+      "date": "2022-09-28",
+      "name": "Design record",
+      "note": "Public architectural plan set identified the Plaza Way dealership project."
+    },
+    {
+      "date": "2023-06-12",
+      "name": "Construction underway",
+      "note": "Local coverage reported active construction and identified MH Construction as general contractor."
+    },
+    {
+      "date": "2024-03-15",
+      "name": "Completion reported",
+      "note": "Local business reporting cited completion and grand-opening announcement."
+    },
+    {
+      "date": "2024-03-23",
+      "name": "Grand opening",
+      "note": "Publicly announced opening date for The Auto Lot."
+    },
+    {
+      "date": "2025-10-30",
+      "name": "Closeout media capture",
+      "note": "Exterior and interior media captured to document completed facility conditions."
+    }
+  ],
+  "executionDetails": "MH Construction's verified role was general contractor with Baker Architecture identified publicly as project designer. Verified media documents storefront, lot circulation, site improvements, and customer-facing showroom environment.",
+  "outcomesAndImpact": [
+    "Enabled transition to a larger, more visible commercial site",
+    "Expanded inventory and customer circulation capacity",
+    "Established a consistent customer experience across lot, entry, and showroom",
+    "Supported owner brand transition to The Auto Lot"
+  ],
+  "clientTestimonial": {
+    "quote": "TBD",
+    "name": "TBD",
+    "title": "TBD",
+    "organization": "The Auto Lot",
+    "approvalStatus": "Pending"
+  },
+  "safetyAndComplianceNotes": {
+    "projectSpecificSafetyProtocols": "TBD",
+    "codeBasis": "2018 IBC with Washington amendments and related Washington code requirements",
+    "finalInspectionAndCloseoutStatus": "TBD",
+    "recordableIncidents": "TBD"
+  },
+  "mediaManifest": [
+    {
+      "assetFilename": "atc-e-20190128-p009.webp",
+      "type": "Photo",
+      "dateTaken": "2025-10-30",
+      "orientation": "Landscape",
+      "caption": "Wide front view showing storefront glazing, the central sign tower, and striped parking stalls.",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Hero"
+    },
+    {
+      "assetFilename": "atc-e-20181226-p007.webp",
+      "type": "Photo",
+      "dateTaken": "2025-10-30",
+      "orientation": "Portrait",
+      "caption": "Front elevation showing glazed entrance, vertical sign tower, and accessible parking markings.",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Gallery"
+    },
+    {
+      "assetFilename": "atc-e-20190130-p012.webp",
+      "type": "Photo",
+      "dateTaken": "2025-10-30",
+      "orientation": "Landscape",
+      "caption": "Wide side view showing metal wall elevation, parked vehicles, paving, and light poles.",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Gallery"
+    },
+    {
+      "assetFilename": "atc-e-20190417-p020.webp",
+      "type": "Photo",
+      "dateTaken": "2025-10-30",
+      "orientation": "Landscape",
+      "caption": "Front corner view showing storefront glazing, wall panels, paved parking, and landscape beds.",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Gallery"
+    },
+    {
+      "assetFilename": "atc-e-20190502-p025.webp",
+      "type": "Photo",
+      "dateTaken": "2025-10-30",
+      "orientation": "Landscape",
+      "caption": "Medium exterior view showing freestanding dealership sign beside vehicle display area.",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Supporting"
+    },
+    {
+      "assetFilename": "atc-e-20190715-p036.webp",
+      "type": "Photo",
+      "dateTaken": "2025-10-30",
+      "orientation": "Landscape",
+      "caption": "Exterior view showing dealership facade, paving, and circulation zones.",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Supporting"
+    }
+  ],
+  "seoInputs": {
+    "suggestedPageTitle": "The Auto Lot Dealership Project | Kennewick, WA | MH Construction",
+    "suggestedMetaDescription": "MH Construction served as general contractor for The Auto Lot, a completed 4,200-square-foot dealership and showroom in Kennewick, Washington.",
+    "targetKeywords": [
+      "The Auto Lot",
+      "Auto Lot NW",
+      "Kennewick commercial construction",
+      "automotive dealership construction",
+      "MH Construction",
+      "Washington general contractor"
+    ],
+    "suggestedUrlSlug": "auto-lot-nw"
+  },
+  "approvalAndPublishingNotes": {
+    "legalReview": "TBD",
+    "clientApprovalDate": "TBD",
+    "publishReady": "No",
+    "redactionsNeeded": "TBD"
+  },
+  "ingestion": {
+    "sourceFile": "documents/input/project-stories/alverez-auto-lot/2026-07_auto-lot-nw_story_v1.docx",
+    "ingestedOn": "2026-07-15"
+  }
+}

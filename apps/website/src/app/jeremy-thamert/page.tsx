@@ -11,6 +11,7 @@ import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { buildDualSeoTitle, MH_SLOGANS } from "@/lib/branding/page-names";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import jeremyProfile from "@/lib/data/team/jeremy-thamert.json";
+import { getTranslations } from "next-intl/server";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const canonicalUrl = "https://www.mhc-gc.com/jeremy-thamert";
@@ -18,21 +19,39 @@ const jeremyStamp = getIndividualBrandingStamp("jeremy-thamert");
 const jeremySeoTitle = buildDualSeoTitle("team", "Jeremy Thamert Profile");
 const jeremyPageSlogan = MH_SLOGANS.heroByRoute.team;
 const jeremySeoDescription =
-  "Jeremy Thamert is Owner & President of MH Construction in Pasco, WA. Learn how the Army veteran leads with clear communication, disciplined delivery, and relationship-first accountability across WA, OR, and ID.";
+  "Jeremy Thamert is Owner & President of MH Construction in Pasco, WA. Learn how the Army veteran leads with clear communication, disciplined delivery, and relationship-first accountability across WA, OR, and ID, with verified public records, credential references, and independent stories.";
+
+type ReferenceLink = {
+  label: string;
+  url: string;
+};
+
+const credentialLinks: ReferenceLink[] = jeremyProfile.credentialLinks ?? [];
+const storyLinks: ReferenceLink[] = jeremyProfile.storyLinks ?? [];
+const membershipLinks: ReferenceLink[] = jeremyProfile.membershipLinks ?? [];
+const sameAsLinks = Array.from(
+  new Set([...membershipLinks, ...credentialLinks].map((link) => link.url)),
+);
 
 export const metadata: Metadata = withGeoMetadata({
   title: jeremySeoTitle,
   description: jeremySeoDescription,
   keywords: [
     "Jeremy Thamert",
+    "Jeremy Gale Thamert",
     "Jeremy Thamert MH Construction",
     "Jeremy Thamert Owner and President",
     "Jeremy Thamert veteran construction leader",
+    "Jeremy Thamert verified leadership profile",
+    "Jeremy Thamert Washington L&I contractor record",
     "MH Construction leadership",
     "MH Construction team",
     "veteran-owned construction leadership",
     "Pasco Washington construction leadership",
     "Owner and President of MH Construction",
+    "Washington L&I contractor record MH Construction",
+    "Oregon inspector certification records",
+    "Tri-City Regional Chamber MH Construction",
     "Our Team leadership profile",
   ],
   alternates: {
@@ -64,6 +83,7 @@ const personSchema = {
   "@type": "Person",
   "@id": `${canonicalUrl}#person`,
   name: "Jeremy Thamert",
+  alternateName: "Jeremy Gale Thamert",
   jobTitle: "Owner & President",
   description: jeremyProfile.bio,
   image: `https://www.mhc-gc.com${jeremyProfile.avatar}`,
@@ -88,7 +108,26 @@ const personSchema = {
     "Safety Culture",
     "Relationship-First Client Service",
     "Veteran-Owned Business Leadership",
+    "Code Compliance",
+    "Plans Examination",
+    "Renewable Energy Coordination",
   ],
+  sameAs: sameAsLinks,
+  hasCredential: credentialLinks.map((link) => ({
+    "@type": "EducationalOccupationalCredential",
+    name: link.label,
+    url: link.url,
+  })),
+  memberOf: membershipLinks.map((link) => ({
+    "@type": "Organization",
+    name: link.label,
+    url: link.url,
+  })),
+  subjectOf: storyLinks.map((link) => ({
+    "@type": "CreativeWork",
+    name: link.label,
+    url: link.url,
+  })),
 };
 
 const profilePageSchema = {
@@ -134,6 +173,16 @@ const breadcrumbSchema = {
 
 export default async function JeremyThamertPage() {
   const isEs = (await getServerLocale()) === "es";
+  const t = await getTranslations("jeremyProfile.verifiedSources");
+  const verifiedSourceCopy = {
+    heroButton: t("heroButton"),
+    sectionTitle: t("sectionTitle"),
+    sectionBody: t("sectionBody"),
+    credentialsHeading: t("credentialsHeading"),
+    storiesHeading: t("storiesHeading"),
+    connectBody: t("connectBody"),
+    connectCta: t("connectCta"),
+  };
 
   return (
     <>
@@ -200,6 +249,12 @@ export default async function JeremyThamertPage() {
                   <Link href="/team">
                     <MaterialIcon icon="groups" size="sm" className="mr-2" />
                     View Full Leadership Team
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <Link href="#verified-sources">
+                    <MaterialIcon icon="verified" size="sm" className="mr-2" />
+                    {verifiedSourceCopy.heroButton}
                   </Link>
                 </Button>
               </div>
@@ -329,6 +384,81 @@ export default async function JeremyThamertPage() {
                   </Link>
                 </div>
               </aside>
+            </div>
+          </div>
+        </section>
+
+        <section id="verified-sources" className="pb-16 sm:pb-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-2xl border border-brand-primary/20 bg-white p-7 shadow-sm dark:bg-gray-900 sm:p-9">
+              <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
+                {verifiedSourceCopy.sectionTitle}
+              </h2>
+              <p className="mt-4 max-w-4xl text-sm leading-relaxed text-gray-600 dark:text-gray-300 sm:text-base">
+                {verifiedSourceCopy.sectionBody}
+              </p>
+
+              <div className="mt-8 grid gap-8 lg:grid-cols-2">
+                <article>
+                  <h3 className="text-lg font-extrabold text-gray-900 dark:text-white">
+                    {verifiedSourceCopy.credentialsHeading}
+                  </h3>
+                  <ul className="mt-4 space-y-3">
+                    {[...credentialLinks, ...membershipLinks].map((link) => (
+                      <li key={link.url}>
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-start justify-between gap-3 rounded-lg border border-brand-primary/15 bg-brand-primary/5 px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/10 dark:bg-brand-primary/10 dark:text-gray-100 dark:hover:bg-brand-primary/20"
+                        >
+                          <span>{link.label}</span>
+                          <MaterialIcon icon="open_in_new" size="sm" />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+
+                <article>
+                  <h3 className="text-lg font-extrabold text-gray-900 dark:text-white">
+                    {verifiedSourceCopy.storiesHeading}
+                  </h3>
+                  <ul className="mt-4 space-y-3">
+                    {storyLinks.map((link) => (
+                      <li key={link.url}>
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-start justify-between gap-3 rounded-lg border border-brand-secondary/20 bg-brand-secondary/5 px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-secondary/10 dark:bg-brand-secondary/10 dark:text-gray-100 dark:hover:bg-brand-secondary/20"
+                        >
+                          <span>{link.label}</span>
+                          <MaterialIcon icon="open_in_new" size="sm" />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-6 rounded-xl border border-brand-primary/20 bg-gray-50 p-4 dark:bg-gray-800/50">
+                    <p className="text-sm text-gray-700 dark:text-gray-200">
+                      {verifiedSourceCopy.connectBody}
+                    </p>
+                    <div className="mt-4">
+                      <Button asChild variant="secondary" size="lg">
+                        <Link href="/contact">
+                          <MaterialIcon
+                            icon="support_agent"
+                            size="sm"
+                            className="mr-2"
+                          />
+                          {verifiedSourceCopy.connectCta}
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </article>
+              </div>
             </div>
           </div>
         </section>
