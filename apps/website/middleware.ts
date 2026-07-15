@@ -19,7 +19,7 @@ import { securityMiddleware } from "./src/middleware/security";
 
 export const runtime = "edge";
 
-export async function middleware(request: NextRequest, event: NextFetchEvent) {
+export async function middleware(request: NextRequest, event?: NextFetchEvent) {
   // Apex → www redirect is handled by Cloudflare Redirect Rule "apex-to-www"
   // at the CDN edge (~10-20 ms faster than handling in Worker).
   // Rule: https://mhc-gc.com/* → https://www.mhc-gc.com/${1}
@@ -31,7 +31,7 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
   const securityResponse = await securityMiddleware(
     request,
     normalizedPath,
-    (promise) => event.waitUntil(promise),
+    event ? (promise) => event.waitUntil(promise) : undefined,
   );
 
   if (securityResponse.status >= 300 && securityResponse.status < 600) {
