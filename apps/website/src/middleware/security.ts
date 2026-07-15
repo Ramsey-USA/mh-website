@@ -4,7 +4,6 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
-import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { securityManager } from "@/lib/security/security-manager";
 import { auditLogger, AuditEventType } from "@/lib/security/audit-logger";
 import { verifyToken, extractTokenFromHeader } from "@/lib/auth/jwt";
@@ -18,16 +17,20 @@ import { verifyToken, extractTokenFromHeader } from "@/lib/auth/jwt";
  * silently swallow any rejection. Outside CF (local dev / tests) the
  * promise is left detached with an attached catch.
  */
-function deferAudit(promise: Promise<unknown>): void {
+function deferAudit(
+  promise: Promise<unknown>,
+  waitUntil?: (promise: Promise<unknown>) => void,
+): void {
   const safe = promise.catch(() => {
     // Audit failures are non-fatal by design.
   });
-  try {
-    const { ctx } = getCloudflareContext();
-    ctx.waitUntil(safe);
-  } catch {
-    // Not in a Cloudflare Workers context; the catch above keeps Node happy.
+
+  if (waitUntil) {
+    waitUntil(safe);
+    return;
   }
+
+  // Outside middleware event contexts (local dev/tests), keep promise detached.
 }
 
 // Configuration for different routes.
@@ -119,6 +122,7 @@ function isTrustedLighthouseAudit(request: NextRequest): boolean {
 export async function securityMiddleware(
   request: NextRequest,
   pathnameOverride?: string,
+  waitUntil?: (promise: Promise<unknown>) => void,
 ): Promise<NextResponse> {
   const pathname = normalizePathnameForLocale(
     pathnameOverride ?? request.nextUrl.pathname,
@@ -158,6 +162,7 @@ export async function securityMiddleware(
               reason: "Admin authentication required",
             },
           ),
+          waitUntil,
         );
         // Redirect browser requests to home; reject API-style requests
         if (request.headers.get("accept")?.includes("text/html")) {
@@ -186,6 +191,7 @@ export async function securityMiddleware(
             reason: "Rate limit exceeded",
           },
         ),
+        waitUntil,
       );
 
       return securityResult.response!;
@@ -216,6 +222,7 @@ export async function securityMiddleware(
           },
           tags: ["access", "middleware"],
         }),
+        waitUntil,
       );
     }
 
@@ -235,6 +242,7 @@ export async function securityMiddleware(
         },
         tags: ["error", "middleware"],
       }),
+      waitUntil,
     );
 
     // Apply basic security headers even on error

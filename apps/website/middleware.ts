@@ -3,7 +3,11 @@
  * Enhanced middleware with Cloudflare optimization and security features
  */
 
-import { NextResponse, type NextRequest } from "next/server";
+import {
+  NextResponse,
+  type NextFetchEvent,
+  type NextRequest,
+} from "next/server";
 import {
   getPreferredLocaleFromAcceptLanguage,
   isSupportedLocale,
@@ -13,7 +17,9 @@ import {
 } from "./src/lib/i18n/locale";
 import { securityMiddleware } from "./src/middleware/security";
 
-export async function middleware(request: NextRequest) {
+export const runtime = "edge";
+
+export async function middleware(request: NextRequest, event: NextFetchEvent) {
   // Apex → www redirect is handled by Cloudflare Redirect Rule "apex-to-www"
   // at the CDN edge (~10-20 ms faster than handling in Worker).
   // Rule: https://mhc-gc.com/* → https://www.mhc-gc.com/${1}
@@ -22,7 +28,11 @@ export async function middleware(request: NextRequest) {
     resolveLocalizedPath(request.nextUrl.pathname);
 
   // Apply security middleware
-  const securityResponse = await securityMiddleware(request, normalizedPath);
+  const securityResponse = await securityMiddleware(
+    request,
+    normalizedPath,
+    (promise) => event.waitUntil(promise),
+  );
 
   if (securityResponse.status >= 300 && securityResponse.status < 600) {
     return securityResponse;

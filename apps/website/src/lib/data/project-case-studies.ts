@@ -1,6 +1,7 @@
 export interface ProjectCaseStudy {
   slug: string;
   projectId: string;
+  isPublished?: boolean;
   title: string;
   metaTitle: string;
   metaDescription: string;
@@ -209,7 +210,50 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Built shared infrastructure that supports long-term tenant operations.",
     ],
   },
+  {
+    slug: "lcsnw-tri-cities",
+    projectId: "proj-006",
+    isPublished: false,
+    title: "LCSNW Tri-Cities Office Expansion",
+    metaTitle: "LCSNW Tri-Cities Office Expansion | MH Construction",
+    metaDescription:
+      "MH Construction completed the 38,000 sq ft LCSNW Tri-Cities office expansion in Kennewick, delivering trauma-informed youth behavioral health space.",
+    ogImage: "/images/placeholder-project.webp",
+    description:
+      "MH Construction led the adaptive reuse of a former call center into a 38,000-square-foot trauma-informed youth behavioral health facility for Lutheran Community Services Northwest in Kennewick.",
+    location: { city: "Kennewick", state: "WA" },
+    yearCompleted: 2026,
+    category: "Healthcare Commercial Remodel",
+    technicalSpecs: {
+      squareFootage: 38000,
+      addedProgramSpace: 10000,
+      deliveryMethod: "Adaptive reuse and interior commercial remodel",
+      primaryScope: [
+        "25 private counseling offices",
+        "Eight conference rooms",
+        "Three staff break rooms",
+        "Play therapy, teen, and training rooms",
+        "Mechanical, plumbing, and HVAC upgrades",
+      ],
+    },
+    safetyMilestones: [
+      "Permitted commercial remodel delivery with mechanical and plumbing scope",
+      "Sequenced interior demolition and build-back for controlled trade flow",
+      "Field coordination through framing, finish, and handover stages",
+      "Final turnover aligned with public opening on 2026-07-13",
+    ],
+    results: [
+      "Delivered 38,000 square feet of trauma-informed healthcare space.",
+      "Expanded operating footprint by approximately 10,000 square feet.",
+      "Consolidated two Kennewick offices into one service hub.",
+      "Built capacity foundation for youth mental and behavioral health delivery in Tri-Cities.",
+    ],
+  },
 ];
+
+function isCaseStudyPublished(project: ProjectCaseStudy): boolean {
+  return project.isPublished !== false;
+}
 
 export function getProjectCaseStudyBySlug(slug: string) {
   return projectCaseStudies.find((project) => project.slug === slug);
@@ -217,4 +261,10 @@ export function getProjectCaseStudyBySlug(slug: string) {
 
 export function getProjectCaseStudySlugs(): string[] {
   return projectCaseStudies.map((project) => project.slug);
+}
+
+export function getPublishedProjectCaseStudySlugs(): string[] {
+  return projectCaseStudies
+    .filter((project) => isCaseStudyPublished(project))
+    .map((project) => project.slug);
 }

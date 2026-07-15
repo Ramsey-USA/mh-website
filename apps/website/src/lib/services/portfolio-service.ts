@@ -291,6 +291,69 @@ export const portfolioData: ProjectPortfolio[] = [
     updatedAt: new Date("2024-10-01"),
     createdBy: "admin",
   },
+  {
+    id: "proj-006",
+    title: "LCSNW Tri-Cities Office Expansion",
+    description:
+      "Adaptive reuse and commercial remodel of a former call center into a trauma-informed youth behavioral health facility in Kennewick, WA.",
+    category: "commercial",
+    subcategory: "Healthcare Office Expansion",
+    status: "completed",
+    location: { city: "Kennewick", state: "WA", isPublic: true },
+    images: [
+      {
+        id: "img-006-1",
+        url: "/images/placeholder-project.webp",
+        alt: "LCSNW Tri-Cities Office Expansion project placeholder",
+        isFeatured: true,
+        order: 1,
+      },
+    ],
+    details: {
+      squareFootage: 38000,
+      completionDate: new Date("2026-07-13"),
+      duration: "8 months",
+      budget: { range: "Not published", isPublic: false },
+      features: [
+        "Adaptive reuse of a former call-center layout",
+        "25 private counseling offices",
+        "Specialized play therapy, teen, and training rooms",
+        "Eight conference rooms and three staff break rooms",
+        "Mechanical, plumbing, and HVAC system upgrades",
+        "Trauma-informed interior planning and finish coordination",
+      ],
+      materials: [
+        "Commercial flooring systems",
+        "Custom cabinetry",
+        "Durable interior finish packages",
+      ],
+    },
+    tags: [
+      "commercial",
+      "healthcare",
+      "adaptive-reuse",
+      "kennewick",
+      "office-expansion",
+    ],
+    seoMetadata: {
+      slug: "lcsnw-tri-cities",
+      metaTitle: "LCSNW Tri-Cities Office Expansion | MH Construction",
+      metaDescription:
+        "MH Construction completed the 38,000 sq ft LCSNW Tri-Cities office expansion in Kennewick, delivering trauma-informed youth behavioral health space.",
+      keywords: [
+        "commercial remodel",
+        "Kennewick construction",
+        "healthcare contractor",
+        "office expansion",
+        "LCSNW Tri-Cities",
+      ],
+    },
+    isPublished: false,
+    isFeatured: false,
+    createdAt: new Date("2026-07-15"),
+    updatedAt: new Date("2026-07-15"),
+    createdBy: "admin",
+  },
 ];
 
 const publishedProjects = portfolioData.filter(

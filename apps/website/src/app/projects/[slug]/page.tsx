@@ -12,7 +12,7 @@ import { Button, Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import {
   getProjectCaseStudyBySlug,
-  getProjectCaseStudySlugs,
+  getPublishedProjectCaseStudySlugs,
 } from "@/lib/data/project-case-studies";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { PortfolioService } from "@/lib/services/portfolio-service";
@@ -107,6 +107,20 @@ const PROJECT_ROUTE_PLANS: Record<string, ProjectRoutePlan> = {
       label: "West Richland Service Area",
     },
   },
+  "lcsnw-tri-cities": {
+    primaryService: {
+      href: "/services",
+      label: "Commercial Construction",
+    },
+    secondaryService: {
+      href: "/services",
+      label: "Restoration and Remodeling",
+    },
+    location: {
+      href: "/locations/kennewick",
+      label: "Kennewick Service Area",
+    },
+  },
 };
 
 function cityToLocationSlug(city: string): string {
@@ -129,7 +143,7 @@ function formatTechnicalSpecValue(value: string | number | string[]): string {
 }
 
 export function generateStaticParams(): Array<{ slug: string }> {
-  return getProjectCaseStudySlugs().map((slug) => ({ slug }));
+  return getPublishedProjectCaseStudySlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -186,6 +200,37 @@ export async function generateMetadata({
     project?.images.find((image) => image.isFeatured)?.url ??
     project?.images[0]?.url ??
     "/images/projects/project-default.webp";
+
+  if (caseStudy?.isPublished === false) {
+    return {
+      title,
+      description,
+      keywords: projectKeywords,
+      alternates: {
+        canonical: `${SITE_URL}/projects/${canonicalSlug}`,
+      },
+      openGraph: {
+        title,
+        description,
+        url: `${SITE_URL}/projects/${canonicalSlug}`,
+        type: "article",
+        images: [
+          {
+            url: `${SITE_URL}${openGraphImage}`,
+            alt: `${project?.title ?? caseStudy?.title ?? "Project"} case study`,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        creator: "@mhc_gc",
+        images: [`${SITE_URL}${openGraphImage}`],
+      },
+      robots: { index: false, follow: false },
+    };
+  }
 
   return {
     title,

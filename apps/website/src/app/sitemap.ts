@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { ALL_CLUSTER_SLUGS } from "@/lib/data/safety-manual-clusters";
 import { getFAQCategorySlugs } from "@/lib/data/faq-data";
 import { getLocationSlugs } from "@/lib/data/locations";
-import { getProjectCaseStudySlugs } from "@/lib/data/project-case-studies";
+import { getPublishedProjectCaseStudySlugs } from "@/lib/data/project-case-studies";
 
 export const dynamic = "force-static";
 
@@ -117,7 +117,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   const projectEntries = buildDataRouteEntries(
-    getProjectCaseStudySlugs().map((slug) => `/projects/${slug}`),
+    getPublishedProjectCaseStudySlugs().map((slug) => `/projects/${slug}`),
     baseUrl,
     currentDate,
     0.8,

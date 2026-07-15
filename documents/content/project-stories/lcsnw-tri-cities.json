@@ -1,0 +1,143 @@
+{
+  "projectMetadata": {
+    "projectName": "Lutheran Community Services Northwest Tri-Cities Office Expansion",
+    "projectSlug": "lcsnw-tri-cities",
+    "clientOrganization": "Lutheran Community Services Northwest (LCSNW)",
+    "location": {
+      "city": "Kennewick",
+      "state": "WA"
+    },
+    "projectType": "Commercial Remodel",
+    "industry": "Healthcare",
+    "startDate": "TBD",
+    "completionDate": "2026-07-13",
+    "projectStatus": "Completed",
+    "confidentialityLevel": "Public",
+    "primaryContact": "TBD",
+    "ownerApprover": "TBD"
+  },
+  "executiveSummary": "MH Construction served as general contractor for the Lutheran Community Services Northwest Tri-Cities Office Expansion in Kennewick, Washington. The project converted a former call center into a 38,000-square-foot youth mental and behavioral health facility, consolidating two Kennewick offices and adding purpose-built trauma-informed space for counseling, therapy, training, staff support, and food assistance.",
+  "clientBackground": "Lutheran Community Services Northwest serves individuals, families, and communities across Washington, Oregon, and Idaho. The Tri-Cities district focuses heavily on youth mental and behavioral health and required expanded, consolidated space to meet demand.",
+  "challenge": "LCSNW reported capacity pressure at existing offices and needed consolidated operations with specialized counseling and therapy environments. The selected former call-center site required complete interior transformation.",
+  "scopeOfWork": [
+    "38,000-square-foot interior commercial remodel and adaptive reuse",
+    "Demolition of existing call-center infrastructure",
+    "Construction of 25 private counseling offices",
+    "Construction of eight conference rooms and three staff break rooms",
+    "Build-out of specialized play therapy, teen, and training rooms",
+    "Installation of commercial plumbing, mechanical, and HVAC systems",
+    "Installation of flooring, cabinetry, and interior finishes"
+  ],
+  "timelineAndMilestones": [
+    {
+      "date": "2025-12-12",
+      "name": "Project Kickoff",
+      "note": "Demolition officially underway at the Canal Drive site."
+    },
+    {
+      "date": "2026-04-01",
+      "name": "Interior Framing",
+      "note": "Drywall, painting, and ceiling installation progressing."
+    },
+    {
+      "date": "2026-04-16",
+      "name": "Client Endorsement",
+      "note": "LCSNW publicly acknowledged MH Construction for site transformation."
+    },
+    {
+      "date": "2026-04-22",
+      "name": "Interior Finishes",
+      "note": "Cabinetry installation and paint application progressed."
+    },
+    {
+      "date": "2026-05-20",
+      "name": "Flooring Installation",
+      "note": "Carpet and hard-surface flooring installation completed."
+    },
+    {
+      "date": "2026-06-18",
+      "name": "Near Completion",
+      "note": "Final finishes applied and handover preparation underway."
+    },
+    {
+      "date": "2026-07-13",
+      "name": "Public Opening",
+      "note": "The new facility opened to the public."
+    }
+  ],
+  "executionDetails": "MH Construction managed the full interior remodel on an eight-month schedule, coordinating architectural intent, demolition sequencing, and multi-trade execution from framing through finishes.",
+  "outcomesAndImpact": [
+    "Delivered 38,000 square feet of purpose-built healthcare space",
+    "Added 10,000 square feet to LCSNW operational footprint",
+    "Consolidated two Kennewick offices into one service hub",
+    "Built a facility planned to support more than 400 local youth annually",
+    "Supported operations for approximately 120 local staff"
+  ],
+  "clientTestimonial": {
+    "quote": "Life transformation is our daily work. Building transformation is something we entrust to others. Thanks to MH Construction for doing the heavy lifting at our new site in the #tricitieswa. We plan to move in this summer.",
+    "name": "TBD",
+    "title": "TBD",
+    "organization": "Lutheran Community Services Northwest",
+    "approvalStatus": "Pending"
+  },
+  "safetyAndComplianceNotes": {
+    "projectSpecificSafetyProtocols": "TBD",
+    "finalInspectionAndOccupancyDocumentation": "TBD",
+    "recordableIncidents": "TBD"
+  },
+  "mediaManifest": [
+    {
+      "assetFilename": "TBD",
+      "type": "Photo",
+      "dateTaken": "TBD",
+      "orientation": "TBD",
+      "caption": "Final interior transformation image",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Hero"
+    },
+    {
+      "assetFilename": "TBD",
+      "type": "Photo",
+      "dateTaken": "TBD",
+      "orientation": "TBD",
+      "caption": "Demolition or start-condition image",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Supporting"
+    },
+    {
+      "assetFilename": "TBD",
+      "type": "Photo",
+      "dateTaken": "TBD",
+      "orientation": "TBD",
+      "caption": "Framing, drywall, ceiling, or finish-progress image",
+      "credit": "TBD",
+      "usageRights": "TBD",
+      "priority": "Gallery"
+    }
+  ],
+  "seoInputs": {
+    "suggestedPageTitle": "LCSNW Tri-Cities Office Expansion | MH Construction",
+    "suggestedMetaDescription": "MH Construction completed the 38,000-square-foot Lutheran Community Services Northwest office expansion in Kennewick, delivering trauma-informed care space.",
+    "targetKeywords": [
+      "commercial remodel",
+      "Kennewick construction",
+      "healthcare contractor",
+      "office expansion",
+      "MH Construction",
+      "LCSNW Tri-Cities"
+    ],
+    "suggestedUrlSlug": "lcsnw-tri-cities-office-expansion"
+  },
+  "approvalAndPublishingNotes": {
+    "legalReview": "TBD",
+    "clientApprovalDate": "TBD",
+    "publishReady": "No",
+    "redactionsNeeded": "TBD"
+  },
+  "ingestion": {
+    "sourceFile": "documents/input/project-stories/lcsnw-tri-cities/lcsnw-tri-cities-2518.docx",
+    "ingestedOn": "2026-07-15"
+  }
+}
