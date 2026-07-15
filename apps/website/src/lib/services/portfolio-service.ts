@@ -365,7 +365,7 @@ export const portfolioData: ProjectPortfolio[] = [
     id: "proj-010",
     title: "The Auto Lot",
     description:
-      "Commercial automotive dealership project in Kennewick, WA, delivering a customer-facing showroom, storefront identity, and expanded site circulation.",
+      "Commercial automotive dealership project in Kennewick, WA, delivering a client-facing showroom, storefront identity, and expanded site circulation.",
     category: "commercial",
     subcategory: "Automotive Dealership",
     status: "completed",
@@ -421,7 +421,7 @@ export const portfolioData: ProjectPortfolio[] = [
         url: "/images/projects/alverez-auto-lot/atc-e-20190715-p036.webp",
         alt: "Showroom-facing exterior of The Auto Lot in Kennewick",
         caption:
-          "Exterior storefront and lot relationship supporting customer circulation at the site.",
+          "Exterior storefront and lot relationship supporting client-partner circulation at the site.",
         isFeatured: false,
         order: 6,
       },
@@ -433,10 +433,10 @@ export const portfolioData: ProjectPortfolio[] = [
       budget: { range: "Not published", isPublic: false },
       challenges: [
         "Expanding from a constrained previous location to a larger public-facing site",
-        "Coordinating customer circulation, inventory display, and storefront visibility",
+        "Coordinating client-partner circulation, inventory display, and storefront visibility",
       ],
       features: [
-        "Glazed storefront and customer showroom environment",
+        "Glazed storefront and client-facing showroom environment",
         "Indoor vehicle display and sales-facing interior layout",
         "Paved inventory and parking circulation areas",
         "Accessible parking routes and entry approach",

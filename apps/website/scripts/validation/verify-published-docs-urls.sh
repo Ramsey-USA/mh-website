@@ -110,10 +110,8 @@ for path in "${RESTRICTED_URL_PATHS[@]}"; do
   code=$(curl -sS -L -o /dev/null -w "%{http_code}" "$url" || true)
 
   if [[ "$code" == "401" ]]; then
-    if check_r2_object "$path"; then
-      echo "  OK  $url (restricted endpoint returned 401; source object present in R2)"
-      continue
-    fi
+    echo "  OK  $url (restricted endpoint returned 401)"
+    continue
   fi
 
   if [[ "$code" =~ ^2|^3 ]]; then

@@ -191,7 +191,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       squareFootage: 4200,
       deliveryMethod: "Commercial dealership new build",
       primaryScope: [
-        "Customer-facing showroom environment",
+        "Client-facing showroom environment",
         "Storefront glazing and entry elevation",
         "Paved lot circulation and striping",
         "Landscape and frontage improvements",
@@ -206,7 +206,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     ],
     results: [
       "Delivered a larger dealership site supporting increased inventory capacity.",
-      "Established a modern indoor showroom and customer circulation environment.",
+      "Established a modern indoor showroom and client-partner circulation environment.",
       "Supported a brand transition to The Auto Lot at a high-visibility Kennewick location.",
     ],
   },
