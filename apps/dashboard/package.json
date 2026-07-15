@@ -62,9 +62,9 @@
     "@types/node": "^26.1.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.63.0",
-    "@typescript-eslint/parser": "^8.63.0",
-    "autoprefixer": "^10.5.2",
+    "@typescript-eslint/eslint-plugin": "^8.64.0",
+    "@typescript-eslint/parser": "^8.64.0",
+    "autoprefixer": "^10.5.3",
     "cross-env": "^10.1.0",
     "eslint": "^9.39.4",
     "eslint-config-next": "16.2.10",
@@ -72,7 +72,7 @@
     "jest-environment-jsdom": "^30.4.1",
     "prettier": "^3.9.5",
     "typescript": "^6.0.3",
-    "wrangler": "^4.110.0"
+    "wrangler": "^4.111.0"
   },
   "engines": {
     "node": ">=22.0.0"
