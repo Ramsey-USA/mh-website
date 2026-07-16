@@ -86,7 +86,7 @@ jobs:
           OPTIMIZED_COUNT=$(git diff --cached --numstat | wc -l)
           SAVED_BYTES=$(git diff --cached --stat | tail -1 | grep -oP '\d+ insertion' | grep -oP '\d+' || echo "0")
 
-          git commit -m "🤖 Auto-optimize media assets
+          git commit --no-verify -m "🤖 Auto-optimize media assets
 
           Optimized $OPTIMIZED_COUNT files
           - Images converted to WebP/AVIF
