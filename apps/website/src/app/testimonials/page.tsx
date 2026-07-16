@@ -168,7 +168,6 @@ function StaticTestimonialsSection({
   );
 }
 
-// NOSONAR: This page intentionally composes many static marketing sections.
 export default async function TestimonialsPage(props?: {
   searchParams?: Promise<Record<string, string | string[] | undefined>>;
 }) {

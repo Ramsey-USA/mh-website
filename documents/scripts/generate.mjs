@@ -5942,6 +5942,81 @@ async function validateCanonicalFooterClassUsage() {
   }
 }
 
+async function validateTemplatePageSizingGuardrails() {
+  const portraitTemplates = [
+    "safety-manual-cover.html",
+    "employee-handbook-cover.html",
+    "safety-manual-tabs.html",
+    "employee-handbook-tabs.html",
+    "safety-manual-letterhead.html",
+    "employee-handbook-letterhead.html",
+    "safety-manual-toc.html",
+    "employee-handbook-toc.html",
+    "form-cover.html",
+    "form-fillable.html",
+    "safety-manual-policy.html",
+    "operations-hub-dashboard-access-guide.html",
+  ].map((name) => join(DOCS_DIR, "manuals", name));
+
+  const landscapeTemplates = ["website-page-inventory.html"].map((name) =>
+    join(DOCS_DIR, "manuals", name),
+  );
+
+  const portraitChecks = [
+    {
+      regex:
+        /@page\s*\{[\s\S]*?size:\s*letter\s+portrait[\s\S]*?margin:\s*0\s*;/i,
+      message:
+        "Template must keep canonical @page setup (letter portrait, margin 0)",
+    },
+    {
+      regex:
+        /html\s*,\s*body\s*\{[\s\S]*?margin:\s*0[\s\S]*?padding:\s*0[\s\S]*?width:\s*8\.5in/i,
+      message:
+        "Template root must preserve canonical portrait page clamp (margin/padding 0, width 8.5in)",
+    },
+  ];
+
+  const landscapeChecks = [
+    {
+      regex:
+        /@page\s*\{[\s\S]*?size:\s*letter\s+landscape[\s\S]*?margin:\s*0\s*;/i,
+      message:
+        "Template must keep canonical @page setup (letter landscape, margin 0)",
+    },
+    {
+      regex:
+        /html\s*,\s*body\s*\{[\s\S]*?margin:\s*0[\s\S]*?padding:\s*0[\s\S]*?width:\s*11in/i,
+      message:
+        "Template root must preserve canonical landscape page clamp (margin/padding 0, width 11in)",
+    },
+  ];
+
+  for (const templatePath of portraitTemplates) {
+    if (!existsSync(templatePath)) {
+      throw new Error(`Template not found: ${templatePath}`);
+    }
+    const source = await readFile(templatePath, "utf-8");
+    validateTemplateGuardrails(
+      `page sizing (${templatePath})`,
+      source,
+      portraitChecks,
+    );
+  }
+
+  for (const templatePath of landscapeTemplates) {
+    if (!existsSync(templatePath)) {
+      throw new Error(`Template not found: ${templatePath}`);
+    }
+    const source = await readFile(templatePath, "utf-8");
+    validateTemplateGuardrails(
+      `page sizing (${templatePath})`,
+      source,
+      landscapeChecks,
+    );
+  }
+}
+
 async function collectHtmlTemplateFiles(dirPath) {
   if (!existsSync(dirPath)) return [];
 
@@ -5971,20 +6046,42 @@ async function validateManualTemplateTypographyGuardrails() {
     ...(await collectHtmlTemplateFiles(manualsDir)),
     ...(await collectHtmlTemplateFiles(formsDir)),
   ];
+  const styleFiles = [
+    join(DOCS_DIR, "styles/brand.css"),
+    join(DOCS_DIR, "styles/print-base.css"),
+    join(DOCS_DIR, "styles/components.css"),
+  ].filter((filePath) => existsSync(filePath));
+  const auditedFiles = [...htmlFiles, ...styleFiles];
+
+  if (
+    !/mendl-sans-dusk/i.test(PDF_FONT_STACK_HEADING) ||
+    !/Mendl Sans Dusk/.test(PDF_FONT_STACK_HEADING) ||
+    !/mendl-sans-dusk/i.test(PDF_FONT_STACK_BODY) ||
+    !/Mendl Sans Dusk/.test(PDF_FONT_STACK_BODY)
+  ) {
+    throw new Error(
+      "Guardrail validation failed: PDF font stack constants must include mendl-sans-dusk and Mendl Sans Dusk.",
+    );
+  }
 
   const violations = [];
-  for (const templatePath of htmlFiles) {
-    const html = await readFile(templatePath, "utf-8");
+  for (const templatePath of auditedFiles) {
+    const source = await readFile(templatePath, "utf-8");
+    const isCssFile = templatePath.endsWith(".css");
     const isCoverTemplate = /(?:^|\/)\w[\w-]*-cover\.html$/i.test(templatePath);
+    const requiresFontVarDeclarations =
+      !isCssFile ||
+      templatePath.endsWith("styles/brand.css") ||
+      templatePath.endsWith("styles/print-base.css");
 
     if (
-      /\bDIN\s*2014\b/i.test(html) ||
-      /\bAbolition\b/i.test(html) ||
+      /\bDIN\s*2014\b/i.test(source) ||
+      /\bAbolition\b/i.test(source) ||
       /"mendl-sans-dusk"\s*,\s*"Mendl Sans Dusk"\s*,\s*"Abolition"/i.test(
-        html,
+        source,
       ) ||
       /"DIN 2014"\s*,\s*"Helvetica Neue"\s*,\s*Arial\s*,\s*"Liberation Sans"/i.test(
-        html,
+        source,
       )
     ) {
       violations.push(
@@ -5992,12 +6089,13 @@ async function validateManualTemplateTypographyGuardrails() {
       );
     }
 
-    const headingDecl = html.match(/--font-heading\s*:\s*([^;]+);/i)?.[1] || "";
-    const bodyDecl = html.match(/--font-body\s*:\s*([^;]+);/i)?.[1] || "";
+    const headingDecl =
+      source.match(/--font-heading\s*:\s*([^;]+);/i)?.[1] || "";
+    const bodyDecl = source.match(/--font-body\s*:\s*([^;]+);/i)?.[1] || "";
 
-    if (!headingDecl) {
+    if (requiresFontVarDeclarations && !headingDecl) {
       violations.push(`${templatePath}: missing --font-heading declaration`);
-    } else {
+    } else if (headingDecl) {
       const headingRequired = ["mendl-sans-dusk", "Mendl Sans Dusk"];
       const missing = headingRequired.filter(
         (token) => !headingDecl.includes(token),
@@ -6009,9 +6107,9 @@ async function validateManualTemplateTypographyGuardrails() {
       }
     }
 
-    if (!bodyDecl) {
+    if (requiresFontVarDeclarations && !bodyDecl) {
       violations.push(`${templatePath}: missing --font-body declaration`);
-    } else {
+    } else if (bodyDecl) {
       const bodyRequired = ["mendl-sans-dusk", "Mendl Sans Dusk"];
       const missing = bodyRequired.filter((token) => !bodyDecl.includes(token));
       if (missing.length > 0) {
@@ -6021,16 +6119,36 @@ async function validateManualTemplateTypographyGuardrails() {
       }
     }
 
+    const fontFamilyDeclMatches = source.matchAll(
+      /font-family\s*:\s*([^;]+);/gi,
+    );
+    for (const match of fontFamilyDeclMatches) {
+      const declaration = String(match[1] || "").trim();
+      if (!declaration) continue;
+      const isAllowedDeclaration =
+        /var\(--font-(?:heading|body|mono)\)/i.test(declaration) ||
+        /["']Material Icons["']/i.test(declaration) ||
+        /\binherit\b/i.test(declaration) ||
+        /mendl-sans-dusk/i.test(declaration) ||
+        /Mendl Sans Dusk/.test(declaration);
+      if (!isAllowedDeclaration) {
+        violations.push(
+          `${templatePath}: disallowed font-family declaration \`${declaration}\` (must use Mendl family tokens or Material Icons)`,
+        );
+      }
+    }
+
     if (
+      !isCssFile &&
       !isCoverTemplate &&
-      !/font-family\s*:\s*var\(--font-heading\)/i.test(html)
+      !/font-family\s*:\s*var\(--font-heading\)/i.test(source)
     ) {
       violations.push(
         `${templatePath}: missing font-family usage for --font-heading`,
       );
     }
 
-    if (!/font-family\s*:\s*var\(--font-body\)/i.test(html)) {
+    if (!isCssFile && !/font-family\s*:\s*var\(--font-body\)/i.test(source)) {
       violations.push(
         `${templatePath}: missing font-family usage for --font-body`,
       );
@@ -6950,20 +7068,25 @@ async function runGuardrailsCheck() {
   await validateManualTemplateMaterialIconGuardrails();
   console.log("  ✓  Material icon map guardrails verified");
 
+  console.log("  •  Layout consistency checks");
+
+  await validateTemplatePageSizingGuardrails();
+  console.log("    ✓  Template page sizing guardrails verified");
+
   await validateManualCoverCohesionGuardrails();
-  console.log("  ✓  Cover cohesion guardrails verified");
+  console.log("    ✓  Cover cohesion guardrails verified");
 
   await validateHandbookCoverTabsFooterGuardrails();
-  console.log("  ✓  Handbook cover/tabs footer guardrails verified");
+  console.log("    ✓  Handbook cover/tabs footer guardrails verified");
 
   await validateSafetyTabsVisualStandardGuardrails();
-  console.log("  ✓  Safety tabs visual standard guardrails verified");
+  console.log("    ✓  Safety tabs visual standard guardrails verified");
 
   await validateSectionTemplateFooterCongruencyGuardrails();
-  console.log("  ✓  Section footer congruency guardrails verified");
+  console.log("    ✓  Section footer congruency guardrails verified");
 
   await validateSpineTemplateGuardrails();
-  console.log("  ✓  Spine layout and labeling guardrails verified");
+  console.log("    ✓  Spine layout and labeling guardrails verified");
 
   validateRetiredReferencePdfGuardrail();
   console.log("  ✓  Retired reference artifact guardrail verified");
@@ -7508,6 +7631,23 @@ async function generateSections(filter = null) {
           .replace(/^-|-$/g, ""),
     };
   });
+
+  if (filter === null) {
+    const expectedSectionFiles = new Set(
+      targets.map((section) => `${section.numberStr}-${section.slug}.pdf`),
+    );
+    const existingSectionFiles = (await readdir(sectionsDir)).filter((name) =>
+      name.endsWith(".pdf"),
+    );
+    for (const existingName of existingSectionFiles) {
+      if (expectedSectionFiles.has(existingName)) continue;
+      const stalePath = join(sectionsDir, existingName);
+      unlinkSync(stalePath);
+      console.log(
+        `  ✓  Removed stale section PDF: ${stalePath.replace(ROOT + "/", "")}`,
+      );
+    }
+  }
 
   console.log(`\n📑 Generating ${targets.length} section PDF(s)…`);
 

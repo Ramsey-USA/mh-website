@@ -330,7 +330,7 @@
          border-collapse: collapse;
          border: 0.75pt solid var(--brand-secondary, #2d5e3e);
          font-family: var(--font-body);
-         font-size: var(--type-print-table, 9pt);
+         font-size: var(--website-body-size);
          page-break-inside: auto;
          break-inside: auto;
        }
@@ -351,8 +351,9 @@
          border: 0.5pt solid #b9c4bd;
          vertical-align: top;
          font-family: var(--font-body);
-         font-size: var(--type-print-table, 9pt);
-         line-height: 1.45;
+         font-size: var(--website-body-size);
+         line-height: var(--website-body-leading);
+         letter-spacing: var(--website-body-tracking);
        }
        .section-body .sec-data-table tr {
          page-break-inside: avoid;
