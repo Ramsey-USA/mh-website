@@ -233,8 +233,6 @@ export const manuals: DocumentEntry[] = [
     r2Key: "docs/safety/safety-manual-complete.pdf",
     contentsPdfPath: "/docs/safety/safety-manual-contents.pdf",
     contentsR2Key: "docs/safety/safety-manual-contents.pdf",
-    referencePdfPath: "/docs/safety/safety-manual-reference.pdf",
-    referenceR2Key: "docs/safety/safety-manual-reference.pdf",
     tags: ["safety", "OSHA", "field", "required", "MISH", "AGC", "CSEA", "APP"],
     qrCodeUrl: "/images/qr-codes/safety/qr-safety-manual-color.png",
     sections: [

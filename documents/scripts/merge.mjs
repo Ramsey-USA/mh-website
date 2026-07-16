@@ -135,6 +135,15 @@ function normalizeSlug(value) {
 
 function parseFormOrder(source) {
   const trimmed = String(source || "").trim();
+
+  const handbookMatch = /^HANDBOOK-FORM-(\d{1,2})$/i.exec(trimmed);
+  if (handbookMatch) {
+    return {
+      num: Number.parseInt(handbookMatch[1], 10),
+      letter: "A",
+    };
+  }
+
   const mishMatch = /^(?:FORM\s+)?MISH\s*(\d{1,2})$/i.exec(trimmed);
   if (mishMatch) {
     return {
@@ -209,6 +218,35 @@ function normalizeManualSection(manualSection) {
   return "";
 }
 
+const HANDBOOK_FORM_CONTENT_CODES = Object.freeze({
+  "HANDBOOK-FORM-01": "CV",
+  "HANDBOOK-FORM-02": "RA",
+  "HANDBOOK-FORM-03": "SP",
+  "HANDBOOK-FORM-04": "WH",
+  "HANDBOOK-FORM-05": "CE",
+  "HANDBOOK-FORM-06": "EP",
+  "HANDBOOK-FORM-07": "CP",
+  "HANDBOOK-FORM-08": "GE",
+});
+
+function buildFormsAppendixDisplayId(rawId) {
+  const normalized = String(rawId || "").trim();
+  if (!isEmployeeHandbook) return normalized;
+
+  const handbookMatch = /^HANDBOOK-FORM-(\d{1,2})$/i.exec(normalized);
+  if (handbookMatch) {
+    const handbookId = `HANDBOOK-FORM-${String(Number(handbookMatch[1])).padStart(2, "0")}`;
+    const code = HANDBOOK_FORM_CONTENT_CODES[handbookId];
+    if (code) return `FORM ${code}`;
+  }
+
+  if (/^HANDBOOK-LETTERHEAD$/i.test(normalized)) {
+    return "FORM LH";
+  }
+
+  return normalized;
+}
+
 async function loadFormManifestIndex() {
   if (!existsSync(FORMS_MANIFEST_PATH)) {
     return new Map();
@@ -276,13 +314,18 @@ async function buildFormsTocPdf(entries) {
       font: fontBold,
       color: rgb(0.08, 0.13, 0.2),
     });
-    page.drawText("MH Construction Industrial Safety and Health Program", {
-      x: marginX,
-      y: subtitleY,
-      size: 9,
-      font: fontRegular,
-      color: rgb(0.28, 0.33, 0.4),
-    });
+    page.drawText(
+      isEmployeeHandbook
+        ? "MH Construction Employee Handbook"
+        : "MH Construction Industrial Safety and Health Program",
+      {
+        x: marginX,
+        y: subtitleY,
+        size: 9,
+        font: fontRegular,
+        color: rgb(0.28, 0.33, 0.4),
+      },
+    );
 
     page.drawLine({
       start: { x: marginX, y: tableTopY + 6 },
@@ -672,7 +715,7 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
 
           const tocEntries = filtered.map((pkg) => {
             const entry = {
-              id: pkg.id,
+              id: buildFormsAppendixDisplayId(pkg.id),
               title: pkg.title,
               manualSection: pkg.manualSection,
               pageStart: nextFormPage,

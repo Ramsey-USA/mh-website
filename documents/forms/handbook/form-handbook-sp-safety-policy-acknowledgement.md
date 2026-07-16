@@ -1,6 +1,7 @@
-# HANDBOOK-FORM-03 — Employee Safety Policy Acknowledgement
+# HANDBOOK-FORM-03 (FORM SP) — Employee Safety Policy Acknowledgement
 
-- **Schema:** `form-handbook-03-safety-policy-acknowledgement.json`
+- **Schema:** `form-handbook-sp-safety-policy-acknowledgement.json`
+- **TOC Code:** FORM SP
 - **Chapter:** 6 — Health, Safety, & Security
 - **Owner:** Safety Officer (Matt Ramsey)
 - **Purpose:** Confirms a team member understands MH Construction's safety policies and the

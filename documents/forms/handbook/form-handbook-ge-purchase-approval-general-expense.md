@@ -1,6 +1,7 @@
-# HANDBOOK-FORM-08 — Purchase Approval General Expense
+# HANDBOOK-FORM-08 (FORM GE) — Purchase Approval General Expense
 
-- **Schema:** `form-handbook-08-purchase-approval-general-expense.json`
+- **Schema:** `form-handbook-ge-purchase-approval-general-expense.json`
+- **TOC Code:** FORM GE
 - **Chapter:** 3 — Compensation & Benefits
 - **Owner:** Human Resources
 - **Purpose:** Routes handbook-related purchases and general expense approvals.

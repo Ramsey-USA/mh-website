@@ -1,6 +1,7 @@
-# HANDBOOK-FORM-02 — Employee Handbook Receipt Acknowledgment
+# HANDBOOK-FORM-02 (FORM RA) — Employee Handbook Receipt Acknowledgment
 
-- **Schema:** `form-handbook-02-handbook-receipt-acknowledgment.json`
+- **Schema:** `form-handbook-ra-handbook-receipt-acknowledgment.json`
+- **TOC Code:** FORM RA
 - **Chapter:** 1 — Introduction & Company Overview
 - **Owner:** Human Resources
 - **Purpose:** Confirms a team member has received the Employee Handbook and understands

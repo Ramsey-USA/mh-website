@@ -1,6 +1,7 @@
-# HANDBOOK-FORM-06 — Employee Photo Release Form
+# HANDBOOK-FORM-06 (FORM EP) — Employee Photo Release Form
 
-- **Schema:** `form-handbook-06-employee-photo-release-form.json`
+- **Schema:** `form-handbook-ep-employee-photo-release-form.json`
+- **TOC Code:** FORM EP
 - **Chapter:** 7 — Technology & Data Use
 - **Owner:** Human Resources
 - **Purpose:** Captures a team member's authorization for company photo and media use.

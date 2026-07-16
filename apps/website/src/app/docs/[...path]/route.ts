@@ -27,7 +27,7 @@ const CONTENT_TYPES: Record<string, string> = {
 // Public website-facing document set (partial access only).
 // Full manuals/sections remain employee-only and require authentication.
 const PUBLIC_DOC_KEY_PATTERNS = [
-  /^docs\/safety\/safety-manual-(?:contents|toc|reference)\.pdf$/i,
+  /^docs\/safety\/safety-manual-(?:contents|toc)\.pdf$/i,
   /^docs\/employee\/employee-handbook-toc\.pdf$/i,
   /^docs\/safety\/forms\/[\w.-]+\.pdf$/i,
   /^docs\/employee\/forms\/[\w.-]+\.pdf$/i,

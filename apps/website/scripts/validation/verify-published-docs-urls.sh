@@ -10,11 +10,10 @@ R2_BUCKET="${R2_BUCKET:-mh-construction-assets}"
 
 PUBLIC_URL_PATHS=(
   "/docs/safety/safety-manual-contents.pdf"
-  "/docs/safety/safety-manual-reference.pdf"
   "/docs/employee/employee-handbook-toc.pdf"
   "/docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf"
   "/docs/safety/forms/form-mish-50-return-to-work-program-agreement-ack.pdf"
-  "/docs/employee/forms/form-handbook-01-company-vehicle-acknowledgement.pdf"
+  "/docs/employee/forms/form-handbook-cv-company-vehicle-acknowledgement.pdf"
 )
 
 RESTRICTED_URL_PATHS=(

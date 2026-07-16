@@ -1,6 +1,7 @@
-# HANDBOOK-FORM-05 — Computer & Electronics Use Policy Acknowledgment
+# HANDBOOK-FORM-05 (FORM CE) — Computer & Electronics Use Policy Acknowledgment
 
-- **Schema:** `form-handbook-05-computer-electronics-use-agreement.json`
+- **Schema:** `form-handbook-ce-computer-electronics-use-agreement.json`
+- **TOC Code:** FORM CE
 - **Chapter:** 7 — Technology & Data Use
 - **Owner:** Human Resources
 - **Purpose:** Confirms a team member understands the Computer and Electronics Use Policy.
@@ -16,4 +17,4 @@
 ## Notes
 
 - Covers acceptable use, data protection, e-mail monitoring, and confidentiality.
-- Required alongside HANDBOOK-FORM-04 for remote-work arrangements.
+- Required alongside HANDBOOK-FORM-04 (FORM WH) for remote-work arrangements.

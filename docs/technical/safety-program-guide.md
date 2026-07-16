@@ -89,7 +89,6 @@ documents/content/safety-manual.json                ← Auto-generated manifest 
 documents/generated-pdfs/sections/                  ← 50 generated PDFs served to field staff
 documents/generated-pdfs/form-packages/             ← Generated form package PDFs (cover + fillable)
 documents/generated-pdfs/safety-manual-toc.pdf      ← Standalone table-of-contents PDF (generator canonical name)
-documents/generated-pdfs/safety-manual-reference.pdf ← Standalone section reference guide PDF
            │
            ▼  pnpm --filter @mhc/website run docs:merge + R2 publish
 documents/generated-pdfs/safety-manual-complete.pdf ← Complete bonding-company manual
@@ -113,7 +112,6 @@ Every Safety revision must produce both of these outputs:
 1. **QR-enabled section PDFs** for field use, with each section resolving back to its digital section route.
 1. **Complete bonding manual PDF** for surety, insurer, and prequalification review.
 1. **Standalone table-of-contents PDF** for quick field access. Generator output file is `safety-manual-toc.pdf`; published delivery key is `/docs/safety/safety-manual-contents.pdf` (compatibility alias).
-1. **Standalone reference guide PDF** (`safety-manual-reference.pdf`) for section lookup and compliance cross-reference.
 
 ---
 
@@ -154,7 +152,6 @@ documents/
 │   ├── safety-manual-spine.pdf
 │   ├── safety-manual-tabs.pdf
 │   ├── safety-manual-toc.pdf
-│   ├── safety-manual-reference.pdf
 │   ├── sections/          ← Generated section PDFs (served to /hub field staff)
 │   └── form-packages/     ← Generated form package PDFs
 ├── scripts/
@@ -361,6 +358,9 @@ pnpm run type-check && pnpm run lint && pnpm run build
 - `pnpm --filter @mhc/website run docs:generate:spine`: Generate MISH spine PDF
 - `pnpm --filter @mhc/website run docs:generate:tabs`: Generate MISH tab dividers
 - `pnpm --filter @mhc/website run docs:generate:sections`: Generate all 50 MISH section PDFs
+- `pnpm --filter @mhc/website run docs:generate -- --template sections --report-cache`: Generate MISH sections and print cache hit/miss summary (`sections: X rendered, Y unchanged`)
+- `pnpm --filter @mhc/website run docs:generate -- --template form-covers --report-cache`: Generate form covers and print cache hit/miss summary (`form-covers: X rendered, Y unchanged`)
+- `pnpm --filter @mhc/website run docs:generate -- --template form-packages --report-cache`: Generate form packages and print cache hit/miss summary (`form-packages: X rendered, Y unchanged`)
 - `pnpm --filter @mhc/website run docs:merge`: Assemble complete MISH manual PDF
 - `pnpm --filter @mhc/website run docs:merge:digital`: Assemble digital MISH manual (no tabs)
 - `pnpm --filter @mhc/website run docs:publish:safety`: Publish MISH PDFs to R2 FILE_ASSETS bucket

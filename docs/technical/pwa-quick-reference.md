@@ -196,7 +196,6 @@ Current registered bundle assets:
 - `/resources/safety-program`
 - `/docs/safety/safety-manual-complete.pdf`
 - `/docs/safety/safety-manual-contents.pdf`
-- `/docs/safety/safety-manual-reference.pdf`
 - `/docs/safety/forms/form-02-a-toolbox-talk-sign-in-log.pdf`
 - `/docs/safety/forms/form-02-b-job-hazard-analysis.pdf`
 - `/docs/safety/forms/form-02-c-incident-accident-report.pdf`

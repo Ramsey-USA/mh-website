@@ -56,6 +56,7 @@ import { createRequire } from "node:module";
 import { execFileSync } from "node:child_process";
 import { join, resolve, dirname, extname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { createHash } from "node:crypto";
 import { createCanvas } from "@napi-rs/canvas";
 
 const SITE_URL = "https://www.mhc-gc.com";
@@ -488,6 +489,16 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
 const DOCS_DIR = join(ROOT, "documents");
 const OUTPUT_DIR = join(DOCS_DIR, "generated-pdfs");
+const RETIRED_REFERENCE_PDF_FILE = "safety-manual-reference.pdf";
+const RETIRED_REFERENCE_OUTPUT_PATH = join(
+  OUTPUT_DIR,
+  RETIRED_REFERENCE_PDF_FILE,
+);
+const RETIRED_REFERENCE_DOWNLOAD_PATH = join(
+  DOCS_DIR,
+  "downloads/safety-manual",
+  RETIRED_REFERENCE_PDF_FILE,
+);
 let MANIFEST = join(DOCS_DIR, "content/safety-manual.json");
 const FORMS_DIR = join(DOCS_DIR, "forms");
 const CANONICAL_DOCS_DIR = DOCS_DIR;
@@ -537,6 +548,9 @@ const positionalTemplate = args.find((arg) => !arg.startsWith("-")) || null;
 const template = getArg("--template") || positionalTemplate || "all";
 const sectionNo = getArg("--section");
 const formArg = getArg("--form"); // e.g. "form-02-c" or "FORM 02-C"
+const incrementalSectionsEnabled =
+  !hasFlag("--no-incremental") && !hasFlag("--force");
+const reportCacheStats = hasFlag("--report-cache");
 const revDateArg = getArg("--rev-date"); // e.g. "7/1/2026"
 const revNumArg = getArg("--rev-number"); // e.g. "3.0"
 const manualArg = (
@@ -562,6 +576,11 @@ if (!isEmployeeHandbook && manualArg !== "safety") {
 const ACTIVE_MANUAL = isEmployeeHandbook
   ? "employee-handbook"
   : "safety-manual";
+const cacheRunSummary = {
+  sections: null,
+  formCovers: null,
+  formPackages: null,
+};
 const MISH_MAX_SECTION = 50;
 const ACTIVE_MANUAL_LABEL = isEmployeeHandbook
   ? "Employee Handbook"
@@ -1287,26 +1306,8 @@ const FALLBACK_HANDBOOK_TITLES = new Map([
   [9, "Workplace Respect & Anti-Harassment"],
 ]);
 
-const HANDBOOK_FORM_DISPLAY_NUMBER_OVERRIDES = new Map([
-  ["01", "02"],
-  ["02", "01"],
-  ["03", "05"],
-  ["05", "03"],
-]);
-
 function remapHandbookFormIdForDisplay(rawId) {
-  const normalized = String(rawId || "").trim();
-  if (/^HANDBOOK-LETTERHEAD$/i.test(normalized)) {
-    return "HANDBOOK-FORM-09";
-  }
-
-  const match = /^HANDBOOK-FORM-(\d{2})$/i.exec(normalized);
-  if (!match) return normalized;
-
-  const originalNum = match[1];
-  const mappedNum =
-    HANDBOOK_FORM_DISPLAY_NUMBER_OVERRIDES.get(originalNum) || originalNum;
-  return `HANDBOOK-FORM-${mappedNum}`;
+  return String(rawId || "").trim();
 }
 
 function getDisplayFormId(rawId) {
@@ -1452,6 +1453,28 @@ async function buildSectionMetaMap(sections = []) {
 function buildTocFormCode(form) {
   const rawId = getDisplayFormId(form?.id || "");
   if (!rawId) return "FORM";
+
+  const HANDBOOK_FORM_CONTENT_CODES = Object.freeze({
+    "HANDBOOK-FORM-01": "CV", // Company Vehicle
+    "HANDBOOK-FORM-02": "RA", // Receipt Acknowledgment
+    "HANDBOOK-FORM-03": "SP", // Safety Policy
+    "HANDBOOK-FORM-04": "WH", // Work from Home
+    "HANDBOOK-FORM-05": "CE", // Computer Electronics
+    "HANDBOOK-FORM-06": "EP", // Employee Photo
+    "HANDBOOK-FORM-07": "CP", // Client Photo
+    "HANDBOOK-FORM-08": "GE", // General Expense
+  });
+
+  const handbookMatch = /^HANDBOOK-FORM-(\d{1,2})$/i.exec(rawId);
+  if (handbookMatch) {
+    const handbookId = `HANDBOOK-FORM-${String(Number(handbookMatch[1])).padStart(2, "0")}`;
+    const mappedCode = HANDBOOK_FORM_CONTENT_CODES[handbookId];
+    if (mappedCode) return `FORM ${mappedCode}`;
+  }
+
+  if (/^HANDBOOK-LETTERHEAD$/i.test(rawId)) {
+    return "FORM LH";
+  }
 
   const mishMatch = /^MISH\s*-?\s*(\d{1,2})$/i.exec(rawId);
   if (mishMatch) {
@@ -1933,7 +1956,7 @@ function buildSectionHeaderHtml(
   const qrMark = qrDataUrl
     ? [
         `<div style="display:flex;flex-direction:column;align-items:center;gap:2pt;`,
-        `flex:0 0 auto;padding-right:8pt;align-self:stretch;justify-content:flex-end;">`,
+        `flex:0 0 auto;padding-right:8pt;justify-content:center;">`,
         `<img src="${qrDataUrl}" alt="Scan section ${sectionNum}"`,
         ` style="width:40pt;height:40pt;border-radius:2pt;`,
         `border:0.5pt solid ${BRAND_COLORS.secondary};display:block;" />`,
@@ -1961,15 +1984,15 @@ function buildSectionHeaderHtml(
   return [
     fontFaceStyle,
     `<div style="width:100%;background:linear-gradient(180deg,#ffffff 0%,#f7f8f7 100%);border-bottom:1.5pt solid ${BRAND_COLORS.secondary};`,
-    `${pad};height:0.75in;display:flex;align-items:flex-start;position:relative;`,
-    `justify-content:space-between;font-family:${font};padding-top:6pt;`,
+    `${pad};height:0.75in;display:flex;align-items:center;position:relative;`,
+    `justify-content:space-between;font-family:${font};`,
     `-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box;gap:8pt;overflow:hidden;">`,
 
     // ZONE 1 — section QR code at far-left edge
     qrMark,
 
     // ZONE 2 — MISH structural reference + title
-    `<div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden;gap:2pt;">`,
+    `<div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;overflow:hidden;gap:2pt;">`,
     `<span style="display:block;align-self:flex-start;color:${BRAND_COLORS.secondaryText};`,
     `font-size:7.2pt;font-weight:700;letter-spacing:0.11em;text-transform:uppercase;`,
     `line-height:1.1;white-space:nowrap;">`,
@@ -2023,8 +2046,15 @@ function buildSectionFooterHtml(sectionNum, revNum, revDate, options = {}) {
   ].join("");
 }
 
+const qrDataUrlCache = new Map();
+
 function buildQrDataUrl(url) {
-  return QRCode.toDataURL(url, {
+  const key = String(url || "").trim();
+  if (!key) return Promise.resolve("");
+  const cached = qrDataUrlCache.get(key);
+  if (cached) return cached;
+
+  const qrPromise = QRCode.toDataURL(key, {
     type: "image/png",
     width: 300,
     margin: 1,
@@ -2033,7 +2063,13 @@ function buildQrDataUrl(url) {
       light: "#ffffff",
     },
     errorCorrectionLevel: "M",
+  }).catch((error) => {
+    qrDataUrlCache.delete(key);
+    throw error;
   });
+
+  qrDataUrlCache.set(key, qrPromise);
+  return qrPromise;
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -2886,9 +2922,7 @@ async function loadDocxDerivedFormHtml(formEntry) {
   }
 
   try {
-    const mammothMod = await import("mammoth");
-    const convertToHtml =
-      mammothMod?.convertToHtml || mammothMod?.default?.convertToHtml;
+    const convertToHtml = await getMammothConvertToHtml();
     if (typeof convertToHtml !== "function") {
       throw new Error("mammoth.convertToHtml is unavailable");
     }
@@ -2912,6 +2946,19 @@ async function loadDocxDerivedFormHtml(formEntry) {
     );
     return "";
   }
+}
+
+let _mammothConvertToHtml;
+async function getMammothConvertToHtml() {
+  if (_mammothConvertToHtml) return _mammothConvertToHtml;
+  const mammothMod = await import("mammoth");
+  const convertToHtml =
+    mammothMod?.convertToHtml || mammothMod?.default?.convertToHtml;
+  if (typeof convertToHtml !== "function") {
+    throw new Error("mammoth.convertToHtml is unavailable");
+  }
+  _mammothConvertToHtml = convertToHtml;
+  return _mammothConvertToHtml;
 }
 
 function splitDocxSnippetIntoChunks(html, maxBlocksPerChunk = 5) {
@@ -4112,8 +4159,24 @@ async function generateCombinedFormSetPackage({
  * with pdf-lib (preserving AcroForm widgets via copyPages) into
  * `documents/generated-pdfs/form-packages/{slug}.pdf`.
  */
-async function generateFormPackage(formEntry) {
+async function generateFormPackage(formEntry, options = {}) {
+  const packageRenderCache = options.packageRenderCache || null;
   const slug = slugForFormPackage(formEntry);
+  const packagesDir = join(OUTPUT_DIR, "form-packages");
+  await ensureDir(packagesDir);
+  const outPath = join(packagesDir, `${slug}.pdf`);
+  const packageCacheKey = `${slug}.pdf`;
+  const packageRenderFingerprint =
+    await buildFormPackageRenderFingerprint(formEntry);
+  const canUsePackageCache =
+    packageRenderCache &&
+    incrementalSectionsEnabled &&
+    existsSync(outPath) &&
+    packageRenderCache.entries[packageCacheKey] === packageRenderFingerprint;
+
+  if (canUsePackageCache) {
+    return { outPath, skipped: true };
+  }
 
   console.log(`\n📦 Building form package: ${formEntry.id} → ${slug}.pdf`);
 
@@ -4150,13 +4213,14 @@ async function generateFormPackage(formEntry) {
   merged.setAuthor("MH Construction");
   merged.setProducer("MH Construction Document Generator");
 
-  const packagesDir = join(OUTPUT_DIR, "form-packages");
-  await ensureDir(packagesDir);
-  const outPath = join(packagesDir, `${slug}.pdf`);
   await writeFile(outPath, await merged.save());
+  if (packageRenderCache) {
+    packageRenderCache.entries[packageCacheKey] = packageRenderFingerprint;
+  }
 
   const totalPages = merged.getPageCount();
   console.log(`  ✓  ${outPath.replace(ROOT + "/", "")}  (${totalPages} pages)`);
+  return { outPath, skipped: false };
 }
 
 async function generateFormPackageById(key) {
@@ -4166,7 +4230,16 @@ async function generateFormPackageById(key) {
     console.error(`❌  No form found in manifest for: ${key}`);
     process.exit(1);
   }
-  await generateFormPackage(entry);
+  const packageRenderCache = await loadRenderCache(
+    getFormPackageRenderCachePath(),
+    "form-packages",
+  );
+  const result = await generateFormPackage(entry, { packageRenderCache });
+  cacheRunSummary.formPackages = {
+    rendered: result?.skipped ? 0 : 1,
+    skipped: result?.skipped ? 1 : 0,
+  };
+  await saveRenderCache(packageRenderCache);
 }
 
 async function generateAllFormPackages() {
@@ -4178,6 +4251,10 @@ async function generateAllFormPackages() {
   }
   const packagesDir = join(OUTPUT_DIR, "form-packages");
   await ensureDir(packagesDir);
+  const packageRenderCache = await loadRenderCache(
+    getFormPackageRenderCachePath(),
+    "form-packages",
+  );
   const validPackageNames = new Set(
     eligible.map((formEntry) => `${slugForFormPackage(formEntry)}.pdf`),
   );
@@ -4193,9 +4270,25 @@ async function generateAllFormPackages() {
     );
   }
   console.log(`\n📦  Building ${eligible.length} form package(s)…`);
+  let renderedCount = 0;
+  let skippedCount = 0;
   for (const f of eligible) {
-    await generateFormPackage(f);
+    const result = await generateFormPackage(f, { packageRenderCache });
+    if (result?.skipped) {
+      skippedCount += 1;
+    } else {
+      renderedCount += 1;
+    }
   }
+  if (incrementalSectionsEnabled) {
+    console.log(
+      `  ℹ  Form package incremental render: ${renderedCount} rendered, ${skippedCount} unchanged`,
+    );
+  }
+  cacheRunSummary.formPackages = {
+    rendered: renderedCount,
+    skipped: skippedCount,
+  };
   await syncConsolidatedLetterheadIntoHandbookForms(packagesDir);
 
   const safetyPackageFiles = eligible
@@ -4230,6 +4323,7 @@ async function generateAllFormPackages() {
     title: "Employee Handbook Forms Package",
     subject: "Employee handbook forms with covers",
   });
+  await saveRenderCache(packageRenderCache);
 }
 
 // ── Publish form packages to public/ ─────────────────────────────────────────
@@ -4288,6 +4382,7 @@ async function generateForm02C() {
 }
 
 let _browser;
+let _pdfRenderPage;
 async function getBrowser() {
   if (!_browser) {
     _browser = await puppeteer.launch({
@@ -4297,6 +4392,15 @@ async function getBrowser() {
     });
   }
   return _browser;
+}
+
+async function getPdfRenderPage() {
+  const browser = await getBrowser();
+  if (_pdfRenderPage && !_pdfRenderPage.isClosed()) {
+    return _pdfRenderPage;
+  }
+  _pdfRenderPage = await browser.newPage();
+  return _pdfRenderPage;
 }
 
 /**
@@ -4320,8 +4424,7 @@ async function renderPdf(htmlPath, pdfPath, pageOpts = {}) {
 
   let lastErr;
   for (let attempt = 0; attempt < 2; attempt++) {
-    const browser = await getBrowser();
-    const page = await browser.newPage();
+    const page = await getPdfRenderPage();
     try {
       // Load the HTML file via file:// protocol so relative CSS paths resolve
       await page.goto(pathToFileURL(htmlPath).toString(), {
@@ -4344,12 +4447,15 @@ async function renderPdf(htmlPath, pdfPath, pageOpts = {}) {
         throw err;
       }
 
+      if (_pdfRenderPage && !_pdfRenderPage.isClosed()) {
+        await _pdfRenderPage.close().catch(() => {});
+      }
+      _pdfRenderPage = undefined;
+
       if (_browser) {
         await _browser.close().catch(() => {});
         _browser = undefined;
       }
-    } finally {
-      await page.close().catch(() => {});
     }
   }
 
@@ -6859,6 +6965,9 @@ async function runGuardrailsCheck() {
   await validateSpineTemplateGuardrails();
   console.log("  ✓  Spine layout and labeling guardrails verified");
 
+  validateRetiredReferencePdfGuardrail();
+  console.log("  ✓  Retired reference artifact guardrail verified");
+
   const parityLetterheadPath = join(
     OUTPUT_DIR,
     "_guardrail-safety-letterhead.pdf",
@@ -7189,205 +7298,159 @@ function buildContentsPdfHtml(sections) {
 </html>`;
 }
 
-function buildReferencePdfHtml(sections) {
-  const generatedOn = new Date().toLocaleDateString("en-US");
-  const rows = sections
-    .map((section) => {
-      const number = String(section.numberStr || section.number).padStart(
-        2,
-        "0",
+function createContentHash(...parts) {
+  const hash = createHash("sha256");
+  for (const part of parts) {
+    hash.update(String(part ?? ""));
+    hash.update("\n\u241e\n");
+  }
+  return hash.digest("hex");
+}
+
+function getSectionRenderCachePath() {
+  return join(
+    OUTPUT_DIR,
+    isEmployeeHandbook
+      ? ".section-render-cache-handbook.json"
+      : ".section-render-cache-safety.json",
+  );
+}
+
+async function loadSectionRenderCache() {
+  const cachePath = getSectionRenderCachePath();
+  try {
+    const raw = await readFile(cachePath, "utf-8");
+    const parsed = JSON.parse(raw);
+    const entries =
+      parsed && typeof parsed === "object" && parsed.entries
+        ? parsed.entries
+        : {};
+    return { path: cachePath, entries: { ...entries } };
+  } catch (error) {
+    if (error && typeof error === "object" && "code" in error) {
+      if (error.code === "ENOENT") {
+        return { path: cachePath, entries: {} };
+      }
+    }
+    throw error;
+  }
+}
+
+async function saveSectionRenderCache(cacheState) {
+  const payload = {
+    schema: 1,
+    manual: ACTIVE_MANUAL,
+    updatedAt: new Date().toISOString(),
+    entries: cacheState.entries,
+  };
+  await writeFile(cacheState.path, JSON.stringify(payload, null, 2) + "\n");
+}
+
+async function loadRenderCache(cachePath, scope) {
+  try {
+    const raw = await readFile(cachePath, "utf-8");
+    const parsed = JSON.parse(raw);
+    const entries =
+      parsed && typeof parsed === "object" && parsed.entries
+        ? parsed.entries
+        : {};
+    return { path: cachePath, scope, entries: { ...entries } };
+  } catch (error) {
+    if (error && typeof error === "object" && "code" in error) {
+      if (error.code === "ENOENT") {
+        return { path: cachePath, scope, entries: {} };
+      }
+    }
+    throw error;
+  }
+}
+
+async function saveRenderCache(cacheState) {
+  const payload = {
+    schema: 1,
+    scope: cacheState.scope,
+    manual: ACTIVE_MANUAL,
+    updatedAt: new Date().toISOString(),
+    entries: cacheState.entries,
+  };
+  await writeFile(cacheState.path, JSON.stringify(payload, null, 2) + "\n");
+}
+
+function getFormCoverRenderCachePath() {
+  return join(OUTPUT_DIR, ".form-cover-render-cache.json");
+}
+
+function getFormPackageRenderCachePath() {
+  return join(OUTPUT_DIR, ".form-package-render-cache.json");
+}
+
+function resolveFormDocxSourcePath(formEntry) {
+  if (!formEntry?.docxPath) return "";
+  return join(DOCS_DIR, "forms", formEntry.docxPath);
+}
+
+function getFileSignature(filePath) {
+  if (!filePath || !existsSync(filePath)) return "missing";
+  const stats = statSync(filePath);
+  return `${filePath.replace(ROOT + "/", "")}:${stats.size}:${stats.mtimeMs}`;
+}
+
+async function buildFormPackageRenderFingerprint(formEntry) {
+  const formCoverTemplatePath = join(DOCS_DIR, "manuals/form-cover.html");
+  const formFillableTemplatePath = join(DOCS_DIR, "manuals/form-fillable.html");
+  const formCoverTemplate = await readFile(formCoverTemplatePath, "utf-8");
+  const formFillableTemplate = await readFile(
+    formFillableTemplatePath,
+    "utf-8",
+  );
+  const formDocxPath = resolveFormDocxSourcePath(formEntry);
+
+  return createContentHash(
+    "form-package-render-v1",
+    JSON.stringify(formEntry),
+    BRAND.revisionNumber,
+    BRAND.revisionDate,
+    formCoverTemplate,
+    formFillableTemplate,
+    getFileSignature(formDocxPath),
+  );
+}
+
+function removeRetiredReferencePdfArtifacts(log = false) {
+  const removed = [];
+  for (const retiredPath of [
+    RETIRED_REFERENCE_OUTPUT_PATH,
+    RETIRED_REFERENCE_DOWNLOAD_PATH,
+  ]) {
+    if (!existsSync(retiredPath)) continue;
+    unlinkSync(retiredPath);
+    removed.push(retiredPath);
+  }
+
+  if (log && removed.length > 0) {
+    for (const removedPath of removed) {
+      console.log(
+        `  ✓  Removed retired artifact: ${removedPath.replace(ROOT + "/", "")}`,
       );
-      const category = section.category || "General";
-      const oshaRef = section.oshaRef || "-";
-      const pages = section.pages ? String(section.pages) : "-";
+    }
+  }
+}
 
-      return (
-        `<tr>` +
-        `<td class="num">${escapeHtml(number)}</td>` +
-        `<td class="title">${escapeHtml(normalizeManualSectionTitle(section.title || ""))}</td>` +
-        `<td class="cat">${escapeHtml(category)}</td>` +
-        `<td class="ref">${escapeHtml(oshaRef)}</td>` +
-        `<td class="pages">${escapeHtml(pages)}</td>` +
-        `</tr>`
-      );
-    })
-    .join("\n");
+function validateRetiredReferencePdfGuardrail() {
+  const existing = [
+    RETIRED_REFERENCE_OUTPUT_PATH,
+    RETIRED_REFERENCE_DOWNLOAD_PATH,
+  ].filter((path) => existsSync(path));
 
-  return `<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Safety Manual Reference Guide</title>
-    <style>
-      @page { size: Letter; margin: 0.42in 0.5in 0.42in 0.5in; }
-      :root {
-        --brand-primary: {{BRAND_COLOR_PRIMARY}};
-        --brand-secondary: {{BRAND_COLOR_SECONDARY}};
-        --paper: #ffffff;
-        --muted: #f6f8f7;
-      }
-      body {
-        font-family: ${PDF_FONT_STACK_BODY};
-        color: #1f2937;
-        font-size: 9.5pt;
-        line-height: 1.3;
-        margin: 0;
-        padding: 0;
-        background: var(--paper);
-      }
-      .reference-page {
-        position: relative;
-        min-height: 10.16in;
-        padding: 0.45in 0.48in 0.18in 0.88in;
-        background: var(--paper);
-        overflow: hidden;
-      }
-      .reference-page::before {
-        content: "";
-        position: absolute;
-        inset: 0.22in;
-        border: 1.2pt solid var(--brand-primary);
-        pointer-events: none;
-      }
-      .reference-page::after {
-        content: "";
-        position: absolute;
-        inset: 0.33in;
-        border: 0.6pt solid var(--brand-secondary);
-        pointer-events: none;
-      }
-      .reference-ribbon {
-        position: absolute;
-        top: 0.45in;
-        bottom: 0.45in;
-        left: 0.45in;
-        width: 0.28in;
-        background: linear-gradient(
-          180deg,
-          var(--brand-primary) 0%,
-          var(--brand-primary) 70%,
-          var(--brand-secondary) 100%
-        );
-      }
-      .header {
-        position: relative;
-        z-index: 1;
-        margin-bottom: 0.14in;
-        padding: 0 0 0.12in;
-        border-bottom: 1.2pt solid var(--brand-primary);
-        text-align: center;
-      }
-      .brand {
-        font-size: 9pt;
-        color: #4b5563;
-        margin-bottom: 0.04in;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-      h1 {
-        font-family: ${PDF_FONT_STACK_HEADING};
-        font-size: 17pt;
-        margin: 0;
-        color: {{BRAND_COLOR_PRIMARY}};
-        text-transform: uppercase;
-      }
-      .meta {
-        margin-top: 0.06in;
-        font-size: 8pt;
-        color: #6b7280;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-      .program-chip {
-        width: fit-content;
-        margin: 0 auto 0.05in;
-        background: var(--brand-primary);
-        border: 0.8pt solid var(--brand-secondary);
-        color: #ffffff;
-        text-transform: uppercase;
-        letter-spacing: 0.18em;
-        font-family: ${PDF_FONT_STACK_BODY};
-        font-size: 6.5pt;
-        font-weight: 800;
-        padding: 2pt 10pt;
-        border-radius: 1.5pt;
-        box-shadow: inset 0 -1pt 0 var(--brand-secondary);
-      }
-      table {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        border-collapse: collapse;
-        background: #ffffff;
-        border: 0.75pt solid var(--brand-secondary);
-      }
-      thead th {
-        text-align: left;
-        font-size: 8pt;
-        letter-spacing: 0.08em;
-        color: #ffffff;
-        background: var(--brand-primary);
-        border-bottom: 0.75pt solid var(--brand-secondary);
-        padding: 0.08in 0.05in;
-      }
-      tbody td {
-        border-bottom: 1px solid #e5e7eb;
-        padding: 0.07in 0.05in;
-        vertical-align: top;
-      }
-      .num {
-        width: 0.55in;
-        font-weight: 700;
-        color: #111827;
-        white-space: nowrap;
-      }
-      .title {
-        width: 3.35in;
-        color: #111827;
-      }
-      .cat {
-        width: 1.35in;
-        color: #1f2937;
-      }
-      .ref {
-        width: 1.1in;
-        color: #374151;
-      }
-      .pages {
-        width: 0.55in;
-        text-align: right;
-        color: #374151;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="reference-page">
-      <div class="reference-ribbon" aria-hidden="true"></div>
-      <div class="header">
-        <div class="brand">{{BRAND_COMPANY_NAME}}</div>
-        <div class="program-chip">MISH Program Reference</div>
-        <h1>Safety Manual Reference Guide</h1>
-        <div class="meta">Generated ${generatedOn} • Revision {{BRAND_REVISION_NUMBER}} ({{BRAND_REVISION_DATE}})</div>
-      </div>
+  if (existing.length === 0) return;
 
-      <table aria-label="Safety manual reference index">
-        <thead>
-          <tr>
-            <th>MISH</th>
-            <th>Section Title</th>
-            <th>Category</th>
-            <th>OSHA Ref</th>
-            <th>Pages</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${rows}
-        </tbody>
-      </table>
-    </div>
-  </body>
-</html>`;
+  throw new Error(
+    [
+      "Guardrail validation failed: retired safety reference artifact was detected.",
+      ...existing.map((path) => `  - ${path.replace(ROOT + "/", "")}`),
+      "Remove this file; only safety-manual-toc.pdf is supported.",
+    ].join("\n"),
+  );
 }
 
 // ── Template: Section PDFs ────────────────────────────────────────────────────
@@ -7415,6 +7478,9 @@ async function generateSections(filter = null) {
     : "";
   const sectionsDir = join(OUTPUT_DIR, "sections");
   await ensureDir(sectionsDir);
+  if (!isEmployeeHandbook) {
+    removeRetiredReferencePdfArtifacts(true);
+  }
 
   // Optional: render only a single section
   const rawTargets =
@@ -7452,6 +7518,9 @@ async function generateSections(filter = null) {
     join(DOCS_DIR, `manuals/${templateName}`),
     "utf-8",
   );
+  const sectionRenderCache = await loadSectionRenderCache();
+  let renderedCount = 0;
+  let skippedCount = 0;
 
   for (const section of targets) {
     // Generate branded QR code pointing to the section's cluster anchor card
@@ -7499,9 +7568,7 @@ async function generateSections(filter = null) {
         ? join(ROOT, docxPathText)
         : join(DOCS_DIR, docxPathText);
       if (existsSync(sectionDocxPath)) {
-        const mammothMod = await import("mammoth");
-        const convertToHtml =
-          mammothMod?.convertToHtml || mammothMod?.default?.convertToHtml;
+        const convertToHtml = await getMammothConvertToHtml();
         if (typeof convertToHtml === "function") {
           const docxResult = await convertToHtml({ path: sectionDocxPath });
           sectionSource = cleanWordHtml(docxResult?.value || "").trim();
@@ -7567,6 +7634,35 @@ async function generateSections(filter = null) {
 
     const pdfName = `${section.numberStr}-${section.slug}.pdf`;
     const pdfPath = join(sectionsDir, pdfName);
+    const sectionRenderFingerprint = createContentHash(
+      "section-render-v1",
+      ACTIVE_MANUAL,
+      section.numberStr,
+      section.slug,
+      html,
+      headerHtml,
+      JSON.stringify({
+        displayHeaderFooter: true,
+        margin: {
+          top: "1.25in",
+          right: "0.75in",
+          bottom: "1.2in",
+          left: "1.25in",
+        },
+      }),
+      "stamped-section-footer-v1",
+    );
+    const sectionCacheKey = `${ACTIVE_MANUAL}:${section.numberStr}:${section.slug}`;
+    const hasMatchingCache =
+      incrementalSectionsEnabled &&
+      existsSync(pdfPath) &&
+      sectionRenderCache.entries[sectionCacheKey] === sectionRenderFingerprint;
+
+    if (hasMatchingCache) {
+      skippedCount += 1;
+      continue;
+    }
+
     await renderHtmlToPdf(
       html,
       pdfPath,
@@ -7585,21 +7681,23 @@ async function generateSections(filter = null) {
       `manuals/_tmp_section_${section.numberStr}.html`,
     );
     await stampSectionFooterPdf(pdfPath);
+    sectionRenderCache.entries[sectionCacheKey] = sectionRenderFingerprint;
+    renderedCount += 1;
   }
+
+  await saveSectionRenderCache(sectionRenderCache);
+
+  if (incrementalSectionsEnabled) {
+    console.log(
+      `  ℹ  Section incremental render: ${renderedCount} rendered, ${skippedCount} unchanged`,
+    );
+  }
+  cacheRunSummary.sections = { rendered: renderedCount, skipped: skippedCount };
 
   if (filter === null) {
     // Generate the TOC from the static template (MISH only)
     if (!isEmployeeHandbook) {
       await generateToc();
-
-      const referenceTarget = join(OUTPUT_DIR, "safety-manual-reference.pdf");
-      const referenceHtml = applyBrandTokens(buildReferencePdfHtml(sections));
-      await renderHtmlToPdf(
-        referenceHtml,
-        referenceTarget,
-        {},
-        "manuals/_tmp_safety_manual_reference.html",
-      );
     }
   }
 }
@@ -7692,12 +7790,37 @@ async function generateFormCovers() {
 
   const rawTemplate = await readFile(templatePath, "utf-8");
   const brandedTemplate = applyBrandTokens(rawTemplate);
+  const coverRenderCache = await loadRenderCache(
+    getFormCoverRenderCachePath(),
+    "form-covers",
+  );
+  let renderedCount = 0;
+  let skippedCount = 0;
 
   console.log(`\n🪪  Generating ${forms.length} form cover sheet(s)…`);
 
   for (const form of forms) {
-    await renderFormCover(form, brandedTemplate, coversDir);
+    const result = await renderFormCover(form, brandedTemplate, coversDir, {
+      coverRenderCache,
+    });
+    if (result?.skipped) {
+      skippedCount += 1;
+    } else {
+      renderedCount += 1;
+    }
   }
+
+  await saveRenderCache(coverRenderCache);
+
+  if (incrementalSectionsEnabled) {
+    console.log(
+      `  ℹ  Form cover incremental render: ${renderedCount} rendered, ${skippedCount} unchanged`,
+    );
+  }
+  cacheRunSummary.formCovers = {
+    rendered: renderedCount,
+    skipped: skippedCount,
+  };
 }
 
 /**
@@ -7705,7 +7828,8 @@ async function generateFormCovers() {
  * `generateFormPackage()` can refresh just one cover without rebuilding
  * all 47.
  */
-async function renderFormCover(form, brandedTemplate, coversDir) {
+async function renderFormCover(form, brandedTemplate, coversDir, options = {}) {
+  const coverRenderCache = options.coverRenderCache || null;
   // A form may be referenced by one OR MORE MISH sections. The cover prints
   // one QR card per applicable section so a field user can scan straight
   // into the policy that requires this form. When no sections are declared
@@ -7831,6 +7955,23 @@ async function renderFormCover(form, brandedTemplate, coversDir) {
   }
 
   const pdfPath = join(coversDir, `${safeSlug}_cover.pdf`);
+  const coverCacheKey = `${safeSlug}_cover.pdf`;
+  const coverRenderFingerprint = createContentHash(
+    "form-cover-render-v1",
+    safeSlug,
+    html,
+    JSON.stringify({ margin: { top: 0, right: 0, bottom: 0, left: 0 } }),
+  );
+  const canUseCoverCache =
+    coverRenderCache &&
+    incrementalSectionsEnabled &&
+    existsSync(pdfPath) &&
+    coverRenderCache.entries[coverCacheKey] === coverRenderFingerprint;
+
+  if (canUseCoverCache) {
+    return { pdfPath, skipped: true };
+  }
+
   const tmpHtml = `manuals/_tmp_form_covers/${safeSlug}.html`;
   await renderHtmlToPdf(
     html,
@@ -7838,7 +7979,10 @@ async function renderFormCover(form, brandedTemplate, coversDir) {
     { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
     tmpHtml,
   );
-  return pdfPath;
+  if (coverRenderCache) {
+    coverRenderCache.entries[coverCacheKey] = coverRenderFingerprint;
+  }
+  return { pdfPath, skipped: false };
 }
 
 /**
@@ -7855,7 +7999,15 @@ async function generateFormCoverFor(formEntry) {
   await ensureDir(join(DOCS_DIR, "manuals/_tmp_form_covers"));
   const rawTemplate = await readFile(templatePath, "utf-8");
   const brandedTemplate = applyBrandTokens(rawTemplate);
-  return renderFormCover(formEntry, brandedTemplate, coversDir);
+  const coverRenderCache = await loadRenderCache(
+    getFormCoverRenderCachePath(),
+    "form-covers",
+  );
+  const result = await renderFormCover(formEntry, brandedTemplate, coversDir, {
+    coverRenderCache,
+  });
+  await saveRenderCache(coverRenderCache);
+  return result.pdfPath;
 }
 
 // ── Utilities ─────────────────────────────────────────────────────────────────
@@ -9769,6 +9921,10 @@ async function main() {
   console.log("🏗  MH Construction — Document Generator");
   console.log("==========================================");
 
+  if (!isEmployeeHandbook) {
+    removeRetiredReferencePdfArtifacts(false);
+  }
+
   try {
     switch (template) {
       case "all":
@@ -9869,9 +10025,38 @@ async function main() {
         break;
     }
 
+    if (reportCacheStats) {
+      const hasAnySummary = Object.values(cacheRunSummary).some(
+        (entry) => entry !== null,
+      );
+      if (hasAnySummary) {
+        console.log("\n📊 Cache Report");
+        if (cacheRunSummary.sections) {
+          const { rendered, skipped } = cacheRunSummary.sections;
+          console.log(
+            `  • sections: ${rendered} rendered, ${skipped} unchanged`,
+          );
+        }
+        if (cacheRunSummary.formCovers) {
+          const { rendered, skipped } = cacheRunSummary.formCovers;
+          console.log(
+            `  • form-covers: ${rendered} rendered, ${skipped} unchanged`,
+          );
+        }
+        if (cacheRunSummary.formPackages) {
+          const { rendered, skipped } = cacheRunSummary.formPackages;
+          console.log(
+            `  • form-packages: ${rendered} rendered, ${skipped} unchanged`,
+          );
+        }
+      }
+    }
+
     console.log(`\n✅  Done. PDFs written to: documents/generated-pdfs/`);
   } finally {
     if (_browser) await _browser.close();
+    _pdfRenderPage = undefined;
+    _browser = undefined;
   }
 }
 
@@ -9880,5 +10065,7 @@ try {
 } catch (err) {
   console.error("\n❌ Fatal error:", err);
   if (_browser) _browser.close();
+  _pdfRenderPage = undefined;
+  _browser = undefined;
   process.exit(1);
 }

@@ -24,13 +24,26 @@ Employee Handbook form. Each form has two files:
 
 ## Chapter alignment (9-chapter handbook)
 
-| Form             | Title                                                 | Chapter                             |
-| ---------------- | ----------------------------------------------------- | ----------------------------------- |
-| HANDBOOK-FORM-01 | Company Vehicle Policies & Procedures Acknowledgement | 7 · Technology & Data Use           |
-| HANDBOOK-FORM-02 | Employee Handbook Receipt Acknowledgment              | 1 · Introduction & Company Overview |
-| HANDBOOK-FORM-03 | Employee Safety Policy Acknowledgement                | 6 · Health, Safety, & Security      |
-| HANDBOOK-FORM-04 | Temporary Work From Home Application/Agreement        | 7 · Technology & Data Use           |
-| HANDBOOK-FORM-05 | Computer & Electronics Use Policy Acknowledgment      | 7 · Technology & Data Use           |
-| HANDBOOK-FORM-06 | Employee Photo Release Form                           | 7 · Technology & Data Use           |
-| HANDBOOK-FORM-07 | Client Photo Release Form                             | 7 · Technology & Data Use           |
-| HANDBOOK-FORM-08 | Purchase Approval General Expense                     | 3 · Compensation & Benefits         |
+Semantic TOC lettering system used in handbook outputs:
+
+- `FORM CV` Company Vehicle
+- `FORM RA` Receipt Acknowledgment
+- `FORM SP` Safety Policy
+- `FORM WH` Work From Home
+- `FORM CE` Computer & Electronics
+- `FORM EP` Employee Photo
+- `FORM CP` Client Photo
+- `FORM GE` General Expense
+- `FORM LH` Letterhead
+
+| Form                | TOC Code | Title                                                 | Chapter                             |
+| ------------------- | -------- | ----------------------------------------------------- | ----------------------------------- |
+| HANDBOOK-FORM-01    | FORM CV  | Company Vehicle Policies & Procedures Acknowledgement | 7 · Technology & Data Use           |
+| HANDBOOK-FORM-02    | FORM RA  | Employee Handbook Receipt Acknowledgment              | 1 · Introduction & Company Overview |
+| HANDBOOK-FORM-03    | FORM SP  | Employee Safety Policy Acknowledgement                | 6 · Health, Safety, & Security      |
+| HANDBOOK-FORM-04    | FORM WH  | Temporary Work From Home Application/Agreement        | 7 · Technology & Data Use           |
+| HANDBOOK-FORM-05    | FORM CE  | Computer & Electronics Use Policy Acknowledgment      | 7 · Technology & Data Use           |
+| HANDBOOK-FORM-06    | FORM EP  | Employee Photo Release Form                           | 7 · Technology & Data Use           |
+| HANDBOOK-FORM-07    | FORM CP  | Client Photo Release Form                             | 7 · Technology & Data Use           |
+| HANDBOOK-FORM-08    | FORM GE  | Purchase Approval General Expense                     | 3 · Compensation & Benefits         |
+| HANDBOOK-LETTERHEAD | FORM LH  | MH Construction Company Letterhead                    | 1 · Introduction & Company Overview |

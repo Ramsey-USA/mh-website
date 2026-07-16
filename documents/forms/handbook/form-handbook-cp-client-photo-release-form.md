@@ -1,6 +1,7 @@
-# HANDBOOK-FORM-07 — Project Stakeholder Photo Release Form
+# HANDBOOK-FORM-07 (FORM CP) — Project Stakeholder Photo Release Form
 
-- **Schema:** `form-handbook-07-client-photo-release-form.json`
+- **Schema:** `form-handbook-cp-client-photo-release-form.json`
+- **TOC Code:** FORM CP
 - **Chapter:** 7 — Technology & Data Use
 - **Owner:** Human Resources
 - **Purpose:** Captures a Project Stakeholder's authorization for project photo and media use.

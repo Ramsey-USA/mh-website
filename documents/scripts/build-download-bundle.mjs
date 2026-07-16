@@ -14,7 +14,6 @@ const DOWNLOADS_DIR = join(ROOT, "documents/downloads");
 const SAFETY_MANUAL_FILES = [
   "safety-manual-complete.pdf",
   "safety-manual-digital.pdf",
-  "safety-manual-reference.pdf",
   "safety-manual-cover.pdf",
   "safety-manual-spine.pdf",
   "safety-manual-tabs.pdf",

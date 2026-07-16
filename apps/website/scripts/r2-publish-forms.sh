@@ -13,8 +13,8 @@
 #   docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf
 #   docs/safety/forms/form-mish-50-return-to-work-program-agreement-ack.pdf
 #   docs/safety/forms/safety-manual-forms-package.pdf
-#   docs/employee/forms/form-handbook-01-company-vehicle-acknowledgement.pdf
-#   docs/employee/forms/form-handbook-07-client-photo-release-form.pdf
+#   docs/employee/forms/form-handbook-cv-company-vehicle-acknowledgement.pdf
+#   docs/employee/forms/form-handbook-cp-client-photo-release-form.pdf
 #   docs/employee/forms/form-handbook-company-letterhead.pdf
 #   docs/employee/forms/employee-handbook-forms-package.pdf
 #
@@ -96,7 +96,7 @@ echo "    Live URLs (via /docs/** proxy):"
 echo "    https://www.mhc-gc.com/docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf"
 echo "    https://www.mhc-gc.com/docs/safety/forms/form-mish-50-return-to-work-program-agreement-ack.pdf"
 echo "    https://www.mhc-gc.com/docs/safety/forms/safety-manual-forms-package.pdf"
-echo "    https://www.mhc-gc.com/docs/employee/forms/form-handbook-01-company-vehicle-acknowledgement.pdf"
-echo "    https://www.mhc-gc.com/docs/employee/forms/form-handbook-07-client-photo-release-form.pdf"
+echo "    https://www.mhc-gc.com/docs/employee/forms/form-handbook-cv-company-vehicle-acknowledgement.pdf"
+echo "    https://www.mhc-gc.com/docs/employee/forms/form-handbook-cp-client-photo-release-form.pdf"
 echo "    https://www.mhc-gc.com/docs/employee/forms/form-handbook-company-letterhead.pdf"
 echo "    https://www.mhc-gc.com/docs/employee/forms/employee-handbook-forms-package.pdf"

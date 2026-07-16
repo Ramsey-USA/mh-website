@@ -164,6 +164,11 @@ pnpm --filter @mhc/website run docs:generate
 pnpm --filter @mhc/website run docs:generate:forms
 pnpm --filter @mhc/website run docs:generate:handbook
 
+# Optional: include incremental cache hit/miss summary in logs
+pnpm --filter @mhc/website run docs:generate -- --template sections --report-cache
+pnpm --filter @mhc/website run docs:generate -- --template form-covers --report-cache
+pnpm --filter @mhc/website run docs:generate -- --template form-packages --report-cache
+
 # Merge final PDFs
 pnpm --filter @mhc/website run docs:merge
 pnpm --filter @mhc/website run docs:merge:handbook

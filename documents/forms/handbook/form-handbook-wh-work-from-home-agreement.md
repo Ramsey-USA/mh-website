@@ -1,6 +1,7 @@
-# HANDBOOK-FORM-04 — Temporary Work From Home Application/Agreement
+# HANDBOOK-FORM-04 (FORM WH) — Temporary Work From Home Application/Agreement
 
-- **Schema:** `form-handbook-04-work-from-home-agreement.json`
+- **Schema:** `form-handbook-wh-work-from-home-agreement.json`
+- **TOC Code:** FORM WH
 - **Chapter:** 7 — Technology & Data Use
 - **Owner:** Human Resources
 - **Purpose:** Application and agreement for a temporary remote-work arrangement.
@@ -18,4 +19,4 @@
 
 ## Notes
 
-- Pairs with HANDBOOK-FORM-05 (Computer & Electronics Use) for remote-work eligibility.
+- Pairs with HANDBOOK-FORM-05 (FORM CE, Computer & Electronics Use) for remote-work eligibility.

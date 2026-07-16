@@ -1597,99 +1597,99 @@ Generated: 7/12/2026, 12:46:42 PM
 
 ### ✅ Employee Handbook Form: Purchase Approval General Expense
 
-- **Name:** `handbook-form-handbook-08-purchase-approval-general-expense`
-- **File:** `handbook-forms/qr-handbook-form-handbook-08-purchase-approval-general-expense-color.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-08-purchase-approval-general-expense.pdf>
+- **Name:** `handbook-form-handbook-ge-purchase-approval-general-expense`
+- **File:** `handbook-forms/qr-handbook-form-handbook-ge-purchase-approval-general-expense-color.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-ge-purchase-approval-general-expense.pdf>
 
 ### ✅ Employee Handbook Form: Purchase Approval General Expense
 
-- **Name:** `handbook-form-handbook-08-purchase-approval-general-expense`
-- **File:** `handbook-forms/qr-handbook-form-handbook-08-purchase-approval-general-expense-bw.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-08-purchase-approval-general-expense.pdf>
+- **Name:** `handbook-form-handbook-ge-purchase-approval-general-expense`
+- **File:** `handbook-forms/qr-handbook-form-handbook-ge-purchase-approval-general-expense-bw.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-ge-purchase-approval-general-expense.pdf>
 
 ### ✅ Employee Handbook Form: Company Vehicle Policies and Procedures Acknowledgement
 
-- **Name:** `handbook-form-handbook-01-company-vehicle-acknowledgement`
-- **File:** `handbook-forms/qr-handbook-form-handbook-01-company-vehicle-acknowledgement-color.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-01-company-vehicle-acknowledgement.pdf>
+- **Name:** `handbook-form-handbook-cv-company-vehicle-acknowledgement`
+- **File:** `handbook-forms/qr-handbook-form-handbook-cv-company-vehicle-acknowledgement-color.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-cv-company-vehicle-acknowledgement.pdf>
 
 ### ✅ Employee Handbook Form: Company Vehicle Policies and Procedures Acknowledgement
 
-- **Name:** `handbook-form-handbook-01-company-vehicle-acknowledgement`
-- **File:** `handbook-forms/qr-handbook-form-handbook-01-company-vehicle-acknowledgement-bw.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-01-company-vehicle-acknowledgement.pdf>
+- **Name:** `handbook-form-handbook-cv-company-vehicle-acknowledgement`
+- **File:** `handbook-forms/qr-handbook-form-handbook-cv-company-vehicle-acknowledgement-bw.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-cv-company-vehicle-acknowledgement.pdf>
 
 ### ✅ Employee Handbook Form: Employee Handbook Receipt Acknowledgment
 
-- **Name:** `handbook-form-handbook-02-handbook-receipt-acknowledgment`
-- **File:** `handbook-forms/qr-handbook-form-handbook-02-handbook-receipt-acknowledgment-color.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-02-handbook-receipt-acknowledgment.pdf>
+- **Name:** `handbook-form-handbook-ra-handbook-receipt-acknowledgment`
+- **File:** `handbook-forms/qr-handbook-form-handbook-ra-handbook-receipt-acknowledgment-color.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-ra-handbook-receipt-acknowledgment.pdf>
 
 ### ✅ Employee Handbook Form: Employee Handbook Receipt Acknowledgment
 
-- **Name:** `handbook-form-handbook-02-handbook-receipt-acknowledgment`
-- **File:** `handbook-forms/qr-handbook-form-handbook-02-handbook-receipt-acknowledgment-bw.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-02-handbook-receipt-acknowledgment.pdf>
+- **Name:** `handbook-form-handbook-ra-handbook-receipt-acknowledgment`
+- **File:** `handbook-forms/qr-handbook-form-handbook-ra-handbook-receipt-acknowledgment-bw.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-ra-handbook-receipt-acknowledgment.pdf>
 
 ### ✅ Employee Handbook Form: Employee Safety Policy Acknowledgement Form
 
-- **Name:** `handbook-form-handbook-03-safety-policy-acknowledgement`
-- **File:** `handbook-forms/qr-handbook-form-handbook-03-safety-policy-acknowledgement-color.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-03-safety-policy-acknowledgement.pdf>
+- **Name:** `handbook-form-handbook-sp-safety-policy-acknowledgement`
+- **File:** `handbook-forms/qr-handbook-form-handbook-sp-safety-policy-acknowledgement-color.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-sp-safety-policy-acknowledgement.pdf>
 
 ### ✅ Employee Handbook Form: Employee Safety Policy Acknowledgement Form
 
-- **Name:** `handbook-form-handbook-03-safety-policy-acknowledgement`
-- **File:** `handbook-forms/qr-handbook-form-handbook-03-safety-policy-acknowledgement-bw.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-03-safety-policy-acknowledgement.pdf>
+- **Name:** `handbook-form-handbook-sp-safety-policy-acknowledgement`
+- **File:** `handbook-forms/qr-handbook-form-handbook-sp-safety-policy-acknowledgement-bw.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-sp-safety-policy-acknowledgement.pdf>
 
 ### ✅ Employee Handbook Form: Temporary Work From Home Application/Agreement
 
-- **Name:** `handbook-form-handbook-04-work-from-home-agreement`
-- **File:** `handbook-forms/qr-handbook-form-handbook-04-work-from-home-agreement-color.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-04-work-from-home-agreement.pdf>
+- **Name:** `handbook-form-handbook-wh-work-from-home-agreement`
+- **File:** `handbook-forms/qr-handbook-form-handbook-wh-work-from-home-agreement-color.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-wh-work-from-home-agreement.pdf>
 
 ### ✅ Employee Handbook Form: Temporary Work From Home Application/Agreement
 
-- **Name:** `handbook-form-handbook-04-work-from-home-agreement`
-- **File:** `handbook-forms/qr-handbook-form-handbook-04-work-from-home-agreement-bw.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-04-work-from-home-agreement.pdf>
+- **Name:** `handbook-form-handbook-wh-work-from-home-agreement`
+- **File:** `handbook-forms/qr-handbook-form-handbook-wh-work-from-home-agreement-bw.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-wh-work-from-home-agreement.pdf>
 
 ### ✅ Employee Handbook Form: Employee Acknowledgment and Agreement of Computer and Electronics Use Policy
 
-- **Name:** `handbook-form-handbook-05-computer-electronics-use-agreement`
-- **File:** `handbook-forms/qr-handbook-form-handbook-05-computer-electronics-use-agreement-color.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-05-computer-electronics-use-agreement.pdf>
+- **Name:** `handbook-form-handbook-ce-computer-electronics-use-agreement`
+- **File:** `handbook-forms/qr-handbook-form-handbook-ce-computer-electronics-use-agreement-color.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-ce-computer-electronics-use-agreement.pdf>
 
 ### ✅ Employee Handbook Form: Employee Acknowledgment and Agreement of Computer and Electronics Use Policy
 
-- **Name:** `handbook-form-handbook-05-computer-electronics-use-agreement`
-- **File:** `handbook-forms/qr-handbook-form-handbook-05-computer-electronics-use-agreement-bw.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-05-computer-electronics-use-agreement.pdf>
+- **Name:** `handbook-form-handbook-ce-computer-electronics-use-agreement`
+- **File:** `handbook-forms/qr-handbook-form-handbook-ce-computer-electronics-use-agreement-bw.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-ce-computer-electronics-use-agreement.pdf>
 
 ### ✅ Employee Handbook Form: Employee Photo Release Form
 
-- **Name:** `handbook-form-handbook-06-employee-photo-release-form`
-- **File:** `handbook-forms/qr-handbook-form-handbook-06-employee-photo-release-form-color.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-06-employee-photo-release-form.pdf>
+- **Name:** `handbook-form-handbook-ep-employee-photo-release-form`
+- **File:** `handbook-forms/qr-handbook-form-handbook-ep-employee-photo-release-form-color.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-ep-employee-photo-release-form.pdf>
 
 ### ✅ Employee Handbook Form: Employee Photo Release Form
 
-- **Name:** `handbook-form-handbook-06-employee-photo-release-form`
-- **File:** `handbook-forms/qr-handbook-form-handbook-06-employee-photo-release-form-bw.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-06-employee-photo-release-form.pdf>
+- **Name:** `handbook-form-handbook-ep-employee-photo-release-form`
+- **File:** `handbook-forms/qr-handbook-form-handbook-ep-employee-photo-release-form-bw.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-ep-employee-photo-release-form.pdf>
 
 ### ✅ Employee Handbook Form: Client Photo Release Form
 
-- **Name:** `handbook-form-handbook-07-client-photo-release-form`
-- **File:** `handbook-forms/qr-handbook-form-handbook-07-client-photo-release-form-color.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-07-client-photo-release-form.pdf>
+- **Name:** `handbook-form-handbook-cp-client-photo-release-form`
+- **File:** `handbook-forms/qr-handbook-form-handbook-cp-client-photo-release-form-color.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-cp-client-photo-release-form.pdf>
 
 ### ✅ Employee Handbook Form: Client Photo Release Form
 
-- **Name:** `handbook-form-handbook-07-client-photo-release-form`
-- **File:** `handbook-forms/qr-handbook-form-handbook-07-client-photo-release-form-bw.png`
-- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-07-client-photo-release-form.pdf>
+- **Name:** `handbook-form-handbook-cp-client-photo-release-form`
+- **File:** `handbook-forms/qr-handbook-form-handbook-cp-client-photo-release-form-bw.png`
+- **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-cp-client-photo-release-form.pdf>
 
 ### ✅ Arnold Garcia - Chief Operations Officer
 

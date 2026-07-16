@@ -215,24 +215,6 @@ export default async function ResourcesPage() {
                       </a>
                     </Button>
                   </DownloadGate>
-                  {safetyManual.referencePdfPath && (
-                    <DownloadGate>
-                      <Button asChild variant="secondary" size="sm">
-                        <a
-                          href={safetyManual.referencePdfPath}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <MaterialIcon
-                            icon={FORM_MANUAL_ICONS.checklist}
-                            size="sm"
-                            className="text-white"
-                          />
-                          Reference Guide PDF
-                        </a>
-                      </Button>
-                    </DownloadGate>
-                  )}
                   <Link
                     href="/safety"
                     className="inline-flex items-center gap-1.5 rounded-lg border border-brand-primary px-3 py-1.5 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary/10"
