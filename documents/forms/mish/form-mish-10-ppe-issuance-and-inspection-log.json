@@ -1,0 +1,75 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "PPE Issuance and Inspection Log - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "PPE Issuance and Inspection Log",
+          "html": "<p><strong>INSPECTION CHECKLIST</strong></p>\n<p><strong>Inspection Frequency: </strong>Prior to each use and periodically during use as required by 29 CFR 1926.95(a) and WAC 296-155-200(1).</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Inspection Item</strong></p></td><td><p><strong>Pass</strong></p></td><td><p><strong>Fail</strong></p></td><td><p><strong>N/A</strong></p></td><td><p><strong>Corrective Action Required</strong></p></td></tr><tr><td><p>1</p></td><td><p>Hard hat shell free of cracks, dents, or damage (29 CFR 1926.100)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>2</p></td><td><p>Hard hat suspension system intact and properly adjusted (WAC 296-155-205)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>3</p></td><td><p>Safety glasses/goggles free of scratches that impair vision (29 CFR 1926.102)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>4</p></td><td><p>Face shield clean and securely attached to headgear (WAC 296-155-215)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>5</p></td><td><p>Hearing protection (earplugs/muffs) clean and in good condition (WAC 296-155-210)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>6</p></td><td><p>Safety boots/shoes have intact soles and toe protection (WAC 296-155-212)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>7</p></td><td><p>High-visibility apparel clean, reflective, and not faded (29 CFR 1926.201)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>8</p></td><td><p>Gloves appropriate for task and free of holes/tears (29 CFR 1926.95)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>9</p></td><td><p>Respirator facepiece clean and pliable (if applicable) (29 CFR 1926.103)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>10</p></td><td><p>Respirator straps elastic and intact (if applicable) (WAC 296-842)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>11</p></td><td><p>Fall protection harness webbing free of cuts/fraying (29 CFR 1926.502)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>12</p></td><td><p>Fall protection D-rings and hardware free of rust/distortion (WAC 296-155-24609)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>13</p></td><td><p>Lanyards and shock absorbers intact and not deployed (29 CFR 1926.502)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>14</p></td><td><p>Specialty PPE (welding hood, chemical suit) in good condition (29 CFR 1926.95)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>15</p></td><td><p>All PPE properly stored when not in use (WAC 296-155-200)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr></table>\n<p><strong>DEFICIENCY LOG</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Description of Deficiency</strong></p></td><td><p><strong>Corrective Action</strong></p></td><td><p><strong>Assigned To</strong></p></td><td><p><strong>Due Date</strong></p></td><td><p><strong>Completed Date</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Inspector Name</strong></p></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "PPE Issuance and Inspection Log (continued 2)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Supervisor Review</strong></p></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table>\n<p><strong>ACKNOWLEDGMENT</strong></p>\n<p>MH Construction requires all employees to wear appropriate Personal Protective Equipment (PPE) in all designated work areas and when performing tasks with identified hazards. PPE must be inspected prior to each use to ensure it is in safe working condition. Defective or damaged PPE must be immediately removed from service and reported to a supervisor for replacement. This policy complies with the requirements set forth in 29 CFR 1926 Subpart E and WAC 296-155-200.</p>\n<p>I acknowledge that I have read, understand, and agree to comply with the MH Construction PPE Issuance and Inspection Policy as required by 29 CFR 1926 Subpart E and WAC 296-155-200.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "PPE Issuance and Inspection Log Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

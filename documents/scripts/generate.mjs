@@ -19,6 +19,7 @@
  *   npm run docs:generate -- --template website-image-needs # website image needs inventory
  *   npm run docs:generate -- --template toolbox-talk          # standalone form
  *   npm run docs:generate -- --template form-covers           # all 47 form cover sheets
+ *   npm run docs:generate -- --template mish-fillable-bootstrap # scaffold MISH fillable schemas + manifest mapping
  *   node documents/scripts/generate.mjs --template cover
  *
  * Output directory: documents/generated-pdfs/
@@ -3415,8 +3416,76 @@ async function buildDefaultFillablePages(formEntry) {
 }
 
 function getFillablePages(formEntry) {
-  if (formEntry?.fillable?.pages?.length) return formEntry.fillable.pages;
-  return buildDefaultFillablePages(formEntry);
+  const basePages = formEntry?.fillable?.pages?.length
+    ? formEntry.fillable.pages
+    : buildDefaultFillablePages(formEntry);
+
+  if (!isMishFormEntry(formEntry)) return basePages;
+
+  return Promise.resolve(basePages).then((pages) =>
+    ensureMishFillableEntrySections(pages, formEntry),
+  );
+}
+
+function hasInteractiveFillableSections(pages) {
+  if (!Array.isArray(pages)) return false;
+  return pages.some((page) =>
+    Array.isArray(page?.sections)
+      ? page.sections.some((section) =>
+          ["fieldGrid", "checkGrid", "narrative", "dataTable"].includes(
+            String(section?.type || ""),
+          ),
+        )
+      : false,
+  );
+}
+
+function buildMishEntryFillableSections(formEntry) {
+  const title = String(formEntry?.title || "Safety Form").trim();
+  return [
+    {
+      type: "fieldGrid",
+      title: "Field Entry Details",
+      subtitle: `${title} - project intake`,
+      columns: 2,
+      items: [
+        { name: "meta.project", label: "Project / Job" },
+        { name: "meta.location", label: "Site Location" },
+        { name: "meta.contractor", label: "Contractor / Employer" },
+        { name: "meta.supervisor", label: "Supervisor / Foreman" },
+        { name: "meta.preparedBy", label: "Prepared By" },
+        { name: "meta.date", label: "Date" },
+      ],
+    },
+    {
+      type: "narrative",
+      title: "Field Notes",
+      subtitle:
+        "Document observations, hazards, controls, or corrective actions.",
+      name: "meta.notes",
+      height: "1.4in",
+    },
+  ];
+}
+
+function ensureMishFillableEntrySections(pages, formEntry) {
+  if (!isMishFormEntry(formEntry)) return pages;
+  if (!Array.isArray(pages) || pages.length === 0) return pages;
+  if (hasInteractiveFillableSections(pages)) return pages;
+
+  const [firstPage, ...remainingPages] = pages;
+  if (!firstPage || !Array.isArray(firstPage.sections)) return pages;
+
+  return [
+    {
+      ...firstPage,
+      sections: [
+        ...buildMishEntryFillableSections(formEntry),
+        ...firstPage.sections,
+      ],
+    },
+    ...remainingPages,
+  ];
 }
 
 function parseInches(value, fallback = 1.55) {
@@ -4048,6 +4117,136 @@ async function generateAllFillableForms() {
   for (const f of fillable) {
     await generateFillableForm(f);
   }
+}
+
+function isMishManifestEntry(entry) {
+  return /^MISH\s+\d{1,2}$/i.test(String(entry?.id || "").trim());
+}
+
+function buildMishSchemaSpecMarkdown(entry, fillableFile) {
+  const title = String(entry?.title || "MISH Form").trim();
+  const id = String(entry?.id || "MISH").trim();
+  const manualSection = Array.isArray(entry?.manualSection)
+    ? entry.manualSection.filter(Boolean).join(", ")
+    : "MISH Safety Manual";
+  const owner = String(entry?.owner || "Safety Officer (Matt Ramsey)").trim();
+
+  return [
+    `# ${id} - ${title}`,
+    "",
+    "## Fillable Schema",
+    "",
+    `- Manifest entry: \`${id}\``,
+    `- Fillable schema: \`documents/forms/${fillableFile}\``,
+    `- Manual alignment: ${manualSection}`,
+    `- Owner: ${owner}`,
+    "",
+    "## Notes",
+    "",
+    "- This schema was scaffolded from the existing DOCX-backed form layout using the shared fillable engine.",
+    "- Update the paired JSON file to refine fields/labels/layout while keeping branding guardrails intact.",
+    "",
+  ].join("\n");
+}
+
+async function bootstrapMishFillableSchemas() {
+  const manifestPath = join(DOCS_DIR, "forms/forms-manifest.json");
+  if (!existsSync(manifestPath)) {
+    throw new Error(`forms-manifest.json not found at ${manifestPath}`);
+  }
+
+  const manifest = JSON.parse(await readFile(manifestPath, "utf-8"));
+  const forms = Array.isArray(manifest.forms) ? manifest.forms : [];
+  const mishForms = forms.filter((entry) => isMishManifestEntry(entry));
+  if (mishForms.length === 0) {
+    console.log("ℹ️  No MISH forms found in forms-manifest.json.");
+    return;
+  }
+
+  const schemaDir = join(DOCS_DIR, "forms/mish");
+  await ensureDir(schemaDir);
+
+  console.log(
+    `\n🧩  Bootstrapping fillable schemas for ${mishForms.length} MISH form(s)…`,
+  );
+
+  let schemaWritten = 0;
+  let schemaUpdated = 0;
+  let schemaSkipped = 0;
+  let specWritten = 0;
+
+  for (const entry of mishForms) {
+    const slug = slugForFormPackage(entry);
+    const fillableFile = entry.fillableFile || `mish/${slug}.json`;
+    const schemaPath = join(DOCS_DIR, "forms", fillableFile);
+    const specPath = schemaPath.replace(/\.json$/i, ".md");
+
+    if (!entry.fillableFile) {
+      entry.fillableFile = fillableFile;
+    }
+
+    if (!existsSync(schemaPath)) {
+      const pages = await getFillablePages(entry);
+      await ensureDir(dirname(schemaPath));
+      await writeFile(
+        schemaPath,
+        JSON.stringify({ pages }, null, 2) + "\n",
+        "utf-8",
+      );
+      schemaWritten += 1;
+      console.log(`  ✓  Created schema: ${schemaPath.replace(ROOT + "/", "")}`);
+    } else {
+      let existingSchema = null;
+      try {
+        existingSchema = JSON.parse(await readFile(schemaPath, "utf-8"));
+      } catch {
+        existingSchema = null;
+      }
+      const existingPages = Array.isArray(existingSchema?.pages)
+        ? existingSchema.pages
+        : [];
+      const normalizedPages = ensureMishFillableEntrySections(
+        existingPages,
+        entry,
+      );
+      if (
+        JSON.stringify(existingPages) !== JSON.stringify(normalizedPages) &&
+        normalizedPages.length > 0
+      ) {
+        await writeFile(
+          schemaPath,
+          JSON.stringify({ pages: normalizedPages }, null, 2) + "\n",
+          "utf-8",
+        );
+        schemaUpdated += 1;
+        console.log(
+          `  ✓  Updated schema: ${schemaPath.replace(ROOT + "/", "")}`,
+        );
+      } else {
+        schemaSkipped += 1;
+      }
+    }
+
+    if (!existsSync(specPath)) {
+      await writeFile(
+        specPath,
+        buildMishSchemaSpecMarkdown(entry, fillableFile),
+        "utf-8",
+      );
+      specWritten += 1;
+      console.log(`  ✓  Created spec: ${specPath.replace(ROOT + "/", "")}`);
+    }
+  }
+
+  await writeFile(
+    manifestPath,
+    JSON.stringify(manifest, null, 2) + "\n",
+    "utf-8",
+  );
+
+  console.log(
+    `\n✅  MISH fillable bootstrap complete: ${schemaWritten} schema(s) created, ${schemaUpdated} schema(s) updated, ${schemaSkipped} schema(s) reused, ${specWritten} spec file(s) created.`,
+  );
 }
 
 function slugForFormPackage(formEntry) {
@@ -10101,6 +10300,9 @@ async function main() {
       }
       case "form-fillables":
         await generateAllFillableForms();
+        break;
+      case "mish-fillable-bootstrap":
+        await bootstrapMishFillableSchemas();
         break;
       case "form-package": {
         if (!formArg) {

@@ -453,6 +453,38 @@
         vertical-align: top;
       }
 
+      /* Canonical Word-table styling for DOCX-derived form content */
+      .docx-block .sec-data-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 3pt 0 5pt;
+        border: 0.75pt solid var(--brand-secondary);
+        table-layout: fixed;
+      }
+      .docx-block .sec-data-table td,
+      .docx-block .sec-data-table th {
+        border: 0.5pt solid #b9c4bd;
+        padding: 3pt 4pt;
+        vertical-align: top;
+        font-size: 7pt;
+        line-height: 1.3;
+        color: var(--brand-primary-darker);
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+      .docx-block .sec-data-table thead th,
+      .docx-block .sec-data-table tr:first-child th,
+      .docx-block .sec-data-table.first-row-header tr:first-child td {
+        background: var(--brand-primary);
+        color: #ffffff;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .docx-block .sec-data-table tbody tr:nth-child(even) td {
+        background: #f3f6f4;
+      }
+
       .sig-grid {
         display: grid;
         grid-template-columns: 1fr;
@@ -600,7 +632,8 @@
       .sheet--cont .cont-header {
         position: absolute;
         top: 0.62in; left: 0.92in; right: 0.9in;
-        display: flex; justify-content: space-between; align-items: flex-end;
+        display: flex; justify-content: space-between; align-items: flex-start;
+        gap: 10pt;
         padding-bottom: 9pt;
         border-bottom: 1.2pt solid var(--brand-primary);
         font-size: 7.6pt; font-weight: 700;
@@ -615,6 +648,8 @@
         background: var(--brand-secondary);
       }
       .sheet--cont .cont-header .cont-mark {
+        flex: 1 1 auto;
+        min-width: 0;
         font-family: var(--font-heading);
         font-size: 11pt; font-weight: 900;
         letter-spacing: 0.05em;
@@ -623,7 +658,12 @@
       .sheet--cont .cont-header .cont-mark .dot {
         color: var(--brand-secondary); margin: 0 7pt;
       }
-      .sheet--cont .cont-header .cont-page { color: var(--brand-secondary); }
+      .sheet--cont .cont-header .cont-page {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        text-align: right;
+        color: var(--brand-secondary);
+      }
       .sheet--cont .body-area {
         top: 1.10in;
         left: 1.15in;

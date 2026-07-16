@@ -1,0 +1,85 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Housekeeping Inspection Checklist - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Housekeeping Inspection Checklist",
+          "html": "<p>────────────────────────────────────────────────────────────────────────────────────────────────────</p>\n<p><strong>INSPECTION CHECKLIST</strong></p>\n<p>Inspection Frequency Note: Regular inspections are required to ensure compliance with OSHA 29 CFR 1926.25 and WISHA WAC 296-155-020. Frequency should be determined by site-specific conditions and risk assessments.</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Inspection Item</strong></p></td><td><p><strong>Pass</strong></p></td><td><p><strong>Fail</strong></p></td><td><p><strong>N/A</strong></p></td></tr><tr><td><p>1</p></td><td><p>Work areas, passageways, and stairs are clear of debris, form and scrap lumber with protruding nails (per 29 CFR 1926.25(a), WAC 296-155-020(2)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>2</p></td><td><p>Combustible scrap and debris are removed at regular intervals (per 29 CFR 1926.25(b)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>3</p></td><td><p>Containers are provided for collection and separation of waste, trash, oily/used rags, and other refuse (per 29 CFR 1926.25(c), WAC 296-155-020(11)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>4</p></td><td><p>Containers for garbage, oily, flammable, or hazardous wastes are equipped with covers (per 29 CFR 1926.25(c), WAC 296-155-020(11)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>5</p></td><td><p>Garbage and other waste are disposed of at frequent and regular intervals (per 29 CFR 1926.25(c), WAC 296-155-020(11)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>6</p></td><td><p>Floors, working surfaces, and passageways are free from protruding nails, splinters, loose boards, or openings (per WAC 296-155-020(2)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>7</p></td><td><p>Cleaning and sweeping minimize air contamination with dust (per WAC 296-155-020(3)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>8</p></td><td><p>Hoses and electrical conductors across aisles/passageways are covered or suspended to prevent tripping hazards (per WAC 296-155-020(4)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>9</p></td><td><p>Sufficient safe clearances are maintained for aisles where mechanical handling equipment is used (per WAC 296-155-020(5)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>10</p></td><td><p>Aisles and passageways are marked (per WAC 296-155-020(5)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>11</p></td><td><p>Storage of material does not create a hazard; materials are stacked, blocked, or interlocked securely (per WAC 296-155-020(6)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>12</p></td><td><p>Free access is maintained to all exits, fire alarm boxes, fire extinguishing equipment, and emergency equipment (per WAC 296-155-020(7)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>13</p></td><td><p>Working and storage areas are free from accumulation of materials posing tripping, fire, explosion, or pest harborage hazards (per WAC 296-155-020(8)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>14</p></td><td><p>Vegetation control is exercised (per WAC 296-155-020(8)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>15</p></td><td><p>Lunchrooms, washrooms, and restrooms are kept in a clean and sanitary condition (per WAC 296-155-020(9)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>16</p></td><td><p>Garbage cans in lunchrooms and restrooms are equipped with fitted covers and contents disposed of daily (per WAC 296-155-020(9)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>17</p></td><td><p>Continuous clean-up of work area, including removal of rubble, scrap, boxes, crates, and excess material to trash disposal areas (per WAC 296-155-020(10)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>18</p></td><td><p>All scrap lumber, waste material, and rubbish are removed from the immediate work area as work progresses (per WAC 296-155-335(3)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr><tr><td><p>19</p></td><td><p>Floors and walkways are maintained in good condition, with loose/broken components repaired/replaced (per WAC 296-155-020(12)).</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Housekeeping Inspection Checklist (continued 2)",
+          "html": "<p><strong>DEFICIENCY LOG</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Description of Deficiency</strong></p></td><td><p><strong>Corrective Action</strong></p></td><td><p><strong>Assigned To</strong></p></td><td><p><strong>Due Date</strong></p></td><td><p><strong>Completed Date</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<p><strong>INSPECTOR SIGNATURE BLOCK</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Inspector Name:</strong></p></td><td></td><td></td><td></td></tr><tr><td><p><strong>Date:</strong></p></td><td></td><td><p><strong>Supervisor Review:</strong></p></td><td></td></tr><tr><td></td><td></td><td><p><strong>Date:</strong></p></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Housekeeping Inspection Checklist (continued 3)",
+          "html": "<p><strong>REGULATORY AUTHORITY</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>OSHA: 29 CFR 1926.25 Housekeeping</p><p>WISHA: WAC 296-155-020 Housekeeping; WAC 296-155-335 Disposal of Waste Materials</p><p>AGC: Jobsite Safety Handbook Housekeeping</p><p>This form supports compliance with the above regulations. Retain completed forms for minimum 3 years per 29 CFR 1904.33 and WAC 296-27.</p></td></tr></table>\n<p>Title: ______________________________</p>\n<p>Date: ______________________________</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Housekeeping Inspection Checklist (continued 4)",
+          "html": "<p>Title: ______________________________</p>\n<p>Date: ______________________________</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Housekeeping Inspection Checklist Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Aerial Lift Pre Operation Inspection and JHA - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Aerial Lift Pre Operation Inspection and JHA",
+          "html": "<p><strong>Task Description: </strong>________________________________________________________________________________</p>\n<p><strong>Pre-Task Hazard Identification:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>☐ Overhead power lines / electrical hazards</p></td><td><p>☐ Overhead obstructions / pinch points</p></td></tr><tr><td><p>☐ Uneven or unstable ground conditions</p></td><td><p>☐ Inadequate lighting</p></td></tr><tr><td><p>☐ High winds or adverse weather</p></td><td><p>☐ Hazardous atmosphere</p></td></tr><tr><td><p>☐ Drop-offs, holes, or trenches</p></td><td><p>☐ Falling objects</p></td></tr><tr><td><p>☐ Pedestrian or vehicular traffic</p></td><td><p>☐ Equipment malfunction</p></td></tr></table>\n<p><strong>Required PPE:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>☐ Hard Hat</p></td><td><p>☐ Full Body Harness</p></td></tr><tr><td><p>☐ Safety Glasses</p></td><td><p>☐ Shock-Absorbing Lanyard</p></td></tr><tr><td><p>☐ High-Visibility Vest</p></td><td><p>☐ Work Gloves</p></td></tr><tr><td><p>☐ Steel-Toe Boots</p></td><td><p>☐ Hearing Protection</p></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Aerial Lift Pre Operation Inspection and JHA (continued 2)",
+          "html": "<p><strong>Job Hazard Analysis (JHA):</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Step #</strong></p></td><td><p><strong>Task Step Description</strong></p></td><td><p><strong>Potential Hazard</strong></p></td><td><p><strong>Hazard Control Measure</strong></p></td><td><p><strong>Responsible Party</strong></p></td></tr><tr><td><p>1</p></td><td><p>Pre-operation inspection</p></td><td><p>Missed defects, equipment failure</p></td><td><p>Complete inspection checklist thoroughly before use</p></td><td><p>Operator</p></td></tr><tr><td><p>2</p></td><td><p>Moving lift to work area</p></td><td><p>Struck-by, tip-over, crushing</p></td><td><p>Use spotter, check route for hazards, maintain safe speed</p></td><td><p>Operator / Spotter</p></td></tr><tr><td><p>3</p></td><td><p>Elevating platform</p></td><td><p>Fall, struck-by overhead objects, electrocution</p></td><td><p>Maintain 10ft clearance from power lines, wear harness/lanyard tied off to anchor point</p></td><td><p>Operator</p></td></tr><tr><td><p>4</p></td><td><p>Performing work from platform</p></td><td><p>Dropped objects, falls</p></td><td><p>Keep tools tethered, do not stand on guardrails, keep feet on floor</p></td><td><p>Operator</p></td></tr><tr><td><p>5</p></td><td><p>Lowering and parking lift</p></td><td><p>Crushing, unauthorized use</p></td><td><p>Check below before lowering, park on level ground, remove key</p></td><td><p>Operator</p></td></tr><tr><td><p>6</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>7</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>8</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>9</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>10</p></td><td></td><td></td><td></td><td></td></tr></table>\n<p><strong>Emergency Contacts:</strong><br />Nearest Hospital: ____________________________________<br />Emergency Number: 911 or ___________________________<br />Site First Aid Location: _____________________________</p>\n<p><strong>Aerial Lift Pre-Operation Inspection Checklist</strong></p>\n<p>Inspection Frequency: Prior to each work shift (per 29 CFR 1926.453(b)(2)(i) and WAC 296-880).</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Aerial Lift Pre Operation Inspection and JHA (continued 3)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Inspection Item</strong></p></td><td><p><strong>Pass</strong></p></td><td><p><strong>Fail</strong></p></td><td><p><strong>N/A</strong></p></td><td><p><strong>Corrective Action Required</strong></p></td></tr><tr><td><p>1</p></td><td><p>Operating and emergency controls (29 CFR 1926.453)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>2</p></td><td><p>Safety devices (limit switches, alarms) (29 CFR 1926.453)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>3</p></td><td><p>Personal fall protection gear (WAC 296-880)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>4</p></td><td><p>Tires and wheels (pressure, damage) (29 CFR 1926.453)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>5</p></td><td><p>Outriggers, stabilizers, and extendable axles (29 CFR 1926.453)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>6</p></td><td><p>Fluid levels (oil, hydraulic, fuel, coolant) (29 CFR 1926.453)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>7</p></td><td><p>Hydraulic/pneumatic/electrical systems (leaks/damage) (29 CFR 1926.453)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>8</p></td><td><p>Structural components (cracks, welds, rust) (29 CFR 1926.453)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>9</p></td><td><p>Guardrail system and access gates (WAC 296-880)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>10</p></td><td><p>Placards, warnings, and control markings (29 CFR 1926.453)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>11</p></td><td><p>Operating manual in weather-resistant compartment (29 CFR 1926.453)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>12</p></td><td><p>Steering and brakes (29 CFR 1926.453)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>13</p></td><td><p>Battery and charger connections (29 CFR 1926.453)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>14</p></td><td><p>Horn and backup alarm (29 CFR 1926.453)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>15</p></td><td><p>Platform cleanliness (free of debris/grease) (29 CFR 1926.453)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr></table>\n<p><strong>Deficiency Log:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Description of Deficiency</strong></p></td><td><p><strong>Corrective Action</strong></p></td><td><p><strong>Assigned To</strong></p></td><td><p><strong>Due Date</strong></p></td><td><p><strong>Completed Date</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Inspector Name: ____________________</p></td><td></td><td><p>Date: ____________</p></td></tr><tr><td><p>Supervisor Review: _________________</p></td><td></td><td><p>Date: ____________</p></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Aerial Lift Pre Operation Inspection and JHA Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

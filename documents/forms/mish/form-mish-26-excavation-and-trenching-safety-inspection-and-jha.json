@@ -1,0 +1,85 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Excavation and Trenching Safety Inspection and JHA - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Excavation and Trenching Safety Inspection and JHA",
+          "html": "<p><strong>PART 1: EXCAVATION AND TRENCHING INSPECTION</strong></p>\n<p><em>Inspection Frequency: Daily prior to start of work, as needed throughout shift, and after every rainstorm or other hazard-increasing occurrence (per 29 CFR 1926.651(k)(1) and WAC 296-155-655(11)).</em></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Inspection Item</strong></p></td><td><p><strong>Pass</strong></p></td><td><p><strong>Fail</strong></p></td><td><p><strong>N/A</strong></p></td><td><p><strong>Corrective Action Required</strong></p></td></tr><tr><td><p>1</p></td><td><p>Surface encumbrances removed or supported (29 CFR 1926.651(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>2</p></td><td><p>Underground utilities located and marked (29 CFR 1926.651(b))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>3</p></td><td><p>Access/egress provided within 25 ft for trenches &gt;4 ft deep (29 CFR 1926.651(c))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>4</p></td><td><p>Employees protected from vehicular traffic (29 CFR 1926.651(d))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>5</p></td><td><p>Employees protected from falling loads (29 CFR 1926.651(e))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>6</p></td><td><p>Warning system for mobile equipment in place (29 CFR 1926.651(f))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>7</p></td><td><p>Hazardous atmospheres tested (&gt;4 ft deep) (29 CFR 1926.651(g))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>8</p></td><td><p>Emergency rescue equipment available (29 CFR 1926.651(g)(2))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>9</p></td><td><p>Protection from water accumulation provided (29 CFR 1926.651(h))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>10</p></td><td><p>Adjacent structures supported/protected (29 CFR 1926.651(i))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>11</p></td><td><p>Loose rock/soil scaled or barricaded (29 CFR 1926.651(j)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>12</p></td><td><p>Spoils/materials kept &gt;2 ft from edge (29 CFR 1926.651(j)(2))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>13</p></td><td><p>Fall protection provided at crossings (29 CFR 1926.651(l))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>14</p></td><td><p>Protective system designed by competent person (29 CFR 1926.652(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>15</p></td><td><p>Sloping/benching meets requirements (29 CFR 1926.652(b))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>16</p></td><td><p>Shield system (trench box) installed correctly (29 CFR 1926.652(g))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>17</p></td><td><p>Shield system extends &gt;18 inches above top of vertical side (29 CFR 1926.652(g)(2))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>18</p></td><td><p>No employees in shield during installation/removal (29 CFR 1926.652(g)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>19</p></td><td><p>Competent person on site during excavation (WAC 296-155-655)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>20</p></td><td><p>Daily inspection completed by competent person (29 CFR 1926.651(k))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr></table>\n<p><strong>Deficiency Log</strong></p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Excavation and Trenching Safety Inspection and JHA (continued 2)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Description of Deficiency</strong></p></td><td><p><strong>Corrective Action</strong></p></td><td><p><strong>Assigned To</strong></p></td><td><p><strong>Due Date</strong></p></td><td><p><strong>Completed Date</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Inspector Name:</p></td><td></td><td><p>Date:</p></td></tr><tr><td><p>Supervisor Review:</p></td><td></td><td><p>Date:</p></td></tr></table>\n<p><strong>PART 2: JOB HAZARD ANALYSIS (JHA)</strong></p>\n<p><strong>Task Description: </strong>___________________________________________________________________________________</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Excavation and Trenching Safety Inspection and JHA (continued 3)",
+          "html": "<p><strong>Pre-Task Hazard Identification:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>☐ Cave-ins / Soil Collapse</p></td><td><p>☐ Mobile Equipment Traffic</p></td></tr><tr><td><p>☐ Underground Utilities</p></td><td><p>☐ Slips, Trips, and Falls</p></td></tr><tr><td><p>☐ Overhead Power Lines</p></td><td><p>☐ Falling Materials/Spoils</p></td></tr><tr><td><p>☐ Hazardous Atmosphere</p></td><td><p>☐ Confined Space Entry</p></td></tr><tr><td><p>☐ Water Accumulation</p></td><td><p>☐ Noise Exposure</p></td></tr></table>\n<p><strong>Required PPE:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>☐ Hard Hat</p></td><td><p>☐ Work Gloves</p></td></tr><tr><td><p>☐ Safety Glasses</p></td><td><p>☐ Hearing Protection</p></td></tr><tr><td><p>☐ High-Visibility Vest</p></td><td><p>☐ Gas Monitor</p></td></tr><tr><td><p>☐ Steel-Toe Boots</p></td><td><p>☐ Fall Protection</p></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Excavation and Trenching Safety Inspection and JHA (continued 4)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Step #</strong></p></td><td><p><strong>Task Step Description</strong></p></td><td><p><strong>Potential Hazard</strong></p></td><td><p><strong>Hazard Control Measure</strong></p></td><td><p><strong>Responsible Party</strong></p></td></tr><tr><td><p>1</p></td><td><p>Site Preparation and Utility Locating</p></td><td><p>Striking underground utilities (gas, electric, water)</p></td><td><p>Call 811 before digging. Hand dig or pothole to verify utility locations. Maintain safe distance from marked lines.</p></td><td><p>Competent Person / Operator</p></td></tr><tr><td><p>2</p></td><td><p>Excavating / Trenching</p></td><td><p>Cave-in or soil collapse</p></td><td><p>Classify soil. Implement protective system (sloping, benching, shoring, or shielding) for trenches &gt;5 ft deep.</p></td><td><p>Competent Person</p></td></tr><tr><td><p>3</p></td><td><p>Spoil Placement</p></td><td><p>Spoils falling back into trench</p></td><td><p>Keep spoils and equipment at least 2 feet from the edge of the excavation.</p></td><td><p>Operator / Laborers</p></td></tr><tr><td><p>4</p></td><td><p>Access and Egress</p></td><td><p>Slips, trips, falls; inability to exit quickly</p></td><td><p>Provide ladders, ramps, or stairs within 25 feet of travel for trenches &gt;4 ft deep. Ensure ladder extends 3 ft above edge.</p></td><td><p>Competent Person</p></td></tr><tr><td><p>5</p></td><td><p>Working in Trench</p></td><td><p>Hazardous atmosphere or water accumulation</p></td><td><p>Test atmosphere if &gt;4 ft deep and potential exists. Inspect for water accumulation daily. Use dewatering equipment if needed.</p></td><td><p>Competent Person</p></td></tr><tr><td><p>6</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>7</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>8</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>9</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>10</p></td><td></td><td></td><td></td><td></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Nearest Hospital:<br /></p></td><td><p>Emergency Number:<br />911</p></td><td><p>Site First Aid Location:<br /></p></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td></td><td><p>Title: ________________________</p></td><td><p>Date: ________________________</p></td></tr><tr><td></td><td><p>Title: ________________________</p></td><td><p>Date: ________________________</p></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Excavation and Trenching Safety Inspection and JHA Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

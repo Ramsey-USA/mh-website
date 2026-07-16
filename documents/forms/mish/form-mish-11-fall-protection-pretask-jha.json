@@ -1,0 +1,75 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Fall Protection Pretask JHA - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Fall Protection Pretask JHA",
+          "html": "<p><strong>Task Description: </strong>________________________________________________________________________________</p>\n<p><strong>Pre-Task Hazard Identification Checklist:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>☐ Unprotected edges/holes</p></td><td><p>☐ Leading edge work</p></td></tr><tr><td><p>☐ Roofing activities</p></td><td><p>☐ Scaffolding operations</p></td></tr><tr><td><p>☐ Aerial lift operations</p></td><td><p>☐ Steel erection</p></td></tr><tr><td><p>☐ Excavation/trenching</p></td><td><p>☐ Wall openings</p></td></tr><tr><td><p>☐ Hoist areas</p></td><td><p>☐ Formwork/reinforcing steel</p></td></tr></table>\n<p><strong>Required PPE Checklist:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>☐ Full body harness</p></td><td><p>☐ Shock-absorbing lanyard</p></td></tr><tr><td><p>☐ Self-retracting lifeline (SRL)</p></td><td><p>☐ Anchor point (5000 lbs)</p></td></tr><tr><td><p>☐ Hard hat</p></td><td><p>☐ Safety glasses</p></td></tr><tr><td><p>☐ Work boots</p></td><td><p>☐ Gloves</p></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Fall Protection Pretask JHA (continued 2)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Step #</strong></p></td><td><p><strong>Task Step Description</strong></p></td><td><p><strong>Potential Hazard</strong></p></td><td><p><strong>Hazard Control Measure</strong></p></td><td><p><strong>Responsible Party</strong></p></td></tr><tr><td><p>1</p></td><td><p>Inspect fall protection equipment</p></td><td><p>Using defective equipment</p></td><td><p>Inspect harness, lanyard, and anchor points before use. Remove defective equipment from service.</p></td><td><p>Employee</p></td></tr><tr><td><p>2</p></td><td><p>Identify anchor points</p></td><td><p>Inadequate anchor strength</p></td><td><p>Ensure anchor point can support 5,000 lbs per employee attached.</p></td><td><p>Competent Person</p></td></tr><tr><td><p>3</p></td><td><p>Don fall protection equipment</p></td><td><p>Improper fit</p></td><td><p>Adjust harness to fit snugly. Ensure D-ring is between shoulder blades.</p></td><td><p>Employee</p></td></tr><tr><td><p>4</p></td><td><p>Access work area</p></td><td><p>Slips, trips, falls</p></td><td><p>Maintain 3 points of contact on ladders. Keep walkways clear of debris.</p></td><td><p>Employee</p></td></tr><tr><td><p>5</p></td><td><p>Perform work at height</p></td><td><p>Fall to lower level</p></td><td><p>Remain tied off 100% of the time when exposed to fall hazard.</p></td><td><p>Employee</p></td></tr><tr><td><p>6</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>7</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>8</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>9</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>10</p></td><td></td><td></td><td></td><td></td></tr></table>\n<p><strong>Emergency Contacts:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Nearest Hospital:<br />____________________</p></td><td><p>Emergency Number:<br />911</p></td><td><p>Site First Aid Location:<br />____________________</p></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Fall Protection Pretask JHA Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

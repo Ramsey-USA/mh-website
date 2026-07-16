@@ -111,6 +111,7 @@
     "docs:generate:sections": "npm run docs:preflight:pdf-output && root=$(git rev-parse --show-toplevel) && node \"$root/documents/scripts/generate.mjs\" --template sections",
     "docs:generate:forms:_raw": "root=$(git rev-parse --show-toplevel) && node \"$root/documents/scripts/generate.mjs\" --template form-packages",
     "docs:generate:forms": "npm run docs:preflight:pdf-output && npm run docs:generate:forms:_raw --",
+    "docs:migrate:mish:fillable": "root=$(git rev-parse --show-toplevel) && node \"$root/documents/scripts/generate.mjs\" --template mish-fillable-bootstrap",
     "docs:generate:handbook:_raw": "root=$(git rev-parse --show-toplevel) && node \"$root/documents/scripts/generate.mjs\" --manual employee-handbook --template all",
     "docs:generate:handbook": "npm run docs:preflight:pdf-output && npm run docs:generate:handbook:_raw --",
     "docs:generate:handbook:cover": "npm run docs:preflight:pdf-output && root=$(git rev-parse --show-toplevel) && node \"$root/documents/scripts/generate.mjs\" --manual employee-handbook --template cover",

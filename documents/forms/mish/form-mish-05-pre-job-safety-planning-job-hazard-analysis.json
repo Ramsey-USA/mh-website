@@ -1,0 +1,75 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Pre Job Safety Planning Job Hazard Analysis - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Pre Job Safety Planning Job Hazard Analysis",
+          "html": "<p><strong>Task Description: </strong>_________________________________________________________________________________</p>\n<p><strong>Pre-Task Hazard Identification Checklist:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>☐ Fall Hazards (&gt;6 ft)</p></td><td><p>☐ Material Handling / Lifting</p></td></tr><tr><td><p>☐ Electrical Hazards</p></td><td><p>☐ Hot Work (Welding/Cutting)</p></td></tr><tr><td><p>☐ Confined Space Entry</p></td><td><p>☐ Chemical / Hazardous Materials</p></td></tr><tr><td><p>☐ Trenching / Excavation</p></td><td><p>☐ Noise Exposure</p></td></tr><tr><td><p>☐ Heavy Equipment Operation</p></td><td><p>☐ Struck-By / Caught-Between</p></td></tr></table>\n<p><strong>Required PPE Checklist:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>☐ Hard Hat</p></td><td><p>☐ Work Gloves</p></td></tr><tr><td><p>☐ Safety Glasses</p></td><td><p>☐ Hearing Protection</p></td></tr><tr><td><p>☐ High-Visibility Vest</p></td><td><p>☐ Fall Protection Harness</p></td></tr><tr><td><p>☐ Steel-Toe Boots</p></td><td><p>☐ Respirator</p></td></tr></table>\n<p><strong>Job Hazard Analysis:</strong></p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Pre Job Safety Planning Job Hazard Analysis (continued 2)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Step #</strong></p></td><td><p><strong>Task Step Description</strong></p></td><td><p><strong>Potential Hazard</strong></p></td><td><p><strong>Hazard Control Measure</strong></p></td><td><p><strong>Responsible Party</strong></p></td></tr><tr><td><p>1</p></td><td><p>Mobilize equipment to site</p></td><td><p>Struck by moving equipment</p></td><td><p>Use spotters, establish exclusion zones, wear high-vis vests</p></td><td><p>Foreman / Operator</p></td></tr><tr><td><p>2</p></td><td><p>Unload materials from truck</p></td><td><p>Strains/sprains, crushed hands/feet</p></td><td><p>Use proper lifting techniques, wear gloves and steel-toe boots, use forklift if &gt;50 lbs</p></td><td><p>Laborers</p></td></tr><tr><td><p>3</p></td><td><p>Set up scaffolding</p></td><td><p>Fall from height, scaffold collapse</p></td><td><p>Inspect components, erect by competent person, use fall protection if &gt;10 ft</p></td><td><p>Competent Person</p></td></tr><tr><td><p>4</p></td><td><p>Operate power tools</p></td><td><p>Electrical shock, flying debris</p></td><td><p>Inspect cords, use GFCI, wear safety glasses and face shield</p></td><td><p>Worker</p></td></tr><tr><td><p>5</p></td><td><p>Clean up work area</p></td><td><p>Slips, trips, falls</p></td><td><p>Maintain housekeeping, remove debris promptly, secure loose materials</p></td><td><p>All Personnel</p></td></tr><tr><td><p>6</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>7</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>8</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>9</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>10</p></td><td></td><td></td><td></td><td></td></tr></table>\n<p><strong>Emergency Contacts:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Nearest Hospital / Clinic:</strong></p></td><td></td></tr><tr><td><p><strong>Emergency Number:</strong></p></td><td></td></tr><tr><td><p><strong>Site First Aid Location:</strong></p></td><td></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Pre Job Safety Planning Job Hazard Analysis Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

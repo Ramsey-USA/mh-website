@@ -1,0 +1,75 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Incident Investigation Root Cause Analysis Report - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Incident Investigation Root Cause Analysis Report",
+          "html": "<p><strong>Incident Details</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Date of Incident:</strong></p></td><td></td><td><p><strong>Time of Incident:</strong></p></td><td></td></tr><tr><td><p><strong>Exact Location:</strong></p></td><td></td><td><p><strong>Incident Type:</strong></p></td><td><p>☐ Injury  ☐ Property Damage  ☐ Near Miss  ☐ Other</p></td></tr></table>\n<p><strong>Description of Incident</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Describe what happened, including sequence of events, equipment involved, and conditions at the time:<br /><br /><br /><br /><br /></p></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Incident Investigation Root Cause Analysis Report (continued 2)",
+          "html": "<p><strong>Root Cause Analysis (5 Whys)</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Problem Statement:</strong></p></td><td></td></tr><tr><td><p><strong>Why 1?</strong></p></td><td></td></tr><tr><td><p><strong>Why 2?</strong></p></td><td></td></tr><tr><td><p><strong>Why 3?</strong></p></td><td></td></tr><tr><td><p><strong>Why 4?</strong></p></td><td></td></tr><tr><td><p><strong>Why 5?</strong></p></td><td></td></tr></table>\n<p><strong>Corrective Actions</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Action Item</strong></p></td><td><p><strong>Assigned To</strong></p></td><td><p><strong>Due Date</strong></p></td><td><p><strong>Completed Date</strong></p></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Incident Investigation Root Cause Analysis Report Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

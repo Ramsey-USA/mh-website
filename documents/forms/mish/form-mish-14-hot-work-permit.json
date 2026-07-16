@@ -1,0 +1,90 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Hot Work Permit - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Hot Work Permit",
+          "html": "<p>Permit Details:</p>\n<p>Permit Number: [DATE]-[MISH##]-[SEQ]</p>\n<p>Pre-work Conditions Checklist:</p>\n<p>☐ Area inspected and cleared of combustibles</p>\n<p>☐ Fire watch established and equipped</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Hot Work Permit (continued 2)",
+          "html": "<p>☐ Fire extinguisher readily available</p>\n<p>☐ Proper ventilation ensured</p>\n<p>☐ Flammable materials removed or protected</p>\n<p>☐ Sprinkler systems protected from accidental activation</p>\n<p>☐ Hot work equipment in good condition</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Hot Work Permit (continued 3)",
+          "html": "<p>☐ Adjacent areas checked for hazards</p>\n<p>Work Authorization:</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Work Description</strong></p></td><td><p><strong>Location</strong></p></td><td><p><strong>Start Time</strong></p></td><td><p><strong>End Time</strong></p></td><td><p><strong>Authorized By</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></table>\n<p>Required Controls:</p>\n<p>☐ Welding screens/barriers in place</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Hot Work Permit (continued 4)",
+          "html": "<p>☐ Proper grounding of equipment</p>\n<p>☐ Adequate ventilation for fumes</p>\n<p>☐ Personal Protective Equipment (PPE) utilized</p>\n<p>☐ Standby personnel (if required)</p>\n<p>☐ Post-work fire watch for 30 minutes</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Hot Work Permit (continued 5)",
+          "html": "<p>Atmospheric Testing Log (Hot Work):</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Time</strong></p></td><td><p><strong>O2%</strong></p></td><td><p><strong>LEL%</strong></p></td><td><p><strong>CO ppm</strong></p></td><td><p><strong>H2S ppm</strong></p></td><td><p><strong>Tested By</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<p>Permit Closure:</p>\n<p>Work completed: ___________  Area restored: ___________</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Hot Work Permit Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

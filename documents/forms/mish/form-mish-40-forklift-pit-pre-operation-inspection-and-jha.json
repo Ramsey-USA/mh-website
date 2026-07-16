@@ -1,0 +1,80 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Forklift Pit Pre Operation Inspection and JHA - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Forklift Pit Pre Operation Inspection and JHA",
+          "html": "<p>​</p>\n<h4 class=\"sec-subhead\">Inspection Checklist</h4>\n<p>Inspection Frequency: Refer to 29 CFR 1910.178 Powered Industrial Trucks and WAC 296-863 Powered Industrial Trucks for specific requirements.</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Inspection Item</strong></p></td><td><p><strong>Pass</strong></p></td><td><p><strong>Fail</strong></p></td><td><p><strong>N/A</strong></p></td><td><p><strong>Corrective Action Required</strong></p></td></tr><tr><td><p>1</p></td><td><p>Fluid levels (oil, water, hydraulic) are adequate (per 29 CFR 1910.178(q)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>2</p></td><td><p>Tires are in good condition and properly inflated (per 29 CFR 1910.178(q)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>3</p></td><td><p>Forks are not bent, cracked, or worn (per 29 CFR 1910.178(q)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>4</p></td><td><p>Mast and hoist chains are properly lubricated and adjusted (per 29 CFR 1910.178(q)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>5</p></td><td><p>Lights, horn, and backup alarm are operational (per 29 CFR 1910.178(q)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>6</p></td><td><p>Brakes are functioning correctly (service and parking) (per 29 CFR 1910.178(q)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>7</p></td><td><p>Steering mechanism is responsive and free of excessive play (per 29 CFR 1910.178(q)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>8</p></td><td><p>Seatbelt is present and functional (per 29 CFR 1910.178(q)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>9</p></td><td><p>Overhead guard is intact and free of damage (per 29 CFR 1910.178(q)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>10</p></td><td><p>Fire extinguisher is present and charged (if required) (per 29 CFR 1910.178(q)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>11</p></td><td><p>Battery is properly secured and charged (electric trucks) (per 29 CFR 1910.178(q)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>12</p></td><td><p>Propane tank is secured and free of leaks (LP trucks) (per 29 CFR 1910.178(q)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>13</p></td><td><p>Data plate is legible and attached (per 29 CFR 1910.178(a)(6))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>14</p></td><td><p>Operator's manual is onboard (per 29 CFR 1910.178(q)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>15</p></td><td><p>No leaks or spills observed (per 29 CFR 1910.178(q)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>16</p></td><td></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>17</p></td><td></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>18</p></td><td></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>19</p></td><td></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>20</p></td><td></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>21</p></td><td></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>22</p></td><td></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>23</p></td><td></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>24</p></td><td></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>25</p></td><td></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Forklift Pit Pre Operation Inspection and JHA (continued 2)",
+          "html": "<h4 class=\"sec-subhead\">Deficiency Log</h4>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Description of Deficiency</strong></p></td><td><p><strong>Corrective Action</strong></p></td><td><p><strong>Assigned To</strong></p></td><td><p><strong>Due Date</strong></p></td><td><p><strong>Completed Date</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<h4 class=\"sec-subhead\">Inspector Signature</h4>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Inspector Name:</p></td><td></td><td></td><td></td></tr><tr><td><p>Date:</p></td><td></td><td><p>Supervisor Review:</p></td><td></td></tr><tr><td></td><td></td><td><p>Date:</p></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Forklift Pit Pre Operation Inspection and JHA (continued 3)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td></td><td></td><td><p>Title:</p></td><td></td><td><p>Date:</p></td><td></td></tr><tr><td></td><td></td><td><p>Title:</p></td><td></td><td><p>Date:</p></td><td></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Forklift Pit Pre Operation Inspection and JHA Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Incident Near Miss Report - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Incident Near Miss Report",
+          "html": "<p><strong>INCIDENT DETAILS</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Time of Incident:</strong></p></td><td></td><td><p><strong>Location on Site:</strong></p></td><td></td></tr><tr><td><p><strong>Type of Incident:</strong></p></td><td></td><td><p><strong>Witnesses:</strong></p></td><td></td></tr></table>\n<p><strong>DESCRIPTION OF INCIDENT</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><em>(Describe what happened, how it happened, and what led up to the incident)</em></p></td></tr></table>\n<p><strong>ROOT CAUSE &amp; CORRECTIVE ACTIONS</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Root Cause Analysis:</strong></p></td></tr><tr><td><p><strong>Corrective Actions Taken/Required:</strong></p></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Incident Near Miss Report Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

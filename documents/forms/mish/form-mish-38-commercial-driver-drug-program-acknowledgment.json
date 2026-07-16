@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Commercial Driver Drug Program Acknowledgment - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Commercial Driver Drug Program Acknowledgment",
+          "html": "<p>Policy Summary:</p>\n<p>MH Construction, Inc. is committed to maintaining a safe and drug-free workplace. This policy outlines the requirements for commercial drivers regarding controlled substances and alcohol use, in compliance with federal and state regulations. All commercial drivers are subject to drug and alcohol testing as mandated by 49 CFR Part 382 FMCSA Controlled Substances and Alcohol Use and Testing. Failure to comply with this policy will result in disciplinary action, up to and including termination of employment. This policy is integral to our Accident Prevention Program, as detailed in WAC 296-155-110.</p>\n<p>I acknowledge that I have read, understand, and agree to comply with the MH Construction Commercial Driver Drug Program Policy as required by 49 CFR Part 382 FMCSA Controlled Substances and Alcohol Use and Testing and WAC 296-155-110 Accident Prevention Program.</p>\n<p><strong>Regulatory Authority</strong><br />OSHA: 49 CFR Part 382 FMCSA Controlled Substances and Alcohol Use and Testing; 49 CFR Part 40 DOT Drug and Alcohol Testing Procedures<br />WISHA: WAC 296-155-110 Accident Prevention Program; RCW 46.25 Commercial Driver's License<br />AGC: Safety and Health Manual Ch. 2 Drug and Alcohol Programs; FMCSA Employer Handbook<br />This form supports compliance with the above regulations. Retain completed forms for minimum 3 years per 29 CFR 1904.33 and WAC 296-27.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Commercial Driver Drug Program Acknowledgment Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

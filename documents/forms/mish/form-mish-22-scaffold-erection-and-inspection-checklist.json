@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Scaffold Erection and Inspection Checklist - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Scaffold Erection and Inspection Checklist",
+          "html": "<p>Inspection Frequency Note: Scaffolds must be inspected by a competent person prior to each work shift and after any occurrence which could affect its structural integrity (e.g., severe weather, impact). (per 29 CFR 1926.451(f)(3) and WAC 296-869-200(2))</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Inspection Item</strong></p></td><td><p><strong>Pass</strong></p></td><td><p><strong>Fail</strong></p></td><td><p><strong>N/A</strong></p></td><td><p><strong>Corrective Action Required</strong></p></td></tr><tr><td><p>1</p></td><td><p>Base plates and mudsills are level and sound (per 29 CFR 1926.451(c)(2))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>2</p></td><td><p>Scaffold is plumb, level, and square (per 29 CFR 1926.451(d)(3))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>3</p></td><td><p>All components are in good condition and free from damage (per 29 CFR 1926.451(b)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>4</p></td><td><p>Guardrails are installed on all open sides and ends of platforms (per 29 CFR 1926.451(g)(4))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>5</p></td><td><p>Midrails are installed approximately halfway between the toprail and the platform surface (per 29 CFR 1926.451(g)(4)(ii))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>6</p></td><td><p>Toeboards are installed on all open sides and ends of platforms (per 29 CFR 1926.451(g)(4)(iii))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>7</p></td><td><p>Platforms are fully planked or decked between the front uprights and the guardrail supports (per 29 CFR 1926.451(b)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>8</p></td><td><p>Platforms are secured to prevent displacement (per 29 CFR 1926.451(b)(2))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>9</p></td><td><p>Access to scaffold is safe and appropriate (ladders, ramps, etc.) (per 29 CFR 1926.451(e))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>10</p></td><td><p>Scaffold is tied, guyed, or braced as required (per 29 CFR 1926.451(c)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>11</p></td><td><p>Competent person has inspected scaffold before each shift (per 29 CFR 1926.451(f)(3))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>12</p></td><td><p>Fall protection is provided for employees working on scaffolds 10 feet or more above a lower level (per 29 CFR 1926.451(g)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>13</p></td><td><p>Scaffold is not overloaded (per 29 CFR 1926.451(a)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>14</p></td><td><p>Electrical hazards are identified and controlled (per 29 CFR 1926.451(f)(6))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>15</p></td><td><p>Overhead protection is provided where necessary (per 29 CFR 1926.451(f)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>16</p></td><td><p>Wheels and casters are locked on mobile scaffolds (per 29 CFR 1926.452(w)(2))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>17</p></td><td><p>Scaffold is erected, dismantled, or altered only under the supervision of a competent person (per 29 CFR 1926.451(f)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>18</p></td><td><p>Training has been provided to all employees working on scaffolds (per 29 CFR 1926.454)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>19</p></td><td><p>Clearances from power lines are maintained (per 29 CFR 1926.451(f)(6))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>20</p></td><td><p>Debris chutes or other means are used to remove debris (per 29 CFR 1926.451(f)(8))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Description of Deficiency</strong></p></td><td><p><strong>Corrective Action</strong></p></td><td><p><strong>Assigned To</strong></p></td><td><p><strong>Due Date</strong></p></td><td><p><strong>Completed Date</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<p>Inspector Name: _________________________\tSignature: _________________________\tDate: ______________<br />Supervisor Review: _________________________\tSignature: _________________________\tDate: ______________</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Scaffold Erection and Inspection Checklist Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

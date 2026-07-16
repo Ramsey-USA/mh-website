@@ -1,0 +1,85 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Silica Exposure Control Plan and Monitoring Log - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Silica Exposure Control Plan and Monitoring Log",
+          "html": "<p>────────────────────────────────────────────────────────────────────────────────</p>\n<h4 class=\"sec-subhead\">Training/Meeting Log</h4>\n<p><strong>Topic/Subject: </strong>____________________________________________________________________</p>\n<p><strong>Trainer/Presenter: </strong>____________________________________________________________________</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Silica Exposure Control Plan and Monitoring Log (continued 2)",
+          "html": "<p><strong>Training Content Summary: </strong>____________________________________________________________________</p>\n<ul class=\"sec-list\"><li class=\"sec-bullet\">____________________________________________________________________________________________________</li><li class=\"sec-bullet\">____________________________________________________________________________________________________</li><li class=\"sec-bullet\">____________________________________________________________________________________________________</li></ul>\n<h4 class=\"sec-subhead\">Attendee Sign-in</h4>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>#</strong></p></td><td><p><strong>Employee Name (print)</strong></p></td><td></td><td></td><td><p><strong>Employee ID/Trade</strong></p></td></tr><tr><td><p>1</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>2</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>3</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>4</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>5</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>6</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>7</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>8</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>9</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>10</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>11</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>12</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>13</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>14</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>15</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>16</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>17</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>18</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>19</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>20</p></td><td></td><td></td><td></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Silica Exposure Control Plan and Monitoring Log (continued 3)",
+          "html": "<p>I certify that the above training was conducted as described.</p>\n<p><strong>Trainer Name: </strong>____________________________________________________________________</p>\n<p><strong>Date: </strong>____________________________________________________________________</p>\n<h4 class=\"sec-subhead\">Silica Exposure Control Plan and Monitoring Log Acknowledgment</h4>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Silica Exposure Control Plan and Monitoring Log (continued 4)",
+          "html": "<p>This Silica Exposure Control Plan and Monitoring Log outlines procedures to protect employees from respirable crystalline silica exposure. It includes engineering controls, work practices, and respiratory protection measures. Regular monitoring and medical surveillance are conducted to ensure compliance with regulatory limits. All employees working with silica-containing materials must adhere to this plan to prevent adverse health effects. This policy is in accordance with 29 CFR 1926.1153 Respirable Crystalline Silica Construction and WAC 296-62-07521 Silica General Industry adopted by reference for construction; WAC 296-155-160 Gases Vapors Fumes Dusts and Mists.</p>\n<p>I acknowledge that I have read, understand, and agree to comply with the MH Construction Silica Exposure Control Plan and Monitoring Log Policy as required by 29 CFR 1926.1153 Respirable Crystalline Silica Construction and WAC 296-62-07521 Silica General Industry adopted by reference for construction; WAC 296-155-160 Gases Vapors Fumes Dusts and Mists.</p>\n<h4 class=\"sec-subhead\">Employee Acknowledgment Signatures</h4>"
+        },
+        {
+          "type": "signatures",
+          "title": "Silica Exposure Control Plan and Monitoring Log Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

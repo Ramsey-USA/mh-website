@@ -1,0 +1,80 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Hand and Portable Power Tool Inspection Checklist - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Hand and Portable Power Tool Inspection Checklist",
+          "html": "<p>INSPECTION CHECKLIST</p>\n<p>INSPECTION CHECKLIST</p>\n<p>Inspection frequency: Regular inspections are required for hand and portable power tools to ensure safe operation and compliance with regulatory standards. (e.g., per 29 CFR 1926.300(a) and WAC 296-155-350(1))</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Inspection Item</strong></p></td><td><p><strong>Pass</strong></p></td><td><p><strong>Fail</strong></p></td><td><p><strong>N/A</strong></p></td><td><p><strong>Corrective Action Required</strong></p></td></tr><tr><td><p>1</p></td><td><p>Tool casing free from cracks or damage (per 29 CFR 1926.300(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>2</p></td><td><p>Power cord free from cuts, fraying, or exposed wires (per 29 CFR 1926.300(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>3</p></td><td><p>Plug in good condition, no missing ground pin (per 29 CFR 1926.300(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>4</p></td><td><p>Guards are in place and functional (per 29 CFR 1926.300(b))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>5</p></td><td><p>Operating controls function correctly (on/off switch, safety lock) (per 29 CFR 1926.300(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>6</p></td><td><p>Properly grounded or double insulated (per 29 CFR 1926.302(a)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>7</p></td><td><p>Ventilation openings clear of debris (per 29 CFR 1926.300(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>8</p></td><td><p>Attachments/blades are correct for the tool and task (per 29 CFR 1926.300(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>9</p></td><td><p>Attachments/blades are sharp and undamaged (per 29 CFR 1926.300(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>10</p></td><td><p>Handles are secure and free from damage (per 29 CFR 1926.301(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>11</p></td><td><p>Air hoses free from leaks or damage (for pneumatic tools) (per 29 CFR 1926.302(b))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>12</p></td><td><p>Pressure gauges functional (for pneumatic tools) (per 29 CFR 1926.302(b))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>13</p></td><td><p>Abrasive wheels correctly mounted and guarded (per 29 CFR 1926.303(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>14</p></td><td><p>Wheel speed matches grinder speed (per 29 CFR 1926.303(c))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>15</p></td><td><p>Work rests properly adjusted (per 29 CFR 1926.303(c))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>16</p></td><td><p>Fuel lines and tanks free from leaks (for fuel-powered tools) (per 29 CFR 1926.300(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>17</p></td><td><p>Battery packs free from damage and properly charged (for cordless tools) (per 29 CFR 1926.300(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>18</p></td><td><p>Tool is clean and free from excessive grease/oil (per 29 CFR 1926.300(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>19</p></td><td><p>Proper storage conditions (per 29 CFR 1926.300(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>20</p></td><td><p>Operator trained and authorized (per WAC 296-155-350(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Hand and Portable Power Tool Inspection Checklist (continued 2)",
+          "html": "<p>DEFICIENCY LOG</p>\n<p>DEFICIENCY LOG</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Description of Deficiency</strong></p></td><td><p><strong>Corrective Action</strong></p></td><td><p><strong>Assigned To</strong></p></td><td><p><strong>Due Date</strong></p></td><td><p><strong>Completed Date</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<p>INSPECTOR SIGNATURE</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Hand and Portable Power Tool Inspection Checklist (continued 3)",
+          "html": "<p>INSPECTOR SIGNATURE</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Inspector Name:</p></td><td></td><td><p>Date:</p></td><td></td></tr><tr><td><p>Supervisor Review:</p></td><td></td><td><p>Date:</p></td><td></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td></td><td></td><td><p>Title:</p></td><td></td><td><p>Date:</p></td><td></td></tr><tr><td></td><td></td><td><p>Title:</p></td><td></td><td><p>Date:</p></td><td></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Hand and Portable Power Tool Inspection Checklist Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

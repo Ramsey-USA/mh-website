@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Distracted Driving MVR Policy Acknowledgment - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Distracted Driving MVR Policy Acknowledgment",
+          "html": "<p>Rev.  | Effective:  | Safety Officer: </p>\n<p>MH Construction is committed to promoting safe driving practices among its employees. This Distracted Driving MVR Policy outlines the company's expectations regarding the use of mobile devices and other distracting behaviors while operating company vehicles or personal vehicles for company business. Adherence to this policy is crucial for ensuring the safety of our employees and the public, and for maintaining compliance with all applicable traffic laws and regulations.</p>\n<p>I acknowledge that I have read, understand, and agree to comply with the MH Construction Distracted Driving MVR Policy as required by 29 CFR 1926.600 Equipment General; OSH Act General Duty Clause Section 5(a)(1); 49 CFR 392.82 FMCSA No Texting While Driving and WAC 296-155-610 Motor Vehicles on Construction Sites; RCW 46.61.672 Handheld Wireless Device Prohibition Washington State.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Distracted Driving MVR Policy Acknowledgment Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

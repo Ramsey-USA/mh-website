@@ -1,0 +1,80 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Signs Signals and Barricades Inspection Checklist - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Signs Signals and Barricades Inspection Checklist",
+          "html": "<h4 class=\"sec-subhead\">Signs Signals and Barricades Inspection Checklist</h4>\n<p>Inspection frequency: Daily or as required by site conditions and task-specific hazards (per 29 CFR 1926.20(b)(2) and WAC 296-155-048(2)).</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Inspection Item</strong></p></td><td><p><strong>Pass</strong></p></td><td><p><strong>Fail</strong></p></td><td><p><strong>Corrective Action Required</strong></p></td></tr><tr><td><p>1</p></td><td><p>All signs are legible, clean, and in good repair (per 29 CFR 1926.200(c))</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>2</p></td><td><p>Signs are posted at appropriate locations and visible to all affected personnel (per 29 CFR 1926.200(d))</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>3</p></td><td><p>Warning signs are orange with black lettering or as specified by standard (per 29 CFR 1926.200(e))</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>4</p></td><td><p>Danger signs are red, black, and white with specific hazard wording (per 29 CFR 1926.200(e))</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>5</p></td><td><p>Directional signs are properly placed and clearly indicate safe paths (per 29 CFR 1926.200(f))</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>6</p></td><td><p>Traffic control signs and devices conform to MUTCD standards (per 29 CFR 1926.200(g))</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>7</p></td><td><p>Flaggers are wearing high-visibility apparel (per WAC 296-155-305(2))</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>8</p></td><td><p>Flaggers are using appropriate signaling devices (e.g., stop/slow paddles) (per WAC 296-155-305(3))</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>9</p></td><td><p>Barricades are properly erected and maintained to prevent unauthorized entry (per 29 CFR 1926.202)</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>10</p></td><td><p>Barricades are clearly visible and adequately illuminated at night (per 29 CFR 1926.202)</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>11</p></td><td><p>Barricades are stable and resistant to wind or accidental displacement (per 29 CFR 1926.202)</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>12</p></td><td><p>Warning lights or reflectors are used on barricades as required (per 29 CFR 1926.202)</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>13</p></td><td><p>Access to emergency equipment and exits is not obstructed by barricades (per 29 CFR 1926.202)</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>14</p></td><td><p>Temporary traffic control zones are set up according to a traffic control plan (per AGC Ch. 22)</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>15</p></td><td><p>All personnel are aware of and following traffic control procedures (per AGC Ch. 22)</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr></table>\n<h4 class=\"sec-subhead\">Deficiency Log</h4>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Signs Signals and Barricades Inspection Checklist (continued 2)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Description of Deficiency</strong></p></td><td><p><strong>Corrective Action</strong></p></td><td><p><strong>Assigned To</strong></p></td><td><p><strong>Due Date</strong></p></td><td><p><strong>Completed Date</strong></p></td></tr><tr><td><p>1</p></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td><p>2</p></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td><p>3</p></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td><p>4</p></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td><p>5</p></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<h4 class=\"sec-subhead\">Inspector Signature</h4>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Inspector Name:</p></td><td></td><td></td><td></td></tr><tr><td><p>Date:</p></td><td></td><td><p>Supervisor Review:</p></td><td></td></tr></table>\n<p><strong>Regulatory Authority<br /></strong>OSHA: 29 CFR 1926 Subpart G; 29 CFR 1926.200 Accident Prevention Signs and Tags; 29 CFR 1926.202 Barricades<br />WISHA: WAC 296-155-305 Signaling and Flaggers; WAC 296-155-310 Barricades<br />AGC: Safety and Health Manual Ch. 22 Traffic Control<br />This form supports compliance with the above regulations. Retain completed forms for minimum 3 years per 29 CFR 1904.33 and WAC 296-27.</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Signs Signals and Barricades Inspection Checklist (continued 3)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td></td><td></td><td><p>Title:</p></td><td></td><td><p>Date:</p></td><td></td></tr><tr><td></td><td></td><td><p>Title:</p></td><td></td><td><p>Date:</p></td><td></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Signs Signals and Barricades Inspection Checklist Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

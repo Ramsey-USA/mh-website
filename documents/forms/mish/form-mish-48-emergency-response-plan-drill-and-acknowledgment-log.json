@@ -1,0 +1,80 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Emergency Response Plan Drill and Acknowledgment Log - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Emergency Response Plan Drill and Acknowledgment Log",
+          "html": "<p><strong>MISH 48 | Emergency Response Plan Drill and Acknowledgment Log</strong></p>\n<p>POLICY SUMMARY</p>\n<p>This Emergency Response Plan Drill and Acknowledgment Log ensures that all employees are familiar with emergency procedures and their roles during an incident. Regular drills are conducted to maintain readiness and identify areas for improvement. Compliance with this plan is crucial for maintaining a safe work environment and adhering to regulatory requirements, including 29 CFR 1926.35 and WAC 296-155-140.</p>\n<p>EMPLOYEE ACKNOWLEDGMENT</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Emergency Response Plan Drill and Acknowledgment Log (continued 2)",
+          "html": "<p>I acknowledge that I have read, understand, and agree to comply with the MH Construction Emergency Response Plan Policy as required by 29 CFR 1926.35 Employee Emergency Action Plans and WAC 296-155-140 Sanitation Emergency.</p>\n<p>Title: _____________</p>\n<p>Date: _____________</p>\n<p>Title: _____________</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Emergency Response Plan Drill and Acknowledgment Log (continued 3)",
+          "html": "<p>Date: _____________</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Emergency Response Plan Drill and Acknowledgment Log Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

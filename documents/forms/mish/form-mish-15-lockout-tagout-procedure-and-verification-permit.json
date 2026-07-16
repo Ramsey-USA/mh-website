@@ -1,0 +1,90 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Lockout Tagout Procedure and Verification Permit - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Lockout Tagout Procedure and Verification Permit",
+          "html": "<h4 class=\"sec-subhead\">WORK AUTHORIZATION PERMIT</h4>\n<p>Permit Number: [DATE]-[MISH15]-[SEQ]</p>\n<p>Pre-work Conditions Checklist:</p>\n<p>☐ All affected employees notified</p>\n<p>☐ Equipment de-energized and isolated</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Lockout Tagout Procedure and Verification Permit (continued 2)",
+          "html": "<p>☐ All energy sources locked out/tagged out</p>\n<p>☐ Stored energy relieved/restrained</p>\n<p>☐ Verification of zero energy state performed</p>\n<p>☐ Area secured and warning signs posted</p>\n<p>☐ Required PPE available and inspected</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Lockout Tagout Procedure and Verification Permit (continued 3)",
+          "html": "<p>☐ Emergency procedures reviewed</p>\n<p>Work Authorization:</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Work Description</strong></p></td><td><p><strong>Location</strong></p></td><td><p><strong>Start Time</strong></p></td><td><p><strong>End Time</strong></p></td><td><p><strong>Authorized By</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></table>\n<p>Required Controls:</p>\n<p>☐ Lockout devices in place</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Lockout Tagout Procedure and Verification Permit (continued 4)",
+          "html": "<p>☐ Tagout devices in place</p>\n<p>☐ Energy isolation devices verified</p>\n<p>☐ Communication plan established</p>\n<p>☐ Standby personnel assigned (if required)</p>\n<p>Permit Closure:</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Lockout Tagout Procedure and Verification Permit (continued 5)",
+          "html": "<p>☐ Work completed</p>\n<p>☐ Area restored</p>\n<p>Permit closed by: _________________________</p>\n<p>Date/Time: _________________________</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Lockout Tagout Procedure and Verification Permit Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

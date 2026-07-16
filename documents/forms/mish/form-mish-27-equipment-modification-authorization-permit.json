@@ -1,0 +1,95 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Equipment Modification Authorization Permit - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Equipment Modification Authorization Permit",
+          "html": "<p><strong>PERMIT SECTION</strong></p>\n<p><strong>Permit Number: </strong>[DATE]-[MISH27]-[SEQ]</p>\n<p><strong>Pre-work Conditions Checklist</strong></p>\n<p>☐ Manufacturer's written approval obtained for modification</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Equipment Modification Authorization Permit (continued 2)",
+          "html": "<p>☐ Qualified engineer reviewed and approved modification design</p>\n<p>☐ Modification does not reduce safety factor of equipment</p>\n<p>☐ Capacity, operation, and maintenance instruction plates updated</p>\n<p>☐ Tags or decals updated to reflect new capacity/operation</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Equipment Modification Authorization Permit (continued 3)",
+          "html": "<p>☐ Operators trained on modified equipment operation</p>\n<p>☐ Maintenance personnel trained on modified equipment maintenance</p>\n<p>☐ Inspection procedures updated for modified equipment</p>\n<p>☐ Risk assessment completed for modification</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Equipment Modification Authorization Permit (continued 4)",
+          "html": "<p>☐ All safety devices and guards are functional post-modification</p>\n<p><strong>Work Authorization</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Work Description</strong></p></td><td><p><strong>Location</strong></p></td><td><p><strong>Start Time</strong></p></td><td><p><strong>End Time</strong></p></td><td><p><strong>Authorized By</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></table>\n<p><strong>Required Controls Checklist</strong></p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Equipment Modification Authorization Permit (continued 5)",
+          "html": "<p>☐ Lockout/Tagout (LOTO) procedures implemented during modification</p>\n<p>☐ Hot work permit obtained (if welding/cutting required)</p>\n<p>☐ Fall protection used (if working at heights)</p>\n<p>☐ Appropriate PPE worn (safety glasses, hard hat, steel-toe boots, etc.)</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Equipment Modification Authorization Permit (continued 6)",
+          "html": "<p>☐ Fire extinguisher available in work area</p>\n<p>☐ Area barricaded to prevent unauthorized access</p>\n<p><strong>Permit Closure</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Work completed</strong></p></td><td><p><strong>Area restored</strong></p></td><td><p><strong>Permit closed by</strong></p></td><td></td><td><p><strong>Date/Time</strong></p></td></tr><tr><td><p>☐ Yes  ☐ No</p></td><td><p>☐ Yes  ☐ No</p></td><td></td><td></td><td></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Equipment Modification Authorization Permit Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -6,6 +6,7 @@ This folder is the source tree for the form families used by the document genera
 
 - [forms-manifest.json](./forms-manifest.json) - canonical manifest consumed by the document generator and merge scripts
 - [handbook/](./handbook/) - employee handbook forms: one editable **fillable schema** (`.json`) and one **developing spec** (`.md`) per form
+- [mish/](./mish/) - MISH safety forms: one editable **fillable schema** (`.json`) and one **developing spec** (`.md`) per form
 - [MHC-MISH-47-Forms/](./MHC-MISH-47-Forms/) - safety form DOCX sources for the MISH series
 
 ## Form Source Models
@@ -14,15 +15,21 @@ This folder is the source tree for the form families used by the document genera
   `handbook/<slug>.json` (referenced from the manifest via `fillableFile`). The shared fillable
   engine renders these into AcroForm PDFs, so every handbook form is fillable by construction. A
   companion `handbook/<slug>.md` documents the fields and intent for ongoing editing.
-- **MISH forms (50):** Defined via manifest entries with DOCX sources under `MHC-MISH-47-Forms/`.
+- **MISH forms (50):** Each form is defined by an individual, git-trackable fillable schema in
+  `mish/<slug>.json` (referenced from the manifest via `fillableFile`) and rendered by the same
+  shared fillable engine used for handbook forms. DOCX sources under `MHC-MISH-47-Forms/` remain
+  as source lineage and can be used to re-bootstrap schema scaffolds when needed.
 
 ## Tracking Tips
 
 - Handbook forms: edit the per-form `handbook/<slug>.json` schema (and keep the `.md` spec in sync).
-  The manifest entry only needs `fillableFile` pointing at the schema.
+- MISH forms: edit the per-form `mish/<slug>.json` schema (and keep the `.md` spec in sync).
+- The manifest entry only needs `fillableFile` pointing at the schema.
 - Keep filenames aligned with the `slug` so generator lookups stay predictable.
-- Regenerate a single handbook form with:
+- Regenerate a single handbook or MISH form package with:
   `node documents/scripts/generate.mjs --template form-package --form <slug>`
+- Bootstrap MISH schema/spec files from existing manifest + DOCX-backed defaults with:
+  `pnpm --filter @mhc/website run docs:migrate:mish:fillable`
 
 ## Related Output
 

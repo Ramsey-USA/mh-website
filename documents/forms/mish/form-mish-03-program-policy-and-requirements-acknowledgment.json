@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Program Policy and Requirements Acknowledgment - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Program Policy and Requirements Acknowledgment",
+          "html": "<p>This policy outlines the fundamental safety and health requirements for all personnel working under MH Construction, Inc. It emphasizes proactive hazard identification, risk mitigation, and adherence to established safety protocols. Compliance with these guidelines is mandatory to ensure a safe working environment and prevent incidents, aligning with OSHA 29 CFR 1926.20 and WISHA WAC 296-155-100 standards.</p>\n<p>I acknowledge that I have read, understand, and agree to comply with the MH Construction Program Policy and Requirements as required by 29 CFR 1926.20 and WAC 296-155-100.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Program Policy and Requirements Acknowledgment Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

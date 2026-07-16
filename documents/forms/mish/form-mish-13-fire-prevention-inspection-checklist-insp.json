@@ -1,0 +1,75 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Fire Prevention Inspection Checklist Insp - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Fire Prevention Inspection Checklist Insp",
+          "html": "<p>────────────────────────────────────────────────────────────────────────────────────────────────────</p>\n<h4 class=\"sec-subhead\">INSPECTION CHECKLIST</h4>\n<p>Inspection frequency: Monthly (per 29 CFR 1926.150(c)(1) and WAC 296-155-260)</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Item #</p></td><td><p>Inspection Item</p></td><td><p>Pass</p></td><td><p>Fail</p></td><td><p>N/A</p></td><td><p>Corrective Action Required</p></td></tr><tr><td><p>1</p></td><td><p>Are all fire extinguishers properly charged and inspected monthly? (per 29 CFR 1926.150(c)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>2</p></td><td><p>Are fire extinguishers readily accessible and unobstructed? (per 29 CFR 1926.150(c)(1)(viii))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>3</p></td><td><p>Are 'No Smoking' signs posted in designated areas? (per 29 CFR 1926.151(a)(3))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>4</p></td><td><p>Are flammable liquids stored in approved containers and cabinets? (per 29 CFR 1926.152(a)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>5</p></td><td><p>Is proper ventilation provided when handling flammable liquids? (per 29 CFR 1926.152(g)(3))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>6</p></td><td><p>Are ignition sources controlled in areas where flammable materials are present? (per 29 CFR 1926.151(b)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>7</p></td><td><p>Are waste materials and debris properly disposed of to prevent fire hazards? (per 29 CFR 1926.25(c))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>8</p></td><td><p>Are temporary heating devices safely installed and maintained? (per 29 CFR 1926.154(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>9</p></td><td><p>Are fire brigades organized and trained if required? (per 29 CFR 1926.150(a)(5))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>10</p></td><td><p>Are fire alarms and communication systems functional? (per 29 CFR 1926.150(e))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>11</p></td><td><p>Are emergency exits clearly marked and unobstructed? (per WAC 296-155-260(2))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>12</p></td><td><p>Is hot work being performed with appropriate permits and fire watch? (per WAC 296-155-265(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>13</p></td><td><p>Are combustible materials stored away from heat sources? (per WAC 296-155-265(2))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>14</p></td><td><p>Are electrical cords and equipment in good condition and not overloaded? (per WAC 296-155-265(3))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>15</p></td><td><p>Are employees trained on fire prevention and emergency procedures? (per WAC 296-155-260(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr></table>\n<h4 class=\"sec-subhead\">DEFICIENCY LOG</h4>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Fire Prevention Inspection Checklist Insp (continued 2)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p>Item #</p></td><td><p>Description of Deficiency</p></td><td><p>Corrective Action</p></td><td><p>Assigned To</p></td><td><p>Due Date</p></td><td><p>Completed Date</p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<h4 class=\"sec-subhead\">INSPECTOR SIGNATURE</h4>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Inspector Name</p></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td><p>Supervisor Review</p></td><td></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td></td><td></td><td><p>Title:</p></td><td></td><td><p>Date:</p></td><td></td></tr><tr><td></td><td></td><td><p>Title:</p></td><td></td><td><p>Date:</p></td><td></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Fire Prevention Inspection Checklist Insp Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

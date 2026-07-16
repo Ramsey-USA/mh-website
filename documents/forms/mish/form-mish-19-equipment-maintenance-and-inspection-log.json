@@ -1,0 +1,75 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Equipment Maintenance and Inspection Log - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Equipment Maintenance and Inspection Log",
+          "html": "<h4 class=\"sec-subhead\">Equipment Maintenance and Inspection Log</h4>\n<p>Inspection frequency: Equipment inspections are required prior to each use and periodically as specified by manufacturer guidelines and regulatory standards (e.g., 29 CFR 1926.20(b)(2), WAC 296-155-030(2)).</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Inspection Item</strong></p></td><td><p><strong>Pass</strong></p></td><td><p><strong>Fail</strong></p></td><td><p><strong>N/A</strong></p></td><td><p><strong>Corrective Action Required</strong></p></td></tr><tr><td><p>11</p></td><td><p>Overall equipment condition (29 CFR 1926.600(a))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>22</p></td><td><p>Fluid levels (oil, coolant, hydraulic) (Manufacturer Spec)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>33</p></td><td><p>Tires/Tracks condition and pressure (29 CFR 1926.600(a)(6))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>44</p></td><td><p>Brakes and steering system (29 CFR 1926.600(a)(3))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>55</p></td><td><p>Lights, signals, and horn (29 CFR 1926.600(a)(4))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>66</p></td><td><p>Safety devices (guards, seatbelts, ROPS) (29 CFR 1926.600(a)(5))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>77</p></td><td><p>Hydraulic hoses and cylinders (29 CFR 1926.600(a)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>88</p></td><td><p>Attachments (buckets, forks, blades) (29 CFR 1926.600(a)(8))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>99</p></td><td><p>Fire extinguisher present and charged (29 CFR 1926.150(c)(1)(i))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>1010</p></td><td><p>First aid kit present and stocked (29 CFR 1926.50(d)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>1111</p></td><td><p>Operator's manual present (Manufacturer Spec)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>1212</p></td><td><p>Cleanliness of cab/operator station (Housekeeping)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>1313</p></td><td><p>No leaks or spills (Environmental Safety)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>1414</p></td><td><p>Warning decals and labels legible (Manufacturer Spec)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>1515</p></td><td><p>Backup alarm functional (29 CFR 1926.601(b)(4))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr></table>\n<h4 class=\"sec-subhead\">Deficiency Log</h4>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Description of Deficiency</strong></p></td><td><p><strong>Corrective Action</strong></p></td><td><p><strong>Assigned To</strong></p></td><td><p><strong>Due Date</strong></p></td><td><p><strong>Completed Date</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Equipment Maintenance and Inspection Log (continued 2)",
+          "html": "<h4 class=\"sec-subhead\">Inspector Signature</h4>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Inspector Name:</strong>__________________________________________________</p></td><td></td><td></td><td></td></tr><tr><td><p><strong>Date:</strong>__________________________________________________</p></td><td></td><td><p><strong>Supervisor Review:</strong>__________________________________________________</p></td><td></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td></td><td></td><td><p><strong>Title:</strong></p></td><td></td><td><p><strong>Date:</strong></p></td><td></td></tr><tr><td></td><td></td><td><p><strong>Title:</strong></p></td><td></td><td><p><strong>Date:</strong></p></td><td></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Equipment Maintenance and Inspection Log Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

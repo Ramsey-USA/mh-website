@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Return to Work Program Agreement Ack - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Return to Work Program Agreement Ack",
+          "html": "<p><strong>Policy Summary:</strong></p>\n<p>MH Construction is committed to providing a safe and healthy work environment. In the event of a work-related injury or illness, our Return to Work Program is designed to help employees safely return to productive employment as soon as medically possible. This program complies with 29 CFR 1904 Recordkeeping and RCW 51.32 Washington Workers Compensation Benefits. Participation in the Return to Work Program is a condition of employment and requires cooperation between the employee, medical provider, and management.</p>\n<p><strong>Employee Acknowledgment Statement:</strong></p>\n<p>I acknowledge that I have read, understand, and agree to comply with the MH Construction Return to Work Program Agreement Policy as required by OSHA: 29 CFR 1904 Recordkeeping; OSH Act General Duty Clause and WISHA: RCW 51.32 Washington Workers Compensation Benefits; RCW 51.36 Medical Aid; WAC 296-155-110 Accident Prevention Program.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Return to Work Program Agreement Ack Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

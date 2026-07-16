@@ -1,0 +1,85 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Industrial Hygiene Exposure Assessment Log - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Industrial Hygiene Exposure Assessment Log",
+          "html": "<p>Rev. 3111 N Capitol Ave, Pasco, WA 99301 | Effective: (509) 308-6489 | Safety Officer: Company: MH Construction, Inc.</p>\n<p>────────────────────────────────────────────────────────────────────────────────────────────────────</p>\n<h4 class=\"sec-subhead\">Training/Meeting Log</h4>\n<p><strong>Topic/Subject: </strong>______________________________</p>\n<p><strong>Trainer/Presenter: </strong>______________________________</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Industrial Hygiene Exposure Assessment Log (continued 2)",
+          "html": "<p><strong>Training content summary:</strong></p>\n<p>- Bullet point 1</p>\n<p>- Bullet point 2</p>\n<p>- Bullet point 3</p>\n<p><strong>Attendee Sign-in Table:</strong></p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Industrial Hygiene Exposure Assessment Log (continued 3)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>#</strong></p></td><td><p><strong>Employee Name (print)</strong></p></td><td></td><td></td><td><p><strong>Employee ID/Trade</strong></p></td></tr><tr><td><p>1</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>2</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>3</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>4</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>5</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>6</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>7</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>8</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>9</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>10</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>11</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>12</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>13</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>14</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>15</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>16</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>17</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>18</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>19</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>20</p></td><td></td><td></td><td></td><td></td></tr></table>\n<p><strong>Trainer certification block:</strong></p>\n<p>I certify that the above training was conducted as described.</p>\n<p>Trainer Name: ______________________________</p>\n<p>Date: ______________________________</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Industrial Hygiene Exposure Assessment Log (continued 4)",
+          "html": "<h4 class=\"sec-subhead\">Regulatory Authority</h4>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>OSHA: 29 CFR 1910.1000 Air Contaminants; 29 CFR 1926.55 Gases Vapors Fumes Dusts and Mists</p></td></tr><tr><td><p>WISHA: WAC 296-155-160 Gases Vapors Fumes Dusts and Mists; WAC 296-155-145 Occupational Noise Exposure; WAC 296-62 General Occupational Health Standards</p></td></tr><tr><td><p>AGC: Safety and Health Manual Ch. 17 Industrial Hygiene</p></td></tr><tr><td><p>This form supports compliance with the above regulations. Retain completed forms for minimum 3 years per 29 CFR 1904.33 and WAC 296-27.</p></td></tr></table>\n<h4 class=\"sec-subhead\">Signature/Authorization</h4>"
+        },
+        {
+          "type": "signatures",
+          "title": "Industrial Hygiene Exposure Assessment Log Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Insurance and COI Verification Checklist Insp Ack - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Insurance and COI Verification Checklist Insp Ack",
+          "html": "<p><strong>ACKNOWLEDGMENT</strong></p>\n<p>This policy outlines the requirements for verifying insurance and Certificates of Insurance (COI) for all subcontractors and vendors working with MH Construction. Ensuring proper coverage is critical for mitigating financial risks and complying with contractual obligations. All COIs must meet the minimum coverage limits specified in MH Construction's master service agreements and be on file prior to commencement of work. Regular verification ensures continuous compliance and protection against unforeseen liabilities.</p>\n<p>I acknowledge that I have read, understand, and agree to comply with the MH Construction Insurance and COI Verification Policy as required by OSHA: 29 CFR 1926.16 and WISHA: WAC 296-155-110.</p>\n<p><strong>Employee Signatures:</strong></p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Insurance and COI Verification Checklist Insp Ack (continued 2)",
+          "html": "<p><strong>INSPECTION CHECKLIST</strong></p>\n<p>Regular verification of insurance and COIs is required for all active subcontractors and vendors, as per WAC 296-155-110 and company policy, to ensure continuous compliance and risk mitigation.</p>\n<p><strong>Checklist:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Item #</p></td><td><p>Inspection Item</p></td><td><p>Pass</p></td><td><p>Fail</p></td><td><p>N/A</p></td><td><p>Corrective Action Required</p></td></tr><tr><td><p>1</p></td><td><p>Subcontractor/Vendor Name and Contact Information</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>2</p></td><td><p>Current Certificate of Insurance (COI) on file (per 29 CFR 1926.16)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>3</p></td><td><p>COI meets minimum liability coverage requirements</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>4</p></td><td><p>COI lists MH Construction as additional insured (per RCW 51.12.070)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>5</p></td><td><p>Workers' Compensation coverage verified (per RCW 51)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>6</p></td><td><p>Expiration date of COI checked and current</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>7</p></td><td><p>Policy limits reviewed for adequacy</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>8</p></td><td><p>Specific project coverage confirmed (if applicable)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>9</p></td><td><p>Any exclusions or limitations noted</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>10</p></td><td><p>Evidence of premium payment (if required)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>11</p></td><td><p>Verification of professional liability insurance (if applicable)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>12</p></td><td><p>Verification of automobile liability insurance (if applicable)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>13</p></td><td><p>Verification of umbrella/excess liability insurance (if applicable)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>14</p></td><td><p>Review of subcontractor safety program documentation (per WAC 296-155-110)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>15</p></td><td><p>Emergency contact information on file</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Insurance and COI Verification Checklist Insp Ack (continued 3)",
+          "html": "<p><strong>Deficiency Log:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Item #</p></td><td><p>Description of Deficiency</p></td><td><p>Corrective Action</p></td><td><p>Assigned To</p></td><td><p>Due Date</p></td><td><p>Completed Date</p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<p><strong>Inspector Signature Block:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Inspector Name:</p></td><td></td><td></td><td></td></tr><tr><td><p>Date:</p></td><td></td><td><p>Supervisor Review:</p></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Insurance and COI Verification Checklist Insp Ack (continued 4)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td></td><td></td><td><p>Title:</p></td><td></td><td><p>Date:</p></td><td></td></tr><tr><td></td><td></td><td><p>Title:</p></td><td></td><td><p>Date:</p></td><td></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Insurance and COI Verification Checklist Insp Ack Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

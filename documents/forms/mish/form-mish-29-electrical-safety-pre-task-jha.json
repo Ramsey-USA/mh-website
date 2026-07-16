@@ -1,0 +1,75 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Electrical Safety Pre Task JHA - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Electrical Safety Pre Task JHA",
+          "html": "<p><strong>Task Description: </strong>______________________________________________________________________</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Pre-Task Hazard Identification:</strong></p><p>☐ Live electrical circuits/equipment</p><p>☐ Overhead power lines</p><p>☐ Underground utilities</p><p>☐ Wet or damp conditions</p><p>☐ Damaged cords or tools</p><p>☐ Lack of GFCI protection</p><p>☐ Inadequate lighting</p><p>☐ Confined space entry required</p><p>☐ Lockout/Tagout required</p><p>☐ Arc flash potential</p></td><td><p><strong>Required PPE:</strong></p><p>☐ Hard Hat (Class E)</p><p>☐ Safety Glasses</p><p>☐ Voltage Rated Gloves</p><p>☐ Leather Protectors</p><p>☐ Arc Flash Face Shield</p><p>☐ FR Clothing</p><p>☐ EH Rated Footwear</p><p>☐ Hearing Protection</p></td></tr></table>\n<p><strong>Job Hazard Analysis:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Step #</strong></p></td><td><p><strong>Task Step Description</strong></p></td><td><p><strong>Potential Hazard</strong></p></td><td><p><strong>Hazard Control Measure</strong></p></td><td><p><strong>Responsible Party</strong></p></td></tr><tr><td><p>1</p></td><td><p>Identify electrical circuits/equipment</p></td><td><p>Shock, electrocution</p></td><td><p>Verify circuits are de-energized using a tested voltage meter</p></td><td><p>Electrician</p></td></tr><tr><td><p>2</p></td><td><p>Apply Lockout/Tagout (LOTO)</p></td><td><p>Unexpected energization</p></td><td><p>Apply personal locks and tags to energy isolation devices</p></td><td><p>Authorized Employee</p></td></tr><tr><td><p>3</p></td><td><p>Inspect tools and cords</p></td><td><p>Shock from damaged equipment</p></td><td><p>Visually inspect all tools and cords before use; remove damaged items</p></td><td><p>All Workers</p></td></tr><tr><td><p>4</p></td><td><p>Work near overhead lines</p></td><td><p>Electrocution from contact</p></td><td><p>Maintain minimum 10-foot clearance; use spotter if necessary</p></td><td><p>Operator/Spotter</p></td></tr><tr><td><p>5</p></td><td><p>Use temporary power</p></td><td><p>Shock in wet conditions</p></td><td><p>Ensure all temporary power circuits have GFCI protection</p></td><td><p>Electrician/Foreman</p></td></tr><tr><td><p>6</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>7</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>8</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>9</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>10</p></td><td></td><td></td><td></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Electrical Safety Pre Task JHA (continued 2)",
+          "html": "<p><strong>Emergency Contacts: </strong>Nearest Hospital: ____________________ | Emergency Number: 911 | Site First Aid Location: ____________________</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Electrical Safety Pre Task JHA Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

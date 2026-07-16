@@ -1,0 +1,85 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Confined Space Entry Permit - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Confined Space Entry Permit",
+          "html": "<p>────────────────────────────────────────────────────────────────────────────────────────────────────</p>\n<p><strong>PERMIT DETAILS</strong></p>\n<p><strong>Permit Number: </strong>[DATE]-MISH16-[SEQ]</p>\n<p><strong>Pre-work Conditions Checklist:</strong></p>\n<ul class=\"sec-list\"><li class=\"sec-bullet\">☐ Area secured and barricaded</li><li class=\"sec-bullet\">☐ All personnel accounted for</li><li class=\"sec-bullet\">☐ Emergency rescue plan reviewed</li><li class=\"sec-bullet\">☐ Lockout/Tagout procedures applied</li><li class=\"sec-bullet\">☐ Ventilation system checked</li><li class=\"sec-bullet\">☐ Communication established</li><li class=\"sec-bullet\">☐ Entry supervisor designated</li><li class=\"sec-bullet\">☐ Attendant assigned</li><li class=\"sec-bullet\">☐ Entrants briefed on hazards</li><li class=\"sec-bullet\">☐ Non-entry rescue equipment ready</li><li class=\"sec-bullet\">☐ Hot work permit (if applicable) issued</li><li class=\"sec-bullet\">☐ Other hazards identified and controlled</li></ul>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Confined Space Entry Permit (continued 2)",
+          "html": "<p><strong>Work Authorization:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Work Description</strong></p></td><td><p><strong>Location</strong></p></td><td><p><strong>Start Time</strong></p></td><td><p><strong>End Time</strong></p></td><td><p><strong>Authorized By</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></table>\n<p><strong>Required Controls:</strong></p>\n<ul class=\"sec-list\"><li class=\"sec-bullet\">☐ Continuous atmospheric monitoring</li><li class=\"sec-bullet\">☐ Supplied air respirator (SAR) available</li><li class=\"sec-bullet\">☐ Full body harness with retrieval line</li><li class=\"sec-bullet\">☐ Standby person (attendant) present</li><li class=\"sec-bullet\">☐ Explosion-proof lighting</li><li class=\"sec-bullet\">☐ Non-sparking tools</li><li class=\"sec-bullet\">☐ Communication system (e.g., two-way radio)</li><li class=\"sec-bullet\">☐ Ventilation fan in operation</li></ul>\n<p><strong>Atmospheric Testing Log:</strong></p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Confined Space Entry Permit (continued 3)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Time</strong></p></td><td><p><strong>O2%</strong></p></td><td><p><strong>LEL%</strong></p></td><td><p><strong>CO ppm</strong></p></td><td><p><strong>H2S ppm</strong></p></td><td><p><strong>Tested By</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<p><strong>Permit Closure:</strong></p>\n<p>Work completed: _______________</p>\n<p>Area restored: _______________</p>\n<p>Permit closed by: _______________</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Confined Space Entry Permit (continued 4)",
+          "html": "<p>Date/Time: _______________</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Confined Space Entry Permit Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

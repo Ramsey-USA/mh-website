@@ -1,0 +1,80 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Safety and Health Orientation Sign in Log - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Safety and Health Orientation Sign in Log",
+          "html": "<p>Rev. **** 3 | Effective: **** 04/07/2026 | Safety Officer: Matt Ramsey</p>\n<p>ACKNOWLEDGMENT</p>\n<p>This policy outlines the essential safety and health procedures for all personnel operating within MH Construction job sites. Adherence to these guidelines is critical for maintaining a safe working environment and preventing accidents. All employees are required to familiarize themselves with these procedures to ensure compliance with regulatory standards. [Section Title] Policy is designed to protect our workforce and ensure operational excellence.</p>\n<p>I acknowledge that I have read, understand, and agree to comply with the MH Construction [Section Title] Policy as required by 29 and WAC.</p>\n<p>TRAINING / MEETING LOG</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Topic/Subject</p></td><td></td></tr><tr><td><p>Trainer/Presenter</p></td><td></td></tr><tr><td></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Safety and Health Orientation Sign in Log (continued 2)",
+          "html": "<p>Training Content Summary:</p>\n<p>\t• Point 1</p>\n<p>\t• Point 2</p>\n<p>\t• Point 3</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>#</strong></p></td><td><p><strong>Employee Name (print)</strong></p></td><td></td><td></td><td><p><strong>Employee ID/Trade</strong></p></td></tr><tr><td><p>1</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>2</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>3</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>4</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>5</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>6</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>7</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>8</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>9</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>10</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>11</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>12</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>13</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>14</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>15</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>16</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>17</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>18</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>19</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>20</p></td><td></td><td></td><td></td><td></td></tr></table>\n<p>I certify that the above training was conducted as described.</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Safety and Health Orientation Sign in Log (continued 3)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p>Trainer Name:</p></td><td></td><td></td><td></td><td><p>Date:</p></td><td></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td></td><td></td><td><p>Title:</p></td><td></td><td><p>Date:</p></td><td></td></tr><tr><td></td><td></td><td><p>Title:</p></td><td></td><td><p>Date:</p></td><td></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Safety and Health Orientation Sign in Log Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

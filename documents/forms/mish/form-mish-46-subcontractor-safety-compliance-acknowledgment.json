@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Subcontractor Safety Compliance Acknowledgment - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Subcontractor Safety Compliance Acknowledgment",
+          "html": "<h4 class=\"sec-subhead\">SUBCONTRACTOR SAFETY COMPLIANCE ACKNOWLEDGMENT</h4>\n<p>MH Construction, Inc. is committed to maintaining a safe and healthy work environment for all employees and subcontractors. This policy outlines the safety compliance requirements for all subcontractors working on MH Construction projects. Adherence to these guidelines is mandatory to ensure project safety and regulatory compliance. Subcontractors are responsible for understanding and implementing all applicable safety regulations and company policies. Failure to comply may result in disciplinary action or removal from the job site.</p>\n<p>I acknowledge that I have read, understand, and agree to comply with the MH Construction Subcontractor Safety Compliance Policy as required by OSHA: 29 CFR 1926.16 Rules of Construction Multi-Employer Worksites and WISHA: WAC 296-155-110(6) Accident Prevention Program Multi-Employer Responsibilities.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Subcontractor Safety Compliance Acknowledgment Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

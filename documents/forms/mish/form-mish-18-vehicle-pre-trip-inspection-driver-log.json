@@ -1,0 +1,75 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Vehicle Pre Trip Inspection Driver Log - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Vehicle Pre Trip Inspection Driver Log",
+          "html": "<p><strong>Inspection Frequency: </strong>Prior to each shift or trip as required by 29 CFR 1926.601(b)(14) and WAC 296-155-610(2)(j).</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Inspection Item</strong></p></td><td><p><strong>Pass</strong></p></td><td><p><strong>Fail</strong></p></td><td><p><strong>N/A</strong></p></td><td><p><strong>Corrective Action Required</strong></p></td></tr><tr><td><p>1</p></td><td><p>Fluid levels (oil, coolant, transmission, brake, power steering) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>2</p></td><td><p>Belts and hoses (condition and tension) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>3</p></td><td><p>Battery (terminals, cables, securement) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>4</p></td><td><p>Tires (tread depth, pressure, condition, lug nuts) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>5</p></td><td><p>Brakes (service, parking, trailer connections) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>6</p></td><td><p>Lights (headlights, taillights, brake, turn signals, clearance) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>7</p></td><td><p>Reflectors and reflective tape (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>8</p></td><td><p>Windshield and windows (cracks, cleanliness) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>9</p></td><td><p>Wipers and washer fluid (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>10</p></td><td><p>Mirrors (adjustment, condition) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>11</p></td><td><p>Horn and backup alarm (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>12</p></td><td><p>Steering mechanism (play, binding) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>13</p></td><td><p>Seat belts (condition, operation) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>14</p></td><td><p>Fire extinguisher (charged, secured, inspected) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>15</p></td><td><p>First aid kit (stocked, accessible) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>16</p></td><td><p>Emergency equipment (triangles, flares, spare fuses) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>17</p></td><td><p>Coupling devices (fifth wheel, pintle hook, safety chains) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>18</p></td><td><p>Exhaust system (leaks, securement) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>19</p></td><td><p>Suspension (springs, shocks, air bags) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>20</p></td><td><p>Frame and body (cracks, damage, securement) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>21</p></td><td><p>Cargo securement (tie-downs, load distribution) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>22</p></td><td><p>Registration, insurance, and permits (in vehicle) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>23</p></td><td><p>Cab interior (cleanliness, loose items secured) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>24</p></td><td><p>Gauges and warning lights (operation) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>25</p></td><td><p>Heater and defroster (operation) (29 CFR 1926.601)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr></table>\n<p><strong>Deficiency Log</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Description of Deficiency</strong></p></td><td><p><strong>Corrective Action</strong></p></td><td><p><strong>Assigned To</strong></p></td><td><p><strong>Due Date</strong></p></td><td><p><strong>Completed Date</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Inspector Name</strong></p></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Vehicle Pre Trip Inspection Driver Log (continued 2)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Supervisor Review</strong></p></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Vehicle Pre Trip Inspection Driver Log Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

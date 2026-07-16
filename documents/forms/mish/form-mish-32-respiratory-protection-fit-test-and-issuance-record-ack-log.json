@@ -1,0 +1,80 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Respiratory Protection Fit Test and Issuance Record Ack Log - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Respiratory Protection Fit Test and Issuance Record Ack Log",
+          "html": "<h4 class=\"sec-subhead\">Acknowledgment</h4>\n<p>This record documents the fit testing and issuance of respiratory protection equipment to employees. Proper fit testing ensures the respirator forms an effective seal, protecting the wearer from airborne hazards. Employees are required to understand the proper use, maintenance, and limitations of their assigned respiratory protection, as outlined in the MH Construction Respiratory Protection Program. This is critical for maintaining a safe working environment.</p>\n<p>I acknowledge that I have read, understand, and agree to comply with the MH Construction Respiratory Protection Policy as required by 29 CFR 1910.134 Respiratory Protection and WAC 296-842 Respiratory Protection.</p>\n<h4 class=\"sec-subhead\">Employee Acknowledgment Signatures</h4>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Respiratory Protection Fit Test and Issuance Record Ack Log (continued 2)",
+          "html": "<h4 class=\"sec-subhead\">Respiratory Protection Fit Test and Issuance Record</h4>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Topic/Subject:</p></td><td><p>Respiratory Protection Fit Testing and Equipment Issuance</p></td></tr><tr><td><p>Trainer/Presenter:</p></td><td></td></tr><tr><td><p>Training Content Summary:</p></td><td><p>• Importance of respiratory protection<br />• Types of respirators and their applications<br />• Proper donning and doffing procedures<br />• User seal checks and maintenance<br />• Limitations of respiratory protection</p></td></tr></table>\n<h4 class=\"sec-subhead\">Attendee Sign-in Log</h4>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>#</strong></p></td><td><p><strong>Employee Name (print)</strong></p></td><td></td><td></td><td><p><strong>Employee ID/Trade</strong></p></td></tr><tr><td><p>1</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>2</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>3</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>4</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>5</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>6</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>7</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>8</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>9</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>10</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>11</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>12</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>13</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>14</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>15</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>16</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>17</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>18</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>19</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>20</p></td><td></td><td></td><td></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Respiratory Protection Fit Test and Issuance Record Ack Log (continued 3)",
+          "html": "<p>I certify that the above training was conducted as described.</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Trainer Name: ____________________</p></td><td></td><td><p>Date: ____________________</p></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td></td><td><p>Title: ____________________</p></td><td><p>Date: ____________________</p></td></tr><tr><td></td><td><p>Title: ____________________</p></td><td><p>Date: ____________________</p></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Respiratory Protection Fit Test and Issuance Record Ack Log Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

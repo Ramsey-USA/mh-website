@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Drug Free Work Place Acknowledgment - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Drug Free Work Place Acknowledgment",
+          "html": "<p><strong>Policy Summary:</strong></p>\n<p>MH Construction, Inc. is committed to providing a safe, healthy, and productive work environment for all employees. In accordance with the Drug-Free Workplace Act (41 U.S.C. 8101-8106) and OSHA regulations (29 CFR 1926.20(b)), the unlawful manufacture, distribution, dispensation, possession, or use of a controlled substance is strictly prohibited on company premises or while conducting company business. Employees are required to report to work in appropriate mental and physical condition to perform their jobs safely. Violations of this policy may result in disciplinary action, up to and including immediate termination of employment.</p>\n<p><strong>Employee Acknowledgment:</strong></p>\n<p>I acknowledge that I have read, understand, and agree to comply with the MH Construction Drug Free Work Place Policy as required by OSHA 29 CFR 1926.20(b) and WISHA WAC 296-800-11035.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Drug Free Work Place Acknowledgment Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

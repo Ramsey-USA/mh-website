@@ -1,0 +1,75 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Ladder Inspection Checklist - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Ladder Inspection Checklist",
+          "html": "<p>──────────────────────────────────────────────────────────────────────</p>\n<p><strong>Inspection Frequency Note:</strong></p>\n<p>Ladders shall be inspected prior to each use and periodically by a competent person as required by OSHA 29 CFR 1926.1053(b)(15) and WISHA WAC 296-876-20030.</p>\n<p><strong>Ladder Inspection Checklist:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Inspection Item</strong></p></td><td><p><strong>Pass</strong></p></td><td><p><strong>Fail</strong></p></td><td><p><strong>N/A</strong></p></td><td><p><strong>Corrective Action Required</strong></p></td></tr><tr><td><p>1</p></td><td><p>Rungs/steps are free of grease, oil, and other slipping hazards (per 29 CFR 1926.1053(b)(6))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>2</p></td><td><p>Rungs/steps are uniformly spaced and securely attached (per 29 CFR 1926.1053(a)(3))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>3</p></td><td><p>Side rails are free of splinters, sharp edges, and other defects (per 29 CFR 1926.1053(b)(16))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>4</p></td><td><p>Side rails are not bent, broken, or excessively worn (per 29 CFR 1926.1053(b)(16))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>5</p></td><td><p>All hardware and fittings are securely attached and not corroded (per 29 CFR 1926.1053(b)(16))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>6</p></td><td><p>Spreaders/locks are in good working order and properly engaged (per 29 CFR 1926.1053(b)(16))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>7</p></td><td><p>Ladder feet/shoes are present, in good condition, and properly oriented (per 29 CFR 1926.1053(b)(7))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>8</p></td><td><p>Labels and markings are legible and present (e.g., duty rating, warnings) (per 29 CFR 1926.1053(a)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>9</p></td><td><p>No structural damage (cracks, dents, bends) to any part of the ladder (per 29 CFR 1926.1053(b)(16))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>10</p></td><td><p>Proper length for task, extending at least 3 feet above landing (per 29 CFR 1926.1053(b)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>11</p></td><td><p>Secured against displacement when in use (per 29 CFR 1926.1053(b)(8))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>12</p></td><td><p>Used on a level and stable surface (per 29 CFR 1926.1053(b)(5))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>13</p></td><td><p>Clearance around and behind ladder is adequate (per 29 CFR 1926.1053(b)(4))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>14</p></td><td><p>No modifications or alterations have been made to the ladder (per 29 CFR 1926.1053(b)(16))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>15</p></td><td><p>Ladder is clean and free of foreign materials (per 29 CFR 1926.1053(b)(6))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Ladder Inspection Checklist (continued 2)",
+          "html": "<p><strong>Deficiency Log:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Description of Deficiency</strong></p></td><td><p><strong>Corrective Action</strong></p></td><td><p><strong>Assigned To</strong></p></td><td><p><strong>Due Date</strong></p></td><td><p><strong>Completed Date</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<p><strong>Inspector Signature Block:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Inspector Name:</p></td><td></td><td><p>Date:</p></td><td></td></tr><tr><td><p>Supervisor Review:</p></td><td></td><td><p>Date:</p></td><td></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td></td><td></td><td><p>Title:</p></td><td></td></tr><tr><td></td><td></td><td><p>Title:</p></td><td></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Ladder Inspection Checklist Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

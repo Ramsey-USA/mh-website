@@ -1,0 +1,75 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Struck By Caught in Pre Task JHA - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Struck By Caught in Pre Task JHA",
+          "html": "<p><strong>Task Description: </strong>________________________________________________________________________________</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Pre-Task Hazard Identification:</strong></p><p>☐ Heavy equipment operation in area</p><p>☐ Backing vehicles / blind spots</p><p>☐ Overhead loads / crane lifts</p><p>☐ Excavation / trenching activities</p><p>☐ Material handling / staging</p><p>☐ Traffic control / public roads</p><p>☐ Pinch points / rotating parts</p><p>☐ Unsecured materials / tools</p><p>☐ Congested work area</p><p>☐ Poor visibility / lighting</p></td><td><p><strong>Required PPE:</strong></p><p>☐ Hard Hat</p><p>☐ Safety Glasses</p><p>☐ High-Visibility Vest (Class 2/3)</p><p>☐ Steel/Composite Toe Boots</p><p>☐ Work Gloves</p><p>☐ Hearing Protection</p><p>☐ Face Shield</p><p>☐ Fall Protection</p></td></tr></table>\n<p><strong>Job Hazard Analysis:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Step #</strong></p></td><td><p><strong>Task Step Description</strong></p></td><td><p><strong>Potential Hazard</strong></p></td><td><p><strong>Hazard Control Measure</strong></p></td><td><p><strong>Responsible Party</strong></p></td></tr><tr><td><p>1</p></td><td><p>Mobilize equipment to work area</p></td><td><p>Struck by moving equipment, blind spots</p></td><td><p>Use spotter when backing, high-vis vests required, establish exclusion zone</p></td><td><p>Operator / Spotter</p></td></tr><tr><td><p>2</p></td><td><p>Unload materials from delivery truck</p></td><td><p>Crushed by falling materials, pinch points</p></td><td><p>Inspect rigging, stay out of fall zone, use tag lines, clear communication</p></td><td><p>Rigger / Operator</p></td></tr><tr><td><p>3</p></td><td><p>Excavation and trenching</p></td><td><p>Caught in cave-in, struck by excavator bucket</p></td><td><p>Shoring/shielding in place, stay out of swing radius, barricade open trenches</p></td><td><p>Competent Person</p></td></tr><tr><td><p>4</p></td><td><p>Working near active roadway</p></td><td><p>Struck by public traffic</p></td><td><p>Set up proper traffic control plan (MUTCD), use concrete barriers, flaggers</p></td><td><p>Traffic Control Supervisor</p></td></tr><tr><td><p>5</p></td><td><p>Operating hand/power tools</p></td><td><p>Caught in rotating parts, struck by flying debris</p></td><td><p>Guards in place, proper PPE (face shield), no loose clothing/jewelry</p></td><td><p>Worker</p></td></tr><tr><td><p>6</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>7</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>8</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>9</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>10</p></td><td></td><td></td><td></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Struck By Caught in Pre Task JHA (continued 2)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Emergency Information:</strong></p><p>Nearest Hospital: ____________________________________    Emergency Number: 911</p><p>Site First Aid Location: ________________________________</p></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td></td><td><p>Title: ________________________</p></td><td><p>Date: ________________________</p></td></tr><tr><td></td><td><p>Title: ________________________</p></td><td><p>Date: ________________________</p></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Struck By Caught in Pre Task JHA Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

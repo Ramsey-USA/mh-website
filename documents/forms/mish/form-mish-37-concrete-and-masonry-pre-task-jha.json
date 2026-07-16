@@ -1,0 +1,80 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Concrete and Masonry Pre Task JHA - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Concrete and Masonry Pre Task JHA",
+          "html": "<p><br />────────────────────────────────────────────────────────────────────────────────────────────────────<br /></p>\n<p><strong>Task Description: </strong>________________________________________________________________________________</p>\n<p><strong>Pre-Task Hazard Identification:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>☐ Slips, Trips, Falls</p></td><td><p>☐ Struck by Equipment/Materials</p></td></tr><tr><td><p>☐ Caught In/Between</p></td><td><p>☐ Electrical Hazards</p></td></tr><tr><td><p>☐ Silica Dust Exposure</p></td><td><p>☐ Ergonomic/Lifting Hazards</p></td></tr><tr><td><p>☐ Weather/Temperature Extremes</p></td><td><p>☐ Noise Exposure</p></td></tr><tr><td><p>☐ Chemical Exposure</p></td><td><p>☐ Falling Objects</p></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Concrete and Masonry Pre Task JHA (continued 2)",
+          "html": "<p><strong>Required PPE:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>☐ Hard Hat</p></td><td><p>☐ Safety Glasses</p></td></tr><tr><td><p>☐ High-Vis Vest</p></td><td><p>☐ Steel-Toe Boots</p></td></tr><tr><td><p>☐ Work Gloves</p></td><td><p>☐ Hearing Protection</p></td></tr><tr><td><p>☐ Respirator/Dust Mask</p></td><td><p>☐ Face Shield</p></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Step #</strong></p></td><td><p><strong>Task Step Description</strong></p></td><td><p><strong>Potential Hazard</strong></p></td><td><p><strong>Hazard Control Measure</strong></p></td><td><p><strong>Responsible Party</strong></p></td></tr><tr><td><p>1</p></td><td><p>Mobilize equipment and materials</p></td><td><p>Struck by moving equipment</p></td><td><p>Establish spotters, wear high-vis, clear communication</p></td><td><p>Foreman</p></td></tr><tr><td><p>2</p></td><td><p>Set up forms and rebar</p></td><td><p>Pinch points, cuts, back strain</p></td><td><p>Wear gloves, use proper lifting techniques, team lift</p></td><td><p>Crew</p></td></tr><tr><td><p>3</p></td><td><p>Pour concrete</p></td><td><p>Chemical burns, splashes</p></td><td><p>Wear long sleeves, rubber boots, safety glasses/face shield</p></td><td><p>Crew</p></td></tr><tr><td><p>4</p></td><td><p>Vibrate and finish concrete</p></td><td><p>Noise, vibration, silica dust</p></td><td><p>Hearing protection, anti-vibration gloves, wet methods</p></td><td><p>Finisher</p></td></tr><tr><td><p>5</p></td><td><p>Clean up tools and area</p></td><td><p>Slips/trips on debris</p></td><td><p>Maintain housekeeping, store tools properly</p></td><td><p>Crew</p></td></tr><tr><td><p>6</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>7</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>8</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>9</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>10</p></td><td></td><td></td><td></td><td></td></tr></table>\n<p><strong>Emergency Contacts:</strong></p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Concrete and Masonry Pre Task JHA (continued 3)",
+          "html": "<p>Nearest Hospital: __________________________________   Emergency Number: 911   Site First Aid Location: __________________</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Concrete and Masonry Pre Task JHA Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Flammable Combustible Liquids Inspection Checklist - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Flammable Combustible Liquids Inspection Checklist",
+          "html": "<p>────────────────────────────────────────────────────────────────────────────────────────────────────</p>\n<h4 class=\"sec-subhead\">Inspection Checklist</h4>\n<p>Inspection frequency note: Refer to applicable OSHA/WISHA requirements for inspection frequency.</p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Item #</p></td><td><p>Inspection Item</p></td><td><p>Pass</p></td><td><p>Fail</p></td><td><p>N/A</p></td><td><p>Corrective Action Required</p></td></tr><tr><td><p>1</p></td><td><p>Are flammable liquids stored in approved containers? (per 29 CFR 1926.152(a)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>2</p></td><td><p>Are storage cabinets labeled \"FLAMMABLE - KEEP FIRE AWAY\"? (per 29 CFR 1926.152(b)(2)(iii))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>3</p></td><td><p>Is the storage area free of weeds, debris, and other combustible materials? (per 29 CFR 1926.152(c)(5))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>4</p></td><td><p>Are \"No Smoking\" signs posted in storage areas? (per 29 CFR 1926.152(b)(3))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>5</p></td><td><p>Are fire extinguishers readily available near storage areas? (per 29 CFR 1926.152(d)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>6</p></td><td><p>Are containers closed when not in use? (per 29 CFR 1926.152(f)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>7</p></td><td><p>Is dispensing of flammable liquids done in a safe manner? (per 29 CFR 1926.152(e)(2))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>8</p></td><td><p>Are safety cans used for handling flammable liquids? (per 29 CFR 1926.152(a)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>9</p></td><td><p>Are temporary heating devices located away from combustible materials? (per WAC 296-155-280(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>10</p></td><td><p>Are temporary heating devices properly ventilated? (per WAC 296-155-280(2))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>11</p></td><td><p>Are fuel lines and connections for heating devices secure and leak-free? (per WAC 296-155-280(3))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>12</p></td><td><p>Are heating devices placed on stable, non-combustible surfaces? (per WAC 296-155-280(4))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>13</p></td><td><p>Is there adequate clearance around heating devices? (per WAC 296-155-280(5))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>14</p></td><td><p>Are employees trained on the safe use of flammable liquids? (per AGC Ch. 8)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>15</p></td><td><p>Are emergency procedures established for spills or fires? (per AGC Ch. 8)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr></table>\n<h4 class=\"sec-subhead\">Deficiency Log</h4>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Flammable Combustible Liquids Inspection Checklist (continued 2)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p>Item #</p></td><td><p>Description of Deficiency</p></td><td><p>Corrective Action</p></td><td><p>Assigned To</p></td><td><p>Due Date</p></td><td><p>Completed Date</p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<h4 class=\"sec-subhead\">Inspector Signature</h4>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Inspector Name</p></td><td></td><td></td></tr><tr><td><p>Supervisor Review</p></td><td></td><td></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Flammable Combustible Liquids Inspection Checklist Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

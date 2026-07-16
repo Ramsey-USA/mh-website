@@ -1,0 +1,90 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Crane Suspended Work Platform Permit and JHA - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Crane Suspended Work Platform Permit and JHA",
+          "html": "<p><strong>PART 1: WORK AUTHORIZATION PERMIT</strong></p>\n<p><strong>Permit Number: </strong>[DATE]-[MISH21]-[SEQ]</p>\n<p><strong>Pre-work Conditions Checklist:</strong></p>\n<p>☐ Trial lift performed and documented</p>\n<p>☐ Proof testing of platform completed</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Crane Suspended Work Platform Permit and JHA (continued 2)",
+          "html": "<p>☐ Crane set up on firm, level footing</p>\n<p>☐ Outriggers fully extended and blocked</p>\n<p>☐ Wind speed verified within safe limits (&lt;20 mph)</p>\n<p>☐ Load capacity verified (platform + personnel + tools &lt; 50% of crane capacity)</p>\n<p>☐ Anti-two-block device operational</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Crane Suspended Work Platform Permit and JHA (continued 3)",
+          "html": "<p>☐ Controlled load lowering capability verified</p>\n<p>☐ Positive locking hooks on all rigging</p>\n<p>☐ Communication system established between operator and platform</p>\n<p>☐ Fall protection systems inspected and ready</p>\n<p>☐ Pre-lift meeting conducted with all involved personnel</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Crane Suspended Work Platform Permit and JHA (continued 4)",
+          "html": "<p><strong>Work Authorization:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Work Description</strong></p></td><td><p><strong>Location</strong></p></td><td><p><strong>Start Time</strong></p></td><td><p><strong>End Time</strong></p></td><td><p><strong>Authorized By</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></table>\n<p><strong>Required Controls Checklist:</strong></p>\n<p>☐ Personal Fall Arrest Systems (PFAS) required for all occupants</p>\n<p>☐ Lanyards attached to designated anchor points only</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Crane Suspended Work Platform Permit and JHA (continued 5)",
+          "html": "<p>☐ Hard hats with chin straps required</p>\n<p>☐ Tools and materials secured from falling</p>\n<p>☐ Barricades erected below lift area</p>\n<p>☐ Tag lines used to control platform</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Crane Suspended Work Platform Permit and JHA Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

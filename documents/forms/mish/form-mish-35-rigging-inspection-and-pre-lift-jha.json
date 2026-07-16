@@ -1,0 +1,85 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Rigging Inspection and Pre Lift JHA - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, or corrective actions.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Rigging Inspection and Pre Lift JHA",
+          "html": "<p><strong>RIGGING INSPECTION CHECKLIST</strong></p>\n<p><em>Inspection Frequency: Prior to each shift and as necessary during use per 29 CFR 1926.251(a)(1) and WAC 296-155-33700(1).</em></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Inspection Item</strong></p></td><td><p><strong>Pass</strong></p></td><td><p><strong>Fail</strong></p></td><td><p><strong>N/A</strong></p></td><td><p><strong>Corrective Action Required</strong></p></td></tr><tr><td><p>1</p></td><td><p>Slings - Synthetic web: No snags, punctures, tears, or cuts (29 CFR 1926.251(e)(8))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>2</p></td><td><p>Slings - Synthetic web: No broken or worn stitches (29 CFR 1926.251(e)(8))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>3</p></td><td><p>Slings - Synthetic web: Identification tags present and legible (29 CFR 1926.251(e)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>4</p></td><td><p>Slings - Wire rope: No excessive broken wires (29 CFR 1926.251(c)(4))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>5</p></td><td><p>Slings - Wire rope: No severe localized abrasion or scraping (29 CFR 1926.251(c)(4))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>6</p></td><td><p>Slings - Wire rope: No kinking, crushing, or bird caging (29 CFR 1926.251(c)(4))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>7</p></td><td><p>Slings - Wire rope: Identification tags present and legible (29 CFR 1926.251(c)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>8</p></td><td><p>Slings - Alloy steel chain: No cracked or deformed master links/hooks (29 CFR 1926.251(b)(5))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>9</p></td><td><p>Slings - Alloy steel chain: No excessive wear or stretching (29 CFR 1926.251(b)(5))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>10</p></td><td><p>Slings - Alloy steel chain: Identification tags present and legible (29 CFR 1926.251(b)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>11</p></td><td><p>Shackles: No deformation, cracks, or excessive wear (29 CFR 1926.251(f)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>12</p></td><td><p>Shackles: Pins are correct type and properly seated (29 CFR 1926.251(f)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>13</p></td><td><p>Hooks: No cracks, nicks, or gouges (29 CFR 1926.251(a)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>14</p></td><td><p>Hooks: Throat opening not increased by more than 15% (29 CFR 1926.251(a)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>15</p></td><td><p>Hooks: Safety latches present and functioning properly (WAC 296-155-33810)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>16</p></td><td><p>Eyebolts/Rings: No cracks, bends, or elongation (29 CFR 1926.251(a)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>17</p></td><td><p>Custom Lifting Devices: Marked with capacity and weight (29 CFR 1926.251(a)(4))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>18</p></td><td><p>Custom Lifting Devices: Structurally sound, no visible defects (29 CFR 1926.251(a)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>19</p></td><td><p>Rigging Hardware: Free of excessive rust or corrosion (29 CFR 1926.251(a)(1))</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr><tr><td><p>20</p></td><td><p>Storage: Rigging stored properly off the ground and protected (WAC 296-155-33700)</p></td><td><p>☐</p></td><td><p>☐</p></td><td><p>☐</p></td><td></td></tr></table>\n<p><strong>DEFICIENCY LOG</strong></p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Rigging Inspection and Pre Lift JHA (continued 2)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Item #</strong></p></td><td><p><strong>Description of Deficiency</strong></p></td><td><p><strong>Corrective Action</strong></p></td><td><p><strong>Assigned To</strong></p></td><td><p><strong>Due Date</strong></p></td><td><p><strong>Completed Date</strong></p></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Inspector Name: ____________________</p></td><td></td><td><p>Date: ____________</p></td></tr><tr><td><p>Supervisor Review: _________________</p></td><td></td><td><p>Date: ____________</p></td></tr></table>\n<p><strong>PRE-LIFT JOB HAZARD ANALYSIS (JHA)</strong></p>\n<p><strong>Task Description: </strong>___________________________________________________________________________________</p>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Rigging Inspection and Pre Lift JHA (continued 3)",
+          "html": "<p><strong>Pre-Task Hazard Identification:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>☐ Overhead Power Lines</p></td><td><p>☐ Wind/Weather Conditions</p></td><td><p>☐ Uneven/Soft Ground</p></td></tr><tr><td><p>☐ Blind Lifts/Poor Visibility</p></td><td><p>☐ Swing Radius Hazards</p></td><td><p>☐ Traffic/Pedestrians</p></td></tr><tr><td><p>☐ Load Instability</p></td><td><p>☐ Sharp Edges on Load</p></td><td><p>☐ Pinch Points</p></td></tr><tr><td><p>☐ Communication Issues</p></td><td><p>☐ Equipment Failure</p></td><td><p>☐ Suspended Loads</p></td></tr></table>\n<p><strong>Required PPE:</strong></p>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>☐ Hard Hat</p></td><td><p>☐ Safety Glasses</p></td><td><p>☐ High-Vis Apparel</p></td></tr><tr><td><p>☐ Steel-Toe Boots</p></td><td><p>☐ Leather Gloves</p></td><td><p>☐ Fall Protection</p></td></tr><tr><td><p>☐ Hearing Protection</p></td><td><p>☐ Taglines</p></td><td></td></tr></table>"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Rigging Inspection and Pre Lift JHA (continued 4)",
+          "html": "<table class=\"sec-data-table first-row-header\"><tr><td><p><strong>Step #</strong></p></td><td><p><strong>Task Step Description</strong></p></td><td><p><strong>Potential Hazard</strong></p></td><td><p><strong>Hazard Control Measure</strong></p></td><td><p><strong>Responsible Party</strong></p></td></tr><tr><td><p>1</p></td><td><p>Inspect rigging equipment</p></td><td><p>Using damaged rigging causing load drop</p></td><td><p>Perform pre-use inspection per checklist. Remove damaged rigging from service.</p></td><td><p>Rigger</p></td></tr><tr><td><p>2</p></td><td><p>Attach rigging to load</p></td><td><p>Pinch points, sharp edges cutting slings</p></td><td><p>Keep hands clear of pinch points. Use softeners/edge protection on sharp corners.</p></td><td><p>Rigger</p></td></tr><tr><td><p>3</p></td><td><p>Verify load weight and center of gravity</p></td><td><p>Overloading crane, load shifting/tipping</p></td><td><p>Confirm weight with documentation. Perform test lift to verify balance.</p></td><td><p>Lift Director / Rigger</p></td></tr><tr><td><p>4</p></td><td><p>Lift and move load</p></td><td><p>Struck by load, swing radius hazards</p></td><td><p>Use taglines to control load. Keep personnel out of fall zone and swing radius.</p></td><td><p>Operator / Rigger</p></td></tr><tr><td><p>5</p></td><td><p>Communicate during lift</p></td><td><p>Misunderstanding signals causing accident</p></td><td><p>Establish clear communication method (radio or standard hand signals). Designate one signal person.</p></td><td><p>Signal Person / Operator</p></td></tr><tr><td><p>6</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>7</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>8</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>9</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>10</p></td><td></td><td></td><td></td><td></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td><p>Nearest Hospital: ____________________</p></td><td><p>Emergency Number: 911</p></td><td><p>Site First Aid Location: _______________</p></td></tr></table>\n<table class=\"sec-data-table first-row-header\"><tr><td></td><td><p>Title: ________________________</p></td><td><p>Date: ________________</p></td></tr><tr><td></td><td><p>Title: ________________________</p></td><td><p>Date: ________________</p></td></tr></table>"
+        },
+        {
+          "type": "signatures",
+          "title": "Rigging Inspection and Pre Lift JHA Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Employee",
+              "name": "sign.employee",
+              "signatureLabel": "Acknowledgement Signature"
+            },
+            {
+              "role": "Supervisor",
+              "name": "sign.supervisor",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
