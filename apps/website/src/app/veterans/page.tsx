@@ -18,6 +18,7 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { getTranslations } from "next-intl/server";
+import { DiagonalStripePattern } from "@/components/ui/backgrounds";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.veterans);
 
@@ -191,19 +192,12 @@ export default async function VeteransPage() {
 
       {/* All sections below Hero - WITH parallax background */}
       <div className="relative min-h-screen">
-        {/* Shared background - anchored to the content container to avoid fixed-scroll repaints */}
-        <div className="absolute inset-0 opacity-30 dark:opacity-25 pointer-events-none">
-          <Image
-            src="/images/logo/mh-veteran-bg.webp"
-            alt=""
-            fill
-            sizes="100vw"
-            quality={60}
-            loading="lazy"
-            className="object-cover object-center"
-            aria-hidden="true"
-          />
-        </div>
+        <DiagonalStripePattern
+          lightOpacity={0.18}
+          darkOpacity={0.22}
+          lightLogoSrc="/images/logo/mh-veteran-bg.webp"
+          darkLogoSrc="/images/logo/mh-veteran-bg.webp"
+        />
 
         {/* Content with parallax background */}
         <div className="relative z-10">

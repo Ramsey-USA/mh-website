@@ -1,7 +1,7 @@
 # Media Documentation
 
 **Category:** Media - Overview  
-**Last Updated:** May 4, 2026
+**Last Updated:** July 16, 2026
 
 ## Overview
 
@@ -14,12 +14,12 @@ Photo and video strategy guidance for the MH Construction website and supporting
 - **[Media Strategy](./media-strategy.md)** — Photo/video roadmap, capture priorities, and asset
   governance.
 - **[Hero Commercial Video Guardrails](../development/standards/hero-commercial-video-guardrails.md)** — Required build and validation workflow for hero ads.
+- **[Automatic Media Optimization](../technical/automatic-media-optimization.md)** — CI + local optimization and force/repack workflow.
 
 ## Quick Links
 
 - [← Documentation Index](../index.md)
 - [← Back to Main README](../../README.md)
-- [Automatic Media Optimization](../technical/automatic-media-optimization.md)
 - [Branding Documentation](../branding/index.md)
 
 ---

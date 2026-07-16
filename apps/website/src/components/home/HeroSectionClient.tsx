@@ -258,6 +258,7 @@ export function HeroSectionClient({
               }`}
               autoPlay={allowAutoPlayback}
               muted={isMuted}
+              loop
               playsInline
               preload={allowAutoPlayback ? "metadata" : "none"}
               poster={hasPoster ? posterSrc : undefined}
@@ -265,6 +266,7 @@ export function HeroSectionClient({
               onPlay={() => setIsVideoPlaying(true)}
               onPlaying={() => setIsVideoPlaying(true)}
               onCanPlay={() => setIsVideoReady(true)}
+              onCanPlayThrough={() => setIsVideoReady(true)}
               onWaiting={() => setIsVideoPlaying(false)}
               onLoadedData={(event) => {
                 setIsVideoReady(true);

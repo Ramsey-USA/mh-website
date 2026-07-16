@@ -44,18 +44,39 @@ const MAX_MP4_SIZE_BYTES = 15 * 1024 * 1024; // 15 MB
  * Mirrors the MAX_WIDTH_BY_CATEGORY pattern in optimize-images.js.
  *
  * resolution: FFmpeg scale filter value (width:-2 preserves aspect ratio).
- * crf:        VP9 / H.264 CRF quality (lower = better quality, larger file).
+ * webmCrf:    VP9 CRF quality (lower = better quality, larger file).
+ * mp4Crf:     H.264 CRF quality (lower = better quality, larger file).
  * audioBitrate: null means strip audio (for muted background loops).
  */
 const CATEGORY_PRESETS = {
   // Muted looping hero / culture backgrounds — 1080p, high quality
-  culture: { resolution: "1920:-2", crf: 33, audioBitrate: null },
-  // Project showcase clips — 720p, balanced
-  projects: { resolution: "1280:-2", crf: 28, audioBitrate: "128k" },
-  // Interview-style testimonials — 720p, balanced
-  testimonials: { resolution: "1280:-2", crf: 28, audioBitrate: "128k" },
+  culture: {
+    resolution: "1920:-2",
+    webmCrf: 30,
+    mp4Crf: 23,
+    audioBitrate: null,
+  },
+  // Project showcase clips — 1080p, balanced
+  projects: {
+    resolution: "1920:-2",
+    webmCrf: 28,
+    mp4Crf: 22,
+    audioBitrate: "160k",
+  },
+  // Interview-style testimonials — 1080p, slightly higher fidelity for speaking shots
+  testimonials: {
+    resolution: "1920:-2",
+    webmCrf: 27,
+    mp4Crf: 21,
+    audioBitrate: "160k",
+  },
   // Default fallback for any unrecognised category
-  default: { resolution: "1280:-2", crf: 28, audioBitrate: "128k" },
+  default: {
+    resolution: "1280:-2",
+    webmCrf: 29,
+    mp4Crf: 23,
+    audioBitrate: "128k",
+  },
 };
 
 const stats = { success: 0, skipped: 0, failed: 0 };
@@ -98,7 +119,7 @@ function formatBytes(bytes) {
   const k = 1024;
   const sizes = ["B", "KB", "MB", "GB"];
   const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return (bytes / Math.pow(k, i)).toFixed(1) + " " + sizes[i];
+  return `${(bytes / Math.pow(k, i)).toFixed(1)} ${sizes[i]}`;
 }
 
 /**
@@ -107,17 +128,18 @@ function formatBytes(bytes) {
  */
 function encodeWebM(inputPath, outputPath, preset) {
   const audioArgs = preset.audioBitrate
-    ? `-c:a libopus -b:a ${preset.audioBitrate}`
+    ? `-c:a libopus -b:a ${preset.audioBitrate} -ar 48000 -ac 2`
     : "-an";
   const cmd = [
     "ffmpeg",
     `-i "${inputPath}"`,
     `-c:v libvpx-vp9`,
-    `-crf ${preset.crf}`,
+    `-crf ${preset.webmCrf}`,
     `-b:v 0`,
     `-vf scale=${preset.resolution}`,
     audioArgs,
     `-deadline good`,
+    `-row-mt 1`,
     `-cpu-used 2`,
     `-y`,
     `"${outputPath}"`,
@@ -138,14 +160,17 @@ function encodeWebM(inputPath, outputPath, preset) {
  */
 function encodeMP4(inputPath, outputPath, preset) {
   const audioArgs = preset.audioBitrate
-    ? `-c:a aac -b:a ${preset.audioBitrate}`
+    ? `-c:a aac -b:a ${preset.audioBitrate} -ar 48000 -ac 2`
     : "-an";
   const cmd = [
     "ffmpeg",
     `-i "${inputPath}"`,
     `-c:v libx264`,
     `-preset slow`,
-    `-crf ${preset.crf}`,
+    `-crf ${preset.mp4Crf}`,
+    `-profile:v high`,
+    `-level 4.1`,
+    `-pix_fmt yuv420p`,
     `-vf scale=${preset.resolution}`,
     audioArgs,
     `-movflags +faststart`,
@@ -280,7 +305,10 @@ function repackWebM(filePath, relPath) {
 
   const preset = getPreset(relPath);
   // Re-encode at a higher CRF (lower quality) to bring the file within budget
-  const repackPreset = { ...preset, crf: Math.min(preset.crf + 6, 63) };
+  const repackPreset = {
+    ...preset,
+    webmCrf: Math.min(preset.webmCrf + 6, 63),
+  };
   const tmpPath = `${filePath}.tmp.webm`;
 
   log(
@@ -318,7 +346,10 @@ function repackMP4(filePath, relPath) {
   }
 
   const preset = getPreset(relPath);
-  const repackPreset = { ...preset, crf: Math.min(preset.crf + 6, 51) };
+  const repackPreset = {
+    ...preset,
+    mp4Crf: Math.min(preset.mp4Crf + 4, 40),
+  };
   const tmpPath = `${filePath}.tmp.mp4`;
 
   log(`  → Re-packing MP4 (${formatBytes(beforeSize)}) ...`);

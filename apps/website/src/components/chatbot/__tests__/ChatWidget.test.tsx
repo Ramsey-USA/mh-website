@@ -694,6 +694,75 @@ describe("ChatWidget Integration Scenarios", () => {
     });
   });
 
+  it("renders Jeremy resource chips for Jeremy-targeted assistant replies", async () => {
+    const user = userEvent.setup();
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({
+        response:
+          "Jeremy Thamert is Owner and President. Review /jeremy-thamert and /jeremy-thamert#verified-sources.",
+      }),
+    });
+
+    render(<ChatWidget />);
+    await user.click(
+      screen.getByRole("button", { name: /open partnership guide chat/i }),
+    );
+
+    const input = screen.getByRole("textbox", { name: /type your message/i });
+    await user.type(input, "Tell me about Jeremy Thamert");
+    await user.click(screen.getByRole("button", { name: /send message/i }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByRole("link", { name: "Jeremy Profile" }),
+      ).toHaveAttribute("href", "/jeremy-thamert");
+      expect(
+        screen.getByRole("link", { name: "Verified Sources" }),
+      ).toHaveAttribute("href", "/jeremy-thamert#verified-sources");
+      expect(screen.getByRole("link", { name: "Jeremy FAQ" })).toHaveAttribute(
+        "href",
+        "/jeremy-thamert#jeremy-faq",
+      );
+      expect(
+        screen.getByRole("link", { name: "Contact Team" }),
+      ).toHaveAttribute("href", "/contact");
+    });
+  });
+
+  it("does not render Jeremy resource chips for non-Jeremy assistant replies", async () => {
+    const user = userEvent.setup();
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({
+        response:
+          "We provide commercial construction services across WA, OR, and ID.",
+      }),
+    });
+
+    render(<ChatWidget />);
+    await user.click(
+      screen.getByRole("button", { name: /open partnership guide chat/i }),
+    );
+
+    const input = screen.getByRole("textbox", { name: /type your message/i });
+    await user.type(input, "What services do you provide?");
+    await user.click(screen.getByRole("button", { name: /send message/i }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(/commercial construction services/i),
+      ).toBeInTheDocument();
+    });
+
+    expect(
+      screen.queryByRole("link", { name: "Jeremy Profile" }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("link", { name: "Verified Sources" }),
+    ).not.toBeInTheDocument();
+  });
+
   it("maintains scroll position when new messages arrive", async () => {
     const user = userEvent.setup();
     mockFetch.mockResolvedValue({

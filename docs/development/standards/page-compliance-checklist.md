@@ -25,7 +25,7 @@ For each audited page, build these inventories first:
 
 1. **Section inventory:** List each major section in visual order (hero, discover, trust, proof, action, footer prelude).
 2. **Button/action inventory:** List every action control (Button component, link-styled action, raw `button`, submit controls).
-3. **Background inventory:** List every background layer (base fill, pattern layer, gradient/blob overlays, shell-specific backgrounds).
+3. **Background inventory:** List every background layer (base fill, logo paraplex layer, gradient overlays, shell-specific backgrounds) and mark hero vs non-hero usage.
 
 If any inventory is missing, the page audit is incomplete.
 
@@ -107,21 +107,32 @@ If any inventory is missing, the page audit is incomplete.
 
 ## 🎨 Background Patterns
 
-### Required Elements (ALL Sections)
+### Required Elements (All Non-Hero Sections)
 
-- [ ] DiagonalStripePattern included (45deg, hunter green #386851)
-- [ ] Pattern opacity: `opacity-[0.03] dark:opacity-[0.05]`
-- [ ] Large brand color blobs included (w-96 h-96)
-- [ ] Top-right blob: `top-20 right-[15%]` with `from-brand-primary/10`
-- [ ] Bottom-left blob: `bottom-20 left-[15%]` with `from-brand-secondary/10`
-- [ ] Both blobs use `blur-3xl rounded-full`
+- [ ] `DiagonalStripePattern` (logo paraplex implementation) is present through shared shell/background components
+- [ ] Logo paraplex uses approved asset family (`/images/logo/mh-logo-light-bg.webp` and dark variant as applicable)
+- [ ] Logo watermark renders as a single centered mark (`backgroundRepeat: no-repeat`, centered placement)
+- [ ] Logo watermark uses maximum available section space while preserving aspect ratio (no stretching/distortion)
+- [ ] Non-hero sections do not omit the logo paraplex layer unless a scoped exception is documented
+
+### Route Caveats (Required Where Applicable)
+
+- [ ] Veteran routes use the approved veteran logo watermark (`/images/logo/mh-veteran-bg.webp`) for non-hero sections when route intent is veteran-specific
+- [ ] Public-sector/government routes use black logo in light mode and white logo in dark mode for non-hero sections
+- [ ] Dark government section shells may force white logo in both modes to preserve contrast
+
+### Hero Exemption (Required)
+
+- [ ] Hero section backgrounds are intentionally exempt and use approved photo, video, or gradient treatments
+- [ ] Hero background treatment does not leak into non-hero sections without approved exception scope
 
 ### Deprecated Patterns (MUST NOT EXIST)
 
 - [ ] ❌ No complex gradients on base background (e.g., `from-white via-gray-50 to-white`)
-- [ ] ❌ No small animated blobs (w-32, w-40)
-- [ ] ❌ No `animate-pulse` on background elements
+- [ ] ❌ No legacy stripe-only backgrounds (`repeating-linear-gradient(...)`) on non-hero section shells
+- [ ] ❌ No active `BrandColorBlobs` visual overlays on non-hero sections
 - [ ] ❌ No radial gradient overlays
+- [ ] ❌ No repeated/tiled logo watermark backgrounds on non-hero sections
 
 ### Scoped Exceptions (Backgrounds)
 

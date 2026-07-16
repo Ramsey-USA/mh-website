@@ -27,22 +27,10 @@ export function BrandColorBlobs({
   showSecondary = true,
   className = "",
 }: BrandColorBlobsProps) {
-  if (!showPrimary && !showSecondary) return null;
+  void showPrimary;
+  void showSecondary;
+  void className;
 
-  return (
-    <>
-      {showPrimary && (
-        <div
-          className={`absolute top-20 right-[15%] w-96 h-96 bg-linear-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full ${className}`}
-          aria-hidden="true"
-        />
-      )}
-      {showSecondary && (
-        <div
-          className={`absolute bottom-20 left-[15%] w-96 h-96 bg-linear-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full ${className}`}
-          aria-hidden="true"
-        />
-      )}
-    </>
-  );
+  // Deprecated: non-hero backgrounds now use the MH logo paraplex treatment only.
+  return null;
 }

@@ -1,6 +1,6 @@
 /**
  * BrandedContentSection Component
- * Full-width section with MH branding (diagonal stripes, color blobs, gradient headers)
+ * Full-width section with MH branding (logo paraplex background + gradient headers)
  * Provides consistent branded appearance across all major content sections
  * Eliminates 68 lines of repetitive boilerplate per section (82% code reduction)
  */
@@ -8,6 +8,7 @@
 import { type ReactNode } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
+import { DiagonalStripePattern } from "@/components/ui/backgrounds";
 
 export interface BrandedContentSectionProps {
   /** Unique ID for section anchor links */
@@ -56,11 +57,10 @@ export interface BrandedContentSectionProps {
  * BrandedContentSection - Full-width section with MH Construction branding
  *
  * Non-coder explanation: "This is the fancy section with the gold/green gradient title
- * and the subtle background patterns (diagonal stripes + color blobs)"
+ * and the subtle MH logo paraplex background pattern"
  *
  * Technical features:
- * - DiagonalStripePattern background (#386851 at 45deg)
- * - Large brand color blobs (w-96 h-96 with blur-3xl)
+ * - MH logo paraplex background pattern
  * - Optional two-line gradient header with Material icon
  * - Responsive padding and spacing
  * - Dark mode support
@@ -243,25 +243,7 @@ export function BrandedContentSection({
       id={id}
       className={`relative ${bgClasses} py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden ${className}`}
     >
-      {/* Diagonal Stripe Background Pattern - REQUIRED */}
-      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              45deg,
-              var(--color-brand-primary) 0px,
-              var(--color-brand-primary) 2px,
-              transparent 2px,
-              transparent 60px
-            )`,
-          }}
-        ></div>
-      </div>
-
-      {/* Large Brand Color Blobs - REQUIRED */}
-      <div className="absolute top-20 right-[15%] w-96 h-96 bg-linear-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-linear-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+      <DiagonalStripePattern />
 
       {/* Content Container */}
       <div

@@ -624,37 +624,71 @@ in corner · overlaid page title text.
 
 ### 10a. Format requirements
 
-Every video must be provided in two formats:
+Every production video must be provided in two formats:
 
 | Format  | Codec       | Use                                         |
 | ------- | ----------- | ------------------------------------------- |
 | `.mp4`  | H.264 + AAC | Broadest compatibility (iOS, older Android) |
 | `.webm` | VP9 + Opus  | Smaller file size on modern browsers        |
 
-Poster image: a `.webp` frame capture at the same path replacing `.mp4`
-with `-poster.webp`.
+Poster image naming is canonical: `poster-{name}.jpg`.
+
+Example outputs for `client-001.mp4`:
+
+- `/public/videos/testimonials/client-001.mp4`
+- `/public/videos/testimonials/client-001.webm`
+- `/public/videos/testimonials/poster-client-001.jpg`
+
+Optional: convert poster JPG to WebP for page delivery if needed, but keep the generated JPG in repo because CI and scripts key off `poster-*.jpg`.
 
 ### 10b. Encoding settings (ffmpeg)
+
+Use the project script as the single source of truth:
+
+```bash
+pnpm --filter @mhc/website run optimize:videos
+```
+
+Use `--force` when presets change or when replacing existing converted files:
+
+```bash
+pnpm --filter @mhc/website run optimize:videos -- --force
+```
+
+Category presets currently enforced by `apps/website/scripts/optimization/optimize-videos.js`:
+
+- `culture`: `1920:-2`, WebM CRF `30`, MP4 CRF `23`, audio stripped (`-an`)
+- `projects`: `1920:-2`, WebM CRF `28`, MP4 CRF `22`, `160k` audio at 48 kHz stereo
+- `testimonials`: `1920:-2`, WebM CRF `27`, MP4 CRF `21`, `160k` audio at 48 kHz stereo
+- `default`: `1280:-2`, WebM CRF `29`, MP4 CRF `23`, `128k` audio at 48 kHz stereo
+
+Hard size budgets enforced during repack:
+
+- WebM <= 10 MB
+- MP4 <= 15 MB
+
+If a converted file exceeds budget, the script automatically re-packs it by raising CRF.
+
+Reference ffmpeg equivalents used by the script:
 
 ```bash
 # MP4 (H.264)
 ffmpeg -i source.mov \
-  -vf "scale=1280:-2" \
-  -c:v libx264 -crf 23 -preset slow \
-  -c:a aac -b:a 128k \
+  -vf "scale=1920:-2" \
+  -c:v libx264 -crf 22 -preset slow -profile:v high -level 4.1 -pix_fmt yuv420p \
+  -c:a aac -b:a 160k -ar 48000 -ac 2 \
   -movflags +faststart \
   output.mp4
 
 # WebM (VP9)
 ffmpeg -i source.mov \
-  -vf "scale=1280:-2" \
-  -c:v libvpx-vp9 -crf 33 -b:v 0 \
-  -c:a libopus -b:a 96k \
+  -vf "scale=1920:-2" \
+  -c:v libvpx-vp9 -crf 28 -b:v 0 -deadline good -row-mt 1 -cpu-used 2 \
+  -c:a libopus -b:a 160k -ar 48000 -ac 2 \
   output.webm
 
-# Poster frame (first frame)
-ffmpeg -i output.mp4 -vframes 1 -q:v 2 output-poster.jpg
-# Then convert poster to WebP via: pnpm --filter @mhc/website run optimize:images -- --force
+# Poster frame (first second; canonical naming)
+ffmpeg -i output.mp4 -ss 00:00:01 -vframes 1 -vf scale=1280:-2 -q:v 2 poster-client-001.jpg
 ```
 
 ### 10c. Usage in components
@@ -663,14 +697,19 @@ ffmpeg -i output.mp4 -vframes 1 -q:v 2 output-poster.jpg
 import { OptimizedVideo } from "@/components/ui/media";
 
 <OptimizedVideo
-  src="/videos/testimonials/client-001.mp4"
-  poster="/videos/testimonials/client-001-poster.webp"
-  alt="Client testimonial video — John D., Kennewick WA commercial build-out"
-  title="Client Testimonial — John D."
+  webmSrc="/videos/testimonials/client-001.webm"
+  mp4Src="/videos/testimonials/client-001.mp4"
+  poster="/videos/testimonials/poster-client-001.jpg"
+  ariaLabel="Client testimonial video from John D in Kennewick WA"
   autoPlay={false}
   controls
 />;
 ```
+
+Set preload intentionally:
+
+- hero/background autoplay loops: `preload="auto"`
+- standard testimonial or project videos: `preload="metadata"`
 
 ### 10d. Video SEO (VideoObject schema)
 
@@ -707,11 +746,13 @@ Use this checklist every time photos or videos are added.
 
 ### Videos
 
-- [ ] `.mp4` and `.webm` versions encoded per §10b
-- [ ] Poster `.webp` created and in correct folder
+- [ ] `.mp4` and `.webm` versions encoded per §10b via `optimize:videos`
+- [ ] Poster `poster-{name}.jpg` exists in the same folder
 - [ ] `OptimizedVideo` component used (not raw `<video>`)
 - [ ] `VideoObject` schema added to page (§10d)
-- [ ] Video file size < 20 MB (compress more or use a CDN for larger files)
+- [ ] WebM <= 10 MB and MP4 <= 15 MB after optimization/repack
+- [ ] Audio track is 48 kHz stereo AAC/Opus when spoken audio is present
+- [ ] `--force` run when replacing existing converted files or after preset changes
 
 ### Risk / Compliance
 

@@ -108,6 +108,17 @@ const UNMAPPED_TRADE_KEYWORDS = [
 const ENGLISH_INTENT_RESPONSES = [
   {
     keywords: [
+      "jeremy",
+      "thamert",
+      "jeremy thamert",
+      "owner",
+      "president",
+      "leadership profile",
+    ],
+    response: `Jeremy Thamert is Owner and President of MH Construction, based in Pasco, WA and focused on relationship-first delivery. You can review his leadership profile at ${SITE_HOST}/jeremy-thamert, verified sources at ${SITE_HOST}/jeremy-thamert#verified-sources, and FAQ details at ${SITE_HOST}/jeremy-thamert#jeremy-faq.`,
+  },
+  {
+    keywords: [
       "contact",
       "phone",
       "call",
@@ -368,6 +379,20 @@ function getSpanishFallbackResponse(message: string): string {
     includesAny(normalized, ["hola", "buenos dias", "buenas tardes", "ayuda"])
   ) {
     return "Hola. Puedo ayudarle con los servicios de MH Construction, nuestros socios comerciales, información para veteranos y datos de contacto. ¿Qué le gustaría saber?";
+  }
+
+  if (
+    includesAny(normalized, [
+      "jeremy",
+      "thamert",
+      "jeremy thamert",
+      "dueno",
+      "presidente",
+      "liderazgo",
+      "perfil",
+    ])
+  ) {
+    return `Jeremy Thamert es Owner and President de MH Construction con base en Pasco, WA y enfoque relationship-first. Puede revisar su perfil en ${SITE_HOST}/jeremy-thamert, fuentes verificadas en ${SITE_HOST}/jeremy-thamert#verified-sources y FAQ en ${SITE_HOST}/jeremy-thamert#jeremy-faq.`;
   }
 
   if (

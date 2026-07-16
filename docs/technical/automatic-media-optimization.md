@@ -34,15 +34,23 @@ When you push images or videos to `public/images/` or `public/videos/`, a GitHub
 **Automatic processing:**
 
 - Converts to WebM (VP9) and MP4 (H.264)
-- Multiple quality levels (1080p, 720p, 480p)
-- Generates poster images (first frame)
+- Applies category presets by folder (`culture`, `projects`, `testimonials`, `default`)
+- Generates poster images (`poster-{name}.jpg`)
 - Optimizes for web streaming
 
-**Quality presets:**
+**Category presets (current):**
 
-- **1080p**: 5000k video bitrate, 192k audio
-- **720p**: 2500k video bitrate, 128k audio
-- **480p**: 1000k video bitrate, 96k audio
+- **culture**: `1920:-2`, WebM CRF 30, MP4 CRF 23, no audio
+- **projects**: `1920:-2`, WebM CRF 28, MP4 CRF 22, 160k audio (48 kHz stereo)
+- **testimonials**: `1920:-2`, WebM CRF 27, MP4 CRF 21, 160k audio (48 kHz stereo)
+- **default**: `1280:-2`, WebM CRF 29, MP4 CRF 23, 128k audio (48 kHz stereo)
+
+**Hard size budgets:**
+
+- WebM <= 10 MB
+- MP4 <= 15 MB
+
+When existing converted files exceed budget, the optimizer re-packs them automatically.
 
 ## Usage
 
@@ -75,6 +83,9 @@ pnpm --filter @mhc/website run optimize:images
 
 # Optimize all videos
 pnpm --filter @mhc/website run optimize:videos
+
+# Force re-process all videos (after preset changes or source replacements)
+pnpm --filter @mhc/website run optimize:videos -- --force
 
 # Audit images for opportunities
 pnpm --filter @mhc/website run audit:images
@@ -112,7 +123,7 @@ import { HeroImage } from "@/components/images";
 The workflow creates multiple formats for browser compatibility:
 
 ```tsx
-<video controls poster="/videos/my-video-poster.jpg">
+<video controls poster="/videos/poster-my-video.jpg">
   <source src="/videos/my-video.webm" type="video/webm" />
   <source src="/videos/my-video.mp4" type="video/mp4" />
   Your browser doesn't support video playback.
@@ -141,7 +152,7 @@ public/
 ├── videos/
 │   ├── my-video.mp4          # Optimized MP4
 │   ├── my-video.webm         # WebM version
-│   └── my-video-poster.jpg   # Poster image
+│   └── poster-my-video.jpg   # Poster image
 ```
 
 ## Optimization Reports
@@ -204,7 +215,7 @@ Check:
 
 1. Files are in `public/images/` or `public/videos/`
 2. Push is to `main` or `develop` branch
-3. File extensions are supported (png, jpg, mp4, mov, etc.)
+3. File extensions are supported (png, jpg, mp4, mov, avi, mkv, etc.)
 
 ### Optimization Failed
 
@@ -242,15 +253,14 @@ git commit -m "Add media [skip ci]"
 
 ## Best Practices
 
-1. **Image Sizes**: Keep originals under 5MB when possible
-2. **Video Length**: Under 2 minutes for best performance
-3. **Format Choice**:
-   - Use PNG for logos/icons with transparency
-   - Use JPG/JPEG only as source captures when needed, then publish WebP for site delivery
-   - Use MP4 for videos (auto-converted to WebM)
-
-4. **Naming**: Use lowercase kebab-case descriptive names: `hero-homepage.webp` not `img1.jpg`
-5. **Alt Text**: Always provide meaningful alt text for accessibility
+- **Image Sizes**: Keep originals under 5MB when possible.
+- **Video Length**: Keep clips under 2 minutes for best performance.
+- **Format Choice**: Use PNG for logos/icons with transparency.
+- **Format Choice**: Use JPG/JPEG only as source captures when needed, then publish WebP for site delivery.
+- **Format Choice**: For videos, keep source uploads in category folders and run optimizer to produce MP4 + WebM + poster set.
+- **Naming**: Use lowercase kebab-case descriptive names: `hero-homepage.webp` not `img1.jpg`.
+- **Alt Text**: Always provide meaningful alt text for accessibility.
+- **Video Intake**: Use `optimize:videos -- --force` when replacing existing converted files to avoid stale legacy encodes.
 
 ### Filename Enforcement
 
@@ -279,4 +289,4 @@ Potential improvements:
 
 **Status**: ✅ Active  
 **Maintained By**: GitHub Actions (automated)  
-**Last Updated**: 2025-12-26
+**Last Updated**: 2026-07-16

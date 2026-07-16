@@ -131,8 +131,10 @@ Required contract:
 1. Header consistency: non-hero sections use the canonical section-header treatment and consistent heading cadence.
 2. Body font consistency: non-hero body content uses approved body font stack and size tiers.
 3. Icon consistency: non-hero icons use MaterialIcon and maintain consistent size/container style by section role.
-4. Shell consistency: non-hero section wrappers preserve approved spacing tier, background system, and container width.
+4. Shell consistency: non-hero section wrappers preserve approved spacing tier, container width, and the single-logo MH watermark background contract (`DiagonalStripePattern`, no-repeat, centered, max-size with preserved aspect ratio).
 5. Drift control: any intentional visual divergence between non-hero neighboring sections must be documented as scope intent or exception.
+6. Hero exclusion: hero sections are the only page-level background surfaces exempt from the logo paraplex requirement and may continue using hero-specific photo, video, or gradient treatments.
+7. Route caveats: veteran-focused routes may use veteran watermark assets; public-sector/government routes use black logo in light mode and white logo in dark mode (with white allowed in both modes on dark section shells).
 
 ### Hero Section Similarity Contract
 
@@ -171,7 +173,7 @@ Minimum command set:
 1. `rg --files apps/website/src/app | rg '(page|layout|loading|error|global-error|not-found)\\.(tsx|ts|jsx|js)$'`
 2. `rg -n '<Button|<a |button\\s|type="submit"' apps/website/src --glob '!**/*.test.*'`
 3. `rg -n 'SectionShell|SectionContainer|BrandedContentSection|NextStepsSection|HeroSection' apps/website/src --glob '!**/*.test.*'`
-4. `rg -n 'DiagonalStripePattern|bg-linear|bg-gradient|radial-gradient|from-brand|to-brand' apps/website/src --glob '!**/*.test.*'`
+4. `rg -n 'DiagonalStripePattern|lightLogoSrc|darkLogoSrc|mh-logo-light-bg|mh-logo-dark-bg|mh-veteran-bg|repeating-linear-gradient|BrandColorBlobs|backgroundRepeat:\s*"repeat"' apps/website/src --glob '!**/*.test.*'`
 
 Exception note:
 

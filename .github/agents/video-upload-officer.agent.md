@@ -57,15 +57,15 @@ conversion and when re-checking any video file touched in the same session.
 
 Category encoding presets (mirrors `scripts/optimization/optimize-videos.js`):
 
-| Category | Resolution | CRF | Audio |
-|---|---|---|---|
-| `culture` | 1920:-2 (1080p) | 33 | none (muted loop) |
-| `projects` | 1280:-2 (720p) | 28 | 128k Opus / AAC |
-| `testimonials` | 1280:-2 (720p) | 28 | 128k Opus / AAC |
-| default | 1280:-2 (720p) | 28 | 128k Opus / AAC |
+| Category | Resolution | WebM CRF | MP4 CRF | Audio |
+|---|---|---|---|---|
+| `culture` | 1920:-2 (1080p) | 30 | 23 | none (muted loop) |
+| `projects` | 1920:-2 (1080p) | 28 | 22 | 160k Opus / AAC, 48 kHz stereo |
+| `testimonials` | 1920:-2 (1080p) | 27 | 21 | 160k Opus / AAC, 48 kHz stereo |
+| default | 1280:-2 (720p) | 29 | 23 | 128k Opus / AAC, 48 kHz stereo |
 
-If a file still exceeds the size budget after applying the category CRF, increase
-CRF by 6 (max VP9: 63, max H.264: 51) and re-encode until it fits.
+If a file still exceeds the size budget after applying the category preset,
+the optimizer re-packs by increasing CRF (WebM +6 up to 63, MP4 +4 up to 40).
 
 ## Required Workflow
 
@@ -76,7 +76,7 @@ CRF by 6 (max VP9: 63, max H.264: 51) and re-encode until it fits.
    - Generate `{name}.webm` using category preset.
    - Generate `{name}.mp4` using category preset.
    - Generate `poster-{name}.jpg` from the first second of the video.
-   - Verify WebM ≤ 10 MB and MP4 ≤ 15 MB; if not, increase CRF by 6 and re-encode.
+   - Verify WebM ≤ 10 MB and MP4 ≤ 15 MB; if over budget, re-pack using optimizer defaults.
 5. For each raw MP4 upload (no WebM sibling yet):
    - Generate `{name}.webm` from the MP4.
    - Re-encode the MP4 in-place if it exceeds 15 MB.

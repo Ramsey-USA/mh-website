@@ -31,6 +31,7 @@ All website pages must include a hero section.
 - Shared hero wrappers are allowed only when they preserve Home baseline typography,
   spacing envelope, icon strategy, and bottom-navigation framing behavior.
 - Any missing hero page is a release-blocking FAIL for hero congruency checks.
+- Hero backgrounds are the only page-level exemption from the MH logo paraplex background rule; heroes may continue using approved photo, video, or gradient treatments.
 
 ## Global Header Relationship
 

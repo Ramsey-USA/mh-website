@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { Fragment, useState, useRef, useCallback, useEffect } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { useLocale } from "@/hooks/useLocale";
 import { getChatFallbackResponse } from "@/lib/chatbot/fallback";
@@ -18,6 +18,17 @@ interface ChatMessage {
   content: string;
 }
 
+interface LinkToken {
+  type: "text" | "link";
+  value: string;
+  href?: string;
+}
+
+interface ChatResourceLink {
+  label: string;
+  href: string;
+}
+
 // ── Constants ────────────────────────────────────────────────────────────────
 
 /** Time in ms before showing proactive prompt (default: 5 minutes) */
@@ -25,6 +36,115 @@ const PROACTIVE_PROMPT_DELAY = 300_000;
 
 /** Session storage key to track if prompt was already shown */
 const PROACTIVE_PROMPT_KEY = "mhc-chat-prompted";
+
+const URL_OR_DOMAIN_REGEX =
+  /(https?:\/\/[^\s]+|\b(?:[a-z0-9-]+\.)+[a-z]{2,}(?:\/[\w\-./?%&=+#]*)?)/gi;
+
+const JEREMY_RESOURCE_LINKS: ChatResourceLink[] = [
+  { label: "Jeremy Profile", href: "/jeremy-thamert" },
+  {
+    label: "Verified Sources",
+    href: "/jeremy-thamert#verified-sources",
+  },
+  { label: "Jeremy FAQ", href: "/jeremy-thamert#jeremy-faq" },
+  { label: "Contact Team", href: "/contact" },
+];
+
+const JEREMY_RESOURCE_LINKS_ES: ChatResourceLink[] = [
+  { label: "Perfil de Jeremy", href: "/jeremy-thamert" },
+  {
+    label: "Fuentes verificadas",
+    href: "/jeremy-thamert#verified-sources",
+  },
+  { label: "FAQ de Jeremy", href: "/jeremy-thamert#jeremy-faq" },
+  { label: "Contactar equipo", href: "/contact" },
+];
+
+function sanitizeHref(raw: string): string {
+  const trimmed = raw.trim().replace(/[),.;!?]+$/, "");
+  return trimmed.startsWith("http://") || trimmed.startsWith("https://")
+    ? trimmed
+    : `https://${trimmed}`;
+}
+
+function tokenizeMessageContent(content: string): LinkToken[] {
+  const tokens: LinkToken[] = [];
+  let lastIndex = 0;
+
+  for (const match of content.matchAll(URL_OR_DOMAIN_REGEX)) {
+    const fullMatch = match[0];
+    const matchIndex = match.index ?? -1;
+
+    if (matchIndex < 0) continue;
+
+    const previousChar = matchIndex > 0 ? content[matchIndex - 1] : "";
+    if (!fullMatch.startsWith("http") && previousChar === "@") {
+      continue;
+    }
+
+    if (matchIndex > lastIndex) {
+      tokens.push({
+        type: "text",
+        value: content.slice(lastIndex, matchIndex),
+      });
+    }
+
+    const cleanValue = fullMatch.replace(/[),.;!?]+$/, "");
+    tokens.push({
+      type: "link",
+      value: cleanValue,
+      href: sanitizeHref(cleanValue),
+    });
+
+    lastIndex = matchIndex + fullMatch.length;
+  }
+
+  if (lastIndex < content.length) {
+    tokens.push({ type: "text", value: content.slice(lastIndex) });
+  }
+
+  return tokens.length > 0 ? tokens : [{ type: "text", value: content }];
+}
+
+function renderMessageContent(message: ChatMessage) {
+  if (message.role !== "assistant") {
+    return message.content;
+  }
+
+  const tokens = tokenizeMessageContent(message.content);
+
+  return tokens.map((token, index) => {
+    if (token.type === "text") {
+      return <Fragment key={`text-${index}`}>{token.value}</Fragment>;
+    }
+
+    return (
+      <a
+        key={`link-${index}`}
+        href={token.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-semibold text-brand-primary dark:text-brand-primary-light underline underline-offset-2 hover:opacity-85"
+      >
+        {token.value}
+      </a>
+    );
+  });
+}
+
+function shouldShowJeremyLinks(message: ChatMessage): boolean {
+  if (message.role !== "assistant") {
+    return false;
+  }
+
+  const normalized = message.content.toLowerCase();
+  return (
+    normalized.includes("jeremy thamert") ||
+    normalized.includes("jeremy-thamert") ||
+    normalized.includes("verified-sources") ||
+    normalized.includes("jeremy-faq")
+  );
+}
 
 function useProactivePrompt(isOpen: boolean): [boolean, () => void] {
   const [showPrompt, setShowPrompt] = useState(false);
@@ -105,6 +225,10 @@ const QUICK_ACTIONS = [
     message: "What services does MH Construction provide?",
   },
   {
+    label: "Jeremy profile",
+    message: "Who is Jeremy Thamert at MH Construction?",
+  },
+  {
     label: "Meet our Allies",
     message: "Tell me about your Trade Partner network.",
   },
@@ -116,6 +240,10 @@ const QUICK_ACTIONS_ES = [
   {
     label: "Sus servicios",
     message: "¿Qué servicios ofrece MH Construction?",
+  },
+  {
+    label: "Perfil de Jeremy",
+    message: "¿Quien es Jeremy Thamert en MH Construction?",
   },
   {
     label: "Conocer aliados",
@@ -439,7 +567,23 @@ export function ChatWidget() {
                       : "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-tl-sm"
                   }`}
                 >
-                  {msg.content}
+                  {renderMessageContent(msg)}
+                  {shouldShowJeremyLinks(msg) ? (
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {(isEs
+                        ? JEREMY_RESOURCE_LINKS_ES
+                        : JEREMY_RESOURCE_LINKS
+                      ).map((resource) => (
+                        <a
+                          key={resource.href}
+                          href={resource.href}
+                          className="rounded-full border border-brand-primary/35 bg-white px-2 py-1 text-[11px] font-semibold text-brand-primary transition-colors hover:bg-brand-primary/10 dark:bg-gray-900 dark:text-brand-primary-light"
+                        >
+                          {resource.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
               </div>
             ))}

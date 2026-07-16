@@ -19,6 +19,8 @@ interface OptimizedVideoProps {
   autoPlay?: boolean;
   /** Show native browser controls */
   controls?: boolean;
+  /** Browser preload hint */
+  preload?: "none" | "metadata" | "auto";
   /** Accessible label for screen readers */
   ariaLabel?: string;
   /** Called when playback starts */
@@ -56,6 +58,7 @@ export function OptimizedVideo({
   muted = false,
   autoPlay = false,
   controls = true,
+  preload,
   ariaLabel,
   onPlay,
   onPause,
@@ -101,6 +104,9 @@ export function OptimizedVideo({
       muted={muted}
       autoPlay={autoPlay}
       controls={controls}
+      preload={
+        preload ?? (autoPlay ? "metadata" : controls ? "auto" : "metadata")
+      }
       playsInline
       aria-label={ariaLabel}
       onPlay={onPlay}

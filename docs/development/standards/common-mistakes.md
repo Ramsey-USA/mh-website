@@ -296,9 +296,9 @@
 
 ---
 
-### ❌ Mistake #11: Missing DiagonalStripePattern
+### ❌ Mistake #11: Missing Logo Paraplex Background
 
-**Problem:** Section doesn't include required background pattern
+**Problem:** Non-hero section doesn't include the required MH logo paraplex background treatment
 
 **Wrong:**
 
@@ -312,25 +312,7 @@
 
 ```tsx
 <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
-  {/* Diagonal Stripe Pattern - REQUIRED */}
-  <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-    <div
-      className="absolute inset-0"
-      style={{
-        backgroundImage: `repeating-linear-gradient(
-        45deg,
-        #386851 0px,
-        #386851 2px,
-        transparent 2px,
-        transparent 60px
-      )`,
-      }}
-    ></div>
-  </div>
-
-  {/* Brand Blobs - REQUIRED */}
-  <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-  <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+  <DiagonalStripePattern />
 
   <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
     {/* Content */}
@@ -338,27 +320,46 @@
 </section>
 ```
 
-**Why:** DiagonalStripePattern + BrandColorBlobs are the standard background for all sections.
+**Why:** Non-hero sections must use the shared MH logo watermark system as one centered mark (no-repeat, no distortion); hero backgrounds are the only exemption.
 
 ---
 
-### ❌ Mistake #12: Using Small Animated Blobs
+### ❌ Mistake #12: Reintroducing Legacy Stripe/Blob Backgrounds
 
-**Problem:** Using deprecated small blobs with pulse animation
+**Problem:** Using deprecated stripe-only or blob overlays on non-hero section shells
 
 **Wrong:**
 
 ```tsx
-<div className="absolute top-20 right-20 bg-brand-primary/5 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
+<div
+  className="absolute inset-0"
+  style={{
+    backgroundImage: "repeating-linear-gradient(45deg, #386851 0px, #386851 2px, transparent 2px, transparent 60px)",
+  }}
+/>
+<BrandColorBlobs />
 ```
 
 **Correct:**
 
 ```tsx
-<div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+<DiagonalStripePattern />
+
+// Route caveats when needed:
+// Veterans:
+<DiagonalStripePattern
+  lightLogoSrc="/images/logo/mh-veteran-bg.webp"
+  darkLogoSrc="/images/logo/mh-veteran-bg.webp"
+/>
+
+// Government/public-sector:
+<DiagonalStripePattern
+  lightLogoSrc="/images/logo/mh-logo-black.webp"
+  darkLogoSrc="/images/logo/mh-logo-white.webp"
+/>
 ```
 
-**Why:** Large static blobs (w-96 h-96) replaced small animated ones in the new standard.
+**Why:** Legacy stripe/blob treatments are deprecated; safeguard checks enforce the single-logo watermark implementation and route-specific caveats for non-hero sections.
 
 ---
 
@@ -794,7 +795,7 @@ jest.mock("@/lib/constants/company", () => ({
 3. Old Card component instead of modern structure
 4. Missing top accent bar on cards
 5. Inconsistent section padding
-6. Missing DiagonalStripePattern background
+6. Missing logo paraplex background on non-hero sections
 7. Not including NextStepsSection
 8. Missing section IDs
 9. Text-brand-secondary on body text

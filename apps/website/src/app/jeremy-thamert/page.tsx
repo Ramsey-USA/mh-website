@@ -33,6 +33,17 @@ const sameAsLinks = Array.from(
   new Set([...membershipLinks, ...credentialLinks].map((link) => link.url)),
 );
 
+function findReferenceLink(
+  links: ReferenceLink[],
+  query: string,
+): ReferenceLink | null {
+  const normalizedQuery = query.toLowerCase();
+  return (
+    links.find((link) => link.label.toLowerCase().includes(normalizedQuery)) ??
+    null
+  );
+}
+
 export const metadata: Metadata = withGeoMetadata({
   title: jeremySeoTitle,
   description: jeremySeoDescription,
@@ -174,6 +185,9 @@ const breadcrumbSchema = {
 export default async function JeremyThamertPage() {
   const isEs = (await getServerLocale()) === "es";
   const t = await getTranslations("jeremyProfile.verifiedSources");
+  const tTimeline = await getTranslations("jeremyProfile.timeline");
+  const tInternalLinks = await getTranslations("jeremyProfile.internalLinks");
+  const tFaq = await getTranslations("jeremyProfile.faq");
   const verifiedSourceCopy = {
     heroButton: t("heroButton"),
     sectionTitle: t("sectionTitle"),
@@ -183,6 +197,64 @@ export default async function JeremyThamertPage() {
     connectBody: t("connectBody"),
     connectCta: t("connectCta"),
   };
+  const timelineCopy = {
+    sectionTitle: tTimeline("sectionTitle"),
+    sectionBody: tTimeline("sectionBody"),
+    serviceTitle: tTimeline("serviceTitle"),
+    serviceBody: tTimeline("serviceBody"),
+    businessTitle: tTimeline("businessTitle"),
+    businessBody: tTimeline("businessBody"),
+    membershipTitle: tTimeline("membershipTitle"),
+    membershipBody: tTimeline("membershipBody"),
+  };
+  const internalLinksCopy = {
+    sectionTitle: tInternalLinks("sectionTitle"),
+    sectionBody: tInternalLinks("sectionBody"),
+    services: tInternalLinks("services"),
+    projects: tInternalLinks("projects"),
+    veterans: tInternalLinks("veterans"),
+    about: tInternalLinks("about"),
+    contact: tInternalLinks("contact"),
+  };
+  const faqCopy = {
+    sectionTitle: tFaq("sectionTitle"),
+    sectionBody: tFaq("sectionBody"),
+  };
+  const faqEntries = [
+    { question: tFaq("q1"), answer: tFaq("a1") },
+    { question: tFaq("q2"), answer: tFaq("a2") },
+    { question: tFaq("q3"), answer: tFaq("a3") },
+    { question: tFaq("q4"), answer: tFaq("a4") },
+    { question: tFaq("q5"), answer: tFaq("a5") },
+    { question: tFaq("q6"), answer: tFaq("a6") },
+    { question: tFaq("q7"), answer: tFaq("a7") },
+  ];
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${canonicalUrl}#faq`,
+    mainEntity: faqEntries.map((entry) => ({
+      "@type": "Question",
+      name: entry.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: entry.answer,
+      },
+    })),
+  };
+
+  const lniRecordLink =
+    findReferenceLink(credentialLinks, "l&i") ?? credentialLinks[0] ?? null;
+  const armyStoryLink =
+    findReferenceLink(storyLinks, "soldier") ?? storyLinks[0] ?? null;
+  const renewableStoryLink =
+    findReferenceLink(storyLinks, "windy") ?? storyLinks[1] ?? null;
+  const chamberMembershipLink =
+    findReferenceLink(membershipLinks, "chamber") ?? membershipLinks[0] ?? null;
+  const agcMembershipLink =
+    findReferenceLink(membershipLinks, "agc") ?? membershipLinks[1] ?? null;
+  const communityEventLink =
+    findReferenceLink(storyLinks, "cool desert") ?? storyLinks[2] ?? null;
 
   return (
     <>
@@ -196,6 +268,7 @@ export default async function JeremyThamertPage() {
             personSchema,
             profilePageSchema,
             breadcrumbSchema,
+            faqSchema,
           ]),
         }}
       />
@@ -255,6 +328,12 @@ export default async function JeremyThamertPage() {
                   <Link href="#verified-sources">
                     <MaterialIcon icon="verified" size="sm" className="mr-2" />
                     {verifiedSourceCopy.heroButton}
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <Link href="#jeremy-faq">
+                    <MaterialIcon icon="quiz" size="sm" className="mr-2" />
+                    {isEs ? "FAQ de Jeremy" : "Jeremy FAQ"}
                   </Link>
                 </Button>
               </div>
@@ -388,13 +467,207 @@ export default async function JeremyThamertPage() {
           </div>
         </section>
 
+        <section className="pb-14 sm:pb-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-2xl border border-brand-primary/20 bg-white p-7 shadow-sm dark:bg-gray-900 sm:p-9">
+              <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
+                {timelineCopy.sectionTitle}
+              </h2>
+              <p className="font-body mt-4 max-w-4xl text-sm leading-relaxed text-gray-600 dark:text-gray-300 sm:text-base">
+                {timelineCopy.sectionBody}
+              </p>
+
+              <div className="mt-8 grid gap-6 lg:grid-cols-3">
+                <article className="rounded-xl border border-brand-primary/15 bg-brand-primary/5 p-5 dark:bg-brand-primary/10">
+                  <h3 className="text-base font-extrabold text-gray-900 dark:text-white sm:text-lg">
+                    {timelineCopy.serviceTitle}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
+                    {timelineCopy.serviceBody}
+                  </p>
+                  <div className="mt-4 space-y-2">
+                    {lniRecordLink ? (
+                      <a
+                        href={lniRecordLink.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-between gap-2 rounded-lg border border-brand-primary/20 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-primary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
+                      >
+                        <span>{lniRecordLink.label}</span>
+                        <MaterialIcon icon="open_in_new" size="sm" />
+                      </a>
+                    ) : null}
+                    {armyStoryLink ? (
+                      <a
+                        href={armyStoryLink.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-between gap-2 rounded-lg border border-brand-primary/20 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-primary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
+                      >
+                        <span>{armyStoryLink.label}</span>
+                        <MaterialIcon icon="open_in_new" size="sm" />
+                      </a>
+                    ) : null}
+                  </div>
+                </article>
+
+                <article className="rounded-xl border border-brand-secondary/20 bg-brand-secondary/5 p-5 dark:bg-brand-secondary/10">
+                  <h3 className="text-base font-extrabold text-gray-900 dark:text-white sm:text-lg">
+                    {timelineCopy.businessTitle}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
+                    {timelineCopy.businessBody}
+                  </p>
+                  <div className="mt-4 space-y-2">
+                    {renewableStoryLink ? (
+                      <a
+                        href={renewableStoryLink.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-between gap-2 rounded-lg border border-brand-secondary/25 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-secondary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
+                      >
+                        <span>{renewableStoryLink.label}</span>
+                        <MaterialIcon icon="open_in_new" size="sm" />
+                      </a>
+                    ) : null}
+                    {communityEventLink ? (
+                      <a
+                        href={communityEventLink.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-between gap-2 rounded-lg border border-brand-secondary/25 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-secondary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
+                      >
+                        <span>{communityEventLink.label}</span>
+                        <MaterialIcon icon="open_in_new" size="sm" />
+                      </a>
+                    ) : null}
+                  </div>
+                </article>
+
+                <article className="rounded-xl border border-brand-primary/15 bg-gray-50 p-5 dark:bg-gray-800/60">
+                  <h3 className="text-base font-extrabold text-gray-900 dark:text-white sm:text-lg">
+                    {timelineCopy.membershipTitle}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
+                    {timelineCopy.membershipBody}
+                  </p>
+                  <div className="mt-4 space-y-2">
+                    {chamberMembershipLink ? (
+                      <a
+                        href={chamberMembershipLink.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-between gap-2 rounded-lg border border-brand-primary/20 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-primary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
+                      >
+                        <span>{chamberMembershipLink.label}</span>
+                        <MaterialIcon icon="open_in_new" size="sm" />
+                      </a>
+                    ) : null}
+                    {agcMembershipLink ? (
+                      <a
+                        href={agcMembershipLink.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-between gap-2 rounded-lg border border-brand-primary/20 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-primary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
+                      >
+                        <span>{agcMembershipLink.label}</span>
+                        <MaterialIcon icon="open_in_new" size="sm" />
+                      </a>
+                    ) : null}
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="pb-14 sm:pb-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-2xl border border-brand-secondary/20 bg-linear-to-r from-brand-secondary/8 to-brand-primary/8 p-7 shadow-sm dark:from-brand-secondary/15 dark:to-brand-primary/15 sm:p-9">
+              <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
+                {internalLinksCopy.sectionTitle}
+              </h2>
+              <p className="font-body mt-4 max-w-4xl text-sm leading-relaxed text-gray-700 dark:text-gray-200 sm:text-base">
+                {internalLinksCopy.sectionBody}
+              </p>
+
+              <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                <Link
+                  href="/services"
+                  className="flex items-center justify-between rounded-lg border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
+                >
+                  <span>{internalLinksCopy.services}</span>
+                  <MaterialIcon icon="arrow_forward" size="sm" />
+                </Link>
+                <Link
+                  href="/projects"
+                  className="flex items-center justify-between rounded-lg border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
+                >
+                  <span>{internalLinksCopy.projects}</span>
+                  <MaterialIcon icon="arrow_forward" size="sm" />
+                </Link>
+                <Link
+                  href="/veterans"
+                  className="flex items-center justify-between rounded-lg border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
+                >
+                  <span>{internalLinksCopy.veterans}</span>
+                  <MaterialIcon icon="arrow_forward" size="sm" />
+                </Link>
+                <Link
+                  href="/about"
+                  className="flex items-center justify-between rounded-lg border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
+                >
+                  <span>{internalLinksCopy.about}</span>
+                  <MaterialIcon icon="arrow_forward" size="sm" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="flex items-center justify-between rounded-lg border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100 sm:col-span-2 lg:col-span-1"
+                >
+                  <span>{internalLinksCopy.contact}</span>
+                  <MaterialIcon icon="arrow_forward" size="sm" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="jeremy-faq" className="pb-14 sm:pb-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-2xl border border-brand-primary/20 bg-white p-7 shadow-sm dark:bg-gray-900 sm:p-9">
+              <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
+                {faqCopy.sectionTitle}
+              </h2>
+              <p className="font-body mt-4 max-w-4xl text-sm leading-relaxed text-gray-700 dark:text-gray-200 sm:text-base">
+                {faqCopy.sectionBody}
+              </p>
+
+              <div className="mt-6 space-y-3">
+                {faqEntries.map((entry) => (
+                  <article
+                    key={entry.question}
+                    className="rounded-lg border border-brand-primary/15 bg-gray-50 p-4 dark:bg-gray-800/60"
+                  >
+                    <h3 className="text-sm font-extrabold text-gray-900 dark:text-white sm:text-base">
+                      {entry.question}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
+                      {entry.answer}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="verified-sources" className="pb-16 sm:pb-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="rounded-2xl border border-brand-primary/20 bg-white p-7 shadow-sm dark:bg-gray-900 sm:p-9">
               <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
                 {verifiedSourceCopy.sectionTitle}
               </h2>
-              <p className="mt-4 max-w-4xl text-sm leading-relaxed text-gray-600 dark:text-gray-300 sm:text-base">
+              <p className="font-body mt-4 max-w-4xl text-sm leading-relaxed text-gray-600 dark:text-gray-300 sm:text-base">
                 {verifiedSourceCopy.sectionBody}
               </p>
 

@@ -46,6 +46,7 @@ Every in-scope website change must preserve all dimensions below:
 11. **Theme parity:** Light/dark and pre-hydration theme behavior preserve color intent, contrast, and trust-surface readability.
 12. **Media parity:** Imagery, iconography, video treatments, and overlay gradients follow approved patterns and do not introduce off-brand styles.
 13. **System-surface parity:** Shared app shell surfaces (header, navigation overlay, ribbon, footer, error, loading, offline, and not-found) remain congruent with routed pages.
+14. **Background contract parity:** All non-hero surfaces use the single centered MH logo watermark contract (no-repeat, centered, max-size with preserved aspect ratio), with route caveats enforced for veteran and government surfaces.
 
 ### Canonical Visual Enforcement Path (Buttons, Headings, Containers, Modals, Cards, Forms, Navigation, Footer Trust, and Hover Motion)
 
@@ -215,13 +216,13 @@ For comprehensive branding sweeps, produce all inventories below.
 1. **Route inventory**: Every current page route and shared state surface.
 2. **Section inventory**: Every section shell and major section block on affected routes.
 3. **Button/action inventory**: Every primary, secondary, tertiary action control (Button, link-styled action, raw button/input submit).
-4. **Background inventory**: Every section and shell background treatment (pattern layers, gradients, blobs, overlays).
+4. **Background inventory**: Every section and shell background treatment (logo paraplex layers, gradients, overlays) with explicit hero-vs-non-hero scoping.
 
 ### Recommended Sweep Commands
 
 1. `rg --files apps/website/src/app | rg '(page|layout|loading|error|global-error|not-found)\\.(tsx|ts|jsx|js)$'`
 2. `rg -n '<Button|<a |button\\s|type="submit"' apps/website/src --glob '!**/*.test.*'`
-3. `rg -n 'DiagonalStripePattern|bg-linear|bg-gradient|radial-gradient|from-brand|to-brand' apps/website/src --glob '!**/*.test.*'`
+3. `rg -n 'DiagonalStripePattern|lightLogoSrc|darkLogoSrc|mh-logo-light-bg|mh-logo-dark-bg|mh-logo-black|mh-logo-white|mh-veteran-bg|repeating-linear-gradient|BrandColorBlobs|bg-linear|bg-gradient|radial-gradient|backgroundRepeat:\s*"repeat"' apps/website/src --glob '!**/*.test.*'`
 4. `rg -n 'SectionShell|SectionContainer|BrandedContentSection|NextStepsSection|HeroSection' apps/website/src --glob '!**/*.test.*'`
 5. `npm run public-email:guardrails:check`
 

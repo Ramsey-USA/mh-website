@@ -28,7 +28,7 @@ visitor should not be able to tell which page was built first.
 
 **✅ COHESIVE (Matches Homepage):**
 
-- Same depth: Diagonal stripes + large color blobs on every section
+- Same depth: one centered MH logo watermark background on every non-hero section
 - Same rhythm: py-12 sm:py-16 lg:py-20 xl:py-24 spacing everywhere
 - Same animations: FadeInWhenVisible wrapping all major content
 - Same typography scale: text-4xl → text-5xl for headers, text-lg for body
@@ -37,7 +37,8 @@ visitor should not be able to tell which page was built first.
 
 **❌ NOT COHESIVE (Feels Different):**
 
-- Flat backgrounds without patterns/blobs
+- Flat non-hero backgrounds without the MH logo paraplex layer
+- Repeated/tiled logo marks instead of one centered watermark
 - Inconsistent spacing (py-8, py-16, py-32 mixed randomly)
 - No animations or different animation timing
 - Smaller/larger text than homepage (text-3xl, text-6xl for main headers)
@@ -64,7 +65,7 @@ like siblings, not cousins.
 
 **Pro Tip:** Use BrandedContentSection component instead of manual section
 markup - it automatically includes all required patterns
-(DiagonalStripePattern, blobs, gradient headers) and reduces code by 82%.
+(DiagonalStripePattern single-logo watermark, gradient headers) and reduces code by 82%.
 
 **Non-coder explanation:** BrandedContentSection is the "fancy section with
 gold/green gradient titles and background patterns" - it's pre-made so

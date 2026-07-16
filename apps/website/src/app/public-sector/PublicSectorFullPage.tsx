@@ -33,6 +33,8 @@ import { MH_SLOGANS } from "@/lib/branding/page-names";
 const breadcrumbSchema = generateBreadcrumbSchema(
   breadcrumbPatterns.publicSector,
 );
+const GOVERNMENT_LIGHT_LOGO = "/images/logo/mh-logo-black.webp";
+const GOVERNMENT_DARK_LOGO = "/images/logo/mh-logo-white.webp";
 
 // Lazy load heavy interactive components for better mobile performance
 const InteractiveGrantSelector = dynamic(
@@ -317,7 +319,10 @@ export default function PublicSectorFullPage() {
         id="overview"
         className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
       >
-        <DiagonalStripePattern />
+        <DiagonalStripePattern
+          lightLogoSrc={GOVERNMENT_LIGHT_LOGO}
+          darkLogoSrc={GOVERNMENT_DARK_LOGO}
+        />
         <BrandColorBlobs />
         <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
@@ -500,6 +505,8 @@ export default function PublicSectorFullPage() {
           lightOpacity={0.05}
           darkOpacity={0.08}
           color="rgba(255,255,255,0.1)"
+          lightLogoSrc={GOVERNMENT_DARK_LOGO}
+          darkLogoSrc={GOVERNMENT_DARK_LOGO}
         />
         <BrandColorBlobs />
         <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -634,7 +641,10 @@ export default function PublicSectorFullPage() {
       </section>
       {/* Grant Types Section */}
       <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
-        <DiagonalStripePattern />
+        <DiagonalStripePattern
+          lightLogoSrc={GOVERNMENT_LIGHT_LOGO}
+          darkLogoSrc={GOVERNMENT_DARK_LOGO}
+        />
         <BrandColorBlobs />
         <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
@@ -680,7 +690,10 @@ export default function PublicSectorFullPage() {
       </section>
       {/* Process Steps */}
       <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
-        <DiagonalStripePattern />
+        <DiagonalStripePattern
+          lightLogoSrc={GOVERNMENT_LIGHT_LOGO}
+          darkLogoSrc={GOVERNMENT_DARK_LOGO}
+        />
         <BrandColorBlobs />
         <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mx-auto max-w-5xl">
@@ -769,7 +782,10 @@ export default function PublicSectorFullPage() {
       </section>
       {/* Government Project Types */}
       <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
-        <DiagonalStripePattern />
+        <DiagonalStripePattern
+          lightLogoSrc={GOVERNMENT_LIGHT_LOGO}
+          darkLogoSrc={GOVERNMENT_DARK_LOGO}
+        />
         <BrandColorBlobs />
         <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
@@ -872,6 +888,8 @@ export default function PublicSectorFullPage() {
           lightOpacity={0.1}
           darkOpacity={0.1}
           color="rgba(255,255,255,0.1)"
+          lightLogoSrc={GOVERNMENT_DARK_LOGO}
+          darkLogoSrc={GOVERNMENT_DARK_LOGO}
         />
         <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mx-auto max-w-4xl text-center">
@@ -1067,7 +1085,10 @@ export default function PublicSectorFullPage() {
       </section>
       {/* Federal Accreditations & Certifications */}
       <section className="relative py-12 sm:py-16 bg-gray-50 dark:bg-gray-800 overflow-hidden">
-        <DiagonalStripePattern />
+        <DiagonalStripePattern
+          lightLogoSrc={GOVERNMENT_LIGHT_LOGO}
+          darkLogoSrc={GOVERNMENT_DARK_LOGO}
+        />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="font-heading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
             Mission-Ready Credentials

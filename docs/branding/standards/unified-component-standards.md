@@ -426,7 +426,7 @@ To preserve full-site congruency, non-hero sections must use a shared visual lan
 1. Non-hero section headers must follow canonical heading patterns from this document.
 2. Non-hero body copy must use approved body typography (Mendl Sans Dusk / `font-body` / `font-sans`) and approved size tiers.
 3. Non-hero icon usage must use MaterialIcon and consistent section-role sizing and container treatment.
-4. Non-hero section shells must preserve approved spacing rhythm, container width, and background system.
+4. Non-hero section shells must preserve approved spacing rhythm, container width, and the MH logo paraplex background system.
 5. Visual divergence between adjacent non-hero sections requires documented intent or approved exception scope.
 
 ### Deferred/Loading Visual Parity
@@ -447,32 +447,15 @@ When a page uses standard MH section chrome, prefer shared section-shell compone
 
 ### Section Background Pattern (REQUIRED)
 
-All page sections MUST follow this standardized background:
+All non-hero page sections MUST follow this standardized background:
 
 ```tsx
 <section
   id="section-id"
   className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
 >
-  {/* Diagonal Stripe Background Pattern - REQUIRED */}
-  <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-    <div
-      className="absolute inset-0"
-      style={{
-        backgroundImage: `repeating-linear-gradient(
-        45deg,
-        #386851 0px,
-        #386851 2px,
-        transparent 2px,
-        transparent 60px
-      )`,
-      }}
-    ></div>
-  </div>
-
-  {/* Large Brand Color Blobs - REQUIRED */}
-  <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-  <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+  {/* MH Logo Paraplex Background - REQUIRED */}
+  <DiagonalStripePattern />
 
   <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
     {/* Content goes here */}
@@ -484,14 +467,19 @@ All page sections MUST follow this standardized background:
 
 - ✅ Base: `bg-white dark:bg-gray-900` (solid, no gradients)
 - ✅ Padding: `py-12 sm:py-16 lg:py-20 xl:py-24`
-- ✅ Diagonal stripes: Hunter Green (#386851), 45deg angle
-- ✅ Large blobs: `w-96 h-96` positioned at top-right and bottom-left
+- ✅ Background treatment: one centered MH logo watermark via `DiagonalStripePattern`
+- ✅ Watermark behavior: `backgroundRepeat: no-repeat`, centered placement, maximum available size with preserved aspect ratio
+- ✅ Mode-aware assets: light/dark logo sources must be explicit when route intent requires a variant
+- ✅ Route caveat: veteran-specific routes may use the veteran logo watermark in both theme modes
+- ✅ Route caveat: public-sector/government routes use black logo in light mode and white logo in dark mode (dark section shells may force white in both modes)
 - ✅ Overflow hidden: Always include
 
 ❌ **DEPRECATED - DO NOT USE:**
 
+- Non-logo section background treatments on non-hero surfaces
 - Complex gradients on base background
 - Small animated blobs with pulse
+- Repeating/tiled logo backgrounds on non-hero shells
 - Inconsistent padding values
 
 ### Section Header Pattern (Custom)

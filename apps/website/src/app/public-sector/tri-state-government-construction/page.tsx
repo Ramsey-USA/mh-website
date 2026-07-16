@@ -5,6 +5,7 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TrackedBridgeButton, TrackedBridgeLink } from "@/components/analytics";
 import { Card } from "@/components/ui";
+import { DiagonalStripePattern } from "@/components/ui/backgrounds";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import {
@@ -17,6 +18,8 @@ const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 const TRI_STATE_GOVERNMENT_HERO_SLOGAN = getHeroPageSlogan(
   "triStateGovernmentConstruction",
 ).slogan;
+const GOVERNMENT_LIGHT_LOGO = "/images/logo/mh-logo-black.webp";
+const GOVERNMENT_DARK_LOGO = "/images/logo/mh-logo-white.webp";
 
 export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.triStateGovernmentConstruction.seoName, PAGE_TERMINOLOGY.triStateGovernmentConstruction.mhBrandName)} | MH Construction`,
@@ -129,8 +132,12 @@ export default async function TriStateGovernmentConstructionPage() {
         ]}
       />
 
-      <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="mx-auto max-w-5xl grid gap-6 md:grid-cols-3">
+      <section className="relative overflow-hidden px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <DiagonalStripePattern
+          lightLogoSrc={GOVERNMENT_LIGHT_LOGO}
+          darkLogoSrc={GOVERNMENT_DARK_LOGO}
+        />
+        <div className="relative z-10 mx-auto max-w-5xl grid gap-6 md:grid-cols-3">
           {stateCoverage.map((entry) => (
             <Card
               key={entry.state}

@@ -54,6 +54,32 @@ const CAREERS_PRINT_FILE = path.join(
   "print",
   "PrintableApplicationClient.tsx",
 );
+const DIAGONAL_PATTERN_FILE = path.join(
+  SRC_DIR,
+  "components",
+  "ui",
+  "backgrounds",
+  "DiagonalStripePattern.tsx",
+);
+const BRAND_BLOBS_FILE = path.join(
+  SRC_DIR,
+  "components",
+  "ui",
+  "backgrounds",
+  "BrandColorBlobs.tsx",
+);
+const STRIPED_BACKGROUND_FILE = path.join(
+  SRC_DIR,
+  "components",
+  "ui",
+  "StripedBackground.tsx",
+);
+const BRANDED_SECTION_FILE = path.join(
+  SRC_DIR,
+  "components",
+  "templates",
+  "BrandedContentSection.tsx",
+);
 
 const HERO_VISUAL_FILES = [
   "src/components/home/HeroSection.tsx",
@@ -410,6 +436,136 @@ function checkHeroVisualContracts(errors) {
   }
 }
 
+function evaluateNonHeroBackgroundContractSources({
+  diagonalSource,
+  blobsSource,
+  stripedSource,
+  brandedSource,
+}) {
+  const contractErrors = [];
+
+  const requiredDiagonalSnippets = [
+    "/images/logo/mh-logo-light-bg.webp",
+    "/images/logo/mh-logo-dark-bg.webp",
+    'backgroundRepeat: "no-repeat"',
+    "backgroundSize",
+  ];
+
+  for (const snippet of requiredDiagonalSnippets) {
+    if (!diagonalSource.includes(snippet)) {
+      contractErrors.push(
+        `Non-hero background contract missing in DiagonalStripePattern: expected snippet "${snippet}".`,
+      );
+    }
+  }
+
+  if (diagonalSource.includes("repeating-linear-gradient(")) {
+    contractErrors.push(
+      "Legacy stripe gradient found in DiagonalStripePattern. Use MH logo paraplex tiles instead.",
+    );
+  }
+
+  if (diagonalSource.includes('backgroundRepeat: "repeat"')) {
+    contractErrors.push(
+      "DiagonalStripePattern must render a single logo watermark (no-repeat), not repeated tiles.",
+    );
+  }
+
+  const preservesAspectRatio =
+    diagonalSource.includes('"contain"') || diagonalSource.includes("auto");
+  if (!preservesAspectRatio) {
+    contractErrors.push(
+      "DiagonalStripePattern must preserve logo aspect ratio (use contain or auto sizing).",
+    );
+  }
+
+  if (!blobsSource.includes("return null;")) {
+    contractErrors.push(
+      "BrandColorBlobs must remain disabled for non-hero logo paraplex compliance.",
+    );
+  }
+
+  if (!stripedSource.includes("<DiagonalStripePattern")) {
+    contractErrors.push(
+      "StripedBackground must compose DiagonalStripePattern.",
+    );
+  }
+
+  if (!brandedSource.includes("<DiagonalStripePattern")) {
+    contractErrors.push(
+      "BrandedContentSection must include DiagonalStripePattern.",
+    );
+  }
+
+  if (brandedSource.includes("repeating-linear-gradient(")) {
+    contractErrors.push(
+      "Legacy stripe gradient found in BrandedContentSection. Use shared logo paraplex background only.",
+    );
+  }
+
+  return contractErrors;
+}
+
+function checkNonHeroBackgroundContracts(errors) {
+  const contractFiles = [
+    DIAGONAL_PATTERN_FILE,
+    BRAND_BLOBS_FILE,
+    STRIPED_BACKGROUND_FILE,
+    BRANDED_SECTION_FILE,
+  ];
+
+  for (const contractFile of contractFiles) {
+    if (!fs.existsSync(contractFile)) {
+      errors.push(
+        `Non-hero background contract file missing: ${rel(contractFile)}.`,
+      );
+    }
+  }
+
+  if (!fs.existsSync(DIAGONAL_PATTERN_FILE)) {
+    return;
+  }
+
+  const diagonalSource = fs.readFileSync(DIAGONAL_PATTERN_FILE, "utf8");
+  const blobsSource = fs.existsSync(BRAND_BLOBS_FILE)
+    ? fs.readFileSync(BRAND_BLOBS_FILE, "utf8")
+    : "";
+  const stripedSource = fs.existsSync(STRIPED_BACKGROUND_FILE)
+    ? fs.readFileSync(STRIPED_BACKGROUND_FILE, "utf8")
+    : "";
+  const brandedSource = fs.existsSync(BRANDED_SECTION_FILE)
+    ? fs.readFileSync(BRANDED_SECTION_FILE, "utf8")
+    : "";
+
+  const contractErrors = evaluateNonHeroBackgroundContractSources({
+    diagonalSource,
+    blobsSource,
+    stripedSource,
+    brandedSource,
+  });
+
+  for (const contractError of contractErrors) {
+    if (contractError.includes("DiagonalStripePattern")) {
+      errors.push(`${contractError} File: ${rel(DIAGONAL_PATTERN_FILE)}.`);
+      continue;
+    }
+
+    if (contractError.includes("BrandColorBlobs")) {
+      errors.push(`${contractError} File: ${rel(BRAND_BLOBS_FILE)}.`);
+      continue;
+    }
+
+    if (contractError.includes("StripedBackground")) {
+      errors.push(`${contractError} File: ${rel(STRIPED_BACKGROUND_FILE)}.`);
+      continue;
+    }
+
+    if (contractError.includes("BrandedContentSection")) {
+      errors.push(`${contractError} File: ${rel(BRANDED_SECTION_FILE)}.`);
+    }
+  }
+}
+
 function checkServicesConsolidationContract(errors) {
   const servicesPageContract = SERVICES_CONSOLIDATION_CONTRACT.pageRoute;
   const servicesPageAbsPath = path.join(ROOT, servicesPageContract.relPath);
@@ -517,6 +673,7 @@ function main() {
   checkCanonicalDomainUsage(errors);
   checkPrimarySloganIntegrity(errors);
   checkHeroVisualContracts(errors);
+  checkNonHeroBackgroundContracts(errors);
   checkServicesConsolidationContract(errors);
 
   if (errors.length > 0) {
@@ -530,4 +687,10 @@ function main() {
   );
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  evaluateNonHeroBackgroundContractSources,
+};

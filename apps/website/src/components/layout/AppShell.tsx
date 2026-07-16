@@ -15,6 +15,7 @@ import {
 } from "@/components/navigation/Breadcrumb";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { EventsHubBanner } from "@/components/ui/cta";
+import { DiagonalStripePattern } from "@/components/ui/backgrounds";
 import { usePWA } from "@/hooks/usePWA";
 import { JeremyQuoteRibbon } from "@/components/shared-sections/JeremyQuoteRibbon";
 import type { IndividualBrandingStamp } from "@/lib/content/individual-branding-stamps";
@@ -269,10 +270,11 @@ export function AppShell({
           </main>
           <EventsHubBanner />
           <section
-            className="border-y border-brand-primary/20 bg-linear-to-b from-gray-100 via-white to-gray-100 py-8 sm:py-10 dark:border-brand-primary/35 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950"
+            className="relative overflow-hidden border-y border-brand-primary/20 bg-linear-to-b from-gray-100 via-white to-gray-100 py-8 sm:py-10 dark:border-brand-primary/35 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950"
             aria-label="Jeremy leadership ribbon"
           >
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <DiagonalStripePattern lightOpacity={0.04} darkOpacity={0.06} />
+            <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <JeremyQuoteRibbon
                 ribbon={activeRibbon}
                 variant="global"
@@ -333,10 +335,11 @@ export function AppShell({
 
         <EventsHubBanner />
         <section
-          className="border-y border-brand-primary/20 bg-linear-to-b from-gray-100 via-white to-gray-100 py-8 sm:py-10 dark:border-brand-primary/35 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950"
+          className="relative overflow-hidden border-y border-brand-primary/20 bg-linear-to-b from-gray-100 via-white to-gray-100 py-8 sm:py-10 dark:border-brand-primary/35 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950"
           aria-label="Jeremy leadership ribbon"
         >
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <DiagonalStripePattern lightOpacity={0.04} darkOpacity={0.06} />
+          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <JeremyQuoteRibbon
               ribbon={activeRibbon}
               variant="global"
