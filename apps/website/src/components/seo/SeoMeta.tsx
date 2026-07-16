@@ -9,6 +9,7 @@ import {
   normalizeMhPhrasesInText,
 } from "@/lib/branding/page-names";
 import jeremyProfile from "@/lib/data/team/jeremy-thamert.json";
+import { getHeroCommercialMp4Url } from "@/lib/media/hero-commercials";
 
 // Removed unused interface _SEOProps to satisfy lint rule
 interface GenerateMetadataProps {
@@ -411,7 +412,7 @@ export function generateJeremyLeadershipVideoSchema() {
     description:
       "Homepage leadership and project delivery reel representing MH Construction under Owner & President Jeremy Thamert.",
     thumbnailUrl: `${defaultSEO.siteUrl}/images/home-hero-poster.jpg`,
-    contentUrl: `${defaultSEO.siteUrl}/videos/hero-commercials/home-hero-optimized-audio.mp4`,
+    contentUrl: `${defaultSEO.siteUrl}${getHeroCommercialMp4Url("home")}`,
     about: {
       "@id": `${defaultSEO.siteUrl}/jeremy-thamert#person`,
     },

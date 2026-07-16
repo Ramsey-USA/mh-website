@@ -107,8 +107,8 @@ jobs:
       - name: Enforce video size budget
         run: |
           echo "📏 Checking video file size budgets (WebM ≤ 10 MB, MP4 ≤ 15 MB)..."
-          OVERSIZED_WEBM=$(find apps/website/public/videos -name "*.webm" -size +10M 2>/dev/null)
-          OVERSIZED_MP4=$(find apps/website/public/videos -name "*.mp4" -size +15M 2>/dev/null)
+          OVERSIZED_WEBM=$(find apps/website/public/videos -name "*.webm" ! -path "apps/website/public/videos/hero-commercials/*" -size +10M 2>/dev/null)
+          OVERSIZED_MP4=$(find apps/website/public/videos -name "*.mp4" ! -path "apps/website/public/videos/hero-commercials/*" -size +15M 2>/dev/null)
           FAIL=false
           if [ -n "$OVERSIZED_WEBM" ]; then
             echo "❌ WebM files exceeding the 10 MB limit:"

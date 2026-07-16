@@ -9,8 +9,8 @@
  * used by optimize-images.js.
  *
  * Re-encoding rules (mirrors optimize-images.js re-pack logic):
- *  - Existing .webm files exceeding MAX_WEBM_SIZE_BYTES (10 MB) are re-encoded.
- *  - Existing .mp4 files exceeding MAX_MP4_SIZE_BYTES (15 MB) are re-encoded.
+ *  - Existing .webm files exceeding their category budget are re-encoded.
+ *  - Existing .mp4 files exceeding their category budget are re-encoded.
  *  - Use --force to re-process all files regardless of size or prior conversion.
  *
  * Poster images are named poster-{name}.jpg (matches the CI git-add pattern).
@@ -33,11 +33,14 @@ const VIDEO_DIR = path.join(__dirname, "../../public/videos");
 /** Raw source extensions that always need conversion. */
 const RAW_SOURCE_FORMATS = [".mov", ".avi", ".mkv"];
 
-/** Hard limit for a production WebM file; files over this are re-encoded. */
+/** Default hard limit for a production WebM file; files over this are re-encoded. */
 const MAX_WEBM_SIZE_BYTES = 10 * 1024 * 1024; // 10 MB
 
-/** Hard limit for a production MP4 file; files over this are re-encoded. */
+/** Default hard limit for a production MP4 file; files over this are re-encoded. */
 const MAX_MP4_SIZE_BYTES = 15 * 1024 * 1024; // 15 MB
+
+/** Hero commercials are allowed a larger budget because they carry the site's primary video experience. */
+const HERO_COMMERCIAL_MAX_SIZE_BYTES = 25 * 1024 * 1024; // 25 MB
 
 /**
  * Category-based encoding presets keyed by the immediate subdirectory name.
@@ -76,6 +79,8 @@ const CATEGORY_PRESETS = {
     webmCrf: 24,
     mp4Crf: 20,
     audioBitrate: "160k",
+    maxWebmSizeBytes: HERO_COMMERCIAL_MAX_SIZE_BYTES,
+    maxMp4SizeBytes: HERO_COMMERCIAL_MAX_SIZE_BYTES,
   },
   // Default fallback for any unrecognised category
   default: {
@@ -111,6 +116,14 @@ function checkFFmpeg() {
 function getPreset(relPath) {
   const category = relPath.split(path.sep)[0];
   return CATEGORY_PRESETS[category] ?? CATEGORY_PRESETS.default;
+}
+
+function getSizeBudgets(relPath) {
+  const preset = getPreset(relPath);
+  return {
+    maxWebmSizeBytes: preset.maxWebmSizeBytes ?? MAX_WEBM_SIZE_BYTES,
+    maxMp4SizeBytes: preset.maxMp4SizeBytes ?? MAX_MP4_SIZE_BYTES,
+  };
 }
 
 function getFileSize(filePath) {
@@ -223,6 +236,7 @@ function processSourceVideo(filePath, relPath) {
   const webmOut = path.join(dir, `${name}.webm`);
   const posterOut = path.join(dir, `poster-${name}.jpg`);
   const preset = getPreset(relPath);
+  const { maxMp4SizeBytes } = getSizeBudgets(relPath);
   const originalSize = getFileSize(filePath);
 
   let converted = false;
@@ -247,7 +261,7 @@ function processSourceVideo(filePath, relPath) {
   // --- MP4 ---
   if (sourceExt === ".mp4") {
     // Source IS an MP4: re-encode in-place only when oversized or --force
-    if (FORCE || originalSize > MAX_MP4_SIZE_BYTES) {
+    if (FORCE || originalSize > maxMp4SizeBytes) {
       const tmpPath = `${filePath}.tmp.mp4`;
       log(`  → Re-encoding MP4 source ...`);
       if (encodeMP4(filePath, tmpPath, preset)) {
@@ -311,7 +325,9 @@ function processSourceVideo(filePath, relPath) {
  */
 function repackWebM(filePath, relPath) {
   const beforeSize = getFileSize(filePath);
-  if (!FORCE && beforeSize <= MAX_WEBM_SIZE_BYTES) {
+  const { maxWebmSizeBytes } = getSizeBudgets(relPath);
+
+  if (!FORCE && beforeSize <= maxWebmSizeBytes) {
     stats.skipped++;
     return;
   }
@@ -325,7 +341,7 @@ function repackWebM(filePath, relPath) {
   const tmpPath = `${filePath}.tmp.webm`;
 
   log(
-    `  → Re-packing WebM (${formatBytes(beforeSize)} → budget ${formatBytes(MAX_WEBM_SIZE_BYTES)}) ...`,
+    `  → Re-packing WebM (${formatBytes(beforeSize)} → budget ${formatBytes(maxWebmSizeBytes)}) ...`,
   );
 
   if (!encodeWebM(filePath, tmpPath, repackPreset)) {
@@ -353,7 +369,9 @@ function repackWebM(filePath, relPath) {
  */
 function repackMP4(filePath, relPath) {
   const beforeSize = getFileSize(filePath);
-  if (!FORCE && beforeSize <= MAX_MP4_SIZE_BYTES) {
+  const { maxMp4SizeBytes } = getSizeBudgets(relPath);
+
+  if (!FORCE && beforeSize <= maxMp4SizeBytes) {
     stats.skipped++;
     return;
   }
@@ -365,7 +383,9 @@ function repackMP4(filePath, relPath) {
   };
   const tmpPath = `${filePath}.tmp.mp4`;
 
-  log(`  → Re-packing MP4 (${formatBytes(beforeSize)}) ...`);
+  log(
+    `  → Re-packing MP4 (${formatBytes(beforeSize)} → budget ${formatBytes(maxMp4SizeBytes)}) ...`,
+  );
 
   if (!encodeMP4(filePath, tmpPath, repackPreset)) {
     stats.failed++;

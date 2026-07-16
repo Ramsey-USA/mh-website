@@ -44,7 +44,7 @@ Example:
   {
     "id": "home",
     "mp4": "videos/hero-commercials/home-hero-optimized-audio.mp4",
-    "webm": "videos/hero-commercials/home-hero-optimized.webm",
+    "webm": "videos/hero-commercials/home-hero-optimized-audio.webm",
     "expectedDurationSec": 61.03,
     "audioRequired": true
   }

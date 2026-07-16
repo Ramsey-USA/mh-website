@@ -1,6 +1,7 @@
 import { HeroSectionClient } from "@/components/home/HeroSectionClient";
 import { MH_SLOGANS } from "@/lib/branding/page-names";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
+import { HOME_HERO_MEDIA } from "@/lib/media/hero-commercials";
 
 interface HeroSectionCopy {
   baseLabel: string;
@@ -24,12 +25,6 @@ const DEFAULT_EN_COPY: HeroSectionCopy = {
     "Tri-Cities HQ (Pasco, Richland, Kennewick) | Licensed in WA, OR, ID",
 };
 
-const HOME_HERO_WEBM =
-  "/videos/hero-commercials/home-hero-optimized-audio.webm?v=20260716-audiofix";
-const HOME_HERO_MP4 =
-  "/videos/hero-commercials/home-hero-optimized-audio.mp4?v=20260716-audiofix";
-const HOME_HERO_POSTER = "/images/home-hero-poster.jpg?v=20260716-audiofix";
-
 /**
  * Homepage Hero Section
  * Full-screen hero with background support for photo/video
@@ -45,9 +40,9 @@ export function HeroSection({
       hasWebm
       hasMp4
       hasPoster
-      webmSrc={HOME_HERO_WEBM}
-      mp4Src={HOME_HERO_MP4}
-      posterSrc={HOME_HERO_POSTER}
+      webmSrc={HOME_HERO_MEDIA.webmSrc}
+      mp4Src={HOME_HERO_MEDIA.mp4Src}
+      posterSrc={HOME_HERO_MEDIA.posterSrc}
     />
   );
 }

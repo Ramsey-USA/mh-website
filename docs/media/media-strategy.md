@@ -660,12 +660,14 @@ Category presets currently enforced by `apps/website/scripts/optimization/optimi
 - `culture`: `1920:-2`, WebM CRF `30`, MP4 CRF `23`, audio stripped (`-an`)
 - `projects`: `1920:-2`, WebM CRF `28`, MP4 CRF `22`, `160k` audio at 48 kHz stereo
 - `testimonials`: `1920:-2`, WebM CRF `27`, MP4 CRF `21`, `160k` audio at 48 kHz stereo
+- `hero-commercials`: `1920:-2`, WebM CRF `24`, MP4 CRF `20`, `160k` audio at 48 kHz stereo, dedicated 25 MiB ceiling
 - `default`: `1280:-2`, WebM CRF `29`, MP4 CRF `23`, `128k` audio at 48 kHz stereo
 
 Hard size budgets enforced during repack:
 
 - WebM <= 10 MB
 - MP4 <= 15 MB
+- Hero commercials use a dedicated 25 MiB cap and should be registered in `apps/website/config/hero-commercials.json` with runtime consumers reading from the shared media helper.
 
 If a converted file exceeds budget, the script automatically re-packs it by raising CRF.
 

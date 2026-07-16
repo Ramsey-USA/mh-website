@@ -43,12 +43,14 @@ When you push images or videos to `public/images/` or `public/videos/`, a GitHub
 - **culture**: `1920:-2`, WebM CRF 30, MP4 CRF 23, no audio
 - **projects**: `1920:-2`, WebM CRF 28, MP4 CRF 22, 160k audio (48 kHz stereo)
 - **testimonials**: `1920:-2`, WebM CRF 27, MP4 CRF 21, 160k audio (48 kHz stereo)
+- **hero-commercials**: `1920:-2`, WebM CRF 24, MP4 CRF 20, 160k audio (48 kHz stereo), 25 MB hero budget
 - **default**: `1280:-2`, WebM CRF 29, MP4 CRF 23, 128k audio (48 kHz stereo)
 
 **Hard size budgets:**
 
 - WebM <= 10 MB
 - MP4 <= 15 MB
+- Hero commercials are validated separately and may exceed the generic WebM/MP4 budgets as long as they stay within the dedicated hero-commercial guardrails.
 
 When existing converted files exceed budget, the optimizer re-packs them automatically.
 
