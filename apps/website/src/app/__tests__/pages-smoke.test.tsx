@@ -294,6 +294,7 @@ jest.mock("@/lib/i18n/locale.server", () => ({
 }));
 
 jest.mock("next-intl", () => ({
+  useLocale: jest.fn(() => "en"),
   useTranslations: jest.fn(() => {
     const translate = ((key: string) => key) as ((key: string) => string) & {
       raw: (key: string) => unknown;

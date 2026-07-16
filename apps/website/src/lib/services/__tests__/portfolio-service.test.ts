@@ -7,24 +7,27 @@ import { PortfolioService, portfolioData } from "../portfolio-service";
 import "@/lib/types";
 
 describe("PortfolioService", () => {
+  const publishedProjects = portfolioData.filter((p) => p.isPublished);
+
   it("returns only published projects from getAllProjects", () => {
     const projects = PortfolioService.getAllProjects();
 
-    expect(projects.length).toBe(
-      portfolioData.filter((p) => p.isPublished).length,
-    );
+    expect(projects.length).toBe(publishedProjects.length);
     expect(projects.every((p) => p.isPublished)).toBe(true);
   });
 
   it("returns only featured published projects", () => {
     const featured = PortfolioService.getFeaturedProjects();
+    const expectedFeaturedCount = publishedProjects.filter(
+      (p) => p.isFeatured,
+    ).length;
 
-    expect(featured.length).toBeGreaterThan(0);
+    expect(featured).toHaveLength(expectedFeaturedCount);
     expect(featured.every((p) => p.isPublished && p.isFeatured)).toBe(true);
   });
 
   it("finds a project by published slug and returns undefined for unknown slug", () => {
-    const known = portfolioData[0]?.seoMetadata.slug;
+    const known = publishedProjects[0]?.seoMetadata.slug;
     expect(PortfolioService.getProjectBySlug(known || "")).toBeDefined();
     expect(
       PortfolioService.getProjectBySlug("missing-project"),
@@ -45,36 +48,49 @@ describe("PortfolioService", () => {
   it("filters projects by category array, tags, location, and date range", () => {
     const filtered = PortfolioService.filterProjects({
       category: ["commercial"],
-      tags: ["healthcare"],
-      location: "spokane",
+      tags: ["tenant-improvement"],
+      location: "pasco",
       dateRange: {
-        start: new Date("2023-01-01"),
-        end: new Date("2023-12-31"),
+        start: new Date("2020-01-01"),
+        end: new Date("2020-12-31"),
       },
     });
 
     expect(filtered).toHaveLength(1);
-    expect(filtered[0]?.title).toContain("Spokane Healthcare Clinic");
+    expect(filtered[0]?.title).toContain("Volm Companies Remodel");
   });
 
   it("searches published projects by precomputed text fields", () => {
     const pascoResults = PortfolioService.searchProjects("all", "pasco");
     const commercialResults = PortfolioService.searchProjects(
       "commercial",
-      "clinic",
+      "morgue",
     );
 
-    expect(pascoResults).toHaveLength(1);
-    expect(pascoResults[0]?.title).toContain("Pasco Industrial Warehouse");
+    expect(pascoResults.length).toBeGreaterThan(0);
+    expect(
+      pascoResults.every((project) =>
+        [
+          project.title,
+          project.description,
+          project.location.city,
+          project.location.state,
+          ...project.tags,
+        ]
+          .join(" ")
+          .toLowerCase()
+          .includes("pasco"),
+      ),
+    ).toBe(true);
     expect(commercialResults).toHaveLength(1);
-    expect(commercialResults[0]?.title).toContain("Spokane Healthcare Clinic");
+    expect(commercialResults[0]?.title).toContain("Morgue");
   });
 
   it("returns related published projects in the same category and excludes the current project", () => {
-    const related = PortfolioService.getRelatedProjects("proj-003", 5);
+    const related = PortfolioService.getRelatedProjects("proj-009", 5);
 
     expect(related.length).toBeGreaterThan(0);
-    expect(related.every((p) => p.id !== "proj-003")).toBe(true);
+    expect(related.every((p) => p.id !== "proj-009")).toBe(true);
     expect(related.every((p) => p.category === "commercial")).toBe(true);
   });
 
@@ -84,17 +100,16 @@ describe("PortfolioService", () => {
 
   it("returns accurate portfolio statistics", () => {
     const stats = PortfolioService.getPortfolioStats();
-    const published = portfolioData.filter((p) => p.isPublished);
 
-    expect(stats.totalProjects).toBe(published.length);
+    expect(stats.totalProjects).toBe(publishedProjects.length);
     expect(stats.featuredProjects).toBe(
-      published.filter((p) => p.isFeatured).length,
+      publishedProjects.filter((p) => p.isFeatured).length,
     );
     expect(stats.completedProjects).toBe(
-      published.filter((p) => p.status === "completed").length,
+      publishedProjects.filter((p) => p.status === "completed").length,
     );
     expect(stats.categories.sort()).toEqual(
-      Array.from(new Set(published.map((p) => p.category))).sort(),
+      Array.from(new Set(publishedProjects.map((p) => p.category))).sort(),
     );
   });
 });

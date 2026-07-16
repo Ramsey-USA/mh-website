@@ -482,7 +482,7 @@ export default async function JeremyThamertPage() {
                   <h3 className="text-base font-extrabold text-gray-900 dark:text-white sm:text-lg">
                     {timelineCopy.serviceTitle}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
+                  <p className="font-body mt-3 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
                     {timelineCopy.serviceBody}
                   </p>
                   <div className="mt-4 space-y-2">
@@ -515,7 +515,7 @@ export default async function JeremyThamertPage() {
                   <h3 className="text-base font-extrabold text-gray-900 dark:text-white sm:text-lg">
                     {timelineCopy.businessTitle}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
+                  <p className="font-body mt-3 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
                     {timelineCopy.businessBody}
                   </p>
                   <div className="mt-4 space-y-2">
@@ -548,7 +548,7 @@ export default async function JeremyThamertPage() {
                   <h3 className="text-base font-extrabold text-gray-900 dark:text-white sm:text-lg">
                     {timelineCopy.membershipTitle}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
+                  <p className="font-body mt-3 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
                     {timelineCopy.membershipBody}
                   </p>
                   <div className="mt-4 space-y-2">
@@ -651,7 +651,7 @@ export default async function JeremyThamertPage() {
                     <h3 className="text-sm font-extrabold text-gray-900 dark:text-white sm:text-base">
                       {entry.question}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
+                    <p className="font-body mt-2 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
                       {entry.answer}
                     </p>
                   </article>
