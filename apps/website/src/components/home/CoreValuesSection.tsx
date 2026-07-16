@@ -20,8 +20,6 @@ const coreValuesBase = [
     description:
       "Full transparency-truthful assessments, open communication, honest intel. Upfront discussion of challenges and obstacles. Real-time updates on timeline or budget changes. Honest assessment when a project is not the right fit. Complete cost breakdown before starting. Straight talk, no jargon.",
     image: "/images/values/honesty.webp",
-    videoWebm: "/videos/culture/flag_honesty_loop.webm",
-    video: "/videos/culture/flag_honesty_loop.mp4",
     iconBg: "bg-brand-secondary",
     stats: "100% Transparent Pricing",
   },
@@ -149,34 +147,16 @@ export function CoreValuesSection({
                     isEven ? "lg:order-1" : "lg:order-2"
                   }`}
                 >
-                  {item.video ? (
-                    <video
-                      className={`absolute inset-0 h-full w-full object-cover ${hoverMotion.imageZoom}`}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      poster="/videos/culture/poster-flag-honesty-loop.jpg"
-                      aria-hidden="true"
-                    >
-                      {item.videoWebm ? (
-                        <source src={item.videoWebm} type="video/webm" />
-                      ) : null}
-                      <source src={item.video} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <Image
-                      src={item.image}
-                      alt={`${item.value} - ${item.tagline}`}
-                      fill
-                      className={hoverMotion.imageZoom}
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      loading="lazy"
-                      quality={75}
-                      priority={false}
-                    />
-                  )}
+                  <Image
+                    src={item.image}
+                    alt={`${item.value} - ${item.tagline}`}
+                    fill
+                    className={hoverMotion.imageZoom}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    loading="lazy"
+                    quality={75}
+                    priority={false}
+                  />
                   <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent lg:bg-linear-to-r lg:from-black/60 lg:via-black/20 lg:to-transparent"></div>
 
                   <div className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">

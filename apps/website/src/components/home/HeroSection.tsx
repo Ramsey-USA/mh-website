@@ -24,9 +24,11 @@ const DEFAULT_EN_COPY: HeroSectionCopy = {
     "Tri-Cities HQ (Pasco, Richland, Kennewick) | Licensed in WA, OR, ID",
 };
 
-const HOME_HERO_WEBM = "/videos/hero-commercials/home-hero-optimized.webm";
-const HOME_HERO_MP4 = "/videos/hero-commercials/home-hero-optimized-audio.mp4";
-const HOME_HERO_POSTER = "/images/home-hero-poster.jpg";
+const HOME_HERO_WEBM =
+  "/videos/hero-commercials/home-hero-optimized-audio.webm?v=20260716-audiofix";
+const HOME_HERO_MP4 =
+  "/videos/hero-commercials/home-hero-optimized-audio.mp4?v=20260716-audiofix";
+const HOME_HERO_POSTER = "/images/home-hero-poster.jpg?v=20260716-audiofix";
 
 /**
  * Homepage Hero Section

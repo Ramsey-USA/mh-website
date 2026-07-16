@@ -70,6 +70,13 @@ const CATEGORY_PRESETS = {
     mp4Crf: 21,
     audioBitrate: "160k",
   },
+  // Homepage and route hero commercials — keep full HD with spoken audio fidelity
+  "hero-commercials": {
+    resolution: "1920:-2",
+    webmCrf: 24,
+    mp4Crf: 20,
+    audioBitrate: "160k",
+  },
   // Default fallback for any unrecognised category
   default: {
     resolution: "1280:-2",
@@ -245,11 +252,17 @@ function processSourceVideo(filePath, relPath) {
       log(`  → Re-encoding MP4 source ...`);
       if (encodeMP4(filePath, tmpPath, preset)) {
         const afterSize = getFileSize(tmpPath);
-        if (afterSize < originalSize) {
+        if (afterSize < originalSize || FORCE) {
           fs.renameSync(tmpPath, filePath);
-          log(
-            `  ✓ MP4 re-encoded: ${formatBytes(afterSize)} (was ${formatBytes(originalSize)})`,
-          );
+          if (afterSize <= originalSize) {
+            log(
+              `  ✓ MP4 re-encoded: ${formatBytes(afterSize)} (was ${formatBytes(originalSize)})`,
+            );
+          } else {
+            log(
+              `  ✓ MP4 re-encoded (force quality mode): ${formatBytes(afterSize)} (was ${formatBytes(originalSize)})`,
+            );
+          }
           converted = true;
         } else {
           fs.unlinkSync(tmpPath);
@@ -390,6 +403,7 @@ function processDirectory(dir, relBase = "") {
 
   for (const entry of entries) {
     if (entry.name === ".gitkeep") continue;
+    if (entry.name.includes(".tmp.")) continue;
 
     const fullPath = path.join(dir, entry.name);
     const relPath = relBase ? path.join(relBase, entry.name) : entry.name;
@@ -416,6 +430,20 @@ function processDirectory(dir, relBase = "") {
         repackMP4(fullPath, relPath);
       }
     } else if (ext === ".webm") {
+      const mp4Sibling = path.join(dir, `${name}.mp4`);
+      if (FORCE && fs.existsSync(mp4Sibling)) {
+        // In force mode, this WebM was already regenerated from the MP4 source.
+        // Skipping repack prevents an immediate quality drop from CRF bump logic.
+        stats.skipped++;
+        continue;
+      }
+
+      if (FORCE && !fs.existsSync(mp4Sibling)) {
+        // No higher-fidelity sibling source available; keep current WebM in force mode.
+        stats.skipped++;
+        continue;
+      }
+
       repackWebM(fullPath, relPath);
     }
     // .jpg poster images, .gitkeep, etc. — intentionally skipped
