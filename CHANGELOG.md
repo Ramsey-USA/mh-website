@@ -6,6 +6,8 @@ All notable changes to the MH Construction website are documented here.
 
 ## June 2026
 
+- **Jul 16:** CI/CD deployment unblock and Node runtime warning cleanup - registered the additional hero media artifact (`home-hero-optimized-audio.webm`) in `apps/website/config/hero-commercials.json` to satisfy `check:hero-commercials`, upgraded GitHub Actions cache usage from `actions/cache@v4` to `actions/cache@v5` in `.github/workflows/ci-cd.yml` and `.github/workflows/build-benchmark.yml` to remove Node 20 deprecation annotations, and verified successful production pipeline completion including `Deploy to Cloudflare Workers` on run `29464674443` (commit `ef99737f8d5937eaf9416f6e10dd2a4a91fdbf15`).
+
 - **Jul 12:** Runtime cleanup and consolidation sweep — removed several legacy compatibility surfaces and repeated wrappers across the website/dashboard codepaths, including deprecated page-navigation props, legacy offline queue storage, redundant analytics/icon/CTA shims, and thin API/security compatibility layers; centralized shared test helpers for fetch/storage setup and updated the affected focused tests to match the canonical paths.
 
 - **Jul 10:** CI install-log noise suppression (no dependency version churn) — updated GitHub Actions workflows to run dependency installs with `pnpm install --frozen-lockfile --loglevel error` (including filtered install variants) so transitive deprecation and peer warning noise no longer drowns test/build output; preserved existing glob/transitive version graph and error/failure behavior for quality gates.

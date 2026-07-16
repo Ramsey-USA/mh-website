@@ -1,7 +1,7 @@
 # Cloudflare Verification Runbook
 
 **Category:** Deployment - Cloudflare Verification  
-**Last Updated:** July 6, 2026  
+**Last Updated:** July 16, 2026  
 **Scope:** Confirm production Cloudflare connection and optimization status for `mhc-v2-website`
 
 ## Purpose
@@ -11,14 +11,15 @@ Each check is binary (`PASS` or `FAIL`) and includes evidence to capture.
 
 ## Current Snapshot (From Repo + Live Header Probe)
 
-| Area                                       | Status | Evidence                                                                                                    |
-| ------------------------------------------ | ------ | ----------------------------------------------------------------------------------------------------------- |
-| Worker project configured                  | PASS   | `apps/website/wrangler.toml` contains `name = "mhc-v2-website"` and `main = "worker-entry.ts"`              |
-| Domain routes configured                   | PASS   | `apps/website/wrangler.toml` contains `mhc-gc.com` and `www.mhc-gc.com` route blocks                        |
-| CI deploy on main push                     | PASS   | `.github/workflows/ci-cd.yml` deploy job runs `npm run deploy` on `main` push                               |
-| Core bindings configured (KV/R2/D1/AI)     | PASS   | `apps/website/wrangler.toml` includes `[[kv_namespaces]]`, `[[r2_buckets]]`, `[[d1_databases]]`, and `[ai]` |
-| Observability enabled                      | PASS   | `apps/website/wrangler.toml` has `[observability] enabled = true`                                           |
-| Pro optimization checklist fully validated | FAIL   | Dashboard-only items remain checklist tasks in `config/cloudflare/edge-optimization.md`                     |
+| Area                                       | Status | Evidence                                                                                                                                     |
+| ------------------------------------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Worker project configured                  | PASS   | `apps/website/wrangler.toml` contains `name = "mhc-v2-website"` and `main = "worker-entry.ts"`                                               |
+| Domain routes configured                   | PASS   | `apps/website/wrangler.toml` contains `mhc-gc.com` and `www.mhc-gc.com` route blocks                                                         |
+| CI deploy on main push                     | PASS   | `.github/workflows/ci-cd.yml` deploy job runs `npm run deploy` on `main` push                                                                |
+| Latest verified production deployment      | PASS   | GitHub Actions run `29464674443` (commit `ef99737f8d5937eaf9416f6e10dd2a4a91fdbf15`) completed with `Deploy to Cloudflare Workers` = success |
+| Core bindings configured (KV/R2/D1/AI)     | PASS   | `apps/website/wrangler.toml` includes `[[kv_namespaces]]`, `[[r2_buckets]]`, `[[d1_databases]]`, and `[ai]`                                  |
+| Observability enabled                      | PASS   | `apps/website/wrangler.toml` has `[observability] enabled = true`                                                                            |
+| Pro optimization checklist fully validated | FAIL   | Dashboard-only items remain checklist tasks in `config/cloudflare/edge-optimization.md`                                                      |
 
 ## Prerequisites
 

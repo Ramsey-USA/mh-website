@@ -63,6 +63,11 @@ Pipelines automatically trigger on:
 └── lighthouse-weekly.yml # Scheduled Lighthouse reporting
 ```
 
+### Recent CI Operational Update (Jul 16, 2026)
+
+- Upgraded cache actions from `actions/cache@v4` to `actions/cache@v5` in active workflows to remove GitHub-hosted runner Node 20 deprecation annotations.
+- Confirmed successful end-to-end production run after the update: `CI/CD Pipeline` run `29464674443` completed with `Deploy to Cloudflare Workers` = success.
+
 ### Action Version Pinning Policy
 
 To keep CI reproducible and aligned with security/congruency safeguards:
