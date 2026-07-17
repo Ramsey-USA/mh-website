@@ -25,7 +25,10 @@ export function getHeroCommercialMp4Url(id: string): string {
 }
 
 export function getHeroCommercialWebmUrl(id: string): string | null {
-  const webmPath = getHeroCommercial(id).webm;
+  const heroCommercial = getHeroCommercial(id) as HeroCommercial & {
+    webm?: string;
+  };
+  const webmPath = heroCommercial.webm;
   return typeof webmPath === "string" && webmPath.length > 0
     ? toPublicUrl(webmPath)
     : null;
