@@ -24,15 +24,22 @@ export function getHeroCommercialMp4Url(id: string): string {
   return toPublicUrl(getHeroCommercial(id).mp4);
 }
 
-export function getHeroCommercialWebmUrl(id: string): string {
-  return toPublicUrl(getHeroCommercial(id).webm);
+export function getHeroCommercialWebmUrl(id: string): string | null {
+  const webmPath = getHeroCommercial(id).webm;
+  return typeof webmPath === "string" && webmPath.length > 0
+    ? toPublicUrl(webmPath)
+    : null;
 }
 
 export const HOME_HERO_POSTER_URL =
   "/images/home-hero-poster.jpg?v=20260716-audiofix";
 
+const HOME_HERO_WEBM_URL = getHeroCommercialWebmUrl("home");
+
 export const HOME_HERO_MEDIA = {
-  webmSrc: `${getHeroCommercialWebmUrl("home")}?v=20260716-audiofix`,
+  webmSrc: HOME_HERO_WEBM_URL
+    ? `${HOME_HERO_WEBM_URL}?v=20260716-audiofix`
+    : "",
   mp4Src: `${getHeroCommercialMp4Url("home")}?v=20260716-audiofix`,
   posterSrc: HOME_HERO_POSTER_URL,
 } as const;

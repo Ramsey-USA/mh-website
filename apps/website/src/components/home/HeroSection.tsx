@@ -37,7 +37,7 @@ export function HeroSection({
     <HeroSectionClient
       copy={copy}
       useVideoHero
-      hasWebm
+      hasWebm={false}
       hasMp4
       hasPoster
       webmSrc={HOME_HERO_MEDIA.webmSrc}

@@ -250,7 +250,7 @@ describe("generateJeremyLeadershipVideoSchema()", () => {
 
     expect(schema["@type"]).toBe("VideoObject");
     expect(schema.contentUrl).toContain(
-      "/videos/hero-commercials/home-hero-optimized-audio.mp4",
+      "/videos/hero-commercials/mh-construction-radio-ad-alpha.mp4",
     );
     expect((schema.about as any)["@id"]).toContain("/jeremy-thamert#person");
     expect((schema.publisher as any)["@id"]).toContain("/#organization");

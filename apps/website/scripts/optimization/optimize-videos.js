@@ -23,7 +23,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { execSync } = require("child_process");
+const { execSync, spawnSync } = require("child_process");
 
 const CI_MODE = process.argv.includes("--ci");
 const FORCE = process.argv.includes("--force");
@@ -93,6 +93,7 @@ const CATEGORY_PRESETS = {
 
 const stats = { success: 0, skipped: 0, failed: 0 };
 const savings = { before: 0, after: 0 };
+const DURATION_TOLERANCE_SEC = 1.0;
 
 function log(message) {
   console.log(message);
@@ -104,13 +105,63 @@ function log(message) {
 function checkFFmpeg() {
   try {
     execSync("ffmpeg -version", { stdio: "ignore" });
+    execSync("ffprobe -version", { stdio: "ignore" });
   } catch {
-    console.error("❌ FFmpeg not found. Please install FFmpeg:");
+    console.error("❌ FFmpeg/ffprobe not found. Please install FFmpeg:");
     console.error("   macOS:   brew install ffmpeg");
     console.error("   Ubuntu:  sudo apt install ffmpeg");
     console.error("   Windows: https://ffmpeg.org/download.html");
     process.exit(1);
   }
+}
+
+function removeIfExists(filePath) {
+  if (fs.existsSync(filePath)) {
+    fs.unlinkSync(filePath);
+  }
+}
+
+function probeDurationSec(filePath) {
+  try {
+    const output = execSync(
+      `ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "${filePath}"`,
+      { encoding: "utf8" },
+    )
+      .trim()
+      .split("\n")[0];
+    const value = Number(output);
+    return Number.isFinite(value) && value > 0 ? value : null;
+  } catch {
+    return null;
+  }
+}
+
+function validateEncodedDuration(inputPath, outputPath) {
+  const inputDuration = probeDurationSec(inputPath);
+  const outputDuration = probeDurationSec(outputPath);
+
+  if (inputDuration === null || outputDuration === null) {
+    log(`  ✗ Duration probe failed: ${path.basename(outputPath)}`);
+    removeIfExists(outputPath);
+    return false;
+  }
+
+  if (Math.abs(inputDuration - outputDuration) > DURATION_TOLERANCE_SEC) {
+    log(
+      `  ✗ Duration mismatch: ${path.basename(outputPath)} (${outputDuration.toFixed(2)}s vs source ${inputDuration.toFixed(2)}s)`,
+    );
+    removeIfExists(outputPath);
+    return false;
+  }
+
+  return true;
+}
+
+function runFfmpeg(args) {
+  const result = spawnSync("ffmpeg", args, {
+    stdio: CI_MODE ? "ignore" : "inherit",
+  });
+  return result.status === 0;
 }
 
 function getPreset(relPath) {
@@ -147,31 +198,53 @@ function formatBytes(bytes) {
  * Returns true on success, false on failure.
  */
 function encodeWebM(inputPath, outputPath, preset) {
-  const audioArgs = preset.audioBitrate
-    ? `-c:a libopus -b:a ${preset.audioBitrate} -ar 48000 -ac 2`
-    : "-an";
-  const cmd = [
-    "ffmpeg",
-    `-i "${inputPath}"`,
-    `-c:v libvpx-vp9`,
-    `-crf ${preset.webmCrf}`,
-    `-b:v 0`,
-    `-vf scale=${preset.resolution}`,
-    audioArgs,
-    `-deadline good`,
-    `-row-mt 1`,
-    `-cpu-used 2`,
-    `-y`,
-    `"${outputPath}"`,
-  ].join(" ");
+  const args = [
+    "-hide_banner",
+    "-nostdin",
+    "-v",
+    CI_MODE ? "error" : "warning",
+    "-i",
+    inputPath,
+    "-c:v",
+    "libvpx-vp9",
+    "-crf",
+    String(preset.webmCrf),
+    "-b:v",
+    "0",
+    "-vf",
+    `scale=${preset.resolution}`,
+    "-deadline",
+    "good",
+    "-row-mt",
+    "1",
+    "-cpu-used",
+    "2",
+  ];
 
-  try {
-    execSync(cmd, { stdio: CI_MODE ? "ignore" : "inherit" });
-    return true;
-  } catch {
+  if (preset.audioBitrate) {
+    args.push(
+      "-c:a",
+      "libopus",
+      "-b:a",
+      preset.audioBitrate,
+      "-ar",
+      "48000",
+      "-ac",
+      "2",
+    );
+  } else {
+    args.push("-an");
+  }
+
+  args.push("-y", outputPath);
+
+  if (!runFfmpeg(args)) {
     log(`  ✗ WebM encode failed: ${path.basename(inputPath)}`);
+    removeIfExists(outputPath);
     return false;
   }
+
+  return validateEncodedDuration(inputPath, outputPath);
 }
 
 /**
@@ -179,32 +252,55 @@ function encodeWebM(inputPath, outputPath, preset) {
  * Returns true on success, false on failure.
  */
 function encodeMP4(inputPath, outputPath, preset) {
-  const audioArgs = preset.audioBitrate
-    ? `-c:a aac -b:a ${preset.audioBitrate} -ar 48000 -ac 2`
-    : "-an";
-  const cmd = [
-    "ffmpeg",
-    `-i "${inputPath}"`,
-    `-c:v libx264`,
-    `-preset slow`,
-    `-crf ${preset.mp4Crf}`,
-    `-profile:v high`,
-    `-level 4.1`,
-    `-pix_fmt yuv420p`,
-    `-vf scale=${preset.resolution}`,
-    audioArgs,
-    `-movflags +faststart`,
-    `-y`,
-    `"${outputPath}"`,
-  ].join(" ");
+  const args = [
+    "-hide_banner",
+    "-nostdin",
+    "-v",
+    CI_MODE ? "error" : "warning",
+    "-i",
+    inputPath,
+    "-c:v",
+    "libx264",
+    "-preset",
+    "slow",
+    "-crf",
+    String(preset.mp4Crf),
+    "-profile:v",
+    "high",
+    "-level",
+    "4.1",
+    "-pix_fmt",
+    "yuv420p",
+    "-vf",
+    `scale=${preset.resolution}`,
+    "-movflags",
+    "+faststart",
+  ];
 
-  try {
-    execSync(cmd, { stdio: CI_MODE ? "ignore" : "inherit" });
-    return true;
-  } catch {
+  if (preset.audioBitrate) {
+    args.push(
+      "-c:a",
+      "aac",
+      "-b:a",
+      preset.audioBitrate,
+      "-ar",
+      "48000",
+      "-ac",
+      "2",
+    );
+  } else {
+    args.push("-an");
+  }
+
+  args.push("-y", outputPath);
+
+  if (!runFfmpeg(args)) {
     log(`  ✗ MP4 encode failed: ${path.basename(inputPath)}`);
+    removeIfExists(outputPath);
     return false;
   }
+
+  return validateEncodedDuration(inputPath, outputPath);
 }
 
 /**

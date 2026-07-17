@@ -180,6 +180,12 @@ export function HeroSectionClient({
       return;
     }
 
+    if (!video.paused && !video.ended && video.muted) {
+      video.muted = false;
+      setIsMuted(false);
+      return;
+    }
+
     if (video.paused || video.ended) {
       if (delayedStartTimerRef.current !== null) {
         globalThis.clearTimeout(delayedStartTimerRef.current);
