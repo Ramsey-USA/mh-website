@@ -249,8 +249,19 @@ describe("generateJeremyLeadershipVideoSchema()", () => {
     const schema = generateJeremyLeadershipVideoSchema();
 
     expect(schema["@type"]).toBe("VideoObject");
+    expect(schema.name).toContain("Radio Ad");
     expect(schema.contentUrl).toContain(
       "/videos/hero-commercials/mh-construction-radio-ad-alpha.mp4",
+    );
+    expect(schema.duration).toBe("PT1M1S");
+    expect((schema.actor as any)["@id"]).toContain("/jeremy-thamert#person");
+    expect((schema.performer as any)["@id"]).toContain(
+      "/jeremy-thamert#person",
+    );
+    expect((schema.creator as any)["@id"]).toContain("/jeremy-thamert#person");
+    expect((schema.producer as any).name).toBe("Stephens Media Group");
+    expect((schema.producer as any).sameAs).toContain(
+      "Stephens%20Media%20Group",
     );
     expect((schema.about as any)["@id"]).toContain("/jeremy-thamert#person");
     expect((schema.publisher as any)["@id"]).toContain("/#organization");

@@ -75,6 +75,9 @@ Typography and color treatment on homepage-inspired pages must stay within the c
 - **Unified global header** with a logo-first mobile layout, bilingual controls, phone CTA, compact theme toggle, and hamburger menu
 - **Performance optimized** with lazy-loaded below-the-fold content
 - **SEO Validation:** Use external audits and rich-result validators
+- **Hero radio ad SEO attribution:** Metadata and structured data must retain
+  Jeremy Thamert as presenter/voiceover, Stephens Media Group as production
+  partner, and active placements on [94.9 The WOLF](https://949thewolf.com/) plus local ESPN channel
 - **PWA Support** with install banner and offline functionality
 - **Analytics tracking** for user engagement and journey progression
 - **Dark mode support** with seamless theme switching

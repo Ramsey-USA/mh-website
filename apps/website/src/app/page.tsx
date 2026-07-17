@@ -9,6 +9,7 @@ import Link from "next/link";
 import type { Testimonial } from "@/lib/data/testimonials";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
+import { getHeroCommercialMp4Url } from "@/lib/media/hero-commercials";
 import {
   formatDualPageName,
   MH_SLOGANS,
@@ -31,6 +32,9 @@ const NextStepsSection = dynamic(
 );
 
 const SITE_URL = "https://www.mhc-gc.com";
+const HOME_RADIO_AD_MP4_URL = `${SITE_URL}${getHeroCommercialMp4Url("home")}`;
+const HOME_RADIO_AD_ATTRIBUTION =
+  "Homepage radio ad voiceover by Jeremy Thamert, produced in conjunction with Stephens Media Group, airing on 94.9 The WOLF (https://949thewolf.com/) and local ESPN channel placements.";
 const HOME_COPY_BY_LOCALE = {
   en: enHome,
   es: esHome,
@@ -89,16 +93,28 @@ export const metadata: Metadata = withGeoMetadata({
     "veteran construction values",
     "WA OR ID licensed contractor",
     "Eastern Washington contractor",
+    "Jeremy Thamert radio ad",
+    "Stephens Media Group",
+    "94.9 The WOLF",
+    "Local ESPN channel radio ad",
   ],
   alternates: {
     canonical: SITE_URL,
   },
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Mission-Ready Construction, Fit-Outs, Municipal, and Light Industrial | MH Construction`,
-    description: `Mission-ready construction services for agricultural and winery communities, fit-outs, municipal, and light industrial projects with disciplined scope control and Procore-based delivery. ${MH_SLOGANS.primary}`,
+    description: `Mission-ready construction services for agricultural and winery communities, fit-outs, municipal, and light industrial projects with disciplined scope control and Procore-based delivery. ${MH_SLOGANS.primary} ${HOME_RADIO_AD_ATTRIBUTION}`,
     url: SITE_URL,
     siteName: "MH Construction",
     type: "website",
+    videos: [
+      {
+        url: HOME_RADIO_AD_MP4_URL,
+        type: "video/mp4",
+        width: 1920,
+        height: 1080,
+      },
+    ],
     images: [
       {
         url: "/images/og-default.jpg",
@@ -114,8 +130,14 @@ export const metadata: Metadata = withGeoMetadata({
     site: "@mhc_gc",
     creator: "@mhc_gc",
     title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Mission-Ready Construction, Fit-Outs, Municipal, and Light Industrial | MH Construction`,
-    description: `Mission-ready construction services with agricultural and winery expertise, occupied-space fit-out delivery, municipal execution, and light industrial mission management. ${MH_SLOGANS.supporting[0]}`,
+    description: `Mission-ready construction services with agricultural and winery expertise, occupied-space fit-out delivery, municipal execution, and light industrial mission management. ${MH_SLOGANS.supporting[0]} ${HOME_RADIO_AD_ATTRIBUTION}`,
     images: ["/images/og-default.jpg"],
+  },
+  other: {
+    "twitter:label1": "Radio Ad Presenter",
+    "twitter:data1": "Jeremy Thamert",
+    "twitter:label2": "Production Partner",
+    "twitter:data2": "Stephens Media Group",
   },
 });
 

@@ -1,7 +1,7 @@
 # Hero Commercial Video Guardrails
 
 **Category:** Development - Standards  
-**Last Updated:** June 25, 2026
+**Last Updated:** July 17, 2026
 
 ## Purpose
 
@@ -126,3 +126,18 @@ pnpm run build
 - `docs/branding/standards/hero-section-standards.md`
 - `docs/media/media-strategy.md`
 - `docs/deployment/cloudflare-guide.md`
+
+## Homepage Radio Ad Attribution (Current)
+
+For the current home hero commercial asset (`id: home`), preserve these details
+in SEO metadata and documentation unless a confirmed campaign replacement is
+approved:
+
+- Presenter and voiceover: Jeremy Thamert
+- Production partner: Stephens Media Group
+- Partner reference:
+  [Stephens Media Group Facebook](https://www.facebook.com/pages/Stephens%20Media%20Group/546164552551953/#)
+- Broadcast placements: [94.9 The WOLF](https://949thewolf.com/) and local ESPN channel
+
+When updating the asset, ensure structured data and page metadata continue to
+reflect the active presenter, production partner, and station placement facts.

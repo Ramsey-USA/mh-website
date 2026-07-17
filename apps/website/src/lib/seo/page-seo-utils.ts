@@ -92,9 +92,14 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Mission-Ready Delivery Across WA, OR, and ID`,
     description:
-      "MH Construction delivers AG and winery facilities, commercial fit-out work, and municipal projects with clear planning, disciplined field coordination, and licensed coverage across WA, OR, and ID.",
+      "MH Construction delivers AG and winery facilities, commercial fit-out work, and municipal projects with clear planning, disciplined field coordination, and licensed coverage across WA, OR, and ID. Homepage radio ad voiceover is Jeremy Thamert, produced in conjunction with Stephens Media Group, with placements on 94.9 The WOLF (https://949thewolf.com/) and local ESPN channel.",
     keywords: buildPageKeywords("home", [
       "Jeremy Thamert leadership",
+      "Jeremy Thamert radio ad",
+      "Stephens Media Group",
+      "94.9 The WOLF",
+      "949thewolf.com",
+      "Local ESPN channel radio ad",
       "MH Construction home",
       "veteran-owned contractor Pacific Northwest",
       "general contractor Pasco, WA",
