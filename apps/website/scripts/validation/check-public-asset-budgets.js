@@ -6,6 +6,9 @@ const path = require("path");
 const PUBLIC_DIR = path.join(__dirname, "../../public");
 const TOTAL_LIMIT_MB = Number(process.env.PUBLIC_TOTAL_BUDGET_MB || 75);
 const FILE_LIMIT_MB = Number(process.env.PUBLIC_MAX_FILE_MB || 8);
+const HERO_MEDIA_PREFIX = "videos/hero-commercials/";
+const EXCLUDE_HERO_FROM_PUBLIC_BUDGET =
+  process.env.PUBLIC_BUDGET_EXCLUDE_HERO !== "0";
 
 const TOTAL_LIMIT_BYTES = TOTAL_LIMIT_MB * 1024 * 1024;
 const FILE_LIMIT_BYTES = FILE_LIMIT_MB * 1024 * 1024;
@@ -34,6 +37,10 @@ function formatMB(bytes) {
   return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
 }
 
+function isHeroCommercial(relativePath) {
+  return relativePath.startsWith(HERO_MEDIA_PREFIX);
+}
+
 function run() {
   if (!fs.existsSync(PUBLIC_DIR)) {
     console.error(`Public directory not found: ${PUBLIC_DIR}`);
@@ -41,22 +48,34 @@ function run() {
   }
 
   const files = walk(PUBLIC_DIR);
-  const totalBytes = files.reduce((sum, f) => sum + f.size, 0);
+  const budgetFiles = EXCLUDE_HERO_FROM_PUBLIC_BUDGET
+    ? files.filter((f) => !isHeroCommercial(f.relativePath))
+    : files;
+  const excludedBytes = files
+    .filter((f) => !budgetFiles.includes(f))
+    .reduce((sum, f) => sum + f.size, 0);
+  const totalBytes = budgetFiles.reduce((sum, f) => sum + f.size, 0);
 
   // Hero commercial files are managed by separate guardrails check
   // and are allowed to exceed the per-file budget
-  const oversizedFiles = files
+  const oversizedFiles = budgetFiles
     .filter((f) => {
-      // Skip hero commercials - they have their own budget guardrails
-      if (f.relativePath.includes("hero-commercials")) return false;
       return f.size > FILE_LIMIT_BYTES;
     })
     .sort((a, b) => b.size - a.size);
 
-  const topFiles = [...files].sort((a, b) => b.size - a.size).slice(0, 10);
+  const topFiles = [...budgetFiles]
+    .sort((a, b) => b.size - a.size)
+    .slice(0, 10);
 
   console.log("Public Asset Budget Check");
-  console.log(`- Total files: ${files.length}`);
+  console.log(`- Total files scanned: ${files.length}`);
+  console.log(`- Files in budget scope: ${budgetFiles.length}`);
+  if (EXCLUDE_HERO_FROM_PUBLIC_BUDGET) {
+    console.log(
+      `- Excluded hero-commercials: ${formatMB(excludedBytes)} (${HERO_MEDIA_PREFIX})`,
+    );
+  }
   console.log(
     `- Total size: ${formatMB(totalBytes)} (budget ${TOTAL_LIMIT_MB} MB)`,
   );

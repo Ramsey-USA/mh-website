@@ -315,8 +315,8 @@ If any Cloudflare-specific issues surface:
 ```bash
 # 1. Identify the problematic dependency (usually Next.js or @opennextjs/cloudflare)
 # 2. Revert just that package while keeping safe updates:
-npm install next@15.5.15 eslint-config-next@15.5.15 \
-  @next/bundle-analyzer@15.5.15 @next/swc-linux-x64-gnu@15.5.15
+pnpm add next@16.2.10
+pnpm add -D eslint-config-next@16.2.10 @next/bundle-analyzer@16.2.10 @next/swc-linux-x64-gnu@16.2.10
 
 # 3. Rebuild
 pnpm --filter @mhc/website run build:lowmem

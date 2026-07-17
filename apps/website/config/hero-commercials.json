@@ -2,7 +2,8 @@
   {
     "id": "home",
     "mp4": "videos/hero-commercials/mh-construction-radio-ad-alpha.mp4",
-    "expectedDurationSec": 61.03,
+    "webm": "videos/hero-commercials/mh-construction-radio-ad-alpha.webm",
+    "expectedDurationSec": 61.04,
     "audioRequired": true
   }
 ]

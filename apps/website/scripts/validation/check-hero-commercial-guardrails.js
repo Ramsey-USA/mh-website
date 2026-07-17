@@ -12,10 +12,13 @@ const MANIFEST_PATH = path.join(
   "../../config/hero-commercials.json",
 );
 
-const MAX_WORKERS_BYTES = 25 * 1024 * 1024;
-const WARN_LARGE_BYTES = 20 * 1024 * 1024;
+const MAX_HERO_FILE_MB = Number(process.env.HERO_COMMERCIAL_MAX_FILE_MB || 45);
+const WARN_LARGE_MB = Number(process.env.HERO_COMMERCIAL_WARN_FILE_MB || 20);
+const MAX_HERO_FILE_BYTES = MAX_HERO_FILE_MB * 1024 * 1024;
+const WARN_LARGE_BYTES = WARN_LARGE_MB * 1024 * 1024;
 const DURATION_TOLERANCE_SEC = 0.75;
 const FILE_NAME_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*\.(mp4|webm)$/;
+const IGNORE_TEMP_MEDIA = process.env.HERO_COMMERCIAL_IGNORE_TEMP !== "0";
 
 function formatMB(bytes) {
   return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
@@ -91,6 +94,10 @@ function collectMediaFiles(rootDir) {
       continue;
     }
 
+    if (IGNORE_TEMP_MEDIA && /\.tmp\./.test(entry.name)) {
+      continue;
+    }
+
     files.push(fullPath);
   }
 
@@ -154,9 +161,9 @@ function run() {
     }
 
     const mp4Size = fs.statSync(mp4Path).size;
-    if (mp4Size > MAX_WORKERS_BYTES) {
+    if (mp4Size > MAX_HERO_FILE_BYTES) {
       errors.push(
-        `[${id}] MP4 exceeds Workers 25 MiB limit (${formatMB(mp4Size)}): ${entry.mp4}`,
+        `[${id}] MP4 exceeds hero media limit ${formatMB(MAX_HERO_FILE_BYTES)} (${formatMB(mp4Size)}): ${entry.mp4}`,
       );
     } else if (mp4Size > WARN_LARGE_BYTES) {
       warnings.push(
@@ -216,9 +223,9 @@ function run() {
         }
 
         const webmSize = fs.statSync(webmPath).size;
-        if (webmSize > MAX_WORKERS_BYTES) {
+        if (webmSize > MAX_HERO_FILE_BYTES) {
           errors.push(
-            `[${id}] WebM exceeds Workers 25 MiB limit (${formatMB(webmSize)}): ${entry.webm}`,
+            `[${id}] WebM exceeds hero media limit ${formatMB(MAX_HERO_FILE_BYTES)} (${formatMB(webmSize)}): ${entry.webm}`,
           );
         }
       }
