@@ -315,249 +315,260 @@ export default async function Home() {
       {/* Home Page Hero Section */}
       <HeroSection locale={locale} copy={homeCopy.hero} />
 
-      <BrandedContentSection
-        id="company-overview"
-        variant="white"
-        className={HOME_SECTION_SPACING}
-        header={{
-          icon: "domain",
-          iconVariant: "primary",
-          subtitle: splashCopy.overviewSubtitle,
-          title: splashCopy.overviewTitle,
-          description: splashCopy.overviewDescription,
-        }}
-      >
-        <div className="mx-auto max-w-5xl text-center">
-          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
-            {locale === "es" ? "Revise " : "Review "}
-            <Link
-              href="/services?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=overview-services"
-              className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
-            >
-              {locale === "es"
-                ? "servicios listos para la misión"
-                : "mission-ready services"}
-            </Link>
-            {locale === "es" ? ", vea nuestro " : ", see our "}
-            <Link
-              href="/projects?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=overview-projects"
-              className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
-            >
-              {locale === "es" ? "archivo de misiones" : "mission portfolio"}
-            </Link>
-            {locale === "es" ? " o " : " or "}
-            <Link
-              href="/contact?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=overview-contact"
-              className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
-            >
-              {locale === "es"
-                ? "contacte a nuestro equipo de misión"
-                : "contact our mission team"}
-            </Link>
-            .
-          </p>
-        </div>
-        <div className="mx-auto mt-6 grid max-w-5xl grid-cols-1 gap-3 sm:gap-4 md:grid-cols-3">
-          {splashCopy.overviewButtons.map((button, index) => (
-            <Link
-              key={button.label}
-              href={button.href}
-              className={
-                index === 0 ? HOME_CTA_PRIMARY_CLASS : HOME_CTA_SECONDARY_CLASS
-              }
-            >
-              {button.label}
-            </Link>
-          ))}
-        </div>
-      </BrandedContentSection>
-
-      <BrandedContentSection
-        id="service-overview"
-        variant="gray"
-        className={HOME_SECTION_SPACING}
-        header={{
-          icon: "construction",
-          iconVariant: "secondary",
-          subtitle: splashCopy.serviceSubtitle,
-          title: splashCopy.serviceTitle,
-          description: splashCopy.serviceDescription,
-        }}
-      >
-        <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-3">
-          {splashCopy.serviceCards.map((card) => (
-            <article key={card.title} className={HOME_CARD_CLASS}>
-              <h3 className="text-xl font-extrabold text-gray-900 dark:text-white">
-                {card.title}
-              </h3>
-              <p className="font-body mt-3 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                {card.desc}
-              </p>
+      <div className="relative z-10">
+        <BrandedContentSection
+          id="company-overview"
+          variant="white"
+          className={HOME_SECTION_SPACING}
+          showBackgroundPattern={false}
+          header={{
+            icon: "domain",
+            iconVariant: "primary",
+            subtitle: splashCopy.overviewSubtitle,
+            title: splashCopy.overviewTitle,
+            description: splashCopy.overviewDescription,
+          }}
+        >
+          <div className="mx-auto max-w-5xl text-center">
+            <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
+              {locale === "es" ? "Revise " : "Review "}
               <Link
-                href="/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=service-card"
-                className="mt-4 inline-flex items-center text-sm sm:text-base font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
+                href="/services?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=overview-services"
+                className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
               >
                 {locale === "es"
-                  ? "Ver detalle de servicios comerciales"
-                  : "View commercial service details"}
+                  ? "servicios listos para la misión"
+                  : "mission-ready services"}
               </Link>
-            </article>
-          ))}
-        </div>
-      </BrandedContentSection>
+              {locale === "es" ? ", vea nuestro " : ", see our "}
+              <Link
+                href="/projects?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=overview-projects"
+                className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
+              >
+                {locale === "es" ? "archivo de misiones" : "mission portfolio"}
+              </Link>
+              {locale === "es" ? " o " : " or "}
+              <Link
+                href="/contact?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=overview-contact"
+                className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
+              >
+                {locale === "es"
+                  ? "contacte a nuestro equipo de misión"
+                  : "contact our mission team"}
+              </Link>
+              .
+            </p>
+          </div>
+          <div className="mx-auto mt-6 grid max-w-5xl grid-cols-1 gap-3 sm:gap-4 md:grid-cols-3">
+            {splashCopy.overviewButtons.map((button, index) => (
+              <Link
+                key={button.label}
+                href={button.href}
+                className={
+                  index === 0
+                    ? HOME_CTA_PRIMARY_CLASS
+                    : HOME_CTA_SECONDARY_CLASS
+                }
+              >
+                {button.label}
+              </Link>
+            ))}
+          </div>
+        </BrandedContentSection>
 
-      <TimelineDeferred
-        id="our-process"
-        icon="timeline"
-        subtitle={splashCopy.processSubtitle}
-        title={splashCopy.processTitle}
-        description={
-          <>
-            {homeCopy.process.descriptionPart1}{" "}
-            <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              {homeCopy.process.descriptionPart2}
-            </span>
-            {homeCopy.process.descriptionPart3}{" "}
-            <span className="font-bold text-gray-900 dark:text-white">
-              {homeCopy.process.descriptionPart4}
-            </span>
-            {homeCopy.process.descriptionPart5}
-          </>
-        }
-        steps={processSteps}
-        compact
-        initiallyVisibleSteps={3}
-        expandStepsLabel={
-          locale === "es"
-            ? `Ver los ${processSteps.length} pasos`
-            : `View all ${processSteps.length} steps`
-        }
-        collapseStepsLabel={
-          locale === "es" ? "Mostrar menos pasos" : "Show fewer steps"
-        }
-        className={`bg-gray-50 dark:bg-gray-800 ${HOME_SECTION_SPACING}`}
-      />
+        <BrandedContentSection
+          id="service-overview"
+          variant="gray"
+          className={HOME_SECTION_SPACING}
+          showBackgroundPattern={false}
+          header={{
+            icon: "construction",
+            iconVariant: "secondary",
+            subtitle: splashCopy.serviceSubtitle,
+            title: splashCopy.serviceTitle,
+            description: splashCopy.serviceDescription,
+          }}
+        >
+          <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-3">
+            {splashCopy.serviceCards.map((card) => (
+              <article key={card.title} className={HOME_CARD_CLASS}>
+                <h3 className="text-xl font-extrabold text-gray-900 dark:text-white">
+                  {card.title}
+                </h3>
+                <p className="font-body mt-3 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {card.desc}
+                </p>
+                <Link
+                  href="/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=service-card"
+                  className="mt-4 inline-flex items-center text-sm sm:text-base font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
+                >
+                  {locale === "es"
+                    ? "Ver detalle de servicios comerciales"
+                    : "View commercial service details"}
+                </Link>
+              </article>
+            ))}
+          </div>
+        </BrandedContentSection>
 
-      <WhyPartnerSection
-        sectionVariant="white"
-        className={HOME_SECTION_SPACING}
-        headerSubtitle={splashCopy.trustSubtitle}
-        headerTitle={splashCopy.trustTitle}
-        headerDescription={splashCopy.trustDescription}
-        headerSize="section"
-        condensed
-        condensedVisibleCount={2}
-        locale={locale}
-      />
-
-      <TestimonialsSectionDeferred
-        id="testimonials"
-        subtitle={splashCopy.testimonialSubtitle}
-        title={splashCopy.testimonialTitle}
-        description={splashCopy.testimonialDescription}
-        testimonials={clientTestimonials}
-        className={HOME_SECTION_SPACING}
-        animated={false}
-        headerSize="section"
-      />
-
-      <BrandedContentSection
-        id="home-faq"
-        variant="white"
-        className={HOME_SECTION_SPACING}
-        headerSize="section"
-        header={{
-          icon: "quiz",
-          iconVariant: "bronze",
-          subtitle: locale === "es" ? "Breve de Misión" : "Mission FAQ",
-          title:
+        <TimelineDeferred
+          id="our-process"
+          icon="timeline"
+          subtitle={splashCopy.processSubtitle}
+          title={splashCopy.processTitle}
+          description={
+            <>
+              {homeCopy.process.descriptionPart1}
+              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                {homeCopy.process.descriptionPart2}
+              </span>
+              {homeCopy.process.descriptionPart3}
+              <span className="font-bold text-gray-900 dark:text-white">
+                {homeCopy.process.descriptionPart4}
+              </span>
+              {homeCopy.process.descriptionPart5}
+            </>
+          }
+          steps={processSteps}
+          compact
+          initiallyVisibleSteps={3}
+          expandStepsLabel={
             locale === "es"
-              ? "Preguntas Clave Antes de Iniciar una Misión"
-              : "Key Questions Before Starting a Mission",
-        }}
-      >
-        <div className="mx-auto max-w-5xl space-y-3">
-          <details className={HOME_FAQ_CARD_CLASS}>
-            <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white">
-              {locale === "es"
-                ? "¿Qué tipos de misiones atienden?"
-                : "What mission types do you handle?"}
-            </summary>
-            <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              {locale === "es"
-                ? "Nos enfocamos principalmente en construcción comercial: agrícola y bodegas, acondicionamientos comerciales, municipal e industrial ligero."
-                : "We focus primarily on mission-ready commercial work: agricultural and winery projects, fit-out operations, municipal, and light industrial scopes."}
-            </p>
-          </details>
+              ? `Ver los ${processSteps.length} pasos`
+              : `View all ${processSteps.length} steps`
+          }
+          collapseStepsLabel={
+            locale === "es" ? "Mostrar menos pasos" : "Show fewer steps"
+          }
+          className={`bg-gray-50 dark:bg-gray-800 ${HOME_SECTION_SPACING}`}
+        />
 
-          <details className={HOME_FAQ_CARD_CLASS}>
-            <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white">
-              {locale === "es"
-                ? "¿Operan en WA, OR e ID?"
-                : "Do you operate across WA, OR, and ID?"}
-            </summary>
-            <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              {locale === "es"
-                ? "Sí. MH Construction opera con licencia en los tres estados con gestión en Procore y control de documentación."
-                : "Yes. MH Construction is licensed across all three states with Procore-backed mission management and documentation control."}
-            </p>
-          </details>
+        <WhyPartnerSection
+          sectionVariant="white"
+          className={HOME_SECTION_SPACING}
+          showBackgroundPattern={false}
+          headerSubtitle={splashCopy.trustSubtitle}
+          headerTitle={splashCopy.trustTitle}
+          headerDescription={splashCopy.trustDescription}
+          headerSize="section"
+          condensed
+          condensedVisibleCount={2}
+          locale={locale}
+        />
 
-          <details className={HOME_FAQ_CARD_CLASS}>
-            <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white">
-              {locale === "es"
-                ? "¿Cómo inicio una conversación de misión?"
-                : "How do I start a mission conversation?"}
-            </summary>
-            <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              {locale === "es"
-                ? "Comparta alcance, cronograma y ubicación en la página de contacto para una revisión inicial de ajuste."
-                : "Share scope, schedule, and location details through the contact page for an initial mission-fit review."}
-            </p>
-          </details>
-        </div>
+        <TestimonialsSectionDeferred
+          id="testimonials"
+          subtitle={splashCopy.testimonialSubtitle}
+          title={splashCopy.testimonialTitle}
+          description={splashCopy.testimonialDescription}
+          testimonials={clientTestimonials}
+          className={HOME_SECTION_SPACING}
+          animated={false}
+          headerSize="section"
+        />
 
-        <div className="mt-6 text-center">
-          <Link
-            href="/faq?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=faq-section"
-            className={HOME_CTA_SECONDARY_CLASS}
-          >
-            {locale === "es"
-              ? "Ver todas las preguntas frecuentes"
-              : "View all frequently asked questions"}
-          </Link>
-        </div>
-      </BrandedContentSection>
+        <BrandedContentSection
+          id="home-faq"
+          variant="white"
+          className={HOME_SECTION_SPACING}
+          showBackgroundPattern={false}
+          headerSize="section"
+          header={{
+            icon: "quiz",
+            iconVariant: "bronze",
+            subtitle: locale === "es" ? "Breve de Misión" : "Mission FAQ",
+            title:
+              locale === "es"
+                ? "Preguntas Clave Antes de Iniciar una Misión"
+                : "Key Questions Before Starting a Mission",
+          }}
+        >
+          <div className="mx-auto max-w-5xl space-y-3">
+            <details className={HOME_FAQ_CARD_CLASS}>
+              <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white">
+                {locale === "es"
+                  ? "¿Qué tipos de misiones atienden?"
+                  : "What mission types do you handle?"}
+              </summary>
+              <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                {locale === "es"
+                  ? "Nos enfocamos principalmente en construcción comercial: agrícola y bodegas, acondicionamientos comerciales, municipal e industrial ligero."
+                  : "We focus primarily on mission-ready commercial work: agricultural and winery projects, fit-out operations, municipal, and light industrial scopes."}
+              </p>
+            </details>
 
-      <BrandedContentSection
-        id="home-final-cta"
-        variant="gray"
-        className={HOME_SECTION_SPACING_TIGHT_TOP}
-        header={{
-          icon: "flag",
-          iconVariant: "secondary",
-          subtitle: splashCopy.finalSubtitle,
-          title: splashCopy.finalTitle,
-          description: splashCopy.finalDescription,
-        }}
-      >
-        <div className="mx-auto mt-6 grid max-w-3xl grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2">
-          {splashCopy.finalButtons.map((button, index) => (
+            <details className={HOME_FAQ_CARD_CLASS}>
+              <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white">
+                {locale === "es"
+                  ? "¿Operan en WA, OR e ID?"
+                  : "Do you operate across WA, OR, and ID?"}
+              </summary>
+              <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                {locale === "es"
+                  ? "Sí. MH Construction opera con licencia en los tres estados con gestión en Procore y control de documentación."
+                  : "Yes. MH Construction is licensed across all three states with Procore-backed mission management and documentation control."}
+              </p>
+            </details>
+
+            <details className={HOME_FAQ_CARD_CLASS}>
+              <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white">
+                {locale === "es"
+                  ? "¿Cómo inicio una conversación de misión?"
+                  : "How do I start a mission conversation?"}
+              </summary>
+              <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                {locale === "es"
+                  ? "Comparta alcance, cronograma y ubicación en la página de contacto para una revisión inicial de ajuste."
+                  : "Share scope, schedule, and location details through the contact page for an initial mission-fit review."}
+              </p>
+            </details>
+          </div>
+
+          <div className="mt-6 text-center">
             <Link
-              key={button.label}
-              href={button.href}
-              className={
-                index === 0 ? HOME_CTA_PRIMARY_CLASS : HOME_CTA_SECONDARY_CLASS
-              }
+              href="/faq?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=faq-section"
+              className={HOME_CTA_SECONDARY_CLASS}
             >
-              {button.label}
+              {locale === "es"
+                ? "Ver todas las preguntas frecuentes"
+                : "View all frequently asked questions"}
             </Link>
-          ))}
-        </div>
-      </BrandedContentSection>
+          </div>
+        </BrandedContentSection>
 
-      {/* Next Steps Section */}
-      <NextStepsSection locale={locale} className={HOME_SECTION_SPACING} />
+        <BrandedContentSection
+          id="home-final-cta"
+          variant="gray"
+          className={HOME_SECTION_SPACING_TIGHT_TOP}
+          showBackgroundPattern={false}
+          header={{
+            icon: "flag",
+            iconVariant: "secondary",
+            subtitle: splashCopy.finalSubtitle,
+            title: splashCopy.finalTitle,
+            description: splashCopy.finalDescription,
+          }}
+        >
+          <div className="mx-auto mt-6 grid max-w-3xl grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2">
+            {splashCopy.finalButtons.map((button, index) => (
+              <Link
+                key={button.label}
+                href={button.href}
+                className={
+                  index === 0
+                    ? HOME_CTA_PRIMARY_CLASS
+                    : HOME_CTA_SECONDARY_CLASS
+                }
+              >
+                {button.label}
+              </Link>
+            ))}
+          </div>
+        </BrandedContentSection>
+
+        {/* Next Steps Section */}
+        <NextStepsSection locale={locale} className={HOME_SECTION_SPACING} />
+      </div>
     </>
   );
 }

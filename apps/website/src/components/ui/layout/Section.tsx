@@ -51,7 +51,7 @@ export function Section({
   className = "",
   containerClassName = "",
   id,
-  noBackground = false,
+  noBackground = true,
 }: SectionProps) {
   // Background variant classes
   const bgClasses = {

@@ -14,6 +14,9 @@ export interface BrandedContentSectionProps {
   /** Unique ID for section anchor links */
   id: string;
 
+  /** Whether to render the MH logo background pattern inside the section. */
+  showBackgroundPattern?: boolean;
+
   /** Section header configuration */
   header?: {
     /** Material icon name */
@@ -157,6 +160,7 @@ export function BrandedContentSection({
   className = "",
   containerClassName = "",
   headerSize = "display",
+  showBackgroundPattern = false,
 }: BrandedContentSectionProps) {
   // Background color based on variant
   const bgClasses =
@@ -243,7 +247,7 @@ export function BrandedContentSection({
       id={id}
       className={`relative ${bgClasses} py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden ${className}`}
     >
-      <DiagonalStripePattern />
+      {showBackgroundPattern ? <DiagonalStripePattern /> : null}
 
       {/* Content Container */}
       <div

@@ -30,6 +30,7 @@ export interface TimelineProps {
   initiallyVisibleSteps?: number;
   expandStepsLabel?: string;
   collapseStepsLabel?: string;
+  showBackgroundPattern?: boolean;
 }
 
 /**
@@ -63,6 +64,7 @@ export function Timeline({
   initiallyVisibleSteps = 3,
   expandStepsLabel = "View all steps",
   collapseStepsLabel = "Show fewer steps",
+  showBackgroundPattern = false,
 }: TimelineProps) {
   // Color mapping for icon backgrounds
   const iconBgColors = {
@@ -97,8 +99,12 @@ export function Timeline({
         className,
       )}
     >
-      <DiagonalStripePattern />
-      <BrandColorBlobs />
+      {showBackgroundPattern ? (
+        <>
+          <DiagonalStripePattern />
+          <BrandColorBlobs />
+        </>
+      ) : null}
 
       <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header - Standard Pattern */}

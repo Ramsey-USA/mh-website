@@ -102,6 +102,7 @@ interface WhyPartnerSectionProps {
   sectionVariant?: "white" | "gray";
   locale?: SupportedLocale;
   className?: string;
+  showBackgroundPattern?: boolean;
   condensed?: boolean;
   condensedVisibleCount?: number;
   headerSubtitle?: string;
@@ -114,6 +115,7 @@ export function WhyPartnerSection({
   sectionVariant = "white",
   locale = "en",
   className = "",
+  showBackgroundPattern = true,
   condensed = false,
   condensedVisibleCount = 4,
   headerSubtitle,
@@ -144,6 +146,7 @@ export function WhyPartnerSection({
       id="why-partner"
       variant={sectionVariant}
       className={className}
+      showBackgroundPattern={showBackgroundPattern}
       headerSize={headerSize}
       header={{
         icon: "verified",
