@@ -275,6 +275,12 @@ export default async function ProjectCaseStudyPage({
   }
 
   const selectedProject = project ?? legacyProject;
+  const title =
+    caseStudy?.title ?? selectedProject?.title ?? "Project Case Study";
+  const description =
+    caseStudy?.description ??
+    selectedProject?.description ??
+    "Project case study detail.";
   const canonicalSlug = caseStudy?.slug ?? selectedProject?.seoMetadata.slug;
   const projectImages = selectedProject?.images
     ? [...selectedProject.images].sort(
@@ -326,12 +332,6 @@ export default async function ProjectCaseStudyPage({
     "Completed field checks at each major milestone",
   ];
 
-  const title =
-    caseStudy?.title ?? selectedProject?.title ?? "Project Case Study";
-  const description =
-    caseStudy?.description ??
-    selectedProject?.description ??
-    "Project case study detail.";
   const canonicalPath = `/projects/${canonicalSlug ?? slug}`;
 
   const projectSchema = {
