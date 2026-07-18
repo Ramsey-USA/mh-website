@@ -251,7 +251,7 @@ describe("generateJeremyLeadershipVideoSchema()", () => {
     expect(schema["@type"]).toBe("VideoObject");
     expect(schema.name).toContain("Radio Ad");
     expect(schema.contentUrl).toContain(
-      "/videos/hero-commercials/mh-construction-radio-ad-alpha.mp4",
+      "/videos/hero-commercials/mh-construction-radio-ad-jeremy-thamert.mp4",
     );
     expect(schema.duration).toBe("PT1M1S");
     expect((schema.actor as any)["@id"]).toContain("/jeremy-thamert#person");

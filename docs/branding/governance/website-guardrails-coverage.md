@@ -46,7 +46,7 @@ Every in-scope website change must preserve all dimensions below:
 11. **Theme parity:** Light/dark and pre-hydration theme behavior preserve color intent, contrast, and trust-surface readability.
 12. **Media parity:** Imagery, iconography, video treatments, and overlay gradients follow approved patterns and do not introduce off-brand styles.
 13. **System-surface parity:** Shared app shell surfaces (header, navigation overlay, ribbon, footer, error, loading, offline, and not-found) remain congruent with routed pages.
-14. **Background contract parity:** All non-hero surfaces use the single centered MH logo watermark contract (no-repeat, centered, max-size with preserved aspect ratio), with route caveats enforced for veteran and government surfaces.
+14. **Background contract parity:** All non-hero surfaces use the global app-shell centered MH logo parallax watermark contract (single mark, no-repeat, centered, max-size with preserved aspect ratio), with route caveats enforced for veteran and government surfaces and motion safeguards (reduced-motion disable + bounded translation).
 
 ### Canonical Visual Enforcement Path (Buttons, Headings, Containers, Modals, Cards, Forms, Navigation, Footer Trust, and Hover Motion)
 

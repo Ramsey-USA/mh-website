@@ -145,6 +145,37 @@
    ============================================ */
 
 @layer utilities {
+  .mh-logo-parallax-layer {
+    background-repeat: no-repeat;
+    background-position: center calc(50% + var(--mh-logo-parallax-offset, 0px));
+    background-size: clamp(320px, 62vw, 920px) auto;
+    will-change: background-position;
+  }
+
+  .mh-logo-parallax-overlay {
+    mix-blend-mode: multiply;
+  }
+
+  .dark .mh-logo-parallax-overlay {
+    mix-blend-mode: screen;
+  }
+
+  .mh-global-logo-parallax-active .mh-diagonal-stripe-pattern {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mh-logo-parallax-layer {
+      background-position: center;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .mh-logo-parallax-layer {
+      background-size: clamp(260px, 80vw, 560px) auto;
+    }
+  }
+
   /* MH display heading system: tuned to keep capitals crisp and distinctive. */
   .mh-heading-display {
     font-family: var(--font-heading);

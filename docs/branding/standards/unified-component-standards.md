@@ -445,34 +445,32 @@ When a page uses standard MH section chrome, prefer shared section-shell compone
 2. Use shared wrappers for deferred sections and pass shell className through so loading and final states match.
 3. Only use manual section markup when a documented exception requires it.
 
-### Section Background Pattern (REQUIRED)
+### Global Non-Hero Background Pattern (REQUIRED)
 
-All non-hero page sections MUST follow this standardized background:
+All routed pages MUST use the app-shell global MH watermark/parallax layer for non-hero surfaces.
+
+Use the page shell contract (from `AppShell`) instead of per-section logo overlays:
 
 ```tsx
-<section
-  id="section-id"
-  className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
->
-  {/* MH Logo Paraplex Background - REQUIRED */}
-  <DiagonalStripePattern />
-
-  <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-    {/* Content goes here */}
-  </div>
-</section>
+<div className="mh-global-logo-parallax-active ...">
+  <div className="mh-logo-parallax-layer dark:hidden" />
+  <div className="mh-logo-parallax-layer hidden dark:block" />
+  {/* page content */}
+</div>
 ```
 
 **Key Requirements:**
 
 - ✅ Base: `bg-white dark:bg-gray-900` (solid, no gradients)
 - ✅ Padding: `py-12 sm:py-16 lg:py-20 xl:py-24`
-- ✅ Background treatment: one centered MH logo watermark via `DiagonalStripePattern`
+- ✅ Background treatment: one centered MH logo watermark via the global app shell parallax layer
 - ✅ Watermark behavior: `backgroundRepeat: no-repeat`, centered placement, maximum available size with preserved aspect ratio
+- ✅ Motion safeguard: parallax offset is clamped (`--mh-logo-parallax-offset`), and automatically disabled for reduced-motion users
+- ✅ Performance safeguard: scroll updates are `requestAnimationFrame` throttled
 - ✅ Mode-aware assets: light/dark logo sources must be explicit when route intent requires a variant
-- ✅ Route caveat: veteran-specific routes may use the veteran logo watermark in both theme modes
-- ✅ Route caveat: public-sector/government routes use black logo in light mode and white logo in dark mode (dark section shells may force white in both modes)
-- ✅ Overflow hidden: Always include
+- ✅ Route caveat: veteran-specific routes use the veteran watermark in both theme modes
+- ✅ Route caveat: public-sector/government routes use black logo in light mode and white logo in dark mode
+- ✅ Section shells keep `overflow-hidden`, but do not add local duplicate MH watermark layers when the global shell is active
 
 ❌ **DEPRECATED - DO NOT USE:**
 
@@ -480,6 +478,7 @@ All non-hero page sections MUST follow this standardized background:
 - Complex gradients on base background
 - Small animated blobs with pulse
 - Repeating/tiled logo backgrounds on non-hero shells
+- Section-level duplicate logo watermark overlays on pages already wrapped by the global app-shell parallax contract
 - Inconsistent padding values
 
 ### Section Header Pattern (Custom)

@@ -52,7 +52,7 @@ export function DiagonalStripePattern({
   return (
     <>
       <div
-        className={`absolute inset-0 dark:hidden ${className}`}
+        className={`mh-diagonal-stripe-pattern absolute inset-0 dark:hidden ${className}`}
         style={
           {
             opacity: lightOpacity,
@@ -67,7 +67,7 @@ export function DiagonalStripePattern({
         aria-hidden="true"
       />
       <div
-        className={`absolute inset-0 hidden dark:block ${className}`}
+        className={`mh-diagonal-stripe-pattern absolute inset-0 hidden dark:block ${className}`}
         style={
           {
             opacity: darkOpacity,

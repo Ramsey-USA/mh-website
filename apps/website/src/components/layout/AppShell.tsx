@@ -46,6 +46,29 @@ const QUICK_ACTIONS = [
   { label: "Resources", href: "/resources", icon: FORM_MANUAL_ICONS.source },
 ] as const;
 
+const PARALLAX_MAX_OFFSET_PX = 140;
+
+function resolveGlobalParallaxLogos(pathname: string) {
+  if (pathname.startsWith("/veterans")) {
+    return {
+      light: "/images/logo/mh-veteran-bg.webp",
+      dark: "/images/logo/mh-veteran-bg.webp",
+    };
+  }
+
+  if (pathname.startsWith("/public-sector")) {
+    return {
+      light: "/images/logo/mh-logo-black.webp",
+      dark: "/images/logo/mh-logo-white.webp",
+    };
+  }
+
+  return {
+    light: "/images/logo/mh-logo-light-bg.webp",
+    dark: "/images/logo/mh-logo-dark-bg.webp",
+  };
+}
+
 function humanizePathSegment(segment: string): string {
   return segment
     .replace(/[-_]+/g, " ")
@@ -202,6 +225,10 @@ export function AppShell({
   const { isStandalone } = usePWA();
   const pwaHeaderRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
+  const parallaxLogos = useMemo(
+    () => resolveGlobalParallaxLogos(pathname),
+    [pathname],
+  );
 
   const activeRibbon = useMemo(() => {
     const ribbons = jeremyRibbons ?? {};
@@ -259,12 +286,103 @@ export function AppShell({
     };
   }, [isStandalone]);
 
+  useEffect(() => {
+    const root = document.documentElement;
+    const mediaQuery = globalThis.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
+    const connection =
+      "connection" in navigator
+        ? ((
+            navigator as Navigator & {
+              connection?: { saveData?: boolean };
+            }
+          ).connection ?? null)
+        : null;
+
+    const shouldDisableParallax = () =>
+      mediaQuery.matches || Boolean(connection?.saveData);
+
+    const getParallaxSpeed = () => {
+      const isMobile = globalThis.innerWidth < 768;
+      return isMobile ? 0.06 : 0.1;
+    };
+
+    const setOffset = (offset: number) => {
+      const clampedOffset = Math.max(
+        0,
+        Math.min(PARALLAX_MAX_OFFSET_PX, Math.round(offset)),
+      );
+      root.style.setProperty("--mh-logo-parallax-offset", `${clampedOffset}px`);
+    };
+
+    if (shouldDisableParallax()) {
+      setOffset(0);
+      return () => {
+        root.style.removeProperty("--mh-logo-parallax-offset");
+      };
+    }
+
+    let rafId = 0;
+
+    const updateParallaxOffset = () => {
+      rafId = 0;
+      const scrollY = globalThis.scrollY || 0;
+      setOffset(scrollY * getParallaxSpeed());
+    };
+
+    const onScroll = () => {
+      if (rafId !== 0) {
+        return;
+      }
+
+      rafId = globalThis.requestAnimationFrame(updateParallaxOffset);
+    };
+
+    updateParallaxOffset();
+    globalThis.addEventListener("scroll", onScroll, { passive: true });
+    globalThis.addEventListener("resize", onScroll);
+
+    const onMotionPreferenceChange = () => {
+      if (shouldDisableParallax()) {
+        setOffset(0);
+      } else {
+        onScroll();
+      }
+    };
+
+    mediaQuery.addEventListener("change", onMotionPreferenceChange);
+
+    return () => {
+      if (rafId !== 0) {
+        globalThis.cancelAnimationFrame(rafId);
+      }
+      globalThis.removeEventListener("scroll", onScroll);
+      globalThis.removeEventListener("resize", onScroll);
+      mediaQuery.removeEventListener("change", onMotionPreferenceChange);
+      root.style.removeProperty("--mh-logo-parallax-offset");
+    };
+  }, []);
+
   const pageBackground = (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+      className="pointer-events-none fixed inset-0 z-15 overflow-hidden"
     >
-      <DiagonalStripePattern lightOpacity={0.04} darkOpacity={0.06} />
+      <div
+        className="mh-logo-parallax-layer mh-logo-parallax-overlay absolute inset-0 dark:hidden"
+        style={{
+          backgroundImage: `url('${parallaxLogos.light}')`,
+          opacity: 0.065,
+        }}
+      />
+      <div
+        className="mh-logo-parallax-layer mh-logo-parallax-overlay absolute inset-0 hidden dark:block"
+        style={{
+          backgroundImage: `url('${parallaxLogos.dark}')`,
+          opacity: 0.09,
+        }}
+      />
     </div>
   );
 
@@ -273,7 +391,7 @@ export function AppShell({
       <>
         {pageBackground}
         <Navigation />
-        <div className="relative z-10 flex min-h-screen flex-col bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div className="mh-global-logo-parallax-active relative z-10 flex min-h-screen flex-col bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
           <main id="main-content" className="grow pt-(--mh-nav-offset,6.5rem)">
             {children}
             <SemiquincentennialAfterHeroSlot />
@@ -302,7 +420,7 @@ export function AppShell({
     <>
       {pageBackground}
       <Navigation />
-      <div className="relative z-10 flex min-h-screen flex-col bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <div className="mh-global-logo-parallax-active relative z-10 flex min-h-screen flex-col bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <header
           ref={pwaHeaderRef}
           className="fixed top-[var(--mh-nav-offset, 0px)] left-0 right-0 z-60 bg-white/80 px-4 py-3 backdrop-blur-sm dark:bg-gray-900/80 sm:px-6"

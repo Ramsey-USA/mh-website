@@ -109,11 +109,14 @@ If any inventory is missing, the page audit is incomplete.
 
 ### Required Elements (All Non-Hero Sections)
 
-- [ ] `DiagonalStripePattern` (logo paraplex implementation) is present through shared shell/background components
+- [ ] Global app-shell watermark layer is active (`mh-global-logo-parallax-active` + `mh-logo-parallax-layer`)
 - [ ] Logo paraplex uses approved asset family (`/images/logo/mh-logo-light-bg.webp` and dark variant as applicable)
 - [ ] Logo watermark renders as a single centered mark (`backgroundRepeat: no-repeat`, centered placement)
 - [ ] Logo watermark uses maximum available section space while preserving aspect ratio (no stretching/distortion)
-- [ ] Non-hero sections do not omit the logo paraplex layer unless a scoped exception is documented
+- [ ] Non-hero sections do not omit the global watermark layer unless a scoped exception is documented
+- [ ] Section-level duplicate watermark overlays are suppressed when global parallax is active
+- [ ] Parallax motion is disabled under `prefers-reduced-motion: reduce`
+- [ ] Parallax offset is bounded (no runaway scroll translation)
 
 ### Route Caveats (Required Where Applicable)
 
@@ -133,6 +136,7 @@ If any inventory is missing, the page audit is incomplete.
 - [ ] ❌ No active `BrandColorBlobs` visual overlays on non-hero sections
 - [ ] ❌ No radial gradient overlays
 - [ ] ❌ No repeated/tiled logo watermark backgrounds on non-hero sections
+- [ ] ❌ No per-section duplicate MH logo layers on pages already using global app-shell parallax
 
 ### Scoped Exceptions (Backgrounds)
 
