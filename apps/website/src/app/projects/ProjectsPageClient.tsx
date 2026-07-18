@@ -97,6 +97,7 @@ export default function ProjectsPageClient() {
     searchQuery,
     setSearchQuery,
     projects,
+    hasActiveFilters,
     clearSearch,
   } = useProjectsSearch();
 
@@ -139,12 +140,15 @@ export default function ProjectsPageClient() {
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
           onClearSearch={clearSearch}
+          resultsCount={projects.length}
         />
 
         {/* Projects Grid - Show the work first */}
         <ProjectsGridSection
           projects={projects}
           selectedCategory={selectedCategory}
+          hasActiveFilters={hasActiveFilters}
+          onResetFilters={clearSearch}
         />
 
         {/* Stats Section - Keep one concise proof block */}

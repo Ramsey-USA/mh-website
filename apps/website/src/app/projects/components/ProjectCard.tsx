@@ -22,6 +22,10 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
+  const featuredImage =
+    project.images.find((image) => image.isFeatured) ?? project.images[0];
+  const hasFeaturedImage = project.images.some((image) => image.isFeatured);
+
   const handleCardClick = () => {
     trackProjectInterest(project.title, project.category, "click", {
       location: project.location.city,
@@ -31,34 +35,50 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
 
   return (
     <Card
-      className={getCardClassName(
-        "default",
-        "overflow-hidden hover:shadow-xl cursor-pointer",
-      )}
-      onClick={handleCardClick}
+      className={getCardClassName("default", "overflow-hidden hover:shadow-xl")}
     >
       {/* Project Image */}
-      <div className="relative bg-gray-200 dark:bg-gray-700 h-64">
-        {project.images[0] ? (
+      <div className="relative h-72 overflow-hidden bg-gray-200 dark:bg-gray-700 md:h-80">
+        {featuredImage ? (
           <Image
-            src={project.images[0].url}
-            alt={project.images[0].alt}
+            src={featuredImage.url}
+            alt={featuredImage.alt}
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            quality={72}
+            quality={78}
             loading="lazy"
             priority={false}
           />
         ) : (
-          <div className="flex justify-center items-center bg-linear-to-br from-brand-primary/20 dark:from-brand-primary/30 to-brand-secondary/20 dark:to-brand-secondary/30 w-full h-full">
-            <MaterialIcon
-              icon="image"
-              size="4xl"
-              className="text-brand-secondary"
-            />
+          <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-brand-primary/20 via-white/20 to-brand-secondary/20 dark:from-brand-primary/30 dark:via-gray-900/20 dark:to-brand-secondary/30">
+            <div className="flex flex-col items-center gap-3 rounded-2xl border border-white/20 bg-white/40 px-5 py-4 text-center backdrop-blur-sm dark:bg-gray-950/30">
+              <MaterialIcon
+                icon="image"
+                size="4xl"
+                className="text-brand-secondary"
+              />
+              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-gray-700 dark:text-gray-200">
+                Project photo coming soon
+              </span>
+            </div>
           </div>
         )}
+
+        <div className="absolute inset-0 bg-linear-to-t from-gray-950/80 via-gray-950/10 to-transparent" />
+
+        <div className="absolute left-4 top-4 flex flex-wrap gap-2">
+          <span className="inline-flex items-center rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-900 shadow-md backdrop-blur-sm dark:bg-gray-950/85 dark:text-white">
+            {project.images.length > 1
+              ? `${project.images.length} photos`
+              : "1 photo"}
+          </span>
+          {hasFeaturedImage && (
+            <span className="inline-flex items-center rounded-full bg-brand-secondary/90 px-3 py-1 text-xs font-semibold text-white shadow-md backdrop-blur-sm">
+              Featured photo
+            </span>
+          )}
+        </div>
 
         {/* Featured Badge */}
         {project.isFeatured && (
@@ -71,7 +91,7 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
         )}
 
         {/* Location Badge */}
-        <div className="bottom-4 left-4 absolute">
+        <div className="bottom-4 left-4 absolute z-10">
           <span className="inline-flex items-center bg-white/90 dark:bg-gray-800/90 shadow-md backdrop-blur-sm px-2 py-1 border-brand-primary/20 border-l-4 font-semibold text-gray-900 dark:text-white text-xs">
             <MaterialIcon
               icon="location_on"
@@ -185,7 +205,12 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
           className="w-full group hover:bg-brand-primary hover:text-white hover:border-brand-primary"
           asChild
         >
-          <Link href={`/projects/${project.seoMetadata.slug}`} prefetch={false}>
+          <Link
+            href={`/projects/${project.seoMetadata.slug}`}
+            prefetch={false}
+            onClick={handleCardClick}
+            aria-label={`View details for ${project.title}`}
+          >
             View Partnership Details
             <MaterialIcon
               icon="arrow_forward"

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
 
 import { PageTrackingClient } from "@/components/analytics";
@@ -275,6 +276,27 @@ export default async function ProjectCaseStudyPage({
 
   const selectedProject = project ?? legacyProject;
   const canonicalSlug = caseStudy?.slug ?? selectedProject?.seoMetadata.slug;
+  const projectImages = selectedProject?.images
+    ? [...selectedProject.images].sort(
+        (left, right) => left.order - right.order,
+      )
+    : [];
+  const galleryImages =
+    projectImages.length > 0
+      ? projectImages
+      : caseStudy?.ogImage
+        ? [
+            {
+              id: `case-study-${slug}`,
+              url: caseStudy.ogImage,
+              alt: `${title} project photo`,
+              isFeatured: true,
+              order: 1,
+            },
+          ]
+        : [];
+  const featuredProjectImage = galleryImages[0];
+  const supportingGalleryImages = galleryImages.slice(1, 5);
 
   if (legacyProject && canonicalSlug && slug !== canonicalSlug) {
     redirect(`/projects/${canonicalSlug}`);
@@ -417,6 +439,78 @@ export default async function ProjectCaseStudyPage({
             { label: title },
           ]}
         />
+
+        {featuredProjectImage && (
+          <section className="px-4 pb-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-6xl">
+              <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
+                    Project Gallery
+                  </p>
+                  <h2 className="mt-2 text-2xl font-bold text-gray-900 dark:text-white">
+                    A look at the finished work
+                  </h2>
+                </div>
+                <p className="max-w-2xl text-sm leading-6 text-gray-600 dark:text-gray-300">
+                  {projectImages.length > 0
+                    ? "These project photos come from the captured site record and are shown in the order the team documented them."
+                    : "This case study uses the available project image as a visual fallback until a full photo set is published."}
+                </p>
+              </div>
+
+              <div
+                className={`grid gap-4 ${supportingGalleryImages.length > 0 ? "lg:grid-cols-[minmax(0,1.55fr)_minmax(18rem,0.75fr)]" : ""}`}
+              >
+                <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900 lg:sticky lg:top-8">
+                  <div className="relative aspect-16/10 bg-gray-100 dark:bg-gray-950">
+                    <Image
+                      src={featuredProjectImage.url}
+                      alt={featuredProjectImage.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 66vw"
+                      quality={82}
+                      priority
+                    />
+                  </div>
+                  {featuredProjectImage.caption && (
+                    <p className="border-t border-gray-200 px-5 py-4 text-sm leading-6 text-gray-600 dark:border-gray-800 dark:text-gray-300">
+                      {featuredProjectImage.caption}
+                    </p>
+                  )}
+                </div>
+
+                {supportingGalleryImages.length > 0 && (
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                    {supportingGalleryImages.map((image) => (
+                      <figure
+                        key={image.id}
+                        className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900"
+                      >
+                        <div className="relative aspect-4/3 bg-gray-100 dark:bg-gray-950">
+                          <Image
+                            src={image.url}
+                            alt={image.alt}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 22vw"
+                            quality={78}
+                          />
+                        </div>
+                        {image.caption && (
+                          <figcaption className="px-4 py-3 text-xs leading-5 text-gray-600 dark:text-gray-300">
+                            {image.caption}
+                          </figcaption>
+                        )}
+                      </figure>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,0.9fr)]">

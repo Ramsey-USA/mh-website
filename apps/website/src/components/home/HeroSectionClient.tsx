@@ -251,7 +251,7 @@ export function HeroSectionClient({
   return (
     <section
       data-page-hero="true"
-      className="hero-section relative flex items-end justify-end text-white overflow-hidden"
+      className="hero-section relative isolate flex items-end justify-end overflow-hidden bg-gray-950 text-white"
     >
       {/* Background - Video Support */}
       <div className="absolute inset-0">
@@ -259,7 +259,7 @@ export function HeroSectionClient({
           <>
             <video
               ref={videoRef}
-              className={`absolute inset-0 h-full w-full object-contain object-[center_58%] min-[430px]:object-cover min-[430px]:object-[center_60%] sm:object-cover transition-opacity duration-300 ${
+              className={`absolute inset-0 h-full w-full object-cover object-[center_60%] transition-opacity duration-300 ${
                 isVideoReady ? "opacity-100" : "opacity-0"
               }`}
               autoPlay={allowAutoPlayback}

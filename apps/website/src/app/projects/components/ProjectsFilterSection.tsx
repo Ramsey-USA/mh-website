@@ -14,6 +14,7 @@ interface ProjectsFilterSectionProps {
   searchQuery: string;
   onSearchChange: (query: string) => void;
   onClearSearch: () => void;
+  resultsCount: number;
 }
 
 export function ProjectsFilterSection({
@@ -22,7 +23,12 @@ export function ProjectsFilterSection({
   searchQuery,
   onSearchChange,
   onClearSearch,
+  resultsCount,
 }: Readonly<ProjectsFilterSectionProps>) {
+  const normalizedSearchQuery = searchQuery.trim();
+  const hasActiveFilters =
+    selectedCategory !== "all" || normalizedSearchQuery.length > 0;
+
   return (
     <section className="bg-gray-50 dark:bg-gray-800 py-12 border-gray-200 border-y dark:border-gray-700">
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -56,6 +62,7 @@ export function ProjectsFilterSection({
               />
               {searchQuery && (
                 <button
+                  type="button"
                   onClick={onClearSearch}
                   className="top-1/2 right-4 absolute hover:bg-gray-200 dark:hover:bg-gray-600 p-1 rounded-full text-gray-600 hover:text-gray-600 dark:hover:text-gray-300 transition-colors -translate-y-1/2 transform"
                   aria-label="Clear search"
@@ -64,6 +71,9 @@ export function ProjectsFilterSection({
                 </button>
               )}
             </div>
+            <p className="mt-3 text-center text-sm text-gray-600 dark:text-gray-300">
+              Try terms like project type, city, or specialty scope.
+            </p>
           </div>
 
           {/* Category Filters */}
@@ -72,6 +82,7 @@ export function ProjectsFilterSection({
               <Button
                 key={category.id}
                 onClick={() => onCategoryChange(category.id)}
+                aria-pressed={selectedCategory === category.id}
                 variant={
                   selectedCategory === category.id ? "default" : "outline"
                 }
@@ -87,6 +98,28 @@ export function ProjectsFilterSection({
                 {category.label}
               </Button>
             ))}
+          </div>
+
+          <div
+            className="mx-auto mt-6 max-w-3xl rounded-xl border border-gray-200 bg-white/80 px-4 py-3 text-center text-sm text-gray-700 shadow-xs dark:border-gray-700 dark:bg-gray-900/60 dark:text-gray-200"
+            aria-live="polite"
+          >
+            <span className="font-semibold">{resultsCount}</span>{" "}
+            {resultsCount === 1 ? "project match" : "project matches"}
+            {hasActiveFilters && (
+              <>
+                {" "}
+                for your current filters.
+                <Button
+                  type="button"
+                  variant="link"
+                  className="ml-1 p-0 font-semibold text-brand-primary"
+                  onClick={onClearSearch}
+                >
+                  Reset all
+                </Button>
+              </>
+            )}
           </div>
         </FadeInWhenVisible>
       </div>

@@ -88,6 +88,12 @@ export function useProjectsSearch() {
     );
   }, [selectedCategory, deferredSearchQuery]);
 
+  const hasActiveFilters = useMemo(
+    () =>
+      selectedCategory !== "all" || normalizedDeferredSearchQuery.length > 0,
+    [normalizedDeferredSearchQuery.length, selectedCategory],
+  );
+
   // Track search analytics (after projects is defined)
   useEffect(() => {
     let timeoutId: ReturnType<typeof globalThis.setTimeout> | undefined;
@@ -136,6 +142,7 @@ export function useProjectsSearch() {
     searchQuery,
     setSearchQuery,
     projects,
+    hasActiveFilters,
     clearSearch,
   };
 }

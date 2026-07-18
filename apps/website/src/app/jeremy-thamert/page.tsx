@@ -315,7 +315,7 @@ export default async function JeremyThamertPage() {
                     <MaterialIcon icon="phone" size="sm" className="mr-2" />
                     {isEs
                       ? "Contactar al Equipo de Jeremy"
-                      : "Contact Jeremy&apos;s Team"}
+                      : "Contact Jeremy's Team"}
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">

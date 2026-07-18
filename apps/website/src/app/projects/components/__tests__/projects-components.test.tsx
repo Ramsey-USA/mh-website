@@ -14,10 +14,20 @@ jest.mock("next/link", () => ({
   default: ({
     children,
     href,
+    ...rest
   }: {
     children: React.ReactNode;
     href: string;
-  }) => <a href={href}>{children}</a>,
+  }) => (
+    <a href={href} {...rest}>
+      {children}
+    </a>
+  ),
+}));
+
+jest.mock("next/image", () => ({
+  __esModule: true,
+  default: ({ alt }: { alt: string }) => <img alt={alt} />,
 }));
 
 jest.mock("@/components/icons/MaterialIcon", () => ({
@@ -227,7 +237,7 @@ describe("ProjectCard", () => {
       trackProjectInterest,
     } = require("@/lib/analytics/marketing-tracking");
     render(<ProjectCard project={mockProject} />);
-    fireEvent.click(screen.getByTestId("card"));
+    fireEvent.click(screen.getByText(/view partnership details/i));
     expect(trackProjectInterest).toHaveBeenCalledWith(
       "Test Project",
       "commercial",
@@ -335,14 +345,26 @@ describe("ProjectsFilterSection", () => {
 describe("ProjectsGridSection", () => {
   it("renders 0 collaborations when no projects", () => {
     const { ProjectsGridSection } = require("../ProjectsGridSection");
-    render(<ProjectsGridSection projects={[]} selectedCategory="all" />);
+    render(
+      <ProjectsGridSection
+        projects={[]}
+        selectedCategory="all"
+        hasActiveFilters={false}
+        onResetFilters={jest.fn()}
+      />,
+    );
     expect(screen.getByText(/0 collaboration/)).toBeTruthy();
   });
 
   it("renders project cards for each project", () => {
     const { ProjectsGridSection } = require("../ProjectsGridSection");
     render(
-      <ProjectsGridSection projects={[mockProject]} selectedCategory="all" />,
+      <ProjectsGridSection
+        projects={[mockProject]}
+        selectedCategory="all"
+        hasActiveFilters={false}
+        onResetFilters={jest.fn()}
+      />,
     );
     // ProjectCard is not mocked here so its content renders
     expect(screen.getByText("Test Project")).toBeTruthy();
