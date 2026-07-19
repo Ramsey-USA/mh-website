@@ -54,6 +54,9 @@ const TEMP_ASSET_BASENAMES = new Set([
   "tmp-form03d.html",
   "tmp-form03d-pdf.png",
   "tmp-form03d-pdf-wait.png",
+  // Large hero commercial video files exceed the Cloudflare Workers 25 MiB
+  // asset limit. These are excluded from the bundle and served from R2/CDN.
+  "mh-construction-radio-ad-jeremy-thamert.webm",
 ]);
 
 const WORKERS_MAX_ASSET_BYTES = 25 * 1024 * 1024;
