@@ -64,7 +64,11 @@ const nextConfig = {
     ? {
         experimental: {
           // Reduce build worker pressure in constrained containers.
-          webpackBuildWorker: !isLowMemoryBuild,
+          // Also disable when NEXT_PRIVATE_STANDALONE=true (OpenNext): spawning
+          // webpack workers alongside standalone file-tracing exhausts available
+          // memory in the devcontainer, causing the build process to be SIGTERM'd.
+          webpackBuildWorker:
+            !isLowMemoryBuild && process.env.NEXT_PRIVATE_STANDALONE !== "true",
           // CSS optimization - cssChunking defaults to true for better splitting
           // Tree-shake large packages at compile time (experimental in Next.js 16)
           optimizePackageImports: [

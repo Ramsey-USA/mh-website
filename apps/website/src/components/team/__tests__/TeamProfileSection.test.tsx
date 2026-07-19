@@ -96,6 +96,7 @@ const baseMember: VintageTeamMember = {
   active: true,
   slug: "alex-builder",
   email: "alex@mhc-gc.com",
+  linkedinUrl: "https://www.linkedin.com/in/alex-builder/",
 };
 
 describe("TeamProfileSection", () => {
@@ -127,6 +128,11 @@ describe("TeamProfileSection", () => {
       "href",
       expect.stringContaining("mailto:office@mhc-gc.com"),
     );
+    expect(
+      screen.getAllByRole("link", {
+        name: /connect with alex builder on linkedin/i,
+      })[0],
+    ).toHaveAttribute("href", "https://www.linkedin.com/in/alex-builder/");
 
     await user.click(
       screen.getByRole("button", { name: /personal insights/i }),
@@ -168,6 +174,22 @@ describe("TeamProfileSection", () => {
     expect(
       screen.getByRole("link", { name: /download qr code for alex builder/i }),
     ).toHaveAttribute("download", "qr-team-alex-builder-color.png");
+    expect(
+      screen.getByRole("link", { name: /open alex builder linkedin profile/i }),
+    ).toHaveAttribute("href", "https://www.linkedin.com/in/alex-builder/");
+  });
+
+  it("does not render LinkedIn links when no linkedinUrl exists", () => {
+    const { linkedinUrl: _unusedLinkedinUrl, ...memberWithoutLinkedin } =
+      baseMember;
+
+    render(<TeamProfileSection member={memberWithoutLinkedin} index={1} />);
+
+    expect(
+      screen.queryByRole("link", {
+        name: /connect with alex builder on linkedin/i,
+      }),
+    ).not.toBeInTheDocument();
   });
 
   it("updates chart theme for dark mode and falls back to an icon avatar on image error", () => {

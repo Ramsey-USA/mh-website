@@ -11,7 +11,6 @@ import mikeHolstein from "@/lib/shared-data/team/mike-holstein.json";
 import arnoldGarcia from "./team/arnold-garcia.json";
 import benWoodall from "./team/ben-woodall.json";
 import toddSchoeff from "./team/todd-schoeff.json";
-import steveMcclary from "./team/steve-mcclary.json";
 import reaganMassey from "./team/reagan-massey.json";
 import porterCline from "./team/porter-cline.json";
 import brooksMorris from "./team/brooks-morris.json";
@@ -85,6 +84,7 @@ export interface VintageTeamMember {
   active: boolean;
   slug: string;
   email?: string; // Public team contact email; routed through the office inbox
+  linkedinUrl?: string; // Public LinkedIn profile URL for direct professional connection
 }
 
 /**
@@ -170,7 +170,6 @@ export const vintageTeamMembers: VintageTeamMember[] = [
   arnoldGarcia,
   benWoodall,
   toddSchoeff,
-  steveMcclary,
   reaganMassey,
   porterCline,
   brooksMorris,

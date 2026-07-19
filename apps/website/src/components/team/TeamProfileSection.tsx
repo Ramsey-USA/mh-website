@@ -102,6 +102,21 @@ function getBioPreview(bio: string): string {
   return `${bio.slice(0, 220).trimEnd()}...`;
 }
 
+function getLinkedInHref(linkedinUrl?: string): string | null {
+  if (!linkedinUrl) {
+    return null;
+  }
+
+  try {
+    const parsedUrl = new URL(linkedinUrl);
+    return parsedUrl.hostname.includes("linkedin.com")
+      ? parsedUrl.toString()
+      : null;
+  } catch {
+    return null;
+  }
+}
+
 type SkillKey = keyof VintageTeamMember["skills"];
 
 const SKILL_KEYS: SkillKey[] = [
@@ -539,6 +554,7 @@ export function TeamProfileSection({
   const { isDarkMode: isDark } = useTheme();
   const [showPersonal, setShowPersonal] = useState(false);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const linkedinHref = getLinkedInHref(member.linkedinUrl);
 
   const achievementBadges = buildAchievementBadges(member);
   const calibratedSkills = buildRoleCalibratedSkills(member);
@@ -838,6 +854,18 @@ export function TeamProfileSection({
               <MaterialIcon icon="open_in_new" size="sm" className="" />
               View Full Profile
             </button>
+            {linkedinHref && (
+              <a
+                href={linkedinHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 ml-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-secondary-dark hover:text-brand-secondary dark:text-brand-secondary-light dark:hover:text-brand-secondary transition-colors"
+                aria-label={`Connect with ${member.name} on LinkedIn`}
+              >
+                <MaterialIcon icon="language" size="sm" className="" />
+                Connect on LinkedIn
+              </a>
+            )}
           </div>
 
           {/* Career Highlights */}
@@ -1288,7 +1316,23 @@ export function TeamProfileSection({
           )}
 
           {/* Contact Button */}
-          <div className="flex justify-center">
+          <div className="flex flex-wrap justify-center gap-3">
+            {linkedinHref && (
+              <a
+                href={linkedinHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={TEAM_PROFILE_SECTION_THEME.contactButton}
+                aria-label={`Connect with ${member.name} on LinkedIn`}
+              >
+                <MaterialIcon
+                  icon="language"
+                  size="sm"
+                  className="text-white"
+                />
+                Connect on LinkedIn
+              </a>
+            )}
             <a
               href={`mailto:${COMPANY_INFO.email.main}?subject=Connect%20with%20${encodeURIComponent(member.name)}`}
               className={TEAM_PROFILE_SECTION_THEME.contactButton}
@@ -1311,6 +1355,18 @@ export function TeamProfileSection({
           <p className="font-body text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-200">
             {member.bio}
           </p>
+          {linkedinHref && (
+            <a
+              href={linkedinHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:text-brand-primary-dark dark:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors"
+              aria-label={`Open ${member.name} LinkedIn profile`}
+            >
+              <MaterialIcon icon="language" size="sm" className="" />
+              LinkedIn Profile
+            </a>
+          )}
           {member.careerHighlights.length > 0 && (
             <div>
               <h4 className="text-sm font-bold text-brand-primary dark:text-brand-secondary mb-2">

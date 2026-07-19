@@ -42,7 +42,7 @@
   ],
   "avatar": "/images/team/steve-mcclary.webp",
   "veteranStatus": "Civilian Professional",
-  "active": true,
+  "active": false,
   "slug": "steve-mcclary",
   "email": "office@mhc-gc.com",
   "skills": {

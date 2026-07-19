@@ -1,13 +1,13 @@
 {
   "name": "Matt Ramsey",
-  "role": "Chief Marketing Officer and Safety Officer",
+  "role": "Chief Marketing Officer & Safety Officer",
   "department": "Special Operations",
   "cardNumber": 21,
-  "position": "Chief Marketing Officer and Safety Officer",
+  "position": "Chief Marketing Officer & Safety Officer",
   "nickname": "Communications and Safety Lead",
   "yearsWithCompany": 1,
   "hometown": "Richland, WA",
-  "education": "BAS Operations Management (PM Minor), AAS Business Administration",
+  "education": "Arizona State University - BAS in Operations Management, Minor in Project Management, 3.91 GPA; AAS Business Administration",
   "currentYearStats": {
     "projectsCompleted": 35,
     "clientSatisfaction": 97,
@@ -43,6 +43,7 @@
   "active": true,
   "slug": "matt-ramsey",
   "email": "office@mhc-gc.com",
+  "linkedinUrl": "https://www.linkedin.com/in/matthew-ramsey-581bb523/",
   "skills": {
     "leadership": 73,
     "technical": 88,
