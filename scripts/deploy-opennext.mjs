@@ -211,7 +211,9 @@ function pruneTempAssets() {
 
   if (removed > 0) {
     const assetType = removed > 1 ? "assets" : "asset";
-    console.log(`🧹 Removed ${removed} excluded ${assetType} from deploy bundle.`);
+    console.log(
+      `🧹 Removed ${removed} excluded ${assetType} from deploy bundle.`,
+    );
   }
 }
 
