@@ -54,10 +54,13 @@ const TEMP_ASSET_BASENAMES = new Set([
   "tmp-form03d.html",
   "tmp-form03d-pdf.png",
   "tmp-form03d-pdf-wait.png",
-  // Large hero commercial video files exceed the Cloudflare Workers 25 MiB
-  // asset limit. These are excluded from the bundle and served from R2/CDN.
-  "mh-construction-radio-ad-jeremy-thamert.webm",
 ]);
+
+// Large media files that exceed Cloudflare Workers asset limits (25 MiB).
+// These are served from R2 or another CDN instead of bundled in the Worker.
+const EXCLUDED_ASSET_PATTERNS = [
+  "videos/hero-commercials/mh-construction-radio-ad-jeremy-thamert.webm",
+];
 
 const WORKERS_MAX_ASSET_BYTES = 25 * 1024 * 1024;
 
@@ -180,6 +183,7 @@ function pruneTempAssets() {
     return;
   }
 
+  // Remove temporary top-level basenames
   const entries = readdirSync(openNextAssets, { withFileTypes: true });
   let removed = 0;
 
@@ -192,10 +196,22 @@ function pruneTempAssets() {
     removed += 1;
   }
 
+  // Recursively remove excluded asset patterns
+  function removePattern(rootDir, basePattern) {
+    const fullPath = join(rootDir, basePattern);
+    if (existsSync(fullPath)) {
+      rmSync(fullPath, { force: true, recursive: true });
+      removed += 1;
+    }
+  }
+
+  for (const pattern of EXCLUDED_ASSET_PATTERNS) {
+    removePattern(openNextAssets, pattern);
+  }
+
   if (removed > 0) {
-    console.log(
-      `🧹 Removed ${removed} temporary form asset(s) from deploy bundle.`,
-    );
+    const assetType = removed > 1 ? "assets" : "asset";
+    console.log(`🧹 Removed ${removed} excluded ${assetType} from deploy bundle.`);
   }
 }
 
