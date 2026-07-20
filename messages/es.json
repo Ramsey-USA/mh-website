@@ -106,6 +106,14 @@
         "storyTitle": "Nuestra historia",
         "storyP1": "Desde 2010 hemos trabajado junto a propietarios, operadores y equipos de diseño para entregar proyectos con enfoque práctico y coordinación constante.",
         "storyP2": "Hoy continuamos ese estándar con liderazgo veterano, administración en Procore y control de alcance para agricultura y bodegas, acondicionamientos comerciales y obras municipales. Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
+        "servesTitle": "A quién servimos",
+        "servesBody": "Apoyamos a socios del proyecto que necesitan planificación responsable, comunicación directa y ejecución confiable en entornos activos.",
+        "servesItems": [
+          "Propietarios y operadores comerciales con instalaciones activas",
+          "Equipos agrícolas y de bodegas que equilibran ventanas de producción",
+          "Equipos municipales y del sector público con requisitos de cumplimiento y continuidad",
+          "Socios de diseño e ingeniería que coordinan cronogramas complejos"
+        ],
         "focusTitle": "Lo que hacemos",
         "focusItems": [
           "Construcción general para instalaciones nuevas y sitios ocupados",
@@ -117,16 +125,18 @@
         "leadershipBody": "Nuestro liderazgo mantiene una estructura simple: decisiones claras, comunicación directa y seguimiento completo desde preconstrucción hasta entrega. Driven by Discipline. Defined by Results. (Impulsados por disciplina. Definidos por resultados.)",
         "profileCta": "Ver perfil de Jeremy",
         "viewTeamCta": "Ver equipo",
-        "snapshotTitle": "Resumen de desempeño",
-        "snapshot": {
-          "emr": "EMR de seguridad premiado",
-          "experience": "Años de experiencia combinada",
-          "projects": "Proyectos completados",
-          "states": "Estados con licencia y seguro"
-        },
+        "detailsCta": "Ver capacidades detalladas y cronología",
+        "sourceMapTitle": "Dónde se mantiene cada registro",
+        "sourceMapBody": "Para evitar biografías duplicadas y afirmaciones no sustentadas, la página Sobre Nosotros enlaza a cada fuente autorizada en lugar de repetir detalles completos.",
+        "sourceHistory": "Historia de la empresa y cronología de capacidades - /about/details",
+        "sourceLeadership": "Prueba de liderazgo individual y enlaces verificados - /jeremy-thamert",
+        "sourceTeam": "Registros aprobados y activos del equipo - /team",
         "safetyTitle": "Seguridad y cumplimiento",
         "safetyBody": "La seguridad es parte del método de trabajo diario. Mantenemos procesos documentados, control operativo en campo y continuidad para instalaciones activas.",
-        "safetyCta": "Ver información de seguridad",
+        "safetyCta": "Ver estándares y recursos de seguridad",
+        "communityTitle": "Compromiso con la comunidad",
+        "communityBody": "Fortalecemos la capacidad regional mediante alianzas locales, desarrollo de la fuerza laboral y responsabilidad de largo plazo en Washington, Oregon e Idaho.",
+        "communityCta": "Explorar carreras y oportunidades comunitarias",
         "valuePills": {
           "honesty": "Honesty (Honestidad)",
           "integrity": "Integrity (Integridad)",
@@ -640,6 +650,16 @@
           "label": "Carreras",
           "description": "Oportunidades de carrera",
           "ariaLabel": "Explorar oportunidades de carrera en MH Construction"
+        },
+        "publicSector": {
+          "label": "Sector Público",
+          "description": "Entrega para gobierno y municipios",
+          "ariaLabel": "Ir a servicios de construcción para sector público"
+        },
+        "safety": {
+          "label": "Seguridad",
+          "description": "Capacitación, formularios y rutas de cumplimiento",
+          "ariaLabel": "Ir a recursos y formularios de seguridad"
         }
       }
     },
@@ -669,6 +689,74 @@
         "washingtonLabel": "Estado de Washington",
         "oregonLabel": "Oregon",
         "idahoLabel": "Idaho"
+      }
+    },
+    "routing": {
+      "title": "Dirija su solicitud al equipo correcto",
+      "description": "Use un solo formulario principal para proyectos comerciales y privados, y use rutas dedicadas para sector público, aliados comerciales y carreras.",
+      "projectRoute": "Iniciar una consulta de proyecto comercial o privado",
+      "publicSectorRoute": "Hablar sobre trabajo del sector público",
+      "alliesRoute": "Contactar a Socios Comerciales",
+      "careersRoute": "Ver Carreras",
+      "safetyRoute": "Use las rutas de Seguridad solo para documentación y reportes de seguridad"
+    },
+    "form": {
+      "title": "Consulta Principal de Proyecto",
+      "description": "Comparta detalles clave del proyecto para alinear alcance, cronograma y siguientes pasos.",
+      "dataNotice": "Este formulario es solo para consultas de proyectos. No incluya información personal sensible.",
+      "submit": "Enviar Consulta de Proyecto",
+      "subjectLine": "Consulta de Proyecto",
+      "success": "Gracias. Su consulta de proyecto se envió correctamente.",
+      "successOffline": "Está sin conexión. Su consulta se guardó y se enviará cuando regrese la conexión.",
+      "fields": {
+        "contactName": "Nombre de contacto principal",
+        "organization": "Organización",
+        "email": "Correo electrónico",
+        "phone": "Número de teléfono",
+        "projectType": "Tipo de proyecto",
+        "projectLocation": "Ubicación del proyecto",
+        "timingRange": "Tiempo preferido",
+        "budgetRange": "Rango de presupuesto",
+        "budgetHelper": "Opcional, pero útil para la alineación inicial.",
+        "preferredResponse": "Método de respuesta preferido",
+        "scopeSummary": "Resumen del alcance del proyecto"
+      },
+      "projectTypes": {
+        "commercial": "Construcción comercial",
+        "tenantImprovements": "Mejoras de inquilino",
+        "lightIndustrial": "Industrial ligera",
+        "agWinery": "Agrícola / bodega",
+        "publicSector": "Sector público"
+      },
+      "timingRanges": {
+        "zeroToThirty": "0-30 días",
+        "oneToThree": "1-3 meses",
+        "threeToSix": "3-6 meses",
+        "sixPlus": "6+ meses"
+      },
+      "budgetRanges": {
+        "notProvided": "Presupuesto no indicado",
+        "under250": "Alcance en etapa inicial",
+        "twoFiftyToOne": "Alcance definido",
+        "oneToFive": "Alcance por fases",
+        "fivePlus": "Alcance de programa amplio"
+      },
+      "responseMethods": {
+        "email": "Correo",
+        "phone": "Teléfono",
+        "either": "Cualquiera"
+      },
+      "errors": {
+        "summary": "Corrija los campos marcados e inténtelo de nuevo.",
+        "contactName": "Ingrese un nombre de contacto.",
+        "emailRequired": "Ingrese un correo electrónico.",
+        "emailInvalid": "Ingrese un correo electrónico válido.",
+        "projectType": "Seleccione un tipo de proyecto.",
+        "projectLocation": "Ingrese la ubicación del proyecto.",
+        "timingRange": "Seleccione un tiempo preferido.",
+        "preferredResponse": "Seleccione un método de respuesta preferido.",
+        "scopeSummary": "Ingrese un resumen del alcance del proyecto.",
+        "submitFailed": "No pudimos enviar su consulta en este momento. Inténtelo de nuevo o llámenos directamente."
       }
     }
   },
@@ -2214,5 +2302,118 @@
         "featured": true
       }
     ]
+  },
+  "siteHeader": {
+    "navLabel": "Principal",
+    "mobileMenuLabel": "Menú",
+    "openMenuLabel": "Abrir navegación principal",
+    "closeMenuLabel": "Cerrar navegación principal",
+    "moreLabel": "Más",
+    "ctaLabel": "Hablemos de su proyecto",
+    "phoneShortcutLabel": "Llamar",
+    "brandStatement": "Veteran Owned \u2022 Licencias WA OR ID",
+    "homeAriaLabel": "Inicio de MH Construction",
+    "utilityBar": {
+      "utilityLabel": "Enlaces utilitarios",
+      "callLabel": "Llamar",
+      "locationLabel": "Atendemos",
+      "contactLinkLabel": "Contacto"
+    },
+    "locale": {
+      "currentLanguageLabel": "Idioma",
+      "switcherLabel": "Cambiar idioma",
+      "english": "Inglés",
+      "spanish": "Español"
+    },
+    "nav": {
+      "services": "Servicios",
+      "projects": "Proyectos",
+      "publicSector": "Sector público",
+      "about": "Sobre MH",
+      "contact": "Contacto",
+      "events": "Eventos",
+      "resources": "Recursos",
+      "careers": "Carreras",
+      "safety": "Seguridad",
+      "tradePartners": "Socios comerciales",
+      "veterans": "Veteranos",
+      "team": "Equipo",
+      "podcast": "Pódcast"
+    }
+  },
+  "siteFooter": {
+    "homeAriaLabel": "Inicio de MH Construction",
+    "brandDescriptor": "Contratista general de propiedad veterana que atiende Washington, Oregon e Idaho.",
+    "veteranOwnedLabel": "Empresa veterana",
+    "ctaLabel": "Hablemos de su proyecto",
+    "servicesMarketsHeading": "Servicios y Mercados",
+    "companyProofHeading": "Empresa y Confianza",
+    "resourcesCommunityHeading": "Recursos y Comunidad",
+    "contactHeading": "Contacto y Cobertura",
+    "contactDescriptor": "Con sede en Pasco, Washington y cobertura de servicio en Washington, Oregon e Idaho.",
+    "phoneLabel": "Teléfono",
+    "emailLabel": "Correo",
+    "addressLabel": "Oficina",
+    "serviceAreaLabel": "Área de servicio",
+    "primaryRegionLabel": "Región principal",
+    "legalNavLabel": "Avisos legales",
+    "htmlSitemapLabel": "Mapa HTML",
+    "copyrightLabel": "Todos los derechos reservados."
+  },
+  "sitemapPage": {
+    "metadata": {
+      "description": "Explore las rutas canonicas de MH Construction y la disponibilidad de rutas localizadas."
+    },
+    "title": "Mapa del sitio",
+    "description": "Explore las paginas canonicas de MH Construction. La representación por idioma se gestiona en URLs compartidas.",
+    "viewLink": "Ver",
+    "localeBadge": {
+      "bilingual": "EN/ES",
+      "englishOnly": "EN"
+    },
+    "sections": {
+      "core": "Paginas principales",
+      "services": "Servicios",
+      "projects": "Proyectos",
+      "locations": "Ubicaciones",
+      "resources": "Recursos",
+      "trust": "Confianza y credenciales",
+      "legal": "Aspectos legales",
+      "events": "Eventos"
+    }
+  },
+  "statusStates": {
+    "error": {
+      "heading": "Algo salio mal",
+      "message": "Encontramos un problema al cargar esta pagina. Intentelo de nuevo o continue en una pagina estable mientras lo resolvemos.",
+      "tryAgain": "Intentar de nuevo",
+      "goHome": "Ir al inicio",
+      "contact": "Contactar soporte"
+    }
+  },
+  "notFoundPage": {
+    "title": "Página no encontrada",
+    "description": "La página solicitada no está disponible. Es posible que se haya movido, retirado o que no exista en este entorno.",
+    "helpText": "Si está evaluando servicios o información de pre-calificación, use los enlaces rápidos para continuar sin perder contexto.",
+    "navigationLabel": "Navegación de página no encontrada",
+    "servicesCta": "Ver servicios",
+    "projectsCta": "Ver proyectos",
+    "contactCta": "Contacto",
+    "homeCta": "Volver al inicio",
+    "quickLinksTitle": "¿Necesita una ruta directa?",
+    "quickLinks": {
+      "about": "Nosotros",
+      "projects": "Proyectos",
+      "team": "Equipo",
+      "contact": "Contacto"
+    }
+  },
+  "qrCodesPage": {
+    "unavailable": {
+      "title": "Biblioteca QR temporalmente no disponible",
+      "body": "El manifiesto de QR no está disponible en este entorno de ejecución, por lo que las tarjetas de imagen están ocultas temporalmente. Aún puede acceder a documentos clave desde Recursos o solicitar una ruta directa a nuestro equipo.",
+      "resourcesCta": "Ir a Recursos",
+      "contactCta": "Contactar al equipo"
+    }
   }
 }

@@ -1,9 +1,15 @@
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-import { MH_SLOGANS } from "@/lib/branding/page-names";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
-export function LocationsHero() {
+type LocationsHeroProps = {
+  locale?: "en" | "es";
+};
+
+export function LocationsHero({ locale = "en" }: LocationsHeroProps) {
+  const isEs = locale === "es";
+
   return (
     <section
       className="hero-section relative flex items-end justify-end text-white overflow-hidden"
@@ -20,14 +26,16 @@ export function LocationsHero() {
         <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
             <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-              Offices → Locations
+              {isEs ? "Oficinas -> Ubicaciones" : "Offices -> Locations"}
             </span>
             <span className="block text-brand-secondary">
-              Tri-Cities Strong
+              {isEs ? "Tri-Cities firme" : "Tri-Cities Strong"}
             </span>
-            <span className="block text-white">Serving WA, OR, and ID</span>
+            <span className="block text-white">
+              {isEs ? "Cobertura en WA, OR e ID" : "Serving WA, OR, and ID"}
+            </span>
             <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
-              {MH_SLOGANS.primary}
+              {COMPANY_INFO.slogan.primary}
             </span>
             <span className="block text-brand-secondary/80 text-xs xs:text-sm sm:text-base mt-1">
               {getHeroPageSlogan("locations").slogan}

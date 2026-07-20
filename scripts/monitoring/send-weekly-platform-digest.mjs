@@ -801,7 +801,7 @@ async function main() {
   const html = `<!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"></head>
-<body style="font-family:'Mendl Sans Dusk',Avenir,'Segoe UI',Roboto,Arial,sans-serif;color:#0f172a;background:#eef2f7;padding:0;margin:0">
+<body style="font-family:'Mendl Sans Dusk';color:#0f172a;background:#eef2f7;padding:0;margin:0">
   <div style="max-width:900px;margin:24px auto;background:#ffffff;border-radius:12px;box-shadow:0 2px 10px rgba(15,23,42,.12);overflow:hidden;border:1px solid #dbe4ef">
     <div style="background:linear-gradient(120deg,#0b3a66 0%,#1e3a5f 55%,#2f5c7f 100%);padding:24px 28px;border-bottom:4px solid #c9a227">
       <p style="margin:0;color:#c9a227;font-size:12px;letter-spacing:1.1px;font-weight:700;text-transform:uppercase">MH Construction Weekly Operations Brief</p>

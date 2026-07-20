@@ -70,7 +70,7 @@ export default async function ResourcesPage() {
       <StructuredData data={breadcrumbSchema} />
 
       {/* Hero Section - Compliant with MH Branding Standards */}
-      <ResourcesHero />
+      <ResourcesHero locale={isEs ? "es" : "en"} />
 
       <div className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20">
@@ -107,17 +107,18 @@ export default async function ResourcesPage() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap mb-1">
                     <h2 className="text-base font-bold text-brand-primary dark:text-brand-secondary">
-                      For Bonding Banks, Insurers, and Architects
+                      {isEs
+                        ? "Para bancos de fianzas, aseguradoras y arquitectos"
+                        : "For Bonding Banks, Insurers, and Architects"}
                     </h2>
                     <span className="text-xs font-semibold bg-brand-primary text-white rounded-full px-2.5 py-0.5">
-                      New
+                      {isEs ? "Nuevo" : "New"}
                     </span>
                   </div>
                   <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Access our OSHA-aligned safety overview with credentials,
-                    section mapping, and direct PDFs for pre-qualification and
-                    surety review. Public links are structured for fast external
-                    diligence and current-version verification.
+                    {isEs
+                      ? "Acceda a nuestro resumen de seguridad alineado con OSHA con credenciales, mapeo de secciones y PDFs directos para precalificacion y revision de fianzas. Los enlaces publicos estan estructurados para diligencia externa rapida y verificacion de version vigente."
+                      : "Access our OSHA-aligned safety overview with credentials, section mapping, and direct PDFs for pre-qualification and surety review. Public links are structured for fast external diligence and current-version verification."}
                   </p>
                   <div className="flex flex-wrap gap-2 mt-3">
                     <SafetyComplianceBadge variant="osha" />
@@ -151,17 +152,16 @@ export default async function ResourcesPage() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap mb-1">
                   <h2 className="text-base font-bold text-brand-secondary dark:text-brand-secondary-light">
-                    QR Code Library
+                    {isEs ? "Biblioteca de codigos QR" : "QR Code Library"}
                   </h2>
                   <span className="text-xs font-semibold bg-brand-secondary text-white rounded-full px-2.5 py-0.5">
-                    Browse
+                    {isEs ? "Explorar" : "Browse"}
                   </span>
                 </div>
                 <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Open each QR code at full size and download PNG files from a
-                  single gallery. Subcontractors and vendors can quickly preview
-                  operating standards and routing paths before field
-                  coordination.
+                  {isEs
+                    ? "Abra cada codigo QR en tamano completo y descargue archivos PNG desde una sola galeria. Subcontratistas y proveedores pueden revisar rapidamente estandares operativos y rutas antes de la coordinacion en campo."
+                    : "Open each QR code at full size and download PNG files from a single gallery. Subcontractors and vendors can quickly preview operating standards and routing paths before field coordination."}
                 </p>
               </div>
               <MaterialIcon
@@ -172,10 +172,48 @@ export default async function ResourcesPage() {
             </Link>
           </Card>
 
+          <Card className="group mb-10 overflow-hidden border-brand-primary/25 bg-linear-to-r from-brand-primary/8 to-brand-primary/4 dark:from-brand-primary/20 dark:to-brand-primary/10 transition-all duration-300 hover:border-brand-primary hover:shadow-lg">
+            <Link
+              href="/news"
+              className="flex items-start gap-5 p-5 sm:items-center sm:p-6"
+            >
+              <div className="shrink-0 w-12 h-12 bg-brand-primary rounded-xl flex items-center justify-center shadow-md transition-colors duration-200">
+                <MaterialIcon
+                  icon="newspaper"
+                  size="md"
+                  className="text-white"
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 flex-wrap mb-1">
+                  <h2 className="text-base font-bold text-brand-primary dark:text-brand-primary-light">
+                    {isEs ? "Noticias e ideas" : "News and Insights"}
+                  </h2>
+                  <span className="text-xs font-semibold bg-brand-primary text-white rounded-full px-2.5 py-0.5">
+                    {isEs ? "Nuevo" : "New"}
+                  </span>
+                </div>
+                <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                  {isEs
+                    ? "Explore actualizaciones operativas administradas en el repositorio sobre seguridad, coordinacion de campo, entrega de oficios y ejecucion liderada por veteranos."
+                    : "Explore repository-managed operational updates on safety planning, field coordination, trade delivery, and veteran-led execution."}
+                </p>
+              </div>
+              <MaterialIcon
+                icon="arrow_forward"
+                size="md"
+                className="text-brand-primary shrink-0 hidden sm:block"
+              />
+            </Link>
+          </Card>
+
           <div className="mb-8 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-800/40 dark:bg-amber-900/20 dark:text-amber-300">
-            <strong>Current employees:</strong> day-to-day forms, incident
-            workflows, and internal records are handled in the Dashboard (Staff
-            Hub), not on public pages.
+            <strong>
+              {isEs ? "Empleados actuales:" : "Current employees:"}
+            </strong>{" "}
+            {isEs
+              ? "los formatos diarios, los flujos de incidentes y los registros internos se gestionan en el Dashboard (Staff Hub), no en paginas publicas."
+              : "day-to-day forms, incident workflows, and internal records are handled in the Dashboard (Staff Hub), not on public pages."}
           </div>
 
           {/* Manuals */}
@@ -189,7 +227,9 @@ export default async function ResourcesPage() {
                 />
               </div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Safety &amp; Program Manuals
+                {isEs
+                  ? "Manuales de seguridad y programa"
+                  : "Safety & Program Manuals"}
               </h2>
             </div>
 
@@ -197,7 +237,7 @@ export default async function ResourcesPage() {
               <Card className="mb-5 border-brand-primary/20 bg-brand-primary/5">
                 <div className="flex flex-wrap items-center gap-3 px-4 py-3">
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                    Quick Access:
+                    {isEs ? "Acceso rapido:" : "Quick Access:"}
                   </span>
                   <DownloadGate>
                     <Button asChild variant="primary" size="sm">
@@ -211,7 +251,9 @@ export default async function ResourcesPage() {
                           size="sm"
                           className="text-white"
                         />
-                        Table of Contents PDF
+                        {isEs
+                          ? "PDF de tabla de contenido"
+                          : "Table of Contents PDF"}
                       </a>
                     </Button>
                   </DownloadGate>
@@ -224,7 +266,9 @@ export default async function ResourcesPage() {
                       size="sm"
                       className="text-brand-primary"
                     />
-                    Browse Interactive Index
+                    {isEs
+                      ? "Explorar indice interactivo"
+                      : "Browse Interactive Index"}
                   </Link>
                 </div>
               </Card>
@@ -234,7 +278,7 @@ export default async function ResourcesPage() {
               <Card className="mb-5 border-brand-secondary/20 bg-brand-secondary/5">
                 <div className="flex flex-wrap items-center gap-3 px-4 py-3">
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                    Employee Handbook:
+                    {isEs ? "Manual del empleado:" : "Employee Handbook:"}
                   </span>
                   <DownloadGate>
                     <Button asChild variant="secondary" size="sm">
@@ -248,7 +292,7 @@ export default async function ResourcesPage() {
                           size="sm"
                           className="text-white"
                         />
-                        Public TOC PDF
+                        {isEs ? "PDF publico de indice" : "Public TOC PDF"}
                       </a>
                     </Button>
                   </DownloadGate>
@@ -257,11 +301,13 @@ export default async function ResourcesPage() {
                     className="inline-flex items-center gap-1.5 rounded-lg border border-brand-secondary px-3 py-1.5 text-sm font-semibold text-brand-secondary transition-colors hover:bg-brand-secondary/10"
                   >
                     <MaterialIcon
-                      icon="menu_book"
+                      icon={FORM_MANUAL_ICONS.source}
                       size="sm"
                       className="text-brand-secondary"
                     />
-                    Browse Handbook Index
+                    {isEs
+                      ? "Explorar indice del manual"
+                      : "Browse Handbook Index"}
                   </Link>
                 </div>
               </Card>
@@ -316,12 +362,13 @@ export default async function ResourcesPage() {
                       <div className="flex shrink-0 items-center gap-2">
                         {doc.totalSections && (
                           <span className="rounded-full bg-brand-primary/10 px-2.5 py-1 text-xs font-semibold text-brand-primary dark:text-brand-primary-light">
-                            {doc.totalSections} sections
+                            {doc.totalSections}{" "}
+                            {isEs ? "secciones" : "sections"}
                           </span>
                         )}
                         {doc.totalPages && (
                           <span className="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-600 dark:bg-gray-700 dark:text-gray-300">
-                            ~{doc.totalPages} pages
+                            ~{doc.totalPages} {isEs ? "paginas" : "pages"}
                           </span>
                         )}
                         <span className="rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700 dark:bg-amber-900/20 dark:text-amber-400">
@@ -335,10 +382,16 @@ export default async function ResourcesPage() {
                     <div className="mt-3 flex items-center gap-1.5 text-sm font-semibold text-brand-primary dark:text-brand-secondary">
                       <span>
                         {doc.id === "safety-manual"
-                          ? "View all sections"
+                          ? isEs
+                            ? "Ver todas las secciones"
+                            : "View all sections"
                           : doc.id === "employee-handbook"
-                            ? "View handbook index"
-                            : "Open manual PDF"}
+                            ? isEs
+                              ? "Ver indice del manual"
+                              : "View handbook index"
+                            : isEs
+                              ? "Abrir PDF del manual"
+                              : "Open manual PDF"}
                       </span>
                       <MaterialIcon icon="arrow_forward" size="sm" />
                     </div>
@@ -359,7 +412,7 @@ export default async function ResourcesPage() {
                 />
               </div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Field Forms
+                {isEs ? "Formatos de campo" : "Field Forms"}
               </h2>
             </div>
 
@@ -412,12 +465,12 @@ export default async function ResourcesPage() {
                             className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary dark:text-brand-secondary hover:text-brand-primary-dark dark:hover:text-brand-secondary-light transition-colors"
                           >
                             <MaterialIcon icon="download" size="sm" />
-                            Download PDF
+                            {isEs ? "Descargar PDF" : "Download PDF"}
                           </a>
                         </DownloadGate>
                       ) : (
                         <span className="text-xs text-gray-400 dark:text-gray-500">
-                          Coming soon
+                          {isEs ? "Proximamente" : "Coming soon"}
                         </span>
                       )}
                     </div>

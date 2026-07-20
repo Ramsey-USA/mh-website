@@ -170,14 +170,14 @@ describe("UnderConstruction", () => {
   it("shows 'Contact Us' CTA by default (showContactCTA=true)", () => {
     render(<UnderConstruction pageName="Test" />);
     expect(
-      screen.getByText(/ready to start your project/i),
+      screen.getByText(/need to discuss your project/i),
     ).toBeInTheDocument();
   });
 
   it("hides CTA section when showContactCTA=false", () => {
     render(<UnderConstruction pageName="Test" showContactCTA={false} />);
     expect(
-      screen.queryByText(/ready to start your project/i),
+      screen.queryByText(/need to discuss your project/i),
     ).not.toBeInTheDocument();
   });
 });

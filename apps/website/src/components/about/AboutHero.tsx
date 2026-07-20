@@ -1,6 +1,6 @@
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-import { MH_SLOGANS } from "@/lib/branding/page-names";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
 export function AboutHero({
@@ -29,7 +29,9 @@ export function AboutHero({
             </span>
             <span className="block text-brand-secondary">{subtitle}</span>
             <span className="block text-brand-primary">{description}</span>
-            <span className="block text-white/90">{MH_SLOGANS.primary}</span>
+            <span className="block text-white/90">
+              {COMPANY_INFO.slogan.primary}
+            </span>
             <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
               {getHeroPageSlogan("about").slogan}
             </span>

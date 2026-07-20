@@ -9,6 +9,8 @@ import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { enhancedSEO } from "@/components/seo/EnhancedSEO";
 import { MH_SLOGANS } from "@/lib/branding/page-names";
+import { COMPANY_INFO } from "@/lib/constants/company";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import {
   generateBreadcrumbSchema,
@@ -16,7 +18,14 @@ import {
 } from "@/lib/seo/breadcrumb-schema";
 import { AccreditationsLogoRow } from "@/components/shared-sections";
 import { CORE_VALUE_ICONS } from "@/lib/constants/navigation-icons";
-import { type LocationData } from "@/lib/data/locations";
+import { useLocale } from "next-intl";
+import {
+  type LocationData,
+  getLocationBridgeDeepLinks,
+  getLocationEvidenceProfile,
+  getLocationProjectDeepLinks,
+  getLocationServiceDeepLinks,
+} from "@/lib/data/locations";
 
 const coreValues = [
   {
@@ -52,82 +61,45 @@ interface LocationPageProps {
   readonly heroSlogan?: string;
 }
 
-type ServiceDeepLink = {
-  href: string;
-  label: string;
-};
-
-type BridgeDeepLink = {
-  href: string;
-  label: string;
-};
-
-const SERVICE_LABELS: Record<string, string> = {
-  "commercial-construction": "Commercial Construction",
-  "municipal-government": "Municipal and Government",
-  "drywall-interiors": "Drywall and Interiors",
-  "restoration-remodeling": "Restoration and Remodeling",
-};
-
-const LOCATION_SERVICE_MAP: Record<string, string[]> = {
-  pasco: ["commercial-construction", "municipal-government"],
-  kennewick: ["commercial-construction", "drywall-interiors"],
-  richland: ["restoration-remodeling", "commercial-construction"],
-  yakima: ["municipal-government", "commercial-construction"],
-  spokane: ["drywall-interiors", "commercial-construction"],
-  tacoma: ["municipal-government", "commercial-construction"],
-  "west-richland": ["restoration-remodeling", "commercial-construction"],
-  "walla-walla": ["commercial-construction", "restoration-remodeling"],
-  hermiston: ["municipal-government", "commercial-construction"],
-  pendleton: ["municipal-government", "commercial-construction"],
-  "coeur-d-alene": ["commercial-construction", "drywall-interiors"],
-  omak: ["municipal-government", "commercial-construction"],
-};
-
-const LOCATION_BRIDGE_MAP: Record<string, BridgeDeepLink[]> = {
-  yakima: [
-    {
-      href: "/veterans/public-sector-construction",
-      label: "Veteran-led public sector pathway",
-    },
-    {
-      href: "/public-sector/veteran-led-compliance",
-      label: "Compliance workflow",
-    },
-  ],
-  pendleton: [
-    {
-      href: "/public-sector/tri-state-government-construction",
-      label: "Tri-state government coverage",
-    },
-    {
-      href: "/public-sector/veteran-led-compliance",
-      label: "Compliance workflow",
-    },
-  ],
-  hermiston: [
-    {
-      href: "/public-sector/tri-state-government-construction",
-      label: "Tri-state government coverage",
-    },
-    {
-      href: "/veterans/public-sector-construction",
-      label: "Veteran-led public sector pathway",
-    },
-  ],
-  pasco: [
-    {
-      href: "/public-sector/veteran-led-compliance",
-      label: "Compliance workflow",
-    },
-  ],
-};
-
 export function LocationPageContent({
   location,
   heroSlogan = getHeroPageSlogan("locationDetail").slogan,
 }: Readonly<LocationPageProps>) {
+  const locale = useLocale();
+  const isEs = locale === "es";
+  const coreValuesLocalized = isEs
+    ? [
+        {
+          icon: CORE_VALUE_ICONS.honesty,
+          title: "Honestidad",
+          desc: "Comunicacion y precios transparentes",
+        },
+        {
+          icon: CORE_VALUE_ICONS.integrity,
+          title: "Integridad",
+          desc: "Su palabra es su compromiso - y la nuestra tambien",
+        },
+        {
+          icon: CORE_VALUE_ICONS.professionalism,
+          title: "Profesionalismo",
+          desc: "Ejecucion disciplinada en cada proyecto",
+        },
+        {
+          icon: CORE_VALUE_ICONS.thoroughness,
+          title: "Minuciosidad",
+          desc: "Atencion al detalle en cada fase",
+        },
+      ]
+    : coreValues;
+  const trustIndicatorsLocalized = isEs
+    ? [
+        { icon: "verified", label: "Licencia en WA, OR e ID" },
+        { icon: "military_tech", label: "Liderazgo veterano" },
+        { icon: "workspace_premium", label: "650+ proyectos completados" },
+      ]
+    : trustIndicators;
   usePageTracking(`Location - ${location.city}`);
+  const universalCtas = getUniversalCtaSet(isEs ? "es" : "en");
   const priorityServices = location.servicePriorities || [];
   const standardPositioningLine = `Primary markets: AG and winery communities, mission-ready fit-outs, and municipal builds. Core specialties: pole buildings, door and hardware installation, and mission management powered by Procore. ${MH_SLOGANS.supporting[0]}`;
   const nearbyAreas = location.nearbyAreas || [];
@@ -177,37 +149,22 @@ export function LocationPageContent({
       location.breadcrumbKey as keyof typeof breadcrumbPatterns
     ],
   );
-  const serviceDeepLinks: ServiceDeepLink[] = (
-    LOCATION_SERVICE_MAP[location.slug] ?? ["commercial-construction"]
-  ).map((serviceSlug) => ({
-    href: `/services?service=${serviceSlug}`,
-    label: SERVICE_LABELS[serviceSlug] ?? "Service Line",
-  }));
-  const bridgeDeepLinks = LOCATION_BRIDGE_MAP[location.slug] ?? [];
+  const serviceDeepLinks = getLocationServiceDeepLinks(location.slug);
+  const projectDeepLinks = getLocationProjectDeepLinks(location.slug);
+  const bridgeDeepLinks = getLocationBridgeDeepLinks(location.slug);
+  const locationEvidence = getLocationEvidenceProfile(location.slug);
+  const isOfficeLocation = locationEvidence.presenceType === "office";
+  const officeAddress = `${location.address.street}, ${location.address.city}, ${location.address.state} ${location.address.zip}`;
 
   // Generate location-specific structured data
-  const locationSchema = {
+  const sharedLocationSchemaFields = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${enhancedSEO.siteUrl}/locations/${location.slug}#localbusiness`,
+    "@id": `${enhancedSEO.siteUrl}/locations/${location.slug}#service-area`,
     name: `MH Construction - ${location.city}`,
     description: `General contractor serving ${location.city}, ${location.state} with AG and winery community projects, commercial tenant improvements, and municipal builds. Specialties include pole buildings, door and hardware installation, and Procore project management.`,
     url: `${enhancedSEO.siteUrl}/locations/${location.slug}`,
     telephone: location.telephone,
     email: location.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: location.address.street,
-      addressLocality: location.address.city,
-      addressRegion: location.address.state,
-      postalCode: location.address.zip,
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: location.coordinates.latitude,
-      longitude: location.coordinates.longitude,
-    },
     areaServed: [
       {
         "@type": "City",
@@ -232,23 +189,6 @@ export function LocationPageContent({
       "Door and hardware installation",
       "Procore project management",
     ],
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "07:00",
-        closes: "16:00",
-      },
-    ],
-    priceRange: "$$$$",
-    paymentAccepted: [
-      "Cash",
-      "Credit Card",
-      "Check",
-      "ACH",
-      "Financing Available",
-    ],
-    currenciesAccepted: "USD",
     slogan: MH_SLOGANS.primary,
     veteranOwned: true,
     serviceType: [
@@ -260,8 +200,6 @@ export function LocationPageContent({
       "Door and Hardware Installation",
       "Mission Management powered by Procore",
     ],
-    // GEO-proof: surface verified completed projects in structured data so search engines
-    // can associate MH Construction with specific named projects and categories in this city.
     ...(location.recentProjects && location.recentProjects.length > 0
       ? {
           hasOfferCatalog: {
@@ -284,6 +222,50 @@ export function LocationPageContent({
       : {}),
   };
 
+  const locationSchema = isOfficeLocation
+    ? {
+        ...sharedLocationSchemaFields,
+        "@type": "LocalBusiness",
+        "@id": `${enhancedSEO.siteUrl}/locations/${location.slug}#localbusiness`,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: location.address.street,
+          addressLocality: location.address.city,
+          addressRegion: location.address.state,
+          postalCode: location.address.zip,
+          addressCountry: "US",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: location.coordinates.latitude,
+          longitude: location.coordinates.longitude,
+        },
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "07:00",
+            closes: "16:00",
+          },
+        ],
+        priceRange: "$$$$",
+        paymentAccepted: [
+          "Cash",
+          "Credit Card",
+          "Check",
+          "ACH",
+          "Financing Available",
+        ],
+        currenciesAccepted: "USD",
+      }
+    : {
+        ...sharedLocationSchemaFields,
+        "@type": "Service",
+        provider: {
+          "@id": `${enhancedSEO.siteUrl}/#organization`,
+        },
+      };
+
   return (
     <>
       <StructuredData data={locationSchema} />
@@ -296,8 +278,11 @@ export function LocationPageContent({
             <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
               <Breadcrumbs
                 items={[
-                  { label: "Home", href: "/" },
-                  { label: "Locations", href: "/locations" },
+                  { label: isEs ? "Inicio" : "Home", href: "/" },
+                  {
+                    label: isEs ? "Ubicaciones" : "Locations",
+                    href: "/locations",
+                  },
                   { label: `${location.city}, ${location.state}` },
                 ]}
                 className="mb-6 bg-transparent text-white/70 [&_nav]:border-0 [&_nav]:bg-transparent [&_nav]:py-0 [&_span[aria-current='page']]:text-white [&_a]:text-white/70 [&_a:hover]:text-white"
@@ -307,14 +292,20 @@ export function LocationPageContent({
               <div className="flex items-center justify-center gap-2 text-brand-secondary">
                 <MaterialIcon icon="place" size="lg" />
                 <span className="text-lg sm:text-xl font-semibold">
-                  Serving {location.city}, {location.state}
+                  {isOfficeLocation
+                    ? isEs
+                      ? `Oficina y cobertura de servicio en ${location.city}, ${location.state}`
+                      : `Office and service coverage in ${location.city}, ${location.state}`
+                    : isEs
+                      ? `Cobertura de area de servicio en ${location.city}, ${location.state}`
+                      : `Service area coverage in ${location.city}, ${location.state}`}
                 </span>
               </div>
 
               {/* Main Heading */}
               <h1 className="font-black text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight">
                 <span className="block text-white mb-3">
-                  General Contractor in
+                  {isEs ? "Contratista general en" : "General Contractor in"}
                 </span>
                 <span className="block text-brand-secondary drop-shadow-lg">
                   {location.city}, {location.state}
@@ -331,10 +322,19 @@ export function LocationPageContent({
 
               {/* Core Slogan */}
               <p className="text-sm sm:text-base md:text-lg text-white/80 font-medium">
-                {MH_SLOGANS.primary}
+                {COMPANY_INFO.slogan.primary}
               </p>
               <p className="text-sm sm:text-base md:text-lg text-brand-secondary/90 font-medium">
                 {heroSlogan}
+              </p>
+              <p className="text-xs sm:text-sm text-white/75 font-medium">
+                {isOfficeLocation
+                  ? isEs
+                    ? `Oficina publica: ${officeAddress}`
+                    : `Public office: ${officeAddress}`
+                  : isEs
+                    ? `${locationEvidence.regionalRelationship} Esta pagina no representa una oficina publica fisica.`
+                    : `${locationEvidence.regionalRelationship} No physical public office is represented on this page.`}
               </p>
 
               {/* CTA Buttons */}
@@ -351,7 +351,9 @@ export function LocationPageContent({
                       size="md"
                       className=" transition-colors"
                     />
-                    Schedule {location.city} Consultation
+                    {isEs
+                      ? `Programar consulta en ${location.city}`
+                      : `Schedule ${location.city} Consultation`}
                   </Link>
                 </Button>
                 <Button
@@ -366,14 +368,16 @@ export function LocationPageContent({
                       size="md"
                       className=" transition-colors"
                     />
-                    Call for {priorityServices[0] || "Project"} Support
+                    {isEs
+                      ? `Llamar para apoyo de ${priorityServices[0] || "proyecto"}`
+                      : `Call for ${priorityServices[0] || "Project"} Support`}
                   </Link>
                 </Button>
               </div>
 
               {/* Trust Indicators */}
               <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 pt-8 text-xs sm:text-sm text-white/70">
-                {trustIndicators.map((t) => (
+                {trustIndicatorsLocalized.map((t) => (
                   <div key={t.label} className="flex items-center gap-2">
                     <MaterialIcon icon={t.icon} size="sm" />
                     <span>{t.label}</span>
@@ -392,16 +396,18 @@ export function LocationPageContent({
               <div className="text-center mb-16 sm:mb-20">
                 <h2 className="font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-gray-100 leading-tight tracking-tighter mb-4">
                   <span className="block text-brand-primary">
-                    Construction Services
+                    {isEs
+                      ? "Servicios de construccion"
+                      : "Construction Services"}
                   </span>
                   <span className="block text-gray-700 dark:text-gray-300 font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl mt-3">
-                    in {location.city}, {location.state}
+                    {isEs ? "en" : "in"} {location.city}, {location.state}
                   </span>
                 </h2>
                 <p className="font-body max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-light mt-6">
-                  Comprehensive construction management services for commercial,
-                  industrial, and government projects throughout {location.city}{" "}
-                  and the {location.county} area.
+                  {isEs
+                    ? `Servicios integrales de gestion de construccion para proyectos comerciales, industriales y del sector publico en ${location.city} y el area de ${location.county}.`
+                    : `Comprehensive construction management services for commercial, industrial, and government projects throughout ${location.city} and the ${location.county} area.`}
                 </p>
                 {priorityServices.length > 0 && (
                   <div className="mt-8 inline-flex flex-wrap justify-center gap-2">
@@ -444,12 +450,14 @@ export function LocationPageContent({
               {/* GEO-Intent Internal Links */}
               <div className="mt-10 sm:mt-12 p-5 sm:p-6 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/60">
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">
-                  Plan Your {location.city} Project
+                  {isEs
+                    ? `Planifique su proyecto en ${location.city}`
+                    : `Plan Your ${location.city} Project`}
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4">
-                  Explore our full service framework, project examples, and
-                  direct consultation path for {location.city}, {location.state}
-                  .
+                  {isEs
+                    ? `Explore nuestro marco completo de servicios, ejemplos de proyectos y ruta de consulta directa para ${location.city}, ${location.state}.`
+                    : `Explore our full service framework, project examples, and direct consultation path for ${location.city}, ${location.state}.`}
                 </p>
                 <div className="flex flex-wrap gap-3">
                   {serviceDeepLinks.map((serviceLink) => (
@@ -460,6 +468,16 @@ export function LocationPageContent({
                     >
                       <MaterialIcon icon="verified" size="sm" />
                       {serviceLink.label}
+                    </Link>
+                  ))}
+                  {projectDeepLinks.map((projectLink) => (
+                    <Link
+                      key={projectLink.href}
+                      href={projectLink.href}
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-semibold text-gray-900 dark:text-gray-100 hover:border-brand-primary transition-colors"
+                    >
+                      <MaterialIcon icon="work" size="sm" />
+                      {projectLink.label}
                     </Link>
                   ))}
                   {bridgeDeepLinks.map((bridgeLink) => (
@@ -473,37 +491,41 @@ export function LocationPageContent({
                     </Link>
                   ))}
                   <Link
-                    href="/services"
+                    href={universalCtas.allServices.href}
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-semibold text-gray-900 dark:text-gray-100 hover:border-brand-primary transition-colors"
                   >
                     <MaterialIcon icon="build" size="sm" />
-                    View All Services
+                    {universalCtas.allServices.label}
                   </Link>
                   <Link
                     href="/projects"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-semibold text-gray-900 dark:text-gray-100 hover:border-brand-primary transition-colors"
                   >
                     <MaterialIcon icon="work" size="sm" />
-                    See Project Portfolio
+                    {universalCtas.portfolio.label}
                   </Link>
                   <Link
                     href="/contact"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-primary text-white text-sm font-semibold hover:bg-brand-primary-dark transition-colors"
                   >
                     <MaterialIcon icon="phone" size="sm" />
-                    Start a Consultation
+                    {universalCtas.primary.label}
                   </Link>
                   <Link
                     href="/allies"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-semibold text-gray-900 dark:text-gray-100 hover:border-brand-secondary transition-colors"
                   >
                     <MaterialIcon icon="handshake" size="sm" />
-                    Trade Partner Network
+                    {isEs
+                      ? "Red de aliados de oficio"
+                      : "Trade Partner Network"}
                   </Link>
                 </div>
                 {nearbyAreas.length > 0 && (
                   <p className="mt-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
-                    Nearby service coverage: {nearbyAreas.join(", ")}.
+                    {isEs
+                      ? `Cobertura de servicio cercana: ${nearbyAreas.join(", ")}.`
+                      : `Nearby service coverage: ${nearbyAreas.join(", ")}.`}
                   </p>
                 )}
               </div>
@@ -520,16 +542,16 @@ export function LocationPageContent({
                 <div className="text-center mb-12 sm:mb-16">
                   <h2 className="font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-gray-900 dark:text-gray-100 leading-tight tracking-tighter mb-4">
                     <span className="block text-brand-primary">
-                      Recent Projects
+                      {isEs ? "Proyectos recientes" : "Recent Projects"}
                     </span>
                     <span className="block text-gray-700 dark:text-gray-300 font-semibold text-xl xs:text-2xl sm:text-3xl mt-3">
-                      in {location.city}, {location.state}
+                      {isEs ? "en" : "in"} {location.city}, {location.state}
                     </span>
                   </h2>
                   <p className="font-body max-w-2xl mx-auto text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-light mt-4">
-                    Proven work in the communities we serve — built with
-                    honesty, integrity, professionalism, and thoroughness on
-                    every project.
+                    {isEs
+                      ? "Trabajo comprobado en las comunidades que atendemos, construido con honestidad, integridad, profesionalismo y minuciosidad en cada proyecto."
+                      : "Proven work in the communities we serve — built with honesty, integrity, professionalism, and thoroughness on every project."}
                   </p>
                 </div>
 
@@ -593,22 +615,23 @@ export function LocationPageContent({
                       />
                       <div>
                         <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
-                          Public &amp; Government Construction
+                          {isEs
+                            ? "Construccion publica y gubernamental"
+                            : "Public & Government Construction"}
                         </h3>
                         <p className="font-body text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
-                          MH Construction has a proven record on
-                          mission-critical public safety and government
-                          facilities — from active fire stations to municipal
-                          infrastructure — serving {location.city} and
-                          surrounding communities. When lives depend on the
-                          build, Thoroughness is non-negotiable.
+                          {isEs
+                            ? `MH Construction tiene un historial comprobado en instalaciones publicas y de seguridad de mision critica, desde estaciones activas de bomberos hasta infraestructura municipal, atendiendo ${location.city} y comunidades cercanas. Cuando hay vidas en juego, la minuciosidad no es negociable.`
+                            : `MH Construction has a proven record on mission-critical public safety and government facilities — from active fire stations to municipal infrastructure — serving ${location.city} and surrounding communities. When lives depend on the build, Thoroughness is non-negotiable.`}
                         </p>
                         <Link
                           href="/public-sector"
                           className="inline-flex items-center gap-2 text-sm font-bold text-brand-primary dark:text-brand-primary-light hover:underline"
                         >
                           <MaterialIcon icon="arrow_forward" size="sm" />
-                          Explore Public &amp; Government Services
+                          {isEs
+                            ? "Explorar servicios del sector publico"
+                            : "Explore Public & Government Services"}
                         </Link>
                       </div>
                     </div>
@@ -627,7 +650,9 @@ export function LocationPageContent({
               <div className="text-center mb-16 sm:mb-20">
                 <h2 className="font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-gray-100 leading-tight tracking-tighter mb-4">
                   <span className="block text-brand-primary">
-                    Why {location.city} Chooses
+                    {isEs
+                      ? `Por que ${location.city} elige`
+                      : `Why ${location.city} Chooses`}
                   </span>
                   <span className="block text-gray-700 dark:text-gray-300 font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl mt-3">
                     MH Construction
@@ -637,7 +662,7 @@ export function LocationPageContent({
 
               {/* Features Grid */}
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-                {coreValues.map((v) => (
+                {coreValuesLocalized.map((v) => (
                   <div key={v.title} className="text-center">
                     <div className="flex justify-center mb-4">
                       <MaterialIcon
@@ -688,14 +713,17 @@ export function LocationPageContent({
           <SectionContainer padding="compact">
             <div className="text-center">
               <p className="font-heading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
-                Accredited & Certified
+                {isEs ? "Acreditado y certificado" : "Accredited & Certified"}
               </p>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                Trusted Throughout {location.city}
+                {isEs
+                  ? `Confianza en todo ${location.city}`
+                  : `Trusted Throughout ${location.city}`}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-8">
-                Our credentials reflect our commitment to quality, ethics, and
-                safety
+                {isEs
+                  ? "Nuestras credenciales reflejan el compromiso con calidad, etica y seguridad"
+                  : "Our credentials reflect our commitment to quality, ethics, and safety"}
               </p>
               <AccreditationsLogoRow showChambers={false} />
             </div>
@@ -707,16 +735,18 @@ export function LocationPageContent({
           <SectionContainer padding="compact">
             <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
               <h2 className="font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                Ready to Start Your{" "}
+                {isEs ? "Listo para iniciar su" : "Ready to Start Your"}{" "}
                 <span className="block text-brand-secondary mt-2">
-                  {location.city} Construction Project?
+                  {isEs
+                    ? `proyecto de construccion en ${location.city}?`
+                    : `${location.city} Construction Project?`}
                 </span>
               </h2>
 
               <p className="font-body max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/90 leading-relaxed font-light">
-                Let's discuss how MH Construction can bring your vision to life
-                with a Veteran-Owned, relationship-first approach and
-                partnership-driven service.
+                {isEs
+                  ? "Conversemos sobre como MH Construction puede convertir su vision en resultados con un enfoque veterano, centrado en relaciones y servicio orientado a alianzas."
+                  : "Let's discuss how MH Construction can bring your vision to life with a Veteran-Owned, relationship-first approach and partnership-driven service."}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
@@ -732,7 +762,9 @@ export function LocationPageContent({
                       size="md"
                       className=" transition-colors"
                     />
-                    Schedule Free Consultation
+                    {isEs
+                      ? "Programar consulta gratuita"
+                      : "Schedule Free Consultation"}
                   </Link>
                 </Button>
                 <Button
@@ -741,13 +773,13 @@ export function LocationPageContent({
                   size="lg"
                   className="group w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border-white/30"
                 >
-                  <Link href="/services">
+                  <Link href={universalCtas.allServices.href}>
                     <MaterialIcon
                       icon="build"
                       size="md"
                       className=" transition-colors"
                     />
-                    View All Services
+                    {universalCtas.allServices.label}
                   </Link>
                 </Button>
               </div>
@@ -770,7 +802,9 @@ export function LocationPageContent({
                 </a>
                 <div className="flex items-center gap-2">
                   <MaterialIcon icon="schedule" size="sm" />
-                  <span>Mon-Fri: 7am - 4pm</span>
+                  <span>
+                    {isEs ? "Lun-Vie: 7am - 4pm" : "Mon-Fri: 7am - 4pm"}
+                  </span>
                 </div>
               </div>
             </div>

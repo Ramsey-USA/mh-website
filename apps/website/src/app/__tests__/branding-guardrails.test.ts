@@ -487,7 +487,7 @@ describe("Branding Guardrails › Trust Surfaces & SEO Contracts", () => {
     const homeSource = fs.readFileSync(homePagePath, "utf8");
 
     expect(homeSource).toContain("Home Page Hero Section");
-    expect(homeSource).toContain("Mission Brief");
+    expect(homeSource).toContain('id="services"');
     expect(homeSource).toContain("utm_campaign=home-splash");
   });
 

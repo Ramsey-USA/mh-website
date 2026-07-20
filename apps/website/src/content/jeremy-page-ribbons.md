@@ -222,6 +222,18 @@ eyebrow: Words from the General
 quote: Events are where community relationships are earned face to face, and I see that presence as part of patriotic service, responsible leadership, and long-term trust.
 attribution: Jeremy Thamert, Owner & President
 
+## events/[slug]
+
+eyebrow: Words from the General
+quote: Every event detail page should read like an accountable field record, with clear outcomes, respectful partnerships, and practical next steps for future collaboration.
+attribution: Jeremy Thamert, Owner & President
+
+## news
+
+eyebrow: Words from the General
+quote: News and insights should report what matters in plain terms, so clients and partners can see disciplined execution, safety intent, and leadership accountability without hype.
+attribution: Jeremy Thamert, Owner & President
+
 ## cool-desert-nights
 
 eyebrow: Words from the General
