@@ -72,7 +72,7 @@
 
 ### Core Technologies
 
-- **Framework**: Next.js 16.2.10 (App Router)
+- **Framework**: Next.js 16.2.11 (App Router)
 - **UI Runtime**: React 19.2.7 + React DOM 19.2.7
 - **Language**: TypeScript 6.0.3
 - **Styling**: Tailwind CSS 4.3.2
