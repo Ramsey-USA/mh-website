@@ -139,6 +139,8 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { BrandedContentSection } from "@/components/templates"; // ⭐ RECOMMENDED: Eliminates 68 lines of boilerplate
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
@@ -233,6 +235,13 @@ export default function YourPageName() {
               </p>
             </div>
           </div>
+
+          {/* Page Navigation - REQUIRED at bottom for hero parity */}
+          <PageNavigation
+            items={navigationConfigs.yourpage}
+            showRemainingPagesOverlay
+            className="absolute bottom-0 left-0 right-0"
+          />
         </section>
 
         {/* Breadcrumb Navigation */}
@@ -370,7 +379,7 @@ export function getYourPageSEO() {
 }
 ```
 
-### 2. Global Navigation Model
+### 2. Global + Hero Navigation Model
 
 **Files:**
 
@@ -380,8 +389,30 @@ export function getYourPageSEO() {
 Current standard:
 
 - Primary/secondary header routes are centrally owned by `buildSiteNavigationModel`.
+- Hero-level page navigation remains owned by `navigationConfigs` + `PageNavigation` for in-page routing continuity.
 - New page routes should be added to route ownership + route manifest sources first, then reflected in nav data labels.
-- Do not add route-level hero navigation rows as a replacement for the shared global header.
+- Keep both surfaces congruent: global header for site navigation, hero page navigation for page-level wayfinding.
+
+Hero navigation config example:
+
+```typescript
+export const navigationConfigs = {
+  yourpage: [
+    {
+      href: "#first-section",
+      label: "First Section",
+      mobileLabel: "First",
+      icon: "verified",
+    },
+    {
+      href: "#second-section",
+      label: "Second Section",
+      mobileLabel: "Second",
+      icon: "engineering",
+    },
+  ],
+};
+```
 
 ### 3. Breadcrumb Pattern
 
@@ -420,6 +451,8 @@ Before deploying your new page:
 - [ ] Verify all links work
 - [ ] Verify page inherits the global header (`SiteHeader`) without duplicating route controls inside the hero
 - [ ] Verify desktop `More` dropdown and mobile menu dialog still include the new route where applicable
+- [ ] Verify hero includes `PageNavigation` pinned at `absolute bottom-0 left-0 right-0`
+- [ ] Verify `PageNavigation` `More` overlay behaviors (backdrop, Escape, close control) remain intact
 - [ ] Verify SEO metadata appears correctly
 - [ ] Verify route-specific Jeremy quote key exists in `src/content/jeremy-page-ribbons.md`
 - [ ] Verify page SEO keywords include route-aware Jeremy quote signals

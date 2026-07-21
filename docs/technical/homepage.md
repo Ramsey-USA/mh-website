@@ -253,6 +253,7 @@ import { HeroSection } from "@/components/home";
   - Right-aligned command-center headline + supporting proof line
   - Primary and secondary hero CTAs (contact and project proof)
   - Gradient overlay for contrast/readability
+  - Hero `PageNavigation` continuity row (Home, Services, Projects, About, Contact, More)
   - Responsive text sizing
 
 #### CoreValuesSection
@@ -617,13 +618,17 @@ export default function Home() {
 
 ### Navigation Integration
 
-Homepage route navigation is owned by the global shell header:
+Homepage navigation uses a hybrid model:
 
 - Header container: `/src/components/navigation/SiteHeader.tsx`
 - Desktop model: `/src/components/navigation/DesktopNavigation.tsx`
 - Mobile model: `/src/components/navigation/MobileNavigation.tsx`
 - Route source: `/src/components/navigation/navigation-data.ts`
 - Footer route groups: `/src/components/navigation/footer-data.ts`
+- Hero continuity nav: `/src/components/navigation/PageNavigation.tsx`
+- Hero nav config source: `/src/components/navigation/navigationConfigs.ts`
+- Home hero row: six cells (Home, Services, Projects, About, Contact, More)
+- Home hero `More` behavior: full-screen overlay with backdrop, close controls, and body scroll lock
 - Accessibility/UX: keyboard-reachable controls, focus-visible rings, and mobile dialog close/backdrop behavior
 - Canonical contract: [Container and Modal Visual Contract](../branding/standards/unified-component-standards.md#container-and-modal-visual-contract-canonical)
 - Canonical contract: [Navigation Overlay and Header Action Visual Contract](../branding/standards/unified-component-standards.md#navigation-overlay-and-header-action-visual-contract-canonical)

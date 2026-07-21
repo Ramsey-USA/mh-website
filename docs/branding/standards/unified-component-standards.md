@@ -533,7 +533,8 @@ Use the page shell contract (from `AppShell`) instead of per-section logo overla
 - ✅ Full viewport height: `h-screen flex items-center justify-center`
 - ✅ Clean typography: Title, subtitle, description
 - ✅ Brand color emphasis: `text-brand-secondary` on hero titles
-- ✅ Global navigation is owned by `SiteHeader` (fixed shell) and must not be duplicated inside hero content
+- ✅ Global navigation is owned by `SiteHeader` (fixed shell)
+- ✅ Hero-level `PageNavigation` remains required for in-page wayfinding and cross-route continuity where implemented
 - ✅ Hero content must account for the shell offset via `--mh-nav-offset` safe spacing
 - ✅ Modern components: CTAs, badges, and stats ARE allowed when appropriate
 - ✅ Responsive padding: Top `pt-16` to `lg:pt-40`, Bottom `pb-12` to `lg:pb-28`
@@ -544,7 +545,7 @@ Hero sections share their own visual contract and must align to homepage hero ch
 
 1. Hero layout baseline matches homepage structure: full-height shell with content anchored over visual media and safe spacing below the fixed header.
 2. Hero typography baseline matches homepage hierarchy: strong H1 emphasis, concise subtitle, and supporting body copy.
-3. Hero navigation baseline matches homepage behavior by inheriting global header navigation rather than rendering per-page hero nav rows.
+3. Hero navigation baseline matches homepage behavior by combining global header navigation with hero-level `PageNavigation` where required.
 4. Hero color baseline preserves approved dark gradient atmosphere and brand-emphasis title treatment.
 5. Any route-specific hero divergence must be documented as intent or approved exception before merge.
 
@@ -573,13 +574,16 @@ Hero sections share their own visual contract and must align to homepage hero ch
 </section>
 ```
 
-### Global Header Navigation Pattern (Homepage and Routed Pages)
+### Hybrid Navigation Pattern (Homepage and Routed Pages)
 
 - Primary and secondary navigation are owned by `SiteHeader` via `DesktopNavigation` and `MobileNavigation`.
 - Desktop uses a primary inline route row and a `More` dropdown panel for secondary routes.
 - Mobile uses a toggle button that opens a backdrop-backed dialog panel with full route access.
 - Close behaviors must include Escape key and explicit close action; mobile additionally closes on backdrop click.
 - Header navigation interactions must remain keyboard reachable with visible focus rings.
+- Hero sections that implement `PageNavigation` must keep it pinned to `absolute bottom-0 left-0 right-0`.
+- Home hero `PageNavigation` row remains the 6-cell pattern (Home, Services, Projects, About, Contact, More).
+- `More` in `PageNavigation` uses full-screen overlay behavior (backdrop + centered panel + body scroll lock).
 
 ## Navigation Overlay and Header Action Visual Contract (Canonical)
 
@@ -593,12 +597,13 @@ page-navigation overlays, and navigation action presentation.
 3. Hero surfaces must not duplicate global-header contact actions owned by the phone CTA.
 4. Desktop navigation must use the primary route row plus secondary `More` dropdown model from `DesktopNavigation`.
 5. Mobile navigation must use the dialog overlay pattern from `MobileNavigation` (toggle, backdrop, close control, focus-visible states).
-6. Overlay close behaviors must include Escape key and explicit close action; mobile overlays also close on backdrop click.
-7. Body scroll must lock while mobile navigation overlays are open and restore on close.
-8. Navigation controls and overlay links must remain keyboard reachable with visible focus states.
-9. Terminology by navigation surface must follow the route-manifest-driven labels used by `buildSiteNavigationModel`.
+6. Hero `PageNavigation` (where present) must preserve bottom anchoring and overlay behavior contracts.
+7. Overlay close behaviors must include Escape key and explicit close action; mobile overlays also close on backdrop click.
+8. Body scroll must lock while mobile navigation overlays are open and restore on close.
+9. Navigation controls and overlay links must remain keyboard reachable with visible focus states.
+10. Terminology by navigation surface must follow the dual-terminology surface matrix (header/footer/page-nav specific rules).
 
-10. Do not collapse the above surface-specific pattern into a single global parenthetical format for all UI elements.
+11. Do not collapse the above surface-specific pattern into a single global parenthetical format for all UI elements.
 
 ### Canonical References
 
