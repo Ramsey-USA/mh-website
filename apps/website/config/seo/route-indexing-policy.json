@@ -9,12 +9,13 @@
         "/careers",
         "/contact",
         "/cool-desert-nights",
+        "/events/[slug]",
         "/faq",
         "/faq/[category]",
         "/jeremy-thamert",
-        "/news",
         "/locations",
         "/locations/[city]",
+        "/news",
         "/privacy",
         "/projects",
         "/projects/[slug]",
@@ -30,8 +31,7 @@
         "/terms",
         "/testimonials",
         "/veterans",
-        "/veterans/public-sector-construction",
-        "/events/[slug]"
+        "/veterans/public-sector-construction"
       ],
       "patterns": [
         "^/resources/safety-manual/\\[cluster\\]$"
@@ -43,12 +43,11 @@
         "/careers/print",
         "/employee-handbook",
         "/events",
-        "/services/[slug]",
         "/offline",
         "/qr-codes",
         "/safety/incident-report",
-        "/sitemap",
-        "/safety/print/[id]"
+        "/safety/print/[id]",
+        "/sitemap"
       ],
       "patterns": []
     },

@@ -425,7 +425,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 export default function PageName() {
   return (
     <div className="relative bg-white dark:bg-gray-900 w-full min-h-screen overflow-x-hidden">
-      {/* Hero Section - REQUIRED with PageNavigation */}
+      {/* Hero Section - REQUIRED and shell-compatible with global header */}
       <PageHero />
 
       {/* Content Sections - Each with unique id for navigation */}
@@ -447,11 +447,11 @@ export default function PageName() {
 
 **Navigation Pattern (Current Standard):**
 
-- ✅ **Global Hero Navigation**: `PageNavigation` renders the shared 6-cell row (Home, Services, Projects, About, Contact, More)
-- ✅ **Hero Integration**: `PageNavigation` placed at bottom of hero section
-- ✅ **More Overlay**: `More` opens a full-screen modal overlay with backdrop and centered panel
-- ✅ **Close Behaviors**: Backdrop click, Escape key, close button, and link click close the overlay
-- ✅ **Mobile Responsive**: Top row remains consistent and routes to global pages
+- ✅ **Global Header Navigation**: `SiteHeader` owns primary and secondary route controls across pages
+- ✅ **Desktop Behavior**: `DesktopNavigation` renders primary links plus `More` dropdown for secondary links
+- ✅ **Mobile Behavior**: `MobileNavigation` renders a toggle that opens a dialog panel with backdrop + close controls
+- ✅ **Close Behaviors**: Escape and explicit close controls on desktop/mobile; mobile dialog also closes on backdrop click
+- ✅ **Hero Responsibility**: Hero sections keep value-prop content and defer global routing controls to the shared header
 
 ### Hero Section Patterns
 
@@ -479,28 +479,21 @@ export default function PageName() {
       <span className="block text-brand-primary">Proven Craftsmanship</span>
     </h1>
   </div>
-
-  {/* Page Navigation - Global 6-cell row + More overlay */}
-  <PageNavigation
-    items={navigationConfigs.page}
-    showRemainingPagesOverlay
-    className="absolute bottom-0 left-0 right-0"
-  />
 </section>
 ```
 
-**Navigation Config Pattern (Legacy-compatible):**
+**Navigation Data Pattern (Current):**
 
 ```typescript
-// navigationConfigs.ts
-pageName: [
-  {
-    href: "#section-id", // Optional internal deep-link target for section jumps
-    label: "Full Label", // Desktop label
-    mobileLabel: "Short", // Mobile label
-    icon: "material_icon", // Material icon name
-  },
-  // More sections...
+// navigation-data.ts
+const NAV_DEFINITIONS = [
+  { key: "services", href: "/services", priority: "primary" },
+  { key: "projects", href: "/projects", priority: "primary" },
+  { key: "publicSector", href: "/public-sector", priority: "primary" },
+  { key: "about", href: "/about", priority: "primary" },
+  { key: "contact", href: "/contact", priority: "primary" },
+  { key: "events", href: "/events", priority: "secondary" },
+  // ...other secondary items
 ];
 ```
 

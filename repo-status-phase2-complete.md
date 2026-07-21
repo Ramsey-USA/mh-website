@@ -5407,22 +5407,22 @@ tmp/global-pdf-scan.mjs
 ### Renamed files (R*)
 
 ```text
-R056	apps/website/public/videos/hero-commercials/home-hero-optimized-audio.mp4	apps/website/public/videos/hero-commercials/mh-construction-radio-ad-jeremy-thamert.mp4
-R100	apps/dashboard/src/components/analytics/EnhancedAnalytics.tsx	packages/shared/src/lib/analytics/components/EnhancedAnalytics.tsx
-R100	apps/dashboard/src/components/analytics/GoogleAnalytics.tsx	packages/shared/src/lib/analytics/components/GoogleAnalytics.tsx
-R100	apps/dashboard/src/components/analytics/PageTrackingClient.tsx	packages/shared/src/lib/analytics/components/PageTrackingClient.tsx
-R100	apps/dashboard/src/components/analytics/TrackedContactLinks.tsx	packages/shared/src/lib/analytics/components/TrackedContactLinks.tsx
-R086	apps/dashboard/src/lib/data/team/gator.json	packages/shared/src/lib/data/team/gator.json
-R098	apps/website/src/lib/data/team/mike-holstein.json	packages/shared/src/lib/data/team/mike-holstein.json
-R100	apps/dashboard/src/components/icons/AmericanFlag.tsx	packages/shared/src/lib/icons/AmericanFlag.tsx
-R100	apps/dashboard/src/styles/material-icons.css	packages/shared/src/styles/material-icons.css
-R094	apps/website/src/styles/variables.css	packages/shared/src/styles/variables.css
-R100	audit_localization.py	scripts/legacy-audits/audit_localization.py
-R100	auditor.js	scripts/legacy-audits/auditor.js
-R100	regenerate_report.sh	scripts/legacy-audits/regenerate_report.sh
-R100	report_gen.sh	scripts/legacy-audits/report_gen.sh
-R100	route_audit.mjs	scripts/legacy-audits/route_audit.mjs
-R100	scanner.sh	scripts/legacy-audits/scanner.sh
-R100	sweep_locales.sh	scripts/legacy-audits/sweep_locales.sh
-R100	update_files.py	scripts/legacy-audits/update_files.py
+R056  apps/website/public/videos/hero-commercials/home-hero-optimized-audio.mp4  apps/website/public/videos/hero-commercials/mh-construction-radio-ad-jeremy-thamert.mp4
+R100  apps/dashboard/src/components/analytics/EnhancedAnalytics.tsx  packages/shared/src/lib/analytics/components/EnhancedAnalytics.tsx
+R100  apps/dashboard/src/components/analytics/GoogleAnalytics.tsx  packages/shared/src/lib/analytics/components/GoogleAnalytics.tsx
+R100  apps/dashboard/src/components/analytics/PageTrackingClient.tsx  packages/shared/src/lib/analytics/components/PageTrackingClient.tsx
+R100  apps/dashboard/src/components/analytics/TrackedContactLinks.tsx  packages/shared/src/lib/analytics/components/TrackedContactLinks.tsx
+R086  apps/dashboard/src/lib/data/team/gator.json  packages/shared/src/lib/data/team/gator.json
+R098  apps/website/src/lib/data/team/mike-holstein.json  packages/shared/src/lib/data/team/mike-holstein.json
+R100  apps/dashboard/src/components/icons/AmericanFlag.tsx  packages/shared/src/lib/icons/AmericanFlag.tsx
+R100  apps/dashboard/src/styles/material-icons.css  packages/shared/src/styles/material-icons.css
+R094  apps/website/src/styles/variables.css  packages/shared/src/styles/variables.css
+R100  audit_localization.py  scripts/legacy-audits/audit_localization.py
+R100  auditor.js  scripts/legacy-audits/auditor.js
+R100  regenerate_report.sh  scripts/legacy-audits/regenerate_report.sh
+R100  report_gen.sh  scripts/legacy-audits/report_gen.sh
+R100  route_audit.mjs  scripts/legacy-audits/route_audit.mjs
+R100  scanner.sh  scripts/legacy-audits/scanner.sh
+R100  sweep_locales.sh  scripts/legacy-audits/sweep_locales.sh
+R100  update_files.py  scripts/legacy-audits/update_files.py
 ```

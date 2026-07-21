@@ -139,8 +139,6 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { BrandedContentSection } from "@/components/templates"; // ⭐ RECOMMENDED: Eliminates 68 lines of boilerplate
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { PageNavigation } from "@/components/navigation/PageNavigation";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
@@ -235,13 +233,6 @@ export default function YourPageName() {
               </p>
             </div>
           </div>
-
-          {/* Page Navigation - REQUIRED at bottom */}
-          <PageNavigation
-            items={navigationConfigs.yourpage} // Add to navigationConfigs.ts
-            showRemainingPagesOverlay
-            className="absolute bottom-0 left-0 right-0"
-          />
         </section>
 
         {/* Breadcrumb Navigation */}
@@ -379,30 +370,18 @@ export function getYourPageSEO() {
 }
 ```
 
-### 2. Navigation Config
+### 2. Global Navigation Model
 
-**File:** `/components/navigation/navigationConfigs.ts`
+**Files:**
 
-```typescript
-export const navigationConfigs = {
-  // ... existing configs
-  yourpage: [
-    {
-      href: "#first-section", // Legacy compatibility for section maps
-      label: "First Section",
-      mobileLabel: "First",
-      icon: "verified",
-    },
-    {
-      href: "#second-section",
-      label: "Second Section",
-      mobileLabel: "Second",
-      icon: "engineering",
-    },
-    // Add more navigation items
-  ],
-};
-```
+- `/src/components/navigation/SiteHeader.tsx`
+- `/src/components/navigation/navigation-data.ts`
+
+Current standard:
+
+- Primary/secondary header routes are centrally owned by `buildSiteNavigationModel`.
+- New page routes should be added to route ownership + route manifest sources first, then reflected in nav data labels.
+- Do not add route-level hero navigation rows as a replacement for the shared global header.
 
 ### 3. Breadcrumb Pattern
 
@@ -439,8 +418,8 @@ Before deploying your new page:
 - [ ] Test on mobile device (actual device, not just DevTools)
 - [ ] Test dark mode toggle
 - [ ] Verify all links work
-- [ ] Verify hero nav shows global 6-cell row (Home, Services, Projects, About, Contact, More)
-- [ ] Verify `More` opens modal overlay and all close behaviors work
+- [ ] Verify page inherits the global header (`SiteHeader`) without duplicating route controls inside the hero
+- [ ] Verify desktop `More` dropdown and mobile menu dialog still include the new route where applicable
 - [ ] Verify SEO metadata appears correctly
 - [ ] Verify route-specific Jeremy quote key exists in `src/content/jeremy-page-ribbons.md`
 - [ ] Verify page SEO keywords include route-aware Jeremy quote signals

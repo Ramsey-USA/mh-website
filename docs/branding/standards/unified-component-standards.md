@@ -533,10 +533,8 @@ Use the page shell contract (from `AppShell`) instead of per-section logo overla
 - ✅ Full viewport height: `h-screen flex items-center justify-center`
 - ✅ Clean typography: Title, subtitle, description
 - ✅ Brand color emphasis: `text-brand-secondary` on hero titles
-- ✅ PageNavigation at bottom: `absolute bottom-0 left-0 right-0`
-- ✅ Homepage PageNavigation row uses a 6-cell grid (Home, Services, Projects, About, Contact, More)
-- ✅ `More` opens a modal overlay pattern (backdrop + centered panel), not an inline dropdown
-- ✅ `More` uses the same padding/typography/border attributes as the other 5 nav cells
+- ✅ Global navigation is owned by `SiteHeader` (fixed shell) and must not be duplicated inside hero content
+- ✅ Hero content must account for the shell offset via `--mh-nav-offset` safe spacing
 - ✅ Modern components: CTAs, badges, and stats ARE allowed when appropriate
 - ✅ Responsive padding: Top `pt-16` to `lg:pt-40`, Bottom `pb-12` to `lg:pb-28`
 
@@ -544,9 +542,9 @@ Use the page shell contract (from `AppShell`) instead of per-section logo overla
 
 Hero sections share their own visual contract and must align to homepage hero characteristics.
 
-1. Hero layout baseline matches homepage structure: full-height shell, centered content stack, and bottom PageNavigation placement.
+1. Hero layout baseline matches homepage structure: full-height shell with content anchored over visual media and safe spacing below the fixed header.
 2. Hero typography baseline matches homepage hierarchy: strong H1 emphasis, concise subtitle, and supporting body copy.
-3. Hero navigation baseline matches homepage behavior: six-cell row and `More` overlay interaction pattern where required.
+3. Hero navigation baseline matches homepage behavior by inheriting global header navigation rather than rendering per-page hero nav rows.
 4. Hero color baseline preserves approved dark gradient atmosphere and brand-emphasis title treatment.
 5. Any route-specific hero divergence must be documented as intent or approved exception before merge.
 
@@ -572,26 +570,16 @@ Hero sections share their own visual contract and must align to homepage hero ch
       </p>
     </div>
   </div>
-
-  <PageNavigation
-    items={navigationConfigs.pageName}
-    showRemainingPagesOverlay
-    className="absolute bottom-0 left-0 right-0"
-  />
 </section>
 ```
 
-### PageNavigation Overlay Pattern (Homepage)
+### Global Header Navigation Pattern (Homepage and Routed Pages)
 
-- Grid container must render six equal columns for the top row.
-- The first five cells are primary destinations; the sixth cell is `More`.
-- `More` must use a full-screen overlay pattern with:
-  - Backdrop click-to-close behavior
-  - Escape key close behavior
-  - Body scroll lock while open
-  - Centered modal panel with brand-congruent colors and typography
-- Overlay menu items list remaining site pages as direct links.
-- Keep interactive elements keyboard reachable with visible focus rings.
+- Primary and secondary navigation are owned by `SiteHeader` via `DesktopNavigation` and `MobileNavigation`.
+- Desktop uses a primary inline route row and a `More` dropdown panel for secondary routes.
+- Mobile uses a toggle button that opens a backdrop-backed dialog panel with full route access.
+- Close behaviors must include Escape key and explicit close action; mobile additionally closes on backdrop click.
+- Header navigation interactions must remain keyboard reachable with visible focus rings.
 
 ## Navigation Overlay and Header Action Visual Contract (Canonical)
 
@@ -603,18 +591,14 @@ page-navigation overlays, and navigation action presentation.
 1. Global header control set must remain: logo, language toggle, phone CTA, compact theme toggle, and hamburger menu.
 2. Header remains logo-first and the MH logo stays visually dominant at mobile and desktop breakpoints.
 3. Hero surfaces must not duplicate global-header contact actions owned by the phone CTA.
-4. Page navigation row must preserve the six-cell top-row pattern (Home, Services, Projects, About, Contact, More) where this pattern is required.
-5. `More` interactions must use the full-screen overlay pattern (backdrop + centered panel), not inline dropdown behavior.
-6. Overlay close behaviors must include Escape key, close button, and backdrop click where applicable.
-7. Body scroll must lock while navigation overlays are open and restore on close.
+4. Desktop navigation must use the primary route row plus secondary `More` dropdown model from `DesktopNavigation`.
+5. Mobile navigation must use the dialog overlay pattern from `MobileNavigation` (toggle, backdrop, close control, focus-visible states).
+6. Overlay close behaviors must include Escape key and explicit close action; mobile overlays also close on backdrop click.
+7. Body scroll must lock while mobile navigation overlays are open and restore on close.
 8. Navigation controls and overlay links must remain keyboard reachable with visible focus states.
-9. Terminology by navigation surface must follow the dual-terminology matrix:
+9. Terminology by navigation surface must follow the route-manifest-driven labels used by `buildSiteNavigationModel`.
 
-- PageNavigation top row uses MH brand labels (`mhBrandName`) for compact clarity.
-- PageNavigation More overlay keeps MH brand labels with plain-language SEO descriptions.
-- Hamburger and Footer navigation keep plain-language SEO labels on the primary line and MH brand labels on the secondary line.
-
-1. Do not collapse the above surface-specific pattern into a single global parenthetical format for all UI elements.
+10. Do not collapse the above surface-specific pattern into a single global parenthetical format for all UI elements.
 
 ### Canonical References
 

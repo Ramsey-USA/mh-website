@@ -71,7 +71,7 @@ Typography and color treatment on homepage-inspired pages must stay within the c
 
 ### Key Features
 
-- **Full-screen hero** with American Flag and dual-label navigation
+- **Full-screen hero** with poster-backed media treatment and command-center messaging
 - **Unified global header** with a logo-first mobile layout, bilingual controls, phone CTA, compact theme toggle, and hamburger menu
 - **Performance optimized** with lazy-loaded below-the-fold content
 - **SEO Validation:** Use external audits and rich-result validators
@@ -249,9 +249,10 @@ import { HeroSection } from "@/components/home";
 - **File:** `/src/components/home/HeroSection.tsx`
 - **Loading:** Eager (critical above-fold content)
 - **Features:**
-  - American Flag icon with animation
-  - Page navigation integration
-  - Gradient background (ready for photo/video)
+  - Poster-backed hero media (`/images/home-hero-poster.webp`)
+  - Right-aligned command-center headline + supporting proof line
+  - Primary and secondary hero CTAs (contact and project proof)
+  - Gradient overlay for contrast/readability
   - Responsive text sizing
 
 #### CoreValuesSection
@@ -616,13 +617,14 @@ export default function Home() {
 
 ### Navigation Integration
 
-The homepage hero uses `PageNavigation` with a 6-cell top row and modal overlay support:
+Homepage route navigation is owned by the global shell header:
 
-- Configuration: `/src/components/navigation/navigationConfigs.ts`
-- Layout: six equal cells (Home, Services, Projects, About, Contact, More)
-- `More` behavior: opens full-screen modal overlay with backdrop and centered panel
-- Overlay close controls: backdrop click, Escape key, close button, and link click
-- Accessibility/UX: body scroll locks while overlay is open
+- Header container: `/src/components/navigation/SiteHeader.tsx`
+- Desktop model: `/src/components/navigation/DesktopNavigation.tsx`
+- Mobile model: `/src/components/navigation/MobileNavigation.tsx`
+- Route source: `/src/components/navigation/navigation-data.ts`
+- Footer route groups: `/src/components/navigation/footer-data.ts`
+- Accessibility/UX: keyboard-reachable controls, focus-visible rings, and mobile dialog close/backdrop behavior
 - Canonical contract: [Container and Modal Visual Contract](../branding/standards/unified-component-standards.md#container-and-modal-visual-contract-canonical)
 - Canonical contract: [Navigation Overlay and Header Action Visual Contract](../branding/standards/unified-component-standards.md#navigation-overlay-and-header-action-visual-contract-canonical)
 

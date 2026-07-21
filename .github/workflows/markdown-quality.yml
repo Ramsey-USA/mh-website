@@ -11,7 +11,7 @@ on:
       - "**/*.md"
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
@@ -129,7 +129,7 @@ jobs:
   markdown-formatting:
     name: Auto-format Markdown
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
 
     steps:
       - name: Checkout repository
@@ -149,10 +149,12 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add .
+          git add -A
           if git diff --staged --quiet; then
             echo "No markdown changes to commit"
           else
             git commit -m "chore(markdown): auto-fix markdown formatting"
-            git push
+            if ! git push; then
+              echo "::warning::Markdown auto-fix commit could not be pushed (branch protection or token permissions)."
+            fi
           fi
