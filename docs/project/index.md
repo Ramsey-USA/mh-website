@@ -13,7 +13,7 @@ All project documentation should preserve the same brand voice, trust framing, a
 ## Current Snapshot
 
 - Platform remains production-live on Cloudflare Workers with OpenNext deployment flow.
-- Current app stack in repo: Next.js 16.2.10, React 19.2.7, Tailwind CSS 4.3.2, TypeScript 6.0.3.
+- Current app stack in repo: Next.js 16.2.11, React 19.2.8, Tailwind CSS 4.3.3, TypeScript 6.0.3.
 - Runtime and adapter baseline: Node.js 22+, `@opennextjs/cloudflare` 1.20.1, Wrangler 4.110.0.
 - Latest structural release update: June 21, 2026 hero-to-navigation spacing standardization (see changelog).
 - Latest congruency update: June 30, 2026 core-page and SEO metadata/schema de-dup sweep closure, with one intentional canonical mission-text exception retained for brand-source alignment.
