@@ -163,7 +163,7 @@
     "audit:images": "node scripts/optimization/audit-images.js",
     "check:image-sizes": "node scripts/optimization/check-sizes.js",
     "quality:check": "bash scripts/utilities/cleanup-check.sh",
-    "deps:check": "npx depcheck --ignores='@types/*,eslint-*,@eslint/*,prettier,husky,@commitlint/*,postcss,autoprefixer,jest-environment-jsdom,@opennextjs/cloudflare,@opennextjs/aws,cloudflare:workers,chalk,@cspell/dict-es-es,@tailwindcss/postcss,cross-env,esbuild,lint-staged,@sentry/browser,clsx,resend,tailwind-merge,toucan-js,docx'",
+    "deps:check": "npx depcheck --ignores='@types/*,eslint-*,@eslint/*,prettier,husky,@commitlint/*,postcss,autoprefixer,jest-environment-jsdom,@opennextjs/cloudflare,@opennextjs/aws,cloudflare:workers,chalk,@cspell/dict-es-es,@tailwindcss/postcss,cross-env,esbuild,lint-staged,@sentry/browser,clsx,resend,tailwind-merge,toucan-js,docx,axe-core'",
     "deps:update": "npm outdated",
     "deps:clean": "npm prune && npm dedupe"
   },
