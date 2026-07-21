@@ -9,7 +9,7 @@
 
 Your current dependency stack is **fully compatible** with your Cloudflare Workers deployment. No breaking changes detected between the repository versions and Cloudflare adapter requirements.
 
-Current deployed stack: Next.js 16.2.10, @opennextjs/cloudflare 1.20.1, wrangler 4.111.0.
+Current deployed stack: Next.js 16.2.10, @opennextjs/cloudflare 1.20.2, wrangler 4.112.0.
 
 ---
 
