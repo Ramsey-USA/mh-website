@@ -9,7 +9,7 @@
 
 Your current dependency stack is **fully compatible** with your Cloudflare Workers deployment. No breaking changes detected between the repository versions and Cloudflare adapter requirements.
 
-Current deployed stack: Next.js 16.2.10, @opennextjs/cloudflare 1.20.1, wrangler 4.111.0.
+Current deployed stack: Next.js 16.2.10, @opennextjs/cloudflare 1.20.2, wrangler 4.111.0.
 
 ---
 
@@ -20,15 +20,15 @@ Current deployed stack: Next.js 16.2.10, @opennextjs/cloudflare 1.20.1, wrangler
 | Component                  | Current | Target  | Compatibility       | Risk |
 | -------------------------- | ------- | ------- | ------------------- | ---- |
 | **Next.js**                | 16.2.10 | 16.2.10 | ✅ Supported        | NONE |
-| **@opennextjs/cloudflare** | 1.20.1  | 1.20.1  | ✅ Supports ≥16.2.6 | NONE |
-| **wrangler**               | 4.110.0 | 4.110.0 | ✅ Requires ^4.86.0 | NONE |
+| **@opennextjs/cloudflare** | 1.20.2  | 1.20.2  | ✅ Supports ≥16.2.6 | NONE |
+| **wrangler**               | 4.111.0 | 4.111.0 | ✅ Requires ^4.86.0 | NONE |
 
 **Peer Dependency Check (from npm):**
 
 ```
-@opennextjs/cloudflare@1.20.1 requires:
+@opennextjs/cloudflare@1.20.2 requires:
   • next: '>=15.5.18 <16 || >=16.2.6'  ✅ Your current 16.2.10 is explicitly supported
-  • wrangler: '^4.86.0'                 ✅ Your current 4.110.0 is within range
+  • wrangler: '^4.86.0'                 ✅ Your current 4.111.0 is within range
 ```
 
 ---
