@@ -144,7 +144,7 @@ jobs:
         run: npm run guardrails:dashboard
 
       - name: Restore Prettier cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .prettier-cache
           key: prettier-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
@@ -230,7 +230,7 @@ jobs:
           install-command: pnpm install --frozen-lockfile --filter @mhc/website... --loglevel error
 
       - name: Restore Next.js build cache (website)
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: |
             apps/website/.next/cache
@@ -282,7 +282,7 @@ jobs:
           install-command: pnpm install --frozen-lockfile --filter @mhc/dashboard... --loglevel error
 
       - name: Restore Next.js build cache (dashboard)
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: |
             apps/dashboard/.next/cache
@@ -319,7 +319,7 @@ jobs:
           install-command: pnpm install --frozen-lockfile --filter @mhc/website... --loglevel error
 
       - name: Restore Next.js build cache (website)
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: |
             apps/website/.next/cache
