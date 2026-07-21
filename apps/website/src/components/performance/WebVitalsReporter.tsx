@@ -2,7 +2,13 @@
 
 import { useEffect } from "react";
 import { logger } from "@/lib/utils/logger";
+import {
+  normalizeAnalyticsRouteTemplate,
+  trackWebVital,
+} from "@/lib/analytics/tracking";
 import type { Metric } from "web-vitals";
+
+const REPORTED_METRIC_IDS = new Set<string>();
 
 /**
  * Performance thresholds for Core Web Vitals
@@ -47,22 +53,31 @@ function getPerformanceRating(
 /**
  * Send performance metric to analytics
  */
-function sendToAnalytics(metric: Metric) {
-  const rating = getPerformanceRating(metric.name, metric.value);
-
-  // Send to Google Analytics if available
-  if (typeof window !== "undefined" && window.gtag) {
-    window.gtag("event", metric.name, {
-      event_category: "Web Vitals",
-      event_label: metric.id,
-      value: Math.round(
-        metric.name === "CLS" ? metric.value * 1000 : metric.value,
-      ),
-      metric_rating: rating,
-      metric_delta: Math.round(metric.delta),
-      non_interaction: true,
-    });
+function sendToAnalytics(metric: Metric, routeTemplateOverride?: string) {
+  if (REPORTED_METRIC_IDS.has(metric.id)) {
+    return;
   }
+
+  REPORTED_METRIC_IDS.add(metric.id);
+
+  const rating = getPerformanceRating(metric.name, metric.value);
+  const routeTemplate =
+    routeTemplateOverride ??
+    (typeof window !== "undefined"
+      ? normalizeAnalyticsRouteTemplate(window.location.pathname)
+      : "/");
+
+  trackWebVital({
+    metric_name: metric.name,
+    metric_id: metric.id,
+    value: Math.round(
+      metric.name === "CLS" ? metric.value * 1000 : metric.value,
+    ),
+    metric_rating: rating,
+    metric_delta: Math.round(metric.delta),
+    route_template: routeTemplate,
+    non_interaction: true,
+  });
 
   // Log performance warnings for poor metrics
   if (rating === "poor") {
@@ -74,17 +89,25 @@ function sendToAnalytics(metric: Metric) {
         ]?.poor,
       rating,
       id: metric.id,
+      routeTemplate,
     });
   } else {
     logger.info(`Web Vital - ${metric.name}`, {
       value: metric.value,
       rating,
       id: metric.id,
+      routeTemplate,
     });
   }
 }
 
-export function WebVitalsReporter() {
+interface WebVitalsReporterProps {
+  pathnameOverride?: string;
+}
+
+export function WebVitalsReporter({
+  pathnameOverride,
+}: WebVitalsReporterProps = {}) {
   useEffect(() => {
     if (
       typeof navigator !== "undefined" &&
@@ -94,23 +117,30 @@ export function WebVitalsReporter() {
     }
 
     // Load web vitals in both development and production for monitoring
+    const sendMetric = (metric: Metric) => {
+      const routeTemplate = pathnameOverride
+        ? normalizeAnalyticsRouteTemplate(pathnameOverride)
+        : undefined;
+      sendToAnalytics(metric, routeTemplate);
+    };
+
     import("web-vitals").then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
       // Cumulative Layout Shift - visual stability
-      onCLS(sendToAnalytics);
+      onCLS(sendMetric);
 
       // Interaction to Next Paint - interactivity
-      onINP(sendToAnalytics);
+      onINP(sendMetric);
 
       // First Contentful Paint - perceived load speed
-      onFCP(sendToAnalytics);
+      onFCP(sendMetric);
 
       // Largest Contentful Paint - loading performance
-      onLCP(sendToAnalytics);
+      onLCP(sendMetric);
 
       // Time to First Byte - server response time
-      onTTFB(sendToAnalytics);
+      onTTFB(sendMetric);
     });
-  }, []);
+  }, [pathnameOverride]);
 
   return null;
 }

@@ -144,9 +144,9 @@ export const faqCategories: FAQCategory[] = [
           "Always! You can call us at (509) 308-6489 or email office@mhc-gc.com anytime. We prioritize personal communication above all else. Face-to-face consultation is where real partnerships begin, and we're always ready to meet with you in person.",
       },
       {
-        question: "How do I schedule a consultation?",
+        question: "How do I discuss my project with your team?",
         answer:
-          "Getting started is easy! You can call us at (509) 308-6489, email office@mhc-gc.com, or visit our Contact page to submit a request. We offer free consultations where we meet face-to-face to discuss your project, review your needs, and develop a custom plan together. This personal approach is how we build lasting partnerships.",
+          "Getting started is straightforward. Call us at (509) 308-6489, email office@mhc-gc.com, or use our Contact page to request a project conversation. For active scopes, we can schedule a capability review to walk through your needs, timing, and delivery path together. That direct approach is how we build lasting partnerships.",
       },
       {
         question: "What is the Partnership Guide on your website?",

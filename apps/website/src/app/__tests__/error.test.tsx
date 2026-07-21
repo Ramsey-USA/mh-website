@@ -5,6 +5,21 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
+jest.mock("next-intl", () => ({
+  useTranslations: () =>
+    ((key: string) => {
+      const map: Record<string, string> = {
+        heading: "Something went wrong",
+        message: "We ran into an issue loading this page.",
+        tryAgain: "Try Again",
+        goHome: "Go Home",
+        contact: "Contact Support",
+      };
+
+      return map[key] ?? key;
+    }) as unknown as (key: string) => string,
+}));
+
 jest.mock("next/image", () => ({
   __esModule: true,
   default: ({ alt, src, ...props }: any) => {
@@ -19,6 +34,13 @@ jest.mock("@/components/ui", () => ({
       {children}
     </button>
   ),
+  Card: ({ children }: any) => <div>{children}</div>,
+  CardContent: ({ children }: any) => <div>{children}</div>,
+}));
+
+jest.mock("next/link", () => ({
+  __esModule: true,
+  default: ({ children, href }: any) => <a href={href}>{children}</a>,
 }));
 
 jest.mock("@/components/icons/MaterialIcon", () => ({
@@ -27,6 +49,10 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
 
 jest.mock("@/lib/utils/logger", () => ({
   logger: { error: jest.fn() },
+}));
+
+jest.mock("@/lib/monitoring/sentry", () => ({
+  captureException: jest.fn(),
 }));
 
 import ErrorPage from "../error";
@@ -49,9 +75,23 @@ describe("Error page", () => {
     render(<ErrorPage error={testError} reset={mockReset} />);
     const { logger } = require("@/lib/utils/logger");
     expect(logger.error).toHaveBeenCalledWith(
-      "Page error:",
-      expect.objectContaining({ message: "Test failure" }),
+      "Route error boundary triggered",
+      {
+        boundary: "route-error",
+        errorName: "Error",
+        digest: "abc123",
+      },
     );
+  });
+
+  it("forwards exception to sentry with safe context", () => {
+    render(<ErrorPage error={testError} reset={mockReset} />);
+    const { captureException } = require("@/lib/monitoring/sentry");
+    expect(captureException).toHaveBeenCalledWith(testError, {
+      boundary: "route-error",
+      errorName: "Error",
+      digest: "abc123",
+    });
   });
 
   it("calls reset when Try again button is clicked", async () => {
@@ -74,7 +114,7 @@ describe("Error page", () => {
     window.gtag = mockGtag;
     render(<ErrorPage error={testError} reset={mockReset} />);
     expect(mockGtag).toHaveBeenCalledWith("event", "exception", {
-      description: "Test failure",
+      description: "route-error:abc123",
       fatal: false,
     });
     delete (window as any).gtag;
@@ -87,11 +127,31 @@ describe("Error page", () => {
     ).not.toThrow();
   });
 
-  it("navigates home when Go Home button is clicked", async () => {
+  it("renders a home navigation link", () => {
+    render(<ErrorPage error={testError} reset={mockReset} />);
+    expect(screen.getByRole("link", { name: /go home/i })).toHaveAttribute(
+      "href",
+      "/",
+    );
+  });
+
+  it("keeps an accessible landmark and heading structure", () => {
+    render(<ErrorPage error={testError} reset={mockReset} />);
+    expect(screen.getByRole("main")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /something went wrong/i }),
+    ).toBeInTheDocument();
+  });
+
+  it("does not expose raw error text in the rendered fallback", () => {
+    render(<ErrorPage error={testError} reset={mockReset} />);
+    expect(screen.queryByText("Test failure")).not.toBeInTheDocument();
+  });
+
+  it("supports Try Again interaction", async () => {
     const user = userEvent.setup();
     render(<ErrorPage error={testError} reset={mockReset} />);
-    // Click the Go Home button — the onClick sets window.location.href
-    await user.click(screen.getByRole("button", { name: /go home/i }));
-    // Verify it didn't throw during click
+    await user.click(screen.getByRole("button", { name: /try again/i }));
+    expect(mockReset).toHaveBeenCalledTimes(1);
   });
 });

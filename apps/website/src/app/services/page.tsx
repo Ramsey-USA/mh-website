@@ -3,7 +3,6 @@ import {
   ConstructionProcessSection,
   CoreServicesSection,
   GovernmentProjectsSection,
-  PartnershipTypesSection,
   ServiceAreasSection,
   ServicesHero,
   SpecialtyServicesSection,
@@ -13,9 +12,14 @@ import {
   specialtyServices,
 } from "@/components/services";
 import { JeremyAuthorityLinksStrip } from "@/components/shared-sections/JeremyAuthorityLinksStrip";
+import { NextStepsSection } from "@/components/shared-sections";
+import { BrandedContentSection } from "@/components/templates";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { MH_SLOGANS } from "@/lib/branding/page-names";
+import { projectCaseStudies } from "@/lib/data/project-case-studies";
+import Link from "next/link";
 
 const processSteps = [
   {
@@ -58,6 +62,11 @@ const processSteps = [
 
 export default async function ServicesPage() {
   const isEs = (await getServerLocale()) === "es";
+  const universalCtas = getUniversalCtaSet(isEs ? "es" : "en");
+  const publishedCaseStudies = projectCaseStudies.filter(
+    (project) => project.isPublished !== false,
+  );
+  const featuredProofProjects = publishedCaseStudies.slice(0, 3);
 
   return (
     <>
@@ -97,11 +106,77 @@ export default async function ServicesPage() {
         description="Specialty capabilities for sector-specific constraints, occupied facilities, and technical delivery requirements."
       />
 
+      <ConstructionProcessSection
+        subtitle="Delivery Process"
+        title="Six-Phase Operating Process"
+        description="A clear operating model that keeps planning, field execution, and handoff controls visible at every stage."
+        steps={processSteps.map((step) => ({ ...step, tags: [...step.tags] }))}
+        cta={{
+          title: "Evaluate Mission Fit",
+          description:
+            "Review recent work and delivery patterns before scheduling your scope conversation.",
+          contactButton: universalCtas.services.label,
+          projectsButton: universalCtas.portfolio.label,
+        }}
+      />
+
+      <WhyChooseUs
+        subtitle="Trust Signals"
+        title="Why Mission Partners Choose MH Mission Teams"
+        description={`Documented safety performance, transparent communication, and reliable follow-through from planning through handoff. ${MH_SLOGANS.supporting[3]}`}
+      />
+
       <GovernmentProjectsSection
         subtitle="Public-Sector Delivery"
         title="Government and Grant-Funded Mission Support"
         description={`Compliance-forward planning and documentation support for municipal and public-sector delivery pathways. ${MH_SLOGANS.supporting[2]}`}
       />
+
+      <BrandedContentSection
+        id="service-proof"
+        variant="gray"
+        headerSize="section"
+        header={{
+          icon: "verified",
+          iconVariant: "secondary",
+          subtitle: isEs ? "Prueba Verificada" : "Verified Proof",
+          title: isEs
+            ? "Casos Públicos de Proyectos"
+            : "Public Project Case Studies",
+          description: isEs
+            ? "Casos publicados que muestran ubicación, tipo de proyecto y resultados documentados desde el repositorio actual."
+            : "Published case studies showing location, project type, and documented outcomes from the current repository.",
+        }}
+      >
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+          {featuredProofProjects.map((caseStudy) => (
+            <article
+              key={caseStudy.slug}
+              className="rounded-2xl border border-gray-200/90 dark:border-gray-700 bg-white/95 dark:bg-gray-800/95 p-5 sm:p-6 shadow-md"
+            >
+              <p className="font-heading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
+                {caseStudy.category}
+              </p>
+              <h3 className="mt-2 text-xl font-extrabold text-gray-900 dark:text-white">
+                {caseStudy.title}
+              </h3>
+              <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+                {caseStudy.location.city}, {caseStudy.location.state} ·{" "}
+                {caseStudy.yearCompleted}
+              </p>
+              <p className="font-body mt-3 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                {caseStudy.description}
+              </p>
+              <Link
+                href={`/projects/${caseStudy.slug}`}
+                className="mt-4 inline-flex items-center text-sm font-semibold text-brand-primary hover:underline dark:text-brand-primary-light"
+              >
+                {isEs ? "Ver estudio de caso" : "View case study"}
+              </Link>
+            </article>
+          ))}
+        </div>
+      </BrandedContentSection>
 
       <ServiceAreasSection
         serviceAreas={serviceAreas}
@@ -112,27 +187,7 @@ export default async function ServicesPage() {
         showAllLocationsCta
       />
 
-      <WhyChooseUs
-        subtitle="Trust Signals"
-        title="Why Mission Partners Choose MH Mission Teams"
-        description={`Documented safety performance, transparent communication, and reliable follow-through from planning through handoff. ${MH_SLOGANS.supporting[3]}`}
-      />
-
-      <ConstructionProcessSection
-        subtitle="Delivery Process"
-        title="Six-Phase Operating Process"
-        description="A clear operating model that keeps planning, field execution, and handoff controls visible at every stage."
-        steps={processSteps.map((step) => ({ ...step, tags: [...step.tags] }))}
-        cta={{
-          title: "Evaluate Mission Fit",
-          description:
-            "Review recent work and delivery patterns before scheduling your scope conversation.",
-          contactButton: "Contact Us",
-          projectsButton: "View Projects",
-        }}
-      />
-
-      <PartnershipTypesSection />
+      <NextStepsSection locale={isEs ? "es" : "en"} includePublicSectorLink />
     </>
   );
 }

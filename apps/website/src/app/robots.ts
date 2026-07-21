@@ -1,10 +1,8 @@
 import type { MetadataRoute } from "next";
-import { COMPANY_INFO } from "@/lib/constants/company";
+import { getCanonicalSiteOrigin } from "@/lib/site-config";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl =
-    process.env["NEXT_PUBLIC_SITE_URL"] || COMPANY_INFO.urls.getSiteUrl();
-  const normalizedBaseUrl = baseUrl.replace(/\/$/, "");
+  const normalizedBaseUrl = getCanonicalSiteOrigin();
   const host = new URL(normalizedBaseUrl).hostname;
   const disallow = [
     "/api/",
@@ -55,10 +53,7 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 1,
       },
     ],
-    sitemap: [
-      `${normalizedBaseUrl}/sitemap.xml`,
-      `${normalizedBaseUrl}/sitemap-index.xml`,
-    ],
+    sitemap: `${normalizedBaseUrl}/sitemap.xml`,
     host,
   };
 }

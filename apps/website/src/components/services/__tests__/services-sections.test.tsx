@@ -149,6 +149,14 @@ describe("ConstructionProcessSection", () => {
       <ConstructionProcessSection {...processProps} />,
     );
     expect(container.querySelector("#process")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /contact us/i })).toHaveAttribute(
+      "href",
+      "/contact",
+    );
+    expect(screen.getByRole("link", { name: /see projects/i })).toHaveAttribute(
+      "href",
+      "/projects",
+    );
   });
 });
 

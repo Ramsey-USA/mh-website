@@ -5,6 +5,7 @@ import {
   breadcrumbPatterns,
   generateBreadcrumbSchema,
 } from "@/lib/seo/breadcrumb-schema";
+import { StructuredData } from "@/components/seo/SeoMeta";
 import { EventsLandingPageClient } from "./EventsLandingPageClient";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 
@@ -16,6 +17,7 @@ const eventsSeoTitle = buildDualSeoTitle(
 const eventsHubStructuredData = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
+  "@id": "https://www.mhc-gc.com/events#collection",
   name: "MH Construction Events Hub",
   description:
     "Sponsored and hosted community events across Tri-Cities and the Pacific Northwest, including archive placements, highlights, and upcoming event sections.",
@@ -26,21 +28,7 @@ const eventsHubStructuredData = {
     url: "https://www.mhc-gc.com",
   },
   provider: {
-    "@type": "Organization",
-    name: "MH Construction",
-    url: "https://www.mhc-gc.com",
-    description:
-      "Veteran-owned commercial general contractor focused on relationship-first community engagement and trusted project delivery.",
-    areaServed: [
-      "Pasco, WA",
-      "Richland, WA",
-      "Kennewick, WA",
-      "Benton County, WA",
-      "Franklin County, WA",
-      "Washington",
-      "Oregon",
-      "Idaho",
-    ],
+    "@id": "https://www.mhc-gc.com/#organization",
   },
   about: [
     "Community sponsorships",
@@ -50,22 +38,26 @@ const eventsHubStructuredData = {
   ],
   mainEntity: {
     "@type": "ItemList",
+    "@id": "https://www.mhc-gc.com/events#sections",
     name: "Events Hub Sections",
     itemListElement: [
       {
         "@type": "ListItem",
         position: 1,
         name: "Smoke n Shine Team Placements",
+        item: { "@id": "https://www.mhc-gc.com/events#featured-events" },
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Event Photo Carousel",
+        item: { "@id": "https://www.mhc-gc.com/events#event-gallery" },
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Future Event Pipeline",
+        item: { "@id": "https://www.mhc-gc.com/events#upcoming-events" },
       },
     ],
   },
@@ -119,31 +111,23 @@ export const metadata: Metadata = withGeoMetadata({
 export default async function EventsPage() {
   const isEs = (await getServerLocale()) === "es";
 
+  const localizedCollectionSchema = {
+    ...eventsHubStructuredData,
+    name: isEs
+      ? "Centro de Eventos de MH Construction"
+      : eventsHubStructuredData.name,
+    description: isEs
+      ? "Eventos patrocinados y organizados en Tri-Cities y el Noroeste del Pacífico, con historial, destacados y próximos eventos comunitarios."
+      : eventsHubStructuredData.description,
+  };
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            generateBreadcrumbSchema(breadcrumbPatterns.events),
-          ),
-        }}
+      <StructuredData
+        data={generateBreadcrumbSchema(breadcrumbPatterns.events)}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            ...eventsHubStructuredData,
-            name: isEs
-              ? "Centro de Eventos de MH Construction"
-              : eventsHubStructuredData.name,
-            description: isEs
-              ? "Eventos patrocinados y organizados en Tri-Cities y el Noroeste del Pacífico, con historial, destacados y próximos eventos comunitarios."
-              : eventsHubStructuredData.description,
-          }),
-        }}
-      />
-      <EventsLandingPageClient />
+      <StructuredData data={localizedCollectionSchema} />
+      <EventsLandingPageClient locale={isEs ? "es" : "en"} />
     </>
   );
 }

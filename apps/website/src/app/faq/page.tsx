@@ -18,6 +18,7 @@ import {
   PAGE_TERMINOLOGY,
   MH_SLOGANS,
 } from "@/lib/branding/page-names";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { generateHowToSchema } from "@/lib/seo/howto-schema";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { JeremyAuthorityLinksStrip } from "@/components/shared-sections/JeremyAuthorityLinksStrip";
@@ -140,6 +141,7 @@ function FAQItem({ question, answer, link }: Readonly<FAQQuestion>) {
  * FAQ Page Component
  */
 export default async function FAQPage() {
+  const universalCtas = getUniversalCtaSet("en");
   const isEs = (await getServerLocale()) === "es";
 
   return (
@@ -407,16 +409,16 @@ export default async function FAQPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button asChild size="lg" variant="primary">
                   <Link
-                    href="/contact"
+                    href={universalCtas.primary.href}
                     className="focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary"
                   >
                     <MaterialIcon
                       icon="diversity_3"
                       className="mr-2"
                       theme="military"
-                      ariaLabel="Schedule Consultation"
+                      ariaLabel="Discuss Your Project"
                     />
-                    Schedule a Consultation
+                    {universalCtas.primary.label}
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">

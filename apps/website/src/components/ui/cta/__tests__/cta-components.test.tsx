@@ -151,8 +151,8 @@ describe("NextStepsSection", () => {
     expect(screen.getByText("See Our Real Work")).toBeInTheDocument();
     expect(screen.getByText("Let's Talk Face-to-Face")).toBeInTheDocument();
     expect(screen.getByText(/Most Popular/i)).toBeInTheDocument();
-    expect(screen.getByText("View Our Work")).toBeInTheDocument();
-    expect(screen.getByText("Get In Touch")).toBeInTheDocument();
+    expect(screen.getByText("View Project Portfolio")).toBeInTheDocument();
+    expect(screen.getByText("Discuss Your Project")).toBeInTheDocument();
   });
 
   it("renders Spanish content when locale is 'es'", () => {
@@ -160,8 +160,8 @@ describe("NextStepsSection", () => {
     expect(screen.getByText("Vea nuestro trabajo real")).toBeInTheDocument();
     expect(screen.getByText("Hablemos cara a cara")).toBeInTheDocument();
     expect(screen.getByText(/Mas popular/i)).toBeInTheDocument();
-    expect(screen.getByText("Ver nuestro trabajo")).toBeInTheDocument();
-    expect(screen.getByText("Contáctenos")).toBeInTheDocument();
+    expect(screen.getByText("Ver portafolio de proyectos")).toBeInTheDocument();
+    expect(screen.getByText("Hablemos de su proyecto")).toBeInTheDocument();
   });
 
   it("Spanish locale: shows project/satisfaction stats in Spanish", () => {
@@ -188,10 +188,10 @@ describe("NextStepsSection", () => {
   it("links to /projects and /contact with correct hrefs", () => {
     render(<NextStepsSection />);
     const projectLink = screen.getByRole("link", {
-      name: /view our work/i,
+      name: /view project portfolio/i,
     });
     const contactLink = screen.getByRole("link", {
-      name: /get in touch/i,
+      name: /discuss your project/i,
     });
     expect(projectLink).toHaveAttribute("href", "/projects");
     expect(contactLink).toHaveAttribute("href", "/contact");

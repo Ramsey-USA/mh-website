@@ -153,21 +153,16 @@ function buildLocalizedAlternates(
   }
 
   const normalizedPath = stripLocalePrefix(routePath);
-  const enUrl = `${canonicalBaseUrl}${normalizedPath}`;
-  const enPath = normalizedPath === "/" ? "/en" : `/en${normalizedPath}`;
-  const esPath = normalizedPath === "/" ? "/es" : `/es${normalizedPath}`;
-  const enLocalizedUrl = `${canonicalBaseUrl}${enPath}`;
-  const esUrl = `${canonicalBaseUrl}${esPath}`;
+  const normalizedCanonicalUrl = `${canonicalBaseUrl}${normalizedPath}`;
+  const normalizedAlternates = alternates ? { ...alternates } : {};
+
+  // Locale selection is cookie-driven on a shared route URL.
+  // Avoid emitting locale-prefixed hreflang arrays from metadata.
+  delete normalizedAlternates.languages;
 
   return {
-    ...alternates,
-    canonical: canonicalUrl,
-    languages: {
-      ...alternates?.languages,
-      "x-default": enUrl,
-      "en-US": enLocalizedUrl,
-      "es-US": esUrl,
-    },
+    ...normalizedAlternates,
+    canonical: normalizedCanonicalUrl,
   };
 }
 

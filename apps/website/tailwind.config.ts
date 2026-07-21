@@ -1,3 +1,24 @@
+const FONT_HEADING_STACK = [
+  '"Mendl Sans Dusk Bold"',
+  '"Mendl Sans Dusk"',
+  "mendl-sans-dusk",
+  "sans-serif",
+];
+
+const FONT_SUBHEADING_STACK = [
+  '"Mendl Sans Dusk Medium"',
+  '"Mendl Sans Dusk"',
+  "mendl-sans-dusk",
+  "sans-serif",
+];
+
+const FONT_BODY_STACK = [
+  '"Mendl Sans Dusk Regular"',
+  '"Mendl Sans Dusk"',
+  "mendl-sans-dusk",
+  "sans-serif",
+];
+
 const config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,7 +33,15 @@ const config = {
   theme: {
     extend: {
       colors: {
+        "brand-green": "#386851",
+        "brand-tan": "#BD9264",
+        "brand-white": "#FFFFFF",
+        "brand-black": "#000000",
         brand: {
+          green: "#386851",
+          tan: "#BD9264",
+          white: "#FFFFFF",
+          black: "#000000",
           primary: "#386851",
           "primary-light": "#628F79",
           "primary-dark": "#1E392C",
@@ -63,6 +92,18 @@ const config = {
           800: "#6f5236",
           900: "#5a422c",
         },
+        surface: {
+          base: "#FFFFFF",
+          muted: "#FAFAFA",
+          elevated: "#F5F5F5",
+          inverse: "#121212",
+        },
+        ink: {
+          primary: "#212121",
+          secondary: "#757575",
+          inverse: "#FFFFFF",
+          muted: "#9E9E9E",
+        },
         // Semantic colors per branding guidelines
         success: {
           light: "#10b981",
@@ -83,6 +124,17 @@ const config = {
           light: "#3b82f6",
           dark: "#60a5fa",
           DEFAULT: "#3b82f6",
+        },
+        status: {
+          success: "#10b981",
+          warning: "#f59e0b",
+          error: "#ef4444",
+          info: "#3b82f6",
+        },
+        focus: {
+          ring: "#386851",
+          "ring-offset": "#FFFFFF",
+          inverse: "#BD9264",
         },
         // Semantic text colors per branding guidelines
         text: {
@@ -137,11 +189,25 @@ const config = {
       fontFamily: {
         // Keep font stacks centralized in src/styles/variables.css
         // so Tailwind utilities and global CSS always stay in sync.
-        sans: ["var(--font-body)"],
-        heading: ["var(--font-heading)"],
-        body: ["var(--font-body)"],
-        display: ["var(--font-heading)"],
-        subheading: ["var(--font-heading)"],
+        sans: ["var(--font-body)", ...FONT_BODY_STACK],
+        heading: ["var(--font-heading)", ...FONT_HEADING_STACK],
+        body: ["var(--font-body)", ...FONT_BODY_STACK],
+        display: ["var(--font-heading)", ...FONT_HEADING_STACK],
+        subheading: [
+          "var(--font-subheading, var(--font-heading))",
+          ...FONT_SUBHEADING_STACK,
+        ],
+      },
+      spacing: {
+        "layout-2xs": "0.25rem",
+        "layout-xs": "0.5rem",
+        "layout-sm": "0.75rem",
+        "layout-md": "1rem",
+        "layout-lg": "1.5rem",
+        "layout-xl": "2rem",
+        "layout-2xl": "3rem",
+        "layout-3xl": "4rem",
+        "layout-4xl": "6rem",
       },
       screens: {
         xs: "375px",
@@ -225,6 +291,9 @@ const config = {
         },
       },
       boxShadow: {
+        "elevation-1": "0 1px 2px rgba(15, 23, 42, 0.08)",
+        "elevation-2": "0 4px 10px rgba(15, 23, 42, 0.1)",
+        "elevation-3": "0 10px 24px rgba(15, 23, 42, 0.14)",
         brand:
           "0 10px 25px -5px rgba(56, 104, 81, 0.4), 0 10px 10px -5px rgba(56, 104, 81, 0.04)",
         "brand-secondary":
@@ -241,6 +310,16 @@ const config = {
         glow: "0 0 20px rgba(56, 104, 81, 0.5)",
         "glow-lg": "0 0 40px rgba(56, 104, 81, 0.6)",
         "glow-secondary": "0 0 20px rgba(189, 146, 100, 0.5)",
+      },
+      maxWidth: {
+        reading: "72ch",
+        content: "80rem",
+        gallery: "96rem",
+      },
+      borderRadius: {
+        panel: "0.5rem",
+        card: "0.75rem",
+        interactive: "0.375rem",
       },
       fontSize: {
         // Fluid typography - responsive text sizes
@@ -265,6 +344,28 @@ const config = {
         normal: "0",
         wide: "0.02em",
         wider: "0.05em",
+      },
+      transitionDuration: {
+        instant: "0ms",
+        micro: "120ms",
+        smooth: "220ms",
+        emphasis: "320ms",
+      },
+      transitionTimingFunction: {
+        "brand-standard": "cubic-bezier(0.2, 0.7, 0.2, 1)",
+        "brand-emphasis": "cubic-bezier(0.16, 1, 0.3, 1)",
+      },
+      zIndex: {
+        60: "60",
+        70: "70",
+        80: "80",
+        90: "90",
+        95: "95",
+        "utility-bar": "45",
+        header: "70",
+        "mobile-menu": "80",
+        dialog: "1000",
+        toast: "1100",
       },
       typography: {
         DEFAULT: {

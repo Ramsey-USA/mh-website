@@ -44,6 +44,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 const createNextIntlPlugin = require("next-intl/plugin");
 const path = require("node:path");
+const redirectRecords = require("./src/lib/routing/redirects.json");
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const isLowMemoryBuild = process.env.LOW_MEMORY_BUILD === "true";
 const enableNextExperiments = process.env.NEXT_ENABLE_EXPERIMENTS === "true";
@@ -270,33 +271,7 @@ const nextConfig = {
 
   // === REDIRECTS ===
   async redirects() {
-    return [
-      {
-        source: "/partners",
-        destination: "/allies",
-        permanent: true, // 301
-      },
-      {
-        source: "/trade-partners",
-        destination: "/allies",
-        permanent: true, // 301
-      },
-      {
-        source: "/government",
-        destination: "/public-sector",
-        permanent: true, // 301
-      },
-      {
-        source: "/book",
-        destination: "/contact",
-        permanent: true, // 301
-      },
-      {
-        source: "/safety/hub",
-        destination: "/safety",
-        permanent: true, // 301
-      },
-    ];
+    return redirectRecords;
   },
 
   // === HEADERS ===

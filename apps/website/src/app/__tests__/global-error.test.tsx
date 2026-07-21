@@ -5,8 +5,39 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
+jest.mock("next/image", () => ({
+  __esModule: true,
+  default: ({ alt, src, ...props }: any) => {
+    const { fill, priority, ...imgProps } = props;
+    return <img alt={alt} src={src} {...imgProps} />;
+  },
+}));
+
+jest.mock("next/link", () => ({
+  __esModule: true,
+  default: ({ children, href }: any) => <a href={href}>{children}</a>,
+}));
+
+jest.mock("@/components/ui", () => ({
+  Button: ({ children, onClick }: any) => (
+    <button type="button" onClick={onClick}>
+      {children}
+    </button>
+  ),
+  Card: ({ children }: any) => <div>{children}</div>,
+  CardContent: ({ children }: any) => <div>{children}</div>,
+}));
+
+jest.mock("@/lib/i18n/locale", () => ({
+  getClientLocale: () => "en",
+}));
+
 jest.mock("@/lib/utils/logger", () => ({
   logger: { error: jest.fn() },
+}));
+
+jest.mock("@/lib/monitoring/sentry", () => ({
+  captureException: jest.fn(),
 }));
 
 import GlobalError from "../global-error";
@@ -48,9 +79,23 @@ describe("GlobalError page", () => {
     render(<GlobalError error={testError} reset={mockReset} />);
     const { logger } = require("@/lib/utils/logger");
     expect(logger.error).toHaveBeenCalledWith(
-      "Global error:",
-      expect.objectContaining({ message: "Critical failure" }),
+      "Global error boundary triggered",
+      {
+        boundary: "global-error",
+        errorName: "Error",
+        digest: null,
+      },
     );
+  });
+
+  it("forwards exception to sentry with safe context", () => {
+    render(<GlobalError error={testError} reset={mockReset} />);
+    const { captureException } = require("@/lib/monitoring/sentry");
+    expect(captureException).toHaveBeenCalledWith(testError, {
+      boundary: "global-error",
+      errorName: "Error",
+      digest: null,
+    });
   });
 
   it("calls reset when Try Again button is clicked", async () => {
@@ -71,7 +116,7 @@ describe("GlobalError page", () => {
     window.gtag = mockGtag;
     render(<GlobalError error={testError} reset={mockReset} />);
     expect(mockGtag).toHaveBeenCalledWith("event", "exception", {
-      description: "Critical failure",
+      description: "global-error:none",
       fatal: true,
     });
     delete (window as any).gtag;
@@ -84,19 +129,31 @@ describe("GlobalError page", () => {
     ).not.toThrow();
   });
 
-  it("renders error digest when present", () => {
-    const errorWithDigest = new Error("Fail") as Error & { digest?: string };
-    errorWithDigest.digest = "xyz789";
-    // GlobalError doesn't display digest in production, but should not crash
-    expect(() =>
-      render(<GlobalError error={errorWithDigest} reset={mockReset} />),
-    ).not.toThrow();
+  it("renders a home navigation link", () => {
+    render(<GlobalError error={testError} reset={mockReset} />);
+    expect(screen.getByRole("link", { name: /go home/i })).toHaveAttribute(
+      "href",
+      "/",
+    );
   });
 
-  it("navigates home when Go Home button is clicked", async () => {
+  it("keeps an accessible landmark and heading structure", () => {
+    render(<GlobalError error={testError} reset={mockReset} />);
+    expect(screen.getByRole("main")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /application error/i }),
+    ).toBeInTheDocument();
+  });
+
+  it("does not expose raw error text in the rendered fallback", () => {
+    render(<GlobalError error={testError} reset={mockReset} />);
+    expect(screen.queryByText("Critical failure")).not.toBeInTheDocument();
+  });
+
+  it("supports Try Again interaction", async () => {
     const user = userEvent.setup();
     render(<GlobalError error={testError} reset={mockReset} />);
-    await user.click(screen.getByRole("button", { name: /go home/i }));
-    // Verify no crash from window.location.href assignment
+    await user.click(screen.getByRole("button", { name: /try again/i }));
+    expect(mockReset).toHaveBeenCalledTimes(1);
   });
 });

@@ -1,0 +1,27 @@
+[
+  {
+    "source": "/partners",
+    "destination": "/allies",
+    "permanent": true
+  },
+  {
+    "source": "/trade-partners",
+    "destination": "/allies",
+    "permanent": true
+  },
+  {
+    "source": "/government",
+    "destination": "/public-sector",
+    "permanent": true
+  },
+  {
+    "source": "/book",
+    "destination": "/contact",
+    "permanent": true
+  },
+  {
+    "source": "/safety/hub",
+    "destination": "/safety",
+    "permanent": true
+  }
+]

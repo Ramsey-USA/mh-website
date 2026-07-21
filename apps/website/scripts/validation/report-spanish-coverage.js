@@ -7,11 +7,26 @@ const path = require("node:path");
 
 const APP_ROOT = process.cwd();
 const APP_DIR = path.join(APP_ROOT, "src", "app");
+const REPO_ROOT = path.resolve(APP_ROOT, "..", "..");
 const STRICT = process.env["SPANISH_COVERAGE_STRICT"] === "1";
 const REPORT_DIR = path.join(APP_ROOT, "tmp");
 const REPORT_FILE = path.join(REPORT_DIR, "spanish-coverage-report.md");
+const EN_MESSAGES_FILE = path.join(REPO_ROOT, "messages", "en.json");
+const ES_MESSAGES_FILE = path.join(REPO_ROOT, "messages", "es.json");
 
-const INVARIANT_ROUTES = new Set(["/accessibility", "/offline"]);
+const INVARIANT_ROUTE_NOTES = new Map([
+  ["/accessibility", "Route is expected to be largely language-invariant"],
+  ["/offline", "Route is expected to be largely language-invariant"],
+  [
+    "/resources/safety-manual",
+    "Redirect-only route; locale-invariant by policy",
+  ],
+  [
+    "/resources/safety-program",
+    "Redirect-only route; locale-invariant by policy",
+  ],
+  ["/safety/intake", "Redirect-only route; locale-invariant by policy"],
+]);
 
 const LOCALE_SIGNAL_REGEXES = [
   /getTranslations\s*\(/,
@@ -144,10 +159,26 @@ function classifyRoute(route, directSignals, indirectSignals) {
   if (directSignals.length > 0 || indirectSignals.length > 0) {
     return "LOCALIZED";
   }
-  if (INVARIANT_ROUTES.has(route)) {
+  if (INVARIANT_ROUTE_NOTES.has(route)) {
     return "INVARIANT-REVIEW";
   }
   return "MISSING-SIGNAL";
+}
+
+function readJson(filePath) {
+  try {
+    const raw = fs.readFileSync(filePath, "utf8");
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+function getTopLevelNamespaces(messages) {
+  if (!messages || typeof messages !== "object" || Array.isArray(messages)) {
+    return new Set();
+  }
+  return new Set(Object.keys(messages));
 }
 
 function escapeMarkdownTableCell(value) {
@@ -189,12 +220,26 @@ function main() {
   let invariantReview = 0;
   let missingSignal = 0;
 
-  const reportLines = [];
-  reportLines.push("| Route | Status | Locale Signals | Notes |\n");
-  reportLines.push("| :--- | :--- | :--- | :--- |\n");
+  const enMessages = readJson(EN_MESSAGES_FILE);
+  const esMessages = readJson(ES_MESSAGES_FILE);
+  const enNamespaces = getTopLevelNamespaces(enMessages);
+  const esNamespaces = getTopLevelNamespaces(esMessages);
+  const sharedNamespaces = [...enNamespaces].filter((key) =>
+    esNamespaces.has(key),
+  );
+  const enOnlyNamespaces = [...enNamespaces].filter(
+    (key) => !esNamespaces.has(key),
+  );
+  const esOnlyNamespaces = [...esNamespaces].filter(
+    (key) => !enNamespaces.has(key),
+  );
 
-  console.log("| Route | Status | Locale Signals | Notes |");
-  console.log("| :--- | :--- | :--- | :--- |");
+  const reportLines = [];
+  reportLines.push("|Route|Status|Locale Signals|Notes|\n");
+  reportLines.push("|:---|:---|:---|:---|\n");
+
+  console.log("|Route|Status|Locale Signals|Notes|");
+  console.log("|:---|:---|:---|:---|");
 
   for (const row of rows) {
     if (row.status === "LOCALIZED") localized += 1;
@@ -210,7 +255,8 @@ function main() {
       row.status === "MISSING-SIGNAL"
         ? "Add locale/translation wiring"
         : row.status === "INVARIANT-REVIEW"
-          ? "Likely language-invariant route"
+          ? INVARIANT_ROUTE_NOTES.get(row.route) ||
+            "Likely language-invariant route"
           : "";
 
     const escapedRoute = escapeMarkdownTableCell(row.route);
@@ -218,10 +264,10 @@ function main() {
     const escapedNotes = escapeMarkdownTableCell(notes);
 
     console.log(
-      `| ${escapedRoute} | ${escapedStatus} | ${signals} | ${escapedNotes} |`,
+      `|${escapedRoute}|${escapedStatus}|${signals}|${escapedNotes}|`,
     );
     reportLines.push(
-      `| ${escapedRoute} | ${escapedStatus} | ${signals} | ${escapedNotes} |\n`,
+      `|${escapedRoute}|${escapedStatus}|${signals}|${escapedNotes}|\n`,
     );
   }
 
@@ -233,6 +279,26 @@ function main() {
   reportLines.push(
     `Summary: LOCALIZED=${localized} INVARIANT-REVIEW=${invariantReview} MISSING-SIGNAL=${missingSignal}\n`,
   );
+
+  const namespaceSummary =
+    `Namespace parity: EN=${enNamespaces.size} ES=${esNamespaces.size} ` +
+    `SHARED=${sharedNamespaces.length} EN_ONLY=${enOnlyNamespaces.length} ES_ONLY=${esOnlyNamespaces.length}`;
+  console.log(namespaceSummary);
+  reportLines.push(`${namespaceSummary}\n`);
+
+  if (enOnlyNamespaces.length > 0) {
+    const sorted = enOnlyNamespaces.sort((a, b) => a.localeCompare(b));
+    const enOnlyLine = `EN-only namespaces: ${sorted.join(", ")}`;
+    console.log(enOnlyLine);
+    reportLines.push(`${enOnlyLine}\n`);
+  }
+
+  if (esOnlyNamespaces.length > 0) {
+    const sorted = esOnlyNamespaces.sort((a, b) => a.localeCompare(b));
+    const esOnlyLine = `ES-only namespaces: ${sorted.join(", ")}`;
+    console.log(esOnlyLine);
+    reportLines.push(`${esOnlyLine}\n`);
+  }
 
   fs.mkdirSync(REPORT_DIR, { recursive: true });
   fs.writeFileSync(REPORT_FILE, reportLines.join(""), "utf8");

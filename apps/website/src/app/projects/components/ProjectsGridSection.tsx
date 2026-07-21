@@ -12,6 +12,7 @@ import { Button, Card } from "@/components/ui";
 import Link from "next/link";
 import { ProjectCard } from "./ProjectCard";
 import { categories } from "./projectsData";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import type { ProjectPortfolio } from "@/lib/types";
 
 interface ProjectsGridSectionProps {
@@ -27,6 +28,7 @@ export function ProjectsGridSection({
   hasActiveFilters,
   onResetFilters,
 }: Readonly<ProjectsGridSectionProps>) {
+  const universalCtas = getUniversalCtaSet("en");
   const categoryLabel =
     selectedCategory === "all"
       ? "Partnership Success"
@@ -107,7 +109,9 @@ export function ProjectsGridSection({
                 </Button>
               ) : (
                 <Button asChild className="mt-6">
-                  <Link href="/contact">Contact our team</Link>
+                  <Link href={universalCtas.primary.href}>
+                    {universalCtas.primary.label}
+                  </Link>
                 </Button>
               )}
             </Card>

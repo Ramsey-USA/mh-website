@@ -1,10 +1,10 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState, useTransition } from "react";
+import { useSearchParams } from "next/navigation";
+import { useLocale } from "next-intl";
+import { useTransition } from "react";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import {
-  DEFAULT_LOCALE,
-  getClientLocale,
   setClientLocale,
   SUPPORTED_LOCALES,
   type SupportedLocale,
@@ -23,31 +23,18 @@ export function LanguageToggle({ className = "" }: LanguageToggleProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const currentLocale = useLocale() as SupportedLocale;
   const [isPending, startTransition] = useTransition();
-  const [currentLocale, setCurrentLocale] =
-    useState<SupportedLocale>(DEFAULT_LOCALE);
-
-  useEffect(() => {
-    setCurrentLocale(getClientLocale());
-  }, []);
 
   function switchLocale(next: SupportedLocale) {
     if (next === currentLocale) return;
 
     setClientLocale(next);
-    setCurrentLocale(next);
-
-    const normalizedPathname =
-      pathname === "/en" || pathname === "/es"
-        ? "/"
-        : pathname.replace(/^\/(en|es)(?=\/|$)/, "") || "/";
     const queryString = searchParams.toString();
-    const targetPath = queryString
-      ? `${normalizedPathname}?${queryString}`
-      : normalizedPathname;
+    const targetPath = queryString ? `${pathname}?${queryString}` : pathname;
 
     startTransition(() => {
-      router.replace(targetPath);
+      router.replace(targetPath, { locale: next });
       router.refresh();
     });
   }

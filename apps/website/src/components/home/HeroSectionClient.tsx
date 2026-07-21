@@ -2,6 +2,7 @@
 
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const HERO_VIDEO_DEFAULT_INITIAL_DELAY_MS = 3200;
@@ -20,9 +21,12 @@ interface HeroSectionCopy {
   tagline: string;
   mission: string;
   serving: string;
+  primaryCtaLabel?: string;
+  secondaryCtaLabel?: string;
 }
 
 interface HeroSectionClientProps {
+  locale: "en" | "es";
   copy: HeroSectionCopy;
   heroSlogan?: string;
   useVideoHero: boolean;
@@ -35,6 +39,7 @@ interface HeroSectionClientProps {
 }
 
 export function HeroSectionClient({
+  locale,
   copy,
   heroSlogan,
   useVideoHero,
@@ -56,6 +61,14 @@ export function HeroSectionClient({
   const [isMuted, setIsMuted] = useState(true);
   const [allowAutoPlayback, setAllowAutoPlayback] = useState(true);
   const showLegacyBackdrop = !isVideoReady;
+  const primaryCtaLabel =
+    copy.primaryCtaLabel ??
+    (locale === "es"
+      ? "Iniciar conversación de proyecto"
+      : "Start a project conversation");
+  const secondaryCtaLabel =
+    copy.secondaryCtaLabel ??
+    (locale === "es" ? "Ver prueba de proyectos" : "View project proof");
 
   useEffect(() => {
     const connection = (
@@ -322,6 +335,21 @@ export function HeroSectionClient({
               {copy.founded} | {copy.serving}
             </span>
           </h1>
+
+          <div className="pointer-events-auto mt-4 flex flex-wrap justify-end gap-2 sm:gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-xl bg-brand-secondary px-4 py-2 text-xs sm:text-sm font-bold text-gray-900 shadow transition-colors hover:bg-brand-secondary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2"
+            >
+              {primaryCtaLabel}
+            </Link>
+            <Link
+              href="/projects"
+              className="inline-flex items-center justify-center rounded-xl border border-white/40 bg-white/10 px-4 py-2 text-xs sm:text-sm font-bold text-white transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
+            >
+              {secondaryCtaLabel}
+            </Link>
+          </div>
         </div>
       </div>
 

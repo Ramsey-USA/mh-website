@@ -264,6 +264,29 @@ describe("useDialogBehavior", () => {
     expect(document.body.style.overflow).toBe("auto");
   });
 
+  it("restores focus to the trigger when dialog closes", async () => {
+    const trigger = document.createElement("button");
+    trigger.textContent = "Open dialog";
+    document.body.appendChild(trigger);
+    trigger.focus();
+
+    const { dialog } = createDialog();
+    const ref = { current: dialog };
+    const onClose = jest.fn();
+
+    const { unmount } = renderHook(() =>
+      useDialogBehavior({ isOpen: true, onClose, dialogRef: ref }),
+    );
+
+    await waitFor(() => expect(document.body.style.overflow).toBe("hidden"));
+
+    unmount();
+
+    expect(document.activeElement).toBe(trigger);
+
+    trigger.remove();
+  });
+
   it("does not lock scroll when isOpen is false", () => {
     document.body.style.overflow = "";
     const { dialog } = createDialog();

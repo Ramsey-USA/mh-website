@@ -45,6 +45,15 @@ dual-terminology rules.
 **Consistency builds trust.** When we use the same terms the same way across all touchpoints, we strengthen our
 brand identity and make our message clearer to project stakeholders, trade partners, and team members.
 
+### Primary Language Pattern (Canonical Order)
+
+When both concepts appear in the same surface, always apply this sequence:
+
+1. Construction terminology first (scope, sequencing, quality, delivery, controls).
+2. Veteran field standards second (discipline, service-earned reliability, leadership credibility).
+
+Use veteran framing to reinforce execution standards, not to replace the core construction message.
+
 ---
 
 ## 📖 TERMINOLOGY CATEGORIES

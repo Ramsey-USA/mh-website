@@ -8,6 +8,14 @@
 This standard defines the required build process and validation gates for all
 hero commercial videos used across MH Construction website pages.
 
+Current state: the production homepage currently ships a static poster image,
+not a checked-in hero commercial video. The hero-commercial pipeline is
+therefore inactive until approved video assets are restored. When inactive,
+`check:hero-commercials` passes only if both of these are true:
+
+- `apps/website/config/hero-commercials.json` is absent
+- `apps/website/public/videos/hero-commercials/` contains no registered media
+
 Use this whenever adding or replacing videos under:
 
 - `public/videos/hero-commercials/`
@@ -25,7 +33,8 @@ These guardrails make future hero video uploads predictable and safe.
 
 ## Required Source Of Truth
 
-All hero commercials must be registered in:
+When the hero-commercial pipeline is active, all hero commercials must be
+registered in:
 
 - `apps/website/config/hero-commercials.json`
 
@@ -86,6 +95,7 @@ Validator path:
 
 It enforces:
 
+- Inactive-pipeline pass when no manifest and no hero-commercial assets exist
 - Manifest integrity (`hero-commercials.json`)
 - Registration of all files in `public/videos/hero-commercials/`
 - File naming pattern (lowercase kebab-case)
@@ -129,9 +139,9 @@ pnpm run build
 
 ## Homepage Radio Ad Attribution (Current)
 
-For the current home hero commercial asset (`id: home`), preserve these details
-in SEO metadata and documentation unless a confirmed campaign replacement is
-approved:
+Archive these details only if an approved home hero commercial asset is
+restored. They are not active runtime requirements for the current static hero
+poster experience:
 
 - Presenter and voiceover: Jeremy Thamert
 - Production partner: Stephens Media Group

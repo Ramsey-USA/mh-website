@@ -1,7 +1,43 @@
 "use client";
 
 import { useEffect } from "react";
+import { ErrorFallbackCard } from "@/components/error/ErrorFallbackCard";
+import { captureException } from "@/lib/monitoring/sentry";
+import { getClientLocale } from "@/lib/i18n/locale";
 import { logger } from "@/lib/utils/logger";
+
+const GLOBAL_ERROR_COPY = {
+  en: {
+    heading: "Application Error",
+    message:
+      "We hit an unexpected issue while loading this page. You can try again or continue to a stable page.",
+    tryAgain: "Try Again",
+    goHome: "Go Home",
+    contact: "Contact Support",
+  },
+  es: {
+    heading: "Error de la aplicacion",
+    message:
+      "Encontramos un problema inesperado al cargar esta pagina. Puede intentarlo de nuevo o continuar a una pagina estable.",
+    tryAgain: "Intentar de nuevo",
+    goHome: "Ir al inicio",
+    contact: "Contactar soporte",
+  },
+} as const;
+
+function toSafeErrorContext(error: Error & { digest?: string }) {
+  return {
+    boundary: "global-error",
+    errorName: error.name,
+    digest: error.digest ?? null,
+  };
+}
+
+function resolveGlobalCopy() {
+  return getClientLocale() === "es"
+    ? GLOBAL_ERROR_COPY.es
+    : GLOBAL_ERROR_COPY.en;
+}
 
 export default function GlobalError({
   error,
@@ -10,157 +46,33 @@ export default function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const copy = resolveGlobalCopy();
+
   useEffect(() => {
-    logger.error("Global error:", {
-      message: error.message,
-      digest: error.digest,
-      stack: error.stack,
-    });
+    const safeContext = toSafeErrorContext(error);
+    logger.error("Global error boundary triggered", safeContext);
+    captureException(error, safeContext);
 
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", "exception", {
-        description: error.message,
+        description: `global-error:${safeContext.digest ?? "none"}`,
         fatal: true,
       });
     }
   }, [error]);
 
   return (
-    <html lang="en">
-      <body>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            minHeight: "100vh",
-            backgroundColor: "#f9fafb",
-            padding: "1rem",
-          }}
-        >
-          <div
-            style={{
-              maxWidth: "28rem",
-              width: "100%",
-              backgroundColor: "white",
-              borderRadius: "0.5rem",
-              boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-              padding: "2rem",
-              textAlign: "center",
-            }}
-          >
-            <div
-              role="img"
-              aria-label="Warning"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "1.5rem",
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="64"
-                height="64"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#f59e0b"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                <line x1="12" y1="9" x2="12" y2="13" />
-                <line x1="12" y1="17" x2="12.01" y2="17" />
-              </svg>
-            </div>
-
-            <h2
-              style={{
-                fontSize: "1.5rem",
-                fontWeight: "bold",
-                color: "#111827",
-                marginBottom: "1rem",
-              }}
-            >
-              Application Error
-            </h2>
-
-            <p
-              style={{
-                color: "#6b7280",
-                marginBottom: "1.5rem",
-              }}
-            >
-              A critical error occurred. Please try refreshing the page or
-              contact support if the problem persists.
-            </p>
-
-            <div
-              style={{
-                display: "flex",
-                gap: "1rem",
-                justifyContent: "center",
-                flexWrap: "wrap",
-              }}
-            >
-              <button
-                onClick={reset}
-                style={{
-                  backgroundColor: "#386851",
-                  color: "white",
-                  padding: "0.75rem 1.5rem",
-                  borderRadius: "0.375rem",
-                  border: "none",
-                  cursor: "pointer",
-                  fontSize: "1rem",
-                  fontWeight: "500",
-                }}
-              >
-                Try Again
-              </button>
-
-              <button
-                onClick={() => (window.location.href = "/")}
-                style={{
-                  backgroundColor: "white",
-                  color: "#386851",
-                  padding: "0.75rem 1.5rem",
-                  borderRadius: "0.375rem",
-                  border: "2px solid #386851",
-                  cursor: "pointer",
-                  fontSize: "1rem",
-                  fontWeight: "500",
-                }}
-              >
-                Go Home
-              </button>
-            </div>
-
-            <div
-              style={{
-                marginTop: "1.5rem",
-                paddingTop: "1.5rem",
-                borderTop: "1px solid #e5e7eb",
-              }}
-            >
-              <p style={{ fontSize: "0.875rem", color: "#9ca3af" }}>
-                Need help?{" "}
-                <a
-                  href="/contact"
-                  style={{
-                    color: "#386851",
-                    textDecoration: "none",
-                    fontWeight: "500",
-                  }}
-                >
-                  Contact Support
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
+    <html lang={getClientLocale()}>
+      <body className="font-body">
+        <ErrorFallbackCard
+          reset={reset}
+          heading={copy.heading}
+          message={copy.message}
+          tryAgainLabel={copy.tryAgain}
+          homeLabel={copy.goHome}
+          contactLabel={copy.contact}
+          alert
+        />
       </body>
     </html>
   );

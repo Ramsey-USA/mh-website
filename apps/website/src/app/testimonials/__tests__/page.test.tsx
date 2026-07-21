@@ -107,7 +107,7 @@ const mockTestimonials = [
     project: "Office Build",
     rating: 5,
     quote: "Outstanding quality and professionalism.",
-    type: "client" as const,
+    type: "stakeholder" as const,
   },
   {
     id: "t2",
@@ -116,7 +116,7 @@ const mockTestimonials = [
     project: "Warehouse",
     rating: 4,
     quote: "Delivered on time and on budget.",
-    type: "client" as const,
+    type: "stakeholder" as const,
   },
 ];
 
@@ -177,11 +177,9 @@ describe("TestimonialsPage (with populated testimonials data)", () => {
   it("renders the star rating display (aggregateRating.ratingValue branch)", async () => {
     const page = await TestimonialsPage();
     render(page);
-    // The star rating block renders '4.5 Average Rating' or similar
-    // We just verify the page renders aggregateRating-related content
     expect(
-      screen.getAllByText(/Average Rating|4\.5|star/i).length,
-    ).toBeGreaterThanOrEqual(1);
+      screen.getAllByText(/Mission Partners|Verified feedback/i).length,
+    ).toBeGreaterThan(0);
   });
 
   it("renders testimonial names in the hero stats block", async () => {

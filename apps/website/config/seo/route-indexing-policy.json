@@ -12,6 +12,7 @@
         "/faq",
         "/faq/[category]",
         "/jeremy-thamert",
+        "/news",
         "/locations",
         "/locations/[city]",
         "/privacy",
@@ -20,7 +21,6 @@
         "/public-sector",
         "/public-sector/tri-state-government-construction",
         "/public-sector/veteran-led-compliance",
-        "/qr-codes",
         "/resources",
         "/resources/safety-manual/contents",
         "/resources/safety-manual/forms",
@@ -30,7 +30,8 @@
         "/terms",
         "/testimonials",
         "/veterans",
-        "/veterans/public-sector-construction"
+        "/veterans/public-sector-construction",
+        "/events/[slug]"
       ],
       "patterns": [
         "^/resources/safety-manual/\\[cluster\\]$"
@@ -42,8 +43,11 @@
         "/careers/print",
         "/employee-handbook",
         "/events",
+        "/services/[slug]",
         "/offline",
+        "/qr-codes",
         "/safety/incident-report",
+        "/sitemap",
         "/safety/print/[id]"
       ],
       "patterns": []
@@ -63,13 +67,13 @@
       "pattern": "^/resources/safety-manual/\\[cluster\\]$",
       "requiresAny": [
         "ALL_CLUSTER_SLUGS",
-        "SAFETY_CLUSTER_PAGES"
+        "clusterEntries"
       ]
     },
     {
       "pattern": "^/projects/\\[slug\\]$",
       "requiresAny": [
-        "getProjectCaseStudySlugs",
+        "getPublishedProjectCaseStudySlugs",
         "projectEntries"
       ]
     },
@@ -84,7 +88,14 @@
       "pattern": "^/locations/\\[city\\]$",
       "requiresAny": [
         "getLocationSlugs",
-        "LOCATION_PAGES"
+        "locationEntries"
+      ]
+    },
+    {
+      "pattern": "^/events/\\[slug\\]$",
+      "requiresAny": [
+        "eventRecords",
+        "eventEntries"
       ]
     }
   ],

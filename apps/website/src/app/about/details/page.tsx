@@ -11,6 +11,7 @@ import {
 import { ValuesShowcase } from "@/components/about";
 import { Timeline, ContentCard } from "@/components/ui";
 import { aboutTimelineSteps } from "@/lib/data/about-timeline";
+import { getNewsInsightsContent } from "@/lib/data/news-insights";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import {
@@ -45,6 +46,7 @@ export default function AboutDetailsPage() {
   const aboutTitle = commonT("about.hero.sectionTitle").toLowerCase();
   const isSpanish =
     aboutTitle.includes("sobre") || aboutTitle.includes("nosotros");
+  const newsContent = getNewsInsightsContent(isSpanish ? "es" : "en");
 
   const copy = isSpanish
     ? {
@@ -76,20 +78,6 @@ export default function AboutDetailsPage() {
           "We serve AG and winery communities, mission-ready fit-outs, and municipal projects with direct communication, clear scope, and accountable operations.",
         timelineDescription:
           "This timeline shows how we built depth in post-frame buildings, door and hardware installation, and Procore-supported mission management for regulated and active facilities.",
-        newsSubtitle: "Operational proof",
-        newsTitle: "Specialties by mission lane",
-        newsDescription:
-          "Real capabilities for AG and winery facilities, fit-outs, and municipal builds with safety, sequencing, and multi-team coordination from front-end scope definition through handoff.",
-        crmDescription:
-          "We coordinate scope, RFIs, submittals, and field sequences in Procore to reduce rework and keep execution aligned with operating goals.",
-        tradeDescription:
-          "We lead door and hardware installation with opening control, compliance alignment, and coordinated handoff for new facilities and active fit-outs.",
-        safetyDescription:
-          "Municipal and occupied-site delivery requires documented safety, control plans, and field traceability to maintain compliance and continuity.",
-        insightDescription:
-          "For AG and winery work, we plan mission sequencing around equipment, production schedules, and harvest windows to limit disruption.",
-        veteranDescription:
-          "Veteran-owned leadership drives accountability, schedule discipline, and direct communication with owners, operators, and design teams.",
         footerNote:
           "If you need execution detail for your site, we can walk through approach, risks, and next steps in the first conversation.",
       };
@@ -176,87 +164,33 @@ export default function AboutDetailsPage() {
               </h2>
 
               <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                {copy.newsDescription}
+                {newsContent.description}
               </p>
             </div>
 
             <div className={gridPresets.cards3("md", "mx-auto max-w-7xl")}>
-              <div className="scroll-reveal">
-                <ContentCard
-                  variant="feature"
-                  icon="precision_manufacturing"
-                  category={commonT("about.news.cards.crm.category")}
-                  categoryColor="secondary"
-                  title={commonT("about.news.cards.crm.title")}
-                  description={copy.crmDescription}
-                  date={commonT("about.news.cards.crm.date")}
-                  href="/contact"
-                  linkText={commonT("about.news.cards.crm.linkText")}
-                  enhancedIcon
-                />
-              </div>
-
-              <div className="scroll-reveal">
-                <ContentCard
-                  variant="feature"
-                  icon="handshake"
-                  category={commonT("about.news.cards.trade.category")}
-                  categoryColor="secondary"
-                  title={commonT("about.news.cards.trade.title")}
-                  description={copy.tradeDescription}
-                  date={commonT("about.news.cards.trade.date")}
-                  href="/allies"
-                  linkText={commonT("about.news.cards.trade.linkText")}
-                  enhancedIcon
-                />
-              </div>
-
-              <div className="scroll-reveal">
-                <ContentCard
-                  variant="feature"
-                  icon="workspace_premium"
-                  category={commonT("about.news.cards.safety.category")}
-                  categoryColor="secondary"
-                  title={commonT("about.news.cards.safety.title")}
-                  description={copy.safetyDescription}
-                  date={commonT("about.news.cards.safety.date")}
-                  href="/about#safety"
-                  linkText={commonT("about.news.cards.safety.linkText")}
-                  enhancedIcon
-                />
-              </div>
-
-              <div className="scroll-reveal">
-                <ContentCard
-                  variant="feature"
-                  icon="lightbulb"
-                  category={commonT("about.news.cards.insight.category")}
-                  categoryColor="primary"
-                  title={commonT("about.news.cards.insight.title")}
-                  description={copy.insightDescription}
-                  date={commonT("about.news.cards.insight.date")}
-                  href="/services"
-                  linkText={commonT("about.news.cards.insight.linkText")}
-                  enhancedIcon
-                />
-              </div>
-
-              <div className="scroll-reveal">
-                <ContentCard
-                  variant="feature"
-                  icon="military_tech"
-                  category={commonT("about.news.cards.veteran.category")}
-                  categoryColor="bronze"
-                  title={commonT("about.news.cards.veteran.title")}
-                  description={copy.veteranDescription}
-                  date={commonT("about.news.cards.veteran.date")}
-                  href="/about"
-                  linkText={commonT("about.news.cards.veteran.linkText")}
-                  accentGradient="bg-linear-to-r from-bronze-600 via-bronze-700 to-bronze-800"
-                  glowGradient="bg-linear-to-br from-bronze-700/40 to-bronze-800/40"
-                  enhancedIcon
-                />
-              </div>
+              {newsContent.cards.map((card) => (
+                <div className="scroll-reveal" key={card.title}>
+                  <ContentCard
+                    variant="feature"
+                    icon={card.icon}
+                    category={card.category}
+                    categoryColor={card.categoryColor}
+                    title={card.title}
+                    description={card.description}
+                    date={card.date}
+                    href={card.href}
+                    linkText={card.linkText}
+                    {...(card.enhancedIcon ? { enhancedIcon: true } : {})}
+                    {...(card.accentGradient
+                      ? { accentGradient: card.accentGradient }
+                      : {})}
+                    {...(card.glowGradient
+                      ? { glowGradient: card.glowGradient }
+                      : {})}
+                  />
+                </div>
+              ))}
             </div>
 
             <FadeInWhenVisible className="mt-12 text-center">

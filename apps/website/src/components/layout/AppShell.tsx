@@ -4,11 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  Navigation,
-  Footer,
-  SemiquincentennialBanner,
-} from "@/components/layout";
+import { Navigation, SemiquincentennialBanner } from "@/components/layout";
 import {
   Breadcrumb,
   type BreadcrumbItem,
@@ -28,6 +24,7 @@ import {
 
 interface AppShellProps {
   children: React.ReactNode;
+  footer?: React.ReactNode;
   jeremyRibbons?: Record<
     string,
     {
@@ -219,6 +216,7 @@ function SemiquincentennialAfterHeroSlot() {
 
 export function AppShell({
   children,
+  footer,
   jeremyRibbons,
   jeremyStamp,
 }: Readonly<AppShellProps>) {
@@ -410,7 +408,7 @@ export function AppShell({
               />
             </div>
           </section>
-          <Footer />
+          {footer ?? null}
         </div>
       </>
     );
@@ -476,7 +474,7 @@ export function AppShell({
             />
           </div>
         </section>
-        <Footer />
+        {footer ?? null}
       </div>
     </>
   );

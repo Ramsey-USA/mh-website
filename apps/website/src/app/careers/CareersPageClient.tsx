@@ -24,7 +24,7 @@ import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
-import type { Testimonial } from "@/lib/data/testimonials";
+import { normalizeEmployeeTestimonials } from "@/lib/data/testimonials";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { AccreditationsLogoRow } from "@/components/shared-sections";
 import { SimpleSkeleton } from "@/components/ui/SimpleSkeleton";
@@ -127,7 +127,7 @@ export default function CareersPageClient({
     color: string;
   }>;
 
-  const employeeTestimonials = (
+  const employeeTestimonials = normalizeEmployeeTestimonials(
     t.raw("data.employeeTestimonials") as Array<{
       id: string;
       name: string;
@@ -138,13 +138,7 @@ export default function CareersPageClient({
       featured?: boolean;
       date?: string;
       veteranStatus?: boolean;
-    }>
-  ).map(
-    (testimonial) =>
-      ({
-        ...testimonial,
-        type: "employee",
-      }) as Testimonial,
+    }>,
   );
 
   return (

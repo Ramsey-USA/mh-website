@@ -25,6 +25,7 @@
     "test:ci": "pnpm --filter @mhc/website test:ci",
     "test:ci:dashboard": "pnpm --filter @mhc/dashboard test:ci",
     "test:ci:all": "pnpm --filter './apps/*' test:ci",
+    "verify:route-integrity": "pnpm --filter @mhc/website verify:route-integrity",
     "cleanup:ast-safe": "node scripts/codemods/ast-safe-cleanup.js",
     "cleanup:ast-safe:write": "node scripts/codemods/ast-safe-cleanup.js --write",
     "format": "prettier --write --cache --cache-location .prettier-cache .",

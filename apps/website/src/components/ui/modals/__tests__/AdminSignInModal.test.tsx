@@ -25,6 +25,12 @@ jest.mock("next/navigation", () => ({
 }));
 
 jest.mock("@/components/ui", () => ({
+  Button: ({
+    children,
+    ...props
+  }: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
+    <button {...props}>{children}</button>
+  ),
   Card: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
   CardHeader: ({ children }: { children: React.ReactNode }) => (
     <div>{children}</div>

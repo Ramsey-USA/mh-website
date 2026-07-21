@@ -1,7 +1,7 @@
 # Technical Documentation
 
 **Category:** Technical - Overview  
-**Last Updated:** July 10, 2026
+**Last Updated:** July 19, 2026
 
 ## Overview
 
@@ -84,6 +84,7 @@ See **[Patterns Index](./patterns/index.md)** for reusable section patterns, inc
 - **[API Routes Reference](./API_ROUTES_INDEX.md)** — Index of all `src/app/api` routes.
 - **[Browser Tab Titles Inventory](./browser-tab-titles-inventory.md)** — Dual military/construction
   messaging across all routes.
+- **[Repository Handoff Bundle (2026-07-19)](./repo-handoff-bundle-2026-07-19.md)** — Focused repository structure and tooling export for handoff context.
 - **[QR Codes Guide](./qr-codes-guide.md)** — Archived reference for QR code assets under
   `public/images/qr-codes/`.
 

@@ -11,18 +11,17 @@ import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { useAnalytics } from "@/lib/analytics/components/EnhancedAnalytics";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 
 interface PitchDeckCTAProps {
   variant?: "banner" | "card" | "inline";
   className?: string;
 }
 
-/** Contact page URL pre-filled with pitch deck request subject */
-const PITCH_DECK_HREF = "/contact?subject=pitch-deck";
-
 export function PitchDeckCTA(props: Readonly<PitchDeckCTAProps>) {
   const { variant = "card", className = "" } = props;
   const { trackEvent } = useAnalytics();
+  const universalCtas = getUniversalCtaSet("en");
 
   const handleClick = useCallback(() => {
     trackEvent("pitch_deck_click", { variant });
@@ -56,9 +55,9 @@ export function PitchDeckCTA(props: Readonly<PitchDeckCTAProps>) {
             aria-label="Request MH Construction pitch deck"
             asChild
           >
-            <Link href={PITCH_DECK_HREF}>
+            <Link href={universalCtas.pitchDeck.href}>
               <MaterialIcon icon="request_page" size="md" className="mr-2" />
-              Request Deck
+              {universalCtas.pitchDeck.label}
             </Link>
           </Button>
         </div>
@@ -93,9 +92,9 @@ export function PitchDeckCTA(props: Readonly<PitchDeckCTAProps>) {
           aria-label="Request MH Construction pitch deck"
           asChild
         >
-          <Link href={PITCH_DECK_HREF} className="shrink-0">
+          <Link href={universalCtas.pitchDeck.href} className="shrink-0">
             <MaterialIcon icon="request_page" size="sm" className="mr-1" />
-            Request
+            {universalCtas.pitchDeck.label}
           </Link>
         </Button>
       </div>
@@ -157,13 +156,13 @@ export function PitchDeckCTA(props: Readonly<PitchDeckCTAProps>) {
         aria-label="Request MH Construction pitch deck"
         asChild
       >
-        <Link href={PITCH_DECK_HREF} className="block">
+        <Link href={universalCtas.pitchDeck.href} className="block">
           <MaterialIcon
             icon="request_page"
             size="lg"
             className="mr-2 transition-colors"
           />
-          Request Pitch Deck
+          {universalCtas.pitchDeck.label}
         </Link>
       </Button>
     </div>

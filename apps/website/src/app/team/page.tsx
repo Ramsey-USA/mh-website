@@ -22,15 +22,16 @@ const TeamProfileSection = dynamic(
   { ssr: true },
 );
 import {
-  vintageTeamMembers,
+  getPublicVintageTeamMembers,
   applyProfileOverride,
+  getJeremyThamertLeadershipSources,
   type VintageTeamMember,
   type TeamProfileOverride,
 } from "@/lib/data/vintage-team";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-import type { Testimonial } from "@/lib/data/testimonials";
+import { normalizeEmployeeTestimonials } from "@/lib/data/testimonials";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
@@ -138,6 +139,26 @@ function createDynamicMemberFromRow(
     careerHighlights: [],
     specialties: [],
     active: row.active !== 0,
+    governance: {
+      stableId: `team-profile:${row.slug}`,
+      ownerRole: "people-operations",
+      lifecycle: row.active === 0 ? "withdrawn" : "published",
+      approvalState: row.active === 0 ? "pending" : "approved",
+      publishState: row.active === 0 ? "internal" : "public",
+      nextReviewAt: "2027-06-30",
+      sourceReferences: [
+        {
+          sourceType: "internal-record",
+          reference: `team/${row.slug}.json`,
+        },
+      ],
+      ...(row.active === 0
+        ? {
+            withdrawalReason:
+              "Profile is no longer active on the public roster.",
+          }
+        : {}),
+    },
     email: COMPANY_INFO.email.main,
     funFact: "",
     certifications: "",
@@ -212,7 +233,7 @@ async function fetchProfileOverrides(): Promise<{
 }> {
   const overrides = new Map<string, TeamProfileOverride>();
   const dynamicMembers: VintageTeamMember[] = [];
-  const staticSlugs = new Set(vintageTeamMembers.map((m) => m.slug));
+  const staticSlugs = new Set(getPublicVintageTeamMembers().map((m) => m.slug));
 
   // During production build there is no live CF request context; skip D1 lookup
   // and fall back to static team data to keep prerender deterministic.
@@ -419,18 +440,19 @@ const faqSchema = {
 
 export default async function TeamPage() {
   const t = await getTranslations();
+  const publicTeamMembers = getPublicVintageTeamMembers();
   const brandingStamps = getAllIndividualBrandingStamps();
   // Fetch profile overrides from D1; gracefully falls back to static JSON if unavailable
   const { overrides, dynamicMembers } = await fetchProfileOverrides();
 
   // Merge overrides with static team members
-  const mergedStaticMembers = vintageTeamMembers.map((member) =>
+  const mergedStaticMembers = publicTeamMembers.map((member) =>
     applyProfileOverride(member, overrides.get(member.slug) ?? null),
   );
   const mergedMembers = [...mergedStaticMembers, ...dynamicMembers];
 
   const membersByDepartment = groupByDepartment(mergedMembers);
-  const employeeTestimonials = (
+  const employeeTestimonials = normalizeEmployeeTestimonials(
     t.raw("careersPage.data.employeeTestimonials") as Array<{
       id: string;
       name: string;
@@ -441,17 +463,12 @@ export default async function TeamPage() {
       featured?: boolean;
       date?: string;
       veteranStatus?: boolean;
-    }>
-  ).map(
-    (testimonial) =>
-      ({
-        ...testimonial,
-        type: "employee",
-      }) as Testimonial,
+    }>,
   );
   const founderTributeMember = mergedMembers.find(
     (member) => member.slug === "mike-holstein",
   );
+  const jeremyLeadershipSources = getJeremyThamertLeadershipSources();
 
   const leadershipEvidenceCopy = {
     label: t("team.leadershipSources.label"),
@@ -463,7 +480,9 @@ export default async function TeamPage() {
         internal: true,
       },
       {
-        href: "https://secure.lni.wa.gov/verify/Detail.aspx?LIC=MHCONCI907R7",
+        href:
+          jeremyLeadershipSources.credentialUrl ??
+          "https://secure.lni.wa.gov/verify/Detail.aspx?LIC=MHCONCI907R7",
         label: t("team.leadershipSources.recordLabel"),
         internal: false,
       },

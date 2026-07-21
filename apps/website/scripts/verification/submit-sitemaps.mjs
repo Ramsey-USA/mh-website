@@ -16,7 +16,7 @@
 const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.mhc-gc.com"
 ).replace(/\/$/, "");
-const sitemapUrls = [`${siteUrl}/sitemap.xml`, `${siteUrl}/sitemap-index.xml`];
+const sitemapUrls = [`${siteUrl}/sitemap.xml`];
 
 async function main() {
   const results = [];
@@ -136,10 +136,8 @@ async function submitIndexNow(siteBaseUrl, key) {
     keyLocation: `${siteBaseUrl}/${key}.txt`,
     urlList: [
       `${siteBaseUrl}/`,
-      `${siteBaseUrl}/en`,
       `${siteBaseUrl}/es`,
       `${siteBaseUrl}/sitemap.xml`,
-      `${siteBaseUrl}/sitemap-index.xml`,
     ],
   };
 
@@ -184,7 +182,6 @@ async function pushBaiduUrls(siteBaseUrl, token) {
     `${siteBaseUrl}/`,
     `${siteBaseUrl}/es`,
     `${siteBaseUrl}/sitemap.xml`,
-    `${siteBaseUrl}/sitemap-index.xml`,
   ].join("\n");
 
   try {

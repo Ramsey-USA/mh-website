@@ -14,6 +14,7 @@ import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
@@ -267,6 +268,7 @@ export default async function FAQCategoryPage({
 }: Readonly<{
   params: Promise<{ category: string }>;
 }>) {
+  const universalCtas = getUniversalCtaSet("en");
   const { category } = await params;
   const faqCategory = getFAQCategoryBySlug(category);
 
@@ -451,11 +453,11 @@ export default async function FAQCategoryPage({
               </p>
               <Button asChild className="mt-5">
                 <Link
-                  href="/contact"
+                  href={universalCtas.primary.href}
                   className="focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary"
-                  aria-label="Contact our team for direct consultation"
+                  aria-label="Discuss your project with MH Construction"
                 >
-                  Schedule a Consultation
+                  {universalCtas.primary.label}
                 </Link>
               </Button>
             </Card>

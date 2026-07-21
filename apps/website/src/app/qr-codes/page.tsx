@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { getTranslations } from "next-intl/server";
 import { PageTrackingClient } from "@/components/analytics";
 import { Button, Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/qr-codes`,
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
   },
   openGraph: {
@@ -82,9 +83,18 @@ async function loadQrCodes(): Promise<QrCodeEntry[]> {
     process.cwd(),
     "public/images/qr-codes/qr-codes-manifest.json",
   );
-  const manifest = JSON.parse(
-    await readFile(manifestPath, "utf8"),
-  ) as QrCodeManifest;
+  let manifest: QrCodeManifest;
+  try {
+    manifest = JSON.parse(
+      await readFile(manifestPath, "utf8"),
+    ) as QrCodeManifest;
+  } catch {
+    return [];
+  }
+
+  if (!Array.isArray(manifest.qrCodes) || manifest.qrCodes.length === 0) {
+    return [];
+  }
 
   return manifest.qrCodes.slice().sort((left, right) => {
     const folderOrder = left.folder.localeCompare(right.folder);
@@ -116,7 +126,12 @@ function folderLabel(folder: string): string {
 
 export default async function QrCodesPage() {
   const isEs = (await getServerLocale()) === "es";
+  const t = await getTranslations({
+    locale: isEs ? "es" : "en",
+    namespace: "qrCodesPage",
+  });
   const qrCodes = await loadQrCodes();
+  const hasQrCodes = qrCodes.length > 0;
   const groupedQrCodes = groupByFolder(qrCodes);
   const folders = Object.keys(groupedQrCodes).sort();
 
@@ -214,116 +229,135 @@ export default async function QrCodesPage() {
             </Card>
           </div>
 
-          <div className="space-y-12">
-            {folders.map((folder) => (
-              <section key={folder}>
-                <div className="flex items-center gap-3 mb-5">
-                  {(() => {
-                    const folderEntries = groupedQrCodes[folder] ?? [];
+          {hasQrCodes ? (
+            <div className="space-y-12">
+              {folders.map((folder) => (
+                <section key={folder}>
+                  <div className="flex items-center gap-3 mb-5">
+                    {(() => {
+                      const folderEntries = groupedQrCodes[folder] ?? [];
 
-                    return (
-                      <>
-                        <div className="w-9 h-9 bg-brand-primary rounded-xl flex items-center justify-center shadow-sm">
-                          <MaterialIcon
-                            icon="qr_code_2"
-                            size="sm"
-                            className="text-white"
-                          />
-                        </div>
-                        <div>
-                          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                            {folderLabel(folder)}
-                          </h2>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">
-                            {folderEntries.length} QR code
-                            {folderEntries.length === 1 ? "" : "s"}
-                          </p>
-                        </div>
-                      </>
-                    );
-                  })()}
-                </div>
-
-                <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                  {(groupedQrCodes[folder] ?? []).map((entry) => {
-                    const imageHref = `/media/qr-codes/${entry.relativePath}`;
-
-                    return (
-                      <article
-                        key={`${entry.relativePath}-${entry.variant}`}
-                        className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800"
-                      >
-                        <a
-                          href={imageHref}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block bg-white p-5 dark:bg-gray-800"
-                          aria-label={`Open ${entry.description} QR code`}
-                        >
-                          <div className="relative aspect-square overflow-hidden rounded-xl border border-gray-100 bg-white shadow-inner dark:border-gray-700">
-                            <Image
-                              src={imageHref}
-                              alt={`${entry.description} QR code`}
-                              fill
-                              sizes="(max-width: 768px) 100vw, 33vw"
-                              className="object-contain p-4"
+                      return (
+                        <>
+                          <div className="w-9 h-9 bg-brand-primary rounded-xl flex items-center justify-center shadow-sm">
+                            <MaterialIcon
+                              icon="qr_code_2"
+                              size="sm"
+                              className="text-white"
                             />
                           </div>
-                        </a>
+                          <div>
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                              {folderLabel(folder)}
+                            </h2>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                              {folderEntries.length} QR code
+                              {folderEntries.length === 1 ? "" : "s"}
+                            </p>
+                          </div>
+                        </>
+                      );
+                    })()}
+                  </div>
 
-                        <div className="border-t border-gray-100 p-5 dark:border-gray-700">
-                          <div className="flex items-start justify-between gap-3 mb-3">
-                            <div>
-                              <h3 className="text-base font-bold text-gray-900 dark:text-white">
-                                {entry.description}
-                              </h3>
-                              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                                {entry.filename}
-                              </p>
+                  <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                    {(groupedQrCodes[folder] ?? []).map((entry) => {
+                      const imageHref = `/media/qr-codes/${entry.relativePath}`;
+
+                      return (
+                        <article
+                          key={`${entry.relativePath}-${entry.variant}`}
+                          className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800"
+                        >
+                          <a
+                            href={imageHref}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block bg-white p-5 dark:bg-gray-800"
+                            aria-label={`Open ${entry.description} QR code`}
+                          >
+                            <div className="relative aspect-square overflow-hidden rounded-xl border border-gray-100 bg-white shadow-inner dark:border-gray-700">
+                              <Image
+                                src={imageHref}
+                                alt={`${entry.description} QR code`}
+                                fill
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                                className="object-contain p-4"
+                              />
                             </div>
-                            <span className="font-heading inline-flex items-center rounded-full border border-brand-primary/20 bg-brand-primary/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-brand-primary dark:border-brand-secondary/30 dark:bg-brand-secondary/10 dark:text-brand-secondary-light">
-                              {entry.variant}
-                            </span>
-                          </div>
+                          </a>
 
-                          <p className="mb-4 break-all text-xs text-gray-600 dark:text-gray-300">
-                            {entry.url}
-                          </p>
+                          <div className="border-t border-gray-100 p-5 dark:border-gray-700">
+                            <div className="flex items-start justify-between gap-3 mb-3">
+                              <div>
+                                <h3 className="text-base font-bold text-gray-900 dark:text-white">
+                                  {entry.description}
+                                </h3>
+                                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                  {entry.filename}
+                                </p>
+                              </div>
+                              <span className="font-heading inline-flex items-center rounded-full border border-brand-primary/20 bg-brand-primary/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-brand-primary dark:border-brand-secondary/30 dark:bg-brand-secondary/10 dark:text-brand-secondary-light">
+                                {entry.variant}
+                              </span>
+                            </div>
 
-                          <div className="flex flex-wrap gap-2">
-                            <Button asChild variant="outline" size="sm">
-                              <a
-                                href={imageHref}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <MaterialIcon
-                                  icon="visibility"
-                                  size="sm"
-                                  className="text-brand-primary"
-                                />
-                                Open
-                              </a>
-                            </Button>
-                            <Button asChild variant="primary" size="sm">
-                              <a href={imageHref} download={entry.filename}>
-                                <MaterialIcon
-                                  icon="download"
-                                  size="sm"
-                                  className="text-white"
-                                />
-                                Download PNG
-                              </a>
-                            </Button>
+                            <p className="mb-4 break-all text-xs text-gray-600 dark:text-gray-300">
+                              {entry.url}
+                            </p>
+
+                            <div className="flex flex-wrap gap-2">
+                              <Button asChild variant="outline" size="sm">
+                                <a
+                                  href={imageHref}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <MaterialIcon
+                                    icon="visibility"
+                                    size="sm"
+                                    className="text-brand-primary"
+                                  />
+                                  Open
+                                </a>
+                              </Button>
+                              <Button asChild variant="primary" size="sm">
+                                <a href={imageHref} download={entry.filename}>
+                                  <MaterialIcon
+                                    icon="download"
+                                    size="sm"
+                                    className="text-white"
+                                  />
+                                  Download PNG
+                                </a>
+                              </Button>
+                            </div>
                           </div>
-                        </div>
-                      </article>
-                    );
-                  })}
-                </div>
-              </section>
-            ))}
-          </div>
+                        </article>
+                      );
+                    })}
+                  </div>
+                </section>
+              ))}
+            </div>
+          ) : (
+            <Card className="mx-auto max-w-2xl border-brand-primary/20 bg-brand-primary/5 p-6 text-center">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                {t("unavailable.title")}
+              </h2>
+              <p className="font-body mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                {t("unavailable.body")}
+              </p>
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+                <Button asChild variant="primary" size="sm">
+                  <Link href="/resources">{t("unavailable.resourcesCta")}</Link>
+                </Button>
+                <Button asChild variant="outline" size="sm">
+                  <Link href="/contact">{t("unavailable.contactCta")}</Link>
+                </Button>
+              </div>
+            </Card>
+          )}
 
           <div className="mt-14 flex flex-wrap items-center justify-center gap-3">
             <Button asChild variant="outline" size="sm">

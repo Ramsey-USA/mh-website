@@ -14,6 +14,7 @@ jest.mock("@/lib/analytics/components/EnhancedAnalytics", () => ({
 
 jest.mock("@/lib/services/portfolio-service", () => ({
   PortfolioService: {
+    getProjectCategoryIds: jest.fn(() => ["commercial", "industrial"]),
     searchProjects: jest.fn((category: string, query: string) => {
       const projects = [
         {
@@ -93,6 +94,12 @@ describe("useProjectsSearch", () => {
     window.history.replaceState({}, "", "/projects?category=industrial");
     const { result } = renderHook(() => useProjectsSearch());
     expect(result.current.selectedCategory).toBe("industrial");
+  });
+
+  it("ignores invalid category params from the URL", () => {
+    window.history.replaceState({}, "", "/projects?category=unknown");
+    const { result } = renderHook(() => useProjectsSearch());
+    expect(result.current.selectedCategory).toBe("all");
   });
 
   it("updates searchQuery", () => {

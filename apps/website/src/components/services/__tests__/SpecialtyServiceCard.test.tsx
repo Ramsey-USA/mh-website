@@ -49,6 +49,7 @@ jest.mock("@/lib/styles/card-variants", () => ({
 }));
 
 const service: SpecialtyService = {
+  slug: "commercial-renovation-test",
   iconName: "home_work",
   title: "Commercial Renovation",
   subtitle: "Office & Facility Remodels",

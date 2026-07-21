@@ -15,6 +15,7 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 import { locations } from "@/lib/data/locations";
 import { getTranslations } from "next-intl/server";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 const locationList = Object.values(locations);
@@ -91,6 +92,7 @@ const locationsSchema = {
 
 export default async function LocationsPage() {
   const t = await getTranslations();
+  const isEs = (await getServerLocale()) === "es";
 
   return (
     <>
@@ -99,7 +101,7 @@ export default async function LocationsPage() {
       <StructuredData data={locationsSchema} />
 
       {/* Hero Section - Compliant with MH Branding Standards */}
-      <LocationsHero />
+      <LocationsHero locale={isEs ? "es" : "en"} />
 
       <main className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <section className="px-4 pt-12 sm:px-6 lg:px-8">
@@ -171,8 +173,9 @@ export default async function LocationsPage() {
                       {(location.recentProjects || []).length === 1 ? "" : "s"}
                     </span>
                     <span>
-                      {(location.serviceZipCodes || []).length} ZIP
-                      {(location.serviceZipCodes || []).length === 1 ? "" : "s"}
+                      {isEs
+                        ? `${(location.serviceZipCodes || []).length} codigos postales`
+                        : `${(location.serviceZipCodes || []).length} ZIP${(location.serviceZipCodes || []).length === 1 ? "" : "s"}`}
                     </span>
                   </div>
 

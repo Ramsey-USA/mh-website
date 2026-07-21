@@ -1,4 +1,17 @@
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { getApprovedClaimOrFallback } from "@/lib/content/claims";
+
+const veteranOwnedBadgeLabel = getApprovedClaimOrFallback({
+  id: "veteran_owned_since_2025",
+  context: "badge",
+  fallback: "Veteran Owned",
+});
+
+const bbbBadgeLabel = getApprovedClaimOrFallback({
+  id: "bbb_accredited_a_plus",
+  context: "badge",
+  fallback: "BBB accreditation",
+});
 
 export type BadgeVariant =
   "osha" | "agc" | "wisha" | "pmbok" | "dot" | "veteran" | "bbb" | "travelers";
@@ -56,14 +69,14 @@ const BADGE_CONFIG: Record<
   },
   veteran: {
     icon: "military_tech",
-    defaultLabel: "Veteran Owned",
+    defaultLabel: veteranOwnedBadgeLabel,
     colorClass: "text-gray-700 dark:text-gray-300",
     bgClass: "bg-gray-50 dark:bg-gray-800",
     borderClass: "border-gray-200 dark:border-gray-600",
   },
   bbb: {
     icon: "verified",
-    defaultLabel: "BBB Accredited A+",
+    defaultLabel: bbbBadgeLabel,
     colorClass: "text-blue-700 dark:text-blue-400",
     bgClass: "bg-blue-50 dark:bg-blue-900/20",
     borderClass: "border-blue-200 dark:border-blue-800",

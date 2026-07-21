@@ -283,7 +283,7 @@ describe("TestimonialsSection", () => {
       name: "Test Client",
       quote: "Great work!",
       rating: 5,
-      type: "client" as const,
+      type: "stakeholder" as const,
     },
   ];
 
@@ -350,7 +350,7 @@ describe("NextStepsSection", () => {
 
   it("renders View Our Work card with link", () => {
     render(<NextStepsSection />);
-    expect(screen.getByText(/View Our Work/i)).toBeTruthy();
+    expect(screen.getByText(/View Project Portfolio/i)).toBeTruthy();
   });
 
   it("renders contact/schedule card", () => {

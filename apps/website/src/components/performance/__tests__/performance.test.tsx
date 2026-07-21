@@ -148,8 +148,24 @@ describe("MobilePerformanceMonitor", () => {
 // ─── WebVitalsReporter ────────────────────────────────────────────────────────
 
 describe("WebVitalsReporter", () => {
+  beforeEach(() => {
+    const { logger } = jest.requireMock("@/lib/utils/logger");
+    const webVitals = jest.requireMock("web-vitals");
+
+    logger.info.mockClear();
+    logger.warn.mockClear();
+    logger.error.mockClear();
+    webVitals.onCLS.mockReset();
+    webVitals.onINP.mockReset();
+    webVitals.onFCP.mockReset();
+    webVitals.onLCP.mockReset();
+    webVitals.onTTFB.mockReset();
+  });
+
   it("renders null (no DOM output)", () => {
-    const { container } = render(<WebVitalsReporter />);
+    const { container } = render(
+      <WebVitalsReporter pathnameOverride="/projects/demo-project" />,
+    );
     expect(container.innerHTML).toBe("");
   });
 
@@ -157,7 +173,7 @@ describe("WebVitalsReporter", () => {
     const webVitals = jest.requireMock("web-vitals");
 
     await act(async () => {
-      render(<WebVitalsReporter />);
+      render(<WebVitalsReporter pathnameOverride="/projects/demo-project" />);
       // Flush dynamic import promise
       await Promise.resolve();
     });
@@ -178,7 +194,7 @@ describe("WebVitalsReporter", () => {
     });
 
     await act(async () => {
-      render(<WebVitalsReporter />);
+      render(<WebVitalsReporter pathnameOverride="/projects/demo-project" />);
       await Promise.resolve();
     });
 
@@ -193,7 +209,11 @@ describe("WebVitalsReporter", () => {
 
     expect(logger.info).toHaveBeenCalledWith(
       "Web Vital - LCP",
-      expect.objectContaining({ value: 1500, rating: "good" }),
+      expect.objectContaining({
+        value: 1500,
+        rating: "good",
+        routeTemplate: "/projects/[slug]",
+      }),
     );
   });
 
@@ -206,7 +226,7 @@ describe("WebVitalsReporter", () => {
     });
 
     await act(async () => {
-      render(<WebVitalsReporter />);
+      render(<WebVitalsReporter pathnameOverride="/projects/demo-project" />);
       await Promise.resolve();
     });
 
@@ -214,7 +234,7 @@ describe("WebVitalsReporter", () => {
       capturedCallback?.({
         name: "LCP",
         value: 5000,
-        id: "test-id",
+        id: "poor-lcp-id",
         delta: 500,
       });
     });
@@ -236,7 +256,7 @@ describe("WebVitalsReporter", () => {
     });
 
     await act(async () => {
-      render(<WebVitalsReporter />);
+      render(<WebVitalsReporter pathnameOverride="/projects/demo-project" />);
       await Promise.resolve();
     });
 
@@ -251,8 +271,11 @@ describe("WebVitalsReporter", () => {
 
     expect(mockGtag).toHaveBeenCalledWith(
       "event",
-      "CLS",
-      expect.objectContaining({ event_category: "Web Vitals" }),
+      "web_vital",
+      expect.objectContaining({
+        metric_name: "CLS",
+        route_template: "/projects/[slug]",
+      }),
     );
 
     // Cleanup
@@ -268,7 +291,7 @@ describe("WebVitalsReporter", () => {
     });
 
     await act(async () => {
-      render(<WebVitalsReporter />);
+      render(<WebVitalsReporter pathnameOverride="/projects/demo-project" />);
       await Promise.resolve();
     });
 
@@ -277,7 +300,7 @@ describe("WebVitalsReporter", () => {
       capturedCallback?.({
         name: "LCP",
         value: 3000,
-        id: "test-id",
+        id: "needs-improvement-lcp-id",
         delta: 200,
       });
     });
@@ -297,7 +320,7 @@ describe("WebVitalsReporter", () => {
     });
 
     await act(async () => {
-      render(<WebVitalsReporter />);
+      render(<WebVitalsReporter pathnameOverride="/projects/demo-project" />);
       await Promise.resolve();
     });
 
@@ -315,5 +338,37 @@ describe("WebVitalsReporter", () => {
       "Web Vital - UNKNOWN_METRIC",
       expect.objectContaining({ rating: "good" }),
     );
+  });
+
+  it("does not report the same metric id twice across remount-like callbacks", async () => {
+    const mockGtag = jest.fn();
+    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+
+    const webVitals = jest.requireMock("web-vitals");
+    let capturedCallback: ((m: object) => void) | null = null;
+    webVitals.onFCP.mockImplementation((cb: (m: object) => void) => {
+      capturedCallback = cb;
+    });
+
+    await act(async () => {
+      render(<WebVitalsReporter pathnameOverride="/projects/demo-project" />);
+      await Promise.resolve();
+    });
+
+    const metric = {
+      name: "FCP",
+      value: 1000,
+      id: "duplicate-id",
+      delta: 10,
+    };
+
+    await act(async () => {
+      capturedCallback?.(metric);
+      capturedCallback?.(metric);
+    });
+
+    expect(mockGtag).toHaveBeenCalledTimes(1);
+
+    Object.defineProperty(window, "gtag", { writable: true, value: undefined });
   });
 });

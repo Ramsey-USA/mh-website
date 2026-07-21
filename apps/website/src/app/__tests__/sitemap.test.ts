@@ -35,13 +35,13 @@ describe("sitemap()", () => {
     expect(home!.priority).toBe(1.0);
   });
 
-  it("includes locale-prefixed variants in sitemap output", () => {
+  it("uses a single canonical URL per route without locale prefixes", () => {
     const entries = sitemapFn();
-    expect(entries.some((entry) => /\/es(?:\/|$)/.test(entry.url))).toBe(true);
-    expect(entries.some((entry) => /\/en(?:\/|$)/.test(entry.url))).toBe(true);
+    expect(entries.some((entry) => /\/es(?:\/|$)/.test(entry.url))).toBe(false);
+    expect(entries.some((entry) => /\/en(?:\/|$)/.test(entry.url))).toBe(false);
   });
 
-  it("includes hreflang alternates for en-US and es-US", () => {
+  it("does not emit locale alternates for cookie-driven locale routing", () => {
     const entries = sitemapFn();
     const home = entries.find(
       (entry) =>
@@ -49,15 +49,7 @@ describe("sitemap()", () => {
         entry.url === "https://www.mhc-gc.com",
     );
 
-    expect(home?.alternates?.languages?.["en-US"]).toBe(
-      "https://www.mhc-gc.com/en",
-    );
-    expect(home?.alternates?.languages?.["es-US"]).toBe(
-      "https://www.mhc-gc.com/es",
-    );
-    expect(home?.alternates?.languages?.["x-default"]).toBe(
-      "https://www.mhc-gc.com/",
-    );
+    expect(home?.alternates).toBeUndefined();
   });
 
   it("every entry has a url, lastModified, changeFrequency and priority", () => {
@@ -88,21 +80,52 @@ describe("sitemap()", () => {
     ).toBe(false);
   });
 
-  it("includes Jeremy Thamert authority page in canonical and localized paths", () => {
+  it("includes Jeremy Thamert authority page as canonical path only", () => {
     const entries = sitemapFn();
     const urls = entries.map((entry) => entry.url);
 
     expect(urls).toContain("https://www.mhc-gc.com/jeremy-thamert");
-    expect(urls).toContain("https://www.mhc-gc.com/en/jeremy-thamert");
-    expect(urls).toContain("https://www.mhc-gc.com/es/jeremy-thamert");
+    expect(urls).not.toContain("https://www.mhc-gc.com/en/jeremy-thamert");
+    expect(urls).not.toContain("https://www.mhc-gc.com/es/jeremy-thamert");
   });
 
-  it("includes services overview page in canonical and localized paths", () => {
+  it("includes services overview page as canonical path only", () => {
     const entries = sitemapFn();
     const urls = entries.map((entry) => entry.url);
 
     expect(urls).toContain("https://www.mhc-gc.com/services");
-    expect(urls).toContain("https://www.mhc-gc.com/en/services");
-    expect(urls).toContain("https://www.mhc-gc.com/es/services");
+    expect(urls).not.toContain("https://www.mhc-gc.com/en/services");
+    expect(urls).not.toContain("https://www.mhc-gc.com/es/services");
+  });
+
+  it("includes news and insights route as canonical path only", () => {
+    const entries = sitemapFn();
+    const urls = entries.map((entry) => entry.url);
+
+    expect(urls).toContain("https://www.mhc-gc.com/news");
+    expect(urls).not.toContain("https://www.mhc-gc.com/en/news");
+    expect(urls).not.toContain("https://www.mhc-gc.com/es/news");
+  });
+
+  it("excludes utility and redirected routes", () => {
+    const urls = sitemapFn().map((entry) => entry.url);
+
+    expect(urls).not.toContain("https://www.mhc-gc.com/qr-codes");
+    expect(urls).not.toContain("https://www.mhc-gc.com/sitemap");
+    expect(urls).not.toContain("https://www.mhc-gc.com/partners");
+  });
+
+  it("does not include /events by default", () => {
+    delete process.env["NEXT_PUBLIC_EVENTS_HUB_INDEXABLE"];
+    const urls = sitemapFn().map((entry) => entry.url);
+
+    expect(urls).not.toContain("https://www.mhc-gc.com/events");
+  });
+
+  it("includes /events when explicitly enabled", () => {
+    process.env["NEXT_PUBLIC_EVENTS_HUB_INDEXABLE"] = "1";
+    const urls = sitemapFn().map((entry) => entry.url);
+
+    expect(urls).toContain("https://www.mhc-gc.com/events");
   });
 });

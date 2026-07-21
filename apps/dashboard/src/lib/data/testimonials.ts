@@ -35,6 +35,58 @@ export interface Testimonial {
   platforms?: ("facebook" | "instagram" | "linkedin" | "twitter")[];
 }
 
+export type TestimonialSource = Omit<Testimonial, "type">;
+
+export type StakeholderTestimonialSource = Pick<
+  TestimonialSource,
+  | "id"
+  | "name"
+  | "location"
+  | "project"
+  | "company"
+  | "rating"
+  | "quote"
+  | "featured"
+  | "date"
+  | "image"
+  | "category"
+>;
+
+export type EmployeeTestimonialSource = Pick<
+  TestimonialSource,
+  | "id"
+  | "name"
+  | "title"
+  | "role"
+  | "quote"
+  | "rating"
+  | "featured"
+  | "date"
+  | "veteranStatus"
+>;
+
+export function withTestimonialType<T extends TestimonialSource>(
+  testimonials: T[],
+  type: Testimonial["type"],
+): Array<T & Pick<Testimonial, "type">> {
+  return testimonials.map((testimonial) => ({
+    ...testimonial,
+    type,
+  }));
+}
+
+export function normalizeStakeholderTestimonials(
+  testimonials: StakeholderTestimonialSource[],
+) {
+  return withTestimonialType(testimonials, "stakeholder");
+}
+
+export function normalizeEmployeeTestimonials(
+  testimonials: EmployeeTestimonialSource[],
+) {
+  return withTestimonialType(testimonials, "employee");
+}
+
 // PROJECT STAKEHOLDER TESTIMONIALS
 export const projectStakeholderTestimonials: Testimonial[] = [
   {

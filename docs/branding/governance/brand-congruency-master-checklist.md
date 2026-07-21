@@ -19,6 +19,7 @@ or documentation that can affect MH brand consistency.
 1. **Terminology:** Naming remains consistent across UI copy, metadata, schema, and docs.
 1. **Dual terminology:** Cross-asset naming follows `docs/branding/strategy/dual-terminology-standard.md` for website, dashboard, MISH, handbook, and document surfaces.
 1. **Construction glossary:** PMBOK 6 alignment and military-themed construction terms follow `docs/branding/strategy/construction-terminology-glossary.md`.
+1. **Primary language pattern:** Construction terminology leads; veteran field standards follow as secondary support in copy hierarchy.
 1. **Accessibility:** Semantic headings, labels, contrast, and keyboard flow remain valid.
 1. **SEO naming:** Labels and titles stay plain-language and canonical.
 1. **Document chip parity:** For print/document artifacts, program/chapter/form identifier pillboxes use the canonical `1.5pt` corner radius consistently across safety-manual and employee-handbook templates.

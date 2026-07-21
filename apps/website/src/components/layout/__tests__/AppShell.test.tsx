@@ -6,6 +6,8 @@ import "@testing-library/jest-dom";
 import { render, screen, within } from "@testing-library/react";
 import { AppShell } from "../AppShell";
 
+const footerSlot = <footer data-testid="site-footer">Footer</footer>;
+
 const JEREMY_STAMP = {
   key: "jeremy-thamert",
   icon: "star" as const,
@@ -66,7 +68,7 @@ describe("AppShell", () => {
     });
 
     render(
-      <AppShell jeremyStamp={JEREMY_STAMP}>
+      <AppShell footer={footerSlot} jeremyStamp={JEREMY_STAMP}>
         <div>Page Content</div>
       </AppShell>,
     );
@@ -96,7 +98,7 @@ describe("AppShell", () => {
     });
 
     render(
-      <AppShell>
+      <AppShell footer={footerSlot}>
         <div>Page Content</div>
       </AppShell>,
     );
@@ -144,7 +146,7 @@ describe("AppShell", () => {
     });
 
     render(
-      <AppShell>
+      <AppShell footer={footerSlot}>
         <>
           <script type="application/ld+json">{"{}"}</script>
           <section data-page-hero="true" data-testid="page-hero">
@@ -171,7 +173,7 @@ describe("AppShell", () => {
     });
 
     render(
-      <AppShell>
+      <AppShell footer={footerSlot}>
         <div>Page Content</div>
       </AppShell>,
     );
@@ -194,7 +196,7 @@ describe("AppShell", () => {
     });
 
     render(
-      <AppShell>
+      <AppShell footer={footerSlot}>
         <>
           <section data-page-hero="true" data-testid="page-hero">
             Hero
@@ -230,7 +232,7 @@ describe("AppShell", () => {
     });
 
     render(
-      <AppShell>
+      <AppShell footer={footerSlot}>
         <>
           <section data-page-hero="true" data-testid="events-hero">
             Events Hero
@@ -263,6 +265,7 @@ describe("AppShell", () => {
 
     render(
       <AppShell
+        footer={footerSlot}
         jeremyRibbons={{
           "projects/[slug]": {
             eyebrow: "Words from the General",
@@ -294,6 +297,7 @@ describe("AppShell", () => {
 
     render(
       <AppShell
+        footer={footerSlot}
         jeremyRibbons={{
           about: {
             eyebrow: "Words from the General",

@@ -76,3 +76,35 @@ The continuation pass was validated with:
 - `pnpm --filter @mhc/dashboard type-check`
 - `apps/website npm run build`
 - `apps/dashboard npm run build`
+
+## July 19, 2026 Continuation: App Router Status-State Congruency
+
+A follow-on branding congruency pass standardized App Router status surfaces so
+loading, error, global-error, and not-found experiences now share consistent
+visual cadence, accessibility semantics, and safe telemetry behavior.
+
+### Completed Standardization
+
+- Added reusable route-state loading shell:
+  `apps/website/src/components/ui/RouteLoadingState.tsx`.
+- Migrated all existing route loading files to the shared contract:
+  `apps/website/src/app/{careers,contact,projects,team,testimonials}/loading.tsx`.
+- Refactored route and global error surfaces to preserve narrow client
+  boundaries while using sanitized technical context for logging/analytics:
+  `apps/website/src/app/error.tsx` and `apps/website/src/app/global-error.tsx`.
+- Updated not-found surface with direct construction navigation and retained
+  true 404 behavior:
+  `apps/website/src/app/not-found.tsx`.
+- Added localized status copy updates in `messages/en.json` and
+  `messages/es.json` plus provider allowlist inclusion in
+  `apps/website/src/app/layout.tsx` for `statusStates`.
+
+### Validation Snapshot
+
+The continuation pass was validated with:
+
+- `pnpm --filter @mhc/website lint`
+- `pnpm --filter @mhc/website type-check`
+- `pnpm test` (apps/website; full suite)
+- `pnpm --filter @mhc/website verify:route-integrity`
+- `pnpm --filter @mhc/website build`

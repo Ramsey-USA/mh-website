@@ -9,15 +9,18 @@ import {
 } from "@/lib/seo/breadcrumb-schema";
 import {
   AccreditationsLogoRow,
+  JeremyAuthorityLinksStrip,
   NextStepsSection,
 } from "@/components/shared-sections";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { cornerRadius } from "@/lib/styles/design-tokens";
+import { getJeremyThamertLeadershipSources } from "@/lib/data/vintage-team";
 
 export default function AboutPage() {
   const commonT = useTranslations("common");
   const locale = useLocale();
+  const jeremyLeadershipSources = getJeremyThamertLeadershipSources();
   const pageContent = {
     label: commonT("about.pageContent.label"),
     heading: commonT("about.pageContent.heading"),
@@ -25,27 +28,32 @@ export default function AboutPage() {
     storyTitle: commonT("about.pageContent.storyTitle"),
     storyP1: commonT("about.pageContent.storyP1"),
     storyP2: commonT("about.pageContent.storyP2"),
+    servesTitle: commonT("about.pageContent.servesTitle"),
+    servesBody: commonT("about.pageContent.servesBody"),
+    servesItems: commonT.raw("about.pageContent.servesItems") as string[],
     focusTitle: commonT("about.pageContent.focusTitle"),
     focusItems: commonT.raw("about.pageContent.focusItems") as string[],
     leadershipTitle: commonT("about.pageContent.leadershipTitle"),
     leadershipBody: commonT("about.pageContent.leadershipBody"),
     profileCta: commonT("about.pageContent.profileCta"),
     viewTeamCta: commonT("about.pageContent.viewTeamCta"),
-    snapshotTitle: commonT("about.pageContent.snapshotTitle"),
+    detailsCta: commonT("about.pageContent.detailsCta"),
+    sourceMapTitle: commonT("about.pageContent.sourceMapTitle"),
+    sourceMapBody: commonT("about.pageContent.sourceMapBody"),
+    sourceHistory: commonT("about.pageContent.sourceHistory"),
+    sourceLeadership: commonT("about.pageContent.sourceLeadership"),
+    sourceTeam: commonT("about.pageContent.sourceTeam"),
     safetyTitle: commonT("about.pageContent.safetyTitle"),
     safetyBody: commonT("about.pageContent.safetyBody"),
     safetyCta: commonT("about.pageContent.safetyCta"),
+    communityTitle: commonT("about.pageContent.communityTitle"),
+    communityBody: commonT("about.pageContent.communityBody"),
+    communityCta: commonT("about.pageContent.communityCta"),
     valuePills: {
       honesty: commonT("about.pageContent.valuePills.honesty"),
       integrity: commonT("about.pageContent.valuePills.integrity"),
       professionalism: commonT("about.pageContent.valuePills.professionalism"),
       thoroughness: commonT("about.pageContent.valuePills.thoroughness"),
-    },
-    snapshot: {
-      emr: commonT("about.pageContent.snapshot.emr"),
-      experience: commonT("about.pageContent.snapshot.experience"),
-      projects: commonT("about.pageContent.snapshot.projects"),
-      states: commonT("about.pageContent.snapshot.states"),
     },
   };
   const leadershipSourcesCopy = {
@@ -85,7 +93,10 @@ export default function AboutPage() {
           ]}
         />
 
-        <section className="py-10 sm:py-14 border-b border-gray-200 dark:border-gray-800">
+        <section
+          id="what-mh-does"
+          className="py-10 sm:py-14 border-b border-gray-200 dark:border-gray-800"
+        >
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <p className="font-heading text-sm font-semibold tracking-[0.16em] uppercase text-brand-secondary mb-3">
               {pageContent.label}
@@ -121,19 +132,36 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800">
+        <section
+          id="who-mh-serves"
+          className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800"
+        >
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              {pageContent.storyTitle}
+              {pageContent.servesTitle}
             </h2>
-            <div className="font-body space-y-4 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              <p>{pageContent.storyP1}</p>
-              <p>{pageContent.storyP2}</p>
-            </div>
+            <p className="font-body text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              {pageContent.servesBody}
+            </p>
+            <ul className="font-body space-y-3 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              {pageContent.servesItems.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <MaterialIcon
+                    icon="groups"
+                    size="md"
+                    className="text-brand-primary mt-1 shrink-0"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
-        <section className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800">
+        <section
+          id="how-mh-works"
+          className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800"
+        >
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-5">
               {pageContent.focusTitle}
@@ -153,7 +181,33 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800">
+        <section
+          id="company-history"
+          className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800"
+        >
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              {pageContent.storyTitle}
+            </h2>
+            <div className="font-body space-y-4 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p>{pageContent.storyP1}</p>
+              <p>{pageContent.storyP2}</p>
+            </div>
+            <div className="mt-6">
+              <Button variant="outline" size="lg" asChild>
+                <Link href="/about/details">
+                  <MaterialIcon icon="history" size="md" className="mr-2" />
+                  {pageContent.detailsCta}
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="leadership-accountability"
+          className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800"
+        >
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
               {pageContent.leadershipTitle}
@@ -185,7 +239,10 @@ export default function AboutPage() {
               </p>
               <div className="mt-3 flex flex-col gap-2 text-sm sm:text-base font-semibold">
                 <a
-                  href="https://secure.lni.wa.gov/verify/Detail.aspx?LIC=MHCONCI907R7"
+                  href={
+                    jeremyLeadershipSources.credentialUrl ??
+                    "https://secure.lni.wa.gov/verify/Detail.aspx?LIC=MHCONCI907R7"
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-start gap-2 text-brand-primary hover:text-brand-primary-dark dark:text-brand-primary-light dark:hover:text-brand-primary"
@@ -198,7 +255,10 @@ export default function AboutPage() {
                   <span>{leadershipSourcesCopy.source1Label}</span>
                 </a>
                 <a
-                  href="https://bakercityherald.com/2010/08/18/a-soldiers-special-and-solemn-duty/"
+                  href={
+                    jeremyLeadershipSources.storyUrl ??
+                    "https://bakercityherald.com/2010/08/18/a-soldiers-special-and-solemn-duty/"
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-start gap-2 text-brand-primary hover:text-brand-primary-dark dark:text-brand-primary-light dark:hover:text-brand-primary"
@@ -212,60 +272,65 @@ export default function AboutPage() {
                 </a>
               </div>
             </div>
+
+            <div className="mt-6 rounded-xl border border-gray-200 bg-white/90 p-4 sm:p-5 dark:border-gray-700 dark:bg-gray-800/70">
+              <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-2">
+                {pageContent.sourceMapTitle}
+              </h3>
+              <p className="font-body text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
+                {pageContent.sourceMapBody}
+              </p>
+              <ul className="space-y-2 text-sm sm:text-base text-brand-primary dark:text-brand-primary-light font-semibold">
+                <li>
+                  <Link href="/about/details" className="hover:underline">
+                    {pageContent.sourceHistory}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/jeremy-thamert" className="hover:underline">
+                    {pageContent.sourceLeadership}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/team" className="hover:underline">
+                    {pageContent.sourceTeam}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <JeremyAuthorityLinksStrip
+              className="mt-6"
+              isEs={locale.startsWith("es")}
+            />
           </div>
         </section>
 
-        <section className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800">
+        <section
+          id="verified-safety-quality"
+          className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800"
+        >
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-5">
-              {pageContent.snapshotTitle}
+              {pageContent.safetyTitle}
             </h2>
-            <div className="grid grid-cols-2 gap-4 sm:gap-5">
-              <div
-                className={`${cornerRadius.element} border border-gray-200 dark:border-gray-700 p-4 sm:p-5 bg-gray-50 dark:bg-gray-800/70`}
-              >
-                <p className="text-2xl sm:text-3xl font-black text-brand-primary">
-                  0.64
-                </p>
-                <p className="font-body text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                  {pageContent.snapshot.emr}
-                </p>
-              </div>
-              <div
-                className={`${cornerRadius.element} border border-gray-200 dark:border-gray-700 p-4 sm:p-5 bg-gray-50 dark:bg-gray-800/70`}
-              >
-                <p className="text-2xl sm:text-3xl font-black text-brand-primary">
-                  150+
-                </p>
-                <p className="font-body text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                  {pageContent.snapshot.experience}
-                </p>
-              </div>
-              <div
-                className={`${cornerRadius.element} border border-gray-200 dark:border-gray-700 p-4 sm:p-5 bg-gray-50 dark:bg-gray-800/70`}
-              >
-                <p className="text-2xl sm:text-3xl font-black text-brand-primary">
-                  650+
-                </p>
-                <p className="font-body text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                  {pageContent.snapshot.projects}
-                </p>
-              </div>
-              <div
-                className={`${cornerRadius.element} border border-gray-200 dark:border-gray-700 p-4 sm:p-5 bg-gray-50 dark:bg-gray-800/70`}
-              >
-                <p className="text-2xl sm:text-3xl font-black text-brand-primary">
-                  3
-                </p>
-                <p className="font-body text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                  {pageContent.snapshot.states}
-                </p>
-              </div>
-            </div>
+            <p className="font-body text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+              {pageContent.safetyBody}
+            </p>
+            <Button variant="outline" size="lg" asChild>
+              <Link href="/safety">
+                <MaterialIcon
+                  icon="workspace_premium"
+                  size="md"
+                  className="mr-2"
+                />
+                {pageContent.safetyCta}
+              </Link>
+            </Button>
           </div>
         </section>
 
-        <section className="relative py-12 sm:py-14 bg-gray-50 dark:bg-gray-800/60">
+        <section className="relative py-12 sm:py-14 bg-gray-50 dark:bg-gray-800/60 border-b border-gray-200 dark:border-gray-800">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <p className="font-heading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-6">
               {commonT("about.accreditations.sectionTitle")}
@@ -274,22 +339,21 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800">
+        <section
+          id="community-commitment"
+          className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800"
+        >
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              {pageContent.safetyTitle}
+              {pageContent.communityTitle}
             </h2>
             <p className="font-body text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-              {pageContent.safetyBody}
+              {pageContent.communityBody}
             </p>
             <Button variant="outline" size="lg" asChild>
-              <Link href="/about#safety">
-                <MaterialIcon
-                  icon="workspace_premium"
-                  size="md"
-                  className="mr-2"
-                />
-                {pageContent.safetyCta}
+              <Link href="/careers">
+                <MaterialIcon icon="groups" size="md" className="mr-2" />
+                {pageContent.communityCta}
               </Link>
             </Button>
           </div>

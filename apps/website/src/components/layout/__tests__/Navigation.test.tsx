@@ -1,35 +1,12 @@
 import "@testing-library/jest-dom";
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Navigation } from "../Navigation";
 
-// jsdom does not implement navigation for non-hash hrefs — suppress the
-// async "Not implemented: navigation (except hash changes)" console error
-// that fires when anchor tags with absolute hrefs are rendered.
-let _navErrorSpy: jest.SpyInstance;
-beforeAll(() => {
-  _navErrorSpy = jest
-    .spyOn(console, "error")
-    .mockImplementation((...args: unknown[]) => {
-      if (
-        typeof args[0] === "string" &&
-        args[0].includes("Not implemented: navigation")
-      )
-        return;
-    });
-});
-afterAll(() => {
-  _navErrorSpy.mockRestore();
-});
-
-jest.mock("next/link", () => ({
-  __esModule: true,
-  default: ({ children, href, ...props }: any) => (
-    <a href={typeof href === "string" ? href : "/"} {...props}>
-      {children}
-    </a>
-  ),
-}));
+const trackClickMock = jest.fn();
+const mockPathname = jest.fn(() => "/");
+const mockReplace = jest.fn();
+const mockRefresh = jest.fn();
 
 jest.mock("next/image", () => ({
   __esModule: true,
@@ -39,274 +16,176 @@ jest.mock("next/image", () => ({
   },
 }));
 
-jest.mock("@/components/ui/layout/ThemeToggle", () => ({
-  ThemeToggle: ({ className, compact, size }: any) => (
-    <button
-      type="button"
-      aria-label="Switch to light mode"
-      className={className}
-      data-compact={compact ? "true" : "false"}
-      data-size={size}
+jest.mock("@/i18n/navigation", () => ({
+  __esModule: true,
+  Link: ({ children, href, ...props }: any) => (
+    <a
+      href={typeof href === "string" ? href : "/"}
+      onClick={(event) => event.preventDefault()}
+      {...props}
     >
-      Theme toggle
-    </button>
+      {children}
+    </a>
   ),
+  usePathname: () => mockPathname(),
+  useRouter: () => ({
+    replace: mockReplace,
+    refresh: mockRefresh,
+  }),
 }));
 
-jest.mock("@/components/ui/LanguageToggle", () => ({
-  LanguageToggle: ({ className }: any) => (
-    <div className={className} aria-label="Language selector">
-      <button type="button">EN</button>
-      <button type="button">ES</button>
-    </div>
-  ),
+jest.mock("next/navigation", () => ({
+  useSearchParams: () => new URLSearchParams(),
 }));
 
-jest.mock("@/hooks/useLocale", () => ({
+jest.mock("next-intl", () => ({
+  __esModule: true,
   useLocale: () => "en",
+  useTranslations:
+    () =>
+    (key: string): string => {
+      const map: Record<string, string> = {
+        navLabel: "Primary",
+        mobileMenuLabel: "Menu",
+        openMenuLabel: "Open primary navigation",
+        closeMenuLabel: "Close primary navigation",
+        moreLabel: "More",
+        ctaLabel: "Discuss Your Project",
+        phoneShortcutLabel: "Call",
+        brandStatement: "Veteran Owned • Licensed WA OR ID",
+        homeAriaLabel: "MH Construction home",
+        "utilityBar.utilityLabel": "Utility links",
+        "utilityBar.callLabel": "Call",
+        "utilityBar.locationLabel": "Serving",
+        "utilityBar.contactLinkLabel": "Contact",
+        "locale.currentLanguageLabel": "Language",
+        "locale.switcherLabel": "Switch language",
+        "locale.english": "English",
+        "locale.spanish": "Español",
+        "nav.services": "Services",
+        "nav.projects": "Projects",
+        "nav.publicSector": "Public Sector",
+        "nav.about": "About MH",
+        "nav.contact": "Contact",
+        "nav.events": "Events",
+        "nav.resources": "Resources",
+        "nav.careers": "Careers",
+        "nav.safety": "Safety",
+        "nav.tradePartners": "Trade Partners",
+        "nav.veterans": "Veterans",
+        "nav.team": "Team",
+        "nav.podcast": "Podcast",
+      };
+
+      return map[key] ?? key;
+    },
 }));
 
-jest.mock("@/components/icons/MaterialIcon", () => ({
-  MaterialIcon: ({ icon }: { icon: string }) => <span>{icon}</span>,
+jest.mock("@/lib/analytics/hooks", () => ({
+  useClickTracking: () => trackClickMock,
+}));
+
+jest.mock("@/lib/analytics/components/TrackedContactLinks", () => ({
+  TrackedPhoneLink: ({ children, className }: any) => (
+    <a href="tel:+15093086489" className={className}>
+      {children}
+    </a>
+  ),
+}));
+
+jest.mock("@/components/ui/layout/ThemeToggle", () => ({
+  ThemeToggle: () => <button type="button">Theme</button>,
+}));
+
+jest.mock("@/components/ui/WaVobBadge", () => ({
+  WaVobBadge: () => <span>WA VOB</span>,
 }));
 
 describe("Navigation", () => {
-  it("opens and closes the menu from the hamburger button", async () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    mockPathname.mockReturnValue("/");
+  });
+
+  it("renders buyer-first desktop primary links and single CTA", () => {
+    render(<Navigation />);
+
+    expect(screen.getByRole("link", { name: "Services" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Projects" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Public Sector" }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "About MH" })).toBeInTheDocument();
+    expect(
+      screen.getAllByRole("link", { name: "Contact" }).length,
+    ).toBeGreaterThan(0);
+
+    const cta = screen.getAllByRole("link", {
+      name: "Discuss Your Project",
+    })[0];
+    expect(cta).toHaveAttribute("href", "/contact?intent=project-discussion");
+
+    expect(
+      screen.queryByRole("link", { name: "Podcast" }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("opens and closes mobile menu and handles Escape", async () => {
     const user = userEvent.setup();
 
     render(<Navigation />);
 
-    const toggleButton = screen.getByRole("button", { name: /open menu/i });
-    expect(screen.queryByLabelText(/close menu/i)).not.toBeInTheDocument();
+    const toggle = screen.getByRole("button", {
+      name: "Open primary navigation",
+    });
+    await user.click(toggle);
 
-    await user.click(toggleButton);
-
-    expect(screen.getAllByLabelText("Close menu")).toHaveLength(2);
-    const closeButtons = screen.getAllByRole("button", { name: /close menu/i });
-    expect(closeButtons).toHaveLength(2);
-
-    await user.click(closeButtons[0]!);
-
-    expect(
-      screen.getByRole("button", { name: /open menu/i }),
-    ).toBeInTheDocument();
-    expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();
-  });
-
-  it("closes the menu when the backdrop handles escape", () => {
-    render(<Navigation />);
-
-    fireEvent.click(screen.getByRole("button", { name: /open menu/i }));
-
-    const closeButtons = screen.getAllByRole("button", { name: /close menu/i });
-    const backdrop = closeButtons[0]!;
-    fireEvent.keyDown(backdrop, { key: "Escape" });
-
-    expect(
-      screen.getByRole("button", { name: /open menu/i }),
-    ).toBeInTheDocument();
-    expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();
-  });
-
-  it("closes the menu when Escape is pressed anywhere", () => {
-    render(<Navigation />);
-
-    fireEvent.click(screen.getByRole("button", { name: /open menu/i }));
-    expect(screen.getAllByRole("button", { name: /close menu/i })).toHaveLength(
-      2,
-    );
+    expect(screen.getByRole("dialog", { name: "Primary" })).toBeInTheDocument();
 
     fireEvent.keyDown(window, { key: "Escape" });
 
     expect(
-      screen.getByRole("button", { name: /open menu/i }),
-    ).toBeInTheDocument();
-    expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();
+      screen.queryByRole("dialog", { name: "Primary" }),
+    ).not.toBeInTheDocument();
   });
 
-  it("closes the menu after selecting a primary navigation link", async () => {
+  it("marks active route in both desktop and mobile nav", async () => {
     const user = userEvent.setup();
+    mockPathname.mockReturnValue("/projects");
 
     render(<Navigation />);
 
-    await user.click(screen.getByRole("button", { name: /open menu/i }));
-    await user.click(screen.getByRole("link", { name: /about us/i }));
-
-    expect(
-      screen.getByRole("button", { name: /open menu/i }),
-    ).toBeInTheDocument();
-    expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();
-  });
-
-  it("closes the menu when the backdrop is clicked", async () => {
-    const user = userEvent.setup();
-
-    render(<Navigation />);
-
-    await user.click(screen.getByRole("button", { name: /open menu/i }));
-    const closeButtons = screen.getAllByRole("button", { name: /close menu/i });
-    await user.click(closeButtons[0]!);
-
-    expect(
-      screen.getByRole("button", { name: /open menu/i }),
-    ).toBeInTheDocument();
-    expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();
-  });
-
-  it("renders the Services link with the same tile pattern as the other menu items", async () => {
-    const user = userEvent.setup();
-
-    render(<Navigation />);
-
-    await user.click(screen.getByRole("button", { name: /open menu/i }));
-
-    const servicesLink = screen
-      .getAllByRole("link", { name: /services/i })
-      .find((link) => link.getAttribute("href") === "/services");
-    expect(servicesLink).toBeDefined();
-    expect(servicesLink).toHaveAttribute("href", "/services");
-
-    await user.click(servicesLink!);
-
-    expect(
-      screen.getByRole("button", { name: /open menu/i }),
-    ).toBeInTheDocument();
-    expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();
-  });
-
-  it("renders the Team Hub link pointing to /hub", async () => {
-    const user = userEvent.setup();
-
-    render(<Navigation />);
-
-    await user.click(screen.getByRole("button", { name: /open menu/i }));
-
-    const hubLink = screen.getByRole("link", { name: /team hub/i });
-    expect(hubLink).toBeInTheDocument();
-    expect(hubLink).toHaveAttribute("href", "/hub");
-  });
-
-  it("renders the Events link pointing to /events", async () => {
-    const user = userEvent.setup();
-
-    render(<Navigation />);
-
-    await user.click(screen.getByRole("button", { name: /open menu/i }));
-
-    const eventLink = screen.getByRole("link", { name: /events/i });
-    expect(eventLink).toBeInTheDocument();
-    expect(eventLink).toHaveAttribute("href", "/events");
-  });
-
-  it("renders the unified header controls with home logo, phone CTA, language toggle, theme toggle, and menu", () => {
-    render(<Navigation />);
-
-    const homeLinks = screen.getAllByRole("link", { name: /mh construction/i });
-    expect(homeLinks[0]).toHaveAttribute("href", "/");
-
-    const phoneLink = screen.getByRole("link", {
-      name: /call mh construction/i,
+    const desktopActiveLinks = screen.getAllByRole("link", {
+      name: "Projects",
+      current: "page",
     });
-    expect(phoneLink).toHaveAttribute("href", "tel:+15093086489");
-    expect(within(phoneLink).getByText("(509) 308-6489")).toBeInTheDocument();
-    expect(screen.getByText(/tap to call our team/i)).toBeInTheDocument();
+    expect(desktopActiveLinks.length).toBeGreaterThan(0);
 
-    expect(screen.getByRole("button", { name: "EN" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "ES" })).toBeInTheDocument();
+    await user.click(
+      screen.getByRole("button", { name: "Open primary navigation" }),
+    );
 
-    const themeButton = screen.getByRole("button", {
-      name: /switch to light mode/i,
+    const mobileActiveLinks = screen.getAllByRole("link", {
+      name: "Projects",
+      current: "page",
     });
-    expect(themeButton).toHaveAttribute("data-compact", "true");
-    expect(themeButton).toHaveAttribute("data-size", "sm");
-
-    expect(
-      screen.getByRole("button", { name: /open menu/i }),
-    ).toBeInTheDocument();
+    expect(mobileActiveLinks.length).toBeGreaterThan(1);
   });
 
-  it("renders header tooltip copy for the home logo and language controls", () => {
-    render(<Navigation />);
-
-    const siteHeader = screen.getByRole("banner");
-    expect(siteHeader).toHaveClass("fixed");
-    expect(siteHeader).toHaveClass("top-0");
-
-    expect(screen.getByText(/return to homepage/i)).toBeInTheDocument();
-    expect(
-      screen.getByText(/switch between spanish and english/i),
-    ).toBeInTheDocument();
-  });
-
-  it("hides the phone tooltip after the header trigger is no longer hovered", async () => {
+  it("dispatches analytics event when CTA is clicked", async () => {
     const user = userEvent.setup();
 
     render(<Navigation />);
 
-    const phoneLink = screen.getByRole("link", {
-      name: /call mh construction/i,
-    });
-    const tooltipText = screen.getByText(/tap to call our team/i);
-    const tooltipContainer = tooltipText.closest(".absolute");
+    const cta = screen.getAllByRole("link", {
+      name: "Discuss Your Project",
+    })[0];
+    expect(cta).toBeDefined();
+    await user.click(cta!);
 
-    expect(tooltipContainer).toHaveClass("opacity-0");
-    expect(tooltipContainer).toHaveClass("pointer-events-none");
-
-    await user.hover(phoneLink);
-
-    expect(tooltipContainer).toHaveClass("opacity-100");
-    expect(tooltipContainer).toHaveClass("scale-100");
-
-    await user.unhover(phoneLink);
-
-    expect(tooltipContainer).toHaveClass("opacity-0");
-    expect(tooltipContainer).toHaveClass("pointer-events-none");
-  });
-
-  it("closes the menu after clicking each social media link", async () => {
-    const user = userEvent.setup();
-
-    render(<Navigation />);
-
-    for (const label of [
-      /follow mh construction on facebook/i,
-      /view mh construction on instagram/i,
-      /follow mh construction on x/i,
-      /watch mh construction on youtube/i,
-      /connect with mh construction on linkedin/i,
-    ]) {
-      // Open the menu
-      await user.click(screen.getByRole("button", { name: /open menu/i }));
-      // Click the social link — its onClick closes the menu
-      await user.click(screen.getByRole("link", { name: label }));
-      // Menu should now be closed
-      expect(
-        screen.queryByLabelText("Close menu", { selector: "button" }),
-      ).not.toBeInTheDocument();
-    }
-  });
-
-  it("keeps hamburger interactions reliable across representative viewport widths", async () => {
-    const user = userEvent.setup();
-
-    render(<Navigation />);
-
-    const widths = [320, 375, 768, 1024, 1440];
-    for (const width of widths) {
-      Object.defineProperty(window, "innerWidth", {
-        writable: true,
-        configurable: true,
-        value: width,
-      });
-      fireEvent(window, new Event("resize"));
-
-      await user.click(screen.getByRole("button", { name: /open menu/i }));
-      expect(
-        screen.getAllByRole("button", { name: /close menu/i }),
-      ).toHaveLength(2);
-
-      fireEvent.keyDown(window, { key: "Escape" });
-      expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();
-    }
+    expect(trackClickMock).toHaveBeenCalledWith(
+      "header-primary-cta",
+      expect.objectContaining({ href: "/contact?intent=project-discussion" }),
+    );
   });
 });

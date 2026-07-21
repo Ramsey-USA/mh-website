@@ -80,4 +80,28 @@ describe("i18n request config", () => {
       (config.messages as { common: { signIn: string } }).common.signIn,
     ).toBe("Iniciar sesión");
   });
+
+  it("uses validated requestLocale when provided by next-intl", async () => {
+    mockCookies.mockResolvedValue({
+      get: jest.fn().mockReturnValue({ value: "en" }),
+    });
+
+    const config = await getRequestConfig({
+      requestLocale: Promise.resolve("es"),
+    } as never);
+
+    expect(config.locale).toBe("es");
+  });
+
+  it("rejects unsupported requestLocale values and falls back to english", async () => {
+    mockCookies.mockResolvedValue({
+      get: jest.fn().mockReturnValue({ value: "es" }),
+    });
+
+    const config = await getRequestConfig({
+      requestLocale: Promise.resolve("fr"),
+    } as never);
+
+    expect(config.locale).toBe("en");
+  });
 });

@@ -5,7 +5,13 @@ const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..", "..");
 const APP_DIR = path.join(ROOT, "src", "app");
-const SITEMAP_FILE = path.join(APP_DIR, "sitemap.ts");
+const ROUTE_MANIFEST_FILE = path.join(
+  ROOT,
+  "src",
+  "lib",
+  "seo",
+  "route-manifest.ts",
+);
 const POLICY_FILE = path.join(
   ROOT,
   "config",
@@ -46,8 +52,12 @@ function routeFromPageFile(filePath) {
   return `/${relative.replace(/\/page\.tsx$/, "")}`;
 }
 
-function parseStaticSitemapPaths(source) {
-  const matches = source.matchAll(/path:\s*"([^"]+)"/g);
+function parseStaticManifestPaths(source) {
+  const staticBlockMatch = source.match(
+    /const\s+STATIC_ROUTES(?:\s*:[^=]+)?\s*=\s*\[(?<block>[\s\S]*?)\n\];/,
+  );
+  const staticBlock = staticBlockMatch?.groups?.block || "";
+  const matches = staticBlock.matchAll(/path:\s*"([^"]+)"/g);
   const paths = new Set();
   for (const match of matches) {
     paths.add(match[1]);
@@ -157,8 +167,8 @@ function getRouteClass(route, policyClasses) {
 function validateIndexableRoute(
   route,
   policy,
-  sitemapSource,
-  sitemapStaticPaths,
+  manifestSource,
+  manifestStaticPaths,
 ) {
   const errors = [];
 
@@ -177,11 +187,11 @@ function validateIndexableRoute(
     for (const rule of coverageRules) {
       const requiredSignals = rule.requiresAny || [];
       const hasSignal = requiredSignals.some((signal) =>
-        sitemapSource.includes(signal),
+        manifestSource.includes(signal),
       );
       if (!hasSignal) {
         errors.push(
-          `Dynamic indexable route ${route} is missing sitemap coverage signal. Expected one of: ${requiredSignals.join(", ")}.`,
+          `Dynamic indexable route ${route} is missing route-manifest coverage signal. Expected one of: ${requiredSignals.join(", ")}.`,
         );
       }
     }
@@ -189,21 +199,21 @@ function validateIndexableRoute(
     return errors;
   }
 
-  if (!sitemapStaticPaths.has(route)) {
+  if (!manifestStaticPaths.has(route)) {
     errors.push(
-      `Indexable route ${route} is not listed in src/app/sitemap.ts ACTIVE_PAGES.`,
+      `Indexable route ${route} is not listed in src/lib/seo/route-manifest.ts static routes.`,
     );
   }
 
   return errors;
 }
 
-function validateNonIndexableRoute(route, routeClass, sitemapStaticPaths) {
+function validateNonIndexableRoute(route, routeClass, manifestStaticPaths) {
   const errors = [];
 
-  if (sitemapStaticPaths.has(route)) {
+  if (manifestStaticPaths.has(route)) {
     errors.push(
-      `Non-indexable route ${route} appears in src/app/sitemap.ts and must be removed.`,
+      `Non-indexable route ${route} appears in src/lib/seo/route-manifest.ts and must be removed.`,
     );
   }
 
@@ -238,8 +248,10 @@ function main() {
     ]);
   }
 
-  if (!fs.existsSync(SITEMAP_FILE)) {
-    fail([`Sitemap file not found: ${path.relative(ROOT, SITEMAP_FILE)}`]);
+  if (!fs.existsSync(ROUTE_MANIFEST_FILE)) {
+    fail([
+      `Route manifest file not found: ${path.relative(ROOT, ROUTE_MANIFEST_FILE)}`,
+    ]);
   }
 
   const policy = JSON.parse(fs.readFileSync(POLICY_FILE, "utf8"));
@@ -263,8 +275,8 @@ function main() {
   const routes = pageFiles
     .map(routeFromPageFile)
     .sort((left, right) => left.localeCompare(right));
-  const sitemapSource = fs.readFileSync(SITEMAP_FILE, "utf8");
-  const sitemapStaticPaths = parseStaticSitemapPaths(sitemapSource);
+  const manifestSource = fs.readFileSync(ROUTE_MANIFEST_FILE, "utf8");
+  const manifestStaticPaths = parseStaticManifestPaths(manifestSource);
 
   for (const route of routes) {
     const matchedClasses = getRouteClass(route, policy.classes);
@@ -289,13 +301,13 @@ function main() {
         ...validateIndexableRoute(
           route,
           policy,
-          sitemapSource,
-          sitemapStaticPaths,
+          manifestSource,
+          manifestStaticPaths,
         ),
       );
     } else {
       errors.push(
-        ...validateNonIndexableRoute(route, routeClass, sitemapStaticPaths),
+        ...validateNonIndexableRoute(route, routeClass, manifestStaticPaths),
       );
     }
   }

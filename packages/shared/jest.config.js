@@ -28,7 +28,7 @@ const customJestConfig = {
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
   testPathIgnorePatterns: ["/node_modules/", "/coverage/"],
   transformIgnorePatterns: [
-    "/node_modules/(?!(next-intl|use-intl|@formatjs)/)",
+    "/node_modules/(?!(next-intl|use-intl|@formatjs|jose)/)",
   ],
   cacheDirectory: "<rootDir>/node_modules/.cache/jest",
 };

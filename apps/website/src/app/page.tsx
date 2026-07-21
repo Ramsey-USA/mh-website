@@ -6,23 +6,27 @@ import { HomePageSentrySupport } from "@/components/monitoring/HomePageSentrySup
 import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-import type { Testimonial } from "@/lib/data/testimonials";
+import { normalizeStakeholderTestimonials } from "@/lib/data/testimonials";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
-import { getHeroCommercialMp4Url } from "@/lib/media/hero-commercials";
 import {
   formatDualPageName,
   MH_SLOGANS,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { projectCaseStudies } from "@/lib/data/project-case-studies";
+import {
+  getPublishedServiceDetailBySlug,
+  type ServiceRecord,
+} from "@/lib/data/service-routes";
 import enHome from "../../../../messages/home/en.json";
 import esHome from "../../../../messages/home/es.json";
 import { BrandedContentSection } from "@/components/templates";
 
-import { HeroSection, WhyPartnerSection } from "@/components/home";
+import { HeroSection } from "@/components/home";
 import { TestimonialsSectionDeferred } from "@/components/home/TestimonialsSectionDeferred";
-import { TimelineDeferred } from "@/components/home/TimelineDeferred";
 const NextStepsSection = dynamic(
   () =>
     import("@/components/shared-sections").then((mod) => ({
@@ -32,24 +36,22 @@ const NextStepsSection = dynamic(
 );
 
 const SITE_URL = "https://www.mhc-gc.com";
-const HOME_RADIO_AD_MP4_URL = `${SITE_URL}${getHeroCommercialMp4Url("home")}`;
-const HOME_RADIO_AD_ATTRIBUTION =
-  "Homepage radio ad voiceover by Jeremy Thamert, produced in conjunction with Stephens Media Group, airing on 94.9 The WOLF (https://949thewolf.com/) and local ESPN channel placements.";
 const HOME_COPY_BY_LOCALE = {
   en: enHome,
   es: esHome,
 } as const;
 const HOME_SECTION_SPACING = "py-10 sm:py-12 lg:py-16";
-const HOME_SECTION_SPACING_TIGHT_TOP =
-  "pt-8 sm:pt-10 lg:pt-14 pb-10 sm:pb-12 lg:pb-16";
 const HOME_CARD_CLASS =
   "rounded-2xl border border-gray-200/90 dark:border-gray-700 bg-white/95 dark:bg-gray-800/95 p-5 sm:p-6 shadow-md";
 const HOME_CTA_PRIMARY_CLASS =
   "inline-flex items-center justify-center rounded-xl bg-brand-primary px-5 py-3 text-sm sm:text-base font-bold text-white shadow hover:bg-brand-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2";
 const HOME_CTA_SECONDARY_CLASS =
   "inline-flex items-center justify-center rounded-xl border-2 border-brand-primary/70 dark:border-brand-primary-light/70 bg-brand-primary/10 dark:bg-brand-primary/20 px-5 py-3 text-sm sm:text-base font-bold text-brand-primary-dark dark:text-brand-primary-light shadow-sm hover:bg-brand-primary/15 dark:hover:bg-brand-primary/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2";
-const HOME_FAQ_CARD_CLASS =
-  "rounded-xl border border-gray-200/80 dark:border-gray-700/80 bg-gray-50/85 dark:bg-gray-800/85 p-4 shadow-sm";
+const SERVICE_OVERVIEW_DETAIL_SLUGS = [
+  "agricultural-winery-construction",
+  "commercial-tenant-improvements",
+  "municipal-public-work",
+] as const;
 
 export const metadata: Metadata = withGeoMetadata({
   title: {
@@ -93,28 +95,16 @@ export const metadata: Metadata = withGeoMetadata({
     "veteran construction values",
     "WA OR ID licensed contractor",
     "Eastern Washington contractor",
-    "Jeremy Thamert radio ad",
-    "Stephens Media Group",
-    "94.9 The WOLF",
-    "Local ESPN channel radio ad",
   ],
   alternates: {
     canonical: SITE_URL,
   },
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Mission-Ready Construction, Fit-Outs, Municipal, and Light Industrial | MH Construction`,
-    description: `Mission-ready construction services for agricultural and winery communities, fit-outs, municipal, and light industrial projects with disciplined scope control and Procore-based delivery. ${MH_SLOGANS.primary} ${HOME_RADIO_AD_ATTRIBUTION}`,
+    description: `Mission-ready construction services for agricultural and winery communities, fit-outs, municipal, and light industrial projects with disciplined scope control and Procore-based delivery. ${MH_SLOGANS.primary}`,
     url: SITE_URL,
     siteName: "MH Construction",
     type: "website",
-    videos: [
-      {
-        url: HOME_RADIO_AD_MP4_URL,
-        type: "video/mp4",
-        width: 1920,
-        height: 1080,
-      },
-    ],
     images: [
       {
         url: "/images/og-default.jpg",
@@ -130,14 +120,8 @@ export const metadata: Metadata = withGeoMetadata({
     site: "@mhc_gc",
     creator: "@mhc_gc",
     title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Mission-Ready Construction, Fit-Outs, Municipal, and Light Industrial | MH Construction`,
-    description: `Mission-ready construction services with agricultural and winery expertise, occupied-space fit-out delivery, municipal execution, and light industrial mission management. ${MH_SLOGANS.supporting[0]} ${HOME_RADIO_AD_ATTRIBUTION}`,
+    description: `Mission-ready construction services with agricultural and winery expertise, occupied-space fit-out delivery, municipal execution, and light industrial mission management. ${MH_SLOGANS.supporting[0]}`,
     images: ["/images/og-default.jpg"],
-  },
-  other: {
-    "twitter:label1": "Radio Ad Presenter",
-    "twitter:data1": "Jeremy Thamert",
-    "twitter:label2": "Production Partner",
-    "twitter:data2": "Stephens Media Group",
   },
 });
 
@@ -152,7 +136,7 @@ export default async function Home() {
     namespace: "testimonialsData",
   });
   const homeCopy = HOME_COPY_BY_LOCALE[locale] ?? enHome;
-  const clientTestimonials = (
+  const clientTestimonials = normalizeStakeholderTestimonials(
     tTestimonials.raw("clientTestimonials") as Array<{
       id: string;
       name: string;
@@ -165,61 +149,31 @@ export default async function Home() {
       date?: string;
       image?: string;
       category?: string;
-    }>
-  ).map(
-    (testimonial) =>
-      ({
-        ...testimonial,
-        type: "client",
-      }) as Testimonial,
+    }>,
   );
-  const processSteps = (
-    homeCopy.process.steps as Array<{ title: string; desc: string }>
-  ).map((step: { title: string; desc: string }, index: number) => ({
-    num: index + 1,
-    icon:
-      [
-        "assignment",
-        "engineering",
-        "build",
-        "verified_user",
-        "task_alt",
-        "support_agent",
-      ][index] ?? "timeline",
-    title: step.title,
-    desc: step.desc,
-    position: index % 2 === 0 ? ("left" as const) : ("right" as const),
-  }));
+  const publishedCaseStudies = projectCaseStudies.filter(
+    (project) => project.isPublished !== false,
+  );
+  const featuredCaseStudies = publishedCaseStudies.slice(0, 3);
+  const featuredServiceDetails = SERVICE_OVERVIEW_DETAIL_SLUGS.map((slug) =>
+    getPublishedServiceDetailBySlug(slug),
+  ).filter((service): service is ServiceRecord => Boolean(service));
   const isProduction = process.env.NODE_ENV === "production";
   const requestHeaders = await headers();
   const isLighthouseAudit = /Chrome-Lighthouse/i.test(
     requestHeaders.get("user-agent") ?? "",
   );
   const enableHomeTelemetry = isProduction && !isLighthouseAudit;
+  const universalCtas = getUniversalCtaSet(locale);
   const splashCopy =
     locale === "es"
       ? {
-          overviewSubtitle: "Brief de la Misión",
-          overviewTitle:
-            "Entrega Lista para la Misión con Ejecución Disciplinada",
-          overviewDescription:
-            "MH Construction entrega proyectos agrícolas y de bodegas, acondicionamientos en espacios activos, obra municipal e industrial ligero con control de alcance, transparencia y coordinación en Procore.",
-          overviewButtons: [
-            {
-              href: "/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=primary-services",
-              label: "Ver Servicios",
-            },
-            {
-              href: "/projects?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=proof-projects",
-              label: "Ver Proyectos",
-            },
-            {
-              href: "/contact?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=start-contact",
-              label: "Hablar con el Equipo",
-            },
-          ],
-          serviceSubtitle: "Sectores de Misión",
-          serviceTitle: "Servicios de Construcción por Sector de Despliegue",
+          proofSubtitle: "Prueba Verificada",
+          proofTitle: "Hechos Públicos que Respaldan Cada Proyecto",
+          proofDescription:
+            "Este resumen usa solo registros públicos actuales del repositorio de MH Construction.",
+          serviceSubtitle: "Panorama de Servicios",
+          serviceTitle: "Servicios de Construcción para Proyectos Comerciales",
           serviceDescription:
             "Nuestra operación es principalmente comercial. También evaluamos Custom Home Builds selectivos cuando el alcance y la ruta de entrega están alineados.",
           serviceCards: [
@@ -236,54 +190,32 @@ export default async function Home() {
               desc: "Entrega orientada a cumplimiento, documentación de cierre y estándares de seguridad en proyectos públicos e industriales.",
             },
           ],
-          processSubtitle: "Cómo Ejecutamos",
-          processTitle: "Proceso de Ejecución de la Misión en Seis Fases",
-          trustSubtitle: "Confianza y Rendición de Cuentas",
-          trustTitle:
-            "Por Qué Socios de Misión Eligen Nuestro Equipo de Misión",
-          trustDescription:
-            "Resultados consistentes, comunicación clara y una cadena operativa responsable desde la planificación hasta el cierre.",
-          testimonialSubtitle: "Prueba de Socios",
-          testimonialTitle: "Testimonios de Socios y Resultados de Misión",
-          testimonialDescription:
-            "Comentarios de socios de misión en proyectos agrícolas/de bodega, acondicionamientos comerciales y proyectos municipales.",
-          finalSubtitle: "Siguiente Movimiento",
-          finalTitle: "Comience con una Revisión de Alcance para la Misión",
-          finalDescription:
-            "Si su proyecto es comercial o necesita evaluar ajuste de alcance, nuestro equipo puede orientar la siguiente decisión.",
-          finalButtons: [
-            {
-              href: "/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=final-services",
-              label: "Revisar Servicios",
-            },
-            {
-              href: "/contact?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=final-contact",
-              label: "Solicitar Conversación",
-            },
+          featuredSubtitle: "Trabajo Destacado",
+          featuredTitle: "Casos Públicos de Proyectos Recientes",
+          featuredDescription:
+            "Vea casos publicados con ubicación, tipo de proyecto y resultados documentados.",
+          whySubtitle: "Por Qué MH",
+          whyTitle: "Planificación, Comunicación y Ejecución en Campo",
+          whyDescription:
+            "MH Construction dirige proyectos comerciales con planificación previa, coordinación diaria, prácticas de seguridad verificables y cierre responsable.",
+          whyPoints: [
+            "Planificación previa para definir alcance, cronograma y secuencia de obra.",
+            "Comunicación clara con propietarios, diseñadores y socios de obra.",
+            "Prácticas de seguridad y calidad integradas en operaciones de campo.",
+            "Rendición de cuentas desde la movilización hasta el cierre.",
           ],
+          testimonialSubtitle: "Voces de Clientes",
+          testimonialTitle: "Testimonios de Socios de Proyecto",
+          testimonialDescription:
+            "Comentarios de socios en proyectos agrícolas/de bodega, acondicionamientos comerciales y trabajo municipal.",
         }
       : {
-          overviewSubtitle: "Mission Brief",
-          overviewTitle:
-            "Mission-Ready Construction Built on Relationship-First Execution",
-          overviewDescription:
-            "MH Construction delivers agricultural and winery, commercial fit-out, municipal, and light industrial missions with disciplined scope control, transparent communication, and Procore-backed command-and-control.",
-          overviewButtons: [
-            {
-              href: "/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=primary-services",
-              label: "Explore Services",
-            },
-            {
-              href: "/projects?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=proof-projects",
-              label: "View Projects",
-            },
-            {
-              href: "/contact?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=start-contact",
-              label: "Talk With Our Team",
-            },
-          ],
-          serviceSubtitle: "Mission Sectors",
-          serviceTitle: "Construction Services by Deployment Sector",
+          proofSubtitle: "Verified Proof",
+          proofTitle: "Public Records Behind Our Project Delivery",
+          proofDescription:
+            "This summary uses current public records already published in the MH Construction repository.",
+          serviceSubtitle: "Service Overview",
+          serviceTitle: "Construction Services for Commercial Projects",
           serviceDescription:
             "Our delivery is primarily commercial. We also entertain select Custom Home Builds when scope fit and delivery requirements align.",
           serviceCards: [
@@ -300,30 +232,24 @@ export default async function Home() {
               desc: "Compliance-forward delivery with audit-ready handoff packages and safety-first execution for public and industrial scopes.",
             },
           ],
-          processSubtitle: "How We Execute",
-          processTitle: "Mission Delivery Process in Six Phases",
-          trustSubtitle: "Trust and Accountability",
-          trustTitle: "Why Mission Partners Choose Our Mission Team",
-          trustDescription:
-            "Consistent execution, direct communication, and accountable operating controls from planning through mission handoff for owners, architects, bonding banks, insurers, and mission partners.",
-          testimonialSubtitle: "Mission Partner Proof",
-          testimonialTitle: "Mission Partner Testimonials and Outcomes",
-          testimonialDescription:
-            "Feedback from mission partners across agricultural/winery, commercial fit-out, and municipal-facing project scopes.",
-          finalSubtitle: "Next Step",
-          finalTitle: "Start with a Mission Scope Review",
-          finalDescription:
-            "If your project is commercial or needs a fit-first review, our team can help you define the best delivery path.",
-          finalButtons: [
-            {
-              href: "/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=final-services",
-              label: "Review Services",
-            },
-            {
-              href: "/contact?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=final-contact",
-              label: "Request Consultation",
-            },
+          featuredSubtitle: "Featured Work",
+          featuredTitle: "Recent Public Project Case Studies",
+          featuredDescription:
+            "Review published case studies with location, project type, and documented outcomes.",
+          whySubtitle: "Why MH",
+          whyTitle: "Planning, Communication, and Field Execution",
+          whyDescription:
+            "MH Construction leads commercial delivery with front-end planning, clear communication, verified safety practices, and accountable field coordination.",
+          whyPoints: [
+            "Planning discipline that clarifies scope, schedule, and delivery strategy before mobilization.",
+            "Communication cadence that keeps owners, designers, and field teams aligned.",
+            "Safety and quality practices integrated into daily field operations.",
+            "Accountability from kickoff through closeout documentation.",
           ],
+          testimonialSubtitle: "Client Proof",
+          testimonialTitle: "Project Partner Testimonials",
+          testimonialDescription:
+            "Feedback from partners across agricultural/winery, commercial fit-out, and municipal project scopes.",
         };
 
   return (
@@ -339,70 +265,72 @@ export default async function Home() {
 
       <div className="relative z-10">
         <BrandedContentSection
-          id="company-overview"
+          id="stats"
           variant="white"
           className={HOME_SECTION_SPACING}
           showBackgroundPattern={false}
+          headerSize="section"
           header={{
-            icon: "domain",
+            icon: "verified",
             iconVariant: "primary",
-            subtitle: splashCopy.overviewSubtitle,
-            title: splashCopy.overviewTitle,
-            description: splashCopy.overviewDescription,
+            subtitle: splashCopy.proofSubtitle,
+            title: splashCopy.proofTitle,
+            description: splashCopy.proofDescription,
           }}
         >
-          <div className="mx-auto max-w-5xl text-center">
-            <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
-              {locale === "es" ? "Revise " : "Review "}
-              <Link
-                href="/services?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=overview-services"
-                className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
-              >
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-3">
+            <article className={HOME_CARD_CLASS}>
+              <p className="font-heading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
+                {locale === "es" ? "Cobertura" : "Coverage"}
+              </p>
+              <p className="mt-2 text-2xl font-black text-gray-900 dark:text-white">
+                WA, OR, ID
+              </p>
+              <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
                 {locale === "es"
-                  ? "servicios listos para la misión"
-                  : "mission-ready services"}
-              </Link>
-              {locale === "es" ? ", vea nuestro " : ", see our "}
-              <Link
-                href="/projects?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=overview-projects"
-                className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
-              >
-                {locale === "es" ? "archivo de misiones" : "mission portfolio"}
-              </Link>
-              {locale === "es" ? " o " : " or "}
-              <Link
-                href="/contact?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=overview-contact"
-                className="font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
-              >
+                  ? "Licencia activa en Washington, Oregon e Idaho."
+                  : "Licensed project delivery across Washington, Oregon, and Idaho."}
+              </p>
+            </article>
+            <article className={HOME_CARD_CLASS}>
+              <p className="font-heading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
                 {locale === "es"
-                  ? "contacte a nuestro equipo de misión"
-                  : "contact our mission team"}
-              </Link>
-              .
-            </p>
-          </div>
-          <div className="mx-auto mt-6 grid max-w-5xl grid-cols-1 gap-3 sm:gap-4 md:grid-cols-3">
-            {splashCopy.overviewButtons.map((button, index) => (
-              <Link
-                key={button.label}
-                href={button.href}
-                className={
-                  index === 0
-                    ? HOME_CTA_PRIMARY_CLASS
-                    : HOME_CTA_SECONDARY_CLASS
-                }
-              >
-                {button.label}
-              </Link>
-            ))}
+                  ? "Casos publicados"
+                  : "Published case studies"}
+              </p>
+              <p className="mt-2 text-2xl font-black text-gray-900 dark:text-white">
+                {publishedCaseStudies.length}
+              </p>
+              <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+                {locale === "es"
+                  ? "Registros públicos actuales en nuestro archivo de proyectos."
+                  : "Current public project records available in our portfolio."}
+              </p>
+            </article>
+            <article className={HOME_CARD_CLASS}>
+              <p className="font-heading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
+                {locale === "es"
+                  ? "Testimonios de clientes"
+                  : "Client testimonials"}
+              </p>
+              <p className="mt-2 text-2xl font-black text-gray-900 dark:text-white">
+                {clientTestimonials.length}
+              </p>
+              <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+                {locale === "es"
+                  ? "Testimonios disponibles en nuestra fuente de datos actual."
+                  : "Testimonials currently available in the controlled testimonial data source."}
+              </p>
+            </article>
           </div>
         </BrandedContentSection>
 
         <BrandedContentSection
-          id="service-overview"
+          id="services"
           variant="gray"
           className={HOME_SECTION_SPACING}
           showBackgroundPattern={false}
+          headerSize="section"
           header={{
             icon: "construction",
             iconVariant: "secondary",
@@ -425,58 +353,108 @@ export default async function Home() {
                   className="mt-4 inline-flex items-center text-sm sm:text-base font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
                 >
                   {locale === "es"
-                    ? "Ver detalle de servicios comerciales"
-                    : "View commercial service details"}
+                    ? "Ver servicios y rutas disponibles"
+                    : "View services and available routes"}
                 </Link>
               </article>
             ))}
           </div>
+          {featuredServiceDetails.length > 0 ? (
+            <div className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3">
+              {featuredServiceDetails.map((service) => (
+                <Link
+                  key={service.slug}
+                  href={`/services/${service.slug}`}
+                  className="inline-flex items-center rounded-full border border-brand-primary/30 bg-white px-3 py-1.5 text-xs sm:text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary/10 dark:border-brand-primary-light/30 dark:bg-gray-800 dark:text-brand-primary-light dark:hover:bg-brand-primary/20"
+                >
+                  {service.title}
+                </Link>
+              ))}
+            </div>
+          ) : null}
+          <div className="mt-6 text-center">
+            <Link
+              href="/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-phase3&utm_content=services-hub"
+              className={HOME_CTA_SECONDARY_CLASS}
+            >
+              {universalCtas.services.label}
+            </Link>
+          </div>
         </BrandedContentSection>
 
-        <TimelineDeferred
+        <BrandedContentSection
           id="our-process"
-          icon="timeline"
-          subtitle={splashCopy.processSubtitle}
-          title={splashCopy.processTitle}
-          description={
-            <>
-              {homeCopy.process.descriptionPart1}
-              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                {homeCopy.process.descriptionPart2}
-              </span>
-              {homeCopy.process.descriptionPart3}
-              <span className="font-bold text-gray-900 dark:text-white">
-                {homeCopy.process.descriptionPart4}
-              </span>
-              {homeCopy.process.descriptionPart5}
-            </>
-          }
-          steps={processSteps}
-          compact
-          initiallyVisibleSteps={3}
-          expandStepsLabel={
-            locale === "es"
-              ? `Ver los ${processSteps.length} pasos`
-              : `View all ${processSteps.length} steps`
-          }
-          collapseStepsLabel={
-            locale === "es" ? "Mostrar menos pasos" : "Show fewer steps"
-          }
-          className={`bg-gray-50 dark:bg-gray-800 ${HOME_SECTION_SPACING}`}
-        />
-
-        <WhyPartnerSection
-          sectionVariant="white"
+          variant="white"
           className={HOME_SECTION_SPACING}
           showBackgroundPattern={false}
-          headerSubtitle={splashCopy.trustSubtitle}
-          headerTitle={splashCopy.trustTitle}
-          headerDescription={splashCopy.trustDescription}
           headerSize="section"
-          condensed
-          condensedVisibleCount={2}
-          locale={locale}
-        />
+          header={{
+            icon: "photo_library",
+            iconVariant: "secondary",
+            subtitle: splashCopy.featuredSubtitle,
+            title: splashCopy.featuredTitle,
+            description: splashCopy.featuredDescription,
+          }}
+        >
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            {featuredCaseStudies.map((caseStudy) => (
+              <article key={caseStudy.slug} className={HOME_CARD_CLASS}>
+                <p className="font-heading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
+                  {caseStudy.category}
+                </p>
+                <h3 className="mt-2 text-xl font-extrabold text-gray-900 dark:text-white">
+                  {caseStudy.title}
+                </h3>
+                <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+                  {caseStudy.location.city}, {caseStudy.location.state} ·{" "}
+                  {caseStudy.yearCompleted}
+                </p>
+                <p className="font-body mt-3 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {caseStudy.description}
+                </p>
+                <Link
+                  href={`/projects/${caseStudy.slug}`}
+                  className="mt-4 inline-flex items-center text-sm sm:text-base font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
+                >
+                  {locale === "es" ? "Ver estudio de caso" : "View case study"}
+                </Link>
+              </article>
+            ))}
+          </div>
+          <div className="mt-6 text-center">
+            <Link
+              href="/projects?utm_source=homepage&utm_medium=cta&utm_campaign=home-phase3&utm_content=featured-work"
+              className={HOME_CTA_PRIMARY_CLASS}
+            >
+              {universalCtas.portfolio.label}
+            </Link>
+          </div>
+        </BrandedContentSection>
+
+        <BrandedContentSection
+          id="why-partner"
+          variant="gray"
+          className={HOME_SECTION_SPACING}
+          showBackgroundPattern={false}
+          headerSize="section"
+          header={{
+            icon: "handshake",
+            iconVariant: "primary",
+            subtitle: splashCopy.whySubtitle,
+            title: splashCopy.whyTitle,
+            description: splashCopy.whyDescription,
+          }}
+        >
+          <ul className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2">
+            {splashCopy.whyPoints.map((point) => (
+              <li key={point} className={HOME_CARD_CLASS}>
+                <p className="font-body text-sm sm:text-base text-gray-800 dark:text-gray-200 leading-relaxed">
+                  {point}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </BrandedContentSection>
 
         <TestimonialsSectionDeferred
           id="testimonials"
@@ -489,107 +467,12 @@ export default async function Home() {
           headerSize="section"
         />
 
-        <BrandedContentSection
-          id="home-faq"
-          variant="white"
-          className={HOME_SECTION_SPACING}
-          showBackgroundPattern={false}
-          headerSize="section"
-          header={{
-            icon: "quiz",
-            iconVariant: "bronze",
-            subtitle: locale === "es" ? "Breve de Misión" : "Mission FAQ",
-            title:
-              locale === "es"
-                ? "Preguntas Clave Antes de Iniciar una Misión"
-                : "Key Questions Before Starting a Mission",
-          }}
-        >
-          <div className="mx-auto max-w-5xl space-y-3">
-            <details className={HOME_FAQ_CARD_CLASS}>
-              <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white">
-                {locale === "es"
-                  ? "¿Qué tipos de misiones atienden?"
-                  : "What mission types do you handle?"}
-              </summary>
-              <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                {locale === "es"
-                  ? "Nos enfocamos principalmente en construcción comercial: agrícola y bodegas, acondicionamientos comerciales, municipal e industrial ligero."
-                  : "We focus primarily on mission-ready commercial work: agricultural and winery projects, fit-out operations, municipal, and light industrial scopes."}
-              </p>
-            </details>
-
-            <details className={HOME_FAQ_CARD_CLASS}>
-              <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white">
-                {locale === "es"
-                  ? "¿Operan en WA, OR e ID?"
-                  : "Do you operate across WA, OR, and ID?"}
-              </summary>
-              <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                {locale === "es"
-                  ? "Sí. MH Construction opera con licencia en los tres estados con gestión en Procore y control de documentación."
-                  : "Yes. MH Construction is licensed across all three states with Procore-backed mission management and documentation control."}
-              </p>
-            </details>
-
-            <details className={HOME_FAQ_CARD_CLASS}>
-              <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white">
-                {locale === "es"
-                  ? "¿Cómo inicio una conversación de misión?"
-                  : "How do I start a mission conversation?"}
-              </summary>
-              <p className="font-body mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                {locale === "es"
-                  ? "Comparta alcance, cronograma y ubicación en la página de contacto para una revisión inicial de ajuste."
-                  : "Share scope, schedule, and location details through the contact page for an initial mission-fit review."}
-              </p>
-            </details>
-          </div>
-
-          <div className="mt-6 text-center">
-            <Link
-              href="/faq?utm_source=homepage&utm_medium=internal-link&utm_campaign=home-splash&utm_content=faq-section"
-              className={HOME_CTA_SECONDARY_CLASS}
-            >
-              {locale === "es"
-                ? "Ver todas las preguntas frecuentes"
-                : "View all frequently asked questions"}
-            </Link>
-          </div>
-        </BrandedContentSection>
-
-        <BrandedContentSection
-          id="home-final-cta"
-          variant="gray"
-          className={HOME_SECTION_SPACING_TIGHT_TOP}
-          showBackgroundPattern={false}
-          header={{
-            icon: "flag",
-            iconVariant: "secondary",
-            subtitle: splashCopy.finalSubtitle,
-            title: splashCopy.finalTitle,
-            description: splashCopy.finalDescription,
-          }}
-        >
-          <div className="mx-auto mt-6 grid max-w-3xl grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2">
-            {splashCopy.finalButtons.map((button, index) => (
-              <Link
-                key={button.label}
-                href={button.href}
-                className={
-                  index === 0
-                    ? HOME_CTA_PRIMARY_CLASS
-                    : HOME_CTA_SECONDARY_CLASS
-                }
-              >
-                {button.label}
-              </Link>
-            ))}
-          </div>
-        </BrandedContentSection>
-
         {/* Next Steps Section */}
-        <NextStepsSection locale={locale} className={HOME_SECTION_SPACING} />
+        <NextStepsSection
+          locale={locale}
+          className={HOME_SECTION_SPACING}
+          includePublicSectorLink
+        />
       </div>
     </>
   );

@@ -9,7 +9,6 @@ import {
   normalizeMhPhrasesInText,
 } from "@/lib/branding/page-names";
 import jeremyProfile from "@/lib/data/team/jeremy-thamert.json";
-import { getHeroCommercialMp4Url } from "@/lib/media/hero-commercials";
 
 // Removed unused interface _SEOProps to satisfy lint rule
 interface GenerateMetadataProps {
@@ -399,57 +398,6 @@ export function generateJeremyPersonSchema() {
     })),
     subjectOf: {
       "@id": `${defaultSEO.siteUrl}/#video-jeremy-leadership`,
-    },
-  };
-}
-
-export function generateJeremyLeadershipVideoSchema() {
-  const jeremyPersonEntityId = `${defaultSEO.siteUrl}/jeremy-thamert#person`;
-  const stephensMediaGroupFacebookUrl =
-    "https://www.facebook.com/pages/Stephens%20Media%20Group/546164552551953/#";
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "@id": `${defaultSEO.siteUrl}/#video-jeremy-leadership`,
-    name: "MH Construction Radio Ad with Jeremy Thamert",
-    alternativeHeadline:
-      "MH Construction leadership radio ad with Jeremy Thamert voiceover",
-    description:
-      "Homepage radio ad featuring presenter and voiceover by Jeremy Thamert, produced in conjunction with Stephens Media Group and airing on 94.9 The WOLF and local ESPN channel placements.",
-    thumbnailUrl: `${defaultSEO.siteUrl}/images/home-hero-poster.jpg`,
-    contentUrl: `${defaultSEO.siteUrl}${getHeroCommercialMp4Url("home")}`,
-    duration: "PT1M1S",
-    inLanguage: "en-US",
-    actor: {
-      "@id": jeremyPersonEntityId,
-    },
-    performer: {
-      "@id": jeremyPersonEntityId,
-    },
-    creator: {
-      "@id": jeremyPersonEntityId,
-    },
-    producer: {
-      "@type": "Organization",
-      name: "Stephens Media Group",
-      sameAs: stephensMediaGroupFacebookUrl,
-    },
-    keywords: [
-      "MH Construction radio ad",
-      "Jeremy Thamert presenter",
-      "Jeremy Thamert voiceover",
-      "Jeremy Thamert audio",
-      "Stephens Media Group production",
-      "94.9 The WOLF",
-      "Local ESPN channel",
-      "veteran-owned construction leadership",
-    ],
-    about: {
-      "@id": jeremyPersonEntityId,
-    },
-    publisher: {
-      "@id": `${defaultSEO.siteUrl}/#organization`,
     },
   };
 }

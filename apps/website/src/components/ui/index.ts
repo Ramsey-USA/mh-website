@@ -1,15 +1,18 @@
 // Export all UI components for easy imports
 
 // Base Components (shadcn/ui style)
-export { Button } from "./base/button";
-export { Badge } from "./base/badge";
+export { Button } from "./button";
+export { Badge } from "./badge";
 export {
   Card,
   CardHeader,
   CardTitle,
   CardContent,
   CardDescription,
-} from "./base/card";
+} from "./card";
+export { Container } from "./container";
+export { SectionHeading } from "./section-heading";
+export { FocusRing } from "./focus-ring";
 export { Alert, AlertDescription, AlertTitle } from "./base/alert";
 export { Progress } from "./base/progress";
 export { Tabs, TabsContent, TabsList, TabsTrigger } from "./base/tabs";

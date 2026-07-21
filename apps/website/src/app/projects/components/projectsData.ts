@@ -4,17 +4,35 @@
  */
 
 import { CONTENT_ICONS } from "@/lib/constants/navigation-icons";
+import { PortfolioService } from "@/lib/services/portfolio-service";
+
+const PROJECT_CATEGORY_META = {
+  commercial: {
+    label: "Commercial",
+    icon: CONTENT_ICONS.business,
+  },
+  industrial: {
+    label: "Industrial",
+    icon: CONTENT_ICONS.factory,
+  },
+  renovation: {
+    label: "Renovations",
+    icon: CONTENT_ICONS.construction,
+  },
+  custom: {
+    label: "Custom Builds",
+    icon: CONTENT_ICONS.foundation,
+  },
+} as const;
 
 // Category definitions
 export const categories = [
   { id: "all", label: "All Projects", icon: CONTENT_ICONS.grid_view },
-  { id: "commercial", label: "Commercial", icon: CONTENT_ICONS.business },
-  { id: "industrial", label: "Industrial", icon: CONTENT_ICONS.factory },
-  {
-    id: "renovation",
-    label: "Renovations",
-    icon: CONTENT_ICONS.construction,
-  },
+  ...PortfolioService.getProjectCategoryIds().map((categoryId) => ({
+    id: categoryId,
+    label: PROJECT_CATEGORY_META[categoryId].label,
+    icon: PROJECT_CATEGORY_META[categoryId].icon,
+  })),
 ];
 
 // Project statistics - Updated with 6 Differences Key Metrics

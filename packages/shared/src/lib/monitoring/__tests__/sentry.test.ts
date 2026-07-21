@@ -21,11 +21,13 @@ const mockAddBreadcrumb = jest.fn();
 const mockWithScope = jest.fn((cb: (scope: unknown) => void) => {
   cb({ setExtras: jest.fn() });
 });
+const mockGetClient = jest.fn(() => null);
 const mockBrowserTracingIntegration = jest.fn().mockReturnValue({});
 const mockReplayIntegration = jest.fn().mockReturnValue({});
 
 jest.mock("@sentry/browser", () => ({
   init: (...args: unknown[]) => mockInit(...args),
+  getClient: () => mockGetClient(),
   captureException: (...args: unknown[]) => mockCaptureException(...args),
   captureMessage: (...args: unknown[]) => mockCaptureMessage(...args),
   setUser: (...args: unknown[]) => mockSetUser(...args),
@@ -55,6 +57,16 @@ let addBreadcrumb: (b: {
   level?: SeverityLevel;
   data?: Record<string, unknown>;
 }) => void;
+
+beforeAll(() => {
+  process.env["NEXT_PUBLIC_SENTRY_DSN"] =
+    "https://public@example.ingest.sentry.io/123456";
+  delete (
+    globalThis as typeof globalThis & {
+      __MHC_SENTRY_CLIENT_INITIALIZED__?: boolean;
+    }
+  ).__MHC_SENTRY_CLIENT_INITIALIZED__;
+});
 
 beforeAll(async () => {
   ({ initSentry, captureException, captureMessage, setUser, addBreadcrumb } =

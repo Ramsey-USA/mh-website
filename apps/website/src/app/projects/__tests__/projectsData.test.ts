@@ -10,11 +10,18 @@ import {
   whyChooseReasons,
   partnershipProcess,
 } from "../components/projectsData";
+import { PortfolioService } from "@/lib/services/portfolio-service";
 
 describe("projectsData", () => {
   describe("categories", () => {
     it("contains an 'all' category as first item", () => {
       expect(categories[0]?.id).toBe("all");
+    });
+
+    it("mirrors the published portfolio category ids", () => {
+      expect(categories.slice(1).map((category) => category.id)).toEqual(
+        PortfolioService.getProjectCategoryIds(),
+      );
     });
 
     it("all categories have id, label, and icon", () => {

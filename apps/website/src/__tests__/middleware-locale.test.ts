@@ -12,7 +12,7 @@ jest.mock("../../src/middleware/security", () => ({
 }));
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const { middleware } =
+const { config, middleware } =
   require("../../middleware") as typeof import("../../middleware");
 
 function makeRequest(
@@ -73,6 +73,22 @@ describe("middleware locale seeding", () => {
     expect(response.cookies.get(LOCALE_COOKIE_NAME)).toBeUndefined();
   });
 
+  it("keeps canonical english route /services unprefixed", async () => {
+    const response = await middleware(makeRequest("/services"));
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("location")).toBeNull();
+    expect(response.headers.get("x-middleware-rewrite")).toBeNull();
+  });
+
+  it("keeps /qr-codes as a direct route without redirect hops", async () => {
+    const response = await middleware(makeRequest("/qr-codes"));
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("location")).toBeNull();
+    expect(response.headers.get("x-middleware-rewrite")).toBeNull();
+  });
+
   it("rewrites locale-prefixed routes and seeds locale cookie from path", async () => {
     const response = await middleware(makeRequest("/es/contact"));
 
@@ -80,10 +96,61 @@ describe("middleware locale seeding", () => {
     expect(response.cookies.get(LOCALE_COOKIE_NAME)?.value).toBe("es");
   });
 
-  it("rewrites /en root to canonical root path", async () => {
+  it("rewrites /es/services to shared /services route", async () => {
+    const response = await middleware(makeRequest("/es/services"));
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("x-middleware-rewrite")).toContain("/services");
+    expect(response.cookies.get(LOCALE_COOKIE_NAME)?.value).toBe("es");
+  });
+
+  it("redirects /en root to canonical unprefixed root", async () => {
     const response = await middleware(makeRequest("/en"));
 
-    expect(response.headers.get("x-middleware-rewrite")).toContain("/");
-    expect(response.cookies.get(LOCALE_COOKIE_NAME)?.value).toBe("en");
+    expect(response.status).toBe(308);
+    expect(response.headers.get("location")).toBe("http://localhost:3000/");
+  });
+
+  it("redirects /en/services to /services with permanent status", async () => {
+    const response = await middleware(makeRequest("/en/services"));
+
+    expect(response.status).toBe(308);
+    expect(response.headers.get("location")).toBe(
+      "http://localhost:3000/services",
+    );
+  });
+
+  it("preserves query string when redirecting /en-prefixed routes", async () => {
+    const response = await middleware(
+      makeRequest("/en/services?source=legacy-nav"),
+    );
+
+    expect(response.status).toBe(308);
+    expect(response.headers.get("location")).toBe(
+      "http://localhost:3000/services?source=legacy-nav",
+    );
+  });
+
+  it("passes unknown locale prefixes to routing layer unchanged", async () => {
+    const response = await middleware(makeRequest("/fr/services"));
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("location")).toBeNull();
+    expect(response.headers.get("x-middleware-rewrite")).toBeNull();
+  });
+
+  it("passes unknown slugs to framework routing (real 404 decided downstream)", async () => {
+    const response = await middleware(makeRequest("/route-does-not-exist"));
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("location")).toBeNull();
+    expect(response.headers.get("x-middleware-rewrite")).toBeNull();
+  });
+
+  it("excludes extension paths from locale middleware matcher", () => {
+    const matcher = config.matcher[0];
+    expect(matcher).toContain(".*\\..*");
+    expect(matcher).toContain("_next");
+    expect(matcher).toContain("sitemap\\.xml");
   });
 });

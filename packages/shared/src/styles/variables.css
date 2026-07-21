@@ -66,15 +66,22 @@
      Body: Mendl Sans Dusk (self-hosted)
      Fallbacks: Mendl family variants, then generic sans-serif
      ============================================ */
-  --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", sans-serif;
-  --font-body: "mendl-sans-dusk", "Mendl Sans Dusk", sans-serif;
+  --font-heading:
+    var(--font-mendl-bold, "Mendl Sans Dusk Bold"), "mendl-sans-dusk",
+    "Mendl Sans Dusk", sans-serif;
+  --font-subheading:
+    var(--font-mendl-medium, "Mendl Sans Dusk Medium"), "mendl-sans-dusk",
+    "Mendl Sans Dusk", sans-serif;
+  --font-body:
+    var(--font-mendl-regular, "Mendl Sans Dusk Regular"), "mendl-sans-dusk",
+    "Mendl Sans Dusk", sans-serif;
   --line-height-mh-heading: 1.08;
   --line-height-mh-subheading: 1.2;
   --tracking-mh-heading: 0.0125em;
   --tracking-mh-heading-tight: 0.005em;
   --tracking-mh-subheading: 0.08em;
-  --weight-mh-heading: 800;
-  --weight-mh-subheading: 700;
+  --weight-mh-heading: 700;
+  --weight-mh-subheading: 500;
 
   /* Typography Scale */
   --font-size-xs: 0.75rem;

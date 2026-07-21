@@ -6,6 +6,7 @@ export interface StatItem {
   iconName: string;
   value: number;
   label: string;
+  isPublic?: boolean;
   suffix?: string;
   prefix?: string;
   decimals?: number;
@@ -33,6 +34,7 @@ export const companyStats: StatItem[] = [
     suffix: "",
     decimals: 2,
     animated: true,
+    isPublic: true,
   },
   {
     iconName: "workspace_premium",
@@ -40,6 +42,7 @@ export const companyStats: StatItem[] = [
     label: "Years Combined Experience",
     suffix: "+",
     animated: true,
+    isPublic: false,
   },
   {
     iconName: "military_tech",
@@ -47,12 +50,14 @@ export const companyStats: StatItem[] = [
     label: "Successful Projects",
     suffix: "+",
     animated: true,
+    isPublic: false,
   },
   {
     iconName: "verified",
     value: 3,
     label: "States Licensed & Insured",
     animated: false,
+    isPublic: true,
   },
 ];
 
@@ -66,6 +71,8 @@ export function CompanyStats({
   id = "company-stats",
   animated = false,
 }: CompanyStatsProps) {
+  const publicStats = stats.filter((stat) => stat.isPublic !== false);
+
   const formatStatValue = (stat: StatItem) => {
     const decimals = stat.decimals ?? 0;
     const value =
@@ -89,7 +96,7 @@ export function CompanyStats({
       className={className}
     >
       <div className="gap-4 sm:gap-6 grid grid-cols-2 lg:grid-cols-4 mx-auto max-w-6xl">
-        {stats.map((stat) => (
+        {publicStats.map((stat) => (
           <div
             key={stat.label}
             className={`h-full flex flex-col text-center p-6 sm:p-8 bg-white dark:bg-gray-800 ${cornerRadius.card} border border-gray-200 dark:border-gray-700 hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group shadow-lg`}

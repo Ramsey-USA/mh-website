@@ -3,17 +3,12 @@
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import { type ReactNode } from "react";
+import { trackClick } from "@/lib/analytics/tracking";
 
 function trackBridgeClick(element: string) {
-  if (typeof window === "undefined") return;
-
-  if (window.gtag) {
-    window.gtag("event", "click", {
-      element,
-      page_path: window.location.pathname,
-      event_category: "navigation",
-    });
-  }
+  trackClick(element, {
+    event_category: "navigation",
+  });
 }
 
 interface TrackedBridgeLinkProps {

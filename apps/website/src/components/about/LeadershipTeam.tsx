@@ -12,27 +12,27 @@ import { BrandedContentSection } from "@/components/templates";
 const teamSpecialties = [
   {
     icon: "military_tech",
-    title: "Mission Leadership",
+    title: "Leadership Accountability",
     description:
-      "Veteran-Owned operational discipline meets proven construction excellence",
+      "Veteran-owned leadership reinforces accountable planning, direct communication, and dependable follow-through.",
   },
   {
     icon: "engineering",
     title: "Technical Precision",
     description:
-      "Specialized expertise in commercial, industrial, and public sector projects",
+      "Practical field and preconstruction coordination across commercial, industrial, and public-sector work.",
   },
   {
     icon: "shield",
-    title: "Safety Excellence",
+    title: "Safety Discipline",
     description:
-      "OSHA VPP Star certified with consecutive Top EMR awards—zero-incident culture",
+      "Documented safety planning and jobsite controls are integrated into every delivery phase.",
   },
   {
     icon: "handshake",
     title: "Stakeholder Partnership",
     description:
-      "70% referral rate through earned trust and transparent communication",
+      "Relationship-first communication keeps owners, operators, and trade partners aligned.",
   },
   {
     icon: "verified",
@@ -79,25 +79,20 @@ export function LeadershipTeam({
               <div className="h-1 w-12 bg-white/50 rounded-full"></div>
             </div>
             <p className="font-body text-white/90 text-lg lg:text-xl leading-relaxed mb-6">
-              Military chain of command succeeds because each operator brings{" "}
+              Strong construction delivery depends on each specialist bringing{" "}
               <span className="font-bold text-brand-secondary">
                 specialized mastery
               </span>{" "}
-              to a{" "}
-              <span className="font-bold text-brand-secondary">
-                unified mission
-              </span>
-              . MH Construction operates the same way—every team member from
-              ownership to field personnel contributes unique expertise toward
-              one goal:{" "}
+              to a shared execution plan. MH Construction applies that model by
+              coordinating ownership, preconstruction, field leadership, and
+              trade execution around one goal:{" "}
               <span className="font-bold text-white">
-                delivering exceptional results for our mission partners
+                predictable quality, safe delivery, and long-term trust.
               </span>
-              .
             </p>
             <div className="font-heading flex items-center justify-center gap-2 text-brand-secondary font-bold text-sm uppercase tracking-wider">
               <MaterialIcon icon="stars" size="md" />
-              <span>Individual Excellence. Collective Mission.</span>
+              <span>Individual Excellence. Collective Results.</span>
               <MaterialIcon icon="stars" size="md" />
             </div>
           </CardContent>
@@ -148,9 +143,8 @@ export function LeadershipTeam({
               Meet Your Leadership Team
             </h3>
             <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              Discover the leaders, specialists, and field professionals who
-              bring individual mastery to every MH Construction mission—each
-              dedicated to your project's success.
+              Review approved team profiles and leadership responsibilities that
+              support MH Construction's construction and operational standards.
             </p>
             <Button
               variant="primary"
@@ -160,7 +154,7 @@ export function LeadershipTeam({
             >
               <Link href="/team">
                 <MaterialIcon icon="arrow_forward" size="md" className="mr-2" />
-                View Full Team Roster
+                View Approved Team Profiles
               </Link>
             </Button>
           </div>

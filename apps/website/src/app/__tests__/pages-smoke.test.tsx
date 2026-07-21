@@ -72,8 +72,15 @@ jest.mock("@/components/ui/backgrounds", () => ({
 }));
 
 jest.mock("@/components/ui", () => ({
-  Button: ({ children }: { children: React.ReactNode }) => (
-    <button type="button">{children}</button>
+  Button: ({
+    children,
+    asChild,
+  }: {
+    children: React.ReactNode;
+    asChild?: boolean;
+  }) => (asChild ? <>{children}</> : <button type="button">{children}</button>),
+  ContentCard: ({ children }: { children?: React.ReactNode }) => (
+    <div>{children}</div>
   ),
   IconContainer: ({ children }: { children: React.ReactNode }) => (
     <div>{children}</div>
@@ -157,6 +164,13 @@ jest.mock("@/components/shared-sections", () => ({
   NextStepsSection: () => null,
   TestimonialsSection: () => null,
   AccreditationsLogoRow: () => null,
+  JeremyAuthorityLinksStrip: () => null,
+}));
+
+jest.mock("@/components/templates", () => ({
+  BrandedContentSection: ({ children }: { children: React.ReactNode }) => (
+    <div>{children}</div>
+  ),
 }));
 
 jest.mock("@/components/seo/SeoMeta", () => ({
@@ -287,6 +301,8 @@ jest.mock("@/lib/styles/layout-variants", () => ({
 
 jest.mock("@/lib/data/vintage-team", () => ({
   vintageTeamMembers: [],
+  getPublicVintageTeamMembers: () => [],
+  getJeremyThamertLeadershipSources: () => [],
 }));
 
 jest.mock("@/lib/i18n/locale.server", () => ({
@@ -412,6 +428,15 @@ jest.mock("next/navigation", () => ({
 }));
 
 import { render } from "@testing-library/react";
+import { eventRecords } from "@/lib/data/events";
+import { getLocationSlugs } from "@/lib/data/locations";
+import { getPublishedProjectCaseStudySlugs } from "@/lib/data/project-case-studies";
+
+const { axe } = require("jest-axe") as {
+  axe: (container: Element | DocumentFragment) => Promise<{
+    violations: unknown[];
+  }>;
+};
 
 const fs = require("node:fs") as typeof import("node:fs");
 const path = require("node:path") as typeof import("node:path");
@@ -444,6 +469,85 @@ describe("Services page", () => {
   it("renders without throwing", async () => {
     const { default: ServicesPage } = await import("../services/page");
     const page = await ServicesPage();
+    expect(() => render(page)).not.toThrow();
+  });
+});
+
+// ── Projects hub page ────────────────────────────────────────────────────────
+
+describe("Projects hub page", () => {
+  it("renders without throwing", async () => {
+    const { default: ProjectsPage } = await import("../projects/page");
+    expect(() => render(<ProjectsPage />)).not.toThrow();
+  });
+});
+
+// ── Projects detail page ─────────────────────────────────────────────────────
+
+describe("Project detail page", () => {
+  it("renders without throwing for a published project slug", async () => {
+    const slug = getPublishedProjectCaseStudySlugs()[0];
+    if (!slug) {
+      throw new Error("Expected at least one published project slug");
+    }
+
+    const { default: ProjectDetailPage } =
+      await import("../projects/[slug]/page");
+    const page = await ProjectDetailPage({
+      params: Promise.resolve({ slug }),
+    });
+    expect(() => render(page)).not.toThrow();
+  });
+});
+
+// ── Events hub page ──────────────────────────────────────────────────────────
+
+describe("Events hub page", () => {
+  it("renders without throwing", async () => {
+    const { default: EventsPage } = await import("../events/page");
+    const page = await EventsPage();
+    expect(() => render(page)).not.toThrow();
+  });
+});
+
+// ── Events detail page ───────────────────────────────────────────────────────
+
+describe("Event detail page", () => {
+  it("renders without throwing for a published event slug", async () => {
+    const firstEvent = eventRecords[0];
+    if (!firstEvent?.slug) {
+      throw new Error("Expected at least one event record slug");
+    }
+
+    const { default: EventDetailPage } = await import("../events/[slug]/page");
+    const page = await EventDetailPage({
+      params: Promise.resolve({ slug: firstEvent.slug }),
+    });
+    expect(() => render(page)).not.toThrow();
+  });
+});
+
+// ── Locations hub page ───────────────────────────────────────────────────────
+
+describe("Locations hub page", () => {
+  it("renders without throwing", async () => {
+    const { default: LocationsPage } = await import("../locations/page");
+    const page = await LocationsPage();
+    expect(() => render(page)).not.toThrow();
+  });
+});
+
+// ── Locations detail page ────────────────────────────────────────────────────
+
+describe("Location detail page", () => {
+  it("renders without throwing for a known city slug", async () => {
+    const city = getLocationSlugs()[0];
+    if (!city) {
+      throw new Error("Expected at least one location slug");
+    }
+
+    const { default: LocationPage } = await import("../locations/[city]/page");
+    const page = await LocationPage({ params: Promise.resolve({ city }) });
     expect(() => render(page)).not.toThrow();
   });
 });
@@ -494,8 +598,8 @@ describe("Branding congruency smoke", () => {
     const homePagePath = path.join(APP_ROOT, "src", "app", "page.tsx");
     const homeSource = fs.readFileSync(homePagePath, "utf8");
 
-    expect(homeSource).toContain("Home Page Hero Section");
-    expect(homeSource).toContain("Mission Brief");
+    expect(homeSource).toContain("<HeroSection");
+    expect(homeSource).toContain("/services?utm_source=homepage");
     expect(homeSource).toContain("utm_campaign=home-splash");
   });
 });
@@ -600,6 +704,14 @@ describe("Home page", () => {
     const page = await HomePage();
     expect(() => render(page)).not.toThrow();
   });
+
+  it("has no obvious accessibility violations", async () => {
+    const { default: HomePage } = await import("../page");
+    const page = await HomePage();
+    const { container } = render(page);
+    const results = await axe(container);
+    expect(results.violations).toHaveLength(0);
+  });
 });
 
 // ── Resources page ────────────────────────────────────────────────────────────
@@ -608,6 +720,16 @@ describe("Resources page", () => {
   it("renders without throwing", async () => {
     const { default: ResourcesPage } = await import("../resources/page");
     const page = await ResourcesPage();
+    expect(() => render(page as Parameters<typeof render>[0])).not.toThrow();
+  });
+});
+
+// ── News page ────────────────────────────────────────────────────────────────
+
+describe("News page", () => {
+  it("renders without throwing", async () => {
+    const { default: NewsPage } = await import("../news/page");
+    const page = await NewsPage();
     expect(() => render(page as Parameters<typeof render>[0])).not.toThrow();
   });
 });

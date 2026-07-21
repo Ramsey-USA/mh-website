@@ -1,13 +1,13 @@
 /**
  * Auth context — unit tests
  *
- * Imports from @/contexts/auth-context (the barrel re-export) so that both
- * src/contexts/auth-context.tsx and src/lib/auth/auth-context.tsx are covered.
+ * Imports directly from the shared auth context to keep this package's tests
+ * independent from website-specific alias resolution.
  */
 import React from "react";
 import { render, screen, act } from "@testing-library/react";
 import { renderHook } from "@testing-library/react";
-import { AuthProvider, useAuth } from "@/contexts/auth-context";
+import { AuthProvider, useAuth } from "../auth-context";
 
 // A tiny consumer component that renders the auth state
 function AuthConsumer() {
@@ -104,7 +104,7 @@ describe("AuthProvider", () => {
   });
 
   it("updateUserProfile merges updates when userProfile is set", async () => {
-    const mockProfile: import("@/lib/auth/auth-context").UserProfile = {
+    const mockProfile: import("../auth-context").UserProfile = {
       uid: "u1",
       email: "a@b.com",
       displayName: "Old Name",

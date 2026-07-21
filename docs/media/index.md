@@ -1,3 +1,5 @@
+- **[Phase 7.3 Media Audit](./phase7-3-media-audit.md)** — Active first-view media inventory and withheld hero-commercial pipeline status.
+
 # Media Documentation
 
 **Category:** Media - Overview  

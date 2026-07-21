@@ -8,6 +8,19 @@ import {
   normalizeMhKeywordList,
   normalizeMhPhrasesInText,
 } from "@/lib/branding/page-names";
+import { getApprovedClaimOrFallback } from "@/lib/content/claims";
+
+const veteranOwnedClaim = getApprovedClaimOrFallback({
+  id: "veteran_owned_since_2025",
+  context: "metadata",
+  fallback: "veteran-owned leadership",
+});
+
+const triStateLicenseClaim = getApprovedClaimOrFallback({
+  id: "tri_state_licensed_wa_or_id",
+  context: "metadata",
+  fallback: "Tri-State licensed contractor",
+});
 
 // Enhanced company information
 export const enhancedSEO = {
@@ -86,6 +99,8 @@ export const enhancedSEO = {
     "community-focused building",
     "partnership-driven construction",
     "construction technology innovation",
+    veteranOwnedClaim,
+    triStateLicenseClaim,
   ],
   companyInfo: {
     name: COMPANY_INFO.name,

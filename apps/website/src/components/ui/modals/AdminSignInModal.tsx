@@ -3,9 +3,8 @@
 import { useCallback, useId, useRef, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { Card, CardHeader, CardContent } from "@/components/ui";
+import { Button, Card, CardHeader, CardContent } from "@/components/ui";
 import { Input } from "@/components/ui/forms/Input";
-import { Button } from "@/components/ui/base/button";
 import { logger } from "@/lib/utils/logger";
 import { useDialogBehavior } from "@/hooks/useDialogBehavior";
 import { useLocale } from "@/hooks/useLocale";

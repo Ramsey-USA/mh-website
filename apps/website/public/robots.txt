@@ -2,7 +2,7 @@
 # Website: https://www.mhc-gc.com
 # NOTE: src/app/robots.ts generates /robots.txt dynamically and takes
 # precedence in production. This static file is a fallback only.
-# Keep both files in sync. Last synced: 2026-07-03.
+# Keep both files in sync. Last synced: 2026-07-19.
 
 # Major Search Engines
 User-agent: Googlebot
@@ -79,5 +79,4 @@ Crawl-delay: 1
 
 # Sitemaps
 Sitemap: https://www.mhc-gc.com/sitemap.xml
-Sitemap: https://www.mhc-gc.com/sitemap-index.xml
 

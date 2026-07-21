@@ -5,12 +5,15 @@ const path = require("node:path");
 const { spawnSync } = require("node:child_process");
 const ffprobePath = require("ffprobe-static").path;
 
-const PUBLIC_DIR = path.join(__dirname, "../../public");
-const HERO_DIR = path.join(PUBLIC_DIR, "videos/hero-commercials");
-const MANIFEST_PATH = path.join(
-  __dirname,
-  "../../config/hero-commercials.json",
-);
+const PUBLIC_DIR = process.env.HERO_COMMERCIALS_PUBLIC_DIR
+  ? path.resolve(process.env.HERO_COMMERCIALS_PUBLIC_DIR)
+  : path.join(__dirname, "../../public");
+const HERO_DIR = process.env.HERO_COMMERCIALS_DIR
+  ? path.resolve(process.env.HERO_COMMERCIALS_DIR)
+  : path.join(PUBLIC_DIR, "videos/hero-commercials");
+const MANIFEST_PATH = process.env.HERO_COMMERCIALS_MANIFEST_PATH
+  ? path.resolve(process.env.HERO_COMMERCIALS_MANIFEST_PATH)
+  : path.join(__dirname, "../../config/hero-commercials.json");
 
 const MAX_HERO_FILE_MB = Number(process.env.HERO_COMMERCIAL_MAX_FILE_MB || 45);
 const WARN_LARGE_MB = Number(process.env.HERO_COMMERCIAL_WARN_FILE_MB || 20);
@@ -104,11 +107,34 @@ function collectMediaFiles(rootDir) {
   return files;
 }
 
+function isInactiveHeroCommercialPipeline({
+  manifestExists,
+  presentMediaCount,
+}) {
+  return !manifestExists && presentMediaCount === 0;
+}
+
 function run() {
   const errors = [];
   const warnings = [];
+  const manifestExists = fs.existsSync(MANIFEST_PATH);
+  const presentMedia = collectMediaFiles(HERO_DIR).map((filePath) =>
+    path.normalize(filePath),
+  );
 
-  if (!fs.existsSync(MANIFEST_PATH)) {
+  if (
+    isInactiveHeroCommercialPipeline({
+      manifestExists,
+      presentMediaCount: presentMedia.length,
+    })
+  ) {
+    console.log(
+      "Hero Commercial Guardrails: PASS (inactive - no registered hero commercial media in repo)",
+    );
+    return 0;
+  }
+
+  if (!manifestExists) {
     errors.push(`Missing manifest: ${MANIFEST_PATH}`);
     fail(errors);
   }
@@ -232,10 +258,6 @@ function run() {
     }
   }
 
-  const presentMedia = collectMediaFiles(HERO_DIR).map((filePath) =>
-    path.normalize(filePath),
-  );
-
   for (const fullPath of presentMedia) {
     if (!registered.has(fullPath)) {
       const relative = path.relative(PUBLIC_DIR, fullPath).replace(/\\/g, "/");
@@ -258,6 +280,16 @@ function run() {
       manifest.length === 1 ? "y" : "ies"
     }, ${presentMedia.length} media files)`,
   );
+
+  return 0;
 }
 
-run();
+if (require.main === module) {
+  run();
+}
+
+module.exports = {
+  collectMediaFiles,
+  isInactiveHeroCommercialPipeline,
+  run,
+};

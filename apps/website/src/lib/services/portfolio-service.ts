@@ -1,5 +1,6 @@
 // Portfolio service for managing project data
 import { type ProjectPortfolio, type ProjectFilter } from "@/lib/types";
+import { getPublishedProjectCaseStudies } from "@/lib/data/project-case-studies";
 
 function normalizeSearchValue(value: string): string {
   return value.trim().toLowerCase();
@@ -471,8 +472,14 @@ export const portfolioData: ProjectPortfolio[] = [
   },
 ];
 
+const publishedProjectIds = new Set(
+  getPublishedProjectCaseStudies().map((project) => project.projectId),
+);
 const publishedProjects = portfolioData.filter(
-  (project) => project.isPublished,
+  (project) => project.isPublished && publishedProjectIds.has(project.id),
+);
+const publishedProjectsById = new Map(
+  publishedProjects.map((project) => [project.id, project]),
 );
 const featuredProjects = publishedProjects.filter(
   (project) => project.isFeatured,
@@ -512,6 +519,10 @@ export class PortfolioService {
     return [...publishedProjects];
   }
 
+  static getProjectById(projectId: string): ProjectPortfolio | undefined {
+    return publishedProjectsById.get(projectId);
+  }
+
   // Get featured projects for homepage
   static getFeaturedProjects(): ProjectPortfolio[] {
     return [...featuredProjects];
@@ -520,6 +531,10 @@ export class PortfolioService {
   // Get project by slug
   static getProjectBySlug(slug: string): ProjectPortfolio | undefined {
     return publishedProjectsBySlug.get(slug);
+  }
+
+  static getProjectCategoryIds(): ProjectPortfolio["category"][] {
+    return [...portfolioStats.categories] as ProjectPortfolio["category"][];
   }
 
   // Filter projects by category

@@ -123,6 +123,10 @@ jobs:
         working-directory: apps/website
         run: npm run seo:routes:check
 
+      - name: Verify route integrity — website
+        working-directory: apps/website
+        run: npm run verify:route-integrity
+
       - name: Validate Jeremy SEO signal coverage — website
         working-directory: apps/website
         run: npm run seo:jeremy:signals:check
@@ -251,6 +255,7 @@ jobs:
         working-directory: apps/website
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
+            npm run verify:route-integrity
             npm run build:next
           else
             npm run build

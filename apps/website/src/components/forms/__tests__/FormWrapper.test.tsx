@@ -45,6 +45,37 @@ describe("FormInput", () => {
     ).not.toBeInTheDocument();
     expect(screen.getByRole("textbox")).toHaveClass("border-red-500");
   });
+
+  it("wires aria-invalid and recovers helper text once the error clears", () => {
+    const { rerender } = render(
+      <FormInput
+        label="Email"
+        name="email"
+        error="Email is required."
+        helperText="We only use this for follow-up."
+      />,
+    );
+
+    expect(screen.getByRole("textbox")).toHaveAttribute("aria-invalid", "true");
+    expect(screen.getByText("Email is required.")).toBeInTheDocument();
+
+    rerender(
+      <FormInput
+        label="Email"
+        name="email"
+        helperText="We only use this for follow-up."
+      />,
+    );
+
+    expect(screen.getByRole("textbox")).toHaveAttribute(
+      "aria-invalid",
+      "false",
+    );
+    expect(screen.queryByText("Email is required.")).not.toBeInTheDocument();
+    expect(
+      screen.getByText("We only use this for follow-up."),
+    ).toBeInTheDocument();
+  });
 });
 
 describe("FormTextarea", () => {

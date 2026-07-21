@@ -159,8 +159,7 @@ function getResponses() {
 
 beforeEach(() => {
   jest.clearAllMocks();
-  // Default: no DB
-  mockGetD1Database.mockReturnValue(null);
+  mockGetD1Database.mockReturnValue({ database: "mock-d1" });
   mockInsert.mockResolvedValue(undefined);
   mockQuery.mockResolvedValue([]);
   mockSendToOffice.mockResolvedValue({ success: true, messageId: "msg-1" });
@@ -229,24 +228,28 @@ describe("handleFormSubmission()", () => {
     );
   });
 
-  it("continues when D1 is not available (dbStored=false)", async () => {
+  it("returns 503 when D1 is not available", async () => {
     mockGetD1Database.mockReturnValue(null);
 
     const req = makeRequest({ email: "bob@example.com" });
     const config = makeConfig();
 
-    await handleFormSubmission(req, config);
+    const result = await handleFormSubmission(req, config);
 
     expect(mockInsert).not.toHaveBeenCalled();
-    expect(getResponses().createFormSubmissionResponse).toHaveBeenCalledWith(
-      expect.any(String),
-      true,
-      "Contact received successfully",
-      false, // dbStored = false
+    expect(result).toEqual(
+      expect.objectContaining({
+        status: 503,
+        body: expect.objectContaining({
+          success: false,
+          error: expect.objectContaining({ code: "SERVICE_UNAVAILABLE" }),
+        }),
+      }),
     );
+    expect(getResponses().createFormSubmissionResponse).not.toHaveBeenCalled();
   });
 
-  it("continues when DB insert throws (best-effort)", async () => {
+  it("returns 503 when DB insert throws", async () => {
     const mockDB = { database: "mock-d1" };
     mockGetD1Database.mockReturnValue(mockDB);
     mockInsert.mockRejectedValue(new Error("DB write failed"));
@@ -256,9 +259,16 @@ describe("handleFormSubmission()", () => {
 
     const result = await handleFormSubmission(req, config);
 
-    // Should have succeeded despite the DB error
-    expect(result).toBeDefined();
-    expect(getResponses().createFormSubmissionResponse).toHaveBeenCalled();
+    expect(result).toEqual(
+      expect.objectContaining({
+        status: 503,
+        body: expect.objectContaining({
+          success: false,
+          error: expect.objectContaining({ code: "DATABASE_ERROR" }),
+        }),
+      }),
+    );
+    expect(getResponses().createFormSubmissionResponse).not.toHaveBeenCalled();
   });
 
   it("logs error when sendToOffice fails and continues (emailSent=false)", async () => {
@@ -276,7 +286,7 @@ describe("handleFormSubmission()", () => {
       expect.any(String),
       false, // emailSent = false
       "Contact received successfully",
-      false,
+      true,
     );
   });
 

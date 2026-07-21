@@ -7,6 +7,82 @@
  * JWT_SECRET env var is required.
  */
 
+jest.mock("jose", () => {
+  class MockSignJWT {
+    private payload: Record<string, unknown>;
+
+    constructor(payload: Record<string, unknown>) {
+      this.payload = { ...payload };
+    }
+
+    setProtectedHeader() {
+      return this;
+    }
+
+    setIssuedAt() {
+      return this;
+    }
+
+    setIssuer(issuer: string) {
+      this.payload["iss"] = issuer;
+      return this;
+    }
+
+    setAudience(audience: string) {
+      this.payload["aud"] = audience;
+      return this;
+    }
+
+    setExpirationTime(exp: string) {
+      this.payload["exp"] = exp;
+      return this;
+    }
+
+    async sign(secret: Uint8Array) {
+      const encode = (value: unknown) =>
+        Buffer.from(JSON.stringify(value)).toString("base64url");
+
+      return [
+        encode({ alg: "HS256", typ: "JWT" }),
+        encode(this.payload),
+        Buffer.from(secret).toString("base64url"),
+      ].join(".");
+    }
+  }
+
+  return {
+    SignJWT: MockSignJWT,
+    jwtVerify: async (
+      token: string,
+      secret: Uint8Array,
+      options: { issuer?: string; audience?: string },
+    ) => {
+      const parts = token.split(".");
+      if (parts.length !== 3) {
+        throw new Error("Invalid token");
+      }
+
+      const expectedSignature = Buffer.from(secret).toString("base64url");
+      if (parts[2] !== expectedSignature) {
+        throw new Error("Invalid signature");
+      }
+
+      const payload = JSON.parse(
+        Buffer.from(parts[1], "base64url").toString("utf8"),
+      ) as Record<string, unknown>;
+
+      if (options.issuer && payload["iss"] !== options.issuer) {
+        throw new Error("Invalid issuer");
+      }
+      if (options.audience && payload["aud"] !== options.audience) {
+        throw new Error("Invalid audience");
+      }
+
+      return { payload };
+    },
+  };
+});
+
 import {
   generateAccessToken,
   generateRefreshToken,

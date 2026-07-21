@@ -1,7 +1,7 @@
 # Deployment Documentation
 
 **Category:** Deployment - Overview  
-**Last Updated:** May 4, 2026
+**Last Updated:** July 19, 2026
 
 ## Overview
 
@@ -30,6 +30,12 @@ maintaining safety-critical CI gates.
 
 - **[CI/CD Pipeline & Deployment Guide](./cicd-pipeline.md)** — Pipeline structure, required
   checks, and release flow.
+- **[Publishing Workflow (CI/CD Guide)](./cicd-pipeline.md#publishing-workflow)** — Request to
+  release workflow with role-based approvals and evidence checkpoints.
+- **[Rollback Procedures (CI/CD Guide)](./cicd-pipeline.md#rollback-procedures)** — Trigger
+  matrix and Cloudflare/OpenNext rollback execution path.
+- **[Monthly Quality Review Checklist (CI/CD Guide)](./cicd-pipeline.md#monthly-quality-review-checklist)** — Monthly control checklist with owner role, evidence source, pass criteria, and response thresholds.
+- **[Exception Handling and Review Triggers (CI/CD Guide)](./cicd-pipeline.md#exception-handling-and-review-triggers)** — Exception record requirements with event-driven and quarterly review triggers.
 
 ### Safety Gates
 

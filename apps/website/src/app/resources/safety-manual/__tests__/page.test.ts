@@ -23,7 +23,7 @@ import SafetyManualPage from "../page";
 
 describe("SafetyManualPage", () => {
   it("redirects to the Table of Contents", async () => {
-    await expect(SafetyManualPage()).rejects.toThrow(
+    expect(() => SafetyManualPage()).toThrow(
       "NEXT_REDIRECT:/resources/safety-manual/contents",
     );
     expect(mockRedirect).toHaveBeenCalledWith(

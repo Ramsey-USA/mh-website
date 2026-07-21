@@ -20,7 +20,7 @@ interface TestimonialGridProps {
   testimonials: Testimonial[];
   title?: string;
   subtitle?: string;
-  variant?: "client" | "employee" | "veteran" | "default";
+  variant?: "stakeholder" | "employee" | "veteran" | "default";
   maxItems?: number;
   showViewMoreButton?: boolean;
   viewMoreHref?: string;

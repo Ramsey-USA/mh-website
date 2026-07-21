@@ -1,8 +1,29 @@
 # Website Guardrails Coverage Map
 
 **Category:** Branding - Governance  
-**Last Updated:** July 7, 2026  
+**Last Updated:** July 19, 2026  
 **Status:** Active - Website-Wide Requirement
+
+## Latest Progress Snapshot (July 19, 2026)
+
+Status-state surfaces were standardized for branding congruency and accessibility:
+
+- Route loading states now use a shared, layout-stable skeleton contract in
+  `apps/website/src/components/ui/RouteLoadingState.tsx`.
+- Existing route loading files (`/careers`, `/contact`, `/projects`, `/team`,
+  `/testimonials`) were migrated to the shared loading shell.
+- `error.tsx` and `global-error.tsx` remain narrow client boundaries while now
+  using localized safe-action fallbacks and sanitized telemetry context.
+- `not-found.tsx` remains a true 404 and now includes direct construction
+  navigation CTAs for Services, Projects, Contact, and Home.
+
+Validation evidence for this snapshot:
+
+- `pnpm --filter @mhc/website lint`
+- `pnpm --filter @mhc/website type-check`
+- `pnpm test` (apps/website full suite)
+- `pnpm --filter @mhc/website verify:route-integrity`
+- `pnpm --filter @mhc/website build`
 
 ## Public Email Guardrail
 

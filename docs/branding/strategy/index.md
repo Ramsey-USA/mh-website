@@ -1,7 +1,7 @@
 # Branding Strategy Index
 
 **Category:** Branding - Strategy Index
-**Last Updated:** July 10, 2026
+**Last Updated:** July 20, 2026
 
 ## Overview
 
@@ -20,6 +20,7 @@ For enterprise naming across website, dashboard, MISH, handbook, and document as
 - **[Construction Terminology Glossary](./construction-terminology-glossary.md)** — PMBOK 6 and military-themed construction term mapping.
 - **[Dual Terminology Standard](./dual-terminology-standard.md)** — Required enterprise dual-label format rules.
 - **[Brand Congruency QA Checklist](./brand-congruency-qa-checklist.md)** — Strategy-side validation checklist.
+- **[Spanish Review Matrix - Core And Trust Pages (Phase 8.2)](./spanish-review-matrix-core-trust-phase8-2.md)** — Repository review artifact for namespace-by-namespace Spanish approval tracking.
 
 ## Related
 

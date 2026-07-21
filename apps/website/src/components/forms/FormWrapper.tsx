@@ -1,6 +1,6 @@
 "use client";
 
-import React, { type FormEvent, type ReactNode } from "react";
+import React, { useId, type FormEvent, type ReactNode } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 /**
@@ -8,11 +8,14 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
  *
  * Displays field-level error messages with icon
  */
-function FormFieldError({ message }: { message?: string }) {
+function FormFieldError({ id, message }: { id?: string; message?: string }) {
   if (!message) return null;
 
   return (
-    <p className="text-xs text-red-500 dark:text-red-400 flex items-center gap-1 mt-1">
+    <p
+      id={id}
+      className="text-xs text-red-500 dark:text-red-400 flex items-center gap-1 mt-1"
+    >
       <MaterialIcon icon="error_outline" size="sm" />
       {message}
     </p>
@@ -80,10 +83,10 @@ export interface FormWrapperProps {
  * Reusable form input with label, error display, and styling
  */
 export interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
-  error?: string;
-  helperText?: string;
-  containerClassName?: string;
+  label?: string | undefined;
+  error?: string | undefined;
+  helperText?: string | undefined;
+  containerClassName?: string | undefined;
 }
 
 export function FormInput({
@@ -94,29 +97,45 @@ export function FormInput({
   ...props
 }: FormInputProps) {
   const { name, required } = props;
+  const generatedId = useId();
+  const fieldId = props.id ?? name ?? `field-${generatedId}`;
+  const errorId = `${fieldId}-error`;
+  const helperId = `${fieldId}-helper`;
+  const describedBy = error ? errorId : helperText ? helperId : undefined;
 
   return (
     <div className={`flex flex-col gap-1 ${containerClassName}`}>
       {label && (
         <label
-          htmlFor={name}
+          htmlFor={fieldId}
           className="text-sm font-medium text-gray-700 dark:text-gray-300"
         >
           {label}
-          {required && <span className="text-red-500 ml-1">*</span>}
+          {required && (
+            <span className="text-red-500 ml-1" aria-hidden="true">
+              *
+            </span>
+          )}
+          {required && <span className="sr-only"> (required)</span>}
         </label>
       )}
       <input
         {...props}
+        id={fieldId}
+        aria-invalid={Boolean(error)}
+        {...(describedBy ? { "aria-describedby": describedBy } : {})}
         className={`px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 transition-colors ${
           error
             ? "border-red-500 dark:border-red-400 focus:ring-red-200 dark:focus:ring-red-900"
             : "border-gray-300 dark:border-gray-600 focus:border-brand-primary dark:focus:border-brand-primary focus:ring-brand-primary/20"
         } bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500`}
       />
-      {error && <FormFieldError message={error} />}
+      {error && <FormFieldError id={errorId} message={error} />}
       {helperText && !error && (
-        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+        <p
+          id={helperId}
+          className="text-xs text-gray-500 dark:text-gray-400 mt-1"
+        >
           {helperText}
         </p>
       )}
@@ -128,10 +147,10 @@ export function FormInput({
  * Form Textarea Wrapper Component
  */
 export interface FormTextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  label?: string;
-  error?: string;
-  helperText?: string;
-  containerClassName?: string;
+  label?: string | undefined;
+  error?: string | undefined;
+  helperText?: string | undefined;
+  containerClassName?: string | undefined;
 }
 
 export function FormTextarea({
@@ -142,29 +161,45 @@ export function FormTextarea({
   ...props
 }: FormTextareaProps) {
   const { name, required } = props;
+  const generatedId = useId();
+  const fieldId = props.id ?? name ?? `field-${generatedId}`;
+  const errorId = `${fieldId}-error`;
+  const helperId = `${fieldId}-helper`;
+  const describedBy = error ? errorId : helperText ? helperId : undefined;
 
   return (
     <div className={`flex flex-col gap-1 ${containerClassName}`}>
       {label && (
         <label
-          htmlFor={name}
+          htmlFor={fieldId}
           className="text-sm font-medium text-gray-700 dark:text-gray-300"
         >
           {label}
-          {required && <span className="text-red-500 ml-1">*</span>}
+          {required && (
+            <span className="text-red-500 ml-1" aria-hidden="true">
+              *
+            </span>
+          )}
+          {required && <span className="sr-only"> (required)</span>}
         </label>
       )}
       <textarea
         {...props}
+        id={fieldId}
+        aria-invalid={Boolean(error)}
+        {...(describedBy ? { "aria-describedby": describedBy } : {})}
         className={`px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 transition-colors resize-vertical ${
           error
             ? "border-red-500 dark:border-red-400 focus:ring-red-200 dark:focus:ring-red-900"
             : "border-gray-300 dark:border-gray-600 focus:border-brand-primary dark:focus:border-brand-primary focus:ring-brand-primary/20"
         } bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500`}
       />
-      {error && <FormFieldError message={error} />}
+      {error && <FormFieldError id={errorId} message={error} />}
       {helperText && !error && (
-        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+        <p
+          id={helperId}
+          className="text-xs text-gray-500 dark:text-gray-400 mt-1"
+        >
           {helperText}
         </p>
       )}
@@ -176,11 +211,11 @@ export function FormTextarea({
  * Form Select Wrapper Component
  */
 export interface FormSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  label?: string;
-  error?: string;
-  helperText?: string;
+  label?: string | undefined;
+  error?: string | undefined;
+  helperText?: string | undefined;
   options: Array<{ value: string; label: string }>;
-  containerClassName?: string;
+  containerClassName?: string | undefined;
 }
 
 export function FormSelect({
@@ -192,20 +227,33 @@ export function FormSelect({
   ...props
 }: FormSelectProps) {
   const { name, required } = props;
+  const generatedId = useId();
+  const fieldId = props.id ?? name ?? `field-${generatedId}`;
+  const errorId = `${fieldId}-error`;
+  const helperId = `${fieldId}-helper`;
+  const describedBy = error ? errorId : helperText ? helperId : undefined;
 
   return (
     <div className={`flex flex-col gap-1 ${containerClassName}`}>
       {label && (
         <label
-          htmlFor={name}
+          htmlFor={fieldId}
           className="text-sm font-medium text-gray-700 dark:text-gray-300"
         >
           {label}
-          {required && <span className="text-red-500 ml-1">*</span>}
+          {required && (
+            <span className="text-red-500 ml-1" aria-hidden="true">
+              *
+            </span>
+          )}
+          {required && <span className="sr-only"> (required)</span>}
         </label>
       )}
       <select
         {...props}
+        id={fieldId}
+        aria-invalid={Boolean(error)}
+        {...(describedBy ? { "aria-describedby": describedBy } : {})}
         className={`px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 transition-colors ${
           error
             ? "border-red-500 dark:border-red-400 focus:ring-red-200 dark:focus:ring-red-900"
@@ -219,9 +267,12 @@ export function FormSelect({
           </option>
         ))}
       </select>
-      {error && <FormFieldError message={error} />}
+      {error && <FormFieldError id={errorId} message={error} />}
       {helperText && !error && (
-        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+        <p
+          id={helperId}
+          className="text-xs text-gray-500 dark:text-gray-400 mt-1"
+        >
           {helperText}
         </p>
       )}
@@ -249,6 +300,7 @@ export function FormWrapper({
   return (
     <form
       onSubmit={onSubmit}
+      noValidate
       className={`flex ${layout === "row" ? "flex-row gap-6" : "flex-col gap-4"} ${className}`}
     >
       {submitError && (

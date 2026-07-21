@@ -9,14 +9,22 @@ const mockRefresh = jest.fn();
 const mockReplace = jest.fn();
 const mockUsePathname = jest.fn();
 const mockUseSearchParams = jest.fn();
+const mockUseLocale = jest.fn();
 
 jest.mock("next/navigation", () => ({
+  useSearchParams: () => mockUseSearchParams(),
+}));
+
+jest.mock("next-intl", () => ({
+  useLocale: () => mockUseLocale(),
+}));
+
+jest.mock("@/i18n/navigation", () => ({
   useRouter: () => ({
     replace: mockReplace,
     refresh: mockRefresh,
   }),
   usePathname: () => mockUsePathname(),
-  useSearchParams: () => mockUseSearchParams(),
 }));
 
 describe("LanguageToggle", () => {
@@ -25,12 +33,13 @@ describe("LanguageToggle", () => {
     mockReplace.mockClear();
     mockUsePathname.mockReturnValue("/contact");
     mockUseSearchParams.mockReturnValue(new URLSearchParams());
+    mockUseLocale.mockReturnValue("en");
     document.cookie = "locale=en; path=/";
     document.documentElement.lang = "en";
   });
 
-  it("uses the locale cookie on mount", () => {
-    document.cookie = "locale=es; path=/";
+  it("uses next-intl locale state for active language button", () => {
+    mockUseLocale.mockReturnValue("es");
 
     render(<LanguageToggle />);
 
@@ -50,14 +59,15 @@ describe("LanguageToggle", () => {
 
     expect(document.documentElement.lang).toBe("es");
     expect(document.cookie).toContain("locale=es");
-    expect(mockReplace).toHaveBeenCalledWith("/contact");
+    expect(mockReplace).toHaveBeenCalledWith("/contact", { locale: "es" });
     expect(mockRefresh).toHaveBeenCalledTimes(1);
   });
 
-  it("normalizes locale-prefixed paths before navigation", async () => {
+  it("keeps logical pathname and query string when switching locale", async () => {
     const user = userEvent.setup();
-    mockUsePathname.mockReturnValue("/es/services");
+    mockUsePathname.mockReturnValue("/services");
     mockUseSearchParams.mockReturnValue(new URLSearchParams("source=header"));
+    mockUseLocale.mockReturnValue("es");
     document.cookie = "locale=es; path=/";
     document.documentElement.lang = "es";
 
@@ -65,7 +75,9 @@ describe("LanguageToggle", () => {
 
     await user.click(screen.getByRole("button", { name: "EN" }));
 
-    expect(mockReplace).toHaveBeenCalledWith("/services?source=header");
+    expect(mockReplace).toHaveBeenCalledWith("/services?source=header", {
+      locale: "en",
+    });
     expect(mockRefresh).toHaveBeenCalledTimes(1);
   });
 });

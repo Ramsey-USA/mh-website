@@ -41,6 +41,7 @@ export const PAGE_TERMINOLOGY = {
   faq: { seoName: "Help/FAQ", mhBrandName: "Intel Brief" },
   locations: { seoName: "Locations", mhBrandName: "Regional Coverage" },
   qrCodes: { seoName: "QR Codes", mhBrandName: "QR Library" },
+  sitemap: { seoName: "Sitemap", mhBrandName: "Route Index" },
   employeeHandbook: {
     seoName: "Employee Handbook",
     mhBrandName: "Handbook Index",
@@ -208,6 +209,7 @@ const PAGE_TERMINOLOGY_ALIASES: Record<string, PageTerminologyKey> = {
   locations: "locations",
   "qr codes": "qrCodes",
   "qr code library": "qrCodes",
+  sitemap: "sitemap",
   "employee handbook": "employeeHandbook",
   faq: "faq",
   "help/faq": "faq",

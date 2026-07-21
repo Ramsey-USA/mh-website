@@ -14,11 +14,15 @@ import {
   generateAggregateRatingSchema,
   generateReviewSchema,
 } from "@/lib/seo/review-schema";
-import type { Testimonial } from "@/lib/data/testimonials";
+import {
+  type Testimonial,
+  normalizeStakeholderTestimonials,
+} from "@/lib/data/testimonials";
 import { getTranslations } from "next-intl/server";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { CORE_VALUE_ICONS } from "@/lib/constants/navigation-icons";
 import { MH_SLOGANS } from "@/lib/branding/page-names";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 
 async function getIsLighthouseAudit(
   searchParamsPromise?: Promise<Record<string, string | string[] | undefined>>,
@@ -171,10 +175,11 @@ function StaticTestimonialsSection({
 export default async function TestimonialsPage(props?: {
   searchParams?: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  const universalCtas = getUniversalCtaSet("en");
   const isLighthouseAudit = await getIsLighthouseAudit(props?.searchParams);
   const tTestimonials = await getTranslations("testimonialsData");
 
-  const testimonials = (
+  const testimonials = normalizeStakeholderTestimonials(
     tTestimonials.raw("clientTestimonials") as Array<{
       id: string;
       name: string;
@@ -187,13 +192,7 @@ export default async function TestimonialsPage(props?: {
       date?: string;
       image?: string;
       category?: string;
-    }>
-  ).map(
-    (testimonial) =>
-      ({
-        ...testimonial,
-        type: "client",
-      }) as Testimonial,
+    }>,
   );
   const aggregateRating =
     testimonials.length > 0
@@ -696,10 +695,10 @@ export default async function TestimonialsPage(props?: {
               <Button asChild variant="primary" size="lg">
                 <Link
                   href="/contact"
-                  aria-label="Start your construction project"
+                  aria-label="Discuss your construction project with MH Construction"
                 >
                   <MaterialIcon icon="contact_page" size="md" ariaLabel="" />
-                  <span>{"Start Your Project"}</span>
+                  <span>{universalCtas.primary.label}</span>
                 </Link>
               </Button>
             </div>
@@ -731,19 +730,19 @@ export default async function TestimonialsPage(props?: {
             <Button asChild variant="secondary" size="lg">
               <Link
                 href="/contact"
-                aria-label="Contact us to start your project"
+                aria-label="Discuss your construction project with MH Construction"
               >
                 <MaterialIcon icon="contact_page" size="md" ariaLabel="" />
-                <span>{"Get Started Today"}</span>
+                <span>{universalCtas.primary.label}</span>
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link
-                href="/services"
-                aria-label="Learn about our construction services"
+                href="/projects"
+                aria-label="View the MH Construction project portfolio"
               >
                 <MaterialIcon icon="arrow_forward" size="md" ariaLabel="" />
-                <span>{"Explore Services"}</span>
+                <span>{universalCtas.portfolio.label}</span>
               </Link>
             </Button>
           </div>

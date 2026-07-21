@@ -5,6 +5,13 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 APP_DIR="$ROOT_DIR/src/app"
 BASE_URL="${BASE_URL:-http://127.0.0.1:3000}"
+SWEEP_USER_AGENT="${SWEEP_USER_AGENT:-Chrome-Lighthouse}"
+
+declare -A INVARIANT_REDIRECT_NOTES=(
+  ["/resources/safety-manual"]="Redirect-only route; locale-invariant by policy"
+  ["/resources/safety-program"]="Redirect-only route; locale-invariant by policy"
+  ["/safety/intake"]="Redirect-only route; locale-invariant by policy"
+)
 
 DEV_PID=""
 
@@ -17,7 +24,7 @@ cleanup() {
 
 trap cleanup EXIT
 
-if ! curl -s -I "$BASE_URL" >/dev/null 2>&1; then
+if ! curl -s -I -H "User-Agent: $SWEEP_USER_AGENT" "$BASE_URL" >/dev/null 2>&1; then
   echo "Starting local dev server for sweep..."
   (
     cd "$ROOT_DIR"
@@ -26,13 +33,13 @@ if ! curl -s -I "$BASE_URL" >/dev/null 2>&1; then
   DEV_PID="$!"
 
   for _ in {1..60}; do
-    if curl -s -I "$BASE_URL" >/dev/null 2>&1; then
+    if curl -s -I -H "User-Agent: $SWEEP_USER_AGENT" "$BASE_URL" >/dev/null 2>&1; then
       break
     fi
     sleep 1
   done
 
-  if ! curl -s -I "$BASE_URL" >/dev/null 2>&1; then
+  if ! curl -s -I -H "User-Agent: $SWEEP_USER_AGENT" "$BASE_URL" >/dev/null 2>&1; then
     echo "FAIL: Dev server did not become ready at $BASE_URL"
     exit 1
   fi
@@ -64,7 +71,7 @@ fetch_status() {
   local status="000"
 
   for _ in {1..3}; do
-    if status="$(curl -sS --max-time 30 -o "$out_file" -w "%{http_code}" -H "$header" "$url")"; then
+    if status="$(curl -sS --max-time 30 -o "$out_file" -w "%{http_code}" -H "$header" -H "User-Agent: $SWEEP_USER_AGENT" "$url")"; then
       echo "$status"
       return 0
     fi
@@ -77,7 +84,7 @@ fetch_status() {
 }
 
 for route in "${ROUTES[@]}"; do
-  if ! curl -s -I "$BASE_URL" >/dev/null 2>&1; then
+  if ! curl -s -I -H "User-Agent: $SWEEP_USER_AGENT" "$BASE_URL" >/dev/null 2>&1; then
     echo "| $route | ABORTED | n/a | n/a | Dev server became unavailable mid-run |"
     ABORTED=1
     break
@@ -106,9 +113,15 @@ for route in "${ROUTES[@]}"; do
   status="PASS"
 
   if [[ "$es_status" != "200" || "$en_status" != "200" ]]; then
+    if [[ -n "${INVARIANT_REDIRECT_NOTES[$route]:-}" ]] && [[ "$es_status" =~ ^30[78]$ ]] && [[ "$en_status" =~ ^30[78]$ ]]; then
+      status="REVIEW"
+      note="${INVARIANT_REDIRECT_NOTES[$route]}"
+      REVIEW=$((REVIEW + 1))
+    else
     status="FAIL"
     note="HTTP en=$en_status es=$es_status"
     FAIL=$((FAIL + 1))
+    fi
   elif [[ "$lang_es" != "true" ]]; then
     status="FAIL"
     note="Missing html lang=es"

@@ -6,7 +6,7 @@ import { usePageTracking } from "@/lib/analytics/hooks";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { JeremyAuthorityLinksStrip } from "@/components/shared-sections/JeremyAuthorityLinksStrip";
 import { useLocale, useTranslations } from "next-intl";
-import type { Testimonial } from "@/lib/data/testimonials";
+import { normalizeStakeholderTestimonials } from "@/lib/data/testimonials";
 import { useProjectsSearch } from "./components/useProjectsSearch";
 
 // Critical above-the-fold components - load with SSR
@@ -64,7 +64,7 @@ export default function ProjectsPageClient() {
 
   const featuredClientTestimonials = useMemo(
     () =>
-      (
+      normalizeStakeholderTestimonials(
         tTestimonials.raw("clientTestimonials") as Array<{
           id: string;
           name: string;
@@ -76,15 +76,8 @@ export default function ProjectsPageClient() {
           featured?: boolean;
           date?: string;
           category?: string;
-        }>
+        }>,
       )
-        .map(
-          (testimonial) =>
-            ({
-              ...testimonial,
-              type: "client",
-            }) as Testimonial,
-        )
         .filter((testimonial) => testimonial.featured)
         .slice(0, 6),
     [tTestimonials],

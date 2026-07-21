@@ -24,7 +24,7 @@ describe("ValuesShowcase", () => {
     );
 
     await user.click(
-      screen.getAllByRole("button", { name: /Learn More/i })[0]!,
+      screen.getAllByRole("button", { name: /Learn more about/i })[0]!,
     );
 
     const dialog = screen.getByRole("dialog");
@@ -56,9 +56,11 @@ describe("ValuesShowcase", () => {
     );
 
     await user.click(
-      screen.getAllByRole("button", { name: /Learn More/i })[1]!,
+      screen.getAllByRole("button", { name: /Learn more about/i })[1]!,
     );
-    expect(screen.getByText("For Our Community")).toBeInTheDocument();
+    expect(
+      within(screen.getByRole("dialog")).getByText("For Our Community"),
+    ).toBeInTheDocument();
 
     await user.click(
       screen.getByRole("button", { name: /Close value details modal/i }),
@@ -67,7 +69,7 @@ describe("ValuesShowcase", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
-  it("opens modal via card div click (not just Learn More button)", async () => {
+  it("opens modal via the single card button target", async () => {
     const user = userEvent.setup();
     render(
       <ValuesShowcase
@@ -77,7 +79,6 @@ describe("ValuesShowcase", () => {
       />,
     );
 
-    // Click the card wrapper div instead of the Learn More button
     const card = screen.getByRole("button", {
       name: /Learn more about For Our Partners/i,
     });
@@ -115,5 +116,19 @@ describe("ValuesShowcase", () => {
     );
     const cards = screen.getAllByRole("button", { name: /Learn more about/i });
     expect(cards).toHaveLength(3);
+  });
+
+  it("does not render nested learn-more buttons inside the cards", () => {
+    render(
+      <ValuesShowcase
+        title="Test Title"
+        subtitle="Test Subtitle"
+        description="Test Description"
+      />,
+    );
+
+    expect(
+      screen.queryByRole("button", { name: /^Learn More$/i }),
+    ).not.toBeInTheDocument();
   });
 });

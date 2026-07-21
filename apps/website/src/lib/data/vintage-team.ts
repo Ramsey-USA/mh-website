@@ -19,6 +19,10 @@ import jenniferTene from "./team/jennifer-tene.json";
 import derekParks from "./team/derek-parks.json";
 import lisaKandle from "./team/lisa-kandle.json";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  type ContentGovernanceRecord,
+  isPubliclyVisibleContent,
+} from "@/lib/content/content-governance";
 
 export interface VintageTeamMember {
   // Core identification
@@ -85,6 +89,7 @@ export interface VintageTeamMember {
   slug: string;
   email?: string; // Public team contact email; routed through the office inbox
   linkedinUrl?: string; // Public LinkedIn profile URL for direct professional connection
+  governance?: ContentGovernanceRecord;
 }
 
 /**
@@ -160,6 +165,42 @@ export function applyProfileOverride(
   };
 }
 
+export function getJeremyThamertLeadershipSources() {
+  return {
+    credentialUrl: jeremyThamert.credentialLinks?.[0]?.url ?? null,
+    storyUrl: jeremyThamert.storyLinks?.[0]?.url ?? null,
+  };
+}
+
+function getTeamMemberGovernance(
+  member: Pick<VintageTeamMember, "slug" | "active">,
+): ContentGovernanceRecord {
+  const isPublic = member.active;
+
+  return {
+    stableId: `team-profile:${member.slug}`,
+    ownerRole: "people-operations",
+    lifecycle: isPublic ? "published" : "withdrawn",
+    approvalState: isPublic ? "approved" : "pending",
+    publishState: isPublic ? "public" : "internal",
+    ...(isPublic
+      ? { approvalReference: "Active roster profile approved" }
+      : {}),
+    nextReviewAt: "2027-06-30",
+    ...(!isPublic
+      ? {
+          withdrawalReason: "Profile is no longer active on the public roster.",
+        }
+      : {}),
+    sourceReferences: [
+      {
+        sourceType: "internal-record",
+        reference: `team/${member.slug}.json`,
+      },
+    ],
+  };
+}
+
 // Assembled team roster — order determines display sequence on the team page.
 // To reorder members, rearrange the entries in this array.
 export const vintageTeamMembers: VintageTeamMember[] = [
@@ -180,4 +221,13 @@ export const vintageTeamMembers: VintageTeamMember[] = [
 ].map((member) => ({
   ...member,
   email: COMPANY_INFO.email.main,
+  governance: getTeamMemberGovernance(member),
 })) as VintageTeamMember[];
+
+export function getPublicVintageTeamMembers(): VintageTeamMember[] {
+  return vintageTeamMembers.filter(
+    (member) =>
+      member.active &&
+      (member.governance ? isPubliclyVisibleContent(member.governance) : true),
+  );
+}

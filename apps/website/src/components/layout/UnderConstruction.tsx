@@ -1,5 +1,6 @@
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { MH_SLOGANS } from "@/lib/branding/page-names";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { Button } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
@@ -23,6 +24,8 @@ export function UnderConstruction({
   showContactCTA = true,
   estimatedCompletion = "Soon",
 }: UnderConstructionProps) {
+  const universalCtas = getUniversalCtaSet("en");
+
   return (
     <div className="min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Hero Section with Under Construction Notice */}
@@ -160,8 +163,8 @@ export function UnderConstruction({
                         className="text-brand-primary mr-3 mt-1 shrink-0"
                       />
                       <span>
-                        <strong>Schedule a consultation</strong> to discuss your
-                        project needs
+                        <strong>{universalCtas.primary.label}</strong> with our
+                        team while this page is being updated
                       </span>
                     </li>
                   </ul>
@@ -189,11 +192,11 @@ export function UnderConstruction({
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <FadeInWhenVisible>
               <h3 className="mb-6 font-bold text-white text-2xl sm:text-3xl">
-                Ready to Start Your Project?
+                Need to Discuss Your Project?
               </h3>
               <p className="mb-8 text-white/90 text-lg">
-                Don't let our website updates slow you down. Contact us today to
-                discuss your construction needs.
+                Do not let our website updates slow you down. Call our team
+                directly for a project conversation and next-step guidance.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button

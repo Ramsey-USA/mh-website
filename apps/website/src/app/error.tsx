@@ -1,8 +1,18 @@
 "use client";
 
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { ErrorFallbackCard } from "@/components/error/ErrorFallbackCard";
 import { logger } from "@/lib/utils/logger";
+import { captureException } from "@/lib/monitoring/sentry";
+
+function toSafeErrorContext(error: Error & { digest?: string }) {
+  return {
+    boundary: "route-error",
+    errorName: error.name,
+    digest: error.digest ?? null,
+  };
+}
 
 export default function Error({
   error,
@@ -11,18 +21,16 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  useEffect(() => {
-    // Log the error to error reporting service
-    logger.error("Page error:", {
-      message: error.message,
-      digest: error.digest,
-      stack: error.stack,
-    });
+  const t = useTranslations("statusStates.error");
 
-    // Track in analytics
+  useEffect(() => {
+    const safeContext = toSafeErrorContext(error);
+    logger.error("Route error boundary triggered", safeContext);
+    captureException(error, safeContext);
+
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", "exception", {
-        description: error.message,
+        description: `route-error:${safeContext.digest ?? "none"}`,
         fatal: false,
       });
     }
@@ -30,11 +38,13 @@ export default function Error({
 
   return (
     <ErrorFallbackCard
-      error={error}
       reset={reset}
-      heading="Something went wrong!"
-      message="We're sorry for the inconvenience. Our team has been notified and is working to resolve the issue."
-      digest={error.digest}
+      heading={t("heading")}
+      message={t("message")}
+      tryAgainLabel={t("tryAgain")}
+      homeLabel={t("goHome")}
+      contactLabel={t("contact")}
+      alert
     />
   );
 }

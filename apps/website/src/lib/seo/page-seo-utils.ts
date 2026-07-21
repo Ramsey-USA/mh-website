@@ -16,7 +16,22 @@ import {
   PAGE_TERMINOLOGY,
   normalizeMhKeywordList,
 } from "@/lib/branding/page-names";
+import type { ServiceRecord } from "@/lib/data/service-routes";
 import { getJeremyRibbon } from "@/lib/content/jeremy-ribbons";
+import { createOgImageUrl } from "@/lib/seo/og-image";
+import { getApprovedClaimOrFallback } from "@/lib/content/claims";
+
+const veteranOwnedClaimKeyword = getApprovedClaimOrFallback({
+  id: "veteran_owned_since_2025",
+  context: "seo-keyword",
+  fallback: "veteran-owned contractor Pacific Northwest",
+});
+
+const triStateLicenseClaimKeyword = getApprovedClaimOrFallback({
+  id: "tri_state_licensed_wa_or_id",
+  context: "seo-keyword",
+  fallback: "WA OR ID licensed contractor",
+});
 
 const JEREMY_SEO_SIGNAL_KEYWORDS = [
   "Jeremy Thamert",
@@ -92,16 +107,11 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Mission-Ready Delivery Across WA, OR, and ID`,
     description:
-      "MH Construction delivers AG and winery facilities, commercial fit-out work, and municipal projects with clear planning, disciplined field coordination, and licensed coverage across WA, OR, and ID. Homepage radio ad voiceover is Jeremy Thamert, produced in conjunction with Stephens Media Group, with placements on 94.9 The WOLF (https://949thewolf.com/) and local ESPN channel.",
+      "MH Construction delivers AG and winery facilities, commercial fit-out work, and municipal projects with clear planning, disciplined field coordination, and licensed coverage across WA, OR, and ID.",
     keywords: buildPageKeywords("home", [
       "Jeremy Thamert leadership",
-      "Jeremy Thamert radio ad",
-      "Stephens Media Group",
-      "94.9 The WOLF",
-      "949thewolf.com",
-      "Local ESPN channel radio ad",
       "MH Construction home",
-      "veteran-owned contractor Pacific Northwest",
+      veteranOwnedClaimKeyword,
       "general contractor Pasco, WA",
       "general contractor Tri-State",
       "Richland general contractor",
@@ -146,7 +156,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
       "collaborative construction relationships",
       "transparent construction communication",
       "long-term construction partnerships",
-      "WA OR ID licensed contractor",
+      triStateLicenseClaimKeyword,
       "Eastern Washington contractor",
       "Pacific Northwest general contractor",
       "BBB accredited contractor",
@@ -495,6 +505,41 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     canonicalUrl: servicesUrl,
     ogImage: `${enhancedSEO.siteUrl}/images/og/services/commercial-construction.webp`,
     schemas: [...serviceSchemas, webPageSchema, breadcrumbSchema],
+  });
+}
+
+export function getServiceDetailSEO(service: ServiceRecord): Metadata {
+  const serviceUrl = `${enhancedSEO.siteUrl}/services/${service.slug}`;
+  const ogImageUrl = createOgImageUrl("service", service.slug);
+
+  return generateEnhancedMetadata({
+    title: `${service.title} | ${formatDualPageName(PAGE_TERMINOLOGY.services.seoName, PAGE_TERMINOLOGY.services.mhBrandName)}`,
+    description: service.metaDescription,
+    keywords: normalizeMhKeywordList([
+      service.title,
+      service.category,
+      ...service.supportedProjectTypes,
+      ...service.focusAreas,
+      ...service.technicalPriorities,
+      "construction services",
+      "mission-ready construction",
+      "commercial contractor",
+      "Washington Oregon Idaho contractor",
+    ]),
+    canonicalUrl: serviceUrl,
+    ogImage: ogImageUrl,
+    schemas: [
+      generateServiceSchema({
+        name: service.title,
+        description: service.summary,
+        category: service.category,
+      }),
+      generateBreadcrumbSchema([
+        { name: "Home", url: enhancedSEO.siteUrl },
+        { name: "Services", url: `${enhancedSEO.siteUrl}/services` },
+        { name: service.title, url: serviceUrl },
+      ]),
+    ],
   });
 }
 
@@ -1362,7 +1407,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: `${formatDualPageName(PAGE_TERMINOLOGY.contact.seoName, PAGE_TERMINOLOGY.contact.mhBrandName)} | Your Project. Honest Guidance. Let's Connect.`,
     description:
-      "Schedule a consultation with MH Construction for commercial, industrial, or public-sector work. We are headquartered in Pasco, WA and licensed across WA, OR, and ID. Call (509) 308-6489.",
+      "Discuss your project with MH Construction for commercial, industrial, or public-sector work, or schedule a capability review from our Pasco, WA headquarters serving WA, OR, and ID. Call (509) 308-6489.",
     keywords: buildPageKeywords("contact", [
       "Jeremy Thamert leadership",
       "contact construction consultation",

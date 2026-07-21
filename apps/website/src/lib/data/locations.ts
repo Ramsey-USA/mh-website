@@ -3,6 +3,15 @@
  * Centralized location information for all service areas
  */
 import { COMPANY_INFO } from "@/lib/constants/company";
+import {
+  type ContentGovernanceRecord,
+  isPubliclyVisibleContent,
+} from "@/lib/content/content-governance";
+import {
+  getProjectCaseStudyBySlug,
+  getPublishedProjectCaseStudyBySlug,
+} from "@/lib/data/project-case-studies";
+import { getPublishedServiceDetailBySlug } from "@/lib/data/service-routes";
 
 const LOCATION_CONTACT = {
   telephone: COMPANY_INFO.phone.display,
@@ -72,7 +81,21 @@ export interface LocationData {
   recentProjects?: LocationProject[];
   /** When true, renders a strong internal link to the Public & Government service page */
   publicSectorHighlight?: boolean;
+  governance?: ContentGovernanceRecord;
 }
+
+export type LocationPresenceType = "office" | "service-area";
+export type LocationPublicAddressPolicy =
+  "public-office-address" | "service-area-only";
+
+export type LocationEvidenceProfile = {
+  presenceType: LocationPresenceType;
+  publicAddressPolicy: LocationPublicAddressPolicy;
+  regionalRelationship: string;
+  relatedServiceSlugs: string[];
+  relatedProjectSlugs: string[];
+  publicSectorContext?: string;
+};
 
 export const locations: Record<string, LocationData> = {
   richland: {
@@ -844,11 +867,313 @@ export const locations: Record<string, LocationData> = {
   },
 };
 
+function getLocationGovernance(slug: string): ContentGovernanceRecord {
+  return {
+    stableId: `location:${slug}`,
+    ownerRole: "operations-manager",
+    lifecycle: "published",
+    approvalState: "approved",
+    publishState: "public",
+    approvalReference: "Approved service-area listing",
+    nextReviewAt: "2027-06-30",
+    sourceReferences: [
+      {
+        sourceType: "route",
+        reference: `/locations/${slug}`,
+      },
+    ],
+  };
+}
+
+export const governedLocations: Record<string, LocationData> =
+  Object.fromEntries(
+    Object.entries(locations).map(([slug, location]) => [
+      slug,
+      {
+        ...location,
+        governance: getLocationGovernance(slug),
+      },
+    ]),
+  );
+
 // Helper function to get location by slug
 export function getLocationBySlug(slug: string): LocationData | undefined {
-  return locations[slug];
+  const location = governedLocations[slug];
+  if (!location) {
+    return undefined;
+  }
+
+  return location.governance && !isPubliclyVisibleContent(location.governance)
+    ? undefined
+    : location;
 }
 
 export function getLocationSlugs(): string[] {
-  return Object.keys(locations);
+  return Object.entries(governedLocations)
+    .filter(([_, location]) =>
+      location.governance
+        ? isPubliclyVisibleContent(location.governance)
+        : true,
+    )
+    .map(([slug]) => slug);
+}
+
+export type LocationDeepLink = {
+  href: string;
+  label: string;
+};
+
+const SERVICE_LABELS: Record<string, string> = {
+  "commercial-construction": "Commercial Construction",
+  "municipal-public-work": "Municipal and Government",
+  "commercial-tenant-improvements": "Commercial Tenant Improvements",
+  "agricultural-winery-construction": "Agricultural and Winery Construction",
+  "light-industrial-construction": "Light Industrial Construction",
+  "preconstruction-planning": "Preconstruction Planning",
+  "procurement-trade-partnerships": "Procurement and Trade Partnerships",
+};
+
+const LOCATION_SERVICE_MAP: Record<string, string[]> = {
+  pasco: ["commercial-construction", "municipal-public-work"],
+  kennewick: ["commercial-construction", "commercial-tenant-improvements"],
+  richland: ["commercial-construction", "agricultural-winery-construction"],
+  yakima: ["municipal-public-work", "commercial-construction"],
+  spokane: ["light-industrial-construction", "commercial-construction"],
+  tacoma: ["municipal-public-work", "procurement-trade-partnerships"],
+  "west-richland": ["commercial-construction", "preconstruction-planning"],
+  "walla-walla": ["commercial-construction", "preconstruction-planning"],
+  hermiston: ["municipal-public-work", "agricultural-winery-construction"],
+  pendleton: ["municipal-public-work", "commercial-construction"],
+  "coeur-d-alene": ["light-industrial-construction", "commercial-construction"],
+  omak: ["municipal-public-work", "preconstruction-planning"],
+};
+
+const LOCATION_PROJECT_MAP: Record<string, string[]> = {
+  pasco: [
+    "volm-companies-remodel",
+    "darigold-pasco-production-facility",
+    "franklin-county-coroners-office-morgue",
+  ],
+  kennewick: ["auto-lot-nw"],
+  richland: [],
+  yakima: [],
+  spokane: [],
+  tacoma: [],
+  "west-richland": [],
+  "walla-walla": [],
+  hermiston: [],
+  pendleton: [],
+  "coeur-d-alene": [],
+  omak: [],
+};
+
+const LOCATION_PRESENCE_PROFILES: Record<string, LocationEvidenceProfile> = {
+  richland: {
+    presenceType: "service-area",
+    publicAddressPolicy: "service-area-only",
+    regionalRelationship: "Served from Pasco headquarters.",
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["richland"] ?? [],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["richland"] ?? [],
+    publicSectorContext:
+      "Municipal and public-sector experience available through regional teams.",
+  },
+  kennewick: {
+    presenceType: "service-area",
+    publicAddressPolicy: "service-area-only",
+    regionalRelationship: "Served from Pasco headquarters.",
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["kennewick"] ?? [],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["kennewick"] ?? [],
+    publicSectorContext:
+      "Public-sector support coordinated through Tri-Cities project controls.",
+  },
+  pasco: {
+    presenceType: "office",
+    publicAddressPolicy: "public-office-address",
+    regionalRelationship: "Headquarters and public office location.",
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["pasco"] ?? [],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["pasco"] ?? [],
+    publicSectorContext:
+      "Municipal coordination is directed through the Pasco office.",
+  },
+  yakima: {
+    presenceType: "service-area",
+    publicAddressPolicy: "service-area-only",
+    regionalRelationship: "Served from Pasco headquarters.",
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["yakima"] ?? [],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["yakima"] ?? [],
+    publicSectorContext:
+      "Public-sector support available through veteran-led compliance routes.",
+  },
+  spokane: {
+    presenceType: "service-area",
+    publicAddressPolicy: "service-area-only",
+    regionalRelationship: "Served from Pasco headquarters.",
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["spokane"] ?? [],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["spokane"] ?? [],
+  },
+  tacoma: {
+    presenceType: "service-area",
+    publicAddressPolicy: "service-area-only",
+    regionalRelationship: "Served from Pasco headquarters.",
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["tacoma"] ?? [],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["tacoma"] ?? [],
+  },
+  "west-richland": {
+    presenceType: "service-area",
+    publicAddressPolicy: "service-area-only",
+    regionalRelationship: "Served from Pasco headquarters.",
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["west-richland"] ?? [],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["west-richland"] ?? [],
+  },
+  "walla-walla": {
+    presenceType: "service-area",
+    publicAddressPolicy: "service-area-only",
+    regionalRelationship: "Served from Pasco headquarters.",
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["walla-walla"] ?? [],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["walla-walla"] ?? [],
+    publicSectorContext:
+      "Public-sector support follows existing tri-state government pathways.",
+  },
+  hermiston: {
+    presenceType: "service-area",
+    publicAddressPolicy: "service-area-only",
+    regionalRelationship: "Served from Pasco headquarters.",
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["hermiston"] ?? [],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["hermiston"] ?? [],
+    publicSectorContext:
+      "Public-sector support follows existing tri-state government pathways.",
+  },
+  pendleton: {
+    presenceType: "service-area",
+    publicAddressPolicy: "service-area-only",
+    regionalRelationship: "Served from Pasco headquarters.",
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["pendleton"] ?? [],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["pendleton"] ?? [],
+    publicSectorContext:
+      "Public-sector support follows existing tri-state government pathways.",
+  },
+  "coeur-d-alene": {
+    presenceType: "service-area",
+    publicAddressPolicy: "service-area-only",
+    regionalRelationship: "Served from Pasco headquarters.",
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["coeur-d-alene"] ?? [],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["coeur-d-alene"] ?? [],
+  },
+  omak: {
+    presenceType: "service-area",
+    publicAddressPolicy: "service-area-only",
+    regionalRelationship: "Served from Pasco headquarters.",
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["omak"] ?? [],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["omak"] ?? [],
+  },
+};
+
+const LOCATION_BRIDGE_MAP: Record<string, LocationDeepLink[]> = {
+  yakima: [
+    {
+      href: "/veterans/public-sector-construction",
+      label: "Veteran-led public sector pathway",
+    },
+    {
+      href: "/public-sector/veteran-led-compliance",
+      label: "Compliance workflow",
+    },
+  ],
+  pendleton: [
+    {
+      href: "/public-sector/tri-state-government-construction",
+      label: "Tri-state government coverage",
+    },
+    {
+      href: "/public-sector/veteran-led-compliance",
+      label: "Compliance workflow",
+    },
+  ],
+  hermiston: [
+    {
+      href: "/public-sector/tri-state-government-construction",
+      label: "Tri-state government coverage",
+    },
+    {
+      href: "/veterans/public-sector-construction",
+      label: "Veteran-led public sector pathway",
+    },
+  ],
+  pasco: [
+    {
+      href: "/public-sector/veteran-led-compliance",
+      label: "Compliance workflow",
+    },
+  ],
+};
+
+export function getLocationServiceDeepLinks(slug: string): LocationDeepLink[] {
+  const profile = getLocationEvidenceProfile(slug);
+
+  return profile.relatedServiceSlugs
+    .map((serviceSlug) => {
+      const publishedService = getPublishedServiceDetailBySlug(serviceSlug);
+      if (!publishedService) {
+        return null;
+      }
+
+      return {
+        href: `/services/${serviceSlug}`,
+        label: SERVICE_LABELS[serviceSlug] ?? publishedService.title,
+      };
+    })
+    .filter((entry): entry is LocationDeepLink => Boolean(entry));
+}
+
+export function getLocationBridgeDeepLinks(slug: string): LocationDeepLink[] {
+  return LOCATION_BRIDGE_MAP[slug] ?? [];
+}
+
+export function getLocationProjectDeepLinks(slug: string): LocationDeepLink[] {
+  const profile = getLocationEvidenceProfile(slug);
+
+  return profile.relatedProjectSlugs
+    .map((projectSlug) => {
+      const publishedProject = getPublishedProjectCaseStudyBySlug(projectSlug);
+      if (!publishedProject) {
+        return null;
+      }
+
+      return {
+        href: `/projects/${projectSlug}`,
+        label: publishedProject.title,
+      };
+    })
+    .filter((entry): entry is LocationDeepLink => Boolean(entry));
+}
+
+export function getLocationEvidenceProfile(
+  slug: string,
+): LocationEvidenceProfile {
+  return (
+    LOCATION_PRESENCE_PROFILES[slug] ?? {
+      presenceType: "service-area",
+      publicAddressPolicy: "service-area-only",
+      regionalRelationship: "Served from Pasco headquarters.",
+      relatedServiceSlugs: ["commercial-construction"],
+      relatedProjectSlugs: [],
+    }
+  );
+}
+
+export function isLocationOffice(slug: string): boolean {
+  return getLocationEvidenceProfile(slug).presenceType === "office";
+}
+
+export function hasPublishedLocationEvidence(slug: string): boolean {
+  const profile = getLocationEvidenceProfile(slug);
+
+  return (
+    profile.relatedServiceSlugs.every((serviceSlug) => {
+      return Boolean(getPublishedServiceDetailBySlug(serviceSlug));
+    }) &&
+    profile.relatedProjectSlugs.every((projectSlug) => {
+      return Boolean(getProjectCaseStudyBySlug(projectSlug));
+    })
+  );
 }

@@ -5,6 +5,12 @@
 
 export { usePageTracking, useClickTracking } from "./hooks";
 export {
+  trackAnalyticsEvent,
+  trackCustomAnalyticsEvent,
+  trackWebVital,
+  trackFileDownload,
+  trackPodcastMilestone,
+  normalizeAnalyticsRouteTemplate,
   trackClick,
   trackFormSubmit,
   trackScrollDepth,

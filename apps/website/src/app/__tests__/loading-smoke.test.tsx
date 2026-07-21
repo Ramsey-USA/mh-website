@@ -6,6 +6,7 @@
  */
 
 import { render } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 
 const loadingPages = [
   { name: "Careers", path: "../careers/loading" },
@@ -21,5 +22,16 @@ describe.each(loadingPages)("$name loading skeleton", ({ path }) => {
       default: React.ComponentType;
     };
     expect(() => render(<Loading />)).not.toThrow();
+  });
+
+  it("uses the standardized loading landmark contract", () => {
+    const { default: Loading } = require(path) as {
+      default: React.ComponentType;
+    };
+    render(<Loading />);
+
+    const main = screen.getByRole("main");
+    expect(main).toHaveAttribute("aria-busy", "true");
+    expect(main).toHaveAttribute("aria-live", "polite");
   });
 });

@@ -13,6 +13,9 @@ import {
 } from "react";
 import { PortfolioService } from "@/lib/services/portfolio-service";
 import { useAnalytics } from "@/lib/analytics/components/EnhancedAnalytics";
+import { categories } from "./projectsData";
+
+const VALID_CATEGORY_IDS = new Set(categories.map((category) => category.id));
 
 export function useProjectsSearch() {
   const { trackSearchPerformed, trackSearchFilterUsed, trackSearchClear } =
@@ -47,7 +50,7 @@ export function useProjectsSearch() {
     if (searchParam) {
       setSearchQuery(searchParam);
     }
-    if (categoryParam && categoryParam !== "all") {
+    if (categoryParam && VALID_CATEGORY_IDS.has(categoryParam)) {
       setSelectedCategory(categoryParam);
     }
   }, []);
@@ -60,7 +63,11 @@ export function useProjectsSearch() {
       if (normalizedDeferredSearchQuery) {
         urlParams.set("search", normalizedDeferredSearchQuery);
       }
-      if (selectedCategory && selectedCategory !== "all") {
+      if (
+        selectedCategory &&
+        selectedCategory !== "all" &&
+        VALID_CATEGORY_IDS.has(selectedCategory)
+      ) {
         urlParams.set("category", selectedCategory);
       }
 

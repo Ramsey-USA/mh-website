@@ -12,9 +12,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import Link from "next/link";
 import { useAnalytics } from "@/lib/analytics/components/EnhancedAnalytics";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
-
-/** Contact page URL pre-filled with pitch deck request subject */
-const PITCH_DECK_HREF = "/contact?subject=pitch-deck";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 
 interface StrategicCTABannerProps {
   variant?: "pwa" | "pitch-deck" | "consultation" | "combo";
@@ -24,6 +22,7 @@ interface StrategicCTABannerProps {
 export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
   const { variant = "combo", className = "" } = props;
   const { trackEvent } = useAnalytics();
+  const universalCtas = getUniversalCtaSet("en");
 
   const trackPwaInstall = useCallback(
     () => trackEvent("cta_banner_click", { type: "pwa_install" }),
@@ -138,14 +137,14 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
             aria-label="Request MH Construction pitch deck"
             asChild
           >
-            <Link href={PITCH_DECK_HREF} className="shrink-0">
+            <Link href={universalCtas.pitchDeck.href} className="shrink-0">
               <MaterialIcon
                 icon="request_page"
                 size="md"
                 className="mr-2"
                 aria-hidden="true"
               />
-              Request Deck
+              {universalCtas.pitchDeck.label}
             </Link>
           </Button>
         </div>
@@ -176,10 +175,10 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
                 id="consultation-cta-heading"
                 className="font-bold text-xl mb-1"
               >
-                Ready to Start Your Project?
+                Ready to Discuss Your Project?
               </p>
               <p className="text-sm text-gray-300">
-                Schedule a free consultation—let's discuss your vision
+                Use the same mission-fit intake our core service pages use.
               </p>
             </div>
           </div>
@@ -197,7 +196,7 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
                 className="mr-2"
                 aria-hidden="true"
               />
-              Book Consultation
+              {universalCtas.services.label}
             </Link>
           </Button>
         </div>
@@ -253,7 +252,7 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
           aria-label="Request MH Construction pitch deck"
           asChild
         >
-          <Link href={PITCH_DECK_HREF} className="block">
+          <Link href={universalCtas.pitchDeck.href} className="block">
             <MaterialIcon
               icon="request_page"
               size="xl"
@@ -280,8 +279,8 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
         >
           <Link href="/contact" className="block">
             <MaterialIcon icon="event_available" size="xl" aria-hidden="true" />
-            <span className="font-bold">Get Consultation</span>
-            <span className="text-xs">Free estimate</span>
+            <span className="font-bold">{universalCtas.services.label}</span>
+            <span className="text-xs">Mission-fit intake</span>
           </Link>
         </Button>
       </div>

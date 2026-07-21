@@ -150,4 +150,36 @@ describe("ServicesShowcase", () => {
     const cards = screen.getAllByRole("button", { name: /View .* for/i });
     expect(cards).toHaveLength(6);
   });
+
+  it("announces filter result changes without moving focus away from the trigger", async () => {
+    const user = userEvent.setup();
+
+    render(<ServicesShowcase />);
+
+    const filterButton = screen.getByRole("button", {
+      name: "Modernize spaces",
+    });
+
+    filterButton.focus();
+    await user.click(filterButton);
+
+    expect(filterButton).toHaveFocus();
+    expect(screen.getByText("Matching missions: 2")).toHaveAttribute(
+      "aria-live",
+      "polite",
+    );
+  });
+
+  it("can reset back to the full server-rendered service set after filtering", async () => {
+    const user = userEvent.setup();
+
+    render(<ServicesShowcase />);
+
+    await user.click(screen.getByRole("button", { name: "Build & advance" }));
+    expect(screen.getByText("Matching missions: 2")).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "Reset filters" }));
+
+    expect(screen.getByText("Matching missions: 6")).toBeInTheDocument();
+  });
 });

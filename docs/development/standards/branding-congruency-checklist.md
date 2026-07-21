@@ -17,6 +17,7 @@ Use it for component, template, and route-state checks after the master checklis
 1. **Visual consistency:** Corner radii and hover effects use centralized design tokens (see [Design System Standards](./design-system-standards.md)).
 1. **Exception scope:** Approved visual exceptions stay limited to their documented component.
 1. **Cross-surface alignment:** Related docs, metadata, and page content stay terminology-consistent after implementation changes.
+1. **Language hierarchy enforcement:** Implementation preserves construction terminology first and veteran field standards second across UI copy, metadata, and supporting docs.
 1. **Print chip consistency:** For manual/handbook TOC and form-cover templates, program/chapter/form identifier chips keep the canonical `1.5pt` corner radius with safety/handbook parity.
 1. **Print TOC structure consistency:** Chapter/form rows remain associated in two-column TOC layout, continuation pages retain page-1 spacing, TOC row spacing remains `0.1in`, safety/handbook TOC footer structures stay label-free and matched, and handbook TOC suppresses empty continuation pages.
 1. **Print spine metadata consistency:** Spine templates use `.spine-meta` for logo-to-year/revision spacing with `.spine-logo-wrap { gap: 0; }`, `.spine-meta { padding-top: 0.1in; gap: 0.1in; }`, and safety/handbook parity.

@@ -8,12 +8,15 @@ import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 
 export function ProjectsCTASection() {
+  const universalCtas = getUniversalCtaSet("en");
+
   return (
     <section
       id="start-your-project"
@@ -75,7 +78,7 @@ export function ProjectsCTASection() {
                 variant="primary"
                 size="lg"
                 className="w-full sm:w-auto min-w-70 transition-all duration-300 group"
-                aria-label="Start your construction project with MH Construction"
+                aria-label="Discuss your construction project with MH Construction"
                 asChild
               >
                 <Link href="/contact" className="inline-block">
@@ -85,7 +88,9 @@ export function ProjectsCTASection() {
                     className="mr-3 transition-colors duration-300"
                     ariaLabel=""
                   />
-                  <span className="font-semibold">Begin Your Project</span>
+                  <span className="font-semibold">
+                    {universalCtas.primary.label}
+                  </span>
                 </Link>
               </Button>
               <Button

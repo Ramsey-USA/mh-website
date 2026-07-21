@@ -21,7 +21,21 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
+import { getApprovedClaimOrFallback } from "@/lib/content/claims";
+
+const veteranOwnedClaim = getApprovedClaimOrFallback({
+  id: "veteran_owned_since_2025",
+  context: "public-sector",
+  fallback: "veteran-owned leadership",
+});
+
+const triStateLicenseClaim = getApprovedClaimOrFallback({
+  id: "tri_state_licensed_wa_or_id",
+  context: "public-sector",
+  fallback: "Tri-State licensed contractor",
+});
 import { AccreditationsLogoRow } from "@/components/shared-sections";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
@@ -35,6 +49,7 @@ const breadcrumbSchema = generateBreadcrumbSchema(
 );
 const GOVERNMENT_LIGHT_LOGO = "/images/logo/mh-logo-black.webp";
 const GOVERNMENT_DARK_LOGO = "/images/logo/mh-logo-white.webp";
+const universalCtas = getUniversalCtaSet("en");
 
 // Lazy load heavy interactive components for better mobile performance
 const InteractiveGrantSelector = dynamic(
@@ -465,8 +480,7 @@ export default function PublicSectorFullPage() {
             title: "Veteran-Owned & BABAA Commitment",
             icon: "military_tech",
             tagline: "Service-Earned Values",
-            description:
-              "Veteran-led since January 2025 under Army veteran Jeremy Thamert, bringing 15+ years of military aviation experience and operational discipline. We support the Build America, Buy America Act (BABAA), stay current through AGC resources, and maintain veteran hiring initiatives with clear execution standards.",
+            description: `${veteranOwnedClaim} under Army veteran Jeremy Thamert, bringing 15+ years of military aviation experience and operational discipline. We support the Build America, Buy America Act (BABAA), stay current through AGC resources, and maintain veteran hiring initiatives with clear execution standards. ${triStateLicenseClaim}.`,
             image: "/images/compliance/veteran-owned.webp",
             iconBg: "bg-brand-primary",
             stats: "2025",
@@ -547,9 +561,7 @@ export default function PublicSectorFullPage() {
                   award-winning safety protocols (.64 EMR - 40% better than
                   industry)
                 </span>
-                {
-                  ", disciplined construction protocols, and Veteran-Owned reliability since January 2025."
-                }
+                {`, disciplined construction protocols, and ${veteranOwnedClaim.toLowerCase()}.`}
               </p>
             </div>
 
@@ -1008,12 +1020,10 @@ export default function PublicSectorFullPage() {
                     theme="military"
                     ariaLabel="Request Project Consultation"
                   />
-                  Request Project Consultation
+                  {universalCtas.publicSector.label}
                 </Link>
               </Button>
-              <a
-                href={`mailto:${COMPANY_INFO.email.main}?subject=Request%20Federal%20Capabilities%20Brief`}
-              >
+              <a href={universalCtas.capabilitiesBrief.href}>
                 <Button
                   size="lg"
                   className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-500 dark:hover:bg-gray-600 px-10 py-7 text-white dark:text-white text-xl"
@@ -1025,7 +1035,7 @@ export default function PublicSectorFullPage() {
                     theme="military"
                     ariaLabel="Request Federal Capabilities Brief"
                   />
-                  Request Federal Capabilities Brief
+                  {universalCtas.capabilitiesBrief.label}
                 </Button>
               </a>
             </div>

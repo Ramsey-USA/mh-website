@@ -24,6 +24,21 @@ jest.mock("@/components/ui", () => ({
     children: React.ReactNode;
     onClick?: () => void;
   }) => <button onClick={onClick}>{children}</button>,
+  Card: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  CardContent: ({ children }: { children: React.ReactNode }) => (
+    <div>{children}</div>
+  ),
+}));
+
+jest.mock("next/link", () => ({
+  __esModule: true,
+  default: ({
+    children,
+    href,
+  }: {
+    children: React.ReactNode;
+    href: string;
+  }) => <a href={href}>{children}</a>,
 }));
 
 jest.mock("@/components/icons/MaterialIcon", () => ({
@@ -115,7 +130,10 @@ describe("ErrorBoundary", () => {
     expect(gtagMock).toHaveBeenCalledWith(
       "event",
       "exception",
-      expect.objectContaining({ fatal: true }),
+      expect.objectContaining({
+        description: "component-error-boundary",
+        fatal: true,
+      }),
     );
 
     // Clean up
@@ -180,8 +198,7 @@ describe("ErrorBoundary", () => {
     spy.mockRestore();
   });
 
-  it("renders a 'Go Home' button that can be clicked without throwing", async () => {
-    const user = userEvent.setup();
+  it("renders a 'Go Home' link to the homepage", () => {
     const spy = silenceConsoleError();
 
     render(
@@ -190,25 +207,14 @@ describe("ErrorBoundary", () => {
       </ErrorBoundary>,
     );
 
-    const goHomeBtn = screen.getByRole("button", { name: /go home/i });
-    expect(goHomeBtn).toBeInTheDocument();
-
-    // Click invokes the onClick handler (window.location.href = "/").
-    // jsdom doesn't fully navigate, but the handler code path is covered.
-    await user.click(goHomeBtn);
+    const goHomeLink = screen.getByRole("link", { name: /go home/i });
+    expect(goHomeLink).toHaveAttribute("href", "/");
 
     spy.mockRestore();
   });
 
-  it("renders dev error details block when NODE_ENV is 'development'", () => {
+  it("does not render raw runtime error details", () => {
     const spy = silenceConsoleError();
-    const originalEnv = process.env.NODE_ENV;
-    // Force development mode so the <details> block renders
-    Object.defineProperty(process.env, "NODE_ENV", {
-      value: "development",
-      writable: true,
-      configurable: true,
-    });
 
     render(
       <ErrorBoundary>
@@ -216,19 +222,7 @@ describe("ErrorBoundary", () => {
       </ErrorBoundary>,
     );
 
-    // The <details> element and "Error Details (Development Only)" summary are rendered
-    expect(
-      screen.getByText(/error details \(development only\)/i),
-    ).toBeInTheDocument();
-    // The error message appears inside the dev details block
-    expect(screen.getByText("Test bomb error")).toBeInTheDocument();
-
-    // Restore
-    Object.defineProperty(process.env, "NODE_ENV", {
-      value: originalEnv,
-      writable: true,
-      configurable: true,
-    });
+    expect(screen.queryByText("Test bomb error")).not.toBeInTheDocument();
     spy.mockRestore();
   });
 });

@@ -4,7 +4,7 @@ import { Card } from "@/components/ui";
 import type { Testimonial } from "@/lib/data/testimonials";
 
 const variantStyles = {
-  client: {
+  stakeholder: {
     borderColor: "border-brand-primary dark:border-brand-primary/50",
     iconBg: "from-brand-primary to-brand-secondary",
     quoteColor: "text-brand-secondary",
@@ -28,7 +28,7 @@ const variantStyles = {
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
-  variant?: "client" | "employee" | "veteran" | "default";
+  variant?: "stakeholder" | "employee" | "veteran" | "default";
   showImage?: boolean;
   showRating?: boolean;
   showRole?: boolean;
@@ -53,7 +53,7 @@ export function TestimonialCard({
     >
       {/* Quote Icon */}
       <div
-        className={`absolute top-4 right-4 sm:top-6 sm:right-6 flex justify-center items-center bg-${activeVariant === "client" ? "brand-secondary" : "brand-primary"}/10 p-2 rounded-full w-10 h-10 sm:w-12 sm:h-12 transition-colors duration-300`}
+        className={`absolute top-4 right-4 sm:top-6 sm:right-6 flex justify-center items-center bg-${activeVariant === "stakeholder" ? "brand-secondary" : "brand-primary"}/10 p-2 rounded-full w-10 h-10 sm:w-12 sm:h-12 transition-colors duration-300`}
       >
         <svg
           className={`w-full h-full ${styles.quoteColor}`}
@@ -94,7 +94,7 @@ export function TestimonialCard({
           </p>
 
           {/* Client Info */}
-          {testimonial.type === "client" && (
+          {testimonial.type === "stakeholder" && (
             <>
               {testimonial.location && (
                 <p className="mb-2 sm:mb-3 font-medium text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base tracking-wide">

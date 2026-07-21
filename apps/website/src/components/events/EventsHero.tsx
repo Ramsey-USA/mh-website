@@ -1,7 +1,13 @@
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
-export function EventsHero() {
+type EventsHeroProps = {
+  locale?: "en" | "es";
+};
+
+export function EventsHero({ locale = "en" }: EventsHeroProps) {
+  const isEs = locale === "es";
+
   return (
     <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
       {/* Background */}
@@ -15,14 +21,20 @@ export function EventsHero() {
         <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
             <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-              Events → Community Hub
+              {isEs
+                ? "Eventos -> Centro comunitario"
+                : "Events -> Community Hub"}
             </span>
             <span className="block text-brand-secondary">
-              Sponsored and Hosted
+              {isEs ? "Patrocinados y organizados" : "Sponsored and Hosted"}
             </span>
-            <span className="block text-white">Strategic Partnerships</span>
+            <span className="block text-white">
+              {isEs ? "Alianzas estrategicas" : "Strategic Partnerships"}
+            </span>
             <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
-              Community Events. Real Partnerships. Tri-Cities Strong.
+              {isEs
+                ? "Eventos comunitarios. Alianzas reales. Tri-Cities firme."
+                : "Community Events. Real Partnerships. Tri-Cities Strong."}
             </span>
           </h1>
         </div>

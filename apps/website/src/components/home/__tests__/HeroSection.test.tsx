@@ -1,16 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { HeroSection } from "../HeroSection";
 
-jest.mock("@/components/navigation/PageNavigation", () => ({
-  PageNavigation: () => (
-    <nav data-testid="page-nav" aria-label="Page navigation" />
-  ),
-}));
-
-jest.mock("@/components/navigation/navigationConfigs", () => ({
-  navigationConfigs: { home: [] },
-}));
-
 describe("HeroSection", () => {
   it("renders the section element", () => {
     const { container } = render(<HeroSection />);
@@ -36,9 +26,29 @@ describe("HeroSection", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders the PageNavigation component", () => {
+  it("renders primary and secondary hero actions", () => {
     render(<HeroSection />);
-    expect(screen.getAllByTestId("page-nav")[0]).toBeInTheDocument();
+
+    const contactLink = screen.getByRole("link", {
+      name: /start a project conversation/i,
+    });
+    const projectsLink = screen.getByRole("link", {
+      name: /view project proof/i,
+    });
+
+    expect(contactLink).toHaveAttribute("href", "/contact");
+    expect(projectsLink).toHaveAttribute("href", "/projects");
+  });
+
+  it("uses the static hero poster as the current first-view media", () => {
+    const { container } = render(<HeroSection />);
+
+    const heroImage = screen.getByAltText(
+      /MH Construction project leadership and team collaboration/i,
+    );
+
+    expect(heroImage).toHaveAttribute("src", "/images/home-hero-poster.webp");
+    expect(container.querySelector("video")).toBeNull();
   });
 
   it("renders the service area text", () => {

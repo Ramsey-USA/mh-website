@@ -1,4 +1,4 @@
-import { useEffect, type RefObject } from "react";
+import { useEffect, useRef, type RefObject } from "react";
 
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -14,11 +14,17 @@ export function useDialogBehavior({
   onClose,
   dialogRef,
 }: UseDialogBehaviorOptions) {
+  const previousActiveElementRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
     if (!isOpen) return;
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    previousActiveElementRef.current =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
     const dialog = dialogRef.current;
 
     let frameId: number | null = null;
@@ -77,6 +83,13 @@ export function useDialogBehavior({
 
       document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", handleKeyDown);
+
+      const previousActiveElement = previousActiveElementRef.current;
+      if (previousActiveElement?.isConnected) {
+        previousActiveElement.focus();
+      }
+
+      previousActiveElementRef.current = null;
     };
-  }, [dialogRef, isOpen, onClose]);
+  }, [dialogRef, isOpen, onClose, previousActiveElementRef]);
 }

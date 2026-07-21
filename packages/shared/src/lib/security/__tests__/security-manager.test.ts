@@ -87,6 +87,11 @@ describe("SecurityManager", () => {
   const originalEnv = process.env.NODE_ENV;
   const originalSiteUrl = process.env["NEXT_PUBLIC_SITE_URL"];
 
+  beforeEach(() => {
+    (process.env as Record<string, string | undefined>)["NODE_ENV"] =
+      "production";
+  });
+
   afterEach(() => {
     (process.env as Record<string, string | undefined>)["NODE_ENV"] =
       originalEnv;
@@ -117,7 +122,10 @@ describe("SecurityManager", () => {
     const manager = new SecurityManager(makeConfig());
 
     const result = await manager.processRequest(
-      makeRequest("/api/event/results", { method: "POST" }),
+      makeRequest("/api/event/results", {
+        method: "POST",
+        headers: { "x-forwarded-for": "10.0.0.250" },
+      }),
     );
 
     expect(result.allowed).toBe(true);

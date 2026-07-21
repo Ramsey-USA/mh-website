@@ -48,6 +48,14 @@ function useTimeZone() {
   return "America/Los_Angeles";
 }
 
+function hasLocale(locales, candidate) {
+  return (
+    typeof candidate === "string" &&
+    Array.isArray(locales) &&
+    locales.includes(candidate)
+  );
+}
+
 module.exports = {
   useTranslations,
   useFormatter,
@@ -55,6 +63,7 @@ module.exports = {
   useMessages,
   useNow,
   useTimeZone,
+  hasLocale,
   NextIntlClientProvider: passthroughChildren,
   IntlProvider: passthroughChildren,
 };

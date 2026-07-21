@@ -180,8 +180,8 @@ const TRUST_SURFACE_CONTRACTS = [
     ],
   },
   {
-    relPath: "src/components/layout/Footer.tsx",
-    requiredSnippets: ["footer-accreditations-heading", "WaVobBadge"],
+    relPath: "src/components/navigation/SiteFooter.tsx",
+    requiredSnippets: ["WaVobBadge", "veteranOwnedLabel"],
   },
 ];
 

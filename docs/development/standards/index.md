@@ -30,6 +30,8 @@ Use [Website Guardrails Coverage Map](../../branding/governance/website-guardrai
 - **[Branding Congruency Checklist](./branding-congruency-checklist.md)** — Development companion checks for implementation consistency
 - **[Design System Standards](./design-system-standards.md)** — Implementation standards for design-system consistency and reusable UI decisions
 - **[Design Token Refactoring Summary](./design-token-refactoring-summary.md)** — Token architecture, migration notes, and verification outcomes
+- **[Accessibility Regression Checklist](./accessibility-regression-checklist.md)** — Manual WCAG 2.2 AA checklist and representative route matrix for release validation
+- **[Interaction Inventory (Phase 7.2)](./interaction-inventory-phase7-2.md)** — Keyboard, focus, state, and no-JS behavior inventory for shared interactive surfaces
 - **[Brand Congruency Master Checklist](../../branding/governance/brand-congruency-master-checklist.md)** — Canonical branding merge gate
 
 ## Historical Hero Audit Set

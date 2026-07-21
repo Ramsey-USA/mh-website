@@ -132,6 +132,9 @@ describe("AwardsSection", () => {
     expect(
       screen.getByText(/Veteran Business Enterprise/i),
     ).toBeInTheDocument();
+    expect(
+      screen.getByText(/source-backed approval is complete/i),
+    ).toBeInTheDocument();
   });
 });
 
@@ -177,8 +180,8 @@ describe("LeadershipTeam", () => {
   it("renders team specialty titles", () => {
     const { LeadershipTeam } = require("../LeadershipTeam");
     render(<LeadershipTeam />);
-    expect(screen.getByText("Mission Leadership")).toBeInTheDocument();
-    expect(screen.getByText("Safety Excellence")).toBeInTheDocument();
+    expect(screen.getByText("Leadership Accountability")).toBeInTheDocument();
+    expect(screen.getByText("Safety Discipline")).toBeInTheDocument();
   });
 });
 

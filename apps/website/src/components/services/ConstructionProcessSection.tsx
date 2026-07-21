@@ -201,7 +201,18 @@ export function ConstructionProcessSection({
             >
               {cta.description}
             </p>
-            <div className="flex justify-center">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <Button
+                variant="primary"
+                size="lg"
+                className={`transition-all ${transitionDuration.normal} min-w-65 ${hoverMotion.button}`}
+                asChild
+              >
+                <Link href="/contact">
+                  <MaterialIcon icon="event" size="lg" className="mr-3" />
+                  <span className="font-medium">{cta.contactButton}</span>
+                </Link>
+              </Button>
               <Button
                 variant="secondary"
                 size="lg"

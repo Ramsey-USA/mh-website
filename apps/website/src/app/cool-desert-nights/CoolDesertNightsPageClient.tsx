@@ -13,6 +13,7 @@ import { Button } from "@/components/ui";
 import { StripedBackground } from "@/components/ui/StripedBackground";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { useSmokeBossCampaignStatus } from "@/hooks";
+import { eventPartnerUrls } from "@/lib/data/events";
 
 const NextStepsSection = dynamic(
   () =>
@@ -22,11 +23,6 @@ const NextStepsSection = dynamic(
   { ssr: true },
 );
 
-const chamberScheduleUrl =
-  "https://www.richlandchamber.org/cool-desert-nights/";
-const eventbriteUrl =
-  "https://www.eventbrite.com/e/2026-cool-desert-nights-tickets-1984588946964";
-const kiwanisUrl = "https://kiwanisrichland.org/";
 const panelClass =
   "rounded-2xl border border-gray-200 bg-white/92 shadow-xl backdrop-blur-sm dark:border-white/20 dark:bg-white/5 dark:shadow-2xl";
 const subPanelClass =
@@ -109,7 +105,7 @@ export function CoolDesertNightsPageClient() {
                   asChild
                 >
                   <Link
-                    href={chamberScheduleUrl}
+                    href={eventPartnerUrls.chamberSchedule}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -293,7 +289,7 @@ export function CoolDesertNightsPageClient() {
                 <p className="text-gray-700 dark:text-white/90">
                   {t("overview.localImpact.descriptionPrefix")}{" "}
                   <Link
-                    href={kiwanisUrl}
+                    href={eventPartnerUrls.kiwanis}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={inlineLinkClass}
@@ -448,7 +444,7 @@ export function CoolDesertNightsPageClient() {
                 <p className="mt-3 max-w-3xl text-gray-700 dark:text-white/90">
                   {t("action.description2Prefix")}{" "}
                   <Link
-                    href={chamberScheduleUrl}
+                    href={eventPartnerUrls.chamberSchedule}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={inlineLinkClass}
@@ -495,7 +491,7 @@ export function CoolDesertNightsPageClient() {
                     asChild
                   >
                     <Link
-                      href={eventbriteUrl}
+                      href={eventPartnerUrls.eventbrite}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

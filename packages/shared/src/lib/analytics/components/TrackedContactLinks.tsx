@@ -37,7 +37,6 @@ export function TrackedPhoneLink({
   const handleClick = () => {
     trackClick(trackId, {
       contactType: "phone",
-      phoneNumber: COMPANY_INFO.phone.display,
       ...trackProperties,
     });
   };
@@ -80,7 +79,6 @@ export function TrackedEmailLink({
   const handleClick = () => {
     trackClick(trackId, {
       contactType: "email",
-      emailAddress: COMPANY_INFO.email.main,
       ...trackProperties,
     });
   };

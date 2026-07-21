@@ -34,6 +34,13 @@ describe("PortfolioService", () => {
     ).toBeUndefined();
   });
 
+  it("finds a project by published id", () => {
+    const known = publishedProjects[0]?.id;
+
+    expect(PortfolioService.getProjectById(known || "")).toBeDefined();
+    expect(PortfolioService.getProjectById("missing-id")).toBeUndefined();
+  });
+
   it("filters projects by category and supports the all shortcut", () => {
     const allProjects = PortfolioService.getAllProjects();
     expect(PortfolioService.getProjectsByCategory("all")).toHaveLength(
@@ -110,6 +117,14 @@ describe("PortfolioService", () => {
     );
     expect(stats.categories.sort()).toEqual(
       Array.from(new Set(publishedProjects.map((p) => p.category))).sort(),
+    );
+  });
+
+  it("returns only categories present in the public project selector", () => {
+    expect(PortfolioService.getProjectCategoryIds().sort()).toEqual(
+      Array.from(
+        new Set(publishedProjects.map((project) => project.category)),
+      ).sort(),
     );
   });
 });

@@ -8,6 +8,7 @@ import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponent
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
 import { Card, CardContent, Button } from "@/components/ui";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { cornerRadius } from "@/lib/styles/design-tokens";
 
 export function GovernmentProjectsSection({
@@ -19,6 +20,8 @@ export function GovernmentProjectsSection({
   subtitle: string;
   description: string;
 }) {
+  const universalCtas = getUniversalCtaSet("en");
+
   return (
     <BrandedContentSection
       id="government"
@@ -65,7 +68,7 @@ export function GovernmentProjectsSection({
                   asChild
                 >
                   <Link
-                    href="/public-sector"
+                    href={universalCtas.publicSectorOverview.href}
                     className="inline-flex w-full sm:w-auto"
                   >
                     <MaterialIcon
@@ -73,7 +76,7 @@ export function GovernmentProjectsSection({
                       size="md"
                       className="mr-2"
                     />
-                    View Public/Government Services
+                    {universalCtas.publicSectorOverview.label}
                   </Link>
                 </Button>
               </div>

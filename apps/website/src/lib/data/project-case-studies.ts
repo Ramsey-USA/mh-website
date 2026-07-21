@@ -1,7 +1,13 @@
+import {
+  type ContentGovernanceRecord,
+  isPubliclyVisibleContent,
+} from "@/lib/content/content-governance";
+
 export interface ProjectCaseStudy {
   slug: string;
   projectId: string;
   isPublished?: boolean;
+  governance?: ContentGovernanceRecord;
   title: string;
   metaTitle: string;
   metaDescription: string;
@@ -16,13 +22,33 @@ export interface ProjectCaseStudy {
   technicalSpecs: Record<string, string | number | string[]>;
   safetyMilestones: string[];
   results: string[];
+  evidenceSourceFile?: string;
+  evidenceNotes?: string;
+  reviewStatus?: string;
 }
+
+const DEFAULT_REVIEW_WINDOW = "2027-06-30";
 
 export const projectCaseStudies: ProjectCaseStudy[] = [
   {
     slug: "lcsnw-tri-cities",
     projectId: "proj-006",
     isPublished: false,
+    governance: {
+      stableId: "project-case-study:proj-006",
+      ownerRole: "marketing-manager",
+      lifecycle: "draft",
+      approvalState: "pending",
+      publishState: "internal",
+      nextReviewAt: DEFAULT_REVIEW_WINDOW,
+      sourceReferences: [
+        {
+          sourceType: "internal-record",
+          reference: "project:lcsnw-tri-cities",
+          note: "Story record pending final source ingest.",
+        },
+      ],
+    },
     title: "LCSNW Tri-Cities Office Expansion",
     metaTitle: "LCSNW Tri-Cities Office Expansion | MH Construction",
     metaDescription:
@@ -62,6 +88,23 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     slug: "volm-companies-remodel",
     projectId: "proj-007",
     isPublished: true,
+    governance: {
+      stableId: "project-case-study:proj-007",
+      ownerRole: "marketing-manager",
+      lifecycle: "published",
+      approvalState: "approved",
+      publishState: "public",
+      approvalReference: "Verified public summary",
+      nextReviewAt: DEFAULT_REVIEW_WINDOW,
+      sourceReferences: [
+        {
+          sourceType: "document",
+          reference:
+            "documents/input/project-stories/volm-companies/2026-07_volm-companies-remodel_story_v1.docx",
+          note: "Story record documents ROW19-0275 permit closeout.",
+        },
+      ],
+    },
     title: "Volm Companies Remodel",
     metaTitle:
       "Volm Companies Remodel | Commercial Tenant Improvement in Pasco, WA",
@@ -95,11 +138,33 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Completed tenant-improvement and right-of-way scope with documented permit closeout.",
       "Preserved operational continuity at an active regional distribution site.",
     ],
+    evidenceSourceFile:
+      "documents/input/project-stories/volm-companies/2026-07_volm-companies-remodel_story_v1.docx",
+    evidenceNotes:
+      "Story record documents ROW19-0275 permit closeout, controlled industrial sequencing, and final photography on 2020-02-05.",
+    reviewStatus: "Verified public summary",
   },
   {
     slug: "darigold-pasco-production-facility",
     projectId: "proj-008",
     isPublished: true,
+    governance: {
+      stableId: "project-case-study:proj-008",
+      ownerRole: "marketing-manager",
+      lifecycle: "published",
+      approvalState: "approved",
+      publishState: "public",
+      approvalReference: "Pending verification",
+      nextReviewAt: DEFAULT_REVIEW_WINDOW,
+      sourceReferences: [
+        {
+          sourceType: "document",
+          reference:
+            "documents/input/project-stories/darigold-processing-plant/2026-07_darigold-pasco-production-facility_story_v1.docx",
+          note: "Package-level scope remains pending verification.",
+        },
+      ],
+    },
     title: "Darigold Pasco Production Facility",
     metaTitle: "Darigold Pasco Production Facility | MH Construction",
     metaDescription:
@@ -133,11 +198,33 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Connected field documentation to published project milestones and site context.",
       "Published verification-safe SEO content without overclaiming unverified scope ownership.",
     ],
+    evidenceSourceFile:
+      "documents/input/project-stories/darigold-processing-plant/2026-07_darigold-pasco-production-facility_story_v1.docx",
+    evidenceNotes:
+      "Story record confirms 2025-10-22 exterior closeout documentation while MH package-level scope remains pending verification.",
+    reviewStatus: "Pending verification",
   },
   {
     slug: "franklin-county-coroners-office-morgue",
     projectId: "proj-009",
     isPublished: true,
+    governance: {
+      stableId: "project-case-study:proj-009",
+      ownerRole: "marketing-manager",
+      lifecycle: "published",
+      approvalState: "approved",
+      publishState: "public",
+      approvalReference: "Verified public summary",
+      nextReviewAt: DEFAULT_REVIEW_WINDOW,
+      sourceReferences: [
+        {
+          sourceType: "document",
+          reference:
+            "documents/input/project-stories/franklin-county-morgue/2026-07_franklin-county-coroners-office-morgue_story_v1.docx",
+          note: "Story record confirms RFQ and design milestones.",
+        },
+      ],
+    },
     title: "Franklin County Coroner's Office Morgue",
     metaTitle: "Franklin County Coroner's Office Morgue | MH Construction",
     metaDescription:
@@ -171,11 +258,31 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Reduced reliance on travel for county autopsy and examination procedures.",
       "Improved coordination with law enforcement, funeral-service, and donor-recovery partners.",
     ],
+    evidenceSourceFile:
+      "documents/input/project-stories/franklin-county-morgue/2026-07_franklin-county-coroners-office-morgue_story_v1.docx",
+    evidenceNotes:
+      "Story record confirms the RFQ and design milestones, 2025-09-01 completion, and the 2025-10-29 public opening.",
+    reviewStatus: "Verified public summary",
   },
   {
     slug: "auto-lot-nw",
     projectId: "proj-010",
     isPublished: true,
+    governance: {
+      stableId: "project-case-study:proj-010",
+      ownerRole: "marketing-manager",
+      lifecycle: "published",
+      approvalState: "approved",
+      publishState: "public",
+      nextReviewAt: DEFAULT_REVIEW_WINDOW,
+      sourceReferences: [
+        {
+          sourceType: "internal-record",
+          reference: "project:auto-lot-nw",
+          note: "Legacy record pending external story document linkage.",
+        },
+      ],
+    },
     title: "The Auto Lot",
     metaTitle:
       "The Auto Lot Dealership Project | Kennewick, WA | MH Construction",
@@ -213,11 +320,25 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
 ];
 
 function isCaseStudyPublished(project: ProjectCaseStudy): boolean {
+  if (project.governance && !isPubliclyVisibleContent(project.governance)) {
+    return false;
+  }
+
   return project.isPublished !== false;
+}
+
+export function getPublishedProjectCaseStudies(): ProjectCaseStudy[] {
+  return projectCaseStudies.filter((project) => isCaseStudyPublished(project));
 }
 
 export function getProjectCaseStudyBySlug(slug: string) {
   return projectCaseStudies.find((project) => project.slug === slug);
+}
+
+export function getPublishedProjectCaseStudyBySlug(slug: string) {
+  return getPublishedProjectCaseStudies().find(
+    (project) => project.slug === slug,
+  );
 }
 
 export function getProjectCaseStudySlugs(): string[] {
@@ -225,7 +346,5 @@ export function getProjectCaseStudySlugs(): string[] {
 }
 
 export function getPublishedProjectCaseStudySlugs(): string[] {
-  return projectCaseStudies
-    .filter((project) => isCaseStudyPublished(project))
-    .map((project) => project.slug);
+  return getPublishedProjectCaseStudies().map((project) => project.slug);
 }

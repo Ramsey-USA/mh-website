@@ -4,7 +4,6 @@ import {
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 import { redirect } from "next/navigation";
-import { getServerLocale } from "@/lib/i18n/locale.server";
 
 export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyProgram.seoName, PAGE_TERMINOLOGY.safetyProgram.mhBrandName)} | MH Construction`,
@@ -19,7 +18,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function SafetyIntakePage() {
-  const isEs = (await getServerLocale()) === "es";
-  redirect(isEs ? "/es/safety" : "/safety");
+export default function SafetyIntakePage() {
+  redirect("/safety");
 }

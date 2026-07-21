@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import { PageTrackingClient } from "@/components/analytics";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -11,12 +11,14 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { Button, Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { createOgImageUrl } from "@/lib/seo/og-image";
 import {
-  getProjectCaseStudyBySlug,
+  getPublishedProjectCaseStudyBySlug,
   getPublishedProjectCaseStudySlugs,
 } from "@/lib/data/project-case-studies";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { PortfolioService } from "@/lib/services/portfolio-service";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import {
   formatDualPageName,
@@ -139,16 +141,12 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const caseStudy = getProjectCaseStudyBySlug(slug);
-  const projectBySlug = PortfolioService.getProjectBySlug(slug);
-  const projectById = projectBySlug
-    ? undefined
-    : PortfolioService.getAllProjects().find(
-        (item) => item.id.toLowerCase() === slug.toLowerCase(),
-      );
-  const project = projectBySlug ?? projectById;
+  const caseStudy = getPublishedProjectCaseStudyBySlug(slug);
+  const project = caseStudy
+    ? PortfolioService.getProjectById(caseStudy.projectId)
+    : undefined;
 
-  if (!caseStudy && !project) {
+  if (!caseStudy) {
     return {
       title: `${formatDualPageName(PAGE_TERMINOLOGY.projects.seoName, PAGE_TERMINOLOGY.projects.mhBrandName)} | MH Construction`,
       description:
@@ -182,42 +180,7 @@ export async function generateMetadata({
       ...(project?.location.state ? [project.location.state] : []),
     ]),
   );
-  const openGraphImage =
-    caseStudy?.ogImage ??
-    project?.images.find((image) => image.isFeatured)?.url ??
-    project?.images[0]?.url ??
-    "/images/projects/project-default.webp";
-
-  if (caseStudy?.isPublished === false) {
-    return {
-      title,
-      description,
-      keywords: projectKeywords,
-      alternates: {
-        canonical: `${SITE_URL}/projects/${canonicalSlug}`,
-      },
-      openGraph: {
-        title,
-        description,
-        url: `${SITE_URL}/projects/${canonicalSlug}`,
-        type: "article",
-        images: [
-          {
-            url: `${SITE_URL}${openGraphImage}`,
-            alt: `${project?.title ?? caseStudy?.title ?? "Project"} case study`,
-          },
-        ],
-      },
-      twitter: {
-        card: "summary_large_image",
-        title,
-        description,
-        creator: "@mhc_gc",
-        images: [`${SITE_URL}${openGraphImage}`],
-      },
-      robots: { index: false, follow: false },
-    };
-  }
+  const ogImageUrl = createOgImageUrl("project", canonicalSlug);
 
   return {
     title,
@@ -233,7 +196,7 @@ export async function generateMetadata({
       type: "article",
       images: [
         {
-          url: `${SITE_URL}${openGraphImage}`,
+          url: ogImageUrl,
           alt: `${project?.title ?? caseStudy?.title ?? "Project"} case study`,
         },
       ],
@@ -243,7 +206,7 @@ export async function generateMetadata({
       title,
       description,
       creator: "@mhc_gc",
-      images: [`${SITE_URL}${openGraphImage}`],
+      images: [ogImageUrl],
     },
     robots: { index: true, follow: true },
   };
@@ -254,27 +217,15 @@ export default async function ProjectCaseStudyPage({
 }: Readonly<{
   params: Promise<{ slug: string }>;
 }>) {
+  const universalCtas = getUniversalCtaSet("en");
   const { slug } = await params;
-  const caseStudy = getProjectCaseStudyBySlug(slug);
-  const projectFromCaseStudy = caseStudy
-    ? PortfolioService.getAllProjects().find(
-        (item) => item.id === caseStudy.projectId,
-      )
-    : undefined;
-  const projectBySlug = PortfolioService.getProjectBySlug(slug);
-  const project = projectFromCaseStudy ?? projectBySlug;
-  const legacyProject = project
-    ? undefined
-    : PortfolioService.getAllProjects().find(
-        (item) => item.id.toLowerCase() === slug.toLowerCase(),
-      );
-  const hasProjectContext = Boolean(caseStudy || project || legacyProject);
+  const caseStudy = getPublishedProjectCaseStudyBySlug(slug);
 
-  if (!hasProjectContext) {
+  if (!caseStudy) {
     notFound();
   }
 
-  const selectedProject = project ?? legacyProject;
+  const selectedProject = PortfolioService.getProjectById(caseStudy.projectId);
   const title =
     caseStudy?.title ?? selectedProject?.title ?? "Project Case Study";
   const description =
@@ -303,10 +254,6 @@ export default async function ProjectCaseStudyPage({
         : [];
   const featuredProjectImage = galleryImages[0];
   const supportingGalleryImages = galleryImages.slice(1, 5);
-
-  if (legacyProject && canonicalSlug && slug !== canonicalSlug) {
-    redirect(`/projects/${canonicalSlug}`);
-  }
 
   const location = caseStudy?.location ?? {
     city: selectedProject?.location.city ?? "Unknown",
@@ -665,7 +612,9 @@ export default async function ProjectCaseStudyPage({
                   the planning conversation.
                 </p>
                 <Button asChild className="mt-5 w-full">
-                  <Link href="/contact">Contact the team</Link>
+                  <Link href={universalCtas.caseStudy.href}>
+                    {universalCtas.caseStudy.label}
+                  </Link>
                 </Button>
               </Card>
             </aside>

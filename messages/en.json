@@ -106,6 +106,14 @@
         "storyTitle": "Our story",
         "storyP1": "Since 2010, we have worked alongside owners, operators, and design teams to deliver projects with practical planning and steady coordination.",
         "storyP2": "Today we continue that standard with veteran-owned leadership, Procore-based mission administration, and scope control for agricultural and winery facilities, mission-ready fit-outs, and municipal projects. Built on Quality, Backed by Trust.",
+        "servesTitle": "Who we serve",
+        "servesBody": "We support project stakeholders who need accountable planning, direct communication, and dependable delivery in active environments.",
+        "servesItems": [
+          "Commercial owners and operators managing active facilities",
+          "Agricultural and winery stakeholders balancing production windows",
+          "Municipal and public-sector teams with compliance and continuity requirements",
+          "Design and engineering partners coordinating complex schedules"
+        ],
         "focusTitle": "What we do",
         "focusItems": [
           "General contracting for new facilities and occupied sites",
@@ -117,16 +125,18 @@
         "leadershipBody": "Our leadership model stays simple: clear decisions, direct communication, and full accountability from predeployment through handoff. Driven by Discipline. Defined by Results.",
         "profileCta": "View Jeremy's Profile",
         "viewTeamCta": "View Team",
-        "snapshotTitle": "Performance snapshot",
-        "snapshot": {
-          "emr": "Award-winning safety EMR",
-          "experience": "Years combined experience",
-          "projects": "Successful projects",
-          "states": "States licensed and insured"
-        },
+        "detailsCta": "View detailed capabilities and timeline",
+        "sourceMapTitle": "Where each record is maintained",
+        "sourceMapBody": "To prevent duplicate biographies and unsupported claims, About links to each authoritative source instead of repeating full profile details.",
+        "sourceHistory": "Company history and capability timeline - /about/details",
+        "sourceLeadership": "Individual leadership proof and verified links - /jeremy-thamert",
+        "sourceTeam": "Approved active team records - /team",
         "safetyTitle": "Safety and compliance",
         "safetyBody": "Safety is embedded into daily operations. We maintain documented controls, practical field planning, and continuity for active facilities.",
-        "safetyCta": "View safety information",
+        "safetyCta": "View safety standards and resources",
+        "communityTitle": "Community commitment",
+        "communityBody": "We strengthen regional capacity through local partnerships, workforce development, and long-term stewardship across Washington, Oregon, and Idaho.",
+        "communityCta": "Explore careers and community pathways",
         "valuePills": {
           "honesty": "Honesty",
           "integrity": "Integrity",
@@ -640,6 +650,16 @@
           "label": "Careers",
           "description": "Career opportunities",
           "ariaLabel": "Explore career opportunities at MH Construction"
+        },
+        "publicSector": {
+          "label": "Public Sector",
+          "description": "Government and municipal delivery",
+          "ariaLabel": "Route to public sector construction services"
+        },
+        "safety": {
+          "label": "Safety",
+          "description": "Training, forms, and compliance routes",
+          "ariaLabel": "Route to safety resources and forms"
         }
       }
     },
@@ -669,6 +689,74 @@
         "washingtonLabel": "Washington State",
         "oregonLabel": "Oregon",
         "idahoLabel": "Idaho"
+      }
+    },
+    "routing": {
+      "title": "Route Your Request to the Right Team",
+      "description": "Use one primary project inquiry form for commercial and private projects, and use dedicated routes for public-sector, trade partner, and career inquiries.",
+      "projectRoute": "Start a commercial or private project inquiry",
+      "publicSectorRoute": "Discuss public-sector work",
+      "alliesRoute": "Reach Trade Partners",
+      "careersRoute": "View Careers",
+      "safetyRoute": "Use Safety routes only for safety documentation and reporting"
+    },
+    "form": {
+      "title": "Primary Project Inquiry",
+      "description": "Share core project details so our team can align scope, timeline, and next steps.",
+      "dataNotice": "This form is for project inquiries only. Do not include sensitive personal information.",
+      "submit": "Submit Project Inquiry",
+      "subjectLine": "Project Inquiry",
+      "success": "Thanks. Your project inquiry was submitted successfully.",
+      "successOffline": "You are offline. Your inquiry was saved and will send when your connection returns.",
+      "fields": {
+        "contactName": "Primary contact name",
+        "organization": "Organization",
+        "email": "Email address",
+        "phone": "Phone number",
+        "projectType": "Project type",
+        "projectLocation": "Project location",
+        "timingRange": "Preferred timing",
+        "budgetRange": "Budget range",
+        "budgetHelper": "Optional, but helpful for early alignment.",
+        "preferredResponse": "Preferred response method",
+        "scopeSummary": "Project scope summary"
+      },
+      "projectTypes": {
+        "commercial": "Commercial construction",
+        "tenantImprovements": "Tenant improvements",
+        "lightIndustrial": "Light industrial",
+        "agWinery": "Agricultural / winery",
+        "publicSector": "Public sector"
+      },
+      "timingRanges": {
+        "zeroToThirty": "0-30 days",
+        "oneToThree": "1-3 months",
+        "threeToSix": "3-6 months",
+        "sixPlus": "6+ months"
+      },
+      "budgetRanges": {
+        "notProvided": "Budget not provided",
+        "under250": "Early-stage scope",
+        "twoFiftyToOne": "Defined scope",
+        "oneToFive": "Multi-phase scope",
+        "fivePlus": "Large program scope"
+      },
+      "responseMethods": {
+        "email": "Email",
+        "phone": "Phone",
+        "either": "Either"
+      },
+      "errors": {
+        "summary": "Please correct the highlighted fields and try again.",
+        "contactName": "Please provide a contact name.",
+        "emailRequired": "Please provide an email address.",
+        "emailInvalid": "Please enter a valid email address.",
+        "projectType": "Please select a project type.",
+        "projectLocation": "Please provide a project location.",
+        "timingRange": "Please select a preferred timing.",
+        "preferredResponse": "Please select a preferred response method.",
+        "scopeSummary": "Please provide a project scope summary.",
+        "submitFailed": "We could not submit your inquiry right now. Please try again or call us directly."
       }
     }
   },
@@ -2202,5 +2290,118 @@
         "featured": true
       }
     ]
+  },
+  "siteHeader": {
+    "navLabel": "Primary",
+    "mobileMenuLabel": "Menu",
+    "openMenuLabel": "Open primary navigation",
+    "closeMenuLabel": "Close primary navigation",
+    "moreLabel": "More",
+    "ctaLabel": "Discuss Your Project",
+    "phoneShortcutLabel": "Call",
+    "brandStatement": "Veteran Owned \\u2022 Licensed WA OR ID",
+    "homeAriaLabel": "MH Construction home",
+    "utilityBar": {
+      "utilityLabel": "Utility links",
+      "callLabel": "Call",
+      "locationLabel": "Serving",
+      "contactLinkLabel": "Contact"
+    },
+    "locale": {
+      "currentLanguageLabel": "Language",
+      "switcherLabel": "Switch language",
+      "english": "English",
+      "spanish": "Spanish"
+    },
+    "nav": {
+      "services": "Services",
+      "projects": "Projects",
+      "publicSector": "Public Sector",
+      "about": "About MH",
+      "contact": "Contact",
+      "events": "Events",
+      "resources": "Resources",
+      "careers": "Careers",
+      "safety": "Safety",
+      "tradePartners": "Trade Partners",
+      "veterans": "Veterans",
+      "team": "Team",
+      "podcast": "Podcast"
+    }
+  },
+  "siteFooter": {
+    "homeAriaLabel": "MH Construction home",
+    "brandDescriptor": "Veteran-owned general contractor serving Washington, Oregon, and Idaho.",
+    "veteranOwnedLabel": "Veteran Owned",
+    "ctaLabel": "Discuss Your Project",
+    "servicesMarketsHeading": "Services & Markets",
+    "companyProofHeading": "Company & Proof",
+    "resourcesCommunityHeading": "Resources & Community",
+    "contactHeading": "Contact & Service Area",
+    "contactDescriptor": "Based in Pasco, Washington with service coverage across Washington, Oregon, and Idaho.",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "addressLabel": "Office",
+    "serviceAreaLabel": "Service area",
+    "primaryRegionLabel": "Primary region",
+    "legalNavLabel": "Legal",
+    "htmlSitemapLabel": "HTML Sitemap",
+    "copyrightLabel": "All rights reserved."
+  },
+  "sitemapPage": {
+    "metadata": {
+      "description": "Browse canonical MH Construction page paths and localized route availability."
+    },
+    "title": "Sitemap",
+    "description": "Browse canonical MH Construction pages. Locale rendering is handled on shared route URLs.",
+    "viewLink": "View",
+    "localeBadge": {
+      "bilingual": "EN/ES",
+      "englishOnly": "EN"
+    },
+    "sections": {
+      "core": "Core Pages",
+      "services": "Services",
+      "projects": "Projects",
+      "locations": "Locations",
+      "resources": "Resources",
+      "trust": "Trust & Credentials",
+      "legal": "Legal",
+      "events": "Events"
+    }
+  },
+  "statusStates": {
+    "error": {
+      "heading": "Something went wrong",
+      "message": "We ran into an issue loading this page. Try again, or continue to a stable page while we recover.",
+      "tryAgain": "Try Again",
+      "goHome": "Go Home",
+      "contact": "Contact Support"
+    }
+  },
+  "notFoundPage": {
+    "title": "Page Not Found",
+    "description": "The page you requested is unavailable. It may have moved, been retired, or never existed in this environment.",
+    "helpText": "If you are evaluating services or prequalification details, use the quick links below to continue without losing context.",
+    "navigationLabel": "Not found page navigation",
+    "servicesCta": "View Services",
+    "projectsCta": "View Projects",
+    "contactCta": "Contact",
+    "homeCta": "Back to Home",
+    "quickLinksTitle": "Need a direct route?",
+    "quickLinks": {
+      "about": "About Us",
+      "projects": "Projects",
+      "team": "Team",
+      "contact": "Contact"
+    }
+  },
+  "qrCodesPage": {
+    "unavailable": {
+      "title": "QR Library Temporarily Unavailable",
+      "body": "The QR manifest is not available in this runtime, so image cards are temporarily hidden. You can still access core documents from Resources or request a direct file path from our team.",
+      "resourcesCta": "Go to Resources",
+      "contactCta": "Contact Our Team"
+    }
   }
 }

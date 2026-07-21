@@ -1,6 +1,13 @@
 import { type ReactNode } from "react";
 import { WaVobBadge } from "@/components/ui/WaVobBadge";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getApprovedClaimOrFallback } from "@/lib/content/claims";
+
+const bbbClaimLabel = getApprovedClaimOrFallback({
+  id: "bbb_accredited_a_plus",
+  context: "trust-surface",
+  fallback: "BBB accreditation status",
+});
 
 interface AccreditationsLogoRowProps {
   /**
@@ -41,13 +48,13 @@ export function AccreditationsLogoRow({
         href={COMPANY_INFO.bbb.sealClickUrl}
         target="_blank"
         rel="noopener noreferrer"
-        title="BBB Accredited Business - A+ Rating"
+        title={bbbClaimLabel}
         className={linkClass}
       >
         {/* Light-mode seal — dimensions match the URL pattern (200×42) */}
         <img
           src={COMPANY_INFO.bbb.sealHorizontal}
-          alt="BBB Accredited Business A+ Rating"
+          alt={bbbClaimLabel}
           width={200}
           height={42}
           loading="lazy"
@@ -57,7 +64,7 @@ export function AccreditationsLogoRow({
         {/* Dark-mode seal */}
         <img
           src={COMPANY_INFO.bbb.sealHorizontalWhite}
-          alt="BBB Accredited Business A+ Rating"
+          alt={bbbClaimLabel}
           width={200}
           height={42}
           loading="lazy"

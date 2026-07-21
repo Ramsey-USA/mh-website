@@ -19,15 +19,17 @@ describe("CompanyStats", () => {
   it("renders all default stat labels", () => {
     render(<CompanyStats />);
     expect(screen.getByText("Award-Winning Safety EMR")).toBeInTheDocument();
-    expect(screen.getByText("Years Combined Experience")).toBeInTheDocument();
     expect(screen.getByText("States Licensed & Insured")).toBeInTheDocument();
+    expect(
+      screen.queryByText("Years Combined Experience"),
+    ).not.toBeInTheDocument();
   });
 
   it("renders formatted values for animated stats", () => {
     render(<CompanyStats />);
     expect(screen.getByText("0.64")).toBeInTheDocument();
-    expect(screen.getByText("150+")).toBeInTheDocument();
-    expect(screen.getByText("650+")).toBeInTheDocument();
+    expect(screen.queryByText("150+")).not.toBeInTheDocument();
+    expect(screen.queryByText("650+")).not.toBeInTheDocument();
   });
 
   it("renders raw value for non-animated stat", () => {
@@ -60,5 +62,8 @@ describe("CompanyStats", () => {
 
   it("exports companyStats default data with expected count", () => {
     expect(companyStats.length).toBeGreaterThanOrEqual(4);
+    expect(
+      companyStats.filter((entry) => entry.isPublic !== false),
+    ).toHaveLength(2);
   });
 });

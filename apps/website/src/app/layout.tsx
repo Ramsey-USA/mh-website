@@ -6,9 +6,9 @@ import { NextIntlClientProvider } from "next-intl";
 import "./globals.css";
 import "../../../../packages/shared/src/styles/material-icons.css";
 import { AppShell } from "@/components/layout/AppShell";
+import Footer from "@/components/layout/Footer";
 import FaviconLinks from "@/components/layout/FaviconLinks";
 import { ThemeProvider } from "@/contexts/theme-context";
-import { ErrorBoundary } from "@/components/error";
 import { SentryInit } from "@/components/monitoring/SentryInit";
 import { SentryTestButton } from "@/components/monitoring/SentryTestButton";
 import ChatWidgetLazy from "@/components/chatbot/ChatWidgetLazy";
@@ -16,7 +16,6 @@ import { DeferredPerformanceEnhancements } from "@/components/performance/Deferr
 import {
   StructuredData,
   generateEnhancedOrganizationSchema,
-  generateJeremyLeadershipVideoSchema,
   generateJeremyPersonSchema,
   generateWebsiteSchema,
 } from "@/components/seo/SeoMeta";
@@ -26,15 +25,24 @@ import { GoogleAnalytics } from "@/lib/analytics/components/GoogleAnalytics";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { buildDualSeoTitle, MH_SLOGANS } from "@/lib/branding/page-names";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
-import {
-  DEFAULT_LOCALE,
-  LOCALE_COOKIE_NAME,
-  SUPPORTED_LOCALES,
-} from "@/lib/i18n/locale";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { getMessages } from "next-intl/server";
 import { getAllJeremyRibbons } from "@/lib/content/jeremy-ribbons";
 import { getIndividualBrandingStamp } from "@/lib/content/individual-branding-stamps";
+import { mendlFontVariableClasses } from "@/lib/fonts";
+import { getApprovedClaimOrFallback } from "@/lib/content/claims";
+
+const veteranOwnedClaim = getApprovedClaimOrFallback({
+  id: "veteran_owned_since_2025",
+  context: "metadata",
+  fallback: "veteran-owned leadership",
+});
+
+const triStateLicenseClaim = getApprovedClaimOrFallback({
+  id: "tri_state_licensed_wa_or_id",
+  context: "metadata",
+  fallback: "Tri-State licensed contractor",
+});
 
 const SEARCH_ENGINE_VERIFICATION_OTHER = Object.fromEntries(
   [
@@ -45,6 +53,28 @@ const SEARCH_ENGINE_VERIFICATION_OTHER = Object.fromEntries(
     ],
   ].filter((entry): entry is [string, string] => Boolean(entry[1])),
 );
+
+const CLIENT_MESSAGE_NAMESPACES = new Set([
+  "careersPage",
+  "common",
+  "contact",
+  "coolDesertNightsPage",
+  "home",
+  "projectsPageShell",
+  "siteFooter",
+  "siteHeader",
+  "statusStates",
+  "testimonialGrid",
+  "testimonialsData",
+]);
+
+function pickClientMessages(messages: Record<string, unknown>) {
+  return Object.fromEntries(
+    Object.entries(messages).filter(([key]) =>
+      CLIENT_MESSAGE_NAMESPACES.has(key),
+    ),
+  );
+}
 
 export const metadata: Metadata = withGeoMetadata({
   metadataBase: new URL(
@@ -88,7 +118,9 @@ export const metadata: Metadata = withGeoMetadata({
     "general contractor Kennewick WA",
     "construction services",
     "veteran-owned construction leadership",
+    veteranOwnedClaim,
     "Tri-State licensed contractor",
+    triStateLicenseClaim,
     "transparent construction partnerships",
     "client partner construction communication",
     "construction project management",
@@ -219,7 +251,9 @@ export default async function RootLayout({
 }>) {
   const requestHeaders = await headers();
   const locale = await getServerLocale();
-  const messages = await getMessages();
+  const messages = pickClientMessages(await getMessages({ locale })) as Awaited<
+    ReturnType<typeof getMessages>
+  >;
   const isProduction = process.env.NODE_ENV === "production";
   const isLighthouseAudit = /Chrome-Lighthouse/i.test(
     requestHeaders.get("user-agent") ?? "",
@@ -227,7 +261,10 @@ export default async function RootLayout({
   const enableRuntimeEnhancements = isProduction && !isLighthouseAudit;
 
   return (
-    <html lang={locale} className="dark" suppressHydrationWarning>
+    <html
+      lang={locale}
+      className={["dark", mendlFontVariableClasses].filter(Boolean).join(" ")}
+    >
       <head>
         <FaviconLinks />
         <Script
@@ -289,21 +326,6 @@ export default async function RootLayout({
           </>
         ) : null}
         <link rel="author" href="https://www.mhc-gc.com/jeremy-thamert" />
-        <Script
-          id="set-html-lang-from-cookie"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(() => {
-              const escapeRegex = (value) => value.replace(/[.*+?^$()|[\\]{}\\\\]/g, "\\\\$&");
-              const localeCookieName = ${JSON.stringify(LOCALE_COOKIE_NAME)};
-              const localePattern = new RegExp(\`(?:^|;\\\\s*)\${escapeRegex(localeCookieName)}=([^;]+)\`);
-              const match = document.cookie.match(localePattern);
-              const supportedLocales = ${JSON.stringify(SUPPORTED_LOCALES)};
-              const locale = match && supportedLocales.includes(match[1]) ? match[1] : ${JSON.stringify(DEFAULT_LOCALE)};
-              document.documentElement.lang = locale;
-            })();`,
-          }}
-        />
         {!isProduction || isLighthouseAudit ? (
           <Script
             id="clear-sw-cache-for-dev-and-lighthouse"
@@ -335,7 +357,6 @@ export default async function RootLayout({
             data={[
               generateEnhancedOrganizationSchema(),
               generateJeremyPersonSchema(),
-              generateJeremyLeadershipVideoSchema(),
               generateWebsiteSchema(),
             ]}
           />
@@ -353,15 +374,14 @@ export default async function RootLayout({
         {enableRuntimeEnhancements ? <DeferredPerformanceEnhancements /> : null}
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider defaultTheme="dark" storageKey="mh-construction-theme">
-            <ErrorBoundary>
-              <AppShell
-                jeremyRibbons={getAllJeremyRibbons()}
-                jeremyStamp={getIndividualBrandingStamp("jeremy-thamert")}
-              >
-                {children}
-              </AppShell>
-              {!isLighthouseAudit ? <ChatWidgetLazy /> : null}
-            </ErrorBoundary>
+            <AppShell
+              footer={<Footer />}
+              jeremyRibbons={getAllJeremyRibbons()}
+              jeremyStamp={getIndividualBrandingStamp("jeremy-thamert")}
+            >
+              {children}
+            </AppShell>
+            {!isLighthouseAudit ? <ChatWidgetLazy /> : null}
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

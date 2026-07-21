@@ -16,6 +16,7 @@ Always enforce:
 6. Client-safe terminology: avoid hard dollar thresholds and market-trader phrasing in client-facing copy; prefer project-type, scope-fit, and delivery-path wording.
 7. Global Jeremy leadership ribbon contract: every public page must render one consistent Jeremy quote ribbon directly above the footer, using route-specific copy from `apps/website/src/content/jeremy-page-ribbons.md`.
 8. Single-source ribbon behavior: do not duplicate per-page ribbon implementations when the shared above-footer ribbon is active.
+9. Primary language pattern: lead with construction terminology first; position veteran field standards second as supporting credibility/context.
 
 Never:
 

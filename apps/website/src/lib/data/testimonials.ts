@@ -6,6 +6,8 @@
  * careersPage.data.employeeTestimonials) to preserve EN/ES parity.
  */
 
+import type { ContentGovernanceRecord } from "@/lib/content/content-governance";
+
 export interface Testimonial {
   id: string;
   name: string;
@@ -24,7 +26,7 @@ export interface Testimonial {
   videoUrl?: string;
   /** Pre-sized social card (1080×1080 px) — /images/social/testimonials/[id].webp */
   socialCard?: string;
-  type: "client" | "employee" | "veteran";
+  type: "stakeholder" | "employee" | "veteran";
   category?: string; // commercial, industrial, healthcare, etc.
   featured?: boolean;
   date?: string; // When testimonial was given
@@ -35,4 +37,78 @@ export interface Testimonial {
   publishedAt?: string;
   /** Which platforms this testimonial was published to */
   platforms?: ("facebook" | "instagram" | "linkedin" | "twitter")[];
+  governance?: ContentGovernanceRecord;
+}
+
+const TESTIMONIAL_GOVERNANCE: ContentGovernanceRecord = {
+  stableId: "testimonials:runtime-message-catalog",
+  ownerRole: "marketing-manager",
+  lifecycle: "published",
+  approvalState: "approved",
+  publishState: "public",
+  approvalReference: "Localized testimonial content approval",
+  nextReviewAt: "2027-06-30",
+  sourceReferences: [
+    {
+      sourceType: "internal-record",
+      reference: "messages/en.json:testimonialsData.clientTestimonials",
+    },
+    {
+      sourceType: "internal-record",
+      reference: "messages/en.json:careersPage.data.employeeTestimonials",
+    },
+  ],
+};
+
+export type TestimonialSource = Omit<Testimonial, "type">;
+
+export type StakeholderTestimonialSource = Pick<
+  TestimonialSource,
+  | "id"
+  | "name"
+  | "location"
+  | "project"
+  | "company"
+  | "rating"
+  | "quote"
+  | "featured"
+  | "date"
+  | "image"
+  | "category"
+>;
+
+export type EmployeeTestimonialSource = Pick<
+  TestimonialSource,
+  | "id"
+  | "name"
+  | "title"
+  | "role"
+  | "quote"
+  | "rating"
+  | "featured"
+  | "date"
+  | "veteranStatus"
+>;
+
+export function withTestimonialType<T extends TestimonialSource>(
+  testimonials: T[],
+  type: Testimonial["type"],
+): Array<T & Pick<Testimonial, "type" | "governance">> {
+  return testimonials.map((testimonial) => ({
+    ...testimonial,
+    type,
+    governance: TESTIMONIAL_GOVERNANCE,
+  }));
+}
+
+export function normalizeStakeholderTestimonials(
+  testimonials: StakeholderTestimonialSource[],
+) {
+  return withTestimonialType(testimonials, "stakeholder");
+}
+
+export function normalizeEmployeeTestimonials(
+  testimonials: EmployeeTestimonialSource[],
+) {
+  return withTestimonialType(testimonials, "employee");
 }

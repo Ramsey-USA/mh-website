@@ -1,9 +1,16 @@
 "use client";
 
+import { useRef, useState, type FormEvent } from "react";
 import dynamic from "next/dynamic";
 import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
 import { Card } from "@/components/ui";
+import {
+  FormInput,
+  FormSelect,
+  FormTextarea,
+  FormWrapper,
+} from "@/components/forms/FormWrapper";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   DiagonalStripePattern,
@@ -14,6 +21,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { saveOfflineSubmission } from "@/lib/pwa/offline-queue";
 import { PWAOnly } from "@/components/pwa";
 import { useTranslations } from "next-intl";
 
@@ -76,6 +84,14 @@ const buildMainCTAs = (t: ReturnType<typeof useTranslations>) => [
     ariaLabel: t("contact.options.cards.projects.ariaLabel"),
   },
   {
+    icon: "account_balance",
+    label: t("contact.options.cards.publicSector.label"),
+    description: t("contact.options.cards.publicSector.description"),
+    link: "/public-sector",
+    variant: "secondary" as const,
+    ariaLabel: t("contact.options.cards.publicSector.ariaLabel"),
+  },
+  {
     icon: "diversity_3",
     label: t("contact.options.cards.team.label"),
     description: t("contact.options.cards.team.description"),
@@ -91,7 +107,28 @@ const buildMainCTAs = (t: ReturnType<typeof useTranslations>) => [
     variant: "secondary" as const,
     ariaLabel: t("contact.options.cards.careers.ariaLabel"),
   },
+  {
+    icon: "health_and_safety",
+    label: t("contact.options.cards.safety.label"),
+    description: t("contact.options.cards.safety.description"),
+    link: "/safety",
+    variant: "secondary" as const,
+    ariaLabel: t("contact.options.cards.safety.ariaLabel"),
+  },
 ];
+
+type InquiryFormData = {
+  contactName: string;
+  organization: string;
+  email: string;
+  phone: string;
+  projectType: string;
+  projectLocation: string;
+  timingRange: string;
+  budgetRange: string;
+  preferredResponse: string;
+  scopeSummary: string;
+};
 
 export default function ContactPageClient({
   enableTelemetry = true,
@@ -101,6 +138,205 @@ export default function ContactPageClient({
   const officeEmail = COMPANY_INFO.email.main;
   const quickContact = buildQuickContact(t);
   const mainCTAs = buildMainCTAs(t);
+  const [formData, setFormData] = useState<InquiryFormData>({
+    contactName: "",
+    organization: "",
+    email: "",
+    phone: "",
+    projectType: "",
+    projectLocation: "",
+    timingRange: "",
+    budgetRange: "",
+    preferredResponse: "",
+    scopeSummary: "",
+  });
+  const [fieldErrors, setFieldErrors] = useState<Partial<InquiryFormData>>({});
+  const [submitError, setSubmitError] = useState("");
+  const [submitSuccess, setSubmitSuccess] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const errorSummaryRef = useRef<HTMLDivElement | null>(null);
+  const submitLockRef = useRef(false);
+
+  const projectTypeOptions = [
+    {
+      value: "commercial-construction",
+      label: t("contact.form.projectTypes.commercial"),
+    },
+    {
+      value: "tenant-improvements",
+      label: t("contact.form.projectTypes.tenantImprovements"),
+    },
+    {
+      value: "light-industrial",
+      label: t("contact.form.projectTypes.lightIndustrial"),
+    },
+    { value: "ag-winery", label: t("contact.form.projectTypes.agWinery") },
+    {
+      value: "public-sector",
+      label: t("contact.form.projectTypes.publicSector"),
+    },
+  ];
+
+  const timingOptions = [
+    { value: "0-30-days", label: t("contact.form.timingRanges.zeroToThirty") },
+    { value: "1-3-months", label: t("contact.form.timingRanges.oneToThree") },
+    { value: "3-6-months", label: t("contact.form.timingRanges.threeToSix") },
+    { value: "6-plus-months", label: t("contact.form.timingRanges.sixPlus") },
+  ];
+
+  const budgetOptions = [
+    { value: "", label: t("contact.form.budgetRanges.notProvided") },
+    { value: "under-250k", label: t("contact.form.budgetRanges.under250") },
+    { value: "250k-1m", label: t("contact.form.budgetRanges.twoFiftyToOne") },
+    { value: "1m-5m", label: t("contact.form.budgetRanges.oneToFive") },
+    { value: "5m-plus", label: t("contact.form.budgetRanges.fivePlus") },
+  ];
+
+  const responseOptions = [
+    { value: "email", label: t("contact.form.responseMethods.email") },
+    { value: "phone", label: t("contact.form.responseMethods.phone") },
+    { value: "either", label: t("contact.form.responseMethods.either") },
+  ];
+
+  function validate(values: InquiryFormData): Partial<InquiryFormData> {
+    const errors: Partial<InquiryFormData> = {};
+    if (!values.contactName.trim()) {
+      errors.contactName = t("contact.form.errors.contactName");
+    }
+    if (!values.email.trim()) {
+      errors.email = t("contact.form.errors.emailRequired");
+    }
+    if (
+      values.email.trim() &&
+      !/^[a-z0-9._+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(values.email)
+    ) {
+      errors.email = t("contact.form.errors.emailInvalid");
+    }
+    if (!values.projectType) {
+      errors.projectType = t("contact.form.errors.projectType");
+    }
+    if (!values.projectLocation.trim()) {
+      errors.projectLocation = t("contact.form.errors.projectLocation");
+    }
+    if (!values.timingRange) {
+      errors.timingRange = t("contact.form.errors.timingRange");
+    }
+    if (!values.preferredResponse) {
+      errors.preferredResponse = t("contact.form.errors.preferredResponse");
+    }
+    if (!values.scopeSummary.trim()) {
+      errors.scopeSummary = t("contact.form.errors.scopeSummary");
+    }
+    return errors;
+  }
+
+  function handleChange<K extends keyof InquiryFormData>(
+    key: K,
+    value: InquiryFormData[K],
+  ) {
+    setFormData((prev) => ({ ...prev, [key]: value }));
+    if (fieldErrors[key]) {
+      setFieldErrors((prev) => {
+        const next = { ...prev };
+        delete next[key];
+        return next;
+      });
+    }
+    if (submitError) setSubmitError("");
+  }
+
+  async function handleInquirySubmit(event: FormEvent) {
+    event.preventDefault();
+    if (isSubmitting || submitLockRef.current) return;
+
+    setSubmitError("");
+    setSubmitSuccess("");
+    const errors = validate(formData);
+    setFieldErrors(errors);
+
+    if (Object.keys(errors).length > 0) {
+      setSubmitError(t("contact.form.errors.summary"));
+      queueMicrotask(() => {
+        errorSummaryRef.current?.focus();
+      });
+      return;
+    }
+
+    submitLockRef.current = true;
+    setIsSubmitting(true);
+
+    const payload = {
+      name: formData.contactName,
+      email: formData.email,
+      phone: formData.phone || undefined,
+      subject: t("contact.form.subjectLine"),
+      message: formData.scopeSummary,
+      type: "contact",
+      metadata: {
+        organization: formData.organization || undefined,
+        projectType: formData.projectType,
+        location: formData.projectLocation,
+        timeline: formData.timingRange,
+        budget: formData.budgetRange || undefined,
+        preferredResponse: formData.preferredResponse,
+        formType: "project-inquiry",
+      },
+    };
+
+    try {
+      if (!navigator.onLine) {
+        await saveOfflineSubmission(
+          "/api/contact",
+          payload as Record<string, unknown>,
+        );
+        setSubmitSuccess(t("contact.form.successOffline"));
+        setFormData({
+          contactName: "",
+          organization: "",
+          email: "",
+          phone: "",
+          projectType: "",
+          projectLocation: "",
+          timingRange: "",
+          budgetRange: "",
+          preferredResponse: "",
+          scopeSummary: "",
+        });
+        return;
+      }
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        setSubmitError(t("contact.form.errors.submitFailed"));
+        return;
+      }
+
+      setSubmitSuccess(t("contact.form.success"));
+      setFormData({
+        contactName: "",
+        organization: "",
+        email: "",
+        phone: "",
+        projectType: "",
+        projectLocation: "",
+        timingRange: "",
+        budgetRange: "",
+        preferredResponse: "",
+        scopeSummary: "",
+      });
+      setFieldErrors({});
+    } catch {
+      setSubmitError(t("contact.form.errors.submitFailed"));
+    } finally {
+      setIsSubmitting(false);
+      submitLockRef.current = false;
+    }
+  }
 
   return (
     <>
@@ -716,6 +952,221 @@ export default function ContactPageClient({
                   </Link>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="inquiry-routing"
+          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+          aria-labelledby="inquiry-routing-heading"
+        >
+          <DiagonalStripePattern />
+          <BrandColorBlobs />
+          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+              id="inquiry-routing-heading"
+              className="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white text-center"
+            >
+              {t("contact.routing.title")}
+            </h2>
+            <p className="mt-4 text-center text-base sm:text-lg text-gray-700 dark:text-gray-300">
+              {t("contact.routing.description")}
+            </p>
+
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <a
+                href="#project-inquiry-form"
+                className="rounded-xl border border-brand-primary/40 bg-white dark:bg-gray-900 p-4 text-sm font-semibold text-brand-primary hover:underline"
+              >
+                {t("contact.routing.projectRoute")}
+              </a>
+              <Link
+                href="/public-sector"
+                className="rounded-xl border border-brand-primary/40 bg-white dark:bg-gray-900 p-4 text-sm font-semibold text-brand-primary hover:underline"
+              >
+                {t("contact.routing.publicSectorRoute")}
+              </Link>
+              <Link
+                href="/allies"
+                className="rounded-xl border border-brand-primary/40 bg-white dark:bg-gray-900 p-4 text-sm font-semibold text-brand-primary hover:underline"
+              >
+                {t("contact.routing.alliesRoute")}
+              </Link>
+              <Link
+                href="/careers"
+                className="rounded-xl border border-brand-primary/40 bg-white dark:bg-gray-900 p-4 text-sm font-semibold text-brand-primary hover:underline"
+              >
+                {t("contact.routing.careersRoute")}
+              </Link>
+            </div>
+
+            <p className="mt-4 text-sm text-gray-600 dark:text-gray-300">
+              <Link
+                href="/safety"
+                className="font-semibold text-brand-primary hover:underline"
+              >
+                {t("contact.routing.safetyRoute")}
+              </Link>
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="project-inquiry-form"
+          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+          aria-labelledby="project-inquiry-heading"
+        >
+          <DiagonalStripePattern />
+          <BrandColorBlobs />
+          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+              id="project-inquiry-heading"
+              className="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white"
+            >
+              {t("contact.form.title")}
+            </h2>
+            <p className="mt-3 text-base sm:text-lg text-gray-700 dark:text-gray-300">
+              {t("contact.form.description")}
+            </p>
+
+            <div className="mt-6 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-4">
+              <p className="text-sm text-gray-700 dark:text-gray-300">
+                {t("contact.form.dataNotice")}
+              </p>
+            </div>
+
+            <div
+              ref={errorSummaryRef}
+              tabIndex={-1}
+              aria-live="assertive"
+              className="focus:outline-none"
+            >
+              {submitError ? (
+                <div className="mt-4 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-700 dark:border-red-800 dark:bg-red-900/20 dark:text-red-300">
+                  {submitError}
+                </div>
+              ) : null}
+            </div>
+
+            <div className="mt-6">
+              <FormWrapper
+                onSubmit={handleInquirySubmit}
+                submitButtonLabel={t("contact.form.submit")}
+                isSubmitting={isSubmitting}
+                submitError={submitError}
+                submitSuccess={submitSuccess}
+                disableSubmit={isSubmitting}
+                className="gap-5"
+              >
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <FormInput
+                    name="contactName"
+                    label={t("contact.form.fields.contactName")}
+                    required
+                    value={formData.contactName}
+                    onChange={(e) =>
+                      handleChange("contactName", e.target.value)
+                    }
+                    error={fieldErrors.contactName}
+                    autoComplete="name"
+                  />
+                  <FormInput
+                    name="organization"
+                    label={t("contact.form.fields.organization")}
+                    value={formData.organization}
+                    onChange={(e) =>
+                      handleChange("organization", e.target.value)
+                    }
+                    error={fieldErrors.organization}
+                    autoComplete="organization"
+                  />
+                  <FormInput
+                    name="email"
+                    type="email"
+                    label={t("contact.form.fields.email")}
+                    required
+                    value={formData.email}
+                    onChange={(e) => handleChange("email", e.target.value)}
+                    error={fieldErrors.email}
+                    autoComplete="email"
+                  />
+                  <FormInput
+                    name="phone"
+                    type="tel"
+                    label={t("contact.form.fields.phone")}
+                    value={formData.phone}
+                    onChange={(e) => handleChange("phone", e.target.value)}
+                    error={fieldErrors.phone}
+                    autoComplete="tel"
+                  />
+                  <FormSelect
+                    name="projectType"
+                    label={t("contact.form.fields.projectType")}
+                    required
+                    value={formData.projectType}
+                    onChange={(e) =>
+                      handleChange("projectType", e.target.value)
+                    }
+                    error={fieldErrors.projectType}
+                    options={projectTypeOptions}
+                  />
+                  <FormInput
+                    name="projectLocation"
+                    label={t("contact.form.fields.projectLocation")}
+                    required
+                    value={formData.projectLocation}
+                    onChange={(e) =>
+                      handleChange("projectLocation", e.target.value)
+                    }
+                    error={fieldErrors.projectLocation}
+                    autoComplete="address-level2"
+                  />
+                  <FormSelect
+                    name="timingRange"
+                    label={t("contact.form.fields.timingRange")}
+                    required
+                    value={formData.timingRange}
+                    onChange={(e) =>
+                      handleChange("timingRange", e.target.value)
+                    }
+                    error={fieldErrors.timingRange}
+                    options={timingOptions}
+                  />
+                  <FormSelect
+                    name="budgetRange"
+                    label={t("contact.form.fields.budgetRange")}
+                    value={formData.budgetRange}
+                    onChange={(e) =>
+                      handleChange("budgetRange", e.target.value)
+                    }
+                    error={fieldErrors.budgetRange}
+                    helperText={t("contact.form.fields.budgetHelper")}
+                    options={budgetOptions}
+                  />
+                  <FormSelect
+                    name="preferredResponse"
+                    label={t("contact.form.fields.preferredResponse")}
+                    required
+                    value={formData.preferredResponse}
+                    onChange={(e) =>
+                      handleChange("preferredResponse", e.target.value)
+                    }
+                    error={fieldErrors.preferredResponse}
+                    options={responseOptions}
+                  />
+                </div>
+
+                <FormTextarea
+                  name="scopeSummary"
+                  label={t("contact.form.fields.scopeSummary")}
+                  required
+                  value={formData.scopeSummary}
+                  onChange={(e) => handleChange("scopeSummary", e.target.value)}
+                  error={fieldErrors.scopeSummary}
+                  rows={6}
+                />
+              </FormWrapper>
             </div>
           </div>
         </section>

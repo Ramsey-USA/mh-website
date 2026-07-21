@@ -38,7 +38,13 @@ const SEO_ROUTE_POLICY_FILE = path.join(
   "seo",
   "route-indexing-policy.json",
 );
-const SITEMAP_FILE = path.join(APP_DIR, "sitemap.ts");
+const ROUTE_MANIFEST_FILE = path.join(
+  ROOT,
+  "src",
+  "lib",
+  "seo",
+  "route-manifest.ts",
+);
 const COMPANY_CONSTANTS_FILE = path.join(
   REPO_ROOT,
   "packages",
@@ -642,19 +648,19 @@ function checkServicesConsolidationContract(errors) {
     }
   }
 
-  if (!fs.existsSync(SITEMAP_FILE)) {
-    errors.push(`Sitemap file missing: ${rel(SITEMAP_FILE)}.`);
+  if (!fs.existsSync(ROUTE_MANIFEST_FILE)) {
+    errors.push(`Route manifest file missing: ${rel(ROUTE_MANIFEST_FILE)}.`);
   } else {
-    const sitemapSource = fs.readFileSync(SITEMAP_FILE, "utf8");
-    if (!sitemapSource.includes('path: "/services"')) {
+    const manifestSource = fs.readFileSync(ROUTE_MANIFEST_FILE, "utf8");
+    if (!manifestSource.includes('path: "/services"')) {
       errors.push(
-        `Canonical services page route must appear in ACTIVE_PAGES inside ${rel(SITEMAP_FILE)}.`,
+        `Canonical services page route must appear in static route manifest entries inside ${rel(ROUTE_MANIFEST_FILE)}.`,
       );
     }
 
-    if (sitemapSource.includes('path: "/services/[slug]"')) {
+    if (manifestSource.includes('path: "/services/[slug]"')) {
       errors.push(
-        `Services slug route must not appear in ACTIVE_PAGES inside ${rel(SITEMAP_FILE)}.`,
+        `Services slug route must not appear in static route manifest entries inside ${rel(ROUTE_MANIFEST_FILE)}.`,
       );
     }
   }

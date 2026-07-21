@@ -667,7 +667,8 @@ Hard size budgets enforced during repack:
 
 - WebM <= 10 MB
 - MP4 <= 15 MB
-- Hero commercials use a dedicated 25 MiB cap and should be registered in `apps/website/config/hero-commercials.json` with runtime consumers reading from the shared media helper.
+- Hero commercials use a dedicated 25 MiB cap and must be registered in `apps/website/config/hero-commercials.json` when approved hero-commercial assets are present in the repository.
+- If the hero-commercial pipeline is inactive, keep `public/videos/hero-commercials/` empty and do not recreate the manifest until approved assets are ready to ship.
 
 If a converted file exceeds budget, the script automatically re-packs it by raising CRF.
 

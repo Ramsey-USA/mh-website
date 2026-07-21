@@ -177,20 +177,7 @@ export function ValuesShowcase({
         {/* Value Category Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {valueCategories.map((value, index) => (
-            <div
-              key={value.id}
-              className="group relative flex h-full cursor-pointer"
-              onClick={() => openModal(index)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  openModal(index);
-                }
-              }}
-              role="button"
-              tabIndex={0}
-              aria-label={`Learn more about ${value.title}`}
-            >
+            <article key={value.id} className="group relative flex h-full">
               {/* Animated Border Glow */}
               <div className="absolute -inset-2 bg-linear-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
@@ -229,20 +216,23 @@ export function ValuesShowcase({
 
                   {/* Learn More Button */}
                   <div className="flex justify-center mt-4">
-                    <button
-                      className="flex items-center gap-2 px-4 py-2 bg-brand-primary hover:bg-brand-primary-dark text-white rounded-lg transition-colors duration-200 font-semibold text-sm"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        openModal(index);
-                      }}
-                    >
+                    <span className="flex items-center gap-2 px-4 py-2 bg-brand-primary group-hover:bg-brand-primary-dark text-white rounded-lg transition-colors duration-200 font-semibold text-sm">
                       <span>Learn More</span>
                       <MaterialIcon icon="arrow_forward" size="sm" />
-                    </button>
+                    </span>
                   </div>
                 </div>
               </Card>
-            </div>
+
+              <button
+                type="button"
+                className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-900"
+                onClick={() => openModal(index)}
+                aria-label={`Learn more about ${value.title}`}
+              >
+                <span className="sr-only">Learn more about {value.title}</span>
+              </button>
+            </article>
           ))}
         </div>
 

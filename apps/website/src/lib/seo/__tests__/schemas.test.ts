@@ -18,7 +18,13 @@ import {
 } from "../review-schema";
 import { withGeoMetadata } from "../geo-metadata";
 import { generateLocationMetadata } from "../location-metadata";
+import {
+  generateEventDetailSchema,
+  generateNewsInsightsSchemas,
+  generateServiceDetailSchema,
+} from "../page-type-schema";
 import type { LocationData } from "@/lib/data/locations";
+import type { ServiceRecord } from "@/lib/data/service-routes";
 
 // ── breadcrumb-schema ─────────────────────────────────────────────────────────
 
@@ -283,23 +289,18 @@ describe("withGeoMetadata()", () => {
     expect(keywords).toContain("custom services keyword");
   });
 
-  it("adds hreflang alternates when canonical is present", () => {
+  it("normalizes canonical alternates and avoids locale-prefixed hreflang arrays", () => {
     const result = withGeoMetadata({
       title: "Services",
       alternates: {
-        canonical: "https://www.mhc-gc.com/services",
+        canonical: "https://www.mhc-gc.com/es/services",
       },
     });
 
-    expect(result.alternates?.languages?.["x-default"]?.toString()).toBe(
+    expect(result.alternates?.canonical?.toString()).toBe(
       "https://www.mhc-gc.com/services",
     );
-    expect(result.alternates?.languages?.["en-US"]?.toString()).toBe(
-      "https://www.mhc-gc.com/en/services",
-    );
-    expect(result.alternates?.languages?.["es-US"]?.toString()).toBe(
-      "https://www.mhc-gc.com/es/services",
-    );
+    expect(result.alternates?.languages).toBeUndefined();
   });
 });
 
@@ -309,7 +310,7 @@ describe("generateLocationMetadata()", () => {
   const mockLocation: LocationData = {
     city: "Richland",
     state: "WA",
-    slug: "richland-wa",
+    slug: "richland",
     coordinates: { latitude: 46.2804, longitude: -119.2752 },
     seo: {
       title: "General Contractor Richland WA | MH Construction",
@@ -330,10 +331,10 @@ describe("generateLocationMetadata()", () => {
     expect(result.description).toBe(mockLocation.seo.metaDescription);
   });
 
-  it("includes geo metadata for the location coordinates", () => {
+  it("keeps service-area metadata free of office geo tags", () => {
     const result = generateLocationMetadata(mockLocation);
-    expect(result.other?.["geo.placename"]).toBe("Richland");
-    expect(result.other?.["geo.region"]).toBe("US-WA");
+    expect(result.other?.["geo.placename"]).toBeUndefined();
+    expect(result.other?.["geo.region"]).toBeUndefined();
   });
 
   it("includes keywords from seo, priorities, nearbyAreas, projects, and zips", () => {
@@ -351,6 +352,121 @@ describe("generateLocationMetadata()", () => {
 
   it("builds canonical URL from slug", () => {
     const result = generateLocationMetadata(mockLocation);
-    expect(result.alternates?.canonical as string).toContain("richland-wa");
+    expect(result.alternates?.canonical as string).toContain("richland");
+  });
+
+  it("allows office-grade geo metadata only for the public office location", () => {
+    const officeLocation: LocationData = {
+      ...mockLocation,
+      city: "Pasco",
+      slug: "pasco",
+    } as LocationData;
+
+    const result = generateLocationMetadata(officeLocation);
+    expect(result.other?.["geo.placename"]).toBe("Pasco");
+    expect(result.other?.["geo.region"]).toBe("US-WA");
+  });
+});
+
+// ── page-type-schema ──────────────────────────────────────────────────────────
+
+describe("generateEventDetailSchema()", () => {
+  it("returns Event schema with stable @id and organization reference", () => {
+    const result = generateEventDetailSchema(
+      {
+        slug: "cool-desert-nights",
+        title: "Cool Desert Nights 2026",
+        status: "Archived Event Record",
+        lifecycleStatus: "archived",
+        location: "Tri-Cities, WA",
+        schedule: "June 2026",
+        summary: "Community event recap",
+        recapTitle: "Event Recap",
+        recapBullets: ["Finalized placements"],
+        requestTitle: "Partnership Request",
+        requestBody: "Contact for details",
+        partnerLabel: "Archive route",
+        partnerUrl: "/cool-desert-nights",
+        primaryImage: "/images/events/cool-desert-nights/event.webp",
+        secondaryImage: "/images/events/cool-desert-nights/event2.webp",
+      },
+      "https://www.mhc-gc.com",
+    );
+
+    expect(result["@type"]).toBe("Event");
+    expect(result["@id"]).toBe(
+      "https://www.mhc-gc.com/events/cool-desert-nights#event",
+    );
+    expect(result.organizer["@id"]).toBe(
+      "https://www.mhc-gc.com/#organization",
+    );
+    expect(result.startDate).toBe("2026-06-01");
+  });
+});
+
+describe("generateServiceDetailSchema()", () => {
+  it("returns Service schema with stable @id and no unsupported pricing fields", () => {
+    const serviceRecord: ServiceRecord = {
+      slug: "commercial-construction",
+      title: "Commercial Construction",
+      summary: "Project delivery for commercial scopes.",
+      category: "Commercial",
+      overview: "Overview",
+      processStatements: ["Plan", "Build"],
+      supportedProjectTypes: ["Fit-outs"],
+      proofReferences: ["projects/example"],
+      ctaHref: "/contact",
+      ctaLabel: "Contact",
+      publishStatus: "published",
+      metaTitle: "Commercial Construction | MH Construction",
+      metaDescription: "Commercial construction delivery details.",
+      ogImage: "/images/og/services/commercial-construction.webp",
+      focusAreas: ["Scope alignment"],
+      technicalPriorities: ["Safety controls"],
+      deliverySteps: ["Plan", "Deliver"],
+      safetyCommitments: ["Daily safety checks"],
+    };
+
+    const result = generateServiceDetailSchema(
+      serviceRecord,
+      "https://www.mhc-gc.com",
+    );
+
+    expect(result["@type"]).toBe("Service");
+    expect(result["@id"]).toBe(
+      "https://www.mhc-gc.com/services/commercial-construction#service",
+    );
+    expect(result.provider["@id"]).toBe("https://www.mhc-gc.com/#organization");
+    expect("aggregateRating" in result).toBe(false);
+    expect("offers" in result).toBe(false);
+  });
+});
+
+describe("generateNewsInsightsSchemas()", () => {
+  it("returns CollectionPage plus NewsArticle entries with stable IDs", () => {
+    const result = generateNewsInsightsSchemas(
+      [
+        {
+          icon: "campaign",
+          category: "Operational",
+          title: "Insight Title",
+          date: "2026-07-19",
+          description: "Insight description",
+          href: "/news",
+          linkText: "Read",
+          categoryColor: "secondary",
+        },
+      ],
+      "https://www.mhc-gc.com",
+    );
+
+    expect(result[0]?.["@type"]).toBe("CollectionPage");
+    expect(result[0]?.["@id"]).toBe("https://www.mhc-gc.com/news#collection");
+    expect(result[1]?.["@type"]).toBe("NewsArticle");
+    expect(result[1]?.["@id"]).toBe("https://www.mhc-gc.com/news#insight-1");
+    expect(
+      (result[1] as { publisher?: { "@id": string } }).publisher?.["@id"],
+    ).toBe("https://www.mhc-gc.com/#organization");
+    expect("review" in (result[1] as object)).toBe(false);
   });
 });

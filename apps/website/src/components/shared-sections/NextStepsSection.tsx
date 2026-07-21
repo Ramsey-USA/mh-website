@@ -9,6 +9,7 @@ import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PitchDeckCTA } from "@/components/ui/cta";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
+import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import type { SupportedLocale } from "@/lib/i18n/locale";
 import { cornerRadius, hoverMotion } from "@/lib/styles/design-tokens";
 
@@ -19,6 +20,7 @@ interface NextStepsSectionProps {
   noBackground?: boolean;
   locale?: SupportedLocale;
   description?: string;
+  includePublicSectorLink?: boolean;
 }
 
 type NextStepsCopy = {
@@ -33,16 +35,15 @@ type NextStepsCopy = {
   option2Title: string;
   option2Description: string;
   option2Bullets: readonly string[];
-  option2Cta: string;
   option3Title: string;
   option3Description: string;
   option3Bullets: readonly string[];
-  option3Cta: string;
+  publicSectorLinkLabel: string;
 };
 
 const NEXT_STEPS_COPY: Record<"en" | "es", NextStepsCopy> = {
   es: {
-    subtitle: "Listo para comenzar su proyecto?",
+    subtitle: "Listo para hablar de su proyecto?",
     title: "Construyamos juntos",
     introPrefix: "Donde ",
     introHighlightA: "su palabra es su compromiso",
@@ -58,7 +59,6 @@ const NEXT_STEPS_COPY: Record<"en" | "es", NextStepsCopy> = {
       "98% de satisfacción de clientes",
       "70% de referidos - excelencia comprobada",
     ],
-    option2Cta: "Ver nuestro trabajo",
     option3Title: "Hablemos cara a cara",
     option3Description:
       "Respuestas honestas de personas reales. Sin sistemas automatizados. Solo comunicación transparente.",
@@ -67,10 +67,10 @@ const NEXT_STEPS_COPY: Record<"en" | "es", NextStepsCopy> = {
       "Precios transparentes desde el primer día",
       "Contacto directo con quienes toman decisiones",
     ],
-    option3Cta: "Contáctenos",
+    publicSectorLinkLabel: "¿Proyecto público? Vaya a Public Sector",
   },
   en: {
-    subtitle: "Ready to Start Your Project?",
+    subtitle: "Ready to Discuss Your Project?",
     title: "Let's Build Together",
     introPrefix: "Where ",
     introHighlightA: "your word is your bond",
@@ -86,7 +86,6 @@ const NEXT_STEPS_COPY: Record<"en" | "es", NextStepsCopy> = {
       "98% mission-partner satisfaction rate",
       "70% referral rate - proven excellence",
     ],
-    option2Cta: "View Our Work",
     option3Title: "Let's Talk Face-to-Face",
     option3Description:
       "Honest answers from real people. No automated systems. Just transparent communication.",
@@ -95,7 +94,7 @@ const NEXT_STEPS_COPY: Record<"en" | "es", NextStepsCopy> = {
       "Transparent pricing from day one",
       "Direct line to decision-makers",
     ],
-    option3Cta: "Get In Touch",
+    publicSectorLinkLabel: "Working on a public project? Visit Public Sector",
   },
 };
 
@@ -107,8 +106,10 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
     className = "",
     noBackground: _noBackground = false,
     locale = "en",
+    includePublicSectorLink = false,
   } = props;
   const copy = NEXT_STEPS_COPY[locale === "es" ? "es" : "en"];
+  const universalCtas = getUniversalCtaSet(locale);
 
   return (
     <BrandedContentSection
@@ -191,7 +192,7 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
                 size="lg"
                 className="mr-2 transition-colors"
               />
-              {copy.option2Cta}
+              {universalCtas.portfolio.label}
             </Link>
           </Button>
         </div>
@@ -241,11 +242,22 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
                 size="lg"
                 className="mr-2 transition-colors"
               />
-              {copy.option3Cta}
+              {universalCtas.primary.label}
             </Link>
           </Button>
         </div>
       </div>
+
+      {includePublicSectorLink ? (
+        <div className="mt-6 text-center">
+          <Link
+            href="/public-sector"
+            className="inline-flex items-center justify-center rounded-xl border-2 border-brand-primary/70 bg-brand-primary/10 px-5 py-3 text-sm sm:text-base font-bold text-brand-primary-dark transition-colors hover:bg-brand-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 dark:border-brand-primary-light/70 dark:bg-brand-primary/20 dark:text-brand-primary-light dark:hover:bg-brand-primary/30"
+          >
+            {copy.publicSectorLinkLabel}
+          </Link>
+        </div>
+      ) : null}
     </BrandedContentSection>
   );
 }

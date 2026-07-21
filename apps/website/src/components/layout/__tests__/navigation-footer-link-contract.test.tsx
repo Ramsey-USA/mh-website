@@ -4,6 +4,8 @@ import userEvent from "@testing-library/user-event";
 import { Navigation } from "../Navigation";
 import Footer from "../Footer";
 
+const trackClickMock = jest.fn();
+
 jest.mock("next/link", () => ({
   __esModule: true,
   default: ({ children, href, ...props }: any) => (
@@ -11,6 +13,28 @@ jest.mock("next/link", () => ({
       {children}
     </a>
   ),
+}));
+
+jest.mock("@/i18n/navigation", () => ({
+  __esModule: true,
+  Link: ({ children, href, ...props }: any) => (
+    <a
+      href={typeof href === "string" ? href : "/"}
+      onClick={(event) => event.preventDefault()}
+      {...props}
+    >
+      {children}
+    </a>
+  ),
+  usePathname: () => "/",
+  useRouter: () => ({
+    replace: jest.fn(),
+    refresh: jest.fn(),
+  }),
+}));
+
+jest.mock("next/navigation", () => ({
+  useSearchParams: () => new URLSearchParams(),
 }));
 
 jest.mock("next/image", () => ({
@@ -46,22 +70,93 @@ jest.mock("@/hooks/useLocale", () => ({
   useLocale: () => "en",
 }));
 
+jest.mock("next-intl", () => ({
+  __esModule: true,
+  useLocale: () => "en",
+  useTranslations:
+    () =>
+    (key: string): string => {
+      const map: Record<string, string> = {
+        navLabel: "Primary",
+        mobileMenuLabel: "Menu",
+        openMenuLabel: "Open primary navigation",
+        closeMenuLabel: "Close primary navigation",
+        moreLabel: "More",
+        ctaLabel: "Discuss Your Project",
+        phoneShortcutLabel: "Call",
+        brandStatement: "Veteran Owned • Licensed WA OR ID",
+        homeAriaLabel: "MH Construction home",
+        "utilityBar.utilityLabel": "Utility links",
+        "utilityBar.callLabel": "Call",
+        "utilityBar.locationLabel": "Serving",
+        "utilityBar.contactLinkLabel": "Contact",
+        "locale.currentLanguageLabel": "Language",
+        "locale.switcherLabel": "Switch language",
+        "locale.english": "English",
+        "locale.spanish": "Spanish",
+        "siteFooter.homeAriaLabel": "MH Construction home",
+        "siteFooter.brandDescriptor":
+          "Veteran-owned general contractor serving Washington, Oregon, and Idaho.",
+        "siteFooter.veteranOwnedLabel": "Veteran Owned",
+        "siteFooter.ctaLabel": "Discuss Your Project",
+        "siteFooter.servicesMarketsHeading": "Services & Markets",
+        "siteFooter.companyProofHeading": "Company & Proof",
+        "siteFooter.resourcesCommunityHeading": "Resources & Community",
+        "siteFooter.contactHeading": "Contact & Service Area",
+        "siteFooter.contactDescriptor":
+          "Based in Pasco, Washington with service coverage across Washington, Oregon, and Idaho.",
+        "siteFooter.phoneLabel": "Phone",
+        "siteFooter.emailLabel": "Email",
+        "siteFooter.addressLabel": "Office",
+        "siteFooter.serviceAreaLabel": "Service area",
+        "siteFooter.primaryRegionLabel": "Primary region",
+        "siteFooter.legalNavLabel": "Legal",
+        "siteFooter.htmlSitemapLabel": "HTML Sitemap",
+        "siteFooter.copyrightLabel": "All rights reserved.",
+        "nav.services": "Services",
+        "nav.projects": "Projects",
+        "nav.publicSector": "Public Sector",
+        "nav.about": "About MH",
+        "nav.contact": "Contact",
+        "nav.events": "Events",
+        "nav.resources": "Resources",
+        "nav.careers": "Careers",
+        "nav.safety": "Safety",
+        "nav.tradePartners": "Trade Partners",
+        "nav.veterans": "Veterans",
+        "nav.team": "Team",
+        "nav.podcast": "Podcast",
+      };
+
+      return map[key] ?? key;
+    },
+}));
+
 jest.mock("@/components/icons/MaterialIcon", () => ({
   MaterialIcon: ({ icon }: { icon: string }) => <span>{icon}</span>,
 }));
 
+jest.mock("@/lib/analytics/hooks", () => ({
+  useClickTracking: () => trackClickMock,
+}));
+
 jest.mock("@/lib/analytics/components/TrackedContactLinks", () => ({
-  TrackedPhoneLink: ({ children, ...props }: any) => (
+  TrackedPhoneLink: ({ children, trackId, trackProperties, ...props }: any) => (
     <a href="tel:+15093086489" {...props}>
       {children}
     </a>
   ),
-  TrackedEmailLink: ({ children, ...props }: any) => (
+  TrackedEmailLink: ({ children, trackId, trackProperties, ...props }: any) => (
     <a href="mailto:office@mhc-gc.com" {...props}>
       {children}
     </a>
   ),
-  TrackedLocationLink: ({ children, ...props }: any) => (
+  TrackedLocationLink: ({
+    children,
+    trackId,
+    trackProperties,
+    ...props
+  }: any) => (
     <a href="https://www.google.com/maps/search/?api=1" {...props}>
       {children}
     </a>
@@ -74,6 +169,9 @@ jest.mock("@/components/ui/modals/AdminSignInModal", () => ({
 
 describe("Navigation and Footer link contract", () => {
   it("keeps all key internal links wired for navbar, hamburger menu, and footer", async () => {
+    process.env["NEXT_PUBLIC_EVENTS_HUB_INDEXABLE"] = "1";
+    process.env["NEXT_PUBLIC_HTML_SITEMAP_ENABLED"] = "1";
+
     const user = userEvent.setup();
 
     const { container } = render(
@@ -83,7 +181,9 @@ describe("Navigation and Footer link contract", () => {
       </>,
     );
 
-    await user.click(screen.getByRole("button", { name: /open menu/i }));
+    await user.click(
+      screen.getByRole("button", { name: /open primary navigation/i }),
+    );
 
     const hrefs = new Set(
       Array.from(container.querySelectorAll("a"))
@@ -100,34 +200,32 @@ describe("Navigation and Footer link contract", () => {
       "/jeremy-thamert",
       "/testimonials",
       "/careers",
-      "/contact",
       "/public-sector",
       "/allies",
       "/veterans",
       "/resources",
+      "/news",
       "/faq",
       "/safety",
-      "/hub",
       "/services",
       "/privacy",
-      "/terms",
       "/accessibility",
-      "/sitemap.xml",
-      "/careers?apply=true&entryPoint=Footer%20Application",
+      "/sitemap",
+      "/contact?intent=project-discussion",
     ];
 
     expectedInternalLinks.forEach((href) => {
       expect(hrefs.has(href)).toBe(true);
     });
 
-    // Dual terminology presentation: original name on primary line, MH term on secondary line.
     expect(
-      screen.getAllByRole("link", { name: /about us/i }).length,
+      screen.getAllByRole("link", { name: /about/i }).length,
     ).toBeGreaterThan(0);
-    expect(screen.getAllByText("Our Mission").length).toBeGreaterThan(0);
     expect(
-      screen.getAllByRole("link", { name: /home/i }).length,
+      screen.getAllByRole("link", { name: /services/i }).length,
     ).toBeGreaterThan(0);
-    expect(screen.getAllByText("Command Center").length).toBeGreaterThan(0);
+
+    delete process.env["NEXT_PUBLIC_EVENTS_HUB_INDEXABLE"];
+    delete process.env["NEXT_PUBLIC_HTML_SITEMAP_ENABLED"];
   });
 });
