@@ -140,7 +140,8 @@ jobs:
           script: |
             const owner = context.repo.owner;
             const repo = context.repo.repo;
-            const title = 'Jeremy SEO weekly health log';
+            const legacyTitle = 'Jeremy SEO weekly health log';
+            const title = 'Jeremy SEO weekly health log (informational)';
             const runUrl = `${process.env.GITHUB_SERVER_URL}/${owner}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`;
             const sha = context.sha;
             const branch = context.ref.replace('refs/heads/', '');
@@ -149,7 +150,7 @@ jobs:
             const now = new Date().toISOString();
 
             const body = [
-              `Weekly Jeremy SEO guardrails health check: **${status}**`,
+              `Informational weekly Jeremy SEO guardrails health check: **${status}**`,
               '',
               `- Timestamp: ${now}`,
               `- Branch: ${branch}`,
@@ -157,7 +158,7 @@ jobs:
               `- Run: ${runUrl}`,
               `- Command: npm run seo:jeremy:guardrails:check (apps/website)`,
               '',
-              'This is a periodic audit log comment posted even when checks pass.'
+              'This issue stays open as a periodic audit log and receives weekly PASS/FAIL updates even when no action is required.'
             ].join('\n');
 
             const { data: issues } = await github.rest.issues.listForRepo({
@@ -168,9 +169,20 @@ jobs:
               per_page: 100,
             });
 
-            const existing = issues.find((issue) => issue.title === title);
+            const existing = issues.find(
+              (issue) => issue.title === title || issue.title === legacyTitle,
+            );
 
             if (existing) {
+              if (existing.title !== title) {
+                await github.rest.issues.update({
+                  owner,
+                  repo,
+                  issue_number: existing.number,
+                  title,
+                });
+              }
+
               await github.rest.issues.createComment({
                 owner,
                 repo,

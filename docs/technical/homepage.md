@@ -24,6 +24,18 @@ Primary brand line remains:
 
 - Built on Quality, Backed by Trust.
 
+## Current Stack Snapshot
+
+Package snapshot from apps/website/package.json:
+
+```json
+{
+  "next": "16.2.11",
+  "react": "^19.2.8",
+  "typescript": "^6.0.3"
+}
+```
+
 ## Current Homepage Structure
 
 The current section order in apps/website/src/app/page.tsx is:
