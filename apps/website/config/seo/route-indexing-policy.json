@@ -27,6 +27,7 @@
         "/resources/safety-manual/forms",
         "/safety",
         "/services",
+        "/services/[slug]",
         "/team",
         "/terms",
         "/testimonials",
@@ -95,6 +96,13 @@
       "requiresAny": [
         "eventRecords",
         "eventEntries"
+      ]
+    },
+    {
+      "pattern": "^/services/\\[slug\\]$",
+      "requiresAny": [
+        "getPublishedServiceDetailRoutes",
+        "serviceEntries"
       ]
     }
   ],
