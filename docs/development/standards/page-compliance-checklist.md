@@ -44,8 +44,8 @@ If any inventory is missing, the page audit is incomplete.
 - [ ] Hero content stack preserves homepage baseline hierarchy (H1 -> subtitle -> supporting body copy)
 - [ ] Hero does not duplicate global-header contact actions or phone CTA controls
 - [ ] Hero-level CTA envelope is constrained to approved baseline actions (primary contact + secondary proof path)
-- [ ] If PageNavigation is used for the route, keep it bottom-pinned (`absolute bottom-0 left-0 right-0`)
-- [ ] If `More` is present in hero navigation, it opens centered modal overlay with backdrop and close controls
+- [ ] `PageNavigation` (if used for the route) is placed in the Page Heading below the hero, **not** inside the hero `<section>`
+- [ ] If `More` is present in page navigation, it opens centered modal overlay with backdrop and close controls
 - [ ] Responsive content envelope follows homepage-safe spacing guidance
 - [ ] Any intentional hero divergence from homepage baseline is recorded with scope and rationale
 

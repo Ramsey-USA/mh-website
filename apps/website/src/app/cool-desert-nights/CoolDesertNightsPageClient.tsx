@@ -173,16 +173,15 @@ export function CoolDesertNightsPageClient() {
               </div>
             </div>
           </div>
-          <PageNavigation
-            items={navigationConfigs.coolDesertNights}
-            showRemainingPagesOverlay
-            className="absolute bottom-0 left-0 right-0"
-          />
         </section>
 
         {/* Main Content Sections with Stripes */}
         <StripedBackground>
           <div className="relative z-10">
+            <PageNavigation
+              items={navigationConfigs.coolDesertNights}
+              showRemainingPagesOverlay
+            />
             <Breadcrumb
               items={[
                 { label: t("breadcrumb.home"), href: "/" },

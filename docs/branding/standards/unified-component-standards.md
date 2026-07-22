@@ -534,7 +534,7 @@ Use the page shell contract (from `AppShell`) instead of per-section logo overla
 - ✅ Clean typography: Title, subtitle, description
 - ✅ Brand color emphasis: `text-brand-secondary` on hero titles
 - ✅ Global navigation is owned by `SiteHeader` (fixed shell)
-- ✅ Hero-level `PageNavigation` is optional by route and must remain bottom-anchored where implemented
+- ✅ `PageNavigation` belongs in the Page Heading below the hero, never inside the hero section
 - ✅ Hero content must account for the shell offset via `--mh-nav-offset` safe spacing
 - ✅ Home baseline includes a focused two-CTA envelope (primary contact + secondary proof path)
 - ✅ Responsive lower-right content envelope is preferred over centered headline blocks
@@ -545,7 +545,7 @@ Hero sections share their own visual contract and must align to homepage hero ch
 
 1. Hero layout baseline matches homepage structure: full-height shell with content anchored over visual media and safe spacing below the fixed header.
 2. Hero typography baseline matches homepage hierarchy: strong H1 emphasis, concise subtitle, and supporting body copy.
-3. Hero navigation baseline matches homepage behavior by combining global header navigation with hero-level `PageNavigation` where required.
+3. Hero navigation baseline: global header navigation via `SiteHeader`; `PageNavigation` for in-page wayfinding lives in the Page Heading below the hero, never inside the hero section.
 4. Hero color baseline preserves approved dark gradient atmosphere and brand-emphasis title treatment.
 5. Any route-specific hero divergence must be documented as intent or approved exception before merge.
 
@@ -572,8 +572,8 @@ Hero sections share their own visual contract and must align to homepage hero ch
 - Mobile uses a toggle button that opens a backdrop-backed dialog panel with full route access.
 - Close behaviors must include Escape key and explicit close action; mobile additionally closes on backdrop click.
 - Header navigation interactions must remain keyboard reachable with visible focus rings.
-- Hero sections that implement `PageNavigation` must keep it pinned to `absolute bottom-0 left-0 right-0`.
-- Home hero `PageNavigation` row remains the 6-cell pattern (Home, Services, Projects, About, Contact, More).
+- `PageNavigation` for in-page wayfinding belongs in the Page Heading (below the hero), never inside the hero section.
+- Home `PageNavigation` row remains the 6-cell pattern (Home, Services, Projects, About, Contact, More).
 - `More` in `PageNavigation` uses full-screen overlay behavior (backdrop + centered panel + body scroll lock).
 
 ## Navigation Overlay and Header Action Visual Contract (Canonical)
@@ -588,7 +588,7 @@ page-navigation overlays, and navigation action presentation.
 3. Hero surfaces must not duplicate global-header contact actions owned by the phone CTA.
 4. Desktop navigation must use the primary route row plus secondary `More` dropdown model from `DesktopNavigation`.
 5. Mobile navigation must use the dialog overlay pattern from `MobileNavigation` (toggle, backdrop, close control, focus-visible states).
-6. Hero `PageNavigation` (where present) must preserve bottom anchoring and overlay behavior contracts.
+6. `PageNavigation` (when present) must be in the Page Heading below the hero, not inside the hero section.
 7. Overlay close behaviors must include Escape key and explicit close action; mobile overlays also close on backdrop click.
 8. Body scroll must lock while mobile navigation overlays are open and restore on close.
 9. Navigation controls and overlay links must remain keyboard reachable with visible focus states.

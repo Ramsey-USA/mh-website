@@ -217,14 +217,14 @@ export default function YourPageName() {
               </div>
             </div>
           </div>
-
-          {/* Optional hero continuity nav when route requires it */}
-          <PageNavigation
-            items={navigationConfigs.yourpage}
-            showRemainingPagesOverlay
-            className="absolute bottom-0 left-0 right-0"
-          />
         </section>
+
+        {/* Page Heading — navigation and breadcrumb live here, never inside the hero */}
+        {/* PageNavigation provides in-page wayfinding (optional, route-specific) */}
+        <PageNavigation
+          items={navigationConfigs.yourpage}
+          showRemainingPagesOverlay
+        />
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb
@@ -361,7 +361,7 @@ export function getYourPageSEO() {
 }
 ```
 
-### 2. Global + Hero Navigation Model
+### 2. Global + Page Heading Navigation Model
 
 **Files:**
 
@@ -371,11 +371,12 @@ export function getYourPageSEO() {
 Current standard:
 
 - Primary/secondary header routes are centrally owned by `buildSiteNavigationModel`.
-- Hero-level page navigation remains owned by `navigationConfigs` + `PageNavigation` for in-page routing continuity.
+- `PageNavigation` provides in-page wayfinding for routes that need it. It lives in the **Page Heading** — the area immediately below the hero — never inside the hero section itself.
 - New page routes should be added to route ownership + route manifest sources first, then reflected in nav data labels.
-- Keep both surfaces congruent: global header for site navigation, hero page navigation for page-level wayfinding.
+- Keep both surfaces congruent: global header for site navigation, Page Heading `PageNavigation` for page-level wayfinding.
+- **`PageNavigation` must never be placed inside the hero section.** It must be placed in the Page Heading below the hero.
 
-Hero navigation config example:
+Page Heading navigation config example:
 
 ```typescript
 export const navigationConfigs = {
@@ -433,8 +434,8 @@ Before deploying your new page:
 - [ ] Verify all links work
 - [ ] Verify page inherits the global header (`SiteHeader`) without duplicating route controls inside the hero
 - [ ] Verify desktop `More` dropdown and mobile menu dialog still include the new route where applicable
-- [ ] If hero uses `PageNavigation`, verify it remains pinned at `absolute bottom-0 left-0 right-0`
-- [ ] If hero uses `PageNavigation` `More`, verify overlay behaviors (backdrop, Escape, close control) remain intact
+- [ ] `PageNavigation` (if used) is placed in the Page Heading below the hero, **not** inside the hero `<section>`
+- [ ] If `More` is present in page navigation, verify overlay behaviors (backdrop, Escape, close control) remain intact
 - [ ] Verify SEO metadata appears correctly
 - [ ] Verify route-specific Jeremy quote key exists in `src/content/jeremy-page-ribbons.md`
 - [ ] Verify page SEO keywords include route-aware Jeremy quote signals

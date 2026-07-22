@@ -408,15 +408,18 @@ function checkPrimarySloganIntegrity(errors) {
 }
 
 function checkHeroVisualContracts(errors) {
-  const homeHeroRelPath = "src/components/home/HeroSection.tsx";
-  // Heroes that intentionally omit an in-hero navigation bar (nav is handled by
-  // the global app shell instead).
-  const NAV_SHELL_EXEMPT = new Set([
-    "src/components/about/AboutHero.tsx",
-    "src/app/projects/components/ProjectsHero.tsx",
-  ]);
+  // Standard: PageNavigation belongs in the Page Heading, never inside a hero
+  // section. Heroes own visual presentation only; wayfinding lives in the
+  // heading area that follows the hero.
   const heroContainerSignal =
     /hero-section|hero-safe-top|hero-safe-bottom|min-h-screen|h-screen|calc\(100vh - var\(--mh-nav-offset|HeroSectionClient|useVideoHero/;
+
+  // Detect PageNavigation placed inside a hero section. A hero section is
+  // delimited by the opening hero-section tag and the closing </section> that
+  // ends it. We use a simple heuristic: if the source contains both a
+  // hero-container signal AND a PageNavigation import/usage, the file violates
+  // the standard.
+  const pageNavigationUsageRe = /<PageNavigation\b/;
 
   for (const relPath of HERO_VISUAL_FILES) {
     const absPath = path.join(ROOT, relPath);
@@ -433,17 +436,10 @@ function checkHeroVisualContracts(errors) {
       );
     }
 
-    if (relPath !== homeHeroRelPath && !NAV_SHELL_EXEMPT.has(relPath)) {
-      const hasNavigationShell =
-        source.includes("PageNavigation") ||
-        source.includes("Breadcrumb") ||
-        source.includes("Breadcrumbs");
-
-      if (!hasNavigationShell) {
-        errors.push(
-          `Hero visual contract missing navigation shell signal (PageNavigation/Breadcrumb) in ${relPath}.`,
-        );
-      }
+    if (pageNavigationUsageRe.test(source)) {
+      errors.push(
+        `Hero visual contract violation: PageNavigation must not be inside a hero section in ${relPath}. Move it to the Page Heading below the hero.`,
+      );
     }
   }
 }

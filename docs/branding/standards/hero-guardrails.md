@@ -67,7 +67,6 @@ export function CustomHero(props: CompliantHeroProps) {
     hasDualNaming: true,
     hasMantra: true,
     hasBottomRightPositioning: true,
-    hasPageNavigation: true,
     hasCanonicalClass: true,
     hasProperHeight: true,
   });
@@ -127,7 +126,6 @@ export interface CompliantHeroProps {
   styling: HeroStyling; // Canonical CSS structure
   positioning: HeroTextPositioning; // Bottom-right alignment
   typography: HeroTypography; // Responsive font sizing
-  navigation: HeroNavigation; // PageNavigation component
   backgroundMedia?: object; // Optional: image/video
 }
 ```
@@ -199,7 +197,7 @@ export function TeamsHero() {
 - ✅ Canonical hero section class
 - ✅ Correct height: `calc(100vh - var(--mh-nav-offset, 6.5rem))`
 - ✅ Bottom-right text positioning with `ml-auto`
-- ✅ PageNavigation at `absolute bottom-0 left-0 right-0`
+- ✅ No `PageNavigation` inside hero (navigation belongs in Page Heading)
 - ✅ Dual naming format with `→`
 - ✅ Proper background gradient and overlay
 - ✅ Responsive typography scaling
@@ -216,7 +214,6 @@ export function CustomHero() {
     hasDualNaming: true,
     hasMantra: true,
     hasBottomRightPositioning: true,
-    hasPageNavigation: true,
     hasCanonicalClass: true,
     hasProperHeight: true,
   });
@@ -316,7 +313,7 @@ npm run check:hero-guardrails --workspace=apps/website || {
 | Violation                    | Cause                 | Fix                                                                                                            |
 | ---------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- |
 | Missing canonical hero class | Custom implementation | Use `HeroSectionEnforcer` or add `hero-section relative flex items-end justify-end text-white overflow-hidden` |
-| Missing PageNavigation       | Forgot to add nav     | Add `<PageNavigation items={navigationConfigs.page} className="absolute bottom-0 left-0 right-0" />`           |
+| PageNavigation inside hero   | Wrong placement       | Move `<PageNavigation>` to the Page Heading below the hero, not inside the `<section>`                         |
 | Missing dual naming          | Incomplete content    | Add dual naming: `dualNaming="Military → Civilian"`                                                            |
 | CTA buttons in hero          | Violates standards    | Move buttons outside hero section                                                                              |
 | Top/center text alignment    | Wrong positioning     | Change to bottom-right with `ml-auto` and `text-right`                                                         |
@@ -368,6 +365,19 @@ npm run check:hero-guardrails --workspace=apps/website || {
   slogan="Custom slogan" // Override slogan
   serving="Custom serving area" // Override serving
 />
+```
+
+### Q: What if my page needs `PageNavigation` for in-page wayfinding?
+
+**A:** Place it in the **Page Heading** — the element immediately below the hero section, before the main body content. Never inside the `<section className="hero-section ...">` element.
+
+```tsx
+<section className="hero-section ...">...
+</section>
+
+{/* Page Heading — PageNavigation lives here */}
+<PageNavigation items={navigationConfigs.yourPage} />
+<Breadcrumb items={...} />
 ```
 
 ### Q: What if my page needs a different hero layout?

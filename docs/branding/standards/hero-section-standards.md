@@ -90,9 +90,8 @@ Required alignment:
 - `ml-auto max-w-2xl pointer-events-none pb-2`
 
 1. **CTA Envelope Allowed**: Home baseline allows two hero CTAs (contact + project proof) rendered in the content card.
-2. **PageNavigation Optional by Route**: Hero-level `PageNavigation` is used where the route requires it; it is not mandatory for every hero.
-3. **If PageNavigation is Present**: Keep it pinned to `absolute bottom-0 left-0 right-0`.
-4. **Single Mission Icon Treatment**: Use one intentional icon container aligned with Home-style emphasis where icon treatment is used.
+2. **No PageNavigation in Hero**: `PageNavigation` must never be placed inside a hero section. It belongs in the Page Heading immediately below the hero.
+3. **Single Mission Icon Treatment**: Use one intentional icon container aligned with Home-style emphasis where icon treatment is used.
 
 ### ❌ MUST NOT INCLUDE
 
@@ -154,9 +153,13 @@ visual element. This creates a more impactful first impression where imagery spe
     </h1>
   </div>
 
-  {/* Optional page navigation when route requires continuity nav */}
-  <PageNavigation className="absolute bottom-0 left-0 right-0" />
-</section>
+  {/* Optional page navigation when route requires continuity nav — place in Page Heading BELOW hero, not here */}
+</section>;
+
+{
+  /* Page Heading — navigation bar lives here, not in the hero */
+}
+<PageNavigation className="w-full" />;
 ```
 
 ---
@@ -198,7 +201,7 @@ Use this checklist when creating or reviewing any page's hero section:
 - [ ] Subtitle with proper responsive classes
 - [ ] Description includes company tagline
 - [ ] Home hero supports two CTA actions (primary + secondary)
-- [ ] If hero-level `PageNavigation` is used, keep it at `absolute bottom-0 left-0 right-0`
+- [ ] `PageNavigation` is placed in the Page Heading below the hero, **not** inside the hero section
 - [ ] Breadcrumb appears after hero (never above hero)
 - [ ] If semiquincentennial banner exists, breadcrumb appears before banner
 - [ ] All navigable sections have unique `id` attributes
@@ -223,7 +226,7 @@ Use this checklist when creating or reviewing any page's hero section:
       ...
     </h1>
   </div>
-  {/* Optional page navigation if route-level continuity nav is required */}
+  {/* No PageNavigation here — it lives in the Page Heading below */}
 </section>
 ```
 
