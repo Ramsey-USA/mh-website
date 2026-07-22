@@ -142,72 +142,6 @@ function AppShellBreadcrumbFallback() {
   );
 }
 
-function BreadcrumbBeforeHeroSlot() {
-  const pathname = usePathname();
-  const [slot, setSlot] = useState<HTMLElement | null>(null);
-
-  useEffect(() => {
-    setSlot(null);
-
-    let cancelled = false;
-    let attempts = 0;
-    let timeoutId: ReturnType<typeof setTimeout> | null = null;
-    let createdSlot: HTMLDivElement | null = null;
-
-    const placeSlot = () => {
-      if (cancelled) return;
-
-      const main = document.getElementById("main-content");
-      const heroLikeSection =
-        main?.querySelector<HTMLElement>(
-          'section.hero-section, section[id$="-hero"], section[id*="hero"], section[aria-labelledby="hero-heading"], [data-page-hero="true"]',
-        ) ?? main?.querySelector<HTMLElement>("section");
-
-      const firstRenderableChild = Array.from(main?.children ?? []).find(
-        (node) => node.tagName !== "SCRIPT" && node.tagName !== "TEMPLATE",
-      ) as HTMLElement | undefined;
-
-      let anchor = heroLikeSection ?? null;
-
-      if (!anchor) {
-        attempts += 1;
-        if (attempts < 40) {
-          timeoutId = globalThis.setTimeout(placeSlot, 50);
-          return;
-        }
-        anchor = firstRenderableChild ?? null;
-      }
-
-      if (!anchor?.parentElement) {
-        timeoutId = globalThis.setTimeout(placeSlot, 50);
-        return;
-      }
-
-      createdSlot = document.createElement("div");
-      createdSlot.dataset["mhBreadcrumbBeforeHero"] = "true";
-      anchor.before(createdSlot);
-      setSlot(createdSlot);
-    };
-
-    timeoutId = globalThis.setTimeout(placeSlot, 50);
-
-    return () => {
-      cancelled = true;
-      if (timeoutId !== null) {
-        globalThis.clearTimeout(timeoutId);
-      }
-      setSlot(null);
-      createdSlot?.remove();
-    };
-  }, [pathname]);
-
-  if (!slot) {
-    return null;
-  }
-
-  return createPortal(<AppShellBreadcrumbFallback />, slot);
-}
-
 function SemiquincentennialAfterHeroSlot() {
   const pathname = usePathname();
   const [slot, setSlot] = useState<HTMLElement | null>(null);
@@ -275,7 +209,10 @@ function SemiquincentennialAfterHeroSlot() {
   if (!slot) return null;
 
   return createPortal(
-    showSemiquincentennialBanner ? <SemiquincentennialBanner /> : null,
+    <>
+      <AppShellBreadcrumbFallback />
+      {showSemiquincentennialBanner ? <SemiquincentennialBanner /> : null}
+    </>,
     slot,
   );
 }
@@ -377,7 +314,6 @@ export function AppShell({
         <div className="mh-global-logo-parallax-active relative z-10 flex min-h-screen flex-col bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
           <main id="main-content" className="grow pt-(--mh-nav-offset,6.5rem)">
             {children}
-            <BreadcrumbBeforeHeroSlot />
             <SemiquincentennialAfterHeroSlot />
           </main>
           <EventsHubBanner />
@@ -443,7 +379,6 @@ export function AppShell({
           className="grow pt-[calc(var(--mh-nav-offset,6.5rem)+var(--mh-pwa-nav-offset,0px)+1rem)]"
         >
           {children}
-          <BreadcrumbBeforeHeroSlot />
           <SemiquincentennialAfterHeroSlot />
         </main>
 

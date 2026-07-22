@@ -189,6 +189,7 @@ describe("AppShell", () => {
   });
 
   it("renders fallback breadcrumb after hero and before semiquincentennial banner", async () => {
+    mockUsePathname.mockReturnValue("/about");
     mockUsePWA.mockReturnValue({
       isStandalone: false,
       isInstallable: true,
