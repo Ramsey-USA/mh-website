@@ -108,7 +108,7 @@ these core values in hierarchical order:
 
 **Current Implementation**:
 
-- **Global Top Row**: PageNavigation uses a shared 6-cell row (Home, Services, Projects, About, Contact, More)
+- **Global Top Row**: When PageNavigation is used on a route, it follows the shared 6-cell row model (Home, Services, Projects, About, Contact, More)
 - **More Overlay**: `More` opens a modal overlay with remaining pages and short descriptions
 - **Hamburger Menu**: Handles cross-page navigation and social media links
 - **Dual Labels by Surface**: Military/civilian naming remains supported with surface-specific rendering rules

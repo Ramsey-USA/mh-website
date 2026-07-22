@@ -78,7 +78,7 @@ export default async function SafetyManualFormsPage() {
       <section className="bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Breadcrumb items={breadcrumbs} className="mb-5 text-white/60" />
-          <div className="font-heading mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
+          <div className="font-subheading mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold font-heading uppercase tracking-wider text-brand-secondary">
             <MaterialIcon
               icon={FORM_MANUAL_ICONS.formField}
               size="sm"
@@ -86,7 +86,7 @@ export default async function SafetyManualFormsPage() {
             />
             Safety Forms (MISH Safety &amp; Health Program)
           </div>
-          <p className="font-heading mb-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/80">
+          <p className="font-subheading mb-1 text-xs font-semibold font-heading uppercase tracking-wider text-brand-secondary/80">
             Safety Manual <span aria-hidden>→</span> Safety Forms
           </p>
           <h1 className="text-2xl font-black text-white sm:text-3xl md:text-4xl leading-tight">
@@ -151,7 +151,7 @@ export default async function SafetyManualFormsPage() {
                 </div>
               </div>
               <footer className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-brand-primary/10 pt-3">
-                <p className="font-heading inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
+                <p className="font-subheading inline-flex items-center gap-1.5 text-[11px] font-semibold font-heading uppercase tracking-wider text-amber-700 dark:text-amber-300">
                   <MaterialIcon icon="lock" size="sm" />
                   Blank template
                 </p>

@@ -530,14 +530,14 @@ Use the page shell contract (from `AppShell`) instead of per-section logo overla
 
 **Modern Requirements:**
 
-- ✅ Full viewport height: `h-screen flex items-center justify-center`
+- ✅ Full viewport hero posture using home baseline: `hero-section relative flex items-end justify-end overflow-hidden`
 - ✅ Clean typography: Title, subtitle, description
 - ✅ Brand color emphasis: `text-brand-secondary` on hero titles
 - ✅ Global navigation is owned by `SiteHeader` (fixed shell)
-- ✅ Hero-level `PageNavigation` remains required for in-page wayfinding and cross-route continuity where implemented
+- ✅ Hero-level `PageNavigation` is optional by route and must remain bottom-anchored where implemented
 - ✅ Hero content must account for the shell offset via `--mh-nav-offset` safe spacing
-- ✅ Modern components: CTAs, badges, and stats ARE allowed when appropriate
-- ✅ Responsive padding: Top `pt-16` to `lg:pt-40`, Bottom `pb-12` to `lg:pb-28`
+- ✅ Home baseline includes a focused two-CTA envelope (primary contact + secondary proof path)
+- ✅ Responsive lower-right content envelope is preferred over centered headline blocks
 
 ### Hero Similarity Contract (Homepage Baseline)
 
@@ -550,25 +550,16 @@ Hero sections share their own visual contract and must align to homepage hero ch
 5. Any route-specific hero divergence must be documented as intent or approved exception before merge.
 
 ```tsx
-<section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
-  <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
+<section className="hero-section relative flex items-end justify-end overflow-hidden text-white">
+  <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900" />
+  <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/15 via-gray-900/35 to-gray-900/50" />
 
-  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
-    <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-      <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-        <span className="block text-brand-secondary font-black drop-shadow-lg">
-          Page Title Content
-        </span>
+  <div className="hero-safe-top hero-safe-bottom relative z-10 mx-3 mb-4 pointer-events-none sm:ml-auto sm:mr-5 sm:w-[min(88vw,44rem)] sm:max-w-176 lg:mr-7 xl:mr-10">
+    <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
+      <h1 className="text-right text-lg font-black leading-tight tracking-tight text-white xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+        <span className="mb-1 block text-brand-secondary">Home -> Command Center</span>
+        <span className="block text-white">Built on Quality, Backed by Trust.</span>
       </h1>
-
-      <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-        Compelling subtitle or tagline
-      </p>
-
-      <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-        "Built on Quality, Backed by Trust." — Descriptive text about page
-        content.
-      </p>
     </div>
   </div>
 </section>

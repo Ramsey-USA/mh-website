@@ -16,9 +16,9 @@ accessibility.
 
 ### Home
 
-**Title:** `Base HQ → Home | Built on Quality, Backed by Trust. | MH Construction`
-**Format:** Military term → Civilian term | Brand promise | Company
-**Location:** `/src/app/layout.tsx` (default title)
+**Title:** Generated in homepage metadata via `formatDualPageName(...)` + mission-ready services qualifier + company name
+**Format:** Dual label surface term | service qualifier | Company
+**Location:** `/apps/website/src/app/page.tsx` (route metadata)
 
 ### About
 

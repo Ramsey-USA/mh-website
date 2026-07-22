@@ -264,6 +264,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       className={["dark", mendlFontVariableClasses].filter(Boolean).join(" ")}
+      suppressHydrationWarning
     >
       <head>
         <FaviconLinks />

@@ -741,7 +741,7 @@ export default async function AlliesPage() {
                     className="text-brand-primary dark:text-brand-primary-light shrink-0"
                     ariaLabel={t("allies.network.criteria.aria")}
                   />
-                  <span className="font-heading text-xs font-bold uppercase tracking-widest text-brand-primary dark:text-brand-primary-light">
+                  <span className="font-subheading text-xs font-bold font-heading uppercase tracking-widest text-brand-primary dark:text-brand-primary-light">
                     {t("allies.network.criteria.label")}
                   </span>
                 </div>
@@ -949,7 +949,7 @@ export default async function AlliesPage() {
         {/* Accreditations & Certifications */}
         <section className="order-3 relative py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <p className="font-heading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
+            <p className="font-subheading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest font-heading uppercase mb-4">
               {t("allies.accreditations.kicker")}
             </p>
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">

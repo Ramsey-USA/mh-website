@@ -19,6 +19,10 @@ const FONT_BODY_STACK = [
   "sans-serif",
 ];
 
+const {
+  getWorkspaceTailwindPlugins,
+} = require("../../config/tailwind/plugins.cjs");
+
 const config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -420,9 +424,11 @@ const config = {
     },
   },
   plugins: [
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/aspect-ratio"),
+    ...getWorkspaceTailwindPlugins({
+      forms: true,
+      typography: true,
+      aspectRatio: true,
+    }),
     function ({ addUtilities }: { addUtilities: Function }) {
       const newUtilities = {
         ".perspective-1000": {

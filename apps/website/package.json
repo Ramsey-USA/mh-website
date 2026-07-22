@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "dev:inspect": "cross-env NODE_OPTIONS=--inspect next dev",
+    "dev:inspect": "cross-env NODE_OPTIONS=--inspect=0 next dev",
     "dev:turbo": "next dev --turbo",
     "build": "npm run build:standard",
     "build:standard": "npm run verify:route-integrity && npm run seo:indexnow:keyfile && cross-env NODE_OPTIONS=\"--disable-warning=DEP0040\" bash scripts/build-opennext-resilient.sh",
@@ -236,9 +236,9 @@
     "jest": "^30.4.2",
     "jest-axe": "^10.0.0",
     "jest-environment-jsdom": "^30.4.1",
-  "lighthouse": "^13.4.1",
-  "prettier": "^3.9.6",
-  "tailwindcss": "^4.3.2",
+    "lighthouse": "^13.4.1",
+    "prettier": "^3.9.6",
+    "tailwindcss": "^4.3.2",
     "typescript": "^6.0.3",
     "wrangler": "4.112.0"
   },

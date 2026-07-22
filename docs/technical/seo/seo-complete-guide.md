@@ -754,11 +754,12 @@ Before deploying changes:
 **Implementation:**
 
 ```tsx
-// Services discovery is in the home hub section
-<ServicesShowcase sectionVariant="white" className="..." />
-
-// Funnel order inside ServicesShowcase:
-// 1) Delivery Path -> 2) Project Focus -> 3) Specific Service Card -> modal CTA
+// Services discovery in current homepage architecture
+<BrandedContentSection id="services" ...>
+  {/* Service overview cards */}
+  {/* Service route chips */}
+  {/* Services hub CTA */}
+</BrandedContentSection>
 ```
 
 #### Phase 1: Enhanced Metadata Integration

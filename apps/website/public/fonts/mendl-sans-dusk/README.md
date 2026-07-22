@@ -10,6 +10,10 @@ These are wired through `next/font/local` in `apps/website/src/lib/fonts.ts`.
 
 Variant mapping:
 
+- Light (300): supporting/descriptive copy
 - Regular (400): body
 - Medium (500): subheadings
+- SemiBold (600): UI labels, compact nav text
 - Bold (700): headings
+- XBold (800): display emphasis
+- Black (900): hero-impact headlines

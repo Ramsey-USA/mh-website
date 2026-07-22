@@ -28,10 +28,6 @@ import { normalizeEmployeeTestimonials } from "@/lib/data/testimonials";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { AccreditationsLogoRow } from "@/components/shared-sections";
 import { SimpleSkeleton } from "@/components/ui/SimpleSkeleton";
-import {
-  generateBreadcrumbSchema,
-  breadcrumbPatterns,
-} from "@/lib/seo/breadcrumb-schema";
 
 // Lazy load heavy below-the-fold components for mobile performance
 const TestimonialGrid = dynamic(
@@ -144,16 +140,6 @@ export default function CareersPageClient({
   return (
     <>
       {/* SEO Meta Tags */}
-
-      {/* Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            generateBreadcrumbSchema(breadcrumbPatterns.careers),
-          ),
-        }}
-      />
 
       <div className="relative min-h-screen overflow-hidden bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         {/* Page-level background — rendered once for all sections */}
@@ -275,7 +261,7 @@ export default function CareersPageClient({
                 <div className="text-4xl sm:text-5xl font-black text-brand-primary dark:text-brand-primary-light mb-2 transition-colors duration-300">
                   150+
                 </div>
-                <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                <div className="font-subheading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
                   {t("whyChoose.stats.experience")}
                 </div>
               </Card>
@@ -283,7 +269,7 @@ export default function CareersPageClient({
                 <div className="text-4xl sm:text-5xl font-black text-brand-secondary dark:text-brand-secondary-light mb-2 transition-colors duration-300">
                   .64
                 </div>
-                <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                <div className="font-subheading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
                   {t("whyChoose.stats.safety")}
                 </div>
               </Card>
@@ -291,7 +277,7 @@ export default function CareersPageClient({
                 <div className="text-4xl sm:text-5xl font-black text-bronze-700 dark:text-bronze-400 mb-2 transition-colors duration-300">
                   100%
                 </div>
-                <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                <div className="font-subheading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
                   {t("whyChoose.stats.mentorship")}
                 </div>
               </Card>
@@ -299,7 +285,7 @@ export default function CareersPageClient({
                 <div className="text-4xl sm:text-5xl font-black bg-linear-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent mb-2 transition-colors duration-300">
                   70%
                 </div>
-                <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                <div className="font-subheading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
                   {t("whyChoose.stats.referral")}
                 </div>
               </Card>
@@ -543,7 +529,7 @@ export default function CareersPageClient({
                   <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2">
                     {t("veterans.stats.priority.value")}
                   </div>
-                  <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  <div className="font-subheading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
                     {t("veterans.stats.priority.label")}
                   </div>
                   <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">
@@ -559,7 +545,7 @@ export default function CareersPageClient({
                   <div className="text-3xl sm:text-4xl font-black text-brand-secondary dark:text-brand-secondary-light mb-2">
                     100%
                   </div>
-                  <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  <div className="font-subheading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
                     {t("veterans.stats.militaryFriendly.label")}
                   </div>
                   <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">
@@ -575,7 +561,7 @@ export default function CareersPageClient({
                   <div className="text-3xl sm:text-4xl font-black text-bronze-700 dark:text-bronze-400 mb-2">
                     {t("veterans.stats.branches.value")}
                   </div>
-                  <div className="font-heading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  <div className="font-subheading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
                     {t("veterans.stats.branches.label")}
                   </div>
                   <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">
@@ -1337,7 +1323,7 @@ export default function CareersPageClient({
         <section className="relative py-12 sm:py-16 bg-white dark:bg-gray-900">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <div className="scroll-reveal">
-              <p className="font-heading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
+              <p className="font-subheading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest font-heading uppercase mb-4">
                 {t("accreditations.kicker")}
               </p>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">

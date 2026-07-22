@@ -98,7 +98,7 @@ export default function AboutPage() {
           className="py-10 sm:py-14 border-b border-gray-200 dark:border-gray-800"
         >
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <p className="font-heading text-sm font-semibold tracking-[0.16em] uppercase text-brand-secondary mb-3">
+            <p className="font-subheading text-sm font-semibold tracking-[0.16em] uppercase text-brand-secondary mb-3">
               {pageContent.label}
             </p>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-5 leading-tight">
@@ -231,7 +231,7 @@ export default function AboutPage() {
             </div>
 
             <div className="mt-6 rounded-xl border border-brand-primary/20 bg-gray-50 dark:bg-gray-800/60 p-4 sm:p-5">
-              <p className="font-heading text-xs sm:text-sm font-semibold tracking-[0.14em] uppercase text-brand-primary mb-2">
+              <p className="font-subheading text-xs sm:text-sm font-semibold tracking-[0.14em] uppercase text-brand-primary mb-2">
                 {leadershipSourcesCopy.label}
               </p>
               <p className="font-body text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -332,7 +332,7 @@ export default function AboutPage() {
 
         <section className="relative py-12 sm:py-14 bg-gray-50 dark:bg-gray-800/60 border-b border-gray-200 dark:border-gray-800">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <p className="font-heading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-6">
+            <p className="font-subheading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest font-heading uppercase mb-6">
               {commonT("about.accreditations.sectionTitle")}
             </p>
             <AccreditationsLogoRow />

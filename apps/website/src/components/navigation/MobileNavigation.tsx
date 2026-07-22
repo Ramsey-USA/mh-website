@@ -72,7 +72,7 @@ export function MobileNavigation({
           aria-label={open ? labels.closeMenuLabel : labels.openMenuLabel}
           aria-expanded={open}
           aria-controls={panelId}
-          className="font-heading min-h-11 rounded-md border border-brand-primary/35 px-4 py-2 text-xs uppercase tracking-[0.12em] text-brand-primary transition-colors hover:bg-brand-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/90 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:text-brand-secondary-light dark:hover:bg-brand-secondary/20 dark:focus-visible:ring-offset-gray-950"
+          className="font-subheading min-h-11 rounded-md border border-brand-primary/35 px-4 py-2 text-xs uppercase tracking-[0.12em] text-brand-primary transition-colors hover:bg-brand-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/90 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:text-brand-secondary-light dark:hover:bg-brand-secondary/20 dark:focus-visible:ring-offset-gray-950"
           onClick={() => {
             const nextOpen = !open;
             setOpen(nextOpen);
@@ -103,12 +103,12 @@ export function MobileNavigation({
             style={{ top: "calc(var(--mh-nav-offset, 6.5rem) + 0.5rem)" }}
           >
             <div className="mb-3 flex items-center justify-between">
-              <p className="font-heading text-xs uppercase tracking-[0.16em] text-brand-secondary">
+              <p className="font-subheading text-xs uppercase tracking-[0.16em] text-brand-secondary">
                 {labels.navLabel}
               </p>
               <button
                 type="button"
-                className="font-heading rounded-md border border-gray-300 px-2 py-1 text-[0.7rem] uppercase tracking-widest text-gray-700 transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/90 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:focus-visible:ring-offset-gray-950"
+                className="font-subheading rounded-md border border-gray-300 px-2 py-1 text-[0.7rem] font-heading uppercase tracking-widest text-gray-700 transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/90 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:focus-visible:ring-offset-gray-950"
                 aria-label={labels.closeMenuLabel}
                 onClick={() => setOpen(false)}
               >
@@ -149,7 +149,7 @@ export function MobileNavigation({
 
             <Link
               href={ctaHref}
-              className="font-heading mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-md border border-brand-primary bg-brand-primary px-4 py-2 text-xs uppercase tracking-[0.09em] text-white transition-colors hover:bg-brand-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/90 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-950"
+              className="font-subheading mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-md border border-brand-primary bg-brand-primary px-4 py-2 text-xs uppercase tracking-[0.09em] text-white transition-colors hover:bg-brand-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/90 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-950"
               onClick={() => {
                 setOpen(false);
                 trackClick("header-mobile-cta", { href: ctaHref });

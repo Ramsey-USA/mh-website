@@ -74,7 +74,7 @@ export function JeremyQuoteRibbon({
           className="pointer-events-none absolute -right-20 -bottom-20 h-52 w-52 rounded-full bg-brand-secondary/18 blur-3xl dark:bg-brand-secondary/26"
         />
 
-        <p className="font-heading relative text-xs font-bold tracking-[0.22em] text-brand-primary uppercase sm:text-sm">
+        <p className="font-subheading relative text-xs font-bold tracking-[0.22em] text-brand-primary uppercase sm:text-sm">
           {ribbon.eyebrow}
         </p>
         {stamp ? (

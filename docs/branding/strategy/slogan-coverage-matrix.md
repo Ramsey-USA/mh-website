@@ -51,7 +51,7 @@ Related checklist:
 
 | Surface                 | File                                                                          | Primary Signal Required | Supporting Signal Required |
 | ----------------------- | ----------------------------------------------------------------------------- | ----------------------- | -------------------------- |
-| Home Hero               | apps/website/src/components/home/HeroSectionClient.tsx                        | Yes                     | Yes                        |
+| Home Hero               | apps/website/src/components/home/HeroSection.tsx                              | Yes                     | Yes                        |
 | About Hero              | apps/website/src/components/about/AboutHero.tsx                               | Yes                     | Yes                        |
 | Services Hero           | apps/website/src/components/services/ServicesHero.tsx                         | Yes                     | Yes                        |
 | Location Detail Hero    | apps/website/src/components/locations/LocationPageContent.tsx                 | Yes                     | Yes                        |
@@ -76,7 +76,7 @@ Related checklist:
 
 Use these links when updating or reviewing hero copy and layout for each surfaced page.
 
-- Home Hero: [apps/website/src/components/home/HeroSectionClient.tsx](../../../apps/website/src/components/home/HeroSectionClient.tsx)
+- Home Hero: [apps/website/src/components/home/HeroSection.tsx](../../../apps/website/src/components/home/HeroSection.tsx)
 - About Hero: [apps/website/src/components/about/AboutHero.tsx](../../../apps/website/src/components/about/AboutHero.tsx)
 - Services Hero: [apps/website/src/components/services/ServicesHero.tsx](../../../apps/website/src/components/services/ServicesHero.tsx)
 - Location Detail Hero: [apps/website/src/components/locations/LocationPageContent.tsx](../../../apps/website/src/components/locations/LocationPageContent.tsx)

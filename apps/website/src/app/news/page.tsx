@@ -82,7 +82,7 @@ export default async function NewsPage() {
           className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
         >
           <div className="mx-auto mb-12 max-w-5xl text-center">
-            <p className="font-heading mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-brand-secondary">
+            <p className="font-subheading mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-brand-secondary">
               {content.subtitle}
             </p>
             <h1 className="font-black text-4xl sm:text-5xl lg:text-6xl text-gray-900 dark:text-white tracking-tight">

@@ -189,7 +189,7 @@ export function AlternatingShowcase({
                           />
                         </div>
                         <div className="flex-1">
-                          <p className="font-heading text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
+                          <p className="font-subheading text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-300 font-heading uppercase tracking-wider">
                             {item.statsLabel || "Key Metric"}
                           </p>
                           <p className="font-bold text-sm sm:text-base lg:text-lg text-gray-900 dark:text-gray-100">

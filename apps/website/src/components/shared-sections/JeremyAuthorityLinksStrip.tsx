@@ -28,7 +28,7 @@ export function JeremyAuthorityLinksStrip({
       className={className}
     >
       <div className="rounded-2xl border border-brand-primary/20 bg-white/90 px-4 py-4 shadow-sm dark:bg-gray-900/85 sm:px-6">
-        <p className="font-heading text-xs font-semibold tracking-[0.14em] text-brand-primary uppercase sm:text-sm">
+        <p className="font-subheading text-xs font-semibold tracking-[0.14em] text-brand-primary uppercase sm:text-sm">
           {copy.label}
         </p>
         <div className="mt-3 flex flex-wrap gap-2 sm:gap-3">

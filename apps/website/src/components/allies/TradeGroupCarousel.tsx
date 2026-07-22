@@ -105,7 +105,7 @@ export function TradeGroupCarousel({
       </div>
 
       {/* Role badge */}
-      <div className="font-heading inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border text-xs font-bold uppercase tracking-wider bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-brand-primary-light border-brand-primary/30">
+      <div className="font-subheading inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border text-xs font-bold font-heading uppercase tracking-wider bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-brand-primary-light border-brand-primary/30">
         <MaterialIcon
           icon="verified"
           size="sm"
@@ -220,7 +220,7 @@ export function TradeGroupCarousel({
       {/* Our Work Together (portfolio) */}
       {vendor.portfolio.length > 0 && (
         <div>
-          <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1.5">
+          <h4 className="font-subheading text-xs font-bold font-heading uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1.5">
             Our Work Together
           </h4>
           <ul className="flex flex-wrap gap-1.5">

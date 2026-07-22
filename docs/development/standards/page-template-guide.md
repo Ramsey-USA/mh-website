@@ -193,50 +193,32 @@ export default function YourPageName() {
       {/* Page Container */}
       <div className="relative bg-white dark:bg-gray-900 w-full min-h-screen overflow-x-hidden">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
-          {/* Background Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
+        <section className="hero-section relative flex items-end justify-end overflow-hidden bg-gray-950 text-white">
+          {/* Background treatment */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/15 via-gray-900/35 to-gray-900/50"></div>
 
           {/* Hero Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
-            <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-              {/* Hero Icon (Optional) */}
-              <div className="flex justify-center mb-6">
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-brand-secondary/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-brand-secondary p-6 rounded-2xl shadow-2xl">
-                    <MaterialIcon
-                      icon="engineering" // Change to your icon
-                      size="3xl"
-                      className="text-white drop-shadow-lg"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Hero Title */}
-              <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-                <span className="block text-brand-secondary font-black drop-shadow-lg">
-                  Your Page Title Here
-                </span>
+          <div className="hero-safe-top hero-safe-bottom relative z-10 mx-3 sm:ml-auto sm:mr-5 lg:mr-7 xl:mr-10 mb-4 pointer-events-none sm:w-[min(88vw,44rem)] sm:max-w-176">
+            <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
+              <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
+                <span className="mb-1 block text-brand-secondary">Your Page -> Command Center</span>
+                <span className="mb-1 block text-brand-secondary/90">Your page-specific supporting slogan</span>
+                <span className="block text-white">Built on Quality, Backed by Trust.</span>
               </h1>
 
-              {/* Hero Subtitle */}
-              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2">
-                Your compelling subtitle or tagline goes here
-              </p>
-
-              {/* Hero Description */}
-              <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-                Detailed description about this page. Include the partnership
-                tagline: &quot;Building projects for the Client, NOT the
-                Dollar&quot; — Additional context about what users will find on
-                this page.
-              </p>
+              <div className="pointer-events-auto mt-4 flex flex-wrap justify-end gap-2 sm:gap-3">
+                <a className="inline-flex items-center justify-center rounded-xl bg-brand-secondary px-4 py-2 text-xs sm:text-sm font-bold text-gray-900">
+                  Primary action
+                </a>
+                <a className="inline-flex items-center justify-center rounded-xl border border-white/40 bg-white/10 px-4 py-2 text-xs sm:text-sm font-bold text-white">
+                  Secondary proof path
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Page Navigation - REQUIRED at bottom for hero parity */}
+          {/* Optional hero continuity nav when route requires it */}
           <PageNavigation
             items={navigationConfigs.yourpage}
             showRemainingPagesOverlay
@@ -451,8 +433,8 @@ Before deploying your new page:
 - [ ] Verify all links work
 - [ ] Verify page inherits the global header (`SiteHeader`) without duplicating route controls inside the hero
 - [ ] Verify desktop `More` dropdown and mobile menu dialog still include the new route where applicable
-- [ ] Verify hero includes `PageNavigation` pinned at `absolute bottom-0 left-0 right-0`
-- [ ] Verify `PageNavigation` `More` overlay behaviors (backdrop, Escape, close control) remain intact
+- [ ] If hero uses `PageNavigation`, verify it remains pinned at `absolute bottom-0 left-0 right-0`
+- [ ] If hero uses `PageNavigation` `More`, verify overlay behaviors (backdrop, Escape, close control) remain intact
 - [ ] Verify SEO metadata appears correctly
 - [ ] Verify route-specific Jeremy quote key exists in `src/content/jeremy-page-ribbons.md`
 - [ ] Verify page SEO keywords include route-aware Jeremy quote signals

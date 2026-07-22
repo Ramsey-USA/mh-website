@@ -108,7 +108,7 @@ export default async function EventDetailPage({
           <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-brand-primary/35 via-gray-900/70 to-gray-900/85" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl space-y-5">
-              <p className="font-heading text-xs font-semibold uppercase tracking-[0.18em] text-brand-secondary/90">
+              <p className="font-subheading text-xs font-semibold uppercase tracking-[0.18em] text-brand-secondary/90">
                 {isEs ? "Detalle del evento" : "Event Detail"}
               </p>
               <h1 className="text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
@@ -160,7 +160,7 @@ export default async function EventDetailPage({
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
             <Card className="overflow-hidden border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800">
               <div className="border-b border-gray-200 px-6 py-4 dark:border-gray-700">
-                <p className="font-heading text-xs font-semibold uppercase tracking-[0.16em] text-brand-secondary">
+                <p className="font-subheading text-xs font-semibold uppercase tracking-[0.16em] text-brand-secondary">
                   {isEs ? "Resumen del evento" : "Event Recap"}
                 </p>
                 <h2 className="mt-1 text-2xl font-black">
@@ -192,7 +192,7 @@ export default async function EventDetailPage({
 
             <div className="space-y-6">
               <Card className="border border-gray-200 bg-gray-50 p-6 shadow-lg dark:border-gray-700 dark:bg-gray-800">
-                <p className="font-heading text-xs font-semibold uppercase tracking-[0.16em] text-brand-secondary">
+                <p className="font-subheading text-xs font-semibold uppercase tracking-[0.16em] text-brand-secondary">
                   {isEs ? "Registro del evento" : "Event Record"}
                 </p>
                 <div className="mt-3 grid gap-3 text-sm text-gray-700 dark:text-gray-300">
@@ -222,7 +222,7 @@ export default async function EventDetailPage({
 
               <Card className="overflow-hidden border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
                 <div className="border-b border-gray-200 px-6 py-4 dark:border-gray-700">
-                  <p className="font-heading text-xs font-semibold uppercase tracking-[0.16em] text-brand-secondary">
+                  <p className="font-subheading text-xs font-semibold uppercase tracking-[0.16em] text-brand-secondary">
                     {isEs ? "Solicitud de alianza" : "Partnership Request"}
                   </p>
                   <h2 className="mt-1 text-2xl font-black">

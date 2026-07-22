@@ -442,7 +442,7 @@ export function ServicesShowcase({
           </p>
 
           <div>
-            <p className="font-heading mb-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-600 dark:text-gray-300">
+            <p className="font-subheading mb-3 text-xs sm:text-sm font-bold font-heading uppercase tracking-wider text-gray-600 dark:text-gray-300">
               {t.funnel.pathStepLabel}
             </p>
             <div className="flex flex-wrap gap-2">
@@ -465,7 +465,7 @@ export function ServicesShowcase({
           </div>
 
           <div>
-            <p className="font-heading mb-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-600 dark:text-gray-300">
+            <p className="font-subheading mb-3 text-xs sm:text-sm font-bold font-heading uppercase tracking-wider text-gray-600 dark:text-gray-300">
               {t.funnel.focusStepLabel}
             </p>
             <div className="flex flex-wrap gap-2">
@@ -592,7 +592,7 @@ export function ServicesShowcase({
                           size="md"
                           className="text-brand-primary dark:text-brand-primary-light transition-all duration-300"
                         />
-                        <span className="font-heading font-bold text-xs sm:text-sm uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
+                        <span className="font-subheading font-bold text-xs sm:text-sm font-heading uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
                           {t.clickForDetails}
                         </span>
                         <MaterialIcon

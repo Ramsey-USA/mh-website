@@ -164,7 +164,7 @@ export function PWAInstallCTA({
       >
         {/* Optional badge */}
         <div className="bg-brand-primary -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2 shadow-md">
-          <span className="font-heading font-bold text-sm text-white uppercase tracking-wide">
+          <span className="font-subheading font-bold text-sm text-white font-heading uppercase tracking-wide">
             New
           </span>
         </div>

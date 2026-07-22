@@ -1,3 +1,7 @@
+const {
+  getWorkspaceTailwindPlugins,
+} = require("../../config/tailwind/plugins.cjs");
+
 const config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -319,8 +323,11 @@ const config = {
     },
   },
   plugins: [
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/aspect-ratio"),
+    ...getWorkspaceTailwindPlugins({
+      forms: true,
+      typography: false,
+      aspectRatio: true,
+    }),
     function ({
       addUtilities,
     }: {

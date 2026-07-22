@@ -159,7 +159,7 @@ export default async function QrCodesPage() {
                 size="sm"
                 className="text-brand-primary"
               />
-              <span className="font-heading text-brand-primary dark:text-brand-secondary text-sm font-semibold tracking-wide uppercase">
+              <span className="font-subheading text-brand-primary dark:text-brand-secondary text-sm font-semibold tracking-wide font-heading uppercase">
                 QR Asset Library
               </span>
             </div>
@@ -297,7 +297,7 @@ export default async function QrCodesPage() {
                                   {entry.filename}
                                 </p>
                               </div>
-                              <span className="font-heading inline-flex items-center rounded-full border border-brand-primary/20 bg-brand-primary/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-brand-primary dark:border-brand-secondary/30 dark:bg-brand-secondary/10 dark:text-brand-secondary-light">
+                              <span className="font-subheading inline-flex items-center rounded-full border border-brand-primary/20 bg-brand-primary/10 px-2.5 py-1 text-xs font-semibold font-heading uppercase tracking-wide text-brand-primary dark:border-brand-secondary/30 dark:bg-brand-secondary/10 dark:text-brand-secondary-light">
                                 {entry.variant}
                               </span>
                             </div>

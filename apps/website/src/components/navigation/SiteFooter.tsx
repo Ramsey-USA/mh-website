@@ -74,7 +74,7 @@ export function SiteFooter() {
             aria-label={groupHeadings[group.key as FooterGroupHeadingKey]}
             className="space-y-3"
           >
-            <h2 className="font-heading text-sm uppercase tracking-[0.16em] text-brand-secondary">
+            <h2 className="font-subheading text-sm uppercase tracking-[0.16em] text-brand-secondary">
               {groupHeadings[group.key as FooterGroupHeadingKey]}
             </h2>
             <ul className="space-y-2">
@@ -95,7 +95,7 @@ export function SiteFooter() {
         <section aria-labelledby="footer-contact-heading" className="space-y-3">
           <h2
             id="footer-contact-heading"
-            className="font-heading text-sm uppercase tracking-[0.16em] text-brand-secondary"
+            className="font-subheading text-sm uppercase tracking-[0.16em] text-brand-secondary"
           >
             {t("contactHeading")}
           </h2>

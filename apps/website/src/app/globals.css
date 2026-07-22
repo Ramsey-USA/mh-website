@@ -18,6 +18,15 @@
    Keep a minimal self-hosted @font-face contract for fallback and validation guards. */
 @font-face {
   font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Light.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mendl-sans-dusk";
   src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf")
     format("opentype");
   font-weight: 400;
@@ -30,6 +39,33 @@
   src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Medium.otf")
     format("opentype");
   font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_SemiBold.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_XBold.otf")
+    format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Black.otf")
+    format("opentype");
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
@@ -67,9 +103,8 @@
 @layer utilities {
   .mh-logo-parallax-layer {
     background-repeat: no-repeat;
-    background-position: center calc(50% + var(--mh-logo-parallax-offset, 0px));
+    background-position: center;
     background-size: clamp(320px, 62vw, 920px) auto;
-    will-change: background-position;
   }
 
   .mh-logo-parallax-overlay {
@@ -82,12 +117,6 @@
 
   .mh-global-logo-parallax-active .mh-diagonal-stripe-pattern {
     display: none;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .mh-logo-parallax-layer {
-      background-position: center;
-    }
   }
 
   @media (max-width: 767px) {
@@ -115,7 +144,7 @@
   }
 
   .mh-subheading-display {
-    font-family: var(--font-heading);
+    font-family: var(--font-subheading, var(--font-heading));
     font-weight: var(--weight-mh-subheading);
     letter-spacing: var(--tracking-mh-subheading);
     line-height: var(--line-height-mh-subheading);

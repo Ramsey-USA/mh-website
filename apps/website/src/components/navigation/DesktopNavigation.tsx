@@ -116,7 +116,7 @@ export function DesktopNavigation({
                     href: ctaHref,
                   })
                 }
-                className="font-heading rounded-md border border-brand-primary bg-brand-primary px-4 py-2 text-xs uppercase tracking-[0.08em] text-white transition-colors hover:bg-brand-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/90 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-950"
+                className="font-subheading rounded-md border border-brand-primary bg-brand-primary px-4 py-2 text-xs uppercase tracking-[0.08em] text-white transition-colors hover:bg-brand-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/90 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-950"
               >
                 {labels.ctaLabel}
               </Link>

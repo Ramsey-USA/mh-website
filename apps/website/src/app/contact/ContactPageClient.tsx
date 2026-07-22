@@ -500,7 +500,7 @@ export default function ContactPageClient({
 
             {/* Trust Credentials */}
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-8 border-t border-gray-200 dark:border-gray-700">
-              <span className="font-heading text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+              <span className="font-subheading text-sm font-semibold text-gray-500 dark:text-gray-400 font-heading uppercase tracking-wider">
                 {t("contact.quickContact.accreditations")}
               </span>
               <a

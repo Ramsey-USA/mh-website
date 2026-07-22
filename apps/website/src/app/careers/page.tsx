@@ -1,6 +1,10 @@
 import { Suspense } from "react";
 import CareersPageClient from "./CareersPageClient";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
+import {
+  generateBreadcrumbSchema,
+  breadcrumbPatterns,
+} from "@/lib/seo/breadcrumb-schema";
 
 function CareersPageFallback() {
   return (
@@ -19,8 +23,18 @@ function CareersPageFallback() {
 
 export default function CareersPage() {
   return (
-    <Suspense fallback={<CareersPageFallback />}>
-      <CareersPageClient heroSlogan={getHeroPageSlogan("careers").slogan} />
-    </Suspense>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema(breadcrumbPatterns.careers),
+          ),
+        }}
+      />
+      <Suspense fallback={<CareersPageFallback />}>
+        <CareersPageClient heroSlogan={getHeroPageSlogan("careers").slogan} />
+      </Suspense>
+    </>
   );
 }

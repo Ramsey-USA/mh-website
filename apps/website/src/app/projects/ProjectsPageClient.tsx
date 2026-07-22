@@ -49,10 +49,6 @@ const NextStepsSection = dynamic(
 );
 
 import { SimpleSkeleton } from "@/components/ui/SimpleSkeleton";
-import {
-  generateBreadcrumbSchema,
-  breadcrumbPatterns,
-} from "@/lib/seo/breadcrumb-schema";
 
 export default function ProjectsPageClient() {
   // Analytics tracking
@@ -98,16 +94,6 @@ export default function ProjectsPageClient() {
     <>
       {/* SEO Meta Tags */}
       {/* Structured Data is injected via layout.tsx to avoid duplication */}
-
-      {/* Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            generateBreadcrumbSchema(breadcrumbPatterns.projects),
-          ),
-        }}
-      />
 
       <div className="relative min-h-screen w-full overflow-x-hidden bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <span className="sr-only">{t("languageActive")}</span>

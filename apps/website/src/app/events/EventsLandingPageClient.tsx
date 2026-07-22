@@ -108,7 +108,7 @@ export function EventsLandingPageClient({
             className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8"
           >
             <div className="rounded-2xl border border-gray-200 bg-white/95 p-6 shadow-xl dark:border-white/20 dark:bg-white/5 sm:p-8">
-              <p className="font-heading text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
+              <p className="font-subheading text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
                 {isEs
                   ? "Archivo de evento destacado"
                   : "Featured Event Archive"}
@@ -130,7 +130,7 @@ export function EventsLandingPageClient({
                     key={entry.place}
                     className="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/20 dark:bg-white/6"
                   >
-                    <p className="font-heading text-xs font-semibold uppercase tracking-[0.12em] text-brand-secondary">
+                    <p className="font-subheading text-xs font-semibold uppercase tracking-[0.12em] text-brand-secondary">
                       {entry.place}
                     </p>
                     <p className="mt-2 text-lg font-black text-gray-900 dark:text-white">
@@ -149,7 +149,7 @@ export function EventsLandingPageClient({
             <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white/95 shadow-xl dark:border-white/20 dark:bg-white/5">
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 px-5 py-4 dark:border-white/15 sm:px-6">
                 <div>
-                  <p className="font-heading text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
+                  <p className="font-subheading text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
                     {isEs ? "Medios del evento" : "Event Media"}
                   </p>
                   <h2 className="text-xl font-black text-gray-900 dark:text-white sm:text-2xl">
@@ -242,7 +242,7 @@ export function EventsLandingPageClient({
             className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8"
           >
             <div className="rounded-2xl border border-gray-200 bg-white/95 p-6 shadow-xl dark:border-white/20 dark:bg-white/5 sm:p-8">
-              <p className="font-heading text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
+              <p className="font-subheading text-xs font-semibold uppercase tracking-[0.14em] text-brand-secondary">
                 {isEs ? "Proximos eventos" : "Upcoming Events"}
               </p>
               <h2 className="mt-2 text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
@@ -261,7 +261,7 @@ export function EventsLandingPageClient({
                     className="rounded-xl border border-gray-200 bg-white p-5 dark:border-white/20 dark:bg-white/6"
                   >
                     <div className="flex items-center justify-between gap-3">
-                      <p className="font-heading text-xs font-semibold uppercase tracking-[0.12em] text-brand-secondary">
+                      <p className="font-subheading text-xs font-semibold uppercase tracking-[0.12em] text-brand-secondary">
                         {event.window}
                       </p>
                       <span className="rounded-full bg-brand-primary/10 px-3 py-1 text-xs font-semibold text-brand-primary dark:text-brand-secondary">

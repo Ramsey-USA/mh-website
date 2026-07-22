@@ -43,8 +43,6 @@ const QUICK_ACTIONS = [
   { label: "Resources", href: "/resources", icon: FORM_MANUAL_ICONS.source },
 ] as const;
 
-const PARALLAX_MAX_OFFSET_PX = 140;
-
 function resolveGlobalParallaxLogos(pathname: string) {
   if (pathname.startsWith("/veterans")) {
     return {
@@ -104,6 +102,11 @@ function buildFallbackBreadcrumbItems(pathname: string): BreadcrumbItem[] {
 function AppShellBreadcrumbFallback() {
   const pathname = usePathname();
   const [shouldRender, setShouldRender] = useState(false);
+
+  if (pathname === "/") {
+    return null;
+  }
+
   const fallbackItems = buildFallbackBreadcrumbItems(pathname);
 
   useEffect(() => {
@@ -134,9 +137,75 @@ function AppShellBreadcrumbFallback() {
     <Breadcrumb
       items={fallbackItems}
       source="fallback"
-      className="border-t border-gray-200 dark:border-gray-700"
+      className="border-b border-gray-200 dark:border-gray-700"
     />
   );
+}
+
+function BreadcrumbBeforeHeroSlot() {
+  const pathname = usePathname();
+  const [slot, setSlot] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    setSlot(null);
+
+    let cancelled = false;
+    let attempts = 0;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    let createdSlot: HTMLDivElement | null = null;
+
+    const placeSlot = () => {
+      if (cancelled) return;
+
+      const main = document.getElementById("main-content");
+      const heroLikeSection =
+        main?.querySelector<HTMLElement>(
+          'section.hero-section, section[id$="-hero"], section[id*="hero"], section[aria-labelledby="hero-heading"], [data-page-hero="true"]',
+        ) ?? main?.querySelector<HTMLElement>("section");
+
+      const firstRenderableChild = Array.from(main?.children ?? []).find(
+        (node) => node.tagName !== "SCRIPT" && node.tagName !== "TEMPLATE",
+      ) as HTMLElement | undefined;
+
+      let anchor = heroLikeSection ?? null;
+
+      if (!anchor) {
+        attempts += 1;
+        if (attempts < 40) {
+          timeoutId = globalThis.setTimeout(placeSlot, 50);
+          return;
+        }
+        anchor = firstRenderableChild ?? null;
+      }
+
+      if (!anchor?.parentElement) {
+        timeoutId = globalThis.setTimeout(placeSlot, 50);
+        return;
+      }
+
+      createdSlot = document.createElement("div");
+      createdSlot.dataset["mhBreadcrumbBeforeHero"] = "true";
+      anchor.before(createdSlot);
+      setSlot(createdSlot);
+    };
+
+    timeoutId = globalThis.setTimeout(placeSlot, 50);
+
+    return () => {
+      cancelled = true;
+      if (timeoutId !== null) {
+        globalThis.clearTimeout(timeoutId);
+      }
+      setSlot(null);
+      createdSlot?.remove();
+    };
+  }, [pathname]);
+
+  if (!slot) {
+    return null;
+  }
+
+  return createPortal(<AppShellBreadcrumbFallback />, slot);
 }
 
 function SemiquincentennialAfterHeroSlot() {
@@ -206,10 +275,7 @@ function SemiquincentennialAfterHeroSlot() {
   if (!slot) return null;
 
   return createPortal(
-    <>
-      <AppShellBreadcrumbFallback />
-      {showSemiquincentennialBanner ? <SemiquincentennialBanner /> : null}
-    </>,
+    showSemiquincentennialBanner ? <SemiquincentennialBanner /> : null,
     slot,
   );
 }
@@ -223,10 +289,7 @@ export function AppShell({
   const { isStandalone } = usePWA();
   const pwaHeaderRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
-  const parallaxLogos = useMemo(
-    () => resolveGlobalParallaxLogos(pathname),
-    [pathname],
-  );
+  const parallaxLogos = resolveGlobalParallaxLogos(pathname);
 
   const activeRibbon = useMemo(() => {
     const ribbons = jeremyRibbons ?? {};
@@ -284,84 +347,6 @@ export function AppShell({
     };
   }, [isStandalone]);
 
-  useEffect(() => {
-    const root = document.documentElement;
-    const mediaQuery = globalThis.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    );
-    const connection =
-      "connection" in navigator
-        ? ((
-            navigator as Navigator & {
-              connection?: { saveData?: boolean };
-            }
-          ).connection ?? null)
-        : null;
-
-    const shouldDisableParallax = () =>
-      mediaQuery.matches || Boolean(connection?.saveData);
-
-    const getParallaxSpeed = () => {
-      const isMobile = globalThis.innerWidth < 768;
-      return isMobile ? 0.06 : 0.1;
-    };
-
-    const setOffset = (offset: number) => {
-      const clampedOffset = Math.max(
-        0,
-        Math.min(PARALLAX_MAX_OFFSET_PX, Math.round(offset)),
-      );
-      root.style.setProperty("--mh-logo-parallax-offset", `${clampedOffset}px`);
-    };
-
-    if (shouldDisableParallax()) {
-      setOffset(0);
-      return () => {
-        root.style.removeProperty("--mh-logo-parallax-offset");
-      };
-    }
-
-    let rafId = 0;
-
-    const updateParallaxOffset = () => {
-      rafId = 0;
-      const scrollY = globalThis.scrollY || 0;
-      setOffset(scrollY * getParallaxSpeed());
-    };
-
-    const onScroll = () => {
-      if (rafId !== 0) {
-        return;
-      }
-
-      rafId = globalThis.requestAnimationFrame(updateParallaxOffset);
-    };
-
-    updateParallaxOffset();
-    globalThis.addEventListener("scroll", onScroll, { passive: true });
-    globalThis.addEventListener("resize", onScroll);
-
-    const onMotionPreferenceChange = () => {
-      if (shouldDisableParallax()) {
-        setOffset(0);
-      } else {
-        onScroll();
-      }
-    };
-
-    mediaQuery.addEventListener("change", onMotionPreferenceChange);
-
-    return () => {
-      if (rafId !== 0) {
-        globalThis.cancelAnimationFrame(rafId);
-      }
-      globalThis.removeEventListener("scroll", onScroll);
-      globalThis.removeEventListener("resize", onScroll);
-      mediaQuery.removeEventListener("change", onMotionPreferenceChange);
-      root.style.removeProperty("--mh-logo-parallax-offset");
-    };
-  }, []);
-
   const pageBackground = (
     <div
       aria-hidden="true"
@@ -392,6 +377,7 @@ export function AppShell({
         <div className="mh-global-logo-parallax-active relative z-10 flex min-h-screen flex-col bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
           <main id="main-content" className="grow pt-(--mh-nav-offset,6.5rem)">
             {children}
+            <BreadcrumbBeforeHeroSlot />
             <SemiquincentennialAfterHeroSlot />
           </main>
           <EventsHubBanner />
@@ -427,7 +413,7 @@ export function AppShell({
             <Link
               href="/hub"
               prefetch={false}
-              className="font-heading inline-flex items-center gap-2 self-start rounded-full border border-brand-secondary/60 bg-brand-secondary/12 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-brand-secondary"
+              className="font-subheading inline-flex items-center gap-2 self-start rounded-full border border-brand-secondary/60 bg-brand-secondary/12 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-brand-secondary"
             >
               <MaterialIcon icon="construction" size="sm" />
               PWA Command Deck
@@ -442,7 +428,7 @@ export function AppShell({
                   key={action.href}
                   href={action.href}
                   prefetch={false}
-                  className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl border border-brand-primary/20 bg-brand-primary/5 px-3 py-2 text-xs font-semibold text-brand-primary transition-all duration-300 hover:border-brand-secondary/60 hover:bg-brand-secondary/10 hover:text-brand-secondary"
+                  className="font-subheading inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl border border-brand-primary/20 bg-brand-primary/5 px-3 py-2 text-xs font-semibold text-brand-primary transition-all duration-300 hover:border-brand-secondary/60 hover:bg-brand-secondary/10 hover:text-brand-secondary"
                 >
                   <MaterialIcon icon={action.icon} size="sm" />
                   <span>{action.label}</span>
@@ -457,6 +443,7 @@ export function AppShell({
           className="grow pt-[calc(var(--mh-nav-offset,6.5rem)+var(--mh-pwa-nav-offset,0px)+1rem)]"
         >
           {children}
+          <BreadcrumbBeforeHeroSlot />
           <SemiquincentennialAfterHeroSlot />
         </main>
 

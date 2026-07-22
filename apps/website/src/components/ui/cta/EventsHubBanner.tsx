@@ -41,7 +41,7 @@ export function EventsHubBanner() {
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-secondary/45 bg-brand-secondary/20 px-3 py-1 text-white">
             <MaterialIcon icon="event" size="sm" />
             <span className="flex flex-col leading-tight">
-              <span className="font-heading text-[11px] font-bold uppercase tracking-[0.16em] text-white">
+              <span className="font-subheading text-[11px] font-bold uppercase tracking-[0.16em] text-white">
                 Events Hub
               </span>
               <span className="text-[10px] uppercase tracking-[0.14em] text-brand-secondary-light/90">

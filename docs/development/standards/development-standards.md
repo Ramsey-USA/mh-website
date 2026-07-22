@@ -140,9 +140,9 @@ Required contract:
 
 Hero sections are evaluated as a separate visual system and should align with homepage hero characteristics.
 
-1. Hero shell consistency: full-height layout, centered content stack, and bottom PageNavigation placement pattern.
+1. Hero shell consistency: homepage baseline posture uses lower-right anchored content inside `hero-section` with safe header spacing.
 2. Hero typography consistency: H1, subtitle, and supporting body copy hierarchy follow homepage baseline rhythm.
-3. Hero interaction consistency: page-navigation row behavior and `More` overlay behavior remain aligned where this pattern is used.
+3. Hero interaction consistency: if hero-level page navigation is used on a route, row behavior and `More` overlay behavior remain aligned.
 4. Hero visual consistency: approved hero gradient atmosphere and title emphasis treatment are preserved.
 5. Drift control: deviations from homepage hero baseline require documented route intent or approved exception.
 

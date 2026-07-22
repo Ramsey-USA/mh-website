@@ -107,7 +107,7 @@ export function SiteHeader() {
           </Link>
 
           <div className="hidden items-center gap-2 lg:flex">
-            <p className="font-heading text-xs uppercase tracking-[0.14em] text-gray-700 dark:text-gray-200">
+            <p className="font-subheading text-xs uppercase tracking-[0.14em] text-gray-700 dark:text-gray-200">
               {t("brandStatement")}
             </p>
             <WaVobBadge size="sm" className="shrink-0" />

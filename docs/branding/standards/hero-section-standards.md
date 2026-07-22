@@ -17,7 +17,7 @@ This document defines the official MH Construction hero section standard impleme
 across all website pages, with veteran-focused messaging, military operations terminology,
 and visual-first design philosophy.
 
-**Canonical Baseline Source:** `apps/website/src/components/home/HeroSectionClient.tsx`
+**Canonical Baseline Source:** `apps/website/src/components/home/HeroSection.tsx`
 
 If this document conflicts with implemented Home Hero behavior, the Home Hero source
 is the tie-breaker until this document is updated.
@@ -36,7 +36,7 @@ All website pages must include a hero section.
 ## Global Header Relationship
 
 The hero section now operates with a unified global header system anchored in
-`apps/website/src/components/layout/Navigation.tsx`.
+`apps/website/src/components/navigation/SiteHeader.tsx`.
 
 - Contact actions belong in the global header, not inside the hero content area.
 - The global header owns the MH logo, language toggle, phone CTA, compact theme toggle,
@@ -57,66 +57,20 @@ Breadcrumbs are part of the post-hero content frame, not pre-hero chrome.
   (`/events`, `/cool-desert-nights`), breadcrumbs still render directly after hero.
 - Do not render fallback breadcrumbs before hero content in shell/layout wrappers.
 
-## 🎯 Tagline Strategy Update (December 14, 2025)
+## Hero Messaging Contract (Current)
 
-### Military/Construction Terminology Integration
+Hero copy must remain relationship-first, factual, and aligned with current
+brand terminology.
 
-Each hero section now features a **unique, page-specific tagline WITH military-construction
-terminology blend** (December 2025 major update). This strategy:
+Required alignment:
 
-- **Honors All Service Branches** - Army, Navy, Air Force, Marines, Coast Guard, Space Force
-- **Blends Military Operations Terminology** - Mission brief, SITREP, recon, deployment, tactical operations
-- **Maintains Construction Expertise** - Technical capability, project delivery, quality craftsmanship
-- **Reduces Generic Repetition** - Avoids overuse of single phrases
-- **Reinforces Mission-First Philosophy** - "Built on Quality, Backed by Trust."
-- **Improves Message Retention** - Variety helps visitors remember key messages
-- **Appeals to Veteran Stakeholders** - Military-affiliated project stakeholders recognize authentic service language
-
-### Implementation Guidelines (Updated December 2025)
-
-**DO:**
-
-- **Include dual naming format** - "Military Designation → Civilian Label" at top of each hero
-- Blend military operations terminology with construction expertise naturally
-- Honor all service branches (not just Army)
-- Reflect the specific page's purpose with tactical clarity
-- Keep taglines concise (5-12 words typically)
-- Align with values-driven brand values (honesty, integrity, professionalism, thoroughness)
-- Maintain core mission: "Built on Quality, Backed by Trust."
-- **Include unique page-specific mantra** for enhanced messaging and SEO
-
-**DON'T:**
-
-- Over-militarize at expense of construction expertise
-- Favor one service branch over others
-- Use military jargon without construction context
-- Create generic taglines that could apply to any page
-- Deviate from mission-first brand tone
-- **Omit dual naming from hero sections** - it's now a required component
-
-### Current Page-Specific Taglines (December 2025)
-
-**Strategic Focus:** Award-winning website that attracts professional veterans through authentic
-military-construction terminology and values-driven values.
-
-**Dual Naming Format:** Each page includes "Military Designation → Civilian Label" for veteran
-recognition and accessibility.
-
-| Page           | Dual Naming                 | Military/Construction Blend Tagline                                       | Mantra                                                                                                                                                                                  |
-| -------------- | --------------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Homepage       | Base HQ → Home              | "Mission-Focused Execution \| Built on Quality, Backed by Trust."         | Your Tri-State Construction Command Center                                                                                                                                              |
-| About          | Our Oath → About Us         | "Battle-Tested Excellence Through Service-Earned Experience"              | Service-Earned Values, Construction Excellence                                                                                                                                          |
-| Services       | Operations → Services       | "Your Construction Mission Deserves Veteran-Led Expert Oversight"         | The Battle Plan - Strategic Construction Excellence                                                                                                                                     |
-| Projects       | Missions → Projects         | "650+ Construction Missions Completed - Proven Results"                   | Mission Success: 650+ Projects, Countless Relationships                                                                                                                                 |
-| Team           | Chain of Command → Our Team | "All-Branch Veteran Leadership You Can Trust"                             | 150+ Years Combined Military-Grade Expertise at Your Service                                                                                                                            |
-| Careers        | Enlist → Careers            | "Join the Mission - Your Construction Career Starts Here"                 | Build More Than Projects - Build Your Future                                                                                                                                            |
-| Contact        | Rally Point → Contact       | "Schedule Your Free Mission Brief - Start With SITREP-Level Clarity"      | Your Project. Our Expertise. Let's Connect.                                                                                                                                             |
-| Government     | Public Sector → Government  | "Mission-Ready Construction Operations - Federal Compliance-Driven"       | Veteran-Owned Excellence for Government Construction Missions                                                                                                                           |
-| Trade Partners | Allies → Partners           | "Vetted Vendor Partnerships - Building Success Through Trusted Alliances" | Strategic Partnerships Built on Trust, Performance, and Mutual Success                                                                                                                  |
-| Veterans       | Service First → Veterans    | "Honoring Those Who Served - All Branches, All Values"                    | Supporting Those Who Served - One Community, One Mission (Updated Dec 2025: Comprehensive foundation with combat veteran discount, year-round support programs, strategic partnerships) |
-| Testimonials   | Commendations → Reviews     | "After-Action Reports from Real Project Stakeholder Missions"             | Verified Success Stories from Completed Missions                                                                                                                                        |
-| FAQ            | Intel Brief → FAQ           | "Mission Intelligence - Your Construction Questions Answered"             | Direct Answers. Clear Guidance. Mission-Ready Information.                                                                                                                              |
-| Safety         | Safety HQ → Safety Program  | "Zero-Incident Operations \| Mission-Critical Safety Culture"             | Award-Winning Safety: 0.64 EMR, Zero Compromises                                                                                                                                        |
+- Primary line stays: "Built on Quality, Backed by Trust."
+- Route-specific supporting slogan is sourced from
+  `apps/website/src/lib/content/hero-page-slogans.ts`.
+- Home hero uses a dual-label command-center pattern:
+  - "Home -> Command Center"
+- Supporting lines must avoid unverifiable hard-claim inflation unless a source
+  is already maintained in repository data.
 
 ---
 
@@ -135,19 +89,19 @@ recognition and accessibility.
 - `mr-4 sm:mr-6 lg:mr-8 xl:mr-12`
 - `ml-auto max-w-2xl pointer-events-none pb-2`
 
-1. **PageNavigation at Bottom**: Keep navigation pinned to `absolute bottom-0 left-0 right-0`.
-2. **Six-Cell Home Nav Pattern**: Home hero navigation row must render six equal cells (Home, Services, Projects, About, Contact, More).
-3. **More Overlay Pattern**: `More` opens a full-screen overlay (backdrop + centered panel), not an inline dropdown.
-4. **Single Mission Icon Treatment**: Use one intentional icon container aligned with Home-style emphasis.
+1. **CTA Envelope Allowed**: Home baseline allows two hero CTAs (contact + project proof) rendered in the content card.
+2. **PageNavigation Optional by Route**: Hero-level `PageNavigation` is used where the route requires it; it is not mandatory for every hero.
+3. **If PageNavigation is Present**: Keep it pinned to `absolute bottom-0 left-0 right-0`.
+4. **Single Mission Icon Treatment**: Use one intentional icon container aligned with Home-style emphasis where icon treatment is used.
 
 ### ❌ MUST NOT INCLUDE
 
 1. **NO Hero Clutter**: No decorative badge clusters, stat chips, or competing icon groups in the hero content area
-2. **NO CTA Buttons**: Schedule Consultation, Get Estimate, Contact buttons
+2. **NO Conflicting CTA Clusters**: Do not add oversized CTA clusters that compete with hero hierarchy.
 3. **NO Stats**: 30+ years, 100+ projects, satisfaction rate displays
 4. **NO Trust Indicators**: Icons with project counts or ratings
 5. **NO Contact Buttons**: Quick contact or phone buttons inside the hero; use the global header phone CTA instead
-6. **NO Additional Elements**: Keep it clean - title, subtitle, description only
+6. **NO Unscoped Additions**: Keep hero additions constrained to approved content card patterns.
 
 ---
 
@@ -200,12 +154,8 @@ visual element. This creates a more impactful first impression where imagery spe
     </h1>
   </div>
 
-  {/* Page-Specific Navigation Bar - ALWAYS AT BOTTOM */}
-  <PageNavigation
-    items={navigationConfigs.home}
-    showRemainingPagesOverlay
-    className="absolute bottom-0 left-0 right-0"
-  />
+  {/* Optional page navigation when route requires continuity nav */}
+  <PageNavigation className="absolute bottom-0 left-0 right-0" />
 </section>
 ```
 
@@ -247,14 +197,13 @@ Use this checklist when creating or reviewing any page's hero section:
 - [ ] Title uses `text-brand-secondary` color
 - [ ] Subtitle with proper responsive classes
 - [ ] Description includes company tagline
-- [ ] PageNavigation at `absolute bottom-0 left-0 right-0`
+- [ ] Home hero supports two CTA actions (primary + secondary)
+- [ ] If hero-level `PageNavigation` is used, keep it at `absolute bottom-0 left-0 right-0`
 - [ ] Breadcrumb appears after hero (never above hero)
 - [ ] If semiquincentennial banner exists, breadcrumb appears before banner
-- [ ] Home nav row renders six equal cells including `More`
-- [ ] `More` opens centered modal overlay with backdrop, Escape close, and body scroll lock
 - [ ] All navigable sections have unique `id` attributes
 - [ ] **NO** decorative badge clusters or competing icon groups in hero
-- [ ] **NO** CTA buttons in hero
+- [ ] **NO** oversized or conflicting CTA clusters in hero
 - [ ] **NO** stats cards or displays
 - [ ] **NO** trust indicators
 - [ ] **NO** quick contact buttons
@@ -274,10 +223,7 @@ Use this checklist when creating or reviewing any page's hero section:
       ...
     </h1>
   </div>
-  <PageNavigation
-    showRemainingPagesOverlay
-    className="absolute bottom-0 left-0 right-0"
-  />
+  {/* Optional page navigation if route-level continuity nav is required */}
 </section>
 ```
 

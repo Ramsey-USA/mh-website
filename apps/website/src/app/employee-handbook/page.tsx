@@ -69,7 +69,7 @@ export default async function EmployeeHandbookPage() {
 
       <section className="bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-14 sm:px-6">
         <div className="mx-auto max-w-5xl text-white">
-          <div className="font-heading inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
+          <div className="font-subheading inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1 text-xs font-bold font-heading uppercase tracking-wider text-brand-secondary">
             <MaterialIcon
               icon={FORM_MANUAL_ICONS.source}
               size="sm"
@@ -81,10 +81,10 @@ export default async function EmployeeHandbookPage() {
           <h1 className="mt-4 text-2xl font-black tracking-tight sm:text-3xl">
             {isEs ? "Manual del Empleado" : "Employee Handbook"}
           </h1>
-          <p className="font-heading mt-2 text-xs font-semibold uppercase tracking-wider text-brand-secondary/90">
+          <p className="font-subheading mt-2 text-xs font-semibold font-heading uppercase tracking-wider text-brand-secondary/90">
             {MH_SLOGANS.primary}
           </p>
-          <p className="font-heading mt-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/70">
+          <p className="font-subheading mt-1 text-xs font-semibold font-heading uppercase tracking-wider text-brand-secondary/70">
             {MH_SLOGANS.supporting[0]}
           </p>
           <p className="mt-2 text-sm text-white/70">
@@ -146,7 +146,7 @@ export default async function EmployeeHandbookPage() {
       </div>
 
       <div className="border-b border-brand-primary/15 bg-brand-primary/5 px-4 py-3">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 font-heading text-xs font-semibold uppercase tracking-wider text-brand-primary">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 font-subheading text-xs font-semibold font-heading uppercase tracking-wider text-brand-primary">
           <span className="rounded-full border border-brand-primary/25 bg-white px-3 py-1">
             Veteran-Owned Since 2025
           </span>
@@ -162,7 +162,7 @@ export default async function EmployeeHandbookPage() {
       <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
         <div className="grid gap-4 sm:grid-cols-3 mb-10">
           <div className="rounded-2xl border border-brand-primary/20 bg-brand-primary/5 p-5">
-            <p className="font-heading text-xs font-bold uppercase tracking-wider text-brand-primary">
+            <p className="font-subheading text-xs font-bold font-heading uppercase tracking-wider text-brand-primary">
               Handbook Sections
             </p>
             <p className="mt-2 text-3xl font-black text-gray-900 dark:text-white">
@@ -170,7 +170,7 @@ export default async function EmployeeHandbookPage() {
             </p>
           </div>
           <div className="rounded-2xl border border-brand-secondary/20 bg-brand-secondary/5 p-5">
-            <p className="font-heading text-xs font-bold uppercase tracking-wider text-brand-secondary">
+            <p className="font-subheading text-xs font-bold font-heading uppercase tracking-wider text-brand-secondary">
               Handbook Forms
             </p>
             <p className="mt-2 text-3xl font-black text-gray-900 dark:text-white">
@@ -178,7 +178,7 @@ export default async function EmployeeHandbookPage() {
             </p>
           </div>
           <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
-            <p className="font-heading text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <p className="font-subheading text-xs font-bold font-heading uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Published PDF
             </p>
             <p className="mt-2 text-3xl font-black text-gray-900 dark:text-white">
@@ -262,7 +262,7 @@ export default async function EmployeeHandbookPage() {
                   </div>
                 </div>
                 <footer className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-brand-secondary/10 pt-3">
-                  <p className="font-heading inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
+                  <p className="font-subheading inline-flex items-center gap-1.5 text-[11px] font-semibold font-heading uppercase tracking-wider text-amber-700 dark:text-amber-300">
                     <MaterialIcon icon="lock" size="sm" />
                     Blank template
                   </p>

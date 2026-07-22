@@ -38,16 +38,15 @@ If any inventory is missing, the page audit is incomplete.
 - [ ] Conforms to [Navigation Overlay and Header Action Visual Contract](../../branding/standards/unified-component-standards.md#navigation-overlay-and-header-action-visual-contract-canonical)
 - [ ] Hero aligns with homepage hero baseline characteristics unless route-specific exception is documented
 - [ ] Hero section exists and is first visible element
-- [ ] Full viewport height with `h-screen flex items-center justify-center`
+- [ ] Hero baseline uses homepage posture (`hero-section relative flex items-end justify-end overflow-hidden`) unless a route exception is documented
 - [ ] Uses one of three approved hero patterns (see unified-component-standards.md)
 - [ ] Brand color emphasis on title (`text-brand-secondary` for hero titles)
 - [ ] Hero content stack preserves homepage baseline hierarchy (H1 -> subtitle -> supporting body copy)
 - [ ] Hero does not duplicate global-header contact actions or phone CTA controls
-- [ ] PageNavigation component at bottom (`absolute bottom-0 left-0 right-0`)
-- [ ] PageNavigation enables `showRemainingPagesOverlay` on hero bar
-- [ ] Hero nav row renders 6 cells (Home, Services, Projects, About, Contact, More)
-- [ ] `More` opens centered modal overlay with backdrop and close controls
-- [ ] Responsive padding: `pt-16 sm:pt-24 md:pt-32 lg:pt-40` and `pb-12 sm:pb-16 md:pb-20 lg:pb-28`
+- [ ] Hero-level CTA envelope is constrained to approved baseline actions (primary contact + secondary proof path)
+- [ ] If PageNavigation is used for the route, keep it bottom-pinned (`absolute bottom-0 left-0 right-0`)
+- [ ] If `More` is present in hero navigation, it opens centered modal overlay with backdrop and close controls
+- [ ] Responsive content envelope follows homepage-safe spacing guidance
 - [ ] Any intentional hero divergence from homepage baseline is recorded with scope and rationale
 
 ### Global Header

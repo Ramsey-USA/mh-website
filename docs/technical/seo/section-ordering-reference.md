@@ -17,14 +17,13 @@ Canonical standard:
 
 ## Homepage ✅
 
-1. Hero + ServiceShowcase _(Discover)_
-2. CoreValuesSection _(Discover/Trust)_
-3. WhyPartnerSection _(Trust)_
-4. CompanyStats _(Trust)_
-5. TestimonialsSection _(Proof)_
-6. Timeline _(Proof)_
-7. StrategicCTABanner _(Action)_
-8. NextStepsSection _(Action)_
+1. Hero _(Discover)_
+2. Verified proof cards _(Trust/Proof)_
+3. Service overview cards + service-route chips _(Discover)_
+4. Featured public project case studies _(Proof)_
+5. Why MH planning/communication/execution points _(Trust)_
+6. TestimonialsSectionDeferred _(Proof)_
+7. NextStepsSection _(Action)_
 
 ## Services Hub ✅
 
