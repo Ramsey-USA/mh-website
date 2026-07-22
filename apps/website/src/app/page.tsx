@@ -280,7 +280,7 @@ export default async function Home() {
         >
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-3">
             <article className={HOME_CARD_CLASS}>
-              <p className="font-subheading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
+              <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
                 {locale === "es" ? "Cobertura" : "Coverage"}
               </p>
               <p className="mt-2 text-2xl font-black text-gray-900 dark:text-white">
@@ -293,7 +293,7 @@ export default async function Home() {
               </p>
             </article>
             <article className={HOME_CARD_CLASS}>
-              <p className="font-subheading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
+              <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
                 {locale === "es"
                   ? "Casos publicados"
                   : "Published case studies"}
@@ -308,7 +308,7 @@ export default async function Home() {
               </p>
             </article>
             <article className={HOME_CARD_CLASS}>
-              <p className="font-subheading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
+              <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
                 {locale === "es"
                   ? "Testimonios de clientes"
                   : "Client testimonials"}
@@ -399,7 +399,7 @@ export default async function Home() {
           <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
             {featuredCaseStudies.map((caseStudy) => (
               <article key={caseStudy.slug} className={HOME_CARD_CLASS}>
-                <p className="font-subheading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
+                <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
                   {caseStudy.category}
                 </p>
                 <h3 className="mt-2 text-xl font-extrabold text-gray-900 dark:text-white">

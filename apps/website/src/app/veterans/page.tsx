@@ -302,7 +302,7 @@ export default async function VeteransPage() {
                             >
                               {value.stat}
                             </div>
-                            <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
+                            <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 font-heading uppercase tracking-wider">
                               {t(
                                 `veteransPage.foundation.values.${value.key}.statLabel`,
                               )}
@@ -1178,7 +1178,7 @@ export default async function VeteransPage() {
           {/* Accreditations & Certifications */}
           <section className="relative py-12 sm:py-16">
             <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
-              <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
+              <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 font-heading uppercase tracking-wider mb-6">
                 {t("veteransPage.accreditations.kicker")}
               </p>
               <AccreditationsLogoRow />

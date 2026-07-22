@@ -104,7 +104,7 @@ export function ServiceCard(props: Readonly<ServiceCardProps>) {
                   className={`text-brand-primary dark:text-brand-primary-light ${hoverMotion.iconPlayful}`}
                 />
                 <span
-                  className={`font-subheading font-bold text-sm uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors ${transitionDuration.normal}`}
+                  className={`font-subheading font-heading font-bold text-sm uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors ${transitionDuration.normal}`}
                 >
                   Click for Full Details
                 </span>

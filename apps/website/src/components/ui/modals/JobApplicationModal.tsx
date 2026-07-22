@@ -537,7 +537,7 @@ export function JobApplicationModal({
                   size="md"
                   className="text-bronze-300"
                 />
-                <span className="font-subheading font-semibold text-bronze-300 text-sm tracking-wide uppercase">
+                <span className="font-subheading font-semibold text-bronze-300 text-sm tracking-wide font-heading uppercase">
                   {applicationContext.badge}
                 </span>
               </div>
@@ -570,7 +570,7 @@ export function JobApplicationModal({
                 <div className="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm">
                   <div className="mb-2 flex items-center gap-2 text-bronze-300">
                     <MaterialIcon icon="badge" size="sm" />
-                    <span className="font-subheading text-xs font-semibold uppercase tracking-wide">
+                    <span className="font-subheading text-xs font-semibold font-heading uppercase tracking-wide">
                       {isEs ? "Paso 1" : "Step 1"}
                     </span>
                   </div>
@@ -583,7 +583,7 @@ export function JobApplicationModal({
                 <div className="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm">
                   <div className="mb-2 flex items-center gap-2 text-bronze-300">
                     <MaterialIcon icon="work" size="sm" />
-                    <span className="font-subheading text-xs font-semibold uppercase tracking-wide">
+                    <span className="font-subheading text-xs font-semibold font-heading uppercase tracking-wide">
                       {isEs ? "Paso 2" : "Step 2"}
                     </span>
                   </div>
@@ -596,7 +596,7 @@ export function JobApplicationModal({
                 <div className="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm">
                   <div className="mb-2 flex items-center gap-2 text-bronze-300">
                     <MaterialIcon icon="description" size="sm" />
-                    <span className="font-subheading text-xs font-semibold uppercase tracking-wide">
+                    <span className="font-subheading text-xs font-semibold font-heading uppercase tracking-wide">
                       {isEs ? "Paso 3" : "Step 3"}
                     </span>
                   </div>

@@ -787,7 +787,7 @@ export function TeamProfileSection({
 
             {educationTokens.length > 0 && (
               <div className="mb-3">
-                <p className="font-subheading text-xs uppercase tracking-wide text-brand-secondary-text dark:text-gray-300 font-semibold mb-1.5">
+                <p className="font-subheading text-xs font-heading uppercase tracking-wide text-brand-secondary-text dark:text-gray-300 font-semibold mb-1.5">
                   Education
                 </p>
                 <div className="flex flex-wrap gap-1.5">
@@ -805,7 +805,7 @@ export function TeamProfileSection({
 
             {featuredCertifications.length > 0 && (
               <div>
-                <p className="font-subheading text-xs uppercase tracking-wide text-brand-secondary-text dark:text-gray-300 font-semibold mb-1.5">
+                <p className="font-subheading text-xs font-heading uppercase tracking-wide text-brand-secondary-text dark:text-gray-300 font-semibold mb-1.5">
                   Certifications
                 </p>
                 <div className="flex flex-wrap gap-1.5">

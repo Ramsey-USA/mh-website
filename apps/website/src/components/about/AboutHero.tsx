@@ -1,3 +1,5 @@
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
@@ -36,6 +38,13 @@ export function AboutHero({
           </h1>
         </div>
       </div>
+
+      {/* Page-Specific Navigation Bar */}
+      <PageNavigation
+        items={navigationConfigs.about}
+        showRemainingPagesOverlay
+        className="absolute bottom-0 left-0 right-0"
+      />
     </section>
   );
 }

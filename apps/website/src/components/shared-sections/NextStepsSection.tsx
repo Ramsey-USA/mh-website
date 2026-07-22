@@ -146,7 +146,7 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
           <div
             className={`bg-linear-to-r from-brand-secondary to-brand-secondary-dark -top-4 left-1/2 absolute px-5 py-1.5 ${cornerRadius.full} -translate-x-1/2 shadow-lg border border-brand-secondary/30`}
           >
-            <span className="font-subheading font-bold text-xs text-white uppercase tracking-wider flex items-center gap-1.5">
+            <span className="font-subheading font-bold text-xs text-white font-heading uppercase tracking-wider flex items-center gap-1.5">
               <MaterialIcon icon="star" size="sm" className="text-yellow-300" />
               {copy.tag}
             </span>

@@ -713,7 +713,7 @@ export function LocationPageContent({
         <section className="order-4 py-12 sm:py-16 bg-white dark:bg-gray-900">
           <SectionContainer padding="compact">
             <div className="text-center">
-              <p className="font-subheading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
+              <p className="font-subheading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest font-heading uppercase mb-4">
                 {isEs ? "Acreditado y certificado" : "Accredited & Certified"}
               </p>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">

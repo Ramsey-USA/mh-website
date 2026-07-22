@@ -75,7 +75,7 @@ export function SpecialtyServiceCard(
           </div>
 
           <div
-            className={`font-subheading mt-3 inline-flex items-center ${cornerRadius.full} border border-brand-secondary/30 bg-brand-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-secondary dark:border-brand-secondary/40 dark:bg-brand-secondary/15`}
+            className={`font-subheading font-heading mt-3 inline-flex items-center ${cornerRadius.full} border border-brand-secondary/30 bg-brand-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-secondary dark:border-brand-secondary/40 dark:bg-brand-secondary/15`}
           >
             {isExpanded ? "Details Open" : "Tap for Details"}
           </div>

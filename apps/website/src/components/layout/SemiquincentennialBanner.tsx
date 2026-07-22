@@ -313,7 +313,7 @@ export function SemiquincentennialBanner() {
 
           {/* Title */}
           <div className="text-center sm:text-left">
-            <p className="font-subheading text-[10px] font-semibold uppercase tracking-widest text-[#BD9264]">
+            <p className="font-subheading text-[10px] font-semibold font-heading uppercase tracking-widest text-[#BD9264]">
               America&apos;s Semiquincentennial Support Month
             </p>
             <h2 className="text-sm sm:text-base font-bold text-white leading-snug">

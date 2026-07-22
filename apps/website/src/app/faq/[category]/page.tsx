@@ -355,7 +355,7 @@ export default async function FAQCategoryPage({
                     <Link
                       key={item.id}
                       href={`/faq/${item.id}`}
-                      className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary sm:text-sm ${
+                      className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold font-heading uppercase tracking-wider transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary sm:text-sm ${
                         isCurrent
                           ? "border-brand-secondary/70 bg-brand-secondary/20 text-white"
                           : "border-white/30 bg-white/10 text-white/90 hover:border-brand-secondary/70 hover:bg-brand-secondary/20"

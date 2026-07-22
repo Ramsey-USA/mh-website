@@ -332,7 +332,7 @@ export default function AboutPage() {
 
         <section className="relative py-12 sm:py-14 bg-gray-50 dark:bg-gray-800/60 border-b border-gray-200 dark:border-gray-800">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <p className="font-subheading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-6">
+            <p className="font-subheading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest font-heading uppercase mb-6">
               {commonT("about.accreditations.sectionTitle")}
             </p>
             <AccreditationsLogoRow />

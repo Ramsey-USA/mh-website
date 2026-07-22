@@ -88,11 +88,11 @@ export function Modal({
                         size="md"
                         className="text-bronze-300"
                       />
-                      <span className="font-subheading font-semibold text-bronze-300 text-sm tracking-wide uppercase">
+                      <span className="font-subheading font-semibold text-bronze-300 text-sm tracking-wide font-heading uppercase">
                         {MH_SLOGANS.primary}
                       </span>
                     </div>
-                    <p className="font-subheading mt-1 text-[11px] font-medium text-bronze-200/90 uppercase tracking-wide">
+                    <p className="font-subheading mt-1 text-[11px] font-medium text-bronze-200/90 font-heading uppercase tracking-wide">
                       Professional on the line. Thorough in the details.
                     </p>
                   </div>

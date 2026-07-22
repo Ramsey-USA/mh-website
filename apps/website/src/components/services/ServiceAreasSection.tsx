@@ -70,7 +70,7 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
           <Card
             className={`${cornerRadius.element} border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80`}
           >
-            <p className="font-subheading text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Service Hubs
             </p>
             <p className="mt-1 text-2xl font-black text-gray-900 dark:text-white">
@@ -80,7 +80,7 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
           <Card
             className={`${cornerRadius.element} border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80`}
           >
-            <p className="font-subheading text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Coverage Points
             </p>
             <p className="mt-1 text-2xl font-black text-gray-900 dark:text-white">
@@ -90,7 +90,7 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
           <Card
             className={`${cornerRadius.element} border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80`}
           >
-            <p className="font-subheading text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Location Guides
             </p>
             <p className="mt-1 text-2xl font-black text-gray-900 dark:text-white">
@@ -152,7 +152,7 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
                           {location}
                         </span>
                         {link && (
-                          <span className="font-subheading ml-auto inline-flex items-center text-xs font-semibold uppercase tracking-wide text-brand-secondary opacity-0 transition-opacity group-hover/item:opacity-100">
+                          <span className="font-subheading ml-auto inline-flex items-center text-xs font-semibold font-heading uppercase tracking-wide text-brand-secondary opacity-0 transition-opacity group-hover/item:opacity-100">
                             Explore
                             <MaterialIcon
                               icon="arrow_forward"

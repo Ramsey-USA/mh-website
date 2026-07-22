@@ -267,7 +267,7 @@ export default async function FAQPage() {
                   <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     {totalFAQCount}+
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
                     Questions Answered
                   </div>
                 </div>
@@ -275,7 +275,7 @@ export default async function FAQPage() {
                   <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     {faqCategories.length}
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
                     Topic Categories
                   </div>
                 </div>
@@ -283,7 +283,7 @@ export default async function FAQPage() {
                   <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     0.64
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
                     EMR Safety Record
                   </div>
                 </div>
@@ -291,7 +291,7 @@ export default async function FAQPage() {
                   <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     3
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
                     States Licensed
                   </div>
                 </div>
@@ -340,7 +340,7 @@ export default async function FAQPage() {
                         {category.title}
                       </span>
                     </h2>
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                    <p className="mb-3 text-sm font-semibold font-heading uppercase tracking-wider text-gray-500 dark:text-gray-400">
                       {category.questions.length} Questions
                     </p>
                     <p className="font-body mx-auto max-w-3xl text-base leading-relaxed text-gray-700 dark:text-gray-300 sm:text-lg">
