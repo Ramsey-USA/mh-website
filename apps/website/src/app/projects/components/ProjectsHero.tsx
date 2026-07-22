@@ -3,8 +3,6 @@
  * Hero header for the projects page
  */
 
-import { PageNavigation } from "@/components/navigation/PageNavigation";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
@@ -39,13 +37,6 @@ export function ProjectsHero() {
           </h1>
         </div>
       </div>
-
-      {/* Page-Specific Navigation Bar */}
-      <PageNavigation
-        items={navigationConfigs.projects}
-        showRemainingPagesOverlay
-        className="absolute bottom-0 left-0 right-0"
-      />
     </section>
   );
 }

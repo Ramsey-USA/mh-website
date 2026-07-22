@@ -409,6 +409,12 @@ function checkPrimarySloganIntegrity(errors) {
 
 function checkHeroVisualContracts(errors) {
   const homeHeroRelPath = "src/components/home/HeroSection.tsx";
+  // Heroes that intentionally omit an in-hero navigation bar (nav is handled by
+  // the global app shell instead).
+  const NAV_SHELL_EXEMPT = new Set([
+    "src/components/about/AboutHero.tsx",
+    "src/app/projects/components/ProjectsHero.tsx",
+  ]);
   const heroContainerSignal =
     /hero-section|hero-safe-top|hero-safe-bottom|min-h-screen|h-screen|calc\(100vh - var\(--mh-nav-offset|HeroSectionClient|useVideoHero/;
 
@@ -427,7 +433,7 @@ function checkHeroVisualContracts(errors) {
       );
     }
 
-    if (relPath !== homeHeroRelPath) {
+    if (relPath !== homeHeroRelPath && !NAV_SHELL_EXEMPT.has(relPath)) {
       const hasNavigationShell =
         source.includes("PageNavigation") ||
         source.includes("Breadcrumb") ||
