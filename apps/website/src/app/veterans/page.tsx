@@ -5,8 +5,6 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Card } from "@/components/ui";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { PageNavigation } from "@/components/navigation/PageNavigation";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { AccreditationsLogoRow } from "@/components/shared-sections";
 import { JeremyAuthorityLinksStrip } from "@/components/shared-sections/JeremyAuthorityLinksStrip";
 import { StructuredData } from "@/components/seo/SeoMeta";
@@ -180,13 +178,6 @@ export default async function VeteransPage() {
               </h1>
             </div>
           </div>
-
-          {/* Page-Specific Navigation Bar */}
-          <PageNavigation
-            items={navigationConfigs.veterans}
-            showRemainingPagesOverlay
-            className="absolute bottom-0 left-0 right-0"
-          />
         </section>
       </div>
 
@@ -311,7 +302,7 @@ export default async function VeteransPage() {
                             >
                               {value.stat}
                             </div>
-                            <div className="font-subheading text-xs font-semibold text-gray-600 dark:text-gray-300 font-heading uppercase tracking-wider">
+                            <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
                               {t(
                                 `veteransPage.foundation.values.${value.key}.statLabel`,
                               )}
@@ -1187,7 +1178,7 @@ export default async function VeteransPage() {
           {/* Accreditations & Certifications */}
           <section className="relative py-12 sm:py-16">
             <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
-              <p className="font-subheading text-sm font-semibold text-gray-500 dark:text-gray-400 font-heading uppercase tracking-wider mb-6">
+              <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
                 {t("veteransPage.accreditations.kicker")}
               </p>
               <AccreditationsLogoRow />

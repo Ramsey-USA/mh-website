@@ -106,13 +106,14 @@ export default async function LocationsPage() {
       <main className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <section className="px-4 pt-12 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
-            <Breadcrumbs
-              items={[
-                { label: t("locations.breadcrumb.home"), href: "/" },
-                { label: t("locations.breadcrumb.current") },
-              ]}
-              className="mb-6 bg-transparent text-gray-700 dark:text-white/70 [&_nav]:border-0 [&_nav]:bg-transparent [&_nav]:py-0 [&_span[aria-current='page']]:text-gray-900 dark:[&_span[aria-current='page']]:text-white [&_a]:text-gray-600 dark:[&_a]:text-white/70 [&_a:hover]:text-gray-900 dark:[&_a:hover]:text-white"
-            />
+            <div className="mb-6">
+              <Breadcrumbs
+                items={[
+                  { label: t("locations.breadcrumb.home"), href: "/" },
+                  { label: t("locations.breadcrumb.current") },
+                ]}
+              />
+            </div>
           </div>
         </section>
 

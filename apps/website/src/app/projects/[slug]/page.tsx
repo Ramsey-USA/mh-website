@@ -7,8 +7,6 @@ import { PageTrackingClient } from "@/components/analytics";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FollowProjectForm } from "@/components/project-marketing/FollowProjectForm";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { PageNavigation } from "@/components/navigation/PageNavigation";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { Button, Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
@@ -389,12 +387,6 @@ export default async function ProjectCaseStudyPage({
               </p>
             </div>
           </div>
-
-          <PageNavigation
-            items={navigationConfigs.projects}
-            showRemainingPagesOverlay
-            className="absolute bottom-0 left-0 right-0"
-          />
         </section>
 
         <Breadcrumbs

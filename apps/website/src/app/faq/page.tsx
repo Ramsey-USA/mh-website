@@ -7,8 +7,6 @@ import {
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { PageNavigation } from "@/components/navigation/PageNavigation";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
@@ -206,13 +204,6 @@ export default async function FAQPage() {
               </h1>
             </div>
           </div>
-
-          {/* Page-Specific Navigation Bar */}
-          <PageNavigation
-            items={navigationConfigs.faq}
-            showRemainingPagesOverlay
-            className="absolute bottom-0 left-0 right-0"
-          />
         </section>
 
         {/* Breadcrumb Navigation */}
@@ -276,7 +267,7 @@ export default async function FAQPage() {
                   <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     {totalFAQCount}+
                   </div>
-                  <div className="font-subheading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     Questions Answered
                   </div>
                 </div>
@@ -284,7 +275,7 @@ export default async function FAQPage() {
                   <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     {faqCategories.length}
                   </div>
-                  <div className="font-subheading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     Topic Categories
                   </div>
                 </div>
@@ -292,7 +283,7 @@ export default async function FAQPage() {
                   <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     0.64
                   </div>
-                  <div className="font-subheading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     EMR Safety Record
                   </div>
                 </div>
@@ -300,7 +291,7 @@ export default async function FAQPage() {
                   <div className="mb-2 text-3xl font-black text-brand-primary transition-colors duration-300 dark:text-brand-primary-light sm:text-4xl">
                     3
                   </div>
-                  <div className="font-subheading text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 font-heading uppercase tracking-wider">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     States Licensed
                   </div>
                 </div>
@@ -342,14 +333,14 @@ export default async function FAQPage() {
                       id={`${category.id}-title`}
                       className="mb-4 text-3xl font-black leading-tight tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl lg:text-5xl"
                     >
-                      <span className="font-subheading mb-2 block text-sm font-bold uppercase tracking-[0.2em] text-brand-secondary sm:text-base">
+                      <span className="mb-2 block text-sm font-bold uppercase tracking-[0.2em] text-brand-secondary sm:text-base">
                         FAQ Category
                       </span>
                       <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent">
                         {category.title}
                       </span>
                     </h2>
-                    <p className="font-subheading mb-3 text-sm font-semibold font-heading uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                    <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                       {category.questions.length} Questions
                     </p>
                     <p className="font-body mx-auto max-w-3xl text-base leading-relaxed text-gray-700 dark:text-gray-300 sm:text-lg">

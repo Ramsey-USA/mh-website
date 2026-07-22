@@ -1,5 +1,3 @@
-import { PageNavigation } from "@/components/navigation/PageNavigation";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { useTranslations } from "next-intl";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { cornerRadius, transitionDuration } from "@/lib/styles/design-tokens";
@@ -51,13 +49,6 @@ export function ServicesHero({
           </h1>
         </div>
       </div>
-
-      {/* Page-Specific Navigation Bar */}
-      <PageNavigation
-        items={navigationConfigs.services}
-        showRemainingPagesOverlay
-        className="absolute bottom-0 left-0 right-0"
-      />
     </section>
   );
 }

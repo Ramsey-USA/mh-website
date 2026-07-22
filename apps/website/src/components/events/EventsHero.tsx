@@ -1,6 +1,3 @@
-import { PageNavigation } from "@/components/navigation/PageNavigation";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-
 type EventsHeroProps = {
   locale?: "en" | "es";
 };
@@ -39,13 +36,6 @@ export function EventsHero({ locale = "en" }: EventsHeroProps) {
           </h1>
         </div>
       </div>
-
-      {/* Page-Specific Navigation Bar */}
-      <PageNavigation
-        items={navigationConfigs.events}
-        showRemainingPagesOverlay
-        className="absolute bottom-0 left-0 right-0"
-      />
     </section>
   );
 }

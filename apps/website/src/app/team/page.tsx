@@ -28,7 +28,6 @@ import {
   type VintageTeamMember,
   type TeamProfileOverride,
 } from "@/lib/data/vintage-team";
-import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { normalizeEmployeeTestimonials } from "@/lib/data/testimonials";
@@ -580,13 +579,6 @@ export default async function TeamPage() {
               </h1>
             </div>
           </div>
-
-          {/* Page-Specific Navigation Bar */}
-          <PageNavigation
-            items={navigationConfigs.team}
-            showRemainingPagesOverlay
-            className="absolute bottom-0 left-0 right-0"
-          />
         </section>
 
         {/* Breadcrumb Navigation */}

@@ -130,4 +130,33 @@ describe("Sitewide breadcrumb placement contract", () => {
 
     expect(filesWithLegacyTaxonomy).toEqual([]);
   });
+
+  it("prevents custom visual class overrides at breadcrumb callsites", () => {
+    const candidateFiles = [
+      ...collectFiles(appRoot, [".ts", ".tsx"]),
+      ...collectFiles(componentRoot, [".ts", ".tsx"]),
+    ].filter((filePath) => !filePath.includes("__tests__"));
+
+    const breadcrumbFiles = candidateFiles.filter((filePath) => {
+      const content = fs.readFileSync(filePath, "utf8");
+
+      if (
+        filePath.endsWith("components/navigation/Breadcrumb.tsx") ||
+        filePath.endsWith("components/navigation/Breadcrumbs.tsx")
+      ) {
+        return false;
+      }
+
+      return (
+        content.includes("<Breadcrumb") || content.includes("<Breadcrumbs")
+      );
+    });
+
+    const classNameOverrideFiles = breadcrumbFiles.filter((filePath) => {
+      const content = fs.readFileSync(filePath, "utf8");
+      return /<Breadcrumbs?\b[^>]*\bclassName\s*=/.test(content);
+    });
+
+    expect(classNameOverrideFiles).toEqual([]);
+  });
 });

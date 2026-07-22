@@ -3,8 +3,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { PageNavigation } from "@/components/navigation/PageNavigation";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { PageTrackingClient } from "@/components/analytics";
@@ -279,13 +277,6 @@ export default function SafetyPage() {
             </h1>
           </div>
         </div>
-
-        {/* Page Navigation Bar */}
-        <PageNavigation
-          items={navigationConfigs.safety}
-          showRemainingPagesOverlay
-          className="absolute bottom-0 left-0 right-0"
-        />
       </section>
 
       {/* Breadcrumb */}
@@ -338,7 +329,7 @@ export default function SafetyPage() {
                   />
                 </div>
                 <div>
-                  <span className="font-subheading inline-block text-xs font-bold font-heading uppercase tracking-widest text-brand-secondary mb-1">
+                  <span className="font-heading inline-block text-xs font-bold uppercase tracking-widest text-brand-secondary mb-1">
                     {item.tag}
                   </span>
                   <h3 className="font-black text-gray-900 dark:text-white mb-2">
@@ -404,7 +395,7 @@ export default function SafetyPage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="font-subheading inline-block text-xs font-bold font-heading uppercase tracking-widest text-brand-secondary mb-4">
+              <span className="font-heading inline-block text-xs font-bold uppercase tracking-widest text-brand-secondary mb-4">
                 Rev 3.0 · Effective July 1, 2026
               </span>
               <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl leading-tight tracking-tighter overflow-visible">

@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { PageNavigation } from "@/components/navigation/PageNavigation";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TrackedBridgeButton } from "@/components/analytics";
 import { Card } from "@/components/ui";
@@ -121,12 +119,6 @@ export default async function VeteranLedCompliancePage() {
             {VETERAN_LED_COMPLIANCE_HERO_SLOGAN}
           </p>
         </div>
-
-        <PageNavigation
-          items={navigationConfigs.publicSector}
-          showRemainingPagesOverlay
-          className="absolute bottom-0 left-0 right-0"
-        />
       </section>
 
       <Breadcrumbs

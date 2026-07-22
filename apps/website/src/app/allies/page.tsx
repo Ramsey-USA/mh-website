@@ -28,9 +28,7 @@ const StaggeredFadeIn = dynamic(
     })),
   { ssr: true },
 );
-import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
@@ -591,12 +589,6 @@ export default async function AlliesPage() {
             </h1>
           </div>
         </div>
-
-        <PageNavigation
-          items={navigationConfigs.allies}
-          showRemainingPagesOverlay
-          className="absolute bottom-0 left-0 right-0"
-        />
       </section>
 
       {/* ── BREADCRUMB ────────────────────────────────────────────────────── */}
@@ -741,7 +733,7 @@ export default async function AlliesPage() {
                     className="text-brand-primary dark:text-brand-primary-light shrink-0"
                     ariaLabel={t("allies.network.criteria.aria")}
                   />
-                  <span className="font-subheading text-xs font-bold font-heading uppercase tracking-widest text-brand-primary dark:text-brand-primary-light">
+                  <span className="text-xs font-bold uppercase tracking-widest text-brand-primary dark:text-brand-primary-light">
                     {t("allies.network.criteria.label")}
                   </span>
                 </div>
@@ -819,7 +811,7 @@ export default async function AlliesPage() {
               {tradeGroups.map((group, groupIndex) => (
                 <div key={group.trade} id={`trade-${tradeId(group.trade)}`}>
                   {/* Deep-link anchor: /allies#trade-electrical etc.
-                      The top-level #vendors nav item covers keyboard access. */}
+ The top-level #vendors nav item covers keyboard access. */}
                   {/* Trade group header */}
                   <div className="flex items-center gap-3 mb-8">
                     <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-brand-primary/10 dark:bg-brand-primary/20 shrink-0">
@@ -949,7 +941,7 @@ export default async function AlliesPage() {
         {/* Accreditations & Certifications */}
         <section className="order-3 relative py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <p className="font-subheading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest font-heading uppercase mb-4">
+            <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
               {t("allies.accreditations.kicker")}
             </p>
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">

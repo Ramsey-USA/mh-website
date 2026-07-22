@@ -1,7 +1,5 @@
 "use client";
 
-import { PageNavigation } from "@/components/navigation/PageNavigation";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -353,7 +351,7 @@ export function HeroSectionClient({
         </div>
       </div>
 
-      {/* Playback Controls - Positioned above page navigation */}
+      {/* Playback Controls */}
       {useVideoHero ? (
         <div className="absolute top-3 left-3 z-40 flex items-center gap-1 rounded-md border border-white/15 bg-black/15 px-1.5 py-1 opacity-45 backdrop-blur-[2px] transition-opacity duration-200 hover:opacity-95 focus-within:opacity-95 sm:top-4 sm:left-4">
           <button
@@ -394,13 +392,6 @@ export function HeroSectionClient({
           </button>
         </div>
       ) : null}
-
-      {/* Page-Specific Navigation Bar */}
-      <PageNavigation
-        items={navigationConfigs.home}
-        showRemainingPagesOverlay
-        className="absolute bottom-0 left-0 right-0 z-30 border-white/0 bg-transparent backdrop-blur-xl dark:border-gray-700/0 dark:bg-transparent"
-      />
     </section>
   );
 }

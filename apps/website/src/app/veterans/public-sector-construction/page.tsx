@@ -55,19 +55,20 @@ export default async function VeteranPublicSectorConstructionPage() {
     <main className="bg-white dark:bg-gray-950 min-h-screen">
       <section className="border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 py-14 text-white sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
-          <Breadcrumbs
-            items={[
-              { label: t("veteransBridge.breadcrumb.home"), href: "/" },
-              {
-                label: t("veteransBridge.breadcrumb.veterans"),
-                href: "/veterans",
-              },
-              {
-                label: t("veteransBridge.breadcrumb.current"),
-              },
-            ]}
-            className="mb-6 text-white/70"
-          />
+          <div className="mb-6">
+            <Breadcrumbs
+              items={[
+                { label: t("veteransBridge.breadcrumb.home"), href: "/" },
+                {
+                  label: t("veteransBridge.breadcrumb.veterans"),
+                  href: "/veterans",
+                },
+                {
+                  label: t("veteransBridge.breadcrumb.current"),
+                },
+              ]}
+            />
+          </div>
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
             {t("veteransBridge.hero.kicker")}
           </p>

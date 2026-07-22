@@ -16,16 +16,6 @@ jest.mock("next-intl", () => ({
   },
 }));
 
-jest.mock("@/components/navigation/PageNavigation", () => ({
-  PageNavigation: () => (
-    <nav data-testid="page-nav" aria-label="Page navigation" />
-  ),
-}));
-
-jest.mock("@/components/navigation/navigationConfigs", () => ({
-  navigationConfigs: { services: [] },
-}));
-
 jest.mock("@/components/icons/MaterialIcon", () => ({
   MaterialIcon: ({ ariaLabel }: { ariaLabel?: string }) => (
     <span aria-label={ariaLabel} />
@@ -68,10 +58,5 @@ describe("ServicesHero", () => {
         /Commercial, industrial, and public-sector delivery across Washington, Oregon, and Idaho/i,
       ),
     ).toBeInTheDocument();
-  });
-
-  it("renders the PageNavigation component", () => {
-    render(<ServicesHero />);
-    expect(screen.getByTestId("page-nav")).toBeInTheDocument();
   });
 });

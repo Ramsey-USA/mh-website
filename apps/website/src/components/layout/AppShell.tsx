@@ -133,13 +133,7 @@ function AppShellBreadcrumbFallback() {
     return null;
   }
 
-  return (
-    <Breadcrumb
-      items={fallbackItems}
-      source="fallback"
-      className="border-b border-gray-200 dark:border-gray-700"
-    />
-  );
+  return <Breadcrumb items={fallbackItems} source="fallback" />;
 }
 
 function SemiquincentennialAfterHeroSlot() {

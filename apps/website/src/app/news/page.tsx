@@ -68,13 +68,14 @@ export default async function NewsPage() {
 
       <main className="bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <section className="mx-auto max-w-7xl px-4 pt-10 sm:px-6 lg:px-8">
-          <Breadcrumb
-            items={[
-              { label: locale === "es" ? "Inicio" : "Home", href: "/" },
-              { label: content.breadcrumbCurrent },
-            ]}
-            className="mb-6"
-          />
+          <div className="mb-6">
+            <Breadcrumb
+              items={[
+                { label: locale === "es" ? "Inicio" : "Home", href: "/" },
+                { label: content.breadcrumbCurrent },
+              ]}
+            />
+          </div>
         </section>
 
         <section

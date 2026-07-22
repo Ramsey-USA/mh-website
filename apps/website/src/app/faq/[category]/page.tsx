@@ -7,8 +7,6 @@ import { Button, Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { PageNavigation } from "@/components/navigation/PageNavigation";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   formatDualPageName,
@@ -357,7 +355,7 @@ export default async function FAQCategoryPage({
                     <Link
                       key={item.id}
                       href={`/faq/${item.id}`}
-                      className={`font-subheading inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold font-heading uppercase tracking-wider transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary sm:text-sm ${
+                      className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary sm:text-sm ${
                         isCurrent
                           ? "border-brand-secondary/70 bg-brand-secondary/20 text-white"
                           : "border-white/30 bg-white/10 text-white/90 hover:border-brand-secondary/70 hover:bg-brand-secondary/20"
@@ -372,12 +370,6 @@ export default async function FAQCategoryPage({
               </nav>
             </div>
           </div>
-
-          <PageNavigation
-            items={navigationConfigs.faq}
-            showRemainingPagesOverlay
-            className="absolute bottom-0 left-0 right-0"
-          />
         </section>
 
         <Breadcrumbs

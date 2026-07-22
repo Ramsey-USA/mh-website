@@ -16,9 +16,7 @@ const StaggeredFadeIn = dynamic(
     })),
   { ssr: true },
 );
-import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
@@ -317,13 +315,6 @@ export default function PublicSectorFullPage() {
             </h1>
           </div>
         </div>
-
-        {/* Page-Specific Navigation Bar */}
-        <PageNavigation
-          items={navigationConfigs.publicSector}
-          showRemainingPagesOverlay
-          className="absolute bottom-0 left-0 right-0"
-        />
       </section>
       {/* Breadcrumb Navigation */}
       <Breadcrumb
@@ -1072,7 +1063,7 @@ export default function PublicSectorFullPage() {
                   <p className="font-body mt-2 text-sm text-gray-200 leading-relaxed">
                     {bridge.detail}
                   </p>
-                  <span className="font-subheading mt-3 inline-flex items-center gap-2 text-xs font-semibold font-heading uppercase tracking-wider text-brand-primary-light">
+                  <span className="mt-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-primary-light">
                     Open pathway
                     <MaterialIcon icon="arrow_forward" size="sm" />
                   </span>
@@ -1100,7 +1091,7 @@ export default function PublicSectorFullPage() {
           darkLogoSrc={GOVERNMENT_DARK_LOGO}
         />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="font-subheading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest font-heading uppercase mb-4">
+          <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
             Mission-Ready Credentials
           </p>
           <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-8">

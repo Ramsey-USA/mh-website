@@ -148,14 +148,15 @@ export default async function EventDetailPage({
         </section>
 
         <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <Breadcrumb
-            items={[
-              { label: isEs ? "Inicio" : "Home", href: "/" },
-              { label: isEs ? "Eventos" : "Events", href: "/events" },
-              { label: localizedEvent.title },
-            ]}
-            className="mb-8"
-          />
+          <div className="mb-8">
+            <Breadcrumb
+              items={[
+                { label: isEs ? "Inicio" : "Home", href: "/" },
+                { label: isEs ? "Eventos" : "Events", href: "/events" },
+                { label: localizedEvent.title },
+              ]}
+            />
+          </div>
 
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
             <Card className="overflow-hidden border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800">

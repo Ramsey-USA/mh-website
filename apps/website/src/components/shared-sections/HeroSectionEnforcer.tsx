@@ -6,7 +6,6 @@
  * - Canonical CSS structure
  * - Required content (dual naming, mantra)
  * - Proper spacing and positioning
- * - PageNavigation inclusion
  * - No prohibited elements (CTA buttons, stats in hero)
  *
  * Usage:
@@ -14,14 +13,11 @@
  *   dualNaming="Base HQ → Home"
  *   mantra="Your Mission"
  *   content={<your hero content>}
- *   navigation={navigationConfigs.home}
  * />
  */
 
 import { type ReactNode } from "react";
 import { MH_SLOGANS } from "@/lib/branding/page-names";
-import { PageNavigation } from "@/components/navigation/PageNavigation";
-import type { NavigationItem } from "@/components/navigation/navigationConfigs";
 
 export interface HeroSectionEnforcerProps {
   /** Dual naming format: "Military → Civilian" */
@@ -32,12 +28,6 @@ export interface HeroSectionEnforcerProps {
 
   /** Hero content (text, subtitle, etc.) - passed as children or explicit content prop */
   content?: ReactNode;
-
-  /** Navigation items for PageNavigation component */
-  navigation?: NavigationItem[];
-
-  /** Show PageNavigation at bottom */
-  showNavigation?: boolean | null | undefined;
 
   /** Optional background image/video element */
   backgroundElement?: ReactNode;
@@ -66,8 +56,6 @@ export function HeroSectionEnforcer({
   dualNaming,
   mantra,
   content,
-  navigation,
-  showNavigation = true,
   backgroundElement,
   slogan = MH_SLOGANS.primary,
   supportingSlogan = "No gaps. No guesswork. Just accountable follow-through.",
@@ -87,8 +75,6 @@ export function HeroSectionEnforcer({
   }
 
   const heroContent = content || children;
-  const shouldShowNav =
-    Boolean(showNavigation) && navigation && navigation.length > 0;
 
   return (
     <section
@@ -151,15 +137,6 @@ export function HeroSectionEnforcer({
           </h1>
         </div>
       </div>
-
-      {/* CANONICAL PAGENAVIGATION: ABSOLUTE BOTTOM */}
-      {shouldShowNav && navigation && (
-        <PageNavigation
-          items={navigation}
-          showRemainingPagesOverlay={showNavigation ? true : false}
-          className="absolute bottom-0 left-0 right-0"
-        />
-      )}
     </section>
   );
 }
@@ -186,7 +163,6 @@ export function useHeroValidation(config: {
   hasDualNaming: boolean;
   hasMantra: boolean;
   hasBottomRightPositioning: boolean;
-  hasPageNavigation: boolean;
   hasCanonicalClass: boolean;
   hasProperHeight: boolean;
 }): { isValid: boolean; violations: string[] } {
@@ -200,9 +176,6 @@ export function useHeroValidation(config: {
   }
   if (!config.hasBottomRightPositioning) {
     violations.push("Missing bottom-right text positioning (ml-auto required)");
-  }
-  if (!config.hasPageNavigation) {
-    violations.push("Missing PageNavigation at absolute bottom-0");
   }
   if (!config.hasCanonicalClass) {
     violations.push(

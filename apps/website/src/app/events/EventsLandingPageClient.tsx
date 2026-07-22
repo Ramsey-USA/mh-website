@@ -95,13 +95,14 @@ export function EventsLandingPageClient({
       </section>
       <StripedBackground>
         <div className="relative z-10 pb-20">
-          <Breadcrumb
-            items={[
-              { label: isEs ? "Inicio" : "Home", href: "/" },
-              { label: isEs ? "Eventos" : "Events" },
-            ]}
-            className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8"
-          />
+          <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
+            <Breadcrumb
+              items={[
+                { label: isEs ? "Inicio" : "Home", href: "/" },
+                { label: isEs ? "Eventos" : "Events" },
+              ]}
+            />
+          </div>
 
           <section
             id="smoke-n-shine"

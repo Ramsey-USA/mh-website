@@ -276,17 +276,18 @@ export function LocationPageContent({
         <section className="hero-section hero-safe-top-lg relative bg-linear-to-br from-gray-900 via-brand-primary to-gray-900 text-white pb-20 sm:pb-28 md:pb-36 lg:pb-44">
           <SectionContainer padding="compact">
             <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
-              <Breadcrumbs
-                items={[
-                  { label: isEs ? "Inicio" : "Home", href: "/" },
-                  {
-                    label: isEs ? "Ubicaciones" : "Locations",
-                    href: "/locations",
-                  },
-                  { label: `${location.city}, ${location.state}` },
-                ]}
-                className="mb-6 bg-transparent text-white/70 [&_nav]:border-0 [&_nav]:bg-transparent [&_nav]:py-0 [&_span[aria-current='page']]:text-white [&_a]:text-white/70 [&_a:hover]:text-white"
-              />
+              <div className="mb-6">
+                <Breadcrumbs
+                  items={[
+                    { label: isEs ? "Inicio" : "Home", href: "/" },
+                    {
+                      label: isEs ? "Ubicaciones" : "Locations",
+                      href: "/locations",
+                    },
+                    { label: `${location.city}, ${location.state}` },
+                  ]}
+                />
+              </div>
 
               {/* Location Badge */}
               <div className="flex items-center justify-center gap-2 text-brand-secondary">

@@ -258,7 +258,9 @@ export default async function SafetyManualClusterPage({
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-5xl">
-          <Breadcrumb items={breadcrumbs} className="mb-5 text-white/60" />
+          <div className="mb-5">
+            <Breadcrumb items={breadcrumbs} />
+          </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <div className="font-subheading mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold font-heading uppercase tracking-wider text-brand-secondary">

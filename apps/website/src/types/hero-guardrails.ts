@@ -6,7 +6,6 @@
  * - Canonical CSS class structure
  * - Required component properties
  * - Proper text positioning and styling
- * - PageNavigation inclusion
  */
 
 /**
@@ -118,24 +117,6 @@ export interface HeroTypography {
 }
 
 /**
- * PageNavigation requirement for all hero sections
- * Must be positioned at: "absolute bottom-0 left-0 right-0"
- */
-export interface HeroNavigation {
-  /** Component must be included */
-  component: "PageNavigation";
-
-  /** Fixed position at bottom */
-  position: "absolute bottom-0 left-0 right-0";
-
-  /** Z-index for proper layering */
-  zIndex: number;
-
-  /** Must show remaining pages overlay on "More" */
-  showRemainingPagesOverlay: true;
-}
-
-/**
  * Props for a compliant hero section component
  * If a component doesn't satisfy this interface, it violates standards
  */
@@ -151,9 +132,6 @@ export interface CompliantHeroProps {
 
   /** Typography must scale responsively */
   typography: HeroTypography;
-
-  /** PageNavigation must be included */
-  navigation: HeroNavigation;
 
   /** Optional: page-specific background image or video */
   backgroundMedia?: {
@@ -195,13 +173,7 @@ export function validateHeroContent(content: HeroContent): void {
  * Validates hero section props structure at runtime
  */
 export function validateHeroProps(props: Partial<CompliantHeroProps>): void {
-  const required = [
-    "content",
-    "styling",
-    "positioning",
-    "typography",
-    "navigation",
-  ] as const;
+  const required = ["content", "styling", "positioning", "typography"] as const;
 
   for (const field of required) {
     if (!props[field]) {
@@ -240,16 +212,6 @@ export function validateHeroProps(props: Partial<CompliantHeroProps>): void {
   if (props.positioning && !props.positioning.marginLeft.includes("ml-auto")) {
     throw new Error(
       "Hero text must use bottom-right positioning with 'ml-auto'",
-    );
-  }
-
-  // Validate navigation
-  if (
-    props.navigation &&
-    props.navigation.position !== "absolute bottom-0 left-0 right-0"
-  ) {
-    throw new Error(
-      "PageNavigation must be positioned at 'absolute bottom-0 left-0 right-0'",
     );
   }
 }

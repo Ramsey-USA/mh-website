@@ -87,7 +87,9 @@ export default async function SafetyManualContentsPage() {
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-5xl">
-          <Breadcrumb items={breadcrumbs} className="mb-5 text-white/60" />
+          <div className="mb-5">
+            <Breadcrumb items={breadcrumbs} />
+          </div>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
               <p className="font-subheading mb-1 text-xs font-semibold font-heading uppercase tracking-wider text-brand-secondary/80">

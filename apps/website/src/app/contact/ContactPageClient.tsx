@@ -16,9 +16,7 @@ import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
-import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { saveOfflineSubmission } from "@/lib/pwa/offline-queue";
@@ -382,13 +380,6 @@ export default function ContactPageClient({
               </h1>
             </div>
           </div>
-
-          {/* Page Navigation */}
-          <PageNavigation
-            items={navigationConfigs.contact}
-            showRemainingPagesOverlay
-            className="absolute bottom-0 left-0 right-0"
-          />
         </section>
 
         {/* Breadcrumb Navigation */}
@@ -500,7 +491,7 @@ export default function ContactPageClient({
 
             {/* Trust Credentials */}
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-8 border-t border-gray-200 dark:border-gray-700">
-              <span className="font-subheading text-sm font-semibold text-gray-500 dark:text-gray-400 font-heading uppercase tracking-wider">
+              <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 {t("contact.quickContact.accreditations")}
               </span>
               <a
