@@ -366,6 +366,14 @@ function isWorkersRouteAuthFailure(result) {
   );
 }
 
+function isWorkersAssetUploadSessionFailure(result) {
+  const combined = `${result.stdout ?? ""}\n${result.stderr ?? ""}`;
+  return (
+    combined.includes("assets-upload-session") &&
+    combined.includes("[code: 10013]")
+  );
+}
+
 function buildRouteFreeWranglerConfig() {
   const source = readFileSync(wranglerConfigPath, "utf8");
   const routeBlockPattern = /\n\[\[routes\]\][\s\S]*?(?=\n\[\[|\n\[[^\[]|$)/g;
@@ -409,6 +417,60 @@ function deployWithoutRoutes(extraEnv = {}) {
   }
 }
 
+function deployWithRetryOnAssetUploadSessionFailure(extraEnv = {}) {
+  const firstAttempt = runAndCapture("pnpm", ["exec", "wrangler", "deploy"], {
+    WRANGLER_SEND_METRICS: "false",
+    CLOUDFLARE_API_TOKEN:
+      process.env.CLOUDFLARE_API_TOKEN ?? process.env.CF_API_TOKEN,
+    ...extraEnv,
+  });
+
+  emitCapturedOutput(firstAttempt);
+
+  if (firstAttempt.error) {
+    console.error(
+      "✖ Failed to run wrangler deploy:",
+      firstAttempt.error.message,
+    );
+    process.exit(1);
+  }
+
+  if (firstAttempt.status === 0) {
+    return;
+  }
+
+  if (!isWorkersAssetUploadSessionFailure(firstAttempt)) {
+    process.exit(firstAttempt.status ?? 1);
+  }
+
+  console.warn(
+    "⚠ Detected Cloudflare asset upload session failure; cleaning .wrangler/tmp and retrying deploy once...",
+  );
+
+  clearWranglerTmp();
+
+  const secondAttempt = runAndCapture("pnpm", ["exec", "wrangler", "deploy"], {
+    WRANGLER_SEND_METRICS: "false",
+    CLOUDFLARE_API_TOKEN:
+      process.env.CLOUDFLARE_API_TOKEN ?? process.env.CF_API_TOKEN,
+    ...extraEnv,
+  });
+
+  emitCapturedOutput(secondAttempt);
+
+  if (secondAttempt.error) {
+    console.error(
+      "✖ Failed to run wrangler deploy:",
+      secondAttempt.error.message,
+    );
+    process.exit(1);
+  }
+
+  if (secondAttempt.status !== 0) {
+    process.exit(secondAttempt.status ?? 1);
+  }
+}
+
 function deployWithRetry(extraEnv = {}) {
   clearWranglerTmp();
 
@@ -442,6 +504,15 @@ function deployWithRetry(extraEnv = {}) {
   }
 
   if (firstAttempt.status === 0) {
+    return;
+  }
+
+  if (isWorkersAssetUploadSessionFailure(firstAttempt)) {
+    console.warn(
+      "⚠ Detected Cloudflare asset upload session failure. Retrying deploy once after clearing .wrangler/tmp...",
+    );
+    clearWranglerTmp();
+    deployWithRetryOnAssetUploadSessionFailure(extraEnv);
     return;
   }
 
