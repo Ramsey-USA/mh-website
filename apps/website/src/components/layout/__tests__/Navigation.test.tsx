@@ -1,5 +1,6 @@
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
+import { within } from "@testing-library/dom";
 import userEvent from "@testing-library/user-event";
 import { Navigation } from "../Navigation";
 
@@ -128,6 +129,45 @@ describe("Navigation", () => {
     expect(
       screen.queryByRole("link", { name: "Podcast" }),
     ).not.toBeInTheDocument();
+  });
+
+  it("keeps requested desktop header order and CTA placement", () => {
+    render(<Navigation />);
+
+    const desktopNav = screen.getByRole("navigation", { name: "Primary" });
+    const utils = within(desktopNav);
+
+    const services = utils.getByRole("link", { name: "Services" });
+    const projects = utils.getByRole("link", { name: "Projects" });
+    const publicSector = utils.getByRole("link", { name: "Public Sector" });
+    const about = utils.getByRole("link", { name: "About MH" });
+    const contact = utils.getByRole("link", { name: "Contact" });
+    const more = utils.getByRole("button", { name: "More" });
+    const cta = utils.getByRole("link", { name: "Discuss Your Project" });
+
+    expect(
+      services.compareDocumentPosition(projects) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      projects.compareDocumentPosition(publicSector) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      publicSector.compareDocumentPosition(about) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      about.compareDocumentPosition(contact) & Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      contact.compareDocumentPosition(more) & Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      more.compareDocumentPosition(cta) & Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+
+    expect(cta).toHaveAttribute("href", "/contact?intent=project-discussion");
   });
 
   it("opens and closes mobile menu and handles Escape", async () => {

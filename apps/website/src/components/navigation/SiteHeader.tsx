@@ -4,7 +4,6 @@ import { useLayoutEffect, useMemo, useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { WaVobBadge } from "@/components/ui/WaVobBadge";
 import { DesktopNavigation } from "./DesktopNavigation";
 import { MobileNavigation } from "./MobileNavigation";
 import { buildSiteNavigationModel, type NavRouteKey } from "./navigation-data";
@@ -106,12 +105,16 @@ export function SiteHeader() {
             </div>
           </Link>
 
-          <div className="hidden items-center gap-2 lg:flex">
-            <p className="font-subheading text-xs uppercase tracking-[0.14em] text-gray-700 dark:text-gray-200">
-              {t("brandStatement")}
-            </p>
-            <WaVobBadge size="sm" className="shrink-0" />
-          </div>
+          <DesktopNavigation
+            items={navModel.primary}
+            secondaryItems={navModel.secondary}
+            ctaHref={CTA_HREF}
+            labels={{
+              navLabel: t("navLabel"),
+              moreLabel: t("moreLabel"),
+              ctaLabel: t("ctaLabel"),
+            }}
+          />
 
           <MobileNavigation
             primaryItems={navModel.primary}
@@ -119,6 +122,8 @@ export function SiteHeader() {
             ctaHref={CTA_HREF}
             labels={{
               navLabel: t("navLabel"),
+              moreLabel: t("moreLabel"),
+              homeLabel: t("homeLabel"),
               mobileMenuLabel: t("mobileMenuLabel"),
               openMenuLabel: t("openMenuLabel"),
               closeMenuLabel: t("closeMenuLabel"),
@@ -126,17 +131,6 @@ export function SiteHeader() {
             }}
           />
         </div>
-
-        <DesktopNavigation
-          items={navModel.primary}
-          secondaryItems={navModel.secondary}
-          ctaHref={CTA_HREF}
-          labels={{
-            navLabel: t("navLabel"),
-            moreLabel: t("moreLabel"),
-            ctaLabel: t("ctaLabel"),
-          }}
-        />
       </div>
     </header>
   );

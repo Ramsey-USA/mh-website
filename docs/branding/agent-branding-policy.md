@@ -31,6 +31,7 @@ and markdown content in the MH website repository.
 5. Keep terminology consistent across page copy, navigation, metadata, and schema.
 6. Prefer plain-language SEO labels (`Home`, `About`, `Services`, `Projects`, `Contact`).
 7. Enforce accessibility basics (semantic structure, labels, contrast, keyboard flow).
+8. Preserve the canonical desktop header order and CTA placement from the [Header Navigation Contract](./standards/header-navigation-contract.md); do not reorder, relabel, or relocate these items without an approved contract update.
 
 ## Required Language Behavior
 

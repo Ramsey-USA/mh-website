@@ -55,6 +55,7 @@
 
 - ✅ **SEO Optimization** - Complete sitemap, meta tags, and structured data
 - ✅ **Navigation System** - Unified responsive header with dominant MH logo, bilingual language toggle, phone CTA, compact theme toggle, and hamburger overlay menu
+  - Contract: desktop order remains `Services -> Projects -> Public Sector -> About MH -> Contact -> More -> Discuss Your Project`; small screens intentionally collapse to `Menu` (see [Header Navigation Contract](../branding/standards/header-navigation-contract.md))
 - ✅ **MaterialIcon System** - Universal icon system with Google Material Icons
 - ✅ **Theme System** - Dark/Light mode support with seamless switching
 - ✅ **Analytics Integration** - Enhanced tracking and performance monitoring

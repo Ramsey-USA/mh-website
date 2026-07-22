@@ -82,6 +82,7 @@ Design and visual standards for consistent brand implementation.
 
 - **[Color System](./standards/color-system.md)** - Brand colors (Hunter Green #386851, Leather Tan #BD9264)
 - **[Color Quick Reference](./standards/color-quick-reference.md)** - Compact color tables and implementation snippets
+- **[Header Navigation Contract](./standards/header-navigation-contract.md)** - Canonical desktop header order and responsive menu behavior
 - **[Hero Section Standards](./standards/hero-section-standards.md)** - Page header guidelines
 - **[Unified Component Standards](./standards/unified-component-standards.md)** - UI component patterns (v7.1.0)
 - **[Documents & Forms Branding Standards](./standards/documents-and-forms-standards.md)** - Print/download/manual/form identity standards

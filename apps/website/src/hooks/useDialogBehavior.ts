@@ -74,7 +74,7 @@ export function useDialogBehavior({
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
       if (frameId !== null) {
@@ -82,7 +82,7 @@ export function useDialogBehavior({
       }
 
       document.body.style.overflow = previousOverflow;
-      document.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown);
 
       const previousActiveElement = previousActiveElementRef.current;
       if (previousActiveElement?.isConnected) {

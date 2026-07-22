@@ -281,7 +281,10 @@ export function AppShell({
   const pageBackground = (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-15 overflow-hidden"
+      className="pointer-events-none fixed right-0 bottom-0 left-0 z-15 overflow-hidden"
+      style={{
+        top: "calc(var(--mh-nav-offset, 6.5rem) + var(--mh-pwa-nav-offset, 0px))",
+      }}
     >
       <div
         className="mh-logo-parallax-layer mh-logo-parallax-overlay absolute inset-0 dark:hidden"

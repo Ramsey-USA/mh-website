@@ -13,6 +13,7 @@ documents, and forms.
 - **[Color System](./color-system.md)** — Canonical color policy, accessibility, and token governance.
 - **[Color Quick Reference](./color-quick-reference.md)** — Compact implementation tables and snippets.
 - **[Unified Component Standards](./unified-component-standards.md)** — Shared UI component standards.
+- **[Header Navigation Contract](./header-navigation-contract.md)** — Canonical desktop header order and responsive menu behavior.
 - **[Hero Section Standards](./hero-section-standards.md)** — Hero composition and messaging constraints.
 - **[Hero Guardrails](./hero-guardrails.md)** — Required hero behavioral and compliance checks.
 - **[Documents & Forms Branding Standards](./documents-and-forms-standards.md)** — Print/download/manual/form branding requirements.

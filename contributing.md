@@ -137,6 +137,7 @@ Before submitting a PR, confirm:
 - [ ] `pnpm docs:sync` run after canonical `docs/`, `messages/`, or `documents/` updates
 - [ ] No `.env` secrets, `*.bak`, or generated output committed
 - [ ] Page-level changes pass the [Page Compliance Checklist](./docs/development/standards/page-compliance-checklist.md)
+- [ ] If header/navigation was changed, desktop order and CTA placement still match the [Header Navigation Contract](./docs/branding/standards/header-navigation-contract.md)
 - [ ] **Smoke test mocks updated** if you modified `COMPANY_INFO` or shared constants (see below)
 - [ ] Added/renamed image filenames use lowercase kebab-case and pass pre-commit checks
 - [ ] Required agent invocations and handoffs completed per [Agent Invocation Matrix](./.github/AGENT_INVOCATION_MATRIX.md)

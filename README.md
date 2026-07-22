@@ -220,6 +220,7 @@ pnpm --filter @mhc/website run ci:gate
 - Documentation index: [docs/index.md](docs/index.md)
 - Architecture and route map: [docs/project/architecture.md](docs/project/architecture.md)
 - Component standards: [docs/branding/standards/unified-component-standards.md](docs/branding/standards/unified-component-standards.md)
+- Header navigation contract: [docs/branding/standards/header-navigation-contract.md](docs/branding/standards/header-navigation-contract.md)
 - Consistency guardrails: [docs/development/standards/consistency-guide.md](docs/development/standards/consistency-guide.md)
 - Page template: [docs/development/standards/page-template-guide.md](docs/development/standards/page-template-guide.md)
 - Page compliance checklist: [docs/development/standards/page-compliance-checklist.md](docs/development/standards/page-compliance-checklist.md)
