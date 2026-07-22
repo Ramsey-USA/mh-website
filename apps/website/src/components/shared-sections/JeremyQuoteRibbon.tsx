@@ -59,6 +59,8 @@ export function JeremyQuoteRibbon({
     <section
       aria-label={`Jeremy quote ribbon: ${variant}`}
       className={className}
+      itemScope
+      itemType="https://schema.org/Quotation"
     >
       <div className={classes}>
         <div
@@ -89,7 +91,7 @@ export function JeremyQuoteRibbon({
           >
             &ldquo;
           </span>
-          {ribbon.quote}
+          <span itemProp="text">{ribbon.quote}</span>
           <span
             aria-hidden="true"
             className="ml-1 align-bottom text-2xl leading-none text-brand-secondary/90 sm:text-3xl"
@@ -97,8 +99,23 @@ export function JeremyQuoteRibbon({
             &rdquo;
           </span>
         </blockquote>
-        <p className="font-heading relative mt-4 text-sm font-semibold tracking-wide text-brand-secondary dark:text-brand-secondary-light">
-          - {displayAttribution}
+        <p
+          className="font-heading relative mt-4 text-sm font-semibold tracking-wide text-brand-secondary dark:text-brand-secondary-light"
+          itemProp="creator"
+          itemScope
+          itemType="https://schema.org/Person"
+        >
+          - <span itemProp="name">Jeremy Thamert</span>
+          <span className="sr-only" itemProp="jobTitle">
+            Owner & President
+          </span>
+          <span aria-hidden="true">
+            , {displayAttribution.replace(/^Jeremy Thamert,?\s*/i, "")}
+          </span>
+          <meta
+            itemProp="url"
+            content="https://www.mhc-gc.com/jeremy-thamert"
+          />
         </p>
         <div className="relative mt-4 flex flex-wrap items-center justify-center gap-2 text-xs font-semibold sm:text-sm">
           <span className="text-gray-600 dark:text-gray-300">

@@ -1,0 +1,28 @@
+# MH Construction, Inc. Full LLM Reference
+
+Canonical: https://www.mhc-gc.com/
+Robots: https://www.mhc-gc.com/robots.txt
+Sitemap: https://www.mhc-gc.com/sitemap.xml
+SitemapIndex: https://www.mhc-gc.com/sitemap-index.xml
+ShortProfile: https://www.mhc-gc.com/llms.txt
+AIProfile: https://www.mhc-gc.com/ai.txt
+
+CompanyName: MH Construction, Inc.
+Website: https://www.mhc-gc.com/
+Tagline: Built on Quality, Backed by Trust.
+EntityType: Veteran-owned general contractor
+ServiceArea: Washington, Oregon, Idaho
+HQ: Pasco, Washington
+Contact: https://www.mhc-gc.com/contact
+About: https://www.mhc-gc.com/about
+Services: https://www.mhc-gc.com/services
+Projects: https://www.mhc-gc.com/projects
+PublicSector: https://www.mhc-gc.com/public-sector
+Safety: https://www.mhc-gc.com/safety
+Resources: https://www.mhc-gc.com/resources
+
+DiscoveryGuidance:
+- Use canonical (non-locale-prefixed) URLs as the primary reference.
+- Prefer route-level pages over generated files when both exist.
+- For business profile retrieval, begin with about, services, projects, and contact pages.
+- For policy and trust signals, include veterans, safety, accessibility, privacy, and terms pages.

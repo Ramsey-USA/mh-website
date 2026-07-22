@@ -2,7 +2,7 @@
 # Website: https://www.mhc-gc.com
 # NOTE: src/app/robots.ts generates /robots.txt dynamically and takes
 # precedence in production. This static file is a fallback only.
-# Keep both files in sync. Last synced: 2026-07-19.
+# Keep both files in sync. Last synced: 2026-07-22.
 
 # Major Search Engines
 User-agent: Googlebot
@@ -65,6 +65,107 @@ Disallow: /security/
 Disallow: /logs/
 Disallow: /monitoring/
 
+# Major AI Crawlers
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
+
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
+
+User-agent: Applebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
+
+User-agent: Bytespider
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /security/
+Disallow: /logs/
+Disallow: /monitoring/
+
 # General Crawlers
 User-agent: *
 Allow: /
@@ -79,4 +180,5 @@ Crawl-delay: 1
 
 # Sitemaps
 Sitemap: https://www.mhc-gc.com/sitemap.xml
+Sitemap: https://www.mhc-gc.com/sitemap-index.xml
 

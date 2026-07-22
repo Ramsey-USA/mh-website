@@ -4,6 +4,18 @@ import { getCanonicalSiteOrigin } from "@/lib/site-config";
 export default function robots(): MetadataRoute.Robots {
   const normalizedBaseUrl = getCanonicalSiteOrigin();
   const host = new URL(normalizedBaseUrl).hostname;
+  const aiCrawlers = [
+    "GPTBot",
+    "ChatGPT-User",
+    "ClaudeBot",
+    "Claude-User",
+    "Claude-Web",
+    "PerplexityBot",
+    "Perplexity-User",
+    "CCBot",
+    "Applebot",
+    "Bytespider",
+  ];
   const disallow = [
     "/api/",
     "/admin/",
@@ -46,6 +58,11 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow,
       },
+      ...aiCrawlers.map((userAgent) => ({
+        userAgent,
+        allow: "/",
+        disallow,
+      })),
       {
         userAgent: "*",
         allow: "/",
@@ -53,7 +70,10 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 1,
       },
     ],
-    sitemap: `${normalizedBaseUrl}/sitemap.xml`,
+    sitemap: [
+      `${normalizedBaseUrl}/sitemap.xml`,
+      `${normalizedBaseUrl}/sitemap-index.xml`,
+    ],
     host,
   };
 }

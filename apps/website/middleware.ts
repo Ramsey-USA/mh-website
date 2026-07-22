@@ -158,6 +158,6 @@ function resolveLocalizedPath(pathname: string): {
 
 export const config = {
   matcher: [
-    "/((?!api/health|api/security/status|api/cf-|_next|favicon\\.ico|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|sitemap-index\\.xml|llms\\.txt|google[a-z0-9]+\\.html|[A-Za-z0-9]{8,128}\\.txt|_headers|_redirects|fonts|icons|images|videos|.*\\..*).*)",
+    "/((?!api/health|api/security/status|api/cf-|_next|favicon\\.ico|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|sitemap-index\\.xml|llms\\.txt|llms-full\\.txt|ai\\.txt|google[a-z0-9]+\\.html|[A-Za-z0-9]{8,128}\\.txt|_headers|_redirects|fonts|icons|images|videos|.*\\..*).*)",
   ],
 };

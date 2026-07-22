@@ -36,6 +36,12 @@ eyebrow: Words from the General
 quote: Services are not menu items to me; each one is a mission with clear sequencing, strong supervision, and communication clients can rely on from kickoff to handoff.
 attribution: Jeremy Thamert, Owner & President
 
+## services/[slug]
+
+eyebrow: Words from the General
+quote: Every service detail page should set clear expectations up front, and I expect each scope to reflect disciplined planning, practical execution controls, and reliable communication from first brief to final handoff.
+attribution: Jeremy Thamert, Owner & President
+
 ## projects
 
 eyebrow: Words from the General

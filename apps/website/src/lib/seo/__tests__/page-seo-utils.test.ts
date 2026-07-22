@@ -64,12 +64,33 @@ import {
   getGovernmentSEO,
   getHomepageSEO,
   getProjectsSEO,
+  getServiceDetailSEO,
   getServicesSEO,
   getTeamSEO,
   getTestimonialsSEO,
   getTradePartnersSEO,
   getVeteransSEO,
 } from "../page-seo-utils";
+import { JEREMY_SEO_ROUTE_KEYS } from "../jeremy-seo-route-keys";
+
+function expectJeremyQuoteSchema(
+  seoResult: { schemas?: unknown[] },
+  expectedQuoteId: string,
+) {
+  expect(seoResult.schemas).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        "@type": "Quotation",
+        "@id": expectedQuoteId,
+        creator: expect.objectContaining({
+          "@type": "Person",
+          "@id": "https://www.mhc-gc.com/jeremy-thamert#person",
+          name: "Jeremy Thamert",
+        }),
+      }),
+    ]),
+  );
+}
 
 describe("page seo utils", () => {
   beforeEach(() => {
@@ -87,7 +108,15 @@ describe("page seo utils", () => {
     expect(mockGenerateBreadcrumbSchema).toHaveBeenCalledWith([
       { name: "Home", url: "https://www.mhc-gc.com" },
     ]);
-    expect(result.schemas).toHaveLength(6);
+    expect(result.schemas).toHaveLength(7);
+    expect(result.schemas).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          "@type": "Quotation",
+          "@id": "https://www.mhc-gc.com#jeremy-quote",
+        }),
+      ]),
+    );
   });
 
   it("builds services seo and creates service schemas for each service", () => {
@@ -97,7 +126,7 @@ describe("page seo utils", () => {
       "https://www.mhc-gc.com/services",
     );
     expect(mockGenerateServiceSchema).toHaveBeenCalledTimes(6);
-    expect(result.schemas.length).toBeGreaterThanOrEqual(8);
+    expect(result.schemas.length).toBeGreaterThanOrEqual(9);
   });
 
   it("builds projects seo with breadcrumbs", () => {
@@ -168,6 +197,91 @@ describe("page seo utils", () => {
       expect.arrayContaining([
         "Jeremy Thamert projects quote",
         "Jeremy Thamert leadership message projects",
+      ]),
+    );
+  });
+
+  it("enforces Jeremy quotation schema across all SEO builders", () => {
+    const service = {
+      slug: "tenant-improvements",
+      title: "Tenant Improvements",
+      metaDescription:
+        "Tenant improvement planning and delivery for occupied facilities.",
+      category: "Fit-Out Services",
+      supportedProjectTypes: ["Office"],
+      focusAreas: ["Scheduling"],
+      technicalPriorities: ["Quality Control"],
+      summary:
+        "Mission-ready fit-outs with clear sequencing and disciplined field coordination.",
+    };
+
+    const cases: Array<{ result: { schemas?: unknown[] }; quoteId: string }> = [
+      {
+        result: getHomepageSEO(),
+        quoteId: "https://www.mhc-gc.com#jeremy-quote",
+      },
+      {
+        result: getAboutSEO(),
+        quoteId: "https://www.mhc-gc.com/about#jeremy-quote",
+      },
+      {
+        result: getServicesSEO(),
+        quoteId: "https://www.mhc-gc.com/services#jeremy-quote",
+      },
+      {
+        result: getServiceDetailSEO(service),
+        quoteId:
+          "https://www.mhc-gc.com/services/tenant-improvements#jeremy-quote",
+      },
+      {
+        result: getTeamSEO(),
+        quoteId: "https://www.mhc-gc.com/team#jeremy-quote",
+      },
+      {
+        result: getGovernmentSEO(),
+        quoteId: "https://www.mhc-gc.com/public-sector#jeremy-quote",
+      },
+      {
+        result: getVeteransSEO(),
+        quoteId: "https://www.mhc-gc.com/veterans#jeremy-quote",
+      },
+      {
+        result: getTradePartnersSEO(),
+        quoteId: "https://www.mhc-gc.com/allies#jeremy-quote",
+      },
+      {
+        result: getTestimonialsSEO(),
+        quoteId: "https://www.mhc-gc.com/testimonials#jeremy-quote",
+      },
+      {
+        result: getCareersSEO(),
+        quoteId: "https://www.mhc-gc.com/careers#jeremy-quote",
+      },
+      {
+        result: getProjectsSEO(),
+        quoteId: "https://www.mhc-gc.com/projects#jeremy-quote",
+      },
+      {
+        result: getContactSEO(),
+        quoteId: "https://www.mhc-gc.com/contact#jeremy-quote",
+      },
+      {
+        result: getFAQSEO(),
+        quoteId: "https://www.mhc-gc.com/faq#jeremy-quote",
+      },
+    ];
+
+    for (const { result, quoteId } of cases) {
+      expectJeremyQuoteSchema(result, quoteId);
+    }
+
+    const routeKeyValues = Object.values(JEREMY_SEO_ROUTE_KEYS);
+    expect(routeKeyValues).toEqual(
+      expect.arrayContaining([
+        "home",
+        "services",
+        "services/[slug]",
+        "public-sector",
       ]),
     );
   });

@@ -3,6 +3,7 @@ import {
   getJeremyRibbon,
   getJeremyRibbonForPath,
 } from "@/lib/content/jeremy-ribbons";
+import { JEREMY_SEO_ROUTE_KEYS } from "@/lib/seo/jeremy-seo-route-keys";
 
 describe("jeremy-ribbons", () => {
   it("returns a configured ribbon for known static routes", () => {
@@ -63,5 +64,24 @@ describe("jeremy-ribbons", () => {
 
     expect(ribbon.eyebrow).toBe("Words from the General");
     expect(ribbon.quote).toContain("every page");
+  });
+
+  it("keeps SEO Jeremy route keys aligned with ribbon entries", () => {
+    const ribbons = getAllJeremyRibbons();
+    const availableKeys = new Set(Object.keys(ribbons));
+    const seoRouteKeys = new Set(Object.values(JEREMY_SEO_ROUTE_KEYS));
+
+    for (const key of seoRouteKeys) {
+      const candidateKeys =
+        key === JEREMY_SEO_ROUTE_KEYS.servicesDetailTemplate
+          ? ["services/[slug]", "services/[service]"]
+          : [key];
+
+      const hasMatch = candidateKeys.some((candidate) =>
+        availableKeys.has(candidate),
+      );
+
+      expect(hasMatch).toBe(true);
+    }
   });
 });

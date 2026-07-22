@@ -75,10 +75,10 @@ Any change that fails one of the checks below is non-compliant.
 For every new public or indexable page route:
 
 1. Add route-specific Jeremy ribbon copy in `apps/website/src/content/jeremy-page-ribbons.md` using a key that matches route resolution behavior.
-2. Ensure route-level SEO metadata is generated through `apps/website/src/lib/seo/page-seo-utils.ts` and includes route-aware Jeremy quote keyword signals.
+2. Add or update the canonical route key in `apps/website/src/lib/seo/jeremy-seo-route-keys.ts` and ensure route-level SEO metadata is generated through `apps/website/src/lib/seo/page-seo-utils.ts` with route-aware Jeremy quote keyword signals.
 3. Avoid per-page hardcoded Jeremy ribbon quote variants outside shared ribbon content and shared routing/SEO helpers.
 4. Add or update tests for both route-key resolution and SEO keyword generation when introducing new route families.
-5. Run `pnpm --filter @mhc/website seo:jeremy:signals:check` and `pnpm --filter @mhc/website seo:jeremy:metadata:check` before merge.
+5. Run `pnpm --filter @mhc/website seo:jeremy:signals:check`, `pnpm --filter @mhc/website seo:jeremy:metadata:check`, and `pnpm --filter @mhc/website seo:jeremy:route-parity:check` before merge.
 
 ### Congruency Guardrails for Tooling
 

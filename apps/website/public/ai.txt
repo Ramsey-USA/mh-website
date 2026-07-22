@@ -1,0 +1,16 @@
+# MH Construction AI Discovery
+
+Canonical: https://www.mhc-gc.com/
+Robots: https://www.mhc-gc.com/robots.txt
+Sitemap: https://www.mhc-gc.com/sitemap.xml
+SitemapIndex: https://www.mhc-gc.com/sitemap-index.xml
+LLMs: https://www.mhc-gc.com/llms.txt
+LLMsFull: https://www.mhc-gc.com/llms-full.txt
+
+Name: MH Construction, Inc.
+Tagline: Built on Quality, Backed by Trust.
+PrimaryLanguage: en
+SecondaryLanguage: es
+
+Summary: BBB Accredited veteran-owned general contractor serving Washington, Oregon, and Idaho for commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects.
+Contact: https://www.mhc-gc.com/contact

@@ -50,6 +50,7 @@ See **[Standards Index](./standards/index.md)** for the full standards library, 
 
 - **Global Jeremy ribbon standard (required):** Every public page must display the shared Jeremy leadership ribbon directly above the footer with identical behavior across routes. Route-specific ribbon copy is maintained in `apps/website/src/content/jeremy-page-ribbons.md`, and routing behavior is enforced through shared shell logic.
 - **Jeremy SEO guardrails (required):** CI must enforce both `seo:jeremy:signals:check` and `seo:jeremy:metadata:check` so indexable routes keep Jeremy name/entity associations in ribbon content, structured data, and high-impact metadata builders.
+- **Jeremy route parity safeguard (required):** CI must enforce `seo:jeremy:route-parity:check` so route keys remain synchronized between `apps/website/src/lib/seo/jeremy-seo-route-keys.ts`, `apps/website/src/lib/seo/page-seo-utils.ts`, and `apps/website/src/content/jeremy-page-ribbons.md`.
 - **Future page SEO requirement (required):** When adding a new indexable route, add a matching key in `apps/website/src/content/jeremy-page-ribbons.md` and wire route-aware keyword generation in `apps/website/src/lib/seo/page-seo-utils.ts` so Jeremy quote signals flow into metadata for that page.
 
 ## Quick Links

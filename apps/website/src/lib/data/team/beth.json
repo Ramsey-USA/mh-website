@@ -1,0 +1,57 @@
+{
+  "name": "Beth",
+  "role": "Administrative Coordinator",
+  "department": "Logistics Command",
+  "cardNumber": 88,
+  "position": "Administrative Coordinator",
+  "nickname": "Office Operations Support",
+  "yearsWithCompany": 0.1,
+  "hometown": "Washington",
+  "education": "Administrative Operations",
+  "currentYearStats": {
+    "projectsCompleted": 12,
+    "clientSatisfaction": 99,
+    "safetyRecord": "N/A",
+    "teamCollaborations": 24
+  },
+  "careerStats": {
+    "totalProjects": 12,
+    "yearsExperience": 1,
+    "specialtyAreas": 4,
+    "mentorships": 2
+  },
+  "awards": "Team Support Recognition",
+  "bio": "Beth supports MH Construction's administrative operations, helping keep communication, scheduling, and office coordination moving cleanly across active work. Additional profile details will be shared as her role information is finalized.",
+  "careerHighlights": [
+    "Supports day-to-day administrative coordination across teams.",
+    "Helps keep communication and scheduling organized as work moves forward.",
+    "Provides dependable office follow-through for internal and client-facing needs.",
+    "Will have a fuller team profile added as additional information becomes available."
+  ],
+  "funFact": "Full profile details for Beth are coming soon.",
+  "certifications": "Profile update in progress",
+  "hobbies": "Profile update in progress",
+  "specialInterests": "Administrative Coordination and Office Support",
+  "specialties": [
+    "Administrative Coordination",
+    "Office Support",
+    "Scheduling Assistance",
+    "Communication Follow-Through"
+  ],
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "beth",
+  "email": "office@mhc-gc.com",
+  "skills": {
+    "leadership": 68,
+    "technical": 72,
+    "communication": 88,
+    "safety": 55,
+    "problemSolving": 78,
+    "teamwork": 84,
+    "organization": 92,
+    "innovation": 70,
+    "passion": 82,
+    "continuingEducation": 76
+  }
+}

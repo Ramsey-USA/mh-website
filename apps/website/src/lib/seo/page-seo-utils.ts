@@ -19,6 +19,10 @@ import {
 import type { ServiceRecord } from "@/lib/data/service-routes";
 import { getJeremyRibbon } from "@/lib/content/jeremy-ribbons";
 import { createOgImageUrl } from "@/lib/seo/og-image";
+import {
+  buildServiceDetailJeremySeoRouteKey,
+  JEREMY_SEO_ROUTE_KEYS,
+} from "@/lib/seo/jeremy-seo-route-keys";
 import { getApprovedClaimOrFallback } from "@/lib/content/claims";
 
 const veteranOwnedClaimKeyword = getApprovedClaimOrFallback({
@@ -72,6 +76,40 @@ function buildPageKeywords(routeKey: string, baseKeywords: string[]): string[] {
   return normalizeMhKeywordList(combinedKeywords);
 }
 
+function buildJeremyQuoteSchema(routeKey: string, pageUrl: string) {
+  const ribbon = getJeremyRibbon(routeKey);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Quotation",
+    "@id": `${pageUrl}#jeremy-quote`,
+    text: ribbon.quote,
+    about: ribbon.eyebrow,
+    creator: {
+      "@type": "Person",
+      "@id": `${enhancedSEO.siteUrl}/jeremy-thamert#person`,
+      name: "Jeremy Thamert",
+      jobTitle: "Owner & President",
+      url: `${enhancedSEO.siteUrl}/jeremy-thamert`,
+    },
+    citation: `${enhancedSEO.siteUrl}/jeremy-thamert`,
+    isPartOf: {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+    },
+    inLanguage: "en-US",
+  };
+}
+
+function withJeremyQuoteSchema(
+  routeKey: string,
+  pageUrl: string,
+  schemas: object[],
+): object[] {
+  return [...schemas, buildJeremyQuoteSchema(routeKey, pageUrl)];
+}
+
 // Homepage SEO
 export function getHomepageSEO(): Metadata & { schemas: object[] } {
   // WebPage schema ties the homepage to the Organization and Website entities
@@ -108,7 +146,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Mission-Ready Delivery Across WA, OR, and ID`,
     description:
       "MH Construction delivers AG and winery facilities, commercial fit-out work, and municipal projects with clear planning, disciplined field coordination, and licensed coverage across WA, OR, and ID.",
-    keywords: buildPageKeywords("home", [
+    keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.home, [
       "Jeremy Thamert leadership",
       "MH Construction home",
       veteranOwnedClaimKeyword,
@@ -171,14 +209,18 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     ]),
     canonicalUrl: enhancedSEO.siteUrl,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
-    schemas: [
-      generateConstructionFAQSchema(),
-      generateLocalBusinessSchema(),
-      generateEnhancedOrganizationSchema(),
-      generateWebsiteSchema(),
-      webPageSchema,
-      breadcrumbSchema,
-    ],
+    schemas: withJeremyQuoteSchema(
+      JEREMY_SEO_ROUTE_KEYS.home,
+      enhancedSEO.siteUrl,
+      [
+        generateConstructionFAQSchema(),
+        generateLocalBusinessSchema(),
+        generateEnhancedOrganizationSchema(),
+        generateWebsiteSchema(),
+        webPageSchema,
+        breadcrumbSchema,
+      ],
+    ),
   });
 }
 
@@ -346,7 +388,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.about.seoName, PAGE_TERMINOLOGY.about.mhBrandName)} | Service-Earned Values, Honest Relationships`,
     description:
       "Explore MH Construction's history, leadership, and trust foundations including BBB accreditation, regional chamber membership, and licensed operations across WA, OR, and ID.",
-    keywords: buildPageKeywords("about", [
+    keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.about, [
       "veteran-owned construction company Tri-State WA OR ID",
       "MH Construction company history",
       "Jeremy Thamert Army veteran owner",
@@ -384,7 +426,9 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
     ]),
     canonicalUrl: aboutUrl,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
-    schemas: [companyHistorySchema],
+    schemas: withJeremyQuoteSchema(JEREMY_SEO_ROUTE_KEYS.about, aboutUrl, [
+      companyHistorySchema,
+    ]),
   });
 }
 
@@ -463,7 +507,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.services.seoName, PAGE_TERMINOLOGY.services.mhBrandName)} | Mission-Ready Construction Services`,
     description:
       "Explore MH Construction services for agricultural and winery facilities, mission-ready fit-outs, municipal work, and light industrial scopes across WA, OR, and ID, with mission-partner-aligned planning and Procore mission controls.",
-    keywords: buildPageKeywords("services", [
+    keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.services, [
       "Jeremy Thamert leadership",
       "mission-ready construction Tri-State WA OR ID",
       "mission planning predeployment services",
@@ -504,7 +548,11 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     ]),
     canonicalUrl: servicesUrl,
     ogImage: `${enhancedSEO.siteUrl}/images/og/services/commercial-construction.webp`,
-    schemas: [...serviceSchemas, webPageSchema, breadcrumbSchema],
+    schemas: withJeremyQuoteSchema(
+      JEREMY_SEO_ROUTE_KEYS.services,
+      servicesUrl,
+      [...serviceSchemas, webPageSchema, breadcrumbSchema],
+    ),
   });
 }
 
@@ -528,18 +576,22 @@ export function getServiceDetailSEO(service: ServiceRecord): Metadata {
     ]),
     canonicalUrl: serviceUrl,
     ogImage: ogImageUrl,
-    schemas: [
-      generateServiceSchema({
-        name: service.title,
-        description: service.summary,
-        category: service.category,
-      }),
-      generateBreadcrumbSchema([
-        { name: "Home", url: enhancedSEO.siteUrl },
-        { name: "Services", url: `${enhancedSEO.siteUrl}/services` },
-        { name: service.title, url: serviceUrl },
-      ]),
-    ],
+    schemas: withJeremyQuoteSchema(
+      buildServiceDetailJeremySeoRouteKey(service.slug),
+      serviceUrl,
+      [
+        generateServiceSchema({
+          name: service.title,
+          description: service.summary,
+          category: service.category,
+        }),
+        generateBreadcrumbSchema([
+          { name: "Home", url: enhancedSEO.siteUrl },
+          { name: "Services", url: `${enhancedSEO.siteUrl}/services` },
+          { name: service.title, url: serviceUrl },
+        ]),
+      ],
+    ),
   });
 }
 
@@ -623,7 +675,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.team.seoName, PAGE_TERMINOLOGY.team.mhBrandName)} | Leadership and Field Management`,
     description:
       "Meet MH Construction's leadership team, including Jeremy Thamert and Arnold Garcia, guiding commercial, industrial, and public-sector work across WA, OR, and ID.",
-    keywords: buildPageKeywords("team", [
+    keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.team, [
       "MH Construction team leadership",
       "veteran-owned construction team Tri-State WA OR ID",
       "Jeremy Thamert Army veteran owner",
@@ -642,7 +694,10 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
       "veteran hiring construction company",
     ]),
     canonicalUrl: teamUrl,
-    schemas: [...teamPersonSchemas, webPageSchema],
+    schemas: withJeremyQuoteSchema(JEREMY_SEO_ROUTE_KEYS.team, teamUrl, [
+      ...teamPersonSchemas,
+      webPageSchema,
+    ]),
   });
 }
 
@@ -674,7 +729,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Owned, Accountable Delivery`,
     description:
       "MH Construction supports public-sector mission partners with veteran-owned leadership, procurement-ready planning, BABAA-informed execution pathways, and transparent delivery reporting across WA, OR, and ID.",
-    keywords: buildPageKeywords("public-sector", [
+    keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.publicSector, [
       "Jeremy Thamert leadership",
       "public-sector construction planning",
       "public agency construction partner",
@@ -702,7 +757,11 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
       "Pacific Northwest public sector",
     ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/public-sector`,
-    schemas: [webPageSchema, generateLocalBusinessSchema()],
+    schemas: withJeremyQuoteSchema(
+      JEREMY_SEO_ROUTE_KEYS.publicSector,
+      `${enhancedSEO.siteUrl}/public-sector`,
+      [webPageSchema, generateLocalBusinessSchema()],
+    ),
   });
 }
 
@@ -734,7 +793,7 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.veterans.seoName, PAGE_TERMINOLOGY.veterans.mhBrandName)} | Combat Veteran Discount, Year-Round Support`,
     description:
       "Learn how MH Construction supports veterans through combat veteran discounts, hiring initiatives, apprenticeships, and long-term community partnerships across the Pacific Northwest.",
-    keywords: buildPageKeywords("veterans", [
+    keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.veterans, [
       "veteran-owned construction Tri-State",
       "combat veteran discount",
       "veteran hiring priority",
@@ -757,7 +816,11 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
     ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/veterans`,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
-    schemas: [webPageSchema, generateLocalBusinessSchema()],
+    schemas: withJeremyQuoteSchema(
+      JEREMY_SEO_ROUTE_KEYS.veterans,
+      `${enhancedSEO.siteUrl}/veterans`,
+      [webPageSchema, generateLocalBusinessSchema()],
+    ),
   });
 }
 
@@ -1007,7 +1070,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName("Trade Partner Opportunities", PAGE_TERMINOLOGY.allies.mhBrandName)} | Allied Trade Partner Network`,
     description:
       "MH Construction's Trade Partner network includes electrical, signage, landscaping, glazing, specialties, fencing, insulation, plumbing, cabinetry, and drywall teams supporting projects throughout the Pacific Northwest.",
-    keywords: buildPageKeywords("allies", [
+    keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.allies, [
       "Jeremy Thamert leadership",
       "construction subcontractor opportunities Tri-State WA OR ID",
       "trade partner network Pacific Northwest",
@@ -1028,61 +1091,65 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "Benton County Franklin County Yakima County trade partners",
     ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/allies`,
-    schemas: [
-      webPageSchema,
-      generateLocalBusinessSchema(),
-      ...vendorSchemas,
-      // ItemList schema — surfaces the vendor roster as an organized entity
-      {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "@id": `${enhancedSEO.siteUrl}/allies#vendorlist`,
-        name: "MH Construction Trade Partner Network",
-        description:
-          "Vetted Trade Partners in the MH Construction network, listed alphabetically within each trade category. Updated quarterly.",
-        numberOfItems: vendorSchemas.length,
-        itemListElement: vendorSchemas.map((v, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: (v as { name: string }).name,
-          url:
-            (v as { url?: string }).url ??
-            `${enhancedSEO.siteUrl}/allies#vendors`,
-        })),
-      },
-      // FAQPage schema — captures long-tail "how do I become a subcontractor" queries
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "@id": `${enhancedSEO.siteUrl}/allies#faq`,
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "How do I join MH Construction's trade partner network?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "We're actively recruiting skilled trade professionals and specialty contractors across the Pacific Northwest. Visit mhc-gc.com/allies and use the 'Begin Partnership Discussion' button, or call (509) 308-6489 to start the conversation.",
+    schemas: withJeremyQuoteSchema(
+      JEREMY_SEO_ROUTE_KEYS.allies,
+      `${enhancedSEO.siteUrl}/allies`,
+      [
+        webPageSchema,
+        generateLocalBusinessSchema(),
+        ...vendorSchemas,
+        // ItemList schema — surfaces the vendor roster as an organized entity
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "@id": `${enhancedSEO.siteUrl}/allies#vendorlist`,
+          name: "MH Construction Trade Partner Network",
+          description:
+            "Vetted Trade Partners in the MH Construction network, listed alphabetically within each trade category. Updated quarterly.",
+          numberOfItems: vendorSchemas.length,
+          itemListElement: vendorSchemas.map((v, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: (v as { name: string }).name,
+            url:
+              (v as { url?: string }).url ??
+              `${enhancedSEO.siteUrl}/allies#vendors`,
+          })),
+        },
+        // FAQPage schema — captures long-tail "how do I become a subcontractor" queries
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "@id": `${enhancedSEO.siteUrl}/allies#faq`,
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "How do I join MH Construction's trade partner network?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "We're actively recruiting skilled trade professionals and specialty contractors across the Pacific Northwest. Visit mhc-gc.com/allies and use the 'Begin Partnership Discussion' button, or call (509) 308-6489 to start the conversation.",
+              },
             },
-          },
-          {
-            "@type": "Question",
-            name: "What trades is MH Construction looking for?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "MH Construction works with electrical, plumbing, landscaping, glass & glazing, signage, insulation, building specialties, cabinetry, drywall, and additional scopes through project-specific procurement. We evaluate every partner for quality, safety culture, and alignment with our values of honesty, integrity, professionalism, and thoroughness.",
+            {
+              "@type": "Question",
+              name: "What trades is MH Construction looking for?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "MH Construction works with electrical, plumbing, landscaping, glass & glazing, signage, insulation, building specialties, cabinetry, drywall, and additional scopes through project-specific procurement. We evaluate every partner for quality, safety culture, and alignment with our values of honesty, integrity, professionalism, and thoroughness.",
+              },
             },
-          },
-          {
-            "@type": "Question",
-            name: "What are the benefits of being an MH Construction Ally?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Allies receive consistent project volume, prompt payment, and collaborative planning with clear scope expectations, safety coordination, and reliable field communication from bid through handoff.",
+            {
+              "@type": "Question",
+              name: "What are the benefits of being an MH Construction Ally?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Allies receive consistent project volume, prompt payment, and collaborative planning with clear scope expectations, safety coordination, and reliable field communication from bid through handoff.",
+              },
             },
-          },
-        ],
-      },
-    ],
+          ],
+        },
+      ],
+    ),
   });
 }
 
@@ -1114,7 +1181,7 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName("Client Reviews", PAGE_TERMINOLOGY.testimonials.mhBrandName)} | Trusted Partner Testimonials`,
     description:
       "Verified client testimonials from commercial, industrial, and public-sector partners across MH Construction's WA, OR, and ID service area.",
-    keywords: buildPageKeywords("testimonials", [
+    keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.testimonials, [
       "Jeremy Thamert leadership",
       "construction testimonials",
       "client reviews MH Construction",
@@ -1127,7 +1194,11 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
     ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/testimonials`,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
-    schemas: [collectionPageSchema, generateLocalBusinessSchema()],
+    schemas: withJeremyQuoteSchema(
+      JEREMY_SEO_ROUTE_KEYS.testimonials,
+      `${enhancedSEO.siteUrl}/testimonials`,
+      [collectionPageSchema, generateLocalBusinessSchema()],
+    ),
   });
 }
 
@@ -1159,7 +1230,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.careers.seoName, PAGE_TERMINOLOGY.careers.mhBrandName)} | Build Your Future with MH Construction`,
     description:
       "Submit a general career inquiry to MH Construction and connect with a team that values honesty, integrity, professionalism, and thoroughness across WA, OR, and ID operations.",
-    keywords: buildPageKeywords("careers", [
+    keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.careers, [
       "Jeremy Thamert leadership",
       "MH Construction careers",
       "join the mission construction career",
@@ -1190,112 +1261,116 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
     ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/careers`,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
-    schemas: [
-      webPageSchema,
-      generateEnhancedOrganizationSchema(),
-      {
-        "@context": "https://schema.org",
-        "@type": "JobPosting",
-        "@id": `${enhancedSEO.siteUrl}/careers#general-inquiry`,
-        title:
-          "Build Your Future with MH Construction - General Career Inquiry",
-        description:
-          "Submit a general inquiry for career opportunities at MH Construction. We are always looking for driven individuals who mirror our commitment to our 4 Core Values: Honesty, Integrity, Professionalism, and Thoroughness. Even when we aren't hiring for a specific role, we are always open to inquiries from skilled professionals who want to contribute to a high-standard operations environment. Whether you are a seasoned Project Manager or a dedicated Field Specialist, we want to hear from you. Veterans receive priority consideration. Serving Tri-State WA, OR, ID (Richland, Kennewick, Pasco), Yakima, Spokane, and Walla Walla.",
-        datePosted: "2026-03-11",
-        url: `${enhancedSEO.siteUrl}/careers`,
-        hiringOrganization: {
-          "@type": "Organization",
-          name: enhancedSEO.companyInfo.name,
-          sameAs: enhancedSEO.siteUrl,
-          logo: `${enhancedSEO.siteUrl}/images/logo/mh-logo.png`,
+    schemas: withJeremyQuoteSchema(
+      JEREMY_SEO_ROUTE_KEYS.careers,
+      `${enhancedSEO.siteUrl}/careers`,
+      [
+        webPageSchema,
+        generateEnhancedOrganizationSchema(),
+        {
+          "@context": "https://schema.org",
+          "@type": "JobPosting",
+          "@id": `${enhancedSEO.siteUrl}/careers#general-inquiry`,
+          title:
+            "Build Your Future with MH Construction - General Career Inquiry",
+          description:
+            "Submit a general inquiry for career opportunities at MH Construction. We are always looking for driven individuals who mirror our commitment to our 4 Core Values: Honesty, Integrity, Professionalism, and Thoroughness. Even when we aren't hiring for a specific role, we are always open to inquiries from skilled professionals who want to contribute to a high-standard operations environment. Whether you are a seasoned Project Manager or a dedicated Field Specialist, we want to hear from you. Veterans receive priority consideration. Serving Tri-State WA, OR, ID (Richland, Kennewick, Pasco), Yakima, Spokane, and Walla Walla.",
+          datePosted: "2026-03-11",
+          url: `${enhancedSEO.siteUrl}/careers`,
+          hiringOrganization: {
+            "@type": "Organization",
+            name: enhancedSEO.companyInfo.name,
+            sameAs: enhancedSEO.siteUrl,
+            logo: `${enhancedSEO.siteUrl}/images/logo/mh-logo.png`,
+          },
+          jobLocation: [
+            {
+              "@type": "Place",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Richland",
+                addressRegion: "WA",
+                addressCountry: "US",
+              },
+            },
+            {
+              "@type": "Place",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Pasco",
+                addressRegion: "WA",
+                addressCountry: "US",
+              },
+            },
+            {
+              "@type": "Place",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Kennewick",
+                addressRegion: "WA",
+                addressCountry: "US",
+              },
+            },
+            {
+              "@type": "Place",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Yakima",
+                addressRegion: "WA",
+                addressCountry: "US",
+              },
+            },
+            {
+              "@type": "Place",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Spokane",
+                addressRegion: "WA",
+                addressCountry: "US",
+              },
+            },
+            {
+              "@type": "Place",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Walla Walla",
+                addressRegion: "WA",
+                addressCountry: "US",
+              },
+            },
+          ],
+          employmentType: "FULL_TIME",
+          baseSalary: {
+            "@type": "PriceSpecification",
+            priceCurrency: "USD",
+            price: "Competitive",
+          },
+          validThrough: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+            .toISOString()
+            .split("T")[0],
+          benefits: [
+            "Competitive pay",
+            "Comprehensive health, dental, and vision insurance",
+            "Professional development and certifications",
+            "100% mentorship program coverage",
+            "Veteran priority consideration",
+            "Retirement planning with company match",
+            "Award-winning safety culture (.64 EMR)",
+          ],
+          qualifications:
+            "Commitment to our 4 Core Values: Honesty, Integrity, Professionalism, and Thoroughness. Skills in mission management, field operations, or skilled trades welcome. Veterans encouraged to apply.",
+          industry: "Construction",
+          occupationalCategory: "Construction and Extraction",
+          jobBenefits:
+            "Health insurance, dental, vision, 401(k) with company match, professional development, mentorship, safety incentive programs",
+          workHours: "Full-time",
+          applicantLocationRequirements: {
+            "@type": "Country",
+            name: "United States",
+          },
         },
-        jobLocation: [
-          {
-            "@type": "Place",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Richland",
-              addressRegion: "WA",
-              addressCountry: "US",
-            },
-          },
-          {
-            "@type": "Place",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Pasco",
-              addressRegion: "WA",
-              addressCountry: "US",
-            },
-          },
-          {
-            "@type": "Place",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Kennewick",
-              addressRegion: "WA",
-              addressCountry: "US",
-            },
-          },
-          {
-            "@type": "Place",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Yakima",
-              addressRegion: "WA",
-              addressCountry: "US",
-            },
-          },
-          {
-            "@type": "Place",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Spokane",
-              addressRegion: "WA",
-              addressCountry: "US",
-            },
-          },
-          {
-            "@type": "Place",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Walla Walla",
-              addressRegion: "WA",
-              addressCountry: "US",
-            },
-          },
-        ],
-        employmentType: "FULL_TIME",
-        baseSalary: {
-          "@type": "PriceSpecification",
-          priceCurrency: "USD",
-          price: "Competitive",
-        },
-        validThrough: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
-          .toISOString()
-          .split("T")[0],
-        benefits: [
-          "Competitive pay",
-          "Comprehensive health, dental, and vision insurance",
-          "Professional development and certifications",
-          "100% mentorship program coverage",
-          "Veteran priority consideration",
-          "Retirement planning with company match",
-          "Award-winning safety culture (.64 EMR)",
-        ],
-        qualifications:
-          "Commitment to our 4 Core Values: Honesty, Integrity, Professionalism, and Thoroughness. Skills in mission management, field operations, or skilled trades welcome. Veterans encouraged to apply.",
-        industry: "Construction",
-        occupationalCategory: "Construction and Extraction",
-        jobBenefits:
-          "Health insurance, dental, vision, 401(k) with company match, professional development, mentorship, safety incentive programs",
-        workHours: "Full-time",
-        applicantLocationRequirements: {
-          "@type": "Country",
-          name: "United States",
-        },
-      },
-    ],
+      ],
+    ),
   });
 }
 
@@ -1342,7 +1417,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.projects.seoName, PAGE_TERMINOLOGY.projects.mhBrandName)} | Completed Commercial and Industrial Construction Projects`,
     description:
       "Explore MH Construction case studies for commercial, tenant improvement, municipal, agricultural and winery, and light industrial delivery across WA, OR, and ID.",
-    keywords: buildPageKeywords("projects", [
+    keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.projects, [
       "Jeremy Thamert leadership",
       "construction portfolio Tri-State WA OR ID",
       "construction case studies Pacific Northwest",
@@ -1371,12 +1446,16 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
     ]),
     canonicalUrl: projectsUrl,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
-    schemas: [
-      portfolioListSchema,
-      webPageSchema,
-      breadcrumbSchema,
-      generateLocalBusinessSchema(),
-    ],
+    schemas: withJeremyQuoteSchema(
+      JEREMY_SEO_ROUTE_KEYS.projects,
+      projectsUrl,
+      [
+        portfolioListSchema,
+        webPageSchema,
+        breadcrumbSchema,
+        generateLocalBusinessSchema(),
+      ],
+    ),
   });
 }
 
@@ -1408,7 +1487,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.contact.seoName, PAGE_TERMINOLOGY.contact.mhBrandName)} | Your Project. Honest Guidance. Let's Connect.`,
     description:
       "Discuss your project with MH Construction for commercial, industrial, or public-sector work, or schedule a capability review from our Pasco, WA headquarters serving WA, OR, and ID. Call (509) 308-6489.",
-    keywords: buildPageKeywords("contact", [
+    keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.contact, [
       "Jeremy Thamert leadership",
       "contact construction consultation",
       "clear consultation process",
@@ -1426,7 +1505,11 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/contact`,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
-    schemas: [contactPageSchema, generateLocalBusinessSchema()],
+    schemas: withJeremyQuoteSchema(
+      JEREMY_SEO_ROUTE_KEYS.contact,
+      `${enhancedSEO.siteUrl}/contact`,
+      [contactPageSchema, generateLocalBusinessSchema()],
+    ),
   });
 }
 
@@ -1458,7 +1541,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.faq.seoName, PAGE_TERMINOLOGY.faq.mhBrandName)} | Direct Answers. Clear Guidance.`,
     description:
       "Get direct answers on project planning, delivery methods, pricing visibility, safety expectations, and consultation workflow for MH Construction projects across WA, OR, and ID.",
-    keywords: buildPageKeywords("faq", [
+    keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.faq, [
       "Jeremy Thamert leadership",
       "MH Construction FAQ",
       "direct answers construction guidance",
@@ -1491,7 +1574,11 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
     ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/faq`,
     ogImage: `${enhancedSEO.siteUrl}/images/og/faq/general-information.webp`,
-    schemas: [webPageSchema, generateConstructionFAQSchema()],
+    schemas: withJeremyQuoteSchema(
+      JEREMY_SEO_ROUTE_KEYS.faq,
+      `${enhancedSEO.siteUrl}/faq`,
+      [webPageSchema, generateConstructionFAQSchema()],
+    ),
   });
 }
 

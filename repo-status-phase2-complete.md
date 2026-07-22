@@ -3948,8 +3948,6 @@ apps/website/public/images/qr-codes/team/qr-team-arnold-garcia-bw.webp
 apps/website/public/images/qr-codes/team/qr-team-arnold-garcia-color.webp
 apps/website/public/images/qr-codes/team/qr-team-ben-woodall-bw.webp
 apps/website/public/images/qr-codes/team/qr-team-ben-woodall-color.webp
-apps/website/public/images/qr-codes/team/qr-team-brooks-morris-bw.webp
-apps/website/public/images/qr-codes/team/qr-team-brooks-morris-color.webp
 apps/website/public/images/qr-codes/team/qr-team-derek-parks-bw.webp
 apps/website/public/images/qr-codes/team/qr-team-derek-parks-color.webp
 apps/website/public/images/qr-codes/team/qr-team-jennifer-tene-bw.webp
@@ -4539,10 +4537,6 @@ apps/website/public/images/qr-downloads/team/qr-team-ben-woodall-bw.png
 apps/website/public/images/qr-downloads/team/qr-team-ben-woodall-bw.webp
 apps/website/public/images/qr-downloads/team/qr-team-ben-woodall-color.png
 apps/website/public/images/qr-downloads/team/qr-team-ben-woodall-color.webp
-apps/website/public/images/qr-downloads/team/qr-team-brooks-morris-bw.png
-apps/website/public/images/qr-downloads/team/qr-team-brooks-morris-bw.webp
-apps/website/public/images/qr-downloads/team/qr-team-brooks-morris-color.png
-apps/website/public/images/qr-downloads/team/qr-team-brooks-morris-color.webp
 apps/website/public/images/qr-downloads/team/qr-team-derek-parks-bw.png
 apps/website/public/images/qr-downloads/team/qr-team-derek-parks-bw.webp
 apps/website/public/images/qr-downloads/team/qr-team-derek-parks-color.png

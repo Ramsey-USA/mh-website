@@ -81,6 +81,8 @@ export const config = {
      *   - sitemap.xml
      *   - sitemap-index.xml   Root sitemap index (public/sitemap-index.xml)
      *   - llms.txt            LLM discovery file (public/llms.txt)
+     *   - llms-full.txt       Extended LLM discovery file (public/llms-full.txt)
+     *   - ai.txt              AI crawler discovery profile (public/ai.txt)
      *   - google*.html        Google Search Console verification files
      *
      * Static asset directories (cache headers already set in next.config.js)
@@ -99,6 +101,6 @@ export const config = {
      *   - _redirects          Redirect rules file
      */
     "/images/qr-codes/:path*",
-    "/((?!api/health|api/security/status|api/cf-|_next|favicon\\.ico|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|sitemap-index\\.xml|llms\\.txt|google[a-z0-9]+\\.html|_headers|_redirects|fonts|icons|images|videos).*)",
+    "/((?!api/health|api/security/status|api/cf-|_next|favicon\\.ico|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|sitemap-index\\.xml|llms\\.txt|llms-full\\.txt|ai\\.txt|google[a-z0-9]+\\.html|_headers|_redirects|fonts|icons|images|videos).*)",
   ],
 };

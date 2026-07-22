@@ -13,7 +13,7 @@ import benWoodall from "./team/ben-woodall.json";
 import toddSchoeff from "./team/todd-schoeff.json";
 import reaganMassey from "./team/reagan-massey.json";
 import porterCline from "./team/porter-cline.json";
-import brooksMorris from "./team/brooks-morris.json";
+import beth from "./team/beth.json";
 import mattRamsey from "./team/matt-ramsey.json";
 import jenniferTene from "./team/jennifer-tene.json";
 import derekParks from "./team/derek-parks.json";
@@ -188,7 +188,7 @@ export const vintageTeamMembers: VintageTeamMember[] = [
   toddSchoeff,
   reaganMassey,
   porterCline,
-  brooksMorris,
+  beth,
   mattRamsey,
   jenniferTene,
   derekParks,

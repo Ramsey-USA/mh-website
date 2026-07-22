@@ -365,8 +365,10 @@ If any inventory is missing, the page audit is incomplete.
 - [ ] Breadcrumb schema included (non-homepage pages)
 - [ ] Organization schema included where appropriate
 - [ ] Matching route key exists in `src/content/jeremy-page-ribbons.md` for this page
+- [ ] Route key also exists in canonical source `src/lib/seo/jeremy-seo-route-keys.ts`
 - [ ] SEO keywords include route-aware Jeremy quote signals generated from ribbon content
 - [ ] No per-page hardcoded Jeremy ribbon quote variants outside shared content/routing sources
+- [ ] `pnpm --filter @mhc/website seo:jeremy:route-parity:check` passes
 
 ### Analytics Tracking
 
