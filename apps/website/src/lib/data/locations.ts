@@ -923,6 +923,20 @@ export type LocationDeepLink = {
   label: string;
 };
 
+export type LocationSlug =
+  | "pasco"
+  | "kennewick"
+  | "richland"
+  | "yakima"
+  | "spokane"
+  | "tacoma"
+  | "west-richland"
+  | "walla-walla"
+  | "hermiston"
+  | "pendleton"
+  | "coeur-d-alene"
+  | "omak";
+
 const SERVICE_LABELS: Record<string, string> = {
   "commercial-construction": "Commercial Construction",
   "municipal-public-work": "Municipal and Government",
@@ -933,7 +947,7 @@ const SERVICE_LABELS: Record<string, string> = {
   "procurement-trade-partnerships": "Procurement and Trade Partnerships",
 };
 
-const LOCATION_SERVICE_MAP: Record<string, string[]> = {
+const LOCATION_SERVICE_MAP: Record<LocationSlug, string[]> = {
   pasco: ["commercial-construction", "municipal-public-work"],
   kennewick: ["commercial-construction", "commercial-tenant-improvements"],
   richland: ["commercial-construction", "agricultural-winery-construction"],
@@ -948,7 +962,7 @@ const LOCATION_SERVICE_MAP: Record<string, string[]> = {
   omak: ["municipal-public-work", "preconstruction-planning"],
 };
 
-const LOCATION_PROJECT_MAP: Record<string, string[]> = {
+const LOCATION_PROJECT_MAP: Record<LocationSlug, string[]> = {
   pasco: [
     "volm-companies-remodel",
     "darigold-pasco-production-facility",
@@ -967,13 +981,16 @@ const LOCATION_PROJECT_MAP: Record<string, string[]> = {
   omak: [],
 };
 
-const LOCATION_PRESENCE_PROFILES: Record<string, LocationEvidenceProfile> = {
+const LOCATION_PRESENCE_PROFILES: Record<
+  LocationSlug,
+  LocationEvidenceProfile
+> = {
   richland: {
     presenceType: "service-area",
     publicAddressPolicy: "service-area-only",
     regionalRelationship: "Served from Pasco headquarters.",
-    relatedServiceSlugs: LOCATION_SERVICE_MAP["richland"] ?? [],
-    relatedProjectSlugs: LOCATION_PROJECT_MAP["richland"] ?? [],
+    relatedServiceSlugs: LOCATION_SERVICE_MAP.richland,
+    relatedProjectSlugs: LOCATION_PROJECT_MAP.richland,
     publicSectorContext:
       "Municipal and public-sector experience available through regional teams.",
   },
@@ -981,8 +998,8 @@ const LOCATION_PRESENCE_PROFILES: Record<string, LocationEvidenceProfile> = {
     presenceType: "service-area",
     publicAddressPolicy: "service-area-only",
     regionalRelationship: "Served from Pasco headquarters.",
-    relatedServiceSlugs: LOCATION_SERVICE_MAP["kennewick"] ?? [],
-    relatedProjectSlugs: LOCATION_PROJECT_MAP["kennewick"] ?? [],
+    relatedServiceSlugs: LOCATION_SERVICE_MAP.kennewick,
+    relatedProjectSlugs: LOCATION_PROJECT_MAP.kennewick,
     publicSectorContext:
       "Public-sector support coordinated through Tri-Cities project controls.",
   },
@@ -990,8 +1007,8 @@ const LOCATION_PRESENCE_PROFILES: Record<string, LocationEvidenceProfile> = {
     presenceType: "office",
     publicAddressPolicy: "public-office-address",
     regionalRelationship: "Headquarters and public office location.",
-    relatedServiceSlugs: LOCATION_SERVICE_MAP["pasco"] ?? [],
-    relatedProjectSlugs: LOCATION_PROJECT_MAP["pasco"] ?? [],
+    relatedServiceSlugs: LOCATION_SERVICE_MAP.pasco,
+    relatedProjectSlugs: LOCATION_PROJECT_MAP.pasco,
     publicSectorContext:
       "Municipal coordination is directed through the Pasco office.",
   },
@@ -999,8 +1016,8 @@ const LOCATION_PRESENCE_PROFILES: Record<string, LocationEvidenceProfile> = {
     presenceType: "service-area",
     publicAddressPolicy: "service-area-only",
     regionalRelationship: "Served from Pasco headquarters.",
-    relatedServiceSlugs: LOCATION_SERVICE_MAP["yakima"] ?? [],
-    relatedProjectSlugs: LOCATION_PROJECT_MAP["yakima"] ?? [],
+    relatedServiceSlugs: LOCATION_SERVICE_MAP.yakima,
+    relatedProjectSlugs: LOCATION_PROJECT_MAP.yakima,
     publicSectorContext:
       "Public-sector support available through veteran-led compliance routes.",
   },
@@ -1008,29 +1025,29 @@ const LOCATION_PRESENCE_PROFILES: Record<string, LocationEvidenceProfile> = {
     presenceType: "service-area",
     publicAddressPolicy: "service-area-only",
     regionalRelationship: "Served from Pasco headquarters.",
-    relatedServiceSlugs: LOCATION_SERVICE_MAP["spokane"] ?? [],
-    relatedProjectSlugs: LOCATION_PROJECT_MAP["spokane"] ?? [],
+    relatedServiceSlugs: LOCATION_SERVICE_MAP.spokane,
+    relatedProjectSlugs: LOCATION_PROJECT_MAP.spokane,
   },
   tacoma: {
     presenceType: "service-area",
     publicAddressPolicy: "service-area-only",
     regionalRelationship: "Served from Pasco headquarters.",
-    relatedServiceSlugs: LOCATION_SERVICE_MAP["tacoma"] ?? [],
-    relatedProjectSlugs: LOCATION_PROJECT_MAP["tacoma"] ?? [],
+    relatedServiceSlugs: LOCATION_SERVICE_MAP.tacoma,
+    relatedProjectSlugs: LOCATION_PROJECT_MAP.tacoma,
   },
   "west-richland": {
     presenceType: "service-area",
     publicAddressPolicy: "service-area-only",
     regionalRelationship: "Served from Pasco headquarters.",
-    relatedServiceSlugs: LOCATION_SERVICE_MAP["west-richland"] ?? [],
-    relatedProjectSlugs: LOCATION_PROJECT_MAP["west-richland"] ?? [],
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["west-richland"],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["west-richland"],
   },
   "walla-walla": {
     presenceType: "service-area",
     publicAddressPolicy: "service-area-only",
     regionalRelationship: "Served from Pasco headquarters.",
-    relatedServiceSlugs: LOCATION_SERVICE_MAP["walla-walla"] ?? [],
-    relatedProjectSlugs: LOCATION_PROJECT_MAP["walla-walla"] ?? [],
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["walla-walla"],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["walla-walla"],
     publicSectorContext:
       "Public-sector support follows existing tri-state government pathways.",
   },
@@ -1038,8 +1055,8 @@ const LOCATION_PRESENCE_PROFILES: Record<string, LocationEvidenceProfile> = {
     presenceType: "service-area",
     publicAddressPolicy: "service-area-only",
     regionalRelationship: "Served from Pasco headquarters.",
-    relatedServiceSlugs: LOCATION_SERVICE_MAP["hermiston"] ?? [],
-    relatedProjectSlugs: LOCATION_PROJECT_MAP["hermiston"] ?? [],
+    relatedServiceSlugs: LOCATION_SERVICE_MAP.hermiston,
+    relatedProjectSlugs: LOCATION_PROJECT_MAP.hermiston,
     publicSectorContext:
       "Public-sector support follows existing tri-state government pathways.",
   },
@@ -1047,8 +1064,8 @@ const LOCATION_PRESENCE_PROFILES: Record<string, LocationEvidenceProfile> = {
     presenceType: "service-area",
     publicAddressPolicy: "service-area-only",
     regionalRelationship: "Served from Pasco headquarters.",
-    relatedServiceSlugs: LOCATION_SERVICE_MAP["pendleton"] ?? [],
-    relatedProjectSlugs: LOCATION_PROJECT_MAP["pendleton"] ?? [],
+    relatedServiceSlugs: LOCATION_SERVICE_MAP.pendleton,
+    relatedProjectSlugs: LOCATION_PROJECT_MAP.pendleton,
     publicSectorContext:
       "Public-sector support follows existing tri-state government pathways.",
   },
@@ -1056,19 +1073,19 @@ const LOCATION_PRESENCE_PROFILES: Record<string, LocationEvidenceProfile> = {
     presenceType: "service-area",
     publicAddressPolicy: "service-area-only",
     regionalRelationship: "Served from Pasco headquarters.",
-    relatedServiceSlugs: LOCATION_SERVICE_MAP["coeur-d-alene"] ?? [],
-    relatedProjectSlugs: LOCATION_PROJECT_MAP["coeur-d-alene"] ?? [],
+    relatedServiceSlugs: LOCATION_SERVICE_MAP["coeur-d-alene"],
+    relatedProjectSlugs: LOCATION_PROJECT_MAP["coeur-d-alene"],
   },
   omak: {
     presenceType: "service-area",
     publicAddressPolicy: "service-area-only",
     regionalRelationship: "Served from Pasco headquarters.",
-    relatedServiceSlugs: LOCATION_SERVICE_MAP["omak"] ?? [],
-    relatedProjectSlugs: LOCATION_PROJECT_MAP["omak"] ?? [],
+    relatedServiceSlugs: LOCATION_SERVICE_MAP.omak,
+    relatedProjectSlugs: LOCATION_PROJECT_MAP.omak,
   },
 };
 
-const LOCATION_BRIDGE_MAP: Record<string, LocationDeepLink[]> = {
+const LOCATION_BRIDGE_MAP: Partial<Record<LocationSlug, LocationDeepLink[]>> = {
   yakima: [
     {
       href: "/veterans/public-sector-construction",
@@ -1126,7 +1143,7 @@ export function getLocationServiceDeepLinks(slug: string): LocationDeepLink[] {
 }
 
 export function getLocationBridgeDeepLinks(slug: string): LocationDeepLink[] {
-  return LOCATION_BRIDGE_MAP[slug] ?? [];
+  return isLocationSlug(slug) ? (LOCATION_BRIDGE_MAP[slug] ?? []) : [];
 }
 
 export function getLocationProjectDeepLinks(slug: string): LocationDeepLink[] {
@@ -1150,15 +1167,21 @@ export function getLocationProjectDeepLinks(slug: string): LocationDeepLink[] {
 export function getLocationEvidenceProfile(
   slug: string,
 ): LocationEvidenceProfile {
-  return (
-    LOCATION_PRESENCE_PROFILES[slug] ?? {
-      presenceType: "service-area",
-      publicAddressPolicy: "service-area-only",
-      regionalRelationship: "Served from Pasco headquarters.",
-      relatedServiceSlugs: ["commercial-construction"],
-      relatedProjectSlugs: [],
-    }
-  );
+  if (isLocationSlug(slug)) {
+    return LOCATION_PRESENCE_PROFILES[slug];
+  }
+
+  return {
+    presenceType: "service-area",
+    publicAddressPolicy: "service-area-only",
+    regionalRelationship: "Served from Pasco headquarters.",
+    relatedServiceSlugs: ["commercial-construction"],
+    relatedProjectSlugs: [],
+  };
+}
+
+function isLocationSlug(slug: string): slug is LocationSlug {
+  return Object.prototype.hasOwnProperty.call(LOCATION_PRESENCE_PROFILES, slug);
 }
 
 export function isLocationOffice(slug: string): boolean {
