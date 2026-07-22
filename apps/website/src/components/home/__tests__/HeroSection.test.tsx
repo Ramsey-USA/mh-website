@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { HeroSection } from "../HeroSection";
+import fs from "node:fs";
 
 describe("HeroSection", () => {
   it("renders the section element", () => {
@@ -40,7 +41,31 @@ describe("HeroSection", () => {
     expect(projectsLink).toHaveAttribute("href", "/projects");
   });
 
-  it("uses the static hero poster as the current first-view media", () => {
+  it("uses the active hero commercial video as the current first-view media", () => {
+    const { container } = render(<HeroSection />);
+
+    const heroVideo = screen.getByLabelText(
+      /MH Construction homepage hero video highlighting project delivery leadership by Jeremy Thamert/i,
+    );
+
+    expect(heroVideo.tagName.toLowerCase()).toBe("video");
+    expect(container.querySelector("video")).not.toBeNull();
+    expect(container.querySelector('source[type="video/webm"]')).not.toBeNull();
+    expect(container.querySelector('source[type="video/mp4"]')).not.toBeNull();
+  });
+
+  it("falls back to the static hero poster when commercial media is unavailable", () => {
+    const existsSyncSpy = jest.spyOn(fs, "existsSync");
+    existsSyncSpy.mockImplementation((filePath) => {
+      const normalized = String(filePath).replace(/\\\\/g, "/");
+
+      if (normalized.endsWith("/config/hero-commercials.json")) {
+        return false;
+      }
+
+      return true;
+    });
+
     const { container } = render(<HeroSection />);
 
     const heroImage = screen.getByAltText(
@@ -49,6 +74,8 @@ describe("HeroSection", () => {
 
     expect(heroImage).toHaveAttribute("src", "/images/home-hero-poster.webp");
     expect(container.querySelector("video")).toBeNull();
+
+    existsSyncSpy.mockRestore();
   });
 
   it("renders the service area text", () => {
