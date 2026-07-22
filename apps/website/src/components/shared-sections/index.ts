@@ -4,6 +4,7 @@
  */
 
 export { TestimonialsSection } from "./TestimonialsSection";
+export { ProjectGallerySection } from "./ProjectGallerySection";
 export { NextStepsSection } from "./NextStepsSection";
 export { AccreditationsLogoRow } from "./AccreditationsLogoRow";
 export { IndividualBrandingStamp } from "./IndividualBrandingStamp";

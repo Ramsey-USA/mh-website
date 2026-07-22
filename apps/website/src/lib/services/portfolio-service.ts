@@ -1,5 +1,9 @@
 // Portfolio service for managing project data
-import { type ProjectPortfolio, type ProjectFilter } from "@/lib/types";
+import {
+  type ProjectPortfolio,
+  type ProjectFilter,
+  type ProjectImage,
+} from "@/lib/types";
 import { getPublishedProjectCaseStudies } from "@/lib/data/project-case-studies";
 
 function normalizeSearchValue(value: string): string {
@@ -502,6 +506,59 @@ const projectSearchIndex = new Map(
     buildProjectSearchText(project),
   ]),
 );
+
+export interface ProjectGallerySlide {
+  id: string;
+  projectId: string;
+  projectSlug: string;
+  projectTitle: string;
+  projectDescription: string;
+  projectCategory: ProjectPortfolio["category"];
+  projectSubcategory: string | undefined;
+  projectLocation: ProjectPortfolio["location"];
+  projectYearCompleted: number;
+  image: ProjectImage;
+  imageIndex: number;
+  imageCount: number;
+}
+
+function buildProjectGallerySlides(
+  projects: ProjectPortfolio[],
+): ProjectGallerySlide[] {
+  return projects
+    .filter((project) => project.location.isPublic && project.images.length > 0)
+    .slice()
+    .sort((left, right) => {
+      const leftCompleted = left.details.completionDate.getTime();
+      const rightCompleted = right.details.completionDate.getTime();
+
+      if (leftCompleted !== rightCompleted) {
+        return rightCompleted - leftCompleted;
+      }
+
+      return left.title.localeCompare(right.title);
+    })
+    .flatMap((project) => {
+      const sortedImages = [...project.images].sort(
+        (left, right) => left.order - right.order,
+      );
+
+      return sortedImages.map((image, imageIndex) => ({
+        id: `${project.id}-${image.id}`,
+        projectId: project.id,
+        projectSlug: project.seoMetadata.slug,
+        projectTitle: project.title,
+        projectDescription: project.description,
+        projectCategory: project.category,
+        projectSubcategory: project.subcategory,
+        projectLocation: project.location,
+        projectYearCompleted: project.details.completionDate.getFullYear(),
+        image,
+        imageIndex,
+        imageCount: sortedImages.length,
+      }));
+    });
+}
 const portfolioStats = {
   totalProjects: publishedProjects.length,
   categories: Array.from(
@@ -526,6 +583,10 @@ export class PortfolioService {
   // Get featured projects for homepage
   static getFeaturedProjects(): ProjectPortfolio[] {
     return [...featuredProjects];
+  }
+
+  static getProjectGallerySlides(): ProjectGallerySlide[] {
+    return buildProjectGallerySlides(publishedProjects);
   }
 
   // Get project by slug

@@ -17,6 +17,7 @@ import {
 import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { projectCaseStudies } from "@/lib/data/project-case-studies";
+import { PortfolioService } from "@/lib/services/portfolio-service";
 import {
   getPublishedServiceDetailBySlug,
   type ServiceRecord,
@@ -25,7 +26,7 @@ import enHome from "../../../../messages/home/en.json";
 import esHome from "../../../../messages/home/es.json";
 import { BrandedContentSection } from "@/components/templates";
 
-import { HeroSection } from "@/components/home";
+import { HeroSection, ProjectGallerySectionDeferred } from "@/components/home";
 import { TestimonialsSectionDeferred } from "@/components/home/TestimonialsSectionDeferred";
 const NextStepsSection = dynamic(
   () =>
@@ -154,7 +155,7 @@ export default async function Home() {
   const publishedCaseStudies = projectCaseStudies.filter(
     (project) => project.isPublished !== false,
   );
-  const featuredCaseStudies = publishedCaseStudies.slice(0, 3);
+  const projectGallerySlides = PortfolioService.getProjectGallerySlides();
   const featuredServiceDetails = SERVICE_OVERVIEW_DETAIL_SLUGS.map((slug) =>
     getPublishedServiceDetailBySlug(slug),
   ).filter((service): service is ServiceRecord => Boolean(service));
@@ -172,6 +173,10 @@ export default async function Home() {
           proofTitle: "Hechos Públicos que Respaldan Cada Proyecto",
           proofDescription:
             "Este resumen usa solo registros públicos actuales del repositorio de MH Construction.",
+          gallerySubtitle: "Fotos Públicas de Proyectos",
+          galleryTitle: "Galería Rotativa",
+          galleryDescription:
+            "Explora fotografías públicas de proyectos a partir de registros publicados de MH. La galería avanza automáticamente y también se puede controlar manualmente.",
           serviceSubtitle: "Panorama de Servicios",
           serviceTitle: "Servicios de Construcción para Proyectos Comerciales",
           serviceDescription:
@@ -214,6 +219,10 @@ export default async function Home() {
           proofTitle: "Public Records Behind Our Project Delivery",
           proofDescription:
             "This summary uses current public records already published in the MH Construction repository.",
+          gallerySubtitle: "Public Project Photos",
+          galleryTitle: "Rotating Gallery",
+          galleryDescription:
+            "Browse public project photography from published MH project records. The gallery advances automatically and can be controlled manually.",
           serviceSubtitle: "Service Overview",
           serviceTitle: "Construction Services for Commercial Projects",
           serviceDescription:
@@ -280,7 +289,7 @@ export default async function Home() {
         >
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-3">
             <article className={HOME_CARD_CLASS}>
-              <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
+              <p className="font-heading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
                 {locale === "es" ? "Cobertura" : "Coverage"}
               </p>
               <p className="mt-2 text-2xl font-black text-gray-900 dark:text-white">
@@ -293,7 +302,7 @@ export default async function Home() {
               </p>
             </article>
             <article className={HOME_CARD_CLASS}>
-              <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
+              <p className="font-heading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
                 {locale === "es"
                   ? "Casos publicados"
                   : "Published case studies"}
@@ -308,7 +317,7 @@ export default async function Home() {
               </p>
             </article>
             <article className={HOME_CARD_CLASS}>
-              <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
+              <p className="font-heading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
                 {locale === "es"
                   ? "Testimonios de clientes"
                   : "Client testimonials"}
@@ -382,54 +391,22 @@ export default async function Home() {
           </div>
         </BrandedContentSection>
 
-        <BrandedContentSection
-          id="our-process"
-          variant="white"
+        <ProjectGallerySectionDeferred
+          id="project-gallery"
           className={HOME_SECTION_SPACING}
-          showBackgroundPattern={false}
-          headerSize="section"
-          header={{
-            icon: "photo_library",
-            iconVariant: "secondary",
-            subtitle: splashCopy.featuredSubtitle,
-            title: splashCopy.featuredTitle,
-            description: splashCopy.featuredDescription,
-          }}
-        >
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-            {featuredCaseStudies.map((caseStudy) => (
-              <article key={caseStudy.slug} className={HOME_CARD_CLASS}>
-                <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
-                  {caseStudy.category}
-                </p>
-                <h3 className="mt-2 text-xl font-extrabold text-gray-900 dark:text-white">
-                  {caseStudy.title}
-                </h3>
-                <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                  {caseStudy.location.city}, {caseStudy.location.state} ·{" "}
-                  {caseStudy.yearCompleted}
-                </p>
-                <p className="font-body mt-3 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                  {caseStudy.description}
-                </p>
-                <Link
-                  href={`/projects/${caseStudy.slug}`}
-                  className="mt-4 inline-flex items-center text-sm sm:text-base font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
-                >
-                  {locale === "es" ? "Ver estudio de caso" : "View case study"}
-                </Link>
-              </article>
-            ))}
-          </div>
-          <div className="mt-6 text-center">
-            <Link
-              href="/projects?utm_source=homepage&utm_medium=cta&utm_campaign=home-phase3&utm_content=featured-work"
-              className={HOME_CTA_PRIMARY_CLASS}
-            >
-              {universalCtas.portfolio.label}
-            </Link>
-          </div>
-        </BrandedContentSection>
+          title={splashCopy.galleryTitle}
+          subtitle={splashCopy.gallerySubtitle}
+          description={splashCopy.galleryDescription}
+          slides={projectGallerySlides}
+        />
+        <div className="mt-6 text-center">
+          <Link
+            href="/projects?utm_source=homepage&utm_medium=cta&utm_campaign=home-phase3&utm_content=featured-work"
+            className={HOME_CTA_PRIMARY_CLASS}
+          >
+            {universalCtas.portfolio.label}
+          </Link>
+        </div>
 
         <BrandedContentSection
           id="why-partner"

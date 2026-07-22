@@ -26,6 +26,47 @@ describe("PortfolioService", () => {
     expect(featured.every((p) => p.isPublished && p.isFeatured)).toBe(true);
   });
 
+  it("builds a deterministic gallery feed from public project images", () => {
+    const slides = PortfolioService.getProjectGallerySlides();
+    const expectedImageCount = publishedProjects
+      .filter((project) => project.location.isPublic)
+      .reduce((count, project) => count + project.images.length, 0);
+    const latestProject = publishedProjects
+      .filter((project) => project.location.isPublic)
+      .slice()
+      .sort((left, right) => {
+        const leftCompleted = left.details.completionDate.getTime();
+        const rightCompleted = right.details.completionDate.getTime();
+
+        if (leftCompleted !== rightCompleted) {
+          return rightCompleted - leftCompleted;
+        }
+
+        return left.title.localeCompare(right.title);
+      })[0];
+
+    expect(slides).toHaveLength(expectedImageCount);
+    expect(slides.every((slide) => slide.projectLocation.isPublic)).toBe(true);
+    expect(slides[0]?.projectId).toBe(latestProject?.id);
+
+    const groupedOrders = slides.reduce<Map<string, number[]>>(
+      (groups, slide) => {
+        const existingOrders = groups.get(slide.projectId) ?? [];
+        existingOrders.push(slide.image.order);
+        groups.set(slide.projectId, existingOrders);
+        return groups;
+      },
+      new Map(),
+    );
+
+    expect(
+      Array.from(groupedOrders.values()).every((orders) => {
+        const sortedOrders = [...orders].sort((left, right) => left - right);
+        return JSON.stringify(orders) === JSON.stringify(sortedOrders);
+      }),
+    ).toBe(true);
+  });
+
   it("finds a project by published slug and returns undefined for unknown slug", () => {
     const known = publishedProjects[0]?.seoMetadata.slug;
     expect(PortfolioService.getProjectBySlug(known || "")).toBeDefined();
