@@ -4,7 +4,6 @@
 
 import { render, screen } from "@testing-library/react";
 import type { ReactNode } from "react";
-import { projectCaseStudies } from "@/lib/data/project-case-studies";
 
 jest.mock("next/headers", () => ({
   __esModule: true,
@@ -65,6 +64,9 @@ jest.mock("@/components/home", () => ({
       <a href="/contact">Start a project conversation</a>
       <a href="/projects">View project proof</a>
     </section>
+  ),
+  ProjectGallerySectionDeferred: ({ id }: { id?: string }) => (
+    <section data-testid="dynamic-home-section" id={id} />
   ),
   ServicesShowcase: () => <section data-testid="dynamic-home-section" />,
   WhyPartnerSection: () => <section data-testid="dynamic-home-section" />,
@@ -134,7 +136,7 @@ describe("Home page section rendering", () => {
       const orderedSectionIds = [
         "stats",
         "services",
-        "our-process",
+        "project-gallery",
         "why-partner",
       ];
       const sectionIdNodes = orderedSectionIds.map((id) =>
@@ -153,16 +155,13 @@ describe("Home page section rendering", () => {
         ).not.toBe(0);
       }
 
-      const featuredProjectSlugs = projectCaseStudies
-        .filter((project) => project.isPublished !== false)
-        .slice(0, 3)
-        .map((project) => project.slug);
-
-      featuredProjectSlugs.forEach((slug) => {
-        expect(
-          document.querySelector(`a[href="/projects/${slug}"]`),
-        ).not.toBeNull();
-      });
+      const hasProjectsCta = Array.from(document.querySelectorAll("a")).some(
+        (anchor) =>
+          anchor
+            .getAttribute("href")
+            ?.startsWith("/projects?utm_source=homepage") ?? false,
+      );
+      expect(hasProjectsCta).toBe(true);
     } finally {
       Object.defineProperty(process.env, "NODE_ENV", {
         value: previousNodeEnv,

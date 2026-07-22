@@ -336,6 +336,7 @@ jest.mock("next-intl/server", () => ({
 
 jest.mock("@/components/home", () => ({
   HeroSection: () => null,
+  ProjectGallerySectionDeferred: () => null,
   CoreValuesSection: () => null,
   ServicesShowcase: () => null,
   WhyPartnerSection: () => null,
