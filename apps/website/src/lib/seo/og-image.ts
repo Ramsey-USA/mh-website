@@ -10,6 +10,7 @@ import {
   getServiceRouteBySlug,
 } from "@/lib/data/service-routes";
 import { getCanonicalSiteOrigin } from "@/lib/site-config";
+import { type MarketingPhase } from "@/lib/data/project-marketing";
 
 export const OG_DEFAULT_IMAGE_PATH = "/images/og-default.jpg" as const;
 const NEWS_TEMPLATE_ID = "news-insights" as const;
@@ -80,6 +81,20 @@ function normalizeImagePath(input?: string): string {
 export function createOgImageUrl(type: OgTemplateType, id: string): string {
   const origin = getCanonicalSiteOrigin();
   const params = new URLSearchParams({ type, id });
+  return `${origin}/api/og?${params.toString()}`;
+}
+
+export function createProjectOgImageUrl(
+  slug: string,
+  phase: MarketingPhase,
+): string {
+  const origin = getCanonicalSiteOrigin();
+  const params = new URLSearchParams({
+    variant: "project",
+    slug,
+    phase,
+  });
+
   return `${origin}/api/og?${params.toString()}`;
 }
 

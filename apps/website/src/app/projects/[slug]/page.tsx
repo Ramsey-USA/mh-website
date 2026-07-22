@@ -5,17 +5,22 @@ import { notFound } from "next/navigation";
 
 import { PageTrackingClient } from "@/components/analytics";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { FollowProjectForm } from "@/components/project-marketing/FollowProjectForm";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { Button, Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { createOgImageUrl } from "@/lib/seo/og-image";
+import { createProjectOgImageUrl } from "@/lib/seo/og-image";
 import {
   getPublishedProjectCaseStudyBySlug,
   getPublishedProjectCaseStudySlugs,
 } from "@/lib/data/project-case-studies";
+import {
+  getProjectMarketingPhaseBySlug,
+  getProjectMarketingRecordBySlug,
+} from "@/lib/data/project-marketing-records";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { PortfolioService } from "@/lib/services/portfolio-service";
 import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
@@ -180,7 +185,10 @@ export async function generateMetadata({
       ...(project?.location.state ? [project.location.state] : []),
     ]),
   );
-  const ogImageUrl = createOgImageUrl("project", canonicalSlug);
+  const projectPhase = getProjectMarketingPhaseBySlug(canonicalSlug);
+  const ogImageUrl = projectPhase
+    ? createProjectOgImageUrl(canonicalSlug, projectPhase)
+    : `${SITE_URL}/images/og-default.jpg`;
 
   return {
     title,
@@ -340,6 +348,16 @@ export default async function ProjectCaseStudyPage({
         label: `${location.city} Service Area`,
       },
     };
+  const projectMarketingRecord = getProjectMarketingRecordBySlug(
+    canonicalSlug ?? slug,
+  );
+  const showFollowProjectForm = projectMarketingRecord
+    ? projectMarketingRecord.marketingPhase !== "post-launch"
+    : false;
+  const timelineMilestones: Array<{ title: string; eventHref?: string }> =
+    projectMarketingRecord?.milestones.length
+      ? [...projectMarketingRecord.milestones]
+      : safetyMilestones.map((title) => ({ title }));
 
   return (
     <>
@@ -527,12 +545,17 @@ export default async function ProjectCaseStudyPage({
             <aside className="space-y-6">
               <Card className="border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
-                  Safety Milestones
+                  Phase Timeline
                 </p>
+                {projectMarketingRecord && (
+                  <p className="mt-2 text-sm font-semibold text-brand-primary dark:text-brand-primary-light">
+                    Current phase: {projectMarketingRecord.marketingPhase}
+                  </p>
+                )}
                 <ul className="mt-4 space-y-3">
-                  {safetyMilestones.map((milestone) => (
+                  {timelineMilestones.map((milestone) => (
                     <li
-                      key={milestone}
+                      key={milestone.title}
                       className="flex items-start gap-3 text-sm leading-6 text-gray-700 dark:text-gray-300"
                     >
                       <MaterialIcon
@@ -540,10 +563,29 @@ export default async function ProjectCaseStudyPage({
                         size="sm"
                         className="mt-0.5 text-brand-secondary dark:text-brand-secondary-light"
                       />
-                      <span>{milestone}</span>
+                      {milestone.eventHref ? (
+                        <Link
+                          href={milestone.eventHref}
+                          className="inline-flex items-center gap-2 font-semibold text-brand-primary hover:text-brand-primary-dark dark:text-brand-secondary dark:hover:text-brand-secondary-light"
+                        >
+                          <span>{milestone.title}</span>
+                          <MaterialIcon icon="link" size="xs" />
+                        </Link>
+                      ) : (
+                        <span>{milestone.title}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
+
+                {showFollowProjectForm && canonicalSlug && (
+                  <div
+                    id="follow-this-project"
+                    className="mt-6 border-t border-gray-200 pt-5 dark:border-gray-700"
+                  >
+                    <FollowProjectForm slug={canonicalSlug} />
+                  </div>
+                )}
               </Card>
 
               <Card className="border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">

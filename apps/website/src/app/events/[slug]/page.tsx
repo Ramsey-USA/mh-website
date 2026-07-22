@@ -217,6 +217,17 @@ export default async function EventDetailPage({
                     </span>{" "}
                     {localizedEvent.location}
                   </p>
+                  {localizedEvent.projectSlug && (
+                    <Link
+                      href={`/projects/${localizedEvent.projectSlug}`}
+                      className="inline-flex items-center gap-2 font-semibold text-brand-primary hover:text-brand-primary-dark dark:text-brand-secondary dark:hover:text-brand-secondary-light"
+                    >
+                      <MaterialIcon icon="link" size="sm" />
+                      <span>
+                        {isEs ? "Proyecto relacionado" : "Related project"}
+                      </span>
+                    </Link>
+                  )}
                 </div>
               </Card>
 

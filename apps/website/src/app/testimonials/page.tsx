@@ -7,17 +7,18 @@ import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
 import { headers } from "next/headers";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { GoogleReviewsStrip } from "@/components/project-marketing/GoogleReviewsStrip";
 import { TestimonialsHero } from "@/components/testimonials/TestimonialsHero";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import {
-  generateAggregateRatingSchema,
-  generateReviewSchema,
-} from "@/lib/seo/review-schema";
-import {
   type Testimonial,
   normalizeStakeholderTestimonials,
 } from "@/lib/data/testimonials";
+import {
+  GOOGLE_REVIEW_DESTINATION_URL,
+  VERIFIED_GOOGLE_REVIEWS,
+} from "@/lib/data/google-reviews";
 import { getTranslations } from "next-intl/server";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { CORE_VALUE_ICONS } from "@/lib/constants/navigation-icons";
@@ -178,6 +179,7 @@ export default async function TestimonialsPage(props?: {
   const universalCtas = getUniversalCtaSet("en");
   const isLighthouseAudit = await getIsLighthouseAudit(props?.searchParams);
   const tTestimonials = await getTranslations("testimonialsData");
+  const tGoogleReviews = await getTranslations("googleReviews");
 
   const testimonials = normalizeStakeholderTestimonials(
     tTestimonials.raw("clientTestimonials") as Array<{
@@ -194,42 +196,33 @@ export default async function TestimonialsPage(props?: {
       category?: string;
     }>,
   );
-  const aggregateRating =
-    testimonials.length > 0
-      ? {
-          ratingValue:
-            testimonials.reduce((sum, item) => sum + (item.rating || 5), 0) /
-            testimonials.length,
-          reviewCount: testimonials.length,
-        }
-      : null;
-
-  const aggregateRatingSchema = aggregateRating
-    ? generateAggregateRatingSchema(
-        aggregateRating.ratingValue,
-        aggregateRating.reviewCount,
-      )
-    : null;
-
-  const reviewSchemas = testimonials.map((testimonial) =>
-    generateReviewSchema({
-      reviewBody: testimonial.quote,
-      ratingValue: testimonial.rating || 5,
-      author: testimonial.name,
-      reviewTitle: testimonial.project || "MH Construction Project",
-      datePublished: testimonial.date || new Date().toISOString(),
-      image: testimonial.image ? `${SITE_URL}${testimonial.image}` : undefined,
-    }),
-  );
+  const verifiedReviewSchemas = VERIFIED_GOOGLE_REVIEWS.map((review) => ({
+    "@context": "https://schema.org",
+    "@type": "Review",
+    reviewBody: review.quote,
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: review.rating,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    author: {
+      "@type": "Person",
+      name: review.author,
+    },
+    ...(review.datePublished ? { datePublished: review.datePublished } : {}),
+    itemReviewed: {
+      "@type": "Organization",
+      name: "MH Construction",
+      url: SITE_URL,
+    },
+  }));
 
   if (isLighthouseAudit) {
     return (
       <>
         <StructuredData data={breadcrumbSchema} />
-        {aggregateRatingSchema && (
-          <StructuredData data={aggregateRatingSchema} />
-        )}
-        {reviewSchemas.map((schema, index) => (
+        {verifiedReviewSchemas.map((schema, index) => (
           <StructuredData
             key={`review-${schema.author?.name || schema["@type"] || "schema"}-${index}`}
             data={schema}
@@ -240,6 +233,41 @@ export default async function TestimonialsPage(props?: {
         <div data-hero-signal="hero-section">
           <TestimonialsHero />
         </div>
+
+        <GoogleReviewsStrip
+          reviews={VERIFIED_GOOGLE_REVIEWS}
+          labels={{
+            heading: tGoogleReviews("heading"),
+            verifiedLabel: tGoogleReviews("verifiedLabel"),
+            buttonLabel: tGoogleReviews("buttonLabel"),
+          }}
+        />
+
+        <section className="bg-surface-muted py-12 dark:bg-surface-inverse sm:py-14">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-card border border-border/50 bg-white p-8 text-center shadow-sm dark:border-white/10 dark:bg-brand-primary-darker/40">
+              <h2 className="font-heading text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
+                {tGoogleReviews("heading")}
+              </h2>
+              <p className="font-body mx-auto mt-3 max-w-3xl text-base leading-relaxed text-gray-700 dark:text-gray-200">
+                {tGoogleReviews("invitation")}
+              </p>
+              <Link
+                href={GOOGLE_REVIEW_DESTINATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 rounded-interactive bg-brand-primary px-6 py-3 font-subheading font-semibold text-white transition-colors hover:bg-brand-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2"
+              >
+                <MaterialIcon
+                  icon="rate_review"
+                  size="sm"
+                  ariaLabel="Rate and review"
+                />
+                <span>{tGoogleReviews("buttonLabel")}</span>
+              </Link>
+            </div>
+          </div>
+        </section>
 
         {testimonials.length > 0 && (
           <StaticTestimonialsSection testimonials={testimonials} />
@@ -252,8 +280,7 @@ export default async function TestimonialsPage(props?: {
     <>
       {!isLighthouseAudit && <PageTrackingClient pageName="Testimonials" />}
       <StructuredData data={breadcrumbSchema} />
-      {aggregateRatingSchema && <StructuredData data={aggregateRatingSchema} />}
-      {reviewSchemas.map((schema, index) => (
+      {verifiedReviewSchemas.map((schema, index) => (
         <StructuredData
           key={`review-${schema.author?.name || schema["@type"] || "schema"}-${index}`}
           data={schema}
@@ -276,6 +303,41 @@ export default async function TestimonialsPage(props?: {
           </div>
         </div>
       )}
+
+      <GoogleReviewsStrip
+        reviews={VERIFIED_GOOGLE_REVIEWS}
+        labels={{
+          heading: tGoogleReviews("heading"),
+          verifiedLabel: tGoogleReviews("verifiedLabel"),
+          buttonLabel: tGoogleReviews("buttonLabel"),
+        }}
+      />
+
+      <section className="bg-surface-muted py-12 dark:bg-surface-inverse sm:py-14">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-card border border-border/50 bg-white p-8 text-center shadow-sm dark:border-white/10 dark:bg-brand-primary-darker/40">
+            <h2 className="font-heading text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
+              {tGoogleReviews("heading")}
+            </h2>
+            <p className="font-body mx-auto mt-3 max-w-3xl text-base leading-relaxed text-gray-700 dark:text-gray-200">
+              {tGoogleReviews("invitation")}
+            </p>
+            <Link
+              href={GOOGLE_REVIEW_DESTINATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-interactive bg-brand-primary px-6 py-3 font-subheading font-semibold text-white transition-colors hover:bg-brand-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2"
+            >
+              <MaterialIcon
+                icon="rate_review"
+                size="sm"
+                ariaLabel="Rate and review"
+              />
+              <span>{tGoogleReviews("buttonLabel")}</span>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Main Content - Use existing TestimonialsSection for consistency */}
       {testimonials.length > 0 ? (

@@ -294,6 +294,26 @@
       }
     ]
   },
+  "behindTheTech": {
+    "heading": "Behind the Tech",
+    "description": "Field documentation capabilities are being built to support practical project transparency for mission partners.",
+    "items": [
+      {
+        "title": "Pre-cover LiDAR scan planning",
+        "body": "In development: pre-cover LiDAR scans to preserve a structured digital record of in-wall systems before drywall closeout."
+      },
+      {
+        "title": "Overlapping photo and point cloud capture",
+        "body": "Being finalized in-house: capture workflows that pair photos with point-cloud sessions on active jobsites for auditable visual context."
+      },
+      {
+        "title": "Interactive walkthrough delivery",
+        "body": "Planned rollout: interactive 3D walkthrough experiences on project case studies once processing controls are fully validated."
+      }
+    ],
+    "projectsCta": "View projects",
+    "contactCta": "Contact us about scan services"
+  },
   "testimonials": {
     "subtitle": "Mission Stakeholder Voices",
     "title": "Field-Tested Relationships",

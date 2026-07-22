@@ -115,4 +115,44 @@ describe("/api/og", () => {
       error: "Event record not found.",
     });
   });
+
+  it("returns project variant image for known slug and matching phase", async () => {
+    const response = GET(
+      new Request(
+        "https://www.mhc-gc.com/api/og?variant=project&slug=auto-lot-nw&phase=post-launch",
+      ),
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toContain("image/svg+xml");
+    const svg = await response.text();
+    expect(svg).toContain("The Auto Lot");
+    expect(svg).toContain("POST-LAUNCH");
+  });
+
+  it("returns 400 for unknown project variant slug", async () => {
+    const response = GET(
+      new Request(
+        "https://www.mhc-gc.com/api/og?variant=project&slug=unknown-project&phase=post-launch",
+      ),
+    );
+
+    expect(response.status).toBe(400);
+    await expect(response.json()).resolves.toMatchObject({
+      error: "Unknown project slug for project variant.",
+    });
+  });
+
+  it("returns 400 for unknown project variant phase", async () => {
+    const response = GET(
+      new Request(
+        "https://www.mhc-gc.com/api/og?variant=project&slug=auto-lot-nw&phase=planning",
+      ),
+    );
+
+    expect(response.status).toBe(400);
+    await expect(response.json()).resolves.toMatchObject({
+      error: "Invalid project marketing phase.",
+    });
+  });
 });

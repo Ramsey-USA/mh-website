@@ -294,6 +294,26 @@
       }
     ]
   },
+  "behindTheTech": {
+    "heading": "Detrás de la tecnología",
+    "description": "Las capacidades de documentación en campo se están desarrollando para ofrecer transparencia práctica a los Socios Cliente.",
+    "items": [
+      {
+        "title": "Planificación de escaneo LiDAR previo al recubrimiento",
+        "body": "En desarrollo: escaneos LiDAR previos al recubrimiento para preservar un registro digital estructurado de sistemas dentro de muros antes del cierre con paneles."
+      },
+      {
+        "title": "Captura superpuesta de fotos y nube de puntos",
+        "body": "En proceso de finalización interna: flujos de captura que combinan fotografía y sesiones de nube de puntos en proyectos activos para mantener contexto visual auditable."
+      },
+      {
+        "title": "Entrega de recorridos interactivos",
+        "body": "Implementación planificada: experiencias interactivas 3D en estudios de caso cuando los controles de procesamiento estén completamente validados."
+      }
+    ],
+    "projectsCta": "Ver proyectos",
+    "contactCta": "Contáctenos sobre servicios de escaneo"
+  },
   "testimonials": {
     "subtitle": "Voces de Socios de Misión",
     "title": "Relaciones Probadas en Campo",

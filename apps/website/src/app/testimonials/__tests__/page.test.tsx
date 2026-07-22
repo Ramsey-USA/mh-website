@@ -17,10 +17,18 @@ jest.mock("next/link", () => ({
   default: ({
     children,
     href,
+    ...rest
   }: {
     children: React.ReactNode;
     href: string;
-  }) => <a href={href}>{children}</a>,
+    target?: string;
+    rel?: string;
+    className?: string;
+  }) => (
+    <a href={href} {...rest}>
+      {children}
+    </a>
+  ),
 }));
 
 jest.mock("next/image", () => ({
@@ -85,20 +93,6 @@ jest.mock("@/lib/seo/breadcrumb-schema", () => ({
   generateBreadcrumbSchema: jest.fn(() => ({ "@type": "BreadcrumbList" })),
 }));
 
-jest.mock("@/lib/seo/review-schema", () => ({
-  generateReviewSchema: jest.fn((testimonial: { name: string }) => ({
-    "@type": "Review",
-    author: { "@type": "Person", name: testimonial.name },
-  })),
-  generateAggregateRatingSchema: jest.fn(
-    (ratingValue: number, reviewCount: number) => ({
-      "@type": "AggregateRating",
-      ratingValue,
-      reviewCount,
-    }),
-  ),
-}));
-
 const mockTestimonials = [
   {
     id: "t1",
@@ -121,10 +115,26 @@ const mockTestimonials = [
 ];
 
 jest.mock("next-intl/server", () => ({
-  getTranslations: jest.fn(async () => ({
-    raw: (key: string) =>
-      key === "clientTestimonials" ? mockTestimonials : [],
-  })),
+  getTranslations: jest.fn(async (namespace?: string) => {
+    if (namespace === "googleReviews") {
+      return (key: string) => {
+        const labels: Record<string, string> = {
+          heading: "Verified Google Reviews",
+          invitation:
+            "If we recently completed your project, we would value your feedback to help future mission partners make informed construction decisions.",
+          buttonLabel: "Leave a Google Review",
+          verifiedLabel: "Verified",
+        };
+
+        return labels[key] ?? key;
+      };
+    }
+
+    return {
+      raw: (key: string) =>
+        key === "clientTestimonials" ? mockTestimonials : [],
+    };
+  }),
 }));
 
 // ─── Tests ────────────────────────────────────────────────────────────────────
@@ -155,23 +165,43 @@ describe("TestimonialsPage (with populated testimonials data)", () => {
   it("renders aggregate rating section (truthy aggregateRating branch)", async () => {
     const page = await TestimonialsPage();
     render(page);
-    // With 2 testimonials averaging 4.5 rating, the aggregate rating section renders
-    // "Average Rating" or numerical value
     const { container } = render(page);
-    // aggregateRatingSchema is computed and StructuredData renders a script tag
+    // Breadcrumb and FAQ schemas should still be present.
     const scripts = container.querySelectorAll(
       'script[type="application/ld+json"]',
     );
     expect(scripts.length).toBeGreaterThan(0);
   });
 
-  it("renders review schema structured data for each testimonial", async () => {
+  it("does not emit Review schema when verified Google reviews are empty", async () => {
     const page = await TestimonialsPage();
     const { container } = render(page);
     const scripts = container.querySelectorAll(
       'script[type="application/ld+json"]',
     );
-    expect(scripts.length).toBeGreaterThan(1); // at least breadcrumb + aggregate + reviews
+
+    const scriptPayload = Array.from(scripts)
+      .map((script) => script.textContent || "")
+      .join("\n");
+
+    expect(scriptPayload).not.toContain('"@type":"Review"');
+    expect(scriptPayload).not.toContain('"@type":"AggregateRating"');
+  });
+
+  it("renders Google review CTA banner with secure external-link attributes", async () => {
+    const page = await TestimonialsPage();
+    render(page);
+
+    const ctaLink = screen.getByRole("link", {
+      name: /Leave a Google Review/i,
+    });
+
+    expect(ctaLink).toHaveAttribute(
+      "href",
+      "https://g.page/r/REPLACE_WITH_MHC_REVIEW_LINK/review",
+    );
+    expect(ctaLink).toHaveAttribute("target", "_blank");
+    expect(ctaLink).toHaveAttribute("rel", "noopener noreferrer");
   });
 
   it("renders the star rating display (aggregateRating.ratingValue branch)", async () => {

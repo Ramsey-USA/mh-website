@@ -95,6 +95,16 @@ describe("POST /api/newsletter", () => {
     expect(res.status).toBe(400);
   });
 
+  it("returns 400 when source exceeds 100 characters", async () => {
+    const res = await POST(
+      makeRequest({
+        email: "test@example.com",
+        source: "s".repeat(101),
+      }),
+    );
+    expect(res.status).toBe(400);
+  });
+
   it("returns 200 for a valid email-only subscription", async () => {
     const res = await POST(makeRequest({ email: "subscriber@example.com" }));
     expect(res.status).toBe(200);
@@ -103,6 +113,16 @@ describe("POST /api/newsletter", () => {
   it("returns 200 for a valid email + name subscription", async () => {
     const res = await POST(
       makeRequest({ email: "alice@example.com", name: "Alice" }),
+    );
+    expect(res.status).toBe(200);
+  });
+
+  it("returns 200 for a valid email + source subscription", async () => {
+    const res = await POST(
+      makeRequest({
+        email: "alice@example.com",
+        source: "project:auto-lot-nw",
+      }),
     );
     expect(res.status).toBe(200);
   });

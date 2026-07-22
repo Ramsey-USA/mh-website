@@ -55,12 +55,14 @@ const SEARCH_ENGINE_VERIFICATION_OTHER = Object.fromEntries(
 );
 
 const CLIENT_MESSAGE_NAMESPACES = new Set([
+  "activeProjects",
   "careersPage",
   "common",
   "contact",
   "coolDesertNightsPage",
   "home",
   "projectsPageShell",
+  "projectMarketing",
   "siteFooter",
   "siteHeader",
   "statusStates",

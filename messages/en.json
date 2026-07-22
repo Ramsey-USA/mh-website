@@ -2291,6 +2291,40 @@
       }
     ]
   },
+  "googleReviews": {
+    "heading": "Verified Google Reviews",
+    "invitation": "If we recently completed your project, we would value your feedback to help future mission partners make informed construction decisions.",
+    "buttonLabel": "Leave a Google Review",
+    "verifiedLabel": "Verified"
+  },
+  "projectMarketing": {
+    "followForm": {
+      "label": "Follow this project",
+      "placeholder": "Enter your email for project updates",
+      "description": "Receive milestone updates from planning through closeout when this project publishes new field progress.",
+      "submit": "Follow this project",
+      "submitting": "Submitting...",
+      "success": "Thanks for subscribing. We will share updates as new milestones are published.",
+      "errors": {
+        "required": "Email address is required.",
+        "generic": "We could not process your request. Please try again."
+      }
+    }
+  },
+  "activeProjects": {
+    "heading": "Active Project Lifecycle",
+    "allLifecycles": "All lifecycles",
+    "postLaunch": "Post-launch",
+    "viewProject": "View project"
+  },
+  "podcastPage": {
+    "title": "Podcast",
+    "description": "Recorded conversations with MH Construction client partners and collaborators at project handover.",
+    "launchPanelHeading": "Recorded conversations are being published",
+    "launchPanelBody": "Episode releases will appear here as project handovers are completed.",
+    "contactGuestsCta": "Contact us about guest participation",
+    "projectsCta": "View project case studies"
+  },
   "siteHeader": {
     "navLabel": "Primary",
     "mobileMenuLabel": "Menu",

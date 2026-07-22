@@ -28,6 +28,7 @@ export const dynamic = "force-dynamic";
 interface NewsletterRequest {
   email: string;
   name?: string;
+  source?: string;
 }
 
 async function handlePOST(request: NextRequest) {
@@ -48,6 +49,9 @@ async function handlePOST(request: NextRequest) {
     if (data.email.length > 254) return badRequest("Email is too long");
     if (data.name && data.name.length > 200) {
       return badRequest("Name is too long");
+    }
+    if (data.source && data.source.length > 100) {
+      return badRequest("Source is too long");
     }
 
     // Persist subscription to D1 (best-effort upsert — idempotent if subscribed)
@@ -95,6 +99,7 @@ async function handlePOST(request: NextRequest) {
           data: {
             email: data.email,
             name: data.name,
+            source: data.source,
             error: "Database write failed",
           },
         });
@@ -136,6 +141,16 @@ async function handlePOST(request: NextRequest) {
           `
               : ""
           }
+          ${
+            data.source
+              ? `
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #e0e0e0; font-weight: 600; color: #666;">Source:</td>
+            <td style="padding: 10px; border-bottom: 1px solid #e0e0e0;">${escapeHtml(data.source)}</td>
+          </tr>
+          `
+              : ""
+          }
           <tr>
             <td style="padding: 10px; font-weight: 600; color: #666;">Signup Date:</td>
             <td style="padding: 10px;">${new Date().toLocaleString("en-US", {
@@ -162,7 +177,7 @@ async function handlePOST(request: NextRequest) {
       to: EMAIL_RECIPIENTS.general,
       subject: "New Newsletter Signup",
       html: notificationHtml,
-      text: `New newsletter signup:\n\nEmail: ${data.email}${data.name ? `\nName: ${data.name}` : ""}\n\nSignup Date: ${new Date().toLocaleString()}`,
+      text: `New newsletter signup:\n\nEmail: ${data.email}${data.name ? `\nName: ${data.name}` : ""}${data.source ? `\nSource: ${data.source}` : ""}\n\nSignup Date: ${new Date().toLocaleString()}`,
     });
 
     if (!notificationResult.success) {
@@ -196,6 +211,7 @@ async function handlePOST(request: NextRequest) {
     logger.info("Newsletter signup processed successfully:", {
       email: data.email,
       name: data.name,
+      source: data.source,
       notificationSent: notificationResult.success,
       acknowledgmentSent: acknowledgmentResult.success,
     });
@@ -206,6 +222,7 @@ async function handlePOST(request: NextRequest) {
       data: {
         email: data.email,
         name: data.name,
+        source: data.source,
       },
     });
 

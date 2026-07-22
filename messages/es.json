@@ -2303,6 +2303,40 @@
       }
     ]
   },
+  "googleReviews": {
+    "heading": "Reseñas verificadas en Google",
+    "invitation": "Si completamos su proyecto recientemente, agradeceremos su reseña para ayudar a futuros Socios Cliente a tomar decisiones informadas.",
+    "buttonLabel": "Dejar una reseña en Google",
+    "verifiedLabel": "Verificada"
+  },
+  "projectMarketing": {
+    "followForm": {
+      "label": "Seguir este proyecto",
+      "placeholder": "Ingrese su correo para recibir actualizaciones",
+      "description": "Reciba actualizaciones de hitos desde la planificación hasta el cierre cuando este proyecto publique nuevo progreso en campo.",
+      "submit": "Seguir este proyecto",
+      "submitting": "Enviando...",
+      "success": "Gracias por suscribirse. Compartiremos actualizaciones cuando se publiquen nuevos hitos.",
+      "errors": {
+        "required": "El correo electrónico es obligatorio.",
+        "generic": "No pudimos procesar su solicitud. Inténtelo de nuevo."
+      }
+    }
+  },
+  "activeProjects": {
+    "heading": "Ciclo del proyecto activo",
+    "allLifecycles": "Todos los ciclos",
+    "postLaunch": "Post-lanzamiento",
+    "viewProject": "Ver proyecto"
+  },
+  "podcastPage": {
+    "title": "Pódcast",
+    "description": "Conversaciones grabadas con Socios Cliente y colaboradores de MH Construction durante la entrega del proyecto.",
+    "launchPanelHeading": "Las conversaciones grabadas se publican aquí",
+    "launchPanelBody": "Los episodios aparecerán en esta página conforme se completen las entregas de proyectos.",
+    "contactGuestsCta": "Contáctenos para participar como invitado",
+    "projectsCta": "Ver estudios de caso"
+  },
   "siteHeader": {
     "navLabel": "Principal",
     "mobileMenuLabel": "Menú",

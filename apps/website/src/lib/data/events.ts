@@ -107,6 +107,7 @@ export const eventPartnerUrls = {
 export type EventRecord = {
   slug: string;
   title: string;
+  projectSlug?: string;
   status: string;
   lifecycleStatus: EventLifecycleStatus;
   location: string;
@@ -136,6 +137,7 @@ export const eventRecords: EventRecord[] = [
   {
     slug: "cool-desert-nights",
     title: "Cool Desert Nights 2026",
+    projectSlug: "auto-lot-nw",
     status: "Archived Event Record",
     lifecycleStatus: "archived",
     location: "Tri-Cities, WA",
