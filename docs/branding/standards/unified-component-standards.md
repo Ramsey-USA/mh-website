@@ -110,6 +110,9 @@ The gradient text in section headers, as implemented across all pages, is the co
 - On routes where the semiquincentennial banner is intentionally suppressed,
   breadcrumbs still render directly after hero.
 - Any layout update that reintroduces pre-hero fallback breadcrumbs is non-compliant.
+- Breadcrumb visual treatment is canonical. Do not pass `className` to
+  `Breadcrumb`/`Breadcrumbs` at page or section callsites; use wrapper containers
+  for spacing/layout concerns.
 
 ---
 

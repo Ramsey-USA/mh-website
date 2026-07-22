@@ -493,6 +493,10 @@ export default function AboutPage() {
 
 **Why:** Breadcrumbs improve SEO and user navigation (except on homepage).
 
+**Standard note:** Breadcrumb visual styling is canonical. Do not pass `className`
+to `Breadcrumb`/`Breadcrumbs` at page callsites. Use a wrapper container for
+spacing only (for example, `mb-6`, `max-w-*`, `px-*`).
+
 ---
 
 ## ⚡ Performance Mistakes

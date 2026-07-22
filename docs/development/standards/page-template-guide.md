@@ -227,10 +227,15 @@ export default function YourPageName() {
         />
 
         {/* Breadcrumb Navigation */}
-        <Breadcrumb
-          items={[{ label: "Home", href: "/" }, { label: "Your Page Title" }]}
-          className="bg-gray-50 dark:bg-gray-800"
-        />
+        <div className="mb-6">
+          <Breadcrumb
+            items={[{ label: "Home", href: "/" }, { label: "Your Page Title" }]}
+          />
+        </div>
+
+        {/* Breadcrumb visual styling is canonical.
+            Do not pass className to Breadcrumb/Breadcrumbs at callsites.
+            Use a wrapper div for spacing/layout only. */}
 
         {/* Main Content Sections */}
 

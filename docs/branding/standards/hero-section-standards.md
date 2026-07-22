@@ -56,6 +56,8 @@ Breadcrumbs are part of the post-hero content frame, not pre-hero chrome.
 - On routes where the semiquincentennial banner is intentionally suppressed
   (`/events`, `/cool-desert-nights`), breadcrumbs still render directly after hero.
 - Do not render fallback breadcrumbs before hero content in shell/layout wrappers.
+- Keep breadcrumb visuals canonical: do not pass `className` to breadcrumb callsites.
+  Use wrapper containers for spacing and width.
 
 ## Hero Messaging Contract (Current)
 

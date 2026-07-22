@@ -83,6 +83,8 @@ Completed March 28, 2026. All `app/*/page.tsx` files now have smoke test coverag
 **Key patterns established:**
 
 - RSC pages: extend `pages-smoke.test.tsx` with `require()` inside `describe`, add needed breadcrumb keys to mock
+- Breadcrumb standard: keep `src/components/layout/__tests__/breadcrumb-sitewide-contract.test.ts`
+  green, including the rule that blocks `className` overrides on breadcrumb callsites.
 - Location pages: parametrised `describe.each` with mocked `getLocationBySlug` + `LocationPageContent`
 - Client pages with hooks: mock all hooks + dynamic imports, use `act(async () => render(...))` for async effects
 - Auth pages: use stable router object in mock

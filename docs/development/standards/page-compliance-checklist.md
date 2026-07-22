@@ -380,6 +380,8 @@ If any inventory is missing, the page audit is incomplete.
 - [ ] Import from: `@/components/navigation/Breadcrumb`
 - [ ] Proper breadcrumb trail configured
 - [ ] Schema generated via `generateBreadcrumbSchema`
+- [ ] No `className` prop passed to `Breadcrumb`/`Breadcrumbs` at the callsite
+- [ ] Spacing/layout handled by wrapper container, not breadcrumb visual overrides
 
 ---
 
