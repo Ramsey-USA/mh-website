@@ -279,6 +279,7 @@ jest.mock("@/lib/seo/page-seo-utils", () => ({
   getAboutSEO: jest.fn(() => ({})),
   getFaqSEO: jest.fn(() => ({})),
   getServicesSEO: jest.fn(() => ({})),
+  getServiceDetailSEO: jest.fn(() => ({ schemas: [] })),
   getTeamSEO: jest.fn(() => ({})),
   getVeteransSEO: jest.fn(() => ({})),
   getHomepageSEO: jest.fn(() => ({ schemas: [] })),
@@ -432,6 +433,7 @@ import { render } from "@testing-library/react";
 import { eventRecords } from "@/lib/data/events";
 import { getLocationSlugs } from "@/lib/data/locations";
 import { getPublishedProjectCaseStudySlugs } from "@/lib/data/project-case-studies";
+import { getPublishedServiceDetailRouteSlugs } from "@/lib/data/service-routes";
 
 const { axe } = require("jest-axe") as {
   axe: (container: Element | DocumentFragment) => Promise<{
@@ -470,6 +472,23 @@ describe("Services page", () => {
   it("renders without throwing", async () => {
     const { default: ServicesPage } = await import("../services/page");
     const page = await ServicesPage();
+    expect(() => render(page)).not.toThrow();
+  });
+});
+
+describe("Service detail page", () => {
+  it("renders without throwing for a published service slug", async () => {
+    const slug = getPublishedServiceDetailRouteSlugs()[0];
+    if (!slug) {
+      throw new Error("Expected at least one published service detail slug");
+    }
+
+    const { default: ServiceDetailPage } =
+      await import("../services/[slug]/page");
+    const page = await ServiceDetailPage({
+      params: Promise.resolve({ slug }),
+    });
+
     expect(() => render(page)).not.toThrow();
   });
 });
@@ -571,7 +590,7 @@ describe("Branding congruency smoke", () => {
     );
   });
 
-  it("keeps services overview indexable without legacy detail slug routes", () => {
+  it("keeps services overview indexable with a concrete service detail route", () => {
     const servicesSeoUtilsPath = path.join(
       APP_ROOT,
       "src",
@@ -592,7 +611,7 @@ describe("Branding congruency smoke", () => {
     expect(servicesSeoSource).toContain(
       "const servicesUrl = `${enhancedSEO.siteUrl}/services`;",
     );
-    expect(fs.existsSync(serviceSlugPagePath)).toBe(false);
+    expect(fs.existsSync(serviceSlugPagePath)).toBe(true);
   });
 
   it("keeps services flow represented on home and routes to /services", () => {

@@ -9,12 +9,14 @@ export const metadata: Metadata = metadataProps;
 
 export default function ServicesLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params?: { slug?: string };
 }>) {
   return (
     <>
-      <StructuredData data={schemas} />
+      {params?.slug ? null : <StructuredData data={schemas} />}
       {children}
     </>
   );

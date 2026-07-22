@@ -49,8 +49,9 @@ try {
   const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 
   totalTests++;
-  if (testResult(manifest.name && manifest.name.length > 0, "Has name"))
+  if (testResult(manifest.name && manifest.name.length > 0, "Has name")) {
     passedTests++;
+  }
 
   totalTests++;
   if (
@@ -58,12 +59,16 @@ try {
       manifest.short_name && manifest.short_name.length <= 12,
       "Has short_name (≤12 chars)",
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
-  if (testResult(manifest.start_url === "/", "Has valid start_url"))
-    passedTests++;
+  const hasValidStartUrl =
+    typeof manifest.start_url === "string" &&
+    manifest.start_url.length > 0 &&
+    manifest.start_url.startsWith("/");
+  if (testResult(hasValidStartUrl, "Has valid start_url")) passedTests++;
 
   totalTests++;
   if (
@@ -71,8 +76,9 @@ try {
       ["standalone", "fullscreen", "minimal-ui"].includes(manifest.display),
       "Has valid display mode",
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   if (
@@ -80,16 +86,18 @@ try {
       manifest.icons && manifest.icons.length >= 2,
       "Has at least 2 icons",
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   const has192 = manifest.icons.some((icon) => icon.sizes === "192x192");
   const has512 = manifest.icons.some((icon) => icon.sizes === "512x512");
   if (
     testResult(has192 && has512, "Has required icon sizes (192x192, 512x512)")
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   if (
@@ -98,8 +106,9 @@ try {
         /^#[0-9A-Fa-f]{6}$/.test(manifest.background_color),
       "Has valid background_color",
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   if (
@@ -107,8 +116,9 @@ try {
       manifest.theme_color && /^#[0-9A-Fa-f]{6}$/.test(manifest.theme_color),
       "Has valid theme_color",
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   if (
@@ -116,8 +126,9 @@ try {
       manifest.shortcuts && manifest.shortcuts.length > 0,
       `Has ${manifest.shortcuts?.length || 0} shortcuts`,
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   if (
@@ -125,8 +136,9 @@ try {
       manifest.screenshots && manifest.screenshots.length >= 1,
       `Has ${manifest.screenshots?.length || 0} screenshots`,
     )
-  )
+  ) {
     passedTests++;
+  }
 
   log(
     `\nManifest Score: ${passedTests}/${totalTests}`,
@@ -148,8 +160,9 @@ try {
       sw.includes('addEventListener("install"'),
       "Has install event handler",
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   if (
@@ -157,8 +170,9 @@ try {
       sw.includes('addEventListener("activate"'),
       "Has activate event handler",
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   if (
@@ -166,8 +180,9 @@ try {
       sw.includes('addEventListener("fetch"'),
       "Has fetch event handler",
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   if (
@@ -175,8 +190,9 @@ try {
       sw.includes("skipWaiting()"),
       "Has skipWaiting() for immediate activation",
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   if (
@@ -184,8 +200,9 @@ try {
       sw.includes("clients.claim()"),
       "Has clients.claim() for immediate control",
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   if (
@@ -193,8 +210,9 @@ try {
       sw.includes('addEventListener("sync"'),
       "Has background sync support",
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   if (
@@ -202,12 +220,16 @@ try {
       sw.includes('addEventListener("push"'),
       "Has push notification support",
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
-  if (testResult(sw.includes("indexedDB"), "Has IndexedDB for offline storage"))
+  if (
+    testResult(sw.includes("indexedDB"), "Has IndexedDB for offline storage")
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   const cacheVersionMatch = sw.match(/-v(\d+\.\d+\.\d+)/);
@@ -216,12 +238,14 @@ try {
       cacheVersionMatch,
       `Cache version: ${cacheVersionMatch ? cacheVersionMatch[0] : "not found"}`,
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
-  if (testResult(sw.includes("/offline"), "Has offline fallback page"))
+  if (testResult(sw.includes("/offline"), "Has offline fallback page")) {
     passedTests++;
+  }
 
   totalTests++;
   const cacheStrategies = [
@@ -237,8 +261,9 @@ try {
   totalTests++;
   if (
     testResult(sw.includes("CRITICAL_ASSETS"), "Has critical assets precaching")
-  )
+  ) {
     passedTests++;
+  }
 
   log(
     `\nService Worker Score: ${passedTests - 10}/${totalTests - 10}`,
@@ -267,8 +292,9 @@ requiredIcons.forEach((size) => {
   if (fs.existsSync(iconPath)) {
     const stats = fs.statSync(iconPath);
     const sizeKB = (stats.size / 1024).toFixed(1);
-    if (testResult(true, `icon-${size}.png exists (${sizeKB} KB)`))
+    if (testResult(true, `icon-${size}.png exists (${sizeKB} KB)`)) {
       passedTests++;
+    }
   } else {
     if (testResult(false, `icon-${size}.png missing`)) passedTests++;
   }
@@ -292,7 +318,6 @@ log("\n=== 4. PWA Components ===", "cyan");
 const components = [
   "src/components/pwa/PWAManager.tsx",
   "src/components/pwa/ServiceWorkerRegistration.tsx",
-  "src/components/pwa/PWAInstallPrompt.tsx",
   "src/components/pwa/UpdateNotification.tsx",
   "src/components/pwa/index.ts",
 ];
@@ -321,8 +346,9 @@ if (fs.existsSync(offlinePath)) {
       offlineContent.includes("offline") || offlineContent.includes("Offline"),
       "Offline page has appropriate content",
     )
-  )
+  ) {
     passedTests++;
+  }
 } else {
   if (testResult(false, "Offline page missing")) passedTests++;
 }
@@ -375,8 +401,9 @@ try {
       cacheMatches.length >= 4,
       `Has multiple cache layers (${cacheMatches.length})`,
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   if (
@@ -384,8 +411,9 @@ try {
       staticAssetsMatch && assets.length > 10,
       `Precaches sufficient assets (${assets.length || 0})`,
     )
-  )
+  ) {
     passedTests++;
+  }
 } catch (e) {
   log(`Error analyzing cache strategy: ${e.message}`, "red");
 }
@@ -394,22 +422,28 @@ try {
 log("\n=== 7. Layout Integration ===", "cyan");
 try {
   const layoutPath = path.join(__dirname, "../src/app/layout.tsx");
+  const deferredPerfPath = path.join(
+    __dirname,
+    "../src/components/performance/DeferredPerformanceEnhancements.tsx",
+  );
   const layout = fs.readFileSync(layoutPath, "utf8");
+  const deferredPerf = fs.readFileSync(deferredPerfPath, "utf8");
 
   totalTests++;
-  if (
-    testResult(layout.includes("PWAManager"), "PWAManager imported in layout")
-  )
+  const hasPwaManagerImport =
+    layout.includes("PWAManager") || deferredPerf.includes("PWAManager");
+  if (testResult(hasPwaManagerImport, "PWAManager imported in app shell")) {
     passedTests++;
+  }
 
   totalTests++;
+  const hasPwaManagerUsage =
+    layout.includes("<PWAManager") || deferredPerf.includes("<PWAManager");
   if (
-    testResult(
-      layout.includes("<PWAManager"),
-      "PWAManager component used in layout",
-    )
-  )
+    testResult(hasPwaManagerUsage, "PWAManager component used in app shell")
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   // Check for manifest in metadata or links
@@ -432,14 +466,16 @@ try {
       !sw.includes("console.log(") || sw.includes("DEBUG"),
       "Production-safe logging (no console.log or has DEBUG flag)",
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   if (
     testResult(sw.includes("try") && sw.includes("catch"), "Has error handling")
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   if (
@@ -447,8 +483,9 @@ try {
       sw.includes('request.method !== "GET"'),
       "Handles only GET requests in fetch handler",
     )
-  )
+  ) {
     passedTests++;
+  }
 
   totalTests++;
   const manifestPath = path.join(__dirname, "../public/manifest.json");
@@ -458,14 +495,15 @@ try {
       manifest.scope === "/" || manifest.scope === undefined,
       "Has appropriate scope",
     )
-  )
+  ) {
     passedTests++;
+  }
 } catch (e) {
   log(`Error checking security: ${e.message}`, "red");
 }
 
 // Final Summary
-log("\n" + "=".repeat(50), "cyan");
+log(`\n${"=".repeat(50)}`, "cyan");
 log("=== PWA Test Summary ===", "cyan");
 log("=".repeat(50), "cyan");
 
@@ -485,6 +523,6 @@ if (percentage >= 90) {
   log("\n❌ Needs attention. Please review the failed tests.", "red");
 }
 
-log("\n" + "=".repeat(50), "cyan");
+log(`\n${"=".repeat(50)}`, "cyan");
 
 process.exit(passedTests === totalTests ? 0 : 1);

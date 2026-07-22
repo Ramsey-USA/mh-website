@@ -210,7 +210,7 @@ export const metadata: Metadata = withGeoMetadata({
     title: "MH Construction",
     startupImage: [
       {
-        url: "/icons/icon-512x512.png",
+        url: "/icons/mhc-icon-master.png",
         media: "(device-width: 768px) and (device-height: 1024px)",
       },
     ],
@@ -220,13 +220,24 @@ export const metadata: Metadata = withGeoMetadata({
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
-      { url: "/icons/icon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icons/icon-16x16.png", sizes: "16x16", type: "image/png" },
+      {
+        url: "/icons/mhc-icon-master.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/icons/mhc-icon-master.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
     ],
-    shortcut: [{ url: "/favicon.ico" }],
+    shortcut: [{ url: "/icons/mhc-icon-master.png" }],
     apple: [
-      { url: "/icons/icon-180x180.png", sizes: "180x180", type: "image/png" },
+      {
+        url: "/icons/mhc-icon-master.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
     ],
   },
   // Search console verification (Google, Bing, Yandex, Yahoo, and Baidu)
