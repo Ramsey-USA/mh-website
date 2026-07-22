@@ -118,7 +118,14 @@ const SERVICES_CONSOLIDATION_CONTRACT = {
       "<ServiceAreasSection",
     ],
   },
-  forbiddenRoute: "src/app/services/[slug]/page.tsx",
+  detailRoute: {
+    relPath: "src/app/services/[slug]/page.tsx",
+    requiredSnippets: [
+      "getPublishedServiceDetailRouteSlugs",
+      "getServiceDetailSEO",
+      "<ServiceDetailPageContent",
+    ],
+  },
 };
 
 function fail(errors) {
@@ -597,14 +604,21 @@ function checkServicesConsolidationContract(errors) {
     }
   }
 
-  const forbiddenRouteAbsPath = path.join(
-    ROOT,
-    SERVICES_CONSOLIDATION_CONTRACT.forbiddenRoute,
-  );
-  if (fs.existsSync(forbiddenRouteAbsPath)) {
+  const detailRouteContract = SERVICES_CONSOLIDATION_CONTRACT.detailRoute;
+  const detailRouteAbsPath = path.join(ROOT, detailRouteContract.relPath);
+  if (!fs.existsSync(detailRouteAbsPath)) {
     errors.push(
-      `Services slug route must not exist: ${SERVICES_CONSOLIDATION_CONTRACT.forbiddenRoute}.`,
+      `Missing canonical services detail route file: ${detailRouteContract.relPath}.`,
     );
+  } else {
+    const detailSource = fs.readFileSync(detailRouteAbsPath, "utf8");
+    for (const snippet of detailRouteContract.requiredSnippets) {
+      if (!detailSource.includes(snippet)) {
+        errors.push(
+          `Services detail route contract missing in ${detailRouteContract.relPath}: expected snippet "${snippet}".`,
+        );
+      }
+    }
   }
 
   if (!fs.existsSync(SEO_ROUTE_POLICY_FILE)) {
@@ -641,9 +655,9 @@ function checkServicesConsolidationContract(errors) {
           );
         }
 
-        if (indexableExact.includes("/services/[slug]")) {
+        if (!indexableExact.includes("/services/[slug]")) {
           errors.push(
-            `SEO route policy must not classify /services/[slug] as indexable in ${rel(SEO_ROUTE_POLICY_FILE)}.`,
+            `SEO route policy must classify /services/[slug] as indexable in ${rel(SEO_ROUTE_POLICY_FILE)}.`,
           );
         }
       }
@@ -664,9 +678,9 @@ function checkServicesConsolidationContract(errors) {
       );
     }
 
-    if (manifestSource.includes('path: "/services/[slug]"')) {
+    if (!manifestSource.includes("getPublishedServiceDetailRoutes")) {
       errors.push(
-        `Services slug route must not appear in static route manifest entries inside ${rel(ROUTE_MANIFEST_FILE)}.`,
+        `Route manifest must include published service detail route coverage in ${rel(ROUTE_MANIFEST_FILE)}.`,
       );
     }
   }

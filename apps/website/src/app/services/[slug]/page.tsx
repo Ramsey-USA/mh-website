@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { PageTrackingClient } from "@/components/analytics";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { ServiceDetailPageContent } from "@/components/services/ServiceDetailPageContent";
+import { buildDualSeoTitle } from "@/lib/branding/page-names";
 import {
   getPublishedServiceDetailBySlug,
   getPublishedServiceDetailRouteSlugs,
@@ -28,7 +29,7 @@ export async function generateMetadata({
 
   if (!service) {
     return {
-      title: "Service Detail | MH Construction",
+      title: buildDualSeoTitle("services", "Service Detail"),
       robots: { index: false, follow: false },
     };
   }

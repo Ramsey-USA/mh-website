@@ -491,7 +491,7 @@ describe("Branding Guardrails › Trust Surfaces & SEO Contracts", () => {
     expect(homeSource).toContain("utm_campaign=home-splash");
   });
 
-  it("keeps services overview indexable without legacy detail slug routes", () => {
+  it("keeps services overview indexable with concrete detail slug routes", () => {
     const servicesSeoUtilsPath = path.join(
       SRC_DIR,
       "lib",
@@ -509,7 +509,7 @@ describe("Branding Guardrails › Trust Surfaces & SEO Contracts", () => {
     expect(servicesSeoSource).toContain(
       "const servicesUrl = `${enhancedSEO.siteUrl}/services`;",
     );
-    expect(fs.existsSync(serviceSlugPagePath)).toBe(false);
+    expect(fs.existsSync(serviceSlugPagePath)).toBe(true);
   });
 });
 
