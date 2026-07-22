@@ -305,9 +305,13 @@ function checkTypographyRoleContracts(errors) {
         /\buppercase\b/.test(classValue) &&
         /\btracking-(?:wide|wider|widest)\b/.test(classValue);
 
-      if (hasUppercaseTracking && !/\bfont-heading\b/.test(classValue)) {
+      const hasExplicitUtilityLabelRole =
+        /\bfont-heading\b/.test(classValue) ||
+        /\bfont-subheading\b/.test(classValue);
+
+      if (hasUppercaseTracking && !hasExplicitUtilityLabelRole) {
         errors.push(
-          `Typography role contract: add font-heading to uppercase tracking label in ${rel(filePath)}.`,
+          `Typography role contract: add font-heading or font-subheading to uppercase tracking label in ${rel(filePath)}.`,
         );
         break;
       }

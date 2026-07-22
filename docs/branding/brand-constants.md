@@ -164,7 +164,7 @@ Web brand fonts use a self-hosted Mendl Sans Dusk model for both heading/display
 
 - **Mendl Sans Dusk** — used for all H1–H6 headings, subheadings, section titles, badge labels, and tab divider titles
 - **Mendl Sans Dusk** — used for all body copy, paragraphs, captions, form labels, navigation text, and document body content
-- Semantic `<h1>`–`<h6>` elements automatically receive the heading face via global CSS; for non-semantic title elements (eyebrows, kickers, badge labels) explicitly add the `font-heading` Tailwind utility
+- Semantic `<h1>`–`<h6>` elements automatically receive the heading face via global CSS; for non-semantic title elements (eyebrows, kickers, badge labels), use an explicit role utility: `font-heading` for strong display emphasis or `font-subheading` for medium utility-label emphasis
 - Fallbacks activate automatically if brand fonts are not yet loaded
 
 ### CSS Variables
@@ -188,8 +188,9 @@ This weight map keeps one family while preserving clear visual hierarchy and sca
 ### Tailwind Utilities
 
 ```html
-font-heading → Mendl Sans Dusk + fallbacks (headings) font-body / font-sans →
-Mendl Sans Dusk + fallbacks (body)
+font-heading → Mendl Sans Dusk + fallbacks (display/heading emphasis)
+font-subheading → Mendl Sans Dusk medium stack + fallbacks (utility-label
+emphasis) font-body / font-sans → Mendl Sans Dusk + fallbacks (body)
 ```
 
 ---

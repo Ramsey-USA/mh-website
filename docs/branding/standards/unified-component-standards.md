@@ -354,7 +354,7 @@ subheaders, and card-title typography across the website.
 1. Use approved heading roles and scales from this file: H1 hero headline scale, H2 two-line section header pattern (subtitle + gradient main title), H3 subsection heading scale, H4 card-title heading scale.
 1. Section header gradient pattern must preserve `overflow-visible` on container and both spans.
 1. Heading weights must stay role-aligned: H1/H2 main title `font-black`, subtitle `font-semibold`, H3 `font-semibold`, H4 `font-bold`.
-1. Keep typography token alignment with `font-heading`/`font-body` and approved responsive classes.
+1. Keep typography token alignment with `font-heading`/`font-subheading`/`font-body` and approved responsive classes.
 1. Do not introduce alternate ad-hoc heading styles that bypass this contract.
 
 ### Canonical References
