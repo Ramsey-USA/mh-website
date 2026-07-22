@@ -1,22 +1,52 @@
 # Phase 7.3 Media Audit
 
 **Category:** Media Audit  
-**Last Updated:** July 19, 2026
+**Last Updated:** July 22, 2026
 
 ## Active First-View Media
 
-| Surface              | Source path                      | Derivative path                        | Dimensions | Format | File size      | Loading priority         | Alt text                                                    | Caption/Credit | Rights/Source status                              | Rendering component                                                                                                                          |
-| -------------------- | -------------------------------- | -------------------------------------- | ---------- | ------ | -------------- | ------------------------ | ----------------------------------------------------------- | -------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| Homepage hero poster | repository-managed poster master | `/public/images/home-hero-poster.webp` | `1280x720` | WebP   | `48,094` bytes | `priority` on first view | `MH Construction project leadership and team collaboration` | None           | Approved repository asset currently in production | [apps/website/src/components/home/HeroSection.tsx](/workspaces/mh-website/apps/website/src/components/home/HeroSection.tsx) via `next/image` |
+- Homepage hero commercial (MP4)
+  - Source path: approved commercial master
+  - Derivative path: `/public/videos/hero-commercials/mhc-hero-command-the-horizon-smg-2026q3-v01.mp4`
+  - Format and size: MP4, `22,696,650` bytes
+  - Loading priority: metadata preload
+  - Alt text: `MH Construction homepage hero video highlighting project delivery leadership by Jeremy Thamert`
+  - Rights/status: approved repository asset currently in production
+  - Rendering component: [apps/website/src/components/home/HeroSectionClient.tsx](/workspaces/mh-website/apps/website/src/components/home/HeroSectionClient.tsx)
 
-## Withheld Media
+- Homepage hero commercial (WebM)
+  - Source path: approved commercial master
+  - Derivative path: `/public/videos/hero-commercials/mhc-hero-command-the-horizon-smg-2026q3-v01.webm`
+  - Format and size: WebM, `4.4 MB`
+  - Loading priority: metadata preload
+  - Alt text: `MH Construction homepage hero video highlighting project delivery leadership by Jeremy Thamert`
+  - Rights/status: approved repository asset currently in production
+  - Rendering component: [apps/website/src/components/home/HeroSectionClient.tsx](/workspaces/mh-website/apps/website/src/components/home/HeroSectionClient.tsx)
 
-| Surface                        | Status              | Reason                                                                                                                                                                             | Current fallback                                                                                                                                  |
-| ------------------------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hero commercial video pipeline | Withheld / inactive | `config/hero-commercials.json` is intentionally absent and `public/videos/hero-commercials/` is empty; no approved commercial-video asset is currently checked into the repository | Static hero poster in [apps/website/src/components/home/HeroSection.tsx](/workspaces/mh-website/apps/website/src/components/home/HeroSection.tsx) |
+- Homepage hero poster (video fallback frame)
+  - Derivative path: `/public/videos/hero-commercials/poster-mhc-hero-command-the-horizon-smg-2026q3-v01.jpg`
+  - Format and size: JPG, generated frame
+  - Loading priority: poster fallback
+  - Rights/status: derived repository asset currently in production
+  - Rendering component: [apps/website/src/components/home/HeroSectionClient.tsx](/workspaces/mh-website/apps/website/src/components/home/HeroSectionClient.tsx)
+
+- Homepage static fallback poster
+  - Derivative path: `/public/images/home-hero-poster.webp`
+  - Format and size: WebP, `48,094` bytes
+  - Loading priority: fallback only
+  - Alt text: `MH Construction project leadership and team collaboration`
+  - Rights/status: approved repository asset currently in production
+  - Rendering component: [apps/website/src/components/home/HeroSection.tsx](/workspaces/mh-website/apps/website/src/components/home/HeroSection.tsx)
+
+## Pipeline Status
+
+- Surface: Hero commercial video pipeline
+  - Status: Active
+  - Reason: `config/hero-commercials.json` is present and registered media is available in `public/videos/hero-commercials/`.
+  - Current fallback: poster fallback remains available in [apps/website/src/components/home/HeroSection.tsx](/workspaces/mh-website/apps/website/src/components/home/HeroSection.tsx).
 
 ## Notes
 
-- No new media assets were added, republished, or externally uploaded during Phase 7.3.
-- The `check:hero-commercials` validator now treats the hero-commercial pipeline as inactive only when both the manifest and hero-commercial media files are absent.
+- Command the Horizon (`mhc-command-the-horizon-2026q3-v01`) is the active company-wide home hero campaign.
+- The `check:hero-commercials` validator enforces registration, naming, single-partner attribution, and SEO metadata for active hero media.
 - External map embed behavior remains facade-gated and user-activated in [apps/website/src/app/contact/MapFacade.tsx](/workspaces/mh-website/apps/website/src/app/contact/MapFacade.tsx).

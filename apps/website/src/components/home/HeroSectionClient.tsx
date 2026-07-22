@@ -317,7 +317,7 @@ export function HeroSectionClient({
 
       {/* Header Text - Bottom Right */}
       <div
-        className={`hero-safe-top hero-safe-bottom relative z-10 mx-3 sm:ml-auto sm:mr-5 lg:mr-7 xl:mr-10 mb-4 pointer-events-none transition-opacity duration-300 sm:w-[min(88vw,44rem)] sm:max-w-176 ${isVideoPlaying ? "opacity-0" : "opacity-100"}`}
+        className={`hero-safe-bottom relative z-10 mx-3 mt-3 mb-4 max-h-[calc(100%-1rem)] pointer-events-none transition-opacity duration-300 sm:ml-auto sm:mr-5 sm:mt-4 sm:w-[min(88vw,44rem)] sm:max-w-176 lg:mr-7 xl:mr-10 ${isVideoPlaying ? "opacity-0" : "opacity-100"}`}
       >
         <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">

@@ -71,6 +71,7 @@
     "seo:jeremy:guardrails:check": "npm run seo:jeremy:signals:check && npm run seo:jeremy:metadata:check",
     "check:asset-budgets": "node scripts/validation/check-public-asset-budgets.js",
     "check:hero-commercials": "node scripts/validation/check-hero-commercial-guardrails.js",
+    "hero-commercials:entry": "node scripts/validation/generate-hero-commercial-manifest-entry.js",
     "check:hero-guardrails": "node scripts/validation/check-hero-guardrails.js",
     "lighthouse:guide": "node scripts/lighthouse-guide.js",
     "lighthouse:home": "npx lighthouse http://localhost:3000/?__lh=1 --preset=desktop --chrome-flags='--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu --disable-software-rasterizer' --only-categories=performance,accessibility,best-practices,seo --output=json --output=html --output-path=./lighthouse-results/home-latest",

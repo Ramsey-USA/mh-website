@@ -668,7 +668,9 @@ Hard size budgets enforced during repack:
 - WebM <= 10 MB
 - MP4 <= 15 MB
 - Hero commercials use a dedicated 25 MiB cap and must be registered in `apps/website/config/hero-commercials.json` when approved hero-commercial assets are present in the repository.
-- If the hero-commercial pipeline is inactive, keep `public/videos/hero-commercials/` empty and do not recreate the manifest until approved assets are ready to ship.
+- Current active campaign: `mhc-command-the-horizon-2026q3-v01` (company scope, homepage enabled).
+- Each hero video must be tagged to exactly one media partner (`smg` or `tsm`), not both.
+- If the hero-commercial pipeline is intentionally deactivated again, keep `public/videos/hero-commercials/` empty and remove `apps/website/config/hero-commercials.json`.
 
 If a converted file exceeds budget, the script automatically re-packs it by raising CRF.
 

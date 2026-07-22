@@ -14,6 +14,9 @@ const HERO_DIR = process.env.HERO_COMMERCIALS_DIR
 const MANIFEST_PATH = process.env.HERO_COMMERCIALS_MANIFEST_PATH
   ? path.resolve(process.env.HERO_COMMERCIALS_MANIFEST_PATH)
   : path.join(__dirname, "../../config/hero-commercials.json");
+const APP_DIR = process.env.HERO_COMMERCIALS_APP_DIR
+  ? path.resolve(process.env.HERO_COMMERCIALS_APP_DIR)
+  : path.join(__dirname, "../../src/app");
 
 const MAX_HERO_FILE_MB = Number(process.env.HERO_COMMERCIAL_MAX_FILE_MB || 45);
 const WARN_LARGE_MB = Number(process.env.HERO_COMMERCIAL_WARN_FILE_MB || 20);
@@ -22,6 +25,19 @@ const WARN_LARGE_BYTES = WARN_LARGE_MB * 1024 * 1024;
 const DURATION_TOLERANCE_SEC = 0.75;
 const FILE_NAME_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*\.(mp4|webm)$/;
 const IGNORE_TEMP_MEDIA = process.env.HERO_COMMERCIAL_IGNORE_TEMP !== "0";
+const SEO_TITLE_MIN = 30;
+const SEO_TITLE_MAX = 70;
+const SEO_DESCRIPTION_MIN = 70;
+const SEO_DESCRIPTION_MAX = 170;
+const REQUIRED_VOICE_TALENT = "Jeremy Thamert";
+const HERO_VERSION_TOKEN_RE = /-v\d{2}$/;
+const HERO_YEAR_QUARTER_TOKEN_RE = /-20\d{2}q[1-4]-v\d{2}$/;
+const HERO_PARTNER_CODE_RE = /-(smg|tsm)-/;
+const COMPANY_HERO_PREFIX = "mhc-hero-";
+const APPROVED_RADIO_PARTNERS = new Set([
+  "Stephens Media Group",
+  "Townsquare Media",
+]);
 
 function formatMB(bytes) {
   return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
@@ -38,6 +54,324 @@ function fail(errors) {
 function warn(messages) {
   for (const message of messages) {
     console.warn(`WARN: ${message}`);
+  }
+}
+
+function isNonEmptyString(value) {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
+function hasRecommendedLength(value, min, max) {
+  const len = value.trim().length;
+  return len >= min && len <= max;
+}
+
+function isValidRoutePath(value) {
+  return isNonEmptyString(value) && value.startsWith("/");
+}
+
+function listPageFiles(currentDir, result = []) {
+  if (!fs.existsSync(currentDir)) {
+    return result;
+  }
+
+  const entries = fs.readdirSync(currentDir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(currentDir, entry.name);
+    if (entry.isDirectory()) {
+      listPageFiles(fullPath, result);
+      continue;
+    }
+
+    if (entry.isFile() && entry.name === "page.tsx") {
+      result.push(fullPath);
+    }
+  }
+
+  return result;
+}
+
+function routeFromPageFile(filePath, appDir) {
+  const relative = path.relative(appDir, filePath).split(path.sep).join("/");
+
+  if (relative === "page.tsx") {
+    return "/";
+  }
+
+  const cleaned = relative
+    .replace(/\/page\.tsx$/, "")
+    .split("/")
+    .filter((segment) => {
+      if (!segment) {
+        return false;
+      }
+
+      // Ignore Next.js route groups and parallel-route placeholders.
+      if (segment.startsWith("(") && segment.endsWith(")")) {
+        return false;
+      }
+
+      if (segment.startsWith("@")) {
+        return false;
+      }
+
+      return true;
+    })
+    .join("/");
+
+  return cleaned ? `/${cleaned}` : "/";
+}
+
+function collectKnownAppRoutes(appDir = APP_DIR) {
+  const pageFiles = listPageFiles(appDir);
+  const routes = new Set();
+
+  for (const pageFile of pageFiles) {
+    routes.add(routeFromPageFile(pageFile, appDir));
+  }
+
+  return routes;
+}
+
+function isValidThumbnailPath(value) {
+  return (
+    isNonEmptyString(value) &&
+    (value.startsWith("images/") || value.startsWith("videos/"))
+  );
+}
+
+function isValidInternalOrAbsoluteUrl(value) {
+  return (
+    isNonEmptyString(value) &&
+    (value.startsWith("/") || value.startsWith("https://"))
+  );
+}
+
+function hasJeremySearchSignal(seo) {
+  const fields = [
+    seo.title,
+    seo.description,
+    seo.videoObjectName,
+    seo.videoObjectDescription,
+  ]
+    .filter((value) => typeof value === "string")
+    .join(" ")
+    .toLowerCase();
+
+  return fields.includes("jeremy thamert");
+}
+
+function routePathToRouteKey(routePath) {
+  if (!isValidRoutePath(routePath)) {
+    return "";
+  }
+
+  const trimmed = routePath.replace(/^\/+|\/+$/g, "");
+  if (!trimmed) {
+    return "home";
+  }
+
+  const normalized = trimmed.replace(/\//g, "-").replace(/\[[^\]]+\]/g, "dyn");
+  return normalized || "home";
+}
+
+function getCampaignScope(entry) {
+  if (entry?.campaignScope === "company") {
+    return "company";
+  }
+  return "route";
+}
+
+function validateHeroFileNameConvention({
+  id,
+  routePath,
+  campaignScope,
+  mediaPath,
+  errors,
+  warnings,
+}) {
+  if (!isNonEmptyString(mediaPath)) {
+    return;
+  }
+
+  const fileName = path.basename(mediaPath);
+  const baseName = fileName.replace(/\.(mp4|webm)$/i, "");
+  const routeKey = routePathToRouteKey(routePath);
+
+  if (campaignScope === "company") {
+    if (!baseName.startsWith(COMPANY_HERO_PREFIX)) {
+      errors.push(
+        `[${id}] ${mediaPath} must start with '${COMPANY_HERO_PREFIX}' for company-wide hero campaigns.`,
+      );
+    }
+  } else if (routeKey && !baseName.startsWith(`${routeKey}-hero-`)) {
+    errors.push(
+      `[${id}] ${mediaPath} must start with '${routeKey}-hero-' to align filename tracking with seo.routePath.`,
+    );
+  }
+
+  if (!HERO_PARTNER_CODE_RE.test(baseName)) {
+    errors.push(
+      `[${id}] ${mediaPath} must include exactly one partner code segment: '-smg-' or '-tsm-'.`,
+    );
+  }
+
+  if (!HERO_VERSION_TOKEN_RE.test(baseName)) {
+    errors.push(`[${id}] ${mediaPath} must end with version token '-vNN'.`);
+  }
+
+  if (!HERO_YEAR_QUARTER_TOKEN_RE.test(baseName)) {
+    warnings.push(
+      `[${id}] ${mediaPath} should include campaign period token '-YYYYqN-vNN' for easier quarterly tracking.`,
+    );
+  }
+}
+
+function validateSeoMetadata({ entry, id, errors, warnings, knownAppRoutes }) {
+  const seo = entry.seo;
+  const campaignScope = getCampaignScope(entry);
+
+  if (!seo || typeof seo !== "object") {
+    errors.push(
+      `[${id}] Missing seo object. Provide seo metadata for route, title, description, schema fields, and radio attribution.`,
+    );
+    return;
+  }
+
+  if (!isValidRoutePath(seo.routePath)) {
+    errors.push(`[${id}] seo.routePath must start with '/'.`);
+  } else if (campaignScope === "company" && seo.routePath !== "/") {
+    errors.push(`[${id}] company-wide campaigns must use seo.routePath '/'.`);
+  } else if (
+    knownAppRoutes instanceof Set &&
+    knownAppRoutes.size > 0 &&
+    !knownAppRoutes.has(seo.routePath)
+  ) {
+    errors.push(
+      `[${id}] seo.routePath '${seo.routePath}' does not map to a current app route.`,
+    );
+  }
+
+  if (!isNonEmptyString(seo.title)) {
+    errors.push(`[${id}] seo.title is required.`);
+  } else if (!hasRecommendedLength(seo.title, SEO_TITLE_MIN, SEO_TITLE_MAX)) {
+    warnings.push(
+      `[${id}] seo.title length should be ${SEO_TITLE_MIN}-${SEO_TITLE_MAX} characters for stronger SERP presentation.`,
+    );
+  }
+
+  if (!isNonEmptyString(seo.description)) {
+    errors.push(`[${id}] seo.description is required.`);
+  } else if (
+    !hasRecommendedLength(
+      seo.description,
+      SEO_DESCRIPTION_MIN,
+      SEO_DESCRIPTION_MAX,
+    )
+  ) {
+    warnings.push(
+      `[${id}] seo.description length should be ${SEO_DESCRIPTION_MIN}-${SEO_DESCRIPTION_MAX} characters for stronger SERP presentation.`,
+    );
+  }
+
+  if (!isNonEmptyString(seo.videoObjectName)) {
+    errors.push(
+      `[${id}] seo.videoObjectName is required for VideoObject schema.`,
+    );
+  }
+
+  if (!isNonEmptyString(seo.videoObjectDescription)) {
+    errors.push(
+      `[${id}] seo.videoObjectDescription is required for VideoObject schema.`,
+    );
+  }
+
+  if (!isValidThumbnailPath(seo.thumbnailPath)) {
+    errors.push(
+      `[${id}] seo.thumbnailPath must be a public asset path under images/ or videos/.`,
+    );
+  }
+
+  if (!isValidInternalOrAbsoluteUrl(seo.transcriptOrSummaryUrl)) {
+    errors.push(
+      `[${id}] seo.transcriptOrSummaryUrl must start with '/' or 'https://'.`,
+    );
+  }
+
+  if (!isNonEmptyString(seo.voiceoverTalent)) {
+    errors.push(
+      `[${id}] seo.voiceoverTalent is required and must be '${REQUIRED_VOICE_TALENT}'.`,
+    );
+  } else if (seo.voiceoverTalent.trim() !== REQUIRED_VOICE_TALENT) {
+    errors.push(
+      `[${id}] seo.voiceoverTalent must be '${REQUIRED_VOICE_TALENT}' to preserve Jeremy-led voice authority signals.`,
+    );
+  }
+
+  if (!isNonEmptyString(seo.presenterEntityName)) {
+    errors.push(
+      `[${id}] seo.presenterEntityName is required and must be '${REQUIRED_VOICE_TALENT}'.`,
+    );
+  } else if (seo.presenterEntityName.trim() !== REQUIRED_VOICE_TALENT) {
+    errors.push(
+      `[${id}] seo.presenterEntityName must be '${REQUIRED_VOICE_TALENT}' to keep presenter attribution aligned with MHC SEO.`,
+    );
+  }
+
+  if (!hasJeremySearchSignal(seo)) {
+    errors.push(
+      `[${id}] SEO metadata must include the phrase 'Jeremy Thamert' in at least one of title, description, videoObjectName, or videoObjectDescription.`,
+    );
+  }
+
+  if (campaignScope === "company") {
+    if (
+      !Array.isArray(seo.appliesToRoutes) ||
+      seo.appliesToRoutes.length === 0
+    ) {
+      errors.push(
+        `[${id}] company-wide campaigns must define seo.appliesToRoutes with at least one route.`,
+      );
+    } else if (knownAppRoutes instanceof Set && knownAppRoutes.size > 0) {
+      for (const appliedRoute of seo.appliesToRoutes) {
+        if (
+          !isValidRoutePath(appliedRoute) ||
+          !knownAppRoutes.has(appliedRoute)
+        ) {
+          errors.push(
+            `[${id}] seo.appliesToRoutes contains unknown route '${appliedRoute}'.`,
+          );
+        }
+      }
+    }
+  }
+
+  if (!Array.isArray(seo.radioPartners) || seo.radioPartners.length === 0) {
+    errors.push(
+      `[${id}] seo.radioPartners must list at least one approved radio partner.`,
+    );
+    return;
+  }
+
+  if (seo.radioPartners.length !== 1) {
+    errors.push(
+      `[${id}] seo.radioPartners must contain exactly one partner (Stephens Media Group or Townsquare Media).`,
+    );
+  }
+
+  for (const partner of seo.radioPartners) {
+    if (!isNonEmptyString(partner)) {
+      errors.push(
+        `[${id}] seo.radioPartners entries must be non-empty strings.`,
+      );
+      continue;
+    }
+
+    if (!APPROVED_RADIO_PARTNERS.has(partner.trim())) {
+      errors.push(
+        `[${id}] seo.radioPartners contains unapproved value '${partner}'. Use approved names: Stephens Media Group, Townsquare Media.`,
+      );
+    }
   }
 }
 
@@ -117,10 +451,17 @@ function isInactiveHeroCommercialPipeline({
 function run() {
   const errors = [];
   const warnings = [];
+  const knownAppRoutes = collectKnownAppRoutes();
   const manifestExists = fs.existsSync(MANIFEST_PATH);
   const presentMedia = collectMediaFiles(HERO_DIR).map((filePath) =>
     path.normalize(filePath),
   );
+
+  if (knownAppRoutes.size === 0) {
+    warnings.push(
+      `No page.tsx routes discovered under ${APP_DIR}. Route ownership checks for seo.routePath are skipped.`,
+    );
+  }
 
   if (
     isInactiveHeroCommercialPipeline({
@@ -161,10 +502,29 @@ function run() {
 
   for (const entry of manifest) {
     const id = entry.id || "(missing-id)";
+    const campaignScope = getCampaignScope(entry);
 
     if (typeof entry.id !== "string" || !entry.id.trim()) {
       errors.push("Manifest entry is missing a non-empty id.");
     }
+
+    if (
+      entry.campaignScope !== undefined &&
+      entry.campaignScope !== "company" &&
+      entry.campaignScope !== "route"
+    ) {
+      errors.push(
+        `[${id}] campaignScope must be 'company' or 'route' when provided.`,
+      );
+    }
+
+    validateSeoMetadata({
+      entry,
+      id,
+      errors,
+      warnings,
+      knownAppRoutes,
+    });
 
     if (typeof entry.mp4 !== "string" || !entry.mp4.endsWith(".mp4")) {
       errors.push(`[${id}] mp4 must be a .mp4 path.`);
@@ -185,6 +545,14 @@ function run() {
         `[${id}] MP4 filename must be lowercase kebab-case: ${mp4Name}`,
       );
     }
+    validateHeroFileNameConvention({
+      id,
+      routePath: entry.seo?.routePath,
+      campaignScope,
+      mediaPath: entry.mp4,
+      errors,
+      warnings,
+    });
 
     const mp4Size = fs.statSync(mp4Path).size;
     if (mp4Size > MAX_HERO_FILE_BYTES) {
@@ -247,6 +615,14 @@ function run() {
             `[${id}] WebM filename must be lowercase kebab-case: ${webmName}`,
           );
         }
+        validateHeroFileNameConvention({
+          id,
+          routePath: entry.seo?.routePath,
+          campaignScope,
+          mediaPath: entry.webm,
+          errors,
+          warnings,
+        });
 
         const webmSize = fs.statSync(webmPath).size;
         if (webmSize > MAX_HERO_FILE_BYTES) {
@@ -289,7 +665,14 @@ if (require.main === module) {
 }
 
 module.exports = {
+  collectKnownAppRoutes,
   collectMediaFiles,
   isInactiveHeroCommercialPipeline,
+  listPageFiles,
+  routePathToRouteKey,
+  routeFromPageFile,
+  getCampaignScope,
+  validateHeroFileNameConvention,
+  validateSeoMetadata,
   run,
 };

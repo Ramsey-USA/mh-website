@@ -15,7 +15,7 @@
 
 The homepage is implemented as a server-first App Router page that combines:
 
-- A poster-backed command-center hero.
+- A manifest-driven command-center video hero with poster fallback.
 - Public-proof summary cards sourced from current data.
 - Service and project pathways for commercial delivery.
 - Testimonials and a standardized next-step conversion section.
@@ -62,7 +62,8 @@ Component:
 
 Current behavior:
 
-- Uses static poster image /images/home-hero-poster.webp.
+- Resolves hero-commercial manifest entry and renders `HeroSectionClient` video playback when media files are present.
+- Uses static poster image `/images/home-hero-poster.webp` as fallback when no valid hero video assets are available.
 - Uses a dark gradient atmosphere and readability overlay.
 - Anchors content to lower-right envelope with safe header spacing.
 - Renders dual-label command-center style copy:
@@ -116,7 +117,7 @@ Runtime gating:
 
 When editing homepage-related docs, keep these statements true to code:
 
-1. Hero is poster-backed and lower-right anchored.
+1. Hero is manifest-driven video-first when compliant hero media exists, with poster fallback and lower-right anchored content envelope.
 2. Hero contains two CTAs (contact + project proof).
 3. Homepage section sequence matches Current Homepage Structure above.
 4. Proof/service/project content is based on published data sources, not hard-coded claims.
@@ -128,6 +129,8 @@ If implementation changes, update this file in the same PR.
 
 - apps/website/src/app/page.tsx
 - apps/website/src/components/home/HeroSection.tsx
+- apps/website/src/components/home/HeroSectionClient.tsx
+- apps/website/config/hero-commercials.json
 - apps/website/src/components/templates/BrandedContentSection.tsx
 - apps/website/src/components/home/TestimonialsSectionDeferred.tsx
 - apps/website/src/components/shared-sections/NextStepsSection.tsx

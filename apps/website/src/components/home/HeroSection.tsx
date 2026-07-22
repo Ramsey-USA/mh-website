@@ -1,7 +1,10 @@
+import fs from "node:fs";
+import path from "node:path";
 import Image from "next/image";
 import Link from "next/link";
 import { MH_SLOGANS } from "@/lib/branding/page-names";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
+import { HeroSectionClient } from "./HeroSectionClient";
 
 interface HeroSectionCopy {
   baseLabel: string;
@@ -18,6 +21,17 @@ interface HeroSectionProps {
   copy?: HeroSectionCopy;
 }
 
+interface HeroCommercialManifestEntry {
+  campaignScope?: "company" | "route";
+  mp4?: string;
+  webm?: string;
+  seo?: {
+    routePath?: string;
+    appliesToRoutes?: string[];
+    thumbnailPath?: string;
+  };
+}
+
 const DEFAULT_EN_COPY: HeroSectionCopy = {
   baseLabel: "Home",
   founded: "Founded 2010 • Veteran-Owned Since January 2025 • BABAA Supporter",
@@ -27,10 +41,92 @@ const DEFAULT_EN_COPY: HeroSectionCopy = {
     "Tri-Cities HQ (Pasco, Richland, Kennewick) | Licensed in WA, OR, ID",
 };
 
+const MANIFEST_PATH = path.join(
+  process.cwd(),
+  "config",
+  "hero-commercials.json",
+);
+const PUBLIC_DIR = path.join(process.cwd(), "public");
+
+function normalizePublicAssetPath(assetPath?: string): string {
+  if (!assetPath) {
+    return "";
+  }
+
+  const normalized = assetPath.replace(/^\/+/, "");
+  return normalized ? `/${normalized}` : "";
+}
+
+function selectHomeHeroCommercial(): HeroCommercialManifestEntry | null {
+  if (!fs.existsSync(MANIFEST_PATH)) {
+    return null;
+  }
+
+  try {
+    const parsed = JSON.parse(
+      fs.readFileSync(MANIFEST_PATH, "utf8"),
+    ) as HeroCommercialManifestEntry[];
+
+    if (!Array.isArray(parsed) || parsed.length === 0) {
+      return null;
+    }
+
+    const companyEntry = parsed.find((entry) => {
+      if (entry?.campaignScope !== "company") {
+        return false;
+      }
+
+      const appliesTo = entry?.seo?.appliesToRoutes;
+      return Array.isArray(appliesTo) && appliesTo.includes("/");
+    });
+
+    if (companyEntry) {
+      return companyEntry;
+    }
+
+    return parsed.find((entry) => entry?.seo?.routePath === "/") ?? null;
+  } catch {
+    return null;
+  }
+}
+
 export function HeroSection({
-  locale: _locale = "en",
+  locale = "en",
   copy = DEFAULT_EN_COPY,
 }: Readonly<HeroSectionProps>) {
+  const heroCommercial = selectHomeHeroCommercial();
+  const mp4Src = normalizePublicAssetPath(heroCommercial?.mp4);
+  const webmSrc = normalizePublicAssetPath(heroCommercial?.webm);
+  const posterSrc = normalizePublicAssetPath(
+    heroCommercial?.seo?.thumbnailPath,
+  );
+  const hasMp4 =
+    mp4Src.length > 0 &&
+    fs.existsSync(path.join(PUBLIC_DIR, mp4Src.replace(/^\//, "")));
+  const hasWebm =
+    webmSrc.length > 0 &&
+    fs.existsSync(path.join(PUBLIC_DIR, webmSrc.replace(/^\//, "")));
+  const hasPoster =
+    posterSrc.length > 0 &&
+    fs.existsSync(path.join(PUBLIC_DIR, posterSrc.replace(/^\//, "")));
+  const useVideoHero = hasMp4 || hasWebm;
+
+  if (useVideoHero) {
+    return (
+      <HeroSectionClient
+        locale={locale}
+        copy={copy}
+        useVideoHero={useVideoHero}
+        hasWebm={hasWebm}
+        hasMp4={hasMp4}
+        hasPoster={hasPoster}
+        webmSrc={webmSrc}
+        mp4Src={mp4Src}
+        posterSrc={posterSrc}
+      />
+    );
+  }
+
   return (
     <section
       data-page-hero="true"
@@ -53,7 +149,7 @@ export function HeroSection({
 
       <div className="absolute inset-0 bg-linear-to-br from-brand-primary/15 via-gray-900/35 to-gray-900/50" />
 
-      <div className="hero-safe-top hero-safe-bottom relative z-10 mx-3 sm:ml-auto sm:mr-5 lg:mr-7 xl:mr-10 mb-4 pointer-events-none sm:w-[min(88vw,44rem)] sm:max-w-176">
+      <div className="hero-safe-bottom relative z-10 mx-3 mt-3 mb-4 max-h-[calc(100%-1rem)] pointer-events-none sm:ml-auto sm:mr-5 sm:mt-4 sm:w-[min(88vw,44rem)] sm:max-w-176 lg:mr-7 xl:mr-10">
         <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
             <span className="mb-1 block text-brand-secondary text-[clamp(0.8rem,1.8vw,1.4rem)] leading-[1.2]">

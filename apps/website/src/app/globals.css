@@ -181,18 +181,33 @@
       100dvh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
         1rem
     );
+    max-height: calc(
+      100vh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
+        1rem
+    );
+    max-height: calc(
+      100svh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
+        1rem
+    );
+    max-height: calc(
+      100dvh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
+        1rem
+    );
   }
 
   .hero-safe-top {
-    padding-top: calc(var(--mh-nav-offset, 6.5rem) + 0.75rem);
+    padding-top: clamp(0.75rem, 2.2vh, 1.5rem);
   }
 
   .hero-safe-top-lg {
-    padding-top: calc(var(--mh-nav-offset, 6.5rem) + 1.5rem);
+    padding-top: clamp(1rem, 3.2vh, 2.25rem);
   }
 
   .hero-safe-bottom {
-    padding-bottom: calc(var(--mh-page-nav-height, 3.5rem) + 1rem);
+    padding-bottom: calc(
+      var(--mh-page-nav-height, 0px) + env(safe-area-inset-bottom, 0px) +
+        clamp(0.75rem, 2vh, 1.25rem)
+    );
   }
 
   .section-shell {
