@@ -154,7 +154,7 @@ export default async function ServicesPage() {
               key={caseStudy.slug}
               className="rounded-2xl border border-gray-200/90 dark:border-gray-700 bg-white/95 dark:bg-gray-800/95 p-5 sm:p-6 shadow-md"
             >
-              <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
+              <p className="font-subheading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
                 {caseStudy.category}
               </p>
               <h3 className="mt-2 text-xl font-extrabold text-gray-900 dark:text-white">

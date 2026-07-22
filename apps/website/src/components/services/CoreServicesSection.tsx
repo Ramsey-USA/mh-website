@@ -129,7 +129,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
                   />
                 </div>
                 <div className="flex-1 pt-1">
-                  <p className="font-subheading mb-2 text-xs sm:text-sm font-semibold font-heading uppercase tracking-wider text-white/80">
+                  <p className="font-subheading mb-2 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white/80">
                     Core Service Detail
                   </p>
                   <h2

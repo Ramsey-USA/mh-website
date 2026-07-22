@@ -63,7 +63,7 @@ export default async function OfflinePage() {
         <div
           className={`bg-brand-primary-dark/60 border border-brand-secondary/20 ${cornerRadius.icon} p-6 mb-8 text-left space-y-3`}
         >
-          <p className="font-subheading text-xs font-bold font-heading uppercase tracking-widest text-brand-secondary mb-4">
+          <p className="font-subheading text-xs font-bold uppercase tracking-widest text-brand-secondary mb-4">
             {t("offlinePage.availableOffline")}
           </p>
           {features.map((item) => (

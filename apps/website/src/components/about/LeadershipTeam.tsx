@@ -90,7 +90,7 @@ export function LeadershipTeam({
                 predictable quality, safe delivery, and long-term trust.
               </span>
             </p>
-            <div className="font-subheading flex items-center justify-center gap-2 text-brand-secondary font-bold text-sm font-heading uppercase tracking-wider">
+            <div className="font-subheading flex items-center justify-center gap-2 text-brand-secondary font-bold text-sm uppercase tracking-wider">
               <MaterialIcon icon="stars" size="md" />
               <span>Individual Excellence. Collective Results.</span>
               <MaterialIcon icon="stars" size="md" />

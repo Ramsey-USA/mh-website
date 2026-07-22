@@ -108,7 +108,7 @@ export function MobileNavigation({
               </p>
               <button
                 type="button"
-                className="font-subheading rounded-md border border-gray-300 px-2 py-1 text-[0.7rem] font-heading uppercase tracking-widest text-gray-700 transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/90 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:focus-visible:ring-offset-gray-950"
+                className="font-subheading rounded-md border border-gray-300 px-2 py-1 text-[0.7rem] uppercase tracking-widest text-gray-700 transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/90 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:focus-visible:ring-offset-gray-950"
                 aria-label={labels.closeMenuLabel}
                 onClick={() => setOpen(false)}
               >

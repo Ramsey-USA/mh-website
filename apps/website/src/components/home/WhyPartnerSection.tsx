@@ -223,7 +223,7 @@ export function WhyPartnerSection({
                           {displayStat}
                         </div>
                       ) : null}
-                      <div className="font-subheading text-xs font-semibold text-gray-600 dark:text-gray-300 font-heading uppercase tracking-wider">
+                      <div className="font-subheading text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
                         {value.statLabel}
                       </div>
                     </div>

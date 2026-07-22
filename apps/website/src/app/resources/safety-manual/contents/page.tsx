@@ -92,10 +92,10 @@ export default async function SafetyManualContentsPage() {
           </div>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
-              <p className="font-subheading mb-1 text-xs font-semibold font-heading uppercase tracking-wider text-brand-secondary/80">
+              <p className="font-subheading mb-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/80">
                 Safety Program <span aria-hidden>→</span> Safety Manual
               </p>
-              <div className="font-subheading mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold font-heading uppercase tracking-wider text-brand-secondary">
+              <div className="font-subheading mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
                 <MaterialIcon
                   icon={FORM_MANUAL_ICONS.source}
                   size="sm"
@@ -119,7 +119,7 @@ export default async function SafetyManualContentsPage() {
                   ? "Indice publico para revision externa, navegacion por secciones y solicitudes de acceso"
                   : "Public index for external review, section navigation, and access requests"}
               </p>
-              <p className="font-subheading mt-1 text-xs font-semibold font-heading uppercase tracking-wider text-brand-secondary/70">
+              <p className="font-subheading mt-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/70">
                 {MH_SLOGANS.supporting[0]}
               </p>
             </div>
@@ -188,7 +188,7 @@ export default async function SafetyManualContentsPage() {
       </div>
 
       <div className="border-b border-brand-primary/15 bg-brand-primary/5 px-4 py-3">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 font-subheading text-xs font-semibold font-heading uppercase tracking-wider text-brand-primary">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 font-subheading text-xs font-semibold uppercase tracking-wider text-brand-primary">
           <span className="rounded-full border border-brand-primary/25 bg-white px-3 py-1">
             {MH_SLOGANS.primary}
           </span>
@@ -216,7 +216,7 @@ export default async function SafetyManualContentsPage() {
               >
                 <Link
                   href={`/resources/safety-manual/${cluster.slug}`}
-                  className="font-subheading mb-3 block border-b border-brand-primary/20 pb-2 text-xs font-bold font-heading uppercase tracking-wider text-brand-primary hover:text-brand-primary-dark dark:text-brand-secondary dark:hover:text-brand-secondary/80"
+                  className="font-subheading mb-3 block border-b border-brand-primary/20 pb-2 text-xs font-bold uppercase tracking-wider text-brand-primary hover:text-brand-primary-dark dark:text-brand-secondary dark:hover:text-brand-secondary/80"
                 >
                   {cluster.name}
                 </Link>
