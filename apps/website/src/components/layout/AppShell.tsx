@@ -102,14 +102,14 @@ function buildFallbackBreadcrumbItems(pathname: string): BreadcrumbItem[] {
 function AppShellBreadcrumbFallback() {
   const pathname = usePathname();
   const [shouldRender, setShouldRender] = useState(false);
-
-  if (pathname === "/") {
-    return null;
-  }
-
   const fallbackItems = buildFallbackBreadcrumbItems(pathname);
 
   useEffect(() => {
+    if (pathname === "/") {
+      setShouldRender(false);
+      return;
+    }
+
     const hasPageBreadcrumb = () =>
       Array.from(
         document.querySelectorAll<HTMLElement>('[data-mh-breadcrumb="true"]'),
@@ -129,7 +129,7 @@ function AppShellBreadcrumbFallback() {
     };
   }, [pathname]);
 
-  if (!shouldRender) {
+  if (pathname === "/" || !shouldRender) {
     return null;
   }
 
