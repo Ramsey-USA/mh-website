@@ -556,7 +556,9 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
   });
 }
 
-export function getServiceDetailSEO(service: ServiceRecord): Metadata {
+export function getServiceDetailSEO(
+  service: ServiceRecord,
+): Metadata & { schemas: object[] } {
   const serviceUrl = `${enhancedSEO.siteUrl}/services/${service.slug}`;
   const ogImageUrl = createOgImageUrl("service", service.slug);
 

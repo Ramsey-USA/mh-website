@@ -72,6 +72,7 @@ import {
   getVeteransSEO,
 } from "../page-seo-utils";
 import { JEREMY_SEO_ROUTE_KEYS } from "../jeremy-seo-route-keys";
+import type { ServiceRecord } from "@/lib/data/service-routes";
 
 function expectJeremyQuoteSchema(
   seoResult: { schemas?: unknown[] },
@@ -202,17 +203,27 @@ describe("page seo utils", () => {
   });
 
   it("enforces Jeremy quotation schema across all SEO builders", () => {
-    const service = {
+    const service: ServiceRecord = {
       slug: "tenant-improvements",
       title: "Tenant Improvements",
-      metaDescription:
-        "Tenant improvement planning and delivery for occupied facilities.",
-      category: "Fit-Out Services",
-      supportedProjectTypes: ["Office"],
-      focusAreas: ["Scheduling"],
-      technicalPriorities: ["Quality Control"],
       summary:
         "Mission-ready fit-outs with clear sequencing and disciplined field coordination.",
+      supportedProjectTypes: ["Office"],
+      processStatements: ["Coordinate work around occupied operations."],
+      proofReferences: ["projects/tenant-improvements"],
+      ctaLabel: "Start a tenant improvement scope review",
+      ctaHref: "/contact",
+      publishStatus: "published",
+      metaTitle: "Tenant Improvements | MH Construction",
+      metaDescription:
+        "Tenant improvement planning and delivery for occupied facilities.",
+      ogImage: "/images/og/services/tenant-improvements.webp",
+      category: "Fit-Out Services",
+      overview: "Tenant improvement delivery for occupied facilities.",
+      focusAreas: ["Scheduling"],
+      technicalPriorities: ["Quality Control"],
+      deliverySteps: ["Confirm scope and execute phased field delivery."],
+      safetyCommitments: ["Maintain occupied-site safety controls."],
     };
 
     const cases: Array<{ result: { schemas?: unknown[] }; quoteId: string }> = [
