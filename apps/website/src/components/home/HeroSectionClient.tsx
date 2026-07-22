@@ -55,7 +55,7 @@ export function HeroSectionClient({
   > | null>(null);
   const initialVideoDelayMsRef = useRef<number>(getInitialHeroVideoDelayMs());
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const [isVideoReady, setIsVideoReady] = useState(false);
+  const [isVideoReady, setIsVideoReady] = useState(hasPoster);
   const [isMuted, setIsMuted] = useState(true);
   const [allowAutoPlayback, setAllowAutoPlayback] = useState(true);
   const showLegacyBackdrop = !isVideoReady;
@@ -277,11 +277,12 @@ export function HeroSectionClient({
               muted={isMuted}
               loop
               playsInline
-              preload={allowAutoPlayback ? "metadata" : "none"}
+              preload="metadata"
               poster={hasPoster ? posterSrc : undefined}
               aria-label="MH Construction homepage hero video highlighting project delivery leadership by Jeremy Thamert"
               onPlay={() => setIsVideoPlaying(true)}
               onPlaying={() => setIsVideoPlaying(true)}
+              onLoadedMetadata={() => setIsVideoReady(true)}
               onCanPlay={() => setIsVideoReady(true)}
               onCanPlayThrough={() => setIsVideoReady(true)}
               onWaiting={() => setIsVideoPlaying(false)}

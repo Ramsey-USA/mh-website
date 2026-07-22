@@ -47,11 +47,14 @@ describe("HeroSection", () => {
     const heroVideo = screen.getByLabelText(
       /MH Construction homepage hero video highlighting project delivery leadership by Jeremy Thamert/i,
     );
+    const videos = container.querySelectorAll("video");
 
     expect(heroVideo.tagName.toLowerCase()).toBe("video");
-    expect(container.querySelector("video")).not.toBeNull();
+    expect(videos).toHaveLength(1);
     expect(container.querySelector('source[type="video/webm"]')).not.toBeNull();
     expect(container.querySelector('source[type="video/mp4"]')).not.toBeNull();
+    expect(heroVideo).toHaveClass("opacity-100");
+    expect(heroVideo).not.toHaveClass("opacity-0");
   });
 
   it("falls back to the static hero poster when commercial media is unavailable", () => {
