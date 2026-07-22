@@ -65,6 +65,7 @@ Use this path to find canonical docs quickly and avoid duplicate guidance:
 
 - [← Back to Main README](../README.md)
 - [CHANGELOG](../CHANGELOG.md)
+- [Security Policy](../SECURITY.md#dependency-override-hygiene)
 - [Contributing](../contributing.md)
 
 ---

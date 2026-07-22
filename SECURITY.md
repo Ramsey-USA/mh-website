@@ -54,3 +54,11 @@ Please avoid public disclosure until remediation is available or coordinated wit
 - Dependency Review on pull requests
 - CodeQL code scanning
 - CI dependency audit gates (`security:check`, `security:check:strict`)
+
+## Dependency Override Hygiene
+
+- Workspace-level pnpm overrides are treated as security-sensitive policy because they can force vulnerable transitive versions even when direct dependencies are current.
+- When resolving dependency advisories, update override pins and regenerate `pnpm-lock.yaml` before closing alerts.
+- Validate both production and development graphs after remediation:
+- `pnpm audit --prod --json`
+- `pnpm audit --dev --json`

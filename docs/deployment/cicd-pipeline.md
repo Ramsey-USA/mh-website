@@ -255,6 +255,11 @@ If tests fail:
 
 ## Security Checks
 
+Canonical policy and recent remediation references:
+
+- [Repository Security Policy](../../SECURITY.md#dependency-override-hygiene)
+- [Security Remediation Changelog Record](../../CHANGELOG.md)
+
 ### 1. Dependency Audit
 
 ```bash

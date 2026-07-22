@@ -16,6 +16,8 @@ Use it to decide where new files belong and which checklist governs merge readin
 - **[Public Claims Register (Phase 10.2)](./public-claims-register-phase10-2.md)** - Controlled high-risk claim inventory, evidence mapping, and fail-closed rendering rule.
 - **[Branding Validation Optimization Status (Archive)](../../archive/2026-07/branding-validation-optimization-status.md#july-19-2026-continuation-app-router-status-state-congruency)** - Latest archived progress snapshot for App Router status-state congruency.
 - **[Markdown Sweep Log - 2026-07-02](./markdown-sweep-2026-07-02.md)** - Recorded consolidation and checklist-routing updates.
+- **[Repository Security Policy](../../../SECURITY.md#dependency-override-hygiene)** - Dependency override hygiene and audit validation controls.
+- **[Security Remediation Record (Changelog)](../../../CHANGELOG.md)** - Repository-level log for dependency advisory remediation milestones.
 
 ## Routing Rule
 

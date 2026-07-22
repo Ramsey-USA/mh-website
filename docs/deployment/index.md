@@ -30,6 +30,8 @@ maintaining safety-critical CI gates.
 
 - **[CI/CD Pipeline & Deployment Guide](./cicd-pipeline.md)** — Pipeline structure, required
   checks, and release flow.
+- **[Repository Security Policy](../../SECURITY.md#dependency-override-hygiene)** — Override-hygiene controls for dependency advisory remediation and audit validation.
+- **[Security Remediation Record (Changelog)](../../CHANGELOG.md)** — July 22, 2026 entry documenting closure of Dependabot high alerts #93, #94, #95, #96, and #98.
 - **[Publishing Workflow (CI/CD Guide)](./cicd-pipeline.md#publishing-workflow)** — Request to
   release workflow with role-based approvals and evidence checkpoints.
 - **[Rollback Procedures (CI/CD Guide)](./cicd-pipeline.md#rollback-procedures)** — Trigger
