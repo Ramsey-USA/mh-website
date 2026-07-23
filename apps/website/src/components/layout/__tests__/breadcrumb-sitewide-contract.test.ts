@@ -64,13 +64,13 @@ describe("Sitewide breadcrumb placement contract", () => {
       true,
     );
     expect(
-      /<AppShellBreadcrumbFallback\s*\/>(?:.|\n|\r)*showSemiquincentennialBanner(?:.|\n|\r)*<SemiquincentennialBanner\s*\/>(?:.|\n|\r)*createPortal/s.test(
+      /createPortal\(\s*<>\s*<AppShellBreadcrumbFallback\s*\/>(?:.|\n|\r)*showSemiquincentennialBanner(?:.|\n|\r)*<SemiquincentennialBanner\s*\/>/s.test(
         appShellSource,
       ),
     ).toBe(true);
     expect(
-      appShellSource.includes(
-        '<main id="main-content" className="grow pt-(--mh-nav-offset,6.5rem)">\n            {children}\n            <SemiquincentennialAfterHeroSlot />',
+      /<main id="main-content" className="grow pt-\(--mh-nav-offset,6\.5rem\)">(?:.|\n|\r)*\{children\}(?:.|\n|\r)*<SemiquincentennialAfterHeroSlot\s*\/>/s.test(
+        appShellSource,
       ),
     ).toBe(true);
   });

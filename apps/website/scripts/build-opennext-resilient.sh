@@ -4,7 +4,40 @@ set -euo pipefail
 max_attempts="${OPENNEXT_BUILD_MAX_ATTEMPTS:-3}"
 attempt=1
 use_low_memory_mode="${LOW_MEMORY_BUILD:-false}"
-use_standalone_prebuild_fallback="false"
+use_standalone_prebuild_fallback="${OPENNEXT_BUILD_FORCE_STANDALONE_FALLBACK:-false}"
+
+should_prefer_standalone_prebuild() {
+  if [[ "${OPENNEXT_BUILD_FORCE_STANDALONE_FALLBACK:-false}" == "true" ]]; then
+    return 0
+  fi
+
+  if [[ "${CI:-false}" == "true" ]]; then
+    return 1
+  fi
+
+  if [[ ! -r /proc/meminfo ]]; then
+    return 1
+  fi
+
+  local mem_total_kb
+  mem_total_kb="$(awk '/MemTotal:/ { print $2; exit }' /proc/meminfo)"
+
+  if [[ -z "${mem_total_kb}" ]]; then
+    return 1
+  fi
+
+  if (( mem_total_kb <= 12582912 )); then
+    return 0
+  fi
+
+  return 1
+}
+
+if should_prefer_standalone_prebuild; then
+  echo "[build:opennext] Constrained local memory detected; starting with standalone prebuild fallback."
+  use_standalone_prebuild_fallback="true"
+  use_low_memory_mode="true"
+fi
 
 run_standalone_prebuild() {
   local existing_node_options="${NODE_OPTIONS:-}"
