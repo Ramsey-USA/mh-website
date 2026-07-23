@@ -29,7 +29,7 @@ Thank you for partnering with MH Construction on [Project Name].
 If you are open to it, we would value your honest Google review about your project experience. Your feedback helps future project stakeholders make informed decisions.
 
 Leave a review here:
-https://g.page/r/CVdv3YZLzJvdEAE/review
+<https://g.page/r/CVdv3YZLzJvdEAE/review>
 
 If a team member made a difference during your project, feel free to mention them by name.
 
@@ -40,7 +40,7 @@ MH Construction
 
 ## SMS Template - Follow-Up (Day 10 to Day 14)
 
-Hi [First Name], this is [Sender Name] from MH Construction. Thank you again for partnering with us on [Project Name]. If you are open to it, we would value your honest Google feedback: https://g.page/r/CVdv3YZLzJvdEAE/review
+Hi [First Name], this is [Sender Name] from MH Construction. Thank you again for partnering with us on [Project Name]. If you are open to it, we would value your honest Google feedback: <https://g.page/r/CVdv3YZLzJvdEAE/review>
 
 ## Verbal Script - Closeout Conversation
 
