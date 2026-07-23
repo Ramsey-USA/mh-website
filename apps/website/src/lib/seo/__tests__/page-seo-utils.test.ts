@@ -307,6 +307,7 @@ describe("page seo utils", () => {
         "services",
         "services/[slug]",
         "public-sector",
+        "events/operation-cast-recover",
       ]),
     );
   });

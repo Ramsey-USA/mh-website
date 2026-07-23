@@ -65,6 +65,7 @@ const BASE_REQUIRED_ROUTES = [
   "/projects",
   "/about",
   "/contact",
+  "/events/operation-cast-recover",
 ];
 const UTILITY_PREFIXES = ["/api/", "/sitemap", "/qr-codes", "/offline"];
 const FORBIDDEN_STATUS_FRAGMENTS = [

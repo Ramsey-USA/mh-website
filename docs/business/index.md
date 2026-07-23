@@ -1,7 +1,7 @@
 # Business Documentation
 
 **Category:** Business - Overview  
-**Last Updated:** April 15, 2026
+**Last Updated:** July 23, 2026
 
 ## Overview
 
@@ -20,6 +20,7 @@ Business docs should stay congruent with the canonical MH voice, trust language,
 - **[Services](./services.md)** - Complete service offerings and capabilities
 - **[Project Specializations](./project-specializations.md)** - Specialized project types and capabilities
 - **[Analytics Guide for Matt and Jeremy](./analytics-guide-for-matt-and-jeremy.md)** - Operations-oriented analytics guide for leadership review and decisions
+- **[Operation: Cast & Recover 2026 - Registration and Sponsorship](../events/operation-cast-recover-2026-registration-and-sponsorship.md)** - Active hosted event record with registration and sponsorship details in the dedicated Events documentation category
 - **[Cool Desert Nights 2026 Smoke n Shine Placements Archive](../events/cool-desert-nights-2026-public-choice-results.md)** - Archived event record in the dedicated Events documentation category
 
 ### Team Data

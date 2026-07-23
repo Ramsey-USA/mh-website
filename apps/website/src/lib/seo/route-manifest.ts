@@ -299,6 +299,18 @@ const STATIC_ROUTES: CanonicalRouteManifestEntry[] = [
     locales: { en: true, es: true },
   },
   {
+    path: "/events/operation-cast-recover",
+    section: "events",
+    label: {
+      en: "Operation: Cast & Recover",
+      es: "Operation: Cast & Recover",
+    },
+    changeFrequency: "monthly",
+    priority: 0.76,
+    lastModified: LAST_MODIFIED.events,
+    locales: { en: true, es: false },
+  },
+  {
     path: "/accessibility",
     section: "legal",
     label: { en: "Accessibility", es: "Accesibilidad" },

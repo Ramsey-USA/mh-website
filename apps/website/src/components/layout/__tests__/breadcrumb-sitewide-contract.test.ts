@@ -63,16 +63,37 @@ describe("Sitewide breadcrumb placement contract", () => {
     expect(appShellSource.includes("<AppShellBreadcrumbFallback />")).toBe(
       true,
     );
-    expect(
-      /createPortal\(\s*<>\s*<AppShellBreadcrumbFallback\s*\/>(?:.|\n|\r)*showSemiquincentennialBanner(?:.|\n|\r)*<SemiquincentennialBanner\s*\/>/s.test(
-        appShellSource,
-      ),
-    ).toBe(true);
-    expect(
-      /<main id="main-content" className="grow pt-\(--mh-nav-offset,6\.5rem\)">(?:.|\n|\r)*\{children\}(?:.|\n|\r)*<SemiquincentennialAfterHeroSlot\s*\/>/s.test(
-        appShellSource,
-      ),
-    ).toBe(true);
+    const portalStart = appShellSource.indexOf("createPortal(");
+    const portalFallback = appShellSource.indexOf(
+      "<AppShellBreadcrumbFallback />",
+      portalStart,
+    );
+    const portalBannerFlag = appShellSource.indexOf(
+      "showSemiquincentennialBanner",
+      portalFallback,
+    );
+    const portalBanner = appShellSource.indexOf(
+      "<SemiquincentennialBanner />",
+      portalBannerFlag,
+    );
+
+    expect(portalStart).toBeGreaterThanOrEqual(0);
+    expect(portalFallback).toBeGreaterThan(portalStart);
+    expect(portalBannerFlag).toBeGreaterThan(portalFallback);
+    expect(portalBanner).toBeGreaterThan(portalBannerFlag);
+
+    const mainStart = appShellSource.indexOf(
+      '<main id="main-content" className="grow pt-(--mh-nav-offset,6.5rem)">',
+    );
+    const mainChildren = appShellSource.indexOf("{children}", mainStart);
+    const mainAfterHeroSlot = appShellSource.indexOf(
+      "<SemiquincentennialAfterHeroSlot />",
+      mainChildren,
+    );
+
+    expect(mainStart).toBeGreaterThanOrEqual(0);
+    expect(mainChildren).toBeGreaterThan(mainStart);
+    expect(mainAfterHeroSlot).toBeGreaterThan(mainChildren);
   });
 
   it("prevents Back-style labels in breadcrumb item definitions", () => {

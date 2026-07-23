@@ -1,7 +1,7 @@
 # Events Documentation
 
 **Category:** Events - Overview  
-**Last Updated:** June 30, 2026
+**Last Updated:** July 23, 2026
 
 ## Overview
 
@@ -13,6 +13,7 @@ Events docs should stay congruent with canonical MH voice, trust language, factu
 
 ## Event Records
 
+- **[Operation: Cast & Recover 2026 - Registration and Sponsorship](./operation-cast-recover-2026-registration-and-sponsorship.md)** - Active hosted event record for registration, sponsorship, route ownership, and indexing references
 - **[Cool Desert Nights 2026 Smoke n Shine Placements Archive](./cool-desert-nights-2026-public-choice-results.md)** - Event archive record with final placements and historical totals
 
 ## Record Standards

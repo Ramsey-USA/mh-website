@@ -70,18 +70,20 @@ export const upcomingEvents = [
     windowEs: "Por anunciar",
     summaryEs:
       "Reservado para el proximo evento comunitario patrocinado por MH Construction con fecha, ubicacion y detalles de participacion finalizados.",
+    href: undefined,
   },
   {
-    id: "next-hosted-event",
-    title: "Next Hosted Event",
-    window: "To Be Announced",
-    lifecycleStatus: "under-review" as const,
+    id: "operation-cast-recover-2026",
+    title: "Operation: Cast & Recover",
+    window: "September 26, 2026",
+    lifecycleStatus: "registration-open" as const,
     summary:
-      "Dedicated section for the next MH-hosted event, including partners, timeline, and field highlights.",
-    titleEs: "Proximo evento organizado",
-    windowEs: "Por anunciar",
+      "MH Construction's annual hosted fishing event connects veterans with volunteer captains for a day on the Columbia River.",
+    titleEs: "Operation: Cast & Recover",
+    windowEs: "26 de septiembre de 2026",
     summaryEs:
-      "Seccion dedicada al proximo evento organizado por MH, incluyendo aliados, cronograma y destacados de campo.",
+      "El evento anual de pesca organizado por MH Construction conecta a veteranos con capitanes voluntarios para un dia en el rio Columbia.",
+    href: "/events/operation-cast-recover",
   },
   {
     id: "community-partnership-spotlight",
@@ -94,6 +96,7 @@ export const upcomingEvents = [
     windowEs: "Por anunciar",
     summaryEs:
       "Reservado para una colaboracion destacada con una organizacion local, aliado de oficio o iniciativa comunitaria.",
+    href: undefined,
   },
 ] as const;
 

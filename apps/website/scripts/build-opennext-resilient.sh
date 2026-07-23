@@ -50,9 +50,29 @@ run_standalone_prebuild() {
   NEXT_PRIVATE_STANDALONE=true NODE_OPTIONS="${existing_node_options# }" npx next build
 }
 
+has_skip_build_artifacts() {
+  [[ -f ".next/server/middleware-manifest.json" ]]
+}
+
 run_build() {
   if [[ "${use_standalone_prebuild_fallback}" == "true" ]]; then
     run_standalone_prebuild
+
+    if ! has_skip_build_artifacts; then
+      echo "[build:opennext] .next/server/middleware-manifest.json was not generated."
+      echo "[build:opennext] Falling back to full OpenNext build (no --skipNextBuild)."
+
+      local existing_node_options="${NODE_OPTIONS:-}"
+      if [[ "${existing_node_options}" != *"--max-old-space-size="* ]]; then
+        existing_node_options="${existing_node_options} --max-old-space-size=4096"
+      fi
+
+      use_standalone_prebuild_fallback="false"
+      use_low_memory_mode="true"
+      LOW_MEMORY_BUILD=true NODE_OPTIONS="${existing_node_options# }" opennextjs-cloudflare build
+      return
+    fi
+
     echo "[build:opennext] Packaging prebuilt standalone output."
     opennextjs-cloudflare build --skipNextBuild
     return
@@ -87,7 +107,11 @@ while [[ "$attempt" -le "$max_attempts" ]]; do
 
   echo "[build:opennext] Attempt ${attempt} failed with exit code ${exit_code}."
 
-  if [[ "${use_low_memory_mode}" != "true" ]]; then
+  if [[ "${use_standalone_prebuild_fallback}" == "true" ]]; then
+    echo "[build:opennext] Standalone prebuild failed; retrying with full OpenNext low-memory mode."
+    use_standalone_prebuild_fallback="false"
+    use_low_memory_mode="true"
+  elif [[ "${use_low_memory_mode}" != "true" ]]; then
     echo "[build:opennext] Enabling low-memory mode for retry."
     use_low_memory_mode="true"
   elif [[ "${use_standalone_prebuild_fallback}" != "true" ]]; then

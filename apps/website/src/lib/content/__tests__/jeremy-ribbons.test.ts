@@ -41,6 +41,12 @@ describe("jeremy-ribbons", () => {
     expect(sectionRibbon.quote).toContain("safety section");
   });
 
+  it("uses the route-specific event ribbon for operation cast recover", () => {
+    const ribbon = getJeremyRibbonForPath("/events/operation-cast-recover");
+
+    expect(ribbon.quote).toContain("Operation Cast & Recover");
+  });
+
   it("normalizes path casing, query string, hash, and trailing slash", () => {
     const ribbon = getJeremyRibbonForPath("/ABOUT/?utm=mh#leadership");
 

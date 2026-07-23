@@ -234,6 +234,12 @@ eyebrow: Words from the General
 quote: Every event detail page should read like an accountable field record, with clear outcomes, respectful partnerships, and practical next steps for future collaboration.
 attribution: Jeremy Thamert, Owner & President
 
+## events/operation-cast-recover
+
+eyebrow: Words from the General
+quote: Operation Cast & Recover reflects how we serve beyond the jobsite: show up prepared, protect people, and build lasting trust through disciplined community leadership.
+attribution: Jeremy Thamert, Owner & President
+
 ## news
 
 eyebrow: Words from the General

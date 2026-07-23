@@ -107,6 +107,21 @@ describe("sitemap()", () => {
     expect(urls).not.toContain("https://www.mhc-gc.com/es/news");
   });
 
+  it("includes operation cast and recover event route as canonical path only", () => {
+    const entries = sitemapFn();
+    const urls = entries.map((entry) => entry.url);
+
+    expect(urls).toContain(
+      "https://www.mhc-gc.com/events/operation-cast-recover",
+    );
+    expect(urls).not.toContain(
+      "https://www.mhc-gc.com/en/events/operation-cast-recover",
+    );
+    expect(urls).not.toContain(
+      "https://www.mhc-gc.com/es/events/operation-cast-recover",
+    );
+  });
+
   it("excludes utility and redirected routes", () => {
     const urls = sitemapFn().map((entry) => entry.url);
 

@@ -4,6 +4,8 @@ describe("resolveJeremyRibbonKey", () => {
   const keys = [
     "home",
     "about",
+    "events/operation-cast-recover",
+    "events/[slug]",
     "projects",
     "projects/[slug]",
     "faq",
@@ -16,6 +18,9 @@ describe("resolveJeremyRibbonKey", () => {
   it("returns exact static route key when available", () => {
     expect(resolveJeremyRibbonKey("/about", keys)).toBe("about");
     expect(resolveJeremyRibbonKey("/projects", keys)).toBe("projects");
+    expect(resolveJeremyRibbonKey("/events/operation-cast-recover", keys)).toBe(
+      "events/operation-cast-recover",
+    );
   });
 
   it("maps root path to home", () => {
@@ -23,6 +28,9 @@ describe("resolveJeremyRibbonKey", () => {
   });
 
   it("matches single-segment dynamic keys", () => {
+    expect(resolveJeremyRibbonKey("/events/cool-desert-nights", keys)).toBe(
+      "events/[slug]",
+    );
     expect(resolveJeremyRibbonKey("/projects/airport-apron", keys)).toBe(
       "projects/[slug]",
     );

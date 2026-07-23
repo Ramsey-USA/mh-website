@@ -1,7 +1,7 @@
 # Route Metadata Audit Matrix (Phase 6.1)
 
 **Category:** Technical - SEO Audit
-**Last Updated:** July 19, 2026
+**Last Updated:** July 23, 2026
 **Scope:** Public website routes through Phase 5 additions
 
 ## Purpose
@@ -57,6 +57,12 @@ This matrix records page-level metadata ownership and behavior for all current p
 | `/qr-codes`                                        | `src/app/qr-codes/page.tsx`                                              | Static metadata export                                       | Static canonical                   | `noindex,follow`                                                                    | Utility route metadata                                     | Shared approved OG assets                   | Shared canonical URL                                              | Static metadata export                         |
 | `/offline`                                         | `src/app/offline/page.tsx`                                               | Static metadata export                                       | Static canonical                   | `noindex,follow`                                                                    | Utility route metadata                                     | Shared approved OG assets                   | Shared canonical URL                                              | Static metadata export                         |
 | `/sitemap`                                         | `src/app/sitemap/page.tsx`                                               | Static metadata export                                       | Static canonical                   | `noindex,follow`                                                                    | Utility route metadata                                     | Shared approved OG assets                   | Shared canonical URL                                              | Static metadata export                         |
+
+### Event Route Addendum (July 23, 2026)
+
+- `/events/operation-cast-recover` is a dedicated static event route with its own metadata owner at `src/app/events/operation-cast-recover/page.tsx`.
+- Canonical is `https://www.mhc-gc.com/events/operation-cast-recover` with `index,follow` behavior.
+- Route is included in the canonical route manifest (`src/lib/seo/route-manifest.ts`) and validated by sitemap test coverage.
 
 ## Verified Phase 6.1 Remediation Applied
 

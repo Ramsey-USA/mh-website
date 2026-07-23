@@ -29,7 +29,7 @@ Branding markdown update note: see [Branding Markdown Sweep Log (2026-07-02)](./
   safety CI gate policy, and smoke setup.
 - **[Development](./development/index.md)** — Coding standards, page templates, JSDoc standards,
   performance strategy, refactoring, and quick references.
-- **[Events](./events/index.md)** — Dedicated records for sponsored or hosted events, including final outcomes and totals.
+- **[Events](./events/index.md)** — Dedicated records for sponsored or hosted events, including active event pages, final outcomes, and totals.
 - **[Marketing](./marketing/index.md)** — Google Business Profile guides and SEO quick reference.
 - **[Media](./media/index.md)** — Photo/video roadmap and media strategy.
 - **[Performance](./performance/index.md)** — Page-level performance audits.

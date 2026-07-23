@@ -275,6 +275,17 @@ export function EventsLandingPageClient({
                     <p className="mt-2 text-sm text-gray-700 dark:text-white/80">
                       {event.summary}
                     </p>
+                    {event.href && (
+                      <Link
+                        href={event.href}
+                        className="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold text-brand-primary underline decoration-brand-primary/40 underline-offset-4 transition-colors hover:text-brand-primary-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary dark:text-brand-secondary dark:hover:text-brand-secondary-light"
+                      >
+                        <MaterialIcon icon="arrow_forward" size="sm" />
+                        {isEs
+                          ? "Ver detalles y registrarse"
+                          : "View details and register"}
+                      </Link>
+                    )}
                   </article>
                 ))}
               </div>

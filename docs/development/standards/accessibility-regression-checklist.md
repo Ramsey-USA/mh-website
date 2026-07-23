@@ -22,6 +22,7 @@ Verify each route class below using keyboard-only flow and a screen reader smoke
 - Public Sector: `/public-sector`
 - Events hub: `/events`
 - Event detail: `/events/[slug]`
+- Event detail (registration route): `/events/operation-cast-recover`
 - Locations hub: `/locations`
 - Location city: `/locations/[city]`
 - News hub: `/news`

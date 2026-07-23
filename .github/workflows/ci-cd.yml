@@ -164,6 +164,7 @@ jobs:
 
       - name: Run tests — website
         working-directory: apps/website
+        timeout-minutes: 10
         run: npm run test:ci:fast
 
       - name: Run tests — dashboard

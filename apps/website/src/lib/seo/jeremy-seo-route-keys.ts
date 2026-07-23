@@ -12,6 +12,7 @@ export const JEREMY_SEO_ROUTE_KEYS = {
   projects: "projects",
   contact: "contact",
   faq: "faq",
+  eventsOperationCastRecover: "events/operation-cast-recover",
 } as const;
 
 export function buildServiceDetailJeremySeoRouteKey(slug: string): string {

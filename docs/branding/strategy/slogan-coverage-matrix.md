@@ -96,6 +96,7 @@ Use these links when updating or reviewing hero copy and layout for each surface
 - Veteran Compliance Hero: [apps/website/src/app/public-sector/veteran-led-compliance/page.tsx](../../../apps/website/src/app/public-sector/veteran-led-compliance/page.tsx)
 - Tri-State Gov Hero: [apps/website/src/app/public-sector/tri-state-government-construction/page.tsx](../../../apps/website/src/app/public-sector/tri-state-government-construction/page.tsx)
 - Allies Hero: [apps/website/src/app/allies/page.tsx](../../../apps/website/src/app/allies/page.tsx)
+- Cast & Recover Hero: [apps/website/src/app/events/operation-cast-recover/OperationCastRecoverPageClient.tsx](../../../apps/website/src/app/events/operation-cast-recover/OperationCastRecoverPageClient.tsx)
 - Public Sector Projects Surface: [apps/website/src/app/public-sector/PublicSectorFullPage.tsx](../../../apps/website/src/app/public-sector/PublicSectorFullPage.tsx)
 - Team Hub: [apps/dashboard/src/app/hub/page.tsx](../../../apps/dashboard/src/app/hub/page.tsx)
 - Safety Manual: [apps/website/src/app/resources/safety-manual/page.tsx](../../../apps/website/src/app/resources/safety-manual/page.tsx)
