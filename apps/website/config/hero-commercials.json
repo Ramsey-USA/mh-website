@@ -3,7 +3,6 @@
     "campaignScope": "company",
     "id": "mhc-command-the-horizon-2026q3-v01",
     "mp4": "videos/hero-commercials/mhc-hero-command-the-horizon-smg-2026q3-v01.mp4",
-    "webm": "videos/hero-commercials/mhc-hero-command-the-horizon-smg-2026q3-v01.webm",
     "expectedDurationSec": 61.06,
     "audioRequired": true,
     "seo": {
@@ -12,7 +11,7 @@
       "description": "Jeremy Thamert voices this MH Construction Company hero campaign with relationship-first construction leadership and field accountability.",
       "videoObjectName": "MH Construction Company Hero Commercial - Jeremy Thamert",
       "videoObjectDescription": "Hero commercial for / featuring Jeremy Thamert as voice and presenter for MH Construction campaign messaging.",
-      "thumbnailPath": "videos/hero-commercials/poster-mhc-hero-command-the-horizon-smg-2026q3-v01.jpg",
+      "thumbnailPath": "images/home-hero-poster.webp",
       "transcriptOrSummaryUrl": "/",
       "voiceoverTalent": "Jeremy Thamert",
       "presenterEntityName": "Jeremy Thamert",
