@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { buildDualSeoTitle } from "@/lib/branding/page-names";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
@@ -9,9 +10,13 @@ import { OperationCastRecoverPageClient } from "./OperationCastRecoverPageClient
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 const EVENT_URL = `${SITE_URL}/events/operation-cast-recover`;
+const operationCastRecoverSeoTitle = buildDualSeoTitle(
+  "events",
+  "Operation: Cast & Recover",
+);
 
 export const metadata: Metadata = withGeoMetadata({
-  title: "Operation: Cast & Recover | Community Fishing Event",
+  title: operationCastRecoverSeoTitle,
   description:
     "Register as a veteran participant or volunteer boat captain for MH Construction's annual hosted community fishing event in Richland, Washington on September 26, 2026.",
   keywords: [
@@ -24,7 +29,7 @@ export const metadata: Metadata = withGeoMetadata({
   ],
   alternates: { canonical: EVENT_URL },
   openGraph: {
-    title: "Operation: Cast & Recover | MH Construction",
+    title: operationCastRecoverSeoTitle,
     description:
       "An annual hosted community fishing event connecting veteran participants and volunteer captains on the Columbia River.",
     url: EVENT_URL,
@@ -40,7 +45,7 @@ export const metadata: Metadata = withGeoMetadata({
   },
   twitter: {
     card: "summary_large_image",
-    title: "Operation: Cast & Recover | MH Construction",
+    title: operationCastRecoverSeoTitle,
     description:
       "Veteran and volunteer captain registration for September 26, 2026.",
     images: ["/images/events/operation-cast-recover/columbia-point-marina.jpg"],
