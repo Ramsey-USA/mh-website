@@ -10,6 +10,7 @@
         "/contact",
         "/cool-desert-nights",
         "/events/[slug]",
+        "/events/operation-cast-recover",
         "/faq",
         "/faq/[category]",
         "/jeremy-thamert",
