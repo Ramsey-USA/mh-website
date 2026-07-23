@@ -4,7 +4,8 @@
  * This file provides CommonJS-compatible exports of branding rules
  * for use in Node.js CLI validation scripts.
  *
- * Mirrors src/lib/validation/branding-rules.ts but in CommonJS format.
+ * Maintained alongside src/lib/validation/branding-rules.ts with shared
+ * guardrail intent, plus CLI-specific exports used only by Node scripts.
  *
  * Usage:
  *   const { SLOGAN_RULES, TERMINOLOGY_GUARDRAIL_RULES } = require("./branding-rules.cjs");

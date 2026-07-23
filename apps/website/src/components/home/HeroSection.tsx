@@ -5,6 +5,7 @@ import Link from "next/link";
 import { MH_SLOGANS } from "@/lib/branding/page-names";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import { HeroSectionClient } from "./HeroSectionClient";
+import heroCommercialManifestJson from "../../../config/hero-commercials.json";
 
 interface HeroSectionCopy {
   baseLabel: string;
@@ -101,8 +102,15 @@ function assetIsAvailable(assetPath: string): boolean {
 }
 
 function selectHomeHeroCommercial(): HeroCommercialManifestEntry | null {
+  const isProductionRuntime = process.env.NODE_ENV === "production";
+  const staticEntries = Array.isArray(heroCommercialManifestJson)
+    ? (heroCommercialManifestJson as HeroCommercialManifestEntry[])
+    : [];
+
   if (!fs.existsSync(MANIFEST_PATH)) {
-    return null;
+    return isProductionRuntime
+      ? selectHomeHeroCommercialFromEntries(staticEntries)
+      : null;
   }
 
   try {
@@ -110,27 +118,35 @@ function selectHomeHeroCommercial(): HeroCommercialManifestEntry | null {
       fs.readFileSync(MANIFEST_PATH, "utf8"),
     ) as HeroCommercialManifestEntry[];
 
-    if (!Array.isArray(parsed) || parsed.length === 0) {
-      return null;
-    }
-
-    const companyEntry = parsed.find((entry) => {
-      if (entry?.campaignScope !== "company") {
-        return false;
-      }
-
-      const appliesTo = entry?.seo?.appliesToRoutes;
-      return Array.isArray(appliesTo) && appliesTo.includes("/");
-    });
-
-    if (companyEntry) {
-      return companyEntry;
-    }
-
-    return parsed.find((entry) => entry?.seo?.routePath === "/") ?? null;
+    return selectHomeHeroCommercialFromEntries(parsed);
   } catch {
+    return isProductionRuntime
+      ? selectHomeHeroCommercialFromEntries(staticEntries)
+      : null;
+  }
+}
+
+function selectHomeHeroCommercialFromEntries(
+  entries: HeroCommercialManifestEntry[],
+): HeroCommercialManifestEntry | null {
+  if (!Array.isArray(entries) || entries.length === 0) {
     return null;
   }
+
+  const companyEntry = entries.find((entry) => {
+    if (entry?.campaignScope !== "company") {
+      return false;
+    }
+
+    const appliesTo = entry?.seo?.appliesToRoutes;
+    return Array.isArray(appliesTo) && appliesTo.includes("/");
+  });
+
+  if (companyEntry) {
+    return companyEntry;
+  }
+
+  return entries.find((entry) => entry?.seo?.routePath === "/") ?? null;
 }
 
 export function HeroSection({

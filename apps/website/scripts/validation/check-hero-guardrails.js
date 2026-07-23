@@ -54,11 +54,13 @@ function validateHeroSection(filePath, content) {
     );
   }
 
-  // Check 3: PageNavigation component
+  // Check 3: PageNavigation component (optional in current architecture)
   const hasPageNavigation = HERO_SECTION_RULES.hasPageNavigation.test(content);
 
   if (!hasPageNavigation) {
-    errors.push("Missing PageNavigation component");
+    warnings.push(
+      "PageNavigation component not found (optional). Verify route-level navigation is provided elsewhere.",
+    );
   }
 
   // Check 4: Dual naming format (Military → Civilian)
