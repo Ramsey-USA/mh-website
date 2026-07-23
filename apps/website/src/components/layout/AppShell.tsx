@@ -139,9 +139,25 @@ function AppShellBreadcrumbFallback() {
 function SemiquincentennialAfterHeroSlot() {
   const pathname = usePathname();
   const [slot, setSlot] = useState<HTMLElement | null>(null);
+  const [hasUserScrolled, setHasUserScrolled] = useState(false);
   const showSemiquincentennialBanner =
     pathname !== "/cool-desert-nights" && pathname !== "/events";
   const INITIAL_SLOT_DELAY_MS = 250;
+
+  useEffect(() => {
+    const updateScrollState = () => {
+      if (globalThis.scrollY > 0) {
+        setHasUserScrolled(true);
+      }
+    };
+
+    updateScrollState();
+    globalThis.addEventListener("scroll", updateScrollState, { passive: true });
+
+    return () => {
+      globalThis.removeEventListener("scroll", updateScrollState);
+    };
+  }, []);
 
   useEffect(() => {
     setSlot(null);
@@ -205,7 +221,9 @@ function SemiquincentennialAfterHeroSlot() {
   return createPortal(
     <>
       <AppShellBreadcrumbFallback />
-      {showSemiquincentennialBanner ? <SemiquincentennialBanner /> : null}
+      {showSemiquincentennialBanner && hasUserScrolled ? (
+        <SemiquincentennialBanner />
+      ) : null}
     </>,
     slot,
   );

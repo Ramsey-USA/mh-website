@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import Footer from "../Footer";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 const mockLocale = jest.fn<"en" | "es", []>(() => "en");
 
@@ -108,7 +109,17 @@ describe("Footer", () => {
       screen.getByRole("link", { name: "Discuss Your Project" }),
     ).toHaveAttribute("href", "/contact?intent=project-discussion");
     expect(screen.queryByText(/newsletter/i)).not.toBeInTheDocument();
-    expect(screen.queryByText(/accreditations/i)).not.toBeInTheDocument();
+    expect(
+      screen.getByText(/verified accreditations and memberships/i),
+    ).toBeVisible();
+    expect(
+      screen.getByRole("link", {
+        name: /bbb accredited business/i,
+      }),
+    ).toHaveAttribute(
+      "href",
+      "https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036/#sealclick",
+    );
   });
 
   it("renders verified contact details and current year without HTML sitemap by default", () => {
@@ -120,8 +131,8 @@ describe("Footer", () => {
     expect(
       screen.getByRole("link", { name: "office@mhc-gc.com" }),
     ).toHaveAttribute("href", "mailto:office@mhc-gc.com");
-    expect(screen.getByText("3111 N Capitol Ave")).toBeVisible();
-    expect(screen.getByText("Pasco, WA 99301")).toBeVisible();
+    expect(screen.getByText(COMPANY_INFO.address.street)).toBeVisible();
+    expect(screen.getByText(COMPANY_INFO.address.cityStateZip)).toBeVisible();
     expect(
       screen.getByText(String(new Date().getFullYear()), { exact: false }),
     ).toBeInTheDocument();

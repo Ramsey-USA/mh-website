@@ -1,0 +1,4 @@
+review_date,reviewer_name,project_name,named_employee,rating,qualified,fulfilled,verification_date,fulfillment_date,gift_card_amount_usd,review_url,duplicate_check_key,notes
+2026-07-02,Alex Rivera,Riverfront TI,Jeremy Thamert,5,yes,yes,2026-07-03,2026-07-05,25,https://g.page/r/CVdv3YZLzJvdEAE/review?review=sample-a,alex-rivera|riverfront-ti,Issued during weekly run
+2026-07-10,Taylor Brooks,Downtown Office Refresh,Kimberly Thamert,4,yes,no,2026-07-11,,25,https://g.page/r/CVdv3YZLzJvdEAE/review?review=sample-b,taylor-brooks|downtown-office-refresh,Pending fulfillment
+2026-07-14,Jordan Lee,Warehouse Expansion,Jeremy Thamert,5,yes,yes,2026-07-15,2026-07-16,25,https://g.page/r/CVdv3YZLzJvdEAE/review?review=sample-c,jordan-lee|warehouse-expansion,Issued during weekly run

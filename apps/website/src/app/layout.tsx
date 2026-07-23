@@ -221,6 +221,10 @@ export const metadata: Metadata = withGeoMetadata({
   icons: {
     icon: [
       {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+      {
         url: "/icons/mhc-icon-master.png",
         sizes: "32x32",
         type: "image/png",
@@ -231,7 +235,7 @@ export const metadata: Metadata = withGeoMetadata({
         type: "image/png",
       },
     ],
-    shortcut: [{ url: "/icons/mhc-icon-master.png" }],
+    shortcut: [{ url: "/favicon.ico" }],
     apple: [
       {
         url: "/icons/mhc-icon-master.png",

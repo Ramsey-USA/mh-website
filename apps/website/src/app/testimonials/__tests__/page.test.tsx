@@ -198,7 +198,7 @@ describe("TestimonialsPage (with populated testimonials data)", () => {
 
     expect(ctaLink).toHaveAttribute(
       "href",
-      "https://g.page/r/REPLACE_WITH_MHC_REVIEW_LINK/review",
+      "https://g.page/r/CVdv3YZLzJvdEAE/review",
     );
     expect(ctaLink).toHaveAttribute("target", "_blank");
     expect(ctaLink).toHaveAttribute("rel", "noopener noreferrer");

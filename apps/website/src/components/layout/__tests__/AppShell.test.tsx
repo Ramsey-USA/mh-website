@@ -3,7 +3,13 @@
  */
 
 import "@testing-library/jest-dom";
-import { render, screen, within } from "@testing-library/react";
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from "@testing-library/react";
 import { AppShell } from "../AppShell";
 
 const footerSlot = <footer data-testid="site-footer">Footer</footer>;
@@ -58,6 +64,11 @@ describe("AppShell", () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockUsePathname.mockReturnValue("/");
+    Object.defineProperty(globalThis, "scrollY", {
+      configurable: true,
+      value: 0,
+      writable: true,
+    });
   });
 
   it("renders full website shell when not in standalone PWA mode", () => {
@@ -157,10 +168,28 @@ describe("AppShell", () => {
       </AppShell>,
     );
 
-    const banner = await screen.findByTestId("semiquincentennial-banner");
     const hero = screen.getByTestId("page-hero");
-    const slotAfterHero = hero.nextElementSibling as HTMLElement | null;
+    await waitFor(() => {
+      expect(
+        (hero.nextElementSibling as HTMLElement | null)?.dataset[
+          "semiquincentennialAfterHero"
+        ],
+      ).toBe("true");
+    });
 
+    expect(
+      screen.queryByTestId("semiquincentennial-banner"),
+    ).not.toBeInTheDocument();
+
+    Object.defineProperty(globalThis, "scrollY", {
+      configurable: true,
+      value: 200,
+      writable: true,
+    });
+    fireEvent.scroll(globalThis);
+
+    const banner = await screen.findByTestId("semiquincentennial-banner");
+    const slotAfterHero = hero.nextElementSibling as HTMLElement | null;
     expect(slotAfterHero).not.toBeNull();
     expect(slotAfterHero?.contains(banner)).toBe(true);
   });
@@ -207,16 +236,33 @@ describe("AppShell", () => {
       </AppShell>,
     );
 
-    const banner = await screen.findByTestId("semiquincentennial-banner");
     const fallbackBreadcrumb = await screen.findByLabelText(
       /breadcrumb navigation/i,
     );
     const hero = screen.getByTestId("page-hero");
-    const slotAfterHero = hero.nextElementSibling as HTMLElement | null;
+    await waitFor(() => {
+      expect(
+        (hero.nextElementSibling as HTMLElement | null)?.dataset[
+          "semiquincentennialAfterHero"
+        ],
+      ).toBe("true");
+    });
 
+    const slotAfterHero = hero.nextElementSibling as HTMLElement | null;
     expect(slotAfterHero).not.toBeNull();
-    expect(slotAfterHero?.dataset["semiquincentennialAfterHero"]).toBe("true");
     expect(slotAfterHero?.contains(fallbackBreadcrumb)).toBe(true);
+    expect(
+      screen.queryByTestId("semiquincentennial-banner"),
+    ).not.toBeInTheDocument();
+
+    Object.defineProperty(globalThis, "scrollY", {
+      configurable: true,
+      value: 200,
+      writable: true,
+    });
+    fireEvent.scroll(globalThis);
+
+    const banner = await screen.findByTestId("semiquincentennial-banner");
     expect(slotAfterHero?.contains(banner)).toBe(true);
     expect(
       fallbackBreadcrumb.compareDocumentPosition(banner) &

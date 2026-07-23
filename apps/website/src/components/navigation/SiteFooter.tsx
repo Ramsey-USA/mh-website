@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { WaVobBadge } from "@/components/ui/WaVobBadge";
+import { AccreditationsLogoRow } from "@/components/shared-sections";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { buildSiteFooterModel } from "./footer-data";
 
@@ -153,6 +154,20 @@ export function SiteFooter() {
             </div>
           </dl>
         </section>
+      </div>
+
+      <div className="border-t border-white/10 bg-gray-950/80">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 sm:px-6 lg:px-8">
+          <p className="font-subheading text-center text-xs uppercase tracking-[0.16em] text-gray-400">
+            {locale === "es"
+              ? "Acreditaciones y Membresias verificadas"
+              : "Verified accreditations and memberships"}
+          </p>
+          <AccreditationsLogoRow
+            className="gap-4 sm:gap-6"
+            showWaVobBadge={false}
+          />
+        </div>
       </div>
 
       <div className="border-t border-white/10">

@@ -35,6 +35,8 @@ interface AccreditationsLogoRowProps {
   showChambers?: boolean;
   /** Additional className applied to the flex wrapper div */
   className?: string;
+  /** When false, omit the WA Veteran Owned badge. Defaults to true. */
+  showWaVobBadge?: boolean;
   /**
    * Extra badge/pill elements rendered after WaVobBadge.
    * Use for page-specific additions (SDVOSB, Safety Award, etc.)
@@ -52,6 +54,7 @@ interface AccreditationsLogoRowProps {
  */
 export function AccreditationsLogoRow({
   showChambers = true,
+  showWaVobBadge = true,
   className = "",
   children,
 }: AccreditationsLogoRowProps) {
@@ -215,7 +218,7 @@ export function AccreditationsLogoRow({
       )}
 
       {/* Washington State Veteran Owned Business */}
-      <WaVobBadge />
+      {showWaVobBadge ? <WaVobBadge /> : null}
 
       {/* Page-specific extra badges passed as children */}
       {children}

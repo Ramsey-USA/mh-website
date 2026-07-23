@@ -19,6 +19,26 @@ All marketing copy must remain congruent with MH branding standards: relationshi
   setup, optimization, and ongoing maintenance.
 - **[GBP Post Templates](./gbp-post-templates.md)** — Ready-to-use post templates aligned with MH
   voice and veteran-owned framing.
+- **[Review Recognition Program](./review-recognition-program.md)** — Compliant SOP for increasing
+  authentic reviews with employee recognition rewards.
+- **[Review Outreach Templates](./review-outreach-templates.md)** — Email, SMS, and verbal scripts for
+  honest review requests.
+- **[Review Automation Runbook](./review-automation-runbook.md)** — Command workflow for outreach file
+  generation, weekly summary reporting, and dashboard exports.
+- **[Weekly Ops Automation Command](./review-automation-runbook.md)** — Single command workflow that
+  validates tracker data and generates weekly plus monthly reporting outputs.
+- **[Closeout Input Validation](./review-automation-runbook.md)** — Validator command for outreach
+  input quality and contact completeness checks.
+- **[Monthly KPI JSON Export](./review-automation-runbook.md)** — JSON metrics export for dashboard
+  ingestion and monthly leadership reporting.
+- **[Sample Regression Check](./review-automation-runbook.md)** — CI-safe command to verify sample
+  automation outputs against expected artifacts.
+- **[Review Recognition Tracker Template](./templates/review-recognition-tracker-template.csv)** —
+  CSV template for verification and gift card fulfillment logging.
+- **[Review Closeout Input Template](./templates/review-closeout-input-template.csv)** — Input CSV for
+  automated outreach generation.
+- **[Review Dashboard Import Schema](./templates/review-recognition-dashboard-import-schema.json)** —
+  Field contract for dashboard-friendly review reporting exports.
 
 ### SEO
 

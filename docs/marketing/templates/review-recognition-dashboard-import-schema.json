@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Review Recognition Dashboard Import",
+  "type": "object",
+  "required": [
+    "review_date",
+    "reviewer_name",
+    "project_name",
+    "named_employee",
+    "qualified",
+    "fulfilled"
+  ],
+  "properties": {
+    "review_date": {
+      "type": "string",
+      "description": "Date review was posted (YYYY-MM-DD preferred)."
+    },
+    "reviewer_name": {
+      "type": "string"
+    },
+    "project_name": {
+      "type": "string"
+    },
+    "named_employee": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "string",
+      "description": "Reviewer rating value as entered in tracker."
+    },
+    "qualified": {
+      "type": "string",
+      "enum": ["yes", "no", "YES", "NO", "Yes", "No", ""]
+    },
+    "fulfilled": {
+      "type": "string",
+      "enum": ["yes", "no", "YES", "NO", "Yes", "No", ""]
+    },
+    "verification_date": {
+      "type": "string"
+    },
+    "fulfillment_date": {
+      "type": "string"
+    },
+    "gift_card_amount_usd": {
+      "type": "string",
+      "description": "Default reward amount is 25 unless policy exception applies."
+    },
+    "review_url": {
+      "type": "string"
+    },
+    "duplicate_check_key": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

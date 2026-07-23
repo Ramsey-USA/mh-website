@@ -61,6 +61,15 @@
     "terminology:guardrails:check": "pnpm --filter @mhc/website terminology:guardrails:check",
     "docs:audit:mish-overrun": "pnpm --filter @mhc/website docs:audit:mish-overrun",
     "docs:extract-word": "node documents/scripts/extract-word.mjs",
+    "reviews:outreach:generate": "node scripts/marketing/generate-review-outreach.mjs",
+    "reviews:closeout:validate": "node scripts/marketing/validate-review-closeout-input.mjs",
+    "reviews:tracker:validate": "node scripts/marketing/validate-review-recognition-tracker.mjs",
+    "reviews:summary:weekly": "node scripts/marketing/review-recognition-weekly-summary.mjs",
+    "reviews:dashboard:export": "node scripts/marketing/review-recognition-dashboard-export.mjs",
+    "reviews:leaderboard:monthly": "node scripts/marketing/review-recognition-monthly-leaderboard.mjs",
+    "reviews:kpi:monthly": "node scripts/marketing/review-recognition-monthly-kpi.mjs",
+    "reviews:weekly:run": "node scripts/marketing/run-review-weekly-ops.mjs",
+    "reviews:samples:check": "node scripts/marketing/check-review-automation-samples.mjs",
     "prepare": "node -e \"const {spawnSync}=require('node:child_process'); const result=spawnSync('git',['rev-parse','--is-inside-work-tree'],{stdio:'ignore'}); if (process.env.CI || result.status !== 0) process.exit(0)\" && husky"
   },
   "keywords": [

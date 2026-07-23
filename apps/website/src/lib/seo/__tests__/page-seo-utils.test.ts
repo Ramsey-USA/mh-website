@@ -202,6 +202,20 @@ describe("page seo utils", () => {
     );
   });
 
+  it("preserves accreditation and chamber trust signals in homepage keywords", () => {
+    const homepage = getHomepageSEO();
+    const keywords = Array.isArray(homepage.keywords)
+      ? homepage.keywords
+      : [String(homepage.keywords ?? "")];
+
+    expect(keywords).toEqual(
+      expect.arrayContaining([
+        expect.stringMatching(/bbb accredited/i),
+        expect.stringMatching(/tri-city regional chamber/i),
+      ]),
+    );
+  });
+
   it("enforces Jeremy quotation schema across all SEO builders", () => {
     const service: ServiceRecord = {
       slug: "tenant-improvements",

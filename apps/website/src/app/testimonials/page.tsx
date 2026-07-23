@@ -745,7 +745,7 @@ export default async function TestimonialsPage(props?: {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="secondary" size="lg">
                 <Link
-                  href="https://g.page/r/CVdv3YZLzJvdEAI/review"
+                  href={GOOGLE_REVIEW_DESTINATION_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Leave a Google review for MH Construction"

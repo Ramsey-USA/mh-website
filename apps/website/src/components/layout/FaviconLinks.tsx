@@ -18,7 +18,7 @@ export default function FaviconLinks() {
         sizes="180x180"
         href="/icons/mhc-icon-master.png"
       />
-      <link rel="shortcut icon" href="/icons/mhc-icon-master.png" />
+      <link rel="shortcut icon" href="/favicon.ico" />
     </>
   );
 }

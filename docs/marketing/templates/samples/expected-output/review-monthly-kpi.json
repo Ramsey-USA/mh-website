@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-07-23T15:26:25.002Z",
+  "month": "2026-07",
+  "source": "docs/marketing/templates/samples/review-recognition-tracker-sample.csv",
+  "metrics": {
+    "qualifiedReviews": 3,
+    "fulfilledRewards": 2,
+    "payoutIssued": 50,
+    "payoutPending": 25,
+    "averageRating": 4.67,
+    "employeeCount": 2
+  },
+  "topEmployees": [
+    {
+      "employee": "Jeremy Thamert",
+      "qualifiedReviews": 2,
+      "fulfilledRewards": 2,
+      "avgRating": 5,
+      "payoutIssued": 50,
+      "payoutPending": 0
+    },
+    {
+      "employee": "Kimberly Thamert",
+      "qualifiedReviews": 1,
+      "fulfilledRewards": 0,
+      "avgRating": 4,
+      "payoutIssued": 0,
+      "payoutPending": 25
+    }
+  ]
+}
