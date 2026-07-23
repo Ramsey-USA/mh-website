@@ -25,7 +25,7 @@
     "test:ci:fast": "jest --ci --maxWorkers=50% --bail",
     "test:ci:coverage:fast": "jest --ci --coverage --maxWorkers=50% --bail",
     "nav:contract:check": "jest --runInBand src/components/navigation/__tests__/navigation-route-ownership.test.ts",
-    "test:ci": "jest --ci --runInBand",
+    "test:ci": "jest --ci --runInBand --detectOpenHandles --openHandlesTimeout=5000 --forceExit",
     "test:ci:coverage": "jest --ci --coverage --runInBand",
     "cloudflare:phase1:check": "bash scripts/validation/check-cloudflare-phase1.sh",
     "security:check": "npm audit --audit-level=high",
