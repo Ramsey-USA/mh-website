@@ -1,7 +1,7 @@
 # Public Claims Register (Phase 10.2)
 
 **Category:** Branding - Governance  
-**Last Updated:** July 20, 2026
+**Last Updated:** July 23, 2026
 
 ## Purpose
 
@@ -25,7 +25,10 @@ to a controlled source in [apps/website/src/lib/content/claims.ts](../../../apps
 - `claim:veteran_owned_since_2025`
 - `claim:tri_state_licensed_wa_or_id`
 - `claim:bbb_accredited_a_plus`
+- `claim:richland_chamber_advocate_level_member`
 - `claim:founded_2010`
+
+Richland chamber claim scope: accreditation rows and schema membership descriptions.
 
 ## Controlled Rendering Rule
 

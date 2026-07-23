@@ -9,6 +9,24 @@ const bbbClaimLabel = getApprovedClaimOrFallback({
   fallback: "BBB accreditation status",
 });
 
+const richlandChamberClaimLabel = getApprovedClaimOrFallback({
+  id: "richland_chamber_advocate_level_member",
+  context: "trust-surface",
+  fallback: "Richland Chamber of Commerce Member",
+});
+
+const pascoChamberClaimLabel = getApprovedClaimOrFallback({
+  id: "pasco_chamber_contractor_directory_member",
+  context: "trust-surface",
+  fallback: "Pasco Chamber of Commerce Member",
+});
+
+const triCityRegionalChamberClaimLabel = getApprovedClaimOrFallback({
+  id: "tri_city_regional_chamber_kennewick_member",
+  context: "trust-surface",
+  fallback: "Tri-City Regional Chamber of Commerce Member",
+});
+
 interface AccreditationsLogoRowProps {
   /**
    * When false, omit the three chamber logos (Pasco, Richland, Tri-City).
@@ -129,13 +147,13 @@ export function AccreditationsLogoRow({
             href={COMPANY_INFO.chambers.pasco.memberDirectoryUrl}
             target="_blank"
             rel="noopener noreferrer"
-            title="Pasco Chamber of Commerce Member"
+            title={pascoChamberClaimLabel}
             className={linkClass}
           >
             {/* Light-mode — 510×231 */}
             <img
               src={COMPANY_INFO.chambers.pasco.logo}
-              alt="Pasco Chamber of Commerce Member"
+              alt={pascoChamberClaimLabel}
               width={510}
               height={231}
               loading="lazy"
@@ -145,7 +163,7 @@ export function AccreditationsLogoRow({
             {/* Dark-mode — 748×256 */}
             <img
               src={COMPANY_INFO.chambers.pasco.logoWhite}
-              alt="Pasco Chamber of Commerce Member"
+              alt={pascoChamberClaimLabel}
               width={748}
               height={256}
               loading="lazy"
@@ -159,13 +177,13 @@ export function AccreditationsLogoRow({
             href={COMPANY_INFO.chambers.richland.memberDirectoryUrl}
             target="_blank"
             rel="noopener noreferrer"
-            title="Richland Chamber of Commerce Member"
+            title={richlandChamberClaimLabel}
             className={linkClass}
           >
             {/* 816×874 intrinsic — displayed at h-10/12 */}
             <img
               src={COMPANY_INFO.chambers.richland.logo}
-              alt="Richland Chamber of Commerce Member"
+              alt={richlandChamberClaimLabel}
               width={816}
               height={874}
               loading="lazy"
@@ -179,13 +197,13 @@ export function AccreditationsLogoRow({
             href={COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl}
             target="_blank"
             rel="noopener noreferrer"
-            title="Tri-City Regional Chamber of Commerce Member"
+            title={triCityRegionalChamberClaimLabel}
             className={linkClass}
           >
             {/* 372×100 intrinsic */}
             <img
               src={COMPANY_INFO.chambers.triCityRegional.logo}
-              alt="Tri-City Regional Chamber of Commerce Member"
+              alt={triCityRegionalChamberClaimLabel}
               width={372}
               height={100}
               loading="lazy"

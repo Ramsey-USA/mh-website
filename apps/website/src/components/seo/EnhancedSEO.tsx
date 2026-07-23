@@ -22,6 +22,34 @@ const triStateLicenseClaim = getApprovedClaimOrFallback({
   fallback: "Tri-State licensed contractor",
 });
 
+const richlandChamberClaim = getApprovedClaimOrFallback({
+  id: "richland_chamber_advocate_level_member",
+  context: "schema",
+  fallback: "Richland Chamber of Commerce Member",
+});
+
+const pascoChamberClaim = getApprovedClaimOrFallback({
+  id: "pasco_chamber_contractor_directory_member",
+  context: "schema",
+  fallback: "Pasco Chamber of Commerce Member",
+});
+
+const triCityRegionalChamberClaim = getApprovedClaimOrFallback({
+  id: "tri_city_regional_chamber_kennewick_member",
+  context: "schema",
+  fallback: "Tri-City Regional Chamber of Commerce Member",
+});
+
+const waDesVendorStatusClaim = getApprovedClaimOrFallback({
+  id: "wa_des_veteran_small_business_status",
+  context: "schema",
+  fallback: "WA DES veteran-owned listing",
+});
+
+const bbbAccreditedSinceIso = COMPANY_INFO.details.bbbAccreditedSince;
+const bbbAccreditedYear = bbbAccreditedSinceIso.split("-")[0];
+const bbbAccreditationDescription = `BBB Accredited Business with ${COMPANY_INFO.details.bbbRating} Rating`;
+
 // Enhanced company information
 export const enhancedSEO = {
   siteName: COMPANY_INFO.name,
@@ -332,14 +360,24 @@ export function generateEnhancedOrganizationSchema() {
       },
       {
         "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Certification",
+        recognizedBy: {
+          "@type": "Organization",
+          name: "Washington State Department of Enterprise Services",
+          url: COMPANY_INFO.waVob.verifyUrl,
+        },
+        description: waDesVendorStatusClaim,
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
         credentialCategory: "Accreditation",
         recognizedBy: {
           "@type": "Organization",
           name: "Better Business Bureau",
           url: "https://www.bbb.org",
         },
-        dateCreated: "2026-04-07",
-        description: "BBB Accredited Business with A+ Rating",
+        dateCreated: bbbAccreditedSinceIso,
+        description: bbbAccreditationDescription,
       },
       {
         "@type": "EducationalOccupationalCredential",
@@ -347,9 +385,9 @@ export function generateEnhancedOrganizationSchema() {
         recognizedBy: {
           "@type": "Organization",
           name: "Pasco Chamber of Commerce",
-          url: "https://pascochamber.org",
+          url: COMPANY_INFO.chambers.pasco.memberDirectoryUrl,
         },
-        description: "Pasco Chamber of Commerce Member",
+        description: pascoChamberClaim,
       },
       {
         "@type": "EducationalOccupationalCredential",
@@ -357,9 +395,9 @@ export function generateEnhancedOrganizationSchema() {
         recognizedBy: {
           "@type": "Organization",
           name: "Richland Chamber of Commerce",
-          url: "https://www.richlandchamber.org",
+          url: COMPANY_INFO.chambers.richland.memberDirectoryUrl,
         },
-        description: "Richland Chamber of Commerce Member",
+        description: richlandChamberClaim,
       },
       {
         "@type": "EducationalOccupationalCredential",
@@ -367,13 +405,13 @@ export function generateEnhancedOrganizationSchema() {
         recognizedBy: {
           "@type": "Organization",
           name: "Tri-City Regional Chamber of Commerce",
-          url: "https://web.tricityregionalchamber.com",
+          url: COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl,
         },
-        description: "Tri-City Regional Chamber of Commerce Member",
+        description: triCityRegionalChamberClaim,
       },
     ],
     award: [
-      "BBB Accredited Business - A+ Rating 2026",
+      `BBB Accredited Business - ${COMPANY_INFO.details.bbbRating} Rating ${bbbAccreditedYear}`,
       "AGC-WA Top EMR Award 2019 - .64 EMR Rating",
       "AGC-WA Top EMR Award 2020 - .64 EMR Rating",
       "AGC-WA Top EMR Award 2021 - .64 EMR Rating",
@@ -399,17 +437,20 @@ export function generateEnhancedOrganizationSchema() {
       {
         "@type": "Organization",
         name: "Pasco Chamber of Commerce",
-        url: "https://pascochamber.org",
+        url: COMPANY_INFO.chambers.pasco.memberDirectoryUrl,
+        description: pascoChamberClaim,
       },
       {
         "@type": "Organization",
         name: "Richland Chamber of Commerce",
-        url: "https://www.richlandchamber.org",
+        url: COMPANY_INFO.chambers.richland.memberDirectoryUrl,
+        description: richlandChamberClaim,
       },
       {
         "@type": "Organization",
         name: "Tri-City Regional Chamber of Commerce",
-        url: "https://web.tricityregionalchamber.com",
+        url: COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl,
+        description: triCityRegionalChamberClaim,
       },
       {
         "@type": "Organization",
@@ -824,8 +865,8 @@ export function generateLocalBusinessSchema() {
         name: "Better Business Bureau",
         url: "https://www.bbb.org",
       },
-      dateCreated: "2026-04-07",
-      description: "BBB Accredited Business with A+ Rating",
+      dateCreated: bbbAccreditedSinceIso,
+      description: bbbAccreditationDescription,
     },
   };
 }

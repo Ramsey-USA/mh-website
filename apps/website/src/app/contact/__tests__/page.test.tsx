@@ -32,7 +32,7 @@ jest.mock("@/lib/constants/company", () => ({
     urls: { site: "https://mhc-gc.com" },
     bbb: {
       sealClickUrl:
-        "https://www.bbb.org/us/wa/pasco/profile/general-contractor/mh-construction-inc-1296-1000169655",
+        "https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036/#sealclick",
       sealHorizontal: "/images/badges/BBB-h.webp",
       sealHorizontalWhite: "/images/badges/BBB-h-w.webp",
     },
@@ -47,7 +47,7 @@ jest.mock("@/lib/constants/company", () => ({
         logo: "/images/logos/Pasco-Chamber.webp",
       },
       richland: {
-        website: "https://www.richlandchamber.org",
+        website: "https://www.richlandchamber.org/member-directory",
         logo: "/images/logos/Richland-Chamber.webp",
       },
       triCityRegional: {

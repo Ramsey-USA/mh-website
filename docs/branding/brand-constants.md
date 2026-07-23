@@ -1,8 +1,8 @@
 # MH Construction Brand Constants
 
 **Category:** Branding - Single Source of Truth  
-**Last Updated:** April 30, 2026  
-**Version:** 1.4.0  
+**Last Updated:** July 23, 2026  
+**Version:** 1.5.0  
 **Status:** ✅ Official Reference
 
 > **Purpose:** This file is the canonical reference for all brand constants, including
@@ -344,6 +344,17 @@ in the construction market.
 
 - **Certification Body:** Washington State Department of Veterans Affairs (DVA)
 - **Program:** Veteran Owned Business certification
+- **Verification Listing (WA DES Vendor Detail):**
+  [View Vendor Detail](https://pr-webs-vendor.des.wa.gov/ViewVendorSearch.aspx)
+- **Verified Listing Fields:**
+  - Vendor Name: MH Construction Inc
+  - DBA: MH Construction
+  - Account Admin Email: [office@mhc-gc.com](mailto:office@mhc-gc.com)
+  - OMWBE Status: Washington Small Business
+  - Veteran-Owned Business: True
+  - City/State/ZIP: Pasco, Washington 99301
+  - Phone: (509) 308-6489
+  - Web Address: [https://www.mhc-gc.com](https://www.mhc-gc.com)
 - **Badge Asset:** `/public/images/logo/veteran-owned-business.jpg`
 - **Display Rule:** The badge logo does not have a transparent background.
   Always render it inside the `WaVobBadge` component (`src/components/ui/WaVobBadge.tsx`),
@@ -406,6 +417,18 @@ in the construction market.
 **BBB Accredited:** A+ Rating since April 7, 2026 — [View BBB Profile](https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036)
 ```
 
+### Richland Chamber of Commerce Membership
+
+```markdown
+**Richland Chamber of Commerce:** Advocate Level Member (Top Tier) — [View Member Directory](https://www.richlandchamber.org/member-directory)
+```
+
+- **Membership Level:** Advocate Level Member
+- **Tier:** Top Tier
+- **Directory Reference:** Richland Chamber member directory listing
+- **Canonical Source:** `COMPANY_INFO.chambers.richland` in `packages/shared/src/lib/constants/company.ts`
+- **Canonical Claim:** `claim:richland_chamber_advocate_level_member` in `apps/website/src/lib/content/claims.ts`
+
 ### Safety Record
 
 - **EMR Rating:** 0.64 (40% better than industry average)
@@ -454,6 +477,7 @@ in the construction market.
 
 ## Version History
 
+- **1.5.0** — July 23, 2026: Added Richland Chamber of Commerce Advocate Level Member (Top Tier) accreditation record with canonical source and claim references
 - **1.4.0** — April 30, 2026: Added 4-tier Veteran Owned Business certification framework table; documented SBA VetCert (Tier 2), NaVOBA (Tier 3), and NVBDC (Tier 4) as in-pursuit credentials with program URLs and certification guidance
 - **1.3.0** — April 30, 2026: Added WA Veteran Owned Business (WA DVA) certification to Credentials section; documented `WaVobBadge` display rule and approved color exception
 - **1.2.0** — April 24, 2026: Added canonical license values, verification references, and licensing source-of-truth guidance

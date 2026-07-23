@@ -686,7 +686,7 @@ export default async function TestimonialsPage(props?: {
                       loading="lazy"
                     />
                     <p className="text-sm text-gray-600 dark:text-gray-300">
-                      Accredited Since April 2026
+                      Accredited Since {COMPANY_INFO.bbb.accreditedSince}
                     </p>
                   </div>
                 </a>

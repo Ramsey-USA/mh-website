@@ -53,6 +53,11 @@ const CLAIMS = {
           "https://dva.wa.gov/veterans-service-members-and-their-families/veteran-owned-businesses",
         note: "Program verification path for veteran-owned status context.",
       },
+      {
+        sourceType: "public-record",
+        reference: COMPANY_INFO.waVob.verifyUrl,
+        note: "WA DES vendor-detail listing confirms veteran-owned profile visibility.",
+      },
     ],
     ownerRole: "claim-approver",
     approvalState: "approved",
@@ -66,6 +71,31 @@ const CLAIMS = {
       "badge",
     ],
     effectiveDate: "2025-01-01",
+    nextReviewDate: "2027-06-30",
+  },
+  wa_des_veteran_small_business_status: {
+    stableId: "claim:wa_des_veteran_small_business_status",
+    approvedEn:
+      "WA DES Vendor Listing: Veteran-Owned Business True; Washington Small Business",
+    reviewedEs:
+      "Listado WA DES: negocio de veterano verdadero; pequena empresa de Washington",
+    category: "certification",
+    evidenceReferences: [
+      {
+        sourceType: "public-record",
+        reference: COMPANY_INFO.waVob.verifyUrl,
+        note: "Vendor detail listing shows Veteran-Owned Business=True and OMWBE Washington Small Business status.",
+      },
+      {
+        sourceType: "internal-record",
+        reference:
+          "packages/shared/src/lib/constants/company.ts#waVob.verifyUrl",
+      },
+    ],
+    ownerRole: "claim-approver",
+    approvalState: "approved",
+    allowedContexts: ["metadata", "schema", "trust-surface", "badge"],
+    effectiveDate: "2026-07-23",
     nextReviewDate: "2027-06-30",
   },
   tri_state_licensed_wa_or_id: {
@@ -111,6 +141,81 @@ const CLAIMS = {
     approvalState: "approved",
     allowedContexts: ["metadata", "trust-surface", "badge"],
     effectiveDate: "2026-04-07",
+    nextReviewDate: "2027-06-30",
+  },
+  richland_chamber_advocate_level_member: {
+    stableId: "claim:richland_chamber_advocate_level_member",
+    approvedEn: "Richland Chamber of Commerce Advocate Level Member (Top Tier)",
+    reviewedEs:
+      "Miembro nivel Advocate de la Camara de Comercio de Richland (nivel superior)",
+    category: "certification",
+    evidenceReferences: [
+      {
+        sourceType: "public-record",
+        reference: COMPANY_INFO.chambers.richland.memberDirectoryUrl,
+      },
+      {
+        sourceType: "internal-record",
+        reference:
+          "packages/shared/src/lib/constants/company.ts#chambers.richland",
+      },
+    ],
+    ownerRole: "claim-approver",
+    approvalState: "approved",
+    allowedContexts: [
+      "metadata",
+      "schema",
+      "seo-keyword",
+      "trust-surface",
+      "badge",
+    ],
+    effectiveDate: "2026-07-23",
+    nextReviewDate: "2027-06-30",
+  },
+  pasco_chamber_contractor_directory_member: {
+    stableId: "claim:pasco_chamber_contractor_directory_member",
+    approvedEn: "Pasco Chamber of Commerce Contractor Directory Member",
+    reviewedEs:
+      "Miembro del directorio de contratistas de la Camara de Comercio de Pasco",
+    category: "certification",
+    evidenceReferences: [
+      {
+        sourceType: "public-record",
+        reference: COMPANY_INFO.chambers.pasco.memberDirectoryUrl,
+      },
+      {
+        sourceType: "internal-record",
+        reference:
+          "packages/shared/src/lib/constants/company.ts#chambers.pasco",
+      },
+    ],
+    ownerRole: "claim-approver",
+    approvalState: "approved",
+    allowedContexts: ["metadata", "schema", "trust-surface", "badge"],
+    effectiveDate: "2026-07-23",
+    nextReviewDate: "2027-06-30",
+  },
+  tri_city_regional_chamber_kennewick_member: {
+    stableId: "claim:tri_city_regional_chamber_kennewick_member",
+    approvedEn:
+      "Tri-City Regional Chamber of Commerce Member (Kennewick Chamber)",
+    reviewedEs: "Miembro de la Camara Regional Tri-City (Camara de Kennewick)",
+    category: "certification",
+    evidenceReferences: [
+      {
+        sourceType: "public-record",
+        reference: COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl,
+      },
+      {
+        sourceType: "internal-record",
+        reference:
+          "packages/shared/src/lib/constants/company.ts#chambers.triCityRegional",
+      },
+    ],
+    ownerRole: "claim-approver",
+    approvalState: "approved",
+    allowedContexts: ["metadata", "schema", "trust-surface", "badge"],
+    effectiveDate: "2026-07-23",
     nextReviewDate: "2027-06-30",
   },
   founded_2010: {

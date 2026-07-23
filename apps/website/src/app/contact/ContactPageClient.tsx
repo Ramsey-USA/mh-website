@@ -19,6 +19,7 @@ import {
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getApprovedClaimOrFallback } from "@/lib/content/claims";
 import { saveOfflineSubmission } from "@/lib/pwa/offline-queue";
 import { PWAOnly } from "@/components/pwa";
 import { useTranslations } from "next-intl";
@@ -32,6 +33,30 @@ const DeferredMapFacade = dynamic(
     ),
   },
 );
+
+const bbbClaimLabel = getApprovedClaimOrFallback({
+  id: "bbb_accredited_a_plus",
+  context: "trust-surface",
+  fallback: "BBB accreditation status",
+});
+
+const richlandChamberClaimLabel = getApprovedClaimOrFallback({
+  id: "richland_chamber_advocate_level_member",
+  context: "trust-surface",
+  fallback: "Richland Chamber of Commerce Member",
+});
+
+const pascoChamberClaimLabel = getApprovedClaimOrFallback({
+  id: "pasco_chamber_contractor_directory_member",
+  context: "trust-surface",
+  fallback: "Pasco Chamber of Commerce Member",
+});
+
+const triCityRegionalChamberClaimLabel = getApprovedClaimOrFallback({
+  id: "tri_city_regional_chamber_kennewick_member",
+  context: "trust-surface",
+  fallback: "Tri-City Regional Chamber of Commerce Member",
+});
 
 // Quick contact info - defined inside component for locale support
 const buildQuickContact = (t: ReturnType<typeof useTranslations>) => [
@@ -498,13 +523,13 @@ export default function ContactPageClient({
                 href={COMPANY_INFO.bbb.sealClickUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                title="BBB Accredited Business - A+ Rating"
+                title={bbbClaimLabel}
                 className="transition-colors"
               >
                 {}
                 <img
                   src={COMPANY_INFO.bbb.sealHorizontal}
-                  alt="BBB Accredited A+ Rating"
+                  alt={bbbClaimLabel}
                   width={200}
                   height={42}
                   className="h-10 w-auto dark:hidden"
@@ -514,7 +539,7 @@ export default function ContactPageClient({
                 {}
                 <img
                   src={COMPANY_INFO.bbb.sealHorizontalWhite}
-                  alt="BBB Accredited A+ Rating"
+                  alt={bbbClaimLabel}
                   width={200}
                   height={42}
                   className="h-10 w-auto hidden dark:block"
@@ -523,7 +548,7 @@ export default function ContactPageClient({
                 />
               </a>
               <a
-                href="https://www.agcwa.com/"
+                href={COMPANY_INFO.agc.website}
                 target="_blank"
                 rel="noopener noreferrer"
                 title="AGC of Washington Member"
@@ -572,13 +597,13 @@ export default function ContactPageClient({
                 href={COMPANY_INFO.chambers.pasco.memberDirectoryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Pasco Chamber of Commerce Member"
+                title={pascoChamberClaimLabel}
                 className="transition-colors"
               >
                 {}
                 <img
                   src={COMPANY_INFO.chambers.pasco.logo}
-                  alt="Pasco Chamber of Commerce Member"
+                  alt={pascoChamberClaimLabel}
                   width={510}
                   height={231}
                   className="h-10 w-auto dark:hidden"
@@ -588,7 +613,7 @@ export default function ContactPageClient({
                 {}
                 <img
                   src={COMPANY_INFO.chambers.pasco.logoWhite}
-                  alt="Pasco Chamber of Commerce Member"
+                  alt={pascoChamberClaimLabel}
                   width={748}
                   height={256}
                   className="h-10 w-auto hidden dark:block"
@@ -600,13 +625,13 @@ export default function ContactPageClient({
                 href={COMPANY_INFO.chambers.richland.memberDirectoryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Richland Chamber of Commerce Member"
+                title={richlandChamberClaimLabel}
                 className="transition-colors"
               >
                 {}
                 <img
                   src={COMPANY_INFO.chambers.richland.logo}
-                  alt="Richland Chamber of Commerce Member"
+                  alt={richlandChamberClaimLabel}
                   width={816}
                   height={874}
                   className="h-10 w-auto"
@@ -618,13 +643,13 @@ export default function ContactPageClient({
                 href={COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Tri-City Regional Chamber of Commerce Member"
+                title={triCityRegionalChamberClaimLabel}
                 className="transition-colors"
               >
                 {}
                 <img
                   src={COMPANY_INFO.chambers.triCityRegional.logo}
-                  alt="Tri-City Regional Chamber of Commerce Member"
+                  alt={triCityRegionalChamberClaimLabel}
                   width={372}
                   height={100}
                   className="h-10 w-auto"

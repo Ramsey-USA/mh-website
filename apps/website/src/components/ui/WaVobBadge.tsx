@@ -15,6 +15,13 @@
 
 import Image from "next/image";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getApprovedClaimOrFallback } from "@/lib/content/claims";
+
+const waDesStatusClaimLabel = getApprovedClaimOrFallback({
+  id: "wa_des_veteran_small_business_status",
+  context: "trust-surface",
+  fallback: "WA DES vendor detail verification",
+});
 
 type WaVobBadgeSize = "sm" | "md" | "lg" | "xl" | "fill";
 
@@ -50,8 +57,8 @@ export function WaVobBadge({
         href={COMPANY_INFO.waVob.verifyUrl}
         target="_blank"
         rel="noopener noreferrer"
-        title={COMPANY_INFO.waVob.title}
-        aria-label={`${COMPANY_INFO.waVob.alt} — click to verify certification`}
+        title={waDesStatusClaimLabel}
+        aria-label={`${COMPANY_INFO.waVob.alt} — ${waDesStatusClaimLabel}`}
         className={`inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ${className}`}
       >
         <Image
@@ -73,8 +80,8 @@ export function WaVobBadge({
       href={COMPANY_INFO.waVob.verifyUrl}
       target="_blank"
       rel="noopener noreferrer"
-      title={COMPANY_INFO.waVob.title}
-      aria-label={`${COMPANY_INFO.waVob.alt} — click to verify certification`}
+      title={waDesStatusClaimLabel}
+      aria-label={`${COMPANY_INFO.waVob.alt} — ${waDesStatusClaimLabel}`}
       className={`group relative isolate inline-block overflow-hidden rounded-xl bg-linear-to-br from-red-600 via-red-500 to-blue-700 p-0.75 shadow-[0_10px_22px_-16px_rgba(220,38,38,0.9),0_14px_26px_-20px_rgba(29,78,216,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_-16px_rgba(220,38,38,0.95),0_18px_30px_-20px_rgba(29,78,216,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ${className}`}
     >
       <span

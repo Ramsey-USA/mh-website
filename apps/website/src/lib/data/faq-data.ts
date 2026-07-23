@@ -7,6 +7,7 @@
  */
 
 import { CONTENT_ICONS } from "@/lib/constants/navigation-icons";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 export interface FAQQuestion {
   question: string;
@@ -60,7 +61,7 @@ export const faqCategories: FAQCategory[] = [
           "Yes. MH Construction is Better Business Bureau accredited with an A+ rating (accredited April 7, 2026). That accreditation reflects our commitment to trust, transparency, and ethical business practices in every mission-partner relationship.",
         link: {
           text: "View BBB Business Profile →",
-          href: "https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036",
+          href: COMPANY_INFO.bbb.profileUrl,
         },
       },
     ],
@@ -179,7 +180,7 @@ export const faqCategories: FAQCategory[] = [
           "Yes. MH Construction is a certified Washington State Veteran Owned Business (WA DVA, certified in 2026). We are also actively pursuing additional federal and private-sector veteran certifications, including SBA VetCert, to expand procurement pathways for public and corporate projects.",
         link: {
           text: "Verify WA Veteran Owned Business status →",
-          href: "https://pr-webs-vendor.des.wa.gov/VendorSearch.aspx",
+          href: COMPANY_INFO.waVob.verifyUrl,
         },
       },
       {
@@ -188,7 +189,7 @@ export const faqCategories: FAQCategory[] = [
           "Yes. We have extensive experience with government contracts and municipal builds, and we understand federal compliance requirements. We are a dedicated supporter of the Build America, Buy America Act (BABAA), which is a federal domestic-content requirement for certain federally funded infrastructure projects. Our disciplined planning, Procore-based documentation, and regulatory expertise make us well-suited for public facility projects.",
         link: {
           text: "AGC BABAA Resource Hub →",
-          href: "https://www.agc.org/babaa-resource-hub",
+          href: COMPANY_INFO.agc.babaaResourceHub,
         },
       },
       {
@@ -241,7 +242,7 @@ export const faqCategories: FAQCategory[] = [
           "Yes. We are experienced in government contracting and are fully capable of managing prevailing wage requirements, certified payroll, and the strict safety compliance (OSHA/WISHA) required for public works and federal projects. We support the Build America, Buy America Act (BABAA), a federal domestic-content requirement for certain federally funded infrastructure projects, and stay current through AGC guidance.",
         link: {
           text: "AGC BABAA Resource Hub →",
-          href: "https://www.agc.org/babaa-resource-hub",
+          href: COMPANY_INFO.agc.babaaResourceHub,
         },
       },
       {

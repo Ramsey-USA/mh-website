@@ -4,6 +4,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import {
   getApprovedClaim,
   getClaimRecord,
@@ -12,8 +13,12 @@ import {
 
 const CLAIM_IDS: ClaimId[] = [
   "veteran_owned_since_2025",
+  "wa_des_veteran_small_business_status",
   "tri_state_licensed_wa_or_id",
   "bbb_accredited_a_plus",
+  "pasco_chamber_contractor_directory_member",
+  "richland_chamber_advocate_level_member",
+  "tri_city_regional_chamber_kennewick_member",
   "founded_2010",
 ];
 
@@ -56,6 +61,14 @@ describe("public claim register", () => {
     expect(esClaim).toBe("Propiedad de veterano desde enero de 2025");
   });
 
+  it("keeps BBB claim effective date in sync with canonical accreditation date", () => {
+    const bbbClaim = getClaimRecord("bbb_accredited_a_plus");
+
+    expect(bbbClaim.effectiveDate).toBe(
+      COMPANY_INFO.details.bbbAccreditedSince,
+    );
+  });
+
   it("guards metadata and schema surfaces against direct raw phrase bypass", () => {
     const cwd = process.cwd();
     const guardedFiles = [
@@ -70,8 +83,12 @@ describe("public claim register", () => {
 
     const controlledPhrases = [
       "Veteran-Owned Since January 2025",
+      "WA DES Vendor Listing: Veteran-Owned Business True; Washington Small Business",
       "Licensed in WA, OR, and ID",
       "BBB Accredited Business — A+ Rating",
+      "Pasco Chamber of Commerce Contractor Directory Member",
+      "Richland Chamber of Commerce Advocate Level Member (Top Tier)",
+      "Tri-City Regional Chamber of Commerce Member (Kennewick Chamber)",
     ];
 
     for (const relativePath of guardedFiles) {

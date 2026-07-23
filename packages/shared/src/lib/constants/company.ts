@@ -64,12 +64,12 @@ export const COMPANY_INFO = {
     city: "Pasco",
     state: "WA",
     stateCode: "WA",
-    zip: "99301",
+    zip: "99301-9527",
     country: "US",
     // Convenience formats
-    full: "3111 N Capitol Ave, Pasco, WA 99301",
+    full: "3111 N Capitol Ave, Pasco, WA 99301-9527",
     cityState: "Pasco, WA",
-    cityStateZip: "Pasco, WA 99301",
+    cityStateZip: "Pasco, WA 99301-9527",
   },
 
   // Geographic Coordinates
@@ -155,6 +155,7 @@ export const COMPANY_INFO = {
   chambers: {
     pasco: {
       name: "Pasco Chamber of Commerce",
+      // Canonical recognition URL: Chamber contractor directory listing.
       memberDirectoryUrl:
         "https://pascochamber.org/construction-equipment-contractors/",
       // Color logo (use on light backgrounds)
@@ -164,13 +165,17 @@ export const COMPANY_INFO = {
     },
     richland: {
       name: "Richland Chamber of Commerce",
+      // Canonical recognition URL (member profile pages may be unstable).
       memberDirectoryUrl: "https://www.richlandchamber.org/member-directory",
+      membershipLevel: "Advocate Level Member",
+      membershipTier: "Top Tier",
       // Full color logo (works on light backgrounds)
       logo: "/images/credentials/Richland-Chamber-logo-full-color.webp",
       logoWhite: "/images/credentials/Richland-Chamber-logo-full-color.webp",
     },
     triCityRegional: {
       name: "Tri-City Regional Chamber of Commerce",
+      // Canonical recognition URL; this chamber serves as the Kennewick chamber.
       memberDirectoryUrl:
         "https://web.tricityregionalchamber.com/Contractor-General/MH-Construction,-Inc-6318",
       // Horizontal logo (use on light backgrounds)
@@ -216,14 +221,15 @@ export const COMPANY_INFO = {
     programUrl:
       "https://dva.wa.gov/veterans-service-members-and-their-families/veteran-owned-businesses",
     /**
-     * WA State DES Vendor Search — public verification page for our VOB cert.
-     * Visitors can look up MH Construction to confirm the certification is active.
+     * WA State DES Vendor Detail — canonical public verification page for our
+     * veteran-owned listing and Washington Small Business profile.
      */
-    verifyUrl: "https://pr-webs-vendor.des.wa.gov/VendorSearch.aspx",
+    verifyUrl: "https://pr-webs-vendor.des.wa.gov/ViewVendorSearch.aspx",
     /** Local badge image (non-transparent background — must be used inside WaVobBadge component) */
     logo: "/images/logo/veteran-owned-business.jpg",
     alt: "Washington State Veteran Owned Business — Certified by WA DVA",
-    title: "Verify MH Construction WA Veteran Owned Business Certification",
+    title:
+      "Verify MH Construction WA Veteran Owned Business Listing (WA DES Vendor Detail)",
     certifiedYear: 2026,
   },
 

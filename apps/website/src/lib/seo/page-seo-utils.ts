@@ -37,6 +37,12 @@ const triStateLicenseClaimKeyword = getApprovedClaimOrFallback({
   fallback: "WA OR ID licensed contractor",
 });
 
+const triCityRegionalChamberClaimKeyword = getApprovedClaimOrFallback({
+  id: "tri_city_regional_chamber_kennewick_member",
+  context: "seo-keyword",
+  fallback: "Tri-City Regional Chamber member",
+});
+
 const JEREMY_SEO_SIGNAL_KEYWORDS = [
   "Jeremy Thamert",
   "Jeremy Gale Thamert",
@@ -403,8 +409,8 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
       "BBB accredited general contractor",
       "BBB A+ rated construction company",
       "Pasco Chamber of Commerce member",
-      "Richland Chamber of Commerce member",
-      "Tri-City Regional Chamber of Commerce member",
+      "Richland Chamber of Commerce Advocate Level Member",
+      triCityRegionalChamberClaimKeyword,
       "Travelers Insurance bonding partner",
       "partnership philosophy construction",
       "transparent pricing honest communication",

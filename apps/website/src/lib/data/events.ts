@@ -98,7 +98,7 @@ export const upcomingEvents = [
 ] as const;
 
 export const eventPartnerUrls = {
-  chamberSchedule: "https://www.richlandchamber.org/cool-desert-nights/",
+  chamberSchedule: "https://www.richlandchamber.org/member-directory",
   eventbrite:
     "https://www.eventbrite.com/e/2026-cool-desert-nights-tickets-1984588946964",
   kiwanis: "https://kiwanisrichland.org/",
