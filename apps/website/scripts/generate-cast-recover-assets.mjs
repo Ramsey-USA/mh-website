@@ -66,8 +66,20 @@ const qrImage = await pdf.embedPng(qrBuffer);
 const page = pdf.addPage([612, 792]);
 const { width, height } = page.getSize();
 
-page.drawRectangle({ x: 0, y: height - 205, width, height: 205, color: colors.greenDark });
-page.drawRectangle({ x: 0, y: height - 211, width, height: 6, color: colors.tan });
+page.drawRectangle({
+  x: 0,
+  y: height - 205,
+  width,
+  height: 205,
+  color: colors.greenDark,
+});
+page.drawRectangle({
+  x: 0,
+  y: height - 211,
+  width,
+  height: 6,
+  color: colors.tan,
+});
 page.drawText("MH CONSTRUCTION PRESENTS", {
   x: 46,
   y: height - 58,
@@ -109,7 +121,13 @@ const intro =
   "MH Construction, a Veteran-Owned company, is bringing veterans and volunteer boat captains together for a day of fishing, connection, and community recognition. Local business support helps cover participant needs and creates a prize table worthy of the people we are gathering to serve.";
 drawWrappedText(page, intro, 46, 505, 355, regular, 11, 16, colors.ink);
 
-page.drawRectangle({ x: 426, y: 390, width: 140, height: 140, color: colors.white });
+page.drawRectangle({
+  x: 426,
+  y: 390,
+  width: 140,
+  height: 140,
+  color: colors.white,
+});
 page.drawImage(qrImage, { x: 434, y: 398, width: 124, height: 124 });
 page.drawText("Scan for details", {
   x: 452,
@@ -119,7 +137,13 @@ page.drawText("Scan for details", {
   color: colors.greenDark,
 });
 
-page.drawRectangle({ x: 46, y: 244, width: 520, height: 126, color: colors.light });
+page.drawRectangle({
+  x: 46,
+  y: 244,
+  width: 520,
+  height: 126,
+  color: colors.light,
+});
 page.drawText("SPONSORSHIP & DONATION OPPORTUNITIES", {
   x: 64,
   y: 342,
@@ -135,24 +159,42 @@ page.drawText("SPONSORSHIP & DONATION OPPORTUNITIES", {
 ].forEach((item, index) => {
   const y = 318 - index * 22;
   page.drawCircle({ x: 69, y: y + 3, size: 3, color: colors.tan });
-  page.drawText(item, { x: 82, y, size: 10.5, font: regular, color: colors.ink });
+  page.drawText(item, {
+    x: 82,
+    y,
+    size: 10.5,
+    font: regular,
+    color: colors.ink,
+  });
 });
 
-page.drawText("Event Targets", { x: 46, y: 207, size: 14, font: bold, color: colors.greenDark });
-page.drawText("50 veteran positions  |  10-12 vessels  |  All eras and service branches", {
+page.drawText("Event Targets", {
   x: 46,
-  y: 184,
-  size: 10.5,
-  font: regular,
-  color: colors.ink,
+  y: 207,
+  size: 14,
+  font: bold,
+  color: colors.greenDark,
 });
-page.drawText("Primary target: Fall King Salmon  |  Contingency: captain's choice", {
-  x: 46,
-  y: 164,
-  size: 10.5,
-  font: regular,
-  color: colors.ink,
-});
+page.drawText(
+  "50 veteran positions  |  10-12 vessels  |  All eras and service branches",
+  {
+    x: 46,
+    y: 184,
+    size: 10.5,
+    font: regular,
+    color: colors.ink,
+  },
+);
+page.drawText(
+  "Primary target: Fall King Salmon  |  Contingency: captain's choice",
+  {
+    x: 46,
+    y: 164,
+    size: 10.5,
+    font: regular,
+    color: colors.ink,
+  },
+);
 
 page.drawRectangle({ x: 0, y: 0, width, height: 116, color: colors.green });
 page.drawText("Start a Sponsorship Conversation", {
@@ -184,9 +226,21 @@ await fs.writeFile(
 );
 
 console.log(`Generated ${path.relative(websiteRoot, qrPath)}`);
-console.log("Generated public/downloads/events/operation-cast-recover-sponsorship.pdf");
+console.log(
+  "Generated public/downloads/events/operation-cast-recover-sponsorship.pdf",
+);
 
-function drawWrappedText(pageRef, text, x, y, maxWidth, font, size, lineHeight, color) {
+function drawWrappedText(
+  pageRef,
+  text,
+  x,
+  y,
+  maxWidth,
+  font,
+  size,
+  lineHeight,
+  color,
+) {
   const words = text.split(" ");
   const lines = [];
   let line = "";
