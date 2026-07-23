@@ -36,7 +36,7 @@ Equivalent command-by-command gate run:
 pnpm run type-check
 pnpm run lint
 pnpm run format:check
-pnpm run test:ci
+pnpm run test:ci:fast
 pnpm run audit:ci
 pnpm run build
 ```

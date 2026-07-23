@@ -204,7 +204,7 @@ Uploads build artifacts to GitHub for analysis.
 ### Unit Tests
 
 ```bash
-pnpm run test:ci
+pnpm run test:ci:fast
 ```
 
 **Configuration:**
@@ -212,6 +212,7 @@ pnpm run test:ci
 - **Test Runner:** Jest 30.4.2
 - **Environment:** jsdom (browser simulation)
 - **Watch Mode:** OFF in CI
+- **Execution Mode:** Parallel worker CI variant for the website test suite; the serial `test:ci` command remains available for local debugging of open-handle issues.
 
 **Coverage Requirements:**
 

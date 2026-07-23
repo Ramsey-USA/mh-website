@@ -15,7 +15,7 @@ The primary test suite uses Jest 30 with Testing Library for React component and
 pnpm run test                                 # Run website tests from repo root
 pnpm --filter @mhc/website run test:watch     # Run in watch mode (re-runs on file changes)
 pnpm --filter @mhc/website run test:coverage  # Run with coverage report
-pnpm run test:ci                              # CI mode (website suite)
+pnpm run test:ci:fast                         # CI mode (website suite)
 pnpm run nav:contract:check                   # Navigation route ownership contract
 ```
 

@@ -164,7 +164,7 @@ jobs:
 
       - name: Run tests — website
         working-directory: apps/website
-        run: npm run test:ci
+        run: npm run test:ci:fast
 
       - name: Run tests — dashboard
         working-directory: apps/dashboard
