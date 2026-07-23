@@ -48,7 +48,7 @@ const MANIFEST_PATH = path.join(
 );
 const PUBLIC_DIR = path.join(process.cwd(), "public");
 const HERO_MEDIA_BASE_URL =
-  process.env.NEXT_PUBLIC_HERO_MEDIA_BASE_URL?.trim() ?? "";
+  process.env["NEXT_PUBLIC_HERO_MEDIA_BASE_URL"]?.trim() ?? "";
 
 function normalizePublicAssetPath(assetPath?: string): string {
   if (!assetPath) {
