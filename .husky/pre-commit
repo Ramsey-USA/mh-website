@@ -1,9 +1,14 @@
 set -e
 
 ensure_hook_dependencies() {
+  if ! command -v pnpm >/dev/null 2>&1; then
+    echo "❌ Error: pnpm is required for pre-commit checks."
+    exit 1
+  fi
+
   if ! pnpm exec lint-staged --version >/dev/null 2>&1; then
-    echo "⚠️  lint-staged is unavailable. Reinstalling workspace dependencies..."
-    pnpm install --frozen-lockfile || pnpm install
+    echo "❌ Error: lint-staged is unavailable. Run 'pnpm install' and retry."
+    exit 1
   fi
 }
 

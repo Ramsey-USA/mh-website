@@ -1,15 +1,61 @@
 set -e
 
 ensure_hook_dependencies() {
-	if ! pnpm --filter @mhc/dashboard exec tsc --version >/dev/null 2>&1 || ! pnpm --filter @mhc/website exec tsc --version >/dev/null 2>&1; then
-		echo "⚠️  TypeScript toolchain links are missing. Reinstalling workspace dependencies..."
-		pnpm install --frozen-lockfile || pnpm install
+	if ! command -v pnpm >/dev/null 2>&1; then
+		echo "❌ Error: pnpm is required for pre-push checks."
+		exit 1
 	fi
+
+	if ! pnpm --filter @mhc/dashboard exec tsc --version >/dev/null 2>&1 || ! pnpm --filter @mhc/website exec tsc --version >/dev/null 2>&1; then
+		echo "❌ Error: TypeScript toolchain is unavailable. Run 'pnpm install' and retry."
+		exit 1
+	fi
+}
+
+get_diff_base() {
+	if git rev-parse --verify @{upstream} >/dev/null 2>&1; then
+		echo "@{upstream}"
+	else
+		echo "HEAD~1"
+	fi
+}
+
+has_changes_in() {
+	local pattern="$1"
+	local base_ref="$2"
+	git diff --name-only "$base_ref"...HEAD | grep -qE "$pattern"
 }
 
 echo "🔍 Pre-push: running full type checks..."
 
 ensure_hook_dependencies
 
-npm run --silent type-check
+BASE_REF=$(get_diff_base)
+
+RUN_DASHBOARD=false
+RUN_WEBSITE=false
+
+if has_changes_in '^apps/dashboard/' "$BASE_REF"; then
+	RUN_DASHBOARD=true
+fi
+
+if has_changes_in '^apps/website/|^documents/|^messages/|^public/|^middleware\.ts$|^next\.config\.js$|^open-next\.config\.ts$' "$BASE_REF"; then
+	RUN_WEBSITE=true
+fi
+
+if [ "$RUN_DASHBOARD" = false ] && [ "$RUN_WEBSITE" = false ]; then
+	echo "✅ Pre-push: no app-impacting changes detected; skipping type checks."
+	exit 0
+fi
+
+if [ "$RUN_DASHBOARD" = true ]; then
+	echo "→ Type-checking dashboard..."
+	pnpm --filter @mhc/dashboard type-check
+fi
+
+if [ "$RUN_WEBSITE" = true ]; then
+	echo "→ Type-checking website..."
+	pnpm --filter @mhc/website type-check
+fi
+
 echo "✅ Pre-push: type checks passed!"
