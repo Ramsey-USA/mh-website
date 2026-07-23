@@ -350,3 +350,90 @@ jobs:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
           BAIDU_PUSH_TOKEN: ${{ secrets.BAIDU_PUSH_TOKEN }}
         run: npm run seo:sitemaps:submit
+
+      - name: Purge Cloudflare cache (smart path detection)
+        continue-on-error: true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          NEXT_PUBLIC_SITE_URL: ${{ env.NEXT_PUBLIC_SITE_URL }}
+        run: |
+          if [ -z "${CLOUDFLARE_API_TOKEN}" ] || [ -z "${CLOUDFLARE_ZONE_ID}" ]; then
+            echo "⚠️  Skipping cache purge: CLOUDFLARE_API_TOKEN or CLOUDFLARE_ZONE_ID not set"
+            exit 0
+          fi
+
+          # Get the list of changed files since the previous commit
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD || echo "src/app src/components" )
+
+          # Initialize array of paths to purge
+          PURGE_URLS=()
+
+          # If core component files or layout changed, purge everything
+          if echo "$CHANGED_FILES" | grep -qE "^(src/components|src/app/layout|src/app/middleware|next\.config|tailwind\.config)" ; then
+            echo "🧹 Core components/layout changed → purging all pages"
+            PURGE_URLS=(
+              "${NEXT_PUBLIC_SITE_URL}/"
+              "${NEXT_PUBLIC_SITE_URL}/*"
+              "${NEXT_PUBLIC_SITE_URL}/api/*"
+            )
+          else
+            # Smart path detection: map src files to URL paths
+            PURGE_URLS=("${NEXT_PUBLIC_SITE_URL}/")  # Always purge home
+
+            # Check for specific page changes
+            echo "$CHANGED_FILES" | while IFS= read -r file; do
+              case "$file" in
+                src/app/about/*)          echo "${NEXT_PUBLIC_SITE_URL}/about" ;;
+                src/app/services/*)       echo "${NEXT_PUBLIC_SITE_URL}/services"; echo "${NEXT_PUBLIC_SITE_URL}/services/*" ;;
+                src/app/projects/*)       echo "${NEXT_PUBLIC_SITE_URL}/projects"; echo "${NEXT_PUBLIC_SITE_URL}/projects/*" ;;
+                src/app/team/*)           echo "${NEXT_PUBLIC_SITE_URL}/team" ;;
+                src/app/contact/*)        echo "${NEXT_PUBLIC_SITE_URL}/contact" ;;
+                src/app/careers/*)        echo "${NEXT_PUBLIC_SITE_URL}/careers" ;;
+                src/app/faq/*)            echo "${NEXT_PUBLIC_SITE_URL}/faq"; echo "${NEXT_PUBLIC_SITE_URL}/faq/*" ;;
+                src/app/locations/*)      echo "${NEXT_PUBLIC_SITE_URL}/locations"; echo "${NEXT_PUBLIC_SITE_URL}/locations/*" ;;
+                src/app/testimonials/*)   echo "${NEXT_PUBLIC_SITE_URL}/testimonials" ;;
+                src/app/public-sector/*)  echo "${NEXT_PUBLIC_SITE_URL}/public-sector" ;;
+                src/app/resources/*)      echo "${NEXT_PUBLIC_SITE_URL}/resources/*" ;;
+                src/app/*/\[\*/*)         echo "${NEXT_PUBLIC_SITE_URL}/*" ;;  # Dynamic routes
+                public/robots.txt)        echo "${NEXT_PUBLIC_SITE_URL}/robots.txt" ;;
+                public/sitemap*)          echo "${NEXT_PUBLIC_SITE_URL}/sitemap*" ;;
+              esac
+            done >> /tmp/purge_paths.txt
+
+            # Read unique paths
+            if [ -f /tmp/purge_paths.txt ]; then
+              PURGE_URLS+=($(sort -u /tmp/purge_paths.txt))
+            fi
+          fi
+
+          # Add sitemaps and robots (always)
+          PURGE_URLS+=(
+            "${NEXT_PUBLIC_SITE_URL}/sitemap.xml"
+            "${NEXT_PUBLIC_SITE_URL}/sitemap-index.xml"
+            "${NEXT_PUBLIC_SITE_URL}/robots.txt"
+            "${NEXT_PUBLIC_SITE_URL}/api/*"
+          )
+
+          # Remove duplicates
+          PURGE_URLS=($(printf '%s\n' "${PURGE_URLS[@]}" | sort -u))
+
+          echo "🧹 Purging ${#PURGE_URLS[@]} paths from Cloudflare cache..."
+          echo "📋 Paths to purge:"
+          printf '  - %s\n' "${PURGE_URLS[@]}"
+
+          # Convert array to JSON format
+          FILES_JSON=$(printf '%s\n' "${PURGE_URLS[@]}" | jq -R . | jq -s .)
+
+          response=$(curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/purge_cache" \
+            -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data "{\"files\":${FILES_JSON}}")
+
+          success=$(echo "$response" | grep -o '"success":true' || echo "")
+          if [ -n "$success" ]; then
+            echo "✅ Cache purge completed for $(echo "$FILES_JSON" | jq length) paths"
+          else
+            echo "⚠️  Cache purge response: $response"
+            exit 1
+          fi

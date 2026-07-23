@@ -99,9 +99,10 @@ To keep CI reproducible and aligned with security/congruency safeguards:
 
 Current `ci-cd.yml` runs on `main` require these GitHub repository secrets:
 
-- `INDEXNOW_KEY`
-- `CLOUDFLARE_ACCOUNT_ID`
-- `CLOUDFLARE_API_TOKEN`
+- `INDEXNOW_KEY` - IndexNow key for SEO search engine notification
+- `CLOUDFLARE_ACCOUNT_ID` - Cloudflare account ID for deployment
+- `CLOUDFLARE_API_TOKEN` - Cloudflare API token for Workers and cache purge
+- `CLOUDFLARE_ZONE_ID` - Cloudflare Zone ID for cache purge (find in dashboard: Overview → Zone ID)
 
 ---
 
@@ -446,7 +447,40 @@ Shows:
 - Version ID (for rollback)
 - Status (active/inactive)
 
-#### 4. Smoke Tests on Live
+#### 4. Purge Edge Cache
+
+After deployment, Cloudflare cache is automatically purged for affected paths:
+
+```bash
+# Smart detection: purges only changed page routes
+# Core components? Purges all paths
+# Single page changed? Purges just that route + home
+```
+
+**How it works:**
+
+1. Compares commits to detect changed source files
+2. Maps source paths to URL routes:
+   - `src/app/about/*` → `/about` + `/`
+   - `src/app/services/*` → `/services`, `/services/*` + `/`
+   - `src/app/projects/*` → `/projects`, `/projects/*` + `/`
+   - `src/components/*` → purge all (`/*`)
+   - `public/robots.txt`, `public/sitemap*` → specific files
+3. Sends purge request to Cloudflare API
+4. Always purges: `/`, `/sitemap.xml`, `/robots.txt`, `/api/*`
+
+**Benefits:**
+
+- ✅ Fresh content immediately available
+- ✅ Static assets remain cached (performance)
+- ✅ Minimal API overhead
+- ✅ Graceful failure (doesn't block deployment)
+
+**Requires GitHub secret:**
+
+- `CLOUDFLARE_ZONE_ID` - Your Cloudflare Zone ID
+
+#### 5. Smoke Tests on Live
 
 ```bash
 curl https://www.mhc-gc.com/api/health
@@ -460,10 +494,13 @@ Verifies:
 
 ---
 
-## Rollback Procedures
+### Rollback Procedures
 
 No automatic rollback is configured in this repository. Rollback is an explicit release-owner
 decision based on production evidence.
+
+**Note:** Cache purge is automated after every deployment. If you rollback, you may need to
+manually purge cache for critical routes to ensure old content isn't served.
 
 ### Rollback Triggers
 
