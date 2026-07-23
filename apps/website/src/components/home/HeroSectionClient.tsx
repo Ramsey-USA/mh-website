@@ -3,15 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-const HERO_VIDEO_DEFAULT_INITIAL_DELAY_MS = 3200;
-const HERO_VIDEO_JULY_INITIAL_DELAY_MS = 7000;
-
-function getInitialHeroVideoDelayMs(now: Date = new Date()): number {
-  const isJuly = now.getMonth() === 6;
-  return isJuly
-    ? HERO_VIDEO_JULY_INITIAL_DELAY_MS
-    : HERO_VIDEO_DEFAULT_INITIAL_DELAY_MS;
-}
+const HERO_VIDEO_INITIAL_DELAY_MS = 0;
 
 interface HeroSectionCopy {
   baseLabel: string;
@@ -53,7 +45,7 @@ export function HeroSectionClient({
   const delayedStartTimerRef = useRef<ReturnType<
     typeof globalThis.setTimeout
   > | null>(null);
-  const initialVideoDelayMsRef = useRef<number>(getInitialHeroVideoDelayMs());
+  const initialVideoDelayMsRef = useRef<number>(HERO_VIDEO_INITIAL_DELAY_MS);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isVideoReady, setIsVideoReady] = useState(hasPoster);
   const [isMuted, setIsMuted] = useState(true);
@@ -80,7 +72,8 @@ export function HeroSectionClient({
       globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const saveDataEnabled = connection?.saveData === true;
 
-    if (prefersReducedMotion || saveDataEnabled) {
+    // Keep autoplay active unless both signals indicate strict data/motion limits.
+    if (prefersReducedMotion && saveDataEnabled) {
       setAllowAutoPlayback(false);
     }
   }, []);
@@ -166,7 +159,7 @@ export function HeroSectionClient({
             syncPlaybackState();
           }
         },
-        { threshold: 0.35 },
+        { threshold: 0.1 },
       );
 
       observer.observe(video);
