@@ -109,9 +109,21 @@ function getLinkedInHref(linkedinUrl?: string): string | null {
 
   try {
     const parsedUrl = new URL(linkedinUrl);
-    return parsedUrl.hostname.includes("linkedin.com")
-      ? parsedUrl.toString()
-      : null;
+    const hostname = parsedUrl.hostname.toLowerCase().replace(/\.+$/u, "");
+    const isLinkedInHost =
+      hostname === "linkedin.com" ||
+      hostname === "lnkd.in" ||
+      hostname.endsWith(".linkedin.com");
+    const isHttpProtocol =
+      parsedUrl.protocol === "https:" || parsedUrl.protocol === "http:";
+    const hasEmbeddedCredentials =
+      parsedUrl.username.length > 0 || parsedUrl.password.length > 0;
+
+    if (!isLinkedInHost || !isHttpProtocol || hasEmbeddedCredentials) {
+      return null;
+    }
+
+    return parsedUrl.toString();
   } catch {
     return null;
   }

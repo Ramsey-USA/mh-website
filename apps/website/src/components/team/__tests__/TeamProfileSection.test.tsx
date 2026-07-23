@@ -192,6 +192,62 @@ describe("TeamProfileSection", () => {
     ).not.toBeInTheDocument();
   });
 
+  it("does not render LinkedIn links for malicious lookalike or credentialed URLs", () => {
+    const suspiciousUrls = [
+      "https://linkedin.com.evil-example.com/in/alex-builder",
+      "https://user:pass@www.linkedin.com/in/alex-builder",
+    ];
+
+    suspiciousUrls.forEach((linkedinUrl) => {
+      const memberWithSuspiciousLinkedin: VintageTeamMember = {
+        ...baseMember,
+        linkedinUrl,
+      };
+
+      const { unmount } = render(
+        <TeamProfileSection member={memberWithSuspiciousLinkedin} index={0} />,
+      );
+
+      expect(
+        screen.queryByRole("link", {
+          name: /connect with alex builder on linkedin/i,
+        }),
+      ).not.toBeInTheDocument();
+
+      unmount();
+    });
+  });
+
+  it("renders LinkedIn links for approved lnkd.in short links", () => {
+    const memberWithShortLink: VintageTeamMember = {
+      ...baseMember,
+      linkedinUrl: "https://lnkd.in/alex-builder",
+    };
+
+    render(<TeamProfileSection member={memberWithShortLink} index={0} />);
+
+    expect(
+      screen.getAllByRole("link", {
+        name: /connect with alex builder on linkedin/i,
+      })[0],
+    ).toHaveAttribute("href", "https://lnkd.in/alex-builder");
+  });
+
+  it("renders LinkedIn links for linkedin.com subdomains", () => {
+    const memberWithSubdomainLink: VintageTeamMember = {
+      ...baseMember,
+      linkedinUrl: "https://www.linkedin.com/in/alex-builder/",
+    };
+
+    render(<TeamProfileSection member={memberWithSubdomainLink} index={0} />);
+
+    expect(
+      screen.getAllByRole("link", {
+        name: /connect with alex builder on linkedin/i,
+      })[0],
+    ).toHaveAttribute("href", "https://www.linkedin.com/in/alex-builder/");
+  });
+
   it("updates chart theme for dark mode and falls back to an icon avatar on image error", () => {
     const { rerender } = render(
       <TeamProfileSection member={baseMember} index={0} />,

@@ -156,6 +156,20 @@ describe("Safety Access Log API", () => {
       expect(alertMatt).not.toHaveBeenCalled();
       expect(sendToN8nAsync).toHaveBeenCalledTimes(1);
     });
+
+    it("returns 500 on malformed JSON body", async () => {
+      const req = new NextRequest("http://localhost/api/safety/access-log", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...authedHeaders,
+        },
+        body: "{bad-json",
+      });
+
+      const res = await POST(req);
+      expect(res.status).toBe(500);
+    });
   });
 
   describe("GET /api/safety/access-log", () => {
@@ -207,6 +221,59 @@ describe("Safety Access Log API", () => {
         ),
       );
       expect(res.status).toBe(400);
+    });
+
+    it("returns 400 for invalid event_type filter", async () => {
+      const res = await GET(
+        makeRequest(
+          "http://localhost/api/safety/access-log?event_type=not-valid",
+          {
+            headers: authedHeaders,
+          },
+        ),
+      );
+
+      expect(res.status).toBe(400);
+    });
+
+    it("returns 400 for invalid to_date", async () => {
+      const res = await GET(
+        makeRequest(
+          "http://localhost/api/safety/access-log?to_date=still-not-a-date",
+          {
+            headers: authedHeaders,
+          },
+        ),
+      );
+
+      expect(res.status).toBe(400);
+    });
+
+    it("returns 503 when database is unavailable", async () => {
+      const { getD1Database } = jest.requireMock("@/lib/db/env") as {
+        getD1Database: jest.Mock;
+      };
+      getD1Database.mockReturnValueOnce(null);
+
+      const res = await GET(
+        makeRequest("http://localhost/api/safety/access-log", {
+          headers: authedHeaders,
+        }),
+      );
+
+      expect(res.status).toBe(503);
+    });
+
+    it("returns 500 when query execution fails", async () => {
+      mockQuery.mockRejectedValueOnce(new Error("db failure"));
+
+      const res = await GET(
+        makeRequest("http://localhost/api/safety/access-log?limit=30", {
+          headers: authedHeaders,
+        }),
+      );
+
+      expect(res.status).toBe(500);
     });
   });
 });

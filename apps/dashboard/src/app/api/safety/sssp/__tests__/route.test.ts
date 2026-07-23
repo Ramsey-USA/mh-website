@@ -360,4 +360,116 @@ describe("POST /api/safety/sssp/[jobId]/result", () => {
       }),
     );
   });
+
+  it("returns 503 when database is unavailable", async () => {
+    const { getD1Database } = jest.requireMock("@/lib/db/env") as {
+      getD1Database: jest.Mock;
+    };
+    getD1Database.mockReturnValueOnce(null);
+
+    const req = new NextRequest(
+      "http://localhost/api/safety/sssp/job1/result",
+      {
+        method: "POST",
+        headers: callbackHeaders,
+        body: JSON.stringify({
+          ssspId: "sssp1",
+          content: "# SSSP Plan",
+        }),
+      },
+    );
+
+    const res = await POST(req, { params: Promise.resolve({ jobId: "job1" }) });
+    expect(res.status).toBe(503);
+  });
+
+  it("stores r2_key when R2 upload succeeds", async () => {
+    const r2 = jest.requireMock("@/lib/cloudflare/r2") as {
+      getR2Bucket: jest.Mock;
+      R2StorageService: jest.Mock;
+      generateFileKey: jest.Mock;
+    };
+
+    r2.getR2Bucket.mockReturnValueOnce({ __mock: "r2" });
+    r2.generateFileKey.mockReturnValueOnce("sssp-output/sssp1.md");
+    r2.R2StorageService.mockImplementationOnce(() => ({
+      uploadFile: jest.fn().mockResolvedValue({ success: true }),
+      getFile: jest.fn().mockResolvedValue({ success: false }),
+    }));
+
+    mockQueryOne.mockResolvedValueOnce(makeSssp({ status: "generating" }));
+    mockUpdate.mockResolvedValueOnce(true);
+
+    const req = new NextRequest(
+      "http://localhost/api/safety/sssp/job1/result",
+      {
+        method: "POST",
+        headers: callbackHeaders,
+        body: JSON.stringify({ ssspId: "sssp1", content: "# SSSP" }),
+      },
+    );
+
+    const res = await POST(req, { params: Promise.resolve({ jobId: "job1" }) });
+    expect(res.status).toBe(200);
+    expect(mockUpdate).toHaveBeenCalledWith(
+      "sssp",
+      "sssp1",
+      expect.objectContaining({
+        status: "ready",
+        content: "# SSSP",
+        r2_key: "sssp-output/sssp1.md",
+      }),
+    );
+  });
+
+  it("keeps inline-only mode when R2 upload fails", async () => {
+    const r2 = jest.requireMock("@/lib/cloudflare/r2") as {
+      getR2Bucket: jest.Mock;
+      R2StorageService: jest.Mock;
+      generateFileKey: jest.Mock;
+    };
+
+    r2.getR2Bucket.mockReturnValueOnce({ __mock: "r2" });
+    r2.generateFileKey.mockReturnValueOnce("sssp-output/sssp1.md");
+    r2.R2StorageService.mockImplementationOnce(() => ({
+      uploadFile: jest
+        .fn()
+        .mockResolvedValue({ success: false, error: "timeout" }),
+      getFile: jest.fn().mockResolvedValue({ success: false }),
+    }));
+
+    mockQueryOne.mockResolvedValueOnce(makeSssp({ status: "generating" }));
+    mockUpdate.mockResolvedValueOnce(true);
+
+    const req = new NextRequest(
+      "http://localhost/api/safety/sssp/job1/result",
+      {
+        method: "POST",
+        headers: callbackHeaders,
+        body: JSON.stringify({ ssspId: "sssp1", content: "# SSSP" }),
+      },
+    );
+
+    const res = await POST(req, { params: Promise.resolve({ jobId: "job1" }) });
+    expect(res.status).toBe(200);
+    expect(mockUpdate).toHaveBeenCalledWith(
+      "sssp",
+      "sssp1",
+      expect.objectContaining({ r2_key: null }),
+    );
+  });
+
+  it("returns 500 when callback payload is malformed JSON", async () => {
+    const req = new NextRequest(
+      "http://localhost/api/safety/sssp/job1/result",
+      {
+        method: "POST",
+        headers: callbackHeaders,
+        body: "{not-json",
+      },
+    );
+
+    const res = await POST(req, { params: Promise.resolve({ jobId: "job1" }) });
+    expect(res.status).toBe(500);
+  });
 });

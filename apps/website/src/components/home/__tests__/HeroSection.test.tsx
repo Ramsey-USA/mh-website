@@ -51,8 +51,11 @@ describe("HeroSection", () => {
 
     expect(heroVideo.tagName.toLowerCase()).toBe("video");
     expect(videos).toHaveLength(1);
-    expect(container.querySelector('source[type="video/webm"]')).not.toBeNull();
-    expect(container.querySelector('source[type="video/mp4"]')).not.toBeNull();
+    const webmSource = container.querySelector('source[type="video/webm"]');
+    const mp4Source = container.querySelector('source[type="video/mp4"]');
+
+    // The active commercial can ship as MP4-only; require at least one playable source.
+    expect(mp4Source ?? webmSource).not.toBeNull();
     expect(heroVideo).toHaveClass("opacity-100");
     expect(heroVideo).not.toHaveClass("opacity-0");
   });

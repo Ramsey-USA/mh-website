@@ -483,6 +483,22 @@ describe("Safety Forms [id] API", () => {
       );
       expect(res.status).toBe(404);
     });
+
+    it("returns 503 when database is unavailable", async () => {
+      const { getD1Database } = jest.requireMock("@/lib/db/env") as {
+        getD1Database: jest.Mock;
+      };
+      getD1Database.mockReturnValueOnce(null);
+
+      const res = await GET(
+        makeRequest("http://localhost/api/safety/forms/sub-1", {
+          headers: authedHeaders,
+        }),
+        ctx,
+      );
+
+      expect(res.status).toBe(503);
+    });
   });
 
   describe("PATCH /api/safety/forms/[id]", () => {
@@ -531,6 +547,57 @@ describe("Safety Forms [id] API", () => {
         ctx,
       );
       expect(res.status).toBe(200);
+    });
+
+    it("returns 404 when status update target is missing", async () => {
+      mockUpdate.mockResolvedValueOnce(false);
+
+      const res = await PATCH(
+        makeRequest("http://localhost/api/safety/forms/sub-1", {
+          method: "PATCH",
+          headers: authedHeaders,
+          body: { status: "reviewed" },
+        }),
+        ctx,
+      );
+
+      expect(res.status).toBe(404);
+    });
+
+    it("returns 503 when database becomes unavailable during print increment", async () => {
+      const { getD1Database } = jest.requireMock("@/lib/db/env") as {
+        getD1Database: jest.Mock;
+      };
+      getD1Database.mockReturnValueOnce({}).mockReturnValueOnce(null);
+
+      const res = await PATCH(
+        makeRequest("http://localhost/api/safety/forms/sub-1", {
+          method: "PATCH",
+          headers: authedHeaders,
+          body: { increment_print: true },
+        }),
+        ctx,
+      );
+
+      expect(res.status).toBe(503);
+    });
+
+    it("returns 503 when database is unavailable before update", async () => {
+      const { getD1Database } = jest.requireMock("@/lib/db/env") as {
+        getD1Database: jest.Mock;
+      };
+      getD1Database.mockReturnValueOnce(null);
+
+      const res = await PATCH(
+        makeRequest("http://localhost/api/safety/forms/sub-1", {
+          method: "PATCH",
+          headers: authedHeaders,
+          body: { status: "reviewed" },
+        }),
+        ctx,
+      );
+
+      expect(res.status).toBe(503);
     });
 
     it("only exports GET and PATCH on forms/[id] route", async () => {

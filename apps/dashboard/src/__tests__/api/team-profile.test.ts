@@ -233,6 +233,44 @@ describe("GET /api/team-profile", () => {
     const body = await res.json();
     expect(body.data.hasOverride).toBe(false);
   });
+
+  it("returns 400 when requested slug has invalid format", async () => {
+    const req = makeRequest(`${BASE_URL}?slug=bad slug`, {
+      headers: authedHeaders,
+    });
+    const res = await GET(req);
+    expect(res.status).toBe(400);
+  });
+
+  it("creates a seeded dynamic profile when slug is unknown and no DB row exists", async () => {
+    const req = makeRequest(
+      `${BASE_URL}?slug=new-team-member&fullName=New%20Member&roleTitle=Estimator&department=Preconstruction&employeeEmail=new%40mhc-gc.com`,
+      {
+        headers: authedHeaders,
+      },
+    );
+
+    const res = await GET(req);
+    expect(res.status).toBe(200);
+    const body = await res.json();
+
+    expect(body.data.profile.slug).toBe("new-team-member");
+    expect(body.data.profile.name).toBe("New Member");
+    expect(body.data.profile.role).toBe("Estimator");
+    expect(body.data.profile.department).toBe("Preconstruction");
+    expect(body.data.profile.email).toBe("new@mhc-gc.com");
+    expect(body.data.hasOverride).toBe(false);
+  });
+
+  it("falls back to static profile when DB query throws", async () => {
+    mockQueryOne.mockRejectedValueOnce(new Error("db read failure"));
+
+    const req = makeAuthedRequest("GET");
+    const res = await GET(req);
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.data.profile.slug).toBe("matt-ramsey");
+  });
 });
 
 // ── PUT Tests ─────────────────────────────────────────────────────────────────
@@ -280,6 +318,19 @@ describe("PUT /api/team-profile", () => {
 
   it("returns 400 when body has no updatable fields", async () => {
     const req = makeAuthedRequest("PUT", {});
+    const res = await PUT(req);
+    expect(res.status).toBe(400);
+  });
+
+  it("returns 400 when body is a JSON array", async () => {
+    const req = new NextRequest(BASE_URL, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer valid",
+      },
+      body: JSON.stringify(["not-an-object"]),
+    });
     const res = await PUT(req);
     expect(res.status).toBe(400);
   });
@@ -370,6 +421,56 @@ describe("PUT /api/team-profile", () => {
     const req = makeAuthedRequest("PUT", { bio: "Updated bio." });
     const res = await PUT(req);
     expect(res.status).toBe(503);
+  });
+
+  it("returns 400 when explicit slug has invalid format", async () => {
+    const req = makeAuthedRequest("PUT", {
+      slug: "invalid slug",
+      bio: "Updated bio.",
+    });
+    const res = await PUT(req);
+    expect(res.status).toBe(400);
+  });
+
+  it("returns 400 for unknown slug without required identity fields", async () => {
+    const req = makeAuthedRequest("PUT", {
+      slug: "new-employee",
+      bio: "New employee profile",
+    });
+    const res = await PUT(req);
+    expect(res.status).toBe(400);
+  });
+
+  it("accepts new employee submission when required identity fields are present", async () => {
+    const req = makeAuthedRequest(
+      "PUT",
+      {
+        slug: "new-employee",
+        fullName: "New Employee",
+        roleTitle: "Project Engineer",
+        department: "Operations",
+        bio: "Joined the team this year.",
+      },
+      { "X-Test-Email": "arnold@mhc-gc.com" },
+    );
+
+    const res = await PUT(req);
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.success).toBe(true);
+    expect(body.data.slug).toBe("new-employee");
+    expect(body.data.status).toBe("pending_approval");
+  });
+
+  it("returns 500 when DB upsert throws", async () => {
+    mockExecute.mockRejectedValueOnce(new Error("write failure"));
+
+    const req = makeAuthedRequest("PUT", {
+      bio: "Updated bio.",
+      funFact: "Coffee first.",
+    });
+    const res = await PUT(req);
+    expect(res.status).toBe(500);
   });
 
   it("saves skills and SQL includes skills column", async () => {
