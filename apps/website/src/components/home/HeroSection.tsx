@@ -90,6 +90,13 @@ function assetIsAvailable(assetPath: string): boolean {
     return true;
   }
 
+  // In production runtimes like Cloudflare Workers, static assets are served
+  // via bindings instead of the local filesystem. Treat configured public
+  // paths as available so SSR does not incorrectly fall back to static image.
+  if (process.env.NODE_ENV === "production") {
+    return true;
+  }
+
   return fs.existsSync(path.join(PUBLIC_DIR, assetPath.replace(/^\//, "")));
 }
 
