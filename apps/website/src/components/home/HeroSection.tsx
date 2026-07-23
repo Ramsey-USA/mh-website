@@ -47,14 +47,50 @@ const MANIFEST_PATH = path.join(
   "hero-commercials.json",
 );
 const PUBLIC_DIR = path.join(process.cwd(), "public");
+const HERO_MEDIA_BASE_URL =
+  process.env.NEXT_PUBLIC_HERO_MEDIA_BASE_URL?.trim() ?? "";
 
 function normalizePublicAssetPath(assetPath?: string): string {
   if (!assetPath) {
     return "";
   }
 
+  if (/^https?:\/\//i.test(assetPath)) {
+    return assetPath;
+  }
+
   const normalized = assetPath.replace(/^\/+/, "");
   return normalized ? `/${normalized}` : "";
+}
+
+function isAbsoluteHttpUrl(value: string): boolean {
+  return /^https?:\/\//i.test(value);
+}
+
+function resolveMediaDeliveryPath(assetPath: string): string {
+  if (!assetPath || isAbsoluteHttpUrl(assetPath) || !HERO_MEDIA_BASE_URL) {
+    return assetPath;
+  }
+
+  const base = HERO_MEDIA_BASE_URL.replace(/\/+$/, "");
+  const relativePath = assetPath.startsWith("/") ? assetPath : `/${assetPath}`;
+  return `${base}${relativePath}`;
+}
+
+function assetIsAvailable(assetPath: string): boolean {
+  if (!assetPath) {
+    return false;
+  }
+
+  if (isAbsoluteHttpUrl(assetPath)) {
+    return true;
+  }
+
+  if (HERO_MEDIA_BASE_URL) {
+    return true;
+  }
+
+  return fs.existsSync(path.join(PUBLIC_DIR, assetPath.replace(/^\//, "")));
 }
 
 function selectHomeHeroCommercial(): HeroCommercialManifestEntry | null {
@@ -95,20 +131,17 @@ export function HeroSection({
   copy = DEFAULT_EN_COPY,
 }: Readonly<HeroSectionProps>) {
   const heroCommercial = selectHomeHeroCommercial();
-  const mp4Src = normalizePublicAssetPath(heroCommercial?.mp4);
-  const webmSrc = normalizePublicAssetPath(heroCommercial?.webm);
-  const posterSrc = normalizePublicAssetPath(
+  const mp4ManifestPath = normalizePublicAssetPath(heroCommercial?.mp4);
+  const webmManifestPath = normalizePublicAssetPath(heroCommercial?.webm);
+  const posterManifestPath = normalizePublicAssetPath(
     heroCommercial?.seo?.thumbnailPath,
   );
-  const hasMp4 =
-    mp4Src.length > 0 &&
-    fs.existsSync(path.join(PUBLIC_DIR, mp4Src.replace(/^\//, "")));
-  const hasWebm =
-    webmSrc.length > 0 &&
-    fs.existsSync(path.join(PUBLIC_DIR, webmSrc.replace(/^\//, "")));
-  const hasPoster =
-    posterSrc.length > 0 &&
-    fs.existsSync(path.join(PUBLIC_DIR, posterSrc.replace(/^\//, "")));
+  const mp4Src = resolveMediaDeliveryPath(mp4ManifestPath);
+  const webmSrc = resolveMediaDeliveryPath(webmManifestPath);
+  const posterSrc = resolveMediaDeliveryPath(posterManifestPath);
+  const hasMp4 = assetIsAvailable(mp4ManifestPath);
+  const hasWebm = assetIsAvailable(webmManifestPath);
+  const hasPoster = assetIsAvailable(posterManifestPath);
   const useVideoHero = hasMp4 || hasWebm;
 
   if (useVideoHero) {
