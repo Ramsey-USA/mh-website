@@ -1,9 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-
-const HERO_VIDEO_INITIAL_DELAY_MS = 0;
+import { useRef, useState } from "react";
 
 interface HeroSectionCopy {
   baseLabel: string;
@@ -39,15 +37,10 @@ export function HeroSectionClient({
   posterSrc,
 }: Readonly<HeroSectionClientProps>) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const hasStartedPlaybackRef = useRef(false);
-  const delayedStartTimerRef = useRef<ReturnType<
-    typeof globalThis.setTimeout
-  > | null>(null);
-  const initialVideoDelayMsRef = useRef<number>(HERO_VIDEO_INITIAL_DELAY_MS);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isVideoReady, setIsVideoReady] = useState(hasPoster);
-  const [isMuted, setIsMuted] = useState(true);
-  const [allowAutoPlayback, setAllowAutoPlayback] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
+  const [hasUserStartedPlayback, setHasUserStartedPlayback] = useState(false);
   const showLegacyBackdrop = !isVideoReady;
   const primaryCtaLabel =
     copy.primaryCtaLabel ??
@@ -57,124 +50,12 @@ export function HeroSectionClient({
   const secondaryCtaLabel =
     copy.secondaryCtaLabel ??
     (locale === "es" ? "Ver prueba de proyectos" : "View project proof");
-
-  useEffect(() => {
-    const connection = (
-      navigator as Navigator & {
-        connection?: { saveData?: boolean };
-      }
-    ).connection;
-
-    const prefersReducedMotion =
-      typeof globalThis.matchMedia === "function" &&
-      globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const saveDataEnabled = connection?.saveData === true;
-
-    // Keep autoplay active unless both signals indicate strict data/motion limits.
-    if (prefersReducedMotion && saveDataEnabled) {
-      setAllowAutoPlayback(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!useVideoHero || !allowAutoPlayback) {
-      return;
-    }
-
-    const video = videoRef.current;
-    if (!video) {
-      return;
-    }
-
-    const syncPlaybackState = () => {
-      setIsVideoPlaying(!video.paused && !video.ended);
-    };
-
-    const clearDelayedStartTimer = () => {
-      if (delayedStartTimerRef.current === null) {
-        return;
-      }
-
-      globalThis.clearTimeout(delayedStartTimerRef.current);
-      delayedStartTimerRef.current = null;
-    };
-
-    const attemptPlayback = async () => {
-      try {
-        await video.play();
-        hasStartedPlaybackRef.current = true;
-      } catch {
-        // Autoplay can be blocked by client/browser policy; keep poster/frame visible.
-      } finally {
-        syncPlaybackState();
-      }
-    };
-
-    const scheduleDelayedInitialPlayback = () => {
-      if (hasStartedPlaybackRef.current) {
-        void attemptPlayback();
-        return;
-      }
-
-      if (delayedStartTimerRef.current !== null) {
-        return;
-      }
-
-      delayedStartTimerRef.current = globalThis.setTimeout(() => {
-        delayedStartTimerRef.current = null;
-        if (!document.hidden) {
-          void attemptPlayback();
-        }
-      }, initialVideoDelayMsRef.current);
-    };
-
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        clearDelayedStartTimer();
-        video.pause();
-        syncPlaybackState();
-        return;
-      }
-
-      scheduleDelayedInitialPlayback();
-    };
-
-    let observer: IntersectionObserver | null = null;
-
-    if (typeof globalThis.IntersectionObserver !== "undefined") {
-      observer = new globalThis.IntersectionObserver(
-        (entries) => {
-          const [entry] = entries;
-          if (!entry) {
-            return;
-          }
-
-          if (entry.isIntersecting) {
-            scheduleDelayedInitialPlayback();
-          } else {
-            clearDelayedStartTimer();
-            video.pause();
-            syncPlaybackState();
-          }
-        },
-        { threshold: 0.1 },
-      );
-
-      observer.observe(video);
-    } else {
-      // Test environments like jsdom do not implement IntersectionObserver.
-      scheduleDelayedInitialPlayback();
-    }
-
-    syncPlaybackState();
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-
-    return () => {
-      clearDelayedStartTimer();
-      observer?.disconnect();
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-    };
-  }, [allowAutoPlayback, useVideoHero]);
+  const playWithSoundLabel =
+    locale === "es" ? "Reproducir con sonido" : "Play with Sound";
+  const playWithSoundAriaLabel =
+    locale === "es"
+      ? "Reproducir video principal con sonido"
+      : "Play hero video with sound";
 
   const togglePlayPause = () => {
     const video = videoRef.current;
@@ -189,17 +70,12 @@ export function HeroSectionClient({
     }
 
     if (video.paused || video.ended) {
-      if (delayedStartTimerRef.current !== null) {
-        globalThis.clearTimeout(delayedStartTimerRef.current);
-        delayedStartTimerRef.current = null;
-      }
-
       video.muted = false;
       setIsMuted(false);
       void video
         .play()
         .then(() => {
-          hasStartedPlaybackRef.current = true;
+          setHasUserStartedPlayback(true);
           setIsVideoPlaying(true);
         })
         .catch(() => setIsVideoPlaying(false));
@@ -222,7 +98,7 @@ export function HeroSectionClient({
     void video
       .play()
       .then(() => {
-        hasStartedPlaybackRef.current = true;
+        setHasUserStartedPlayback(true);
         setIsVideoPlaying(true);
       })
       .catch(() => setIsVideoPlaying(false));
@@ -264,7 +140,7 @@ export function HeroSectionClient({
               className={`absolute inset-0 h-full w-full object-cover object-[center_60%] transition-opacity duration-300 ${
                 isVideoReady ? "opacity-100" : "opacity-0"
               }`}
-              autoPlay={allowAutoPlayback}
+              autoPlay={false}
               muted={isMuted}
               loop
               playsInline
@@ -306,6 +182,25 @@ export function HeroSectionClient({
 
       {/* Overlay for text readability */}
       <div className="absolute inset-0 bg-linear-to-br from-brand-primary/15 via-gray-900/35 to-gray-900/50"></div>
+
+      {/* First-play overlay so users can explicitly start video with sound */}
+      {useVideoHero && !hasUserStartedPlayback ? (
+        <div className="absolute inset-0 z-30 flex items-center justify-center">
+          <button
+            type="button"
+            onClick={togglePlayPause}
+            className="pointer-events-auto inline-flex items-center gap-2.5 rounded-full border border-white/50 bg-black/45 px-4 py-3 text-sm font-bold text-white shadow-2xl backdrop-blur-md transition-all duration-200 hover:scale-[1.03] hover:bg-black/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-black/60 sm:gap-3 sm:px-8 sm:py-5 sm:text-lg"
+            aria-label={playWithSoundAriaLabel}
+          >
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-secondary text-gray-950 sm:h-11 sm:w-11">
+              <span className="ml-0.5 text-base leading-none sm:text-xl">
+                ▶
+              </span>
+            </span>
+            <span>{playWithSoundLabel}</span>
+          </button>
+        </div>
+      ) : null}
 
       {/* Header Text - Bottom Right */}
       <div

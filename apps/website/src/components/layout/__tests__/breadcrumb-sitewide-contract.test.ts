@@ -64,8 +64,8 @@ describe("Sitewide breadcrumb placement contract", () => {
       true,
     );
     expect(
-      appShellSource.includes(
-        "<AppShellBreadcrumbFallback />\n      {showSemiquincentennialBanner ? <SemiquincentennialBanner /> : null}",
+      /<AppShellBreadcrumbFallback\s*\/>(?:.|\n|\r)*showSemiquincentennialBanner(?:.|\n|\r)*<SemiquincentennialBanner\s*\/>(?:.|\n|\r)*createPortal/s.test(
+        appShellSource,
       ),
     ).toBe(true);
     expect(

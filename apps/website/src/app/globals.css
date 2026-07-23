@@ -158,40 +158,31 @@
   /* Mobile viewport fixes */
   .hero-section {
     height: calc(
-      100vh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
-        1rem
+      100vh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px)
     ) !important;
     height: calc(
-      100svh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
-        1rem
+      100svh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px)
     ) !important; /* Stable viewport height to avoid mobile address-bar jump */
     height: calc(
-      100dvh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
-        1rem
+      100dvh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px)
     ) !important; /* Dynamic viewport height for mobile */
     min-height: calc(
-      100vh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
-        1rem
+      100vh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px)
     );
     min-height: calc(
-      100svh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
-        1rem
+      100svh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px)
     );
     min-height: calc(
-      100dvh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
-        1rem
+      100dvh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px)
     );
     max-height: calc(
-      100vh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
-        1rem
+      100vh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px)
     );
     max-height: calc(
-      100svh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
-        1rem
+      100svh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px)
     );
     max-height: calc(
-      100dvh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px) -
-        1rem
+      100dvh - var(--mh-nav-offset, 6.5rem) - var(--mh-pwa-nav-offset, 0px)
     );
   }
 
