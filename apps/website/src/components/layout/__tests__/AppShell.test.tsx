@@ -186,7 +186,7 @@ describe("AppShell", () => {
       value: 200,
       writable: true,
     });
-    fireEvent.scroll(globalThis);
+    fireEvent.scroll(window);
 
     const banner = await screen.findByTestId("semiquincentennial-banner");
     const slotAfterHero = hero.nextElementSibling as HTMLElement | null;
@@ -260,7 +260,7 @@ describe("AppShell", () => {
       value: 200,
       writable: true,
     });
-    fireEvent.scroll(globalThis);
+    fireEvent.scroll(window);
 
     const banner = await screen.findByTestId("semiquincentennial-banner");
     expect(slotAfterHero?.contains(banner)).toBe(true);
