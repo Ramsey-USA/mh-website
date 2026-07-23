@@ -29,7 +29,7 @@ const mockGetBrandedFilename = jest.fn((name: string) => `branded-${name}`);
 jest.mock("@/lib/dashboard/document-branding", () => ({
   brandPdfDocument: (...args: unknown[]) => mockBrandPdfDocument(...args),
   brandDocxDocument: (...args: unknown[]) => mockBrandDocxDocument(...args),
-  getBrandedFilename: (...args: unknown[]) => mockGetBrandedFilename(...args),
+  getBrandedFilename: (name: string) => mockGetBrandedFilename(name),
 }));
 
 jest.mock("@/lib/utils/logger", () => ({
