@@ -68,7 +68,7 @@ interface Rocket {
 
 export function SemiquincentennialBanner() {
   const [isJulyCelebration, setIsJulyCelebration] = useState(false);
-  const [freedomCounters, setFreedomCounters] = useState(() =>
+  const [_freedomCounters, setFreedomCounters] = useState(() =>
     getFreedomCounters(new Date()),
   );
   const animFrameRef = useRef<number | null>(null);

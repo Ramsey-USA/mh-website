@@ -978,7 +978,7 @@ describe("Expanded public page locale render coverage", () => {
     global.fetch = jest.fn(async () => ({
       ok: true,
       json: async () => ({}),
-    })) as typeof fetch;
+    })) as unknown as typeof fetch;
   });
 
   afterAll(() => {
@@ -993,7 +993,8 @@ describe("Expanded public page locale render coverage", () => {
     const locales: Array<"en" | "es"> = ["en", "es"];
     const pageLoaders: Array<{
       route: string;
-      load: () => Promise<() => Promise<React.ReactElement>>;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      load: () => Promise<any>;
     }> = [
       {
         route: "/about/details",
