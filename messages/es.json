@@ -249,10 +249,10 @@
   },
   "team": {
     "hero": {
-      "iconAria": "Equipo de liderazgo en construccion",
+      "iconAria": "Equipo de liderazgo en construcción",
       "imageAlt": "Foto grupal del equipo MH Construction, 2025",
       "kicker": "Equipo de liderazgo",
-      "titleLine1": "Liderazgo en construccion en el que puede confiar",
+      "titleLine1": "Liderazgo en construcción en el que puede confiar",
       "titleLine2": "Más de 150 años de experiencia combinada en construcción",
       "titleLine3Prefix": "Construyendo proyectos para el Cliente,",
       "titleLine3Suffix": "el Dinero",
@@ -522,7 +522,7 @@
       "pageIdentity": "Seguridad → Programa de Seguridad",
       "mantra": "EMR 0.64, Reconocimiento AGC-WA, Estrella VPP OSHA",
       "tagline": "Estándares claros. Seguimiento constante en campo.",
-      "sloganEsCompanion": "(Construido con Calidad, Respaldado por Confianza.)"
+      "sloganEsCompanion": "(Construidos sobre calidad, respaldados por confianza.)"
     },
     "credentials": {
       "subtitle": "Reconocido por la Industria",
@@ -570,7 +570,7 @@
         },
         "wisha": {
           "title": "Cumple WISHA",
-          "subtitle": "Washington L&I"
+          "subtitle": "Departamento de Trabajo e Industrias de Washington"
         },
         "emr": {
           "title": "Calificación EMR 0.64",
@@ -654,7 +654,7 @@
           "body": "Cumplimiento total con los estándares federales de seguridad en construcción — protección contra caídas, andamios, excavación, eléctrico, equipo de protección personal y todas las subpartes aplicables."
         },
         "wisha": {
-          "title": "Washington L&I (WISHA)",
+          "title": "L&I de Washington (WISHA)",
           "body": "Alineación completa con los requisitos de la Ley de Seguridad y Salud Industrial de Washington. Auditorías regulares de L&I, procesos de nómina certificada y cumplimiento de salario prevaleciente en todos los proyectos del sector público."
         },
         "epa": {
