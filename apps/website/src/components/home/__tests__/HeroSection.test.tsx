@@ -23,7 +23,9 @@ describe("HeroSection", () => {
   it("renders the current hero supporting tagline", () => {
     render(<HeroSection />);
     expect(
-      screen.getByText(/Straight answers from the Command Center\./i),
+      screen.getByText(
+        /Straight answers from the Command Center, built with American grit\./i,
+      ),
     ).toBeInTheDocument();
   });
 

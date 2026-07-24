@@ -114,7 +114,7 @@ describe("AboutHero", () => {
         description="Trusted delivery"
       />,
     );
-    expect(screen.getByText(/Service-Earned Values/i)).toBeInTheDocument();
+    expect(screen.getByText(/^Service-Earned Values$/i)).toBeInTheDocument();
   });
 });
 

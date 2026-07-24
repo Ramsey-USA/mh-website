@@ -363,7 +363,7 @@ function ReviewsCtaSection({
           <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
             {heading}
           </h2>
-          <p className="mx-auto mt-3 max-w-3xl text-base leading-relaxed text-gray-700 dark:text-gray-200">
+          <p className="font-body mx-auto mt-3 max-w-3xl text-base leading-relaxed text-gray-700 dark:text-gray-200">
             {invitation}
           </p>
           <Link

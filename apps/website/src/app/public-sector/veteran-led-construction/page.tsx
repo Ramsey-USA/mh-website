@@ -60,7 +60,7 @@ export default async function VeteranLedConstructionPage() {
               items={[
                 { label: t("veteransBridge.breadcrumb.home"), href: "/" },
                 {
-                  label: "Public Sector",
+                  label: locale === "es" ? "Gobierno" : "Government",
                   href: "/public-sector",
                 },
                 {
