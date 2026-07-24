@@ -3,6 +3,7 @@
     "campaignScope": "company",
     "id": "mhc-command-the-horizon-2026q3-v01",
     "mp4": "videos/hero-commercials/mhc-hero-command-the-horizon-smg-2026q3-v01.mp4",
+    "webm": "videos/hero-commercials/mhc-hero-command-the-horizon-smg-2026q3-v01.webm",
     "expectedDurationSec": 61.06,
     "audioRequired": true,
     "seo": {
