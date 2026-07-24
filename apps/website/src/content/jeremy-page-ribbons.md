@@ -225,7 +225,7 @@ attribution: Jeremy Thamert, Owner & President
 ## events
 
 eyebrow: Words from the General
-quote: Events are where community relationships are earned face to face, and I see that presence as part of patriotic service, responsible leadership, and long-term trust.
+quote: Events are where community relationships are earned face to face, and our annual Operation Cast & Recover hosted event reflects that commitment through veteran service, responsible leadership, and long-term trust.
 attribution: Jeremy Thamert, Owner & President
 
 ## events/[slug]
@@ -240,6 +240,24 @@ eyebrow: Words from the General
 quote: Operation Cast & Recover reflects how we serve beyond the jobsite: show up prepared, protect people, and build lasting trust through disciplined community leadership.
 attribution: Jeremy Thamert, Owner & President
 
+## events/cool-desert-nights
+
+eyebrow: Words from the General
+quote: Cool Desert Nights reflects our commitment to showing up for the Tri-Cities community with steady execution, respectful partnerships, and an archive that preserves accountability for every event cycle.
+attribution: Jeremy Thamert, Owner & President
+
+## events/bbq-contest
+
+eyebrow: Words from the General
+quote: Our BBQ contest planning should model MH standards: clear coordination, disciplined follow-through, and partner communication that builds trust before, during, and after event day.
+attribution: Jeremy Thamert, Owner & President
+
+## events/ironman-volunteer
+
+eyebrow: Words from the General
+quote: Our IRONMAN volunteer support should strengthen community ties and chamber relationships through reliable service, practical leadership, and visible follow-through.
+attribution: Jeremy Thamert, Owner & President
+
 ## news
 
 eyebrow: Words from the General
@@ -249,7 +267,7 @@ attribution: Jeremy Thamert, Owner & President
 ## cool-desert-nights
 
 eyebrow: Words from the General
-quote: At Cool Desert Nights, we show up to serve the community with professionalism, support local pride, and represent MH values with humility and discipline.
+quote: Our fishing events are built on preparation, respect, and service, and I expect every team member to represent MH standards while creating a meaningful day for veterans and community partners.
 attribution: Jeremy Thamert, Owner & President
 
 ## employee-handbook

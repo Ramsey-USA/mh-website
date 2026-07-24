@@ -115,6 +115,50 @@ Standardized timing for all animations.
 
 ---
 
+## Interaction Contract (Standardized)
+
+Use this contract for all primary route CTAs, card-heavy sections, and gallery controls.
+
+### Action Controls (Buttons and Links)
+
+- Minimum touch target: `min-h-11` (44px) for text actions
+- Icon-only controls: `min-h-11 min-w-11`
+- Hover posture: subtle lift with `hover:-translate-y-0.5`
+- Focus visibility: always include `focus-visible:outline-2 focus-visible:outline-offset-4` plus a brand outline color
+
+Canonical examples:
+
+```tsx
+// Primary action
+className =
+  "inline-flex min-h-11 items-center gap-2 rounded-xl bg-brand-primary px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-brand-primary-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary";
+
+// Secondary/inverted action
+className =
+  "inline-flex min-h-11 items-center gap-2 rounded-xl border-2 border-white/35 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-secondary";
+```
+
+### Interactive Cards
+
+- Keep card interaction subtle and readable: lift + shadow on hover
+- Add keyboard affordance for nested links/buttons using `focus-within:ring-*`
+- Avoid aggressive transforms (`scale-*`) for dense text cards
+
+Canonical example:
+
+```tsx
+className =
+  "rounded-xl border border-gray-200 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg focus-within:ring-2 focus-within:ring-brand-primary/25";
+```
+
+### Gallery and Carousel Controls
+
+- Prev/next controls must be at least `44x44` (`min-h-11 min-w-11`)
+- Thumbnail buttons require keyboard-visible outlines
+- Use consistent outline colors (`outline-brand-primary` unless intentionally overridden)
+
+---
+
 ## Pre-Composed Design Tokens
 
 For common component patterns, use pre-composed tokens:
@@ -143,6 +187,10 @@ When updating existing components:
 - [ ] Remove all inline `group-hover:rotate-*` patterns
 - [ ] Import design tokens: `import { cornerRadius, hoverMotion } from "@/lib/styles/design-tokens"`
 - [ ] Replace with appropriate design token values
+- [ ] Ensure CTA/link controls meet 44px minimum target (`min-h-11`)
+- [ ] Add `focus-visible:outline-*` treatment on all keyboard-focusable action controls
+- [ ] Add subtle lift (`hover:-translate-y-0.5`) for primary and secondary actions where appropriate
+- [ ] Add `focus-within:ring-*` affordance to interactive cards containing links/buttons
 - [ ] Test hover interactions in both light and dark modes
 - [ ] Verify accessibility (focus states, keyboard navigation)
 

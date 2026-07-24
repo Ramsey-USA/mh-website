@@ -113,6 +113,7 @@ describe("Cast & Recover registration API", () => {
     await expect(response.json()).resolves.toMatchObject({
       success: true,
       rosterStatus: "confirmed",
+      registeredName: "Taylor Morgan",
     });
     expect(mockExecute).toHaveBeenCalledTimes(1);
   });

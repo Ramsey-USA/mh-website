@@ -78,12 +78,38 @@ export const upcomingEvents = [
     window: "September 26, 2026",
     lifecycleStatus: "registration-open" as const,
     summary:
-      "MH Construction's annual hosted fishing event connects veterans with volunteer captains for a day on the Columbia River.",
+      "Route with event status, confirmed schedule, and registration and participation paths for MH Construction's annual hosted fishing event connecting veterans and volunteer captains.",
     titleEs: "Operation: Cast & Recover",
     windowEs: "26 de septiembre de 2026",
     summaryEs:
-      "El evento anual de pesca organizado por MH Construction conecta a veteranos con capitanes voluntarios para un dia en el rio Columbia.",
+      "Ruta con estado del evento, calendario confirmado y ruta de registro y participacion para el evento anual de pesca organizado por MH Construction para veteranos y capitanes voluntarios.",
     href: "/events/operation-cast-recover",
+  },
+  {
+    id: "bbq-contest-2026",
+    title: "Pacific Northwest Annual BBQ Competition",
+    window: "Fall 2026",
+    lifecycleStatus: "under-review" as const,
+    summary:
+      "Route with event status, target window, and registration and participation paths for MH Construction's Pacific Northwest Annual BBQ Competition.",
+    titleEs: "Competencia Anual BBQ del Pacific Northwest",
+    windowEs: "Otono 2026",
+    summaryEs:
+      "Ruta con estado del evento, ventana objetivo y ruta de registro y participacion para la Competencia Anual BBQ del Pacific Northwest de MH Construction.",
+    href: "/events/bbq-contest",
+  },
+  {
+    id: "ironman-volunteer-2026",
+    title: "IRONMAN 70.3 Washington Tri-Cities Volunteer Program",
+    window: "September 20, 2026",
+    lifecycleStatus: "confirmed" as const,
+    summary:
+      "Route with event status, confirmed date, and registration and participation paths for MH Construction's yearly volunteer process supporting IRONMAN 70.3 Washington Tri-Cities.",
+    titleEs: "Programa de voluntariado IRONMAN 70.3 Washington Tri-Cities",
+    windowEs: "20 de septiembre de 2026",
+    summaryEs:
+      "Ruta con estado del evento, fecha confirmada y ruta de registro y participacion para el proceso anual de voluntariado de MH Construction en IRONMAN 70.3 Washington Tri-Cities.",
+    href: "/events/ironman-volunteer",
   },
   {
     id: "community-partnership-spotlight",
@@ -157,7 +183,7 @@ export const eventRecords: EventRecord[] = [
     requestBody:
       "Use this channel to discuss a sponsored event, hosted community placement, or local partnership opportunity with MH Construction.",
     partnerLabel: "View the archive route",
-    partnerUrl: "/cool-desert-nights",
+    partnerUrl: "/events/cool-desert-nights",
     primaryImage:
       "/images/events/cool-desert-nights/smoke-n-shine-showdown-graphic.webp",
     secondaryImage:

@@ -1,7 +1,7 @@
 # Accessibility Regression Checklist
 
 **Category:** Development - Standards  
-**Last Updated:** July 19, 2026
+**Last Updated:** July 24, 2026
 
 ## Purpose
 
@@ -23,6 +23,7 @@ Verify each route class below using keyboard-only flow and a screen reader smoke
 - Events hub: `/events`
 - Event detail: `/events/[slug]`
 - Event detail (registration route): `/events/operation-cast-recover`
+- Event detail (archive route): `/events/cool-desert-nights`
 - Locations hub: `/locations`
 - Location city: `/locations/[city]`
 - News hub: `/news`

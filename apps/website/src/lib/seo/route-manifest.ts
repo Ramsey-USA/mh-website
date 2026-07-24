@@ -56,7 +56,9 @@ const SPANISH_PARITY_STATIC_PATHS = new Set<string>([
   "/allies",
   "/careers",
   "/contact",
-  "/cool-desert-nights",
+  "/events/bbq-contest",
+  "/events/cool-desert-nights",
+  "/events/ironman-volunteer",
   "/faq",
   "/jeremy-thamert",
   "/news",
@@ -290,15 +292,6 @@ const STATIC_ROUTES: CanonicalRouteManifestEntry[] = [
     locales: { en: true, es: true },
   },
   {
-    path: "/cool-desert-nights",
-    section: "events",
-    label: { en: "Cool Desert Nights", es: "Cool Desert Nights" },
-    changeFrequency: "monthly",
-    priority: 0.78,
-    lastModified: LAST_MODIFIED.events,
-    locales: { en: true, es: true },
-  },
-  {
     path: "/events/operation-cast-recover",
     section: "events",
     label: {
@@ -309,6 +302,30 @@ const STATIC_ROUTES: CanonicalRouteManifestEntry[] = [
     priority: 0.76,
     lastModified: LAST_MODIFIED.events,
     locales: { en: true, es: false },
+  },
+  {
+    path: "/events/bbq-contest",
+    section: "events",
+    label: {
+      en: "Pacific Northwest Annual BBQ Competition",
+      es: "Competencia Anual BBQ del Pacific Northwest",
+    },
+    changeFrequency: "monthly",
+    priority: 0.74,
+    lastModified: LAST_MODIFIED.events,
+    locales: { en: true, es: true },
+  },
+  {
+    path: "/events/ironman-volunteer",
+    section: "events",
+    label: {
+      en: "IRONMAN 70.3 Volunteer Process",
+      es: "Proceso de voluntariado IRONMAN 70.3",
+    },
+    changeFrequency: "monthly",
+    priority: 0.74,
+    lastModified: LAST_MODIFIED.events,
+    locales: { en: true, es: true },
   },
   {
     path: "/accessibility",

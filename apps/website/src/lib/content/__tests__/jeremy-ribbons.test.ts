@@ -27,6 +27,12 @@ describe("jeremy-ribbons", () => {
     expect(ribbon.quote).toContain("home page");
   });
 
+  it("showcases operation cast recover on the events ribbon", () => {
+    const ribbon = getJeremyRibbonForPath("/events");
+
+    expect(ribbon.quote).toContain("Operation Cast & Recover");
+  });
+
   it("maps dynamic paths to dynamic ribbon keys", () => {
     const projectRibbon = getJeremyRibbonForPath(
       "/projects/tri-cities-medical",
@@ -45,6 +51,45 @@ describe("jeremy-ribbons", () => {
     const ribbon = getJeremyRibbonForPath("/events/operation-cast-recover");
 
     expect(ribbon.quote).toContain("Operation Cast & Recover");
+  });
+
+  it("uses the route-specific event ribbon for cool desert nights", () => {
+    const ribbon = getJeremyRibbonForPath("/events/cool-desert-nights");
+
+    expect(ribbon.quote).toContain("Cool Desert Nights");
+  });
+
+  it("uses the route-specific event ribbon for bbq contest", () => {
+    const ribbon = getJeremyRibbonForPath("/events/bbq-contest");
+
+    expect(ribbon.quote).toContain("BBQ contest planning");
+  });
+
+  it("uses the route-specific event ribbon for ironman volunteer", () => {
+    const ribbon = getJeremyRibbonForPath("/events/ironman-volunteer");
+
+    expect(ribbon.quote).toContain("IRONMAN volunteer support");
+  });
+
+  it("keeps all four dedicated event page quotes unique", () => {
+    const operation = getJeremyRibbonForPath("/events/operation-cast-recover");
+    const coolDesert = getJeremyRibbonForPath("/events/cool-desert-nights");
+    const bbqContest = getJeremyRibbonForPath("/events/bbq-contest");
+    const ironman = getJeremyRibbonForPath("/events/ironman-volunteer");
+    const genericEventDetail = getJeremyRibbon("events/[slug]");
+
+    const dedicatedQuotes = [
+      operation.quote,
+      coolDesert.quote,
+      bbqContest.quote,
+      ironman.quote,
+    ];
+
+    expect(new Set(dedicatedQuotes).size).toBe(4);
+
+    for (const quote of dedicatedQuotes) {
+      expect(quote).not.toBe(genericEventDetail.quote);
+    }
   });
 
   it("normalizes path casing, query string, hash, and trailing slash", () => {

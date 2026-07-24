@@ -28,6 +28,11 @@ export function EventsHero({ locale = "en" }: EventsHeroProps) {
             <span className="block text-white">
               {isEs ? "Alianzas estrategicas" : "Strategic Partnerships"}
             </span>
+            <span className="block text-white/95 text-xs xs:text-sm sm:text-base mt-2">
+              {isEs
+                ? "Evento anual destacado: Operation: Cast & Recover"
+                : "Annual Featured Event: Operation: Cast & Recover"}
+            </span>
             <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
               {isEs
                 ? "Eventos comunitarios. Alianzas reales. Tri-Cities firme."

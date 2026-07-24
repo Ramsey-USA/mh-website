@@ -127,14 +127,14 @@ describe("FaviconLinks", () => {
     render(<FaviconLinks />);
     const link = document.head.querySelector('link[sizes="16x16"]');
     expect(link).not.toBeNull();
-    expect(link?.getAttribute("href")).toBe("/icons/mhc-icon-master.png");
+    expect(link?.getAttribute("href")).toBe("/icons/mh-logo-master.png");
   });
 
   it("includes a 180×180 apple-touch-icon", () => {
     render(<FaviconLinks />);
     const link = document.head.querySelector('link[sizes="180x180"]');
     expect(link).not.toBeNull();
-    expect(link?.getAttribute("href")).toBe("/icons/mhc-icon-master.png");
+    expect(link?.getAttribute("href")).toBe("/icons/mh-logo-master.png");
   });
 });
 

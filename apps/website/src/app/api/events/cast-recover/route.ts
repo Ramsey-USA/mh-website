@@ -168,6 +168,7 @@ async function handlePOST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       rosterStatus: saved?.roster_status ?? "received",
+      registeredName: fullName,
     });
   } catch (error) {
     const message = error instanceof Error ? error.message : "";

@@ -122,6 +122,28 @@ describe("sitemap()", () => {
     );
   });
 
+  it("includes bbq contest event route as canonical path only", () => {
+    const entries = sitemapFn();
+    const urls = entries.map((entry) => entry.url);
+
+    expect(urls).toContain("https://www.mhc-gc.com/events/bbq-contest");
+    expect(urls).not.toContain("https://www.mhc-gc.com/en/events/bbq-contest");
+    expect(urls).not.toContain("https://www.mhc-gc.com/es/events/bbq-contest");
+  });
+
+  it("includes ironman volunteer event route as canonical path only", () => {
+    const entries = sitemapFn();
+    const urls = entries.map((entry) => entry.url);
+
+    expect(urls).toContain("https://www.mhc-gc.com/events/ironman-volunteer");
+    expect(urls).not.toContain(
+      "https://www.mhc-gc.com/en/events/ironman-volunteer",
+    );
+    expect(urls).not.toContain(
+      "https://www.mhc-gc.com/es/events/ironman-volunteer",
+    );
+  });
+
   it("excludes utility and redirected routes", () => {
     const urls = sitemapFn().map((entry) => entry.url);
 

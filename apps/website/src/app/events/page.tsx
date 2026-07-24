@@ -20,7 +20,7 @@ const eventsHubStructuredData = {
   "@id": "https://www.mhc-gc.com/events#collection",
   name: "MH Construction Events Hub",
   description:
-    "Sponsored and hosted community events across Tri-Cities and the Pacific Northwest, including archive placements, highlights, and upcoming event sections.",
+    "Sponsored and hosted community events across Tri-Cities and the Pacific Northwest, including the annual Operation: Cast & Recover hosted event, archive placements, highlights, and upcoming event sections.",
   url: "https://www.mhc-gc.com/events",
   isPartOf: {
     "@type": "WebSite",
@@ -44,18 +44,30 @@ const eventsHubStructuredData = {
       {
         "@type": "ListItem",
         position: 1,
-        name: "Smoke n Shine Team Placements",
-        item: { "@id": "https://www.mhc-gc.com/events#featured-events" },
+        name: "Dedicated Event Pages (4)",
+        item: { "@id": "https://www.mhc-gc.com/events#event-pages" },
       },
       {
         "@type": "ListItem",
         position: 2,
+        name: "Annual Operation: Cast & Recover",
+        item: { "@id": "https://www.mhc-gc.com/events#yearly-hosted-event" },
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Operation: Cast & Recover Fishing Event Ribbon",
+        item: { "@id": "https://www.mhc-gc.com/events#fishing-event-ribbon" },
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
         name: "Event Photo Carousel",
         item: { "@id": "https://www.mhc-gc.com/events#event-gallery" },
       },
       {
         "@type": "ListItem",
-        position: 3,
+        position: 5,
         name: "Future Event Pipeline",
         item: { "@id": "https://www.mhc-gc.com/events#upcoming-events" },
       },
@@ -66,7 +78,7 @@ const eventsHubStructuredData = {
 export const metadata: Metadata = withGeoMetadata({
   title: eventsSeoTitle,
   description:
-    "Explore MH Construction sponsored and hosted events in Pasco, Richland, and Kennewick, including archived Smoke n Shine placements, event media, and upcoming community engagements across WA, OR, and ID.",
+    "Explore MH Construction sponsored and hosted events in Pasco, Richland, and Kennewick, including dedicated pages for Operation: Cast & Recover, Cool Desert Nights, the upcoming BBQ contest route, and the annual IRONMAN 70.3 volunteer process page.",
   keywords: [
     "MH Construction events",
     "Tri-Cities community events",
@@ -86,14 +98,14 @@ export const metadata: Metadata = withGeoMetadata({
   openGraph: {
     title: eventsSeoTitle,
     description:
-      "Archived Smoke n Shine placements, event photos, and upcoming MH Construction community events across Tri-Cities and the Pacific Northwest.",
+      "Dedicated event pages for Operation: Cast & Recover, Cool Desert Nights, MH Construction's upcoming BBQ contest route, and the annual IRONMAN 70.3 volunteer process page.",
     url: "https://www.mhc-gc.com/events",
     images: [
       {
-        url: "/images/events/cool-desert-nights/smoke-n-shine-showdown-graphic.webp",
+        url: "/images/events/operation-cast-recover/columbia-point-marina.jpg",
         width: 1200,
         height: 630,
-        alt: "MH Construction Smoke n Shine event highlights",
+        alt: "MH Construction Operation Cast & Recover fishing event highlights",
       },
     ],
   },
@@ -101,10 +113,8 @@ export const metadata: Metadata = withGeoMetadata({
     card: "summary_large_image",
     title: eventsSeoTitle,
     description:
-      "See event recaps, gallery highlights, and upcoming MH Construction community engagements across Tri-Cities and the Pacific Northwest.",
-    images: [
-      "/images/events/cool-desert-nights/smoke-n-shine-showdown-graphic.webp",
-    ],
+      "See dedicated event pages for Operation: Cast & Recover, Cool Desert Nights, the upcoming BBQ contest route, and the annual IRONMAN 70.3 volunteer process page.",
+    images: ["/images/events/operation-cast-recover/columbia-point-marina.jpg"],
   },
 });
 
@@ -117,7 +127,7 @@ export default async function EventsPage() {
       ? "Centro de Eventos de MH Construction"
       : eventsHubStructuredData.name,
     description: isEs
-      ? "Eventos patrocinados y organizados en Tri-Cities y el Noroeste del Pacífico, con historial, destacados y próximos eventos comunitarios."
+      ? "Eventos patrocinados y organizados en Tri-Cities y el Noroeste del Pacífico, incluido el evento anual Operation: Cast & Recover, con historial, destacados y proximos eventos comunitarios."
       : eventsHubStructuredData.description,
   };
 

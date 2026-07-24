@@ -23,5 +23,10 @@
     "source": "/safety/hub",
     "destination": "/safety",
     "permanent": true
+  },
+  {
+    "source": "/cool-desert-nights",
+    "destination": "/events/cool-desert-nights",
+    "permanent": true
   }
 ]

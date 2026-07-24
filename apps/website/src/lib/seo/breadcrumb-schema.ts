@@ -138,7 +138,7 @@ export const breadcrumbPatterns = {
     { name: "Home", url: "https://www.mhc-gc.com" },
     {
       name: "Events - Cool Desert Nights 2026",
-      url: "https://www.mhc-gc.com/cool-desert-nights",
+      url: "https://www.mhc-gc.com/events/cool-desert-nights",
     },
   ],
   // Location pages

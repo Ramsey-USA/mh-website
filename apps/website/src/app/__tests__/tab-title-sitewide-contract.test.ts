@@ -41,6 +41,10 @@ describe("Sitewide tab title metadata contract", () => {
       ],
     },
     {
+      file: "app/events/cool-desert-nights/page.tsx",
+      requiredSnippets: ["const coolDesertNightsSeoTitle", '"events",'],
+    },
+    {
       file: "app/services/layout.tsx",
       requiredSnippets: ["getServicesSEO()"],
     },

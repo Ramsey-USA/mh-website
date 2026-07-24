@@ -1,76 +1,39 @@
 import type { Metadata } from "next";
-import { withGeoMetadata } from "@/lib/seo/geo-metadata";
+import { permanentRedirect } from "next/navigation";
 import { buildDualSeoTitle } from "@/lib/branding/page-names";
-import {
-  breadcrumbPatterns,
-  generateBreadcrumbSchema,
-} from "@/lib/seo/breadcrumb-schema";
-import { CoolDesertNightsPageClient } from "./CoolDesertNightsPageClient";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 const coolDesertNightsSeoTitle = buildDualSeoTitle(
   "coolDesertNights",
-  "2026 Archive and Smoke n Shine Placements",
+  "Legacy Route Redirect",
 );
 
 export const metadata: Metadata = withGeoMetadata({
   title: coolDesertNightsSeoTitle,
   description:
-    "Archive page for MH Construction's Cool Desert Nights 2026 participation, including Smoke n Shine placement highlights and event recap. For current and upcoming sponsored or hosted activities, visit the MH Construction Events hub.",
-  keywords: [
-    "Cool Desert Nights 2026",
-    "Smoke n Shine placements",
-    "MH Construction event archive",
-    "Tri-Cities community event recap",
-    "Pasco Richland Kennewick events",
-    "construction community events",
-  ],
+    "Legacy Cool Desert Nights route. This path permanently redirects to the canonical event route at /events/cool-desert-nights.",
+  keywords: ["Cool Desert Nights redirect", "events canonical route"],
   alternates: {
-    canonical: "https://www.mhc-gc.com/cool-desert-nights",
+    canonical: "https://www.mhc-gc.com/events/cool-desert-nights",
+  },
+  robots: {
+    index: false,
+    follow: true,
   },
   openGraph: {
     title: coolDesertNightsSeoTitle,
     description:
-      "Archive recap of Cool Desert Nights 2026 and Smoke n Shine placements from MH Construction. For current and upcoming events, visit the Events hub.",
-    url: "https://www.mhc-gc.com/cool-desert-nights",
-    images: [
-      {
-        url: "/images/events/cool-desert-nights/cool-desert-nights-2026.webp",
-        width: 1200,
-        height: 630,
-        alt: "MH Construction Cool Desert Nights 2026 archive highlights",
-      },
-      {
-        url: "/images/og-default.webp",
-        width: 1200,
-        height: 630,
-        alt: "MH Construction community event archive",
-      },
-    ],
+      "Legacy Cool Desert Nights route redirecting to the canonical event page.",
+    url: "https://www.mhc-gc.com/events/cool-desert-nights",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: coolDesertNightsSeoTitle,
     description:
-      "Review 2026 Cool Desert Nights highlights and Smoke n Shine results from MH Construction.",
-    images: [
-      "/images/events/cool-desert-nights/cool-desert-nights-2026.webp",
-      "/images/og-default.webp",
-    ],
+      "Legacy route redirect to canonical Cool Desert Nights event page.",
   },
 });
 
 export default function CoolDesertNightsPage() {
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            generateBreadcrumbSchema(breadcrumbPatterns.coolDesertNights),
-          ),
-        }}
-      />
-      <CoolDesertNightsPageClient />
-    </>
-  );
+  permanentRedirect("/events/cool-desert-nights");
 }

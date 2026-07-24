@@ -386,7 +386,7 @@ describe("generateEventDetailSchema()", () => {
         requestTitle: "Partnership Request",
         requestBody: "Contact for details",
         partnerLabel: "Archive route",
-        partnerUrl: "/cool-desert-nights",
+        partnerUrl: "/events/cool-desert-nights",
         primaryImage: "/images/events/cool-desert-nights/event.webp",
         secondaryImage: "/images/events/cool-desert-nights/event2.webp",
       },

@@ -1,8 +1,8 @@
 # Page Compliance Checklist
 
 **Purpose:** Systematic audit tool to verify page compliance with MH standards  
-**Version:** 1.6.0  
-**Last Updated:** July 4, 2026  
+**Version:** 1.7.0  
+**Last Updated:** July 24, 2026  
 **Use Case:** Run this checklist on any page to ensure consistency
 
 **Brand Congruency:** This checklist is a required gate for typography, color, voice, trust content, accessibility, and naming alignment.
@@ -48,6 +48,15 @@ If any inventory is missing, the page audit is incomplete.
 - [ ] If `More` is present in page navigation, it opens centered modal overlay with backdrop and close controls
 - [ ] Responsive content envelope follows homepage-safe spacing guidance
 - [ ] Any intentional hero divergence from homepage baseline is recorded with scope and rationale
+
+### Event Route UX Contract (When Route Is Under `/events`)
+
+- [ ] Hero presents three status cards: status, window/schedule, and coverage/location
+- [ ] Event hero includes canonical slogan line and localized companion where applicable
+- [ ] Primary event CTAs use standardized interaction classes (`min-h-11`, `hover:-translate-y-0.5`, `focus-visible:outline-2`, `focus-visible:outline-offset-4`)
+- [ ] Body includes recap surface plus quick panel surface (status continuity)
+- [ ] Body includes a trust/accountability continuity surface aligned with MH relationship-first voice
+- [ ] Dedicated event pages and `/events/[slug]` preserve shared shell and CTA behavior unless exception is documented
 
 ### Global Header
 
@@ -217,6 +226,16 @@ If any inventory is missing, the page audit is incomplete.
 - [ ] Titles: `text-lg sm:text-xl md:text-2xl font-bold`
 - [ ] Body: `text-sm sm:text-base md:text-lg leading-relaxed`
 - [ ] Proper color contrast for dark mode
+
+### Interaction Pattern Standardization
+
+- [ ] All text action controls meet minimum touch height (`min-h-11` / 44px)
+- [ ] Icon-only controls meet minimum touch area (`min-h-11 min-w-11`)
+- [ ] Primary and secondary route CTAs use visible keyboard focus (`focus-visible:outline-2` with brand outline color)
+- [ ] CTA hover motion is subtle and consistent (`hover:-translate-y-0.5` where lift is used)
+- [ ] Interactive cards that contain links/buttons provide keyboard affordance (`focus-within:ring-*`)
+- [ ] Carousel/gallery thumbnails and nav controls include keyboard-visible focus states
+- [ ] Interaction behavior is consistent across related route family pages (for example: all pages under the same feature hub)
 
 ---
 
@@ -498,6 +517,9 @@ If any inventory is missing, the page audit is incomplete.
 
 - [ ] `npm test` passes (all tests green)
 - [ ] Smoke tests updated if using new `COMPANY_INFO` properties
+- [ ] Event drift suite passes: `npm run test:events:drift`
+- [ ] Event route contract tests pass: `npm run test -- apps/website/src/app/events/__tests__/event-route-content-contract.test.ts`
+- [ ] Metadata tab-title contract remains green: `npm run test -- apps/website/src/app/__tests__/tab-title-sitewide-contract.test.ts`
 - [ ] Test mocks in these files match actual module exports:
   - `src/app/__tests__/pages-smoke.test.tsx`
   - `src/app/careers/__tests__/page.test.tsx`

@@ -10,6 +10,7 @@
 | /cool-desert-nights                              | LOCALIZED        | CoolDesertNightsPageClient.tsx:/useTranslations\\s*\\(/                                                                                     |                                                 |
 | /employee-handbook                               | LOCALIZED        | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                                                          |                                                 |
 | /events                                          | LOCALIZED        | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/, EventsLandingPageClient.tsx:/\\b(?:locale\|isEs)\\b/                                    |                                                 |
+| /events/operation-cast-recover                   | LOCALIZED        | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                                                          |                                                 |
 | /faq                                             | LOCALIZED        | /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                                                          |                                                 |
 | /jeremy-thamert                                  | LOCALIZED        | /getTranslations\\s*\\(/, /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                                |                                                 |
 | /locations                                       | LOCALIZED        | /getTranslations\\s*\\(/, /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                                |                                                 |
@@ -37,5 +38,5 @@
 | /veterans                                        | LOCALIZED        | /getTranslations\\s*\\(/, /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                                |                                                 |
 | /veterans/public-sector-construction             | LOCALIZED        | /getTranslations\\s*\\(/, /getServerLocale\\s*\\(/, /\\b(?:locale\|isEs)\\b/                                                                |                                                 |
 
-Summary: LOCALIZED=33 INVARIANT-REVIEW=3 MISSING-SIGNAL=0
-Namespace parity: EN=28 ES=28 SHARED=28 EN_ONLY=0 ES_ONLY=0
+Summary: LOCALIZED=34 INVARIANT-REVIEW=3 MISSING-SIGNAL=0
+Namespace parity: EN=32 ES=32 SHARED=32 EN_ONLY=0 ES_ONLY=0

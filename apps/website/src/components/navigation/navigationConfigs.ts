@@ -662,10 +662,16 @@ export const navigationConfigs = {
 
   events: [
     {
-      href: "#smoke-n-shine",
-      label: "Featured Events",
-      mobileLabel: "Featured",
+      href: "#yearly-hosted-event",
+      label: "Annual Hosted Event",
+      mobileLabel: "Annual",
       icon: SECTION_NAV_ICONS.event,
+    },
+    {
+      href: "#fishing-event-ribbon",
+      label: "Fishing Event Ribbon",
+      mobileLabel: "Fishing",
+      icon: SECTION_NAV_ICONS.emoji_events,
     },
     {
       href: "#event-gallery",

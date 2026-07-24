@@ -210,7 +210,7 @@ export const metadata: Metadata = withGeoMetadata({
     title: "MH Construction",
     startupImage: [
       {
-        url: "/icons/mhc-icon-master.png",
+        url: "/icons/mh-logo-master.png",
         media: "(device-width: 768px) and (device-height: 1024px)",
       },
     ],
@@ -225,12 +225,12 @@ export const metadata: Metadata = withGeoMetadata({
         sizes: "any",
       },
       {
-        url: "/icons/mhc-icon-master.png",
+        url: "/icons/mh-logo-master.png",
         sizes: "32x32",
         type: "image/png",
       },
       {
-        url: "/icons/mhc-icon-master.png",
+        url: "/icons/mh-logo-master.png",
         sizes: "16x16",
         type: "image/png",
       },
@@ -238,7 +238,7 @@ export const metadata: Metadata = withGeoMetadata({
     shortcut: [{ url: "/favicon.ico" }],
     apple: [
       {
-        url: "/icons/mhc-icon-master.png",
+        url: "/icons/mh-logo-master.png",
         sizes: "180x180",
         type: "image/png",
       },

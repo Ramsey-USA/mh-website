@@ -19,20 +19,27 @@ const operationCastRecoverSeoTitle = buildDualSeoTitle(
 export const metadata: Metadata = withGeoMetadata({
   title: operationCastRecoverSeoTitle,
   description:
-    "Register as a veteran participant or volunteer boat captain for MH Construction's annual hosted community fishing event in Richland, Washington on September 26, 2026.",
+    "Dedicated event page for MH Construction's annual hosted community fishing event in Richland, Washington, with veteran and volunteer captain registration, roster status visibility, and confirmed schedule details.",
   keywords: [
     "veteran fishing event Richland WA",
     "Operation Cast and Recover",
+    "Operation Cast and Recover event status",
+    "Operation Cast and Recover confirmed schedule",
+    "Operation Cast and Recover registration path",
+    "veteran challenge coin event",
     "Columbia River veteran fishing",
     "Tri-Cities veteran events",
     "volunteer fishing captain Richland",
     "MH Construction community events",
+    "Columbia Point Marina event",
+    "Richland Washington fishing event",
+    "veteran community partnership event",
   ],
   alternates: { canonical: EVENT_URL },
   openGraph: {
     title: operationCastRecoverSeoTitle,
     description:
-      "An annual hosted community fishing event connecting veteran participants and volunteer captains on the Columbia River.",
+      "Track Operation: Cast & Recover event status, confirmed timeline, and registration paths for veteran participants and volunteer captains on the Columbia River.",
     url: EVENT_URL,
     type: "website",
     images: [
@@ -48,7 +55,7 @@ export const metadata: Metadata = withGeoMetadata({
     card: "summary_large_image",
     title: operationCastRecoverSeoTitle,
     description:
-      "Veteran and volunteer captain registration for September 26, 2026.",
+      "View the Operation: Cast & Recover registration route with roster status, schedule clarity, and Challenge Coin presentation highlights.",
     images: ["/images/events/operation-cast-recover/columbia-point-marina.jpg"],
   },
 });
@@ -58,7 +65,7 @@ const eventSchema = {
   "@type": "Event",
   name: "Operation: Cast & Recover",
   description:
-    "MH Construction's annual hosted community fishing event for veteran participants and volunteer boat captains.",
+    "MH Construction's annual hosted community fishing event with veteran and volunteer captain registration, a confirmed operational schedule, and commemorative Challenge Coin recognition.",
   startDate: "2026-09-26T05:00:00-07:00",
   endDate: "2026-09-26T15:00:00-07:00",
   eventStatus: "https://schema.org/EventScheduled",
@@ -102,7 +109,7 @@ export default async function OperationCastRecoverPage() {
         ])}
       />
       <StructuredData data={eventSchema} />
-      <OperationCastRecoverPageClient />
+      <OperationCastRecoverPageClient isEs={isEs} />
     </>
   );
 }
