@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { buildDualSeoTitle } from "@/lib/branding/page-names";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
@@ -83,14 +84,21 @@ const eventSchema = {
   },
 };
 
-export default function OperationCastRecoverPage() {
+export default async function OperationCastRecoverPage() {
+  const isEs = (await getServerLocale()) === "es";
+
   return (
     <>
       <StructuredData
         data={generateBreadcrumbSchema([
-          { name: "Home", url: SITE_URL },
-          { name: "Events", url: `${SITE_URL}/events` },
-          { name: "Operation: Cast & Recover", url: EVENT_URL },
+          { name: isEs ? "Inicio" : "Home", url: SITE_URL },
+          { name: isEs ? "Eventos" : "Events", url: `${SITE_URL}/events` },
+          {
+            name: isEs
+              ? "Operación: Lanza y Regresa"
+              : "Operation: Cast & Recover",
+            url: EVENT_URL,
+          },
         ])}
       />
       <StructuredData data={eventSchema} />
