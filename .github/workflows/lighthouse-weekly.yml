@@ -46,8 +46,12 @@ jobs:
           LH_INTER_PAGE_DELAY_MS: "2500"
           LH_AUDIT_TIMEOUT_MS: "300000"
 
+      - name: Skip weekly digest email when Resend is not configured
+        if: always() && secrets.RESEND_API_KEY == ''
+        run: echo "RESEND_API_KEY is not configured; skipping weekly platform digest email."
+
       - name: Send weekly platform digest email
-        if: always()
+        if: always() && secrets.RESEND_API_KEY != ''
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           REPORT_TO_EMAIL: ${{ secrets.LIGHTHOUSE_REPORT_EMAIL || 'matt@mhc-gc.com' }}
@@ -62,5 +66,5 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: lighthouse-results-${{ github.run_id }}
-          path: lighthouse-results/
+          path: apps/website/lighthouse-results/
           retention-days: 90

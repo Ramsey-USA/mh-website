@@ -17,6 +17,15 @@ function optionalEnv(name, fallback = "") {
   return value && value.trim() ? value.trim() : fallback;
 }
 
+function resolveFirstExistingPath(candidates) {
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
+  }
+  return candidates[0];
+}
+
 function parseJsonSafe(input, fallback) {
   try {
     return JSON.parse(input);
@@ -550,11 +559,16 @@ async function main() {
   const fromEmail = requiredEnv("REPORT_FROM_EMAIL");
   const baseUrl = optionalEnv("BASE_URL", "https://www.mhc-gc.com");
 
-  const summaryPath = path.join(
-    process.cwd(),
-    "lighthouse-results",
-    "summary.json",
-  );
+  const summaryPath = resolveFirstExistingPath([
+    path.join(
+      process.cwd(),
+      "apps",
+      "website",
+      "lighthouse-results",
+      "summary.json",
+    ),
+    path.join(process.cwd(), "lighthouse-results", "summary.json"),
+  ]);
   const lighthouse = parseSummary(summaryPath);
   const outdated = parseOutdatedPackages();
   const media = await evaluateMediaRendering(baseUrl);

@@ -25,6 +25,7 @@
         "/public-sector",
         "/public-sector/tri-state-government-construction",
         "/public-sector/veteran-led-compliance",
+        "/public-sector/veteran-led-construction",
         "/resources",
         "/resources/safety-manual/contents",
         "/resources/safety-manual/forms",
@@ -34,8 +35,7 @@
         "/team",
         "/terms",
         "/testimonials",
-        "/veterans",
-        "/public-sector/veteran-led-construction"
+        "/veterans"
       ],
       "patterns": [
         "^/resources/safety-manual/\\[cluster\\]$"
@@ -61,7 +61,8 @@
         "/resources/safety-manual",
         "/resources/safety-manual/section/[slug]",
         "/resources/safety-program",
-        "/safety/intake"
+        "/safety/intake",
+        "/veterans/public-sector-construction"
       ],
       "patterns": []
     }
