@@ -108,6 +108,12 @@ eyebrow: Words from the General
 quote: Compliance is a leadership discipline, not a checkbox, and I expect every requirement to be documented, verified, and delivered with integrity.
 attribution: Jeremy Thamert, Owner & President
 
+## public-sector/veteran-led-construction
+
+eyebrow: Words from the General
+quote: Veteran-led public-sector construction should bring disciplined planning, transparent coordination, and reliable follow-through that respects every public obligation.
+attribution: Jeremy Thamert, Owner & President
+
 ## resources
 
 eyebrow: Words from the General

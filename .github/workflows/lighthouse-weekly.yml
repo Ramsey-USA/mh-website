@@ -20,6 +20,8 @@ jobs:
     name: Run Weekly Platform Digest
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    env:
+      HAS_RESEND_API_KEY: ${{ secrets.RESEND_API_KEY != '' }}
 
     steps:
       - name: Checkout repository
@@ -47,11 +49,11 @@ jobs:
           LH_AUDIT_TIMEOUT_MS: "300000"
 
       - name: Skip weekly digest email when Resend is not configured
-        if: always() && secrets.RESEND_API_KEY == ''
+        if: always() && env.HAS_RESEND_API_KEY != 'true'
         run: echo "RESEND_API_KEY is not configured; skipping weekly platform digest email."
 
       - name: Send weekly platform digest email
-        if: always() && secrets.RESEND_API_KEY != ''
+        if: always() && env.HAS_RESEND_API_KEY == 'true'
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           REPORT_TO_EMAIL: ${{ secrets.LIGHTHOUSE_REPORT_EMAIL || 'matt@mhc-gc.com' }}
