@@ -144,8 +144,8 @@ export default async function EventDetailPage({
               </p>
               <p className="font-subheading text-xs font-semibold uppercase tracking-[0.12em] text-brand-secondary">
                 {isEs
-                  ? "Built on Quality, Backed by Trust. (Construido sobre calidad, respaldado por confianza.)"
-                  : "Built on Quality, Backed by Trust."}
+                  ? "Built on Quality, Backed by Trust. (Construido sobre calidad, respaldado por confianza.) Standards high on every site, every day. (Estandares altos en cada obra, cada dia.)"
+                  : "Built on Quality, Backed by Trust. Standards high on every site, every day."}
               </p>
               <div className="grid gap-3 sm:grid-cols-3">
                 <article className="rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">

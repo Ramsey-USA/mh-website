@@ -58,9 +58,12 @@ describe("Event route content contract", () => {
     const coolDesertSource = readRouteSource("cool-desert-nights/page.tsx");
 
     const slogan = "Built on Quality, Backed by Trust.";
+    const supportingSlogan = "Standards high on every site, every day.";
 
     expect(dynamicSource).toContain(slogan);
     expect(coolDesertSource).toContain(slogan);
+    expect(dynamicSource).toContain(supportingSlogan);
+    expect(coolDesertSource).toContain(supportingSlogan);
   });
 
   it("keeps Cool Desert Nights route explicitly framed as an archive route", () => {
