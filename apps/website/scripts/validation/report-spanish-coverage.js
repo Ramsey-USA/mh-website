@@ -16,6 +16,7 @@ const ES_MESSAGES_FILE = path.join(REPO_ROOT, "messages", "es.json");
 
 const INVARIANT_ROUTE_NOTES = new Map([
   ["/accessibility", "Route is expected to be largely language-invariant"],
+  ["/cool-desert-nights", "Redirect-only route; locale-invariant by policy"],
   ["/offline", "Route is expected to be largely language-invariant"],
   [
     "/resources/safety-manual",
