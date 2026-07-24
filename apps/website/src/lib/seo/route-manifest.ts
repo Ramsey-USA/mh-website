@@ -316,6 +316,18 @@ const STATIC_ROUTES: CanonicalRouteManifestEntry[] = [
     locales: { en: true, es: true },
   },
   {
+    path: "/events/cool-desert-nights",
+    section: "events",
+    label: {
+      en: "Cool Desert Nights",
+      es: "Noches Frescas del Desierto",
+    },
+    changeFrequency: "monthly",
+    priority: 0.74,
+    lastModified: LAST_MODIFIED.events,
+    locales: { en: true, es: true },
+  },
+  {
     path: "/events/ironman-volunteer",
     section: "events",
     label: {

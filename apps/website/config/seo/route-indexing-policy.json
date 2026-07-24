@@ -8,7 +8,6 @@
         "/allies",
         "/careers",
         "/contact",
-        "/cool-desert-nights",
         "/events/[slug]",
         "/events/bbq-contest",
         "/events/cool-desert-nights",
@@ -58,6 +57,7 @@
     },
     "redirect": {
       "exact": [
+        "/cool-desert-nights",
         "/resources/safety-manual",
         "/resources/safety-manual/section/[slug]",
         "/resources/safety-program",
