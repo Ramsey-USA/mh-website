@@ -675,13 +675,13 @@
       "subtitle": "Safety Documentation",
       "title": "Lives in the App",
       "para1": "The MH Construction app is our Dashboard (Staff Hub) for the MISH Safety & Health Program (Safety Manual), field forms, toolbox talks, incident reports, and Employee Handbook workflows. Real-time snapshots of job-site safety compliance. Free to install. Role-gated for team members. Current employees are instructed to use the Dashboard (Staff Hub) for daily operations.",
-      "contactNote": "Bonding teams, insurers, architects, subcontractors, and vendors may request documentation access through our office at",
+      "contactNote": "Bonding teams, insurers, architects, subcontractors, and trade partners may request documentation access through our office at",
       "contactOr": "or",
       "footNote": "Safety documentation and workflows are available for authorized team members in the MH Construction app. Use the Install App button in the site footer."
     },
     "cta": {
       "title": "Ready to Talk?",
-      "description": "Our safety record is open for review. Call us directly or send an email — we’ll walk you through our credentials and answer any questions from bonding teams, insurers, architects, subcontractors, vendors, and future employees about compliance, EMR, or our written {mishLabel}.",
+      "description": "Our safety record is open for review. Call us directly or send an email — we’ll walk you through our credentials and answer any questions from bonding teams, insurers, architects, subcontractors, trade partners, and future employees about compliance, EMR, or our written {mishLabel}.",
       "sendMessage": "Send a Message"
     }
   },
