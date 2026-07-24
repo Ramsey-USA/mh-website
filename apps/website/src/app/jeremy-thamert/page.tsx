@@ -293,10 +293,10 @@ export default async function JeremyThamertPage() {
                   ? "Propietario y Presidente, MH Construction"
                   : "Owner & President, MH Construction"}
               </p>
-              <p className="font-subheading mt-4 max-w-3xl text-sm font-semibold tracking-wide text-brand-primary font-heading uppercase sm:text-base">
+              <p className="font-subheading mt-4 max-w-3xl text-sm font-semibold tracking-wide text-brand-primary uppercase sm:text-base">
                 {COMPANY_INFO.slogan.primary}
               </p>
-              <p className="font-subheading mt-2 max-w-3xl text-sm font-semibold tracking-wide text-brand-secondary font-heading uppercase sm:text-base">
+              <p className="font-subheading mt-2 max-w-3xl text-sm font-semibold tracking-wide text-brand-secondary uppercase sm:text-base">
                 {jeremyPageSlogan}
               </p>
               <p className="font-body mt-5 max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg dark:text-gray-200">
@@ -350,7 +350,7 @@ export default async function JeremyThamertPage() {
                   priority
                 />
                 <div className="space-y-2 p-5">
-                  <p className="font-subheading text-sm font-semibold tracking-widest text-brand-primary font-heading uppercase">
+                  <p className="font-subheading text-sm font-semibold tracking-widest text-brand-primary uppercase">
                     {jeremyProfile.veteranStatus}
                   </p>
                   <p className="text-base font-semibold text-gray-800 dark:text-gray-100">
@@ -376,7 +376,7 @@ export default async function JeremyThamertPage() {
         <section className="py-12 sm:py-16">
           <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:grid-cols-2 lg:grid-cols-4 sm:px-6 lg:px-8">
             <div className="rounded-xl border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
-              <p className="font-subheading text-sm font-semibold tracking-wide text-brand-primary font-heading uppercase">
+              <p className="font-subheading text-sm font-semibold tracking-wide text-brand-primary uppercase">
                 Years Experience
               </p>
               <p className="mt-2 text-3xl font-black text-gray-900 dark:text-white">
@@ -384,7 +384,7 @@ export default async function JeremyThamertPage() {
               </p>
             </div>
             <div className="rounded-xl border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
-              <p className="font-subheading text-sm font-semibold tracking-wide text-brand-primary font-heading uppercase">
+              <p className="font-subheading text-sm font-semibold tracking-wide text-brand-primary uppercase">
                 Total Projects
               </p>
               <p className="mt-2 text-3xl font-black text-gray-900 dark:text-white">
@@ -392,7 +392,7 @@ export default async function JeremyThamertPage() {
               </p>
             </div>
             <div className="rounded-xl border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
-              <p className="font-subheading text-sm font-semibold tracking-wide text-brand-primary font-heading uppercase">
+              <p className="font-subheading text-sm font-semibold tracking-wide text-brand-primary uppercase">
                 Client Satisfaction
               </p>
               <p className="mt-2 text-3xl font-black text-gray-900 dark:text-white">
@@ -400,7 +400,7 @@ export default async function JeremyThamertPage() {
               </p>
             </div>
             <div className="rounded-xl border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
-              <p className="font-subheading text-sm font-semibold tracking-wide text-brand-primary font-heading uppercase">
+              <p className="font-subheading text-sm font-semibold tracking-wide text-brand-primary uppercase">
                 Safety Record
               </p>
               <p className="mt-2 text-3xl font-black text-gray-900 dark:text-white">

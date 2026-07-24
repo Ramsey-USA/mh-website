@@ -11,6 +11,7 @@ import {
 import {
   coreServices,
   specialtyServices,
+  whyChooseUs,
 } from "@/components/services/servicesData";
 
 const EXISTING_INTERNAL_ROUTES = new Set([
@@ -113,5 +114,45 @@ describe("services canonical contract", () => {
 
       expect(isKnownRoute).toBe(true);
     }
+  });
+
+  it("keeps project marketing service aligned to canonical branding baseline", () => {
+    const canonicalBaselinePath =
+      "docs/marketing/parameters/social-media-branding-parameters.md";
+    const socialMarketingSlug = "project-marketing-social-media-strategy";
+    const requiredChannels = [
+      "LinkedIn",
+      "Facebook",
+      "X",
+      "YouTube",
+      "Instagram",
+    ];
+
+    const socialMarketingService = getPublishedServiceRoutes().find(
+      (service) => service.slug === socialMarketingSlug,
+    );
+
+    expect(socialMarketingService).toBeDefined();
+    expect(socialMarketingService?.proofReferences).toContain(
+      canonicalBaselinePath,
+    );
+
+    const combinedCopy = [
+      ...(socialMarketingService?.processStatements ?? []),
+      ...(socialMarketingService?.focusAreas ?? []),
+    ].join(" ");
+
+    for (const channel of requiredChannels) {
+      expect(combinedCopy).toEqual(expect.stringContaining(channel));
+    }
+
+    expect(combinedCopy).toEqual(
+      expect.stringContaining("podcast post-interview"),
+    );
+    expect(combinedCopy).toEqual(expect.stringContaining("Jeremy"));
+  });
+
+  it("keeps trust signals at exactly eight containers", () => {
+    expect(whyChooseUs).toHaveLength(8);
   });
 });

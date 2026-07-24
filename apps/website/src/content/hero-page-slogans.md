@@ -3,174 +3,174 @@
 ## home
 
 seoName: Home
-slogan: Straight answers from the Command Center.
+slogan: Straight answers from the Command Center, built with American grit.
 
 ## about
 
 seoName: About Us
-slogan: Our Mission is built by people who keep their word.
+slogan: About Us with mission-brief clarity, service-earned values, and handshake pride.
 
 ## services
 
 seoName: Services
-slogan: Operations Briefs that keep scope clear and execution steady.
+slogan: Services with operations-brief discipline, done right for every American jobsite.
 
 ## projects
 
 seoName: Projects
-slogan: Our Work proves itself in every finished project.
+slogan: Projects with SITREP accountability and craftsmanship that honors the work.
 
 ## projectDetail
 
 seoName: Project Detail
-slogan: Project SITREP clarity from first walkthrough to final closeout.
+slogan: Project Detail with SITREP clarity from first walkthrough to proud handoff.
 
 ## contact
 
 seoName: Contact
-slogan: Comms Desk access with a direct line to the right people.
+slogan: Contact through the Comms Desk for direct answers and stand-up service.
 
 ## testimonials
 
 seoName: Reviews
-slogan: Field Commendations that speak for themselves.
+slogan: Reviews and Field Commendations from partners who trust our word.
 
 ## locations
 
 seoName: Locations
-slogan: Regional Coverage with one consistent standard.
+slogan: Locations with Regional AO coverage and hometown accountability.
 
 ## locationDetail
 
 seoName: Location Detail
-slogan: Local Mission Profile tuned to each city and project delivery lane.
+slogan: Location Detail with local mission-profile focus and national-standard execution.
 
 ## team
 
 seoName: Our Team
-slogan: Command Staff you can count on in the field and office.
+slogan: Our Team led with Command Staff discipline and service-first leadership.
 
 ## careers
 
 seoName: Careers
-slogan: Recruitment Command built on steady work and honest leadership.
+slogan: Careers with Recruitment Command standards, steady growth, and pride in the craft.
 
 ## veterans
 
 seoName: Veterans
-slogan: Veteran Battalion service, respect, and practical support.
+slogan: Veterans with battalion-level respect, practical support, and earned opportunity.
 
 ## allies
 
 seoName: Partners
-slogan: Allied Network built on communication and follow-through.
+slogan: Partners in an Allied Network built on trust, duty, and follow-through.
 
 ## publicSector
 
 seoName: Government
-slogan: Civic Operations that stay accountable.
+slogan: Government projects under Civic Operations discipline and public-service accountability.
 
 ## publicSectorProjects
 
 seoName: Public Sector Projects
-slogan: Public Sector Projects delivered with discipline.
+slogan: Public Sector Projects delivered with civic pride and mission discipline.
 
 ## veteranLedCompliance
 
 seoName: Veteran-Led Compliance
-slogan: Compliance Command that respects the standard.
+slogan: Veteran-Led Compliance with command-grade documentation and integrity.
 
 ## triStateGovernmentConstruction
 
 seoName: Tri-State Government Construction
-slogan: Regional Civic Delivery with steady oversight.
+slogan: Tri-State Government Construction with regional civic delivery and unwavering standards.
 
 ## hub
 
 seoName: Team Hub
-slogan: Operations Hub for team coordination.
+slogan: Team Hub as the Operations Hub for coordinated execution.
 
 ## safety
 
 seoName: Safety
-slogan: Safety Command with clear standards and consistent follow-through.
+slogan: Safety under Safety Command standards to protect every crew and family.
 
 ## safetyManual
 
 seoName: Safety Manual
-slogan: Manual Operations with a clear reference for every safety step.
+slogan: Safety Manual in Manual Operations format, field-ready and duty-driven.
 
 ## safetyProgram
 
 seoName: Safety Program
-slogan: Program Command built into daily operations.
+slogan: Safety Program with Program Command discipline in daily operations.
 
 ## safetyForms
 
 seoName: Safety Forms
-slogan: Form Control that supports clean closeout.
+slogan: Safety Forms through Form Control for clear, audit-ready records.
 
 ## safetyContents
 
 seoName: Table of Contents
-slogan: Section Index that gets you there fast.
+slogan: Table of Contents with Section Index speed for field decisions.
 
 ## resources
 
 seoName: Resources
-slogan: Field Resources for the work ahead.
+slogan: Resources in a Field Resources library built for real-world readiness.
 
 ## incidentReport
 
 seoName: Incident Report
-slogan: Incident Command for fast reporting on real-world issues.
+slogan: Incident Report through Incident Command for fast, honest action.
 
 ## faq
 
 seoName: Help/FAQ
-slogan: Intel Brief answers for common questions.
+slogan: Help/FAQ with Intel Brief clarity and no runaround.
 
 ## faqCategory
 
 seoName: FAQ Category
-slogan: Category Recon that gets you to the exact answer faster.
+slogan: FAQ Category with Category Recon focus to get answers fast.
 
 ## accessibility
 
 seoName: Accessibility
-slogan: Access Standards that work for everyone.
+slogan: Accessibility with access-protocol discipline so everyone can engage.
 
 ## privacy
 
 seoName: Privacy Policy
-slogan: Privacy Standards, plainly explained.
+slogan: Privacy Policy with data-OPSEC discipline and plain-language transparency.
 
 ## terms
 
 seoName: Terms of Service
-slogan: Service Terms without the legal fog.
+slogan: Terms of Service with clear ROE and fair expectations.
 
 ## offline
 
 seoName: Offline
-slogan: Connection Status: what to expect when the connection drops.
+slogan: Offline signal-check guidance so you stay oriented when connections drop.
 
 ## employeeHandbook
 
 seoName: Employee Handbook
-slogan: Handbook Index with expectations clear from day one.
+slogan: Employee Handbook as your field guide for expectations and accountability.
 
 ## qrCodes
 
 seoName: QR Codes
-slogan: QR Library for quick access to the right page.
+slogan: QR Codes in a QR Library for quick, reliable access.
 
 ## events
 
 seoName: Events
-slogan: Formation Calendar where the calendar meets the crew.
+slogan: Events through Formation Calendar planning with community-first pride.
 
 ## coolDesertNights
 
 seoName: Cool Desert Nights
-slogan: Event Archive support that shows up prepared.
+slogan: Cool Desert Nights with Event Archive readiness and hometown pride.

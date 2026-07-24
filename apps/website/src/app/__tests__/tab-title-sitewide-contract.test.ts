@@ -34,6 +34,10 @@ describe("Sitewide tab title metadata contract", () => {
       requiredSnippets: ["const eventsSeoTitle", '"events",'],
     },
     {
+      file: "app/events/[slug]/page.tsx",
+      requiredSnippets: ['buildDualSeoTitle("events", event.title)'],
+    },
+    {
       file: "app/cool-desert-nights/page.tsx",
       requiredSnippets: [
         "const coolDesertNightsSeoTitle",
@@ -51,7 +55,7 @@ describe("Sitewide tab title metadata contract", () => {
     {
       file: "app/about/details/page.tsx",
       requiredSnippets: [
-        'buildDualSeoTitle("about", "Detailed Mission Capabilities")',
+        'buildDualSeoTitle("about", "Detailed Construction Capabilities")',
       ],
     },
     {
@@ -68,6 +72,21 @@ describe("Sitewide tab title metadata contract", () => {
       file: "app/careers/print/page.tsx",
       requiredSnippets: [
         'buildDualSeoTitle("careers", "Printable Application")',
+      ],
+    },
+    {
+      file: "app/veterans/public-sector-construction/page.tsx",
+      requiredSnippets: [
+        "buildDualSeoTitle(",
+        '"publicSector",',
+        '"Veteran-Led Public Sector Construction",',
+      ],
+    },
+    {
+      file: "app/public-sector/veteran-led-compliance/page.tsx",
+      requiredSnippets: [
+        "const veteranLedComplianceSeoTitle",
+        "title: veteranLedComplianceSeoTitle",
       ],
     },
     {
@@ -109,17 +128,19 @@ describe("Sitewide tab title metadata contract", () => {
     const offenders = metadataFiles
       .map((filePath) => {
         const source = fs.readFileSync(filePath, "utf8");
-        const hasInlineTitleLiteral =
-          /title\s*:\s*["'`]/.test(source) && !/title\s*:\s*\{/.test(source);
+        const hasScalarTitleAssignment =
+          /title\s*:\s*(?!\{)/.test(source) && !/title\s*:\s*\{/.test(source);
 
-        if (!hasInlineTitleLiteral) {
+        if (!hasScalarTitleAssignment) {
           return null;
         }
 
         const usesTitleHelper =
           source.includes("buildDualSeoTitle(") ||
           source.includes("formatDualPageName(") ||
-          source.includes("getDualPageNameByKey(");
+          source.includes("getDualPageNameByKey(") ||
+          source.includes("MH_SLOGANS.primary") ||
+          source.includes("| MH Construction");
 
         return usesTitleHelper
           ? null

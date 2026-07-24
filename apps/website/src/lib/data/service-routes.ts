@@ -128,6 +128,66 @@ const serviceRouteSource: Omit<ServiceRecord, "governance">[] = [
     ],
   },
   {
+    slug: "project-marketing-social-media-strategy",
+    title: "Project Marketing and Social Media Strategy",
+    summary:
+      "Phase-aware project marketing that turns field progress into owner-approved social content with a disciplined weekly cadence.",
+    supportedProjectTypes: [
+      "Commercial and industrial projects in active delivery",
+      "Municipal and public-sector projects requiring documented updates",
+      "Phased renovations where stakeholders need visible progress",
+      "Post-launch case studies and reputation-building campaigns",
+    ],
+    processStatements: [
+      "Map each project to a four-phase lifecycle: preconstruction, active, closing, and post-launch.",
+      "Run a 36-week, five-angle content rotation covering macro, technical, logistics, safety-team, and spec-vs-reality proof.",
+      "Publish one to two social posts per week per project across LinkedIn and Facebook, then repurpose approved proof to X, YouTube, Instagram, reviews, and email channels.",
+      'When the job is completed and approvals are in place, publish a "podcast post-interview" with Jeremy to recap delivery and lessons learned.',
+    ],
+    proofReferences: [
+      "projects/volm-companies-remodel",
+      "projects/darigold-pasco-production-facility",
+      "docs/marketing/parameters/social-media-branding-parameters.md",
+      "documents/input/marketing strategy/MH_Construction_Website_Page_Layout_Enhancement_Plan.docx",
+    ],
+    ctaLabel: "Plan your project marketing runway",
+    ctaHref: "/contact",
+    publishStatus: "published",
+    metaTitle: "Project Marketing and Social Media Strategy | MH Construction",
+    metaDescription:
+      "Deploy a phase-aware project marketing strategy with disciplined social cadence, evidence-based content capture, and owner-approved messaging.",
+    ogImage: "/images/og/services/commercial-construction.webp",
+    category: "Project Marketing",
+    overview:
+      "Use this service to operationalize project storytelling without hype. We build a repeatable social strategy tied to actual field milestones, so your audience sees verified progress from mobilization through post-launch case study delivery.",
+    focusAreas: [
+      "Four-phase project lifecycle messaging",
+      "Five-angle content taxonomy and capture standards",
+      "Weekly posting cadence and approval workflows",
+      "Spec-vs-reality transparency and proof packaging",
+      "Cross-channel adaptation for social, X, YouTube, Instagram, reviews, and newsletters",
+      "Post-launch podcast post-interview planning with Jeremy",
+    ],
+    technicalPriorities: [
+      "Evidence-gated publishing tied to real milestones",
+      "Asset naming and metadata standards for retrieval",
+      "Channel-specific formatting and accessibility standards",
+      "Analytics-ready campaign tagging and reporting",
+    ],
+    deliverySteps: [
+      "Audit current projects, milestones, and media readiness.",
+      "Build phase calendars and five-angle content assignments.",
+      "Launch weekly publishing with owner-approved copy and media.",
+      "Convert post-launch assets into case studies and trust content.",
+    ],
+    safetyCommitments: [
+      "Protect active-jobsite privacy and controlled-access boundaries in all media capture",
+      "Use approved safety and compliance language in public updates",
+      "Escalate any ambiguous field condition before publishing",
+      "Maintain documented approvals for public-facing project content",
+    ],
+  },
+  {
     slug: "municipal-public-work",
     title: "Municipal & Government",
     summary:

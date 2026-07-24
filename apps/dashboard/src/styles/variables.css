@@ -1,4 +1,5 @@
 :root {
-  --font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", sans-serif;
-  --font-body: "mendl-sans-dusk", "Mendl Sans Dusk", sans-serif;
+  --font-heading: "Mendl Sans Dusk Bold", "Mendl Sans Dusk", sans-serif;
+  --font-subheading: "Mendl Sans Dusk Medium", "Mendl Sans Dusk", sans-serif;
+  --font-body: "Mendl Sans Dusk Regular", "Mendl Sans Dusk", sans-serif;
 }

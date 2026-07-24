@@ -51,17 +51,17 @@ describe("SmokeBossFunnel", () => {
     });
   });
 
-  it("renders event update content while campaign is active", () => {
+  it("renders BBQ contest content while campaign is active", () => {
     render(<SmokeBossFunnel />);
 
     expect(
       screen.getByRole("heading", {
-        name: /Explore Sponsored and Hosted Events/i,
+        name: /Pacific Northwest Annual BBQ Competition/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /Explore Events Hub/i }),
-    ).toHaveAttribute("href", "/events");
+      screen.getByRole("link", { name: /View BBQ Contest/i }),
+    ).toHaveAttribute("href", "/events/bbq-contest");
   });
 
   it("does not render after campaign completion", () => {
@@ -70,8 +70,14 @@ describe("SmokeBossFunnel", () => {
     expect(container).toBeEmptyDOMElement();
   });
 
-  it("does not render on the featured event route", () => {
-    mockUsePathname.mockReturnValue("/cool-desert-nights");
+  it("does not render on the BBQ contest route", () => {
+    mockUsePathname.mockReturnValue("/events/bbq-contest");
+    const { container } = render(<SmokeBossFunnel />);
+    expect(container).toBeEmptyDOMElement();
+  });
+
+  it("does not render on the Cool Desert Nights event route", () => {
+    mockUsePathname.mockReturnValue("/events/cool-desert-nights");
     const { container } = render(<SmokeBossFunnel />);
     expect(container).toBeEmptyDOMElement();
   });

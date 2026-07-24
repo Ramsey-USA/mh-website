@@ -20,16 +20,19 @@ import {
 } from "@/lib/styles/design-tokens";
 import { ServiceCard } from "./ServiceCard";
 import type { CoreService } from "./servicesData";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 
 interface CoreServicesSectionProps {
   services: CoreService[];
   title: string;
   subtitle: string;
   description: string;
+  locale?: SupportedLocale;
 }
 
 export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
-  const { services, title, subtitle, description } = props;
+  const { services, title, subtitle, description, locale = "en" } = props;
+  const isEs = locale === "es";
   const [selectedService, setSelectedService] = useState<number | null>(null);
 
   // Memoize the selected service data
@@ -86,6 +89,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
           <ServiceCard
             key={service.title}
             service={service}
+            locale={locale}
             onOpenModal={() => openModal(index)}
           />
         ))}
@@ -99,7 +103,11 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
           title={currentService.title}
           size="xl"
           showVeteranBadge={false}
-          backdropAriaLabel="Close core service details modal"
+          backdropAriaLabel={
+            isEs
+              ? "Cerrar modal de detalles del servicio principal"
+              : "Close core service details modal"
+          }
           panelClassName={`max-w-3xl ${cornerRadius.card} border border-brand-primary/20 bg-white dark:bg-gray-800 shadow-2xl`}
           contentClassName="p-0"
           renderHeader={({ titleId, onClose }) => (
@@ -108,7 +116,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
               <button
                 onClick={onClose}
                 className={`absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 ${cornerRadius.full} p-2.5 sm:p-3 transition-all ${transitionDuration.fast} focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl z-10 ${hoverMotion.button}`}
-                aria-label="Close modal"
+                aria-label={isEs ? "Cerrar modal" : "Close modal"}
                 type="button"
                 autoFocus
               >
@@ -129,8 +137,10 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
                   />
                 </div>
                 <div className="flex-1 pt-1">
-                  <p className="font-subheading mb-2 text-xs sm:text-sm font-semibold font-heading uppercase tracking-wider text-white/80">
-                    Core Service Detail
+                  <p className="font-subheading mb-2 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white/80">
+                    {isEs
+                      ? "Detalle de Servicio Principal"
+                      : "Core Service Detail"}
                   </p>
                   <h2
                     id={titleId}
@@ -162,7 +172,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
                   className="text-brand-primary"
                 />
                 <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold">
-                  What's Included
+                  {isEs ? "Que Incluye" : "What's Included"}
                 </h3>
               </div>
               <ul className="space-y-3">
@@ -199,7 +209,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
                   className="text-brand-secondary"
                 />
                 <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold">
-                  Benefits
+                  {isEs ? "Beneficios" : "Benefits"}
                 </h3>
               </div>
               <ul className="space-y-3">
@@ -256,7 +266,8 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
                       size="md"
                       className={`mr-2 ${hoverMotion.iconSubtle}`}
                     />
-                    {currentService.ctaLinkText || "Learn More"}
+                    {currentService.ctaLinkText ||
+                      (isEs ? "Saber Mas" : "Learn More")}
                   </Link>
                 </Button>
               )}
@@ -272,7 +283,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
                     size="md"
                     className={`mr-2 ${hoverMotion.iconSubtle}`}
                   />
-                  Begin Partnership
+                  {isEs ? "Iniciar alianza" : "Begin Partnership"}
                 </Link>
               </Button>
             </div>

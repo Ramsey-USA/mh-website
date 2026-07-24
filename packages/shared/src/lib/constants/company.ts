@@ -203,7 +203,8 @@ export const COMPANY_INFO = {
 
   // Associated General Contractors (AGC) — MH Construction is an AGC member
   agc: {
-    website: "https://www.agcwa.com/",
+    website:
+      "https://business.nwagc.org/memberdirectory/Details/mh-construction-3229535",
     /** AGC national BABAA resource hub — covers Build America, Buy America Act guidance */
     babaaResourceHub: "https://www.agc.org/babaa-resource-hub",
   },

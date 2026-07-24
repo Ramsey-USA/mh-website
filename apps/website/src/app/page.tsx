@@ -56,24 +56,24 @@ const SERVICE_OVERVIEW_DETAIL_SLUGS = [
 
 export const metadata: Metadata = withGeoMetadata({
   title: {
-    absolute: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Mission-Ready Construction, Fit-Outs, Municipal, and Light Industrial | MH Construction`,
+    absolute: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | ${MH_SLOGANS.primary} | MH Construction`,
   },
-  description: `Mission-ready construction partner for agricultural and winery communities, fit-outs, municipal projects, and light industrial scopes across WA, OR, and ID. Relationship-first delivery with Procore-backed mission management. ${MH_SLOGANS.primary}`,
+  description: `Construction partner for agricultural and winery communities, tenant improvements, municipal projects, and light industrial scopes across WA, OR, and ID. Relationship-first delivery with Procore-backed project management. ${MH_SLOGANS.primary}`,
   keywords: [
     "general contractor Pasco, WA",
-    "mission-ready construction services",
+    "new construction services",
     "agricultural community construction",
     "winery community construction",
-    "mission-ready fit-outs",
+    "tenant improvements and interior buildouts",
     "municipal construction",
     "pole building contractor",
     "door and hardware installation",
-    "Procore mission management",
+    "Procore project management",
     "industrial facility construction",
     "office remodeling and renovation",
-    "mission management solutions",
-    "mission management",
-    "mission-ready renovation",
+    "construction management solutions",
+    "construction project management",
+    "major renovation contractor",
     "building addition contractor",
     "construction design",
     "general contractor Tri-State",
@@ -83,9 +83,9 @@ export const metadata: Metadata = withGeoMetadata({
     "Kennewick general contractor",
     "Benton County general contractor",
     "Franklin County general contractor",
-    "mission-ready construction Tri-State",
-    "mission management services",
-    "mission planning predeployment",
+    "new construction Tri-State",
+    "construction management services",
+    "preconstruction planning services",
     "tenant improvement contractor",
     "light industrial construction Pacific Northwest",
     "general contractor Yakima WA",
@@ -101,8 +101,8 @@ export const metadata: Metadata = withGeoMetadata({
     canonical: SITE_URL,
   },
   openGraph: {
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Mission-Ready Construction, Fit-Outs, Municipal, and Light Industrial | MH Construction`,
-    description: `Mission-ready construction services for agricultural and winery communities, fit-outs, municipal, and light industrial projects with disciplined scope control and Procore-based delivery. ${MH_SLOGANS.primary}`,
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | ${MH_SLOGANS.primary} | MH Construction`,
+    description: `Construction services for agricultural and winery communities, tenant improvements, municipal, and light industrial projects with disciplined scope control and Procore-based delivery. ${MH_SLOGANS.primary}`,
     url: SITE_URL,
     siteName: "MH Construction",
     type: "website",
@@ -120,8 +120,8 @@ export const metadata: Metadata = withGeoMetadata({
     card: "summary_large_image",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Mission-Ready Construction, Fit-Outs, Municipal, and Light Industrial | MH Construction`,
-    description: `Mission-ready construction services with agricultural and winery expertise, occupied-space fit-out delivery, municipal execution, and light industrial mission management. ${MH_SLOGANS.supporting[0]}`,
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | ${MH_SLOGANS.primary} | MH Construction`,
+    description: `Construction services with agricultural and winery expertise, occupied-space tenant improvement delivery, municipal execution, and light industrial project management. ${MH_SLOGANS.supporting[0]}`,
     images: ["/images/og-default.jpg"],
   },
 });
@@ -258,7 +258,7 @@ export default async function Home() {
           testimonialSubtitle: "Client Proof",
           testimonialTitle: "Project Partner Testimonials",
           testimonialDescription:
-            "Feedback from partners across agricultural/winery, commercial fit-out, and municipal project scopes.",
+            "Feedback from partners across agricultural/winery, tenant improvement, and municipal project scopes.",
         };
 
   return (
@@ -394,6 +394,7 @@ export default async function Home() {
         <ProjectGallerySectionDeferred
           id="project-gallery"
           className={HOME_SECTION_SPACING}
+          locale={locale}
           title={splashCopy.galleryTitle}
           subtitle={splashCopy.gallerySubtitle}
           description={splashCopy.galleryDescription}
@@ -435,6 +436,7 @@ export default async function Home() {
 
         <TestimonialsSectionDeferred
           id="testimonials"
+          locale={locale}
           subtitle={splashCopy.testimonialSubtitle}
           title={splashCopy.testimonialTitle}
           description={splashCopy.testimonialDescription}

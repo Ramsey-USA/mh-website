@@ -57,6 +57,9 @@ function walk(dir) {
 
 function toRouteFromPageFile(filePath) {
   const rel = path.relative(APP_DIR, filePath).replace(/\\/g, "/");
+  if (rel === "page.tsx") {
+    return "/";
+  }
   if (!rel.endsWith("/page.tsx")) {
     return null;
   }

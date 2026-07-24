@@ -101,7 +101,7 @@ export function LocationPageContent({
   usePageTracking(`Location - ${location.city}`);
   const universalCtas = getUniversalCtaSet(isEs ? "es" : "en");
   const priorityServices = location.servicePriorities || [];
-  const standardPositioningLine = `Primary markets: AG and winery communities, mission-ready fit-outs, and municipal builds. Core specialties: pole buildings, door and hardware installation, and mission management powered by Procore. ${MH_SLOGANS.supporting[0]}`;
+  const standardPositioningLine = `Primary markets: AG and winery communities, tenant improvements, and municipal builds. Core specialties: pole buildings, door and hardware installation, and project management powered by Procore. ${MH_SLOGANS.supporting[0]}`;
   const nearbyAreas = location.nearbyAreas || [];
   const locationTelephoneHref = `tel:${Array.from(location.telephone)
     .filter((char) => /\d/.test(char))
@@ -114,11 +114,11 @@ export function LocationPageContent({
   const serviceCards = [
     {
       icon: "business",
-      title: priorityServices[0] || "Mission-Ready Construction",
+      title: priorityServices[0] || "New Construction & Major Renovations",
       description:
         priorityServices.length > 0
-          ? `${priorityServices[0]} delivery tailored for ${location.city} and ${location.county}, with Procore-based mission controls and fit-out planning for AG and winery community operations.`
-          : "Office buildings, retail spaces, and municipal facilities supported by Procore-based mission management from concept to handoff.",
+          ? `${priorityServices[0]} delivery tailored for ${location.city} and ${location.county}, with Procore-based project controls and tenant-improvement planning for AG and winery community operations.`
+          : "Office buildings, retail spaces, and municipal facilities supported by Procore-based project management from concept to handoff.",
     },
     {
       icon: "factory",
@@ -138,7 +138,7 @@ export function LocationPageContent({
     },
     {
       icon: "home_repair_service",
-      title: "Mission Management",
+      title: "Project Management",
       description:
         "End-to-end coordination from front-end scope definition through handoff, powered by Procore with budget transparency, door/hardware tracking, and local permitting alignment.",
     },
@@ -183,7 +183,7 @@ export function LocationPageContent({
     knowsAbout: [
       ...priorityServices,
       "AG and winery community construction",
-      "Mission-ready fit-outs",
+      "Tenant improvements and interior buildouts",
       "Municipal and government construction",
       "Pole buildings",
       "Door and hardware installation",
@@ -194,11 +194,11 @@ export function LocationPageContent({
     serviceType: [
       ...(priorityServices.length > 0
         ? priorityServices
-        : ["Mission-Ready Construction", "Municipal Construction"]),
-      "Mission-ready fit-outs",
+        : ["New Construction & Major Renovations", "Municipal Construction"]),
+      "Tenant improvements and interior buildouts",
       "Pole Building Construction",
       "Door and Hardware Installation",
-      "Mission Management powered by Procore",
+      "Project Management powered by Procore",
     ],
     ...(location.recentProjects && location.recentProjects.length > 0
       ? {
@@ -713,7 +713,7 @@ export function LocationPageContent({
         <section className="order-4 py-12 sm:py-16 bg-white dark:bg-gray-900">
           <SectionContainer padding="compact">
             <div className="text-center">
-              <p className="font-subheading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest font-heading uppercase mb-4">
+              <p className="font-subheading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
                 {isEs ? "Acreditado y certificado" : "Accredited & Certified"}
               </p>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">

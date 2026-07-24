@@ -206,6 +206,7 @@ pnpm run lint:markdown
 pnpm run docs:sync:check
 pnpm run docs:guardrails:contracts
 pnpm run nav:contract:check
+pnpm --filter @mhc/website run congruency:locale:thorough
 ```
 
 For strict website parity with CI checks:

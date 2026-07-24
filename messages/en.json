@@ -3,8 +3,8 @@
     "about": {
       "hero": {
         "sectionTitle": "About Us",
-        "sectionSubtitle": "Service-Earned Values, Construction Excellence",
-        "sectionDescription": "Battle-Tested Excellence Through Service-Earned Experience"
+        "sectionSubtitle": "Relationship-First Construction Leadership",
+        "sectionDescription": "Experienced planning, clear communication, and accountable delivery"
       },
       "partnershipPhilosophy": {
         "sectionTitle": "Partnership Philosophy",
@@ -102,10 +102,10 @@
       "pageContent": {
         "label": "About MH Construction",
         "heading": "Who we are",
-        "body": "We are a veteran-owned general contractor serving the Pacific Northwest. We build long-term mission-partner relationships through direct communication, disciplined execution, and field-first safety.",
+        "body": "We are a veteran-owned general contractor serving the Pacific Northwest. We build long-term project stakeholder relationships through direct communication, disciplined execution, and field-first safety.",
         "storyTitle": "Our story",
         "storyP1": "Since 2010, we have worked alongside owners, operators, and design teams to deliver projects with practical planning and steady coordination.",
-        "storyP2": "Today we continue that standard with veteran-owned leadership, Procore-based mission administration, and scope control for agricultural and winery facilities, mission-ready fit-outs, and municipal projects. Built on Quality, Backed by Trust.",
+        "storyP2": "Today we continue that standard with veteran-owned leadership, clear communication, and accountable follow-through across every project relationship. Built on Quality, Backed by Trust.",
         "servesTitle": "Who we serve",
         "servesBody": "We support project stakeholders who need accountable planning, direct communication, and dependable delivery in active environments.",
         "servesItems": [
@@ -117,20 +117,21 @@
         "focusTitle": "What we do",
         "focusItems": [
           "General contracting for new facilities and occupied sites",
-          "Post-frame building delivery for agricultural and industrial operations",
-          "Door and hardware installation with compliance and handoff coordination",
-          "Mission management with RFI, submittal, and field-sequencing traceability"
+          "Practical preconstruction planning and scope alignment",
+          "Trade coordination with accountable communication",
+          "Safety-first delivery standards with clean handoff expectations"
         ],
+        "detailsLeadIn": "For execution depth, controls, and sequencing examples, continue to the About Details page.",
         "leadershipTitle": "Leadership",
-        "leadershipBody": "Our leadership model stays simple: clear decisions, direct communication, and full accountability from predeployment through handoff. Driven by Discipline. Defined by Results.",
+        "leadershipBody": "Our leadership model stays simple: clear decisions, direct communication, and full accountability from preconstruction through handoff.",
         "profileCta": "View Jeremy's Profile",
         "viewTeamCta": "View Team",
-        "detailsCta": "View detailed capabilities and timeline",
+        "detailsCta": "View execution capabilities, controls, and delivery timeline",
         "sourceMapTitle": "Where each record is maintained",
         "sourceMapBody": "To prevent duplicate biographies and unsupported claims, About links to each authoritative source instead of repeating full profile details.",
-        "sourceHistory": "Company history and capability timeline - /about/details",
-        "sourceLeadership": "Individual leadership proof and verified links - /jeremy-thamert",
-        "sourceTeam": "Approved active team records - /team",
+        "sourceHistory": "Execution capabilities and delivery timeline - /about/details",
+        "sourceLeadership": "Jeremy profile with verified credentials and external sources - /jeremy-thamert",
+        "sourceTeam": "Active team roles and operating responsibilities - /team",
         "safetyTitle": "Safety and compliance",
         "safetyBody": "Safety is embedded into daily operations. We maintain documented controls, practical field planning, and continuity for active facilities.",
         "safetyCta": "View safety standards and resources",
@@ -248,10 +249,10 @@
   },
   "team": {
     "hero": {
-      "iconAria": "Chain of command team",
+      "iconAria": "Construction leadership team",
       "imageAlt": "MH Construction team group photo, 2025",
       "kicker": "Leadership Team",
-      "titleLine1": "Veteran-Led Leadership You Can Trust",
+      "titleLine1": "Construction Leadership You Can Trust",
       "titleLine2": "150+ Years of Combined Construction Experience",
       "titleLine3Prefix": "Built on Quality, Backed by Trust.",
       "titleLine3Suffix": "",
@@ -260,7 +261,7 @@
     "overview": {
       "subtitle": "Meet Our",
       "title": "Leadership Team",
-      "description": "Meet the veteran-led team serving AG and winery communities, commercial tenant improvements, and municipal builds across the Pacific Northwest."
+      "description": "Meet the construction team serving agricultural and winery communities, commercial tenant improvements, and municipal projects across the Pacific Northwest, with veteran-led field standards supporting every delivery phase."
     },
     "leadershipSources": {
       "label": "Verified leadership sources",
@@ -283,33 +284,33 @@
     },
     "departments": {
       "upperBrass": {
-        "subtitle": "The",
-        "title": "Upper Brass",
-        "description": "Leadership setting direction and accountability standards across operations."
+        "subtitle": "Executive",
+        "title": "Leadership",
+        "description": "Senior leaders setting direction, accountability, and delivery standards across operations."
       },
       "missionCommanders": {
-        "subtitle": "Mission",
-        "title": "Commanders",
-        "description": "Project planning and execution with estimating, scheduling, and coordination discipline."
+        "subtitle": "Project",
+        "title": "Management",
+        "description": "Project planning and execution with disciplined estimating, scheduling, and coordination."
       },
       "fieldOfficers": {
         "subtitle": "Field",
-        "title": "Officers",
+        "title": "Operations",
         "description": "Field execution focused on quality workmanship and safety performance."
       },
       "specialOperations": {
-        "subtitle": "Special",
-        "title": "Operations",
-        "description": "Specialized teams in safety, communications, and strategic initiatives."
+        "subtitle": "Safety &",
+        "title": "Special Programs",
+        "description": "Specialized teams for safety, communications, and strategic initiatives."
       },
       "logisticsCommand": {
-        "subtitle": "Logistics",
-        "title": "Command",
+        "subtitle": "Operations",
+        "title": "Support",
         "description": "Operations support covering logistics, communications, and administration."
       },
       "emptyState": {
         "title": "Personnel roster update in progress.",
-        "description": "This command section will populate as deployment assignments are finalized."
+        "description": "This section will populate as profile approvals are finalized."
       }
     },
     "employeeTestimonials": {
@@ -342,8 +343,8 @@
         "headingTitle": "Team Culture Special",
         "items": {
           "veteranDiscipline": {
-            "title": "Veteran-Owned Discipline",
-            "description": "Veteran-led leadership combines structured execution with practical problem-solving."
+            "title": "Veteran Field Standards",
+            "description": "Veteran-led leadership reinforces structured execution and practical problem-solving across project teams."
           },
           "communication": {
             "title": "Open Communication & Transparency",
@@ -368,7 +369,7 @@
         }
       },
       "quote": {
-        "text": "Joining MH Construction means joining a veteran-led team built on integrity, transparency, and long-term relationships.",
+        "text": "Joining MH Construction means joining a construction team built on integrity, transparency, and long-term relationships, with veteran-led standards supporting daily execution.",
         "author": "Jeremy Thamert, Owner & President"
       }
     },
@@ -433,7 +434,7 @@
     "careersCta": {
       "subtitle": "Interested in Joining",
       "title": "Our Team?",
-      "description": "Explore career opportunities in AG and winery projects, commercial tenant improvements, and municipal work.",
+      "description": "Explore career opportunities in agricultural and winery projects, commercial tenant improvements, and municipal work.",
       "button": "View Career Opportunities"
     },
     "founderTribute": {
@@ -514,6 +515,174 @@
           "signOff": "All workers sign off before starting task"
         }
       }
+    }
+  },
+  "safetyPage": {
+    "hero": {
+      "pageIdentity": "Safety → Safety Program",
+      "mantra": "0.64 EMR, AGC-WA Recognition, OSHA VPP Star",
+      "tagline": "Clear standards. Consistent field follow-through.",
+      "sloganEsCompanion": "(Construido con Calidad, Respaldado por Confianza.)"
+    },
+    "credentials": {
+      "subtitle": "Industry-Recognized",
+      "title": "Safety Credentials",
+      "description": "OSHA VPP Star designation, AGC-WA Top EMR Awards, and a 50-section written {mishLabel} — verifiable proof our standards exceed requirements.",
+      "items": {
+        "oshaVpp": {
+          "title": "OSHA VPP Star Designation",
+          "body": "The highest level of workplace safety achievement in OSHA’s Voluntary Protection Program — earned through demonstrated excellence in hazard prevention, management leadership, and worker involvement.",
+          "tag": "Elite Federal Recognition"
+        },
+        "agcWa": {
+          "title": "AGC-WA Top EMR Award",
+          "body": "Multiple consecutive AGC-WA Top EMR Awards from the Associated General Contractors of Washington. This peer-recognized honor reflects sustained, verifiable safety performance across all job sites.",
+          "tag": "Industry-Recognized"
+        },
+        "osha30": {
+          "title": "OSHA 30-Hour Certified Team",
+          "body": "Our leadership and field supervisors hold OSHA 30-Hour Construction certification — above the basic 10-hour standard. Comprehensive training in hazard recognition, fall protection, electrical safety, and more.",
+          "tag": "Team Certified"
+        },
+        "program": {
+          "title": "50-Section MISH Safety & Health Program (Safety Manual)",
+          "body": "MH Construction maintains a comprehensive written safety program (Revision 3.0, effective July 1, 2026) covering all OSHA-required topics. Aligned with 29 CFR 1926, AGC CSEA, WISHA, Oregon OSHA, and Idaho requirements.",
+          "tag": "Rev 3.0 · July 2026"
+        }
+      }
+    },
+    "badges": {
+      "subtitle": "Verified & Trusted",
+      "title": "Safety Badges",
+      "description": "Third-party verified credentials available to bonding banks, insurers, architects, and project stakeholders on request.",
+      "items": {
+        "oshaVpp": {
+          "title": "OSHA VPP Star",
+          "subtitle": "Voluntary Protection Program"
+        },
+        "agcWa": {
+          "title": "AGC-WA Top EMR",
+          "subtitle": "Multiple Consecutive Years"
+        },
+        "osha30": {
+          "title": "OSHA 30-Hour",
+          "subtitle": "Team Certified"
+        },
+        "wisha": {
+          "title": "WISHA Compliant",
+          "subtitle": "Washington L&I"
+        },
+        "emr": {
+          "title": "0.64 EMR Rating",
+          "subtitle": "40% Below Industry Avg"
+        },
+        "csea": {
+          "title": "AGC CSEA Aligned",
+          "subtitle": "Prequalification Ready"
+        }
+      }
+    },
+    "program": {
+      "revLabel": "Rev 3.0 · Effective July 1, 2026",
+      "subtitle": "MH Construction",
+      "title": "MISH Safety & Health Program",
+      "para1": "Our 50-section written safety program covers every OSHA-required construction safety topic and is delivered in the field as our Safety Manual. From fall protection and excavation to electrical safety and hazardous materials, it is the operational foundation for every site we run.",
+      "para2": "Aligned with federal OSHA 29 CFR 1926, AGC CSEA prequalification standards, WISHA, Oregon OSHA, and Idaho requirements. Available in full to bonding banks, insurers, architects, and project partners through our secure Dashboard (Staff Hub). Legacy APP references remain in historical source material for continuity.",
+      "imageCaption1": "50 Sections",
+      "imageCaption2": "~350 pages · All OSHA topics covered",
+      "commitments": {
+        "safeHome": {
+          "title": "Every Worker Goes Home Safe",
+          "body": "No project, deadline, or dollar amount is worth a preventable injury. Every decision on every job site is made with that standard first."
+        },
+        "accountability": {
+          "title": "Personal Accountability",
+          "body": "Safety isn’t enforced top-down. Every team member — superintendent to laborer — owns their environment and looks out for the person next to them."
+        },
+        "discipline": {
+          "title": "Service-Earned Discipline",
+          "body": "Our veteran-owned leadership emphasizes a simple truth: consistent habits, not sporadic rules, are what keep people safe. That discipline lives on every job site."
+        },
+        "speakUp": {
+          "title": "Speak Up, Every Time",
+          "body": "A culture where unsafe conditions are reported — not ignored — is a culture that improves. We have zero tolerance for silence on safety concerns."
+        }
+      }
+    },
+    "performance": {
+      "subtitle": "The Numbers Speak",
+      "title": "Safety Record",
+      "description": "Third-party verified. Peer-recognized. Our safety record is measurable, auditable, and consistently better than industry standard.",
+      "stats": {
+        "emr": {
+          "label": "EMR Rating",
+          "sub": "40% below industry average of 1.0"
+        },
+        "agcWa": {
+          "label": "Top EMR Award",
+          "sub": "Multiple consecutive years"
+        },
+        "years": {
+          "label": "Years",
+          "sub": "Building a safety-first culture since 2010"
+        },
+        "sections": {
+          "label": "Program Sections"
+        }
+      }
+    },
+    "evidence": {
+      "subtitle": "Culture Is Built",
+      "title": "In Daily Habits",
+      "description": "Not in posters. Not in policy manuals. In what we actually do, every single shift.",
+      "habits": {
+        "toolbox": "Daily toolbox talks before every shift",
+        "jha": "Job Hazard Analysis on every new scope",
+        "incident": "Incident reporting — every event, every time",
+        "equipment": "Equipment inspections before every use",
+        "review": "Weekly superintendent safety reviews",
+        "peer": "Peer recognition for safe behavior"
+      }
+    },
+    "compliance": {
+      "subtitle": "Full Regulatory",
+      "title": "Compliance",
+      "description": "Complete compliance with OSHA, L&I, EPA, and all applicable state regulations. Protects your project from violations, fines, and work stoppages.",
+      "items": {
+        "osha": {
+          "title": "OSHA 29 CFR 1926",
+          "body": "Full compliance with federal construction safety standards — fall protection, scaffolding, excavation, electrical, personal protective equipment, and all applicable subparts."
+        },
+        "wisha": {
+          "title": "Washington L&I (WISHA)",
+          "body": "Complete alignment with Washington Industrial Safety & Health Act requirements. Regular L&I audits, certified payroll processes, and prevailing wage compliance on all public sector projects."
+        },
+        "epa": {
+          "title": "EPA & Environmental",
+          "body": "Adherence to EPA regulations governing construction site stormwater, hazardous materials handling, and environmental protection requirements in Washington, Oregon, and Idaho."
+        },
+        "payroll": {
+          "title": "Prevailing Wage & Certified Payroll",
+          "body": "Systematic certified payroll processes and prevailing wage compliance protect public projects from violations, fines, and work stoppages — documented and auditable at every phase."
+        }
+      },
+      "accountability": {
+        "title": "Accountability Runs Both Ways",
+        "body": "Our leadership holds itself to the same standard we hold the team. When something goes wrong, we fix the system — not just the person. That’s the chain-of-command principle applied to safety: clear ownership, honest communication, and no one left behind."
+      }
+    },
+    "snapshots": {
+      "subtitle": "Safety Documentation",
+      "title": "Lives in the App",
+      "para1": "The MH Construction app is our Dashboard (Staff Hub) for the MISH Safety & Health Program (Safety Manual), field forms, toolbox talks, incident reports, and Employee Handbook workflows. Real-time snapshots of job-site safety compliance. Free to install. Role-gated for team members. Current employees are instructed to use the Dashboard (Staff Hub) for daily operations.",
+      "contactNote": "Bonding teams, insurers, architects, subcontractors, and vendors may request documentation access through our office at",
+      "contactOr": "or",
+      "footNote": "Safety documentation and workflows are available for authorized team members in the MH Construction app. Use the Install App button in the site footer."
+    },
+    "cta": {
+      "title": "Ready to Talk?",
+      "description": "Our safety record is open for review. Call us directly or send an email — we’ll walk you through our credentials and answer any questions from bonding teams, insurers, architects, subcontractors, vendors, and future employees about compliance, EMR, or our written {mishLabel}.",
+      "sendMessage": "Send a Message"
     }
   },
   "employeeManual": {
@@ -1445,7 +1614,7 @@
       "cta": {
         "title": "Veterans Receive Priority Consideration",
         "descriptionLine1": "Your service matters. Your skills translate. Your experience is valued.",
-        "descriptionLine2": "Start your next mission with us.",
+        "descriptionLine2": "Start your next chapter with us.",
         "applyAria": "Veteran application",
         "applyButton": "Apply as Veteran",
         "initiativeAria": "Veterans initiative",
@@ -1829,7 +1998,11 @@
       "whatsIncluded": "What's Included",
       "keyBenefits": "Key Benefits",
       "learnMoreFallback": "Learn More",
-      "contactCta": "Get Started",
+      "contactCta": {
+        "heading": "Questions About Our Services?",
+        "description": "Contact our team for answers about services, pricing, timelines, and capabilities.",
+        "primaryButton": "Contact Our Team"
+      },
       "expertise": {
         "sectionTitle": "Construction Expertise",
         "sectionSubtitle": "Partnership-Focused Leadership",
@@ -2073,11 +2246,6 @@
           "referral": "Referral Rate"
         }
       },
-      "contactCta": {
-        "heading": "Questions About Our Services?",
-        "description": "Contact our team for answers about services, pricing, timelines, and capabilities.",
-        "primaryButton": "Contact Our Team"
-      },
       "portfolio": {
         "subtitle": "Our Construction",
         "title": "Portfolio",
@@ -2293,7 +2461,7 @@
   },
   "googleReviews": {
     "heading": "Verified Google Reviews",
-    "invitation": "If we recently completed your project, we would value your feedback to help future mission partners make informed construction decisions.",
+    "invitation": "If we recently completed your project, we would value your feedback to help future project stakeholders make informed construction decisions.",
     "buttonLabel": "Leave a Google Review",
     "verifiedLabel": "Verified"
   },

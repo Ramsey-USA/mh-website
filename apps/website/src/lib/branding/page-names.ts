@@ -5,9 +5,9 @@ export type PageTerminology = {
 
 export const PAGE_TERMINOLOGY = {
   home: { seoName: "Home", mhBrandName: "Command Center" },
-  about: { seoName: "About Us", mhBrandName: "Our Mission" },
+  about: { seoName: "About Us", mhBrandName: "Mission Brief" },
   services: { seoName: "Services", mhBrandName: "Operations Brief" },
-  projects: { seoName: "Projects", mhBrandName: "Our Work" },
+  projects: { seoName: "Projects", mhBrandName: "Project SITREP" },
   contact: { seoName: "Contact", mhBrandName: "Comms Desk" },
   events: { seoName: "Events", mhBrandName: "Formation Calendar" },
   coolDesertNights: {
@@ -39,20 +39,20 @@ export const PAGE_TERMINOLOGY = {
   },
   resources: { seoName: "Resources", mhBrandName: "Field Resources" },
   faq: { seoName: "Help/FAQ", mhBrandName: "Intel Brief" },
-  locations: { seoName: "Locations", mhBrandName: "Regional Coverage" },
+  locations: { seoName: "Locations", mhBrandName: "Regional AO" },
   qrCodes: { seoName: "QR Codes", mhBrandName: "QR Library" },
   sitemap: { seoName: "Sitemap", mhBrandName: "Route Index" },
   employeeHandbook: {
     seoName: "Employee Handbook",
-    mhBrandName: "Handbook Index",
+    mhBrandName: "Field Guide",
   },
   accessibility: {
     seoName: "Accessibility",
-    mhBrandName: "Access Standards",
+    mhBrandName: "Access Protocol",
   },
-  privacy: { seoName: "Privacy Policy", mhBrandName: "Privacy Standards" },
-  terms: { seoName: "Terms of Service", mhBrandName: "Service Terms" },
-  offline: { seoName: "Offline", mhBrandName: "Connection Status" },
+  privacy: { seoName: "Privacy Policy", mhBrandName: "Data OPSEC" },
+  terms: { seoName: "Terms of Service", mhBrandName: "Engagement ROE" },
+  offline: { seoName: "Offline", mhBrandName: "Signal Check" },
   incidentReport: {
     seoName: "Incident Report",
     mhBrandName: "Incident Command",
@@ -95,46 +95,69 @@ export const MH_SLOGANS = {
     "Measure twice, document always, close out clean.",
   ],
   heroByRoute: {
-    home: "Straight answers from the Command Center.",
-    about: "Our Mission is built by people who keep their word.",
-    services: "Operations Briefs that keep scope clear and execution steady.",
-    projects: "Our Work proves itself in every finished project.",
+    home: "Straight answers from the Command Center, built with American grit.",
+    about:
+      "About Us with mission-brief clarity, service-earned values, and handshake pride.",
+    services:
+      "Services with operations-brief discipline, done right for every American jobsite.",
+    projects:
+      "Projects with SITREP accountability and craftsmanship that honors the work.",
     projectDetail:
-      "Project SITREP clarity from first walkthrough to final closeout.",
-    contact: "Comms Desk access with a direct line to the right people.",
-    testimonials: "Field Commendations that speak for themselves.",
-    locations: "Regional Coverage with one consistent standard.",
+      "Project Detail with SITREP clarity from first walkthrough to proud handoff.",
+    contact:
+      "Contact through the Comms Desk for direct answers and stand-up service.",
+    testimonials:
+      "Reviews and Field Commendations from partners who trust our word.",
+    locations:
+      "Locations with Regional AO coverage and hometown accountability.",
     locationDetail:
-      "Local Mission Profile tuned to each city and project delivery lane.",
-    team: "Command Staff you can count on in the field and office.",
-    careers: "Recruitment Command built on steady work and honest leadership.",
-    veterans: "Veteran Battalion service, respect, and practical support.",
-    allies: "Allied Network built on communication and follow-through.",
-    publicSector: "Civic Operations that stay accountable.",
-    publicSectorProjects: "Public Sector Projects delivered with discipline.",
-    veteranLedCompliance: "Compliance Command that respects the standard.",
+      "Location Detail with local mission-profile focus and national-standard execution.",
+    team: "Our Team led with Command Staff discipline and service-first leadership.",
+    careers:
+      "Careers with Recruitment Command standards, steady growth, and pride in the craft.",
+    veterans:
+      "Veterans with battalion-level respect, practical support, and earned opportunity.",
+    allies:
+      "Partners in an Allied Network built on trust, duty, and follow-through.",
+    publicSector:
+      "Government projects under Civic Operations discipline and public-service accountability.",
+    publicSectorProjects:
+      "Public Sector Projects delivered with civic pride and mission discipline.",
+    veteranLedCompliance:
+      "Veteran-Led Compliance with command-grade documentation and integrity.",
     triStateGovernmentConstruction:
-      "Regional Civic Delivery with steady oversight.",
-    hub: "Operations Hub for team coordination.",
+      "Tri-State Government Construction with regional civic delivery and unwavering standards.",
+    hub: "Team Hub as the Operations Hub for coordinated execution.",
     safety:
-      "Safety Command with clear standards and consistent follow-through.",
+      "Safety under Safety Command standards to protect every crew and family.",
     safetyManual:
-      "Manual Operations with a clear reference for every safety step.",
-    safetyProgram: "Program Command built into daily operations.",
-    safetyForms: "Form Control that supports clean closeout.",
-    safetyContents: "Section Index that gets you there fast.",
-    resources: "Field Resources for the work ahead.",
-    incidentReport: "Incident Command for fast reporting on real-world issues.",
-    faq: "Intel Brief answers for common questions.",
-    faqCategory: "Category Recon that gets you to the exact answer faster.",
-    accessibility: "Access Standards that work for everyone.",
-    privacy: "Privacy Standards, plainly explained.",
-    terms: "Service Terms without the legal fog.",
-    offline: "Connection Status: what to expect when the connection drops.",
-    employeeHandbook: "Handbook Index with expectations clear from day one.",
-    qrCodes: "QR Library for quick access to the right page.",
-    events: "Formation Calendar where the calendar meets the crew.",
-    coolDesertNights: "Event Archive support that shows up prepared.",
+      "Safety Manual in Manual Operations format, field-ready and duty-driven.",
+    safetyProgram:
+      "Safety Program with Program Command discipline in daily operations.",
+    safetyForms:
+      "Safety Forms through Form Control for clear, audit-ready records.",
+    safetyContents:
+      "Table of Contents with Section Index speed for field decisions.",
+    resources:
+      "Resources in a Field Resources library built for real-world readiness.",
+    incidentReport:
+      "Incident Report through Incident Command for fast, honest action.",
+    faq: "Help/FAQ with Intel Brief clarity and no runaround.",
+    faqCategory: "FAQ Category with Category Recon focus to get answers fast.",
+    accessibility:
+      "Accessibility with access-protocol discipline so everyone can engage.",
+    privacy:
+      "Privacy Policy with data-OPSEC discipline and plain-language transparency.",
+    terms: "Terms of Service with clear ROE and fair expectations.",
+    offline:
+      "Offline signal-check guidance so you stay oriented when connections drop.",
+    employeeHandbook:
+      "Employee Handbook as your field guide for expectations and accountability.",
+    qrCodes: "QR Codes in a QR Library for quick, reliable access.",
+    events:
+      "Events through Formation Calendar planning with community-first pride.",
+    coolDesertNights:
+      "Cool Desert Nights with Event Archive readiness and hometown pride.",
   } as const,
 } as const;
 

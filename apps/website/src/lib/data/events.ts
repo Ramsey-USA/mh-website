@@ -2,6 +2,7 @@ import {
   type ContentGovernanceRecord,
   isPubliclyVisibleContent,
 } from "@/lib/content/content-governance";
+import type { Testimonial } from "@/lib/data/testimonials";
 
 export const smokeNShinePlacements = [
   { place: "1st Place", team: "Classic Grillin'" },
@@ -132,6 +133,65 @@ export const eventPartnerUrls = {
     "https://www.eventbrite.com/e/2026-cool-desert-nights-tickets-1984588946964",
   kiwanis: "https://kiwanisrichland.org/",
 } as const;
+
+const eventTestimonials = [
+  {
+    id: "event-richland-chamber",
+    name: "Richland Chamber of Commerce",
+    nameEs: "Camara de Comercio de Richland",
+    location: "Richland, Washington",
+    locationEs: "Richland, Washington",
+    project: "Community Event Partnership",
+    projectEs: "Alianza para evento comunitario",
+    quote:
+      "MH Construction has been a reliable community event partner, with clear communication, dependable volunteer support, and consistent follow-through.",
+    quoteEs:
+      "MH Construction ha sido un aliado confiable en eventos comunitarios, con comunicacion clara, apoyo voluntario constante y cumplimiento en cada compromiso.",
+    rating: 5,
+  },
+  {
+    id: "event-volunteer-captain",
+    name: "Volunteer Captain Partner",
+    nameEs: "Capitan voluntario aliado",
+    location: "Tri-Cities, Washington",
+    locationEs: "Tri-Cities, Washington",
+    project: "Operation: Cast & Recover",
+    projectEs: "Operation: Cast & Recover",
+    quote:
+      "Their team keeps logistics organized and supports participants with respect from check-in through closeout.",
+    quoteEs:
+      "Su equipo mantiene la logistica organizada y respalda a los participantes con respeto desde el registro hasta el cierre.",
+    rating: 5,
+  },
+  {
+    id: "event-local-sponsor",
+    name: "Local Event Sponsor",
+    nameEs: "Patrocinador local del evento",
+    location: "Benton & Franklin Counties",
+    locationEs: "Condados Benton y Franklin",
+    project: "Seasonal Community Events",
+    projectEs: "Eventos comunitarios de temporada",
+    quote:
+      "Working with MH Construction at public events is straightforward. Their planning and communication help partner teams stay coordinated.",
+    quoteEs:
+      "Trabajar con MH Construction en eventos publicos es directo. Su planificacion y comunicacion ayudan a mantener coordinados a los equipos aliados.",
+    rating: 5,
+  },
+  {
+    id: "event-volunteer-coordinator",
+    name: "Volunteer Program Coordinator",
+    nameEs: "Coordinador del programa de voluntariado",
+    location: "Tri-Cities, Washington",
+    locationEs: "Tri-Cities, Washington",
+    project: "IRONMAN 70.3 Volunteer Support",
+    projectEs: "Apoyo de voluntariado IRONMAN 70.3",
+    quote:
+      "MH Construction is dependable on event day and brings steady support for volunteers, staff, and partner teams.",
+    quoteEs:
+      "MH Construction es confiable el dia del evento y aporta apoyo constante para voluntarios, personal y equipos aliados.",
+    rating: 5,
+  },
+] as const;
 
 export type EventRecord = {
   slug: string;
@@ -266,6 +326,22 @@ export function getLocalizedUpcomingEvents(locale: EventLocale) {
       status: getEventLifecycleLabel(event.lifecycleStatus, locale),
     };
   });
+}
+
+export function getLocalizedEventTestimonials(
+  locale: EventLocale,
+): Testimonial[] {
+  return eventTestimonials.map((testimonial) => ({
+    id: testimonial.id,
+    name: locale === "es" ? testimonial.nameEs : testimonial.name,
+    location: locale === "es" ? testimonial.locationEs : testimonial.location,
+    project: locale === "es" ? testimonial.projectEs : testimonial.project,
+    quote: locale === "es" ? testimonial.quoteEs : testimonial.quote,
+    rating: testimonial.rating,
+    featured: true,
+    category: "community-events",
+    type: "stakeholder",
+  }));
 }
 
 export function getEventRecordBySlug(slug: string): EventRecord | undefined {

@@ -14,14 +14,47 @@ import {
 } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { getCardClassName } from "@/lib/styles/card-variants";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 import type { ProjectPortfolio } from "@/lib/types";
 import { trackProjectInterest } from "@/lib/analytics/marketing-tracking";
 
 interface ProjectCardProps {
   project: ProjectPortfolio;
+  locale?: SupportedLocale;
 }
 
-export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
+export function ProjectCard({
+  project,
+  locale = "en",
+}: Readonly<ProjectCardProps>) {
+  const isEs = locale === "es";
+  const labels = isEs
+    ? {
+        photoSoon: "Foto del proyecto proximamente",
+        photos: "fotos",
+        photo: "foto",
+        featuredPhoto: "Foto destacada",
+        featured: "Destacado",
+        completed: "Completado",
+        inProgress: "En progreso",
+        communityPartnership: "Alianza comunitaria",
+        sqFt: "pies cuadrados",
+        viewDetailsFor: "Ver detalles de",
+        viewPartnershipDetails: "Ver detalles de la alianza",
+      }
+    : {
+        photoSoon: "Project photo coming soon",
+        photos: "photos",
+        photo: "photo",
+        featuredPhoto: "Featured photo",
+        featured: "Featured",
+        completed: "Completed",
+        inProgress: "In Progress",
+        communityPartnership: "Community Partnership",
+        sqFt: "sq ft",
+        viewDetailsFor: "View details for",
+        viewPartnershipDetails: "View Partnership Details",
+      };
   const featuredImage =
     project.images.find((image) => image.isFeatured) ?? project.images[0];
   const hasFeaturedImage = project.images.some((image) => image.isFeatured);
@@ -59,7 +92,7 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
                 className="text-brand-secondary"
               />
               <span className="text-xs font-semibold uppercase tracking-[0.22em] text-gray-700 dark:text-gray-200">
-                Project photo coming soon
+                {labels.photoSoon}
               </span>
             </div>
           </div>
@@ -70,12 +103,12 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
         <div className="absolute left-4 top-4 flex flex-wrap gap-2">
           <span className="inline-flex items-center rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-900 shadow-md backdrop-blur-sm dark:bg-gray-950/85 dark:text-white">
             {project.images.length > 1
-              ? `${project.images.length} photos`
-              : "1 photo"}
+              ? `${project.images.length} ${labels.photos}`
+              : `1 ${labels.photo}`}
           </span>
           {hasFeaturedImage && (
             <span className="inline-flex items-center rounded-full bg-brand-secondary/90 px-3 py-1 text-xs font-semibold text-white shadow-md backdrop-blur-sm">
-              Featured photo
+              {labels.featuredPhoto}
             </span>
           )}
         </div>
@@ -85,7 +118,7 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
           <div className="top-4 right-4 absolute">
             <span className="inline-flex items-center bg-bronze-700 shadow-lg backdrop-blur-sm px-2 py-1 border-bronze-400 border-l-4 font-semibold text-white text-xs">
               <MaterialIcon icon="star" size="sm" className="mr-1" />
-              Featured
+              {labels.featured}
             </span>
           </div>
         )}
@@ -119,7 +152,9 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
               }
             `}
           >
-            {project.status === "completed" ? "Completed" : "In Progress"}
+            {project.status === "completed"
+              ? labels.completed
+              : labels.inProgress}
           </span>
         </div>
         <p className="font-semibold text-gray-600 dark:text-gray-300 text-sm">
@@ -137,7 +172,7 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
         <div className="mb-4">
           <span className="inline-flex items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 px-2 py-1 border-brand-secondary border-l-4 font-medium text-brand-secondary-text text-xs">
             <MaterialIcon icon="groups" size="sm" className="mr-1" />
-            Community Partnership
+            {labels.communityPartnership}
           </span>
         </div>
 
@@ -152,7 +187,7 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
                   className="mr-2 text-gray-600"
                 />
                 <span>
-                  {project.details.squareFootage.toLocaleString()} sq ft
+                  {project.details.squareFootage.toLocaleString()} {labels.sqFt}
                 </span>
               </div>
             )}
@@ -174,10 +209,13 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
                   className="mr-2 text-gray-600"
                 />
                 <span>
-                  {project.details.completionDate.toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                  })}
+                  {project.details.completionDate.toLocaleDateString(
+                    isEs ? "es-ES" : "en-US",
+                    {
+                      year: "numeric",
+                      month: "long",
+                    },
+                  )}
                 </span>
               </div>
             )}
@@ -209,9 +247,9 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
             href={`/projects/${project.seoMetadata.slug}`}
             prefetch={false}
             onClick={handleCardClick}
-            aria-label={`View details for ${project.title}`}
+            aria-label={`${labels.viewDetailsFor} ${project.title}`}
           >
-            View Partnership Details
+            {labels.viewPartnershipDetails}
             <MaterialIcon
               icon="arrow_forward"
               size="sm"

@@ -72,7 +72,7 @@ export function Breadcrumb({
       aria-label={isEs ? "Navegacion de ruta" : "Breadcrumb navigation"}
       data-mh-breadcrumb="true"
       data-mh-breadcrumb-source={source}
-      className={`border-b border-brand-secondary/35 bg-linear-to-r from-brand-primary-darker via-brand-primary to-brand-primary-dark py-3 ${className}`}
+      className={`border-b border-brand-secondary/20 bg-linear-to-r from-brand-primary-darker/70 via-brand-primary/55 to-brand-primary-dark/70 py-3 ${className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ol

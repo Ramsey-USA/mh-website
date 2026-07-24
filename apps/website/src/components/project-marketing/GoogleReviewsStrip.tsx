@@ -11,6 +11,8 @@ interface GoogleReviewsStripProps {
     heading: string;
     verifiedLabel: string;
     buttonLabel: string;
+    starAriaLabel?: string;
+    reviewButtonAriaLabel?: string;
   };
 }
 
@@ -18,6 +20,10 @@ export function GoogleReviewsStrip({
   reviews,
   labels,
 }: Readonly<GoogleReviewsStripProps>) {
+  const starAriaLabel = labels.starAriaLabel ?? "Filled star";
+  const reviewButtonAriaLabel =
+    labels.reviewButtonAriaLabel ?? "Google reviews";
+
   if (reviews.length === 0) {
     return null;
   }
@@ -49,7 +55,7 @@ export function GoogleReviewsStrip({
                     key={`${review.id}-star-${index}`}
                     icon="star"
                     size="sm"
-                    ariaLabel="Filled star"
+                    ariaLabel={starAriaLabel}
                   />
                 ))}
               </div>
@@ -73,7 +79,7 @@ export function GoogleReviewsStrip({
             <MaterialIcon
               icon="rate_review"
               size="sm"
-              ariaLabel="Google reviews"
+              ariaLabel={reviewButtonAriaLabel}
             />
             <span>{labels.buttonLabel}</span>
           </Link>

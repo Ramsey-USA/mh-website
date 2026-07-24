@@ -1088,7 +1088,7 @@ const LOCATION_PRESENCE_PROFILES: Record<
 const LOCATION_BRIDGE_MAP: Partial<Record<LocationSlug, LocationDeepLink[]>> = {
   yakima: [
     {
-      href: "/veterans/public-sector-construction",
+      href: "/public-sector/veteran-led-construction",
       label: "Veteran-led public sector pathway",
     },
     {
@@ -1112,7 +1112,7 @@ const LOCATION_BRIDGE_MAP: Partial<Record<LocationSlug, LocationDeepLink[]>> = {
       label: "Tri-state government coverage",
     },
     {
-      href: "/veterans/public-sector-construction",
+      href: "/public-sector/veteran-led-construction",
       label: "Veteran-led public sector pathway",
     },
   ],

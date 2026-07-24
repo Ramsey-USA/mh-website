@@ -17,6 +17,7 @@ Events docs should stay congruent with canonical MH voice, trust language, factu
 - **[Cool Desert Nights 2026 Smoke n Shine Placements Archive](./cool-desert-nights-2026-public-choice-results.md)** - Event archive record with final placements and historical totals
 - **[Pacific Northwest Annual BBQ Competition Record](./bbq-contest-planning-record.md)** - Dedicated route record for sponsor coordination, schedule publishing, and participation planning
 - **[IRONMAN 70.3 Volunteer and Community Involvement Record](./ironman-volunteer-community-involvement.md)** - Dedicated route record for community involvement, chamber collaboration, and official IRONMAN volunteer routing
+- **[Event Testimonials Intake](./event-testimonials-intake.md)** - Working intake template for Chamber, event partner, and volunteer testimonial collection and publish tracking
 
 ## Operations Runbooks
 

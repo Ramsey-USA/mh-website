@@ -15,8 +15,41 @@ import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 
-export function ProjectsStatsSection() {
+export function ProjectsStatsSection({
+  locale = "en",
+}: Readonly<{ locale?: SupportedLocale }>) {
+  const isEs = locale === "es";
+  const heading = isEs
+    ? {
+        iconAria: "Historial comprobado",
+        line1: "Resumen de entrega",
+        line2: "Por cifras",
+        description:
+          "Una vista concisa del volumen de proyectos, la disciplina en seguridad y la cobertura regional en WA, OR e ID.",
+      }
+    : {
+        iconAria: "Proven track record",
+        line1: "Delivery Snapshot",
+        line2: "By The Numbers",
+        description:
+          "A concise view of project volume, safety discipline, and regional delivery coverage across WA, OR, and ID.",
+      };
+
+  const getStatLabel = (label: string): string => {
+    if (!isEs) return label;
+
+    const map: Record<string, string> = {
+      "Award-Winning Safety": "Seguridad galardonada",
+      "Years Combined Experience": "Años de experiencia combinada",
+      "Successful Projects": "Proyectos exitosos",
+      "States Licensed": "Estados con licencia",
+    };
+
+    return map[label] ?? label;
+  };
+
   return (
     <section
       id="stats"
@@ -38,7 +71,7 @@ export function ProjectsStatsSection() {
                     icon="bar_chart"
                     size="2xl"
                     className="text-white drop-shadow-lg"
-                    ariaLabel="Proven track record"
+                    ariaLabel={heading.iconAria}
                   />
                 </div>
               </div>
@@ -48,17 +81,16 @@ export function ProjectsStatsSection() {
             {/* Two-line gradient heading */}
             <h2 className="mb-5 sm:mb-6 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl leading-tight tracking-tighter overflow-visible">
               <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-3xl lg:text-4xl tracking-tight overflow-visible py-1">
-                Delivery Snapshot
+                {heading.line1}
               </span>
               <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 pb-2 leading-tight">
-                By The Numbers
+                {heading.line2}
               </span>
             </h2>
 
             {/* Description */}
             <p className="font-body mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed tracking-wide px-2">
-              A concise view of project volume, safety discipline, and regional
-              delivery coverage across WA, OR, and ID.
+              {heading.description}
             </p>
           </div>
 
@@ -81,7 +113,7 @@ export function ProjectsStatsSection() {
                             icon={stat.icon}
                             size="3xl"
                             className="text-white drop-shadow-lg"
-                            ariaLabel={stat.label}
+                            ariaLabel={getStatLabel(stat.label)}
                           />
                         </div>
                       </div>
@@ -98,7 +130,7 @@ export function ProjectsStatsSection() {
                         )}
                       </div>
                       <div className="font-medium text-gray-600 dark:text-gray-300 text-lg">
-                        {stat.label}
+                        {getStatLabel(stat.label)}
                       </div>
                     </div>
                   </Card>

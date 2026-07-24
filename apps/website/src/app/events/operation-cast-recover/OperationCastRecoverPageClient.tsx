@@ -619,8 +619,8 @@ export function OperationCastRecoverPageClient({
               }
               description={
                 isEs
-                  ? "Los capitanes aportan embarcacion, equipo de seguridad requerido y criterio operativo local para participantes asignados."
-                  : "Captains provide the vessel, required safety equipment, and local operating judgment for assigned participants."
+                  ? "Los capitanes aportan embarcacion, equipo de seguridad requerido y criterio operativo local para participantes asignados. En el registro se solicitara comprobante de licencia aplicable en Washington y de equipo de seguridad a bordo."
+                  : "Captains provide the vessel, required safety equipment, and local operating judgment for assigned participants. At check-in, captains should be ready to show proof of applicable Washington licensing and onboard safety gear."
               }
               status={captainStatus}
             >

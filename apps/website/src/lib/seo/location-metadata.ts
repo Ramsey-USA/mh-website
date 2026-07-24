@@ -35,12 +35,12 @@ export function generateLocationMetadata(location: LocationData): Metadata {
   const zipKeywords = (location.serviceZipCodes || []).map(
     (zip) => `general contractor ${zip}`,
   );
-  const missionPartnerKeywords = [
+  const projectDeliveryKeywords = [
     `${location.city} facilities construction support`,
     `${location.city} municipal project planning`,
-    `${location.city} mission-ready fit-outs contractor`,
+    `${location.city} tenant improvements contractor`,
     `${location.city} owner representative construction support`,
-    `${location.city} mission-partner-aligned construction delivery`,
+    `${location.city} construction delivery coordination`,
   ];
 
   const baseMetadata: Metadata = {
@@ -52,7 +52,7 @@ export function generateLocationMetadata(location: LocationData): Metadata {
       ...nearbyAreaKeywords,
       ...projectKeywords,
       ...zipKeywords,
-      ...missionPartnerKeywords,
+      ...projectDeliveryKeywords,
     ],
     alternates: {
       canonical: `${siteUrl}/locations/${location.slug}`,

@@ -399,7 +399,7 @@ const faqSchema = {
       name: "What makes MH Construction's leadership team unique?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "MH Construction's leadership structure combines executive, project, safety, and field perspectives into one accountable delivery chain. The team balances disciplined controls with practical project decision-making.",
+        text: "MH Construction's leadership structure combines executive, project, safety, and field perspectives into one accountable delivery model. The team balances disciplined controls with practical project decision-making.",
       },
     },
     {
@@ -415,7 +415,7 @@ const faqSchema = {
       name: "What is MH Construction's leadership structure?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our leadership structure includes executive leadership, mission management, marketing and safety, administration, and field superintendents.",
+        text: "Our leadership structure includes executive leadership, project management, safety and communications, operations support, and field superintendents.",
       },
     },
     {

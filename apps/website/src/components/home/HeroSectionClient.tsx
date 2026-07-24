@@ -42,20 +42,52 @@ export function HeroSectionClient({
   const [isMuted, setIsMuted] = useState(false);
   const [hasUserStartedPlayback, setHasUserStartedPlayback] = useState(false);
   const showLegacyBackdrop = !isVideoReady;
+  const isEs = locale === "es";
   const primaryCtaLabel =
     copy.primaryCtaLabel ??
-    (locale === "es"
+    (isEs
       ? "Iniciar conversación de proyecto"
       : "Start a project conversation");
   const secondaryCtaLabel =
     copy.secondaryCtaLabel ??
-    (locale === "es" ? "Ver prueba de proyectos" : "View project proof");
-  const playWithSoundLabel =
-    locale === "es" ? "Reproducir con sonido" : "Play with Sound";
-  const playWithSoundAriaLabel =
-    locale === "es"
-      ? "Reproducir video principal con sonido"
-      : "Play hero video with sound";
+    (isEs ? "Ver prueba de proyectos" : "View project proof");
+  const playWithSoundLabel = isEs ? "Reproducir con sonido" : "Play with Sound";
+  const playWithSoundAriaLabel = isEs
+    ? "Reproducir video principal con sonido"
+    : "Play hero video with sound";
+  const commandCenterLabel = isEs ? "Centro de mando" : "Command Center";
+  const heroVideoAriaLabel = isEs
+    ? "Video principal de MH Construction que destaca liderazgo y entrega de proyectos"
+    : "MH Construction homepage hero video highlighting project delivery leadership by Jeremy Thamert";
+  const playbackCopy = isEs
+    ? {
+        pauseAria: "Pausar video principal",
+        playAria: "Reproducir video principal",
+        replayAria: "Reiniciar video principal",
+        stopAria: "Detener video principal",
+        unmuteAria: "Activar sonido del video principal",
+        muteAria: "Silenciar video principal",
+        pause: "Pausar",
+        play: "Reproducir",
+        replay: "Reiniciar",
+        stop: "Detener",
+        unmute: "Con sonido",
+        mute: "Silencio",
+      }
+    : {
+        pauseAria: "Pause hero video",
+        playAria: "Play hero video",
+        replayAria: "Replay hero video",
+        stopAria: "Stop hero video",
+        unmuteAria: "Unmute hero video",
+        muteAria: "Mute hero video",
+        pause: "Pause",
+        play: "Play",
+        replay: "Replay",
+        stop: "Stop",
+        unmute: "Unmute",
+        mute: "Mute",
+      };
 
   const togglePlayPause = () => {
     const video = videoRef.current;
@@ -146,7 +178,7 @@ export function HeroSectionClient({
               playsInline
               preload="metadata"
               poster={hasPoster ? posterSrc : undefined}
-              aria-label="MH Construction homepage hero video highlighting project delivery leadership by Jeremy Thamert"
+              aria-label={heroVideoAriaLabel}
               onPlay={() => setIsVideoPlaying(true)}
               onPlaying={() => setIsVideoPlaying(true)}
               onLoadedMetadata={() => setIsVideoReady(true)}
@@ -209,7 +241,7 @@ export function HeroSectionClient({
         <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
             <span className="mb-1 block text-brand-secondary text-[clamp(0.8rem,1.8vw,1.4rem)] leading-[1.2]">
-              {copy.baseLabel} -&gt; Command Center
+              {copy.baseLabel} -&gt; {commandCenterLabel}
             </span>
             <span className="mb-1 block text-brand-secondary/90 text-[clamp(0.75rem,1.5vw,1.15rem)] leading-[1.25]">
               {copy.tagline}
@@ -244,25 +276,27 @@ export function HeroSectionClient({
             type="button"
             onClick={togglePlayPause}
             className="rounded px-2 py-1 text-[10px] font-semibold text-white/85 transition-colors hover:bg-black/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/70"
-            aria-label={isVideoPlaying ? "Pause hero video" : "Play hero video"}
+            aria-label={
+              isVideoPlaying ? playbackCopy.pauseAria : playbackCopy.playAria
+            }
           >
-            {isVideoPlaying ? "Pause" : "Play"}
+            {isVideoPlaying ? playbackCopy.pause : playbackCopy.play}
           </button>
           <button
             type="button"
             onClick={replayVideo}
             className="rounded px-2 py-1 text-[10px] font-semibold text-white/85 transition-colors hover:bg-black/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/70"
-            aria-label="Replay hero video"
+            aria-label={playbackCopy.replayAria}
           >
-            Replay
+            {playbackCopy.replay}
           </button>
           <button
             type="button"
             onClick={stopVideo}
             className="rounded px-2 py-1 text-[10px] font-semibold text-white/85 transition-colors hover:bg-black/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/70"
-            aria-label="Stop hero video"
+            aria-label={playbackCopy.stopAria}
           >
-            Stop
+            {playbackCopy.stop}
           </button>
           <button
             type="button"
@@ -272,9 +306,11 @@ export function HeroSectionClient({
                 ? "bg-brand-secondary text-gray-950 shadow-md shadow-brand-secondary/45 ring-1 ring-brand-secondary/80 motion-safe:animate-pulse motion-safe:duration-1000 hover:bg-brand-secondary/90"
                 : "text-white/85 hover:bg-black/30 hover:text-white"
             }`}
-            aria-label={isMuted ? "Unmute hero video" : "Mute hero video"}
+            aria-label={
+              isMuted ? playbackCopy.unmuteAria : playbackCopy.muteAria
+            }
           >
-            {isMuted ? "Unmute" : "Mute"}
+            {isMuted ? playbackCopy.unmute : playbackCopy.mute}
           </button>
         </div>
       ) : null}

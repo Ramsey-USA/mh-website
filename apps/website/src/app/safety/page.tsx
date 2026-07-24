@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
@@ -15,6 +16,7 @@ import {
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 import { getApprovedClaimOrFallback } from "@/lib/content/claims";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const SITE_URL = "https://www.mhc-gc.com";
 const MISH_PROGRAM_LABEL = "MISH Safety & Health Program (Safety Manual)";
@@ -184,7 +186,7 @@ const safetyFaqSchema = {
       name: "What is MH Construction's written safety program?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: `MH Construction maintains a 50-section written safety program (Revision 3.0, effective July 1, 2026), delivered as the ${MISH_PROGRAM_LABEL}. The program is aligned with OSHA 29 CFR 1926, AGC CSEA, WISHA (Washington), Oregon OSHA, and Idaho requirements. It is available for review by bonding banks, insurers, architects, and mission partners at mhc-gc.com/safety.`,
+        text: `MH Construction maintains a 50-section written safety program (Revision 3.0, effective July 1, 2026), delivered as the ${MISH_PROGRAM_LABEL}. The program is aligned with OSHA 29 CFR 1926, AGC CSEA, WISHA (Washington), Oregon OSHA, and Idaho requirements. It is available for review by bonding banks, insurers, architects, and project stakeholders at mhc-gc.com/safety.`,
       },
     },
     {
@@ -214,13 +216,138 @@ const safetyFaqSchema = {
   ],
 };
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
-
-const safetyProofContent = getSafetyProofContent(MISH_PROGRAM_LABEL);
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function SafetyPage() {
+export default async function SafetyPage() {
+  const locale = await getServerLocale();
+  const t = await getTranslations({ locale });
+  const sp = (key: string, values?: Record<string, string>) =>
+    t(
+      `safetyPage.${key}` as Parameters<typeof t>[0],
+      values as Parameters<typeof t>[1],
+    );
+
+  const safetyProofContent = getSafetyProofContent(MISH_PROGRAM_LABEL, {
+    credentials: {
+      items: {
+        oshaVpp: {
+          title: sp("credentials.items.oshaVpp.title"),
+          body: sp("credentials.items.oshaVpp.body"),
+          tag: sp("credentials.items.oshaVpp.tag"),
+        },
+        agcWa: {
+          title: sp("credentials.items.agcWa.title"),
+          body: sp("credentials.items.agcWa.body"),
+          tag: sp("credentials.items.agcWa.tag"),
+        },
+        osha30: {
+          title: sp("credentials.items.osha30.title"),
+          body: sp("credentials.items.osha30.body"),
+          tag: sp("credentials.items.osha30.tag"),
+        },
+        program: {
+          title: sp("credentials.items.program.title"),
+          body: sp("credentials.items.program.body"),
+          tag: sp("credentials.items.program.tag"),
+        },
+      },
+    },
+    badges: {
+      items: {
+        oshaVpp: {
+          title: sp("badges.items.oshaVpp.title"),
+          subtitle: sp("badges.items.oshaVpp.subtitle"),
+        },
+        agcWa: {
+          title: sp("badges.items.agcWa.title"),
+          subtitle: sp("badges.items.agcWa.subtitle"),
+        },
+        osha30: {
+          title: sp("badges.items.osha30.title"),
+          subtitle: sp("badges.items.osha30.subtitle"),
+        },
+        wisha: {
+          title: sp("badges.items.wisha.title"),
+          subtitle: sp("badges.items.wisha.subtitle"),
+        },
+        emr: {
+          title: sp("badges.items.emr.title"),
+          subtitle: sp("badges.items.emr.subtitle"),
+        },
+        csea: {
+          title: sp("badges.items.csea.title"),
+          subtitle: sp("badges.items.csea.subtitle"),
+        },
+      },
+    },
+    program: {
+      commitments: {
+        safeHome: {
+          title: sp("program.commitments.safeHome.title"),
+          body: sp("program.commitments.safeHome.body"),
+        },
+        accountability: {
+          title: sp("program.commitments.accountability.title"),
+          body: sp("program.commitments.accountability.body"),
+        },
+        discipline: {
+          title: sp("program.commitments.discipline.title"),
+          body: sp("program.commitments.discipline.body"),
+        },
+        speakUp: {
+          title: sp("program.commitments.speakUp.title"),
+          body: sp("program.commitments.speakUp.body"),
+        },
+      },
+    },
+    performance: {
+      stats: {
+        emr: {
+          label: sp("performance.stats.emr.label"),
+          sub: sp("performance.stats.emr.sub"),
+        },
+        agcWa: {
+          label: sp("performance.stats.agcWa.label"),
+          sub: sp("performance.stats.agcWa.sub"),
+        },
+        years: {
+          label: sp("performance.stats.years.label"),
+          sub: sp("performance.stats.years.sub"),
+        },
+        sections: { label: sp("performance.stats.sections.label") },
+      },
+    },
+    evidence: {
+      habits: {
+        toolbox: sp("evidence.habits.toolbox"),
+        jha: sp("evidence.habits.jha"),
+        incident: sp("evidence.habits.incident"),
+        equipment: sp("evidence.habits.equipment"),
+        review: sp("evidence.habits.review"),
+        peer: sp("evidence.habits.peer"),
+      },
+    },
+    compliance: {
+      items: {
+        osha: {
+          title: sp("compliance.items.osha.title"),
+          body: sp("compliance.items.osha.body"),
+        },
+        wisha: {
+          title: sp("compliance.items.wisha.title"),
+          body: sp("compliance.items.wisha.body"),
+        },
+        epa: {
+          title: sp("compliance.items.epa.title"),
+          body: sp("compliance.items.epa.body"),
+        },
+        payroll: {
+          title: sp("compliance.items.payroll.title"),
+          body: sp("compliance.items.payroll.body"),
+        },
+      },
+    },
+  });
   return (
     <>
       <PageTrackingClient pageName="Safety Program" />
@@ -251,26 +378,25 @@ export default function SafetyPage() {
             <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
               {/* Page Identity */}
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                {formatDualPageName(
-                  PAGE_TERMINOLOGY.safety.seoName,
-                  PAGE_TERMINOLOGY.safety.mhBrandName,
-                )}{" "}
-                → Safety Program
+                {sp("hero.pageIdentity")}
               </span>
               {/* Page Mantra */}
               <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
-                0.64 EMR, AGC-WA Recognition, OSHA VPP Star
+                {sp("hero.mantra")}
               </span>
-              {/* Tagline */}
+              {/* Program label */}
               <span className="block text-brand-primary">
                 {MISH_PROGRAM_LABEL}
               </span>
-              <span className="block text-white/90">
-                Clear standards. Consistent field follow-through.
-              </span>
+              <span className="block text-white/90">{sp("hero.tagline")}</span>
               <span className="block text-white/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
                 {COMPANY_INFO.slogan.primary}
               </span>
+              {locale === "es" && (
+                <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-1">
+                  {sp("hero.sloganEsCompanion")}
+                </span>
+              )}
               <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
                 {getHeroPageSlogan("safety").slogan}
               </span>
@@ -302,16 +428,14 @@ export default function SafetyPage() {
           <div className="text-center mb-14">
             <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
               <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                Industry-Recognized
+                {sp("credentials.subtitle")}
               </span>
               <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
-                Safety Credentials
+                {sp("credentials.title")}
               </span>
             </h2>
             <p className="font-body text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              OSHA VPP Star designation, AGC-WA Top EMR Awards, and a 50-section
-              written {MISH_PROGRAM_LABEL} — verifiable proof our standards
-              exceed requirements.
+              {sp("credentials.description", { mishLabel: MISH_PROGRAM_LABEL })}
             </p>
           </div>
 
@@ -329,7 +453,7 @@ export default function SafetyPage() {
                   />
                 </div>
                 <div>
-                  <span className="font-heading inline-block text-xs font-bold uppercase tracking-widest text-brand-secondary mb-1">
+                  <span className="font-heading inline-block text-xs font-bold uppercase tracking-widest text-brand-secondary-text dark:text-brand-secondary-light mb-1">
                     {item.tag}
                   </span>
                   <h3 className="font-black text-gray-900 dark:text-white mb-2">
@@ -351,15 +475,14 @@ export default function SafetyPage() {
           <div className="text-center mb-14">
             <h2 className="mb-4 sm:mb-6 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
               <span className="block mb-2 sm:mb-3 font-semibold text-white/70 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                Verified &amp; Trusted
+                {sp("badges.subtitle")}
               </span>
               <span className="block bg-linear-to-r from-brand-secondary via-white to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
-                Safety Badges
+                {sp("badges.title")}
               </span>
             </h2>
             <p className="font-body text-lg text-white/70 max-w-xl mx-auto">
-              Third-party verified credentials available to bonding banks,
-              insurers, architects, and mission partners on request.
+              {sp("badges.description")}
             </p>
           </div>
 
@@ -395,30 +518,22 @@ export default function SafetyPage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="font-heading inline-block text-xs font-bold uppercase tracking-widest text-brand-secondary mb-4">
-                Rev 3.0 · Effective July 1, 2026
+              <span className="font-heading inline-block text-xs font-bold uppercase tracking-widest text-brand-secondary-text dark:text-brand-secondary-light mb-4">
+                {sp("program.revLabel")}
               </span>
               <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl leading-tight tracking-tighter overflow-visible">
                 <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-tight py-1">
-                  MH Construction
+                  {sp("program.subtitle")}
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm py-1 leading-normal">
-                  MISH Safety &amp; Health Program
+                  {sp("program.title")}
                 </span>
               </h2>
               <p className="font-body text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
-                Our 50-section written safety program covers every OSHA-required
-                construction safety topic and is delivered in the field as our
-                Safety Manual. From fall protection and excavation to electrical
-                safety and hazardous materials, it is the operational foundation
-                for every site we run.
+                {sp("program.para1")}
               </p>
               <p className="font-body text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
-                Aligned with federal OSHA 29 CFR 1926, AGC CSEA prequalification
-                standards, WISHA, Oregon OSHA, and Idaho requirements. Available
-                in full to bonding banks, insurers, architects, and project
-                partners through our secure Dashboard (Staff Hub). Legacy APP
-                references remain in historical source material for continuity.
+                {sp("program.para2")}
               </p>
 
               <div className="grid grid-cols-2 gap-4">
@@ -456,9 +571,11 @@ export default function SafetyPage() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-brand-primary/60 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <p className="font-black text-xl">50 Sections</p>
+                <p className="font-black text-xl">
+                  {sp("program.imageCaption1")}
+                </p>
                 <p className="text-white/80 text-sm">
-                  ~350 pages · All OSHA topics covered
+                  {sp("program.imageCaption2")}
                 </p>
               </div>
             </div>
@@ -476,16 +593,14 @@ export default function SafetyPage() {
           />
           <h2 className="mb-4 sm:mb-6 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
             <span className="block mb-2 sm:mb-3 font-semibold text-white/80 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-              The Numbers Speak
+              {sp("performance.subtitle")}
             </span>
             <span className="block bg-linear-to-r from-brand-secondary via-white to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
-              Safety Record
+              {sp("performance.title")}
             </span>
           </h2>
           <p className="font-body text-white/80 text-lg max-w-2xl mx-auto mb-14 leading-relaxed">
-            Third-party verified. Peer-recognized. Our safety record is
-            measurable, auditable, and consistently better than industry
-            standard.
+            {sp("performance.description")}
           </p>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -520,15 +635,14 @@ export default function SafetyPage() {
           <div className="text-center mb-14">
             <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
               <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                Culture Is Built
+                {sp("evidence.subtitle")}
               </span>
               <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
-                In Daily Habits
+                {sp("evidence.title")}
               </span>
             </h2>
             <p className="font-body text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
-              Not in posters. Not in policy manuals. In what we actually do,
-              every single shift.
+              {sp("evidence.description")}
             </p>
           </div>
 
@@ -558,16 +672,14 @@ export default function SafetyPage() {
           <div className="text-center mb-14">
             <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
               <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                Full Regulatory
+                {sp("compliance.subtitle")}
               </span>
               <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
-                Compliance
+                {sp("compliance.title")}
               </span>
             </h2>
             <p className="font-body text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Complete compliance with OSHA, L&I, EPA, and all applicable state
-              regulations. Protects your project from violations, fines, and
-              work stoppages.
+              {sp("compliance.description")}
             </p>
           </div>
 
@@ -604,14 +716,10 @@ export default function SafetyPage() {
               className="mx-auto mb-4 text-brand-primary"
             />
             <h3 className="font-black text-gray-900 dark:text-white text-xl mb-3">
-              Accountability Runs Both Ways
+              {sp("compliance.accountability.title")}
             </h3>
             <p className="font-body text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Our leadership holds itself to the same standard we hold the team.
-              When something goes wrong, we fix the system — not just the
-              person. That&apos;s the chain-of-command principle applied to
-              safety: clear ownership, honest communication, and no one left
-              behind.
+              {sp("compliance.accountability.body")}
             </p>
           </div>
         </div>
@@ -637,32 +745,25 @@ export default function SafetyPage() {
 
               <h2 className="mb-4 sm:mb-6 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-2 sm:mb-3 font-semibold text-white/80 text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-tight overflow-visible py-1">
-                  Safety Documentation
+                  {sp("snapshots.subtitle")}
                 </span>
                 <span className="block bg-linear-to-r from-brand-secondary via-white to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
-                  Lives in the App
+                  {sp("snapshots.title")}
                 </span>
               </h2>
 
               <p className="font-body text-slate-300 text-lg max-w-xl mx-auto mb-4 leading-relaxed">
-                The MH Construction app is our Dashboard (Staff Hub) for the
-                MISH Safety &amp; Health Program (Safety Manual), field forms,
-                toolbox talks, incident reports, and Employee Handbook
-                workflows. Real-time snapshots of job-site safety compliance.
-                Free to install. Role-gated for team members. Current employees
-                are instructed to use the Dashboard (Staff Hub) for daily
-                operations.
+                {sp("snapshots.para1")}
               </p>
               <p className="text-slate-400 text-sm max-w-md mx-auto mb-8">
-                Bonding teams, insurers, architects, subcontractors, and vendors
-                may request documentation access through our office at{" "}
+                {sp("snapshots.contactNote")}{" "}
                 <a
                   href="mailto:office@mhc-gc.com"
                   className="text-brand-secondary hover:underline"
                 >
                   office@mhc-gc.com
                 </a>{" "}
-                or{" "}
+                {sp("snapshots.contactOr")}{" "}
                 <a
                   href="tel:+15093086489"
                   className="text-brand-secondary hover:underline"
@@ -673,9 +774,7 @@ export default function SafetyPage() {
               </p>
 
               <p className="text-sm text-slate-400">
-                Safety documentation and workflows are available for authorized
-                team members in the MH Construction app. Use the Install App
-                button in the site footer.
+                {sp("snapshots.footNote")}
               </p>
             </div>
           </div>
@@ -691,14 +790,10 @@ export default function SafetyPage() {
             className="mx-auto mb-6 text-brand-primary"
           />
           <h2 className="font-black text-gray-900 dark:text-white text-3xl sm:text-4xl mb-4 tracking-tight">
-            Ready to Talk?
+            {sp("cta.title")}
           </h2>
           <p className="font-body text-gray-600 dark:text-gray-400 text-lg max-w-xl mx-auto mb-8 leading-relaxed">
-            Our safety record is open for review. Call us directly or send an
-            email — we&apos;ll walk you through our credentials and answer any
-            questions from bonding teams, insurers, architects, subcontractors,
-            vendors, and future employees about compliance, EMR, or our written{" "}
-            {MISH_PROGRAM_LABEL}.
+            {sp("cta.description", { mishLabel: MISH_PROGRAM_LABEL })}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg" variant="primary">
@@ -710,7 +805,7 @@ export default function SafetyPage() {
             <Button asChild size="lg" variant="outline">
               <a href="/contact">
                 <MaterialIcon icon="mail" size="md" />
-                Send a Message
+                {sp("cta.sendMessage")}
               </a>
             </Button>
           </div>

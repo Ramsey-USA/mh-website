@@ -103,8 +103,11 @@ Our 4 Core Values create 6 measurable differences:
 5. **650+ Successful Projects - Reliability**: Proven track record of completion
 6. **3 State - Licensed & Insured**: Licensed in WA, OR, ID with full credentials
 7. **BABAA Supporter**: Dedicated supporter of the Build America, Buy America Act (BABAA), a federal
-   domestic-content requirement for certain federally funded infrastructure projects. As an AGC
-   member, this remains a compliance-forward distinction for government and public sector projects. See
+   domestic-content requirement for certain federally funded infrastructure projects. As an AGC Inland
+   Northwest Chapter member, this remains a compliance-forward distinction for government and public
+   sector projects. See
+   [Inland Northwest AGC Member Listing](https://business.nwagc.org/memberdirectory/Details/mh-construction-3229535)
+   and the
    [AGC BABAA Resource Hub](https://www.agc.org/babaa-resource-hub).
 8. **4-Tier Veteran Owned Business Certification**: MH Construction is building the most
    comprehensive VOB credential stack in the region — Tier 1 State (WA DVA VOB ✅ Certified),

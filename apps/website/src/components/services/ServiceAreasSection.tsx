@@ -17,6 +17,7 @@ import {
   hoverMotion,
   transitionDuration,
 } from "@/lib/styles/design-tokens";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 
 interface ServiceArea {
   title: string;
@@ -30,6 +31,7 @@ interface ServiceAreasSectionProps {
   title: string;
   subtitle: string;
   description: string;
+  locale?: SupportedLocale;
   maxLocationsPerArea?: number;
   showAllLocationsCta?: boolean;
 }
@@ -40,9 +42,11 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
     title,
     subtitle,
     description,
+    locale = "en",
     maxLocationsPerArea,
     showAllLocationsCta = false,
   } = props;
+  const isEs = locale === "es";
   const totalAreas = serviceAreas.reduce(
     (count, area) => count + area.areas.length,
     0,
@@ -70,8 +74,8 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
           <Card
             className={`${cornerRadius.element} border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80`}
           >
-            <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wider text-gray-500 dark:text-gray-400">
-              Service Hubs
+            <p className="font-subheading text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+              {isEs ? "Centros de servicio" : "Service Hubs"}
             </p>
             <p className="mt-1 text-2xl font-black text-gray-900 dark:text-white">
               {serviceAreas.length}
@@ -80,8 +84,8 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
           <Card
             className={`${cornerRadius.element} border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80`}
           >
-            <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wider text-gray-500 dark:text-gray-400">
-              Coverage Points
+            <p className="font-subheading text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+              {isEs ? "Puntos de cobertura" : "Coverage Points"}
             </p>
             <p className="mt-1 text-2xl font-black text-gray-900 dark:text-white">
               {totalAreas}
@@ -90,8 +94,8 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
           <Card
             className={`${cornerRadius.element} border border-brand-primary/25 bg-white/90 px-4 py-3 text-center shadow-sm dark:border-brand-primary/35 dark:bg-gray-900/80`}
           >
-            <p className="font-subheading text-xs font-semibold font-heading uppercase tracking-wider text-gray-500 dark:text-gray-400">
-              Location Guides
+            <p className="font-subheading text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+              {isEs ? "Guias de ubicacion" : "Location Guides"}
             </p>
             <p className="mt-1 text-2xl font-black text-gray-900 dark:text-white">
               {linkedAreas}
@@ -126,7 +130,8 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
                     {area.title}
                   </h3>
                   <p className="mt-1 text-sm font-medium text-brand-primary dark:text-brand-primary-light">
-                    {area.areas.length} service locations
+                    {area.areas.length}{" "}
+                    {isEs ? "ubicaciones de servicio" : "service locations"}
                   </p>
                 </div>
               </div>
@@ -152,8 +157,8 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
                           {location}
                         </span>
                         {link && (
-                          <span className="font-subheading ml-auto inline-flex items-center text-xs font-semibold font-heading uppercase tracking-wide text-brand-secondary opacity-0 transition-opacity group-hover/item:opacity-100">
-                            Explore
+                          <span className="font-subheading ml-auto inline-flex items-center text-xs font-semibold uppercase tracking-wide text-brand-secondary opacity-0 transition-opacity group-hover/item:opacity-100">
+                            {isEs ? "Explorar" : "Explore"}
                             <MaterialIcon
                               icon="arrow_forward"
                               size="sm"
@@ -194,7 +199,9 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
                   +
                   {area.areas.length -
                     (maxLocationsPerArea ?? area.areas.length)}{" "}
-                  more in this service area
+                  {isEs
+                    ? "mas en esta area de servicio"
+                    : "more in this service area"}
                 </p>
               )}
             </Card>
@@ -207,7 +214,9 @@ export function ServiceAreasSection(props: Readonly<ServiceAreasSectionProps>) {
               href="/locations"
               className={`inline-flex items-center ${cornerRadius.full} border border-brand-primary/30 bg-white px-5 py-2.5 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary hover:text-white dark:border-brand-primary/40 dark:bg-gray-900`}
             >
-              View full location coverage
+              {isEs
+                ? "Ver cobertura completa por ubicacion"
+                : "View full location coverage"}
               <MaterialIcon icon="arrow_forward" size="sm" className="ml-2" />
             </Link>
           </div>

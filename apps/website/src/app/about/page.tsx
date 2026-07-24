@@ -20,6 +20,7 @@ import { getJeremyThamertLeadershipSources } from "@/lib/data/vintage-team";
 export default function AboutPage() {
   const commonT = useTranslations("common");
   const locale = useLocale();
+  const homeLabel = locale.startsWith("es") ? "Inicio" : "Home";
   const jeremyLeadershipSources = getJeremyThamertLeadershipSources();
   const pageContent = {
     label: commonT("about.pageContent.label"),
@@ -33,6 +34,7 @@ export default function AboutPage() {
     servesItems: commonT.raw("about.pageContent.servesItems") as string[],
     focusTitle: commonT("about.pageContent.focusTitle"),
     focusItems: commonT.raw("about.pageContent.focusItems") as string[],
+    detailsLeadIn: commonT("about.pageContent.detailsLeadIn"),
     leadershipTitle: commonT("about.pageContent.leadershipTitle"),
     leadershipBody: commonT("about.pageContent.leadershipBody"),
     profileCta: commonT("about.pageContent.profileCta"),
@@ -86,12 +88,16 @@ export default function AboutPage() {
           description={commonT("about.hero.sectionDescription")}
         />
 
-        <Breadcrumb
-          items={[
-            { label: "Home", href: "/" },
-            { label: commonT("about.hero.sectionTitle") },
-          ]}
-        />
+        <section className="bg-white dark:bg-gray-900 pt-8 sm:pt-10 pb-6 sm:pb-8 border-b border-gray-200 dark:border-gray-800">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <Breadcrumb
+              items={[
+                { label: homeLabel, href: "/" },
+                { label: commonT("about.hero.sectionTitle") },
+              ]}
+            />
+          </div>
+        </section>
 
         <section
           id="what-mh-does"
@@ -101,7 +107,7 @@ export default function AboutPage() {
             <p className="font-subheading text-sm font-semibold tracking-[0.16em] uppercase text-brand-secondary mb-3">
               {pageContent.label}
             </p>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-5 leading-tight">
+            <h2 className="mh-heading-display font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-5 leading-tight">
               {pageContent.heading}
             </h2>
             <p className="font-body text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -134,10 +140,10 @@ export default function AboutPage() {
 
         <section
           id="who-mh-serves"
-          className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800"
+          className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800 bg-gray-50/70 dark:bg-gray-800/40"
         >
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="mh-heading-display font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
               {pageContent.servesTitle}
             </h2>
             <p className="font-body text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
@@ -163,7 +169,7 @@ export default function AboutPage() {
           className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800"
         >
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-5">
+            <h2 className="mh-heading-display font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-5">
               {pageContent.focusTitle}
             </h2>
             <ul className="font-body space-y-3 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -178,28 +184,31 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
+            <p className="mt-5 font-body text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+              {pageContent.detailsLeadIn}
+            </p>
+            <div className="mt-6">
+              <Button variant="outline" size="lg" asChild>
+                <Link href="/about/details">
+                  <MaterialIcon icon="read_more" size="md" className="mr-2" />
+                  {pageContent.detailsCta}
+                </Link>
+              </Button>
+            </div>
           </div>
         </section>
 
         <section
           id="company-history"
-          className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800"
+          className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800 bg-gray-50/70 dark:bg-gray-800/40"
         >
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="mh-heading-display font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
               {pageContent.storyTitle}
             </h2>
             <div className="font-body space-y-4 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
               <p>{pageContent.storyP1}</p>
               <p>{pageContent.storyP2}</p>
-            </div>
-            <div className="mt-6">
-              <Button variant="outline" size="lg" asChild>
-                <Link href="/about/details">
-                  <MaterialIcon icon="history" size="md" className="mr-2" />
-                  {pageContent.detailsCta}
-                </Link>
-              </Button>
             </div>
           </div>
         </section>
@@ -209,7 +218,7 @@ export default function AboutPage() {
           className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800"
         >
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="mh-heading-display font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
               {pageContent.leadershipTitle}
             </h2>
             <p className="font-body text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
@@ -230,7 +239,7 @@ export default function AboutPage() {
               </Button>
             </div>
 
-            <div className="mt-6 rounded-xl border border-brand-primary/20 bg-gray-50 dark:bg-gray-800/60 p-4 sm:p-5">
+            <div className="mt-6 rounded-xl border border-brand-primary/20 bg-gray-50 dark:bg-gray-800/60 p-4 sm:p-5 shadow-sm">
               <p className="font-subheading text-xs sm:text-sm font-semibold tracking-[0.14em] uppercase text-brand-primary mb-2">
                 {leadershipSourcesCopy.label}
               </p>
@@ -273,7 +282,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="mt-6 rounded-xl border border-gray-200 bg-white/90 p-4 sm:p-5 dark:border-gray-700 dark:bg-gray-800/70">
+            <div className="mt-6 rounded-xl border border-gray-200 bg-white/90 p-4 sm:p-5 dark:border-gray-700 dark:bg-gray-800/70 shadow-sm">
               <h3 className="font-heading text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-2">
                 {pageContent.sourceMapTitle}
               </h3>
@@ -311,7 +320,7 @@ export default function AboutPage() {
           className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800"
         >
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-5">
+            <h2 className="mh-heading-display font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-5">
               {pageContent.safetyTitle}
             </h2>
             <p className="font-body text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
@@ -332,7 +341,7 @@ export default function AboutPage() {
 
         <section className="relative py-12 sm:py-14 bg-gray-50 dark:bg-gray-800/60 border-b border-gray-200 dark:border-gray-800">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <p className="font-subheading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest font-heading uppercase mb-6">
+            <p className="font-subheading text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-6">
               {commonT("about.accreditations.sectionTitle")}
             </p>
             <AccreditationsLogoRow />
@@ -341,10 +350,10 @@ export default function AboutPage() {
 
         <section
           id="community-commitment"
-          className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800"
+          className="py-10 sm:py-12 border-b border-gray-200 dark:border-gray-800 bg-gray-50/70 dark:bg-gray-800/40"
         >
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="mh-heading-display font-heading text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
               {pageContent.communityTitle}
             </h2>
             <p className="font-body text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">

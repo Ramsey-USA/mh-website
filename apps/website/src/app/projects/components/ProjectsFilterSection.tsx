@@ -7,8 +7,10 @@ import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { categories } from "./projectsData";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 
 interface ProjectsFilterSectionProps {
+  locale?: SupportedLocale;
   selectedCategory: string;
   onCategoryChange: (categoryId: string) => void;
   searchQuery: string;
@@ -18,6 +20,7 @@ interface ProjectsFilterSectionProps {
 }
 
 export function ProjectsFilterSection({
+  locale = "en",
   selectedCategory,
   onCategoryChange,
   searchQuery,
@@ -25,6 +28,50 @@ export function ProjectsFilterSection({
   onClearSearch,
   resultsCount,
 }: Readonly<ProjectsFilterSectionProps>) {
+  const isEs = locale === "es";
+  const labels = isEs
+    ? {
+        headingA: "Encuentre su alianza",
+        headingB: "ideal",
+        placeholder: "Buscar alianzas por titulo, descripcion o ubicacion...",
+        searchAria: "Buscar proyectos",
+        clearAria: "Limpiar busqueda",
+        helper: "Pruebe terminos como tipo de proyecto, ciudad o alcance.",
+        oneMatch: "coincidencia de proyecto",
+        manyMatch: "coincidencias de proyecto",
+        filtersSuffix: "para sus filtros actuales.",
+        resetAll: "Restablecer todo",
+      }
+    : {
+        headingA: "Find Your Perfect",
+        headingB: "Partnership",
+        placeholder:
+          "Search partnerships by title, description, or location...",
+        searchAria: "Search projects",
+        clearAria: "Clear search",
+        helper: "Try terms like project type, city, or specialty scope.",
+        oneMatch: "project match",
+        manyMatch: "project matches",
+        filtersSuffix: "for your current filters.",
+        resetAll: "Reset all",
+      };
+
+  const categoryLabels: Record<string, string> = isEs
+    ? {
+        all: "Todos los proyectos",
+        commercial: "Comercial",
+        industrial: "Industrial",
+        renovation: "Renovaciones",
+        custom: "Construcciones personalizadas",
+      }
+    : {
+        all: "All Projects",
+        commercial: "Commercial",
+        industrial: "Industrial",
+        renovation: "Renovations",
+        custom: "Custom Builds",
+      };
+
   const normalizedSearchQuery = searchQuery.trim();
   const hasActiveFilters =
     selectedCategory !== "all" || normalizedSearchQuery.length > 0;
@@ -36,10 +83,10 @@ export function ProjectsFilterSection({
           <div className="mb-8 text-center scroll-reveal">
             <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
               <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                Find Your Perfect
+                {labels.headingA}
               </span>
               <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                Partnership
+                {labels.headingB}
               </span>
             </h2>
           </div>
@@ -54,8 +101,8 @@ export function ProjectsFilterSection({
               />
               <input
                 type="text"
-                placeholder="Search partnerships by title, description, or location..."
-                aria-label="Search projects"
+                placeholder={labels.placeholder}
+                aria-label={labels.searchAria}
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
                 className="bg-white dark:bg-gray-700 py-4 pr-4 pl-12 border border-gray-300 dark:border-gray-600 focus:border-brand-primary dark:focus:border-brand-primary rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary/20 w-full text-gray-900 dark:text-white"
@@ -65,14 +112,14 @@ export function ProjectsFilterSection({
                   type="button"
                   onClick={onClearSearch}
                   className="top-1/2 right-4 absolute hover:bg-gray-200 dark:hover:bg-gray-600 p-1 rounded-full text-gray-600 hover:text-gray-600 dark:hover:text-gray-300 transition-colors -translate-y-1/2 transform"
-                  aria-label="Clear search"
+                  aria-label={labels.clearAria}
                 >
                   <MaterialIcon icon="close" size="sm" />
                 </button>
               )}
             </div>
             <p className="mt-3 text-center text-sm text-gray-600 dark:text-gray-300">
-              Try terms like project type, city, or specialty scope.
+              {labels.helper}
             </p>
           </div>
 
@@ -95,7 +142,7 @@ export function ProjectsFilterSection({
                 `}
               >
                 <MaterialIcon icon={category.icon} className="mr-2" size="md" />
-                {category.label}
+                {categoryLabels[category.id] ?? category.label}
               </Button>
             ))}
           </div>
@@ -105,18 +152,18 @@ export function ProjectsFilterSection({
             aria-live="polite"
           >
             <span className="font-semibold">{resultsCount}</span>{" "}
-            {resultsCount === 1 ? "project match" : "project matches"}
+            {resultsCount === 1 ? labels.oneMatch : labels.manyMatch}
             {hasActiveFilters && (
               <>
                 {" "}
-                for your current filters.
+                {labels.filtersSuffix}
                 <Button
                   type="button"
                   variant="link"
                   className="ml-1 p-0 font-semibold text-brand-primary"
                   onClick={onClearSearch}
                 >
-                  Reset all
+                  {labels.resetAll}
                 </Button>
               </>
             )}

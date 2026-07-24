@@ -1,7 +1,7 @@
 # MH Page Slogans
 
 **Category:** Branding - Strategy
-**Last Updated:** July 4, 2026
+**Last Updated:** July 24, 2026
 **Status:** Official Reference
 
 > **Purpose:** Runtime source-of-truth for unique page-level hero slogans is [apps/website/src/content/hero-page-slogans.md](../../../apps/website/src/content/hero-page-slogans.md).
@@ -45,11 +45,11 @@ npm run slogan:coverage:check
 
 Representative examples from the canonical runtime matrix:
 
-- home: Home - Straight answers from the Command Center.
-- services: Services - Operations Briefs that keep scope clear and execution steady.
-- projects: Projects - Our Work proves itself in every finished project.
-- safety: Safety - Safety Command with clear standards and consistent follow-through.
-- resources: Resources - Field Resources for the work ahead.
+- home: Home - Straight answers from the Command Center, built with American grit.
+- services: Services - Services with operations-brief discipline, done right for every American jobsite.
+- projects: Projects - Projects with SITREP accountability and craftsmanship that honors the work.
+- safety: Safety - Safety under Safety Command standards to protect every crew and family.
+- resources: Resources - Resources in a Field Resources library built for real-world readiness.
 
 ## Reference Note
 

@@ -15,11 +15,11 @@ import { generateNewsInsightsSchemas } from "@/lib/seo/page-type-schema";
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 const NEWS_OG_IMAGE_URL = createOgImageUrl("news", "news-insights");
 const NEWS_META_DESCRIPTION =
-  "Repository-managed updates and mission-lane insights from MH Construction on Procore coordination, safety planning, trade delivery, AG and winery sequencing, and veteran-led accountability.";
+  "Repository-managed updates and construction insights from MH Construction on Procore coordination, safety planning, trade delivery, AG and winery sequencing, and veteran-led accountability.";
 const NEWS_OG_DESCRIPTION =
-  "Operational news from MH Construction covering field coordination, safety execution, trade sequencing, and accountable delivery across active mission lanes.";
+  "Operational news from MH Construction covering field coordination, safety execution, trade sequencing, and accountable delivery across active construction projects.";
 const NEWS_TWITTER_DESCRIPTION =
-  "Mission-lane insights from MH Construction with practical updates on Procore controls, site safety, trade alignment, and veteran-led leadership.";
+  "Construction insights from MH Construction with practical updates on Procore controls, site safety, trade alignment, and veteran-led leadership.";
 
 export const metadata: Metadata = {
   title: `${formatDualPageName("News and Insights", "Noticias e ideas")} | MH Construction`,
@@ -122,8 +122,8 @@ export default async function NewsPage() {
             <Button asChild variant="primary" size="lg">
               <a href="/about/details#news">
                 {locale === "es"
-                  ? "Ver capacidades de mision detalladas"
-                  : "View detailed mission capabilities"}
+                  ? "Ver capacidades detalladas del proyecto"
+                  : "View detailed project capabilities"}
               </a>
             </Button>
             <Button asChild variant="outline" size="lg">

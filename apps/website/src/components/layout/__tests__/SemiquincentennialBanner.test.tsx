@@ -87,7 +87,7 @@ describe("SemiquincentennialBanner", () => {
 
     expect(
       screen.getByText(
-        /We proudly stand with our communities in honoring America all month long/i,
+        /We proudly stand with our veterans and their families year-round, honoring service and strengthening our communities/i,
       ),
     ).toBeInTheDocument();
   });
@@ -118,11 +118,14 @@ describe("SemiquincentennialBanner", () => {
     expect(() => fireEvent.click(btn)).not.toThrow();
   });
 
-  it("does not render countdown unit labels", () => {
+  it("does not render freedom counters or the road-to-2026 progress bar", () => {
     render(<SemiquincentennialBanner />);
-    expect(screen.queryByText("Days")).not.toBeInTheDocument();
-    expect(screen.queryByText("Hrs")).not.toBeInTheDocument();
-    expect(screen.queryByText("Min")).not.toBeInTheDocument();
-    expect(screen.queryByText("Sec")).not.toBeInTheDocument();
+    expect(screen.queryByText(/^Days of Freedom/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/^Road to 2026$/i)).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("progressbar", {
+        name: /Progress toward 250 years of American freedom/i,
+      }),
+    ).not.toBeInTheDocument();
   });
 });

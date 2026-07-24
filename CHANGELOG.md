@@ -6,6 +6,10 @@ All notable changes to the MH Construction website are documented here.
 
 ## June 2026
 
+- **Jul 24 (f):** Page hierarchy alignment — moved veteran-led construction bridge page from `/veterans/public-sector-construction` to `/public-sector/veteran-led-construction`, consolidating the full public-sector content cluster under one URL tree. Old path retained as a `permanentRedirect` (noindex) for backward compatibility. Updated all internal references (route-manifest, route-indexing-policy, LocaleSwitcher, locations data, PublicSectorFullPage, tri-state page, veterans page). Removed dead `CoolDesertNightsPageClient.tsx` (not imported anywhere since CDN page migrated to `/events/cool-desert-nights`).
+
+- **Jul 24 (e):** Repointed `EventsHubBanner` (SmokeBossFunnel) from generic events hub to the Pacific Northwest Annual BBQ Competition. Banner now links to `/events/bbq-contest`, uses the BBQ contest graphic, and suppresses on `/events/bbq-contest` and `/events/cool-desert-nights` (replacing old `/cool-desert-nights` suppression). Updated `SmokeBossFunnel.test.tsx` to match new content and suppression paths; all 5 tests pass.
+
 - **Jul 24 (d):** Closed BBQ naming-transition gap by approving and applying Pacific Northwest Annual BBQ Competition as the public event name while retaining `/events/bbq-contest` as the stable canonical route for continuity. Updated dedicated page metadata/schema/content, events-hub presentation copy, canonical route-manifest label, and events/business documentation references to the approved naming.
 
 - **Jul 24 (c):** Closed IRONMAN volunteer analytics visibility baseline gap by adding first-party outbound click tracking on `/events/ironman-volunteer` for both the official IRONMAN volunteer signup CTA and local chamber directory CTA. Documentation now reflects implemented click-level visibility while preserving the explicit external-system limitation that final volunteer completion remains outside MH first-party telemetry.

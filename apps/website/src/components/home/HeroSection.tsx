@@ -153,6 +153,8 @@ export function HeroSection({
   locale = "en",
   copy = DEFAULT_EN_COPY,
 }: Readonly<HeroSectionProps>) {
+  const commandCenterLabel =
+    locale === "es" ? "Centro de mando" : "Command Center";
   const heroCommercial = selectHomeHeroCommercial();
   const mp4ManifestPath = normalizePublicAssetPath(heroCommercial?.mp4);
   const webmManifestPath = normalizePublicAssetPath(heroCommercial?.webm);
@@ -209,7 +211,7 @@ export function HeroSection({
         <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
             <span className="mb-1 block text-brand-secondary text-[clamp(0.8rem,1.8vw,1.4rem)] leading-[1.2]">
-              {copy.baseLabel} -&gt; Command Center
+              {copy.baseLabel} -&gt; {commandCenterLabel}
             </span>
             <span className="mb-1 block text-brand-secondary/90 text-[clamp(0.75rem,1.5vw,1.15rem)] leading-[1.25]">
               {copy.tagline}

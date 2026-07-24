@@ -17,6 +17,7 @@ Always enforce:
 7. Global Jeremy leadership ribbon contract: every public page must render one consistent Jeremy quote ribbon directly above the footer, using route-specific copy from `apps/website/src/content/jeremy-page-ribbons.md`.
 8. Single-source ribbon behavior: do not duplicate per-page ribbon implementations when the shared above-footer ribbon is active.
 9. Primary language pattern: lead with construction terminology first; position veteran field standards second as supporting credibility/context.
+10. SEO terminology precedence: in page titles, meta descriptions, schema descriptions, and keywords, use professional construction terminology first (for example: new construction, tenant improvements, preconstruction planning, project management). Use subtle military or veteran phrasing only when it adds context and never as the primary SEO label.
 
 Never:
 

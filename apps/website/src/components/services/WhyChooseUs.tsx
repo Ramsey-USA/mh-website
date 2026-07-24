@@ -18,18 +18,22 @@ import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 
 interface WhyChooseUsProps {
   title: string;
   subtitle: string;
   description: string;
+  locale?: SupportedLocale;
 }
 
 export function WhyChooseUs({
   title,
   subtitle,
   description,
+  locale = "en",
 }: Readonly<WhyChooseUsProps>) {
+  const isEs = locale === "es";
   return (
     <section
       id="trust-in-action"
@@ -116,7 +120,8 @@ export function WhyChooseUs({
                         className="mr-2"
                       />
                       <span className="text-sm">
-                        {reason.ctaLinkText || "Learn More"}
+                        {reason.ctaLinkText ||
+                          (isEs ? "Saber mas" : "Learn More")}
                       </span>
                     </div>
                   ) : null}

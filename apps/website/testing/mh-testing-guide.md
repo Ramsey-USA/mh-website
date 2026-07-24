@@ -126,6 +126,41 @@ pnpm run lint                                 # ESLint 10 (zero warnings, zero e
 pnpm --filter @mhc/website run quality:check  # Full quality scan
 ```
 
+## Locale Congruency Gate (Efficient + Thorough)
+
+Use the single locale gate command from `apps/website`:
+
+```bash
+npm run congruency:locale:thorough
+```
+
+What this command enforces:
+
+- Source-level locale signal coverage (`report:spanish:coverage`, strict mode)
+- EN/ES branding parity contract (`congruency:locale:check`)
+- Translation namespace/key completeness (`check:translations`)
+- All-pages coverage audit (`report:spanish:page-coverage`)
+- Render-level locale contracts (`projects-events-congruency-contract` + `pages-smoke`)
+
+Optional runtime HTTP sweep (only when explicitly requested):
+
+```bash
+npm run congruency:locale:thorough:runtime
+```
+
+### All-Pages Coverage Contract
+
+The all-pages audit script verifies discovered public page routes are covered by the locale checks:
+
+- Static routes must exist in `tmp/spanish-coverage-report.md`
+- Dynamic routes must be represented in `src/app/__tests__/pages-smoke.test.tsx`
+
+Run it directly:
+
+```bash
+npm run report:spanish:page-coverage
+```
+
 ## Visual Testing
 
 - **`testing/dark-mode-visual-test.html`** — Open in browser for manual dark mode visual verification

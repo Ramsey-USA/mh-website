@@ -54,6 +54,34 @@ When both concepts appear in the same surface, always apply this sequence:
 
 Use veteran framing to reinforce execution standards, not to replace the core construction message.
 
+### SEO Terminology Precedence (Required)
+
+For search-facing copy, always prioritize professional construction language.
+
+Apply this order across page titles, metadata descriptions, schema descriptions, keyword sets, and OG/Twitter metadata:
+
+1. Construction-first terminology: new construction, tenant improvements, preconstruction planning, project management, quality control, field coordination.
+2. Veteran/military context only as secondary support when it improves trust or credibility.
+
+Rules:
+
+- Do not lead SEO labels with military-themed wording when a standard construction term is available.
+- Do not replace common construction terms with mission-style aliases in title tags or primary keywords.
+- Keep veteran-owned and service-earned framing factual, subtle, and supporting.
+
+Examples:
+
+```text
+Preferred: "New Construction & Major Renovations"
+Avoid as primary SEO label: "Mission-Ready Construction"
+
+Preferred: "Tenant Improvements & Interior Buildouts"
+Avoid as primary SEO label: "Mission-Ready Fit-Outs"
+
+Preferred: "Project Management & Coordination"
+Avoid as primary SEO label: "Mission Management"
+```
+
 ---
 
 ## 📖 TERMINOLOGY CATEGORIES

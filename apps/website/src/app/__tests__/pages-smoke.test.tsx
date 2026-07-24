@@ -82,6 +82,9 @@ jest.mock("@/components/ui", () => ({
   ContentCard: ({ children }: { children?: React.ReactNode }) => (
     <div>{children}</div>
   ),
+  Timeline: ({ children }: { children?: React.ReactNode }) => (
+    <div>{children}</div>
+  ),
   IconContainer: ({ children }: { children: React.ReactNode }) => (
     <div>{children}</div>
   ),
@@ -246,11 +249,11 @@ jest.mock("@/lib/constants/company", () => ({
 jest.mock("@/lib/seo/breadcrumb-schema", () => ({
   generateBreadcrumbSchema: jest.fn(() => ({ "@type": "BreadcrumbList" })),
   breadcrumbPatterns: {
-    about: {},
-    faq: {},
-    services: {},
-    team: {},
-    veterans: {},
+    about: [],
+    faq: [],
+    services: [],
+    team: [],
+    veterans: [],
     publicSector: [],
     allies: [],
     accessibility: [],
@@ -345,9 +348,19 @@ jest.mock("@/components/home", () => ({
 
 jest.mock("@/components/pwa", () => ({
   PWAInstallCTA: () => null,
+  PWAOnly: ({ children }: { children: React.ReactNode }) => <>{children}</>,
   DownloadGate: ({ children }: { children: React.ReactNode }) => (
     <>{children}</>
   ),
+}));
+
+jest.mock("@/components/forms/FormWrapper", () => ({
+  FormWrapper: ({ children }: { children: React.ReactNode }) => (
+    <form>{children}</form>
+  ),
+  FormInput: () => <input />,
+  FormSelect: () => <select />,
+  FormTextarea: () => <textarea />,
 }));
 
 // ── Mocks for resources/safety pages ──────────────────────────────────────────
@@ -373,6 +386,7 @@ jest.mock("@/lib/data/documents", () => ({
   })),
   manuals: [],
   forms: [],
+  handbookForms: [],
 }));
 
 jest.mock("@/lib/analytics/hooks", () => ({
@@ -431,9 +445,16 @@ jest.mock("next/navigation", () => ({
 
 import { render } from "@testing-library/react";
 import { eventRecords } from "@/lib/data/events";
+import { getFAQCategorySlugs } from "@/lib/data/faq-data";
 import { getLocationSlugs } from "@/lib/data/locations";
 import { getPublishedProjectCaseStudySlugs } from "@/lib/data/project-case-studies";
 import { getPublishedServiceDetailRouteSlugs } from "@/lib/data/service-routes";
+import { ALL_CLUSTER_SLUGS } from "@/lib/data/safety-manual-clusters";
+import { getServerLocale } from "@/lib/i18n/locale.server";
+
+const mockedGetServerLocale = getServerLocale as jest.MockedFunction<
+  typeof getServerLocale
+>;
 
 const { axe } = require("jest-axe") as {
   axe: (container: Element | DocumentFragment) => Promise<{
@@ -671,6 +692,19 @@ describe("Public Sector page", () => {
     const page = await PublicSectorPage();
     expect(() => render(page)).not.toThrow();
   });
+
+  it("retains security-tier communication messaging for sensitive projects", async () => {
+    const { default: PublicSectorPage } = require("../public-sector/page") as {
+      default: () => Promise<React.ReactElement>;
+    };
+
+    const page = await PublicSectorPage();
+    const { container } = render(page);
+    const text = container.textContent ?? "";
+
+    expect(text).toMatch(/security-tiered communication (controls|plans)/i);
+    expect(text).toMatch(/confidential and top-secret/i);
+  });
 });
 
 // ── Privacy page ──────────────────────────────────────────────────────────────
@@ -860,6 +894,201 @@ describe("Safety Manual redirect page", () => {
     await SafetyManualPage();
     expect(mockRedirect).toHaveBeenCalledWith(
       "/resources/safety-manual/contents",
+    );
+  });
+});
+
+describe("Dynamic route locale render coverage", () => {
+  beforeEach(() => {
+    mockedGetServerLocale.mockResolvedValue("en");
+  });
+
+  it("renders dynamic route pages for all known slugs in en and es locales", async () => {
+    const locales: Array<"en" | "es"> = ["en", "es"];
+
+    const serviceSlugs = getPublishedServiceDetailRouteSlugs();
+    const projectSlugs = getPublishedProjectCaseStudySlugs();
+    const eventSlugs = eventRecords.map((event) => event.slug);
+    const locationSlugs = getLocationSlugs();
+    const faqCategorySlugs = getFAQCategorySlugs();
+    const clusterSlugs = [...ALL_CLUSTER_SLUGS];
+
+    const { default: ServiceDetailPage } =
+      await import("../services/[slug]/page");
+    const { default: ProjectDetailPage } =
+      await import("../projects/[slug]/page");
+    const { default: EventDetailPage } = await import("../events/[slug]/page");
+    const { default: LocationPage } = await import("../locations/[city]/page");
+    const { default: FAQCategoryPage } = await import("../faq/[category]/page");
+    const { default: SafetyManualClusterPage } =
+      await import("../resources/safety-manual/[cluster]/page");
+
+    for (const locale of locales) {
+      mockedGetServerLocale.mockResolvedValue(locale);
+
+      for (const slug of serviceSlugs) {
+        const page = await ServiceDetailPage({
+          params: Promise.resolve({ slug }),
+        });
+        expect(() => render(page)).not.toThrow();
+      }
+
+      for (const slug of projectSlugs) {
+        const page = await ProjectDetailPage({
+          params: Promise.resolve({ slug }),
+        });
+        expect(() => render(page)).not.toThrow();
+      }
+
+      for (const slug of eventSlugs) {
+        const page = await EventDetailPage({
+          params: Promise.resolve({ slug }),
+        });
+        expect(() => render(page)).not.toThrow();
+      }
+
+      for (const city of locationSlugs) {
+        const page = await LocationPage({
+          params: Promise.resolve({ city }),
+        });
+        expect(() => render(page)).not.toThrow();
+      }
+
+      for (const category of faqCategorySlugs) {
+        const page = await FAQCategoryPage({
+          params: Promise.resolve({ category }),
+        });
+        expect(() => render(page)).not.toThrow();
+      }
+
+      for (const cluster of clusterSlugs) {
+        const page = await SafetyManualClusterPage({
+          params: Promise.resolve({ cluster }),
+        });
+        expect(() => render(page)).not.toThrow();
+      }
+    }
+  });
+});
+
+describe("Expanded public page locale render coverage", () => {
+  const originalFetch = global.fetch;
+
+  beforeAll(() => {
+    global.fetch = jest.fn(async () => ({
+      ok: true,
+      json: async () => ({}),
+    })) as typeof fetch;
+  });
+
+  afterAll(() => {
+    global.fetch = originalFetch;
+  });
+
+  beforeEach(() => {
+    mockedGetServerLocale.mockResolvedValue("en");
+  });
+
+  it("renders additional public pages in en and es locales", async () => {
+    const locales: Array<"en" | "es"> = ["en", "es"];
+    const pageLoaders: Array<{
+      route: string;
+      load: () => Promise<() => Promise<React.ReactElement>>;
+    }> = [
+      {
+        route: "/about/details",
+        load: async () => (await import("../about/details/page")).default,
+      },
+      {
+        route: "/contact",
+        load: async () => (await import("../contact/page")).default,
+      },
+      {
+        route: "/employee-handbook",
+        load: async () => (await import("../employee-handbook/page")).default,
+      },
+      {
+        route: "/events/bbq-contest",
+        load: async () => (await import("../events/bbq-contest/page")).default,
+      },
+      {
+        route: "/events/cool-desert-nights",
+        load: async () =>
+          (await import("../events/cool-desert-nights/page")).default,
+      },
+      {
+        route: "/events/ironman-volunteer",
+        load: async () =>
+          (await import("../events/ironman-volunteer/page")).default,
+      },
+      {
+        route: "/events/operation-cast-recover",
+        load: async () =>
+          (await import("../events/operation-cast-recover/page")).default,
+      },
+      {
+        route: "/offline",
+        load: async () => (await import("../offline/page")).default,
+      },
+      {
+        route: "/qr-codes",
+        load: async () => (await import("../qr-codes/page")).default,
+      },
+      {
+        route: "/resources/safety-manual/contents",
+        load: async () =>
+          (await import("../resources/safety-manual/contents/page")).default,
+      },
+      {
+        route: "/sitemap",
+        load: async () => (await import("../sitemap/page")).default,
+      },
+    ];
+
+    for (const locale of locales) {
+      mockedGetServerLocale.mockResolvedValue(locale);
+
+      for (const entry of pageLoaders) {
+        const Page = await entry.load();
+        const page = await Page();
+        try {
+          expect(() =>
+            render(page as Parameters<typeof render>[0]),
+          ).not.toThrow();
+        } catch (error) {
+          throw new Error(
+            `Failed to render ${entry.route} for locale=${locale}: ${String(error)}`,
+          );
+        }
+      }
+    }
+  });
+});
+
+describe("Locale-aware redirect coverage", () => {
+  beforeEach(() => {
+    mockPermanentRedirect.mockClear();
+  });
+
+  it("redirects veterans legacy public-sector route to locale-specific target", async () => {
+    const { default: VeteransPublicSectorRedirectPage } =
+      await import("../veterans/public-sector-construction/page");
+
+    mockedGetServerLocale.mockResolvedValue("en");
+    await expect(VeteransPublicSectorRedirectPage()).rejects.toThrow(
+      /NEXT_REDIRECT/,
+    );
+    expect(mockPermanentRedirect).toHaveBeenLastCalledWith(
+      "/public-sector/veteran-led-construction",
+    );
+
+    mockPermanentRedirect.mockClear();
+    mockedGetServerLocale.mockResolvedValue("es");
+    await expect(VeteransPublicSectorRedirectPage()).rejects.toThrow(
+      /NEXT_REDIRECT/,
+    );
+    expect(mockPermanentRedirect).toHaveBeenLastCalledWith(
+      "/es/public-sector/veteran-led-construction",
     );
   });
 });

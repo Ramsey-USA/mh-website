@@ -5,8 +5,12 @@
 
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 
-export function ProjectsHero() {
+export function ProjectsHero({
+  locale = "en",
+}: Readonly<{ locale?: SupportedLocale }>) {
+  const isEs = locale === "es";
   return (
     <section
       className="hero-section relative flex items-end justify-end text-white overflow-hidden"
@@ -23,10 +27,12 @@ export function ProjectsHero() {
         <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
             <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-              Projects → Outcomes
+              {isEs ? "Proyectos → Resultados" : "Projects → Outcomes"}
             </span>
             <span className="block text-brand-secondary">
-              Project Portfolio Across Washington, Oregon, and Idaho
+              {isEs
+                ? "Portafolio de Proyectos en Washington, Oregon e Idaho"
+                : "Project Portfolio Across Washington, Oregon, and Idaho"}
             </span>
             <span className="block text-brand-primary">
               {getHeroPageSlogan("projects").slogan}

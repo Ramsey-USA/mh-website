@@ -3,10 +3,12 @@
 import { useState, useEffect } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Card } from "@/components/ui";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 import type { Testimonial } from "@/lib/data/testimonials";
 
 interface TestimonialsCarouselProps {
   testimonials: Testimonial[];
+  locale?: SupportedLocale;
   autoPlay?: boolean;
   autoPlayInterval?: number;
   className?: string;
@@ -14,12 +16,31 @@ interface TestimonialsCarouselProps {
 
 export function TestimonialsCarousel({
   testimonials,
+  locale = "en",
   autoPlay = true,
   autoPlayInterval = 5000,
   className = "",
 }: TestimonialsCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(autoPlay);
+  const isEs = locale === "es";
+  const copy = isEs
+    ? {
+        emptyTitle: "Proximamente",
+        emptyDescription:
+          "Los testimonios de clientes estaran disponibles pronto. Compartimos solo comentarios autenticos de nuestros socios.",
+        previous: "Testimonio anterior",
+        next: "Siguiente testimonio",
+        gotoPrefix: "Ir al testimonio",
+      }
+    : {
+        emptyTitle: "Coming Soon",
+        emptyDescription:
+          "Client testimonials will be available soon. We're committed to sharing only authentic feedback from our valued partners.",
+        previous: "Previous testimonial",
+        next: "Next testimonial",
+        gotoPrefix: "Go to testimonial",
+      };
 
   // Auto-advance carousel
   useEffect(() => {
@@ -60,11 +81,10 @@ export function TestimonialsCarousel({
             className="text-brand-primary mb-6"
           />
           <h3 className="mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl text-center">
-            Coming Soon
+            {copy.emptyTitle}
           </h3>
           <p className="font-body max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
-            Client testimonials will be available soon. We're committed to
-            sharing only authentic feedback from our valued partners.
+            {copy.emptyDescription}
           </p>
         </Card>
       </div>
@@ -143,7 +163,7 @@ export function TestimonialsCarousel({
         <button
           onClick={goToPrevious}
           className="absolute left-4 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 shadow-lg p-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary"
-          aria-label="Previous testimonial"
+          aria-label={copy.previous}
         >
           <MaterialIcon
             icon="chevron_left"
@@ -154,7 +174,7 @@ export function TestimonialsCarousel({
         <button
           onClick={goToNext}
           className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 shadow-lg p-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary"
-          aria-label="Next testimonial"
+          aria-label={copy.next}
         >
           <MaterialIcon
             icon="chevron_right"
@@ -174,7 +194,7 @@ export function TestimonialsCarousel({
                 ? "bg-brand-primary w-12 h-3"
                 : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 w-3 h-3"
             }`}
-            aria-label={`Go to testimonial ${index + 1}`}
+            aria-label={`${copy.gotoPrefix} ${index + 1}`}
           />
         ))}
       </div>

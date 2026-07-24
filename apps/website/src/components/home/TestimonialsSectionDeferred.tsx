@@ -3,12 +3,14 @@
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 import type { Testimonial } from "@/lib/data/testimonials";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 
 interface TestimonialsSectionDeferredProps {
   title?: string;
   subtitle?: string;
   description?: string;
   className?: string;
+  locale?: SupportedLocale;
   autoPlay?: boolean;
   autoPlayInterval?: number;
   id?: string;

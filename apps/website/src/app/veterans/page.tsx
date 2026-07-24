@@ -1200,7 +1200,7 @@ export default async function VeteransPage() {
                 {[
                   {
                     key: "publicSector",
-                    href: "/veterans/public-sector-construction",
+                    href: "/public-sector/veteran-led-construction",
                     icon: "account_balance",
                   },
                   {

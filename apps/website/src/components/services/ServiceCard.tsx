@@ -7,15 +7,18 @@ import {
   hoverMotion,
   transitionDuration,
 } from "@/lib/styles/design-tokens";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 import type { CoreService } from "./servicesData";
 
 interface ServiceCardProps {
   service: CoreService;
+  locale?: SupportedLocale;
   onOpenModal: () => void;
 }
 
 export function ServiceCard(props: Readonly<ServiceCardProps>) {
-  const { service, onOpenModal } = props;
+  const { service, locale = "en", onOpenModal } = props;
+  const isEs = locale === "es";
   const cardId = service.title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
@@ -27,7 +30,7 @@ export function ServiceCard(props: Readonly<ServiceCardProps>) {
       className="group cursor-pointer relative flex h-full"
       onClick={onOpenModal}
       type="button"
-      aria-label={`View details for ${service.title}`}
+      aria-label={`${isEs ? "Ver detalles de" : "View details for"} ${service.title}`}
     >
       {/* Animated Border Glow */}
       <GlowEffect gradient="primary-dark" />
@@ -86,7 +89,8 @@ export function ServiceCard(props: Readonly<ServiceCardProps>) {
               ))}
               {service.features.length > 3 && (
                 <p className="text-xs text-brand-primary dark:text-brand-primary-light font-semibold italic">
-                  +{service.features.length - 3} more features...
+                  +{service.features.length - 3}{" "}
+                  {isEs ? "caracteristicas adicionales..." : "more features..."}
                 </p>
               )}
             </div>
@@ -104,9 +108,9 @@ export function ServiceCard(props: Readonly<ServiceCardProps>) {
                   className={`text-brand-primary dark:text-brand-primary-light ${hoverMotion.iconPlayful}`}
                 />
                 <span
-                  className={`font-subheading font-heading font-bold text-sm uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors ${transitionDuration.normal}`}
+                  className={`font-subheading font-bold text-sm uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors ${transitionDuration.normal}`}
                 >
-                  Click for Full Details
+                  {isEs ? "Abrir detalle completo" : "Click for Full Details"}
                 </span>
                 <MaterialIcon
                   icon="arrow_forward"

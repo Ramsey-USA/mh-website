@@ -58,6 +58,7 @@ const publishedServiceRecords = getPublishedServiceRoutes();
 const coreServiceSlugs = [
   "commercial-construction",
   "commercial-tenant-improvements",
+  "project-marketing-social-media-strategy",
   "municipal-public-work",
   "preconstruction-planning",
   "procurement-trade-partnerships",
@@ -71,6 +72,7 @@ const specialtyServiceSlugs = [
 const iconBySlug: Record<string, string> = {
   "commercial-construction": "engineering",
   "commercial-tenant-improvements": "domain",
+  "project-marketing-social-media-strategy": "campaign",
   "municipal-public-work": "account_balance",
   "preconstruction-planning": "gps_fixed",
   "procurement-trade-partnerships": "local_shipping",
@@ -207,10 +209,22 @@ export const whyChooseUs: WhyChooseUsItem[] = [
       "Open-book pricing, direct assessments, and clear updates give you visibility into scope, cost, and key decisions from kickoff through closeout.",
   },
   {
+    iconName: "timeline",
+    title: "Phase-Based Proof Cadence",
+    description:
+      "Project updates follow a documented four-phase marketing framework with evidence-gated milestones and disciplined weekly publishing standards.",
+  },
+  {
     iconName: "diversity_3",
     title: "Partnership-Driven Trust",
     description:
       "We build long-term partnerships through reliable commitments, face-to-face accountability, and consistent follow-through before, during, and after turnover.",
+  },
+  {
+    iconName: "podcasts",
+    title: "Post-Completion Leadership Recap",
+    description:
+      "When owner approvals are in place, completed projects include a podcast post-interview with Jeremy to document outcomes, lessons learned, and accountability.",
   },
   {
     iconName: "military_tech",

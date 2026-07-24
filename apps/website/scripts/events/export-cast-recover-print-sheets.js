@@ -52,6 +52,23 @@ function toCsv(rows, columns) {
   return [header, ...lines].join("\n");
 }
 
+function escapeMarkdownTableCell(value) {
+  const raw = value === null || value === undefined ? "" : String(value);
+
+  return raw
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;")
+    .replace(/\\/g, "\\\\")
+    .replace(/([`*_{}\[\]()#+\-.!~|])/g, "\\$1")
+    .replace(/[\r\n\t]+/g, " ")
+    .replace(/[\u0000-\u001f\u007f]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function markdownTable(rows, columns, headers) {
   const headerRow = `| ${headers.join(" | ")} |`;
   const divider = `| ${headers.map(() => "---").join(" | ")} |`;
@@ -59,7 +76,7 @@ function markdownTable(rows, columns, headers) {
     const values = columns.map((column) => {
       const value = row[column];
       if (value === null || value === undefined || value === "") return "-";
-      return String(value).replace(/\|/g, "\\|").replace(/\n/g, " ");
+      return escapeMarkdownTableCell(value);
     });
     return `| ${index + 1} | ${values.join(" | ")} |`;
   });
@@ -536,7 +553,16 @@ async function main() {
   console.log(`- ${pdfPath}`);
 }
 
-main().catch((error) => {
-  console.error(error instanceof Error ? error.message : String(error));
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exit(1);
+  });
+}
+
+module.exports = {
+  escapeMarkdownTableCell,
+  markdownTable,
+  runQuery,
+  toCsv,
+};

@@ -72,8 +72,8 @@ const InteractiveGrantSelector = dynamic(
 const grantSupportServices = [
   {
     icon: "military_tech",
-    title: "Mission Costing",
-    description: `${MH_SLOGANS.heroByRoute.publicSector} Disciplined predeployment estimating and budget validation for agency procurement planning`,
+    title: "Project Costing",
+    description: `${MH_SLOGANS.heroByRoute.publicSector} Disciplined preconstruction estimating and budget validation for agency procurement planning`,
     features: [
       "Line-item cost breakdowns aligned with agency documentation requirements",
       "Labor assumptions coordinated to prevailing wage obligations",
@@ -82,12 +82,12 @@ const grantSupportServices = [
   },
   {
     icon: "gps_fixed",
-    title: "Mission Validation",
+    title: "Project Validation",
     description:
       "Technical review that confirms constructability, schedule realism, and field readiness",
     features: [
       "Constructability and sequencing review before procurement commitments",
-      "Site and operational constraints documented for mission-partner alignment",
+      "Site and operational constraints documented for project alignment",
       "Milestone-based operating plans with clear decision checkpoints",
     ],
   },
@@ -99,6 +99,7 @@ const grantSupportServices = [
     features: [
       "FAR and owner specification alignment checks",
       "Permit, code, and agency documentation readiness reviews",
+      "Security-tiered communication controls for confidential and top-secret sensitivity levels",
       "Quality-control hold points and compliance record workflows",
     ],
   },
@@ -122,7 +123,7 @@ const governmentProjects = [
     examples: [
       "Federal Office Buildings",
       "Emergency Operations Centers",
-      "Administrative Command Centers",
+      "Administrative Operations Centers",
       "Secure Public Facilities",
     ],
   },
@@ -133,7 +134,7 @@ const governmentProjects = [
       "Military Chapels",
       "Community Centers on Base",
       "Multi-Purpose Facilities",
-      "Mission Support Buildings",
+      "Operations Support Buildings",
     ],
   },
   {
@@ -141,7 +142,7 @@ const governmentProjects = [
     title: "Public Service Facilities",
     examples: [
       "Veterans Service Centers",
-      "Public Health Command",
+      "Public Health Operations",
       "Emergency Response Centers",
       "Support Hubs",
     ],
@@ -150,7 +151,7 @@ const governmentProjects = [
     icon: "construction",
     title: "Critical Infrastructure",
     examples: [
-      "Utilities Command Centers",
+      "Utilities Operations Centers",
       "Maintenance Operations",
       "Security Support Facilities",
       "Emergency Facility Support",
@@ -171,7 +172,7 @@ const governmentProjects = [
 // Federal contracting types
 const grantTypes = [
   {
-    category: "Federal Mission Contracts",
+    category: "Federal Project Contracts",
     icon: "flag",
     programs: [
       "Department of Energy (DOE)",
@@ -182,7 +183,7 @@ const grantTypes = [
     ],
   },
   {
-    category: "State & Local Mission Contracts",
+    category: "State & Local Project Contracts",
     icon: "location_city",
     programs: [
       "Washington agency projects",
@@ -209,7 +210,7 @@ const grantTypes = [
 const processSteps = [
   {
     step: 1,
-    title: "Mission Assessment",
+    title: "Project Assessment",
     description: "Review requirements, feasibility, and schedule assumptions",
     icon: "campaign",
   },
@@ -229,13 +230,15 @@ const processSteps = [
   {
     step: 4,
     title: "Compliance Verification",
-    description: "Confirm required regulations and documentation are complete",
+    description:
+      "Confirm required regulations and documentation are complete, including confidentiality controls and release approvals for public-facing updates",
     icon: "verified",
   },
   {
     step: 5,
     title: "Execution Support",
-    description: "Finalize documentation and support project mobilization",
+    description:
+      "Finalize documentation, support project mobilization, and apply security-level communication filters before any external release",
     icon: "rocket_launch",
   },
 ];
@@ -268,7 +271,7 @@ const hanfordCapabilities = [
     icon: "bolt",
     title: "Rapid Response Construction",
     description:
-      "Emergency construction capabilities for mission-critical timelines",
+      "Emergency construction capabilities for critical project timelines",
   },
   {
     icon: "workspace_premium",
@@ -300,11 +303,11 @@ export default function PublicSectorFullPage() {
                 Government -&gt; Public Sector Construction
               </span>
               <span className="block text-brand-primary">
-                Mission-Ready, Compliance-Driven
+                Construction-Ready, Compliance-Driven
               </span>
               <span className="block text-white/90">
                 Built for agency requirements, schedule discipline, and clear
-                reporting
+                reporting with confidentiality-first communication controls
               </span>
               <span className="block text-white/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
                 {COMPANY_INFO.slogan.primary}
@@ -362,7 +365,9 @@ export default function PublicSectorFullPage() {
                 Army-veteran-led team
               </span>{" "}
               delivers compliance-ready construction with clear cost visibility,
-              .64 EMR safety performance, and documented controls.
+              .64 EMR safety performance, documented controls, and
+              security-tiered communication plans aligned to project sensitivity
+              levels, including confidential and top-secret restrictions.
             </p>
           </div>
 
@@ -819,7 +824,7 @@ export default function PublicSectorFullPage() {
 
             <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                Licensed and mission-ready
+                Licensed and construction-ready
               </span>{" "}
               across government facility project types with{" "}
               <span className="font-bold text-gray-900 dark:text-white">
@@ -1034,7 +1039,7 @@ export default function PublicSectorFullPage() {
             <div className="mt-8 grid gap-3 md:grid-cols-3 text-left">
               {[
                 {
-                  href: "/veterans/public-sector-construction",
+                  href: "/public-sector/veteran-led-construction",
                   title: "Veteran Public Sector Path",
                   detail:
                     "See how veteran leadership supports public-sector delivery.",
@@ -1092,7 +1097,7 @@ export default function PublicSectorFullPage() {
         />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest font-heading uppercase mb-4">
-            Mission-Ready Credentials
+            Construction Credentials
           </p>
           <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-8">
             Accredited & Certified for Federal Contracts

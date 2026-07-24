@@ -12,7 +12,7 @@ describe("Dual terminology standard", () => {
     expect(getDualPageName("services")).toBe("Services (Operations Brief)");
     expect(getDualPageName("Contact Us")).toBe("Contact (Comms Desk)");
     expect(getDualPageName("Get in Touch")).toBe("Contact (Comms Desk)");
-    expect(getDualPageName("Our Work")).toBe("Projects (Our Work)");
+    expect(getDualPageName("Our Work")).toBe("Projects (Project SITREP)");
     expect(getDualPageName("Partners")).toBe("Partners (Allied Network)");
     expect(getDualPageName("Safety Hub")).toBe("Safety (Safety Command)");
     expect(getDualPageName("Trade Partners")).toBe("Partners (Allied Network)");
@@ -20,13 +20,13 @@ describe("Dual terminology standard", () => {
       "Government (Civic Operations)",
     );
     expect(getDualPageName("Privacy Policy")).toBe(
-      "Privacy Policy (Privacy Standards)",
+      "Privacy Policy (Data OPSEC)",
     );
     expect(getDualPageName("Terms of Service")).toBe(
-      "Terms of Service (Service Terms)",
+      "Terms of Service (Engagement ROE)",
     );
     expect(getDualPageName("Accessibility")).toBe(
-      "Accessibility (Access Standards)",
+      "Accessibility (Access Protocol)",
     );
     expect(getDualPageName("Help Center")).toBe("Help/FAQ (Intel Brief)");
     expect(getDualPageName("Questions & Answers")).toBe(
@@ -79,7 +79,7 @@ describe("Dual terminology standard", () => {
 
   it("resolves dual page names by terminology key", () => {
     expect(getDualPageNameByKey("faq")).toBe("Help/FAQ (Intel Brief)");
-    expect(getDualPageNameByKey("offline")).toBe("Offline (Connection Status)");
+    expect(getDualPageNameByKey("offline")).toBe("Offline (Signal Check)");
     expect(getDualPageNameByKey("incidentReport")).toBe(
       "Incident Report (Incident Command)",
     );

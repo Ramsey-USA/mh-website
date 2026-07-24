@@ -13,9 +13,11 @@ import Link from "next/link";
 import { ProjectCard } from "./ProjectCard";
 import { categories } from "./projectsData";
 import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 import type { ProjectPortfolio } from "@/lib/types";
 
 interface ProjectsGridSectionProps {
+  locale?: SupportedLocale;
   projects: ProjectPortfolio[];
   selectedCategory: string;
   hasActiveFilters: boolean;
@@ -23,16 +25,72 @@ interface ProjectsGridSectionProps {
 }
 
 export function ProjectsGridSection({
+  locale = "en",
   projects,
   selectedCategory,
   hasActiveFilters,
   onResetFilters,
 }: Readonly<ProjectsGridSectionProps>) {
-  const universalCtas = getUniversalCtaSet("en");
+  const isEs = locale === "es";
+  const universalCtas = getUniversalCtaSet(locale);
+  const labels = isEs
+    ? {
+        categoryDefault: "Exito de alianzas",
+        categorySuffix: "alianza",
+        stories: "Historias",
+        oneCollab: "colaboracion",
+        manyCollab: "colaboraciones",
+        collabSuffix: "que muestran nuestro compromiso de trabajar CON socios",
+        noMatches: "No se encontraron coincidencias",
+        comingSoon: "Proximamente",
+        noMatchesBody:
+          "No encontramos proyectos que coincidan con su busqueda y filtros actuales.",
+        comingSoonBody:
+          "Nuestro portafolio de proyectos esta en desarrollo. Publicamos solo alianzas reales y completadas con socios del proyecto.",
+        noMatchesHint:
+          "Intente limpiar filtros o usar terminos mas amplios para descubrir mas alianzas.",
+        comingSoonHint:
+          "Vuelva pronto o contactenos para conocer mas sobre proyectos actuales y anteriores.",
+        resetFilters: "Restablecer filtros",
+      }
+    : {
+        categoryDefault: "Partnership Success",
+        categorySuffix: "Partnership",
+        stories: "Stories",
+        oneCollab: "collaboration",
+        manyCollab: "collaborations",
+        collabSuffix: "showcasing our commitment to working WITH partners",
+        noMatches: "No matches found",
+        comingSoon: "Coming Soon",
+        noMatchesBody:
+          "We could not find projects matching your current search and category filters.",
+        comingSoonBody:
+          "Our project portfolio is under development. We're committed to showcasing only real, completed partnerships with our valued project stakeholders.",
+        noMatchesHint:
+          "Try clearing filters or using broader terms to discover more partnerships.",
+        comingSoonHint:
+          "Please check back soon or contact us to learn more about our current and past projects.",
+        resetFilters: "Reset filters",
+      };
+  const categoryLabels: Record<string, string> = isEs
+    ? {
+        all: "Todos los proyectos",
+        commercial: "Comercial",
+        industrial: "Industrial",
+        renovation: "Renovaciones",
+        custom: "Construcciones personalizadas",
+      }
+    : {
+        all: "All Projects",
+        commercial: "Commercial",
+        industrial: "Industrial",
+        renovation: "Renovations",
+        custom: "Custom Builds",
+      };
   const categoryLabel =
     selectedCategory === "all"
-      ? "Partnership Success"
-      : `${categories.find((c) => c.id === selectedCategory)?.label} Partnership`;
+      ? labels.categoryDefault
+      : `${categoryLabels[selectedCategory] ?? categories.find((c) => c.id === selectedCategory)?.label} ${labels.categorySuffix}`;
 
   return (
     <section
@@ -58,7 +116,7 @@ export function ProjectsGridSection({
                 {categoryLabel}
               </span>
               <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 pb-2 leading-tight">
-                Stories
+                {labels.stories}
               </span>
             </h2>
             <p
@@ -66,8 +124,8 @@ export function ProjectsGridSection({
               aria-live="polite"
             >
               {projects.length}{" "}
-              {projects.length === 1 ? "collaboration" : "collaborations"}{" "}
-              showcasing our commitment to working WITH partners
+              {projects.length === 1 ? labels.oneCollab : labels.manyCollab}{" "}
+              {labels.collabSuffix}
             </p>
           </div>
         </FadeInWhenVisible>
@@ -75,7 +133,7 @@ export function ProjectsGridSection({
         {projects.length > 0 ? (
           <StaggeredFadeIn className="gap-8 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
             {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <ProjectCard key={project.id} project={project} locale={locale} />
             ))}
           </StaggeredFadeIn>
         ) : (
@@ -87,17 +145,17 @@ export function ProjectsGridSection({
                 className="text-brand-primary mb-6"
               />
               <h3 className="mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl text-center">
-                {hasActiveFilters ? "No matches found" : "Coming Soon"}
+                {hasActiveFilters ? labels.noMatches : labels.comingSoon}
               </h3>
               <p className="font-body max-w-2xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl text-center leading-relaxed mb-4">
                 {hasActiveFilters
-                  ? "We could not find projects matching your current search and category filters."
-                  : "Our project portfolio is under development. We're committed to showcasing only real, completed partnerships with our valued mission partners."}
+                  ? labels.noMatchesBody
+                  : labels.comingSoonBody}
               </p>
               <p className="max-w-xl font-light text-gray-500 dark:text-gray-300 text-base sm:text-lg text-center">
                 {hasActiveFilters
-                  ? "Try clearing filters or using broader terms to discover more partnerships."
-                  : "Please check back soon or contact us to learn more about our current and past projects."}
+                  ? labels.noMatchesHint
+                  : labels.comingSoonHint}
               </p>
               {hasActiveFilters ? (
                 <Button
@@ -105,7 +163,7 @@ export function ProjectsGridSection({
                   onClick={onResetFilters}
                   className="mt-6 bg-brand-primary text-white hover:bg-brand-primary-dark"
                 >
-                  Reset filters
+                  {labels.resetFilters}
                 </Button>
               ) : (
                 <Button asChild className="mt-6">

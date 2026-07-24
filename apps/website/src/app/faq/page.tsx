@@ -37,15 +37,15 @@ const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.faq);
 
 const howToSchema = generateHowToSchema({
   name: "How to Work with MH Construction",
-  description: `${MH_SLOGANS.heroByRoute.faq} Step-by-step guide to our mission process from consultation to handoff.`,
+  description: `${MH_SLOGANS.heroByRoute.faq} Step-by-step guide to our construction process from consultation to handoff.`,
   totalTime: "P30D",
   steps: [
     {
-      name: "Mission Discovery",
+      name: "Project Discovery",
       text: "Initial consultation, site assessment, needs analysis, and budget discussion",
     },
     {
-      name: "Mission Planning",
+      name: "Project Planning",
       text: "Detailed scope brief with open-book pricing, schedule alignment, and operational coordination",
     },
     {
@@ -54,10 +54,10 @@ const howToSchema = generateHowToSchema({
     },
     {
       name: "Field Operations",
-      text: "Progress updates, quality inspections, and mission-partner walkthroughs",
+      text: "Progress updates, quality inspections, and project stakeholder walkthroughs",
     },
     {
-      name: "Mission Handoff",
+      name: "Project Handoff",
       text: "Final inspection, corrective-item completion, warranty documentation, and ongoing support",
     },
   ],
@@ -187,13 +187,13 @@ export default async function FAQPage() {
                 </span>
                 <span className="block text-brand-secondary">
                   {isEs
-                    ? "Respuestas directas. Guia de misión clara."
-                    : "Direct Answers. Clear Mission Guidance."}
+                    ? "Respuestas directas. Guia de proyecto clara."
+                    : "Direct Answers. Clear Project Guidance."}
                 </span>
                 <span className="block text-brand-primary">
                   {isEs
-                    ? "Informacion lista para accion de la misión."
-                    : "Mission-Ready Information."}
+                    ? "Informacion lista para la accion del proyecto."
+                    : "Construction-Ready Information."}
                 </span>
                 <span className="block text-white/90">
                   {COMPANY_INFO.slogan.primary}
@@ -236,8 +236,8 @@ export default async function FAQPage() {
               <FadeInWhenVisible>
                 <p className="font-body text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
                   {isEs
-                    ? "Respuestas claras sobre servicios, proceso, costos y ejecución de misión. Si su pregunta no aparece, nuestro equipo puede ayudarle directamente. Sin vacíos. Sin suposiciones. Solo seguimiento responsable."
-                    : "Clear answers on services, process, pricing, and mission execution. If your question is not listed, our team can help directly. No gaps. No guesswork. Just accountable follow-through."}
+                    ? "Respuestas claras sobre servicios, proceso, costos y ejecución del proyecto. Si su pregunta no aparece, nuestro equipo puede ayudarle directamente. Sin vacíos. Sin suposiciones. Solo seguimiento responsable."
+                    : "Clear answers on services, process, pricing, and project execution. If your question is not listed, our team can help directly. No gaps. No guesswork. Just accountable follow-through."}
                 </p>
               </FadeInWhenVisible>
 

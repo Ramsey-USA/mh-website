@@ -121,7 +121,7 @@ jest.mock("next-intl/server", () => ({
         const labels: Record<string, string> = {
           heading: "Verified Google Reviews",
           invitation:
-            "If we recently completed your project, we would value your feedback to help future mission partners make informed construction decisions.",
+            "If we recently completed your project, we would value your feedback to help future project stakeholders make informed construction decisions.",
           buttonLabel: "Leave a Google Review",
           verifiedLabel: "Verified",
         };
@@ -158,7 +158,7 @@ describe("TestimonialsPage (with populated testimonials data)", () => {
     const page = await TestimonialsPage();
     render(page);
     expect(
-      screen.getAllByText(/Mission Partners/i).length,
+      screen.getAllByText(/Project Stakeholders/i).length,
     ).toBeGreaterThanOrEqual(1);
   });
 
@@ -208,7 +208,7 @@ describe("TestimonialsPage (with populated testimonials data)", () => {
     const page = await TestimonialsPage();
     render(page);
     expect(
-      screen.getAllByText(/Mission Partners|Verified feedback/i).length,
+      screen.getAllByText(/Project Stakeholders|Verified feedback/i).length,
     ).toBeGreaterThan(0);
   });
 
@@ -217,7 +217,7 @@ describe("TestimonialsPage (with populated testimonials data)", () => {
     render(page);
     // testimonials.length > 0 → reviewCount shows
     expect(
-      screen.getAllByText(/2\+?|Mission Partners/i).length,
+      screen.getAllByText(/2\+?|Project Stakeholders/i).length,
     ).toBeGreaterThanOrEqual(1);
   });
 });

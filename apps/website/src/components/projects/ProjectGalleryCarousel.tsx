@@ -5,10 +5,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Card } from "@/components/ui";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 import type { ProjectGallerySlide } from "@/lib/services/portfolio-service";
 
 interface ProjectGalleryCarouselProps {
   slides: ProjectGallerySlide[];
+  locale?: SupportedLocale;
   autoPlay?: boolean;
   autoPlayInterval?: number;
   className?: string;
@@ -16,6 +18,7 @@ interface ProjectGalleryCarouselProps {
 
 export function ProjectGalleryCarousel({
   slides,
+  locale = "en",
   autoPlay = true,
   autoPlayInterval = 6500,
   className = "",
@@ -23,6 +26,41 @@ export function ProjectGalleryCarousel({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(autoPlay);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const isEs = locale === "es";
+
+  const copy = isEs
+    ? {
+        emptyTitle: "Las fotos de proyectos se publicaran pronto",
+        emptyDescription:
+          "La fotografia publica de proyectos aparecera aqui conforme se agreguen registros publicados al portafolio.",
+        locationPrivate: "Ubicacion privada",
+        carouselAria: "Galeria de fotos de proyectos",
+        photoCounter: "Foto",
+        of: "de",
+        pauseRotation: "Pausar rotacion de la galeria",
+        resumeRotation: "Reanudar rotacion de la galeria",
+        pause: "Pausar",
+        play: "Reproducir",
+        previousPhoto: "Foto anterior del proyecto",
+        nextPhoto: "Siguiente foto del proyecto",
+        footerLabel: "Fotografia publica de proyectos",
+      }
+    : {
+        emptyTitle: "Project photos are coming soon",
+        emptyDescription:
+          "Public project photography will appear here as published project records are added to the portfolio.",
+        locationPrivate: "Location private",
+        carouselAria: "Project photo gallery",
+        photoCounter: "Photo",
+        of: "of",
+        pauseRotation: "Pause gallery rotation",
+        resumeRotation: "Resume gallery rotation",
+        pause: "Pause",
+        play: "Play",
+        previousPhoto: "Previous project photo",
+        nextPhoto: "Next project photo",
+        footerLabel: "Public project photography",
+      };
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -68,11 +106,10 @@ export function ProjectGalleryCarousel({
             className="mx-auto mb-6 text-brand-primary"
           />
           <h3 className="mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl">
-            Project photos are coming soon
+            {copy.emptyTitle}
           </h3>
           <p className="font-body mx-auto max-w-2xl text-gray-600 dark:text-gray-300 text-lg sm:text-xl leading-relaxed">
-            Public project photography will appear here as published project
-            records are added to the portfolio.
+            {copy.emptyDescription}
           </p>
         </Card>
       </div>
@@ -86,7 +123,7 @@ export function ProjectGalleryCarousel({
   const slideCaption = currentSlide.image.caption ?? currentSlide.image.alt;
   const slideLocation = currentSlide.projectLocation.isPublic
     ? `${currentSlide.projectLocation.city}, ${currentSlide.projectLocation.state}`
-    : "Location private";
+    : copy.locationPrivate;
 
   const goToSlide = (index: number) => {
     const nextIndex = (index + slides.length) % slides.length;
@@ -104,7 +141,7 @@ export function ProjectGalleryCarousel({
         className="relative overflow-hidden rounded-3xl border border-gray-200/80 dark:border-gray-700 bg-white/95 dark:bg-gray-800/95 shadow-2xl outline-none"
         role="region"
         aria-roledescription="carousel"
-        aria-label="Project photo gallery"
+        aria-label={copy.carouselAria}
         tabIndex={0}
         onKeyDown={(event) => {
           if (event.key === "ArrowRight") {
@@ -139,23 +176,21 @@ export function ProjectGalleryCarousel({
 
           <div className="absolute inset-x-0 top-0 flex items-start justify-between gap-3 bg-linear-to-b from-black/55 via-black/10 to-transparent p-4 sm:p-6 text-white">
             <div className="rounded-full bg-black/35 px-3 py-1 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-sm">
-              Photo {currentIndex + 1} of {slides.length}
+              {copy.photoCounter} {currentIndex + 1} {copy.of} {slides.length}
             </div>
             <button
               type="button"
               onClick={toggleAutoPlay}
               className="inline-flex items-center gap-2 rounded-full bg-black/35 px-3 py-1 text-xs sm:text-sm font-semibold backdrop-blur-sm transition-colors hover:bg-black/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               aria-label={
-                isAutoPlaying
-                  ? "Pause gallery rotation"
-                  : "Resume gallery rotation"
+                isAutoPlaying ? copy.pauseRotation : copy.resumeRotation
               }
             >
               <MaterialIcon
                 icon={isAutoPlaying ? "pause" : "play_arrow"}
                 className="h-4 w-4"
               />
-              {isAutoPlaying ? "Pause" : "Play"}
+              {isAutoPlaying ? copy.pause : copy.play}
             </button>
           </div>
 
@@ -192,7 +227,7 @@ export function ProjectGalleryCarousel({
             type="button"
             onClick={goToPrevious}
             className="absolute left-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center rounded-full bg-white/90 p-3 text-gray-900 shadow-xl backdrop-blur-sm transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
-            aria-label="Previous project photo"
+            aria-label={copy.previousPhoto}
           >
             <MaterialIcon icon="chevron_left" className="h-6 w-6" />
           </button>
@@ -201,7 +236,7 @@ export function ProjectGalleryCarousel({
             type="button"
             onClick={goToNext}
             className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center rounded-full bg-white/90 p-3 text-gray-900 shadow-xl backdrop-blur-sm transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
-            aria-label="Next project photo"
+            aria-label={copy.nextPhoto}
           >
             <MaterialIcon icon="chevron_right" className="h-6 w-6" />
           </button>
@@ -210,7 +245,7 @@ export function ProjectGalleryCarousel({
         <div className="flex items-center justify-between gap-4 px-5 py-4 sm:px-6 bg-white/95 dark:bg-gray-800/95 border-t border-gray-200/80 dark:border-gray-700">
           <div className="min-w-0">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
-              Public project photography
+              {copy.footerLabel}
             </p>
             <p className="mt-1 text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300">
               {currentSlide.projectTitle}

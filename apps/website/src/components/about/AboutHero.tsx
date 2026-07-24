@@ -10,6 +10,10 @@ export function AboutHero({
   subtitle: string;
   description: string;
 }) {
+  const routeLabel = title.toLowerCase().includes("sobre")
+    ? "Sobre Nosotros"
+    : "About Us";
+
   return (
     <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
       {/* Background - Ready for photo or video */}
@@ -22,15 +26,15 @@ export function AboutHero({
       <div className="hero-safe-top hero-safe-bottom relative z-30 mx-3 sm:ml-auto sm:mr-5 lg:mr-7 xl:mr-10 mb-4 pointer-events-none transition-opacity duration-300 sm:w-[min(88vw,44rem)] sm:max-w-176">
         <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
-            <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-              {title} -&gt; About Us
+            <span className="block text-brand-secondary text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl mb-1">
+              {subtitle} -&gt; {routeLabel}
             </span>
-            <span className="block text-brand-secondary">{subtitle}</span>
+            <span className="block text-brand-secondary">{title}</span>
             <span className="block text-brand-primary">{description}</span>
-            <span className="block text-white/90">
+            <span className="block text-white/90 text-sm sm:text-base lg:text-lg">
               {COMPANY_INFO.slogan.primary}
             </span>
-            <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
+            <span className="block text-white/85 text-xs xs:text-sm sm:text-base mt-1">
               {getHeroPageSlogan("about").slogan}
             </span>
           </h1>

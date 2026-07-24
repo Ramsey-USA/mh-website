@@ -3,8 +3,8 @@
     "about": {
       "hero": {
         "sectionTitle": "Sobre Nosotros",
-        "sectionSubtitle": "Valores Ganados en Servicio, Excelencia en Construcción",
-        "sectionDescription": "Excelencia Probada a Través de la Experiencia Ganada en Servicio"
+        "sectionSubtitle": "Liderazgo en Construcción Centrado en la Relación",
+        "sectionDescription": "Planificación con experiencia, comunicación clara y entrega responsable"
       },
       "partnershipPhilosophy": {
         "sectionTitle": "Filosofía de Asociación",
@@ -13,8 +13,8 @@
       },
       "leadershipTeam": {
         "sectionTitle": "Equipo de Liderazgo",
-        "sectionSubtitle": "Excelencia en Cadena de Mando",
-        "sectionDescription": "Conozca a los líderes que establecen el estándar de disciplina militar y experiencia en construcción."
+        "sectionSubtitle": "Excelencia en liderazgo",
+        "sectionDescription": "Conozca a los líderes que establecen el estándar de responsabilidad y experiencia en construcción."
       },
       "valuesShowcase": {
         "sectionTitle": "Por Qué Importan los Valores",
@@ -53,7 +53,7 @@
       },
       "news": {
         "sectionTitle": "Últimas Noticias y Logros",
-        "sectionSubtitle": "Actualizaciones de Misión",
+        "sectionSubtitle": "Actualizaciones de Proyectos",
         "sectionDescription": "Manténgase al día con nuestros últimos proyectos, asociaciones y conocimientos de la industria—hitos de nuestro equipo veterano.",
         "cards": {
           "crm": {
@@ -105,7 +105,7 @@
         "body": "Somos un contratista general veterano en el noroeste del Pacífico. Construimos relaciones de largo plazo mediante comunicación clara, ejecución disciplinada y seguridad en campo.",
         "storyTitle": "Nuestra historia",
         "storyP1": "Desde 2010 hemos trabajado junto a propietarios, operadores y equipos de diseño para entregar proyectos con enfoque práctico y coordinación constante.",
-        "storyP2": "Hoy continuamos ese estándar con liderazgo veterano, administración en Procore y control de alcance para agricultura y bodegas, acondicionamientos comerciales y obras municipales. Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
+        "storyP2": "Hoy continuamos ese estándar con liderazgo veterano, comunicación clara y seguimiento responsable en cada relación de proyecto. Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
         "servesTitle": "A quién servimos",
         "servesBody": "Apoyamos a socios del proyecto que necesitan planificación responsable, comunicación directa y ejecución confiable en entornos activos.",
         "servesItems": [
@@ -117,20 +117,21 @@
         "focusTitle": "Lo que hacemos",
         "focusItems": [
           "Construcción general para instalaciones nuevas y sitios ocupados",
-          "Edificios post-frame para operaciones agrícolas e industriales",
-          "Puertas y herrajes con cumplimiento y coordinación de cierre",
-          "Gestión de misiones con trazabilidad de RFIs, entregables técnicos y secuencias de campo"
+          "Planificación práctica de preconstrucción y alineación de alcance",
+          "Coordinación de oficios con comunicación responsable",
+          "Estándares de entrega centrados en seguridad y cierre limpio"
         ],
+        "detailsLeadIn": "Para revisar profundidad de ejecución, controles y ejemplos de secuenciación, continúe a la página de Capacidades Detalladas.",
         "leadershipTitle": "Liderazgo",
-        "leadershipBody": "Nuestro liderazgo mantiene una estructura simple: decisiones claras, comunicación directa y seguimiento completo desde preconstrucción hasta entrega. Driven by Discipline. Defined by Results. (Impulsados por disciplina. Definidos por resultados.)",
+        "leadershipBody": "Nuestro liderazgo mantiene una estructura simple: decisiones claras, comunicación directa y seguimiento completo desde preconstrucción hasta entrega.",
         "profileCta": "Ver perfil de Jeremy",
         "viewTeamCta": "Ver equipo",
-        "detailsCta": "Ver capacidades detalladas y cronología",
+        "detailsCta": "Ver capacidades de ejecución, controles y cronología de entrega",
         "sourceMapTitle": "Dónde se mantiene cada registro",
         "sourceMapBody": "Para evitar biografías duplicadas y afirmaciones no sustentadas, la página Sobre Nosotros enlaza a cada fuente autorizada en lugar de repetir detalles completos.",
-        "sourceHistory": "Historia de la empresa y cronología de capacidades - /about/details",
-        "sourceLeadership": "Prueba de liderazgo individual y enlaces verificados - /jeremy-thamert",
-        "sourceTeam": "Registros aprobados y activos del equipo - /team",
+        "sourceHistory": "Capacidades de ejecución y cronología de entrega - /about/details",
+        "sourceLeadership": "Perfil de Jeremy con credenciales verificadas y fuentes externas - /jeremy-thamert",
+        "sourceTeam": "Roles activos del equipo y responsabilidades operativas - /team",
         "safetyTitle": "Seguridad y cumplimiento",
         "safetyBody": "La seguridad es parte del método de trabajo diario. Mantenemos procesos documentados, control operativo en campo y continuidad para instalaciones activas.",
         "safetyCta": "Ver estándares y recursos de seguridad",
@@ -138,15 +139,15 @@
         "communityBody": "Fortalecemos la capacidad regional mediante alianzas locales, desarrollo de la fuerza laboral y responsabilidad de largo plazo en Washington, Oregon e Idaho.",
         "communityCta": "Explorar carreras y oportunidades comunitarias",
         "valuePills": {
-          "honesty": "Honesty (Honestidad)",
-          "integrity": "Integrity (Integridad)",
-          "professionalism": "Professionalism (Profesionalismo)",
-          "thoroughness": "Thoroughness (Minuciosidad)"
+          "honesty": "Honestidad",
+          "integrity": "Integridad",
+          "professionalism": "Profesionalismo",
+          "thoroughness": "Minuciosidad"
         }
       },
       "leadershipSources": {
         "label": "Fuentes verificadas de liderazgo",
-        "sourceIntro": "Verifique el perfil de liderazgo de Jeremy con registros y cobertura publica:",
+        "sourceIntro": "Verifique el perfil de liderazgo de Jeremy con registros y cobertura pública:",
         "source1Label": "Registro de contratista en Washington L&I",
         "source2Label": "Nota independiente sobre servicio militar"
       }
@@ -248,19 +249,19 @@
   },
   "team": {
     "hero": {
-      "iconAria": "Equipo de cadena de mando",
+      "iconAria": "Equipo de liderazgo en construccion",
       "imageAlt": "Foto grupal del equipo MH Construction, 2025",
       "kicker": "Equipo de liderazgo",
-      "titleLine1": "Liderazgo veterano en el que puede confiar",
+      "titleLine1": "Liderazgo en construccion en el que puede confiar",
       "titleLine2": "Más de 150 años de experiencia combinada en construcción",
       "titleLine3Prefix": "Construyendo proyectos para el Cliente,",
       "titleLine3Suffix": "el Dinero",
-      "breadcrumb": "Cadena de Mando"
+      "breadcrumb": "Equipo de liderazgo"
     },
     "overview": {
       "subtitle": "Conozca a Nuestro",
       "title": "Equipo de Liderazgo",
-      "description": "Conozca al equipo veterano que atiende comunidades agrícolas y de bodegas, TI comercial y obras municipales en el Pacífico Noroeste."
+      "description": "Conozca al equipo de construcción que atiende comunidades agrícolas y de bodegas, mejoras comerciales para inquilinos y obras municipales en el Pacífico Noroeste, con estándares veteranos de campo como respaldo en cada fase de entrega."
     },
     "leadershipSources": {
       "label": "Fuentes verificadas de liderazgo",
@@ -283,28 +284,28 @@
     },
     "departments": {
       "upperBrass": {
-        "subtitle": "Alta",
-        "title": "Dirección",
-        "description": "Liderazgo que define dirección y estándares de responsabilidad en las operaciones."
+        "subtitle": "Liderazgo",
+        "title": "Ejecutivo",
+        "description": "Líderes senior que definen dirección, responsabilidad y estándares de entrega en todas las operaciones."
       },
       "missionCommanders": {
-        "subtitle": "Comandantes de",
-        "title": "Misión",
+        "subtitle": "Gestión de",
+        "title": "Proyectos",
         "description": "Planificación y ejecución de proyectos con estimación, programación y coordinación disciplinada."
       },
       "fieldOfficers": {
-        "subtitle": "Oficiales de",
+        "subtitle": "Operaciones de",
         "title": "Campo",
         "description": "Ejecución en campo con enfoque en calidad y desempeño en seguridad."
       },
       "specialOperations": {
-        "subtitle": "Operaciones",
-        "title": "Especiales",
+        "subtitle": "Seguridad y",
+        "title": "Programas Especiales",
         "description": "Equipos especializados en seguridad, comunicación e iniciativas estratégicas."
       },
       "logisticsCommand": {
-        "subtitle": "Comando de",
-        "title": "Logística",
+        "subtitle": "Soporte",
+        "title": "Operativo",
         "description": "Soporte operativo en logística, comunicación y administración."
       },
       "emptyState": {
@@ -342,8 +343,8 @@
         "headingTitle": "Nuestra Cultura de Equipo",
         "items": {
           "veteranDiscipline": {
-            "title": "Disciplina de Empresa Veterana",
-            "description": "El liderazgo veterano combina ejecución estructurada con resolución práctica de problemas."
+            "title": "Estándares Veteranos de Campo",
+            "description": "El liderazgo veterano refuerza la ejecución estructurada y la resolución práctica de problemas en los equipos de proyecto."
           },
           "communication": {
             "title": "Comunicación Abierta y Transparencia",
@@ -368,7 +369,7 @@
         }
       },
       "quote": {
-        "text": "Unirse a MH Construction significa integrarse a un equipo veterano basado en integridad, transparencia y relaciones de largo plazo.",
+        "text": "Unirse a MH Construction significa integrarse a un equipo de construcción basado en integridad, transparencia y relaciones de largo plazo, con estándares veteranos que respaldan la ejecución diaria.",
         "author": "Jeremy Thamert, Propietario y Presidente"
       }
     },
@@ -433,7 +434,7 @@
     "careersCta": {
       "subtitle": "Interesado en Unirse a la",
       "title": "¿Nuestro Equipo?",
-      "description": "Explore oportunidades de carrera en proyectos agrícolas y de bodegas, TI comercial y obra municipal.",
+      "description": "Explore oportunidades de carrera en proyectos agrícolas y de bodegas, mejoras comerciales para inquilinos y obra municipal.",
       "button": "Ver Oportunidades de Carrera"
     },
     "founderTribute": {
@@ -514,6 +515,174 @@
           "signOff": "Todos los trabajadores deben firmar antes de comenzar la tarea"
         }
       }
+    }
+  },
+  "safetyPage": {
+    "hero": {
+      "pageIdentity": "Seguridad → Programa de Seguridad",
+      "mantra": "EMR 0.64, Reconocimiento AGC-WA, Estrella VPP OSHA",
+      "tagline": "Estándares claros. Seguimiento constante en campo.",
+      "sloganEsCompanion": "(Construido con Calidad, Respaldado por Confianza.)"
+    },
+    "credentials": {
+      "subtitle": "Reconocido por la Industria",
+      "title": "Credenciales de Seguridad",
+      "description": "Designación VPP Estrella de OSHA, Premios EMR de AGC-WA, y un {mishLabel} de 50 secciones — prueba verificable de que nuestros estándares superan los requisitos.",
+      "items": {
+        "oshaVpp": {
+          "title": "Designación VPP Estrella de OSHA",
+          "body": "El nivel más alto de logro en seguridad laboral del Programa de Protección Voluntaria de OSHA — obtenido mediante excelencia demostrada en prevención de riesgos, liderazgo gerencial y participación de los trabajadores.",
+          "tag": "Reconocimiento Federal de Élite"
+        },
+        "agcWa": {
+          "title": "Premio EMR Número Uno de AGC-WA",
+          "body": "Múltiples premios consecutivos AGC-WA Top EMR de la Asociación de Contratistas Generales de Washington. Este reconocimiento por pares refleja un desempeño de seguridad sostenido y verificable en todos los sitios de trabajo.",
+          "tag": "Reconocido por la Industria"
+        },
+        "osha30": {
+          "title": "Equipo Certificado OSHA 30 Horas",
+          "body": "Nuestros líderes y supervisores de campo poseen la certificación OSHA 30 horas en construcción — por encima del estándar básico de 10 horas. Capacitación integral en reconocimiento de riesgos, protección contra caídas, seguridad eléctrica y más.",
+          "tag": "Equipo Certificado"
+        },
+        "program": {
+          "title": "Programa de Seguridad y Salud MISH (Manual de Seguridad) de 50 Secciones",
+          "body": "MH Construction mantiene un programa de seguridad escrito integral (Revisión 3.0, efectivo 1 de julio de 2026) que cubre todos los temas requeridos por OSHA. Alineado con 29 CFR 1926, AGC CSEA, WISHA, OSHA de Oregón y requisitos de Idaho.",
+          "tag": "Rev 3.0 · Julio 2026"
+        }
+      }
+    },
+    "badges": {
+      "subtitle": "Verificado y Confiable",
+      "title": "Insignias de Seguridad",
+      "description": "Credenciales verificadas por terceros disponibles para bancos de fianzas, aseguradoras, arquitectos y partes interesadas del proyecto a solicitud.",
+      "items": {
+        "oshaVpp": {
+          "title": "Estrella VPP OSHA",
+          "subtitle": "Programa de Protección Voluntaria"
+        },
+        "agcWa": {
+          "title": "EMR Número Uno AGC-WA",
+          "subtitle": "Múltiples Años Consecutivos"
+        },
+        "osha30": {
+          "title": "OSHA 30 Horas",
+          "subtitle": "Equipo Certificado"
+        },
+        "wisha": {
+          "title": "Cumple WISHA",
+          "subtitle": "Washington L&I"
+        },
+        "emr": {
+          "title": "Calificación EMR 0.64",
+          "subtitle": "40% Bajo el Promedio"
+        },
+        "csea": {
+          "title": "Alineado AGC CSEA",
+          "subtitle": "Listo para Precalificación"
+        }
+      }
+    },
+    "program": {
+      "revLabel": "Rev 3.0 · Vigente desde el 1 de julio de 2026",
+      "subtitle": "MH Construction",
+      "title": "Programa de Seguridad y Salud MISH",
+      "para1": "Nuestro programa de seguridad escrito de 50 secciones cubre cada tema de seguridad en construcción requerido por OSHA y se entrega en campo como nuestro Manual de Seguridad. Desde protección contra caídas y excavación hasta seguridad eléctrica y materiales peligrosos, es la base operativa de cada sitio que dirigimos.",
+      "para2": "Alineado con OSHA federal 29 CFR 1926, estándares de precalificación AGC CSEA, WISHA, OSHA de Oregón y requisitos de Idaho. Disponible en su totalidad para bancos de fianzas, aseguradoras, arquitectos y socios de proyecto a través de nuestro Dashboard (Staff Hub) seguro. Las referencias históricas al APP permanecen en el material fuente para continuidad.",
+      "imageCaption1": "50 Secciones",
+      "imageCaption2": "~350 páginas · Todos los temas OSHA cubiertos",
+      "commitments": {
+        "safeHome": {
+          "title": "Cada Trabajador Regresa a Casa Sano y Salvo",
+          "body": "Ningún proyecto, plazo o cantidad de dinero justifica una lesión prevenible. Cada decisión en cada sitio de trabajo se toma con ese estándar primero."
+        },
+        "accountability": {
+          "title": "Responsabilidad Personal",
+          "body": "La seguridad no se impone de arriba hacia abajo. Cada miembro del equipo — desde el superintendente hasta el trabajador — es dueño de su entorno y cuida a la persona a su lado."
+        },
+        "discipline": {
+          "title": "Disciplina Forjada en el Servicio",
+          "body": "Nuestro liderazgo de empresa de propietario veterano enfatiza una verdad simple: los hábitos constantes, no las reglas esporádicas, son lo que mantiene a las personas seguras. Esa disciplina vive en cada sitio de trabajo."
+        },
+        "speakUp": {
+          "title": "Habla, Siempre",
+          "body": "Una cultura donde las condiciones inseguras se reportan — no se ignoran — es una cultura que mejora. Tenemos tolerancia cero al silencio sobre preocupaciones de seguridad."
+        }
+      }
+    },
+    "performance": {
+      "subtitle": "Los Números Hablan",
+      "title": "Récord de Seguridad",
+      "description": "Verificado por terceros. Reconocido por pares. Nuestro récord de seguridad es medible, auditable y consistentemente mejor que el estándar de la industria.",
+      "stats": {
+        "emr": {
+          "label": "Calificación EMR",
+          "sub": "40% por debajo del promedio de la industria de 1.0"
+        },
+        "agcWa": {
+          "label": "Premio EMR Número Uno",
+          "sub": "Múltiples años consecutivos"
+        },
+        "years": {
+          "label": "Años",
+          "sub": "Construyendo una cultura de seguridad desde 2010"
+        },
+        "sections": {
+          "label": "Secciones del Programa"
+        }
+      }
+    },
+    "evidence": {
+      "subtitle": "La Cultura se Construye",
+      "title": "En Hábitos Diarios",
+      "description": "No en carteles. No en manuales de política. En lo que realmente hacemos, en cada turno.",
+      "habits": {
+        "toolbox": "Charlas de seguridad diarias antes de cada turno",
+        "jha": "Análisis de Riesgos Laborales (JHA) en cada nuevo alcance",
+        "incident": "Reporte de incidentes — cada evento, cada vez",
+        "equipment": "Inspecciones de equipo antes de cada uso",
+        "review": "Revisiones de seguridad semanales del superintendente",
+        "peer": "Reconocimiento entre pares por comportamiento seguro"
+      }
+    },
+    "compliance": {
+      "subtitle": "Cumplimiento Regulatorio",
+      "title": "Completo",
+      "description": "Cumplimiento total con OSHA, L&I, EPA y todas las regulaciones estatales aplicables. Protege su proyecto de violaciones, multas e interrupciones de trabajo.",
+      "items": {
+        "osha": {
+          "title": "OSHA 29 CFR 1926",
+          "body": "Cumplimiento total con los estándares federales de seguridad en construcción — protección contra caídas, andamios, excavación, eléctrico, equipo de protección personal y todas las subpartes aplicables."
+        },
+        "wisha": {
+          "title": "Washington L&I (WISHA)",
+          "body": "Alineación completa con los requisitos de la Ley de Seguridad y Salud Industrial de Washington. Auditorías regulares de L&I, procesos de nómina certificada y cumplimiento de salario prevaleciente en todos los proyectos del sector público."
+        },
+        "epa": {
+          "title": "EPA y Medio Ambiente",
+          "body": "Adherencia a las regulaciones de la EPA que rigen el agua pluvial en sitios de construcción, el manejo de materiales peligrosos y los requisitos de protección ambiental en Washington, Oregón e Idaho."
+        },
+        "payroll": {
+          "title": "Salario Prevaleciente y Nómina Certificada",
+          "body": "Los procesos sistemáticos de nómina certificada y el cumplimiento del salario prevaleciente protegen los proyectos públicos de violaciones, multas e interrupciones — documentados y auditables en cada fase."
+        }
+      },
+      "accountability": {
+        "title": "La Responsabilidad Funciona en Ambas Direcciones",
+        "body": "Nuestro liderazgo se mantiene al mismo estándar que exigimos al equipo. Cuando algo sale mal, arreglamos el sistema — no solo a la persona. Ese es el principio de cadena de mando aplicado a la seguridad: propiedad clara, comunicación honesta, y nadie queda atrás."
+      }
+    },
+    "snapshots": {
+      "subtitle": "Documentación de Seguridad",
+      "title": "Vive en la Aplicación",
+      "para1": "La aplicación de MH Construction es nuestro Dashboard (Staff Hub) para el Programa de Seguridad y Salud MISH (Manual de Seguridad), formularios de campo, charlas de seguridad, reportes de incidentes y flujos de trabajo del Manual del Empleado. Capturas en tiempo real del cumplimiento de seguridad en el sitio de trabajo. Instalación gratuita. Acceso restringido por rol para miembros del equipo. Los empleados actuales tienen instrucciones de usar el Dashboard (Staff Hub) para operaciones diarias.",
+      "contactNote": "Los equipos de fianzas, aseguradoras, arquitectos, subcontratistas y proveedores pueden solicitar acceso a la documentación a través de nuestra oficina en",
+      "contactOr": "o",
+      "footNote": "La documentación de seguridad y los flujos de trabajo están disponibles para los miembros autorizados del equipo en la aplicación de MH Construction. Use el botón Instalar Aplicación en el pie de página del sitio."
+    },
+    "cta": {
+      "title": "¿Listo para Hablar?",
+      "description": "Nuestro récord de seguridad está abierto para revisión. Llámenos directamente o envíe un correo electrónico — lo guiaremos a través de nuestras credenciales y responderemos cualquier pregunta de equipos de fianzas, aseguradoras, arquitectos, subcontratistas, proveedores y futuros empleados sobre cumplimiento, EMR o nuestro {mishLabel} escrito.",
+      "sendMessage": "Enviar un Mensaje"
     }
   },
   "employeeManual": {
@@ -857,7 +1026,7 @@
     "hero": {
       "kicker": "Puente para Veteranos",
       "title": "Ruta de Construcción del Sector Público Liderada por Veteranos",
-      "description": "Esta página conecta valores centrados en veteranos con requisitos de proyectos gubernamentales para que agencias públicas y equipos orientados a la misión puedan avanzar de la intención a la ejecución con una planificación clara."
+      "description": "Esta página conecta valores centrados en veteranos con requisitos de proyectos gubernamentales para que agencias públicas y equipos de proyecto puedan avanzar de la intención a la ejecución con una planificación clara."
     },
     "cards": {
       "delivery": {
@@ -956,7 +1125,7 @@
           "statLabel": "Transparencia"
         },
         "missions": {
-          "title": "Más de 650 Misiones Exitosas",
+          "title": "Más de 650 Proyectos Exitosos",
           "subtitle": "Excelencia Operativa Comprobada",
           "description": "Más de 650 proyectos completados desde 2010. El liderazgo veterano aporta planificación disciplinada, ejecución bajo presión y resultados consistentes.",
           "highlights": [
@@ -1024,7 +1193,7 @@
           },
           "serviceVerification": {
             "title": "Verificación de Servicio",
-            "description": "Presente comprobante de servicio en combate (DD-214, tarjeta VA o identificación militar con despliegue). Manejamos la documentación con confidencialidad y respeto."
+            "description": "Presente comprobante de servicio en combate (DD-214, tarjeta VA o identificación militar con historial de servicio). Manejamos la documentación con confidencialidad y respeto."
           },
           "projectAssessment": {
             "title": "Evaluación del Proyecto",
@@ -1445,7 +1614,7 @@
       "cta": {
         "title": "Los veteranos reciben consideración prioritaria",
         "descriptionLine1": "Su servicio importa. Sus habilidades se traducen. Su experiencia es valorada.",
-        "descriptionLine2": "Inicie su próxima misión con nosotros.",
+        "descriptionLine2": "Inicie su próxima etapa con nosotros.",
         "applyAria": "Solicitud de veterano",
         "applyButton": "Postular como veterano",
         "initiativeAria": "Iniciativa de veteranos",
@@ -1829,7 +1998,11 @@
       "whatsIncluded": "Qué Incluye",
       "keyBenefits": "Beneficios Clave",
       "learnMoreFallback": "Saber Más",
-      "contactCta": "Comenzar",
+      "contactCta": {
+        "heading": "¿Preguntas Sobre Nuestros Servicios?",
+        "description": "Contacte a nuestro equipo para resolver dudas sobre servicios, precios, tiempos y capacidades.",
+        "primaryButton": "Contactar al Equipo"
+      },
       "expertise": {
         "sectionTitle": "Experiencia en Construcción",
         "sectionSubtitle": "Liderazgo Enfocado en la Asociación",
@@ -2084,11 +2257,6 @@
           "turnaround": "Tiempo de Estimación",
           "referral": "Tasa de Referencia"
         }
-      },
-      "contactCta": {
-        "heading": "¿Preguntas Sobre Nuestros Servicios?",
-        "description": "Contacte a nuestro equipo para resolver dudas sobre servicios, precios, tiempos y capacidades.",
-        "primaryButton": "Contactar al Equipo"
       },
       "portfolio": {
         "subtitle": "Nuestro",
@@ -2346,7 +2514,7 @@
     "homeLabel": "Inicio",
     "ctaLabel": "Hablemos de su proyecto",
     "phoneShortcutLabel": "Llamar",
-    "brandStatement": "Veteran Owned \u2022 Licencias WA OR ID",
+    "brandStatement": "Veteran Owned • Licencias WA OR ID",
     "homeAriaLabel": "Inicio de MH Construction",
     "utilityBar": {
       "utilityLabel": "Enlaces utilitarios",

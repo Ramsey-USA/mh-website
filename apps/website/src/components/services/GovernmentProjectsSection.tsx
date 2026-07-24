@@ -10,17 +10,21 @@ import { BrandedContentSection } from "@/components/templates";
 import { Card, CardContent, Button } from "@/components/ui";
 import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { cornerRadius } from "@/lib/styles/design-tokens";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 
 export function GovernmentProjectsSection({
   title,
   subtitle,
   description,
+  locale = "en",
 }: {
   title: string;
   subtitle: string;
   description: string;
+  locale?: SupportedLocale;
 }) {
-  const universalCtas = getUniversalCtaSet("en");
+  const universalCtas = getUniversalCtaSet(locale);
+  const isEs = locale === "es";
 
   return (
     <BrandedContentSection
@@ -48,16 +52,16 @@ export function GovernmentProjectsSection({
                   />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white leading-tight">
-                  Public and Government Projects
+                  {isEs
+                    ? "Proyectos Publicos y Gubernamentales"
+                    : "Public and Government Projects"}
                 </h3>
               </div>
 
               <p className="font-body text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                We support government and grant-funded projects with disciplined
-                planning, documentation control, and compliance-focused
-                delivery. For complete capability details, procurement pathways,
-                and public-sector workflow guidance, use our dedicated Public
-                Sector pages.
+                {isEs
+                  ? "Apoyamos proyectos gubernamentales y con fondos mediante planificacion disciplinada, control documental y entrega orientada al cumplimiento. Nuestro plan de comunicacion de marketing se ajusta al nivel de sensibilidad de seguridad de cada proyecto, incluyendo restricciones confidential y top-secret, para que las actualizaciones publicas se filtren, aprueben y publiquen solo cuando corresponde. Para detalles completos de capacidades, rutas de adquisicion y guias de flujo del sector publico, use nuestras paginas dedicadas de Public Sector."
+                  : "We support government and grant-funded projects with disciplined planning, documentation control, and compliance-focused delivery. Our marketing communication plan is adjusted to each project's security sensitivity level, including confidential and top-secret restrictions, so public-facing updates are filtered, approved, and released only when appropriate. For complete capability details, procurement pathways, and public-sector workflow guidance, use our dedicated Public Sector pages."}
               </p>
 
               <div className="mt-6">

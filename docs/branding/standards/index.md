@@ -1,7 +1,7 @@
 # Branding Standards Index
 
 **Category:** Branding - Standards Index
-**Last Updated:** July 10, 2026
+**Last Updated:** July 24, 2026
 
 ## Overview
 
@@ -16,6 +16,8 @@ documents, and forms.
 - **[Header Navigation Contract](./header-navigation-contract.md)** — Canonical desktop header order and responsive menu behavior.
 - **[Hero Section Standards](./hero-section-standards.md)** — Hero composition and messaging constraints.
 - **[Hero Guardrails](./hero-guardrails.md)** — Required hero behavioral and compliance checks.
+- **[SEO Terminology Standard](./seo-terminology-standard.md)** — Construction-first SEO vocabulary and military-language precedence rules.
+- **[Spanish Mision Allowlist](./spanish-mision-allowlist.md)** — Approved Spanish mission-language exceptions retained for veteran-context governance.
 - **[Documents & Forms Branding Standards](./documents-and-forms-standards.md)** — Print/download/manual/form branding requirements.
 - **[Team Badge System](./team-badge-system.md)** — Veteran and role badge usage rules.
 - **[Team Profile Radar Chart](./team-profile-radar-chart.md)** — Team skill chart conventions.

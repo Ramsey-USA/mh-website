@@ -75,7 +75,7 @@ const SPANISH_PARITY_STATIC_PATHS = new Set<string>([
   "/terms",
   "/testimonials",
   "/veterans",
-  "/veterans/public-sector-construction",
+  "/public-sector/veteran-led-construction",
   "/accessibility",
   "/privacy",
 ]);
@@ -145,11 +145,11 @@ const STATIC_ROUTES: CanonicalRouteManifestEntry[] = [
     locales: { en: true, es: true },
   },
   {
-    path: "/veterans/public-sector-construction",
-    section: "trust",
+    path: "/public-sector/veteran-led-construction",
+    section: "services",
     label: {
-      en: "Veterans Public-Sector Construction",
-      es: "Construccion Publica para Veteranos",
+      en: "Veteran-Led Public Sector Construction",
+      es: "Construccion Publica Liderada por Veteranos",
     },
     changeFrequency: "monthly",
     priority: 0.8,

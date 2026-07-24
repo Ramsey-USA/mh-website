@@ -29,13 +29,13 @@ const defaultSEO = {
     "Construction Services in Washington, Oregon, and Idaho",
   ),
   defaultDescription:
-    "MH Construction provides mission-partner-focused commercial, tenant improvement, municipal, agricultural and winery, and light industrial construction services across Washington, Oregon, and Idaho.",
+    "MH Construction provides project-stakeholder-focused commercial, tenant improvement, municipal, agricultural and winery, and light industrial construction services across Washington, Oregon, and Idaho.",
   defaultKeywords: [
     "construction",
     "general contractor",
     "general contractor Pasco, WA",
     MH_SLOGANS.primary,
-    "mission-partner-focused construction delivery",
+    "project-stakeholder-focused construction delivery",
     "relationship-first construction partner",
     "owner representative construction coordination",
     "facilities team construction support",
@@ -425,14 +425,14 @@ export function generateEnhancedOrganizationSchema() {
       {
         "@type": "ContactPoint",
         telephone: defaultSEO.companyInfo.telephone,
-        contactType: "mission-partner support",
+        contactType: "project stakeholder support",
         areaServed: ["US"],
         availableLanguage: ["English"],
       },
       {
         "@type": "ContactPoint",
         url: `${defaultSEO.siteUrl}`,
-        contactType: "mission-partner support",
+        contactType: "project stakeholder support",
         description:
           "AI-powered Partnership Guide — available 24/7 to answer questions about services, Trade Partners (Allies), veteran benefits, and project consultations.",
         availableLanguage: ["English"],

@@ -42,7 +42,7 @@ const APPROVED_SPANISH_PATHS = new Set<string>([
   "/terms",
   "/testimonials",
   "/veterans",
-  "/veterans/public-sector-construction",
+  "/public-sector/veteran-led-construction",
   "/accessibility",
   "/privacy",
 ]);

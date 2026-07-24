@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 import type { ProjectGallerySlide } from "@/lib/services/portfolio-service";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 
 interface ProjectGallerySectionDeferredProps {
   id?: string;
@@ -10,6 +11,7 @@ interface ProjectGallerySectionDeferredProps {
   subtitle?: string;
   description?: string;
   className?: string;
+  locale?: SupportedLocale;
   slides: ProjectGallerySlide[];
 }
 
@@ -38,7 +40,7 @@ function ProjectGalleryPlaceholder({ className = "" }: { className?: string }) {
           <div className="mx-auto h-6 w-full max-w-5xl rounded-full bg-gray-100 dark:bg-gray-800" />
         </div>
 
-        <div className="mx-auto max-w-6xl rounded-3xl bg-gray-100 dark:bg-gray-800 shadow-2xl p-8 sm:p-12 lg:p-16 min-h-[32rem] animate-pulse" />
+        <div className="mx-auto max-w-6xl rounded-3xl bg-gray-100 dark:bg-gray-800 shadow-2xl p-8 sm:p-12 lg:p-16 min-h-128 animate-pulse" />
       </div>
     </section>
   );

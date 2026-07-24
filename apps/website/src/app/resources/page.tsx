@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
     description:
-      "Safety manuals, toolbox talks, and field forms from MH Construction for field crews and mission partners.",
+      "Safety manuals, toolbox talks, and field forms from MH Construction for field crews and project stakeholders.",
   },
 };
 
@@ -111,9 +111,6 @@ export default async function ResourcesPage() {
                         ? "Para bancos de fianzas, aseguradoras y arquitectos"
                         : "For Bonding Banks, Insurers, and Architects"}
                     </h2>
-                    <span className="text-xs font-semibold bg-brand-primary text-white rounded-full px-2.5 py-0.5">
-                      {isEs ? "Nuevo" : "New"}
-                    </span>
                   </div>
                   <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                     {isEs
@@ -189,9 +186,6 @@ export default async function ResourcesPage() {
                   <h2 className="text-base font-bold text-brand-primary dark:text-brand-primary-light">
                     {isEs ? "Noticias e ideas" : "News and Insights"}
                   </h2>
-                  <span className="text-xs font-semibold bg-brand-primary text-white rounded-full px-2.5 py-0.5">
-                    {isEs ? "Nuevo" : "New"}
-                  </span>
                 </div>
                 <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                   {isEs

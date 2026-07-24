@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.triStateGovernmentConstruction.seoName, PAGE_TERMINOLOGY.triStateGovernmentConstruction.mhBrandName)} | MH Construction`,
     description:
-      "Regional government construction strategy across WA, OR, and ID with location-backed coverage and mission-partner-aligned delivery pathways.",
+      "Regional government construction strategy across WA, OR, and ID with location-backed coverage and project-aligned delivery pathways.",
     url: `${SITE_URL}/public-sector/tri-state-government-construction`,
     type: "website",
     images: [
@@ -191,7 +191,7 @@ export default async function TriStateGovernmentConstructionPage() {
               Schedule project planning
             </TrackedBridgeButton>
             <TrackedBridgeButton
-              href="/veterans/public-sector-construction"
+              href="/public-sector/veteran-led-construction"
               trackId="tri-state-veteran-pathway"
               variant="outline"
             >

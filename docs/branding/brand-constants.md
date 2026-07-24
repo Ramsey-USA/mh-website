@@ -298,14 +298,17 @@ For PMBOK-style construction language and military-themed term mappings, see
 
 | Affiliation       | Details                                                           |
 | ----------------- | ----------------------------------------------------------------- |
-| **Membership**    | AGC Member                                                        |
+| **Membership**    | AGC Member (Inland Northwest Chapter)                             |
+| **Directory**     | [Inland Northwest AGC Member Listing][inland-nw-agc-directory]    |
 | **BABAA Support** | Dedicated supporter of the Build America, Buy America Act (BABAA) |
 | **Resource**      | [AGC BABAA Resource Hub](https://www.agc.org/babaa-resource-hub)  |
+
+[inland-nw-agc-directory]: https://business.nwagc.org/memberdirectory/Details/mh-construction-3229535
 
 **Standard Language:**
 
 > "MH Construction is a dedicated supporter of the Build America, Buy America Act (BABAA), a federal
-> domestic-content requirement for certain federally funded infrastructure projects. As an AGC member,
+> domestic-content requirement for certain federally funded infrastructure projects. As an AGC Inland Northwest Chapter member,
 > we stay current on BABAA guidance and compliance-forward practices for government projects."
 
 **Usage:** Reference when discussing government or public sector work, federal project compliance, or

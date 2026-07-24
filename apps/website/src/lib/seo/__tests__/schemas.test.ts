@@ -250,10 +250,10 @@ describe("withGeoMetadata()", () => {
 
     const keywords = (result.keywords as string[]) || [];
     expect(keywords).toContain("general contractor Pasco, WA");
-    expect(keywords).toContain("Mission-Ready Construction Services");
+    expect(keywords).toContain("New Construction Services");
     expect(keywords).toContain("Industrial Facility Construction");
     expect(keywords).toContain("Office Remodeling And Renovation");
-    expect(keywords).toContain("Mission Management Solutions");
+    expect(keywords).toContain("Construction Management Solutions");
     expect(keywords).not.toContain("general contractor Pasco WA");
   });
 
@@ -284,7 +284,7 @@ describe("withGeoMetadata()", () => {
 
     const keywords = (result.keywords as string[]) || [];
     expect(keywords).toContain("general contractor Pasco, WA");
-    expect(keywords).toContain("Mission-Ready Construction Services");
+    expect(keywords).toContain("New Construction Services");
     expect(keywords).toContain("Industrial Facility Construction");
     expect(keywords).toContain("custom services keyword");
   });
@@ -413,7 +413,7 @@ describe("generateServiceDetailSchema()", () => {
       category: "Commercial",
       overview: "Overview",
       processStatements: ["Plan", "Build"],
-      supportedProjectTypes: ["Fit-outs"],
+      supportedProjectTypes: ["Tenant improvements"],
       proofReferences: ["projects/example"],
       ctaHref: "/contact",
       ctaLabel: "Contact",

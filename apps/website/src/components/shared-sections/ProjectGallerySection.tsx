@@ -1,6 +1,7 @@
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
 import { ProjectGalleryCarousel } from "@/components/projects/ProjectGalleryCarousel";
 import type { ProjectGallerySlide } from "@/lib/services/portfolio-service";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 
 interface ProjectGallerySectionProps {
   id?: string;
@@ -8,6 +9,7 @@ interface ProjectGallerySectionProps {
   subtitle?: string;
   description?: string;
   className?: string;
+  locale?: SupportedLocale;
   slides: ProjectGallerySlide[];
 }
 
@@ -17,6 +19,7 @@ export function ProjectGallerySection({
   subtitle = "Public Project",
   description = "Browse public project photos from MH Construction case records. The gallery rotates automatically and can be controlled manually.",
   className = "",
+  locale = "en",
   slides,
 }: ProjectGallerySectionProps) {
   return (
@@ -35,7 +38,7 @@ export function ProjectGallerySection({
       }}
       animated={false}
     >
-      <ProjectGalleryCarousel slides={slides} />
+      <ProjectGalleryCarousel slides={slides} locale={locale} />
     </BrandedContentSection>
   );
 }

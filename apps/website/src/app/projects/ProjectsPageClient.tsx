@@ -98,7 +98,7 @@ export default function ProjectsPageClient() {
       <div className="relative min-h-screen w-full overflow-x-hidden bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <span className="sr-only">{t("languageActive")}</span>
         {/* Hero Section */}
-        <ProjectsHero />
+        <ProjectsHero locale={isEs ? "es" : "en"} />
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb
@@ -114,6 +114,7 @@ export default function ProjectsPageClient() {
 
         {/* Filter & Search Section - Primary discovery entry */}
         <ProjectsFilterSection
+          locale={isEs ? "es" : "en"}
           selectedCategory={selectedCategory}
           onCategoryChange={setSelectedCategory}
           searchQuery={searchQuery}
@@ -124,6 +125,7 @@ export default function ProjectsPageClient() {
 
         {/* Projects Grid - Show the work first */}
         <ProjectsGridSection
+          locale={isEs ? "es" : "en"}
           projects={projects}
           selectedCategory={selectedCategory}
           hasActiveFilters={hasActiveFilters}
@@ -131,7 +133,7 @@ export default function ProjectsPageClient() {
         />
 
         {/* Stats Section - Keep one concise proof block */}
-        <ProjectsStatsSection />
+        <ProjectsStatsSection locale={isEs ? "es" : "en"} />
 
         {/* Testimonials Section */}
         <TestimonialsSection
@@ -144,7 +146,7 @@ export default function ProjectsPageClient() {
         />
 
         {/* Next Steps Section - Standardized Final CTA */}
-        <NextStepsSection />
+        <NextStepsSection locale={isEs ? "es" : "en"} />
       </div>
     </>
   );

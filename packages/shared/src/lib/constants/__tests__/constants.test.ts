@@ -8,6 +8,7 @@ import {
   SOCIAL_ICONS,
   SECTION_ICONS,
 } from "../navigation-icons";
+import { COMPANY_INFO } from "../company";
 
 // ── navigation-icons ──────────────────────────────────────────────────────────
 
@@ -53,5 +54,13 @@ describe("SECTION_ICONS", () => {
     expect(typeof SECTION_ICONS.explore).toBe("string");
     expect(typeof SECTION_ICONS.ourForces).toBe("string");
     expect(typeof SECTION_ICONS.connect).toBe("string");
+  });
+});
+
+describe("COMPANY_INFO", () => {
+  it("uses the canonical Inland Northwest AGC member directory URL", () => {
+    expect(COMPANY_INFO.agc.website).toBe(
+      "https://business.nwagc.org/memberdirectory/Details/mh-construction-3229535",
+    );
   });
 });

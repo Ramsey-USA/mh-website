@@ -192,7 +192,7 @@ Use this manifest as the minimum route-surface inventory for branding audits.
 39. `/terms`
 40. `/testimonials`
 41. `/veterans`
-42. `/veterans/public-sector-construction`
+42. `/public-sector/veteran-led-construction`
 
 ### Shared State Surfaces
 

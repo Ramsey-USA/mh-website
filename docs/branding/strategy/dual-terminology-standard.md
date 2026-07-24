@@ -1,6 +1,6 @@
 # Dual Terminology Standard
 
-**Last Updated:** July 12, 2026  
+**Last Updated:** July 24, 2026  
 **Status:** Canonical Reference (enterprise terminology)
 
 ## Purpose
@@ -43,6 +43,8 @@ Rendered pair requirement:
 ## Core Rule
 
 Use surface-specific dual terminology to preserve both clarity and MH brand voice.
+Use professional or construction terminology first and military terminology second as the clarifier across public page naming (for example, `Services (Operations Brief)` and `Careers (Recruitment Command)`).
+Home remains the intentional anchor exception as `Home (Command Center)`.
 When a concept has a required primary/secondary pair above, do not collapse it to a single alias on one surface.
 When showing the pair inline in copy or labels, use the canonical rendered form exactly (for example,
 `Dashboard (Staff Hub)` and `MISH Safety & Health Program (Safety Manual)`).
@@ -104,10 +106,10 @@ Governance companion for review and authoring rules: `docs/branding/strategy/pag
 
 ### Projects
 
-- PageNavigation top row: `Our Work`
+- PageNavigation top row: `Project SITREP`
 - Hamburger/Footer primary: `Projects`
-- Hamburger/Footer secondary: `Our Work`
-- Browser tab standard: `Projects (Our Work) | Completed Commercial and Industrial Construction Projects | MH Construction`
+- Hamburger/Footer secondary: `Project SITREP`
+- Browser tab standard: `Projects (Project SITREP) | Completed Commercial and Industrial Construction Projects | MH Construction`
 
 ### Contact
 
@@ -124,7 +126,7 @@ Governance companion for review and authoring rules: `docs/branding/strategy/pag
 
 ### Additional Covered Labels
 
-- Metadata dual form remains canonical, for example `Locations (Regional Coverage)`.
+- Metadata dual form remains canonical, for example `Locations (Regional AO)`.
 - UI surfaces should follow the surface matrix above rather than forced parenthetical rendering.
 
 ## Construction Terminology Alignment

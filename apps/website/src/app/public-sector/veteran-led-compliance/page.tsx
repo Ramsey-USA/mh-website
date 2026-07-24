@@ -18,16 +18,17 @@ const VETERAN_LED_COMPLIANCE_HERO_SLOGAN = getHeroPageSlogan(
 ).slogan;
 const GOVERNMENT_LIGHT_LOGO = "/images/logo/mh-logo-black.webp";
 const GOVERNMENT_DARK_LOGO = "/images/logo/mh-logo-white.webp";
+const veteranLedComplianceSeoTitle = `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Led Compliance Workflow | MH Construction`;
 
 export const metadata: Metadata = {
-  title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Led Compliance Workflow | MH Construction`,
+  title: veteranLedComplianceSeoTitle,
   description:
-    "Review MH Construction's veteran-led workflow for public-sector predeployment, procurement readiness, and execution oversight.",
+    "Review MH Construction's veteran-led workflow for public-sector preconstruction planning, procurement readiness, and execution oversight.",
   keywords: [
     "veteran-led compliance workflow",
-    "public-sector predeployment planning",
+    "public-sector preconstruction planning",
     "procurement-ready construction planning",
-    "public agency mission-partner alignment",
+    "public agency project alignment",
     "government construction compliance support",
     "municipal construction documentation workflow",
     "BABAA-informed planning support",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/public-sector/veteran-led-compliance`,
   },
   openGraph: {
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Led Compliance Workflow | MH Construction`,
+    title: veteranLedComplianceSeoTitle,
     description:
       "Veteran-led workflow for public-sector planning, procurement readiness, and transparent compliance reporting.",
     url: `${SITE_URL}/public-sector/veteran-led-compliance`,
@@ -51,9 +52,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Veteran-Led Public-Sector Compliance Workflow | MH Construction",
+    title: veteranLedComplianceSeoTitle,
     description:
-      "Public-sector compliance planning with veteran-led execution controls and transparent mission-partner reporting.",
+      "Public-sector compliance planning with veteran-led execution controls and transparent project reporting.",
     creator: "@mhc_gc",
     images: [`${SITE_URL}/images/og/services/municipal-government.webp`],
   },
@@ -110,7 +111,7 @@ export default async function VeteranLedCompliancePage() {
           <p className="mt-5 max-w-3xl text-lg leading-8 text-white/85">
             {isEs
               ? "Una ruta practica desde requisitos gubernamentales hasta ejecucion en campo, disenada para entrega disciplinada y alineacion transparente con partes interesadas."
-              : "A practical route from government requirements to field execution, designed for disciplined delivery and transparent mission-partner alignment."}
+              : "A practical route from government requirements to field execution, designed for disciplined delivery and transparent project-stakeholder alignment."}
           </p>
           <p className="mt-3 text-sm font-semibold text-white/90 sm:text-base">
             {COMPANY_INFO.slogan.primary}

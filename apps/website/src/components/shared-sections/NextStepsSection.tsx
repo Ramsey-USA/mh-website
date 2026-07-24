@@ -80,10 +80,10 @@ const NEXT_STEPS_COPY: Record<"en" | "es", NextStepsCopy> = {
     tag: "Most Popular",
     option2Title: "See Our Real Work",
     option2Description:
-      "Real projects. Real results. Real testimonials from mission partners who trust us.",
+      "Real projects. Real results. Real testimonials from project stakeholders who trust us.",
     option2Bullets: [
       "650+ completed projects since 2010",
-      "98% mission-partner satisfaction rate",
+      "98% project-stakeholder satisfaction rate",
       "70% referral rate - proven excellence",
     ],
     option3Title: "Let's Talk Face-to-Face",
@@ -146,7 +146,7 @@ export function NextStepsSection(props: Readonly<NextStepsSectionProps>) {
           <div
             className={`bg-linear-to-r from-brand-secondary to-brand-secondary-dark -top-4 left-1/2 absolute px-5 py-1.5 ${cornerRadius.full} -translate-x-1/2 shadow-lg border border-brand-secondary/30`}
           >
-            <span className="font-subheading font-bold text-xs text-white font-heading uppercase tracking-wider flex items-center gap-1.5">
+            <span className="font-subheading font-bold text-xs text-white uppercase tracking-wider flex items-center gap-1.5">
               <MaterialIcon icon="star" size="sm" className="text-yellow-300" />
               {copy.tag}
             </span>

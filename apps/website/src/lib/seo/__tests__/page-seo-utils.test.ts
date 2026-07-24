@@ -221,7 +221,7 @@ describe("page seo utils", () => {
       slug: "tenant-improvements",
       title: "Tenant Improvements",
       summary:
-        "Mission-ready fit-outs with clear sequencing and disciplined field coordination.",
+        "Tenant improvements with clear sequencing and disciplined field coordination.",
       supportedProjectTypes: ["Office"],
       processStatements: ["Coordinate work around occupied operations."],
       proofReferences: ["projects/tenant-improvements"],
@@ -232,7 +232,7 @@ describe("page seo utils", () => {
       metaDescription:
         "Tenant improvement planning and delivery for occupied facilities.",
       ogImage: "/images/og/services/tenant-improvements.webp",
-      category: "Fit-Out Services",
+      category: "Tenant Improvement Services",
       overview: "Tenant improvement delivery for occupied facilities.",
       focusAreas: ["Scheduling"],
       technicalPriorities: ["Quality Control"],

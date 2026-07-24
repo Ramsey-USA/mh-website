@@ -1,11 +1,14 @@
 import { useTranslations } from "next-intl";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { cornerRadius, transitionDuration } from "@/lib/styles/design-tokens";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 
 export function ServicesHero({
   heroSlogan = COMPANY_INFO.slogan.secondary,
-}: Readonly<{ heroSlogan?: string }>) {
+  locale = "en",
+}: Readonly<{ heroSlogan?: string; locale?: SupportedLocale }>) {
   const t = useTranslations("home");
+  const suffixLabel = locale === "es" ? "Servicios" : "Services";
 
   return (
     <section
@@ -29,7 +32,7 @@ export function ServicesHero({
         >
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
             <span className="block text-brand-secondary text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl mb-1">
-              {t("services.hero.sectionSubtitle")} -&gt; Services
+              {t("services.hero.sectionSubtitle")} -&gt; {suffixLabel}
             </span>
             <span className="block text-brand-secondary">
               {t("services.hero.sectionTitle")}

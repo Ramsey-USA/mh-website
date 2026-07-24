@@ -94,17 +94,17 @@ export function AccreditationsLogoRow({
         />
       </a>
 
-      {/* AGC of Washington Member */}
+      {/* Inland Northwest AGC Member */}
       <a
-        href="https://www.agcwa.com/"
+        href={COMPANY_INFO.agc.website}
         target="_blank"
         rel="noopener noreferrer"
-        title="AGC of Washington Member"
+        title="Inland Northwest AGC Member"
         className={linkClass}
       >
         <img
           src="/images/logo/agc-member.webp"
-          alt="AGC of Washington Member"
+          alt="Inland Northwest AGC Member"
           width={405}
           height={427}
           loading="lazy"

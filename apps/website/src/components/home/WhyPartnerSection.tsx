@@ -161,7 +161,7 @@ export function WhyPartnerSection({
             <>
               Review the operating standards behind every{" "}
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                mission-partner relationship
+                project-stakeholder relationship
               </span>
               : safety leadership, transparent process controls, and{" "}
               <span className="font-bold text-gray-900 dark:text-white">
@@ -223,7 +223,7 @@ export function WhyPartnerSection({
                           {displayStat}
                         </div>
                       ) : null}
-                      <div className="font-subheading text-xs font-semibold text-gray-600 dark:text-gray-300 font-heading uppercase tracking-wider">
+                      <div className="font-subheading text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
                         {value.statLabel}
                       </div>
                     </div>

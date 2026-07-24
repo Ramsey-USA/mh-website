@@ -1,7 +1,7 @@
 # Marketing Documentation
 
 **Category:** Marketing - Overview  
-**Last Updated:** May 15, 2026
+**Last Updated:** July 24, 2026
 
 ## Overview
 
@@ -12,6 +12,10 @@ All marketing copy must remain congruent with MH branding standards: relationshi
 **Brand Congruency:** Marketing assets and page treatments must keep typography and color usage aligned with canonical MH standards.
 
 ## Available Resources
+
+### Strategy Baseline
+
+- **[Social Media Branding Parameters (Project Baseline)](./parameters/social-media-branding-parameters.md)** — Canonical MH terminology, trust-proof rules, adjustable cadence/length parameters, and required security-tier communication controls for public-sector work.
 
 ### Google Business Profile
 

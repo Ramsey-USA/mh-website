@@ -52,7 +52,7 @@ export async function generateMetadata({
     };
   }
 
-  const title = `${event.title} | MH Construction`;
+  const title = buildDualSeoTitle("events", event.title);
   const description = event.summary;
   const ogImageUrl = createOgImageUrl("event", event.slug);
   const keywords = EVENT_SEO_KEYWORDS[event.slug] ?? [

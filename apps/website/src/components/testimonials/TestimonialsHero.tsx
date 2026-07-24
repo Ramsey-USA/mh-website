@@ -1,7 +1,27 @@
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 
-export function TestimonialsHero() {
+interface TestimonialsHeroProps {
+  isEs?: boolean;
+}
+
+export function TestimonialsHero({
+  isEs = false,
+}: Readonly<TestimonialsHeroProps>) {
+  const copy = isEs
+    ? {
+        eyebrow: "Reconocimientos y resenas",
+        line1: "Resultados verificados",
+        line2: "de aliados reales",
+        subline: "Historias comprobadas de proyectos completados",
+      }
+    : {
+        eyebrow: "Commendations and Reviews",
+        line1: "Verified Results",
+        line2: "From Real Project Stakeholders",
+        subline: "Verified success stories from completed projects",
+      };
+
   return (
     <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
       {/* Background - Ready for photo or video */}
@@ -15,14 +35,12 @@ export function TestimonialsHero() {
         <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
             <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-              Commendations → Reviews
+              {copy.eyebrow}
             </span>
-            <span className="block text-brand-secondary">
-              After-Action Reports
-            </span>
-            <span className="block text-white">From Real Client Missions</span>
+            <span className="block text-brand-secondary">{copy.line1}</span>
+            <span className="block text-white">{copy.line2}</span>
             <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
-              Verified Success Stories from Completed Missions
+              {copy.subline}
             </span>
             <span className="block text-brand-secondary/75 text-xs xs:text-sm sm:text-base mt-2">
               {COMPANY_INFO.slogan.primary}

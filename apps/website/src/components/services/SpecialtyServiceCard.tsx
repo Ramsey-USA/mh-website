@@ -6,16 +6,19 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { getCardClassName } from "@/lib/styles/card-variants";
 import { cornerRadius, transitionDuration } from "@/lib/styles/design-tokens";
+import type { SupportedLocale } from "@/lib/i18n/locale";
 import type { SpecialtyService } from "./servicesData";
 
 interface SpecialtyServiceCardProps {
   service: SpecialtyService;
+  locale?: SupportedLocale;
 }
 
 export function SpecialtyServiceCard(
   props: Readonly<SpecialtyServiceCardProps>,
 ) {
-  const { service } = props;
+  const { service, locale = "en" } = props;
+  const isEs = locale === "es";
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -39,7 +42,7 @@ export function SpecialtyServiceCard(
         role="button"
         tabIndex={0}
         aria-expanded={isExpanded}
-        aria-label={`${isExpanded ? "Collapse" : "Expand"} ${service.title} details`}
+        aria-label={`${isExpanded ? (isEs ? "Colapsar" : "Collapse") : isEs ? "Expandir" : "Expand"} ${service.title} ${isEs ? "detalles" : "details"}`}
       >
         <CardHeader className="shrink-0 pb-4 p-4 sm:p-5 lg:p-6">
           <div className="flex items-start justify-between gap-4">
@@ -75,9 +78,15 @@ export function SpecialtyServiceCard(
           </div>
 
           <div
-            className={`font-subheading font-heading mt-3 inline-flex items-center ${cornerRadius.full} border border-brand-secondary/30 bg-brand-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-secondary dark:border-brand-secondary/40 dark:bg-brand-secondary/15`}
+            className={`font-subheading mt-3 inline-flex items-center ${cornerRadius.full} border border-brand-secondary/30 bg-brand-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-secondary dark:border-brand-secondary/40 dark:bg-brand-secondary/15`}
           >
-            {isExpanded ? "Details Open" : "Tap for Details"}
+            {isExpanded
+              ? isEs
+                ? "Detalle abierto"
+                : "Details Open"
+              : isEs
+                ? "Toque para ver detalle"
+                : "Tap for Details"}
           </div>
         </CardHeader>
 
@@ -90,7 +99,7 @@ export function SpecialtyServiceCard(
               <div className="flex items-center justify-center text-brand-secondary dark:text-brand-secondary-light">
                 <MaterialIcon icon="info" size="sm" className="mr-2" />
                 <span className="text-xs font-medium">
-                  Click to view details
+                  {isEs ? "Toque para ver detalles" : "Click to view details"}
                 </span>
               </div>
             </div>
@@ -118,7 +127,9 @@ export function SpecialtyServiceCard(
                       className="mr-2 text-brand-secondary text-sm sm:text-base shrink-0"
                     />
                     <p className="font-bold text-gray-900 dark:text-white text-xs sm:text-sm">
-                      Service Areas We Support:
+                      {isEs
+                        ? "Areas de servicio que atendemos:"
+                        : "Service Areas We Support:"}
                     </p>
                   </div>
                   <ul className="space-y-1.5">
@@ -151,7 +162,7 @@ export function SpecialtyServiceCard(
                       className="mr-2 text-brand-primary text-sm sm:text-base shrink-0"
                     />
                     <p className="font-bold text-gray-900 dark:text-white text-xs sm:text-sm">
-                      What We Build:
+                      {isEs ? "Que construimos:" : "What We Build:"}
                     </p>
                   </div>
                   <ul className="space-y-1.5">
@@ -184,7 +195,7 @@ export function SpecialtyServiceCard(
                       className="mr-2 text-brand-secondary text-sm sm:text-base shrink-0"
                     />
                     <p className="font-bold text-gray-900 dark:text-white text-xs sm:text-sm">
-                      Key Features:
+                      {isEs ? "Caracteristicas clave:" : "Key Features:"}
                     </p>
                   </div>
                   <ul className="space-y-1.5">
@@ -217,7 +228,7 @@ export function SpecialtyServiceCard(
                       className="mr-2 text-brand-primary text-sm sm:text-base shrink-0"
                     />
                     <p className="font-bold text-gray-900 dark:text-white text-xs sm:text-sm">
-                      Capabilities:
+                      {isEs ? "Capacidades:" : "Capabilities:"}
                     </p>
                   </div>
                   <ul className="space-y-1.5">
@@ -274,7 +285,7 @@ export function SpecialtyServiceCard(
                   href={service.detailHref}
                   className="inline-flex items-center justify-center rounded-lg border border-brand-primary/40 bg-white px-3 py-2 text-xs font-semibold text-brand-primary hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-brand-primary-light"
                 >
-                  View service page
+                  {isEs ? "Ver pagina del servicio" : "View service page"}
                 </Link>
               ) : null}
             </div>
@@ -282,7 +293,9 @@ export function SpecialtyServiceCard(
             <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700">
               <div className="flex items-center justify-center text-brand-secondary dark:text-brand-secondary-light">
                 <MaterialIcon icon="expand_less" size="sm" className="mr-2" />
-                <span className="text-xs font-medium">Click to collapse</span>
+                <span className="text-xs font-medium">
+                  {isEs ? "Toque para colapsar" : "Click to collapse"}
+                </span>
               </div>
             </div>
           </CardContent>
