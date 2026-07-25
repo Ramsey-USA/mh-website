@@ -19,7 +19,7 @@ overrides:
   js-yaml@>=4.0.0 <4.3.0: 4.3.0
 
 patchedDependencies:
-  minimatch@10.2.5: 89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa
+  minimatch@10.2.5: bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b
 
 importers:
 
@@ -8227,7 +8227,7 @@ snapshots:
     dependencies:
       '@eslint/object-schema': 2.1.7
       debug: 4.4.3
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
     transitivePeerDependencies:
       - supports-color
 
@@ -8248,7 +8248,7 @@ snapshots:
       ignore: 5.3.2
       import-fresh: 3.3.1
       js-yaml: 4.3.0
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
@@ -8262,7 +8262,7 @@ snapshots:
       ignore: 5.3.2
       import-fresh: 3.3.1
       js-yaml: 4.3.0
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
@@ -10032,7 +10032,7 @@ snapshots:
       '@typescript-eslint/types': 8.65.0
       '@typescript-eslint/visitor-keys': 8.65.0
       debug: 4.4.3
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
       semver: 7.8.5
       tinyglobby: 0.2.17
       ts-api-utils: 2.5.0(typescript@6.0.3)
@@ -10794,7 +10794,7 @@ snapshots:
       js-yaml: 3.15.0
       json5: 2.2.3
       lodash: 4.18.1
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
       multimatch: 5.0.0
       please-upgrade-node: 3.2.0
       readdirp: 3.6.0
@@ -11180,7 +11180,7 @@ snapshots:
       hasown: 2.0.4
       is-core-module: 2.16.2
       is-glob: 4.0.3
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
       object.fromentries: 2.0.8
       object.groupby: 1.0.3
       object.values: 1.2.1
@@ -11208,7 +11208,7 @@ snapshots:
       hasown: 2.0.4
       jsx-ast-utils: 3.3.5
       language-tags: 1.0.9
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
       object.fromentries: 2.0.8
       safe-regex-test: 1.1.0
       string.prototype.includes: 2.0.1
@@ -11236,7 +11236,7 @@ snapshots:
       estraverse: 5.3.0
       hasown: 2.0.4
       jsx-ast-utils: 3.3.5
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
       object.entries: 1.1.9
       object.fromentries: 2.0.8
       object.values: 1.2.1
@@ -11290,7 +11290,7 @@ snapshots:
       is-glob: 4.0.3
       json-stable-stringify-without-jsonify: 1.0.1
       lodash.merge: 4.6.2
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
       natural-compare: 1.4.0
       optionator: 0.9.4
     optionalDependencies:
@@ -11581,7 +11581,7 @@ snapshots:
     dependencies:
       foreground-child: 3.3.1
       jackspeak: 3.4.3
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
       minipass: 7.1.3
       package-json-from-dist: 1.0.1
       path-scurry: 1.11.1
@@ -11590,7 +11590,7 @@ snapshots:
     dependencies:
       foreground-child: 3.3.1
       jackspeak: 4.2.3
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
       minipass: 7.1.3
       package-json-from-dist: 1.0.1
       path-scurry: 2.0.2
@@ -11600,14 +11600,14 @@ snapshots:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
       once: 1.4.0
       path-is-absolute: 1.0.1
 
   glob@9.3.5:
     dependencies:
       fs.realpath: 1.0.0
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
       minipass: 4.2.8
       path-scurry: 1.11.1
 
@@ -13012,7 +13012,7 @@ snapshots:
 
   minimalistic-assert@1.0.1: {}
 
-  minimatch@10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa):
+  minimatch@10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b):
     dependencies:
       brace-expansion: 5.0.8
 
@@ -13044,7 +13044,7 @@ snapshots:
       array-differ: 3.0.0
       array-union: 2.1.0
       arrify: 2.0.1
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
 
   nanoid@3.3.16: {}
 
@@ -14004,7 +14004,7 @@ snapshots:
     dependencies:
       '@istanbuljs/schema': 0.1.6
       glob: 7.2.3
-      minimatch: 10.2.5(patch_hash=89b1741d947dc9214d5289c84f00edc86483e2890beedca3944105a4ca9d06fa)
+      minimatch: 10.2.5(patch_hash=bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b)
 
   third-party-web@0.29.2: {}
 

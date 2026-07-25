@@ -1,5 +1,4 @@
 diff --git a/dist/commonjs/index.js b/dist/commonjs/index.js
-index 1234567..abcdefg 100644
 --- a/dist/commonjs/index.js
 +++ b/dist/commonjs/index.js
 @@ -1124,4 +1124,5 @@
