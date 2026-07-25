@@ -14,6 +14,8 @@ overrides:
   js-yaml@>=5.0.0 <=5.2.1: 5.2.2
   js-yaml@>=3.0.0 <3.15.0: 3.15.0
   js-yaml@>=4.0.0 <4.3.0: 4.3.0
+patchedDependencies:
+  minimatch@10.2.5: patches/minimatch@10.2.5.patch
 allowBuilds:
   "@parcel/watcher": true
   "@swc/core": true
