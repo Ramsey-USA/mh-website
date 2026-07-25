@@ -19,7 +19,9 @@ overrides:
   js-yaml@>=4.0.0 <4.3.0: 4.3.0
 
 patchedDependencies:
-  minimatch@10.2.5: bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b
+  minimatch@10.2.5:
+    hash: bdcabc234603b7522d9ecbbd35c322df6aa3f702237be0c1a8316dbb3036de8b
+    path: patches/minimatch@10.2.5.patch
 
 importers:
 
