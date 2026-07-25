@@ -1,0 +1,11 @@
+diff --git a/dist/commonjs/index.js b/dist/commonjs/index.js
+index 1234567..abcdefg 100644
+--- a/dist/commonjs/index.js
++++ b/dist/commonjs/index.js
+@@ -1124,4 +1124,5 @@
+ exports.minimatch.Minimatch = Minimatch;
+ exports.minimatch.escape = escape_js_1.escape;
+ exports.minimatch.unescape = unescape_js_1.unescape;
++exports.default = exports.minimatch;
+ //# sourceMappingURL=index.js.map
+\ No newline at end of file
