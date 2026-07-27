@@ -15,9 +15,9 @@
     "react": ">=19"
   },
   "dependencies": {
-    "@sentry/browser": "^10.67.0",
+    "@sentry/browser": "^10.68.0",
     "clsx": "^2.1.1",
-    "jose": "^6.2.3",
+    "jose": "^6.2.4",
     "resend": "^6.18.0",
     "tailwind-merge": "^3.6.0",
     "toucan-js": "^4.1.1"
@@ -27,7 +27,7 @@
     "@types/node": "^26.1.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.0.0",
-    "next": "16.2.11",
+    "next": "16.2.12",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "typescript": "^6.0.3"
