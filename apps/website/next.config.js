@@ -122,6 +122,17 @@ const nextConfig = {
       process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
   },
 
+  async generateBuildId() {
+    const buildId =
+      process.env.VERCEL_GIT_COMMIT_SHA ||
+      process.env.GITHUB_SHA ||
+      `local-${Date.now().toString(36)}`;
+
+    process.env.NEXT_PUBLIC_SW_BUILD_ID = buildId;
+
+    return buildId;
+  },
+
   // Type checking is handled by ci:gate (npm run type-check) — skip during
   // next build to save ~22s. Errors still caught pre-merge.
   typescript: {

@@ -7,6 +7,14 @@
   Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
 
+# Service worker must never be edge-cached; browsers rely on fresh checks.
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+  Service-Worker-Allowed: /
+  X-Content-Type-Options: nosniff
+
+/sw-version.json
+
 # CSS files - with early hints
 /_next/static/css/*.css
   Content-Type: text/css; charset=utf-8

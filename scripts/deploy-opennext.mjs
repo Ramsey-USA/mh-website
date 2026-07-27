@@ -68,9 +68,62 @@ const wranglerConfigPath = existsSync(join(appRoot, "wrangler.toml"))
   ? join(appRoot, "wrangler.toml")
   : join(repoRoot, "wrangler.toml");
 
+const DEPLOY_ENV_FILES = [
+  join(repoRoot, ".env.r2.local"),
+  join(repoRoot, ".env.local"),
+  join(appRoot, ".env.r2.local"),
+  join(appRoot, ".env.local"),
+];
+
+const ENV_KEYS_TO_LOAD = new Set([
+  "CLOUDFLARE_API_TOKEN",
+  "CF_API_TOKEN",
+  "CLOUDFLARE_API_KEY",
+  "CLOUDFLARE_EMAIL",
+  "CLOUDFLARE_ACCOUNT_ID",
+  "CF_ACCOUNT_ID",
+  "CLOUDFLARE_ZONE_ID",
+  "CF_ZONE_ID",
+]);
+
 function fail(message) {
   console.error(`✖ ${message}`);
   process.exit(1);
+}
+
+function loadDeployEnvVars() {
+  for (const envPath of DEPLOY_ENV_FILES) {
+    if (!existsSync(envPath)) continue;
+
+    const contents = readFileSync(envPath, "utf8");
+    const lines = contents.split(/\r?\n/);
+
+    for (const rawLine of lines) {
+      const line = rawLine.trim();
+      if (!line || line.startsWith("#")) continue;
+
+      const separatorIndex = line.indexOf("=");
+      if (separatorIndex <= 0) continue;
+
+      const key = line.slice(0, separatorIndex).trim();
+      if (!ENV_KEYS_TO_LOAD.has(key)) continue;
+      if (process.env[key]) continue;
+
+      let value = line.slice(separatorIndex + 1).trim();
+
+      // Strip surrounding quotes for simple .env values.
+      if (
+        (value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'"))
+      ) {
+        value = value.slice(1, -1);
+      }
+
+      if (value) {
+        process.env[key] = value;
+      }
+    }
+  }
 }
 
 function validateHeadersConfig() {
@@ -146,10 +199,18 @@ function runPreflightChecks() {
   const hasLegacyAuth =
     Boolean(process.env.CLOUDFLARE_API_KEY) &&
     Boolean(process.env.CLOUDFLARE_EMAIL);
+  const hasWranglerSession = (() => {
+    const result = spawnSync("pnpm", ["exec", "wrangler", "whoami"], {
+      cwd: appRoot,
+      encoding: "utf8",
+      stdio: "pipe",
+    });
+    return result.status === 0;
+  })();
 
-  if (!hasApiToken && !hasLegacyAuth) {
+  if (!hasApiToken && !hasLegacyAuth && !hasWranglerSession) {
     fail(
-      "Missing Cloudflare auth. Set CLOUDFLARE_API_TOKEN (recommended) or CLOUDFLARE_API_KEY + CLOUDFLARE_EMAIL before deploy.",
+      "Missing Cloudflare auth. Set CLOUDFLARE_API_TOKEN (recommended), CLOUDFLARE_API_KEY + CLOUDFLARE_EMAIL, or authenticate with 'wrangler login' before deploy.",
     );
   }
 
@@ -171,7 +232,7 @@ function runPreflightChecks() {
   const hasAccountEnv =
     Boolean(process.env.CLOUDFLARE_ACCOUNT_ID) ||
     Boolean(process.env.CF_ACCOUNT_ID);
-  if (!hasAccountEnv && !hasApiToken) {
+  if (!hasAccountEnv && !hasApiToken && !hasWranglerSession) {
     fail(
       "Missing account context. Set CLOUDFLARE_ACCOUNT_ID or use an account-scoped CLOUDFLARE_API_TOKEN.",
     );
@@ -475,12 +536,11 @@ function deployWithRetry(extraEnv = {}) {
   clearWranglerTmp();
 
   const shouldSkipRouteMutation =
-    process.env.CLOUDFLARE_MANAGE_ROUTES !== "true" &&
-    (process.env.CI === "true" || process.env.GITHUB_ACTIONS === "true");
+    process.env.CLOUDFLARE_MANAGE_ROUTES !== "true";
 
   if (shouldSkipRouteMutation) {
     console.log(
-      "ℹ CI deploy uses route-free wrangler config by default; set CLOUDFLARE_MANAGE_ROUTES=true to enable route updates.",
+      "ℹ Route-free deploy is the default; set CLOUDFLARE_MANAGE_ROUTES=true only if you want Wrangler to manage routes.",
     );
     deployWithoutRoutes(extraEnv);
     return;
@@ -555,6 +615,8 @@ function deployWithRetry(extraEnv = {}) {
     process.exit(secondAttempt.status ?? 1);
   }
 }
+
+loadDeployEnvVars();
 
 const buildCurrent =
   existsSync(openNextWorker) &&

@@ -154,6 +154,8 @@ cp .env.r2.local.example .env.r2.local
   - `.env.r2.local`
   - `.env.local`
 
+- Deployment also auto-loads the same Cloudflare variables for `npm run deploy`, so manual `export CLOUDFLARE_API_TOKEN=...` is not required when the env files are present.
+
 - Inline auth still works when needed:
 
 ```bash
@@ -167,6 +169,8 @@ CLOUDFLARE_API_TOKEN="$TOKEN" CLOUDFLARE_ACCOUNT_ID="$ACC" pnpm --filter @mhc/we
 ```bash
 pnpm --filter @mhc/website run docs:publish:all
 ```
+
+- Service worker updates are build-versioned during deploy; avoid manual Cloudflare purges for `sw.js` unless a release is misconfigured and you are doing incident cleanup.
 
 - Always run `pnpm --filter @mhc/website run docs:verify:published` after publish.
 - Ensure Cloudflare WAF custom rule for `/docs/` `GET/HEAD` challenge skip remains active, or machine verifiers may receive edge challenges.

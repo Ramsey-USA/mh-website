@@ -47,12 +47,16 @@ function isEmployeeRefreshUid(uid: string | null): boolean {
 async function hasEmployeeAccess(request: NextRequest): Promise<boolean> {
   const token = extractTokenFromHeader(request.headers.get("authorization"));
   if (token) {
-    const user = await verifyToken(token);
-    if (
-      user?.role &&
-      ["admin", "superintendent", "worker", "traveler"].includes(user.role)
-    ) {
-      return true;
+    try {
+      const user = await verifyToken(token);
+      if (
+        user?.role &&
+        ["admin", "superintendent", "worker", "traveler"].includes(user.role)
+      ) {
+        return true;
+      }
+    } catch (error) {
+      logger.warn("Docs auth token verification failed", error);
     }
   }
 
@@ -65,9 +69,13 @@ async function hasEmployeeAccess(request: NextRequest): Promise<boolean> {
 
   for (const refreshToken of refreshCandidates) {
     if (!refreshToken) continue;
-    const refreshUid = await verifyRefreshToken(refreshToken);
-    if (isEmployeeRefreshUid(refreshUid)) {
-      return true;
+    try {
+      const refreshUid = await verifyRefreshToken(refreshToken);
+      if (isEmployeeRefreshUid(refreshUid)) {
+        return true;
+      }
+    } catch (error) {
+      logger.warn("Docs refresh token verification failed", error);
     }
   }
 

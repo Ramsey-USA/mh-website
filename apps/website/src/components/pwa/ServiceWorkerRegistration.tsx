@@ -25,6 +25,12 @@ interface ServiceWorkerRegistrationProps {
 
 type StoredRole = "admin" | "superintendent" | "worker" | "traveler";
 
+const SW_BUILD_ID = process.env["NEXT_PUBLIC_SW_BUILD_ID"] ?? "development";
+
+function buildServiceWorkerUrl(buildId: string): string {
+  return `/sw.js?v=${encodeURIComponent(buildId)}`;
+}
+
 function getStoredRole(): StoredRole | null {
   try {
     const adminToken = localStorage.getItem("admin_token");
@@ -93,9 +99,11 @@ export function ServiceWorkerRegistration({
     let updateIntervalId: ReturnType<typeof setInterval> | undefined;
 
     const performRegistration = () => {
+      const serviceWorkerUrl = buildServiceWorkerUrl(SW_BUILD_ID);
+
       // Register service worker
       navigator.serviceWorker
-        .register("/sw.js", { scope: "/" })
+        .register(serviceWorkerUrl, { scope: "/" })
         .then((reg) => {
           logger.info("[PWA] Service worker registered successfully");
           setRegistration(reg);
@@ -155,26 +163,7 @@ export function ServiceWorkerRegistration({
     if (process.env.NODE_ENV !== "production" || typeof fetch !== "function") {
       performRegistration();
     } else {
-      void fetch("/sw.js", {
-        method: "GET",
-        cache: "no-store",
-      })
-        .then((swCheck) => {
-          if (!swCheck.ok) {
-            logger.warn(
-              `[PWA] Skipping service worker registration: /sw.js returned ${swCheck.status}`,
-            );
-            return;
-          }
-
-          performRegistration();
-        })
-        .catch((error) => {
-          logger.warn(
-            "[PWA] Skipping service worker registration: /sw.js check failed",
-            error,
-          );
-        });
+      performRegistration();
     }
 
     // Handle controller change (new SW activated)

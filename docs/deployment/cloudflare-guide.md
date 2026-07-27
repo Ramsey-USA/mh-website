@@ -120,9 +120,22 @@ binding = "ASSETS"
 | `PUPPETEER_SKIP_DOWNLOAD`       | `true`            | Skips Chrome binary download during deploy builds |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-XXXXXXXXXX`    | Google Analytics (optional)                       |
 
+The local deploy wrapper auto-loads the common Cloudflare env files when they are present:
+
+- `.env.r2.local`
+- `.env.local`
+- `apps/website/.env.r2.local`
+- `apps/website/.env.local`
+
+Route mutation is route-free by default during deploy. Set `CLOUDFLARE_MANAGE_ROUTES=true` only if you explicitly want Wrangler to manage zone routes.
+
 Set `PUPPETEER_SKIP_DOWNLOAD=true` in Cloudflare Workers project variables when
 browser automation is not required in deploy-time scripts. This reduces install
 time and avoids unnecessary postinstall network work.
+
+Service worker updates are versioned at build time. Do not add a manual purge
+step for `sw.js` to the release checklist; the client registers a deploy-specific
+URL so the browser naturally requests a fresh worker on each release.
 
 > **Note:** D1, KV, and R2 resource IDs are configured as bindings in
 > `wrangler.toml`, not as dashboard environment variables. Do not add

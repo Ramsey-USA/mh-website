@@ -13,6 +13,10 @@ jest.mock("@/lib/utils/logger", () => ({
   logger: { info: jest.fn(), warn: jest.fn(), error: jest.fn() },
 }));
 
+jest.mock("@/generated/sw-build-id", () => ({
+  SW_BUILD_ID: "test-build-id",
+}));
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 type SwEventListener = (event: Event) => void;
@@ -169,6 +173,10 @@ describe("ServiceWorkerRegistration (branch coverage)", () => {
     });
 
     expect(onInstalled).toHaveBeenCalled();
+    expect(navigator.serviceWorker.register).toHaveBeenCalledWith(
+      "/sw.js?v=test-build-id",
+      expect.objectContaining({ scope: "/" }),
+    );
   });
 
   it("calls onUpdateAvailable when reg.waiting exists", async () => {

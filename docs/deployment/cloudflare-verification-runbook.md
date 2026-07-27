@@ -141,13 +141,14 @@ Run:
 
 ```bash
 curl -sSI https://www.mhc-gc.com/ | grep -i 'cache-control\|cf-cache-status\|age'
-curl -sSI https://www.mhc-gc.com/sw.js | grep -i 'cache-control'
+curl -sSI https://www.mhc-gc.com/sw.js | grep -i 'cache-control\|service-worker-allowed'
 ```
 
 Mark:
 
-- `PASS` if homepage caching aligns with edge-cache strategy and `sw.js` is `no-cache/no-store`.
-- `FAIL` if headers conflict with `apps/website/next.config.js` and `apps/website/public/_headers`.
+- `PASS` if homepage caching aligns with edge-cache strategy and `sw.js` is `no-cache/no-store` with `Service-Worker-Allowed: /`.
+- `PASS` if the deployed service worker is registered from a versioned URL (`/sw.js?v=<build>`), so a new deploy automatically requests a fresh worker without any manual purge.
+- `FAIL` if headers conflict with `apps/website/next.config.js` or `apps/website/public/_headers`, or if the client still registers the unversioned `/sw.js` path.
 
 ### 7) Confirm Observability Capture
 
@@ -164,6 +165,12 @@ Mark:
 
 - **Fully connected:** Steps 1 through 4 are all `PASS`.
 - **Fully optimized:** Steps 1 through 7 are all `PASS`.
+
+## Service Worker Safeguard
+
+Do not rely on manual Cloudflare purges for service worker updates.
+
+The application now writes a build-specific service worker id during deploy and registers the worker at a versioned URL. If `sw.js` appears stale, re-check the deploy output and the generated build id source before purging the zone.
 
 If any step fails, status is **not fully optimized**.
 
