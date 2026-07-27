@@ -30,7 +30,7 @@ Package snapshot from apps/website/package.json:
 
 ```json
 {
-  "next": "16.2.11",
+  "next": "16.2.12",
   "react": "^19.2.8",
   "typescript": "^6.0.3"
 }
