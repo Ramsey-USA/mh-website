@@ -25,10 +25,12 @@ interface ServiceWorkerRegistrationProps {
 
 type StoredRole = "admin" | "superintendent" | "worker" | "traveler";
 
-const SW_BUILD_ID = process.env["NEXT_PUBLIC_SW_BUILD_ID"] ?? "development";
-
 function buildServiceWorkerUrl(buildId: string): string {
   return `/sw.js?v=${encodeURIComponent(buildId)}`;
+}
+
+function getServiceWorkerBuildId(): string {
+  return process.env["NEXT_PUBLIC_SW_BUILD_ID"] ?? "development";
 }
 
 function getStoredRole(): StoredRole | null {
@@ -99,7 +101,7 @@ export function ServiceWorkerRegistration({
     let updateIntervalId: ReturnType<typeof setInterval> | undefined;
 
     const performRegistration = () => {
-      const serviceWorkerUrl = buildServiceWorkerUrl(SW_BUILD_ID);
+      const serviceWorkerUrl = buildServiceWorkerUrl(getServiceWorkerBuildId());
 
       // Register service worker
       navigator.serviceWorker

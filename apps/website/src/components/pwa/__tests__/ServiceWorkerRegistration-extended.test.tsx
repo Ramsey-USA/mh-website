@@ -13,10 +13,6 @@ jest.mock("@/lib/utils/logger", () => ({
   logger: { info: jest.fn(), warn: jest.fn(), error: jest.fn() },
 }));
 
-jest.mock("@/generated/sw-build-id", () => ({
-  SW_BUILD_ID: "test-build-id",
-}));
-
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 type SwEventListener = (event: Event) => void;
@@ -132,11 +128,16 @@ function triggerNavSwEvent(event: NavSwEventName, data?: unknown) {
 
 describe("ServiceWorkerRegistration (branch coverage)", () => {
   const OLD_ENV = process.env.NODE_ENV;
+  const OLD_SW_BUILD_ID = process.env["NEXT_PUBLIC_SW_BUILD_ID"];
 
   beforeEach(() => {
     // Set env to production so the component runs the SW logic
     Object.defineProperty(process.env, "NODE_ENV", {
       value: "production",
+      configurable: true,
+    });
+    Object.defineProperty(process.env, "NEXT_PUBLIC_SW_BUILD_ID", {
+      value: "test-build-id",
       configurable: true,
     });
     // Suppress jsdom "Not implemented: navigation" errors from window.location.reload()
@@ -153,6 +154,10 @@ describe("ServiceWorkerRegistration (branch coverage)", () => {
     jest.restoreAllMocks();
     Object.defineProperty(process.env, "NODE_ENV", {
       value: OLD_ENV,
+      configurable: true,
+    });
+    Object.defineProperty(process.env, "NEXT_PUBLIC_SW_BUILD_ID", {
+      value: OLD_SW_BUILD_ID,
       configurable: true,
     });
     // Remove serviceWorker from navigator
