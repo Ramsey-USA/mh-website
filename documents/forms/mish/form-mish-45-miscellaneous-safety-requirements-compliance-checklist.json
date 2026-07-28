@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Miscellaneous Safety Requirements Compliance Checklist - chapter compliance log",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Compliance Notes and Corrective Actions",
+          "subtitle": "Record findings, immediate controls, responsible party, and closure verification.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Miscellaneous Safety Requirements Compliance Checklist",
+          "html": "<p><strong>Policy Summary:</strong> This form supports MISH 45 by documenting chapter-level safety requirement verification and corrective action tracking.</p><p><strong>Procedure Capture:</strong> Capture compliance checks, responsible role assignment, and due-date commitments for open issues.</p><p><strong>Task Use:</strong> Use during routine safety inspections and chapter audits to maintain sustained v5 program compliance.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Miscellaneous Safety Requirements Compliance Checklist Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Prepared By",
+              "name": "sign.preparedBy",
+              "signatureLabel": "Prepared By Signature"
+            },
+            {
+              "role": "Supervisor / Safety Officer",
+              "name": "sign.approver",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 /**
  * Safety Manual Cluster Definitions
  * ─────────────────────────────────
- * The 50 MISH sections are grouped into 9 themed clusters. Each cluster
+ * The 59 MISH sections are grouped into 9 themed clusters. Each cluster
  * renders as a single page (`/resources/safety-manual/{cluster.slug}`)
  * with one anchored card per section (`#mish-NN`). QR codes deep-link
  * via the fragment, e.g. `/resources/safety-manual/fall-and-access-safety#mish-21`.
@@ -22,9 +22,9 @@ export interface SafetyManualCluster {
   readonly slug: string;
   /** Human-readable display name. */
   readonly name: string;
-  /** Inclusive lower MISH section number (1–50). */
+  /** Inclusive lower MISH section number (1–59). */
   readonly min: number;
-  /** Inclusive upper MISH section number (1–50). */
+  /** Inclusive upper MISH section number (1–59). */
   readonly max: number;
   /** Short marketing blurb shown on the cluster hero. */
   readonly description: string;
@@ -99,9 +99,9 @@ export const SAFETY_MANUAL_CLUSTERS: readonly SafetyManualCluster[] = [
     slug: "program-compliance-and-continuity",
     name: "Program Compliance & Continuity",
     min: 46,
-    max: 50,
+    max: 59,
     description:
-      "Subcontractor management, insurance and contractual risk transfer, emergency response, incident investigation, and return-to-work.",
+      "Subcontractor management, insurance and contractual risk transfer, emergency response, incident investigation, return-to-work, and enterprise safety programs.",
   },
 ] as const;
 
@@ -109,7 +109,7 @@ export const SAFETY_MANUAL_CLUSTERS: readonly SafetyManualCluster[] = [
  * Look up the cluster (and per-section anchor id) for a given MISH section
  * number.
  *
- * @param sectionNumber - integer 1–50 (MISH section). Numbers outside the
+ * @param sectionNumber - integer 1–59 (MISH section). Numbers outside the
  *   defined cluster ranges return `null`.
  * @returns `{ cluster, anchor, href }` where:
  *   - `cluster` is the `SafetyManualCluster` covering the section,
@@ -177,7 +177,7 @@ interface ManualJsonShape {
 
 const manualJson = safetyManualPublicJson as unknown as ManualJsonShape;
 
-/** All 50 canonical MISH sections, in order (number 1–50). */
+/** All 59 canonical MISH sections, in order (number 1–59). */
 export const MANUAL_SECTIONS: ReadonlyArray<ManualSection> =
   manualJson.sections;
 

@@ -1,4 +1,4 @@
-# HANDBOOK-FORM-01 (FORM CV) — Company Vehicle Policies and Procedures Acknowledgement
+# HANDBOOK-FORM-01 (FORM CV) — Company Vehicle Policies and Procedures Acknowledgment
 
 - **Schema:** `form-handbook-cv-company-vehicle-acknowledgement.json`
 - **TOC Code:** FORM CV
@@ -12,7 +12,7 @@
 | Section            | Type                | Fields                                                               |
 | ------------------ | ------------------- | -------------------------------------------------------------------- |
 | Driver information | fieldGrid           | Employee Name, Driver's License No., License State, Assigned Vehicle |
-| Acknowledgement    | htmlBlock           | Vehicle policy acknowledgement statement                             |
+| Acknowledgment     | htmlBlock           | Vehicle policy acknowledgment statement                              |
 | Sign-Off           | signatures (manual) | Employee, Supervisor / Manager                                       |
 
 ## Notes

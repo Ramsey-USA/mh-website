@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Contractor Prequalification Safety Data Package Checklist - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, corrective actions, and follow-up requirements.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Prequalification Safety Data Package Checklist",
+          "html": "<p><strong>Policy Summary:</strong> This form supports MISH 57 enterprise prequalification readiness.</p><p><strong>Procedure Capture:</strong> Verify SDP elements: MISH v5.0 manual, OSHA 300 logs, current EMR letter, and training matrices.</p><p><strong>Task Use:</strong> Complete during bid phase and retain platform submission evidence (ISNetworld/Avetta/Highwire).</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Prequalification Safety Data Package Checklist Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Prepared By",
+              "name": "sign.preparedBy",
+              "signatureLabel": "Prepared By Signature"
+            },
+            {
+              "role": "Supervisor / Safety Command",
+              "name": "sign.approver",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

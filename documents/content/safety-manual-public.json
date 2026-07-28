@@ -1,12 +1,12 @@
 {
   "document": {
     "id": "safety-manual",
-    "title": "MISH Safety & Health Program (Safety Manual)",
+    "title": "Safety Manual",
     "revisionYear": 2026,
     "revisionDate": "2026-01-01",
-    "derivedAt": "2026-07-24T22:57:57.204Z",
+    "derivedAt": "2026-07-28T19:16:09.049Z",
     "derivedFrom": "documents/content/safety-manual.json",
-    "totalSections": 50
+    "totalSections": 59
   },
   "sections": [
     {
@@ -457,6 +457,87 @@
       "key": "MISH_50",
       "title": "return to work program",
       "slug": "return-to-work-program",
+      "previewHtml": ""
+    },
+    {
+      "id": "section-51",
+      "number": 51,
+      "numberStr": "51",
+      "key": "MISH_51",
+      "title": "Leading Indicators & Safety Performance Metrics",
+      "slug": "leading-indicators-safety-performance-metrics",
+      "previewHtml": ""
+    },
+    {
+      "id": "section-52",
+      "number": 52,
+      "numberStr": "52",
+      "key": "MISH_52",
+      "title": "Safety Culture Assessment & Continuous Improvement",
+      "slug": "safety-culture-assessment-continuous-improvement",
+      "previewHtml": ""
+    },
+    {
+      "id": "section-53",
+      "number": 53,
+      "numberStr": "53",
+      "key": "MISH_53",
+      "title": "Management of Change (MOC)",
+      "slug": "management-of-change-moc",
+      "previewHtml": ""
+    },
+    {
+      "id": "section-54",
+      "number": 54,
+      "numberStr": "54",
+      "key": "MISH_54",
+      "title": "Fatigue Risk Management",
+      "slug": "fatigue-risk-management",
+      "previewHtml": ""
+    },
+    {
+      "id": "section-55",
+      "number": 55,
+      "numberStr": "55",
+      "key": "MISH_55",
+      "title": "Mental Health & Workforce Wellbeing",
+      "slug": "mental-health-workforce-wellbeing",
+      "previewHtml": ""
+    },
+    {
+      "id": "section-56",
+      "number": 56,
+      "numberStr": "56",
+      "key": "MISH_56",
+      "title": "Near-Miss Reporting & Analysis",
+      "slug": "near-miss-reporting-analysis",
+      "previewHtml": ""
+    },
+    {
+      "id": "section-57",
+      "number": 57,
+      "numberStr": "57",
+      "key": "MISH_57",
+      "title": "Contractor Prequalification & Safety Data Management",
+      "slug": "contractor-prequalification-safety-data-management",
+      "previewHtml": ""
+    },
+    {
+      "id": "section-58",
+      "number": 58,
+      "numberStr": "58",
+      "key": "MISH_58",
+      "title": "Safety Technology & Digital Tools",
+      "slug": "safety-technology-digital-tools",
+      "previewHtml": ""
+    },
+    {
+      "id": "section-59",
+      "number": 59,
+      "numberStr": "59",
+      "key": "MISH_59",
+      "title": "Stop Work Authority (SWA) Program",
+      "slug": "stop-work-authority-swa-program",
       "previewHtml": ""
     }
   ]

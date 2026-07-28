@@ -104,7 +104,7 @@ Our 4 Core Values create 6 measurable differences:
 6. **3 State - Licensed & Insured**: Licensed in WA, OR, ID with full credentials
 7. **BABAA Supporter**: Dedicated supporter of the Build America, Buy America Act (BABAA), a federal
    domestic-content requirement for certain federally funded infrastructure projects. As an AGC Inland
-   Northwest Chapter member, this remains a compliance-forward distinction for government and public
+   Northwest Chapter member (listing 3229535), this remains a compliance-forward distinction for government and public
    sector projects. See
    [Inland Northwest AGC Member Listing](https://business.nwagc.org/memberdirectory/Details/mh-construction-3229535)
    and the

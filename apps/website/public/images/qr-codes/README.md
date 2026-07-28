@@ -1,13 +1,13 @@
 # QR Codes for MH Construction
 
-Generated: 7/12/2026, 12:46:42 PM
+Generated: 7/28/2026, 8:42:24 PM
 
 ## Summary
 
-- **Total QR Codes:** 306
-- **Successfully Generated:** 306
+- **Total QR Codes:** 222
+- **Successfully Generated:** 222
 - **Location:** `apps/website/public/images/qr-codes`
-- **Folders:** `core`, `contact`, `rfq`, `safety`, `social`, `events`, `safety-sections`, `safety-forms`, `handbook-forms`, `team`
+- **Folders:** `core`, `contact`, `safety`, `social`, `events`, `safety-sections`, `safety-forms`, `handbook-forms`, `team`
 
 ## Available QR Codes
 
@@ -94,66 +94,6 @@ Generated: 7/12/2026, 12:46:42 PM
 - **Name:** `contact`
 - **File:** `contact/qr-contact-bw.png`
 - **URL:** <https://www.mhc-gc.com/contact>
-
-### ✅ Traho RFQ - Company Overview
-
-- **Name:** `traho-overview`
-- **File:** `rfq/qr-traho-overview-color.png`
-- **URL:** <https://www.mhc-gc.com/about?ref=traho-rfq>
-
-### ✅ Traho RFQ - Company Overview
-
-- **Name:** `traho-overview`
-- **File:** `rfq/qr-traho-overview-bw.png`
-- **URL:** <https://www.mhc-gc.com/about?ref=traho-rfq>
-
-### ✅ Traho RFQ - Project Portfolio
-
-- **Name:** `traho-projects`
-- **File:** `rfq/qr-traho-projects-color.png`
-- **URL:** <https://www.mhc-gc.com/projects?ref=traho-rfq>
-
-### ✅ Traho RFQ - Project Portfolio
-
-- **Name:** `traho-projects`
-- **File:** `rfq/qr-traho-projects-bw.png`
-- **URL:** <https://www.mhc-gc.com/projects?ref=traho-rfq>
-
-### ✅ Traho RFQ - Service Lines
-
-- **Name:** `traho-services`
-- **File:** `rfq/qr-traho-services-color.png`
-- **URL:** <https://www.mhc-gc.com/?ref=traho-rfq#services>
-
-### ✅ Traho RFQ - Service Lines
-
-- **Name:** `traho-services`
-- **File:** `rfq/qr-traho-services-bw.png`
-- **URL:** <https://www.mhc-gc.com/?ref=traho-rfq#services>
-
-### ✅ Traho RFQ - Safety Program
-
-- **Name:** `traho-safety`
-- **File:** `rfq/qr-traho-safety-color.png`
-- **URL:** <https://www.mhc-gc.com/safety?ref=traho-rfq>
-
-### ✅ Traho RFQ - Safety Program
-
-- **Name:** `traho-safety`
-- **File:** `rfq/qr-traho-safety-bw.png`
-- **URL:** <https://www.mhc-gc.com/safety?ref=traho-rfq>
-
-### ✅ Traho RFQ - Direct Contact
-
-- **Name:** `traho-contact`
-- **File:** `rfq/qr-traho-contact-color.png`
-- **URL:** <https://www.mhc-gc.com/contact?ref=traho-rfq>
-
-### ✅ Traho RFQ - Direct Contact
-
-- **Name:** `traho-contact`
-- **File:** `rfq/qr-traho-contact-bw.png`
-- **URL:** <https://www.mhc-gc.com/contact?ref=traho-rfq>
 
 ### ✅ Allies
 
@@ -1031,569 +971,125 @@ Generated: 7/12/2026, 12:46:42 PM
 - **File:** `safety-sections/qr-safety-section-50-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-50>
 
+### ✅ Safety Manual Section 51: Leading Indicators & Safety Performance Metrics
+
+- **Name:** `safety-section-51`
+- **File:** `safety-sections/qr-safety-section-51-color.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-51>
+
+### ✅ Safety Manual Section 51: Leading Indicators & Safety Performance Metrics
+
+- **Name:** `safety-section-51`
+- **File:** `safety-sections/qr-safety-section-51-bw.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-51>
+
+### ✅ Safety Manual Section 52: Safety Culture Assessment & Continuous Improvement
+
+- **Name:** `safety-section-52`
+- **File:** `safety-sections/qr-safety-section-52-color.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-52>
+
+### ✅ Safety Manual Section 52: Safety Culture Assessment & Continuous Improvement
+
+- **Name:** `safety-section-52`
+- **File:** `safety-sections/qr-safety-section-52-bw.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-52>
+
+### ✅ Safety Manual Section 53: Management of Change (MOC)
+
+- **Name:** `safety-section-53`
+- **File:** `safety-sections/qr-safety-section-53-color.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-53>
+
+### ✅ Safety Manual Section 53: Management of Change (MOC)
+
+- **Name:** `safety-section-53`
+- **File:** `safety-sections/qr-safety-section-53-bw.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-53>
+
+### ✅ Safety Manual Section 54: Fatigue Risk Management
+
+- **Name:** `safety-section-54`
+- **File:** `safety-sections/qr-safety-section-54-color.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-54>
+
+### ✅ Safety Manual Section 54: Fatigue Risk Management
+
+- **Name:** `safety-section-54`
+- **File:** `safety-sections/qr-safety-section-54-bw.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-54>
+
+### ✅ Safety Manual Section 55: Mental Health & Workforce Wellbeing
+
+- **Name:** `safety-section-55`
+- **File:** `safety-sections/qr-safety-section-55-color.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-55>
+
+### ✅ Safety Manual Section 55: Mental Health & Workforce Wellbeing
+
+- **Name:** `safety-section-55`
+- **File:** `safety-sections/qr-safety-section-55-bw.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-55>
+
+### ✅ Safety Manual Section 56: Near-Miss Reporting & Analysis
+
+- **Name:** `safety-section-56`
+- **File:** `safety-sections/qr-safety-section-56-color.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-56>
+
+### ✅ Safety Manual Section 56: Near-Miss Reporting & Analysis
+
+- **Name:** `safety-section-56`
+- **File:** `safety-sections/qr-safety-section-56-bw.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-56>
+
+### ✅ Safety Manual Section 57: Contractor Prequalification & Safety Data Management
+
+- **Name:** `safety-section-57`
+- **File:** `safety-sections/qr-safety-section-57-color.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-57>
+
+### ✅ Safety Manual Section 57: Contractor Prequalification & Safety Data Management
+
+- **Name:** `safety-section-57`
+- **File:** `safety-sections/qr-safety-section-57-bw.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-57>
+
+### ✅ Safety Manual Section 58: Safety Technology & Digital Tools
+
+- **Name:** `safety-section-58`
+- **File:** `safety-sections/qr-safety-section-58-color.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-58>
+
+### ✅ Safety Manual Section 58: Safety Technology & Digital Tools
+
+- **Name:** `safety-section-58`
+- **File:** `safety-sections/qr-safety-section-58-bw.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-58>
+
+### ✅ Safety Manual Section 59: Stop Work Authority (SWA) Program
+
+- **Name:** `safety-section-59`
+- **File:** `safety-sections/qr-safety-section-59-color.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-59>
+
+### ✅ Safety Manual Section 59: Stop Work Authority (SWA) Program
+
+- **Name:** `safety-section-59`
+- **File:** `safety-sections/qr-safety-section-59-bw.png`
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-59>
+
 ### ✅ Safety Form: Injury Free Workplace Plan Acknowledgment
 
-- **Name:** `safety-form-mish-01-injury-free-workplace-plan-acknowledgment`
-- **File:** `safety-forms/qr-safety-form-mish-01-injury-free-workplace-plan-acknowledgment-color.png`
+- **Name:** `safety-form`
+- **File:** `safety-forms/qr-safety-form-color.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-01-injury-free-workplace-plan-acknowledgment>
 
 ### ✅ Safety Form: Injury Free Workplace Plan Acknowledgment
 
-- **Name:** `safety-form-mish-01-injury-free-workplace-plan-acknowledgment`
-- **File:** `safety-forms/qr-safety-form-mish-01-injury-free-workplace-plan-acknowledgment-bw.png`
+- **Name:** `safety-form`
+- **File:** `safety-forms/qr-safety-form-bw.png`
 - **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-01-injury-free-workplace-plan-acknowledgment>
-
-### ✅ Safety Form: Drug Free Work Place Acknowledgment
-
-- **Name:** `safety-form-mish-02-drug-free-work-place-acknowledgment`
-- **File:** `safety-forms/qr-safety-form-mish-02-drug-free-work-place-acknowledgment-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-02-drug-free-work-place-acknowledgment>
-
-### ✅ Safety Form: Drug Free Work Place Acknowledgment
-
-- **Name:** `safety-form-mish-02-drug-free-work-place-acknowledgment`
-- **File:** `safety-forms/qr-safety-form-mish-02-drug-free-work-place-acknowledgment-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-02-drug-free-work-place-acknowledgment>
-
-### ✅ Safety Form: Program Policy and Requirements Acknowledgment
-
-- **Name:** `safety-form-mish-03-program-policy-and-requirements-acknowledgment`
-- **File:** `safety-forms/qr-safety-form-mish-03-program-policy-and-requirements-acknowledgment-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-03-program-policy-and-requirements-acknowledgment>
-
-### ✅ Safety Form: Program Policy and Requirements Acknowledgment
-
-- **Name:** `safety-form-mish-03-program-policy-and-requirements-acknowledgment`
-- **File:** `safety-forms/qr-safety-form-mish-03-program-policy-and-requirements-acknowledgment-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-03-program-policy-and-requirements-acknowledgment>
-
-### ✅ Safety Form: Safety and Health Orientation Sign in Log
-
-- **Name:** `safety-form-mish-04-safety-and-health-orientation-sign-in-log`
-- **File:** `safety-forms/qr-safety-form-mish-04-safety-and-health-orientation-sign-in-log-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-04-safety-and-health-orientation-sign-in-log>
-
-### ✅ Safety Form: Safety and Health Orientation Sign in Log
-
-- **Name:** `safety-form-mish-04-safety-and-health-orientation-sign-in-log`
-- **File:** `safety-forms/qr-safety-form-mish-04-safety-and-health-orientation-sign-in-log-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-04-safety-and-health-orientation-sign-in-log>
-
-### ✅ Safety Form: Pre Job Safety Planning Job Hazard Analysis
-
-- **Name:** `safety-form-mish-05-pre-job-safety-planning-job-hazard-analysis`
-- **File:** `safety-forms/qr-safety-form-mish-05-pre-job-safety-planning-job-hazard-analysis-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-05-pre-job-safety-planning-job-hazard-analysis>
-
-### ✅ Safety Form: Pre Job Safety Planning Job Hazard Analysis
-
-- **Name:** `safety-form-mish-05-pre-job-safety-planning-job-hazard-analysis`
-- **File:** `safety-forms/qr-safety-form-mish-05-pre-job-safety-planning-job-hazard-analysis-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-05-pre-job-safety-planning-job-hazard-analysis>
-
-### ✅ Safety Form: Emergency Response Plan Acknowledgment
-
-- **Name:** `safety-form-mish-06-emergency-response-plan-acknowledgment`
-- **File:** `safety-forms/qr-safety-form-mish-06-emergency-response-plan-acknowledgment-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-06-emergency-response-plan-acknowledgment>
-
-### ✅ Safety Form: Emergency Response Plan Acknowledgment
-
-- **Name:** `safety-form-mish-06-emergency-response-plan-acknowledgment`
-- **File:** `safety-forms/qr-safety-form-mish-06-emergency-response-plan-acknowledgment-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-06-emergency-response-plan-acknowledgment>
-
-### ✅ Safety Form: Incident Near Miss Report
-
-- **Name:** `safety-form-mish-08-incident-near-miss-report`
-- **File:** `safety-forms/qr-safety-form-mish-08-incident-near-miss-report-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-08-incident-near-miss-report>
-
-### ✅ Safety Form: Incident Near Miss Report
-
-- **Name:** `safety-form-mish-08-incident-near-miss-report`
-- **File:** `safety-forms/qr-safety-form-mish-08-incident-near-miss-report-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-08-incident-near-miss-report>
-
-### ✅ Safety Form: Safety Meeting Toolbox Talk Log
-
-- **Name:** `safety-form-mish-09-safety-meeting-toolbox-talk-log`
-- **File:** `safety-forms/qr-safety-form-mish-09-safety-meeting-toolbox-talk-log-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-09-safety-meeting-toolbox-talk-log>
-
-### ✅ Safety Form: Safety Meeting Toolbox Talk Log
-
-- **Name:** `safety-form-mish-09-safety-meeting-toolbox-talk-log`
-- **File:** `safety-forms/qr-safety-form-mish-09-safety-meeting-toolbox-talk-log-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-09-safety-meeting-toolbox-talk-log>
-
-### ✅ Safety Form: PPE Issuance and Inspection Log
-
-- **Name:** `safety-form-mish-10-ppe-issuance-and-inspection-log`
-- **File:** `safety-forms/qr-safety-form-mish-10-ppe-issuance-and-inspection-log-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-10-ppe-issuance-and-inspection-log>
-
-### ✅ Safety Form: PPE Issuance and Inspection Log
-
-- **Name:** `safety-form-mish-10-ppe-issuance-and-inspection-log`
-- **File:** `safety-forms/qr-safety-form-mish-10-ppe-issuance-and-inspection-log-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-10-ppe-issuance-and-inspection-log>
-
-### ✅ Safety Form: Fall Protection Pretask JHA
-
-- **Name:** `safety-form-mish-11-fall-protection-pretask-jha`
-- **File:** `safety-forms/qr-safety-form-mish-11-fall-protection-pretask-jha-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-11-fall-protection-pretask-jha>
-
-### ✅ Safety Form: Fall Protection Pretask JHA
-
-- **Name:** `safety-form-mish-11-fall-protection-pretask-jha`
-- **File:** `safety-forms/qr-safety-form-mish-11-fall-protection-pretask-jha-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-11-fall-protection-pretask-jha>
-
-### ✅ Safety Form: Flammable Combustible Liquids Inspection Checklist
-
-- **Name:** `safety-form-mish-12-flammable-combustible-liquids-inspection-checklist`
-- **File:** `safety-forms/qr-safety-form-mish-12-flammable-combustible-liquids-inspection-checklist-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-12-flammable-combustible-liquids-inspection-checklist>
-
-### ✅ Safety Form: Flammable Combustible Liquids Inspection Checklist
-
-- **Name:** `safety-form-mish-12-flammable-combustible-liquids-inspection-checklist`
-- **File:** `safety-forms/qr-safety-form-mish-12-flammable-combustible-liquids-inspection-checklist-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-12-flammable-combustible-liquids-inspection-checklist>
-
-### ✅ Safety Form: Fire Prevention Inspection Checklist Insp
-
-- **Name:** `safety-form-mish-13-fire-prevention-inspection-checklist-insp`
-- **File:** `safety-forms/qr-safety-form-mish-13-fire-prevention-inspection-checklist-insp-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-13-fire-prevention-inspection-checklist-insp>
-
-### ✅ Safety Form: Fire Prevention Inspection Checklist Insp
-
-- **Name:** `safety-form-mish-13-fire-prevention-inspection-checklist-insp`
-- **File:** `safety-forms/qr-safety-form-mish-13-fire-prevention-inspection-checklist-insp-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-13-fire-prevention-inspection-checklist-insp>
-
-### ✅ Safety Form: Hot Work Permit
-
-- **Name:** `safety-form-mish-14-hot-work-permit`
-- **File:** `safety-forms/qr-safety-form-mish-14-hot-work-permit-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-14-hot-work-permit>
-
-### ✅ Safety Form: Hot Work Permit
-
-- **Name:** `safety-form-mish-14-hot-work-permit`
-- **File:** `safety-forms/qr-safety-form-mish-14-hot-work-permit-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-14-hot-work-permit>
-
-### ✅ Safety Form: Lockout Tagout Procedure and Verification Permit
-
-- **Name:** `safety-form-mish-15-lockout-tagout-procedure-and-verification-permit`
-- **File:** `safety-forms/qr-safety-form-mish-15-lockout-tagout-procedure-and-verification-permit-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-15-lockout-tagout-procedure-and-verification-permit>
-
-### ✅ Safety Form: Lockout Tagout Procedure and Verification Permit
-
-- **Name:** `safety-form-mish-15-lockout-tagout-procedure-and-verification-permit`
-- **File:** `safety-forms/qr-safety-form-mish-15-lockout-tagout-procedure-and-verification-permit-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-15-lockout-tagout-procedure-and-verification-permit>
-
-### ✅ Safety Form: Confined Space Entry Permit
-
-- **Name:** `safety-form-mish-16-confined-space-entry-permit`
-- **File:** `safety-forms/qr-safety-form-mish-16-confined-space-entry-permit-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-16-confined-space-entry-permit>
-
-### ✅ Safety Form: Confined Space Entry Permit
-
-- **Name:** `safety-form-mish-16-confined-space-entry-permit`
-- **File:** `safety-forms/qr-safety-form-mish-16-confined-space-entry-permit-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-16-confined-space-entry-permit>
-
-### ✅ Safety Form: Ladder Inspection Checklist
-
-- **Name:** `safety-form-mish-17-ladder-inspection-checklist`
-- **File:** `safety-forms/qr-safety-form-mish-17-ladder-inspection-checklist-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-17-ladder-inspection-checklist>
-
-### ✅ Safety Form: Ladder Inspection Checklist
-
-- **Name:** `safety-form-mish-17-ladder-inspection-checklist`
-- **File:** `safety-forms/qr-safety-form-mish-17-ladder-inspection-checklist-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-17-ladder-inspection-checklist>
-
-### ✅ Safety Form: Vehicle Pre Trip Inspection Driver Log
-
-- **Name:** `safety-form-mish-18-vehicle-pre-trip-inspection-driver-log`
-- **File:** `safety-forms/qr-safety-form-mish-18-vehicle-pre-trip-inspection-driver-log-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-18-vehicle-pre-trip-inspection-driver-log>
-
-### ✅ Safety Form: Vehicle Pre Trip Inspection Driver Log
-
-- **Name:** `safety-form-mish-18-vehicle-pre-trip-inspection-driver-log`
-- **File:** `safety-forms/qr-safety-form-mish-18-vehicle-pre-trip-inspection-driver-log-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-18-vehicle-pre-trip-inspection-driver-log>
-
-### ✅ Safety Form: Equipment Maintenance and Inspection Log
-
-- **Name:** `safety-form-mish-19-equipment-maintenance-and-inspection-log`
-- **File:** `safety-forms/qr-safety-form-mish-19-equipment-maintenance-and-inspection-log-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-19-equipment-maintenance-and-inspection-log>
-
-### ✅ Safety Form: Equipment Maintenance and Inspection Log
-
-- **Name:** `safety-form-mish-19-equipment-maintenance-and-inspection-log`
-- **File:** `safety-forms/qr-safety-form-mish-19-equipment-maintenance-and-inspection-log-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-19-equipment-maintenance-and-inspection-log>
-
-### ✅ Safety Form: Aerial Lift Pre Operation Inspection and JHA
-
-- **Name:** `safety-form-mish-20-aerial-lift-pre-operation-inspection-and-jha`
-- **File:** `safety-forms/qr-safety-form-mish-20-aerial-lift-pre-operation-inspection-and-jha-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-20-aerial-lift-pre-operation-inspection-and-jha>
-
-### ✅ Safety Form: Aerial Lift Pre Operation Inspection and JHA
-
-- **Name:** `safety-form-mish-20-aerial-lift-pre-operation-inspection-and-jha`
-- **File:** `safety-forms/qr-safety-form-mish-20-aerial-lift-pre-operation-inspection-and-jha-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-20-aerial-lift-pre-operation-inspection-and-jha>
-
-### ✅ Safety Form: Crane Suspended Work Platform Permit and JHA
-
-- **Name:** `safety-form-mish-21-crane-suspended-work-platform-permit-and-jha`
-- **File:** `safety-forms/qr-safety-form-mish-21-crane-suspended-work-platform-permit-and-jha-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-21-crane-suspended-work-platform-permit-and-jha>
-
-### ✅ Safety Form: Crane Suspended Work Platform Permit and JHA
-
-- **Name:** `safety-form-mish-21-crane-suspended-work-platform-permit-and-jha`
-- **File:** `safety-forms/qr-safety-form-mish-21-crane-suspended-work-platform-permit-and-jha-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-21-crane-suspended-work-platform-permit-and-jha>
-
-### ✅ Safety Form: Scaffold Erection and Inspection Checklist
-
-- **Name:** `safety-form-mish-22-scaffold-erection-and-inspection-checklist`
-- **File:** `safety-forms/qr-safety-form-mish-22-scaffold-erection-and-inspection-checklist-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-22-scaffold-erection-and-inspection-checklist>
-
-### ✅ Safety Form: Scaffold Erection and Inspection Checklist
-
-- **Name:** `safety-form-mish-22-scaffold-erection-and-inspection-checklist`
-- **File:** `safety-forms/qr-safety-form-mish-22-scaffold-erection-and-inspection-checklist-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-22-scaffold-erection-and-inspection-checklist>
-
-### ✅ Safety Form: Industrial Hygiene Exposure Assessment Log
-
-- **Name:** `safety-form-mish-23-industrial-hygiene-exposure-assessment-log`
-- **File:** `safety-forms/qr-safety-form-mish-23-industrial-hygiene-exposure-assessment-log-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-23-industrial-hygiene-exposure-assessment-log>
-
-### ✅ Safety Form: Industrial Hygiene Exposure Assessment Log
-
-- **Name:** `safety-form-mish-23-industrial-hygiene-exposure-assessment-log`
-- **File:** `safety-forms/qr-safety-form-mish-23-industrial-hygiene-exposure-assessment-log-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-23-industrial-hygiene-exposure-assessment-log>
-
-### ✅ Safety Form: Hazard Communication SDS Acknowledgment Ack
-
-- **Name:** `safety-form-mish-24-hazard-communication-sds-acknowledgment-ack`
-- **File:** `safety-forms/qr-safety-form-mish-24-hazard-communication-sds-acknowledgment-ack-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-24-hazard-communication-sds-acknowledgment-ack>
-
-### ✅ Safety Form: Hazard Communication SDS Acknowledgment Ack
-
-- **Name:** `safety-form-mish-24-hazard-communication-sds-acknowledgment-ack`
-- **File:** `safety-forms/qr-safety-form-mish-24-hazard-communication-sds-acknowledgment-ack-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-24-hazard-communication-sds-acknowledgment-ack>
-
-### ✅ Safety Form: Heat Illness Prevention Monitoring Log
-
-- **Name:** `safety-form-mish-25-heat-illness-prevention-monitoring-log`
-- **File:** `safety-forms/qr-safety-form-mish-25-heat-illness-prevention-monitoring-log-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-25-heat-illness-prevention-monitoring-log>
-
-### ✅ Safety Form: Heat Illness Prevention Monitoring Log
-
-- **Name:** `safety-form-mish-25-heat-illness-prevention-monitoring-log`
-- **File:** `safety-forms/qr-safety-form-mish-25-heat-illness-prevention-monitoring-log-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-25-heat-illness-prevention-monitoring-log>
-
-### ✅ Safety Form: Excavation and Trenching Safety Inspection and JHA
-
-- **Name:** `safety-form-mish-26-excavation-and-trenching-safety-inspection-and-jha`
-- **File:** `safety-forms/qr-safety-form-mish-26-excavation-and-trenching-safety-inspection-and-jha-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-26-excavation-and-trenching-safety-inspection-and-jha>
-
-### ✅ Safety Form: Excavation and Trenching Safety Inspection and JHA
-
-- **Name:** `safety-form-mish-26-excavation-and-trenching-safety-inspection-and-jha`
-- **File:** `safety-forms/qr-safety-form-mish-26-excavation-and-trenching-safety-inspection-and-jha-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-26-excavation-and-trenching-safety-inspection-and-jha>
-
-### ✅ Safety Form: Equipment Modification Authorization Permit
-
-- **Name:** `safety-form-mish-27-equipment-modification-authorization-permit`
-- **File:** `safety-forms/qr-safety-form-mish-27-equipment-modification-authorization-permit-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-27-equipment-modification-authorization-permit>
-
-### ✅ Safety Form: Equipment Modification Authorization Permit
-
-- **Name:** `safety-form-mish-27-equipment-modification-authorization-permit`
-- **File:** `safety-forms/qr-safety-form-mish-27-equipment-modification-authorization-permit-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-27-equipment-modification-authorization-permit>
-
-### ✅ Safety Form: Housekeeping Inspection Checklist
-
-- **Name:** `safety-form-mish-28-housekeeping-inspection-checklist`
-- **File:** `safety-forms/qr-safety-form-mish-28-housekeeping-inspection-checklist-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-28-housekeeping-inspection-checklist>
-
-### ✅ Safety Form: Housekeeping Inspection Checklist
-
-- **Name:** `safety-form-mish-28-housekeeping-inspection-checklist`
-- **File:** `safety-forms/qr-safety-form-mish-28-housekeeping-inspection-checklist-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-28-housekeeping-inspection-checklist>
-
-### ✅ Safety Form: Electrical Safety Pre Task JHA
-
-- **Name:** `safety-form-mish-29-electrical-safety-pre-task-jha`
-- **File:** `safety-forms/qr-safety-form-mish-29-electrical-safety-pre-task-jha-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-29-electrical-safety-pre-task-jha>
-
-### ✅ Safety Form: Electrical Safety Pre Task JHA
-
-- **Name:** `safety-form-mish-29-electrical-safety-pre-task-jha`
-- **File:** `safety-forms/qr-safety-form-mish-29-electrical-safety-pre-task-jha-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-29-electrical-safety-pre-task-jha>
-
-### ✅ Safety Form: Signs Signals and Barricades Inspection Checklist
-
-- **Name:** `safety-form-mish-30-signs-signals-and-barricades-inspection-checklist`
-- **File:** `safety-forms/qr-safety-form-mish-30-signs-signals-and-barricades-inspection-checklist-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-30-signs-signals-and-barricades-inspection-checklist>
-
-### ✅ Safety Form: Signs Signals and Barricades Inspection Checklist
-
-- **Name:** `safety-form-mish-30-signs-signals-and-barricades-inspection-checklist`
-- **File:** `safety-forms/qr-safety-form-mish-30-signs-signals-and-barricades-inspection-checklist-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-30-signs-signals-and-barricades-inspection-checklist>
-
-### ✅ Safety Form: Respiratory Protection Fit Test and Issuance Record Ack Log
-
-- **Name:** `safety-form-mish-32-respiratory-protection-fit-test-and-issuance-record-ack-log`
-- **File:** `safety-forms/qr-safety-form-mish-32-respiratory-protection-fit-test-and-issuance-record-ack-log-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-32-respiratory-protection-fit-test-and-issuance-record-ack-log>
-
-### ✅ Safety Form: Respiratory Protection Fit Test and Issuance Record Ack Log
-
-- **Name:** `safety-form-mish-32-respiratory-protection-fit-test-and-issuance-record-ack-log`
-- **File:** `safety-forms/qr-safety-form-mish-32-respiratory-protection-fit-test-and-issuance-record-ack-log-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-32-respiratory-protection-fit-test-and-issuance-record-ack-log>
-
-### ✅ Safety Form: Floor Opening and Open Sided Surface Inspection
-
-- **Name:** `safety-form-mish-33-floor-opening-and-open-sided-surface-inspection`
-- **File:** `safety-forms/qr-safety-form-mish-33-floor-opening-and-open-sided-surface-inspection-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-33-floor-opening-and-open-sided-surface-inspection>
-
-### ✅ Safety Form: Floor Opening and Open Sided Surface Inspection
-
-- **Name:** `safety-form-mish-33-floor-opening-and-open-sided-surface-inspection`
-- **File:** `safety-forms/qr-safety-form-mish-33-floor-opening-and-open-sided-surface-inspection-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-33-floor-opening-and-open-sided-surface-inspection>
-
-### ✅ Safety Form: Compressed Gas Cylinder Inspection Log
-
-- **Name:** `safety-form-mish-34-compressed-gas-cylinder-inspection-log`
-- **File:** `safety-forms/qr-safety-form-mish-34-compressed-gas-cylinder-inspection-log-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-34-compressed-gas-cylinder-inspection-log>
-
-### ✅ Safety Form: Compressed Gas Cylinder Inspection Log
-
-- **Name:** `safety-form-mish-34-compressed-gas-cylinder-inspection-log`
-- **File:** `safety-forms/qr-safety-form-mish-34-compressed-gas-cylinder-inspection-log-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-34-compressed-gas-cylinder-inspection-log>
-
-### ✅ Safety Form: Rigging Inspection and Pre Lift JHA
-
-- **Name:** `safety-form-mish-35-rigging-inspection-and-pre-lift-jha`
-- **File:** `safety-forms/qr-safety-form-mish-35-rigging-inspection-and-pre-lift-jha-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-35-rigging-inspection-and-pre-lift-jha>
-
-### ✅ Safety Form: Rigging Inspection and Pre Lift JHA
-
-- **Name:** `safety-form-mish-35-rigging-inspection-and-pre-lift-jha`
-- **File:** `safety-forms/qr-safety-form-mish-35-rigging-inspection-and-pre-lift-jha-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-35-rigging-inspection-and-pre-lift-jha>
-
-### ✅ Safety Form: Hand and Portable Power Tool Inspection Checklist
-
-- **Name:** `safety-form-mish-36-hand-and-portable-power-tool-inspection-checklist`
-- **File:** `safety-forms/qr-safety-form-mish-36-hand-and-portable-power-tool-inspection-checklist-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-36-hand-and-portable-power-tool-inspection-checklist>
-
-### ✅ Safety Form: Hand and Portable Power Tool Inspection Checklist
-
-- **Name:** `safety-form-mish-36-hand-and-portable-power-tool-inspection-checklist`
-- **File:** `safety-forms/qr-safety-form-mish-36-hand-and-portable-power-tool-inspection-checklist-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-36-hand-and-portable-power-tool-inspection-checklist>
-
-### ✅ Safety Form: Concrete and Masonry Pre Task JHA
-
-- **Name:** `safety-form-mish-37-concrete-and-masonry-pre-task-jha`
-- **File:** `safety-forms/qr-safety-form-mish-37-concrete-and-masonry-pre-task-jha-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-37-concrete-and-masonry-pre-task-jha>
-
-### ✅ Safety Form: Concrete and Masonry Pre Task JHA
-
-- **Name:** `safety-form-mish-37-concrete-and-masonry-pre-task-jha`
-- **File:** `safety-forms/qr-safety-form-mish-37-concrete-and-masonry-pre-task-jha-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-37-concrete-and-masonry-pre-task-jha>
-
-### ✅ Safety Form: Commercial Driver Drug Program Acknowledgment
-
-- **Name:** `safety-form-mish-38-commercial-driver-drug-program-acknowledgment`
-- **File:** `safety-forms/qr-safety-form-mish-38-commercial-driver-drug-program-acknowledgment-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-38-commercial-driver-drug-program-acknowledgment>
-
-### ✅ Safety Form: Commercial Driver Drug Program Acknowledgment
-
-- **Name:** `safety-form-mish-38-commercial-driver-drug-program-acknowledgment`
-- **File:** `safety-forms/qr-safety-form-mish-38-commercial-driver-drug-program-acknowledgment-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-38-commercial-driver-drug-program-acknowledgment>
-
-### ✅ Safety Form: Silica Exposure Control Plan and Monitoring Log
-
-- **Name:** `safety-form-mish-39-silica-exposure-control-plan-and-monitoring-log`
-- **File:** `safety-forms/qr-safety-form-mish-39-silica-exposure-control-plan-and-monitoring-log-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-39-silica-exposure-control-plan-and-monitoring-log>
-
-### ✅ Safety Form: Silica Exposure Control Plan and Monitoring Log
-
-- **Name:** `safety-form-mish-39-silica-exposure-control-plan-and-monitoring-log`
-- **File:** `safety-forms/qr-safety-form-mish-39-silica-exposure-control-plan-and-monitoring-log-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-39-silica-exposure-control-plan-and-monitoring-log>
-
-### ✅ Safety Form: Forklift Pit Pre Operation Inspection and JHA
-
-- **Name:** `safety-form-mish-40-forklift-pit-pre-operation-inspection-and-jha`
-- **File:** `safety-forms/qr-safety-form-mish-40-forklift-pit-pre-operation-inspection-and-jha-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-40-forklift-pit-pre-operation-inspection-and-jha>
-
-### ✅ Safety Form: Forklift Pit Pre Operation Inspection and JHA
-
-- **Name:** `safety-form-mish-40-forklift-pit-pre-operation-inspection-and-jha`
-- **File:** `safety-forms/qr-safety-form-mish-40-forklift-pit-pre-operation-inspection-and-jha-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-40-forklift-pit-pre-operation-inspection-and-jha>
-
-### ✅ Safety Form: Distracted Driving MVR Policy Acknowledgment
-
-- **Name:** `safety-form-mish-41-distracted-driving-mvr-policy-acknowledgment`
-- **File:** `safety-forms/qr-safety-form-mish-41-distracted-driving-mvr-policy-acknowledgment-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-41-distracted-driving-mvr-policy-acknowledgment>
-
-### ✅ Safety Form: Distracted Driving MVR Policy Acknowledgment
-
-- **Name:** `safety-form-mish-41-distracted-driving-mvr-policy-acknowledgment`
-- **File:** `safety-forms/qr-safety-form-mish-41-distracted-driving-mvr-policy-acknowledgment-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-41-distracted-driving-mvr-policy-acknowledgment>
-
-### ✅ Safety Form: Cold Weather Operations Safety Checklist
-
-- **Name:** `safety-form-mish-42-cold-weather-operations-safety-checklist`
-- **File:** `safety-forms/qr-safety-form-mish-42-cold-weather-operations-safety-checklist-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-42-cold-weather-operations-safety-checklist>
-
-### ✅ Safety Form: Cold Weather Operations Safety Checklist
-
-- **Name:** `safety-form-mish-42-cold-weather-operations-safety-checklist`
-- **File:** `safety-forms/qr-safety-form-mish-42-cold-weather-operations-safety-checklist-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-42-cold-weather-operations-safety-checklist>
-
-### ✅ Safety Form: General Waste Management Disposal Log
-
-- **Name:** `safety-form-mish-43-general-waste-management-disposal-log`
-- **File:** `safety-forms/qr-safety-form-mish-43-general-waste-management-disposal-log-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-43-general-waste-management-disposal-log>
-
-### ✅ Safety Form: General Waste Management Disposal Log
-
-- **Name:** `safety-form-mish-43-general-waste-management-disposal-log`
-- **File:** `safety-forms/qr-safety-form-mish-43-general-waste-management-disposal-log-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-43-general-waste-management-disposal-log>
-
-### ✅ Safety Form: Struck By Caught in Pre Task JHA
-
-- **Name:** `safety-form-mish-44-struck-by-caught-in-pre-task-jha`
-- **File:** `safety-forms/qr-safety-form-mish-44-struck-by-caught-in-pre-task-jha-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-44-struck-by-caught-in-pre-task-jha>
-
-### ✅ Safety Form: Struck By Caught in Pre Task JHA
-
-- **Name:** `safety-form-mish-44-struck-by-caught-in-pre-task-jha`
-- **File:** `safety-forms/qr-safety-form-mish-44-struck-by-caught-in-pre-task-jha-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-44-struck-by-caught-in-pre-task-jha>
-
-### ✅ Safety Form: Subcontractor Safety Compliance Acknowledgment
-
-- **Name:** `safety-form-mish-46-subcontractor-safety-compliance-acknowledgment`
-- **File:** `safety-forms/qr-safety-form-mish-46-subcontractor-safety-compliance-acknowledgment-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-46-subcontractor-safety-compliance-acknowledgment>
-
-### ✅ Safety Form: Subcontractor Safety Compliance Acknowledgment
-
-- **Name:** `safety-form-mish-46-subcontractor-safety-compliance-acknowledgment`
-- **File:** `safety-forms/qr-safety-form-mish-46-subcontractor-safety-compliance-acknowledgment-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-46-subcontractor-safety-compliance-acknowledgment>
-
-### ✅ Safety Form: Insurance and COI Verification Checklist Insp Ack
-
-- **Name:** `safety-form-mish-47-insurance-and-coi-verification-checklist-insp-ack`
-- **File:** `safety-forms/qr-safety-form-mish-47-insurance-and-coi-verification-checklist-insp-ack-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-47-insurance-and-coi-verification-checklist-insp-ack>
-
-### ✅ Safety Form: Insurance and COI Verification Checklist Insp Ack
-
-- **Name:** `safety-form-mish-47-insurance-and-coi-verification-checklist-insp-ack`
-- **File:** `safety-forms/qr-safety-form-mish-47-insurance-and-coi-verification-checklist-insp-ack-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-47-insurance-and-coi-verification-checklist-insp-ack>
-
-### ✅ Safety Form: Emergency Response Plan Drill and Acknowledgment Log
-
-- **Name:** `safety-form-mish-48-emergency-response-plan-drill-and-acknowledgment-log`
-- **File:** `safety-forms/qr-safety-form-mish-48-emergency-response-plan-drill-and-acknowledgment-log-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-48-emergency-response-plan-drill-and-acknowledgment-log>
-
-### ✅ Safety Form: Emergency Response Plan Drill and Acknowledgment Log
-
-- **Name:** `safety-form-mish-48-emergency-response-plan-drill-and-acknowledgment-log`
-- **File:** `safety-forms/qr-safety-form-mish-48-emergency-response-plan-drill-and-acknowledgment-log-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-48-emergency-response-plan-drill-and-acknowledgment-log>
-
-### ✅ Safety Form: Incident Investigation Root Cause Analysis Report
-
-- **Name:** `safety-form-mish-49-incident-investigation-root-cause-analysis-report`
-- **File:** `safety-forms/qr-safety-form-mish-49-incident-investigation-root-cause-analysis-report-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-49-incident-investigation-root-cause-analysis-report>
-
-### ✅ Safety Form: Incident Investigation Root Cause Analysis Report
-
-- **Name:** `safety-form-mish-49-incident-investigation-root-cause-analysis-report`
-- **File:** `safety-forms/qr-safety-form-mish-49-incident-investigation-root-cause-analysis-report-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-49-incident-investigation-root-cause-analysis-report>
-
-### ✅ Safety Form: Return to Work Program Agreement Ack
-
-- **Name:** `safety-form-mish-50-return-to-work-program-agreement-ack`
-- **File:** `safety-forms/qr-safety-form-mish-50-return-to-work-program-agreement-ack-color.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-50-return-to-work-program-agreement-ack>
-
-### ✅ Safety Form: Return to Work Program Agreement Ack
-
-- **Name:** `safety-form-mish-50-return-to-work-program-agreement-ack`
-- **File:** `safety-forms/qr-safety-form-mish-50-return-to-work-program-agreement-ack-bw.png`
-- **URL:** <https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-50-return-to-work-program-agreement-ack>
 
 ### ✅ Employee Handbook Form: Purchase Approval General Expense
 
@@ -1607,13 +1103,13 @@ Generated: 7/12/2026, 12:46:42 PM
 - **File:** `handbook-forms/qr-handbook-form-handbook-ge-purchase-approval-general-expense-bw.png`
 - **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-ge-purchase-approval-general-expense.pdf>
 
-### ✅ Employee Handbook Form: Company Vehicle Policies and Procedures Acknowledgement
+### ✅ Employee Handbook Form: Company Vehicle Policies and Procedures Acknowledgment
 
 - **Name:** `handbook-form-handbook-cv-company-vehicle-acknowledgement`
 - **File:** `handbook-forms/qr-handbook-form-handbook-cv-company-vehicle-acknowledgement-color.png`
 - **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-cv-company-vehicle-acknowledgement.pdf>
 
-### ✅ Employee Handbook Form: Company Vehicle Policies and Procedures Acknowledgement
+### ✅ Employee Handbook Form: Company Vehicle Policies and Procedures Acknowledgment
 
 - **Name:** `handbook-form-handbook-cv-company-vehicle-acknowledgement`
 - **File:** `handbook-forms/qr-handbook-form-handbook-cv-company-vehicle-acknowledgement-bw.png`
@@ -1631,37 +1127,37 @@ Generated: 7/12/2026, 12:46:42 PM
 - **File:** `handbook-forms/qr-handbook-form-handbook-ra-handbook-receipt-acknowledgment-bw.png`
 - **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-ra-handbook-receipt-acknowledgment.pdf>
 
-### ✅ Employee Handbook Form: Employee Safety Policy Acknowledgement Form
+### ✅ Employee Handbook Form: Employee Safety Policy Acknowledgment
 
 - **Name:** `handbook-form-handbook-sp-safety-policy-acknowledgement`
 - **File:** `handbook-forms/qr-handbook-form-handbook-sp-safety-policy-acknowledgement-color.png`
 - **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-sp-safety-policy-acknowledgement.pdf>
 
-### ✅ Employee Handbook Form: Employee Safety Policy Acknowledgement Form
+### ✅ Employee Handbook Form: Employee Safety Policy Acknowledgment
 
 - **Name:** `handbook-form-handbook-sp-safety-policy-acknowledgement`
 - **File:** `handbook-forms/qr-handbook-form-handbook-sp-safety-policy-acknowledgement-bw.png`
 - **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-sp-safety-policy-acknowledgement.pdf>
 
-### ✅ Employee Handbook Form: Temporary Work From Home Application/Agreement
+### ✅ Employee Handbook Form: Temporary Remote Work Application/Agreement
 
 - **Name:** `handbook-form-handbook-wh-work-from-home-agreement`
 - **File:** `handbook-forms/qr-handbook-form-handbook-wh-work-from-home-agreement-color.png`
 - **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-wh-work-from-home-agreement.pdf>
 
-### ✅ Employee Handbook Form: Temporary Work From Home Application/Agreement
+### ✅ Employee Handbook Form: Temporary Remote Work Application/Agreement
 
 - **Name:** `handbook-form-handbook-wh-work-from-home-agreement`
 - **File:** `handbook-forms/qr-handbook-form-handbook-wh-work-from-home-agreement-bw.png`
 - **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-wh-work-from-home-agreement.pdf>
 
-### ✅ Employee Handbook Form: Employee Acknowledgment and Agreement of Computer and Electronics Use Policy
+### ✅ Employee Handbook Form: Computer and Electronics Use Agreement
 
 - **Name:** `handbook-form-handbook-ce-computer-electronics-use-agreement`
 - **File:** `handbook-forms/qr-handbook-form-handbook-ce-computer-electronics-use-agreement-color.png`
 - **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-ce-computer-electronics-use-agreement.pdf>
 
-### ✅ Employee Handbook Form: Employee Acknowledgment and Agreement of Computer and Electronics Use Policy
+### ✅ Employee Handbook Form: Computer and Electronics Use Agreement
 
 - **Name:** `handbook-form-handbook-ce-computer-electronics-use-agreement`
 - **File:** `handbook-forms/qr-handbook-form-handbook-ce-computer-electronics-use-agreement-bw.png`
@@ -1691,6 +1187,18 @@ Generated: 7/12/2026, 12:46:42 PM
 - **File:** `handbook-forms/qr-handbook-form-handbook-cp-client-photo-release-form-bw.png`
 - **URL:** <https://www.mhc-gc.com/docs/employee/forms/form-handbook-cp-client-photo-release-form.pdf>
 
+### ✅ GATOR - Chief Moral Officer
+
+- **Name:** `team-gator`
+- **File:** `team/qr-team-gator-color.png`
+- **URL:** <https://www.mhc-gc.com/team#gator>
+
+### ✅ GATOR - Chief Moral Officer
+
+- **Name:** `team-gator`
+- **File:** `team/qr-team-gator-bw.png`
+- **URL:** <https://www.mhc-gc.com/team#gator>
+
 ### ✅ Arnold Garcia - Chief Operations Officer
 
 - **Name:** `team-arnold-garcia`
@@ -1715,17 +1223,17 @@ Generated: 7/12/2026, 12:46:42 PM
 - **File:** `team/qr-team-ben-woodall-bw.png`
 - **URL:** <https://www.mhc-gc.com/team#ben-woodall>
 
-### ✅ Brooks Morris - Chief Financial Officer
+### ✅ Beth - Administrative Coordinator
 
-- **Name:** `team-brooks-morris`
-- **File:** `team/qr-team-brooks-morris-color.png`
-- **URL:** <https://www.mhc-gc.com/team#brooks-morris>
+- **Name:** `team-beth`
+- **File:** `team/qr-team-beth-color.png`
+- **URL:** <https://www.mhc-gc.com/team#beth>
 
-### ✅ Brooks Morris - Chief Financial Officer
+### ✅ Beth - Administrative Coordinator
 
-- **Name:** `team-brooks-morris`
-- **File:** `team/qr-team-brooks-morris-bw.png`
-- **URL:** <https://www.mhc-gc.com/team#brooks-morris>
+- **Name:** `team-beth`
+- **File:** `team/qr-team-beth-bw.png`
+- **URL:** <https://www.mhc-gc.com/team#beth>
 
 ### ✅ Derek Parks - Superintendent
 
@@ -1787,13 +1295,13 @@ Generated: 7/12/2026, 12:46:42 PM
 - **File:** `team/qr-team-lisa-kandle-bw.png`
 - **URL:** <https://www.mhc-gc.com/team#lisa-kandle>
 
-### ✅ Matt Ramsey - Chief Marketing Officer and Safety Officer
+### ✅ Matt Ramsey - Chief Marketing Officer & Safety Officer
 
 - **Name:** `team-matt-ramsey`
 - **File:** `team/qr-team-matt-ramsey-color.png`
 - **URL:** <https://www.mhc-gc.com/team#matt-ramsey>
 
-### ✅ Matt Ramsey - Chief Marketing Officer and Safety Officer
+### ✅ Matt Ramsey - Chief Marketing Officer & Safety Officer
 
 - **Name:** `team-matt-ramsey`
 - **File:** `team/qr-team-matt-ramsey-bw.png`
@@ -1811,29 +1319,17 @@ Generated: 7/12/2026, 12:46:42 PM
 - **File:** `team/qr-team-porter-cline-bw.png`
 - **URL:** <https://www.mhc-gc.com/team#porter-cline>
 
-### ✅ Reagan Massey - Superintendent
+### ✅ Reagan Massey - Chief Superintendent
 
 - **Name:** `team-reagan-massey`
 - **File:** `team/qr-team-reagan-massey-color.png`
 - **URL:** <https://www.mhc-gc.com/team#reagan-massey>
 
-### ✅ Reagan Massey - Superintendent
+### ✅ Reagan Massey - Chief Superintendent
 
 - **Name:** `team-reagan-massey`
 - **File:** `team/qr-team-reagan-massey-bw.png`
 - **URL:** <https://www.mhc-gc.com/team#reagan-massey>
-
-### ✅ Steve McClary - Senior Superintendent
-
-- **Name:** `team-steve-mcclary`
-- **File:** `team/qr-team-steve-mcclary-color.png`
-- **URL:** <https://www.mhc-gc.com/team#steve-mcclary>
-
-### ✅ Steve McClary - Senior Superintendent
-
-- **Name:** `team-steve-mcclary`
-- **File:** `team/qr-team-steve-mcclary-bw.png`
-- **URL:** <https://www.mhc-gc.com/team#steve-mcclary>
 
 ### ✅ Todd Schoeff - Lead Estimator
 

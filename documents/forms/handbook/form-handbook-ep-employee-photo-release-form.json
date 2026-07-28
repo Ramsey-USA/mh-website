@@ -16,7 +16,8 @@
           ]
         },
         {
-          "type": "refNote",
+          "type": "htmlBlock",
+          "title": "Acknowledgment",
           "html": "<p>This form authorizes MH Construction to capture and use employee photos, video, and related media for company business purposes. I authorize MH Construction to photograph and/or record me while performing work activities and to use this media for company communications, proposals, project documentation, recruiting, training, and digital/print marketing materials.</p>"
         },
         {
@@ -45,7 +46,7 @@
             {
               "role": "Employee",
               "name": "sign.employee",
-              "signatureLabel": "Acknowledgement Signature"
+              "signatureLabel": "Acknowledgment Signature"
             },
             {
               "role": "Witness / HR Representative",

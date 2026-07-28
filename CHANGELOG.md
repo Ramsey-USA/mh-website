@@ -4,6 +4,10 @@ All notable changes to the MH Construction website are documented here.
 
 ---
 
+## July 2026
+
+- **Jul 28:** Safety-manual tab QR safeguard expansion — completed the missing MISH QR placeholder coverage for sections 51 through 59 in `documents/manuals/safety-manual-tabs.html` and tightened the generation guardrail in `documents/scripts/generate.mjs` so the full 59-section manual flow remains validated. Verification evidence: a direct `python3` check returned `missing []` for placeholders 51-59, and editor diagnostics reported no errors for the updated files.
+
 ## June 2026
 
 - **Jul 24 (f):** Page hierarchy alignment — moved veteran-led construction bridge page from `/veterans/public-sector-construction` to `/public-sector/veteran-led-construction`, consolidating the full public-sector content cluster under one URL tree. Old path retained as a `permanentRedirect` (noindex) for backward compatibility. Updated all internal references (route-manifest, route-indexing-policy, LocaleSwitcher, locations data, PublicSectorFullPage, tri-state page, veterans page). Removed dead `CoolDesertNightsPageClient.tsx` (not imported anywhere since CDN page migrated to `/events/cool-desert-nights`).
@@ -88,7 +92,7 @@ All notable changes to the MH Construction website are documented here.
 
 ## May 2026
 
-- **May 21:** Safety document branding and release workflow alignment — standardized manual and form print templates to the current MH primary green and primary tan pattern across all active manual chrome templates (`safety-manual-cover`, `spine`, `letterhead`, `toc`, `tabs`, `section`) and form templates (`form-cover`, `form-fillable`); rebuilt safety artifacts (50 section PDFs, merged manual outputs, and 18 form packages) and published them to `FILE_ASSETS` under `docs/safety/**` including `docs/safety/forms/form-02-b-job-hazard-analysis.pdf`; updated release scripts so `docs:generate:forms` now builds package outputs (`--template form-packages`), forms publishing targets `documents/output/form-packages` → `docs/safety/forms/`, and safety publishing no longer emits a legacy `documents/output/forms` warning; hardened extraction continuity by allowing `docs:extract` to fall back to Word-source extraction when legacy PDF source directories are absent.
+- **May 21:** Safety document branding and release workflow alignment — standardized manual and form print templates to the current MH primary green and primary tan pattern across all active manual chrome templates (`safety-manual-cover`, `spine`, `letterhead`, `toc`, `tabs`, `section`) and form templates (`form-cover`, `form-fillable`); rebuilt safety artifacts, merged manual outputs, and form packages, then published them to `FILE_ASSETS` under `docs/safety/**` including `docs/safety/forms/form-02-b-job-hazard-analysis.pdf`; updated release scripts so `docs:generate:forms` now builds package outputs (`--template form-packages`), forms publishing targets `documents/output/form-packages` → `docs/safety/forms/`, and safety publishing no longer emits a legacy `documents/output/forms` warning; hardened extraction continuity by allowing `docs:extract` to fall back to Word-source extraction when legacy PDF source directories are absent.
 
 ## April 2026
 

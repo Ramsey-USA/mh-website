@@ -551,16 +551,24 @@ export default function ContactPageClient({
                 href={COMPANY_INFO.agc.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Inland Northwest AGC Member"
+                title={`${COMPANY_INFO.agc.memberDirectoryLabel} (${COMPANY_INFO.agc.memberDirectoryId})`}
                 className="transition-colors"
               >
-                {}
                 <img
-                  src="/images/logo/agc-member.webp"
-                  alt="Inland Northwest AGC Member"
-                  width={405}
-                  height={427}
-                  className="h-10 w-auto"
+                  src={COMPANY_INFO.agc.logo}
+                  alt={COMPANY_INFO.agc.memberDirectoryLabel}
+                  width={795}
+                  height={291}
+                  className="h-10 w-auto dark:hidden"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src={COMPANY_INFO.agc.logoDark}
+                  alt={COMPANY_INFO.agc.memberDirectoryLabel}
+                  width={795}
+                  height={291}
+                  className="h-10 w-auto hidden dark:block"
                   loading="lazy"
                   decoding="async"
                 />

@@ -1,7 +1,7 @@
 {
   "name": "MH Construction - Base HQ → Home | Built on Quality, Backed by Trust.",
   "short_name": "MH Const",
-  "description": "Base HQ → Home: Your Tri-State Construction Command Center. Tri-Cities headquarters in Pasco, Richland, and Kennewick, with licensed operations across WA, OR, and ID throughout the Pacific Northwest. Built on Quality, Backed by Trust. Veteran-Owned Since January 2025 with dual-label approach (Operations → Services, Missions → Projects). Montana expansion coming soon.",
+  "description": "Base HQ → Home: Your Tri-State Construction Command Center. Tri-Cities headquarters in Pasco, Richland, and Kennewick, with licensed operations across WA, OR, and ID throughout the Pacific Northwest. Includes current MISH Safety & Health Program resources (59 sections) and Employee Handbook Rev 4.0 index access. Built on Quality, Backed by Trust.",
   "start_url": "/hub",
   "display": "standalone",
   "background_color": "#1e293b",
@@ -43,6 +43,32 @@
       "short_name": "Contact",
       "description": "Connect with our Veteran-Owned team",
       "url": "/contact",
+      "icons": [
+        {
+          "src": "/icons/mh-logo-master.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "MISH Safety Program",
+      "short_name": "MISH",
+      "description": "Open the current MISH Safety Manual table of contents",
+      "url": "/resources/safety-manual/contents",
+      "icons": [
+        {
+          "src": "/icons/mh-logo-master.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Employee Handbook",
+      "short_name": "Handbook",
+      "description": "Open the current Employee Handbook public index",
+      "url": "/employee-handbook",
       "icons": [
         {
           "src": "/icons/mh-logo-master.png",

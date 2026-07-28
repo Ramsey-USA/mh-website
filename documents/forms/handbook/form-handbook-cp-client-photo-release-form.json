@@ -19,7 +19,8 @@
           ]
         },
         {
-          "type": "refNote",
+          "type": "htmlBlock",
+          "title": "Acknowledgment",
           "html": "<p>This form authorizes MH Construction to capture and use project-related photos and video at client locations for agreed business and communication purposes. Client authorizes MH Construction to photograph and/or record project areas, installed work, and progress, subject to this agreement. Authorized use may include project documentation, proposals, qualifications packages, website and social proof, and related business communications.</p>"
         },
         {
@@ -56,7 +57,7 @@
             {
               "role": "Client Representative",
               "name": "sign.employee",
-              "signatureLabel": "Acknowledgement Signature"
+              "signatureLabel": "Acknowledgment Signature"
             },
             {
               "role": "MH Construction Representative",

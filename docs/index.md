@@ -1,7 +1,7 @@
 # MH Construction Documentation
 
 **Category:** Documentation - Master Index  
-**Last Updated:** July 10, 2026
+**Last Updated:** July 28, 2026
 
 ## Overview
 
@@ -52,6 +52,7 @@ Use this path to find canonical docs quickly and avoid duplicate guidance:
 - **[Brand Constants](./branding/brand-constants.md)** — Canonical brand values
 - **[Page Slogans](./branding/strategy/page-specific-slogans.md)** — Governance guide for the runtime canonical page-level hero slogan matrix
 - **[Dual Terminology Standard](./branding/strategy/dual-terminology-standard.md)** — Canonical enterprise dual-label naming rules
+- **[MHC Terms Library Source](./branding/standards/mhc-terms.docx)** — Upstream terminology source (Version 2.0) for enterprise term additions and protected-term guardrails
 - **[Brand Congruency Master Checklist](./branding/governance/brand-congruency-master-checklist.md)** — Canonical branding merge gate
 - **[Website Guardrails Coverage Map](./branding/governance/website-guardrails-coverage.md)** — Website-wide branding guardrail coverage requirements
 - **[Canonical Contracts Matrix](./branding/governance/website-guardrails-coverage.md#canonical-contracts-matrix-development-routing)** — Component-level routing table for development congruency

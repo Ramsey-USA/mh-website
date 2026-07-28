@@ -1,7 +1,7 @@
 # Branding Documentation
 
 **Category:** Branding - Overview  
-**Last Updated:** July 10, 2026
+**Last Updated:** July 28, 2026
 
 ## Overview
 
@@ -9,6 +9,7 @@ This directory contains all branding documentation for MH Construction, includin
 and brand identity guidelines.
 
 Enterprise dual terminology is governed as a shared system across website, dashboard, MISH, handbook, and document assets.
+Official term-library source for the current model is `docs/branding/standards/mhc-terms.docx` (Version 2.0, effective 04/07/2026).
 
 ## 📌 Single Source of Truth
 

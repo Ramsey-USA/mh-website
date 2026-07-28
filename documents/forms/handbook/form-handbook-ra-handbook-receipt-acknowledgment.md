@@ -5,17 +5,17 @@
 - **Chapter:** 1 — Introduction & Company Overview
 - **Owner:** Human Resources
 - **Purpose:** Confirms a team member has received the Employee Handbook and understands
-  their responsibility to read and comply with it.
+  their acknowledgment obligations under Revision 4.0.
 
 ## Fields
 
 | Section              | Type                | Fields                                          |
 | -------------------- | ------------------- | ----------------------------------------------- |
 | Employee information | fieldGrid           | Employee Name, Department / Crew, Date Received |
-| Acknowledgement      | htmlBlock           | Handbook receipt acknowledgement statement      |
-| Sign-Off             | signatures (manual) | Employee                                        |
+| Acknowledgment       | htmlBlock           | Rev 4.0 handbook acknowledgment statement       |
+| Sign-Off             | signatures (manual) | Employee, Supervisor / HR receipt confirmation  |
 
 ## Notes
 
-- Single-signer (employee) acknowledgment.
-- Instructs the team member to return the form to the office and keep the handbook.
+- Mirrors the Rev 4.0 acknowledgment language in Chapter 09.
+- Captures employee sign-off plus supervisor/HR receipt confirmation.

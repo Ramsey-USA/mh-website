@@ -16,18 +16,24 @@
         },
         {
           "type": "htmlBlock",
-          "title": "Acknowledgement",
-          "html": "<p>I acknowledge that I have received my copy of the MH Construction, Inc. Employee Handbook. I understand that it is my responsibility to read and comply with the policies contained in the handbook and any revisions made to it. I understand that this handbook is a general guide and is not a contract of employment, and that MH Construction, Inc. may change, amend, or discontinue any policy at any time, with or without notice.</p><p>Return this form to the office and keep your handbook for future reference.</p>"
+          "title": "Acknowledgment",
+          "html": "<p>I acknowledge that I have received a copy of the MH Construction, Inc. Employee Handbook, Revision 4.0, and that I have read and understand its contents. I understand that this handbook is not a contract of employment, and that MH Construction, Inc. reserves the right to modify, revoke, suspend, terminate, or change any or all plans, policies, or procedures in whole or in part, at any time, with or without notice.</p><p>I understand that my employment is at-will and may be terminated by either party at any time, with or without cause or notice. I agree to comply with all policies and procedures contained in this handbook.</p>"
         },
         {
           "type": "signatures",
           "title": "Handbook Receipt Sign-Off",
           "manualSignOnly": true,
+          "layout": "two-up",
           "blocks": [
             {
               "role": "Employee",
               "name": "sign.employee",
-              "signatureLabel": "Acknowledgement Signature"
+              "signatureLabel": "Acknowledgment Signature"
+            },
+            {
+              "role": "Supervisor / HR",
+              "name": "sign.supervisorHr",
+              "signatureLabel": "Received by HR Signature"
             }
           ]
         }

@@ -7,7 +7,8 @@
 # key prefixes.
 #
 # Run AFTER:
-#   npm run docs:generate:forms   (creates documents/generated-pdfs/form-packages/*.pdf)
+#   npm run docs:generate:forms             (safety form packages)
+#   npm run docs:generate:forms:handbook    (handbook form packages)
 #
 # Resulting R2 keys (served via /docs/** Workers proxy):
 #   docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf
@@ -40,7 +41,7 @@ FORMS_DIR="$ROOT/documents/generated-pdfs/form-packages"
 echo "🔍  Checking for generated form package PDFs in $FORMS_DIR …"
 
 if [ ! -d "$FORMS_DIR" ]; then
-  echo "❌  $FORMS_DIR not found. Run 'npm run docs:generate:forms' first."
+  echo "❌  $FORMS_DIR not found. Run 'npm run docs:generate:forms' and 'npm run docs:generate:forms:handbook' first."
   exit 1
 fi
 

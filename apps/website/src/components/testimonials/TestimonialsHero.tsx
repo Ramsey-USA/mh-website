@@ -10,13 +10,13 @@ export function TestimonialsHero({
 }: Readonly<TestimonialsHeroProps>) {
   const copy = isEs
     ? {
-        eyebrow: "Reconocimientos y resenas",
+        eyebrow: "Reconocimientos -> Resenas",
         line1: "Resultados verificados",
         line2: "de aliados reales",
         subline: "Historias comprobadas de proyectos completados",
       }
     : {
-        eyebrow: "Commendations and Reviews",
+        eyebrow: "Commendations -> Reviews",
         line1: "Verified Results",
         line2: "From Real Project Stakeholders",
         subline: "Verified success stories from completed projects",

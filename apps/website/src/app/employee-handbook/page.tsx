@@ -50,9 +50,9 @@ export default async function EmployeeHandbookPage() {
   const isEs = (await getServerLocale()) === "es";
   const manual = getDocumentById("employee-handbook");
   const sections = manual?.sections ?? [];
-  const revisionNumber = manual?.revisionNumber ?? "3.0";
+  const revisionNumber = manual?.revisionNumber ?? "4.0";
   const revisionDate = manual?.revisionDate ?? "7/1/2026";
-  const totalPages = manual?.totalPages ?? 37;
+  const totalPages = manual?.totalPages ?? 44;
   const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 
   return (

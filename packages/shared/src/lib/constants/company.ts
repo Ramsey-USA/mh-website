@@ -205,6 +205,12 @@ export const COMPANY_INFO = {
   agc: {
     website:
       "https://business.nwagc.org/memberdirectory/Details/mh-construction-3229535",
+    memberDirectoryId: "3229535",
+    memberDirectoryLabel: "Inland Northwest AGC Member Listing",
+    // Full logo with black chapter text (use on light backgrounds)
+    logo: "/images/credentials/agc-inland-northwest-light.webp",
+    // Plain NWAGC logo (use on dark backgrounds)
+    logoDark: "/images/credentials/nwagc-logo.png",
     /** AGC national BABAA resource hub — covers Build America, Buy America Act guidance */
     babaaResourceHub: "https://www.agc.org/babaa-resource-hub",
   },

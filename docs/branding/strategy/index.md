@@ -1,13 +1,14 @@
 # Branding Strategy Index
 
 **Category:** Branding - Strategy Index
-**Last Updated:** July 20, 2026
+**Last Updated:** July 28, 2026
 
 ## Overview
 
 Messaging, terminology, and slogan governance for consistent MH brand voice.
 
 For enterprise naming across website, dashboard, MISH, handbook, and document assets, use the dual-terminology standard as the canonical rule set.
+For enterprise term additions and term-protection rules, use `docs/branding/standards/mhc-terms.docx` as the upstream source.
 
 ## Strategy Library
 

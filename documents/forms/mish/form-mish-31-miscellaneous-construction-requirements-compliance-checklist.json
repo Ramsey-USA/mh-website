@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Miscellaneous Construction Requirements Compliance Checklist - field verification",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Compliance Observations",
+          "subtitle": "Document compliance findings, exceptions, corrective actions, and follow-up closure dates.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Miscellaneous Construction Requirements Compliance Checklist",
+          "html": "<p><strong>Policy Summary:</strong> This form supports MISH 31 by documenting compliance with miscellaneous construction controls applicable to active work scope.</p><p><strong>Procedure Capture:</strong> Verify controls are implemented, exceptions are documented, and correction timelines are assigned.</p><p><strong>Task Use:</strong> Complete during pre-task planning and weekly inspections; escalate unresolved gaps to Safety Officer review.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Miscellaneous Construction Requirements Compliance Checklist Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Prepared By",
+              "name": "sign.preparedBy",
+              "signatureLabel": "Prepared By Signature"
+            },
+            {
+              "role": "Supervisor / Safety Officer",
+              "name": "sign.approver",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

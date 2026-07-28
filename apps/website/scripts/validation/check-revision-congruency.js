@@ -15,6 +15,9 @@ const REPO_ROOT = path.resolve(APP_ROOT, "..", "..");
 
 const CANONICAL = {
   revisionNumber: "3.0",
+  handbookRevisionNumber: "4.0",
+  mishFormRevisionNumber: "5.0",
+  handbookFormRevisionNumber: "4.0",
   revisionDate: "7/1/2026",
   legacyDates: ["04/07/2026", "05/01/2026", "June 2026"],
 };
@@ -106,9 +109,16 @@ function checkFormsManifest() {
 
   for (const form of forms) {
     const id = form.id || form.slug || "unknown-form";
-    if (form.revision !== CANONICAL.revisionNumber) {
+    let expectedRevision = CANONICAL.revisionNumber;
+    if (typeof id === "string" && id.startsWith("MISH ")) {
+      expectedRevision = CANONICAL.mishFormRevisionNumber;
+    } else if (typeof id === "string" && id.startsWith("HANDBOOK-")) {
+      expectedRevision = CANONICAL.handbookFormRevisionNumber;
+    }
+
+    if (form.revision !== expectedRevision) {
       errors.push(
-        `Form ${id} revision must be ${CANONICAL.revisionNumber} in ${rel(FILES.formsManifest)} (found ${form.revision}).`,
+        `Form ${id} revision must be ${expectedRevision} in ${rel(FILES.formsManifest)} (found ${form.revision}).`,
       );
     }
     if (form.effectiveDate !== CANONICAL.revisionDate) {
@@ -127,8 +137,10 @@ function checkGeneratorEnforcement() {
     `${rel(FILES.docsGenerator)} must enforce ENFORCED_REVISION_DATE = "${CANONICAL.revisionDate}".`,
   );
   assert(
-    /const\s+ENFORCED_REVISION_NUMBER\s*=\s*"3\.0";/.test(src),
-    `${rel(FILES.docsGenerator)} must enforce ENFORCED_REVISION_NUMBER = "${CANONICAL.revisionNumber}".`,
+    /const\s+ENFORCED_REVISION_NUMBER\s*=\s*isEmployeeHandbook\s*\?\s*"4\.0"\s*:\s*"3\.0";/.test(
+      src,
+    ),
+    `${rel(FILES.docsGenerator)} must enforce ENFORCED_REVISION_NUMBER = isEmployeeHandbook ? "${CANONICAL.handbookRevisionNumber}" : "${CANONICAL.revisionNumber}".`,
   );
 }
 
@@ -152,8 +164,8 @@ function checkWebsiteBindings() {
     `${rel(FILES.docsData)} must set safety revision date fallback to ${CANONICAL.revisionDate}.`,
   );
   assert(
-    /EMPLOYEE_HANDBOOK_REVISION_NUMBER\s*=\s*"3\.0";/.test(docsData),
-    `${rel(FILES.docsData)} must set handbook revision number to ${CANONICAL.revisionNumber}.`,
+    /EMPLOYEE_HANDBOOK_REVISION_NUMBER\s*=\s*"4\.0";/.test(docsData),
+    `${rel(FILES.docsData)} must set handbook revision number to ${CANONICAL.handbookRevisionNumber}.`,
   );
   assert(
     /EMPLOYEE_HANDBOOK_REVISION_DATE\s*=\s*"7\/1\/2026";/.test(docsData),
@@ -187,10 +199,10 @@ function checkWebsiteBindings() {
   );
 
   assert(
-    /revisionNumber\s*=\s*manual\?\.revisionNumber\s*\?\?\s*"3\.0";/.test(
+    /revisionNumber\s*=\s*manual\?\.revisionNumber\s*\?\?\s*"4\.0";/.test(
       handbookPage,
     ),
-    `${rel(FILES.handbookPage)} must default revisionNumber to ${CANONICAL.revisionNumber}.`,
+    `${rel(FILES.handbookPage)} must default revisionNumber to ${CANONICAL.handbookRevisionNumber}.`,
   );
   assert(
     /revisionDate\s*=\s*manual\?\.revisionDate\s*\?\?\s*"7\/1\/2026";/.test(

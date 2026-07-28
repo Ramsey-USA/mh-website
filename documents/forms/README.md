@@ -7,17 +7,18 @@ This folder is the source tree for the form families used by the document genera
 - [forms-manifest.json](./forms-manifest.json) - canonical manifest consumed by the document generator and merge scripts
 - [handbook/](./handbook/) - employee handbook forms: one editable **fillable schema** (`.json`) and one **developing spec** (`.md`) per form
 - [mish/](./mish/) - MISH safety forms: one editable **fillable schema** (`.json`) and one **developing spec** (`.md`) per form
-- [MHC-MISH-47-Forms/](./MHC-MISH-47-Forms/) - safety form DOCX sources for the MISH series
+- [MHC-MISH-59-Forms/](./MHC-MISH-59-Forms/) - safety form DOCX sources for the MISH series
 
 ## Form Source Models
 
-- **Handbook forms (8):** Each form is defined by an individual, git-trackable fillable schema in
-  `handbook/<slug>.json` (referenced from the manifest via `fillableFile`). The shared fillable
-  engine renders these into AcroForm PDFs, so every handbook form is fillable by construction. A
-  companion `handbook/<slug>.md` documents the fields and intent for ongoing editing.
-- **MISH forms (50):** Each form is defined by an individual, git-trackable fillable schema in
+- **Handbook forms (9):** Eight fillable schemas plus the handbook letterhead artifact are defined
+  by individual, git-trackable files under `handbook/<slug>.json` (referenced from the manifest via
+  `fillableFile`). The shared fillable engine renders the schemas into AcroForm PDFs, so every
+  handbook form is fillable by construction. A companion `handbook/<slug>.md` documents the fields
+  and intent for ongoing editing.
+- **MISH forms (59):** Each form is defined by an individual, git-trackable fillable schema in
   `mish/<slug>.json` (referenced from the manifest via `fillableFile`) and rendered by the same
-  shared fillable engine used for handbook forms. DOCX sources under `MHC-MISH-47-Forms/` remain
+  shared fillable engine used for handbook forms. DOCX sources under `MHC-MISH-59-Forms/` remain
   as source lineage and can be used to re-bootstrap schema scaffolds when needed.
 
 ## Tracking Tips
@@ -35,3 +36,8 @@ This folder is the source tree for the form families used by the document genera
 
 - The generated PDF bundle lives in [documents/downloads/forms](../downloads/forms)
 - The merged safety and handbook PDFs are published from [documents/generated-pdfs](../generated-pdfs)
+
+## MISH 5.0 Source of Truth
+
+- Authoring baseline for APP structure: `documents/content/MHC-MISH-APP-59-Sections/Dean Thoemke-AGC-APP development.docx`.
+- Apply the guide's Policy -> Procedure -> Task hierarchy when updating MISH form language and associated acknowledgments.

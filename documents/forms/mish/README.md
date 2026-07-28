@@ -16,6 +16,8 @@ Each form has two files:
 
 ## MISH source lineage
 
-- DOCX source files remain in `documents/forms/MHC-MISH-47-Forms/` for source lineage.
+- DOCX source files remain in `documents/forms/MHC-MISH-59-Forms/` for source lineage.
+- For MISH 51-59, the manifest now points to the chapter-named DOCX lineage files under that folder so the source folder matches the current chapter set.
+- Structural source-of-truth for MISH 5.0 authoring remains `documents/content/MHC-MISH-APP-59-Sections/Dean Thoemke-AGC-APP development.docx`.
 - To re-bootstrap schema/spec files from legacy defaults, run:
   `pnpm --filter @mhc/website run docs:migrate:mish:fillable`

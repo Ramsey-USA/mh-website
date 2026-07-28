@@ -10,8 +10,8 @@
 
 ## Overview
 
-MH Construction's **Safety Program** is a comprehensive 50-section written safety
-program (Section 00 = Table of Contents, Sections 01–49 = content) covering all
+MH Construction's **Safety Program** is a comprehensive 59-chapter written safety
+program (Section 00 = Table of Contents, Chapters 01–59 = content) covering all
 OSHA-required construction safety standards.
 
 This guide documents:
@@ -24,7 +24,7 @@ This guide documents:
 
 **Current Version:** Revision 3 | **Effective Date:** April 7, 2026
 **Author of Record:** Matt Ramsey (Safety Officer) | **Authorized By:** Jeremy Thamert (Owner)
-**Total Sections:** 50 (00–49) | **Total Pages:** ~350 (formatted output)
+**Total Chapters:** 59 (01–59) | **Total Pages:** ~350 (formatted output)
 **Source Files:** Word (.docx) source library (MISH sections)
 
 **Brand Congruency:** Safety program templates, generated PDFs, and print routes must keep typography and color usage aligned with the canonical MH font and palette standards.
@@ -49,6 +49,57 @@ This guide documents:
 - **Legacy term:** Accident Prevention Program (APP) may still appear in
   historic source material and should only be referenced when clarifying
   continuity
+
+### MISH 5.0 Authoring Standard
+
+The structural source-of-truth for MISH 5.0 authoring is the Dean Thoemke APP development DOCX:
+
+- `documents/content/MHC-MISH-APP-59-Sections/Dean Thoemke-AGC-APP development.docx`
+- Dean Thoemke is Director of Safety at the NWAGC and can be reached at [dthoemke@nwagc.org](mailto:dthoemke@nwagc.org).
+
+Apply the guidance in that source when creating or revising MISH content:
+
+- Use the canonical Policy -> Procedure -> Task hierarchy for chapter bodies and form language.
+- Preserve the first body heading when a chapter starts with `1. POLICY` or another policy-level opening.
+- Treat chapter/task headings as the authoritative source for extraction, tab labels, and related form references.
+- Keep em dash variants and heading punctuation consistent with the source wording when normalizing copied text.
+- Use this standard as the baseline for further MISH development, including newly added chapters and associated forms.
+
+#### Dean Gold Standard - Implementation Model (How We Apply It)
+
+The Dean Gold Standard is the operating method we use to convert written safety intent into
+field-executable controls. Every MISH chapter and associated form should follow this same flow.
+
+1. **Policy (What must be true):**
+   State the non-negotiable safety outcome, scope, and governing citations (OSHA/WISHA/AGC).
+   Policy language defines the required condition, not optional guidance.
+1. **Procedure (How supervision runs it):**
+   Define who executes, when it triggers, and how often it repeats (pre-task, daily, weekly,
+   incident-triggered, or closeout). Procedures must describe command flow from superintendent
+   through crew-level execution.
+1. **Task (What gets done and recorded):**
+   Convert procedure steps into verifiable actions with an owner, timestamp/frequency, and
+   evidence artifact (log, signoff, inspection, photo, or report).
+
+Use this implementation contract for each chapter:
+
+- **Chapter body:** Organize the text in Policy -> Procedure -> Task order.
+- **Form linkage:** At least one task-level artifact must map to a form in `forms-manifest.json`.
+- **Operational proof:** Each task should produce auditable evidence that can be reviewed in the
+  Dashboard (Staff Hub) or retained in generated PDF records.
+- **Escalation path:** Define who is notified when a task fails (for example: superintendent ->
+  Safety Officer -> executive leadership).
+- **Close-loop action:** Require corrective action plus re-verification before a task is marked
+  complete after a safety variance.
+
+Minimum quality gate before publishing chapter or form updates:
+
+- Policy statements include current regulatory citations.
+- Procedures include role ownership and trigger timing.
+- Tasks are measurable and evidence-producing.
+- Related form content matches chapter task language.
+- Regenerated outputs (`docs:extract-word`, `docs:generate`, `docs:generate:forms`) reflect the
+  updated hierarchy without heading drift.
 
 ### Standards Alignment
 
@@ -80,13 +131,13 @@ revision has been reviewed against the applicable state rules.
 ### Document Pipeline
 
 ```text
-documents/content/MHC-MISH-APP-50-Sections/         ← Canonical Word source bundle (.docx MISH sections)
+documents/content/MHC-MISH-APP-59-Sections/         ← Canonical Word source bundle (.docx MISH sections)
            │
            ▼  pnpm --filter @mhc/website run docs:extract-word
-documents/content/safety-manual.json                ← Auto-generated manifest (50 sections)
+documents/content/safety-manual.json                ← Auto-generated manifest (59 chapters)
            │
            ▼  pnpm --filter @mhc/website run docs:generate + pnpm --filter @mhc/website run docs:generate:forms
-documents/generated-pdfs/sections/                  ← 50 generated PDFs served to field staff
+documents/generated-pdfs/sections/                  ← 59 generated PDFs served to field staff
 documents/generated-pdfs/form-packages/             ← Generated form package PDFs (cover + fillable)
 documents/generated-pdfs/safety-manual-toc.pdf      ← Standalone table-of-contents PDF (generator canonical name)
            │
@@ -132,17 +183,17 @@ documents/
 │   ├── safety-manual.json                                ← DO NOT EDIT MANUALLY — auto-generated by extract scripts
 │   ├── employee-handbook.json                            ← Employee Handbook manifest (chapter-based section metadata)
 │   ├── manuals-index.json                                ← Dual-manual registry & shared forms contract
-│   ├── MHC-MISH-APP-50-Sections/                         ← Current source Word docs (MISH naming)
+│   ├── MHC-MISH-APP-59-Sections/                         ← Current source Word docs (MISH naming)
 │   └── mhc-employee-handbook-2026/                       ← Canonical Employee Handbook chapter PDFs
 ├── forms/
-│   ├── MHC-MISH-47-Forms/               ← Canonical source form .docx files (shared between manuals)
+│   ├── MHC-MISH-59-Forms/               ← Canonical source form .docx files (shared between manuals)
 │   ├── forms-manifest.json              ← Form registry (shared by MISH + Handbook)
 │   └── *.html                           ← Optional standalone HTML form templates for PDF generation
 ├── manuals/
 │   ├── safety-manual-cover.html     ← MISH 3-ring binder cover template
 │   ├── safety-manual-section.html   ← MISH individual section page template
 │   ├── safety-manual-spine.html     ← MISH spine label template
-│   ├── safety-manual-tabs.html      ← MISH tab divider templates (50 tabs)
+│   ├── safety-manual-tabs.html      ← MISH tab divider templates (59 tabs)
 │   ├── employee-handbook-cover.html ← Handbook cover template
 │   ├── employee-handbook-spine.html ← Handbook spine template
 │   ├── employee-handbook-tabs.html  ← Handbook tab dividers
@@ -169,7 +220,7 @@ documents/
 
 ## Program Section Inventory (Authoritative Source)
 
-The current MISH inventory is **50 sections (00-49)** for Revision 3.
+The current MISH inventory is **59 chapters (01–59)**.
 
 To avoid documentation drift, the authoritative section catalog lives in code and generated manifests:
 
@@ -201,7 +252,7 @@ When new program Word source files are delivered, follow this checklist **in ord
 Create or update the canonical source folder inside `documents/content/`:
 
 ```bash
-documents/content/MHC-MISH-APP-50-Sections/  # Place MISH .docx section files here
+documents/content/MHC-MISH-APP-59-Sections/  # Place MISH .docx section files here
 ```
 
 ### Step 2 — Update brand metadata
@@ -228,13 +279,13 @@ updated section text, summaries, word counts, and metadata.
 By default, the extractor targets:
 
 ```bash
-documents/content/MHC-MISH-APP-50-Sections
+documents/content/MHC-MISH-APP-59-Sections
 ```
 
 To run against a different version directory:
 
 ```bash
-node documents/scripts/extract-word.mjs --input documents/content/MHC-MISH-APP-50-Sections
+node documents/scripts/extract-word.mjs --input documents/content/MHC-MISH-APP-59-Sections
 ```
 
 ### Step 4 — Regenerate all print PDFs
@@ -394,20 +445,15 @@ The Employee Handbook is maintained as a **separate-but-parallel manual** alongs
 
 The Employee Handbook sections are sourced directly from canonical chapter PDFs:
 
-1. **Update chapter source files in place:**
+1. **Update the chapter source bundle in place:**
 
 ```bash
 documents/content/mhc-employee-handbook-2026/
 ```
 
-Required chapter files:
+Required chapter set:
 
-- chapter-1-introduction.pdf
-- chapter-2-company-policies.pdf
-- chapter-3-employment-basics.pdf
-- chapter-4-compensation.pdf
-- chapter-5-employee-benefits.pdf
-- chapter-6-miscellaneous.pdf
+- 9 chapter PDFs in the canonical employee-handbook source bundle
 
 1. **Generate handbook print artifacts:**
 
@@ -431,7 +477,7 @@ documents/content/mhc-employee-handbook-2026/
      ▼  documents/content/employee-handbook.json (manifest)
      │
      ▼  handbook section generation (chapter PDFs)
-      documents/generated-pdfs/sections/01-*.pdf ... 06-*.pdf
+      documents/generated-pdfs/sections/01-*.pdf ... 09-*.pdf
      │
      ▼  handbook shell artifacts
         ├─► pnpm --filter @mhc/website run docs:generate:handbook:cover
@@ -450,13 +496,13 @@ documents/content/mhc-employee-handbook-2026/
 
 ### Handbook vs MISH Architecture Differences
 
-| Aspect           | MISH (safety-manual)       | Handbook (employee-handbook)      |
-| ---------------- | -------------------------- | --------------------------------- |
-| Sections         | 50 (00–49) with QR codes   | 6 (01–06) no section QR           |
-| Digital routes   | `/resources/safety-manual` | Static PDF `/docs/employee/`      |
-| Tab QR codes     | Per-section links          | Single handbook cover link        |
-| Forms included   | Yes (47 safety forms)      | Yes (handbook forms + letterhead) |
-| Merge complexity | Full 350+ page assembly    | Single handbook PDF               |
+| Aspect           | MISH (safety-manual)       | Handbook (employee-handbook) |
+| ---------------- | -------------------------- | ---------------------------- |
+| Chapters         | 59 (01–59) with QR codes   | 9 (01–09) no section QR      |
+| Digital routes   | `/resources/safety-manual` | Static PDF `/docs/employee/` |
+| Tab QR codes     | Per-section links          | Single handbook cover link   |
+| Forms included   | Yes (59 safety forms)      | Yes (9 handbook artifacts)   |
+| Merge complexity | Full 350+ page assembly    | Single handbook PDF          |
 
 ---
 
@@ -523,7 +569,7 @@ Successful authenticated login flows now emit server-side `login` audit events t
 Program source files should be stored in the canonical MISH app folder:
 
 ```
-documents/content/MHC-MISH-APP-50-Sections/  ← Current
+documents/content/MHC-MISH-APP-59-Sections/  ← Current
 ```
 
 Do **not** split active source files across multiple folders.
@@ -534,7 +580,7 @@ Do **not** split active source files across multiple folders.
 
 | Revision | Effective Date | Sections   | Description                                                                                                                                                      | Author                       | Authorized By          |
 | -------- | -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ---------------------- |
-| Rev 3.0  | 04/07/2026     | 50 (00–49) | Current digital program baseline; 50 sections extracted into the digital manifest with field hub workflows, expanded forms library, and download/access tracking | Matt Ramsey (Safety Officer) | Jeremy Thamert (Owner) |
+| Rev 3.0  | 04/07/2026     | 59 (01–59) | Current digital program baseline; 59 chapters extracted into the digital manifest with field hub workflows, expanded forms library, and download/access tracking | Matt Ramsey (Safety Officer) | Jeremy Thamert (Owner) |
 
 ---
 

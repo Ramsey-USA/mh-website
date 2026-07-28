@@ -320,7 +320,7 @@ const SAFETY_MANUAL_CLUSTERS = [
   { slug: "energy-and-fire-hazards", min: 28, max: 32 },
   { slug: "motor-vehicles-and-heavy-equipment", min: 33, max: 41 },
   { slug: "tools-and-materials", min: 42, max: 45 },
-  { slug: "program-compliance-and-continuity", min: 46, max: 50 },
+  { slug: "program-compliance-and-continuity", min: 46, max: 59 },
 ];
 
 function clusterHrefForSection(numeric) {
@@ -439,6 +439,20 @@ function loadHandbookForms() {
 
 const SAFETY_MANUAL_FORMS = loadSafetyManualForms();
 const HANDBOOK_FORMS = loadHandbookForms();
+
+function normalizeManifestFormQrName(entry, prefix) {
+  const slug = String(entry?.slug || "").trim();
+  if (!slug) {
+    return prefix;
+  }
+
+  const normalizedSlug = slug.replace(/^form-/, "");
+  return `${prefix}-${normalizedSlug}`;
+}
+
+module.exports = {
+  normalizeManifestFormQrName,
+};
 
 function getFolderForQR(name) {
   if (name.startsWith("team-")) return "team";
@@ -559,7 +573,7 @@ function buildFinalQRCodeList() {
 
   // Build safety form entries — deep-link to forms grouped index anchor.
   const safetyFormCodes = SAFETY_MANUAL_FORMS.map((f) => ({
-    name: `safety-form-${f.id}`,
+    name: normalizeManifestFormQrName(f, "safety-form"),
     url: `${BASE_URL}/resources/safety-manual/forms#form-${f.id}`,
     description: `Safety Form: ${f.title}`,
     label: `FORM ${f.id.toUpperCase()}`,
@@ -568,7 +582,7 @@ function buildFinalQRCodeList() {
 
   // Build employee handbook form entries — deep-link to published handbook PDFs.
   const handbookFormCodes = HANDBOOK_FORMS.map((f) => ({
-    name: `handbook-form-${f.id}`,
+    name: normalizeManifestFormQrName(f, "handbook-form"),
     url: `${BASE_URL}/docs/employee/forms/${f.slug}.pdf`,
     description: `Employee Handbook Form: ${f.title}`,
     label: `HANDBOOK ${f.id.toUpperCase()}`,

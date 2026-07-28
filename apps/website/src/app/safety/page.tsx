@@ -15,11 +15,14 @@ import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
+import { manuals } from "@/lib/data/documents";
 import { getApprovedClaimOrFallback } from "@/lib/content/claims";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const SITE_URL = "https://www.mhc-gc.com";
 const MISH_PROGRAM_LABEL = "MISH Safety & Health Program (Safety Manual)";
+const SAFETY_SECTION_COUNT =
+  manuals.find((doc) => doc.id === "safety-manual")?.totalSections ?? 59;
 
 const veteranOwnedClaim = getApprovedClaimOrFallback({
   id: "veteran_owned_since_2025",
@@ -35,7 +38,7 @@ const triStateLicenseClaim = getApprovedClaimOrFallback({
 
 export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyProgram.seoName, PAGE_TERMINOLOGY.safetyProgram.mhBrandName)} | 0.64 EMR | AGC-WA Award | MH Construction Tri-State`,
-  description: `MH Construction Safety Program (${MISH_PROGRAM_LABEL}) — 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written safety program aligned for WA, OR, and ID operations.`,
+  description: `MH Construction Safety Program (${MISH_PROGRAM_LABEL}) — 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, Dean Gold Standards (Policy -> Procedure -> Task), and a ${SAFETY_SECTION_COUNT}-section written safety program aligned for WA, OR, and ID operations.`,
   keywords: [
     "MH Construction safety culture",
     "zero incident culture construction",
@@ -63,7 +66,7 @@ export const metadata: Metadata = withGeoMetadata({
   },
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyProgram.seoName, PAGE_TERMINOLOGY.safetyProgram.mhBrandName)} | 0.64 EMR, AGC-WA Award | MH Construction`,
-    description: `Safety is leadership in daily practice. 0.64 EMR (40% below industry avg), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written ${MISH_PROGRAM_LABEL}.`,
+    description: `Safety is leadership in daily practice. 0.64 EMR (40% below industry avg), OSHA VPP Star designation, AGC-WA Top EMR Award, Dean Gold Standards (Policy -> Procedure -> Task), and a ${SAFETY_SECTION_COUNT}-section written ${MISH_PROGRAM_LABEL}.`,
     url: `${SITE_URL}/safety`,
     siteName: "MH Construction",
     type: "website",
@@ -111,8 +114,7 @@ const safetySchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: `MH Construction Safety Program (${MISH_PROGRAM_LABEL})`,
-  description:
-    "Safety program with 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written safety program aligned with OSHA, AGC, WISHA, Oregon OSHA, and Idaho requirements.",
+  description: `Safety program with 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, Dean Gold Standards (Policy -> Procedure -> Task), and a ${SAFETY_SECTION_COUNT}-section written safety program aligned with OSHA, AGC, WISHA, Oregon OSHA, and Idaho requirements.`,
   provider: {
     "@type": "Organization",
     name: "MH Construction, Inc.",
@@ -178,7 +180,7 @@ const safetyFaqSchema = {
       name: "Is MH Construction OSHA certified?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. MH Construction holds OSHA VPP Star designation — the highest level of workplace safety achievement in OSHA's Voluntary Protection Program. Our team is OSHA 30-Hour Construction certified and we maintain a comprehensive 50-section written safety program aligned with federal and state requirements.",
+        text: `Yes. MH Construction holds OSHA VPP Star designation — the highest level of workplace safety achievement in OSHA's Voluntary Protection Program. Our team is OSHA 30-Hour Construction certified and we maintain a comprehensive ${SAFETY_SECTION_COUNT}-section written safety program aligned with federal and state requirements.`,
       },
     },
     {
@@ -186,7 +188,7 @@ const safetyFaqSchema = {
       name: "What is MH Construction's written safety program?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: `MH Construction maintains a 50-section written safety program (Revision 3.0, effective July 1, 2026), delivered as the ${MISH_PROGRAM_LABEL}. The program is aligned with OSHA 29 CFR 1926, AGC CSEA, WISHA (Washington), Oregon OSHA, and Idaho requirements. It is available for review by bonding banks, insurers, architects, and project stakeholders at mhc-gc.com/safety.`,
+        text: `MH Construction maintains a ${SAFETY_SECTION_COUNT}-section written safety program (Revision 3.0, effective July 1, 2026), delivered as the ${MISH_PROGRAM_LABEL}. The program is aligned with OSHA 29 CFR 1926, AGC CSEA, WISHA (Washington), Oregon OSHA, and Idaho requirements. It is available for review by bonding banks, insurers, architects, and project stakeholders at mhc-gc.com/safety.`,
       },
     },
     {
@@ -245,6 +247,11 @@ export default async function SafetyPage() {
           body: sp("credentials.items.osha30.body"),
           tag: sp("credentials.items.osha30.tag"),
         },
+        deanGold: {
+          title: sp("credentials.items.deanGold.title"),
+          body: sp("credentials.items.deanGold.body"),
+          tag: sp("credentials.items.deanGold.tag"),
+        },
         program: {
           title: sp("credentials.items.program.title"),
           body: sp("credentials.items.program.body"),
@@ -277,6 +284,10 @@ export default async function SafetyPage() {
         csea: {
           title: sp("badges.items.csea.title"),
           subtitle: sp("badges.items.csea.subtitle"),
+        },
+        deanGold: {
+          title: sp("badges.items.deanGold.title"),
+          subtitle: sp("badges.items.deanGold.subtitle"),
         },
       },
     },

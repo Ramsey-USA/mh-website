@@ -18,7 +18,7 @@
   "safetyProgramAuthorizedBy": "Jeremy Thamert (Owner)",
   "safetyProgramTitle": "MISH Safety & Health Program (Safety Manual)",
   "safetyProgramSubtitle": "Industrial Safety & Health Program (MISH)",
-  "safetyProgramTotalSections": 50,
+  "safetyProgramTotalSections": 59,
   "licenses": {
     "WA": "MHCONCI907R7",
     "OR": "194331",
@@ -42,7 +42,7 @@
     "darkBg": "../assets/logo-dark-bg.png"
   },
   "partnerLogos": {
-    "agcHorizontal": "../../apps/website/public/images/credentials/agc-wa-logo.webp",
+    "agcHorizontal": "../assets/02-nwagc-logo.png",
     "agcStacked": "../assets/nwagc-logo-stacked.png",
     "bbbHorizontal": "../assets/bbb/bbb-logo-horizontal.png",
     "bbbVertical": "../assets/bbb/bbb-accredited-seal-vertical.png",

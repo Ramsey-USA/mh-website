@@ -41,10 +41,10 @@ jest.mock("@/lib/analytics/components/PageTrackingClient", () => ({
 
 jest.mock("@/lib/hub/resources", () => ({
   getHubSafetySummary: async () => ({
-    sectionCount: 50,
+    sectionCount: 59,
     revisionNumber: "3",
-    handbookRevision: "1.0",
-    handbookSections: 6,
+    handbookRevision: "4.0",
+    handbookSections: 9,
     safetyFormCount: 42,
     handbookFormCount: 12,
     formCount: 54,
@@ -81,8 +81,8 @@ describe("Operations Hub page routing", () => {
     await renderHubPage();
 
     expect(screen.getByText(/MISH Rev 3/i)).toBeInTheDocument();
-    expect(screen.getByText(/50 sections/i)).toBeInTheDocument();
-    expect(screen.getByText(/Employee Handbook Rev 1.0/i)).toBeInTheDocument();
+    expect(screen.getByText(/59 sections/i)).toBeInTheDocument();
+    expect(screen.getByText(/Employee Handbook Rev 4.0/i)).toBeInTheDocument();
     expect(screen.getByText(/12 handbook forms/i)).toBeInTheDocument();
     expect(screen.getByText(/Safety Program forms: 42/i)).toBeInTheDocument();
     expect(screen.getByText(/Total active forms: 54/i)).toBeInTheDocument();

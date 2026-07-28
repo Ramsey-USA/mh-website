@@ -97,7 +97,7 @@ export const DEFAULT_EXHIBITS: readonly ExhibitConfig[] = [
     id: "A",
     label: "Safety Manual: Table of Contents (MISH Program)",
     description:
-      "MH Construction Safety Program (MISH Safety & Health Program) table of contents with all 50 sections",
+      "MH Construction Safety Program (MISH Safety & Health Program) table of contents with all 59 sections",
     file: "safety-manual-toc.pdf",
     enabled: false,
   },

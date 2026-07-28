@@ -15,7 +15,7 @@
   "revisionDate": "7/1/2026",
   "safetyProgramTitle": "MISH — Safety & Health Program",
   "safetyProgramSubtitle": "MH Construction Industrial Safety & Health Program",
-  "safetyProgramTotalSections": 50,
+  "safetyProgramTotalSections": 59,
   "licenses": {
     "WA": "MHCONCI907R7",
     "OR": "194331",
@@ -39,7 +39,7 @@
     "darkBg": "../assets/logo-dark-bg.png"
   },
   "partnerLogos": {
-    "agcHorizontal": "../../../website/public/images/credentials/agc-wa-logo.webp",
+    "agcHorizontal": "../../../../documents/assets/02-nwagc-logo.png",
     "agcStacked": "../assets/nwagc-logo-stacked.png",
     "bbbHorizontal": "../assets/bbb/bbb-logo-horizontal.png",
     "bbbVertical": "../assets/bbb/bbb-accredited-seal-vertical.png",

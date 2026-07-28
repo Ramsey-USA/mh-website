@@ -3,6 +3,8 @@
 This folder holds the **individual, editable source files** for each MH Construction, Inc.
 Employee Handbook form. Each form has two files:
 
+Handbook-associated outputs here total 9 artifacts: 8 fillable forms plus the letterhead companion.
+
 | File          | Role                                                                                                                                                         |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `<slug>.json` | **Authoritative** fillable schema rendered by the shared form engine (same engine as the MISH safety forms). Edit this to change fields, layout, or content. |
@@ -14,7 +16,10 @@ Employee Handbook form. Each form has two files:
 2. `documents/scripts/generate.mjs` (`loadFormsManifest`) loads the schema into `form.fillable.pages`.
 3. The shared fillable engine (`getFillablePages` → `renderSheet`) renders branded, AcroForm
    fillable PDFs with the canonical MH cover, header/footer chrome, and QR code.
-4. `npm run docs:generate:handbook` regenerates every handbook form package.
+4. `node documents/scripts/generate.mjs --manual employee-handbook --template form-packages`
+   regenerates handbook form packages.
+5. `node documents/scripts/generate.mjs --manual employee-handbook --template form-publish`
+   publishes refreshed handbook form packages to `public/docs/employee/forms/`.
 
 ## Schema section types
 
@@ -29,21 +34,28 @@ Semantic TOC lettering system used in handbook outputs:
 - `FORM CV` Company Vehicle
 - `FORM RA` Receipt Acknowledgment
 - `FORM SP` Safety Policy
-- `FORM WH` Work From Home
+- `FORM WH` Remote Work
 - `FORM CE` Computer & Electronics
 - `FORM EP` Employee Photo
 - `FORM CP` Client Photo
 - `FORM GE` General Expense
 - `FORM LH` Letterhead
 
-| Form                | TOC Code | Title                                                 | Chapter                             |
-| ------------------- | -------- | ----------------------------------------------------- | ----------------------------------- |
-| HANDBOOK-FORM-01    | FORM CV  | Company Vehicle Policies & Procedures Acknowledgement | 7 · Technology & Data Use           |
-| HANDBOOK-FORM-02    | FORM RA  | Employee Handbook Receipt Acknowledgment              | 1 · Introduction & Company Overview |
-| HANDBOOK-FORM-03    | FORM SP  | Employee Safety Policy Acknowledgement                | 6 · Health, Safety, & Security      |
-| HANDBOOK-FORM-04    | FORM WH  | Temporary Work From Home Application/Agreement        | 7 · Technology & Data Use           |
-| HANDBOOK-FORM-05    | FORM CE  | Computer & Electronics Use Policy Acknowledgment      | 7 · Technology & Data Use           |
-| HANDBOOK-FORM-06    | FORM EP  | Employee Photo Release Form                           | 7 · Technology & Data Use           |
-| HANDBOOK-FORM-07    | FORM CP  | Client Photo Release Form                             | 7 · Technology & Data Use           |
-| HANDBOOK-FORM-08    | FORM GE  | Purchase Approval General Expense                     | 3 · Compensation & Benefits         |
-| HANDBOOK-LETTERHEAD | FORM LH  | MH Construction Company Letterhead                    | 1 · Introduction & Company Overview |
+| Form                | TOC Code | Title                                                | Chapter                             |
+| ------------------- | -------- | ---------------------------------------------------- | ----------------------------------- |
+| HANDBOOK-FORM-01    | FORM CV  | Company Vehicle Policies & Procedures Acknowledgment | 7 · Technology & Data Use           |
+| HANDBOOK-FORM-02    | FORM RA  | Employee Handbook Receipt Acknowledgment             | 1 · Introduction & Company Overview |
+| HANDBOOK-FORM-03    | FORM SP  | Employee Safety Policy Acknowledgment                | 6 · Health, Safety, & Security      |
+| HANDBOOK-FORM-04    | FORM WH  | Temporary Remote Work Application/Agreement          | 7 · Technology & Data Use           |
+| HANDBOOK-FORM-05    | FORM CE  | Computer and Electronics Use Agreement               | 7 · Technology & Data Use           |
+| HANDBOOK-FORM-06    | FORM EP  | Employee Photo Release Form                          | 7 · Technology & Data Use           |
+| HANDBOOK-FORM-07    | FORM CP  | Client Photo Release Form                            | 7 · Technology & Data Use           |
+| HANDBOOK-FORM-08    | FORM GE  | Purchase Approval General Expense                    | 3 · Compensation & Benefits         |
+| HANDBOOK-LETTERHEAD | FORM LH  | MH Construction Company Letterhead                   | 1 · Introduction & Company Overview |
+
+## Status
+
+- Rev 4.0 handbook-to-form chapter alignment confirmed and standardized on 2026-07-28.
+- Handbook form titles now use consistent "Acknowledgment" spelling in display text.
+- Legacy slug/file names containing `acknowledgement` or `work-from-home` are intentionally
+  retained for compatibility with existing links and download paths.

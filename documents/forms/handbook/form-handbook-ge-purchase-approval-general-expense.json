@@ -99,7 +99,7 @@
             {
               "role": "Requestor",
               "name": "sign.employee",
-              "signatureLabel": "Acknowledgement Signature"
+              "signatureLabel": "Acknowledgment Signature"
             },
             {
               "role": "Approver",

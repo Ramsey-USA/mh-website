@@ -144,7 +144,7 @@ async function main() {
   );
   if (missingFormSets.length > 0) {
     throw new Error(
-      `Missing aggregate form-set PDFs in documents/generated-pdfs/form-packages/: ${missingFormSets.join(", ")}. Run docs:generate:forms first.`,
+      `Missing aggregate form-set PDFs in documents/generated-pdfs/form-packages/: ${missingFormSets.join(", ")}. Run docs:generate:forms and docs:generate:forms:handbook first.`,
     );
   }
   await writeDownloadIndex(formFiles);

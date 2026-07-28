@@ -1,6 +1,6 @@
 # Dual Terminology Standard
 
-**Last Updated:** July 24, 2026  
+**Last Updated:** July 28, 2026  
 **Status:** Canonical Reference (enterprise terminology)
 
 ## Purpose
@@ -8,6 +8,9 @@
 Define one source of truth for dual terminology used across MH Construction assets.
 This standard is intentionally military-themed construction language and may be expanded or optimized to
 create stronger enterprise language as long as clarity, trust, and brand congruency are preserved.
+
+Primary source for current terminology expansion: `docs/branding/standards/mhc-terms.docx`
+("MH Construction Brand Terms Library", Version 2.0, effective 04/07/2026).
 
 **Brand Congruency:** Dual terminology must never weaken trust content, factual veteran-owned framing, or accessibility clarity.
 
@@ -43,7 +46,8 @@ Rendered pair requirement:
 ## Core Rule
 
 Use surface-specific dual terminology to preserve both clarity and MH brand voice.
-Use professional or construction terminology first and military terminology second as the clarifier across public page naming (for example, `Services (Operations Brief)` and `Careers (Recruitment Command)`).
+For general copy, rendered labels, and document surfaces, use MH brand term first and standard industry term second in parentheses where dual rendering is needed (for example, `Mission Brief (Pre-Task Meeting)` and `Operational Theater (Jobsite)`).
+For SEO-facing page names and metadata, retain construction terminology as the primary search label and MH terminology as the supporting clarifier (for example, `Services (Operations Brief)`).
 Home remains the intentional anchor exception as `Home (Command Center)`.
 When a concept has a required primary/secondary pair above, do not collapse it to a single alias on one surface.
 When showing the pair inline in copy or labels, use the canonical rendered form exactly (for example,
@@ -54,6 +58,11 @@ provided the new language still reads like military-themed construction language
 canonical pairs above.
 
 For construction-process terms and PMBOK 6 alignment, use [Construction Terminology Glossary](./construction-terminology-glossary.md) as the companion reference.
+
+Regulatory safety exception:
+
+- In MISH documents, safety forms, and OSHA/WISHA communications, do not replace protected regulatory terms (for example: `Competent Person`, `Qualified Person`, `Authorized Person`, `Hazard Communication`, `Personal Protective Equipment (PPE)`, `Stop Work Authority`, `Incident`).
+- Brand terms such as `Protective Posture` and `Operational Pause` are allowed in public website and marketing copy only.
 
 Canonical navigation pattern matrix:
 
@@ -128,6 +137,21 @@ Governance companion for review and authoring rules: `docs/branding/strategy/pag
 
 - Metadata dual form remains canonical, for example `Locations (Regional AO)`.
 - UI surfaces should follow the surface matrix above rather than forced parenthetical rendering.
+
+### Terms Library v2.0 Enterprise Additions
+
+Approved expansion terms for strategy, marketing, handbook, and operations documentation:
+
+- `Operational Theater` (Project Site / Jobsite)
+- `Mission Parameters` (Project Scope)
+- `Force Multiplier` (Efficiency Gain)
+- `Boots on the Ground` (Field Crew)
+- `Rules of Engagement (ROE)` (Project Contract)
+- `Situation Report (SITREP)` (Project Status Update)
+- `Ground Truth` (Verified Field Conditions)
+- `Mission Accomplished` (Project Closeout)
+- `Operational Tempo` (Project Schedule / Pace)
+- `Standby to Standby` (On Call / Ready to Mobilize)
 
 ## Construction Terminology Alignment
 
