@@ -1,7 +1,7 @@
 # Construction Terminology Glossary
 
 **Category:** Branding - Strategy
-**Last Updated:** July 12, 2026
+**Last Updated:** July 28, 2026
 **Status:** Canonical Reference
 
 ## Purpose
@@ -12,6 +12,9 @@ PMBOK 6 concepts and common industry expectations.
 
 Use this glossary when writing or reviewing copy for website pages, dashboard labels, handbook language,
 manuals, proposals, or implementation docs.
+
+Primary expansion source: `docs/branding/standards/mhc-terms.docx`
+("MH Construction Brand Terms Library", Version 2.0, effective 04/07/2026).
 
 ## How To Use
 
@@ -37,6 +40,40 @@ manuals, proposals, or implementation docs.
 | Project-specific procurement                 | Procurement management                 | sourcing, long-lead planning, trade partner coordination         |
 | Trade Partners                               | Procurement/delivery collaborators     | subcontractors, vendors, suppliers, specialty scopes             |
 | Allies                                       | Trade Partner network members          | named partner network, preferred collaborators                   |
+
+## Terms Library v2.0 Additions
+
+Use these mappings in strategy and operational content where they improve clarity and consistency:
+
+| MHC Brand Term            | Standard Industry Term        | Typical Scope                    |
+| ------------------------- | ----------------------------- | -------------------------------- |
+| Operational Theater       | Project Site / Jobsite        | handbook, marketing              |
+| Mission Parameters        | Project Scope                 | marketing, preconstruction       |
+| Force Multiplier          | Efficiency Gain               | marketing, website               |
+| Boots on the Ground       | Field Crew                    | marketing, recruitment           |
+| Rules of Engagement (ROE) | Project Contract              | marketing, handbook              |
+| Situation Report (SITREP) | Project Status Update         | marketing, client communications |
+| Ground Truth              | Verified Field Conditions     | marketing, preconstruction       |
+| Mission Accomplished      | Project Closeout              | marketing, case studies          |
+| Operational Tempo         | Project Schedule / Pace       | handbook, marketing              |
+| Standby to Standby        | On Call / Ready to Mobilize   | marketing, services              |
+| Hazard Recon              | Hazard Identification         | MISH public safety language      |
+| Protective Posture        | Personal Protective Equipment | public-facing safety language    |
+| Operational Pause         | Stop Work Authority           | public-facing safety language    |
+
+## Regulatory-Protected Terms (No Substitution in Compliance Artifacts)
+
+For MISH documents, safety forms, and OSHA/WISHA communications, these terms must remain unchanged:
+
+- Competent Person
+- Qualified Person
+- Authorized Person
+- Hazard Communication
+- Personal Protective Equipment (PPE)
+- Stop Work Authority
+- Incident
+
+Note: Brand alternatives (for example, `Protective Posture`, `Operational Pause`) are acceptable in public-facing website and marketing copy only.
 
 ## Approved Military-Themed Terms
 

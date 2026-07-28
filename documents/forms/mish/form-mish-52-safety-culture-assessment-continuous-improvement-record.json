@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "kind": "first",
+      "sections": [
+        {
+          "type": "fieldGrid",
+          "title": "Field Entry Details",
+          "subtitle": "Safety Culture Assessment and Continuous Improvement Record - project intake",
+          "columns": 2,
+          "items": [
+            {
+              "name": "meta.project",
+              "label": "Project / Job"
+            },
+            {
+              "name": "meta.location",
+              "label": "Site Location"
+            },
+            {
+              "name": "meta.contractor",
+              "label": "Contractor / Employer"
+            },
+            {
+              "name": "meta.supervisor",
+              "label": "Supervisor / Foreman"
+            },
+            {
+              "name": "meta.preparedBy",
+              "label": "Prepared By"
+            },
+            {
+              "name": "meta.date",
+              "label": "Date"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "title": "Field Notes",
+          "subtitle": "Document observations, hazards, controls, corrective actions, and follow-up requirements.",
+          "name": "meta.notes",
+          "height": "1.4in"
+        },
+        {
+          "type": "htmlBlock",
+          "title": "Safety Culture Assessment Record",
+          "html": "<p><strong>Policy Summary:</strong> This form supports MISH 52 by documenting the annual safety culture assessment and the continuous-improvement plan that moves the organization toward a generative safety culture.</p><p><strong>Procedure Capture:</strong> Record survey timing, anonymous participation, Hudson maturity results, and the 12-month improvement roadmap approved during the annual program review.</p><p><strong>Task Use:</strong> Complete after each survey cycle and retain the results with the Safety Command review package so leaders can track progress and close gaps.</p>"
+        },
+        {
+          "type": "signatures",
+          "title": "Safety Culture Assessment Record Sign-Off",
+          "manualSignOnly": true,
+          "blocks": [
+            {
+              "role": "Prepared By",
+              "name": "sign.preparedBy",
+              "signatureLabel": "Prepared By Signature"
+            },
+            {
+              "role": "Supervisor / Safety Command",
+              "name": "sign.approver",
+              "signatureLabel": "Approval Signature"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

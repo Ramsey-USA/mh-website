@@ -258,6 +258,15 @@ Use this section as the canonical licensing reference for docs and agent workflo
 MH's terminology system is military-themed construction language that can be expanded and optimized to support
 enterprise communication while keeping the brand factual, disciplined, and trust-first.
 
+Upstream source for enterprise term additions and mappings: `docs/branding/standards/mhc-terms.docx`
+(Brand Terms Library v2.0, effective 04/07/2026).
+
+Surface-aware precedence rule:
+
+- General copy/docs may render MH brand term first with industry clarifier in parentheses.
+- SEO metadata and search labels remain construction-first.
+- MISH docs, safety forms, and OSHA/WISHA communications must keep regulatory terms unchanged.
+
 | Term                     | Usage                                                                                                                              |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
 | **Project Stakeholders** | External audiences across website/docs: owners, architects, bonding banks, insurers, subcontractors, vendors, and future employees |
@@ -299,6 +308,7 @@ For PMBOK-style construction language and military-themed term mappings, see
 | Affiliation       | Details                                                           |
 | ----------------- | ----------------------------------------------------------------- |
 | **Membership**    | AGC Member (Inland Northwest Chapter)                             |
+| **Listing ID**    | 3229535                                                           |
 | **Directory**     | [Inland Northwest AGC Member Listing][inland-nw-agc-directory]    |
 | **BABAA Support** | Dedicated supporter of the Build America, Buy America Act (BABAA) |
 | **Resource**      | [AGC BABAA Resource Hub](https://www.agc.org/babaa-resource-hub)  |

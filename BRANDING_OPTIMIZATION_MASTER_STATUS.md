@@ -64,6 +64,14 @@ Open review ownership item:
 
 - Assign named human reviewer(s) to move listed namespaces from `DRAFT-REVIEW` to approved status.
 
+## Continuation Update (July 28, 2026 - Safety Manual QR Guardrails)
+
+Safety-manual tab generation safeguards were extended to cover the full MISH chapter set through section 59. The update includes:
+
+- QR placeholders for MISH 51 through MISH 59 in [documents/manuals/safety-manual-tabs.html](documents/manuals/safety-manual-tabs.html)
+- Generator validation updates in [documents/scripts/generate.mjs](documents/scripts/generate.mjs)
+- Verification evidence showing the full placeholder range is present and the edited files are error-free
+
 ## Continuation Update (July 20, 2026 - Prompt 8.3 Lifecycle Localization)
 
 Prompt 8.3 localization hardening for events, locations, news, and resources

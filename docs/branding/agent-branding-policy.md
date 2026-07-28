@@ -1,8 +1,8 @@
 # Agent Branding Policy (Master at Arms)
 
 **Category:** Branding - Agent Policy  
-**Last Updated:** April 30, 2026  
-**Version:** 1.1.0  
+**Last Updated:** July 28, 2026  
+**Version:** 1.2.0  
 **Status:** ✅ Active
 
 > **Purpose:** Fast, unambiguous policy for AI agents enforcing MH branding standards.
@@ -13,9 +13,12 @@
 >
 > 1. This file (agent decision policy)
 > 2. [Brand Constants](./brand-constants.md) (canonical values)
-> 3. [Unified Component Standards](./standards/unified-component-standards.md)
-> 4. [Messaging Guide](./strategy/messaging.md)
-> 5. Remaining branding docs for implementation detail
+> 3. `docs/branding/standards/mhc-terms.docx` (Brand Terms Library v2.0)
+> 4. [Dual Terminology Standard](./strategy/dual-terminology-standard.md)
+> 5. [Universal Terminology Guide](./strategy/universal-terminology-guide.md)
+> 6. [Unified Component Standards](./standards/unified-component-standards.md)
+> 7. [Messaging Guide](./strategy/messaging.md)
+> 8. Remaining branding docs for implementation detail
 
 ## Scope
 
@@ -30,8 +33,10 @@ and markdown content in the MH website repository.
 4. Preserve trust and accreditation presence on trust-critical surfaces.
 5. Keep terminology consistent across page copy, navigation, metadata, and schema.
 6. Prefer plain-language SEO labels (`Home`, `About`, `Services`, `Projects`, `Contact`).
-7. Enforce accessibility basics (semantic structure, labels, contrast, keyboard flow).
-8. Preserve the canonical desktop header order and CTA placement from the [Header Navigation Contract](./standards/header-navigation-contract.md); do not reorder, relabel, or relocate these items without an approved contract update.
+7. Enforce surface-aware terminology order: MH brand term-first is allowed in general copy/docs with a clear industry clarifier; SEO-facing metadata must remain construction-first.
+8. Preserve OSHA/WISHA regulatory term wording in MISH docs, safety forms, and compliance communications.
+9. Enforce accessibility basics (semantic structure, labels, contrast, keyboard flow).
+10. Preserve the canonical desktop header order and CTA placement from the [Header Navigation Contract](./standards/header-navigation-contract.md); do not reorder, relabel, or relocate these items without an approved contract update.
 
 ## Required Language Behavior
 

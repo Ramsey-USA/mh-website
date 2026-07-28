@@ -5,7 +5,7 @@
       "sections": [
         {
           "type": "fieldGrid",
-          "title": "Temporary Work From Home Application/Agreement",
+          "title": "Temporary Remote Work Application/Agreement",
           "columns": 4,
           "items": [
             { "name": "application.date", "label": "Date" },
@@ -35,19 +35,19 @@
         },
         {
           "type": "htmlBlock",
-          "title": "Work From Home Commitment",
-          "html": "<p>By signing this application, I affirm my commitment to adhere to all company policies, including those governing electronics use and remote work.</p>"
+          "title": "Remote Work Commitment",
+          "html": "<p>By signing this application, I affirm my commitment to adhere to all company policies, including the Technology &amp; Data Use policies in Chapter 07 of the Employee Handbook, Revision 4.0. I understand that remote-work arrangements require secure Wi-Fi, approved access controls, and strict protection of company and Client Partner information, and that all conduct, confidentiality, and electronics-use policies remain in effect while working remotely.</p>"
         },
         {
           "type": "signatures",
-          "title": "Temporary Work From Home Approval Sign-Off",
+          "title": "Temporary Remote Work Approval Sign-Off",
           "manualSignOnly": true,
           "layout": "two-up",
           "blocks": [
             {
               "role": "Employee",
               "name": "sign.employee",
-              "signatureLabel": "Acknowledgement Signature"
+              "signatureLabel": "Acknowledgment Signature"
             },
             {
               "role": "Supervisor / Manager",

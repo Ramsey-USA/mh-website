@@ -18,7 +18,7 @@ const SAFETY_PROGRAM_SUBTITLE =
   mhcBrand.safetyProgramSubtitle ||
   "MH Construction Industrial Safety & Health Program";
 const SAFETY_PROGRAM_TOTAL_SECTIONS =
-  Number(mhcBrand.safetyProgramTotalSections) || 50;
+  Number(mhcBrand.safetyProgramTotalSections) || 59;
 const SAFETY_PROGRAM_LAST_SECTION = String(
   Math.max(SAFETY_PROGRAM_TOTAL_SECTIONS - 1, 0),
 ).padStart(2, "0");
@@ -29,8 +29,8 @@ const EMPLOYEE_HANDBOOK_TITLE = "Employee Handbook";
 const EMPLOYEE_HANDBOOK_SUBTITLE =
   "MH Construction Employee Policies and Procedures";
 const EMPLOYEE_HANDBOOK_REVISION_YEAR = 2026;
-const EMPLOYEE_HANDBOOK_REVISION_NUMBER = "1.0";
-const EMPLOYEE_HANDBOOK_REVISION_DATE = "05/01/2026";
+const EMPLOYEE_HANDBOOK_REVISION_NUMBER = "4.0";
+const EMPLOYEE_HANDBOOK_REVISION_DATE = "07/01/2026";
 
 type EmployeeHandbookShape = {
   document?: {
@@ -928,8 +928,8 @@ export const manuals: DocumentEntry[] = [
     totalSections:
       employeeHandbook.sections?.length ?? employeeHandbookSections.length,
     sections: employeeHandbookSections,
-    pdfPath: "/docs/employee/employee-handbook-2026.pdf",
-    r2Key: "docs/employee/employee-handbook-2026.pdf",
+    pdfPath: "/docs/employee/employee-handbook-toc.pdf",
+    r2Key: "docs/employee/employee-handbook-toc.pdf",
     tags: ["employee", "handbook", "hr", "policies", "onboarding"],
     qrCodeUrl: "/images/qr-codes/safety/qr-employee-handbook-color.png",
   },

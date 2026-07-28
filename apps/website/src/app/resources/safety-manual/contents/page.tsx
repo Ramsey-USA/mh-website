@@ -20,11 +20,12 @@ import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const siteUrl = COMPANY_INFO.urls.getSiteUrl();
+const safetyManual = manuals.find((m) => m.id === "safety-manual");
+const totalSections = safetyManual?.totalSections ?? 59;
 
 export const metadata: Metadata = {
   title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyContents.seoName, PAGE_TERMINOLOGY.safetyContents.mhBrandName)} | MH Construction`,
-  description:
-    "Browse all 50 sections of MH Construction's Safety Program (MISH Safety & Health Program), delivered as the Safety Manual. Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Full manual access requires login.",
+  description: `Browse all ${totalSections} sections of MH Construction's Safety Program (MISH Safety & Health Program), delivered as the Safety Manual. Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Full manual access requires login.`,
   alternates: {
     canonical: `${siteUrl}/resources/safety-manual/contents`,
   },
@@ -34,8 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyContents.seoName, PAGE_TERMINOLOGY.safetyContents.mhBrandName)} | MH Construction`,
-    description:
-      "50-section Safety Manual (MISH Safety & Health Program) index with cluster navigation and credentialed access pathways.",
+    description: `${totalSections}-section Safety Manual (MISH Safety & Health Program) index with cluster navigation and credentialed access pathways.`,
     type: "website",
     url: `${siteUrl}/resources/safety-manual/contents`,
   },
@@ -69,7 +69,7 @@ const CALLOUT_ITEMS = new Set([21, 48]);
 
 export default async function SafetyManualContentsPage() {
   const isEs = (await getServerLocale()) === "es";
-  const manual = manuals.find((m) => m.id === "safety-manual");
+  const manual = safetyManual;
   const sections = manual?.sections ?? [];
   const revisionNumber = manual?.revisionNumber ?? "3.0";
   const revisionDate = manual?.revisionDate ?? "7/1/2026";
@@ -92,10 +92,10 @@ export default async function SafetyManualContentsPage() {
           </div>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
-              <p className="font-subheading mb-1 text-xs font-semibold font-heading uppercase tracking-wider text-brand-secondary/80">
+              <p className="font-heading mb-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/80">
                 Safety Program <span aria-hidden>→</span> Safety Manual
               </p>
-              <div className="font-subheading mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold font-heading uppercase tracking-wider text-brand-secondary">
+              <div className="font-heading mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
                 <MaterialIcon
                   icon={FORM_MANUAL_ICONS.source}
                   size="sm"
@@ -119,7 +119,7 @@ export default async function SafetyManualContentsPage() {
                   ? "Indice publico para revision externa, navegacion por secciones y solicitudes de acceso"
                   : "Public index for external review, section navigation, and access requests"}
               </p>
-              <p className="font-subheading mt-1 text-xs font-semibold font-heading uppercase tracking-wider text-brand-secondary/70">
+              <p className="font-heading mt-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/70">
                 {MH_SLOGANS.supporting[0]}
               </p>
             </div>
@@ -188,7 +188,7 @@ export default async function SafetyManualContentsPage() {
       </div>
 
       <div className="border-b border-brand-primary/15 bg-brand-primary/5 px-4 py-3">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 font-subheading text-xs font-semibold font-heading uppercase tracking-wider text-brand-primary">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 font-heading text-xs font-semibold uppercase tracking-wider text-brand-primary">
           <span className="rounded-full border border-brand-primary/25 bg-white px-3 py-1">
             {MH_SLOGANS.primary}
           </span>
@@ -207,7 +207,7 @@ export default async function SafetyManualContentsPage() {
           {CLUSTERS.map((cluster) => {
             const nums: number[] = [];
             for (let n = cluster.min; n <= cluster.max; n++) {
-              if (sectionMap.has(n) || n <= 50) nums.push(n);
+              if (sectionMap.has(n) || n <= totalSections) nums.push(n);
             }
             return (
               <div
@@ -216,7 +216,7 @@ export default async function SafetyManualContentsPage() {
               >
                 <Link
                   href={`/resources/safety-manual/${cluster.slug}`}
-                  className="font-subheading mb-3 block border-b border-brand-primary/20 pb-2 text-xs font-bold font-heading uppercase tracking-wider text-brand-primary hover:text-brand-primary-dark dark:text-brand-secondary dark:hover:text-brand-secondary/80"
+                  className="font-heading mb-3 block border-b border-brand-primary/20 pb-2 text-xs font-bold uppercase tracking-wider text-brand-primary hover:text-brand-primary-dark dark:text-brand-secondary dark:hover:text-brand-secondary/80"
                 >
                   {cluster.name}
                 </Link>

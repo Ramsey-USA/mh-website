@@ -99,17 +99,26 @@ export function AccreditationsLogoRow({
         href={COMPANY_INFO.agc.website}
         target="_blank"
         rel="noopener noreferrer"
-        title="Inland Northwest AGC Member"
+        title={`${COMPANY_INFO.agc.memberDirectoryLabel} (${COMPANY_INFO.agc.memberDirectoryId})`}
         className={linkClass}
       >
         <img
-          src="/images/logo/agc-member.webp"
-          alt="Inland Northwest AGC Member"
-          width={405}
-          height={427}
+          src={COMPANY_INFO.agc.logo}
+          alt={COMPANY_INFO.agc.memberDirectoryLabel}
+          width={795}
+          height={291}
           loading="lazy"
           decoding="async"
-          className="h-10 sm:h-12 w-auto"
+          className="h-10 sm:h-12 w-auto dark:hidden"
+        />
+        <img
+          src={COMPANY_INFO.agc.logoDark}
+          alt={COMPANY_INFO.agc.memberDirectoryLabel}
+          width={795}
+          height={291}
+          loading="lazy"
+          decoding="async"
+          className="h-10 sm:h-12 w-auto hidden dark:block"
         />
       </a>
 

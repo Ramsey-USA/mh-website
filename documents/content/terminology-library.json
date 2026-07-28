@@ -1,0 +1,373 @@
+{
+  "library": {
+    "name": "MH Construction Brand Terms Library",
+    "version": "2.0",
+    "effectiveDate": "2026-04-07",
+    "lastUpdated": "2026-07-28",
+    "status": "canonical-upstream-source",
+    "source": {
+      "docx": "docs/branding/standards/mhc-terms.docx",
+      "governingStandards": [
+        "docs/branding/strategy/dual-terminology-standard.md",
+        "docs/branding/strategy/universal-terminology-guide.md",
+        "docs/branding/standards/seo-terminology-standard.md"
+      ]
+    },
+    "appliesTo": [
+      "website",
+      "dashboard",
+      "mish-safety-program",
+      "employee-handbook",
+      "marketing-materials",
+      "document-labels"
+    ],
+    "coreRule": "Lead with brand term and include standard term in parentheses for general copy. For SEO-facing labels, keep construction terminology primary and military context secondary.",
+    "purpose": [
+      "Safety defensibility",
+      "Operational clarity",
+      "Market differentiation",
+      "Brand authority"
+    ]
+  },
+  "hierarchy": {
+    "precedenceOrder": [
+      "docs/branding/standards/mhc-terms.docx",
+      "docs/branding/strategy/dual-terminology-standard.md",
+      "docs/branding/standards/seo-terminology-standard.md",
+      "docs/branding/strategy/universal-terminology-guide.md"
+    ]
+  },
+  "categories": {
+    "commandStructure": [
+      {
+        "brandTerm": "Command Center",
+        "standardTerm": "Headquarters / Main Office",
+        "scope": ["Handbook", "Website"],
+        "notes": "Central hub for administrative and executive operations."
+      },
+      {
+        "brandTerm": "Command Staff",
+        "standardTerm": "Executive Leadership",
+        "scope": ["Handbook", "Website"],
+        "notes": "Preferred replacement for management-team phrasing."
+      },
+      {
+        "brandTerm": "Safety Command",
+        "standardTerm": "Safety Department / Safety Officer",
+        "scope": ["MISH 3.0", "Handbook"],
+        "notes": "Document owner on MISH documents; may issue CAOs."
+      },
+      {
+        "brandTerm": "Site Safety Commander",
+        "standardTerm": "Superintendent",
+        "scope": ["MISH 3.0", "Handbook"]
+      },
+      {
+        "brandTerm": "Field Safety Lead",
+        "standardTerm": "Foreman",
+        "scope": ["MISH 3.0", "Handbook"]
+      },
+      {
+        "brandTerm": "Task Operator",
+        "standardTerm": "Worker / Tradesperson",
+        "scope": ["MISH 3.0", "Handbook"]
+      },
+      {
+        "brandTerm": "Sub-Operator",
+        "standardTerm": "Subcontractor",
+        "scope": ["MISH 3.0", "Marketing"]
+      },
+      {
+        "brandTerm": "Chief of Operations",
+        "standardTerm": "COO / Operations Manager",
+        "scope": ["Handbook", "Website"]
+      }
+    ],
+    "programAndProcess": [
+      {
+        "brandTerm": "Mission Brief",
+        "standardTerm": "Pre-Task Meeting / Tailgate Talk",
+        "scope": ["MISH 3.0", "Handbook"]
+      },
+      {
+        "brandTerm": "Operations Brief",
+        "standardTerm": "Pre-Construction Meeting",
+        "scope": ["Marketing", "Website"]
+      },
+      {
+        "brandTerm": "Deployment",
+        "standardTerm": "Mobilization / Project Start",
+        "scope": ["All Documents"]
+      },
+      {
+        "brandTerm": "Command Loop",
+        "standardTerm": "Two-Way Feedback System",
+        "scope": ["MISH 3.0", "Handbook"]
+      },
+      {
+        "brandTerm": "Corrective Action Order (CAO)",
+        "standardTerm": "Safety Write-Up",
+        "scope": ["MISH 3.0", "Handbook"]
+      },
+      {
+        "brandTerm": "After-Action Review (AAR)",
+        "standardTerm": "Post-Project Debrief",
+        "scope": ["Marketing", "MISH 3.0"]
+      },
+      {
+        "brandTerm": "Operational Pause",
+        "standardTerm": "Stop Work Authority",
+        "scope": ["MISH 3.0", "Handbook"]
+      },
+      {
+        "brandTerm": "Stand Down",
+        "standardTerm": "All-Hands Safety Stop",
+        "scope": ["MISH 3.0"]
+      },
+      {
+        "brandTerm": "Pre-Deployment Checklist",
+        "standardTerm": "Pre-Task Inspection / JHA",
+        "scope": ["MISH 3.0", "Website"]
+      },
+      {
+        "brandTerm": "Handshake to Handoff",
+        "standardTerm": "Kickoff to Closeout",
+        "scope": ["Marketing", "Website"]
+      }
+    ],
+    "qualityAndAccountability": [
+      {
+        "brandTerm": "Zero-Gap Accountability",
+        "standardTerm": "Full Compliance",
+        "scope": ["MISH 3.0", "Handbook"]
+      },
+      {
+        "brandTerm": "Mission-Ready",
+        "standardTerm": "Fully Prepared",
+        "scope": ["All Documents"]
+      },
+      {
+        "brandTerm": "Field-First",
+        "standardTerm": "Practical / Usable",
+        "scope": ["MISH 3.0", "Website"]
+      },
+      {
+        "brandTerm": "Audit-Ready Handoff",
+        "standardTerm": "Closeout Documentation",
+        "scope": ["Marketing", "Website"]
+      },
+      {
+        "brandTerm": "Proof of Delivery",
+        "standardTerm": "Project Documentation",
+        "scope": ["Marketing", "Website"]
+      },
+      {
+        "brandTerm": "Verified Performance",
+        "standardTerm": "Documented Track Record",
+        "scope": ["Marketing", "Website"]
+      },
+      {
+        "brandTerm": "Operational Integrity",
+        "standardTerm": "Quality Assurance",
+        "scope": ["MISH 3.0", "Marketing"]
+      },
+      {
+        "brandTerm": "Accurate Firmness",
+        "standardTerm": "Realistic Enforcement",
+        "scope": ["MISH 3.0", "Handbook"]
+      }
+    ],
+    "safetyAndTechnicalExecution": [
+      {
+        "brandTerm": "Safety Command Standards",
+        "standardTerm": "Safety Requirements",
+        "scope": ["Website", "Marketing"]
+      },
+      {
+        "brandTerm": "Every Operator Goes Home Safe",
+        "standardTerm": "Zero Incident Goal",
+        "scope": ["MISH 3.0", "Handbook"]
+      },
+      {
+        "brandTerm": "Hazard Recon",
+        "standardTerm": "Hazard Identification",
+        "scope": ["MISH 3.0", "Website"]
+      },
+      {
+        "brandTerm": "Protective Posture",
+        "standardTerm": "PPE Requirements",
+        "scope": ["MISH 3.0", "Website"]
+      },
+      {
+        "brandTerm": "Spatial Capture",
+        "standardTerm": "3D Scanning / Modeling",
+        "scope": ["Marketing", "Website"]
+      },
+      {
+        "brandTerm": "Digital Twin",
+        "standardTerm": "As-Built Model",
+        "scope": ["Marketing", "Website"]
+      },
+      {
+        "brandTerm": "Vertical Integration",
+        "standardTerm": "Self-Performing Capability",
+        "scope": ["Marketing", "Website"]
+      }
+    ],
+    "leadershipAndCulture": [
+      {
+        "brandTerm": "Words from the General",
+        "standardTerm": "Owner's Message",
+        "scope": ["Website", "Handbook"]
+      },
+      {
+        "brandTerm": "Got Your Six",
+        "standardTerm": "We have your back",
+        "scope": ["Website", "Marketing"]
+      },
+      {
+        "brandTerm": "Service-Earned Discipline",
+        "standardTerm": "Experience-Based Standards",
+        "scope": ["Website", "About Page"]
+      },
+      {
+        "brandTerm": "Relationship-First",
+        "standardTerm": "Client-Focused",
+        "scope": ["Website", "Marketing"]
+      },
+      {
+        "brandTerm": "Built on Quality, Backed by Trust",
+        "standardTerm": "Company Tagline",
+        "scope": ["All External Media"]
+      },
+      {
+        "brandTerm": "Handshake Pride",
+        "standardTerm": "Integrity / Word is Bond",
+        "scope": ["Website", "Handbook"]
+      },
+      {
+        "brandTerm": "The General",
+        "standardTerm": "Owner / CEO",
+        "scope": ["Informal Copy"]
+      }
+    ],
+    "enterpriseAdditionsV2": [
+      {
+        "brandTerm": "Operational Theater",
+        "standardTerm": "Project Site / Jobsite",
+        "scope": ["Handbook", "Marketing"]
+      },
+      {
+        "brandTerm": "Mission Parameters",
+        "standardTerm": "Project Scope",
+        "scope": ["Marketing", "Pre-Con"]
+      },
+      {
+        "brandTerm": "Force Multiplier",
+        "standardTerm": "Efficiency Gain",
+        "scope": ["Marketing", "Website"]
+      },
+      {
+        "brandTerm": "Boots on the Ground",
+        "standardTerm": "Field Crew",
+        "scope": ["Marketing", "Recruitment"]
+      },
+      {
+        "brandTerm": "Rules of Engagement (ROE)",
+        "standardTerm": "Project Contract",
+        "scope": ["Marketing", "Handbook"]
+      },
+      {
+        "brandTerm": "Situation Report (SITREP)",
+        "standardTerm": "Project Status Update",
+        "scope": ["Marketing", "Client Comms"]
+      },
+      {
+        "brandTerm": "Ground Truth",
+        "standardTerm": "Verified Field Conditions",
+        "scope": ["Marketing", "Pre-Con"]
+      },
+      {
+        "brandTerm": "Mission Accomplished",
+        "standardTerm": "Project Closeout",
+        "scope": ["Marketing", "Case Studies"]
+      },
+      {
+        "brandTerm": "Operational Tempo",
+        "standardTerm": "Project Schedule / Pace",
+        "scope": ["Handbook", "Marketing"]
+      },
+      {
+        "brandTerm": "Standby to Standby",
+        "standardTerm": "On Call / Ready to Mobilize",
+        "scope": ["Marketing", "Services"]
+      }
+    ]
+  },
+  "requiredPairs": [
+    {
+      "concept": "Safety Program",
+      "primary": "MISH Safety & Health Program",
+      "secondary": "Safety Manual",
+      "inlineRendered": "MISH Safety & Health Program (Safety Manual)"
+    },
+    {
+      "concept": "Employee Operations",
+      "primary": "Dashboard",
+      "secondary": "Staff Hub",
+      "inlineRendered": "Dashboard (Staff Hub)"
+    },
+    {
+      "concept": "External Audience",
+      "primary": "Project Stakeholders",
+      "secondary": "owners, architects, bonding banks, insurers, subcontractors, vendors, future employees"
+    },
+    {
+      "concept": "Handbook Public Surface",
+      "primary": "Employee Handbook",
+      "secondary": "Public Index + Blank Forms"
+    },
+    {
+      "concept": "Internal Handbook Workflow",
+      "primary": "Employee Handbook Workflows",
+      "secondary": "Dashboard (Staff Hub) Required"
+    }
+  ],
+  "regulatoryProtectionRules": {
+    "description": "Regulatory terms must not be replaced in MISH, safety forms, OSHA/WISHA, or other compliance communication.",
+    "protectedTerms": [
+      "Competent Person",
+      "Qualified Person",
+      "Authorized Person",
+      "Hazard Communication",
+      "Personal Protective Equipment (PPE)",
+      "Stop Work Authority",
+      "Incident"
+    ],
+    "disallowedReplacements": {
+      "Competent Person": ["Command Person", "Safety Commander"],
+      "Qualified Person": ["Certified Operator"],
+      "Authorized Person": ["Cleared Operator"],
+      "Hazard Communication": ["Hazard Intel"],
+      "Personal Protective Equipment (PPE)": ["Protective Posture"],
+      "Stop Work Authority": ["Operational Pause"]
+    }
+  },
+  "guardrails": {
+    "seoPrecedence": [
+      "Use construction terminology first in SEO-facing labels and metadata.",
+      "Use veteran or military-themed terms only as a secondary clarifier.",
+      "Do not use slogan-heavy or militarized aliases as primary SEO labels."
+    ],
+    "audienceDistinctions": [
+      "Project Stakeholders refers to external audiences in project outcomes.",
+      "Trade Partners refers to subcontractors, vendors, and supply-chain collaborators.",
+      "Do not interchange Project Stakeholders and Trade Partners."
+    ],
+    "trustAndCompliance": [
+      "Do not remove trust or accreditation surfaces during terminology changes.",
+      "Preserve factual ownership phrasing and license verification language.",
+      "Preserve accessibility clarity for headings, labels, and ARIA text."
+    ]
+  }
+}

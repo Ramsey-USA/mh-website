@@ -63,4 +63,20 @@ describe("COMPANY_INFO", () => {
       "https://business.nwagc.org/memberdirectory/Details/mh-construction-3229535",
     );
   });
+
+  it("exposes the Inland Northwest AGC member directory listing metadata", () => {
+    expect(COMPANY_INFO.agc.memberDirectoryId).toBe("3229535");
+    expect(COMPANY_INFO.agc.memberDirectoryLabel).toBe(
+      "Inland Northwest AGC Member Listing",
+    );
+  });
+
+  it("exposes theme-specific AGC logos for light and dark backgrounds", () => {
+    expect(COMPANY_INFO.agc.logo).toBe(
+      "/images/credentials/agc-inland-northwest-light.webp",
+    );
+    expect(COMPANY_INFO.agc.logoDark).toBe(
+      "/images/credentials/nwagc-logo.png",
+    );
+  });
 });

@@ -48,6 +48,20 @@ const QA_CHECKLIST_FILE = path.join(
   "strategy",
   "brand-congruency-qa-checklist.md",
 );
+const UNIVERSAL_GUIDE_FILE = path.join(
+  REPO_ROOT,
+  "docs",
+  "branding",
+  "strategy",
+  "universal-terminology-guide.md",
+);
+const DUAL_STANDARD_FILE = path.join(
+  REPO_ROOT,
+  "docs",
+  "branding",
+  "strategy",
+  "dual-terminology-standard.md",
+);
 
 const CORE_VALUE_KEYS = [
   "honesty",
@@ -209,21 +223,59 @@ function validateChecklist(checklistSource, constantsMap) {
   }
 }
 
+function validateTerminologyGovernance(
+  universalGuideSource,
+  dualStandardSource,
+) {
+  const universalMustContain = [
+    "mhc-terms.docx",
+    "Regulatory Protection Rules",
+    "Competent Person",
+    "Stop Work Authority",
+  ];
+
+  for (const snippet of universalMustContain) {
+    if (!universalGuideSource.includes(snippet)) {
+      fail(
+        `Universal terminology guide missing required v2.0 governance snippet: ${snippet}`,
+      );
+    }
+  }
+
+  const dualMustContain = [
+    "mhc-terms.docx",
+    "Regulatory safety exception",
+    "Protective Posture",
+    "Operational Pause",
+  ];
+
+  for (const snippet of dualMustContain) {
+    if (!dualStandardSource.includes(snippet)) {
+      fail(
+        `Dual terminology standard missing required v2.0 governance snippet: ${snippet}`,
+      );
+    }
+  }
+}
+
 function main() {
   const constantsSource = fs.readFileSync(CONSTANTS_FILE, "utf8");
   const enMessages = JSON.parse(fs.readFileSync(EN_MESSAGES_FILE, "utf8"));
   const esMessages = JSON.parse(fs.readFileSync(ES_MESSAGES_FILE, "utf8"));
   const componentSource = fs.readFileSync(CORE_VALUES_COMPONENT_FILE, "utf8");
   const checklistSource = fs.readFileSync(QA_CHECKLIST_FILE, "utf8");
+  const universalGuideSource = fs.readFileSync(UNIVERSAL_GUIDE_FILE, "utf8");
+  const dualStandardSource = fs.readFileSync(DUAL_STANDARD_FILE, "utf8");
 
   const constantsMap = extractConstantsCoreValues(constantsSource);
   const enValues = validateEnMessages(enMessages, constantsMap);
   validateEsMessages(esMessages, enValues);
   validateCoreValuesComponent(componentSource);
   validateChecklist(checklistSource, constantsMap);
+  validateTerminologyGovernance(universalGuideSource, dualStandardSource);
 
   console.log(
-    "PASS: Brand congruency sources are synchronized (constants, messages, component, checklist).",
+    "PASS: Brand congruency sources are synchronized (constants, messages, component, checklist, terminology governance).",
   );
 }
 

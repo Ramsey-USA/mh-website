@@ -527,7 +527,7 @@
     "credentials": {
       "subtitle": "Reconocido por la Industria",
       "title": "Credenciales de Seguridad",
-      "description": "Designación VPP Estrella de OSHA, Premios EMR de AGC-WA, y un {mishLabel} de 50 secciones — prueba verificable de que nuestros estándares superan los requisitos.",
+      "description": "Designación VPP Estrella de OSHA, Premios EMR de AGC-WA, el marco Dean Gold Standards y un {mishLabel} de 59 secciones — prueba verificable de que nuestros estándares superan los requisitos.",
       "items": {
         "oshaVpp": {
           "title": "Designación VPP Estrella de OSHA",
@@ -544,8 +544,13 @@
           "body": "Nuestros líderes y supervisores de campo poseen la certificación OSHA 30 horas en construcción — por encima del estándar básico de 10 horas. Capacitación integral en reconocimiento de riesgos, protección contra caídas, seguridad eléctrica y más.",
           "tag": "Equipo Certificado"
         },
+        "deanGold": {
+          "title": "Estándar Dean Gold",
+          "body": "Nuestro modelo MISH aplica Policy -> Procedure -> Task en cada capítulo y formulario vinculado: Policy define los resultados obligatorios, Procedure define la responsabilidad por rol y el momento de activación, y Task define acciones medibles en campo con evidencia auditable. Dean es uno de los principales defensores de seguridad de MHC para este estándar.",
+          "tag": "Policy -> Procedure -> Task"
+        },
         "program": {
-          "title": "Programa de Seguridad y Salud MISH (Manual de Seguridad) de 50 Secciones",
+          "title": "Programa de Seguridad y Salud MISH (Manual de Seguridad) de 59 Secciones",
           "body": "MH Construction mantiene un programa de seguridad escrito integral (Revisión 3.0, efectivo 1 de julio de 2026) que cubre todos los temas requeridos por OSHA. Alineado con 29 CFR 1926, AGC CSEA, WISHA, OSHA de Oregón y requisitos de Idaho.",
           "tag": "Rev 3.0 · Julio 2026"
         }
@@ -579,6 +584,10 @@
         "csea": {
           "title": "Alineado AGC CSEA",
           "subtitle": "Listo para Precalificación"
+        },
+        "deanGold": {
+          "title": "Estándar Dean Gold",
+          "subtitle": "Policy -> Procedure -> Task"
         }
       }
     },
@@ -586,9 +595,9 @@
       "revLabel": "Rev 3.0 · Vigente desde el 1 de julio de 2026",
       "subtitle": "MH Construction",
       "title": "Programa de Seguridad y Salud MISH",
-      "para1": "Nuestro programa de seguridad escrito de 50 secciones cubre cada tema de seguridad en construcción requerido por OSHA y se entrega en campo como nuestro Manual de Seguridad. Desde protección contra caídas y excavación hasta seguridad eléctrica y materiales peligrosos, es la base operativa de cada sitio que dirigimos.",
-      "para2": "Alineado con OSHA federal 29 CFR 1926, estándares de precalificación AGC CSEA, WISHA, OSHA de Oregón y requisitos de Idaho. Disponible en su totalidad para bancos de fianzas, aseguradoras, arquitectos y socios de proyecto a través de nuestro Dashboard (Staff Hub) seguro. Las referencias históricas al APP permanecen en el material fuente para continuidad.",
-      "imageCaption1": "50 Secciones",
+      "para1": "Nuestro programa de seguridad escrito de 59 secciones cubre cada tema de seguridad en construcción requerido por OSHA y se entrega en campo como nuestro Manual de Seguridad. Desde protección contra caídas y excavación hasta seguridad eléctrica y materiales peligrosos, es la base operativa de cada sitio que dirigimos.",
+      "para2": "Alineado con OSHA federal 29 CFR 1926, estándares de precalificación AGC CSEA, WISHA, OSHA de Oregón y requisitos de Idaho. Los Dean Gold Standards se aplican en nuestro modelo de autoría MISH, con Dean como uno de los principales defensores de seguridad de MHC. Disponible en su totalidad para bancos de fianzas, aseguradoras, arquitectos y socios de proyecto a través de nuestro Dashboard (Staff Hub) seguro. Las referencias históricas al APP permanecen en el material fuente para continuidad.",
+      "imageCaption1": "59 Secciones",
       "imageCaption2": "~350 páginas · Todos los temas OSHA cubiertos",
       "commitments": {
         "safeHome": {

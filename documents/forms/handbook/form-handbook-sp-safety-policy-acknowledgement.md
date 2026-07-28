@@ -1,21 +1,25 @@
-# HANDBOOK-FORM-03 (FORM SP) — Employee Safety Policy Acknowledgement
+# HANDBOOK-FORM-03 (FORM SP) — Employee Safety Policy Acknowledgment
 
 - **Schema:** `form-handbook-sp-safety-policy-acknowledgement.json`
 - **TOC Code:** FORM SP
 - **Chapter:** 6 — Health, Safety, & Security
 - **Owner:** Safety Officer (Matt Ramsey)
-- **Purpose:** Confirms a team member understands MH Construction's safety policies and the
-  MISH (Accident Prevention Program) as a condition of employment.
+- **Purpose:** Confirms a team member has received and understands Chapter 06 safety policies,
+  MISH requirements, and SSSP compliance obligations.
 
 ## Fields
 
-| Section              | Type                | Fields                                                              |
-| -------------------- | ------------------- | ------------------------------------------------------------------- |
-| Employee information | fieldGrid           | Employee Name, Job Title / Crew, Date                               |
-| Acknowledgement      | htmlBlock           | Safety policy acknowledgement statement (OSHA, JHA, PPE, stop-work) |
-| Sign-Off             | signatures (manual) | Employee, Supervisor / Manager                                      |
+| Section              | Type                | Fields                                             |
+| -------------------- | ------------------- | -------------------------------------------------- |
+| Employee information | fieldGrid           | Employee Name, Job Title / Crew, Date              |
+| Acknowledgment       | htmlBlock           | Rev 4.0 Chapter 06 safety acknowledgment statement |
+| Sign-Off             | signatures (manual) | Employee                                           |
 
 ## Notes
 
-- References the MISH (Accident Prevention Program) and daily Job Hazard Analysis (Tailgate).
+- Mirrors the Rev 4.0 acknowledgment language in Chapter 09 for Chapter 06 policy sign-off.
 - Reinforces every team member's authority and obligation to stop unsafe work.
+
+## Progress
+
+- Rev 4.0 policy language and chapter alignment completed on 2026-07-28.

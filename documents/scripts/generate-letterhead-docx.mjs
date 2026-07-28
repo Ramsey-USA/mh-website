@@ -65,9 +65,7 @@ async function loadAllImages(brand, docsDir) {
   const P = (rel) => resolve(root, rel);
   return {
     logo: await loadImageBytes(A("assets/logo-color.png")),
-    agc: await loadImageBytes(
-      P("apps/website/public/images/credentials/agc-wa-logo.webp"),
-    ),
+    agc: await loadImageBytes(A("assets/02-nwagc-logo.png")),
     bbb: await loadImageBytes(A("assets/bbb/bbb-accredited-seal.png")),
     vob: await loadImageBytes(
       P("apps/website/public/images/logo/veteran-owned-business.jpg"),

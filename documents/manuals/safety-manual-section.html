@@ -441,6 +441,79 @@
          margin-right: 8pt;
        }
 
+       /* Dean Gold Standard: Policy / Procedure / Task semantic lanes */
+       .section-body .ppt-block {
+         margin: 10pt 0 12pt;
+         padding: 0 10pt 9pt;
+         border: 0.7pt solid rgba(45, 94, 62, 0.35);
+         border-left-width: 3pt;
+         border-radius: 2pt;
+         background: linear-gradient(180deg, rgba(56, 104, 81, 0.045) 0%, rgba(189, 146, 100, 0.05) 100%);
+         box-shadow: inset 0 -0.5pt 0 rgba(45, 94, 62, 0.2);
+         page-break-inside: avoid;
+         break-inside: avoid;
+         -webkit-print-color-adjust: exact;
+         print-color-adjust: exact;
+       }
+
+       .section-body .ppt-block > .ppt-subhead {
+         margin: 0 -10pt 8pt;
+         border-radius: 2pt 2pt 0 0;
+       }
+
+       .section-body .ppt-block.ppt-policy {
+         border-left-color: var(--brand-primary);
+       }
+
+       .section-body .ppt-block.ppt-procedure {
+         border-left-color: var(--brand-secondary);
+       }
+
+       .section-body .ppt-block.ppt-task {
+         border-left-color: var(--brand-primary-dark);
+       }
+
+       .section-body .related-form-meta {
+         display: block;
+         margin-top: 1.5pt;
+         font-size: 7.6pt;
+         font-weight: 700;
+         letter-spacing: 0.02em;
+         color: var(--brand-secondary-text);
+       }
+
+       .section-body .section-related-forms {
+         margin: 16pt 0 8pt;
+         padding: 9pt 11pt 10pt;
+         border: 0.9pt solid var(--brand-secondary);
+         border-left: 3.5pt solid var(--brand-primary);
+         border-radius: 2pt;
+         background: linear-gradient(90deg, rgba(56, 104, 81, 0.08), rgba(189, 146, 100, 0.09));
+         box-shadow: inset 0 -0.8pt 0 rgba(45, 94, 62, 0.24);
+         page-break-inside: avoid;
+         break-inside: avoid;
+         -webkit-print-color-adjust: exact;
+         print-color-adjust: exact;
+       }
+
+       .section-body .section-related-forms .sec-subhead {
+         margin: 0 0 7pt;
+       }
+
+       .section-body .related-forms-note {
+         margin: 0 0 7pt;
+         font-size: 8.3pt;
+       }
+
+       .section-body .related-forms-list {
+         margin: 0 0 8pt;
+         padding-left: 12pt;
+       }
+
+       .section-body .related-forms-list li {
+         margin-bottom: 4pt;
+       }
+
        /* Universal hanging indent — body text indented 0.5" from left anchor */
        .section-body p {
          margin-left: var(--content-lane-indent);

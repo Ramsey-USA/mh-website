@@ -4,6 +4,7 @@ import {
   getDualPageNameByKey,
   MH_DUAL_PHRASES,
   normalizeMhPhrase,
+  normalizeMhPhrasesInText,
 } from "../page-names";
 
 describe("Dual terminology standard", () => {
@@ -74,6 +75,18 @@ describe("Dual terminology standard", () => {
     );
     expect(normalizeMhPhrase("built on quality backed by trust")).toBe(
       MH_DUAL_PHRASES.primarySlogan,
+    );
+  });
+
+  it("normalizes mission-style phrases to construction-first SEO wording", () => {
+    expect(normalizeMhPhrase("Mission-Ready Construction")).toBe(
+      "Commercial Construction",
+    );
+    expect(normalizeMhPhrase("Mission Management")).toBe("Project Management");
+    expect(normalizeMhPhrase("SITREP")).toBe("Project Status Update");
+    expect(normalizeMhPhrase("Operational Theater")).toBe("Project Site");
+    expect(normalizeMhPhrasesInText("Mission Accomplished and handoff")).toBe(
+      "Project Closeout and Project Closeout",
     );
   });
 

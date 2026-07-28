@@ -18,7 +18,7 @@
  *   npm run docs:generate -- --template website-pages # website banner/section inventory
  *   npm run docs:generate -- --template website-image-needs # website image needs inventory
  *   npm run docs:generate -- --template toolbox-talk          # standalone form
- *   npm run docs:generate -- --template form-covers           # all 47 form cover sheets
+ *   npm run docs:generate -- --template form-covers           # all MISH form cover sheets
  *   npm run docs:generate -- --template mish-fillable-bootstrap # scaffold MISH fillable schemas + manifest mapping
  *   node documents/scripts/generate.mjs --template cover
  *
@@ -59,6 +59,11 @@ import { join, resolve, dirname, extname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
 import { createCanvas } from "@napi-rs/canvas";
+
+import {
+  resolveMishSectionTargets as resolveManualNavigationMishTargets,
+  sectionNavigationHref,
+} from "./manual-navigation.mjs";
 
 const SITE_URL = "https://www.mhc-gc.com";
 const PDF_METADATA_AUTHOR = "Matt Ramsey, Safety Officer";
@@ -439,16 +444,11 @@ const SAFETY_MANUAL_CLUSTERS = [
   { slug: "energy-and-fire-hazards", min: 28, max: 32 },
   { slug: "motor-vehicles-and-heavy-equipment", min: 33, max: 41 },
   { slug: "tools-and-materials", min: 42, max: 45 },
-  { slug: "program-compliance-and-continuity", min: 46, max: 50 },
+  { slug: "program-compliance-and-continuity", min: 46, max: 59 },
 ];
 
 function clusterUrlForSection(numeric) {
-  const cluster = SAFETY_MANUAL_CLUSTERS.find(
-    (c) => numeric >= c.min && numeric <= c.max,
-  );
-  if (!cluster) return null;
-  const anchor = String(numeric).padStart(2, "0");
-  return `${SITE_URL}/resources/safety-manual/${cluster.slug}#mish-${anchor}`;
+  return sectionNavigationHref(numeric, { siteUrl: SITE_URL });
 }
 
 /**
@@ -461,29 +461,44 @@ function clusterUrlForSection(numeric) {
  * by section number while preserving first-seen order.
  */
 function resolveMishSectionTargets(manualSection) {
-  if (manualSection == null) return [];
-  const raw = Array.isArray(manualSection) ? manualSection : [manualSection];
-  const seen = new Set();
-  const out = [];
-  for (const entry of raw) {
-    if (entry == null) continue;
-    const text = String(entry).trim();
+  return resolveManualNavigationMishTargets(manualSection, {
+    siteUrl: SITE_URL,
+  });
+}
+
+function resolveHandbookSectionTargets(manualSection) {
+  const handbookBaseUrl = `${SITE_URL}/employee-handbook`;
+  const inputs = Array.isArray(manualSection) ? manualSection : [manualSection];
+  const tokens = [];
+
+  for (const value of inputs) {
+    const text = String(value || "").trim();
     if (!text || text === "—") continue;
-    const mishMatch = /^mish\s*-?\s*(\d{1,2})$/i.exec(text);
-    const numericOnlyMatch = /^(\d{1,2})$/.exec(text);
-    const match = mishMatch || numericOnlyMatch;
-    if (!match) continue;
-    const numeric = Number(match[1]);
-    if (!Number.isFinite(numeric) || numeric < 1 || numeric > MISH_MAX_SECTION)
-      continue;
-    if (seen.has(numeric)) continue;
-    const url = clusterUrlForSection(numeric);
-    if (!url) continue;
-    seen.add(numeric);
-    const nn = String(numeric).padStart(2, "0");
-    out.push({ numeric, label: `MISH ${nn}`, url });
+    const splitParts = text.split(/[;,/]/).map((part) => part.trim());
+    for (const part of splitParts) {
+      if (part) tokens.push(part);
+    }
   }
-  return out;
+
+  const seen = new Set();
+  const targets = [];
+  for (const token of tokens) {
+    const match = /(?:^|\b)HANDBOOK\s*-?\s*(\d{1,2})(?:\b|$)/i.exec(token);
+    const bareNumber = /^(\d{1,2})$/.exec(token);
+    const numeric = Number(match?.[1] || bareNumber?.[1]);
+    if (!Number.isFinite(numeric) || numeric <= 0) continue;
+    if (seen.has(numeric)) continue;
+    seen.add(numeric);
+
+    const numberStr = String(numeric).padStart(2, "0");
+    targets.push({
+      numeric,
+      label: `HANDBOOK ${numberStr}`,
+      url: `${handbookBaseUrl}#section-${numberStr}`,
+    });
+  }
+
+  return targets;
 }
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -582,7 +597,7 @@ const cacheRunSummary = {
   formCovers: null,
   formPackages: null,
 };
-const MISH_MAX_SECTION = 50;
+const MISH_MAX_SECTION = 59;
 const ACTIVE_MANUAL_LABEL = isEmployeeHandbook
   ? "Employee Handbook"
   : "MISH Safety & Health Program (Safety Manual)";
@@ -605,7 +620,7 @@ try {
 
 // ── Runtime revision enforcement (master-operator consistency requirement) ───
 const ENFORCED_REVISION_DATE = "7/1/2026";
-const ENFORCED_REVISION_NUMBER = "3.0";
+const ENFORCED_REVISION_NUMBER = isEmployeeHandbook ? "4.0" : "3.0";
 BRAND.revisionDate = ENFORCED_REVISION_DATE;
 BRAND.revisionNumber = ENFORCED_REVISION_NUMBER;
 
@@ -1133,16 +1148,14 @@ function extractPdfTextByPageRange(pdfPath, pageRangeText) {
 // ── Physical Tab + Tier mapping ────────────────────────────────────────────
 /**
  * Map a MISH section number to a physical binder tab reference.
- * MISH 01–33 → numeric tabs "1"–"33"
- * MISH 34–44 → alpha tabs "A"–"K"
+ * MISH 01–59 → numeric tabs "1"–"59"
  * Section 00 (TOC) returns "TOC".
  */
 function sectionToTab(sectionNumber) {
   const n = Number(sectionNumber);
   if (n === 0) return "TOC";
-  if (n >= 1 && n <= 33) return String(n);
-  // 34→A, 35→B, … 44→K
-  return String.fromCodePoint(65 + (n - 34));
+  if (n >= 1 && n <= 59) return String(n);
+  return String(n);
 }
 
 /**
@@ -1152,7 +1165,7 @@ function sectionToTab(sectionNumber) {
  * MISH 2.1–2.6     — Tier 2: Field Cadence       (MISH 04–09)
  * MISH 3.1–3.28    — Tier 3: Engineering         (MISH 10–37)
  * MISH 4.1–4.7     — Tier 4: Specialized Risk    (MISH 38–44)
- * MISH 5.1–5.6     — Tier 5: Program Compliance  (MISH 45–50)
+ * MISH 5.1–5.15    — Tier 5: Program Compliance  (MISH 45–59)
  */
 function sectionToMishRef(sectionNumber) {
   const n = Number(sectionNumber);
@@ -1216,7 +1229,7 @@ const TOC_CLUSTERS = [
   { name: "Energy & Fire Hazards", min: 28, max: 32 },
   { name: "Motor Vehicles & Heavy Equipment", min: 33, max: 41 },
   { name: "Tools & Materials", min: 42, max: 45 },
-  { name: "Program Compliance & Continuity", min: 46, max: 50 },
+  { name: "Program Compliance & Continuity", min: 46, max: 59 },
 ];
 
 /**
@@ -1293,6 +1306,15 @@ const FALLBACK_MISH_TITLES = new Map([
   [48, "Emergency Response Plan"],
   [49, "Incident Investigation & Root-Cause Analysis"],
   [50, "Return-to-Work Program"],
+  [51, "Leading Indicators & Safety Performance Metrics"],
+  [52, "Safety Culture Assessment & Continuous Improvement"],
+  [53, "Management of Change (MOC)"],
+  [54, "Fatigue Risk Management"],
+  [55, "Mental Health & Workforce Wellbeing"],
+  [56, "Near-Miss Reporting & Analysis"],
+  [57, "Contractor Prequalification & Safety Data Management"],
+  [58, "Safety Technology & Digital Tools"],
+  [59, "Stop Work Authority (SWA) Program"],
 ]);
 
 const FALLBACK_HANDBOOK_TITLES = new Map([
@@ -1337,17 +1359,27 @@ function buildTocEntryHtml(num, title, options = {}) {
       ? `${sectionMeta.pageCount} page${sectionMeta.pageCount === 1 ? "" : "s"}`
       : "Pages: TBD");
   const revisionLabel = `REV ${sectionMeta.revision || ENFORCED_REVISION_NUMBER}`;
+  const docLevelLabel =
+    codePrefix === "MISH" ? String(options.docLevelLabel || "").trim() : "";
   const mishRef = sectionToMishRef(num);
   const displayTitle = normalizeTocTitle(title);
   const isCallout = calloutSet instanceof Set && calloutSet.has(num);
   const cls = isCallout ? "mish-entry callout" : "mish-entry";
-  return (
-    `<li class="${cls}">` +
+  const metaParts = [tabLabel, pageLabel, revisionLabel];
+  if (docLevelLabel) metaParts.push(docLevelLabel);
+  const sectionHref =
+    options.sectionHref ||
+    (Number.isFinite(Number(num)) && Number(num) > 0
+      ? sectionNavigationHref(Number(num))
+      : "");
+  const content =
     `<span class="mish-code">${escapeHtml(code)}</span>` +
     `<span class="mish-wbs">MISH ${escapeHtml(mishRef)}</span>` +
-    `<span class="mish-title"><span class="mish-title-main">${escapeHtml(displayTitle)}</span><span class="mish-meta">${escapeHtml(tabLabel)} \u00b7 ${escapeHtml(pageLabel)} \u00b7 ${escapeHtml(revisionLabel)}</span></span>` +
-    `</li>`
-  );
+    `<span class="mish-title"><span class="mish-title-main">${escapeHtml(displayTitle)}</span><span class="mish-meta">${escapeHtml(metaParts.join(" · "))}</span></span>`;
+  const body = sectionHref
+    ? `<a class="mish-link" href="${escapeHtml(sectionHref)}">${content}</a>`
+    : content;
+  return `<li class="${cls}">${body}</li>`;
 }
 
 /**
@@ -1459,7 +1491,7 @@ function buildTocFormCode(form) {
     "HANDBOOK-FORM-01": "CV", // Company Vehicle
     "HANDBOOK-FORM-02": "RA", // Receipt Acknowledgment
     "HANDBOOK-FORM-03": "SP", // Safety Policy
-    "HANDBOOK-FORM-04": "WH", // Work from Home
+    "HANDBOOK-FORM-04": "WH", // Remote Work
     "HANDBOOK-FORM-05": "CE", // Computer Electronics
     "HANDBOOK-FORM-06": "EP", // Employee Photo
     "HANDBOOK-FORM-07": "CP", // Client Photo
@@ -1559,11 +1591,53 @@ function buildTocSectionFormsMap(forms) {
   return map;
 }
 
+function buildSectionRelatedFormsHtml(sectionNumber, formsMap) {
+  const numericSection = Number(sectionNumber);
+  if (!Number.isFinite(numericSection) || numericSection <= 0) return "";
+  if (!(formsMap instanceof Map)) return "";
+
+  const sectionForms = formsMap.get(numericSection) || [];
+  if (sectionForms.length === 0) return "";
+
+  const rows = sectionForms
+    .map((form) => {
+      const formCode = buildTocFormCode(form);
+      const formTitle = normalizeTocTitle(form?.title || "Untitled Form");
+      const slug = slugForFormPackage(form);
+      const relPath = resolveFormPublicRelativePath(form, slug);
+      const publicUrl = `${SITE_URL}/${String(relPath || "").replace(/^\/+/, "")}`;
+      const revision = String(
+        form?.revision || ENFORCED_REVISION_NUMBER,
+      ).trim();
+      const effectiveDate = String(
+        form?.effectiveDate || ENFORCED_REVISION_DATE,
+      ).trim();
+
+      return (
+        `<li class="sec-bullet">` +
+        `<a href="${escapeHtml(publicUrl)}">${escapeHtml(formCode)} — ${escapeHtml(formTitle)}</a>` +
+        `<span class="related-form-meta">REV ${escapeHtml(revision)} · Effective ${escapeHtml(effectiveDate)}</span>` +
+        `</li>`
+      );
+    })
+    .join("");
+
+  return [
+    `<section class="section-related-forms no-break" aria-label="Related forms for this chapter">`,
+    `<h4 class="sec-subhead">Related Forms and Task Records</h4>`,
+    `<p class="related-forms-note">Use these controlled forms to execute, document, and verify this chapter&apos;s Policy, Procedure, and Task requirements in the field.</p>`,
+    `<ul class="sec-list related-forms-list">${rows}</ul>`,
+    `<p class="related-forms-note">Master package: <a href="${SITE_URL}/docs/safety/forms/${SAFETY_FORMS_PACKAGE_FILE_NAME}">Safety Manual Forms Package</a></p>`,
+    `</section>`,
+  ].join("");
+}
+
 function normalizeTocTitle(value) {
   const text = String(value || "").trim();
   if (!text) return text;
 
   const acronyms = new Set([
+    "mh",
     "app",
     "bbb",
     "cfr",
@@ -1600,13 +1674,16 @@ function normalizeTocTitle(value) {
   ]);
 
   const words = text.toLowerCase().split(/\s+/);
-  return words
+  const normalized = words
     .map((word, index) => {
       if (acronyms.has(word)) return word.toUpperCase();
       if (index > 0 && lowerWords.has(word)) return word;
       return word.charAt(0).toUpperCase() + word.slice(1);
     })
     .join(" ");
+
+  // Keep slash-separated title fragments capitalized (e.g., Application/Agreement).
+  return normalized.replace(/\/([a-z])/g, (_, ch) => `/${ch.toUpperCase()}`);
 }
 
 function normalizeManualSectionTitle(value) {
@@ -1629,7 +1706,12 @@ function buildClusterHtml(
 
   for (const n of nums) {
     const title = titleMap.get(n) || `Section ${n}`;
-    rows.push(buildTocEntryHtml(n, title, options));
+    rows.push(
+      buildTocEntryHtml(n, title, {
+        ...options,
+        sectionHref: sectionNavigationHref(n),
+      }),
+    );
 
     // Add any forms corresponding to this section
     if (formsMap && formsMap.has(n)) {
@@ -1716,10 +1798,16 @@ function buildClusterAlignedHtml(
 ) {
   if (nums.length === 0) return "";
 
+  const docColumnLabel = String(options.docColumnLabel || "Chapter Documents");
+  const formColumnLabel = String(options.formColumnLabel || "Required Forms");
+
   const rows = nums
     .map((n) => {
       const title = titleMap.get(n) || `Section ${n}`;
-      const chapterHtml = buildTocEntryHtml(n, title, options);
+      const chapterHtml = buildTocEntryHtml(n, title, {
+        ...options,
+        sectionHref: sectionNavigationHref(n),
+      });
       const sectionForms = formsMap?.get(n) || [];
       const formsHtml =
         sectionForms.length > 0
@@ -1746,6 +1834,7 @@ function buildClusterAlignedHtml(
   return (
     `<div class="cluster">` +
     `<h2 class="cluster-head">${escapeHtml(clusterName)}</h2>` +
+    `<div class="toc-row-head"><div class="toc-row-head-left">${escapeHtml(docColumnLabel)}</div><div class="toc-row-head-right">${escapeHtml(formColumnLabel)}</div></div>` +
     `<div class="cluster-rows">${rows}</div>` +
     `</div>`
   );
@@ -2468,9 +2557,18 @@ function isMishFormEntry(formEntry) {
   return /^MISH\s+\d{1,2}$/.test(id);
 }
 
+function getFormsForActiveManual(forms) {
+  const list = Array.isArray(forms) ? forms : [];
+  return list.filter((formEntry) =>
+    isEmployeeHandbook
+      ? isHandbookFormEntry(formEntry)
+      : isMishFormEntry(formEntry),
+  );
+}
+
 function buildHandbookForm04Pages(formEntry) {
   const formTitle =
-    formEntry?.title || "Temporary Work From Home Application/Agreement";
+    formEntry?.title || "Temporary Remote Work Application/Agreement";
   return [
     {
       kind: "first",
@@ -2507,19 +2605,19 @@ function buildHandbookForm04Pages(formEntry) {
         },
         {
           type: "htmlBlock",
-          title: "Work From Home Commitment",
+          title: "Remote Work Commitment",
           html: "<p>By signing this application, I affirm my commitment to adhere to all company policies, including those governing electronics use and remote work.</p>",
         },
         {
           type: "signatures",
-          title: "Temporary Work From Home Approval Sign-Off",
+          title: "Temporary Remote Work Approval Sign-Off",
           manualSignOnly: true,
           layout: "two-up",
           blocks: [
             {
               role: "Employee",
               name: "sign.employee",
-              signatureLabel: "Acknowledgement Signature",
+              signatureLabel: "Acknowledgment Signature",
             },
             {
               role: "Supervisor / Manager",
@@ -3191,11 +3289,11 @@ function isToolboxTalkForm(formEntry) {
 
 function buildDefaultSignatureSection(formEntry) {
   const titleByForm = new Map([
-    ["HANDBOOK-FORM-01", "Company Vehicle Policy Acknowledgement Sign-Off"],
+    ["HANDBOOK-FORM-01", "Company Vehicle Policy Acknowledgment Sign-Off"],
     ["HANDBOOK-FORM-02", "Employee Handbook Receipt Sign-Off"],
     [
       "HANDBOOK-FORM-03",
-      "MISH (Accident Prevention Program) Acknowledgement Sign-Off",
+      "MISH (Accident Prevention Program) Acknowledgment Sign-Off",
     ],
   ]);
   const id = String(formEntry?.id || "").toUpperCase();
@@ -3209,7 +3307,7 @@ function buildDefaultSignatureSection(formEntry) {
       {
         role: "Employee",
         name: "sign.employee",
-        signatureLabel: "Acknowledgement Signature",
+        signatureLabel: "Acknowledgment Signature",
       },
       {
         role: "Supervisor",
@@ -3244,7 +3342,7 @@ function buildToolboxTalkSignatureSections(formEntry) {
         {
           role: "Facilitator / Competent Person",
           name: "sign.facilitator",
-          signatureLabel: "Acknowledgement Signature",
+          signatureLabel: "Acknowledgment Signature",
         },
         {
           role: "Supervisor Approval",
@@ -4108,7 +4206,9 @@ async function generateFillableFormById(key) {
 
 async function generateAllFillableForms() {
   const forms = await loadFormsManifest();
-  const fillable = forms.filter((f) => f.fillable?.pages?.length);
+  const fillable = getFormsForActiveManual(forms).filter(
+    (f) => f.fillable?.pages?.length,
+  );
   if (fillable.length === 0) {
     console.log("ℹ️  No forms with `fillable` schema in the manifest.");
     return;
@@ -4443,7 +4543,7 @@ async function generateFormPackageById(key) {
 
 async function generateAllFormPackages() {
   const forms = await loadFormsManifest();
-  const eligible = forms;
+  const eligible = getFormsForActiveManual(forms);
   if (eligible.length === 0) {
     console.log("ℹ️  No forms were found in forms-manifest.json.");
     return;
@@ -4457,11 +4557,31 @@ async function generateAllFormPackages() {
   const validPackageNames = new Set(
     eligible.map((formEntry) => `${slugForFormPackage(formEntry)}.pdf`),
   );
-  validPackageNames.add(HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME);
-  validPackageNames.add(SAFETY_FORMS_PACKAGE_FILE_NAME);
-  validPackageNames.add(HANDBOOK_FORMS_PACKAGE_FILE_NAME);
+  if (isEmployeeHandbook) {
+    validPackageNames.add(HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME);
+    validPackageNames.add(HANDBOOK_FORMS_PACKAGE_FILE_NAME);
+  } else {
+    validPackageNames.add(SAFETY_FORMS_PACKAGE_FILE_NAME);
+  }
+
+  const isActiveFamilyPackage = (fileName) => {
+    if (isEmployeeHandbook) {
+      return (
+        fileName.startsWith("form-handbook-") ||
+        fileName === HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME ||
+        fileName === HANDBOOK_FORMS_PACKAGE_FILE_NAME
+      );
+    }
+
+    return (
+      fileName.startsWith("form-mish-") ||
+      fileName === SAFETY_FORMS_PACKAGE_FILE_NAME
+    );
+  };
+
   for (const existingFile of await readdir(packagesDir)) {
     if (!existingFile.endsWith(".pdf")) continue;
+    if (!isActiveFamilyPackage(existingFile)) continue;
     if (validPackageNames.has(existingFile)) continue;
     unlinkSync(join(packagesDir, existingFile));
     console.log(
@@ -4488,7 +4608,9 @@ async function generateAllFormPackages() {
     rendered: renderedCount,
     skipped: skippedCount,
   };
-  await syncConsolidatedLetterheadIntoHandbookForms(packagesDir);
+  if (isEmployeeHandbook) {
+    await syncConsolidatedLetterheadIntoHandbookForms(packagesDir);
+  }
 
   const safetyPackageFiles = eligible
     .filter((formEntry) => isMishFormEntry(formEntry))
@@ -4507,21 +4629,23 @@ async function generateAllFormPackages() {
     handbookPackageFiles.push(HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME);
   }
 
-  await generateCombinedFormSetPackage({
-    packagesDir,
-    packageFileName: SAFETY_FORMS_PACKAGE_FILE_NAME,
-    sourceFiles: safetyPackageFiles,
-    title: "Safety Manual Forms Package",
-    subject: "Safety manual forms with covers",
-  });
-
-  await generateCombinedFormSetPackage({
-    packagesDir,
-    packageFileName: HANDBOOK_FORMS_PACKAGE_FILE_NAME,
-    sourceFiles: handbookPackageFiles,
-    title: "Employee Handbook Forms Package",
-    subject: "Employee handbook forms with covers",
-  });
+  if (isEmployeeHandbook) {
+    await generateCombinedFormSetPackage({
+      packagesDir,
+      packageFileName: HANDBOOK_FORMS_PACKAGE_FILE_NAME,
+      sourceFiles: handbookPackageFiles,
+      title: "Employee Handbook Forms Package",
+      subject: "Employee handbook forms with covers",
+    });
+  } else {
+    await generateCombinedFormSetPackage({
+      packagesDir,
+      packageFileName: SAFETY_FORMS_PACKAGE_FILE_NAME,
+      sourceFiles: safetyPackageFiles,
+      title: "Safety Manual Forms Package",
+      subject: "Safety manual forms with covers",
+    });
+  }
   await saveRenderCache(packageRenderCache);
 }
 
@@ -5657,8 +5781,19 @@ async function generateToc() {
     ? "Employee Handbook Table of Contents"
     : "MISH Program Table of Contents";
   const entryOptions = isEmployeeHandbook
-    ? { codePrefix: "CH", calloutSet: new Set() }
-    : { codePrefix: "MISH", calloutSet: TOC_CALLOUT_ITEMS };
+    ? {
+        codePrefix: "CH",
+        calloutSet: new Set(),
+        docColumnLabel: "Chapter Documents",
+        formColumnLabel: "Associated Forms",
+      }
+    : {
+        codePrefix: "MISH",
+        calloutSet: TOC_CALLOUT_ITEMS,
+        docLevelLabel: "DOC LEVEL: POLICY / PROCEDURE / TASK",
+        docColumnLabel: "Program Documents",
+        formColumnLabel: "Controlled Forms",
+      };
 
   // ── 1. Resolve section titles ───────────────────────────────────────────
   let titleMap = new Map(
@@ -5877,7 +6012,10 @@ async function generateToc() {
 
   // Debug: write intermediate HTML to check forms are present
   if (process.env.DEBUG_TOC) {
-    const debugPath = join(CANONICAL_OUTPUT_DIR, "_toc_debug.html");
+    const debugFile = isEmployeeHandbook
+      ? "_toc_debug_employee-handbook.html"
+      : "_toc_debug_safety-manual.html";
+    const debugPath = join(CANONICAL_OUTPUT_DIR, debugFile);
     await writeFile(debugPath, html, "utf-8");
     console.log(`  📝 Debug HTML written to: ${debugPath}`);
   }
@@ -6948,9 +7086,9 @@ async function validateSafetyTabsVisualStandardGuardrails() {
       },
       {
         regex:
-          /\{\{QR_TAB_45\}\}[\s\S]*?\{\{QR_TAB_46\}\}[\s\S]*?\{\{QR_TAB_47\}\}[\s\S]*?\{\{QR_TAB_48\}\}[\s\S]*?\{\{QR_TAB_49\}\}[\s\S]*?\{\{QR_TAB_50\}\}/i,
+          /\{\{QR_TAB_45\}\}[\s\S]*?\{\{QR_TAB_46\}\}[\s\S]*?\{\{QR_TAB_47\}\}[\s\S]*?\{\{QR_TAB_48\}\}[\s\S]*?\{\{QR_TAB_49\}\}[\s\S]*?\{\{QR_TAB_50\}\}[\s\S]*?\{\{QR_TAB_51\}\}[\s\S]*?\{\{QR_TAB_52\}\}[\s\S]*?\{\{QR_TAB_53\}\}[\s\S]*?\{\{QR_TAB_54\}\}[\s\S]*?\{\{QR_TAB_55\}\}[\s\S]*?\{\{QR_TAB_56\}\}[\s\S]*?\{\{QR_TAB_57\}\}[\s\S]*?\{\{QR_TAB_58\}\}[\s\S]*?\{\{QR_TAB_59\}\}/i,
         message:
-          "Safety tabs must include QR placeholders for MISH 45 through MISH 50",
+          "Safety tabs must include QR placeholders for MISH 45 through MISH 59",
       },
       {
         regex:
@@ -6961,6 +7099,10 @@ async function validateSafetyTabsVisualStandardGuardrails() {
       {
         regex: /<div class="tab-section-number">50<\/div>/i,
         message: "Safety tabs must render the Section 50 tab page",
+      },
+      {
+        regex: /<div class="tab-section-number">59<\/div>/i,
+        message: "Safety tabs must render the Section 59 tab page",
       },
     ],
   );
@@ -7432,11 +7574,11 @@ async function validateRenderedPdfParity(letterheadPdfPath, tocPdfPath) {
  * Generate tab divider PDFs with per-section QR codes.
  *
  * Each tab page in safety-manual-tabs.html contains a {{QR_TAB_NN}} token
- * (where NN is the zero-padded section number 00–50). This function generates
+ * (where NN is the zero-padded section number 00–59). This function generates
  * a section-specific QR code for each token and injects it before rendering.
  *
  * Tab 00 QR → public MISH Table of Contents URL
- * Tab 01–50 QR → individual section page URL
+ * Tab 01–59 QR → individual section page URL
  */
 async function generateTabs() {
   console.log(`\n🗂  Generating ${ACTIVE_MANUAL_LABEL} tab dividers…`);
@@ -7492,7 +7634,7 @@ async function generateTabs() {
   html = html.replaceAll("{{BRAND_QR_DASHBOARD}}", dashboardQrDataUrl);
 
   // ── Generate and inject per-tab section QR codes ─────────────────────────
-  // For MISH: Tabs 00–50 map to public section URLs; tab 00 = TOC landing page.
+  // For MISH: Tabs 00–59 map to public section URLs; tab 00 = TOC landing page.
   // For Employee Handbook: tab QR codes route to the public handbook index.
   for (let n = 0; n <= MISH_MAX_SECTION; n++) {
     const nn = String(n).padStart(2, "0");
@@ -7504,7 +7646,7 @@ async function generateTabs() {
       sectionUrl = ACTIVE_MANUAL_DIGITAL_URL;
     } else {
       // Tab 00 → standalone Table of Contents page.
-      // Tabs 01–50 → cluster page anchored to that section's MISH id.
+      // Tabs 01–59 → cluster page anchored to that section's MISH id.
       sectionUrl =
         n === 0
           ? `${SITE_URL}/resources/safety-manual/contents`
@@ -7858,6 +8000,16 @@ async function generateSections(filter = null) {
     "utf-8",
   );
   const sectionRenderCache = await loadSectionRenderCache();
+  let sectionFormsMap = new Map();
+  if (!isEmployeeHandbook) {
+    const manifestForms = await loadFormsManifest().catch(() => []);
+    const safetyLinkedForms = manifestForms.filter(
+      (form) =>
+        isMishFormEntry(form) &&
+        resolveMishSectionTargets(form.manualSection).length > 0,
+    );
+    sectionFormsMap = buildTocSectionFormsMap(safetyLinkedForms);
+  }
   let renderedCount = 0;
   let skippedCount = 0;
 
@@ -7939,6 +8091,16 @@ async function generateSections(filter = null) {
         sectionBody,
         Number(section.number),
       );
+    }
+
+    if (!isEmployeeHandbook) {
+      const relatedFormsHtml = buildSectionRelatedFormsHtml(
+        section.number,
+        sectionFormsMap,
+      );
+      if (relatedFormsHtml) {
+        sectionBody = `${sectionBody}\n${relatedFormsHtml}`;
+      }
     }
 
     // Inject section data + brand tokens; run section-specific post-processing
@@ -8097,7 +8259,7 @@ async function generateForms() {
  * `safety-manual-cover.html` (frame, ribbon, identity bar, accreditation
  * footer, ★ VETERAN OWNED ★ tagline) plus a section-header-style
  * Form-Identification-and-Control card. Source `.docx` files in
- * `documents/forms/MHC-MISH-47-Forms/` are the canonical editable source
+ * `documents/forms/MHC-MISH-59-Forms/` are the canonical editable source
  * Word and are bound behind their cover at print/collation time.
  *
  * Tokens consumed by `documents/manuals/form-cover.html`:
@@ -8111,7 +8273,8 @@ async function generateForms() {
  */
 async function generateFormCovers() {
   const forms = await loadFormsManifest().catch(() => []);
-  if (forms.length === 0) {
+  const eligibleForms = getFormsForActiveManual(forms);
+  if (eligibleForms.length === 0) {
     console.log("ℹ️  No forms in manifest; skipping cover sheets.");
     return;
   }
@@ -8133,12 +8296,34 @@ async function generateFormCovers() {
     getFormCoverRenderCachePath(),
     "form-covers",
   );
+
+  const validCoverNames = new Set(
+    eligibleForms.map(
+      (formEntry) => `${slugForFormPackage(formEntry)}_cover.pdf`,
+    ),
+  );
+
+  const isActiveFamilyCover = (fileName) =>
+    isEmployeeHandbook
+      ? fileName.startsWith("form-handbook-")
+      : fileName.startsWith("form-mish-");
+
+  for (const existingFile of await readdir(coversDir)) {
+    if (!existingFile.endsWith(".pdf")) continue;
+    if (!isActiveFamilyCover(existingFile)) continue;
+    if (validCoverNames.has(existingFile)) continue;
+    unlinkSync(join(coversDir, existingFile));
+    console.log(
+      `  ✓  Removed stale form cover: documents/generated-pdfs/form-covers/${existingFile}`,
+    );
+  }
+
   let renderedCount = 0;
   let skippedCount = 0;
 
-  console.log(`\n🪪  Generating ${forms.length} form cover sheet(s)…`);
+  console.log(`\n🪪  Generating ${eligibleForms.length} form cover sheet(s)…`);
 
-  for (const form of forms) {
+  for (const form of eligibleForms) {
     const result = await renderFormCover(form, brandedTemplate, coversDir, {
       coverRenderCache,
     });
@@ -8165,7 +8350,7 @@ async function generateFormCovers() {
 /**
  * Render a single form cover PDF. Extracted so that
  * `generateFormPackage()` can refresh just one cover without rebuilding
- * all 47.
+ * all MISH forms.
  */
 async function renderFormCover(form, brandedTemplate, coversDir, options = {}) {
   const coverRenderCache = options.coverRenderCache || null;
@@ -8173,7 +8358,9 @@ async function renderFormCover(form, brandedTemplate, coversDir, options = {}) {
   // one QR card per applicable section so a field user can scan straight
   // into the policy that requires this form. When no sections are declared
   // we render a single fallback QR pointing at the safety-manual TOC.
-  const mishTargets = resolveMishSectionTargets(form.manualSection);
+  const manualTargets = isHandbookFormEntry(form)
+    ? resolveHandbookSectionTargets(form.manualSection)
+    : resolveMishSectionTargets(form.manualSection);
 
   const safeSlug = (form.slug || form.id || "form")
     .toLowerCase()
@@ -8181,19 +8368,24 @@ async function renderFormCover(form, brandedTemplate, coversDir, options = {}) {
     .replaceAll(/^-+|-+$/g, "");
 
   const qrCards = [];
-  if (mishTargets.length === 0) {
-    const tocUrl = `${SITE_URL}/resources/safety-manual/contents`;
+  if (manualTargets.length === 0) {
+    const tocUrl = isHandbookFormEntry(form)
+      ? `${SITE_URL}/employee-handbook`
+      : `${SITE_URL}/resources/safety-manual/contents`;
+    const tocLabel = isHandbookFormEntry(form)
+      ? "Handbook Index"
+      : "Manual TOC";
     qrCards.push({
       meta: "Reference",
-      label: "Manual TOC",
+      label: tocLabel,
       dataUrl: await buildQrDataUrl(tocUrl),
       url: tocUrl,
     });
   } else {
     const dataUrls = await Promise.all(
-      mishTargets.map((t) => buildQrDataUrl(t.url)),
+      manualTargets.map((t) => buildQrDataUrl(t.url)),
     );
-    mishTargets.forEach((t, i) => {
+    manualTargets.forEach((t, i) => {
       qrCards.push({
         meta: "Reference",
         label: t.label,
@@ -8223,8 +8415,8 @@ async function renderFormCover(form, brandedTemplate, coversDir, options = {}) {
   ].join("\n");
 
   const sectionLabels =
-    mishTargets.length > 0
-      ? mishTargets.map((t) => t.label).join(" · ")
+    manualTargets.length > 0
+      ? manualTargets.map((t) => t.label).join(" · ")
       : form.manualSection || "—";
 
   const ownerLabel =
@@ -8239,13 +8431,15 @@ async function renderFormCover(form, brandedTemplate, coversDir, options = {}) {
         "Retain completed form per project and company records policy.";
 
   const sectionLabel =
-    mishTargets.length > 1 ? "Manual References" : "Manual Reference";
+    manualTargets.length > 1 ? "Manual References" : "Manual Reference";
   const briefingHead = "Field Briefing";
   const briefingAriaLabel = `Field briefing for ${form.id || "form"}`;
   const briefingAuthority =
-    mishTargets.length > 0
+    manualTargets.length > 0
       ? `Required by ${sectionLabels}.`
-      : "Required by applicable project safety procedures and site directives.";
+      : isHandbookFormEntry(form)
+        ? "Required by applicable employee handbook policies and company directives."
+        : "Required by applicable project safety procedures and site directives.";
   const briefingUse =
     form.use ||
     "Complete clearly in the field before work starts and route to the responsible supervisor.";
@@ -8517,20 +8711,25 @@ function cleanWordHtml(html) {
   );
 
   // Normalize known legacy numbering references to the current program range.
-  out = out.replaceAll(/\bMISH\s*1-42\b/gi, "MISH 1-50");
+  out = out.replaceAll(/\bMISH\s*1-42\b/gi, "MISH 1-59");
 
   // Remove legacy internal revision year labels from old approval rows.
   out = out.replaceAll(/\bRevision\s*(?:2024|2025)\b/gi, "");
 
   // Drop any leading approval/program metadata block before the first
   // canonical section heading. Prefer 1.x, then fall back to any dotted heading.
-  out = out.replace(/^[\s\S]*?(?=<\w+[^>]*>\s*1\.[\d.]+\s+[A-Z])/i, "");
-  out = out.replace(/^[\s\S]*?(?=<\w+[^>]*>\s*\d+\.[\d.]+\b)/i, "");
+  out = out.replace(
+    /^[\s\S]*?(?=<\w+[^>]*>\s*1\.(?:\d+(?:\.\d+)*)?\s+[A-Z])/i,
+    "",
+  );
+  if (!/<\w+[^>]*>\s*1\.(?:\d+(?:\.\d+)*)?\s+[A-Z]/i.test(out)) {
+    out = out.replace(/^[\s\S]*?(?=<\w+[^>]*>\s*\d+\.[\d.]+\b)/i, "");
+  }
 
   // Some Word extractions place legacy approval metadata and the first
   // canonical heading in the same paragraph. Keep only content from 1.x onward.
   out = out.replaceAll(
-    /<p>[\s\S]*?\b(1\.\d+(?:\.\d+)*\s+[A-Z][\s\S]*?)<\/p>/gi,
+    /<p>[\s\S]*?\b(1\.(?:\d+(?:\.\d+)*)?\s+[A-Z][\s\S]*?)<\/p>/gi,
     (_match, keep) => `<p>${keep}</p>`,
   );
 
@@ -8706,7 +8905,7 @@ function textToHtml(text) {
   if (!text) return "<p><em>No content extracted. See source PDF.</em></p>";
 
   // Normalize known legacy numbering references to the current program range.
-  text = text.replaceAll(/\bMISH\s*1-42\b/gi, "MISH 1-50");
+  text = text.replaceAll(/\bMISH\s*1-42\b/gi, "MISH 1-59");
 
   // Remove legacy internal revision year labels from old approval rows.
   text = text.replaceAll(/\bRevision\s*(?:2024|2025)\b/gi, "");
@@ -8714,7 +8913,7 @@ function textToHtml(text) {
   // Strip everything from the start of the body up to the first canonical
   // section heading. Prefer "1.x ..." to avoid retaining legacy approval rows
   // that often include "3.0 April 2026 ..." before the true body.
-  const firstSectionIdx = text.search(/\b1\.\d+(?:\.\d+)*\s+[A-Z]/);
+  const firstSectionIdx = text.search(/\b1\.(?:\d+(?:\.\d+)*)?\s+[A-Z]/);
   if (firstSectionIdx > 0) {
     text = text.slice(firstSectionIdx);
   } else {
@@ -8894,6 +9093,115 @@ function textToHtml(text) {
     }),
   );
   return html;
+}
+
+function normalizePptRole(rawValue) {
+  const value = String(rawValue || "")
+    .trim()
+    .toLowerCase();
+  if (value.startsWith("pol")) return "policy";
+  if (value.startsWith("pro")) return "procedure";
+  if (value.startsWith("tas")) return "task";
+  return "";
+}
+
+function buildPptHeading(role, topic = "") {
+  const labelMap = {
+    policy: "Policy",
+    procedure: "Procedure",
+    task: "Task",
+  };
+
+  const normalizedRole = normalizePptRole(role);
+  if (!normalizedRole) return "";
+
+  const label = labelMap[normalizedRole] || "Policy";
+  const cleanedTopic = String(topic || "").trim();
+  const headingText = cleanedTopic ? `${label}: ${cleanedTopic}` : label;
+  return `<h4 class="sec-subhead ppt-subhead" data-ppt-role="${normalizedRole}">${escapeHtml(headingText)}</h4>`;
+}
+
+function canonicalizePolicyProcedureTaskHeadings(html) {
+  let out = String(html || "");
+
+  if (!out) return out;
+
+  // Generic heading tags from source extraction.
+  out = out.replaceAll(
+    /<h[1-6](?:\s[^>]*)?>\s*(?:\d+(?:\.\d+)*\.?\s*)?(POLICY|PROCEDURE|TASK(?:\s+INSTRUCTIONS)?|TASKS?)\b(?:\s*[:\-\u2013\u2014]\s*([^<]+))?\s*<\/h[1-6]>/gi,
+    (_m, role, topic) => buildPptHeading(role, topic),
+  );
+
+  // Existing sec-subhead variants.
+  out = out.replaceAll(
+    /<h4 class="sec-subhead(?:\s+sec-h\s+sec-h-\d+)?">\s*(?:<strong>\s*\d+(?:\.\d+)*\.?\s*<\/strong>\s*|\d+(?:\.\d+)*\.?\s*)?(POLICY|PROCEDURE|TASK(?:\s+INSTRUCTIONS)?|TASKS?)\b(?:\s*[:\-\u2013\u2014]\s*([^<]+))?\s*<\/h4>/gi,
+    (_m, role, topic) => buildPptHeading(role, topic),
+  );
+
+  // Paragraph headings such as <p><strong>Policy</strong></p>.
+  out = out.replaceAll(
+    /<p>\s*(?:<strong>\s*)?(?:\d+(?:\.\d+)*\.?\s*)?(POLICY|PROCEDURE|TASK(?:\s+INSTRUCTIONS)?|TASKS?)\b(?:\s*[:\-\u2013\u2014]\s*([^<]+))?\s*(?:<\/strong>)?\s*<\/p>/gi,
+    (_m, role, topic) => buildPptHeading(role, topic),
+  );
+
+  // Numbered rows emitted by textToHtml (e.g., 5.1 POLICY).
+  out = out.replaceAll(
+    /<div class="sec-num-row(?:\s+sec-h\s+sec-h-\d+)?"><span class="sec-num">[^<]*<\/span><span class="sec-num-text">\s*(POLICY|PROCEDURE|TASK(?:\s+INSTRUCTIONS)?|TASKS?)\b(?:\s*[:\-\u2013\u2014]\s*([^<]+))?\s*<\/span><\/div>/gi,
+    (_m, role, topic) => buildPptHeading(role, topic),
+  );
+
+  return out;
+}
+
+function wrapPolicyProcedureTaskBlocks(html) {
+  const source = String(html || "");
+  if (
+    !source ||
+    /class="ppt-block\s+ppt-(policy|procedure|task)"/i.test(source)
+  ) {
+    return source;
+  }
+
+  const headingRx =
+    /<h4 class="sec-subhead ppt-subhead" data-ppt-role="(policy|procedure|task)">([\s\S]*?)<\/h4>/gi;
+  const matches = [...source.matchAll(headingRx)];
+  if (matches.length === 0) return source;
+
+  const parts = [];
+  let cursor = 0;
+
+  for (let index = 0; index < matches.length; index += 1) {
+    const match = matches[index];
+    const start = match.index ?? 0;
+    const end = start + match[0].length;
+    const role = normalizePptRole(match[1]);
+    const nextStart =
+      index + 1 < matches.length
+        ? (matches[index + 1].index ?? source.length)
+        : source.length;
+
+    if (start > cursor) {
+      parts.push(source.slice(cursor, start));
+    }
+
+    const body = source.slice(end, nextStart).trim();
+    parts.push(
+      `<section class="ppt-block ppt-${role}">${match[0]}${body ? `\n${body}` : ""}</section>`,
+    );
+
+    cursor = nextStart;
+  }
+
+  if (cursor < source.length) {
+    parts.push(source.slice(cursor));
+  }
+
+  return parts.join("\n");
+}
+
+function enforceDeanPolicyProcedureTaskStructure(html) {
+  const canonical = canonicalizePolicyProcedureTaskHeadings(html);
+  return wrapPolicyProcedureTaskBlocks(canonical);
 }
 
 /**
@@ -10131,6 +10439,7 @@ function tagNumberedParagraphs(html) {
  */
 function postProcessSectionHtml(html, sectionNumber) {
   html = stripLeakedMetadata(html);
+  html = enforceDeanPolicyProcedureTaskStructure(html);
   html = applySectionReferenceFixes(html, sectionNumber);
   // 3-Hour Rule callouts — drug & alcohol testing window:
   //   • MISH 02 (Injury-Free Workplace) — forward reference

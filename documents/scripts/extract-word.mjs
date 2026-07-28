@@ -3,13 +3,13 @@
 /**
  * documents/scripts/extract-word.mjs
  *
- * Extracts section text from DOCX files under documents/content/MHC-MISH-APP-50-Sections/
+ * Extracts section text from DOCX files under documents/content/MHC-MISH-APP-59-Sections/
  * and writes a structured manifest to documents/content/safety-manual.json.
  *
  * Usage:
  *   npm run docs:extract-word
  *   node documents/scripts/extract-word.mjs
- *   node documents/scripts/extract-word.mjs --input documents/content/MHC-MISH-APP-50-Sections
+ *   node documents/scripts/extract-word.mjs --input documents/content/MHC-MISH-APP-59-Sections
  */
 
 import { readdir, writeFile } from "fs/promises";
@@ -21,9 +21,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
 const DEFAULT_INPUT_DIR = join(
   ROOT,
-  "documents/content/MHC-MISH-APP-50-Sections",
+  "documents/content/MHC-MISH-APP-59-Sections",
 );
 const OUTPUT = join(ROOT, "documents/content/safety-manual.json");
+const COMBINED_MANUAL_PATTERN = /^MISH_Manual.*\.docx$/i;
 
 const args = process.argv.slice(2);
 const getArg = (flag) => {
@@ -76,7 +77,7 @@ function decodeBasicEntities(text) {
 
 function resolveCanonicalTitleFromBody(html, fallbackTitle) {
   // Primary source: section opener line like "MISH 01 — Safety & Health Program Overview"
-  const headingMatch = html.match(/MISH\s*\d{1,2}\s*[—-]\s*([^<\n]+)/i);
+  const headingMatch = html.match(/MISH\s*\d{1,2}\s*[—:-]\s*([^<\n]+)/i);
   if (!headingMatch) {
     return fallbackTitle;
   }
@@ -135,6 +136,69 @@ async function extractDocxHtml(filePath) {
   return (result.value || "").replace(/\s+/g, " ").trim();
 }
 
+function sanitizeCombinedManualSectionHtml(html) {
+  return html
+    .replace(
+      /<p>\s*&lt;div class="[^"]+"&gt;&lt;h3&gt;([\s\S]*?)&lt;\/h3&gt;&lt;\/div&gt;\s*<\/p>/gi,
+      (_, headingText) => `<h3>${headingText.trim()}</h3>`,
+    )
+    .replace(/<p>\s*<\/p>/gi, "")
+    .trim();
+}
+
+function extractSectionsFromCombinedManual(html, sourceName) {
+  const headingPattern =
+    /<h[1-6][^>]*>\s*MISH\s*(\d{1,2})\s*[—:-]\s*([\s\S]*?)<\/h[1-6]>/gi;
+  const matches = [];
+
+  for (const match of html.matchAll(headingPattern)) {
+    const number = Number(match[1]);
+    if (!Number.isFinite(number) || number <= 0) {
+      continue;
+    }
+
+    matches.push({
+      number,
+      title: normalizeWhitespace(
+        decodeBasicEntities(String(match[2] || "").replace(/<[^>]+>/g, " ")),
+      ),
+      index: match.index ?? 0,
+      length: match[0].length,
+    });
+  }
+
+  const extractedSections = new Map();
+  for (let index = 0; index < matches.length; index += 1) {
+    const current = matches[index];
+    const next = matches[index + 1];
+    const sectionHtml = sanitizeCombinedManualSectionHtml(
+      html.slice(current.index, next ? next.index : html.length),
+    );
+
+    if (!sectionHtml) {
+      continue;
+    }
+
+    const numberStr = String(current.number).padStart(2, "0");
+    extractedSections.set(current.number, {
+      id: `section-${numberStr}`,
+      number: current.number,
+      numberStr,
+      key: `MISH_${numberStr}`,
+      title: current.title || `Section ${numberStr}`,
+      slug: buildSlug(current.title || `Section ${numberStr}`),
+      filename: `${sourceName}#MISH-${numberStr}`,
+      pages: 0,
+      wordCount: htmlToPlainText(sectionHtml).split(/\s+/).filter(Boolean)
+        .length,
+      summary: buildSummary(htmlToPlainText(sectionHtml)),
+      body: sectionHtml,
+    });
+  }
+
+  return extractedSections;
+}
+
 function htmlToPlainText(html) {
   return normalizeWhitespace(html.replace(/<[^>]+>/g, " "));
 }
@@ -154,6 +218,9 @@ async function main() {
     .map((filePath) => ({ filePath, meta: parseSectionFromFilename(filePath) }))
     .filter((item) => item.meta)
     .sort((a, b) => a.meta.number - b.meta.number);
+  const combinedManualPath = allDocx.find((filePath) =>
+    COMBINED_MANUAL_PATTERN.test(basename(filePath)),
+  );
 
   if (parsed.length === 0) {
     throw new Error(
@@ -166,6 +233,7 @@ async function main() {
   );
 
   const sections = [];
+  const presentNumbers = new Set();
 
   for (const { filePath, meta } of parsed) {
     process.stdout.write(`  [${meta.numberStr}] ${meta.title.padEnd(55)} `);
@@ -190,6 +258,7 @@ async function main() {
         summary,
         body: html,
       });
+      presentNumbers.add(meta.number);
 
       console.log(`✓  (${wordCount} words)`);
     } catch (err) {
@@ -208,8 +277,44 @@ async function main() {
         body: "",
         error: err.message,
       });
+      presentNumbers.add(meta.number);
     }
   }
+
+  if (combinedManualPath) {
+    console.log(
+      `\n  ℹ  Scanning combined manual: ${basename(combinedManualPath)}`,
+    );
+    const combinedHtml = await extractDocxHtml(combinedManualPath);
+    const combinedSections = extractSectionsFromCombinedManual(
+      combinedHtml,
+      basename(combinedManualPath),
+    );
+    let supplementedCount = 0;
+
+    for (const [number, section] of [...combinedSections.entries()].sort(
+      (a, b) => a[0] - b[0],
+    )) {
+      if (presentNumbers.has(number)) {
+        continue;
+      }
+
+      sections.push(section);
+      presentNumbers.add(number);
+      supplementedCount += 1;
+      console.log(
+        `  [+${section.numberStr}] ${section.title.padEnd(55)} ✓  (combined manual)`,
+      );
+    }
+
+    if (supplementedCount === 0) {
+      console.log(
+        "  ℹ  No additional sections were needed from the combined manual.",
+      );
+    }
+  }
+
+  sections.sort((a, b) => a.number - b.number);
 
   const manifest = {
     document: {

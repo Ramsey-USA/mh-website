@@ -639,10 +639,10 @@ export default function PrintPageClient() {
               />
               {/* AGC Logo */}
               <Image
-                src="/images/logo/agc-member.webp"
+                src={COMPANY_INFO.agc.logo}
                 alt="AGC Member"
-                width={60}
-                height={24}
+                width={795}
+                height={291}
                 className="h-6 w-auto print:h-5"
               />
             </div>

@@ -5,7 +5,7 @@
       "sections": [
         {
           "type": "fieldGrid",
-          "title": "Employee Safety Policy Acknowledgement",
+          "title": "Employee Safety Policy Acknowledgment",
           "subtitle": "Employee information",
           "columns": 3,
           "items": [
@@ -16,24 +16,18 @@
         },
         {
           "type": "htmlBlock",
-          "title": "Acknowledgement",
-          "html": "<p>I acknowledge that I have received, read, and understand the safety policies of MH Construction, Inc. as described in the Employee Handbook and the MISH (Accident Prevention Program). I understand that safety is a shared responsibility and a condition of my employment. I agree to follow all applicable OSHA standards, site-specific safety requirements, and the daily Job Hazard Analysis (Tailgate) for my scope of work, to wear all required personal protective equipment, and to report any injury, near-miss, or unsafe condition to my supervisor immediately. I understand that I have both the authority and the obligation to stop work when a condition is unsafe.</p>"
+          "title": "Acknowledgment",
+          "html": "<p>I acknowledge that I have received, read, and understand the Health, Safety &amp; Security policies contained in Chapter 06 of the Employee Handbook, Revision 4.0. I understand that I am required to comply with the MH Construction MISH Program and any applicable Site Specific Safety Plan (SSSP) for my assigned project. I understand that I have both the authority and the obligation to stop work when a condition is unsafe.</p>"
         },
         {
           "type": "signatures",
-          "title": "Safety Policy Acknowledgement Sign-Off",
+          "title": "Safety Policy Acknowledgment Sign-Off",
           "manualSignOnly": true,
-          "layout": "two-up",
           "blocks": [
             {
               "role": "Employee",
               "name": "sign.employee",
-              "signatureLabel": "Acknowledgement Signature"
-            },
-            {
-              "role": "Supervisor / Manager",
-              "name": "sign.supervisor",
-              "signatureLabel": "Approval Signature"
+              "signatureLabel": "Acknowledgment Signature"
             }
           ]
         }

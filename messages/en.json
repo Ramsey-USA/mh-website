@@ -527,7 +527,7 @@
     "credentials": {
       "subtitle": "Industry-Recognized",
       "title": "Safety Credentials",
-      "description": "OSHA VPP Star designation, AGC-WA Top EMR Awards, and a 50-section written {mishLabel} — verifiable proof our standards exceed requirements.",
+      "description": "OSHA VPP Star designation, AGC-WA Top EMR Awards, the Dean Gold Standards framework, and a 59-section written {mishLabel} — verifiable proof our standards exceed requirements.",
       "items": {
         "oshaVpp": {
           "title": "OSHA VPP Star Designation",
@@ -544,8 +544,13 @@
           "body": "Our leadership and field supervisors hold OSHA 30-Hour Construction certification — above the basic 10-hour standard. Comprehensive training in hazard recognition, fall protection, electrical safety, and more.",
           "tag": "Team Certified"
         },
+        "deanGold": {
+          "title": "Dean Gold Standard",
+          "body": "Our MISH model applies Policy -> Procedure -> Task in every chapter and linked form: Policy defines required outcomes, Procedure defines role ownership and trigger timing, and Task defines measurable field actions with auditable evidence. Dean is one of MHC's primary safety advocates for this standard.",
+          "tag": "Policy -> Procedure -> Task"
+        },
         "program": {
-          "title": "50-Section MISH Safety & Health Program (Safety Manual)",
+          "title": "59-Section MISH Safety & Health Program (Safety Manual)",
           "body": "MH Construction maintains a comprehensive written safety program (Revision 3.0, effective July 1, 2026) covering all OSHA-required topics. Aligned with 29 CFR 1926, AGC CSEA, WISHA, Oregon OSHA, and Idaho requirements.",
           "tag": "Rev 3.0 · July 2026"
         }
@@ -579,6 +584,10 @@
         "csea": {
           "title": "AGC CSEA Aligned",
           "subtitle": "Prequalification Ready"
+        },
+        "deanGold": {
+          "title": "Dean Gold Standard",
+          "subtitle": "Policy -> Procedure -> Task"
         }
       }
     },
@@ -586,9 +595,9 @@
       "revLabel": "Rev 3.0 · Effective July 1, 2026",
       "subtitle": "MH Construction",
       "title": "MISH Safety & Health Program",
-      "para1": "Our 50-section written safety program covers every OSHA-required construction safety topic and is delivered in the field as our Safety Manual. From fall protection and excavation to electrical safety and hazardous materials, it is the operational foundation for every site we run.",
-      "para2": "Aligned with federal OSHA 29 CFR 1926, AGC CSEA prequalification standards, WISHA, Oregon OSHA, and Idaho requirements. Available in full to bonding banks, insurers, architects, and project partners through our secure Dashboard (Staff Hub). Legacy APP references remain in historical source material for continuity.",
-      "imageCaption1": "50 Sections",
+      "para1": "Our 59-section written safety program covers every OSHA-required construction safety topic and is delivered in the field as our Safety Manual. From fall protection and excavation to electrical safety and hazardous materials, it is the operational foundation for every site we run.",
+      "para2": "Aligned with federal OSHA 29 CFR 1926, AGC CSEA prequalification standards, WISHA, Oregon OSHA, and Idaho requirements. The Dean Gold Standards are applied in our MISH authoring model, with Dean serving as one of MHC's primary safety advocates. Available in full to bonding banks, insurers, architects, and project partners through our secure Dashboard (Staff Hub). Legacy APP references remain in historical source material for continuity.",
+      "imageCaption1": "59 Sections",
       "imageCaption2": "~350 pages · All OSHA topics covered",
       "commitments": {
         "safeHome": {

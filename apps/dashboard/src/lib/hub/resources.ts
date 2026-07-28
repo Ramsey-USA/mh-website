@@ -24,10 +24,10 @@ const getCachedSafetySummary = unstable_cache(
     );
 
     return Promise.resolve({
-      sectionCount: safetyManual?.totalSections ?? 50,
+      sectionCount: safetyManual?.totalSections ?? 59,
       revisionNumber: safetyManual?.revisionNumber ?? "3",
-      handbookRevision: employeeHandbook?.revisionNumber ?? "1.0",
-      handbookSections: employeeHandbook?.totalSections ?? 6,
+      handbookRevision: employeeHandbook?.revisionNumber ?? "4.0",
+      handbookSections: employeeHandbook?.totalSections ?? 9,
       safetyFormCount: safetyForms.length,
       handbookFormCount: handbookForms.length,
       formCount: forms.length,

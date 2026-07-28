@@ -309,6 +309,21 @@ export default async function QrCodesPage() {
                             <div className="flex flex-wrap gap-2">
                               <Button asChild variant="outline" size="sm">
                                 <a
+                                  href={entry.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  aria-label={`Visit destination for ${entry.description}`}
+                                >
+                                  <MaterialIcon
+                                    icon="link"
+                                    size="sm"
+                                    className="text-brand-primary"
+                                  />
+                                  Visit
+                                </a>
+                              </Button>
+                              <Button asChild variant="outline" size="sm">
+                                <a
                                   href={imageHref}
                                   target="_blank"
                                   rel="noopener noreferrer"

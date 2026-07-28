@@ -1,6 +1,6 @@
 # Universal Terminology & Language Standards
 
-**Last Updated:** July 12, 2026 | **Version:** 1.2.0 | **Status:** Official Brand Standard
+**Last Updated:** July 28, 2026 | **Version:** 1.3.0 | **Status:** Official Brand Standard
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
@@ -22,10 +22,13 @@
 ## 🎯 Purpose
 
 This guide defines **universal language and terminology standards** that should be used consistently across all MH
-Construction communications—website, dashboard, marketing materials, proposals, emails, and verbal communications.
+Construction communications-website, dashboard, marketing materials, proposals, emails, and verbal communications.
 These standards ensure brand coherence and professional consistency company-wide.
 The language model is military-themed construction language and may be expanded or optimized for enterprise use
 when the change improves clarity without weakening brand congruency.
+
+Primary source for the current terminology model: `docs/branding/standards/mhc-terms.docx`
+("MH Construction Brand Terms Library", Version 2.0, effective 04/07/2026).
 
 For PMBOK 6 alignment and construction vocabulary mapping, use
 [Construction Terminology Glossary](./construction-terminology-glossary.md) as the companion reference.
@@ -40,6 +43,15 @@ This guide may describe preferred wording, but it does not narrow the approved e
 new enterprise term is introduced, it must still fit the military-themed construction voice and the governing
 dual-terminology rules.
 
+### Canonical Source Hierarchy
+
+If terminology guidance conflicts, resolve in this order:
+
+1. `docs/branding/standards/mhc-terms.docx` (Brand Terms Library v2.0)
+2. [Dual Terminology Standard](./dual-terminology-standard.md)
+3. [SEO Terminology Standard](../standards/seo-terminology-standard.md) for search-facing surfaces
+4. This universal guide
+
 ### Core Principle
 
 **Consistency builds trust.** When we use the same terms the same way across all touchpoints, we strengthen our
@@ -47,12 +59,37 @@ brand identity and make our message clearer to project stakeholders, trade partn
 
 ### Primary Language Pattern (Canonical Order)
 
-When both concepts appear in the same surface, always apply this sequence:
+Use surface-aware order so terminology remains clear and congruent across enterprise assets:
 
-1. Construction terminology first (scope, sequencing, quality, delivery, controls).
-2. Veteran field standards second (discipline, service-earned reliability, leadership credibility).
+1. General copy, labels, manuals, and handbook language: use MH brand term first with standard term in parentheses (for example, `Mission Brief (Pre-Task Meeting)`).
+2. SEO-facing metadata and search labels: keep construction terminology first, with military context as supporting language only when useful.
 
-Use veteran framing to reinforce execution standards, not to replace the core construction message.
+Use veteran framing to reinforce execution standards, not to replace construction clarity.
+
+### Terms Library v2.0 Required Adoptions
+
+Adopt these families across new and revised content:
+
+- Command structure: `Command Center`, `Command Staff`, `Safety Command`, `Site Safety Commander`, `Field Safety Lead`, `Task Operator`, `Sub-Operator`, `Chief of Operations`
+- Program/process: `Mission Brief`, `Operations Brief`, `Deployment`, `Command Loop`, `Corrective Action Order (CAO)`, `After-Action Review (AAR)`, `Operational Pause`, `Stand Down`, `Pre-Deployment Checklist`, `Handshake to Handoff`
+- Quality/accountability: `Zero-Gap Accountability`, `Mission-Ready`, `Field-First`, `Audit-Ready Handoff`, `Proof of Delivery`, `Verified Performance`, `Operational Integrity`, `Accurate Firmness`
+- Safety/technical execution: `Safety Command Standards`, `Every Operator Goes Home Safe`, `Hazard Recon`, `Protective Posture`, `Spatial Capture`, `Digital Twin`, `Vertical Integration`
+- Leadership/culture: `Words from the General`, `Got Your Six`, `Service-Earned Discipline`, `Relationship-First`, `Built on Quality, Backed by Trust`, `Handshake Pride`, `The General`
+- Enterprise additions: `Operational Theater`, `Mission Parameters`, `Force Multiplier`, `Boots on the Ground`, `Rules of Engagement (ROE)`, `Situation Report (SITREP)`, `Ground Truth`, `Mission Accomplished`, `Operational Tempo`, `Standby to Standby`
+
+### Regulatory Protection Rules (Do Not Replace)
+
+In any MISH document, safety form, or OSHA/WISHA communication, keep regulatory terms unchanged:
+
+- `Competent Person`
+- `Qualified Person`
+- `Authorized Person`
+- `Hazard Communication`
+- `Personal Protective Equipment (PPE)`
+- `Stop Work Authority`
+- `Incident`
+
+Brand alternates (for example, `Protective Posture`, `Operational Pause`) are acceptable for public marketing and website copy, but must revert to regulatory wording in compliance-facing artifacts.
 
 ### SEO Terminology Precedence (Required)
 

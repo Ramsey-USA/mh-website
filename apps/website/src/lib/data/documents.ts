@@ -22,7 +22,7 @@ const SAFETY_PROGRAM_SUBTITLE =
   mhcBrand.safetyProgramSubtitle ||
   "MH Construction Industrial Safety & Health Program";
 const SAFETY_PROGRAM_TOTAL_SECTIONS =
-  Number(mhcBrand.safetyProgramTotalSections) || 50;
+  Number(mhcBrand.safetyProgramTotalSections) || 59;
 const SAFETY_PROGRAM_LAST_SECTION = String(
   Math.max(SAFETY_PROGRAM_TOTAL_SECTIONS - 1, 0),
 ).padStart(2, "0");
@@ -33,7 +33,7 @@ const EMPLOYEE_HANDBOOK_TITLE = "Employee Handbook";
 const EMPLOYEE_HANDBOOK_SUBTITLE =
   "MH Construction Employee Policies and Procedures";
 const EMPLOYEE_HANDBOOK_REVISION_YEAR = 2026;
-const EMPLOYEE_HANDBOOK_REVISION_NUMBER = "3.0";
+const EMPLOYEE_HANDBOOK_REVISION_NUMBER = "4.0";
 const EMPLOYEE_HANDBOOK_REVISION_DATE = "7/1/2026";
 
 export type SectionCategory =
@@ -800,7 +800,7 @@ const legacyManuals: DocumentEntry[] = [
     revisionYear: EMPLOYEE_HANDBOOK_REVISION_YEAR,
     revisionNumber: EMPLOYEE_HANDBOOK_REVISION_NUMBER,
     revisionDate: EMPLOYEE_HANDBOOK_REVISION_DATE,
-    totalPages: 37,
+    totalPages: 44,
     pdfPath: "/docs/employee/employee-handbook-toc.pdf",
     r2Key: "docs/employee/employee-handbook-toc.pdf",
     tags: ["employee", "handbook", "hr", "policies", "onboarding"],

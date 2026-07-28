@@ -6,6 +6,7 @@ export interface SafetyProofTranslations {
       oshaVpp: { title: string; body: string; tag: string };
       agcWa: { title: string; body: string; tag: string };
       osha30: { title: string; body: string; tag: string };
+      deanGold: { title: string; body: string; tag: string };
       program: { title: string; body: string; tag: string };
     };
   };
@@ -17,6 +18,7 @@ export interface SafetyProofTranslations {
       wisha: { title: string; subtitle: string };
       emr: { title: string; subtitle: string };
       csea: { title: string; subtitle: string };
+      deanGold: { title: string; subtitle: string };
     };
   };
   program: {
@@ -88,10 +90,19 @@ export function getSafetyProofContent(
         tag: tx?.credentials.items.osha30.tag ?? "Team Certified",
       },
       {
+        icon: "workspace_premium",
+        title: tx?.credentials.items.deanGold.title ?? "Dean Gold Standard",
+        body:
+          tx?.credentials.items.deanGold.body ??
+          "Our MISH authoring uses the Dean Gold Standard execution model: Policy defines required outcomes, Procedure defines ownership and trigger cadence, and Task defines measurable field actions with auditable evidence.",
+        tag:
+          tx?.credentials.items.deanGold.tag ?? "Policy -> Procedure -> Task",
+      },
+      {
         icon: FORM_MANUAL_ICONS.source,
         title:
           tx?.credentials.items.program.title ??
-          "50-Section MISH Safety & Health Program (Safety Manual)",
+          "59-Section MISH Safety & Health Program (Safety Manual)",
         body:
           tx?.credentials.items.program.body ??
           "MH Construction maintains a comprehensive written safety program (Revision 3.0, effective July 1, 2026) covering all OSHA-required topics. Aligned with 29 CFR 1926, AGC CSEA, WISHA, Oregon OSHA, and Idaho requirements.",
@@ -136,6 +147,13 @@ export function getSafetyProofContent(
         title: tx?.badges.items.csea.title ?? "AGC CSEA Aligned",
         subtitle: tx?.badges.items.csea.subtitle ?? "Prequalification Ready",
         color: "bg-brand-secondary",
+      },
+      {
+        icon: "verified",
+        title: tx?.badges.items.deanGold.title ?? "Dean Gold Standard",
+        subtitle:
+          tx?.badges.items.deanGold.subtitle ?? "Policy -> Procedure -> Task",
+        color: "bg-brand-primary-dark",
       },
     ],
     commitments: [

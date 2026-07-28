@@ -4,20 +4,21 @@
     "title": "Employee Handbook",
     "subtitle": "MH Construction Employee Policies and Procedures",
     "revisionYear": 2026,
-    "revisionDate": "2026-05-01",
-    "revisionVersion": "1.0",
+    "revisionDate": "2026-07-01",
+    "revisionVersion": "4.0",
     "company": "MH Construction, Inc.",
     "address": "3111 N. Capitol Ave., Pasco, WA 99301",
     "phone": "(509) 308-6489",
     "website": "https://www.mhc-gc.com",
-    "totalPages": 40,
-    "source": "chapter-pdfs",
+    "totalPages": 44,
+    "source": "combined-pdf-html-fragments",
     "sourceDirectory": "documents/content/mhc-employee-handbook-2026",
     "manualFamily": "employee",
     "separateFrom": "safety-manual",
     "formsManifest": "documents/forms/forms-manifest.json",
     "formsPolicy": "handbook-owned",
-    "extractedAt": "2026-07-11T00:00:00.000Z"
+    "extractedAt": "2026-07-28T02:32:42.544Z",
+    "sourcePdf": "documents/content/mhc-employee-handbook-2026/sections/MHC_Employee_Handbook_Rev4.pdf"
   },
   "sections": [
     {
@@ -96,7 +97,7 @@
         {
           "id": "HANDBOOK-FORM-03",
           "slug": "form-handbook-sp-safety-policy-acknowledgement",
-          "title": "Employee Safety Policy Acknowledgement Form",
+          "title": "Employee Safety Policy Acknowledgment",
           "purpose": "Confirms understanding of safety policies and requirements"
         }
       ]
@@ -112,19 +113,19 @@
         {
           "id": "HANDBOOK-FORM-01",
           "slug": "form-handbook-cv-company-vehicle-acknowledgement",
-          "title": "Company Vehicle Policies and Procedures Acknowledgement",
+          "title": "Company Vehicle Policies and Procedures Acknowledgment",
           "purpose": "Acknowledges understanding of vehicle use policies"
         },
         {
           "id": "HANDBOOK-FORM-04",
           "slug": "form-handbook-wh-work-from-home-agreement",
-          "title": "Temporary Work From Home Application/Agreement",
+          "title": "Temporary Remote Work Application/Agreement",
           "purpose": "Application and agreement for remote work arrangements"
         },
         {
           "id": "HANDBOOK-FORM-05",
           "slug": "form-handbook-ce-computer-electronics-use-agreement",
-          "title": "Employee Acknowledgment and Agreement of Computer and Electronics Use Policy",
+          "title": "Computer and Electronics Use Agreement",
           "purpose": "Confirms understanding of computer and electronics use policies"
         },
         {
