@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 interface PNWStatesMapProps {
   className?: string;
   width?: number;
@@ -18,38 +16,9 @@ export function PNWStatesMap({
       className={`relative block ${className}`.trim()}
       style={{ width, height }}
     >
-      <div className="pointer-events-none absolute left-[0%] top-[1%] h-[38%] w-[58%] select-none">
-        <Image
-          src="/images/states/extracted/labeled/wa-washington.png"
-          alt=""
-          aria-hidden="true"
-          fill
-          className="object-contain drop-shadow-sm"
-          sizes="220px"
-        />
-      </div>
-
-      <div className="pointer-events-none absolute left-[3%] top-[33%] h-[59%] w-[58%] select-none">
-        <Image
-          src="/images/states/extracted/labeled/or-oregon.png"
-          alt=""
-          aria-hidden="true"
-          fill
-          className="object-contain drop-shadow-sm"
-          sizes="220px"
-        />
-      </div>
-
-      <div className="pointer-events-none absolute left-[51%] top-[6%] h-[84%] w-[46%] select-none">
-        <Image
-          src="/images/states/extracted/labeled/id-idaho.png"
-          alt=""
-          aria-hidden="true"
-          fill
-          className="object-contain drop-shadow-sm"
-          sizes="220px"
-        />
-      </div>
+      <span className="pointer-events-none absolute left-[2%] top-[4%] h-[35%] w-[54%] rounded-xl border border-brand-primary/30 bg-gradient-to-br from-brand-primary/15 via-brand-primary/10 to-brand-secondary/15 shadow-sm" />
+      <span className="pointer-events-none absolute left-[4%] top-[40%] h-[53%] w-[54%] rounded-xl border border-brand-primary/30 bg-gradient-to-br from-brand-primary/15 via-brand-primary/10 to-brand-secondary/15 shadow-sm" />
+      <span className="pointer-events-none absolute left-[53%] top-[9%] h-[78%] w-[42%] rounded-xl border border-brand-primary/30 bg-gradient-to-br from-brand-primary/15 via-brand-primary/10 to-brand-secondary/15 shadow-sm" />
 
       <span className="pointer-events-none absolute left-[23%] top-[15%] rounded-md bg-gray-900/70 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white">
         WA

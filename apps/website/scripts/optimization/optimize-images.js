@@ -67,6 +67,15 @@ const MAX_WIDTH_BY_CATEGORY = {
 
 /** Maximum file size for any production WebP; images over this are re-packed. */
 const MAX_WEBP_SIZE_BYTES = 500 * 1024; // 500 KB
+const REPACK_QUALITY_STEPS = [80, 75, 70, 65, 60];
+
+function resizeWidthForAttempt(width, attemptIndex) {
+  // Keep first attempts quality-only to preserve fidelity; then reduce width.
+  if (!width || attemptIndex < REPACK_QUALITY_STEPS.length - 1) return width;
+  const stepsPastQuality = attemptIndex - (REPACK_QUALITY_STEPS.length - 1);
+  const scale = Math.max(0.7, 1 - stepsPastQuality * 0.08);
+  return Math.max(640, Math.floor(width * scale));
+}
 
 function getMaxWidth(relPath) {
   // relPath is like "team/matt-ramsey.jpg" or "projects/foo.jpg"
@@ -76,8 +85,6 @@ function getMaxWidth(relPath) {
 }
 
 async function optimizeImage(filePath, outputPath, relPath) {
-  const ext = path.extname(filePath).toLowerCase();
-
   // Skip if the WebP already exists and --force was not passed
   if (!FORCE && fs.existsSync(outputPath)) {
     optimizedCount.skipped++;
@@ -103,6 +110,7 @@ async function optimizeImage(filePath, outputPath, relPath) {
 
     // Convert to WebP
     await pipeline.webp({ quality: 85, effort: 6 }).toFile(outputPath);
+    await repackWebp(outputPath, relPath, { treatAsNewOutput: true });
 
     const afterSize = fs.statSync(outputPath).size;
     savings.before += beforeSize;
@@ -130,7 +138,8 @@ async function optimizeImage(filePath, outputPath, relPath) {
  * max-width OR exceeds MAX_WEBP_SIZE_BYTES). The file is replaced in-place
  * using an atomic write via a sibling .tmp file.
  */
-async function repackWebp(filePath, relPath) {
+async function repackWebp(filePath, relPath, options = {}) {
+  const { treatAsNewOutput = false } = options;
   const maxWidth = getMaxWidth(relPath);
   const beforeSize = fs.statSync(filePath).size;
 
@@ -140,41 +149,91 @@ async function repackWebp(filePath, relPath) {
       maxWidth !== null && meta.width && meta.width > maxWidth;
     const needsRepack = beforeSize > MAX_WEBP_SIZE_BYTES;
 
-    if (!FORCE && !needsResize && !needsRepack) {
+    if (!FORCE && !needsResize && !needsRepack && !treatAsNewOutput) {
       optimizedCount.skipped++;
       return;
     }
 
-    const tmpPath = filePath + ".tmp";
-    let pipeline = sharp(filePath);
+    const targetWidth =
+      maxWidth !== null && meta.width && meta.width > maxWidth
+        ? maxWidth
+        : meta.width;
 
-    if (maxWidth !== null && meta.width && meta.width > maxWidth) {
-      pipeline = pipeline.resize({ width: maxWidth, withoutEnlargement: true });
+    let attempt = 0;
+    let afterSize = beforeSize;
+    let bestSize = beforeSize;
+    let bestTmpPath = "";
+
+    while (attempt < REPACK_QUALITY_STEPS.length + 5) {
+      const quality =
+        REPACK_QUALITY_STEPS[
+          Math.min(attempt, REPACK_QUALITY_STEPS.length - 1)
+        ];
+      const attemptWidth = resizeWidthForAttempt(targetWidth, attempt);
+      const tmpPath = `${filePath}.tmp-${attempt}`;
+
+      let pipeline = sharp(filePath);
+      if (attemptWidth && targetWidth) {
+        pipeline = pipeline.resize({
+          width: attemptWidth,
+          withoutEnlargement: true,
+        });
+      }
+
+      await pipeline.webp({ quality, effort: 6 }).toFile(tmpPath);
+      afterSize = fs.statSync(tmpPath).size;
+
+      if (afterSize < bestSize) {
+        if (bestTmpPath && fs.existsSync(bestTmpPath)) {
+          fs.unlinkSync(bestTmpPath);
+        }
+        bestSize = afterSize;
+        bestTmpPath = tmpPath;
+      } else {
+        fs.unlinkSync(tmpPath);
+      }
+
+      if (afterSize <= MAX_WEBP_SIZE_BYTES) break;
+      attempt++;
     }
 
-    await pipeline.webp({ quality: 80, effort: 6 }).toFile(tmpPath);
-
-    const afterSize = fs.statSync(tmpPath).size;
-
-    // Only replace if we actually reduced the file size
-    if (afterSize < beforeSize) {
-      fs.renameSync(tmpPath, filePath);
-      savings.before += beforeSize;
-      savings.after += afterSize;
-
-      const savedKB = Math.round((beforeSize - afterSize) / 1024);
-      const savedPercent = Math.round(
-        ((beforeSize - afterSize) / beforeSize) * 100,
-      );
-      log(
-        `  ✓ ${path.basename(filePath)} (re-packed) | -${savedKB}KB (${savedPercent}%)`,
-        "green",
-      );
-      optimizedCount.success++;
-    } else {
-      fs.unlinkSync(tmpPath);
+    if (!bestTmpPath) {
       log(`  - ${path.basename(filePath)} already optimal`, "yellow");
       optimizedCount.skipped++;
+      return;
+    }
+
+    // Only replace if we actually reduced the file size
+    if (bestSize < beforeSize || treatAsNewOutput) {
+      fs.renameSync(bestTmpPath, filePath);
+      if (!treatAsNewOutput) {
+        savings.before += beforeSize;
+        savings.after += bestSize;
+      }
+
+      const savedKB = Math.round((beforeSize - bestSize) / 1024);
+      const savedPercent =
+        beforeSize > 0
+          ? Math.round(((beforeSize - bestSize) / beforeSize) * 100)
+          : 0;
+      const budgetNote =
+        bestSize <= MAX_WEBP_SIZE_BYTES
+          ? ""
+          : " (still above 500KB after max compression)";
+      log(
+        `  ✓ ${path.basename(filePath)} (re-packed) | -${savedKB}KB (${savedPercent}%)${budgetNote}`,
+        "green",
+      );
+      if (!treatAsNewOutput) optimizedCount.success++;
+    } else {
+      fs.unlinkSync(bestTmpPath);
+      log(`  - ${path.basename(filePath)} already optimal`, "yellow");
+      optimizedCount.skipped++;
+    }
+
+    for (let i = 0; i < REPACK_QUALITY_STEPS.length + 5; i++) {
+      const leftover = `${filePath}.tmp-${i}`;
+      if (fs.existsSync(leftover)) fs.unlinkSync(leftover);
     }
   } catch (error) {
     log(`  ✗ ${path.basename(filePath)} - ${error.message}`, "yellow");

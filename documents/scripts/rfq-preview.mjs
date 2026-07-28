@@ -481,31 +481,31 @@ function resolveQrCodeAsset(name) {
 function buildQrCards() {
   const destinations = [
     {
-      keys: ["traho-overview", "homepage"],
+      keys: ["homepage"],
       title: "MH Homepage",
       subtitle: "Company overview and credentials",
       href: "https://www.mhc-gc.com",
     },
     {
-      keys: ["traho-projects", "projects"],
+      keys: ["projects"],
       title: "Project Portfolio",
       subtitle: "Representative project examples",
       href: "https://www.mhc-gc.com/projects",
     },
     {
-      keys: ["traho-services", "services"],
+      keys: ["services"],
       title: "Service Lines",
       subtitle: "Capabilities and delivery scope",
       href: "https://www.mhc-gc.com/services",
     },
     {
-      keys: ["traho-contact", "contact"],
+      keys: ["contact"],
       title: "Direct Contact",
       subtitle: "Schedule and communication path",
       href: "https://www.mhc-gc.com/contact",
     },
     {
-      keys: ["traho-safety", "safety-dashboard"],
+      keys: ["safety-dashboard"],
       title: "Safety Dashboard",
       subtitle: "Safety program visibility",
       href: "https://www.mhc-gc.com/safety",

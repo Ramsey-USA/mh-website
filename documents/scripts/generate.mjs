@@ -1038,15 +1038,9 @@ function buildBrandTokens(brand) {
       brand.chamberLogos?.kennewick || "",
     ),
     "{{BRAND_QR_DASHBOARD}}": resolvePath(brand.qrCodes?.dashboard || ""),
-    "{{BRAND_STATE_WA}}": resolvePath(
-      "../../apps/website/public/images/states/extracted/labeled/wa-washington.png",
-    ),
-    "{{BRAND_STATE_OR}}": resolvePath(
-      "../../apps/website/public/images/states/extracted/labeled/or-oregon.png",
-    ),
-    "{{BRAND_STATE_ID}}": resolvePath(
-      "../../apps/website/public/images/states/extracted/labeled/id-idaho.png",
-    ),
+    "{{BRAND_STATE_WA}}": "",
+    "{{BRAND_STATE_OR}}": "",
+    "{{BRAND_STATE_ID}}": "",
     "{{BRAND_TEAM_GROUP_PHOTO}}": resolvePath(
       "../../apps/website/public/images/team/mh-construction-team-group-2025.webp",
     ),
@@ -1241,9 +1235,9 @@ const TOC_CLUSTERS = [
  * Add or remove numbers here to change which entries are highlighted.
  */
 const TOC_CALLOUT_ITEMS = new Set([21, 48]);
-const TOC_PAGE_1_MAX = 9;
-const TOC_PAGE_2_MAX = 23;
-const TOC_CONT_PAGE_UNIT_BUDGET = 30;
+const TOC_PAGE_1_MAX = 6;
+const TOC_PAGE_2_MAX = 16;
+const TOC_CONT_PAGE_UNIT_BUDGET = 20;
 const HANDBOOK_TOC_PAGE_1_MAX = 7;
 
 /**

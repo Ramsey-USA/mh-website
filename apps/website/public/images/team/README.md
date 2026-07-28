@@ -6,7 +6,6 @@ This folder holds team portrait assets used across the website.
 
 - `arnold-garcia.webp` - Arnold Garcia portrait
 - `ben-woodall.webp` - Ben Woodall portrait
-- `brooks-morris.webp` - Brooks Morris portrait
 - `derek-parks.webp` - Derek Parks portrait
 - `jennifer-tene.jpg` / `jennifer-tene.webp` - Jennifer Tene portrait variants
 - `jeremy-thamert.webp` - Jeremy Thamert portrait
@@ -15,7 +14,6 @@ This folder holds team portrait assets used across the website.
 - `mike-holstein.jpg` / `mike-holstein.webp` - Mike Holstein portrait variants
 - `porter-cline.webp` - Porter Cline portrait
 - `reagan-massey.webp` - Reagan Massey portrait
-- `steve-mcclary.webp` - Steve McClary portrait
 - `todd-schoeff.webp` - Todd Schoeff portrait
 - `mh-construction-team-group-2025.webp` - team group photo
 
