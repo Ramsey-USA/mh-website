@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getServerLocale } from "next-intl/server";
 import { buildDualSeoTitle } from "@/lib/branding/page-names";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 export const metadata: Metadata = {
   title: buildDualSeoTitle("resources", "Construction Terminology Resources"),
