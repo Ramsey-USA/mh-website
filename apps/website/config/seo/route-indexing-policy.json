@@ -29,6 +29,7 @@
         "/resources",
         "/resources/safety-manual/contents",
         "/resources/safety-manual/forms",
+        "/resources/terminology",
         "/safety",
         "/services",
         "/services/[slug]",

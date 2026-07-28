@@ -208,6 +208,15 @@ const STATIC_ROUTES: CanonicalRouteManifestEntry[] = [
     locales: { en: true, es: true },
   },
   {
+    path: "/resources/terminology",
+    section: "resources",
+    label: { en: "Terminology Resources", es: "Recursos de Terminologia" },
+    changeFrequency: "monthly",
+    priority: 0.65,
+    lastModified: LAST_MODIFIED.resources,
+    locales: { en: true, es: false },
+  },
+  {
     path: "/resources/safety-manual/contents",
     section: "resources",
     label: {
