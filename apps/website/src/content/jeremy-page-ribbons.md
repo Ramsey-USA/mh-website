@@ -144,6 +144,12 @@ eyebrow: Words from the General
 quote: Forms are where policy becomes action, and I expect every document to improve reporting discipline, accountability, and timely field decisions.
 attribution: Jeremy Thamert, Owner & President
 
+## resources/terminology
+
+eyebrow: Words from the General
+quote: Terminology should reduce confusion, not create it, and I expect this glossary to keep crews, clients, and partners aligned on the same practical definitions from planning through closeout.
+attribution: Jeremy Thamert, Owner & President
+
 ## resources/safety-manual/[cluster]
 
 eyebrow: Words from the General
