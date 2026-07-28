@@ -546,8 +546,8 @@
         },
         "deanGold": {
           "title": "Estándar Dean Gold",
-          "body": "Nuestro modelo MISH aplica Policy -> Procedure -> Task en cada capítulo y formulario vinculado: Policy define los resultados obligatorios, Procedure define la responsabilidad por rol y el momento de activación, y Task define acciones medibles en campo con evidencia auditable. Dean es uno de los principales defensores de seguridad de MHC para este estándar.",
-          "tag": "Policy -> Procedure -> Task"
+          "body": "Nuestro modelo MISH aplica Política -> Procedimiento -> Tarea en cada capítulo y formulario vinculado: Política define los resultados obligatorios, Procedimiento define la responsabilidad por rol y el momento de activación, y Tarea define acciones medibles en campo con evidencia auditable. Dean es uno de los principales defensores de seguridad de MHC para este estándar.",
+          "tag": "Política -> Procedimiento -> Tarea"
         },
         "program": {
           "title": "Programa de Seguridad y Salud MISH (Manual de Seguridad) de 59 Secciones",
@@ -587,7 +587,7 @@
         },
         "deanGold": {
           "title": "Estándar Dean Gold",
-          "subtitle": "Policy -> Procedure -> Task"
+          "subtitle": "Política -> Procedimiento -> Tarea"
         }
       }
     },
