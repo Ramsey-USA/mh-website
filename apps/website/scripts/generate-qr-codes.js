@@ -195,6 +195,24 @@ const QR_CODES = [
     description: "Employee Handbook",
     label: "www.mhc-gc.com/employee-handbook",
   },
+  {
+    name: "operations-manual",
+    url: `${BASE_URL}/docs/operations/operations-manual-toc.pdf`,
+    description: "Operations Manual",
+    label: "www.mhc-gc.com/docs/operations/operations-manual-toc.pdf",
+  },
+  {
+    name: "marketing-strategy-guide",
+    url: `${BASE_URL}/docs/marketing/marketing-strategy-guide-toc.pdf`,
+    description: "Marketing Strategy Guide",
+    label: "www.mhc-gc.com/docs/marketing/marketing-strategy-guide-toc.pdf",
+  },
+  {
+    name: "sales-estimating-guide",
+    url: `${BASE_URL}/docs/sales/sales-estimating-guide-toc.pdf`,
+    description: "Sales Estimating Guide",
+    label: "www.mhc-gc.com/docs/sales/sales-estimating-guide-toc.pdf",
+  },
 
   // Contact methods
   {
@@ -452,6 +470,8 @@ function normalizeManifestFormQrName(entry, prefix) {
 
 module.exports = {
   normalizeManifestFormQrName,
+  buildFinalQRCodeList,
+  getFolderForQR,
 };
 
 function getFolderForQR(name) {
@@ -460,6 +480,13 @@ function getFolderForQR(name) {
   if (name.startsWith("safety-section-")) return "safety-sections";
   if (name.startsWith("safety-form-")) return "safety-forms";
   if (name.startsWith("handbook-form-")) return "handbook-forms";
+  if (
+    name.startsWith("operations-") ||
+    name.startsWith("marketing-") ||
+    name.startsWith("sales-")
+  ) {
+    return "manuals";
+  }
   if (
     name.startsWith("safety-") ||
     name === "hub" ||
@@ -1159,8 +1186,10 @@ async function main() {
   console.info("   • Black & White (for any background)\n");
 }
 
-// Run the script
-main().catch((error) => {
-  console.error("Error:", error);
-  process.exit(1);
-});
+// Run the script only when invoked directly, not when imported by tests.
+if (require.main === module) {
+  main().catch((error) => {
+    console.error("Error:", error);
+    process.exit(1);
+  });
+}

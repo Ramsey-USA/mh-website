@@ -948,6 +948,7 @@ export const manuals: DocumentEntry[] = [
     pdfPath: "/docs/operations/operations-manual-toc.pdf",
     r2Key: "docs/operations/operations-manual-toc.pdf",
     tags: ["operations", "standards", "delivery", "quality"],
+    qrCodeUrl: "/images/qr-codes/manuals/qr-operations-manual-color.png",
   },
   {
     id: "marketing-strategy-guide",
@@ -964,6 +965,7 @@ export const manuals: DocumentEntry[] = [
     pdfPath: "/docs/marketing/marketing-strategy-guide-toc.pdf",
     r2Key: "docs/marketing/marketing-strategy-guide-toc.pdf",
     tags: ["marketing", "strategy", "brand", "execution"],
+    qrCodeUrl: "/images/qr-codes/manuals/qr-marketing-strategy-guide-color.png",
   },
   {
     id: "sales-estimating-guide",
@@ -980,6 +982,7 @@ export const manuals: DocumentEntry[] = [
     pdfPath: "/docs/sales/sales-estimating-guide-toc.pdf",
     r2Key: "docs/sales/sales-estimating-guide-toc.pdf",
     tags: ["sales", "estimating", "handoff", "delivery"],
+    qrCodeUrl: "/images/qr-codes/manuals/qr-sales-estimating-guide-color.png",
   },
 ];
 

@@ -700,11 +700,11 @@ BRAND.revisionNumber = ENFORCED_REVISION_NUMBER;
 const ACTIVE_MANUAL_DIGITAL_URL = isEmployeeHandbook
   ? `${SITE_URL}/employee-handbook`
   : isOperationsManual
-    ? `${SITE_URL}/operations-manual`
+    ? `${SITE_URL}/docs/operations/operations-manual-toc.pdf`
     : isSalesEstimatingGuide
-      ? `${SITE_URL}/docs/sales`
+      ? `${SITE_URL}/docs/sales/sales-estimating-guide-toc.pdf`
       : isMarketingStrategyGuide
-        ? `${SITE_URL}/docs/marketing`
+        ? `${SITE_URL}/docs/marketing/marketing-strategy-guide-toc.pdf`
         : `${SITE_URL}/resources/safety-manual/contents`;
 
 function resolveManualTemplateName(suffix) {
@@ -8301,9 +8301,10 @@ async function generateSections(filter = null) {
   for (const section of targets) {
     // Generate branded QR code pointing to the section's cluster anchor card
     // so the printed PDF matches the website's deep-link layout.
-    const sectionUrl =
-      isHandbookFamily || isMarketingStrategyGuide
-        ? `${ACTIVE_MANUAL_DIGITAL_URL}#section-${section.numberStr}`
+    const sectionUrl = isEmployeeHandbook
+      ? `${ACTIVE_MANUAL_DIGITAL_URL}#section-${section.numberStr}`
+      : isHandbookFamily || isMarketingStrategyGuide
+        ? ACTIVE_MANUAL_DIGITAL_URL
         : clusterUrlForSection(Number(section.number)) ||
           `${SITE_URL}/resources/safety-manual/contents`;
     const qrDataUrl = await buildQrDataUrl(sectionUrl);

@@ -39,6 +39,7 @@ const FOLDER_LABELS: Record<string, string> = {
   contact: "Contact",
   rfq: "RFQ",
   safety: "Safety",
+  manuals: "Manuals & Guides",
   social: "Social",
   "safety-sections": "Safety Sections",
   "safety-forms": "Safety Forms",
