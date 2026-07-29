@@ -68,6 +68,7 @@ describe("CoreServicesSection", () => {
         services={[
           {
             slug: "demo",
+            iconName: "construction",
             title: "Demo Service",
             subtitle: "Example scope",
             description: "A concise description of the service.",
