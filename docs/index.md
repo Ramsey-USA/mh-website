@@ -1,7 +1,7 @@
 # MH Construction Documentation
 
 **Category:** Documentation - Master Index  
-**Last Updated:** July 28, 2026
+**Last Updated:** July 29, 2026
 
 ## Overview
 
@@ -19,6 +19,8 @@ Branding markdown update note: see [Branding Markdown Sweep Log (2026-07-02)](./
 
 **Brand Congruency:** Documentation across all categories must keep typography and color decisions aligned with the canonical MH font and palette standards.
 
+The core manual family lives in the shared [Manual Family Hub](./manuals/index.md), which keeps the Employee Handbook, Safety Manual, Operations Manual, Marketing Guide, and Sales / Estimating Guide logically aligned.
+
 ## Categories
 
 - **[Archive](./archive/index.md)** — Historical documentation snapshots retained for traceability.
@@ -30,7 +32,8 @@ Branding markdown update note: see [Branding Markdown Sweep Log (2026-07-02)](./
 - **[Development](./development/index.md)** — Coding standards, page templates, JSDoc standards,
   performance strategy, refactoring, and quick references.
 - **[Events](./events/index.md)** — Dedicated records for sponsored or hosted events, including active event pages, final outcomes, and totals.
-- **[Marketing](./marketing/index.md)** — Google Business Profile guides and SEO quick reference.
+- **[Marketing](./marketing/index.md)** — Google Business Profile guides, project marketing strategy, and SEO quick reference.
+- **[Sales / Estimating](./sales/index.md)** — Sales and estimating strategy, opportunity qualification, and proposal discipline.
 - **[Media](./media/index.md)** — Photo/video roadmap and media strategy.
 - **[Performance](./performance/index.md)** — Page-level performance audits.
 - **[Project](./project/index.md)** — Architecture, audit index, and operational hub
@@ -52,9 +55,11 @@ Use this path to find canonical docs quickly and avoid duplicate guidance:
 - **[Brand Constants](./branding/brand-constants.md)** — Canonical brand values
 - **[Page Slogans](./branding/strategy/page-specific-slogans.md)** — Governance guide for the runtime canonical page-level hero slogan matrix
 - **[Dual Terminology Standard](./branding/strategy/dual-terminology-standard.md)** — Canonical enterprise dual-label naming rules
+- **[Safety Terminology Glossary](./technical/safety-terminology-glossary.md)** — Canonical MISH/APP/SSSP plus MSDS/SDS and daily Toolbox Talk freshness definitions
 - **[MHC Terms Library Source](./branding/standards/mhc-terms.docx)** — Upstream terminology source (Version 2.0) for enterprise term additions and protected-term guardrails
 - **[Brand Congruency Master Checklist](./branding/governance/brand-congruency-master-checklist.md)** — Canonical branding merge gate
 - **[Website Guardrails Coverage Map](./branding/governance/website-guardrails-coverage.md)** — Website-wide branding guardrail coverage requirements
+- **[Manual Family Hub](./manuals/index.md)** — Canonical change-control hub for the handbook, safety manual, operations manual, marketing guide, and sales / estimating guide
 - **[Canonical Contracts Matrix](./branding/governance/website-guardrails-coverage.md#canonical-contracts-matrix-development-routing)** — Component-level routing table for development congruency
 - **[Unified Component Standards](./branding/standards/unified-component-standards.md)** — UI
   component patterns

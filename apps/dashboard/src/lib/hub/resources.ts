@@ -7,6 +7,8 @@ import {
 } from "@/lib/data/documents";
 
 export interface HubSafetySummary {
+  manualFamilyCount: number;
+  strategyGuideCount: number;
   sectionCount: number;
   revisionNumber: string;
   handbookRevision: string;
@@ -22,8 +24,16 @@ const getCachedSafetySummary = unstable_cache(
     const employeeHandbook = manuals.find(
       (doc) => doc.id === "employee-handbook",
     );
+    const manualFamilyCount = manuals.length;
+    const strategyGuideCount = manuals.filter(
+      (doc) =>
+        doc.id === "marketing-strategy-guide" ||
+        doc.id === "sales-estimating-guide",
+    ).length;
 
     return Promise.resolve({
+      manualFamilyCount,
+      strategyGuideCount,
       sectionCount: safetyManual?.totalSections ?? 59,
       revisionNumber: safetyManual?.revisionNumber ?? "3",
       handbookRevision: employeeHandbook?.revisionNumber ?? "4.0",

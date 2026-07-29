@@ -64,25 +64,25 @@ craftsmanship and character.
 
 **Relationship-Focused Message:**
 
-> "Built on communication and follow-through"
+> "Clear planning. Responsible follow-through. Reliable delivery."
 
 **Partnership Call-to-Action:**
 
-> "Let's Build More than Just Structures — Partner with a team that puts your vision—and your relationship—first."
+> "Let's build with clarity, accountability, and dependable follow-through from first conversation to final handoff."
 
 These companion slogans work together to emphasize our partnership-first, relationship-driven approach.
 
 **Supporting Statement:**
 
-> "We're big enough to scale and small enough to stay personal."
+> "We bring operational clarity to complex projects without losing the personal connection."
 
 ### Supporting Taglines
 
-- "Your Partner in Building Tomorrow"
-- "Working WITH you to serve our communities"
-- "Where Military Precision Meets Construction Excellence"
-- "Partnership-Driven Construction Management"
-- "Veteran-owned excellence where your success comes first"
+- "Your partner for clear scope and accountable delivery"
+- "Working with you to serve our communities"
+- "Where practical precision meets construction excellence"
+- "Planning-first construction management"
+- "Veteran-owned excellence built on dependable follow-through"
 
 ## Brand Positioning
 

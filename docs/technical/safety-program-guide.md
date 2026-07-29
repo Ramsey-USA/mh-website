@@ -45,10 +45,15 @@ This guide documents:
 ### Canonical Naming
 
 - **Canonical name:** MH Construction Safety Program
+- **Canonical expansion:** MISH = **MH Construction Industrial Safety & Health Program**
+- **Canonical relationship:** MISH is MH Construction's branded **Accident Prevention Plan (APP)** framework.
 - **Descriptive phrase:** written safety program aligned with OSHA, AGC, and applicable state requirements
 - **Legacy term:** Accident Prevention Program (APP) may still appear in
   historic source material and should only be referenced when clarifying
   continuity
+- **Project delivery rule:** MISH is the backbone for every project-specific **Site Specific Safety Plan (SSSP)**.
+  Each SSSP must be developed uniquely for the individual project scope, conditions, and hazards while
+  inheriting MISH baseline controls, hierarchy, and evidence requirements.
 
 ### MISH 5.0 Authoring Standard
 
@@ -91,6 +96,55 @@ Use this implementation contract for each chapter:
   Safety Officer -> executive leadership).
 - **Close-loop action:** Require corrective action plus re-verification before a task is marked
   complete after a safety variance.
+
+### MISH to SSSP Execution Standard
+
+MISH is the enterprise APP backbone. Project SSSPs are the project-level implementation layer.
+
+- **MISH (Program-level):** defines non-negotiable policy, procedure, and task controls.
+- **SSSP (Project-level):** applies those controls to site-specific work sequencing, trade mix,
+  environmental conditions, and owner/GC requirements.
+- **No clone rule:** each SSSP must be uniquely authored for its project and must not be treated as a
+  copy-paste manual appendix.
+- **Traceability rule:** every SSSP control should map back to one or more MISH chapters/forms plus any
+  project-specific addenda required by contract or jurisdiction.
+
+See also: [Safety Terminology Glossary](./safety-terminology-glossary.md) for canonical naming,
+usage, and freshness standards.
+
+### MSDS/SDS and Daily Toolbox Talk Freshness Standard
+
+To keep site safety operations current and avoid stale execution drift:
+
+- Maintain active Safety Data Sheets (SDS/MSDS) access coverage for all
+  materials in current use.
+- SDS/MSDS must be available in controlled internal systems and in physical field
+  sets (truck binders and Mobile Command Center's/office trailers).
+- If SDS/MSDS and Toolbox Talk libraries are not yet ready for document-pipeline
+  upload, preserve canonical naming and cross-references so publication can be
+  added without downstream manual rewrites.
+- Keep a full-year daily Toolbox Talk rotation aligned to OSHA hazard seasons.
+- Require each day's talk to align with active project hazards, tasks, and sequencing.
+- Log daily completion and treat stale, non-risk-based repetition as a
+  corrective-action trigger.
+- Accept intentional hazard-season repeats when risk conditions warrant
+  additional reinforcement.
+
+### Field Operations Daily Procedure Baseline
+
+Field Operations must include both daily Toolbox Talk execution and active
+Safety Data Sheets (SDS/MSDS) availability as non-negotiable controls.
+
+- **Daily start-of-shift brief:** run a Toolbox Talk before work begins.
+- **Hazard alignment:** select the daily talk topic based on actual scope,
+  environmental conditions, active materials, and OSHA hazard-season priorities.
+- **SDS/MSDS access:** maintain current sheet availability in the
+  controlled internal systems and in physical field sets (truck binders and Mobile Command
+  Center's/office trailers) for all materials in use.
+- **Verification record:** document attendance, topic, and follow-up actions
+  for each daily brief.
+- **Escalation trigger:** if SDS/MSDS access is missing or a daily talk is
+  skipped, stop affected work, correct immediately, and record corrective action.
 
 Minimum quality gate before publishing chapter or form updates:
 

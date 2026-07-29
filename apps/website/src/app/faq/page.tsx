@@ -54,7 +54,7 @@ const howToSchema = generateHowToSchema({
     },
     {
       name: "Field Operations",
-      text: "Progress updates, quality inspections, and project stakeholder walkthroughs",
+      text: "Daily toolbox talks before shift start aligned to OSHA hazard seasons, Safety Data Sheets (SDS/MSDS) available in our Staff Portal - (Field Operations) plus truck binders and Mobile Command Center's (office trailers), progress updates, quality inspections, and project stakeholder walkthroughs",
     },
     {
       name: "Project Handoff",
@@ -236,8 +236,8 @@ export default async function FAQPage() {
               <FadeInWhenVisible>
                 <p className="font-body text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
                   {isEs
-                    ? "Respuestas claras sobre servicios, proceso, costos y ejecución del proyecto. Si su pregunta no aparece, nuestro equipo puede ayudarle directamente. Sin vacíos. Sin suposiciones. Solo seguimiento responsable."
-                    : "Clear answers on services, process, pricing, and project execution. If your question is not listed, our team can help directly. No gaps. No guesswork. Just accountable follow-through."}
+                    ? "Respuestas claras sobre servicios, proceso, costos y ejecución del proyecto. Si su pregunta no aparece, nuestro equipo puede ayudarle directamente con planificación clara, responsabilidad firme y seguimiento confiable."
+                    : "Clear answers on services, process, pricing, and project execution. If your question is not listed, our team can help directly with clear planning, firm accountability, and dependable follow-through."}
                 </p>
               </FadeInWhenVisible>
 

@@ -1,0 +1,105 @@
+{
+  "document": {
+    "id": "sales-estimating-guide",
+    "title": "Sales/Estimating Guide",
+    "subtitle": "Lead Qualification and Proposal Discipline Operating Guide",
+    "revisionYear": 2026,
+    "revisionDate": "2026-07-29",
+    "revisionVersion": "1.0",
+    "company": "MH Construction, Inc.",
+    "address": "3111 N. Capitol Ave., Pasco, WA 99301",
+    "phone": "(509) 308-6489",
+    "website": "https://www.mhc-gc.com",
+    "totalPages": 0,
+    "source": "markdown-guide-extracted",
+    "sourceDirectory": "docs/sales/sales-estimating-guide.md",
+    "manualFamily": "sales",
+    "separateFrom": "employee-handbook",
+    "formsManifest": "documents/forms/forms-manifest.json",
+    "formsPolicy": "none",
+    "extractedAt": "2026-07-29T20:37:26.820Z"
+  },
+  "sections": [
+    {
+      "number": 1,
+      "title": "Canonical Strategy Sources",
+      "slug": "canonical-strategy-sources",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-sales-estimating-guide-2026/sections/01-canonical-strategy-sources.html",
+      "forms": []
+    },
+    {
+      "number": 2,
+      "title": "Strategy Spine",
+      "slug": "strategy-spine",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-sales-estimating-guide-2026/sections/02-strategy-spine.html",
+      "forms": []
+    },
+    {
+      "number": 3,
+      "title": "Opportunity Qualification",
+      "slug": "opportunity-qualification",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-sales-estimating-guide-2026/sections/03-opportunity-qualification.html",
+      "forms": []
+    },
+    {
+      "number": 4,
+      "title": "Estimate Development Standard",
+      "slug": "estimate-development-standard",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-sales-estimating-guide-2026/sections/04-estimate-development-standard.html",
+      "forms": []
+    },
+    {
+      "number": 5,
+      "title": "Stakeholder Relationship Plan",
+      "slug": "stakeholder-relationship-plan",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-sales-estimating-guide-2026/sections/05-stakeholder-relationship-plan.html",
+      "forms": []
+    },
+    {
+      "number": 6,
+      "title": "Proposal and Follow-Up Workflow",
+      "slug": "proposal-and-follow-up-workflow",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-sales-estimating-guide-2026/sections/06-proposal-and-follow-up-workflow.html",
+      "forms": []
+    },
+    {
+      "number": 7,
+      "title": "Guardrails",
+      "slug": "guardrails",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-sales-estimating-guide-2026/sections/07-guardrails.html",
+      "forms": []
+    },
+    {
+      "number": 8,
+      "title": "Success Measures",
+      "slug": "success-measures",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-sales-estimating-guide-2026/sections/08-success-measures.html",
+      "forms": []
+    },
+    {
+      "number": 9,
+      "title": "Deployment and Review",
+      "slug": "deployment-and-review",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-sales-estimating-guide-2026/sections/09-deployment-and-review.html",
+      "forms": []
+    }
+  ]
+}

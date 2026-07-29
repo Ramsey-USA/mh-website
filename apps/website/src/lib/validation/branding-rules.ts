@@ -168,6 +168,92 @@ export const BRANDING_CONGRUENCY_RULES: BrandingCongruencyRule[] = [
   },
 ];
 
+export interface VoiceCongruencyRule {
+  id: string;
+  relPath: string;
+  requiredSnippets: RegExp[];
+  description: string;
+}
+
+export const VOICE_CONGRUENCY_RULES: VoiceCongruencyRule[] = [
+  {
+    id: "about-voice",
+    relPath: "messages/en.json",
+    requiredSnippets: [/disciplined planning/i, /accountable/i],
+    description:
+      "About-facing locale copy should carry disciplined planning and accountability language.",
+  },
+  {
+    id: "services-voice",
+    relPath: "messages/en.json",
+    requiredSnippets: [/accountable delivery/i, /follow-through/i],
+    description:
+      "Services-facing locale copy should carry accountable delivery and follow-through language.",
+  },
+  {
+    id: "contact-voice",
+    relPath: "messages/en.json",
+    requiredSnippets: [/scope alignment/i, /follow-through/i],
+    description:
+      "Contact-facing locale copy should reinforce scope alignment and follow-through.",
+  },
+  {
+    id: "faq-voice",
+    relPath: "messages/en.json",
+    requiredSnippets: [/follow-through/i, /accountability/i],
+    description:
+      "FAQ-facing locale copy should reinforce follow-through and accountability.",
+  },
+  {
+    id: "team-voice",
+    relPath: "messages/en.json",
+    requiredSnippets: [/accountable delivery/i, /follow-through/i],
+    description:
+      "Team-facing locale copy should reinforce accountable delivery and follow-through.",
+  },
+  {
+    id: "messages-voice",
+    relPath: "messages/en.json",
+    requiredSnippets: [/disciplined planning/i, /accountable delivery/i],
+    description:
+      "Shared locale copy should keep the operational voice in the primary English message catalog.",
+  },
+  {
+    id: "branding-doc-voice",
+    relPath: "docs/branding/brand-constants.md",
+    requiredSnippets: [
+      /Clear scope\. Accountable delivery\. Dependable follow-through\./i,
+      /Responsible follow-through/i,
+    ],
+    description:
+      "Brand constants should preserve the canonical operational tagline family.",
+  },
+  {
+    id: "branding-overview-voice",
+    relPath: "docs/branding/strategy/brand-overview.md",
+    requiredSnippets: [/dependable follow-through/i, /operational clarity/i],
+    description:
+      "Brand overview should carry the operationally grounded voice.",
+  },
+  {
+    id: "messaging-guide-voice",
+    relPath: "docs/branding/strategy/page-specific-messaging-guide.md",
+    requiredSnippets: [
+      /clear scope\. accountable delivery\. dependable follow-through/i,
+      /accountability/i,
+    ],
+    description:
+      "Messaging guide should reinforce the canonical operational voice and accountability language.",
+  },
+  {
+    id: "governance-voice",
+    relPath: "docs/branding/governance/brand-congruency-master-checklist.md",
+    requiredSnippets: [/operational clarity/i, /dependable follow-through/i],
+    description:
+      "Governance checklist should require the updated operational voice in future work.",
+  },
+];
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Terminology Guardrail Rules
 // ─────────────────────────────────────────────────────────────────────────────

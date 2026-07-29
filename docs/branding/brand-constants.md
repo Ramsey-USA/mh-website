@@ -96,15 +96,15 @@ Built on Quality, Backed by Trust.
 ### Secondary Strategy Line (Partnership)
 
 ```text
-Built on communication and follow-through
+Clear planning. Responsible follow-through. Reliable delivery.
 ```
 
-**Usage:** Supporting line for partnership-focused messaging.
+**Usage:** Supporting line for partnership-focused messaging that emphasizes operational clarity and dependable execution.
 
 ### Supporting Operations Line
 
 ```text
-Squared away from start to finish.
+Clear scope. Accountable delivery. Dependable follow-through.
 ```
 
 **Usage:** Use when describing preconstruction, execution discipline, and day-to-day delivery standards with client and trade partner audiences.
@@ -283,11 +283,18 @@ For PMBOK-style construction language and military-themed term mappings, see
 
 | Concept                      | Canonical Dual Term                                           | Scope                                                                           |
 | ---------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Safety Program               | **MISH Safety & Health Program (Safety Manual)**              | Website, dashboard safety modules, MISH PDFs, safety forms docs                 |
+| Safety Program               | **MH Construction Industrial Safety & Health (MISH) Program** | Website, dashboard safety modules, MISH PDFs, safety forms docs                 |
 | Employee Operations          | **Dashboard (Staff Hub)**                                     | Employee CTAs, dashboard shell, internal workflows, handbook process docs       |
 | Employee Handbook (Public)   | **Employee Handbook** + Public Index/Blank Forms language     | Website handbook page, handbook TOC/forms downloads, public docs                |
 | Employee Handbook (Internal) | **Employee Handbook Workflows** via **Dashboard (Staff Hub)** | Dashboard processes, internal SOPs, onboarding/training docs                    |
 | External Audience            | **Project Stakeholders**                                      | Public marketing copy, safety/compliance pages, proposals, public documentation |
+
+### MISH / APP / SSSP Distinction
+
+- MISH expands to **MH Construction Industrial Safety & Health Program**.
+- MISH is MH Construction's branded **Accident Prevention Plan (APP)** framework.
+- Every project must have a unique **Site Specific Safety Plan (SSSP)** built from MISH baseline controls.
+- SSSPs must be project-authored and site-specific; they are not generic replacements for MISH.
 
 ### Avoid These Terms
 

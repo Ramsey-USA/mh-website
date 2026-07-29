@@ -47,6 +47,7 @@ Use these mappings in strategy and operational content where they improve clarit
 
 | MHC Brand Term            | Standard Industry Term        | Typical Scope                    |
 | ------------------------- | ----------------------------- | -------------------------------- |
+| Command Doctrine          | Operations Hierarchy          | operations manual, leadership    |
 | Operational Theater       | Project Site / Jobsite        | handbook, marketing              |
 | Mission Parameters        | Project Scope                 | marketing, preconstruction       |
 | Force Multiplier          | Efficiency Gain               | marketing, website               |

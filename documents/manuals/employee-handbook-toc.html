@@ -261,11 +261,11 @@
 
       .toc-feature-stage {
         position: absolute;
-        left: 1.15in;
-        right: 1.05in;
-        bottom: 1.58in;
-        top: 2.76in;
-        padding: 11pt 12pt 10pt;
+        left: 1.22in;
+        right: 1.12in;
+        bottom: 1.91in;
+        top: 4.30in;
+        padding: 10pt 11pt 9pt;
         border: 0.9pt solid var(--brand-secondary);
         border-radius: 11pt;
         background:
@@ -277,9 +277,9 @@
       .toc-feature-stage::before {
         content: "";
         position: absolute;
-        top: 10pt;
-        left: 12pt;
-        right: 12pt;
+        top: 8pt;
+        left: 10pt;
+        right: 10pt;
         height: 2pt;
         border-radius: 999px;
         background: linear-gradient(90deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
@@ -293,15 +293,15 @@
       }
 
       .toc-values-card {
-        margin-top: 8pt;
-        padding-top: 2pt;
+        margin-top: 6pt;
+        padding-top: 1pt;
         display: flex;
         flex-direction: column;
       }
 
       .toc-values-title {
-        margin: 0 0 7pt;
-        font-size: 7pt;
+        margin: 0 0 4pt;
+        font-size: 7.3pt;
         font-weight: 900;
         letter-spacing: 0.16em;
         color: var(--brand-secondary-text);
@@ -311,18 +311,18 @@
       .toc-values-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 5pt;
+        gap: 4pt;
       }
 
       .toc-value-pill {
         margin: 0;
         border: 0.6pt solid var(--brand-secondary-light);
         border-radius: 6pt;
-        padding: 5pt 7pt;
+        padding: 3pt 5pt;
         background: rgba(255, 255, 255, 0.88);
         display: flex;
         flex-direction: column;
-        gap: 2pt;
+        gap: 1pt;
       }
 
       .toc-value-name {
@@ -334,7 +334,7 @@
 
       .toc-value-line {
         font-size: 6.2pt;
-        line-height: 1.2;
+        line-height: 1.15;
         font-weight: 700;
         color: var(--brand-secondary-text);
         text-transform: uppercase;
@@ -344,18 +344,18 @@
       .toc-team-photo {
         display: block;
         width: 100%;
-        height: 1.86in;
+        height: 1.78in;
         object-fit: cover;
         object-position: center 34%;
         border: 0.8pt solid var(--brand-secondary);
         border-radius: 9pt;
-        margin-top: 8pt;
+        margin-top: 7pt;
         box-shadow: 0 5pt 14pt rgba(18, 35, 27, 0.14);
       }
 
       .toc-insight {
-        margin-top: 8pt;
-        padding: 10pt 10pt 8pt;
+        margin-top: 6pt;
+        padding: 7pt 8pt 7pt;
         border: 0.7pt solid var(--brand-secondary-light);
         border-radius: 9pt;
         background: rgba(255, 255, 255, 0.93);
@@ -373,9 +373,9 @@
       }
 
       .toc-insight-label {
-        margin: 0 0 4pt;
+        margin: 0 0 3pt;
         color: var(--brand-secondary-text);
-        font-size: 6.7pt;
+        font-size: 6.4pt;
         font-weight: 800;
         letter-spacing: 0.15em;
         text-transform: uppercase;
@@ -384,15 +384,15 @@
       .toc-insight-quote {
         margin: 0;
         color: var(--brand-primary-dark);
-        font-size: 7.5pt;
-        line-height: 1.3;
+        font-size: 7.3pt;
+        line-height: 1.24;
         font-weight: 700;
       }
 
       .toc-insight-attribution {
-        margin: 5pt 0 0;
+        margin: 4pt 0 0;
         color: var(--brand-primary);
-        font-size: 6.8pt;
+        font-size: 6.5pt;
         letter-spacing: 0.07em;
         text-transform: uppercase;
         font-weight: 800;
@@ -401,29 +401,30 @@
       .toc-state-strip {
         display: flex;
         align-items: center;
-        gap: 6pt;
-      }
-
-      .toc-state-chip {
-        width: 30pt;
-        height: 30pt;
-        border-radius: 50%;
-        border: 0.6pt solid var(--brand-secondary);
-        background: #fff;
-        display: flex;
-        align-items: center;
         justify-content: center;
       }
 
-      .toc-state-chip img {
-        width: 20pt;
-        height: 20pt;
+      .toc-brand-chip {
+        width: 56pt;
+        height: 56pt;
+        border-radius: 12pt;
+        border: 0.8pt solid var(--brand-secondary);
+        background: linear-gradient(180deg, #ffffff 0%, #f5efe5 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4pt 10pt rgba(18, 35, 27, 0.12);
+      }
+
+      .toc-brand-chip img {
+        width: 42pt;
+        height: 42pt;
         object-fit: contain;
       }
 
       .toc-insight-foot {
-        margin-top: 6pt;
-        padding-top: 5pt;
+        margin-top: 4pt;
+        padding-top: 4pt;
         border-top: 0.5pt solid var(--brand-secondary-light);
         color: var(--brand-secondary-text);
         font-size: 6.2pt;
@@ -448,6 +449,30 @@
         gap: 1pt;
       }
 
+      .toc-row-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 0.16in;
+        margin: 0 0 6pt;
+        padding: 0 0 4pt;
+        border-bottom: 0.45pt solid #d9c7ae;
+      }
+
+      .toc-row-head-left,
+      .toc-row-head-right {
+        font-family: var(--font-body);
+        font-size: 6.5pt;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--brand-secondary-text);
+        line-height: 1.1;
+      }
+
+      .toc-row-head-right {
+        text-align: left;
+      }
+
       .toc-row {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -466,7 +491,7 @@
       }
 
       .toc-row-right .mish-entry.mish-form {
-        padding: 1.4pt 0;
+        padding: 0.7pt 0;
       }
 
       .toc-row-right .mish-entry.mish-form .mish-title {
@@ -493,11 +518,11 @@
       /* Cluster heading — simple outline style */
       .cluster-head {
         font-family: var(--font-heading);
-        font-size: 7.55pt;
-        font-weight: 700;
+        font-size: 7.85pt;
+        font-weight: 800;
         color: var(--brand-primary);
         text-transform: uppercase;
-        letter-spacing: 0.11em;
+        letter-spacing: 0.09em;
         margin: 0 0 0.05in 0;
         padding: 0 0 3pt 0;
         border-bottom: 0.9pt solid var(--brand-primary);
@@ -523,11 +548,22 @@
         color: #000000;
       }
 
+      .mish-entry .mish-link {
+        display: flex;
+        align-items: center;
+        gap: 0.09in;
+        width: 100%;
+        color: inherit;
+        text-decoration: none;
+      }
+
       .mish-entry .mish-code {
-        display: block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         flex-shrink: 0;
-        width: auto;
-        min-width: 0.53in;
+        width: 1.02in;
+        min-width: 1.02in;
         font-family: var(--font-heading);
         font-size: 8pt;
         font-weight: 800;
@@ -536,7 +572,7 @@
         border: 0.6pt solid var(--brand-primary-dark);
         border-radius: 1.5pt;
         box-shadow: inset 0 -0.8pt 0 rgba(0, 0, 0, 0.12);
-        padding: 1.9pt 7.6pt;
+        padding: 2pt 0;
         text-align: center;
         line-height: 1.2;
         letter-spacing: 0.014em;
@@ -551,8 +587,8 @@
         flex: 1;
         color: #15261d;
         font-family: var(--font-body);
-        font-size: 8.35pt;
-        line-height: 1.28;
+        font-size: 8.15pt;
+        line-height: 1.24;
         text-wrap: pretty;
         hyphens: auto;
         word-break: break-word;
@@ -563,13 +599,14 @@
 
       .mish-entry .mish-title-main {
         display: block;
+        font-weight: 700;
       }
 
       .mish-entry .mish-meta {
         display: block;
-        font-size: 6.2pt;
+        font-size: 6.35pt;
         font-weight: 700;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
         color: var(--brand-secondary-text);
         line-height: 1.2;
@@ -609,18 +646,19 @@
         font-size: var(--type-form-code);
         border: 0.5pt solid var(--brand-secondary);
         box-shadow: inset 0 -0.6pt 0 rgba(0, 0, 0, 0.08);
-        min-width: 0.46in;
-        padding: 1.45pt 6.6pt;
+        width: 1.02in;
+        min-width: 1.02in;
+        padding: 1.55pt 0;
         letter-spacing: 0.012em;
         border-radius: 1.5pt;
         font-variant-numeric: tabular-nums;
       }
 
       .mish-entry.mish-form .mish-title {
-        font-style: italic;
+        font-style: normal;
         color: var(--brand-secondary-text);
-        font-size: 8pt;
-        line-height: 1.24;
+        font-size: 7.45pt;
+        line-height: 1.12;
       }
 
       .mish-entry.mish-form .mish-meta {
@@ -752,9 +790,7 @@
           <div class="toc-rule" aria-hidden="true"></div>
           <div class="toc-program-chip">Employee Handbook Index</div>
           <h1 class="toc-title">Employee Handbook Table of Contents</h1>
-          <p class="toc-subtitle">
-            MH Construction Employee Handbook Program
-          </p>
+          <p class="toc-subtitle">MH Construction Employee Handbook</p>
         </header>
 
         <!-- ── Dual-Column Body ───────────────────────────────── -->
@@ -820,8 +856,8 @@
       <div class="toc-content">
         <header class="toc-header toc-header--cont">
           <p class="toc-cont-mark">
-            {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>Employee Handbook Program
-            Table of Contents (continued)
+            {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>Employee
+            Handbook Table of Contents (continued)
           </p>
           <p class="toc-cont-page">Page 2</p>
         </header>
@@ -861,7 +897,7 @@
             <section class="toc-insight" aria-label="Owner statement and licensed service states">
               <div class="toc-insight-top">
                 <div class="toc-insight-copy">
-                  <p class="toc-insight-label">Words from the General</p>
+                  <p class="toc-insight-label">Word from the General</p>
                   <p class="toc-insight-quote">
                     "To every new employee joining MH Construction, welcome. We expect you to work with
                     discipline, communicate with respect, and take pride in doing the small things right
@@ -872,15 +908,9 @@
                   </p>
                   <p class="toc-insight-attribution">Jeremy Thamert, Owner &amp; President</p>
                 </div>
-                <div class="toc-state-strip" aria-label="Licensed service states: Washington, Oregon, Idaho">
-                  <div class="toc-state-chip">
-                    <img src="{{BRAND_STATE_WA}}" alt="Washington service area" />
-                  </div>
-                  <div class="toc-state-chip">
-                    <img src="{{BRAND_STATE_OR}}" alt="Oregon service area" />
-                  </div>
-                  <div class="toc-state-chip">
-                    <img src="{{BRAND_STATE_ID}}" alt="Idaho service area" />
+                <div class="toc-state-strip" aria-label="MH Construction brand mark">
+                  <div class="toc-brand-chip">
+                    <img src="{{BRAND_LOGO_COLOR}}" alt="MH Construction logo" />
                   </div>
                 </div>
               </div>
@@ -947,8 +977,8 @@
       <div class="toc-content">
         <header class="toc-header toc-header--cont">
           <p class="toc-cont-mark">
-            {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>Employee Handbook Program
-            Table of Contents (continued)
+            {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>Employee
+            Handbook Table of Contents (continued)
           </p>
           <p class="toc-cont-page">Page {{TOC_PAGE_3_NUMBER}}</p>
         </header>

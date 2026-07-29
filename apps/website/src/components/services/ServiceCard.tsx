@@ -70,6 +70,18 @@ export function ServiceCard(props: Readonly<ServiceCardProps>) {
             <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-sm sm:text-base wrap-break-word mb-4">
               {service.subtitle}
             </p>
+            <div
+              className={`rounded-lg border border-brand-primary/15 bg-brand-primary/5 px-3 py-2 text-xs sm:text-sm text-gray-700 dark:text-gray-300 ${cornerRadius.small}`}
+            >
+              <p className="font-subheading font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
+                {isEs ? "Ajuste de proyecto" : "Project fit"}
+              </p>
+              <p className="mt-1 leading-relaxed">
+                {isEs
+                  ? "Claridad de alcance, coordinación temprana y seguimiento responsable desde el inicio."
+                  : "Clear scope, early coordination, and accountable follow-through from day one."}
+              </p>
+            </div>
           </div>
           <div className="relative flex flex-col grow">
             {/* Key highlights - simplified preview */}
@@ -110,7 +122,7 @@ export function ServiceCard(props: Readonly<ServiceCardProps>) {
                 <span
                   className={`font-subheading font-bold text-sm uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors ${transitionDuration.normal}`}
                 >
-                  {isEs ? "Abrir detalle completo" : "Click for Full Details"}
+                  {isEs ? "Ver ajuste y alcance" : "Review fit and scope"}
                 </span>
                 <MaterialIcon
                   icon="arrow_forward"

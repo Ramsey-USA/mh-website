@@ -24,7 +24,7 @@ describe("HeroSection", () => {
     render(<HeroSection />);
     expect(
       screen.getByText(
-        /Straight answers from the Command Center, built with American grit\./i,
+        /Clear scope, accountable delivery, and dependable follow-through\./i,
       ),
     ).toBeInTheDocument();
   });

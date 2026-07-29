@@ -1,0 +1,150 @@
+{
+  "document": {
+    "id": "operations-manual",
+    "title": "Operations Manual",
+    "subtitle": "MH Construction Operations Policies and Procedures",
+    "revisionYear": 2026,
+    "revisionDate": "2026-07-29",
+    "revisionVersion": "1.0",
+    "company": "MH Construction, Inc.",
+    "address": "3111 N. Capitol Ave., Pasco, WA 99301",
+    "phone": "(509) 308-6489",
+    "website": "https://www.mhc-gc.com",
+    "totalPages": 0,
+    "source": "markdown-html-fragments",
+    "sourceDirectory": "documents/content/MHC-Operations-Manual/02-section-drafts",
+    "manualFamily": "operations",
+    "separateFrom": "employee-handbook",
+    "formsManifest": "documents/forms/forms-manifest.json",
+    "formsPolicy": "operations-owned",
+    "extractedAt": "2026-07-29T20:37:26.918Z"
+  },
+  "sections": [
+    {
+      "number": 1,
+      "title": "MHC Operations Manual - Command Doctrine and Authority",
+      "slug": "mhc-operations-manual-command-doctrine-and-authority",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/01-mhc-operations-manual-command-doctrine-and-authority.html",
+      "forms": []
+    },
+    {
+      "number": 2,
+      "title": "MHC Operations Manual - Chapter Blueprint",
+      "slug": "mhc-operations-manual-chapter-blueprint",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/02-mhc-operations-manual-chapter-blueprint.html",
+      "forms": []
+    },
+    {
+      "number": 3,
+      "title": "MHC Operations Manual - Estimator Command and Preconstruction Controls",
+      "slug": "mhc-operations-manual-estimator-command-and-preconstruction-controls",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/03-mhc-operations-manual-estimator-command-and-preconstruction-controls.html",
+      "forms": []
+    },
+    {
+      "number": 4,
+      "title": "MHC Operations Manual - Procore Governance SOP",
+      "slug": "mhc-operations-manual-procore-governance-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/04-mhc-operations-manual-procore-governance-sop.html",
+      "forms": []
+    },
+    {
+      "number": 5,
+      "title": "MHC Operations Manual - Change Orders and Financial Controls SOP",
+      "slug": "mhc-operations-manual-change-orders-and-financial-controls-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/05-mhc-operations-manual-change-orders-and-financial-controls-sop.html",
+      "forms": []
+    },
+    {
+      "number": 6,
+      "title": "MHC Operations Manual - Project Execution and Closeout SOP",
+      "slug": "mhc-operations-manual-project-execution-and-closeout-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/06-mhc-operations-manual-project-execution-and-closeout-sop.html",
+      "forms": []
+    },
+    {
+      "number": 7,
+      "title": "MHC Operations Manual - SAGE100 Operations SOP",
+      "slug": "mhc-operations-manual-sage100-operations-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/07-mhc-operations-manual-sage100-operations-sop.html",
+      "forms": []
+    },
+    {
+      "number": 8,
+      "title": "MHC Operations Manual - Internal Server Operations SOP",
+      "slug": "mhc-operations-manual-internal-server-operations-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/08-mhc-operations-manual-internal-server-operations-sop.html",
+      "forms": []
+    },
+    {
+      "number": 9,
+      "title": "MHC Operations Manual - Outlook and Communications SOP",
+      "slug": "mhc-operations-manual-outlook-and-communications-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/09-mhc-operations-manual-outlook-and-communications-sop.html",
+      "forms": []
+    },
+    {
+      "number": 10,
+      "title": "MHC Operations Manual - HH2 Timekeeping SOP",
+      "slug": "mhc-operations-manual-hh2-timekeeping-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/10-mhc-operations-manual-hh2-timekeeping-sop.html",
+      "forms": []
+    },
+    {
+      "number": 11,
+      "title": "MHC Operations Manual - Safety and Compliance Governance",
+      "slug": "mhc-operations-manual-safety-and-compliance-governance",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/11-mhc-operations-manual-safety-and-compliance-governance.html",
+      "forms": []
+    },
+    {
+      "number": 12,
+      "title": "MHC Operations Manual - KPI and Reporting Cadence",
+      "slug": "mhc-operations-manual-kpi-and-reporting-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/12-mhc-operations-manual-kpi-and-reporting-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 13,
+      "title": "MHC Operations Manual - Records Retention and Document Control",
+      "slug": "mhc-operations-manual-records-retention-and-document-control",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/13-mhc-operations-manual-records-retention-and-document-control.html",
+      "forms": []
+    },
+    {
+      "number": 14,
+      "title": "MHC Operations Manual - Organization and RACI Narrative",
+      "slug": "mhc-operations-manual-organization-and-raci-narrative",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/14-mhc-operations-manual-organization-and-raci-narrative.html",
+      "forms": []
+    }
+  ]
+}

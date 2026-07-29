@@ -9,7 +9,7 @@
       "partnershipPhilosophy": {
         "sectionTitle": "Partnership Philosophy",
         "sectionSubtitle": "Veteran-Owned, Accountability-Focused",
-        "sectionDescription": "Our approach: trust, transparency, and long-term partnership. MH Construction prides itself on being the answer before the problem through Professional Pre-Construction and Handoff Procedures. Every complex project presents a minefield of operational risks—MHC neutralizes the variables and secures your delivery. Every build introduces unique structural and regulatory challenges. MHC provides the precise project management required to navigate them on time and within scope."
+        "sectionDescription": "Our approach is grounded in disciplined planning, clear communication, and accountable delivery. We work to reduce surprises early so owners, design partners, and field teams can move with confidence."
       },
       "leadershipTeam": {
         "sectionTitle": "Leadership Team",
@@ -97,12 +97,12 @@
       "nextSteps": {
         "sectionTitle": "Next Steps",
         "sectionSubtitle": "Ready to Partner?",
-        "sectionDescription": "Take the next step—connect with our team and experience the MH Construction difference."
+        "sectionDescription": "Take the next step—connect with our team and align on scope, sequencing, and delivery expectations."
       },
       "pageContent": {
         "label": "About MH Construction",
         "heading": "Who we are",
-        "body": "We are a veteran-owned general contractor serving the Pacific Northwest. We build long-term project stakeholder relationships through direct communication, disciplined execution, and field-first safety.",
+        "body": "We are a veteran-owned general contractor serving the Pacific Northwest. We build long-term project stakeholder relationships through disciplined planning, direct communication, and reliable field execution.",
         "storyTitle": "Our story",
         "storyP1": "Since 2010, we have worked alongside owners, operators, and design teams to deliver projects with practical planning and steady coordination.",
         "storyP2": "Today we continue that standard with veteran-owned leadership, clear communication, and accountable follow-through across every project relationship. Built on Quality, Backed by Trust.",
@@ -521,7 +521,7 @@
     "hero": {
       "pageIdentity": "Safety → Safety Program",
       "mantra": "0.64 EMR, AGC-WA Recognition, OSHA VPP Star",
-      "tagline": "Clear standards. Consistent field follow-through.",
+      "tagline": "Clear standards. Accountable delivery. Consistent field follow-through.",
       "sloganEsCompanion": "(Construido con Calidad, Respaldado por Confianza.)"
     },
     "credentials": {
@@ -726,7 +726,7 @@
       "iconAria": "Contact MH Construction",
       "kicker": "Contact",
       "titleLine1": "Your Project. Clear Next Steps.",
-      "titleLine2": "Schedule a project briefing and align scope from day one.",
+      "titleLine2": "Start with scope alignment, clear ownership, and a practical delivery plan.",
       "titleLine3Prefix": "Built on Quality, Backed by Trust.",
       "notWord": "",
       "titleLine3Suffix": "",
@@ -735,7 +735,7 @@
     "quickContact": {
       "subtitle": "Connect With",
       "title": "Your Partnership Team",
-      "description": "Call, email, or visit our Pasco office to align scope, schedule, and next steps with a direct response.",
+      "description": "Call, email, or visit our Pasco office to align scope, schedule, and delivery expectations with a direct response.",
       "accreditations": "Accredited & Certified:",
       "veteranOwnedBadge": "Veteran-Owned Since January 2025",
       "cards": {
@@ -765,13 +765,13 @@
     "pathways": {
       "subtitle": "Two Pathways to",
       "title": "Partnership Success",
-      "description": "Choose the right path for Project Stakeholder delivery or Ally engagement. From Handshake to Handoff, we got your 'six.'",
+      "description": "Choose the right path for project delivery or ally engagement, with clear planning and dependable follow-through from kickoff to closeout.",
       "shared": {
         "emailLabel": "Email"
       },
       "client": {
         "title": "For Project Stakeholders",
-        "description": "Start with scope alignment, then move into disciplined delivery and closeout planning.",
+        "description": "Start with scope alignment, then move into disciplined delivery planning and accountable closeout.",
         "callIconAria": "Client services phone",
         "contactServiceLabel": "Project Stakeholder Services",
         "callAriaPrefix": "Call Project Stakeholder services at",
@@ -942,8 +942,8 @@
     "hero": {
       "iconAria": "Strategic partnership network",
       "kicker": "Trade Partners",
-      "titleLine1": "Strategic Partnerships Built on Trust",
-      "titleLine2": "Vetted Trade Partners Ready to Perform",
+      "titleLine1": "Strategic Partnerships Built on Clear Scope",
+      "titleLine2": "Vetted Trade Partners Ready to Deliver",
       "breadcrumbHome": "Home",
       "breadcrumbCurrent": "Trade Partner Network"
     },
@@ -954,7 +954,7 @@
       "quote": "\"The return is the relationship - proven over time.\"",
       "descriptionPrefix": "Since 2010, MH Construction has built a reputation for honest communication, prompt payment, and disciplined safety standards.",
       "metric": "(.64 EMR - 40% safer than industry average)",
-      "descriptionSuffix": "Leadership here means accountability, follow-through, and fair expectations.",
+      "descriptionSuffix": "Leadership here means accountable delivery, dependable follow-through, and fair expectations.",
       "cite": "- MH Construction Leadership Team",
       "values": {
         "handshakes": {
@@ -995,7 +995,7 @@
       "iconAria": "Become an ally",
       "subtitle": "Become an",
       "title": "Trade Partner",
-      "singleLocalizedDescription": "Ready to grow with a reliable regional general contractor? We are looking for skilled trade partners who value quality workmanship, honest communication, and long-term results. Built on communication and follow-through.",
+      "singleLocalizedDescription": "Ready to grow with a reliable regional general contractor? We are looking for skilled trade partners who value quality workmanship, honest communication, and long-term results. Built on clear planning, accountable delivery, and dependable follow-through.",
       "buttonPrimaryAria": "Apply",
       "buttonPrimary": "Begin Partnership Discussion",
       "buttonSecondaryAria": "Portfolio",
@@ -1019,7 +1019,7 @@
     "hero": {
       "kicker": "Service Area Hub",
       "title": "Regional Coverage. Local Execution.",
-      "description": "Review service markets across Washington, Oregon, and Idaho. Select a city to confirm local project proof for AG and winery work, commercial tenant improvements, and municipal delivery."
+      "description": "Review service markets across Washington, Oregon, and Idaho. Select a city to confirm local project proof, clear scope alignment, and accountable delivery for AG and winery work, commercial tenant improvements, and municipal delivery."
     },
     "card": {
       "verifiedProject": "verified project",
@@ -1553,8 +1553,8 @@
       "description": {
         "prefix": "This is a",
         "highlight1": "direct path into a veteran-owned team.",
-        "middle": "We hire people who value honest communication, professionalism, and steady growth through",
-        "highlight2": "real work, mentorship, and accountability.",
+        "middle": "We hire people who value honest communication, professionalism, and steady growth through clear planning and accountable delivery.",
+        "highlight2": "accountable delivery.",
         "suffix": "Expect clear standards, direct support, and room to improve."
       },
       "callout": {
@@ -1965,7 +1965,7 @@
         "sectionTitle": "Strategic Construction Excellence",
         "sectionSubtitle": "Services",
         "sectionTagline": "Professional on the line. Thorough in the details.",
-        "sectionDescription": "Commercial, industrial, and public-sector delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters. We primarily focus on commercial and industrial work, and only consider unique, highly complex, multi-million-dollar residential projects. Built on Quality, Backed by Trust."
+        "sectionDescription": "Commercial, industrial, and public-sector delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters. We structure each engagement around clear scope, accountable delivery, and dependable follow-through. Built on Quality, Backed by Trust."
       },
       "core": {
         "sectionTitle": "Core Services",

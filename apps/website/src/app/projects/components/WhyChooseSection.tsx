@@ -58,7 +58,7 @@ export function WhyChooseSection() {
             </span>{" "}
             for{" "}
             <span className="font-bold text-gray-900 dark:text-white">
-              construction delivery excellence
+              disciplined planning and accountable delivery
             </span>{" "}
             in the Pacific Northwest.
           </p>

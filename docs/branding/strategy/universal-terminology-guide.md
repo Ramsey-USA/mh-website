@@ -71,6 +71,7 @@ Use veteran framing to reinforce execution standards, not to replace constructio
 Adopt these families across new and revised content:
 
 - Command structure: `Command Center`, `Command Staff`, `Safety Command`, `Site Safety Commander`, `Field Safety Lead`, `Task Operator`, `Sub-Operator`, `Chief of Operations`
+- Operations hierarchy: `Command Doctrine`, `Operations Hierarchy`, `Operations Leadership`, `Field Execution Lead`
 - Program/process: `Mission Brief`, `Operations Brief`, `Deployment`, `Command Loop`, `Corrective Action Order (CAO)`, `After-Action Review (AAR)`, `Operational Pause`, `Stand Down`, `Pre-Deployment Checklist`, `Handshake to Handoff`
 - Quality/accountability: `Zero-Gap Accountability`, `Mission-Ready`, `Field-First`, `Audit-Ready Handoff`, `Proof of Delivery`, `Verified Performance`, `Operational Integrity`, `Accurate Firmness`
 - Safety/technical execution: `Safety Command Standards`, `Every Operator Goes Home Safe`, `Hazard Recon`, `Protective Posture`, `Spatial Capture`, `Digital Twin`, `Vertical Integration`

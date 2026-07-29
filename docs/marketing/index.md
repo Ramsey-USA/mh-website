@@ -1,11 +1,11 @@
 # Marketing Documentation
 
 **Category:** Marketing - Overview  
-**Last Updated:** July 24, 2026
+**Last Updated:** July 29, 2026
 
 ## Overview
 
-External-facing marketing playbooks for Google Business Profile management and SEO operations.
+External-facing marketing playbooks for Google Business Profile management, project marketing strategy, and SEO operations.
 
 All marketing copy must remain congruent with MH branding standards: relationship-first voice, factual veteran-owned framing, preserved trust signals, and approved SEO naming.
 
@@ -16,6 +16,7 @@ All marketing copy must remain congruent with MH branding standards: relationshi
 ### Strategy Baseline
 
 - **[Social Media Branding Parameters (Project Baseline)](./parameters/social-media-branding-parameters.md)** — Canonical MH terminology, trust-proof rules, adjustable cadence/length parameters, and required security-tier communication controls for public-sector work.
+- **[Marketing Strategy Guide](./marketing-strategy-guide.md)** — 36-week project marketing runway, phase mapping, five-angle rotation, publishing rhythm, and repurposing workflow.
 
 ### Google Business Profile
 
@@ -57,6 +58,7 @@ Before publishing any marketing asset, confirm that terminology, trust reference
 
 - [← Documentation Index](../index.md)
 - [← Back to Main README](../../README.md)
+- [Manual Family Hub](../manuals/index.md)
 - [Branding Messaging](../branding/strategy/messaging.md)
 - [SEO Complete Guide](../technical/seo/seo-complete-guide.md)
 

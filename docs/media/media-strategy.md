@@ -803,10 +803,12 @@ Priority: complete before Phase 2. These tasks directly address findings from th
 
 1. ☐ **Replace all team placeholder images** — swap `placeholder-team.webp` and any team page placeholders with photos showing active PPE usage (hard hats, high-vis vests on site). No team photo without visible safety compliance should appear on the site.
 2. ☐ **Launch "Safety & Credentials" landing page** — build or finalize the high-authority safety page with:
-   - MISH (Motor Carrier Industry Safety Hub) QR code prominently integrated
-   - Links to bonding, insurance, and licensing verification
-   - Safety Snapshot gallery section (§6c) as a live social proof feed
-   - Structured data (`LocalBusiness` + `ImageObject` schema) for each credential badge
+
+- MISH (MH Construction Industrial Safety & Health Program) QR code prominently integrated
+- Links to bonding, insurance, and licensing verification
+- Safety Snapshot gallery section (§6c) as a live social proof feed
+- Structured data (`LocalBusiness` + `ImageObject` schema) for each credential badge
+
 3. ☐ Create `public/images/safety/snapshots/` folder and add first 3 Safety Snapshots with Superintendent verification on file
 4. ☐ Add `public/documents/subcontractors/` folder with Subcontractor Matrix and COI/AIE templates
 5. ☐ Activate n8n MVR Review alert workflow (§7d) and test with one employee record

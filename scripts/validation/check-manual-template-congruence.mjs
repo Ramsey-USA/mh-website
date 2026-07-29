@@ -12,6 +12,10 @@ const handbookPath = path.join(
   rootDir,
   "documents/manuals/employee-handbook-section.html",
 );
+const operationsPath = path.join(
+  rootDir,
+  "documents/manuals/operations-manual-section.html",
+);
 
 function read(filePath) {
   return fs.readFileSync(filePath, "utf8").replace(/\r\n/g, "\n");
@@ -66,12 +70,15 @@ function assertSharedStructure(html, filePath) {
 try {
   const safetyHtml = read(safetyPath);
   const handbookHtml = read(handbookPath);
+  const operationsHtml = read(operationsPath);
 
   assertSharedStructure(safetyHtml, safetyPath);
   assertSharedStructure(handbookHtml, handbookPath);
+  assertSharedStructure(operationsHtml, operationsPath);
 
   const safetyStyle = extractStyleBlock(safetyHtml, safetyPath);
   const handbookStyle = extractStyleBlock(handbookHtml, handbookPath);
+  const operationsStyle = extractStyleBlock(operationsHtml, operationsPath);
 
   const diff = findFirstDifference(safetyStyle, handbookStyle);
   if (diff) {
@@ -91,8 +98,26 @@ try {
     process.exit(1);
   }
 
+  const operationsDiff = findFirstDifference(safetyStyle, operationsStyle);
+  if (operationsDiff) {
+    console.error("[manual-congruence] FAIL: Template style drift detected.");
+    console.error(
+      `[manual-congruence] First mismatch at style line ${operationsDiff.line}`,
+    );
+    console.error(
+      `[manual-congruence] safety-manual-section:     ${operationsDiff.safetyLine}`,
+    );
+    console.error(
+      `[manual-congruence] operations-manual-section: ${operationsDiff.handbookLine}`,
+    );
+    console.error(
+      "[manual-congruence] Keep the <style> blocks congruent to preserve brand consistency.",
+    );
+    process.exit(1);
+  }
+
   console.log(
-    "[manual-congruence] PASS: MISH and handbook section style blocks are congruent.",
+    "[manual-congruence] PASS: MISH, handbook, and operations section style blocks are congruent.",
   );
 } catch (error) {
   console.error(`[manual-congruence] FAIL: ${error.message}`);

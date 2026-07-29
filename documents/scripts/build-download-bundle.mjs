@@ -29,6 +29,33 @@ const EMPLOYEE_HANDBOOK_FILES = [
   "employee-handbook-toc.pdf",
 ];
 
+const OPERATIONS_MANUAL_FILES = [
+  "operations-manual-complete.pdf",
+  "operations-manual-digital.pdf",
+  "operations-manual-cover.pdf",
+  "operations-manual-spine.pdf",
+  "operations-manual-tabs.pdf",
+  "operations-manual-toc.pdf",
+];
+
+const MARKETING_STRATEGY_GUIDE_FILES = [
+  "marketing-strategy-guide-complete.pdf",
+  "marketing-strategy-guide-digital.pdf",
+  "marketing-strategy-guide-cover.pdf",
+  "marketing-strategy-guide-spine.pdf",
+  "marketing-strategy-guide-tabs.pdf",
+  "marketing-strategy-guide-toc.pdf",
+];
+
+const SALES_ESTIMATING_GUIDE_FILES = [
+  "sales-estimating-guide-complete.pdf",
+  "sales-estimating-guide-digital.pdf",
+  "sales-estimating-guide-cover.pdf",
+  "sales-estimating-guide-spine.pdf",
+  "sales-estimating-guide-tabs.pdf",
+  "sales-estimating-guide-toc.pdf",
+];
+
 const SHARED_FILES = ["MHC-company-letterhead.pdf", "website-image-needs.pdf"];
 const FORM_SET_FILES = [
   "employee-handbook-forms-package.pdf",
@@ -107,7 +134,7 @@ function formatPathList(folderName, fileNames) {
 }
 
 async function writeDownloadIndex(formFiles) {
-  const content = `# Download Bundle\n\nThis folder is the download-friendly view of the generated PDFs.\n\n- [safety-manual/](./safety-manual/) - final Safety Manual PDFs for download\n- [employee-handbook/](./employee-handbook/) - final Employee Handbook PDFs for download\n- [shared/](./shared/) - common print assets like the company letterhead\n- [forms/](./forms/) - final form package PDFs for download\n\nExact download locations:\n\n## Safety Manual\n\n${formatPathList("safety-manual", SAFETY_MANUAL_FILES)}\n\n## Employee Handbook\n\n${formatPathList("employee-handbook", EMPLOYEE_HANDBOOK_FILES)}\n\n## Shared\n\n${formatPathList("shared", SHARED_FILES)}\n\n## Form Sets\n\n${formatPathList("forms", FORM_SET_FILES)}\n\n## Forms\n\n${formatPathList("forms", formFiles)}\n\nRefresh it with:\n\n\`\`\`bash\npnpm --filter @mhc/website run docs:bundle:downloads\n\`\`\`\n`;
+  const content = `# Download Bundle\n\nThis folder is the download-friendly view of the generated PDFs.\n\n- [safety-manual/](./safety-manual/) - final Safety Manual PDFs for download\n- [employee-handbook/](./employee-handbook/) - final Employee Handbook PDFs for download\n- [operations-manual/](./operations-manual/) - final Operations Manual PDFs for download\n- [marketing-strategy-guide/](./marketing-strategy-guide/) - final Marketing Strategy Guide PDFs for download\n- [sales-estimating-guide/](./sales-estimating-guide/) - final Sales and Estimating Guide PDFs for download\n- [shared/](./shared/) - common print assets like the company letterhead\n- [forms/](./forms/) - final form package PDFs for download\n\nExact download locations:\n\n## Safety Manual\n\n${formatPathList("safety-manual", SAFETY_MANUAL_FILES)}\n\n## Employee Handbook\n\n${formatPathList("employee-handbook", EMPLOYEE_HANDBOOK_FILES)}\n\n## Operations Manual\n\n${formatPathList("operations-manual", OPERATIONS_MANUAL_FILES)}\n\n## Marketing Strategy Guide\n\n${formatPathList("marketing-strategy-guide", MARKETING_STRATEGY_GUIDE_FILES)}\n\n## Sales and Estimating Guide\n\n${formatPathList("sales-estimating-guide", SALES_ESTIMATING_GUIDE_FILES)}\n\n## Shared\n\n${formatPathList("shared", SHARED_FILES)}\n\n## Form Sets\n\n${formatPathList("forms", FORM_SET_FILES)}\n\n## Forms\n\n${formatPathList("forms", formFiles)}\n\nRefresh it with:\n\n\`\`\`bash\npnpm --filter @mhc/website run docs:bundle:downloads\n\`\`\`\n`;
 
   const targetPath = join(DOWNLOADS_DIR, "README.md");
   await mkdir(DOWNLOADS_DIR, { recursive: true });
@@ -133,6 +160,21 @@ async function main() {
     EMPLOYEE_HANDBOOK_FILES,
     SOURCE_DIR,
     join(DOWNLOADS_DIR, "employee-handbook"),
+  );
+  await copyFiles(
+    OPERATIONS_MANUAL_FILES,
+    SOURCE_DIR,
+    join(DOWNLOADS_DIR, "operations-manual"),
+  );
+  await copyFiles(
+    MARKETING_STRATEGY_GUIDE_FILES,
+    SOURCE_DIR,
+    join(DOWNLOADS_DIR, "marketing-strategy-guide"),
+  );
+  await copyFiles(
+    SALES_ESTIMATING_GUIDE_FILES,
+    SOURCE_DIR,
+    join(DOWNLOADS_DIR, "sales-estimating-guide"),
   );
   await copyFiles(SHARED_FILES, SOURCE_DIR, join(DOWNLOADS_DIR, "shared"));
   const formFiles = await copyDirectoryPdfs(

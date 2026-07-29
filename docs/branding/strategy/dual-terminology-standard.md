@@ -142,6 +142,7 @@ Governance companion for review and authoring rules: `docs/branding/strategy/pag
 
 Approved expansion terms for strategy, marketing, handbook, and operations documentation:
 
+- `Command Doctrine` (Operations Hierarchy)
 - `Operational Theater` (Project Site / Jobsite)
 - `Mission Parameters` (Project Scope)
 - `Force Multiplier` (Efficiency Gain)

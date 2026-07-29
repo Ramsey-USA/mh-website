@@ -3,7 +3,7 @@
     "name": "MH Construction Brand Terms Library",
     "version": "2.0",
     "effectiveDate": "2026-04-07",
-    "lastUpdated": "2026-07-28",
+    "lastUpdated": "2026-07-29",
     "status": "canonical-upstream-source",
     "source": {
       "docx": "docs/branding/standards/mhc-terms.docx",
@@ -81,6 +81,37 @@
         "brandTerm": "Chief of Operations",
         "standardTerm": "COO / Operations Manager",
         "scope": ["Handbook", "Website"]
+      }
+    ],
+    "operationsHierarchy": [
+      {
+        "brandTerm": "Command Doctrine",
+        "standardTerm": "Operations Hierarchy",
+        "scope": [
+          "Operations Manual",
+          "Handbook",
+          "Website",
+          "Document Labels"
+        ],
+        "notes": "Top-level label for the operations authority model."
+      },
+      {
+        "brandTerm": "Operations Leadership",
+        "standardTerm": "Operations Leadership Team",
+        "scope": ["Operations Manual", "Handbook", "Website"],
+        "notes": "Leadership layer that directs execution and resource alignment."
+      },
+      {
+        "brandTerm": "Field Execution Lead",
+        "standardTerm": "Project Manager / Superintendent",
+        "scope": ["Operations Manual", "Handbook", "Website"],
+        "notes": "Field-side authority for schedule, coordination, and closeout discipline."
+      },
+      {
+        "brandTerm": "Task Operator",
+        "standardTerm": "Worker / Tradesperson",
+        "scope": ["Operations Manual", "Handbook", "Website"],
+        "notes": "Execution-level role for direct field production."
       }
     ],
     "programAndProcess": [

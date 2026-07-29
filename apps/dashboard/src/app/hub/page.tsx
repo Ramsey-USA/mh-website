@@ -9,7 +9,7 @@ import { getHubSafetySummary } from "@/lib/hub/resources";
 export const metadata: Metadata = {
   title: "Operations Hub | MH Construction",
   description:
-    "Operations Hub dashboard for Safety Program (MISH Safety & Health Program / Safety Manual) access, forms, incident reporting, and employee handbook resources.",
+    "Operations Hub dashboard for Safety Program, Employee Handbook, Operations Manual, and strategy guide access with forms and incident reporting workflows.",
   robots: {
     index: false,
     follow: false,
@@ -29,6 +29,8 @@ const CARDS_FALLBACK = (
 
 export default async function HubPage() {
   const {
+    manualFamilyCount,
+    strategyGuideCount,
     sectionCount,
     revisionNumber,
     handbookRevision,
@@ -73,6 +75,10 @@ export default async function HubPage() {
             <p className="mt-1 text-sm text-brand-secondary-light/85">
               Safety Program forms: {safetyFormCount} · Total active forms:{" "}
               {formCount}.
+            </p>
+            <p className="mt-1 text-sm text-brand-secondary-light/85">
+              Manual families: {manualFamilyCount} · Strategy guides:{" "}
+              {strategyGuideCount}.
             </p>
             <p className="mt-3 text-sm text-brand-secondary-light/85">
               Built on Quality, Backed by Trust.

@@ -37,6 +37,14 @@ export const PAGE_TERMINOLOGY = {
     seoName: "Table of Contents",
     mhBrandName: "Section Index",
   },
+  operationsHierarchy: {
+    seoName: "Operations Hierarchy",
+    mhBrandName: "Command Doctrine",
+  },
+  operationsManual: {
+    seoName: "Operations Manual",
+    mhBrandName: "Command Doctrine",
+  },
   resources: { seoName: "Resources", mhBrandName: "Field Resources" },
   faq: { seoName: "Help/FAQ", mhBrandName: "Intel Brief" },
   locations: { seoName: "Locations", mhBrandName: "Regional AO" },
@@ -95,69 +103,64 @@ export const MH_SLOGANS = {
     "Measure twice, document always, close out clean.",
   ],
   heroByRoute: {
-    home: "Straight answers from the Command Center, built with American grit.",
+    home: "Clear scope, accountable delivery, and dependable follow-through.",
     about:
-      "About Us with mission-brief clarity, service-earned values, and handshake pride.",
+      "About Us with project-brief clarity, service-earned values, and accountable delivery.",
     services:
-      "Services with operations-brief discipline, done right for every American jobsite.",
+      "Services with planning-first scope alignment, practical coordination, and dependable follow-through.",
     projects:
-      "Projects with SITREP accountability and craftsmanship that honors the work.",
+      "Projects with clear sequencing, accountable delivery, and craftsmanship that honors the work.",
     projectDetail:
-      "Project Detail with SITREP clarity from first walkthrough to proud handoff.",
+      "Project Detail with clear sequencing from first walkthrough to proud handoff.",
     contact:
-      "Contact through the Comms Desk for direct answers and stand-up service.",
+      "Contact through a direct project coordination path with clear answers and dependable follow-through.",
     testimonials:
-      "Reviews and Field Commendations from partners who trust our word.",
+      "Reviews and field commendations from partners who trust our word.",
     locations:
-      "Locations with Regional AO coverage and hometown accountability.",
+      "Locations with regional coverage, practical reach, and hometown accountability.",
     locationDetail:
-      "Location Detail with local mission-profile focus and national-standard execution.",
-    team: "Our Team led with Command Staff discipline and service-first leadership.",
+      "Location Detail with local mission-profile focus and reliable execution.",
+    team: "Our Team with project leadership discipline and service-first delivery.",
     careers:
-      "Careers with Recruitment Command standards, steady growth, and pride in the craft.",
+      "Careers with clear standards, steady growth, and pride in the craft.",
     veterans:
-      "Veterans with battalion-level respect, practical support, and earned opportunity.",
+      "Veterans with practical support, respectful onboarding, and earned opportunity.",
     allies:
-      "Partners in an Allied Network built on trust, duty, and follow-through.",
+      "Partners in an allied network built on trust, scope clarity, and follow-through.",
     publicSector:
-      "Government projects under Civic Operations discipline and public-service accountability.",
+      "Government projects under practical compliance planning and public-service accountability.",
     publicSectorProjects:
       "Public Sector Projects delivered with civic pride and mission discipline.",
     veteranLedCompliance:
-      "Veteran-Led Compliance with command-grade documentation and integrity.",
+      "Veteran-Led Compliance with clear documentation, practical controls, and integrity.",
     triStateGovernmentConstruction:
-      "Tri-State Government Construction with regional civic delivery and unwavering standards.",
-    hub: "Team Hub as the Operations Hub for coordinated execution.",
-    safety:
-      "Safety under Safety Command standards to protect every crew and family.",
+      "Tri-State Government Construction with regional civic delivery and dependable standards.",
+    hub: "Team Hub as the operations hub for coordinated execution.",
+    safety: "Safety under clear standards that protect every crew and family.",
     safetyManual:
-      "Safety Manual in Manual Operations format, field-ready and duty-driven.",
+      "Safety Manual with field-ready guidance and duty-driven clarity.",
     safetyProgram:
-      "Safety Program with Program Command discipline in daily operations.",
-    safetyForms:
-      "Safety Forms through Form Control for clear, audit-ready records.",
-    safetyContents:
-      "Table of Contents with Section Index speed for field decisions.",
+      "Safety Program with practical discipline in daily operations.",
+    safetyForms: "Safety Forms with clear, audit-ready records.",
+    safetyContents: "Table of Contents with quick access for field decisions.",
     resources:
-      "Resources in a Field Resources library built for real-world readiness.",
+      "Resources in a practical field library built for real-world readiness.",
     incidentReport:
-      "Incident Report through Incident Command for fast, honest action.",
-    faq: "Help/FAQ with Intel Brief clarity and no runaround.",
-    faqCategory: "FAQ Category with Category Recon focus to get answers fast.",
+      "Incident Report with fast, honest action and clear follow-through.",
+    faq: "Help/FAQ with clear guidance and no runaround.",
+    faqCategory: "FAQ Category focused on getting answers fast.",
     accessibility:
-      "Accessibility with access-protocol discipline so everyone can engage.",
+      "Accessibility with practical discipline so everyone can engage.",
     privacy:
-      "Privacy Policy with data-OPSEC discipline and plain-language transparency.",
-    terms: "Terms of Service with clear ROE and fair expectations.",
-    offline:
-      "Offline signal-check guidance so you stay oriented when connections drop.",
+      "Privacy Policy with plain-language transparency and practical care.",
+    terms: "Terms of Service with clear expectations and fair process.",
+    offline: "Offline guidance so you stay oriented when connections drop.",
     employeeHandbook:
       "Employee Handbook as your field guide for expectations and accountability.",
-    qrCodes: "QR Codes in a QR Library for quick, reliable access.",
-    events:
-      "Events through Formation Calendar planning with community-first pride.",
+    qrCodes: "QR Codes in a practical library for quick, reliable access.",
+    events: "Events through coordinated planning with community-first pride.",
     coolDesertNights:
-      "Cool Desert Nights with Event Archive readiness and hometown pride.",
+      "Cool Desert Nights with event-ready coordination and hometown pride.",
   } as const,
 } as const;
 
@@ -174,6 +177,7 @@ export const MH_TERMINOLOGY = {
   projectContract: "Project Contract",
   projectSchedulePace: "Project Schedule / Pace",
   onCallReadyToMobilize: "On Call / Ready to Mobilize",
+  commandDoctrine: "Command Doctrine",
 } as const;
 
 const PAGE_TERMINOLOGY_ALIASES: Record<string, PageTerminologyKey> = {
@@ -219,6 +223,10 @@ const PAGE_TERMINOLOGY_ALIASES: Record<string, PageTerminologyKey> = {
   "safety forms": "safetyForms",
   "forms index": "safetyForms",
   "safety forms index": "safetyForms",
+  "operations hierarchy": "operationsHierarchy",
+  "command doctrine": "operationsHierarchy",
+  "operations doctrine": "operationsHierarchy",
+  "operations manual": "operationsManual",
   "incident report": "incidentReport",
   "safety hub": "safety",
   resources: "resources",
@@ -280,6 +288,7 @@ const PHRASE_NORMALIZATION_ALIASES: Record<string, string> = {
   "mission accomplished": MH_TERMINOLOGY.projectCloseout,
   "operational tempo": MH_TERMINOLOGY.projectSchedulePace,
   "standby to standby": MH_TERMINOLOGY.onCallReadyToMobilize,
+  "operations hierarchy": MH_TERMINOLOGY.commandDoctrine,
 };
 
 const PHRASE_REGEX_REPLACEMENTS: Array<[RegExp, string]> = [
@@ -316,6 +325,7 @@ const PHRASE_REGEX_REPLACEMENTS: Array<[RegExp, string]> = [
   [/\bMission Accomplished\b/gi, MH_TERMINOLOGY.projectCloseout],
   [/\bOperational Tempo\b/gi, MH_TERMINOLOGY.projectSchedulePace],
   [/\bStandby to Standby\b/gi, MH_TERMINOLOGY.onCallReadyToMobilize],
+  [/\bOperations Hierarchy\b/gi, MH_TERMINOLOGY.commandDoctrine],
 ];
 
 export function formatDualPageName(

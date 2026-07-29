@@ -12,5 +12,7 @@ Tagline: Built on Quality, Backed by Trust.
 PrimaryLanguage: en
 SecondaryLanguage: es
 
-Summary: BBB Accredited veteran-owned general contractor serving Washington, Oregon, and Idaho for commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects.
+Summary: BBB Accredited veteran-owned general contractor serving Washington, Oregon, and Idaho for commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects with scope clarity, practical follow-through, and accountable delivery.
+
+BrandPositioning: MH Construction is known for clear planning, direct consultation, and dependable project execution across the Pacific Northwest.
 Contact: https://www.mhc-gc.com/contact

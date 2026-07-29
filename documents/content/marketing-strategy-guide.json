@@ -1,0 +1,105 @@
+{
+  "document": {
+    "id": "marketing-strategy-guide",
+    "title": "Marketing Strategy Guide",
+    "subtitle": "36-Week Project Marketing Roadmap and Operating Guide",
+    "revisionYear": 2026,
+    "revisionDate": "2026-07-29",
+    "revisionVersion": "1.0",
+    "company": "MH Construction, Inc.",
+    "address": "3111 N. Capitol Ave., Pasco, WA 99301",
+    "phone": "(509) 308-6489",
+    "website": "https://www.mhc-gc.com",
+    "totalPages": 0,
+    "source": "markdown-guide-extracted",
+    "sourceDirectory": "docs/marketing/marketing-strategy-guide.md",
+    "manualFamily": "marketing",
+    "separateFrom": "employee-handbook",
+    "formsManifest": "documents/forms/forms-manifest.json",
+    "formsPolicy": "none",
+    "extractedAt": "2026-07-29T20:37:26.102Z"
+  },
+  "sections": [
+    {
+      "number": 1,
+      "title": "Canonical Strategy Sources",
+      "slug": "canonical-strategy-sources",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/01-canonical-strategy-sources.html",
+      "forms": []
+    },
+    {
+      "number": 2,
+      "title": "Strategy Spine",
+      "slug": "strategy-spine",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/02-strategy-spine.html",
+      "forms": []
+    },
+    {
+      "number": 3,
+      "title": "36-Week Roadmap",
+      "slug": "36-week-roadmap",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/03-36-week-roadmap.html",
+      "forms": []
+    },
+    {
+      "number": 4,
+      "title": "Content Standards",
+      "slug": "content-standards",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/04-content-standards.html",
+      "forms": []
+    },
+    {
+      "number": 5,
+      "title": "Weekly Operating Rhythm",
+      "slug": "weekly-operating-rhythm",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/05-weekly-operating-rhythm.html",
+      "forms": []
+    },
+    {
+      "number": 6,
+      "title": "Capture and Repurpose Workflow",
+      "slug": "capture-and-repurpose-workflow",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/06-capture-and-repurpose-workflow.html",
+      "forms": []
+    },
+    {
+      "number": 7,
+      "title": "Guardrails",
+      "slug": "guardrails",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/07-guardrails.html",
+      "forms": []
+    },
+    {
+      "number": 8,
+      "title": "Success Measures",
+      "slug": "success-measures",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/08-success-measures.html",
+      "forms": []
+    },
+    {
+      "number": 9,
+      "title": "Deployment and Review",
+      "slug": "deployment-and-review",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/09-deployment-and-review.html",
+      "forms": []
+    }
+  ]
+}

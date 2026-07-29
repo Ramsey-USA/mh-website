@@ -83,10 +83,10 @@ export function SpecialtyServiceCard(
             {isExpanded
               ? isEs
                 ? "Detalle abierto"
-                : "Details Open"
+                : "Details open"
               : isEs
-                ? "Toque para ver detalle"
-                : "Tap for Details"}
+                ? "Ver ajuste del alcance"
+                : "Review scope fit"}
           </div>
         </CardHeader>
 
@@ -99,7 +99,9 @@ export function SpecialtyServiceCard(
               <div className="flex items-center justify-center text-brand-secondary dark:text-brand-secondary-light">
                 <MaterialIcon icon="info" size="sm" className="mr-2" />
                 <span className="text-xs font-medium">
-                  {isEs ? "Toque para ver detalles" : "Click to view details"}
+                  {isEs
+                    ? "Toque para revisar el ajuste"
+                    : "Tap to review the fit"}
                 </span>
               </div>
             </div>
@@ -285,7 +287,7 @@ export function SpecialtyServiceCard(
                   href={service.detailHref}
                   className="inline-flex items-center justify-center rounded-lg border border-brand-primary/40 bg-white px-3 py-2 text-xs font-semibold text-brand-primary hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-brand-primary-light"
                 >
-                  {isEs ? "Ver pagina del servicio" : "View service page"}
+                  {isEs ? "Ver pagina del servicio" : "View service details"}
                 </Link>
               ) : null}
             </div>
@@ -294,7 +296,7 @@ export function SpecialtyServiceCard(
               <div className="flex items-center justify-center text-brand-secondary dark:text-brand-secondary-light">
                 <MaterialIcon icon="expand_less" size="sm" className="mr-2" />
                 <span className="text-xs font-medium">
-                  {isEs ? "Toque para colapsar" : "Click to collapse"}
+                  {isEs ? "Toque para colapsar" : "Tap to collapse"}
                 </span>
               </div>
             </div>

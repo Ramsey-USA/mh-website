@@ -39,6 +39,12 @@ describe("Dual terminology standard", () => {
     expect(getDualPageName("Safety Manual")).toBe(
       "Safety Manual (Manual Operations)",
     );
+    expect(getDualPageName("Operations Hierarchy")).toBe(
+      "Operations Hierarchy (Command Doctrine)",
+    );
+    expect(getDualPageName("Operations Manual")).toBe(
+      "Operations Manual (Command Doctrine)",
+    );
     expect(getDualPageName("Public Sector Projects")).toBe(
       "Public Sector Projects (Civic Operations)",
     );
@@ -85,6 +91,7 @@ describe("Dual terminology standard", () => {
     expect(normalizeMhPhrase("Mission Management")).toBe("Project Management");
     expect(normalizeMhPhrase("SITREP")).toBe("Project Status Update");
     expect(normalizeMhPhrase("Operational Theater")).toBe("Project Site");
+    expect(normalizeMhPhrase("Operations Hierarchy")).toBe("Command Doctrine");
     expect(normalizeMhPhrasesInText("Mission Accomplished and handoff")).toBe(
       "Project Closeout and Project Closeout",
     );

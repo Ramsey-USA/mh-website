@@ -27,15 +27,17 @@ export function ResourcesHero({ locale = "en" }: ResourcesHeroProps) {
               {isEs ? "Biblioteca → Recursos" : "Library → Resources"}
             </span>
             <span className="block text-brand-secondary">
-              {isEs ? "Documentos de campo" : "Field Documents"}
+              {isEs ? "Documentos de campo listos" : "Field Documents Ready"}
             </span>
             <span className="block text-white">
-              {isEs ? "Listos cuando los necesita" : "Ready When You Need Them"}
+              {isEs
+                ? "Listos para revisión y seguimiento"
+                : "Ready for review and follow-through."}
             </span>
             <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
               {isEs
-                ? "Manuales, charlas de seguridad, formatos y documentacion de seguridad"
-                : "Manuals, Toolbox Talks, Forms, and Safety Documentation"}
+                ? "Manuales, charlas de seguridad, formatos y documentación de respaldo para planificación y entrega"
+                : "Manuals, toolbox talks, forms, and proof documents for planning and delivery."}
             </span>
             <span className="block text-brand-secondary/75 text-xs xs:text-sm sm:text-base mt-2">
               {COMPANY_INFO.slogan.primary}

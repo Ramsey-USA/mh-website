@@ -19,6 +19,7 @@ For enterprise term additions and term-protection rules, use `docs/branding/stan
 - **[Slogan Coverage Matrix](./slogan-coverage-matrix.md)** — Slogan coverage map across key surfaces.
 - **[Universal Terminology Guide](./universal-terminology-guide.md)** — Canonical terminology standards.
 - **[Construction Terminology Glossary](./construction-terminology-glossary.md)** — PMBOK 6 and military-themed construction term mapping.
+- **[Safety Terminology Glossary](../../technical/safety-terminology-glossary.md)** — Canonical MISH/APP/SSSP and MSDS/SDS + Toolbox Talk freshness definitions.
 - **[Dual Terminology Standard](./dual-terminology-standard.md)** — Required enterprise dual-label format rules.
 - **[Brand Congruency QA Checklist](./brand-congruency-qa-checklist.md)** — Strategy-side validation checklist.
 - **[Spanish Review Matrix - Core And Trust Pages (Phase 8.2)](./spanish-review-matrix-core-trust-phase8-2.md)** — Repository review artifact for namespace-by-namespace Spanish approval tracking.

@@ -6,6 +6,8 @@
  * touching JSX.
  */
 
+import { COMPANY_INFO } from "@/lib/constants/company";
+
 export interface HubCardDefinition {
   readonly title: string;
   readonly subtitle: string;
@@ -14,50 +16,79 @@ export interface HubCardDefinition {
   readonly badge: string;
 }
 
+function sitePath(path: string): string {
+  const base = COMPANY_INFO.urls.site.replace(/\/+$/, "");
+  return `${base}${path}`;
+}
+
 export const HUB_CARDS: readonly HubCardDefinition[] = [
   {
     title: "Safety Program (MISH / Safety Manual)",
-    subtitle: "Credentials, standards, and safety program overview",
-    href: "/safety",
+    subtitle:
+      "Public website: credentials, standards, and safety program overview",
+    href: sitePath("/safety"),
     icon: "shield",
-    badge: "Program",
+    badge: "Public Site",
   },
   {
     title: "Incident Reporting",
-    subtitle: "Submit incident reports directly from the field",
-    href: "/safety/incident-report",
+    subtitle: "Public website route for direct incident entry",
+    href: sitePath("/safety/incident-report"),
     icon: "report",
-    badge: "Direct Entry",
+    badge: "Public Site",
   },
   {
     title: "Employee Handbook",
     subtitle:
-      "Current handbook policies, acknowledgments, and onboarding references",
-    href: "/employee-handbook",
+      "Public website handbook index, acknowledgments, and onboarding references",
+    href: sitePath("/employee-handbook"),
     icon: "menu_book",
-    badge: "Current",
+    badge: "Public Site",
   },
   {
     title: "Safety + Handbook Forms",
     subtitle:
-      "Current Safety Program (MISH) and Employee Handbook forms for field and office workflows",
-    href: "/resources",
+      "Public website forms library for current Safety Program (MISH) and Employee Handbook workflows",
+    href: sitePath("/resources"),
     icon: "description",
-    badge: "Role-Gated Downloads",
+    badge: "Public + Role-Gated",
   },
   {
     title: "Manuals and SOPs",
-    subtitle: "Safety Manual, reference guides, and operations documentation",
-    href: "/resources",
+    subtitle:
+      "Public website resource index for manuals, SOPs, and reference guides",
+    href: sitePath("/resources"),
     icon: "library_books",
-    badge: "Reference",
+    badge: "Public Site",
+  },
+  {
+    title: "Operations Manual",
+    subtitle: "Public website PDF: current operations manual table of contents",
+    href: sitePath("/docs/operations/operations-manual-toc.pdf"),
+    icon: "engineering",
+    badge: "Public PDF",
+  },
+  {
+    title: "Marketing Strategy Guide",
+    subtitle: "Public website PDF: marketing strategy guide table of contents",
+    href: sitePath("/docs/marketing/marketing-strategy-guide-toc.pdf"),
+    icon: "campaign",
+    badge: "Public PDF",
+  },
+  {
+    title: "Sales and Estimating Guide",
+    subtitle:
+      "Public website PDF: sales and estimating guide table of contents",
+    href: sitePath("/docs/sales/sales-estimating-guide-toc.pdf"),
+    icon: "request_quote",
+    badge: "Public PDF",
   },
   {
     title: "Training and Toolbox Talks",
-    subtitle: "Training records and toolbox workflow materials",
-    href: "/resources",
+    subtitle: "Public website resource area for training and toolbox materials",
+    href: sitePath("/resources"),
     icon: "school",
-    badge: "Field Ready",
+    badge: "Public Site",
   },
 ] as const;
 

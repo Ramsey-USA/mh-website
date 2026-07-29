@@ -41,3 +41,5 @@ This folder is the source tree for the form families used by the document genera
 
 - Authoring baseline for APP structure: `documents/content/MHC-MISH-APP-59-Sections/Dean Thoemke-AGC-APP development.docx`.
 - Apply the guide's Policy -> Procedure -> Task hierarchy when updating MISH form language and associated acknowledgments.
+- MISH expands to **MH Construction Industrial Safety & Health Program** and serves as MH Construction's branded APP backbone.
+- Project-specific SSSPs must inherit MISH controls and be uniquely authored per project conditions and scope.

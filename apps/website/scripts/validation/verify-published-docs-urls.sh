@@ -19,6 +19,12 @@ PUBLIC_URL_PATHS=(
 RESTRICTED_URL_PATHS=(
   "/docs/safety/safety-manual-complete.pdf"
   "/docs/employee/employee-handbook-2026.pdf"
+  "/docs/operations/operations-manual-toc.pdf"
+  "/docs/operations/operations-manual-complete.pdf"
+  "/docs/marketing/marketing-strategy-guide-toc.pdf"
+  "/docs/marketing/marketing-strategy-guide-complete.pdf"
+  "/docs/sales/sales-estimating-guide-toc.pdf"
+  "/docs/sales/sales-estimating-guide-complete.pdf"
 )
 
 check_url() {

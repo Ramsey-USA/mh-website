@@ -248,7 +248,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Who supervises the job site daily?",
         answer:
-          "Every project is assigned a dedicated Superintendent to oversee daily operations, safety, and quality control. Our leadership team, including Vice President Arnold Garcia, ensures each job is managed in Procore for real-time oversight, including fit-out coordination, municipal documentation, and door/hardware scope tracking.",
+          "Every project is assigned a dedicated Superintendent to oversee daily operations, safety, and quality control. Field Operations include daily toolbox talks before shift start aligned to OSHA hazard seasons and Safety Data Sheets (SDS/MSDS) availability in our Staff Portal - (Field Operations) plus physical field copies in trucks and Mobile Command Center's (office trailers). Our leadership team, including Vice President Arnold Garcia, ensures each job is managed in Procore for real-time oversight, including fit-out coordination, municipal documentation, and door/hardware scope tracking.",
       },
       {
         question:

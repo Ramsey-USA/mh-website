@@ -196,7 +196,7 @@ const safetyFaqSchema = {
       name: "How does MH Construction maintain site safety daily?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "MH Construction's daily safety practices include toolbox talks before every shift, Job Hazard Analysis on every new scope, equipment inspections before every use, incident reporting for every event, weekly superintendent safety reviews, and peer recognition for safe behavior. Every team member holds stop-work authority.",
+        text: "MH Construction's daily safety practices include toolbox talks before every shift aligned to OSHA hazard seasons, Safety Data Sheets (SDS/MSDS) availability in our Staff Portal - (Field Operations) plus physical field copies in trucks and Mobile Command Center's (office trailers), Job Hazard Analysis on every new scope, equipment inspections before every use, incident reporting for every event, weekly superintendent safety reviews, and peer recognition for safe behavior. Every team member holds stop-work authority.",
       },
     },
     {

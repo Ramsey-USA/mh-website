@@ -13,15 +13,16 @@ or documentation that can affect MH brand consistency.
 ## Global Pass Criteria
 
 1. **Constants:** Company facts, slogans, and contact/license values match `brand-constants.md`.
-1. **Voice:** Copy remains relationship-first, factual, and non-hype.
+1. **Voice:** Copy remains relationship-first, factual, non-hype, and grounded in operational clarity, accountability, and dependable follow-through.
 1. **Veteran framing:** Veteran-owned wording is accurate and factual.
 1. **Trust continuity:** Accreditation and trust signals are preserved where present.
 1. **Terminology:** Naming remains consistent across UI copy, metadata, schema, and docs.
-1. **Dual terminology:** Cross-asset naming follows `docs/branding/strategy/dual-terminology-standard.md` for website, dashboard, MISH, handbook, and document surfaces.
+1. **Dual terminology:** Cross-asset naming follows `docs/branding/strategy/dual-terminology-standard.md` for website, dashboard, MISH, handbook, operations manual, marketing guide, sales guide, and document surfaces.
 1. **Construction glossary:** PMBOK 6 alignment and military-themed construction terms follow `docs/branding/strategy/construction-terminology-glossary.md`.
 1. **Terms source parity:** Terminology additions and mappings align with `docs/branding/standards/mhc-terms.docx` (Brand Terms Library v2.0).
 1. **Primary language pattern:** Surface-aware order is preserved: general copy/docs can render MH brand term first with industry clarifier, while SEO metadata remains construction-first.
 1. **Regulatory protection:** OSHA/WISHA terms stay unchanged in MISH docs, safety forms, and compliance communications.
+1. **Safety support readiness:** Manual-family language remains compatible with pending Safety Data Sheets (SDS/MSDS) and Toolbox Talk libraries, so future uploads can connect without terminology or workflow drift.
 1. **Accessibility:** Semantic headings, labels, contrast, and keyboard flow remain valid.
 1. **SEO naming:** Labels and titles stay plain-language and canonical. For Jeremy authority content, keep the approved trio `Jeremy Gale Thamert`, `Jeremy G. Thamert`, and `Jeremy Thamert` aligned with the shared `Words from the General` ribbon strategy.
 1. **Document chip parity:** For print/document artifacts, program/chapter/form identifier pillboxes use the canonical `1.5pt` corner radius consistently across safety-manual and employee-handbook templates.

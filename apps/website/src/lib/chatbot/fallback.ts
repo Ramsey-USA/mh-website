@@ -233,9 +233,9 @@ const ENGLISH_INTENT_RESPONSES = [
   },
 ] as const;
 
-const ENGLISH_DEFAULT_RESPONSE = `I can help with MH Construction services, Trade Partners, veteran-owned qualifications, safety information, and contact details. For project-specific questions, call ${CONTACT_PHONE} or visit ${CONTACT_URL}.`;
+const ENGLISH_DEFAULT_RESPONSE = `I can help with MH Construction services, Trade Partners, veteran-owned qualifications, safety information, and contact details. For project-specific planning, the best next step is a consultation to review scope, fit, and direct next steps. Call ${CONTACT_PHONE} or visit ${CONTACT_URL}.`;
 
-const SPANISH_DEFAULT_RESPONSE = `Puedo ayudarle con los servicios de MH Construction, nuestros socios comerciales, información para veteranos y datos de contacto. Para preguntas específicas sobre un proyecto, llame al ${CONTACT_PHONE} o visite ${CONTACT_URL}.`;
+const SPANISH_DEFAULT_RESPONSE = `Puedo ayudarle con los servicios de MH Construction, nuestros socios comerciales, información para veteranos y datos de contacto. Para planificación específica del proyecto, el siguiente paso es una consulta para revisar el alcance, la adecuación y los pasos siguientes. Llame al ${CONTACT_PHONE} o visite ${CONTACT_URL}.`;
 
 function normalizeMessage(message: string): string {
   return ` ${message
@@ -275,7 +275,7 @@ function getGreetingReply(normalized: string): string | null {
     return null;
   }
 
-  return "Hello. I can help with MH Construction services, Trade Partners, veteran-owned qualifications, safety information, and contact details. What would you like to know?";
+  return "Hello. I can help with MH Construction services, Trade Partners, veteran-owned qualifications, safety information, and contact details. For planning support, the best next step is a consultation to review scope and project fit. What would you like to know?";
 }
 
 function getIdentityReply(normalized: string): string | null {
@@ -291,7 +291,7 @@ function getIdentityReply(normalized: string): string | null {
     return null;
   }
 
-  return "MH Construction is a veteran-owned commercial contractor based in Pasco, Washington. We focus on relationship-first service, practical planning, and connecting clients with the right next step for their project.";
+  return "MH Construction is a veteran-owned commercial contractor based in Pasco, Washington. We help mission partners move from planning to execution with scope clarity, practical follow-through, and accountable delivery.";
 }
 
 function getAllyReply(normalized: string): string | null {

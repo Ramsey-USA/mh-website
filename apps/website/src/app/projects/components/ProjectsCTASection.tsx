@@ -50,25 +50,22 @@ export function ProjectsCTASection() {
               {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Ready to Build Trust
+                  Ready to Plan and Deliver
                 </span>
                 <span className="block bg-linear-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Through Partnership?
+                  With Confidence?
                 </span>
               </h2>
 
               {/* Description with colored keyword highlighting */}
               <p className="font-body mx-auto max-w-3xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                Experience our{" "}
+                We bring{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  four core values
-                </span>{" "}
-                in action: Honesty, Integrity, Professionalism, and
-                Thoroughness—all working together to build{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  lasting partnerships
-                </span>{" "}
-                and deliver exceptional results.
+                  preconstruction planning
+                </span>
+                {", clear communication, and accountable field execution"}
+                to every project so scope, schedule, and follow-through stay
+                aligned.
               </p>
             </div>
 

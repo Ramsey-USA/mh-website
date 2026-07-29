@@ -29,13 +29,13 @@ const OUTPUT_DIR = join(ROOT, "documents/generated-pdfs");
 const SECTIONS = join(OUTPUT_DIR, "sections");
 const FORM_PACKAGES_DIR = join(OUTPUT_DIR, "form-packages");
 const FORMS_MANIFEST_PATH = join(ROOT, "documents/forms/forms-manifest.json");
-// Employee Handbook manifest — defines the ordered chapters whose branded body
-// PDFs (header/footer chrome, generated into documents/generated-pdfs/sections/)
-// are merged into the complete handbook. The uploaded MHC Employee Handbook 2026
-// PDFs remain the content source of truth; page counts follow the branded render.
-const HANDBOOK_MANIFEST_PATH = join(
+const EMPLOYEE_HANDBOOK_MANIFEST_PATH = join(
   ROOT,
   "documents/content/employee-handbook.json",
+);
+const OPERATIONS_MANUAL_MANIFEST_PATH = join(
+  ROOT,
+  "documents/content/operations-manual.json",
 );
 
 // ── CLI flags ─────────────────────────────────────────────────────────────
@@ -49,32 +49,78 @@ const isEmployeeHandbook =
   manualArg === "employee" ||
   manualArg === "employee-handbook" ||
   manualArg === "handbook";
+const isOperationsManual =
+  manualArg === "operations" ||
+  manualArg === "operations-manual" ||
+  manualArg === "ops";
+const isSalesEstimatingGuide =
+  manualArg === "sales" ||
+  manualArg === "sales-estimating" ||
+  manualArg === "sales-estimating-guide" ||
+  manualArg === "sales-guide";
+const isMarketingStrategyGuide =
+  manualArg === "marketing" ||
+  manualArg === "marketing-strategy-guide" ||
+  manualArg === "marketing-guide" ||
+  isSalesEstimatingGuide;
+const isHandbookFamily = isEmployeeHandbook || isOperationsManual;
+const isManualFamily = isHandbookFamily || isMarketingStrategyGuide;
+if (!isManualFamily && manualArg !== "safety") {
+  console.error(
+    `❌  Unsupported manual '${manualArg}'. Use --manual safety, --manual employee-handbook, --manual operations-manual, --manual marketing-strategy-guide, or --manual sales-estimating-guide`,
+  );
+  process.exit(1);
+}
 const noTabs = process.argv.includes("--no-tabs");
 const noForms = process.argv.includes("--no-forms");
+const ACTIVE_MANUAL = isEmployeeHandbook
+  ? "employee-handbook"
+  : isOperationsManual
+    ? "operations-manual"
+    : isSalesEstimatingGuide
+      ? "sales-estimating-guide"
+      : isMarketingStrategyGuide
+        ? "marketing-strategy-guide"
+        : "safety-manual";
+const ACTIVE_MANIFEST_PATH = isEmployeeHandbook
+  ? EMPLOYEE_HANDBOOK_MANIFEST_PATH
+  : isOperationsManual
+    ? OPERATIONS_MANUAL_MANIFEST_PATH
+    : isMarketingStrategyGuide
+      ? join(ROOT, "documents/content/marketing-strategy-guide.json")
+      : join(ROOT, "documents/content/safety-manual.json");
 
-const MANUAL_LABEL = isEmployeeHandbook ? "Employee Handbook" : "Safety Manual";
-const COVER_FILE = isEmployeeHandbook
-  ? "employee-handbook-cover.pdf"
-  : "safety-manual-cover.pdf";
-const TOC_FILE = isEmployeeHandbook
-  ? "employee-handbook-toc.pdf"
-  : "safety-manual-toc.pdf";
-const TABS_FILE = isEmployeeHandbook
-  ? "employee-handbook-tabs.pdf"
-  : "safety-manual-tabs.pdf";
-const OUT_FILE = isEmployeeHandbook
-  ? join(OUTPUT_DIR, "employee-handbook-complete.pdf")
-  : join(OUTPUT_DIR, "safety-manual-complete.pdf");
-const OUT_FILE_DIGITAL = isEmployeeHandbook
-  ? join(OUTPUT_DIR, "employee-handbook-digital.pdf")
-  : join(OUTPUT_DIR, "safety-manual-digital.pdf");
-const PDF_METADATA_AUTHOR = isEmployeeHandbook
+const MANUAL_LABEL = isEmployeeHandbook
+  ? "Employee Handbook"
+  : isOperationsManual
+    ? "Operations Manual"
+    : isSalesEstimatingGuide
+      ? "Sales/Estimating Guide"
+      : isMarketingStrategyGuide
+        ? "Marketing Strategy Guide"
+        : "Safety Manual";
+const COVER_FILE = `${ACTIVE_MANUAL}-cover.pdf`;
+const TOC_FILE = `${ACTIVE_MANUAL}-toc.pdf`;
+const TABS_FILE = `${ACTIVE_MANUAL}-tabs.pdf`;
+const OUT_FILE = join(OUTPUT_DIR, `${ACTIVE_MANUAL}-complete.pdf`);
+const OUT_FILE_DIGITAL = join(OUTPUT_DIR, `${ACTIVE_MANUAL}-digital.pdf`);
+const PDF_METADATA_AUTHOR = isHandbookFamily
   ? "MH Construction Human Resources"
-  : "Matt Ramsey, Safety Officer";
+  : isSalesEstimatingGuide
+    ? "MH Construction Sales"
+    : isMarketingStrategyGuide
+      ? "MH Construction Marketing"
+      : "Matt Ramsey, Safety Officer";
 const PDF_METADATA_CREATOR = "MH Construction Document Pipeline";
 const PDF_METADATA_SUBJECT = isEmployeeHandbook
   ? "Employee Handbook · Policies · Procedures"
-  : "Accident · Injury · Safety · Health Program";
+  : isOperationsManual
+    ? "Operations Manual · Policies · Procedures"
+    : isSalesEstimatingGuide
+      ? "Sales/Estimating Guide · Lead Qualification and Proposal Discipline"
+      : isMarketingStrategyGuide
+        ? "Marketing Strategy Guide · 36-Week Content Plan"
+        : "Accident · Injury · Safety · Health Program";
 
 const FORMS_TOC_ROWS_FIRST_PAGE = 28;
 const FORMS_TOC_ROWS_OTHER_PAGES = 34;
@@ -231,7 +277,7 @@ const HANDBOOK_FORM_CONTENT_CODES = Object.freeze({
 
 function buildFormsAppendixDisplayId(rawId) {
   const normalized = String(rawId || "").trim();
-  if (!isEmployeeHandbook) return normalized;
+  if (!isHandbookFamily) return normalized;
 
   const handbookMatch = /^HANDBOOK-FORM-(\d{1,2})$/i.exec(normalized);
   if (handbookMatch) {
@@ -317,7 +363,9 @@ async function buildFormsTocPdf(entries) {
     page.drawText(
       isEmployeeHandbook
         ? "MH Construction Employee Handbook"
-        : "MH Construction Industrial Safety and Health Program",
+        : isOperationsManual
+          ? "MH Construction Operations Manual"
+          : "MH Construction Industrial Safety and Health Program",
       {
         x: marginX,
         y: subtitleY,
@@ -508,10 +556,8 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
     );
     process.exit(1);
   }
-  if (isEmployeeHandbook && !existsSync(HANDBOOK_MANIFEST_PATH)) {
-    console.error(
-      `❌  Handbook manifest not found at ${HANDBOOK_MANIFEST_PATH}.`,
-    );
+  if (isHandbookFamily && !existsSync(ACTIVE_MANIFEST_PATH)) {
+    console.error(`❌  Manual manifest not found at ${ACTIVE_MANIFEST_PATH}.`);
     process.exit(1);
   }
   if (includeForms && !existsSync(FORM_PACKAGES_DIR)) {
@@ -523,7 +569,7 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
 
   // ── Discover section PDFs in numeric order ──────────────────────────────
   let sectionFiles = [];
-  if (!isEmployeeHandbook) {
+  if (!isHandbookFamily) {
     const files = await readdir(SECTIONS);
     sectionFiles = files
       .filter((f) => f.endsWith(".pdf"))
@@ -547,10 +593,8 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
   // source PDFs. Page counts therefore follow the branded render, which may
   // differ from the uploaded source once header/footer chrome reflows content.
   let chapterFiles = [];
-  if (isEmployeeHandbook) {
-    const manifest = JSON.parse(
-      await readFile(HANDBOOK_MANIFEST_PATH, "utf-8"),
-    );
+  if (isHandbookFamily) {
+    const manifest = JSON.parse(await readFile(ACTIVE_MANIFEST_PATH, "utf-8"));
     const manifestSections = Array.isArray(manifest?.sections)
       ? manifest.sections
       : [];
@@ -576,15 +620,13 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
 
     if (missing.length > 0) {
       console.error(
-        `❌  Missing branded handbook chapter PDF(s) in ${SECTIONS}:\n     ${missing.join("\n     ")}\n     Run \`npm run docs:generate -- --manual employee-handbook\` first.`,
+        `❌  Missing branded manual chapter PDF(s) in ${SECTIONS}:\n     ${missing.join("\n     ")}\n     Run \`npm run docs:generate -- --manual ${ACTIVE_MANUAL}\` first.`,
       );
       process.exit(1);
     }
 
     if (chapterFiles.length === 0) {
-      console.error(
-        "❌  No handbook chapters defined in employee-handbook.json.",
-      );
+      console.error(`❌  No chapters defined in ${ACTIVE_MANUAL}.json.`);
       process.exit(1);
     }
   }
@@ -653,7 +695,7 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
   }
 
   // 4. All section PDFs in order (01–50) — MISH only
-  if (!isEmployeeHandbook) {
+  if (!isHandbookFamily) {
     for (const file of sectionFiles) {
       const num = file.split("-")[0];
       await appendPdf(`Section ${num}`, join(SECTIONS, file));
@@ -662,7 +704,7 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
 
   // 4b. Employee handbook chapter body PDFs — branded generated sections
   // (header/footer chrome). Content mirrors the uploaded 2026 source of truth.
-  if (isEmployeeHandbook) {
+  if (isHandbookFamily) {
     for (const { numberStr, fileName } of chapterFiles) {
       await appendPdf(`Chapter ${numberStr}`, join(SECTIONS, fileName));
     }
@@ -672,7 +714,7 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
   if (includeForms) {
     const formPackages = await getFormPackages();
     if (formPackages.length === 0) {
-      if (!isEmployeeHandbook) {
+      if (!isHandbookFamily) {
         console.error(
           "❌  No form packages found in documents/generated-pdfs/form-packages/. Run `npm run docs:generate:forms` first.",
         );
@@ -686,11 +728,19 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
       // Filter to canonical manual form IDs only; exclude helper artifacts.
       const filtered = isEmployeeHandbook
         ? formPackages.filter((pkg) => /^HANDBOOK-FORM-\d+$/i.test(pkg.id))
-        : formPackages.filter((pkg) => /^MISH\s+\d{1,2}$/i.test(pkg.id));
+        : isOperationsManual
+          ? formPackages.filter((pkg) => /^OPERATIONS-FORM-\d+$/i.test(pkg.id))
+          : formPackages.filter((pkg) => /^MISH\s+\d{1,2}$/i.test(pkg.id));
 
       if (filtered.length === 0) {
         console.log(
-          `  ℹ  No ${isEmployeeHandbook ? "handbook" : "MISH"} form packages found`,
+          `  ℹ  No ${
+            isEmployeeHandbook
+              ? "handbook"
+              : isOperationsManual
+                ? "operations"
+                : "MISH"
+          } form packages found`,
         );
       } else {
         const unmapped = filtered.filter((pkg) => !pkg.manualSection);
@@ -752,7 +802,9 @@ async function main() {
     // Digital variant: cover + TOC + sections (+ forms unless --no-forms)
     const title = isEmployeeHandbook
       ? "MH Construction Employee Handbook — Digital"
-      : "MH Construction Safety Manual — Digital";
+      : isOperationsManual
+        ? "MH Construction Operations Manual — Digital"
+        : "MH Construction Safety Manual — Digital";
     await merge({
       includeTabs: false,
       includeForms: !noForms,
@@ -763,7 +815,9 @@ async function main() {
     // Default: complete binder version (cover + TOC + tabs + sections + forms)
     const title = isEmployeeHandbook
       ? "MH Construction Employee Handbook — Complete"
-      : "MH Construction Safety Manual — Complete";
+      : isOperationsManual
+        ? "MH Construction Operations Manual — Complete"
+        : "MH Construction Safety Manual — Complete";
     await merge({
       includeTabs: true,
       includeForms: !noForms,

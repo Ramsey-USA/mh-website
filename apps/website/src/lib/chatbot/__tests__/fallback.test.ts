@@ -85,4 +85,11 @@ describe("Chatbot Fallback", () => {
     expect(response).toContain("lunes a viernes");
     expect(response).toContain("7:00 AM - 4:00 PM");
   });
+
+  it("uses scope-focused, consultation-oriented language for general help", () => {
+    const response = getChatFallbackResponse("Can you help me plan a project?");
+
+    expect(response).toContain("consultation");
+    expect(response).toContain("scope");
+  });
 });

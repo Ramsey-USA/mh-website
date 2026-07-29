@@ -9,6 +9,10 @@ export function ServicesHero({
 }: Readonly<{ heroSlogan?: string; locale?: SupportedLocale }>) {
   const t = useTranslations("home");
   const suffixLabel = locale === "es" ? "Servicios" : "Services";
+  const followThroughLine =
+    locale === "es"
+      ? "Planificación clara. Seguimiento responsable. Entrega confiable."
+      : "Clear planning. Responsible follow-through. Reliable delivery.";
 
   return (
     <section
@@ -47,6 +51,12 @@ export function ServicesHero({
               {COMPANY_INFO.slogan.primary}
             </span>
             <span className="block text-white/85 text-xs xs:text-sm sm:text-base mt-1">
+              {COMPANY_INFO.slogan.secondary}
+            </span>
+            <span className="block text-white/80 text-xs xs:text-sm sm:text-base mt-1">
+              {followThroughLine}
+            </span>
+            <span className="block text-white/70 text-xs xs:text-sm sm:text-base mt-1">
               {heroSlogan}
             </span>
           </h1>

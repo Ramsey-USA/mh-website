@@ -307,7 +307,8 @@ export default function PublicSectorFullPage() {
               </span>
               <span className="block text-white/90">
                 Built for agency requirements, schedule discipline, and clear
-                reporting with confidentiality-first communication controls
+                reporting with accountable delivery and confidentiality-first
+                communication controls
               </span>
               <span className="block text-white/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
                 {COMPANY_INFO.slogan.primary}

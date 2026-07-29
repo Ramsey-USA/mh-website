@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MISH Program Table of Contents</title>
+    <title>MH Construction Industrial Safety &amp; Health (MISH) Program Table of Contents</title>
     <!--
       Template tokens substituted at build time by generate.mjs:
         {{BRAND_LOGO_COLOR}}        → base64 data-URI of logo-color.png
@@ -82,12 +82,16 @@
         min-height: 11in;
         padding: 0;
         background: var(--paper);
-        overflow: hidden;
+        overflow: visible;
+        break-after: page;
+        page-break-after: always;
+        break-inside: avoid;
+        page-break-inside: avoid;
       }
 
-      .toc-page + .toc-page {
-        page-break-before: always;
-        break-before: page;
+      .toc-page:last-of-type {
+        break-after: auto;
+        page-break-after: auto;
       }
 
       .toc-page::before {
@@ -131,7 +135,7 @@
         z-index: 1;
         display: flex;
         flex-direction: column;
-        min-height: 11in;
+        min-height: auto;
         padding: 1.5in 1.05in 1.86in 1.15in;
       }
 
@@ -259,6 +263,47 @@
         padding-top: 1.42in;
       }
 
+      .toc-page:not(.toc-page--cont) .toc-logo {
+        height: 1.45in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-logo-wrap {
+        padding: 0.06in 0.16in;
+        margin: 0 auto 0.08in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-rule {
+        margin: 0 auto 0.08in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-program-chip {
+        margin: 0 auto 0.04in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-title {
+        margin: 0.01in 0 0.01in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-body {
+        margin-top: 0.42in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-row-head {
+        margin-top: 0.12in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-row + .toc-row {
+        padding-top: 0.06in;
+      }
+
+      .toc-page:not(.toc-page--cont) .mish-entry {
+        padding: 1.8pt 0;
+      }
+
+      .toc-page:not(.toc-page--cont) .mish-entry .mish-title {
+        gap: 0.5pt;
+      }
+
       .toc-page--cont {
         --toc-body-top: 1.12in;
         --toc-body-bottom: 1.72in;
@@ -274,6 +319,30 @@
         gap: 1pt;
       }
 
+      .toc-row-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 0.16in;
+        margin: 0 0 6pt;
+        padding: 0 0 4pt;
+        border-bottom: 0.45pt solid #d9c7ae;
+      }
+
+      .toc-row-head-left,
+      .toc-row-head-right {
+        font-family: var(--font-body);
+        font-size: 6.5pt;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--brand-secondary-text);
+        line-height: 1.1;
+      }
+
+      .toc-row-head-right {
+        text-align: left;
+      }
+
       .toc-row {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -281,33 +350,13 @@
         align-items: start;
       }
 
-      .toc-row-head {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: 0.16in;
-        align-items: end;
-        margin: 0 0 0.04in;
-        padding: 0 0 3pt;
-        border-bottom: 0.6pt solid var(--brand-secondary);
-      }
-
-      .toc-row-head-left,
-      .toc-row-head-right {
-        font-family: var(--font-body);
-        font-size: 6.35pt;
-        font-weight: 800;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--brand-secondary-text);
-      }
-
-      .toc-row-head-right {
-        text-align: left;
-      }
-
       .toc-row + .toc-row {
         border-top: 0.35pt solid #e5ddd2;
         padding-top: 0.1in;
+      }
+
+      .toc-page--cont .toc-row + .toc-row {
+        padding-top: 0.08in;
       }
 
       .toc-row-left,
@@ -321,6 +370,181 @@
 
       .toc-row-right .mish-entry.mish-form .mish-title {
         font-style: normal;
+      }
+
+      .toc-feature-stage {
+        position: absolute;
+        left: 1.22in;
+        right: 1.12in;
+        bottom: 1.91in;
+        top: 4.30in;
+        padding: 10pt 11pt 9pt;
+        border: 0.9pt solid var(--brand-secondary);
+        border-radius: 11pt;
+        background:
+          radial-gradient(circle at 92% 10%, rgba(189, 146, 100, 0.2) 0, rgba(189, 146, 100, 0) 34%),
+          linear-gradient(180deg, #f5efe5 0%, #ffffff 100%);
+        z-index: 1;
+      }
+
+      .toc-feature-stage::before {
+        content: "";
+        position: absolute;
+        top: 8pt;
+        left: 10pt;
+        right: 10pt;
+        height: 2pt;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+      }
+
+      .toc-feature-body {
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .toc-values-card {
+        margin-top: 6pt;
+        padding-top: 1pt;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .toc-values-title {
+        margin: 0 0 4pt;
+        font-size: 7.3pt;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        color: var(--brand-secondary-text);
+        text-transform: uppercase;
+      }
+
+      .toc-values-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4pt;
+      }
+
+      .toc-value-pill {
+        margin: 0;
+        border: 0.6pt solid var(--brand-secondary-light);
+        border-radius: 6pt;
+        padding: 3pt 5pt;
+        background: rgba(255, 255, 255, 0.88);
+        display: flex;
+        flex-direction: column;
+        gap: 1pt;
+      }
+
+      .toc-value-name {
+        font-size: 7.2pt;
+        line-height: 1.1;
+        font-weight: 800;
+        color: var(--brand-primary);
+      }
+
+      .toc-value-line {
+        font-size: 6.2pt;
+        line-height: 1.15;
+        font-weight: 700;
+        color: var(--brand-secondary-text);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .toc-team-photo {
+        display: block;
+        width: 100%;
+        height: 1.78in;
+        object-fit: cover;
+        object-position: center 34%;
+        border: 0.8pt solid var(--brand-secondary);
+        border-radius: 9pt;
+        margin-top: 7pt;
+        box-shadow: 0 5pt 14pt rgba(18, 35, 27, 0.14);
+      }
+
+      .toc-insight {
+        margin-top: 6pt;
+        padding: 7pt 8pt 7pt;
+        border: 0.7pt solid var(--brand-secondary-light);
+        border-radius: 9pt;
+        background: rgba(255, 255, 255, 0.93);
+      }
+
+      .toc-insight-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 8pt;
+      }
+
+      .toc-insight-copy {
+        flex: 1;
+      }
+
+      .toc-insight-label {
+        margin: 0 0 3pt;
+        color: var(--brand-secondary-text);
+        font-size: 6.4pt;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .toc-insight-quote {
+        margin: 0;
+        color: var(--brand-primary-dark);
+        font-size: 7.3pt;
+        line-height: 1.24;
+        font-weight: 700;
+      }
+
+      .toc-insight-attribution {
+        margin: 4pt 0 0;
+        color: var(--brand-primary);
+        font-size: 6.5pt;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      .toc-state-strip {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .toc-brand-chip {
+        width: 56pt;
+        height: 56pt;
+        border-radius: 12pt;
+        border: 0.8pt solid var(--brand-secondary);
+        background: linear-gradient(180deg, #ffffff 0%, #f5efe5 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4pt 10pt rgba(18, 35, 27, 0.12);
+      }
+
+      .toc-brand-chip img {
+        width: 42pt;
+        height: 42pt;
+        object-fit: contain;
+      }
+
+      .toc-insight-foot {
+        margin-top: 4pt;
+        padding-top: 4pt;
+        border-top: 0.5pt solid var(--brand-secondary-light);
+        color: var(--brand-secondary-text);
+        font-size: 6.2pt;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 800;
+        text-align: center;
       }
 
       .toc-row-empty {
@@ -337,22 +561,6 @@
         padding: 0;
         background: transparent;
         border: none;
-        border-radius: 0;
-      }
-
-      /* Cluster heading — simple outline style */
-      .cluster-head {
-        font-family: var(--font-heading);
-        font-size: 7.55pt;
-        font-weight: 700;
-        color: var(--brand-primary);
-        text-transform: uppercase;
-        letter-spacing: 0.11em;
-        margin: 0 0 0.05in 0;
-        padding: 0 0 3pt 0;
-        border-bottom: 0.9pt solid var(--brand-primary);
-        background: transparent;
-        border-left: none;
         border-radius: 0;
       }
 
@@ -375,22 +583,20 @@
 
       .mish-entry .mish-link {
         display: flex;
-        flex: 1;
         align-items: center;
         gap: 0.09in;
+        width: 100%;
         color: inherit;
         text-decoration: none;
       }
 
-      .mish-entry .mish-link:hover {
-        color: var(--brand-primary);
-      }
-
       .mish-entry .mish-code {
-        display: block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         flex-shrink: 0;
-        width: auto;
-        min-width: 0.53in;
+        width: 1.02in;
+        min-width: 1.02in;
         font-family: var(--font-heading);
         font-size: 8pt;
         font-weight: 800;
@@ -399,7 +605,7 @@
         border: 0.6pt solid var(--brand-primary-dark);
         border-radius: 1.5pt;
         box-shadow: inset 0 -0.8pt 0 rgba(0, 0, 0, 0.12);
-        padding: 1.9pt 7.6pt;
+        padding: 2pt 0;
         text-align: center;
         line-height: 1.2;
         letter-spacing: 0.014em;
@@ -414,8 +620,8 @@
         flex: 1;
         color: #15261d;
         font-family: var(--font-body);
-        font-size: 8.35pt;
-        line-height: 1.28;
+        font-size: 8.15pt;
+        line-height: 1.24;
         text-wrap: pretty;
         hyphens: auto;
         word-break: break-word;
@@ -426,13 +632,14 @@
 
       .mish-entry .mish-title-main {
         display: block;
+        font-weight: 700;
       }
 
       .mish-entry .mish-meta {
         display: block;
-        font-size: 6.2pt;
+        font-size: 6.35pt;
         font-weight: 700;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
         color: var(--brand-secondary-text);
         line-height: 1.2;
@@ -472,18 +679,19 @@
         font-size: var(--type-form-code);
         border: 0.5pt solid var(--brand-secondary);
         box-shadow: inset 0 -0.6pt 0 rgba(0, 0, 0, 0.08);
-        min-width: 0.46in;
-        padding: 1.45pt 6.6pt;
+        width: 1.02in;
+        min-width: 1.02in;
+        padding: 1.55pt 0;
         letter-spacing: 0.012em;
         border-radius: 1.5pt;
         font-variant-numeric: tabular-nums;
       }
 
       .mish-entry.mish-form .mish-title {
-        font-style: italic;
+        font-style: normal;
         color: var(--brand-secondary-text);
-        font-size: 8pt;
-        line-height: 1.24;
+        font-size: 7.45pt;
+        line-height: 1.12;
       }
 
       .mish-entry.mish-form .mish-meta {
@@ -613,10 +821,14 @@
             />
           </div>
           <div class="toc-rule" aria-hidden="true"></div>
-          <div class="toc-program-chip">MISH Program Index</div>
-          <h1 class="toc-title">MISH Program Table of Contents</h1>
+          <div class="toc-program-chip">
+            MH Construction Industrial Safety &amp; Health (MISH) Program Index
+          </div>
+          <h1 class="toc-title">
+            MH Construction Industrial Safety &amp; Health (MISH) Program Table of Contents
+          </h1>
           <p class="toc-subtitle">
-            MH Construction Industrial Safety and Health Program
+            MH Branded Accident Prevention Plan (APP) Developed from Dean's Gold Standard Guidelines
           </p>
         </header>
 
@@ -683,13 +895,69 @@
       <div class="toc-content">
         <header class="toc-header toc-header--cont">
           <p class="toc-cont-mark">
-            {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>MISH Program
-            Table of Contents (continued)
+            {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>MH
+            Construction Industrial Safety &amp; Health (MISH) Program Table of
+            Contents (continued)
           </p>
           <p class="toc-cont-page">Page 2</p>
         </header>
 
         <main class="toc-body">{{TOC_CLUSTERS_PAGE_2_HTML}}</main>
+
+        <section class="toc-feature-stage" aria-label="MH core values, team photo, and owner statement">
+          <div class="toc-feature-body">
+            <section class="toc-values-card" aria-label="MH Construction core values">
+              <p class="toc-values-title">Our Core Values</p>
+              <div class="toc-values-grid">
+                <p class="toc-value-pill">
+                  <span class="toc-value-name">Honesty</span>
+                  <span class="toc-value-line">Transparent Communication Always</span>
+                </p>
+                <p class="toc-value-pill">
+                  <span class="toc-value-name">Integrity</span>
+                  <span class="toc-value-line">Doing What's Right, Every Time</span>
+                </p>
+                <p class="toc-value-pill">
+                  <span class="toc-value-name">Professionalism</span>
+                  <span class="toc-value-line">Excellence in Every Interaction</span>
+                </p>
+                <p class="toc-value-pill">
+                  <span class="toc-value-name">Thoroughness</span>
+                  <span class="toc-value-line">Attention to Detail in Everything We Do</span>
+                </p>
+              </div>
+            </section>
+
+            <img
+              class="toc-team-photo"
+              src="{{BRAND_TEAM_GROUP_PHOTO}}"
+              alt="MH Construction team group photo"
+            />
+
+            <section class="toc-insight" aria-label="Owner statement and licensed service states">
+              <div class="toc-insight-top">
+                <div class="toc-insight-copy">
+                  <p class="toc-insight-label">Word from the General</p>
+                  <p class="toc-insight-quote">
+                    "To every new employee joining MH Construction, welcome. We expect you to work with
+                    discipline, communicate with respect, and take pride in doing the small things right
+                    every day because those habits protect your crew and protect our reputation. Ask
+                    questions early, watch out for one another, and hold your work to a standard you would
+                    stand behind in front of your family. If you commit to that mindset, we will invest in
+                    your growth and give you every chance to build a strong career here."
+                  </p>
+                  <p class="toc-insight-attribution">Jeremy Thamert, Owner &amp; President</p>
+                </div>
+                <div class="toc-state-strip" aria-label="MH Construction brand mark">
+                  <div class="toc-brand-chip">
+                    <img src="{{BRAND_LOGO_COLOR}}" alt="MH Construction logo" />
+                  </div>
+                </div>
+              </div>
+              <div class="toc-insight-foot">Tri-State Service Footprint • Washington • Oregon • Idaho</div>
+            </section>
+          </div>
+        </section>
 
         <footer class="footer">
           <div class="contact">
@@ -749,8 +1017,9 @@
       <div class="toc-content">
         <header class="toc-header toc-header--cont">
           <p class="toc-cont-mark">
-            {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>MISH Program
-            Table of Contents (continued)
+            {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>MH
+            Construction Industrial Safety &amp; Health (MISH) Program Table of
+            Contents (continued)
           </p>
           <p class="toc-cont-page">Page {{TOC_PAGE_3_NUMBER}}</p>
         </header>

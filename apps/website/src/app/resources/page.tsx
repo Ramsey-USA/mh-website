@@ -59,10 +59,13 @@ const resourcesSupportingLine = MH_SLOGANS.supporting[1];
 
 export default async function ResourcesPage() {
   const isEs = (await getServerLocale()) === "es";
+  const publicManualIds = new Set(["safety-manual", "employee-handbook"]);
   const safetyManual = manuals.find((doc) => doc.id === "safety-manual");
   const employeeHandbook = manuals.find(
     (doc) => doc.id === "employee-handbook",
   );
+  const internalManuals = manuals.filter((doc) => !publicManualIds.has(doc.id));
+  const publicManuals = manuals.filter((doc) => publicManualIds.has(doc.id));
 
   return (
     <>
@@ -83,8 +86,8 @@ export default async function ResourcesPage() {
 
           <p className="mt-4 mb-8 text-sm sm:text-base text-gray-600 dark:text-gray-300">
             {isEs
-              ? "Descargue manuales, formatos y documentos de cumplimiento listos para campo desde una sola biblioteca organizada. Las paginas publicas incluyen recursos del indice MISH y materiales del Employee Handbook para aseguradoras, bancos de fianzas, arquitectos, subcontratistas, proveedores y futuros empleados, mientras que los registros completos permanecen con acceso controlado."
-              : "Download field-ready manuals, forms, and compliance documents from one organized library. Public pages include MISH table-of-contents resources and Employee Handbook index materials for bonding banks, insurers, architects, subcontractors, vendors, and future employees, while full workflow records remain access-controlled."}
+              ? "Descargue manuales, formatos y documentos de cumplimiento listos para campo desde una sola biblioteca organizada. Las páginas públicas están estructuradas para apoyar una planificación clara, una entrega responsable y un seguimiento confiable para bancos de fianzas, aseguradoras, arquitectos, subcontratistas, proveedores y futuros empleados, mientras que los registros completos permanecen con acceso controlado."
+              : "Download field-ready manuals, forms, and compliance documents from one organized library. Public pages are structured to support clear planning, accountable delivery, and dependable follow-through for bonding banks, insurers, architects, subcontractors, vendors, and future employees, while full workflow records remain access-controlled."}
           </p>
           <span className="sr-only">
             {resourcesMissionLine} {resourcesSupportingLine}
@@ -114,8 +117,8 @@ export default async function ResourcesPage() {
                   </div>
                   <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                     {isEs
-                      ? "Acceda a nuestro resumen de seguridad alineado con OSHA con credenciales, mapeo de secciones y PDFs directos para precalificacion y revision de fianzas. Los enlaces publicos estan estructurados para diligencia externa rapida y verificacion de version vigente."
-                      : "Access our OSHA-aligned safety overview with credentials, section mapping, and direct PDFs for pre-qualification and surety review. Public links are structured for fast external diligence and current-version verification."}
+                      ? "Acceda a nuestro resumen de seguridad alineado con OSHA con credenciales, mapeo de secciones y PDFs directos para precalificación y revisión de fianzas. Los enlaces públicos están estructurados para diligencia externa rápida, revisión clara de alcance y verificación de versión vigente."
+                      : "Access our OSHA-aligned safety overview with credentials, section mapping, and direct PDFs for pre-qualification and surety review. Public links are structured for fast external diligence, clear scope review, and current-version verification."}
                   </p>
                   <div className="flex flex-wrap gap-2 mt-3">
                     <SafetyComplianceBadge variant="osha" />
@@ -306,7 +309,7 @@ export default async function ResourcesPage() {
                 </div>
               </Card>
             )}
-            {manuals.map((doc) => (
+            {publicManuals.map((doc) => (
               <Card
                 key={doc.id}
                 className="overflow-hidden border-gray-200 bg-white transition-all duration-300 hover:border-brand-primary hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:border-brand-secondary"
@@ -393,6 +396,59 @@ export default async function ResourcesPage() {
                 </Link>
               </Card>
             ))}
+
+            {internalManuals.length > 0 && (
+              <Card className="mt-5 border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-900/40">
+                <div className="p-5 sm:p-6">
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-primary/10">
+                      <MaterialIcon
+                        icon="lock"
+                        size="sm"
+                        className="text-brand-primary"
+                      />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-base font-bold text-gray-900 dark:text-white">
+                        {isEs
+                          ? "Manuales internos del equipo"
+                          : "Internal Team Manuals"}
+                      </h3>
+                      <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                        {isEs
+                          ? "Operations Manual, Marketing Strategy Guide y Sales and Estimating Guide se mantienen en el portal interno para equipos autenticados."
+                          : "The Operations Manual, Marketing Strategy Guide, and Sales and Estimating Guide are maintained in the internal staff portal for authenticated teams."}
+                      </p>
+                      <ul className="mt-3 flex flex-wrap gap-2 text-xs text-gray-700 dark:text-gray-300">
+                        {internalManuals.map((doc) => (
+                          <li
+                            key={`internal-${doc.id}`}
+                            className="rounded-full border border-gray-300 bg-white px-2.5 py-1 dark:border-gray-600 dark:bg-gray-800"
+                          >
+                            {doc.title}
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-4">
+                        <Link
+                          href="/contact?topic=staff-portal-access"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-brand-primary px-3 py-1.5 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary/10"
+                        >
+                          <MaterialIcon
+                            icon="admin_panel_settings"
+                            size="sm"
+                            className="text-brand-primary"
+                          />
+                          {isEs
+                            ? "Solicitar acceso al portal"
+                            : "Request staff portal access"}
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            )}
           </div>
 
           {/* Forms */}

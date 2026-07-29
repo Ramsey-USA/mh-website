@@ -92,7 +92,7 @@ export const metadata: Metadata = withGeoMetadata({
     template: "%s",
   },
   description:
-    "MH Construction, led by Owner & President Jeremy Thamert, partners with owners, facilities teams, and public agencies to plan and deliver commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across Washington, Oregon, and Idaho.",
+    "MH Construction partners with owners, facilities teams, and public agencies to plan and deliver commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across Washington, Oregon, and Idaho with scope clarity, practical follow-through, and accountable delivery.",
   keywords: [
     "Jeremy Gale Thamert",
     "Jeremy G. Thamert",
@@ -172,7 +172,7 @@ export const metadata: Metadata = withGeoMetadata({
       "Construction Planning and Delivery in WA, OR, and ID",
     ),
     description:
-      "Stakeholder-focused planning and delivery for commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across Washington, Oregon, and Idaho.",
+      "Stakeholder-focused planning and delivery for commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across Washington, Oregon, and Idaho with scope clarity and practical follow-through.",
     images: [
       {
         url: "/images/og-default.jpg",
@@ -191,7 +191,7 @@ export const metadata: Metadata = withGeoMetadata({
       "Construction Planning and Delivery in WA, OR, and ID",
     ),
     description:
-      "MH Construction partners with owners, facilities teams, and public agencies to deliver commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across WA, OR, and ID.",
+      "MH Construction partners with owners, facilities teams, and public agencies to deliver commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across WA, OR, and ID with scope clarity and practical follow-through.",
     images: ["/images/og-default.jpg"],
   },
   robots: {

@@ -3,32 +3,32 @@
 ## home
 
 seoName: Home
-slogan: Straight answers from the Command Center, built with American grit.
+slogan: Clear scope, accountable delivery, and dependable follow-through.
 
 ## about
 
 seoName: About Us
-slogan: About Us with mission-brief clarity, service-earned values, and handshake pride.
+slogan: About Us with project-brief clarity, service-earned values, and accountable delivery.
 
 ## services
 
 seoName: Services
-slogan: Services with operations-brief discipline, done right for every American jobsite.
+slogan: Services with planning-first scope alignment, practical coordination, and dependable follow-through.
 
 ## projects
 
 seoName: Projects
-slogan: Projects with SITREP accountability and craftsmanship that honors the work.
+slogan: Projects with clear sequencing, accountable delivery, and craftsmanship that honors the work.
 
 ## projectDetail
 
 seoName: Project Detail
-slogan: Project Detail with SITREP clarity from first walkthrough to proud handoff.
+slogan: Project Detail with clear sequencing from first walkthrough to proud handoff.
 
 ## contact
 
 seoName: Contact
-slogan: Contact through the Comms Desk for direct answers and stand-up service.
+slogan: Contact through a direct project coordination path with clear answers and dependable follow-through.
 
 ## testimonials
 

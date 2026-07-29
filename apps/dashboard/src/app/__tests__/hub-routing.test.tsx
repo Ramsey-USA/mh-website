@@ -41,6 +41,8 @@ jest.mock("@/lib/analytics/components/PageTrackingClient", () => ({
 
 jest.mock("@/lib/hub/resources", () => ({
   getHubSafetySummary: async () => ({
+    manualFamilyCount: 5,
+    strategyGuideCount: 2,
     sectionCount: 59,
     revisionNumber: "3",
     handbookRevision: "4.0",
@@ -64,7 +66,9 @@ describe("Operations Hub page routing", () => {
       name: /Incident Reporting/i,
     });
 
-    expect(incidentCard).toHaveAttribute("href", "/safety/incident-report");
+    expect(incidentCard.getAttribute("href")).toMatch(
+      /\/safety\/incident-report$/,
+    );
   });
 
   it("keeps Employee Handbook card mapped to handbook route", async () => {
@@ -74,7 +78,7 @@ describe("Operations Hub page routing", () => {
       name: /^menu_book Employee Handbook/i,
     });
 
-    expect(handbookCard).toHaveAttribute("href", "/employee-handbook");
+    expect(handbookCard.getAttribute("href")).toMatch(/\/employee-handbook$/);
   });
 
   it("renders safety manual revision summary from hub resources", async () => {
@@ -86,6 +90,8 @@ describe("Operations Hub page routing", () => {
     expect(screen.getByText(/12 handbook forms/i)).toBeInTheDocument();
     expect(screen.getByText(/Safety Program forms: 42/i)).toBeInTheDocument();
     expect(screen.getByText(/Total active forms: 54/i)).toBeInTheDocument();
+    expect(screen.getByText(/Manual families: 5/i)).toBeInTheDocument();
+    expect(screen.getByText(/Strategy guides: 2/i)).toBeInTheDocument();
   });
 
   it("renders admin tools section with review profile action", async () => {

@@ -147,6 +147,14 @@ If sync check fails, remove mirror duplicates under [apps/website/docs](apps/web
 
 Document generation commands live in [apps/website](apps/website) package scripts and use canonical sources under [documents/](documents).
 
+Terminology standard:
+
+- MISH = **MH Construction Industrial Safety & Health Program**.
+- MISH is MH Construction's branded **Accident Prevention Plan (APP)** framework.
+- MISH is the backbone for every project's unique **Site Specific Safety Plan (SSSP)**.
+- Canonical terminology reference: [docs/technical/safety-terminology-glossary.md](docs/technical/safety-terminology-glossary.md).
+- Future cross-manual source intake (branding terms strategy aligned): [documents/content/MHC-Operations-Manual](documents/content/MHC-Operations-Manual).
+
 Canonical output path when running these commands from repo root:
 
 - [documents/generated-pdfs/](documents/generated-pdfs)

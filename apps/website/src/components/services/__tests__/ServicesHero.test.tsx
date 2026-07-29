@@ -59,4 +59,13 @@ describe("ServicesHero", () => {
       ),
     ).toBeInTheDocument();
   });
+
+  it("renders a branded follow-through line", () => {
+    render(<ServicesHero />);
+    expect(
+      screen.getByText(
+        /Clear planning\. Responsible follow-through\. Reliable delivery\./i,
+      ),
+    ).toBeInTheDocument();
+  });
 });

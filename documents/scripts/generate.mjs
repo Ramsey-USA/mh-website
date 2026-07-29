@@ -127,6 +127,7 @@ const MATERIAL_ICON_LIGATURE_SET = new Set(
 let PDF_MATERIAL_ICONS_STYLE_TAG;
 let PDF_MENDL_STYLE_TAG;
 let PDF_MENDL_HF_FONT_STYLE;
+let PDF_TERMINOLOGY_ALIAS_MAP;
 
 function resolvePdfFontPath(fileName) {
   const candidates = [
@@ -218,6 +219,32 @@ function getPdfMendlStyleTag() {
     PDF_MENDL_STYLE_TAG = buildPdfMendlStyleTag();
   }
   return PDF_MENDL_STYLE_TAG;
+}
+
+function getPdfTerminologyAliasMap() {
+  if (PDF_TERMINOLOGY_ALIAS_MAP !== undefined) {
+    return PDF_TERMINOLOGY_ALIAS_MAP;
+  }
+
+  PDF_TERMINOLOGY_ALIAS_MAP = new Map();
+
+  try {
+    const raw = readFileSync(TERMINOLOGY_LIBRARY_FILE, "utf-8");
+    const parsed = JSON.parse(raw);
+    for (const entries of Object.values(parsed.categories || {})) {
+      if (!Array.isArray(entries)) continue;
+      for (const entry of entries) {
+        const brandTerm = String(entry?.brandTerm || "").trim();
+        const standardTerm = String(entry?.standardTerm || "").trim();
+        if (!brandTerm || !standardTerm) continue;
+        PDF_TERMINOLOGY_ALIAS_MAP.set(brandTerm.toLowerCase(), standardTerm);
+      }
+    }
+  } catch {
+    PDF_TERMINOLOGY_ALIAS_MAP = new Map();
+  }
+
+  return PDF_TERMINOLOGY_ALIAS_MAP;
 }
 
 /**
@@ -527,6 +554,14 @@ const CANONICAL_HANDBOOK_TOC_TEMPLATE_PATH = join(
   CANONICAL_DOCS_DIR,
   "manuals/employee-handbook-toc.html",
 );
+const MARKETING_GUIDE_SECTION_DRAFTS_DIR = join(
+  DOCS_DIR,
+  "content/mhc-marketing-strategy-guide-2026/sections",
+);
+const OPERATIONS_MANUAL_SECTION_DRAFTS_DIR = join(
+  DOCS_DIR,
+  "content/MHC-Operations-Manual/02-section-drafts",
+);
 const SAFETY_LETTERHEAD_TEMPLATE_PATH = join(
   DOCS_DIR,
   "manuals/safety-manual-letterhead.html",
@@ -540,6 +575,10 @@ const HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME =
   "form-handbook-company-letterhead.pdf";
 const SAFETY_FORMS_PACKAGE_FILE_NAME = "safety-manual-forms-package.pdf";
 const HANDBOOK_FORMS_PACKAGE_FILE_NAME = "employee-handbook-forms-package.pdf";
+const TERMINOLOGY_LIBRARY_FILE = join(
+  DOCS_DIR,
+  "content/terminology-library.json",
+);
 const LEGACY_LETTERHEAD_FILE_NAMES = [
   "employee-handbook-letterhead.pdf",
   "safety-manual-letterhead.pdf",
@@ -581,17 +620,39 @@ const isEmployeeHandbook =
   manualArg === "employee" ||
   manualArg === "employee-handbook" ||
   manualArg === "handbook";
+const isOperationsManual =
+  manualArg === "operations" ||
+  manualArg === "operations-manual" ||
+  manualArg === "ops";
+const isSalesEstimatingGuide =
+  manualArg === "sales" ||
+  manualArg === "sales-estimating" ||
+  manualArg === "sales-estimating-guide" ||
+  manualArg === "sales-guide";
+const isMarketingStrategyGuide =
+  manualArg === "marketing" ||
+  manualArg === "marketing-strategy-guide" ||
+  manualArg === "marketing-guide" ||
+  isSalesEstimatingGuide;
+const isHandbookFamily = isEmployeeHandbook || isOperationsManual;
+const isManualFamily = isHandbookFamily || isMarketingStrategyGuide;
 
-if (!isEmployeeHandbook && manualArg !== "safety") {
+if (!isManualFamily && manualArg !== "safety") {
   console.error(
-    `❌  Unsupported manual '${manualArg}'. Use --manual safety or --manual employee-handbook`,
+    `❌  Unsupported manual '${manualArg}'. Use --manual safety, --manual employee-handbook, --manual operations-manual, --manual marketing-strategy-guide, or --manual sales-estimating-guide`,
   );
   process.exit(1);
 }
 
 const ACTIVE_MANUAL = isEmployeeHandbook
   ? "employee-handbook"
-  : "safety-manual";
+  : isOperationsManual
+    ? "operations-manual"
+    : isSalesEstimatingGuide
+      ? "sales-estimating-guide"
+      : isMarketingStrategyGuide
+        ? "marketing-strategy-guide"
+        : "safety-manual";
 const cacheRunSummary = {
   sections: null,
   formCovers: null,
@@ -600,7 +661,13 @@ const cacheRunSummary = {
 const MISH_MAX_SECTION = 59;
 const ACTIVE_MANUAL_LABEL = isEmployeeHandbook
   ? "Employee Handbook"
-  : "MISH Safety & Health Program (Safety Manual)";
+  : isOperationsManual
+    ? "Operations Manual"
+    : isSalesEstimatingGuide
+      ? "Sales/Estimating Guide"
+      : isMarketingStrategyGuide
+        ? "Marketing Strategy Guide"
+        : "MH Construction Industrial Safety & Health (MISH) Program";
 
 MANIFEST = join(DOCS_DIR, `content/${ACTIVE_MANUAL}.json`);
 
@@ -620,13 +687,70 @@ try {
 
 // ── Runtime revision enforcement (master-operator consistency requirement) ───
 const ENFORCED_REVISION_DATE = "7/1/2026";
-const ENFORCED_REVISION_NUMBER = isEmployeeHandbook ? "4.0" : "3.0";
+const ENFORCED_REVISION_NUMBER = isEmployeeHandbook
+  ? "4.0"
+  : isOperationsManual
+    ? "1.0"
+    : isMarketingStrategyGuide
+      ? "1.0"
+      : "3.0";
 BRAND.revisionDate = ENFORCED_REVISION_DATE;
 BRAND.revisionNumber = ENFORCED_REVISION_NUMBER;
 
 const ACTIVE_MANUAL_DIGITAL_URL = isEmployeeHandbook
   ? `${SITE_URL}/employee-handbook`
-  : `${SITE_URL}/resources/safety-manual/contents`;
+  : isOperationsManual
+    ? `${SITE_URL}/operations-manual`
+    : isSalesEstimatingGuide
+      ? `${SITE_URL}/docs/sales`
+      : isMarketingStrategyGuide
+        ? `${SITE_URL}/docs/marketing`
+        : `${SITE_URL}/resources/safety-manual/contents`;
+
+function resolveManualTemplateName(suffix) {
+  if (isMarketingStrategyGuide) {
+    return `employee-handbook-${suffix}.html`;
+  }
+  return `${ACTIVE_MANUAL}-${suffix}.html`;
+}
+
+function adaptMarketingStrategyGuideTemplate(html) {
+  const guideLabel = isSalesEstimatingGuide
+    ? "Sales/Estimating Guide"
+    : "Marketing Strategy Guide";
+  const guidePackageLabel = isSalesEstimatingGuide
+    ? "Sales/Estimating Guide Package"
+    : "Marketing Strategy Guide Package";
+  const guideReceiptLabel = isSalesEstimatingGuide
+    ? "Sales/Estimating Guide Receipt"
+    : "Marketing Strategy Guide Receipt";
+  const guideAcknowledgmentLabel = isSalesEstimatingGuide
+    ? "Sales/Estimating Guide Acknowledgment"
+    : "Marketing Strategy Guide Acknowledgment";
+  const guidePluralLabel = isSalesEstimatingGuide
+    ? "Sales/estimating guide"
+    : "Marketing strategy guide";
+
+  return html
+    .replaceAll("Employee Handbook", guideLabel)
+    .replaceAll("Handbook", "Guide")
+    .replaceAll("HANDBOOK", "MARKETING")
+    .replaceAll("Chapter", "Section")
+    .replaceAll("chapter", "section")
+    .replaceAll("Scan for latest handbook", "Scan for latest guide")
+    .replaceAll("Handbook Online", "Guide Online")
+    .replaceAll("Handbook Snapshot", "Guide Snapshot")
+    .replaceAll("Handbook Table of Contents", guideLabel)
+    .replaceAll("Handbook Index", "Guide Index")
+    .replaceAll("Employee Handbook Forms Package", guidePackageLabel)
+    .replaceAll(
+      "Employee handbook forms with covers",
+      `${guidePluralLabel} sections and cover`,
+    )
+    .replaceAll("Employee Handbook Receipt", guideReceiptLabel)
+    .replaceAll("Employee Handbook Receipt Sign-Off", guideAcknowledgmentLabel)
+    .replaceAll("Employee Handbook", guideLabel);
+}
 
 const WEBSITE_PAGE_INVENTORY = [
   {
@@ -1626,25 +1750,52 @@ function buildSectionRelatedFormsHtml(sectionNumber, formsMap) {
   ].join("");
 }
 
+function normalizeTitleTerminology(value) {
+  const text = String(value || "").trim();
+  if (!text) return text;
+
+  const aliases = [...getPdfTerminologyAliasMap().entries()].sort(
+    ([left], [right]) => right.length - left.length,
+  );
+
+  let normalized = text;
+  for (const [alias, replacement] of aliases) {
+    const pattern = new RegExp(
+      `\\b${alias.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`,
+      "gi",
+    );
+    normalized = normalized.replace(pattern, replacement);
+  }
+
+  return normalized;
+}
+
 function normalizeTocTitle(value) {
   const text = String(value || "").trim();
   if (!text) return text;
 
+  const terminologyNormalized = normalizeTitleTerminology(text);
+
   const acronyms = new Set([
     "mh",
+    "mhc",
     "app",
     "bbb",
     "cfr",
     "coi",
     "ems",
     "epa",
+    "hh2",
     "jha",
     "jsa",
+    "kpi",
     "mish",
     "mvr",
     "osha",
     "ppe",
+    "raci",
     "sds",
+    "sop",
     "wac",
   ]);
 
@@ -1667,7 +1818,7 @@ function normalizeTocTitle(value) {
     "with",
   ]);
 
-  const words = text.toLowerCase().split(/\s+/);
+  const words = terminologyNormalized.toLowerCase().split(/\s+/);
   const normalized = words
     .map((word, index) => {
       if (acronyms.has(word)) return word.toUpperCase();
@@ -1792,6 +1943,8 @@ function buildClusterAlignedHtml(
 ) {
   if (nums.length === 0) return "";
 
+  const showClusterHeading = options.showClusterHeading !== false;
+  const showColumnHeaders = options.showColumnHeaders !== false;
   const docColumnLabel = String(options.docColumnLabel || "Chapter Documents");
   const formColumnLabel = String(options.formColumnLabel || "Required Forms");
 
@@ -1827,9 +1980,24 @@ function buildClusterAlignedHtml(
 
   return (
     `<div class="cluster">` +
-    `<h2 class="cluster-head">${escapeHtml(clusterName)}</h2>` +
-    `<div class="toc-row-head"><div class="toc-row-head-left">${escapeHtml(docColumnLabel)}</div><div class="toc-row-head-right">${escapeHtml(formColumnLabel)}</div></div>` +
+    (showClusterHeading
+      ? `<h2 class="cluster-head">${escapeHtml(clusterName)}</h2>`
+      : "") +
+    (showColumnHeaders
+      ? `<div class="toc-row-head"><div class="toc-row-head-left">${escapeHtml(docColumnLabel)}</div><div class="toc-row-head-right">${escapeHtml(formColumnLabel)}</div></div>`
+      : "") +
     `<div class="cluster-rows">${rows}</div>` +
+    `</div>`
+  );
+}
+
+function buildTocColumnHeaderHtml(options = {}) {
+  const docColumnLabel = String(options.docColumnLabel || "Program Documents");
+  const formColumnLabel = String(options.formColumnLabel || "Controlled Forms");
+  return (
+    `<div class="toc-row-head">` +
+    `<div class="toc-row-head-left">${escapeHtml(docColumnLabel)}</div>` +
+    `<div class="toc-row-head-right">${escapeHtml(formColumnLabel)}</div>` +
     `</div>`
   );
 }
@@ -1895,6 +2063,7 @@ function splitTocNumsByFlow(presentNums, formsMap = null, options = {}) {
   )
     ? options.continuationPageUnitBudget
     : TOC_CONT_PAGE_UNIT_BUDGET;
+  const includeClusterHeadings = options.includeClusterHeadings !== false;
 
   const page1 = new Set();
   const page2 = new Set();
@@ -1920,7 +2089,8 @@ function splitTocNumsByFlow(presentNums, formsMap = null, options = {}) {
 
   for (const n of remainingNums) {
     const clusterName = findTocClusterNameForSection(n);
-    const headingUnits = clusterName === currentCluster ? 0 : 1;
+    const headingUnits =
+      includeClusterHeadings && clusterName !== currentCluster ? 1 : 0;
     const formCount = formsMap?.get(n)?.length || 0;
     const entryUnits = 1 + formCount;
     const neededUnits = headingUnits + entryUnits;
@@ -2007,23 +2177,37 @@ function buildSectionHeaderHtml(
   qrDataUrl,
   options = {},
 ) {
-  const manualKind = options.manualKind === "handbook" ? "handbook" : "safety";
+  const manualKind =
+    options.manualKind === "handbook"
+      ? "handbook"
+      : options.manualKind === "operations"
+        ? "operations"
+        : "safety";
   const isHandbookHeader = manualKind === "handbook";
+  const isOperationsHeader = manualKind === "operations";
   const titleShort =
     sectionTitle.length > 38 ? sectionTitle.slice(0, 35) + "…" : sectionTitle;
   const mishRef = sectionToMishRef(sectionNum);
   const structureLabel = isHandbookHeader
     ? `HANDBOOK SECTION\u00a0${sectionNum}`
-    : `MISH\u00a0${sectionNum}\u00a0\u2014\u00a0MISH\u00a0${mishRef}`;
+    : isOperationsHeader
+      ? `OPERATIONS SECTION\u00a0${sectionNum}`
+      : `MISH\u00a0${sectionNum}\u00a0\u2014\u00a0MISH\u00a0${mishRef}`;
   const qrLabel = isHandbookHeader
     ? `HB\u00a0${sectionNum}`
-    : `MISH\u00a0${sectionNum}`;
+    : isOperationsHeader
+      ? `OPS\u00a0${sectionNum}`
+      : `MISH\u00a0${sectionNum}`;
   const font = PDF_FONT_STACK_BODY;
   const pad = "padding:0 0.9in 0 0.92in";
   const fontFaceStyle = getPdfMendlHeaderFooterFontStyle();
   const revNum = options.revNum;
   const revDate = options.revDate;
-  const tabToken = isHandbookHeader ? sectionNum : sectionToTab(sectionNum);
+  const tabToken = isHandbookHeader
+    ? sectionNum
+    : isOperationsHeader
+      ? sectionNum
+      : sectionToTab(sectionNum);
   const metaRow = revNum
     ? [
         `<span style="display:flex;align-items:center;gap:4pt;margin-top:1.5pt;white-space:nowrap;">`,
@@ -2260,20 +2444,16 @@ async function extractFieldRectsFromHtml(html, tmpName = "_tmp_measure.html") {
       });
       return out;
     });
+    await page.close();
     return fields;
-  } finally {
+  } catch (error) {
     await page.close().catch(() => {});
+    throw error;
+  } finally {
     if (!process.env.DEBUG_KEEP_HTML) unlinkSync(tmpHtml);
   }
 }
 
-/**
- * Overlay AcroForm fields onto a rendered PDF using rectangles
- * measured from the source HTML by `extractFieldRectsFromHtml`.
- * Widgets are transparent (border 0, white border color) so the
- * visible chrome (underlines, table borders, check squares) comes
- * from the template — not from the PDF annotation layer.
- */
 async function applyMeasuredFieldsToPdf(pdfPath, fields) {
   const pdfBytes = await readFile(pdfPath);
   const pdfDoc = await PDFDocument.load(pdfBytes);
@@ -2300,12 +2480,9 @@ async function applyMeasuredFieldsToPdf(pdfPath, fields) {
     const y = ph - inch(f.y) - inch(f.h);
     const w = inch(f.w);
     const h = inch(f.h);
+
     if (f.type === "check") {
       const cb = form.createCheckBox(f.name);
-      // Checkboxes render their own visible border so they appear
-      // consistently across PDF viewers without relying on the
-      // underlying HTML border (which may be obscured by the widget
-      // background fill in some renderers).
       cb.addToPage(page, {
         x,
         y,
@@ -2314,26 +2491,28 @@ async function applyMeasuredFieldsToPdf(pdfPath, fields) {
         borderColor: rgb(0.07, 0.14, 0.11),
         borderWidth: 0.7,
       });
-    } else {
-      const tf = form.createTextField(f.name);
-      if (f.type === "multiline") tf.enableMultiline();
-      const inset = widgetInsets[f.type] || widgetInsets.text;
-      const widgetX = x + inch(inset.left);
-      const widgetW = Math.max(8, w - inch(inset.left + inset.right));
-      const widgetTop = f.y + inset.top;
-      const widgetH = Math.max(
-        f.type === "multiline" ? 18 : 8.64,
-        h - inch(inset.top + inset.bottom),
-      );
-      tf.addToPage(page, {
-        ...textStyle,
-        x: widgetX,
-        y: ph - inch(widgetTop) - widgetH,
-        width: widgetW,
-        height: widgetH,
-      });
-      tf.setFontSize(f.type === "multiline" ? 10 : 9);
+      continue;
     }
+
+    const tf = form.createTextField(f.name);
+    if (f.type === "multiline") tf.enableMultiline();
+    const inset = widgetInsets[f.type] || widgetInsets.text;
+    const widgetX = x + inch(inset.left);
+    const widgetW = Math.max(8, w - inch(inset.left + inset.right));
+    const widgetTop = f.y + inset.top;
+    const widgetH = Math.max(
+      f.type === "multiline" ? 18 : 8.64,
+      h - inch(inset.top + inset.bottom),
+    );
+
+    tf.addToPage(page, {
+      ...textStyle,
+      x: widgetX,
+      y: ph - inch(widgetTop) - widgetH,
+      width: widgetW,
+      height: widgetH,
+    });
+    tf.setFontSize(f.type === "multiline" ? 10 : 9);
   }
 
   form.updateFieldAppearances(font);
@@ -2551,13 +2730,20 @@ function isMishFormEntry(formEntry) {
   return /^MISH\s+\d{1,2}$/.test(id);
 }
 
+function isOperationsFormEntry(formEntry) {
+  const id = String(formEntry?.id || "").toUpperCase();
+  return /^OPERATIONS-FORM-\d{1,2}$/.test(id);
+}
+
 function getFormsForActiveManual(forms) {
   const list = Array.isArray(forms) ? forms : [];
-  return list.filter((formEntry) =>
-    isEmployeeHandbook
-      ? isHandbookFormEntry(formEntry)
-      : isMishFormEntry(formEntry),
-  );
+  if (isEmployeeHandbook) {
+    return list.filter((formEntry) => isHandbookFormEntry(formEntry));
+  }
+  if (isOperationsManual) {
+    return list.filter((formEntry) => isOperationsFormEntry(formEntry));
+  }
+  return list.filter((formEntry) => isMishFormEntry(formEntry));
 }
 
 function buildHandbookForm04Pages(formEntry) {
@@ -4551,7 +4737,7 @@ async function generateAllFormPackages() {
   const validPackageNames = new Set(
     eligible.map((formEntry) => `${slugForFormPackage(formEntry)}.pdf`),
   );
-  if (isEmployeeHandbook) {
+  if (isHandbookFamily) {
     validPackageNames.add(HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME);
     validPackageNames.add(HANDBOOK_FORMS_PACKAGE_FILE_NAME);
   } else {
@@ -4559,7 +4745,7 @@ async function generateAllFormPackages() {
   }
 
   const isActiveFamilyPackage = (fileName) => {
-    if (isEmployeeHandbook) {
+    if (isHandbookFamily) {
       return (
         fileName.startsWith("form-handbook-") ||
         fileName === HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME ||
@@ -4602,7 +4788,7 @@ async function generateAllFormPackages() {
     rendered: renderedCount,
     skipped: skippedCount,
   };
-  if (isEmployeeHandbook) {
+  if (isHandbookFamily) {
     await syncConsolidatedLetterheadIntoHandbookForms(packagesDir);
   }
 
@@ -4623,7 +4809,7 @@ async function generateAllFormPackages() {
     handbookPackageFiles.push(HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME);
   }
 
-  if (isEmployeeHandbook) {
+  if (isHandbookFamily) {
     await generateCombinedFormSetPackage({
       packagesDir,
       packageFileName: HANDBOOK_FORMS_PACKAGE_FILE_NAME,
@@ -4797,22 +4983,20 @@ async function renderPdf(htmlPath, pdfPath, pageOpts = {}) {
 async function generateCover() {
   console.log(`\n📄 Generating ${ACTIVE_MANUAL_LABEL} cover…`);
   await ensureDir(OUTPUT_DIR);
-  await validateManualCoverCohesionGuardrails();
-  const templateName = isEmployeeHandbook
-    ? "employee-handbook-cover.html"
-    : "safety-manual-cover.html";
+  if (!isMarketingStrategyGuide) {
+    await validateManualCoverCohesionGuardrails();
+  }
+  const templateName = resolveManualTemplateName("cover");
   const raw = await readFile(
     join(DOCS_DIR, `manuals/${templateName}`),
     "utf-8",
   );
   const qrDataUrl = await buildQrDataUrl(ACTIVE_MANUAL_DIGITAL_URL);
-  const html = applyBrandTokens(raw).replace(
-    "{{QR_DIGITAL_MANUAL}}",
-    qrDataUrl,
-  );
-  const coverFileName = isEmployeeHandbook
-    ? "employee-handbook-cover.pdf"
-    : "safety-manual-cover.pdf";
+  let html = applyBrandTokens(raw).replace("{{QR_DIGITAL_MANUAL}}", qrDataUrl);
+  if (isMarketingStrategyGuide) {
+    html = adaptMarketingStrategyGuideTemplate(html);
+  }
+  const coverFileName = `${ACTIVE_MANUAL}-cover.pdf`;
   const pdfPath = join(OUTPUT_DIR, coverFileName);
   await renderHtmlToPdf(
     html,
@@ -5721,17 +5905,13 @@ async function generateSpine() {
   console.log(`\n📐 Generating ${ACTIVE_MANUAL_LABEL} spine…`);
   await ensureDir(OUTPUT_DIR);
   await validateSpineTemplateGuardrails();
-  const templateName = isEmployeeHandbook
-    ? "employee-handbook-spine.html"
-    : "safety-manual-spine.html";
+  const templateName = resolveManualTemplateName("spine");
   const raw = await readFile(
     join(DOCS_DIR, `manuals/${templateName}`),
     "utf-8",
   );
   const html = applyBrandTokens(raw);
-  const spineFileName = isEmployeeHandbook
-    ? "employee-handbook-spine.pdf"
-    : "safety-manual-spine.pdf";
+  const spineFileName = `${ACTIVE_MANUAL}-spine.pdf`;
   const pdfPath = join(OUTPUT_DIR, spineFileName);
   await renderHtmlToPdf(
     html,
@@ -5760,38 +5940,55 @@ async function generateSpine() {
 async function generateToc() {
   const tocLabel = isEmployeeHandbook
     ? "Employee Handbook Table of Contents"
-    : "MISH Table of Contents";
+    : isOperationsManual
+      ? "Operations Manual Table of Contents"
+      : isSalesEstimatingGuide
+        ? "Sales/Estimating Guide Table of Contents"
+        : isMarketingStrategyGuide
+          ? "Marketing Strategy Guide Table of Contents"
+          : "MH Construction Industrial Safety & Health (MISH) Program Table of Contents";
   console.log(`\n📋 Generating ${tocLabel}…`);
   await ensureDir(OUTPUT_DIR);
   await ensureDir(CANONICAL_OUTPUT_DIR);
 
-  const tocTemplatePath = isEmployeeHandbook
-    ? CANONICAL_HANDBOOK_TOC_TEMPLATE_PATH
-    : CANONICAL_TOC_TEMPLATE_PATH;
-  const tocOutputFileName = isEmployeeHandbook
-    ? "employee-handbook-toc.pdf"
-    : "safety-manual-toc.pdf";
-  const continuationLabel = isEmployeeHandbook
-    ? "Employee Handbook Table of Contents"
-    : "MISH Program Table of Contents";
-  const entryOptions = isEmployeeHandbook
-    ? {
-        codePrefix: "CH",
-        calloutSet: new Set(),
-        docColumnLabel: "Chapter Documents",
-        formColumnLabel: "Associated Forms",
-      }
-    : {
-        codePrefix: "MISH",
-        calloutSet: TOC_CALLOUT_ITEMS,
-        docLevelLabel: "DOC LEVEL: POLICY / PROCEDURE / TASK",
-        docColumnLabel: "Program Documents",
-        formColumnLabel: "Controlled Forms",
-      };
+  const tocTemplatePath =
+    isHandbookFamily || isMarketingStrategyGuide
+      ? CANONICAL_HANDBOOK_TOC_TEMPLATE_PATH
+      : CANONICAL_TOC_TEMPLATE_PATH;
+  const tocOutputFileName = `${ACTIVE_MANUAL}-toc.pdf`;
+  const continuationLabel = tocLabel;
+  const entryOptions =
+    isHandbookFamily || isMarketingStrategyGuide
+      ? {
+          codePrefix: isSalesEstimatingGuide
+            ? "SE"
+            : isMarketingStrategyGuide
+              ? "MG"
+              : "CH",
+          calloutSet: new Set(),
+          docColumnLabel: isSalesEstimatingGuide
+            ? "Sales/Estimating Guide Sections"
+            : isMarketingStrategyGuide
+              ? "Guide Sections"
+              : "Chapter Documents",
+          formColumnLabel: isSalesEstimatingGuide
+            ? "Associated Notes"
+            : isMarketingStrategyGuide
+              ? "Associated Notes"
+              : "Associated Forms",
+        }
+      : {
+          codePrefix: "MISH",
+          calloutSet: TOC_CALLOUT_ITEMS,
+          docColumnLabel: "Program Documents",
+          formColumnLabel: "Controlled Forms",
+        };
 
   // ── 1. Resolve section titles ───────────────────────────────────────────
   let titleMap = new Map(
-    isEmployeeHandbook ? FALLBACK_HANDBOOK_TITLES : FALLBACK_MISH_TITLES,
+    isHandbookFamily || isMarketingStrategyGuide
+      ? FALLBACK_HANDBOOK_TITLES
+      : FALLBACK_MISH_TITLES,
   );
   let presentNums = new Set(titleMap.keys());
   let manifestSections = [];
@@ -5819,15 +6016,11 @@ async function generateToc() {
         console.log(`  ℹ  Using manifest: ${liveNums.size} section(s) found`);
       }
     } catch {
-      const manifestLabel = isEmployeeHandbook
-        ? "employee-handbook.json"
-        : "safety-manual.json";
+      const manifestLabel = `${ACTIVE_MANUAL}.json`;
       console.warn(`  ⚠  ${manifestLabel} unreadable — using fallback titles`);
     }
   } else {
-    const manifestLabel = isEmployeeHandbook
-      ? "employee-handbook.json"
-      : "safety-manual.json";
+    const manifestLabel = `${ACTIVE_MANUAL}.json`;
     console.log(`  ℹ  ${manifestLabel} not found — using fallback titles`);
   }
 
@@ -5836,6 +6029,9 @@ async function generateToc() {
     ...entryOptions,
     sectionMetaMap,
     formRevision: ENFORCED_REVISION_NUMBER,
+    ...(isHandbookFamily || isMarketingStrategyGuide
+      ? {}
+      : { showClusterHeading: false, showColumnHeaders: false }),
   };
 
   // ── 2. Build cluster HTML and inject into template ──────────────────────
@@ -5843,7 +6039,7 @@ async function generateToc() {
   // manualSection linkage so associated forms always render under the
   // corresponding MISH section in print order.
   let formsMap = new Map();
-  if (isEmployeeHandbook) {
+  if (isHandbookFamily || isMarketingStrategyGuide) {
     let handbookFormsCount = 0;
     for (const section of manifestSections) {
       const sectionNum = Number(section?.number);
@@ -5856,8 +6052,16 @@ async function generateToc() {
         continue;
       const mappedForms = sectionForms.map((form) => ({
         id:
-          form?.id || form?.slug || `CH-${String(sectionNum).padStart(2, "0")}`,
-        title: form?.title || "Associated handbook form",
+          form?.id ||
+          form?.slug ||
+          `${isSalesEstimatingGuide ? "SE" : isMarketingStrategyGuide ? "MG" : "CH"}-${String(sectionNum).padStart(2, "0")}`,
+        title:
+          form?.title ||
+          (isSalesEstimatingGuide
+            ? "Associated sales note"
+            : isMarketingStrategyGuide
+              ? "Associated guide note"
+              : "Associated handbook form"),
       }));
       mappedForms.sort(compareFormsForToc);
       formsMap.set(sectionNum, mappedForms);
@@ -5866,7 +6070,7 @@ async function generateToc() {
 
     if (handbookFormsCount > 0) {
       console.log(
-        `  ℹ  Added ${handbookFormsCount} associated form(s) across ${formsMap.size} handbook chapter(s)`,
+        `  ℹ  Added ${handbookFormsCount} associated form(s) across ${formsMap.size} ${isSalesEstimatingGuide ? "sales/estimating guide section(s)" : isMarketingStrategyGuide ? "guide section(s)" : "handbook chapter(s)"}`,
       );
     }
   } else {
@@ -5886,18 +6090,23 @@ async function generateToc() {
   }
 
   const buildPageClustersHtml = (nums) => {
-    if (!isEmployeeHandbook) {
-      return buildTocAlignedClustersHtml(
+    if (!(isHandbookFamily || isMarketingStrategyGuide)) {
+      const bodyHtml = buildTocAlignedClustersHtml(
         titleMap,
         nums,
         formsMap,
         tocRenderOptions,
       );
+      return `${buildTocColumnHeaderHtml(tocRenderOptions)}${bodyHtml}`;
     }
 
     const chapterNums = [...nums].sort((a, b) => a - b);
     return buildClusterAlignedHtml(
-      "Employee Handbook Chapters",
+      isSalesEstimatingGuide
+        ? "Sales/Estimating Guide Sections"
+        : isMarketingStrategyGuide
+          ? "Marketing Guide Sections"
+          : "Employee Handbook Chapters",
       chapterNums,
       titleMap,
       formsMap,
@@ -5908,7 +6117,9 @@ async function generateToc() {
   const { page1, page2, page3, extraPages } = splitTocNumsByFlow(
     presentNums,
     formsMap,
-    isEmployeeHandbook ? { page1Max: HANDBOOK_TOC_PAGE_1_MAX } : {},
+    isHandbookFamily || isMarketingStrategyGuide
+      ? { page1Max: HANDBOOK_TOC_PAGE_1_MAX, includeClusterHeadings: true }
+      : { includeClusterHeadings: false },
   );
 
   const tocPage1Html = buildPageClustersHtml(page1);
@@ -5944,6 +6155,10 @@ async function generateToc() {
     })
     .replaceAll("{{TOC_PAGE_3_NUMBER}}", () => "3")
     .replaceAll("{{TOC_EXTRA_PAGES_HTML}}", () => tocExtraPagesHtml);
+
+  if (isMarketingStrategyGuide) {
+    html = adaptMarketingStrategyGuideTemplate(html);
+  }
 
   // Dynamic continuation pages inject BRAND tokens, so run a final brand pass.
   html = applyBrandTokens(html);
@@ -6158,6 +6373,78 @@ function validateTocTemplateGuardrails(templateHtml, templatePath) {
   if (violations.length > 0) {
     throw new Error(
       `Guardrail validation failed for TOC template (${templatePath}):\n${violations.join("\n")}`,
+    );
+  }
+}
+
+async function validateOperationsMhcCapitalizationGuardrails() {
+  const operationsTemplates = [
+    "operations-manual-cover.html",
+    "operations-manual-spine.html",
+    "operations-manual-tabs.html",
+    "operations-manual-toc.html",
+    "operations-manual-section.html",
+  ].map((name) => join(DOCS_DIR, "manuals", name));
+
+  const filesToScan = [];
+  for (const templatePath of operationsTemplates) {
+    if (!existsSync(templatePath)) {
+      throw new Error(`Operations template not found: ${templatePath}`);
+    }
+    filesToScan.push(templatePath);
+  }
+
+  if (existsSync(OPERATIONS_MANUAL_SECTION_DRAFTS_DIR)) {
+    const draftEntries = await readdir(OPERATIONS_MANUAL_SECTION_DRAFTS_DIR, {
+      withFileTypes: true,
+    });
+    for (const entry of draftEntries) {
+      if (!entry.isFile() || !entry.name.endsWith(".md")) continue;
+      filesToScan.push(join(OPERATIONS_MANUAL_SECTION_DRAFTS_DIR, entry.name));
+    }
+  }
+
+  const violations = [];
+  for (const filePath of filesToScan) {
+    const source = await readFile(filePath, "utf-8");
+    const lines = source.split(/\r?\n/);
+    for (let index = 0; index < lines.length; index += 1) {
+      const line = lines[index];
+      if (!/\bmhc\b/i.test(line)) continue;
+
+      const tokenMatches = [...line.matchAll(/\bmhc\b/gi)];
+      let hasViolation = false;
+
+      for (const match of tokenMatches) {
+        const token = match[0];
+        if (token === "MHC") continue;
+
+        const start = match.index || 0;
+        const tail = line.slice(start).toLowerCase();
+
+        // Allow canonical domain/slug formats that are intentionally lowercase.
+        if (
+          tail.startsWith("mhc-gc.com") ||
+          tail.startsWith("mhc-operations-manual")
+        ) {
+          continue;
+        }
+
+        hasViolation = true;
+        break;
+      }
+
+      if (!hasViolation) continue;
+
+      violations.push(
+        `${filePath.replace(ROOT + "/", "")}:${index + 1}: ${line.trim()}`,
+      );
+    }
+  }
+
+  if (violations.length > 0) {
+    throw new Error(
+      `Guardrail validation failed: non-uppercase 'MHC' acronym is not allowed in Operations Manual sources. Use uppercase 'MHC'.\n  - ${violations.join("\n  - ")}`,
     );
   }
 }
@@ -7423,6 +7710,9 @@ async function runGuardrailsCheck() {
   await validateSpineTemplateGuardrails();
   console.log("    ✓  Spine layout and labeling guardrails verified");
 
+  await validateOperationsMhcCapitalizationGuardrails();
+  console.log("    ✓  Operations MHC capitalization guardrails verified");
+
   validateRetiredReferencePdfGuardrail();
   console.log("  ✓  Retired reference artifact guardrail verified");
 
@@ -7577,18 +7867,19 @@ async function validateRenderedPdfParity(letterheadPdfPath, tocPdfPath) {
 async function generateTabs() {
   console.log(`\n🗂  Generating ${ACTIVE_MANUAL_LABEL} tab dividers…`);
   await ensureDir(OUTPUT_DIR);
-  if (isEmployeeHandbook) {
+  if (isHandbookFamily || isMarketingStrategyGuide) {
     await validateHandbookCoverTabsFooterGuardrails();
   } else {
     await validateSafetyTabsVisualStandardGuardrails();
   }
-  const templateName = isEmployeeHandbook
-    ? "employee-handbook-tabs.html"
-    : "safety-manual-tabs.html";
+  const templateName = resolveManualTemplateName("tabs");
   let html = await readFile(join(DOCS_DIR, `manuals/${templateName}`), "utf-8");
+  if (isMarketingStrategyGuide) {
+    html = adaptMarketingStrategyGuideTemplate(html);
+  }
 
   // Keep tab headers aligned with canonical manifest section titles.
-  if (!isEmployeeHandbook && existsSync(MANIFEST)) {
+  if (existsSync(MANIFEST)) {
     try {
       const { sections = [] } = JSON.parse(await readFile(MANIFEST, "utf-8"));
       const titleMap = new Map(
@@ -7618,7 +7909,7 @@ async function generateTabs() {
       }
     } catch (err) {
       console.warn(
-        `  ⚠  Could not synchronize safety tab section titles from manifest: ${err.message}`,
+        `  ⚠  Could not synchronize ${ACTIVE_MANUAL} tab section titles from manifest: ${err.message}`,
       );
     }
   }
@@ -7636,7 +7927,7 @@ async function generateTabs() {
     if (!html.includes(token)) continue;
 
     let sectionUrl;
-    if (isEmployeeHandbook) {
+    if (isHandbookFamily || isMarketingStrategyGuide) {
       sectionUrl = ACTIVE_MANUAL_DIGITAL_URL;
     } else {
       // Tab 00 → standalone Table of Contents page.
@@ -7655,9 +7946,7 @@ async function generateTabs() {
   // ── Apply remaining brand tokens ─────────────────────────────────────────
   html = applyBrandTokens(html);
 
-  const tabsFileName = isEmployeeHandbook
-    ? "employee-handbook-tabs.pdf"
-    : "safety-manual-tabs.pdf";
+  const tabsFileName = `${ACTIVE_MANUAL}-tabs.pdf`;
   const pdfPath = join(OUTPUT_DIR, tabsFileName);
   await renderHtmlToPdf(
     html,
@@ -7914,11 +8203,11 @@ function validateRetiredReferencePdfGuardrail() {
 // ── Template: Section PDFs ────────────────────────────────────────────────────
 async function generateSections(filter = null) {
   if (!existsSync(MANIFEST)) {
-    const manifestName = isEmployeeHandbook
-      ? "employee-handbook.json"
-      : "safety-manual.json";
+    const manifestName = `${ACTIVE_MANUAL}.json`;
     console.error(`\n❌  ${manifestName} not found.`);
-    if (!isEmployeeHandbook) {
+    if (isMarketingStrategyGuide) {
+      console.error("  Run `npm run docs:extract:marketing` first.");
+    } else if (!isHandbookFamily) {
       console.error("  Run `npm run docs:extract` first.");
     }
     process.exit(1);
@@ -7926,9 +8215,10 @@ async function generateSections(filter = null) {
 
   const manifestData = JSON.parse(await readFile(MANIFEST, "utf-8"));
   const { sections } = manifestData;
-  const handbookSourceFile = isEmployeeHandbook
-    ? String(manifestData?.document?.sourceFile || "").trim()
-    : "";
+  const handbookSourceFile =
+    isHandbookFamily || isMarketingStrategyGuide
+      ? String(manifestData?.document?.sourceFile || "").trim()
+      : "";
   const handbookSourcePdfPath = handbookSourceFile
     ? handbookSourceFile.startsWith("documents/")
       ? join(ROOT, handbookSourceFile)
@@ -7936,7 +8226,7 @@ async function generateSections(filter = null) {
     : "";
   const sectionsDir = join(OUTPUT_DIR, "sections");
   await ensureDir(sectionsDir);
-  if (!isEmployeeHandbook) {
+  if (!(isHandbookFamily || isMarketingStrategyGuide)) {
     removeRetiredReferencePdfArtifacts(true);
   }
 
@@ -7986,16 +8276,17 @@ async function generateSections(filter = null) {
 
   console.log(`\n📑 Generating ${targets.length} section PDF(s)…`);
 
-  const templateName = isEmployeeHandbook
-    ? "employee-handbook-section.html"
-    : "safety-manual-section.html";
-  const templateHtml = await readFile(
+  const templateName = resolveManualTemplateName("section");
+  let templateHtml = await readFile(
     join(DOCS_DIR, `manuals/${templateName}`),
     "utf-8",
   );
+  if (isMarketingStrategyGuide) {
+    templateHtml = adaptMarketingStrategyGuideTemplate(templateHtml);
+  }
   const sectionRenderCache = await loadSectionRenderCache();
   let sectionFormsMap = new Map();
-  if (!isEmployeeHandbook) {
+  if (!(isHandbookFamily || isMarketingStrategyGuide)) {
     const manifestForms = await loadFormsManifest().catch(() => []);
     const safetyLinkedForms = manifestForms.filter(
       (form) =>
@@ -8010,10 +8301,11 @@ async function generateSections(filter = null) {
   for (const section of targets) {
     // Generate branded QR code pointing to the section's cluster anchor card
     // so the printed PDF matches the website's deep-link layout.
-    const sectionUrl = isEmployeeHandbook
-      ? `${ACTIVE_MANUAL_DIGITAL_URL}#section-${section.numberStr}`
-      : clusterUrlForSection(Number(section.number)) ||
-        `${SITE_URL}/resources/safety-manual/contents`;
+    const sectionUrl =
+      isHandbookFamily || isMarketingStrategyGuide
+        ? `${ACTIVE_MANUAL_DIGITAL_URL}#section-${section.numberStr}`
+        : clusterUrlForSection(Number(section.number)) ||
+          `${SITE_URL}/resources/safety-manual/contents`;
     const qrDataUrl = await buildQrDataUrl(sectionUrl);
 
     let sectionSource =
@@ -8023,7 +8315,11 @@ async function generateSections(filter = null) {
     // documents/content/mhc-employee-handbook-2026/sections/. This is the
     // authoritative, human-editable source for the handbook chapters and takes
     // precedence over raw PDF page-range extraction.
-    if (!sectionSource && isEmployeeHandbook && section.bodyFile) {
+    if (
+      !sectionSource &&
+      (isHandbookFamily || isMarketingStrategyGuide) &&
+      section.bodyFile
+    ) {
       const bodyFileText = String(section.bodyFile).trim();
       const sectionBodyPath = bodyFileText.startsWith("documents/")
         ? join(ROOT, bodyFileText)
@@ -8032,13 +8328,13 @@ async function generateSections(filter = null) {
         sectionSource = (await readFile(sectionBodyPath, "utf-8")).trim();
       } else {
         console.warn(
-          `⚠️  Handbook section bodyFile not found: ${section.bodyFile}`,
+          `⚠️  Manual section bodyFile not found: ${section.bodyFile}`,
         );
       }
     }
     if (
       !sectionSource &&
-      isEmployeeHandbook &&
+      (isHandbookFamily || isMarketingStrategyGuide) &&
       Number(section.number) > 1 &&
       section.pages
     ) {
@@ -8047,7 +8343,11 @@ async function generateSections(filter = null) {
         String(section.pages),
       ).trim();
     }
-    if (!sectionSource && isEmployeeHandbook && section.docxPath) {
+    if (
+      !sectionSource &&
+      (isHandbookFamily || isMarketingStrategyGuide) &&
+      section.docxPath
+    ) {
       const docxPathText = String(section.docxPath).trim();
       const sectionDocxPath = docxPathText.startsWith("documents/")
         ? join(ROOT, docxPathText)
@@ -8060,7 +8360,7 @@ async function generateSections(filter = null) {
         }
       } else {
         console.warn(
-          `⚠️  Handbook section DOCX source not found: ${section.docxPath}`,
+          `⚠️  Manual section DOCX source not found: ${section.docxPath}`,
         );
       }
     }
@@ -8080,14 +8380,14 @@ async function generateSections(filter = null) {
       sectionBody = textToHtml(sectionSource);
     }
 
-    if (isEmployeeHandbook) {
+    if (isHandbookFamily || isMarketingStrategyGuide) {
       sectionBody = applyHandbookBrandTerminology(
         sectionBody,
         Number(section.number),
       );
     }
 
-    if (!isEmployeeHandbook) {
+    if (!(isHandbookFamily || isMarketingStrategyGuide)) {
       const relatedFormsHtml = buildSectionRelatedFormsHtml(
         section.number,
         sectionFormsMap,
@@ -8111,7 +8411,7 @@ async function generateSections(filter = null) {
     );
 
     // Post-process: 3-Hour Rule callout, Addendum A table, form page breaks
-    if (!isEmployeeHandbook) {
+    if (!(isHandbookFamily || isMarketingStrategyGuide)) {
       html = postProcessSectionHtml(html, section.number);
     }
 
@@ -8121,7 +8421,13 @@ async function generateSections(filter = null) {
       section.displayTitle,
       qrDataUrl,
       {
-        manualKind: isEmployeeHandbook ? "handbook" : "safety",
+        manualKind: isEmployeeHandbook
+          ? "handbook"
+          : isOperationsManual
+            ? "operations"
+            : isMarketingStrategyGuide
+              ? "marketing"
+              : "safety",
         revNum: BRAND.revisionNumber,
         revDate: BRAND.revisionDate,
       },
@@ -8191,7 +8497,7 @@ async function generateSections(filter = null) {
 
   if (filter === null) {
     // Generate the TOC from the static template (MISH only)
-    if (!isEmployeeHandbook) {
+    if (!isHandbookFamily) {
       await generateToc();
     }
   }
@@ -8210,7 +8516,10 @@ async function generateForm(name) {
 
   console.log(`\n📋 Generating form: ${name}…`);
   const raw = await readFile(htmlPath, "utf-8");
-  const html = applyBrandTokens(raw);
+  let html = applyBrandTokens(raw);
+  if (isMarketingStrategyGuide) {
+    html = adaptMarketingStrategyGuideTemplate(html);
+  }
   const pdfPath = join(formsDir, `${name}.pdf`);
   await renderHtmlToPdf(html, pdfPath, {}, `forms/_tmp_${name}.html`);
 }
@@ -10563,8 +10872,12 @@ async function main() {
   console.log("🏗  MH Construction — Document Generator");
   console.log("==========================================");
 
-  if (!isEmployeeHandbook) {
+  if (!isHandbookFamily) {
     removeRetiredReferencePdfArtifacts(false);
+  }
+
+  if (isOperationsManual) {
+    await validateOperationsMhcCapitalizationGuardrails();
   }
 
   try {
@@ -10572,11 +10885,15 @@ async function main() {
       case "all":
         await generateCover();
         await generateSpine();
-        await generateLetterhead();
+        if (!isMarketingStrategyGuide) {
+          await generateLetterhead();
+        }
         await generateTabs();
         await generateToc();
         await generateSections();
-        await generateFormCovers();
+        if (!isMarketingStrategyGuide) {
+          await generateFormCovers();
+        }
         break;
       case "cover":
         await generateCover();

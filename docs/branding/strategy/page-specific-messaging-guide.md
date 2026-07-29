@@ -76,7 +76,7 @@ For **page section ordering**, all lead-path pages must follow the
 
 **Pages:** Home, About, Veterans  
 **Core Theme:** Honesty-first, service over self, execution discipline  
-**Key Message:** Your word is your bond — so is ours. Period.
+**Key Message:** Your word is your bond — so is ours. Period. We bring clarity, accountability, and steady follow-through to every conversation and handoff.
 
 ### Group 2: Professional Services
 
@@ -155,8 +155,8 @@ Project Stakeholders terminology, while current employee workflows should use Da
 - "Where handshakes still matter, promises are kept, and relationships last"
 - "Old-school business values that never go out of style"
 - "No gimmicks. No shortcuts. Just honest work."
-- "Squared away from start to finish."
-- "From Handshake to Handoff, we got your 'six.'"
+- "Clear scope. Accountable delivery. Dependable follow-through."
+- "From handshake to handoff, we stay aligned."
 - "Professional on the line. Thorough in the details."
 
 ### Language Characteristics (Group 1)

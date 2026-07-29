@@ -4,6 +4,9 @@ This folder is the download-friendly view of the generated PDFs.
 
 - [safety-manual/](./safety-manual/) - final Safety Manual PDFs for download
 - [employee-handbook/](./employee-handbook/) - final Employee Handbook PDFs for download
+- [operations-manual/](./operations-manual/) - final Operations Manual PDFs for download
+- [marketing-strategy-guide/](./marketing-strategy-guide/) - final Marketing Strategy Guide PDFs for download
+- [sales-estimating-guide/](./sales-estimating-guide/) - final Sales and Estimating Guide PDFs for download
 - [shared/](./shared/) - common print assets like the company letterhead
 - [forms/](./forms/) - final form package PDFs for download
 
@@ -26,6 +29,33 @@ Exact download locations:
 - [employee-handbook/employee-handbook-spine.pdf](./employee-handbook/employee-handbook-spine.pdf)
 - [employee-handbook/employee-handbook-tabs.pdf](./employee-handbook/employee-handbook-tabs.pdf)
 - [employee-handbook/employee-handbook-toc.pdf](./employee-handbook/employee-handbook-toc.pdf)
+
+## Operations Manual
+
+- [operations-manual/operations-manual-complete.pdf](./operations-manual/operations-manual-complete.pdf)
+- [operations-manual/operations-manual-digital.pdf](./operations-manual/operations-manual-digital.pdf)
+- [operations-manual/operations-manual-cover.pdf](./operations-manual/operations-manual-cover.pdf)
+- [operations-manual/operations-manual-spine.pdf](./operations-manual/operations-manual-spine.pdf)
+- [operations-manual/operations-manual-tabs.pdf](./operations-manual/operations-manual-tabs.pdf)
+- [operations-manual/operations-manual-toc.pdf](./operations-manual/operations-manual-toc.pdf)
+
+## Marketing Strategy Guide
+
+- [marketing-strategy-guide/marketing-strategy-guide-complete.pdf](./marketing-strategy-guide/marketing-strategy-guide-complete.pdf)
+- [marketing-strategy-guide/marketing-strategy-guide-digital.pdf](./marketing-strategy-guide/marketing-strategy-guide-digital.pdf)
+- [marketing-strategy-guide/marketing-strategy-guide-cover.pdf](./marketing-strategy-guide/marketing-strategy-guide-cover.pdf)
+- [marketing-strategy-guide/marketing-strategy-guide-spine.pdf](./marketing-strategy-guide/marketing-strategy-guide-spine.pdf)
+- [marketing-strategy-guide/marketing-strategy-guide-tabs.pdf](./marketing-strategy-guide/marketing-strategy-guide-tabs.pdf)
+- [marketing-strategy-guide/marketing-strategy-guide-toc.pdf](./marketing-strategy-guide/marketing-strategy-guide-toc.pdf)
+
+## Sales and Estimating Guide
+
+- [sales-estimating-guide/sales-estimating-guide-complete.pdf](./sales-estimating-guide/sales-estimating-guide-complete.pdf)
+- [sales-estimating-guide/sales-estimating-guide-digital.pdf](./sales-estimating-guide/sales-estimating-guide-digital.pdf)
+- [sales-estimating-guide/sales-estimating-guide-cover.pdf](./sales-estimating-guide/sales-estimating-guide-cover.pdf)
+- [sales-estimating-guide/sales-estimating-guide-spine.pdf](./sales-estimating-guide/sales-estimating-guide-spine.pdf)
+- [sales-estimating-guide/sales-estimating-guide-tabs.pdf](./sales-estimating-guide/sales-estimating-guide-tabs.pdf)
+- [sales-estimating-guide/sales-estimating-guide-toc.pdf](./sales-estimating-guide/sales-estimating-guide-toc.pdf)
 
 ## Shared
 

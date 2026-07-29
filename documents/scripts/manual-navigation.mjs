@@ -28,19 +28,24 @@ function normalizeTocTitle(value) {
 
   const acronyms = new Set([
     "mh",
+    "mhc",
     "app",
     "bbb",
     "cfr",
     "coi",
     "ems",
     "epa",
+    "hh2",
     "jha",
     "jsa",
+    "kpi",
     "mish",
     "mvr",
     "osha",
     "ppe",
+    "raci",
     "sds",
+    "sop",
     "wac",
   ]);
 

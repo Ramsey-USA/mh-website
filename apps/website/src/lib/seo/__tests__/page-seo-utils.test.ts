@@ -124,6 +124,16 @@ describe("page seo utils", () => {
     );
   });
 
+  it("uses scope clarity and practical follow-through language in core SEO metadata", () => {
+    const homepage = getHomepageSEO();
+    const services = getServicesSEO();
+
+    const combinedText = `${homepage.description ?? ""} ${services.description ?? ""}`;
+
+    expect(combinedText).toMatch(/scope clarity/i);
+    expect(combinedText).toMatch(/practical follow-through/i);
+  });
+
   it("builds services seo and creates service schemas for each service", () => {
     const result = getServicesSEO();
 

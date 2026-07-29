@@ -27,10 +27,14 @@ export function LocationsHero({ locale = "en" }: LocationsHeroProps) {
               {isEs ? "Oficinas -> Ubicaciones" : "Offices -> Locations"}
             </span>
             <span className="block text-brand-secondary">
-              {isEs ? "Tri-Cities firme" : "Tri-Cities Strong"}
+              {isEs
+                ? "Alcance claro. Entrega responsable."
+                : "Clear scope. Accountable delivery."}
             </span>
             <span className="block text-white">
-              {isEs ? "Cobertura en WA, OR e ID" : "Serving WA, OR, and ID"}
+              {isEs
+                ? "Cobertura en WA, OR e ID con seguimiento confiable"
+                : "Serving WA, OR, and ID with dependable follow-through."}
             </span>
             <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
               {COMPANY_INFO.slogan.primary}

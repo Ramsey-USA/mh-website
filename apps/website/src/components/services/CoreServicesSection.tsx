@@ -161,6 +161,79 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
               {currentService.description}
             </p>
 
+            <div
+              className={`mb-6 ${cornerRadius.icon} border border-brand-primary/20 bg-brand-primary/5 dark:bg-brand-primary/10 p-5`}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <MaterialIcon
+                  icon="insights"
+                  size="lg"
+                  className="text-brand-primary"
+                />
+                <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold">
+                  {isEs
+                    ? "Que significa para su proyecto"
+                    : "What this means for your project"}
+                </h3>
+              </div>
+              <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                {isEs
+                  ? "Este alcance funciona mejor cuando el proyecto ya tiene claridad sobre el alcance, los hitos principales y las decisiones tempranas que necesitan soporte de campo."
+                  : "This scope works best when the project already has clarity around scope, key milestones, and early decisions that need field support."}
+              </p>
+            </div>
+
+            <div
+              className={`mb-6 ${cornerRadius.icon} border border-brand-secondary/20 bg-brand-secondary/5 dark:bg-brand-secondary/10 p-5`}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <MaterialIcon
+                  icon="event_note"
+                  size="lg"
+                  className="text-brand-secondary"
+                />
+                <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold">
+                  {isEs
+                    ? "Lo que suele ayudar al inicio"
+                    : "What usually helps early on"}
+                </h3>
+              </div>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <div
+                    className={`shrink-0 w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 ${cornerRadius.small} flex items-center justify-center mt-0.5`}
+                  >
+                    <MaterialIcon
+                      icon="check_circle"
+                      size="sm"
+                      className="text-brand-secondary"
+                    />
+                  </div>
+                  <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                    {isEs
+                      ? "Documentos actuales, decisiones de diseño y prioridades de entrega"
+                      : "Current documents, design decisions, and delivery priorities"}
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div
+                    className={`shrink-0 w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 ${cornerRadius.small} flex items-center justify-center mt-0.5`}
+                  >
+                    <MaterialIcon
+                      icon="check_circle"
+                      size="sm"
+                      className="text-brand-secondary"
+                    />
+                  </div>
+                  <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                    {isEs
+                      ? "Un contacto claro para coordinar cambios y respuestas"
+                      : "A clear point of contact for coordination and timely responses"}
+                  </span>
+                </li>
+              </ul>
+            </div>
+
             {/* Features */}
             <div
               className={`mb-6 ${cornerRadius.icon} border border-brand-primary/20 bg-brand-primary/5 dark:bg-brand-primary/10 p-5`}

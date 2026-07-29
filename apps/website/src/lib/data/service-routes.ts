@@ -216,7 +216,7 @@ const serviceRouteSource: Omit<ServiceRecord, "governance">[] = [
     },
     metaTitle: "Municipal and Government Construction | MH Construction",
     metaDescription:
-      "Support municipal and government construction with compliance-aware planning, transparent communication, and disciplined field execution.",
+      "Support municipal and government construction with compliance-aware planning, scope clarity, practical follow-through, and disciplined field execution.",
     ogImage: "/images/og/services/municipal-government.webp",
     category: "Municipal & Government",
     overview:
@@ -272,7 +272,7 @@ const serviceRouteSource: Omit<ServiceRecord, "governance">[] = [
     },
     metaTitle: "Commercial Tenant Improvement Services | MH Construction",
     metaDescription:
-      "Deliver occupied-space commercial tenant improvements with disciplined sequencing, documented controls, and reliable closeout.",
+      "Deliver occupied-space commercial tenant improvements with disciplined sequencing, scope clarity, practical follow-through, and reliable closeout.",
     ogImage: "/images/og/services/commercial-construction.webp",
     category: "Commercial TI",
     overview:
@@ -331,7 +331,7 @@ const serviceRouteSource: Omit<ServiceRecord, "governance">[] = [
     metaTitle:
       "Agricultural and Winery Construction Services | MH Construction",
     metaDescription:
-      "Deliver agricultural and winery construction with technical sequencing, scope controls, and field accountability.",
+      "Deliver agricultural and winery construction with technical sequencing, scope clarity, practical follow-through, and field accountability.",
     ogImage: "/images/og/services/commercial-construction.webp",
     category: "Agricultural and Winery",
     overview:
@@ -383,7 +383,7 @@ const serviceRouteSource: Omit<ServiceRecord, "governance">[] = [
     publishStatus: "published",
     metaTitle: "Light Industrial Construction Services | MH Construction",
     metaDescription:
-      "Plan and execute light industrial construction with disciplined safety controls and practical field coordination.",
+      "Plan and execute light industrial construction with disciplined safety controls, scope clarity, and practical field coordination.",
     ogImage: "/images/og/services/commercial-construction.webp",
     category: "Light Industrial",
     overview:
@@ -438,7 +438,7 @@ const serviceRouteSource: Omit<ServiceRecord, "governance">[] = [
     publishStatus: "published",
     metaTitle: "Preconstruction Planning Services | MH Construction",
     metaDescription:
-      "Reduce delivery risk with preconstruction planning that aligns scope, budget, sequencing, and decision controls.",
+      "Reduce delivery risk with preconstruction planning that aligns scope clarity, budget, sequencing, and decision controls.",
     ogImage: "/images/og/services/commercial-construction.webp",
     category: "Preconstruction",
     overview:
@@ -490,7 +490,7 @@ const serviceRouteSource: Omit<ServiceRecord, "governance">[] = [
     publishStatus: "published",
     metaTitle: "Procurement and Trade Partnership Services | MH Construction",
     metaDescription:
-      "Coordinate procurement and trade partners with disciplined planning, schedule alignment, and documented controls.",
+      "Coordinate procurement and trade partners with disciplined planning, scope clarity, schedule alignment, and documented controls.",
     ogImage: "/images/og/services/commercial-construction.webp",
     category: "Procurement",
     overview:

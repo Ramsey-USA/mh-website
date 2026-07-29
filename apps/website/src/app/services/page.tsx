@@ -181,8 +181,8 @@ export default async function ServicesPage() {
         }
         description={
           isEs
-            ? "Nuestra entrega principal es construcción comercial. También apoyamos comunidades agrícolas y bodegas, acondicionamientos en espacios ocupados, obra municipal y algunos proyectos residenciales selectivos cuando el alcance está alineado."
-            : `Our core delivery is new construction and major renovation. We support agricultural and winery communities, occupied tenant improvements, municipal work, and select custom home builds when scope and delivery conditions align. ${MH_SLOGANS.supporting[1]}`
+            ? "Nuestra entrega principal es construcción comercial. También apoyamos comunidades agrícolas y bodegas, acondicionamientos en espacios ocupados, obra municipal y algunos proyectos residenciales selectivos cuando el alcance está alineado. El trabajo se estructura con claridad, coordinación y seguimiento responsable desde la primera reunión hasta la entrega."
+            : `Our core delivery is new construction and major renovation. We support agricultural and winery communities, occupied tenant improvements, municipal work, and select custom home builds when scope and delivery conditions align. We structure each engagement around clear scope, accountable delivery, and practical follow-through from planning through handoff.`
         }
       />
 
@@ -197,8 +197,8 @@ export default async function ServicesPage() {
         }
         description={
           isEs
-            ? "Desde la planificacion previa hasta la entrega, estos servicios mantienen alcance, cronograma y responsabilidad claros para propietarios, arquitectos, bancos de fianza, aseguradoras y equipos de proyecto."
-            : "From preconstruction through handoff, these services keep scope, schedule, and accountability clear for owners, architects, bonding banks, insurers, and project teams."
+            ? "Desde la planificacion previa hasta la entrega, estos servicios mantienen alcance, cronograma y responsabilidad claros para propietarios, arquitectos, bancos de fianza, aseguradoras y equipos de proyecto. La intención es reducir ambigüedad y mantener decisiones trazables a lo largo del proyecto."
+            : "From preconstruction through handoff, these services keep scope, schedule, and accountability clear for owners, architects, bonding banks, insurers, and project teams. The goal is to reduce ambiguity and keep decisions traceable through delivery."
         }
       />
 
@@ -213,8 +213,8 @@ export default async function ServicesPage() {
         }
         description={
           isEs
-            ? "Capacidades especializadas para restricciones por sector, instalaciones ocupadas y requisitos tecnicos de entrega."
-            : "Specialty capabilities for sector-specific constraints, occupied facilities, and technical delivery requirements."
+            ? "Capacidades especializadas para restricciones por sector, instalaciones ocupadas y requisitos técnicos de entrega, con una postura de coordinación y cumplimiento que respalda al equipo del proyecto y mantiene decisiones claras desde la primera fase."
+            : "Specialty capabilities for sector-specific constraints, occupied facilities, and technical delivery requirements, with a coordination-first approach that supports the wider project team and keeps decisions clear from the first phase."
         }
       />
 
@@ -227,8 +227,8 @@ export default async function ServicesPage() {
         }
         description={
           isEs
-            ? "Un modelo operativo unificado que mantiene visibles la entrega de construccion, la evidencia de campo y los controles de marketing por fases desde preconstruccion hasta post-lanzamiento."
-            : "A unified operating model that keeps construction delivery, field proof, and phase-based marketing controls visible from preconstruction through post-launch."
+            ? "Un modelo operativo unificado que mantiene visibles la entrega de construcción, la evidencia de campo y los controles de seguimiento por fases desde preconstrucción hasta post-lanzamiento."
+            : "A unified operating model that keeps construction delivery, field proof, and phase-based follow-through visible from preconstruction through post-launch."
         }
         steps={localizedProcessSteps.map((step) => ({
           ...step,
@@ -254,8 +254,8 @@ export default async function ServicesPage() {
         }
         description={
           isEs
-            ? `Desempeno de seguridad documentado, comunicacion transparente y seguimiento confiable desde planificacion hasta entrega, con evidencia por fases y estandares de recapitulacion de liderazgo post-completacion. ${MH_SLOGANS.supporting[3]}`
-            : `Documented safety performance, transparent communication, and reliable follow-through from planning through handoff, with phase-based marketing proof and post-completion leadership recap standards. ${MH_SLOGANS.supporting[3]}`
+            ? `Desempeño de seguridad documentado, comunicación transparente y seguimiento confiable desde la planificación hasta la entrega, con evidencia por fases y estándares de recapitulación de liderazgo post-completación. ${MH_SLOGANS.supporting[3]} La prioridad sigue siendo mantener a los project stakeholders informados y confiados en cada etapa.`
+            : `Documented safety performance, transparent communication, and reliable follow-through from planning through handoff, with phase-based proof and post-completion leadership recap standards. ${MH_SLOGANS.supporting[3]} The priority remains keeping project stakeholders informed and confident at every stage.`
         }
       />
 

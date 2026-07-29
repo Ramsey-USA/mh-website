@@ -40,6 +40,9 @@ describe("Chatbot Knowledge Base", () => {
       expect(prompt).toContain("agc.org/babaa-resource-hub");
       expect(prompt).toContain("clear planning, accountable delivery");
       expect(prompt).toContain("long-term partnership support");
+      expect(prompt).toContain("scope clarity");
+      expect(prompt).toContain("practical follow-through");
+      expect(prompt).toContain("direct next step");
     });
 
     it("includes all ally names", () => {

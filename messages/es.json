@@ -97,12 +97,12 @@
       "nextSteps": {
         "sectionTitle": "Próximos Pasos",
         "sectionSubtitle": "¿Listo para Asociarse?",
-        "sectionDescription": "Dé el siguiente paso—conéctese con nuestro equipo y experimente la diferencia MH Construction."
+        "sectionDescription": "Dé el siguiente paso—conéctese con nuestro equipo y alinee alcance, secuenciación y expectativas de entrega."
       },
       "pageContent": {
         "label": "Acerca de MH Construction",
         "heading": "Quiénes somos",
-        "body": "Somos un contratista general veterano en el noroeste del Pacífico. Construimos relaciones de largo plazo mediante comunicación clara, ejecución disciplinada y seguridad en campo.",
+        "body": "Somos un contratista general veterano en el noroeste del Pacífico. Construimos relaciones de largo plazo mediante planificación disciplinada, comunicación clara y ejecución confiable en campo.",
         "storyTitle": "Nuestra historia",
         "storyP1": "Desde 2010 hemos trabajado junto a propietarios, operadores y equipos de diseño para entregar proyectos con enfoque práctico y coordinación constante.",
         "storyP2": "Hoy continuamos ese estándar con liderazgo veterano, comunicación clara y seguimiento responsable en cada relación de proyecto. Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
@@ -521,7 +521,7 @@
     "hero": {
       "pageIdentity": "Seguridad → Programa de Seguridad",
       "mantra": "EMR 0.64, Reconocimiento AGC-WA, Estrella VPP OSHA",
-      "tagline": "Estándares claros. Seguimiento constante en campo.",
+      "tagline": "Estándares claros. Entrega responsable. Seguimiento constante en campo.",
       "sloganEsCompanion": "(Construidos sobre calidad, respaldados por confianza.)"
     },
     "credentials": {
@@ -725,8 +725,8 @@
     "hero": {
       "iconAria": "Contactar a MH Construction",
       "kicker": "Contacto",
-      "titleLine1": "Su Proyecto. Nuestra Experiencia. Conectemos.",
-      "titleLine2": "Programe una reunión y alinee alcance desde el inicio",
+      "titleLine1": "Su Proyecto. Siguientes Pasos Claros.",
+      "titleLine2": "Comience con alineación de alcance, responsabilidad clara y un plan práctico de entrega.",
       "titleLine3Prefix": "Construyendo proyectos para el Cliente, ",
       "notWord": "NO",
       "titleLine3Suffix": "el Dinero",
@@ -735,7 +735,7 @@
     "quickContact": {
       "subtitle": "Conéctese Con",
       "title": "Su Equipo de Asociación",
-      "description": "Llame, escriba o visítenos en Pasco para alinear alcance, cronograma y siguientes pasos con respuesta directa.",
+      "description": "Llame, escriba o visítenos en Pasco para alinear alcance, cronograma y seguimiento con respuesta directa.",
       "accreditations": "Acreditado y Certificado:",
       "veteranOwnedBadge": "Empresa veterana desde enero de 2025",
       "cards": {
@@ -765,13 +765,13 @@
     "pathways": {
       "subtitle": "Dos Caminos hacia el",
       "title": "Éxito en Asociación",
-      "description": "Elija la ruta correcta para entrega a clientes o integración de aliados. From Handshake to Handoff, we got your 'six.' (Del apretón de manos a la entrega final, cubrimos su retaguardia.)",
+      "description": "Elija la ruta correcta para entrega de proyecto o vinculación con aliados, con planificación clara y seguimiento confiable desde el inicio hasta el cierre.",
       "shared": {
         "emailLabel": "Correo"
       },
       "client": {
         "title": "Para Clientes",
-        "description": "Comience con alineación de alcance y avance con entrega disciplinada y plan de cierre.",
+        "description": "Comience con alineación de alcance y avance con planificación disciplinada de entrega y cierre responsable.",
         "callIconAria": "Teléfono de servicios al cliente",
         "contactServiceLabel": "Servicios al Cliente",
         "callAriaPrefix": "Llamar a servicios al cliente al",
@@ -942,8 +942,8 @@
     "hero": {
       "iconAria": "Red estratégica de socios",
       "kicker": "Socios comerciales",
-      "titleLine1": "Alianzas Estratégicas Construidas en Confianza",
-      "titleLine2": "Socios Verificados Listos para Ejecutar",
+      "titleLine1": "Alianzas Estratégicas Construidas en Alcance Claro",
+      "titleLine2": "Socios Verificados Listos para Entregar",
       "breadcrumbHome": "Inicio",
       "breadcrumbCurrent": "Red de Socios Comerciales"
     },
@@ -954,7 +954,7 @@
       "quote": "\"El retorno es la relación - demostrado con el tiempo.\"",
       "descriptionPrefix": "Desde 2010, MH Construction ha construido una reputación de comunicación honesta, pagos puntuales y disciplina en seguridad.",
       "metric": "(.64 EMR - 40% más seguro que el promedio de la industria)",
-      "descriptionSuffix": "El liderazgo se basa en responsabilidad, cumplimiento y expectativas justas.",
+      "descriptionSuffix": "El liderazgo se basa en entrega responsable, seguimiento confiable y expectativas justas.",
       "cite": "- Equipo de liderazgo de MH Construction",
       "values": {
         "handshakes": {
@@ -995,7 +995,7 @@
       "iconAria": "Conviertase en aliado",
       "subtitle": "Conviertase en",
       "title": "Socio Comercial",
-      "singleLocalizedDescription": "¿Listo para crecer con un contratista general regional confiable? Buscamos Socios Comerciales calificados que valoren la calidad, la comunicación honesta y resultados duraderos. Built on communication and follow-through (Construidos en comunicación y seguimiento).",
+      "singleLocalizedDescription": "¿Listo para crecer con un contratista general regional confiable? Buscamos Socios Comerciales calificados que valoren la calidad, la comunicación honesta y resultados duraderos. Construidos sobre una planificación clara, entrega responsable y seguimiento confiable.",
       "buttonPrimaryAria": "Solicitar",
       "buttonPrimary": "Iniciar conversación de asociación",
       "buttonSecondaryAria": "Portafolio",
@@ -1019,7 +1019,7 @@
     "hero": {
       "kicker": "Centro de Cobertura",
       "title": "Cobertura regional. Ejecución local.",
-      "description": "Revisa los mercados de servicio en Washington, Oregon e Idaho. Selecciona una ciudad para confirmar evidencia local en proyectos agrícolas y de bodegas, mejoras comerciales para inquilinos y obras municipales."
+      "description": "Revisa los mercados de servicio en Washington, Oregon e Idaho. Selecciona una ciudad para confirmar evidencia local, alineación clara de alcance y entrega responsable para proyectos agrícolas y de bodegas, mejoras comerciales para inquilinos y obras municipales."
     },
     "card": {
       "verifiedProject": "proyecto verificado",
@@ -1553,8 +1553,8 @@
       "description": {
         "prefix": "Esta es una",
         "highlight1": "ruta directa a un equipo de propiedad veterana.",
-        "middle": "Contratamos personas que valoran la comunicación honesta, el profesionalismo y el crecimiento constante mediante",
-        "highlight2": "trabajo real, mentoría y responsabilidad.",
+        "middle": "Contratamos personas que valoran la comunicación honesta, el profesionalismo y el crecimiento constante mediante una planificación clara y entrega responsable.",
+        "highlight2": "entrega responsable.",
         "suffix": "Espere estándares claros, apoyo directo y mejora continua."
       },
       "callout": {

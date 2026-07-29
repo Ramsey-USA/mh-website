@@ -26,6 +26,7 @@ import {
   TERMINOLOGY_GUARDRAIL_RULES,
   DISALLOWED_HYPE_PATTERNS,
   TRUST_SURFACE_CONTRACTS,
+  VOICE_CONGRUENCY_RULES,
 } from "@/lib/validation/branding-rules";
 import {
   walkFiles,
@@ -143,6 +144,48 @@ describe("Branding Guardrails › Slogan Coverage", () => {
       }
       expect(gaps).toEqual([]);
     });
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Voice Congruency Tests
+// ─────────────────────────────────────────────────────────────────────────────
+
+describe("Branding Guardrails › Voice Congruency", () => {
+  it("keeps the operational voice present across core routes and branding docs", () => {
+    const failures: string[] = [];
+
+    for (const rule of VOICE_CONGRUENCY_RULES) {
+      const candidates = [
+        path.resolve(ROOT, rule.relPath),
+        path.resolve(REPO_ROOT, rule.relPath),
+        path.resolve(ROOT, "apps", "website", rule.relPath),
+        path.resolve(REPO_ROOT, "apps", "website", rule.relPath),
+      ];
+      const absPath = candidates.find((candidate) => readFileSafe(candidate));
+      const source = absPath ? readFileSafe(absPath) : undefined;
+
+      if (!source) {
+        failures.push(`Missing target: ${rule.relPath}`);
+        continue;
+      }
+
+      const hasRequiredSnippet = rule.requiredSnippets.some((snippet) =>
+        snippet.test(source),
+      );
+
+      if (!hasRequiredSnippet) {
+        failures.push(`${rule.relPath} -> ${rule.description}`);
+      }
+    }
+
+    if (failures.length > 0) {
+      throw new Error(
+        `Voice congruency violations:\n${failures.map((f) => `  - ${f}`).join("\n")}`,
+      );
+    }
+
+    expect(failures).toEqual([]);
   });
 });
 
