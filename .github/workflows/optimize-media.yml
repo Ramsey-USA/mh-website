@@ -1,6 +1,7 @@
 name: Optimize Images & Videos
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - "apps/website/public/images/**"
